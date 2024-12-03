@@ -1,4 +1,4 @@
-## Generate Rust bindings for Windows
+## Code generator for Windows metadata
 
 The [windows-bindgen](https://crates.io/crates/windows-bindgen) crate automatically generates Rust bindings from Windows metadata.
 
@@ -16,23 +16,25 @@ version = "0.52"
 version = "0.58"
 ```
 
-Generates Rust bindings in a build script or test as needed:
+Generate Rust bindings in a build script as follows:
 
-```rust,ignore
-#[test]
-fn bindgen() {
+```rust
+fn main() {
     let args = [
         "--out",
         "src/bindings.rs",
-        "--config",
-        "flatten",
+        "--flat",
         "--filter",
-        "Windows.Win32.System.SystemInformation.GetTickCount",
+        "GetTickCount",
     ];
 
-    windows_bindgen::bindgen(args).unwrap();
+    windows_bindgen::bindgen(args);
 }
+```
 
+And then use the bindings as follows:
+
+```rust
 mod bindings;
 
 fn main() {
