@@ -80,7 +80,9 @@ pub mod Windows {
         impl IMemoryBuffer {
             pub fn CreateReference(
                 &self,
-            ) -> windows_core::Result<windows::Foundation::IMemoryBufferReference> {
+            ) -> windows_core::Result<
+                crate::reference_dependency_full::Windows::Foundation::IMemoryBufferReference,
+            > {
                 let this = self;
                 unsafe {
                     let mut result__ = core::mem::zeroed();
@@ -107,7 +109,9 @@ pub mod Windows {
         pub trait IMemoryBuffer_Impl: IClosable_Impl {
             fn CreateReference(
                 &self,
-            ) -> windows_core::Result<windows::Foundation::IMemoryBufferReference>;
+            ) -> windows_core::Result<
+                crate::reference_dependency_full::Windows::Foundation::IMemoryBufferReference,
+            >;
         }
         impl IMemoryBuffer_Vtbl {
             pub const fn new<Identity: IMemoryBuffer_Impl, const OFFSET: isize>() -> Self {

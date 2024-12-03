@@ -122,9 +122,17 @@ fn main() {
     test("--out window_long_set_w_sys.rs --filter SetWindowLongPtrW --sys");
 
     // Tests for external references e.g. references to other crates
-    test("--out reference_windows.rs --filter IMemoryBuffer --reference windows,skip-root,IMemoryBufferReference");
-    test("--out reference_dependency.rs --filter IMemoryBufferReference");
-    test("--out reference_dependent.rs --filter IMemoryBuffer --reference crate::reference_dependency,flat,IMemoryBufferReference");
+    test_raw("--no-comment --out reference_windows.rs --filter IMemoryBuffer --reference windows,skip-root,IMemoryBufferReference");
+    test_raw(
+        "--no-comment --out reference_dependency_flat.rs --filter IMemoryBufferReference --flat",
+    );
+    test_raw("--no-comment --out reference_dependency_full.rs --filter IMemoryBufferReference");
+    test_raw(
+        "--no-comment --out reference_dependency_skip_root.rs --filter IMemoryBufferReference",
+    );
+    test_raw("--no-comment --out reference_dependent_flat.rs --filter IMemoryBuffer --reference crate::reference_dependency_flat,flat,IMemoryBufferReference");
+    test_raw("--no-comment --out reference_dependent_full.rs --filter IMemoryBuffer --reference crate::reference_dependency_full,full,IMemoryBufferReference");
+    test_raw("--no-comment --out reference_dependent_skip_root.rs --filter IMemoryBuffer --reference crate::reference_dependency_skip_root::Windows,skip-root,IMemoryBufferReference");
 
     // Tests for dependency tracking
     test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys");

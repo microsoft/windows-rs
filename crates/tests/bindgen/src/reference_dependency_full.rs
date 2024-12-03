@@ -63,32 +63,30 @@ pub mod Windows {
             pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
         }
         windows_core::imp::define_interface!(
-            IMemoryBuffer,
-            IMemoryBuffer_Vtbl,
-            0xfbc4dd2a_245b_11e4_af98_689423260cf8
+            IMemoryBufferReference,
+            IMemoryBufferReference_Vtbl,
+            0xfbc4dd29_245b_11e4_af98_689423260cf8
         );
-        impl windows_core::RuntimeType for IMemoryBuffer {
+        impl windows_core::RuntimeType for IMemoryBufferReference {
             const SIGNATURE: windows_core::imp::ConstBuffer =
                 windows_core::imp::ConstBuffer::for_interface::<Self>();
         }
         windows_core::imp::interface_hierarchy!(
-            IMemoryBuffer,
+            IMemoryBufferReference,
             windows_core::IUnknown,
             windows_core::IInspectable
         );
-        windows_core::imp::required_hierarchy!(IMemoryBuffer, IClosable);
-        impl IMemoryBuffer {
-            pub fn CreateReference(
-                &self,
-            ) -> windows_core::Result<windows::Foundation::IMemoryBufferReference> {
+        windows_core::imp::required_hierarchy!(IMemoryBufferReference, IClosable);
+        impl IMemoryBufferReference {
+            pub fn Capacity(&self) -> windows_core::Result<u32> {
                 let this = self;
                 unsafe {
                     let mut result__ = core::mem::zeroed();
-                    (windows_core::Interface::vtable(this).CreateReference)(
+                    (windows_core::Interface::vtable(this).Capacity)(
                         windows_core::Interface::as_raw(this),
                         &mut result__,
                     )
-                    .and_then(|| windows_core::Type::from_abi(result__))
+                    .map(|| result__)
                 }
             }
             pub fn Close(&self) -> windows_core::Result<()> {
@@ -101,51 +99,55 @@ pub mod Windows {
                 }
             }
         }
-        impl windows_core::RuntimeName for IMemoryBuffer {
-            const NAME: &'static str = "Windows.Foundation.IMemoryBuffer";
+        impl windows_core::RuntimeName for IMemoryBufferReference {
+            const NAME: &'static str = "Windows.Foundation.IMemoryBufferReference";
         }
-        pub trait IMemoryBuffer_Impl: IClosable_Impl {
-            fn CreateReference(
-                &self,
-            ) -> windows_core::Result<windows::Foundation::IMemoryBufferReference>;
+        pub trait IMemoryBufferReference_Impl: IClosable_Impl {
+            fn Capacity(&self) -> windows_core::Result<u32>;
         }
-        impl IMemoryBuffer_Vtbl {
-            pub const fn new<Identity: IMemoryBuffer_Impl, const OFFSET: isize>() -> Self {
-                unsafe extern "system" fn CreateReference<
-                    Identity: IMemoryBuffer_Impl,
+        impl IMemoryBufferReference_Vtbl {
+            pub const fn new<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>() -> Self {
+                unsafe extern "system" fn Capacity<
+                    Identity: IMemoryBufferReference_Impl,
                     const OFFSET: isize,
                 >(
                     this: *mut core::ffi::c_void,
-                    result__: *mut *mut core::ffi::c_void,
+                    result__: *mut u32,
                 ) -> windows_core::HRESULT {
                     let this: &Identity =
                         &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                    match IMemoryBuffer_Impl::CreateReference(this) {
+                    match IMemoryBufferReference_Impl::Capacity(this) {
                         Ok(ok__) => {
                             result__.write(core::mem::transmute_copy(&ok__));
-                            core::mem::forget(ok__);
                             windows_core::HRESULT(0)
                         }
                         Err(err) => err.into(),
                     }
                 }
                 Self {
-                    base__: windows_core::IInspectable_Vtbl::new::<Identity, IMemoryBuffer, OFFSET>(
-                    ),
-                    CreateReference: CreateReference::<Identity, OFFSET>,
+                    base__: windows_core::IInspectable_Vtbl::new::<
+                        Identity,
+                        IMemoryBufferReference,
+                        OFFSET,
+                    >(),
+                    Capacity: Capacity::<Identity, OFFSET>,
+                    add_Closed: 0,
+                    remove_Closed: 0,
                 }
             }
             pub fn matches(iid: &windows_core::GUID) -> bool {
-                iid == &<IMemoryBuffer as windows_core::Interface>::IID
+                iid == &<IMemoryBufferReference as windows_core::Interface>::IID
             }
         }
         #[repr(C)]
-        pub struct IMemoryBuffer_Vtbl {
+        pub struct IMemoryBufferReference_Vtbl {
             pub base__: windows_core::IInspectable_Vtbl,
-            pub CreateReference: unsafe extern "system" fn(
+            pub Capacity: unsafe extern "system" fn(
                 *mut core::ffi::c_void,
-                *mut *mut core::ffi::c_void,
+                *mut u32,
             ) -> windows_core::HRESULT,
+            add_Closed: usize,
+            remove_Closed: usize,
         }
     }
 }
