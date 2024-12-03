@@ -12,6 +12,8 @@ pub mod core_sys_flat_no_core;
 pub mod core_sys_no_core;
 pub mod core_win;
 pub mod core_win_flat;
+pub mod default_assumed;
+pub mod default_default;
 pub mod delegate;
 pub mod delegate_generic;
 pub mod deps;

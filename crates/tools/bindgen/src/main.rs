@@ -132,6 +132,12 @@ fn main() {
     // Tests for sort order
     test("--out sort.rs --filter E_FAIL S_FALSE E_OUTOFMEMORY ERROR_OUTOFMEMORY Windows.Foundation.Rect RECT GetTickCount FatalExit --sys --no-core");
 
+    // Tests input defaults
+    test_raw(
+        "--out default_default.rs --filter GetTickCount --sys --flat --no-comment --in default",
+    );
+    test_raw("--out default_assumed.rs --filter GetTickCount --sys --flat --no-comment");
+
     // Tests for header elements
     test_raw("--out comment.rs --in default --filter GetTickCount --sys --flat");
     test_raw(

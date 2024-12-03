@@ -1,11 +1,6 @@
+#[track_caller]
 fn bindgen(args: &str) {
     windows_bindgen::bindgen(args.split_whitespace());
-}
-
-#[test]
-#[should_panic(expected = "at least one `--in` is required")]
-fn at_least_one_input() {
-    bindgen("");
 }
 
 #[test]
