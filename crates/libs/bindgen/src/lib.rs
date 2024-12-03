@@ -2,7 +2,8 @@
 #![allow(
     non_upper_case_globals,
     clippy::enum_variant_names,
-    clippy::upper_case_acronyms
+    clippy::upper_case_acronyms,
+    clippy::needless_doctest_main
 )]
 
 mod derive;
