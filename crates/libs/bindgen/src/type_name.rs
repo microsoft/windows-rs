@@ -1,7 +1,21 @@
 use super::*;
 
-#[derive(Copy, Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Copy, Clone, Debug, Hash, PartialEq, Eq)]
 pub struct TypeName(pub &'static str, pub &'static str);
+
+impl Ord for TypeName {
+    fn cmp(&self, other: &Self) -> Ordering {
+        // Type names are sorted before namespaces. The `Type` sort order depends on this.
+        // This is more efficient in general as many types typically share a namespace.
+        (self.1, self.0).cmp(&(other.1, other.0))
+    }
+}
+
+impl PartialOrd for TypeName {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
 
 impl TypeName {
     pub const Object: Self = Self("System", "Object");

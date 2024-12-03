@@ -34,7 +34,7 @@ fn combine_libraries(
 
             if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
                 let arches = ty.method.arches();
-                let params = if arches.is_empty() || arches.contains("x86") {
+                let params = if (arches == 0) || (arches & 1 == 1) {
                     ty.method.signature(ty.namespace, &[]).size()
                 } else {
                     0
@@ -67,7 +67,7 @@ fn cpp_fn(types: &[Type]) -> Option<CppFn> {
 
     for ty in &functions {
         let arches = ty.method.arches();
-        if arches.is_empty() || arches.contains("x86") {
+        if (arches == 0) || (arches & 1 == 1) {
             return Some(ty.clone());
         }
     }

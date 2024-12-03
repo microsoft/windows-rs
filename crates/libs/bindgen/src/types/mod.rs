@@ -28,7 +28,7 @@ pub use method::*;
 pub use r#enum::*;
 pub use r#struct::*;
 
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd, Hash)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub enum Type {
     CppFn(CppFn),
     Class(Class),
@@ -80,6 +80,18 @@ pub enum Type {
     BSTR,
 }
 
+impl Ord for Type {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.sort_key().cmp(&(other.sort_key()))
+    }
+}
+
+impl PartialOrd for Type {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
 #[derive(PartialEq)]
 pub enum Remap {
     Type(Type),
@@ -88,6 +100,39 @@ pub enum Remap {
 }
 
 impl Type {
+    fn sort_key(&self) -> (bool, TypeName, i32, i32) {
+        // This sorts types as follows:
+        // 1. functions are placed first
+        // 2. type name
+        // 3. type namespace
+        // 4. architecture
+        // 5. overloaded types
+
+        let kind = match self {
+            Self::CppFn(..) => 0,
+            Self::Class(..) => 1,
+            Self::Interface(..) => 2,
+            Self::CppInterface(..) => 3,
+            Self::Delegate(..) => 4,
+            Self::CppDelegate(..) => 5,
+            Self::Enum(..) => 6,
+            Self::CppEnum(..) => 7,
+            Self::Struct(..) => 8,
+            Self::CppStruct(..) => 9,
+            Self::CppConst(..) => 10,
+            _ => -1,
+        };
+
+        let arches = match self {
+            Self::CppFn(ty) => ty.method.arches(),
+            Self::CppStruct(ty) => ty.def.arches(),
+            Self::CppDelegate(ty) => ty.def.arches(),
+            _ => 0,
+        };
+
+        (kind != 0, self.type_name(), arches, kind)
+    }
+
     fn is_intrinsic(&self) -> bool {
         matches!(
             self,
