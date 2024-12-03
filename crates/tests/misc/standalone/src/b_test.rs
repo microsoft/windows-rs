@@ -12,23 +12,9 @@ windows_targets::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes
 windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : HANDLE) -> BOOL);
 windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HANDLE, dwmilliseconds : u32) -> WAIT_EVENT);
 windows_targets::link!("user32.dll" "cdecl" fn wsprintfA(param0 : PSTR, param1 : PCSTR, ...) -> i32);
-pub type CLSCTX = u32;
-pub type WAIT_EVENT = u32;
 pub type BOOL = i32;
-pub type HANDLE = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SECURITY_ATTRIBUTES {
-    pub nLength: u32,
-    pub lpSecurityDescriptor: *mut core::ffi::c_void,
-    pub bInheritHandle: BOOL,
-}
-pub const UIAnimationManager: GUID = GUID::from_u128(0x4c1fc63a_695c_47e8_a339_1a194be3d0b8);
+pub type CLSCTX = u32;
 pub const CLSCTX_ALL: CLSCTX = 23u32;
-pub const STGTY_REPEAT: i32 = 256i32;
-pub type PSTR = *mut u8;
-pub type PCSTR = *const u8;
-pub type PCWSTR = *const u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GUID {
@@ -47,6 +33,7 @@ impl GUID {
         }
     }
 }
+pub type HANDLE = *mut core::ffi::c_void;
 pub type HRESULT = i32;
 pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
 #[repr(C)]
@@ -59,3 +46,16 @@ pub struct IUnknown_Vtbl {
     pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
 }
+pub type PCSTR = *const u8;
+pub type PCWSTR = *const u16;
+pub type PSTR = *mut u8;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ATTRIBUTES {
+    pub nLength: u32,
+    pub lpSecurityDescriptor: *mut core::ffi::c_void,
+    pub bInheritHandle: BOOL,
+}
+pub const STGTY_REPEAT: i32 = 256i32;
+pub const UIAnimationManager: GUID = GUID::from_u128(0x4c1fc63a_695c_47e8_a339_1a194be3d0b8);
+pub type WAIT_EVENT = u32;
