@@ -18,7 +18,7 @@ version = "0.58"
 
 Generate Rust bindings in a build script as follows:
 
-```rust
+```rust,no_run
 fn main() {
     let args = [
         "--out",
@@ -34,7 +34,7 @@ fn main() {
 
 And then use the bindings as follows:
 
-```rust
+```rust,ignore
 mod bindings;
 
 fn main() {
