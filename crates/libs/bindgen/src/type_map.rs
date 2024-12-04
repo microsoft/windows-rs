@@ -16,7 +16,7 @@ impl TypeMap {
         Self(HashMap::new())
     }
 
-    pub fn filter(reader: &'static Reader, filter: &Filter) -> Self {
+    pub fn filter(reader: &'static Reader, filter: &Filter, references: &References) -> Self {
         let mut dependencies = Self::new();
 
         for namespace in reader.keys() {
@@ -33,7 +33,7 @@ impl TypeMap {
                             continue;
                         }
 
-                        dependencies.combine(&item_dependencies);
+                        dependencies.combine_references(&item_dependencies, references);
                     }
                 }
             }
@@ -44,6 +44,17 @@ impl TypeMap {
 
     pub fn insert(&mut self, ty: Type) -> bool {
         self.0.entry(ty.type_name()).or_default().insert(ty)
+    }
+
+    fn combine_references(&mut self, other: &Self, references: &References) {
+        for (tn, types) in &other.0 {
+            if references.contains(*tn).is_none() {
+                let set = self.0.entry(*tn).or_default();
+                types.iter().for_each(|ty| {
+                    set.insert(ty.clone());
+                });
+            }
+        }
     }
 
     pub fn combine(&mut self, other: &Self) {

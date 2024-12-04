@@ -64,7 +64,7 @@ pub struct Reference {
     pub style: ReferenceStyle, // how to generate the type path
 }
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub struct References(Vec<Reference>);
 
 impl References {
@@ -74,7 +74,7 @@ impl References {
                 .into_iter()
                 .map(|stage| {
                     let filter = Filter::new(reader, &[&stage.path], &[]);
-                    let types = TypeMap::filter(reader, &filter);
+                    let types = TypeMap::filter(reader, &filter, &References::default());
 
                     Reference {
                         name: stage.name,

@@ -161,8 +161,8 @@ where
 
     let reader = Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
-    let types = TypeMap::filter(reader, &filter);
     let references = References::new(reader, references);
+    let types = TypeMap::filter(reader, &filter, &references);
     let derive = Derive::new(reader, &types, &derive);
 
     let config = Box::leak(Box::new(Config {

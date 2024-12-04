@@ -122,7 +122,12 @@ fn main() {
     test("--out window_long_set_w_sys.rs --filter SetWindowLongPtrW --sys");
 
     // Tests for external references e.g. references to other crates
-    test_raw("--no-comment --out reference_windows.rs --filter IMemoryBuffer --reference windows,skip-root,IMemoryBufferReference");
+    test("--out reference_async_info_no_status.rs --filter IAsyncInfo");
+    test("--out reference_async_info_status_filter.rs --filter IAsyncInfo AsyncStatus");
+    test("--out reference_async_info_status_reference.rs --filter IAsyncInfo --reference windows,skip-root,AsyncStatus");
+    test("--out reference_async_action.rs --filter IAsyncAction");
+    test("--out reference_async_action_reference.rs --filter IAsyncAction --reference windows,skip-root,IAsyncInfo");
+
     test_raw(
         "--no-comment --out reference_dependency_flat.rs --filter IMemoryBufferReference --flat",
     );

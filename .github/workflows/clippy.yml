@@ -227,6 +227,10 @@ jobs:
         run:  cargo clippy -p test_query_signature
       - name: Clippy test_readme
         run:  cargo clippy -p test_readme
+      - name: Clippy test_reference
+        run:  cargo clippy -p test_reference
+      - name: Clippy test_reference_client
+        run:  cargo clippy -p test_reference_client
       - name: Clippy test_reference_float
         run:  cargo clippy -p test_reference_float
       - name: Clippy test_registry
