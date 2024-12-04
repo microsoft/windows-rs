@@ -33,6 +33,10 @@ impl TypeMap {
                             continue;
                         }
 
+                        for ty in types {
+                            dependencies.insert(ty.clone());
+                        }
+
                         dependencies.combine_references(&item_dependencies, references);
                     }
                 }

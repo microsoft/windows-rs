@@ -128,6 +128,15 @@ fn main() {
     test("--out reference_async_action.rs --filter IAsyncAction");
     test("--out reference_async_action_reference.rs --filter IAsyncAction --reference windows,skip-root,IAsyncInfo");
 
+    // Tests for struct references
+    test("--out reference_struct_filter.rs --filter InkTrailPoint");
+    test("--out reference_struct_reference_type.rs --filter InkTrailPoint --reference windows,skip-root,Point");
+    test("--out reference_struct_reference_namespace.rs --filter InkTrailPoint --reference windows,skip-root,Windows.Foundation");
+    test("--out reference_struct_sys_filter.rs --sys --filter GAMING_DEVICE_MODEL_INFORMATION");
+    test("--out reference_struct_sys_reference_type.rs --sys --filter GAMING_DEVICE_MODEL_INFORMATION --reference windows_sys,skip-root,GAMING_DEVICE_VENDOR_ID");
+    test("--out reference_struct_sys_reference_namespace.rs --sys --filter GAMING_DEVICE_MODEL_INFORMATION --reference windows_sys,skip-root,Windows.Win32.Gaming");
+
+    // Tests simulating reference dependency and dependent
     test_raw(
         "--no-comment --out reference_dependency_flat.rs --filter IMemoryBufferReference --flat",
     );

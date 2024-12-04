@@ -22,6 +22,9 @@ features = [
 
 [dependencies.windows-sys]
 workspace = true
+features = [
+    "Win32_Gaming",
+]
 
 [dependencies.windows-core]
 workspace = true
