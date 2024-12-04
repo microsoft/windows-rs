@@ -1,81 +1,5 @@
-windows_core::imp::define_interface!(IEasClientDeviceInformation, IEasClientDeviceInformation_Vtbl, 0x54dfd981_1968_4ca3_b958_e595d16505eb);
-impl windows_core::RuntimeType for IEasClientDeviceInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IEasClientDeviceInformation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub OperatingSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SystemManufacturer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SystemProductName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SystemSku: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IEasClientDeviceInformation2, IEasClientDeviceInformation2_Vtbl, 0xffb35923_bb26_4d6a_81bc_165aee0ad754);
-impl windows_core::RuntimeType for IEasClientDeviceInformation2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IEasClientDeviceInformation2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SystemHardwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SystemFirmwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IEasClientSecurityPolicy, IEasClientSecurityPolicy_Vtbl, 0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
-impl windows_core::RuntimeType for IEasClientSecurityPolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IEasClientSecurityPolicy_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RequireEncryption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetRequireEncryption: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub MinPasswordLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub SetMinPasswordLength: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
-    pub DisallowConvenienceLogon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetDisallowConvenienceLogon: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub MinPasswordComplexCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub SetMinPasswordComplexCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
-    pub PasswordExpiration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetPasswordExpiration: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub PasswordHistory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetPasswordHistory: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub MaxPasswordFailedAttempts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub SetMaxPasswordFailedAttempts: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
-    pub MaxInactivityTimeLock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetMaxInactivityTimeLock: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub CheckCompliance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ApplyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IEasComplianceResults, IEasComplianceResults_Vtbl, 0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
-impl windows_core::RuntimeType for IEasComplianceResults {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IEasComplianceResults_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Compliant: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub RequireEncryptionResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasRequireEncryptionResult) -> windows_core::HRESULT,
-    pub MinPasswordLengthResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMinPasswordLengthResult) -> windows_core::HRESULT,
-    pub DisallowConvenienceLogonResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasDisallowConvenienceLogonResult) -> windows_core::HRESULT,
-    pub MinPasswordComplexCharactersResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMinPasswordComplexCharactersResult) -> windows_core::HRESULT,
-    pub PasswordExpirationResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasPasswordExpirationResult) -> windows_core::HRESULT,
-    pub PasswordHistoryResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasPasswordHistoryResult) -> windows_core::HRESULT,
-    pub MaxPasswordFailedAttemptsResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxPasswordFailedAttemptsResult) -> windows_core::HRESULT,
-    pub MaxInactivityTimeLockResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxInactivityTimeLockResult) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IEasComplianceResults2, IEasComplianceResults2_Vtbl, 0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
-impl windows_core::RuntimeType for IEasComplianceResults2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IEasComplianceResults2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub EncryptionProviderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasEncryptionProviderType) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EasClientDeviceInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EasClientDeviceInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl EasClientDeviceInformation {
@@ -90,56 +14,56 @@ impl EasClientDeviceInformation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn OperatingSystem(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OperatingSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OperatingSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn FriendlyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FriendlyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FriendlyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemManufacturer(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemManufacturer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SystemManufacturer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemProductName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemProductName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SystemProductName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemSku(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemSku)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SystemSku)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemHardwareVersion(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IEasClientDeviceInformation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemHardwareVersion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SystemHardwareVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemFirmwareVersion(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IEasClientDeviceInformation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFirmwareVersion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SystemFirmwareVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -147,14 +71,14 @@ impl windows_core::RuntimeType for EasClientDeviceInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEasClientDeviceInformation>();
 }
 unsafe impl windows_core::Interface for EasClientDeviceInformation {
-    type Vtable = IEasClientDeviceInformation_Vtbl;
+    type Vtable = <IEasClientDeviceInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEasClientDeviceInformation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EasClientDeviceInformation {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EasClientSecurityPolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EasClientSecurityPolicy, windows_core::IUnknown, windows_core::IInspectable);
 impl EasClientSecurityPolicy {
@@ -213,7 +137,7 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PasswordExpiration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PasswordExpiration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetPasswordExpiration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -246,7 +170,7 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxInactivityTimeLock)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MaxInactivityTimeLock)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetMaxInactivityTimeLock(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -272,14 +196,14 @@ impl windows_core::RuntimeType for EasClientSecurityPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEasClientSecurityPolicy>();
 }
 unsafe impl windows_core::Interface for EasClientSecurityPolicy {
-    type Vtable = IEasClientSecurityPolicy_Vtbl;
+    type Vtable = <IEasClientSecurityPolicy as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEasClientSecurityPolicy as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EasClientSecurityPolicy {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EasComplianceResults(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EasComplianceResults, windows_core::IUnknown, windows_core::IInspectable);
 impl EasComplianceResults {
@@ -358,14 +282,14 @@ impl windows_core::RuntimeType for EasComplianceResults {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEasComplianceResults>();
 }
 unsafe impl windows_core::Interface for EasComplianceResults {
-    type Vtable = IEasComplianceResults_Vtbl;
+    type Vtable = <IEasComplianceResults as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEasComplianceResults as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EasComplianceResults {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasDisallowConvenienceLogonResult(pub i32);
 impl EasDisallowConvenienceLogonResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -376,16 +300,11 @@ impl EasDisallowConvenienceLogonResult {
 impl windows_core::TypeKind for EasDisallowConvenienceLogonResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EasDisallowConvenienceLogonResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EasDisallowConvenienceLogonResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EasDisallowConvenienceLogonResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasDisallowConvenienceLogonResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasEncryptionProviderType(pub i32);
 impl EasEncryptionProviderType {
     pub const NotEvaluated: Self = Self(0i32);
@@ -395,16 +314,11 @@ impl EasEncryptionProviderType {
 impl windows_core::TypeKind for EasEncryptionProviderType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EasEncryptionProviderType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EasEncryptionProviderType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EasEncryptionProviderType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasEncryptionProviderType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasMaxInactivityTimeLockResult(pub i32);
 impl EasMaxInactivityTimeLockResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -416,16 +330,11 @@ impl EasMaxInactivityTimeLockResult {
 impl windows_core::TypeKind for EasMaxInactivityTimeLockResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EasMaxInactivityTimeLockResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EasMaxInactivityTimeLockResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EasMaxInactivityTimeLockResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxInactivityTimeLockResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasMaxPasswordFailedAttemptsResult(pub i32);
 impl EasMaxPasswordFailedAttemptsResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -437,16 +346,11 @@ impl EasMaxPasswordFailedAttemptsResult {
 impl windows_core::TypeKind for EasMaxPasswordFailedAttemptsResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EasMaxPasswordFailedAttemptsResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EasMaxPasswordFailedAttemptsResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EasMaxPasswordFailedAttemptsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxPasswordFailedAttemptsResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasMinPasswordComplexCharactersResult(pub i32);
 impl EasMinPasswordComplexCharactersResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -468,16 +372,11 @@ impl EasMinPasswordComplexCharactersResult {
 impl windows_core::TypeKind for EasMinPasswordComplexCharactersResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EasMinPasswordComplexCharactersResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EasMinPasswordComplexCharactersResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EasMinPasswordComplexCharactersResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordComplexCharactersResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasMinPasswordLengthResult(pub i32);
 impl EasMinPasswordLengthResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -499,16 +398,11 @@ impl EasMinPasswordLengthResult {
 impl windows_core::TypeKind for EasMinPasswordLengthResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EasMinPasswordLengthResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EasMinPasswordLengthResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EasMinPasswordLengthResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordLengthResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasPasswordExpirationResult(pub i32);
 impl EasPasswordExpirationResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -524,16 +418,11 @@ impl EasPasswordExpirationResult {
 impl windows_core::TypeKind for EasPasswordExpirationResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EasPasswordExpirationResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EasPasswordExpirationResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EasPasswordExpirationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordExpirationResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasPasswordHistoryResult(pub i32);
 impl EasPasswordHistoryResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -545,16 +434,11 @@ impl EasPasswordHistoryResult {
 impl windows_core::TypeKind for EasPasswordHistoryResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EasPasswordHistoryResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EasPasswordHistoryResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EasPasswordHistoryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordHistoryResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasRequireEncryptionResult(pub i32);
 impl EasRequireEncryptionResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -580,11 +464,82 @@ impl EasRequireEncryptionResult {
 impl windows_core::TypeKind for EasRequireEncryptionResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EasRequireEncryptionResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EasRequireEncryptionResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EasRequireEncryptionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult;i4)");
+}
+windows_core::imp::define_interface!(IEasClientDeviceInformation, IEasClientDeviceInformation_Vtbl, 0x54dfd981_1968_4ca3_b958_e595d16505eb);
+impl windows_core::RuntimeType for IEasClientDeviceInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IEasClientDeviceInformation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub OperatingSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemManufacturer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemProductName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemSku: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IEasClientDeviceInformation2, IEasClientDeviceInformation2_Vtbl, 0xffb35923_bb26_4d6a_81bc_165aee0ad754);
+impl windows_core::RuntimeType for IEasClientDeviceInformation2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IEasClientDeviceInformation2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SystemHardwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemFirmwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IEasClientSecurityPolicy, IEasClientSecurityPolicy_Vtbl, 0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
+impl windows_core::RuntimeType for IEasClientSecurityPolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IEasClientSecurityPolicy_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RequireEncryption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetRequireEncryption: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub MinPasswordLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
+    pub SetMinPasswordLength: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
+    pub DisallowConvenienceLogon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetDisallowConvenienceLogon: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub MinPasswordComplexCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
+    pub SetMinPasswordComplexCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
+    pub PasswordExpiration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetPasswordExpiration: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub PasswordHistory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetPasswordHistory: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub MaxPasswordFailedAttempts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
+    pub SetMaxPasswordFailedAttempts: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
+    pub MaxInactivityTimeLock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetMaxInactivityTimeLock: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub CheckCompliance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ApplyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IEasComplianceResults, IEasComplianceResults_Vtbl, 0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
+impl windows_core::RuntimeType for IEasComplianceResults {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IEasComplianceResults_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Compliant: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub RequireEncryptionResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasRequireEncryptionResult) -> windows_core::HRESULT,
+    pub MinPasswordLengthResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMinPasswordLengthResult) -> windows_core::HRESULT,
+    pub DisallowConvenienceLogonResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasDisallowConvenienceLogonResult) -> windows_core::HRESULT,
+    pub MinPasswordComplexCharactersResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMinPasswordComplexCharactersResult) -> windows_core::HRESULT,
+    pub PasswordExpirationResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasPasswordExpirationResult) -> windows_core::HRESULT,
+    pub PasswordHistoryResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasPasswordHistoryResult) -> windows_core::HRESULT,
+    pub MaxPasswordFailedAttemptsResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxPasswordFailedAttemptsResult) -> windows_core::HRESULT,
+    pub MaxInactivityTimeLockResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxInactivityTimeLockResult) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IEasComplianceResults2, IEasComplianceResults2_Vtbl, 0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
+impl windows_core::RuntimeType for IEasComplianceResults2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IEasComplianceResults2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub EncryptionProviderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasEncryptionProviderType) -> windows_core::HRESULT,
 }

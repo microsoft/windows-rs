@@ -45,8 +45,6 @@ jobs:
         run:  cargo check -p windows-implement --no-default-features
       - name: Check windows-interface
         run:  cargo check -p windows-interface --no-default-features
-      - name: Check windows-metadata
-        run:  cargo check -p windows-metadata --no-default-features
       - name: Check windows-registry
         run:  cargo check -p windows-registry --no-default-features
       - name: Check windows-result

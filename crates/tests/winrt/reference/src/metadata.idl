@@ -1,0 +1,8 @@
+namespace test_reference
+{
+    runtimeclass Reference : Windows.Foundation.IStringable
+    {
+        Reference();
+        String Method(Windows.Foundation.IStringable stringable);
+    }
+}

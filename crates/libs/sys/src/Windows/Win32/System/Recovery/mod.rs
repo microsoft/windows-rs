@@ -8,8 +8,8 @@ windows_targets::link!("kernel32.dll" "system" fn RegisterApplicationRecoveryCal
 windows_targets::link!("kernel32.dll" "system" fn RegisterApplicationRestart(pwzcommandline : windows_sys::core::PCWSTR, dwflags : REGISTER_APPLICATION_RESTART_FLAGS) -> windows_sys::core::HRESULT);
 windows_targets::link!("kernel32.dll" "system" fn UnregisterApplicationRecoveryCallback() -> windows_sys::core::HRESULT);
 windows_targets::link!("kernel32.dll" "system" fn UnregisterApplicationRestart() -> windows_sys::core::HRESULT);
+pub type REGISTER_APPLICATION_RESTART_FLAGS = u32;
 pub const RESTART_NO_CRASH: REGISTER_APPLICATION_RESTART_FLAGS = 1u32;
 pub const RESTART_NO_HANG: REGISTER_APPLICATION_RESTART_FLAGS = 2u32;
 pub const RESTART_NO_PATCH: REGISTER_APPLICATION_RESTART_FLAGS = 4u32;
 pub const RESTART_NO_REBOOT: REGISTER_APPLICATION_RESTART_FLAGS = 8u32;
-pub type REGISTER_APPLICATION_RESTART_FLAGS = u32;

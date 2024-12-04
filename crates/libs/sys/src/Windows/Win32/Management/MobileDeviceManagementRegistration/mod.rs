@@ -22,6 +22,20 @@ pub const DEVICEREGISTRATIONTYPE_MDM_ONLY: u32 = 0u32;
 pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
 pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
 pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MANAGEMENT_REGISTRATION_INFO {
+    pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
+    pub dwDeviceRegistionKind: u32,
+    pub pszUPN: windows_sys::core::PWSTR,
+    pub pszMDMServiceUri: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MANAGEMENT_SERVICE_INFO {
+    pub pszMDMServiceUri: windows_sys::core::PWSTR,
+    pub pszAuthenticationUri: windows_sys::core::PWSTR,
+}
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: windows_sys::core::HRESULT = 0x80180028_u32 as _;
 pub const MENROLL_E_CERTPOLICY_PRIVATEKEYCREATION_FAILED: windows_sys::core::HRESULT = 0x80180027_u32 as _;
@@ -85,17 +99,3 @@ pub const MREGISTER_E_DISCOVERY_REDIRECTED: windows_sys::core::HRESULT = 0x80190
 pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: windows_sys::core::HRESULT = 0x80190009_u32 as _;
 pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = 2i32;
 pub type REGISTRATION_INFORMATION_CLASS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MANAGEMENT_REGISTRATION_INFO {
-    pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
-    pub dwDeviceRegistionKind: u32,
-    pub pszUPN: windows_sys::core::PWSTR,
-    pub pszMDMServiceUri: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MANAGEMENT_SERVICE_INFO {
-    pub pszMDMServiceUri: windows_sys::core::PWSTR,
-    pub pszAuthenticationUri: windows_sys::core::PWSTR,
-}

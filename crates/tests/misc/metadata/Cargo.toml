@@ -9,7 +9,7 @@ doc = false
 doctest = false
 
 [dependencies]
-windows-metadata = { workspace = true }
+windows-bindgen = { workspace = true }
 
 [dependencies.windows]
 workspace = true

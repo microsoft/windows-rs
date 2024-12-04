@@ -1,25 +1,25 @@
+pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i32);
+pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);
+pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CreateProcessMethod(pub i32);
 windows_core::imp::define_interface!(IDDEInitializer, IDDEInitializer_Vtbl, 0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
-impl core::ops::Deref for IDDEInitializer {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDDEInitializer, windows_core::IUnknown);
 impl IDDEInitializer {
     #[cfg(feature = "Win32_UI_Shell")]
-    pub unsafe fn Initialize<P0, P1, P2, P3, P4, P5, P6, P7>(&self, fileextensionorprotocol: P0, method: CreateProcessMethod, currentdirectory: P1, exectarget: P2, site: P3, application: P4, targetfile: P5, arguments: P6, verb: P7) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0, P2, P3, P4, P5, P6, P7, P8>(&self, fileextensionorprotocol: P0, method: CreateProcessMethod, currentdirectory: P2, exectarget: P3, site: P4, application: P5, targetfile: P6, arguments: P7, verb: P8) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<super::super::super::UI::Shell::IShellItem>,
-        P3: windows_core::Param<windows_core::IUnknown>,
-        P4: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<super::super::super::UI::Shell::IShellItem>,
+        P4: windows_core::Param<windows_core::IUnknown>,
         P5: windows_core::Param<windows_core::PCWSTR>,
         P6: windows_core::Param<windows_core::PCWSTR>,
         P7: windows_core::Param<windows_core::PCWSTR>,
+        P8: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), fileextensionorprotocol.param().abi(), method, currentdirectory.param().abi(), exectarget.param().abi(), site.param().abi(), application.param().abi(), targetfile.param().abi(), arguments.param().abi(), verb.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), fileextensionorprotocol.param().abi(), core::mem::transmute(method), currentdirectory.param().abi(), exectarget.param().abi(), site.param().abi(), application.param().abi(), targetfile.param().abi(), arguments.param().abi(), verb.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -31,14 +31,12 @@ pub struct IDDEInitializer_Vtbl {
     Initialize: usize,
 }
 #[cfg(feature = "Win32_UI_Shell")]
-pub trait IDDEInitializer_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDDEInitializer_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, fileextensionorprotocol: &windows_core::PCWSTR, method: CreateProcessMethod, currentdirectory: &windows_core::PCWSTR, exectarget: Option<&super::super::super::UI::Shell::IShellItem>, site: Option<&windows_core::IUnknown>, application: &windows_core::PCWSTR, targetfile: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, verb: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell")]
-impl windows_core::RuntimeName for IDDEInitializer {}
-#[cfg(feature = "Win32_UI_Shell")]
 impl IDDEInitializer_Vtbl {
-    pub const fn new<Identity: IDDEInitializer_Impl, const OFFSET: isize>() -> IDDEInitializer_Vtbl {
+    pub const fn new<Identity: IDDEInitializer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IDDEInitializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileextensionorprotocol: windows_core::PCWSTR, method: CreateProcessMethod, currentdirectory: windows_core::PCWSTR, exectarget: *mut core::ffi::c_void, site: *mut core::ffi::c_void, application: windows_core::PCWSTR, targetfile: windows_core::PCWSTR, arguments: windows_core::PCWSTR, verb: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDDEInitializer_Impl::Initialize(this, core::mem::transmute(&fileextensionorprotocol), core::mem::transmute_copy(&method), core::mem::transmute(&currentdirectory), windows_core::from_raw_borrowed(&exectarget), windows_core::from_raw_borrowed(&site), core::mem::transmute(&application), core::mem::transmute(&targetfile), core::mem::transmute(&arguments), core::mem::transmute(&verb)).into()
@@ -49,17 +47,5 @@ impl IDDEInitializer_Vtbl {
         iid == &<IDDEInitializer as windows_core::Interface>::IID
     }
 }
-pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i32);
-pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);
-pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32);
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CreateProcessMethod(pub i32);
-impl windows_core::TypeKind for CreateProcessMethod {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CreateProcessMethod {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CreateProcessMethod").field(&self.0).finish()
-    }
-}
+#[cfg(feature = "Win32_UI_Shell")]
+impl windows_core::RuntimeName for IDDEInitializer {}

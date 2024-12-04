@@ -196,7 +196,25 @@ pub const DEVPKEY_DrvPkg_Icon: super::super::Foundation::DEVPROPKEY = super::sup
 pub const DEVPKEY_DrvPkg_Model: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 2 };
 pub const DEVPKEY_DrvPkg_VendorWebSite: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 3 };
 pub const DEVPKEY_NAME: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac), pid: 10 };
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVPROPCOMPKEY {
+    pub Key: super::super::Foundation::DEVPROPKEY,
+    pub Store: DEVPROPSTORE,
+    pub LocaleName: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVPROPERTY {
+    pub CompKey: DEVPROPCOMPKEY,
+    pub Type: DEVPROPTYPE,
+    pub BufferSize: u32,
+    pub Buffer: *mut core::ffi::c_void,
+}
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
+pub type DEVPROPSTORE = i32;
+pub type DEVPROPTYPE = u32;
+pub type DEVPROP_BOOLEAN = u8;
 pub const DEVPROP_FALSE: DEVPROP_BOOLEAN = 0u8;
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;
@@ -235,21 +253,3 @@ pub const DEVPROP_TYPE_UINT32: DEVPROPTYPE = 7u32;
 pub const DEVPROP_TYPE_UINT64: DEVPROPTYPE = 9u32;
 pub const MAX_DEVPROP_TYPE: u32 = 25u32;
 pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
-pub type DEVPROPSTORE = i32;
-pub type DEVPROPTYPE = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEVPROPCOMPKEY {
-    pub Key: super::super::Foundation::DEVPROPKEY,
-    pub Store: DEVPROPSTORE,
-    pub LocaleName: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEVPROPERTY {
-    pub CompKey: DEVPROPCOMPKEY,
-    pub Type: DEVPROPTYPE,
-    pub BufferSize: u32,
-    pub Buffer: *mut core::ffi::c_void,
-}
-pub type DEVPROP_BOOLEAN = u8;

@@ -5,6 +5,7 @@
     dead_code,
     clippy::all
 )]
+
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AE_RESACCESS {

@@ -30,6 +30,7 @@ windows_targets::link!("wsdapi.dll" "system" fn WSDXMLCleanupElement(pany : *mut
 windows_targets::link!("wsdapi.dll" "system" fn WSDXMLCreateContext(ppcontext : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("wsdapi.dll" "system" fn WSDXMLGetNameFromBuiltinNamespace(psznamespace : windows_sys::core::PCWSTR, pszname : windows_sys::core::PCWSTR, ppname : *mut *mut WSDXML_NAME) -> windows_sys::core::HRESULT);
 windows_targets::link!("wsdapi.dll" "system" fn WSDXMLGetValueFromAny(psznamespace : windows_sys::core::PCWSTR, pszname : windows_sys::core::PCWSTR, pany : *mut WSDXML_ELEMENT, ppszvalue : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+pub type DeviceDiscoveryMechanism = i32;
 pub const DirectedDiscovery: DeviceDiscoveryMechanism = 1i32;
 pub const MulticastDiscovery: DeviceDiscoveryMechanism = 0i32;
 pub const ONE_WAY: WSDUdpMessageType = 0i32;
@@ -80,54 +81,7 @@ pub const OpOneOrMore: WSDXML_OP = 18i32;
 pub const OpOptional: WSDXML_OP = 19i32;
 pub const OpProcess_: WSDXML_OP = 43i32;
 pub const OpQualifiedAttribute_: WSDXML_OP = 44i32;
-pub const SecureDirectedDiscovery: DeviceDiscoveryMechanism = 2i32;
-pub const TWO_WAY: WSDUdpMessageType = 1i32;
-pub const WSDAPI_ADDRESSFAMILY_IPV4: u32 = 1u32;
-pub const WSDAPI_ADDRESSFAMILY_IPV6: u32 = 2u32;
-pub const WSDAPI_COMPACTSIG_ACCEPT_ALL_MESSAGES: u32 = 1u32;
-pub const WSDAPI_OPTION_MAX_INBOUND_MESSAGE_SIZE: u32 = 1u32;
-pub const WSDAPI_OPTION_TRACE_XML_TO_DEBUGGER: u32 = 2u32;
-pub const WSDAPI_OPTION_TRACE_XML_TO_FILE: u32 = 3u32;
-pub const WSDAPI_SSL_CERT_APPLY_DEFAULT_CHECKS: u32 = 0u32;
-pub const WSDAPI_SSL_CERT_IGNORE_EXPIRY: u32 = 2u32;
-pub const WSDAPI_SSL_CERT_IGNORE_INVALID_CN: u32 = 16u32;
-pub const WSDAPI_SSL_CERT_IGNORE_REVOCATION: u32 = 1u32;
-pub const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: u32 = 8u32;
-pub const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4u32;
-pub const WSDET_INCOMING_FAULT: WSDEventType = 2i32;
-pub const WSDET_INCOMING_MESSAGE: WSDEventType = 1i32;
-pub const WSDET_NONE: WSDEventType = 0i32;
-pub const WSDET_RESPONSE_TIMEOUT: WSDEventType = 4i32;
-pub const WSDET_TRANSMISSION_FAILURE: WSDEventType = 3i32;
-pub const WSD_CONFIG_DEVICE_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 10i32;
-pub const WSD_CONFIG_HOSTING_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 9i32;
-pub const WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 1i32;
-pub const WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 2i32;
-pub const WSD_DEFAULT_EVENTING_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("http://*:5357/");
-pub const WSD_DEFAULT_HOSTING_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("http://*:5357/");
-pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("https://*:5358/");
-pub const WSD_PT_ALL: WSD_PROTOCOL_TYPE = 255i32;
-pub const WSD_PT_HTTP: WSD_PROTOCOL_TYPE = 2i32;
-pub const WSD_PT_HTTPS: WSD_PROTOCOL_TYPE = 4i32;
-pub const WSD_PT_NONE: WSD_PROTOCOL_TYPE = 0i32;
-pub const WSD_PT_UDP: WSD_PROTOCOL_TYPE = 1i32;
-pub const WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WSD_CONFIG_PARAM_TYPE = 7i32;
-pub const WSD_SECURITY_COMPACTSIG_VALIDATION: WSD_CONFIG_PARAM_TYPE = 8i32;
-pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: u32 = 1u32;
-pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: u32 = 2u32;
-pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 12i32;
-pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 11i32;
-pub const WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 3i32;
-pub const WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 5i32;
-pub const WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WSD_CONFIG_PARAM_TYPE = 6i32;
-pub const WSD_SECURITY_SSL_SERVER_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 4i32;
-pub const WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 13i32;
-pub type DeviceDiscoveryMechanism = i32;
-pub type WSDEventType = i32;
-pub type WSDUdpMessageType = i32;
-pub type WSDXML_OP = i32;
-pub type WSD_CONFIG_PARAM_TYPE = i32;
-pub type WSD_PROTOCOL_TYPE = i32;
+pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "system" fn(thisunknown: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REQUESTBODY_GetStatus {
@@ -185,6 +139,27 @@ pub struct RESPONSEBODY_SubscriptionEnd {
     pub Reason: *mut WSD_LOCALIZED_STRING,
     pub Any: *mut WSDXML_ELEMENT,
 }
+pub const SecureDirectedDiscovery: DeviceDiscoveryMechanism = 2i32;
+pub const TWO_WAY: WSDUdpMessageType = 1i32;
+pub const WSDAPI_ADDRESSFAMILY_IPV4: u32 = 1u32;
+pub const WSDAPI_ADDRESSFAMILY_IPV6: u32 = 2u32;
+pub const WSDAPI_COMPACTSIG_ACCEPT_ALL_MESSAGES: u32 = 1u32;
+pub const WSDAPI_OPTION_MAX_INBOUND_MESSAGE_SIZE: u32 = 1u32;
+pub const WSDAPI_OPTION_TRACE_XML_TO_DEBUGGER: u32 = 2u32;
+pub const WSDAPI_OPTION_TRACE_XML_TO_FILE: u32 = 3u32;
+pub const WSDAPI_SSL_CERT_APPLY_DEFAULT_CHECKS: u32 = 0u32;
+pub const WSDAPI_SSL_CERT_IGNORE_EXPIRY: u32 = 2u32;
+pub const WSDAPI_SSL_CERT_IGNORE_INVALID_CN: u32 = 16u32;
+pub const WSDAPI_SSL_CERT_IGNORE_REVOCATION: u32 = 1u32;
+pub const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: u32 = 8u32;
+pub const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4u32;
+pub const WSDET_INCOMING_FAULT: WSDEventType = 2i32;
+pub const WSDET_INCOMING_MESSAGE: WSDEventType = 1i32;
+pub const WSDET_NONE: WSDEventType = 0i32;
+pub const WSDET_RESPONSE_TIMEOUT: WSDEventType = 4i32;
+pub const WSDET_TRANSMISSION_FAILURE: WSDEventType = 3i32;
+pub type WSDEventType = i32;
+pub type WSDUdpMessageType = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSDUdpRetransmitParams {
@@ -243,6 +218,7 @@ impl WSDXML_NODE {
     pub const ElementType: i32 = 0i32;
     pub const TextType: i32 = 1i32;
 }
+pub type WSDXML_OP = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSDXML_PREFIX_MAPPING {
@@ -282,6 +258,10 @@ pub struct WSD_CONFIG_ADDRESSES {
     pub addresses: *mut *mut core::ffi::c_void,
     pub dwAddressCount: u32,
 }
+pub const WSD_CONFIG_DEVICE_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 10i32;
+pub const WSD_CONFIG_HOSTING_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 9i32;
+pub const WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 1i32;
+pub const WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_CONFIG_PARAM {
@@ -289,6 +269,7 @@ pub struct WSD_CONFIG_PARAM {
     pub pConfigData: *mut core::ffi::c_void,
     pub dwConfigDataSize: u32,
 }
+pub type WSD_CONFIG_PARAM_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_DATETIME {
@@ -305,6 +286,9 @@ pub struct WSD_DATETIME {
     pub TZHour: u8,
     pub TZMinute: u8,
 }
+pub const WSD_DEFAULT_EVENTING_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("http://*:5357/");
+pub const WSD_DEFAULT_HOSTING_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("http://*:5357/");
+pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("https://*:5358/");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_DURATION {
@@ -481,6 +465,12 @@ pub struct WSD_PROBE_MATCH_LIST {
     pub Next: *mut WSD_PROBE_MATCH_LIST,
     pub Element: *mut WSD_PROBE_MATCH,
 }
+pub type WSD_PROTOCOL_TYPE = i32;
+pub const WSD_PT_ALL: WSD_PROTOCOL_TYPE = 255i32;
+pub const WSD_PT_HTTP: WSD_PROTOCOL_TYPE = 2i32;
+pub const WSD_PT_HTTPS: WSD_PROTOCOL_TYPE = 4i32;
+pub const WSD_PT_NONE: WSD_PROTOCOL_TYPE = 0i32;
+pub const WSD_PT_UDP: WSD_PROTOCOL_TYPE = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_REFERENCE_PARAMETERS {
@@ -549,6 +539,12 @@ pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub hCertIssuerStore: super::super::Security::Cryptography::HCERTSTORE,
     pub dwCertCheckOptions: u32,
 }
+pub const WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WSD_CONFIG_PARAM_TYPE = 7i32;
+pub const WSD_SECURITY_COMPACTSIG_VALIDATION: WSD_CONFIG_PARAM_TYPE = 8i32;
+pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: u32 = 1u32;
+pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: u32 = 2u32;
+pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 12i32;
+pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 11i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -558,6 +554,11 @@ pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub hSigningCertStore: super::super::Security::Cryptography::HCERTSTORE,
     pub dwFlags: u32,
 }
+pub const WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 3i32;
+pub const WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 5i32;
+pub const WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WSD_CONFIG_PARAM_TYPE = 6i32;
+pub const WSD_SECURITY_SSL_SERVER_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 4i32;
+pub const WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 13i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_SERVICE_METADATA {
@@ -618,6 +619,7 @@ pub struct WSD_SOAP_MESSAGE {
     pub Body: *mut core::ffi::c_void,
     pub BodyType: *mut WSDXML_TYPE,
 }
+pub type WSD_STUB_FUNCTION = Option<unsafe extern "system" fn(server: *mut core::ffi::c_void, session: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
@@ -656,5 +658,3 @@ pub struct WSD_URI_LIST {
     pub Next: *mut WSD_URI_LIST,
     pub Element: windows_sys::core::PCWSTR,
 }
-pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "system" fn(thisunknown: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
-pub type WSD_STUB_FUNCTION = Option<unsafe extern "system" fn(server: *mut core::ffi::c_void, session: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;

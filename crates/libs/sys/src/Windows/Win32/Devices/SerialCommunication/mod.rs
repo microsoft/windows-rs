@@ -13,6 +13,7 @@ pub const DEVPKEY_DeviceInterface_Serial_PortName: super::super::Foundation::DEV
 pub const DEVPKEY_DeviceInterface_Serial_UsbProductId: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4), pid: 3 };
 pub const DEVPKEY_DeviceInterface_Serial_UsbVendorId: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4), pid: 2 };
 pub const EVEN_PARITY: u32 = 2u32;
+pub type HCOMDB = *mut core::ffi::c_void;
 pub const IOCTL_INTERNAL_SERENUM_REMOVE_SELF: u32 = 3604999u32;
 pub const IOCTL_SERIAL_APPLY_DEFAULT_CONFIGURATION: u32 = 1769632u32;
 pub const IOCTL_SERIAL_CLEAR_STATS: u32 = 1769616u32;
@@ -61,36 +62,9 @@ pub const IOCTL_SERIAL_XOFF_COUNTER: u32 = 1769584u32;
 pub const MARK_PARITY: u32 = 3u32;
 pub const NO_PARITY: u32 = 0u32;
 pub const ODD_PARITY: u32 = 1u32;
-pub const SERIAL_EV_BREAK: u32 = 64u32;
-pub const SERIAL_EV_CTS: u32 = 8u32;
-pub const SERIAL_EV_DSR: u32 = 16u32;
-pub const SERIAL_EV_ERR: u32 = 128u32;
-pub const SERIAL_EV_EVENT1: u32 = 2048u32;
-pub const SERIAL_EV_EVENT2: u32 = 4096u32;
-pub const SERIAL_EV_PERR: u32 = 512u32;
-pub const SERIAL_EV_RING: u32 = 256u32;
-pub const SERIAL_EV_RLSD: u32 = 32u32;
-pub const SERIAL_EV_RX80FULL: u32 = 1024u32;
-pub const SERIAL_EV_RXCHAR: u32 = 1u32;
-pub const SERIAL_EV_RXFLAG: u32 = 2u32;
-pub const SERIAL_EV_TXEMPTY: u32 = 4u32;
-pub const SERIAL_LSRMST_ESCAPE: u16 = 0u16;
-pub const SERIAL_LSRMST_LSR_DATA: u16 = 1u16;
-pub const SERIAL_LSRMST_LSR_NODATA: u16 = 2u16;
-pub const SERIAL_LSRMST_MST: u16 = 3u16;
-pub const SERIAL_PURGE_RXABORT: u32 = 2u32;
-pub const SERIAL_PURGE_RXCLEAR: u32 = 8u32;
-pub const SERIAL_PURGE_TXABORT: u32 = 1u32;
-pub const SERIAL_PURGE_TXCLEAR: u32 = 4u32;
-pub const SPACE_PARITY: u32 = 4u32;
-pub const STOP_BITS_1_5: u32 = 1u32;
-pub const STOP_BITS_2: u32 = 2u32;
-pub const STOP_BIT_1: u32 = 0u32;
-pub const SerenumFirstHalf: SERENUM_PORTION = 0i32;
-pub const SerenumSecondHalf: SERENUM_PORTION = 1i32;
-pub const SerenumWhole: SERENUM_PORTION = 2i32;
+pub type PSERENUM_READPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void) -> u8>;
+pub type PSERENUM_WRITEPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void, value: u8)>;
 pub type SERENUM_PORTION = i32;
-pub type HCOMDB = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERENUM_PORT_DESC {
@@ -176,6 +150,19 @@ pub struct SERIAL_COMMPROP {
     pub ProvSpec2: u32,
     pub ProvChar: [u16; 1],
 }
+pub const SERIAL_EV_BREAK: u32 = 64u32;
+pub const SERIAL_EV_CTS: u32 = 8u32;
+pub const SERIAL_EV_DSR: u32 = 16u32;
+pub const SERIAL_EV_ERR: u32 = 128u32;
+pub const SERIAL_EV_EVENT1: u32 = 2048u32;
+pub const SERIAL_EV_EVENT2: u32 = 4096u32;
+pub const SERIAL_EV_PERR: u32 = 512u32;
+pub const SERIAL_EV_RING: u32 = 256u32;
+pub const SERIAL_EV_RLSD: u32 = 32u32;
+pub const SERIAL_EV_RX80FULL: u32 = 1024u32;
+pub const SERIAL_EV_RXCHAR: u32 = 1u32;
+pub const SERIAL_EV_RXFLAG: u32 = 2u32;
+pub const SERIAL_EV_TXEMPTY: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERIAL_HANDFLOW {
@@ -191,6 +178,14 @@ pub struct SERIAL_LINE_CONTROL {
     pub Parity: u8,
     pub WordLength: u8,
 }
+pub const SERIAL_LSRMST_ESCAPE: u16 = 0u16;
+pub const SERIAL_LSRMST_LSR_DATA: u16 = 1u16;
+pub const SERIAL_LSRMST_LSR_NODATA: u16 = 2u16;
+pub const SERIAL_LSRMST_MST: u16 = 3u16;
+pub const SERIAL_PURGE_RXABORT: u32 = 2u32;
+pub const SERIAL_PURGE_RXCLEAR: u32 = 8u32;
+pub const SERIAL_PURGE_TXABORT: u32 = 1u32;
+pub const SERIAL_PURGE_TXCLEAR: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERIAL_QUEUE_SIZE {
@@ -223,5 +218,10 @@ pub struct SERIAL_XOFF_COUNTER {
     pub Counter: i32,
     pub XoffChar: u8,
 }
-pub type PSERENUM_READPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void) -> u8>;
-pub type PSERENUM_WRITEPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void, value: u8)>;
+pub const SPACE_PARITY: u32 = 4u32;
+pub const STOP_BITS_1_5: u32 = 1u32;
+pub const STOP_BITS_2: u32 = 2u32;
+pub const STOP_BIT_1: u32 = 0u32;
+pub const SerenumFirstHalf: SERENUM_PORTION = 0i32;
+pub const SerenumSecondHalf: SERENUM_PORTION = 1i32;
+pub const SerenumWhole: SERENUM_PORTION = 2i32;

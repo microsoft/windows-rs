@@ -71,6 +71,25 @@ pub const ExParamTypeHttpPerformance: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 2i
 pub const ExParamTypeMax: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 6i32;
 pub const ExParamTypeTlsRestrictions: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 3i32;
 pub const ExParamTypeTlsSessionTicketKeys: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 5i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP2_SETTINGS_LIMITS_PARAM {
+    pub Http2MaxSettingsPerFrame: u32,
+    pub Http2MaxSettingsPerMinute: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP2_WINDOW_SIZE_PARAM {
+    pub Http2ReceiveWindowSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTPAPI_VERSION {
+    pub HttpApiMajorVersion: u16,
+    pub HttpApiMinorVersion: u16,
+}
+pub type HTTP_503_RESPONSE_VERBOSITY = i32;
+pub type HTTP_AUTHENTICATION_HARDENING_LEVELS = i32;
 pub const HTTP_AUTH_ENABLE_BASIC: u32 = 1u32;
 pub const HTTP_AUTH_ENABLE_DIGEST: u32 = 2u32;
 pub const HTTP_AUTH_ENABLE_KERBEROS: u32 = 16u32;
@@ -78,23 +97,229 @@ pub const HTTP_AUTH_ENABLE_NEGOTIATE: u32 = 8u32;
 pub const HTTP_AUTH_ENABLE_NTLM: u32 = 4u32;
 pub const HTTP_AUTH_EX_FLAG_CAPTURE_CREDENTIAL: u32 = 2u32;
 pub const HTTP_AUTH_EX_FLAG_ENABLE_KERBEROS_CREDENTIAL_CACHING: u32 = 1u32;
+pub type HTTP_AUTH_STATUS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_BANDWIDTH_LIMIT_INFO {
+    pub Flags: HTTP_PROPERTY_FLAGS,
+    pub MaxBandwidth: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_BINDING_INFO {
+    pub Flags: HTTP_PROPERTY_FLAGS,
+    pub RequestQueueHandle: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_BYTE_RANGE {
+    pub StartingOffset: u64,
+    pub Length: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_CACHE_POLICY {
+    pub Policy: HTTP_CACHE_POLICY_TYPE,
+    pub SecondsToLive: u32,
+}
+pub type HTTP_CACHE_POLICY_TYPE = i32;
 pub const HTTP_CHANNEL_BIND_CLIENT_SERVICE: u32 = 16u32;
 pub const HTTP_CHANNEL_BIND_DOTLESS_SERVICE: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_CHANNEL_BIND_INFO {
+    pub Hardening: HTTP_AUTHENTICATION_HARDENING_LEVELS,
+    pub Flags: u32,
+    pub ServiceNames: *mut *mut HTTP_SERVICE_BINDING_BASE,
+    pub NumberOfServiceNames: u32,
+}
 pub const HTTP_CHANNEL_BIND_NO_SERVICE_NAME_CHECK: u32 = 2u32;
 pub const HTTP_CHANNEL_BIND_PROXY: u32 = 1u32;
 pub const HTTP_CHANNEL_BIND_PROXY_COHOSTING: u32 = 32u32;
 pub const HTTP_CHANNEL_BIND_SECURE_CHANNEL_TOKEN: u32 = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_CONNECTION_LIMIT_INFO {
+    pub Flags: HTTP_PROPERTY_FLAGS,
+    pub MaxConnections: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_COOKED_URL {
+    pub FullUrlLength: u16,
+    pub HostLength: u16,
+    pub AbsPathLength: u16,
+    pub QueryStringLength: u16,
+    pub pFullUrl: windows_sys::core::PCWSTR,
+    pub pHost: windows_sys::core::PCWSTR,
+    pub pAbsPath: windows_sys::core::PCWSTR,
+    pub pQueryString: windows_sys::core::PCWSTR,
+}
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_CONTROLLER: u32 = 2u32;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION: u32 = 8u32;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: u32 = 1u32;
+pub type HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
+    pub PropertyId: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID,
+    pub PropertyInfoLength: u32,
+    pub PropertyInfo: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_DATA_CHUNK {
+    pub DataChunkType: HTTP_DATA_CHUNK_TYPE,
+    pub Anonymous: HTTP_DATA_CHUNK_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union HTTP_DATA_CHUNK_0 {
+    pub FromMemory: HTTP_DATA_CHUNK_0_0,
+    pub FromFileHandle: HTTP_DATA_CHUNK_0_1,
+    pub FromFragmentCache: HTTP_DATA_CHUNK_0_2,
+    pub FromFragmentCacheEx: HTTP_DATA_CHUNK_0_3,
+    pub Trailers: HTTP_DATA_CHUNK_0_4,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_DATA_CHUNK_0_1 {
+    pub ByteRange: HTTP_BYTE_RANGE,
+    pub FileHandle: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_DATA_CHUNK_0_3 {
+    pub ByteRange: HTTP_BYTE_RANGE,
+    pub pFragmentName: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_DATA_CHUNK_0_2 {
+    pub FragmentNameLength: u16,
+    pub pFragmentName: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_DATA_CHUNK_0_0 {
+    pub pBuffer: *mut core::ffi::c_void,
+    pub BufferLength: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_DATA_CHUNK_0_4 {
+    pub TrailerCount: u16,
+    pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
+}
+pub type HTTP_DATA_CHUNK_TYPE = i32;
+pub type HTTP_DELEGATE_REQUEST_PROPERTY_ID = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
+    pub PropertyId: HTTP_DELEGATE_REQUEST_PROPERTY_ID,
+    pub PropertyInfoLength: u32,
+    pub PropertyInfo: *mut core::ffi::c_void,
+}
 pub const HTTP_DEMAND_CBT: u32 = 4u32;
+pub type HTTP_ENABLED_STATE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_ERROR_HEADERS_PARAM {
+    pub StatusCode: u16,
+    pub HeaderCount: u16,
+    pub Headers: *mut HTTP_UNKNOWN_HEADER,
+}
+pub type HTTP_FEATURE_ID = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_FLOWRATE_INFO {
+    pub Flags: HTTP_PROPERTY_FLAGS,
+    pub MaxBandwidth: u32,
+    pub MaxPeakBandwidth: u32,
+    pub BurstSize: u32,
+}
 pub const HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE: u32 = 1u32;
+pub type HTTP_HEADER_ID = i32;
+pub type HTTP_INITIALIZE = u32;
 pub const HTTP_INITIALIZE_CONFIG: HTTP_INITIALIZE = 2u32;
 pub const HTTP_INITIALIZE_SERVER: HTTP_INITIALIZE = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_KNOWN_HEADER {
+    pub RawValueLength: u16,
+    pub pRawValue: windows_sys::core::PCSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_LISTEN_ENDPOINT_INFO {
+    pub Flags: HTTP_PROPERTY_FLAGS,
+    pub EnableSharing: super::super::Foundation::BOOLEAN,
+}
 pub const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: u32 = 1u32;
 pub const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: u32 = 4u32;
 pub const HTTP_LOGGING_FLAG_LOG_SUCCESS_ONLY: u32 = 8u32;
 pub const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: u32 = 2u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct HTTP_LOGGING_INFO {
+    pub Flags: HTTP_PROPERTY_FLAGS,
+    pub LoggingFlags: u32,
+    pub SoftwareName: windows_sys::core::PCWSTR,
+    pub SoftwareNameLength: u16,
+    pub DirectoryNameLength: u16,
+    pub DirectoryName: windows_sys::core::PCWSTR,
+    pub Format: HTTP_LOGGING_TYPE,
+    pub Fields: u32,
+    pub pExtFields: *mut core::ffi::c_void,
+    pub NumOfExtFields: u16,
+    pub MaxRecordSize: u16,
+    pub RolloverType: HTTP_LOGGING_ROLLOVER_TYPE,
+    pub RolloverSize: u32,
+    pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
+}
+pub type HTTP_LOGGING_ROLLOVER_TYPE = i32;
+pub type HTTP_LOGGING_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_LOG_DATA {
+    pub Type: HTTP_LOG_DATA_TYPE,
+}
+pub type HTTP_LOG_DATA_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_LOG_FIELDS_DATA {
+    pub Base: HTTP_LOG_DATA,
+    pub UserNameLength: u16,
+    pub UriStemLength: u16,
+    pub ClientIpLength: u16,
+    pub ServerNameLength: u16,
+    pub ServiceNameLength: u16,
+    pub ServerIpLength: u16,
+    pub MethodLength: u16,
+    pub UriQueryLength: u16,
+    pub HostLength: u16,
+    pub UserAgentLength: u16,
+    pub CookieLength: u16,
+    pub ReferrerLength: u16,
+    pub UserName: windows_sys::core::PWSTR,
+    pub UriStem: windows_sys::core::PWSTR,
+    pub ClientIp: windows_sys::core::PSTR,
+    pub ServerName: windows_sys::core::PSTR,
+    pub ServiceName: windows_sys::core::PSTR,
+    pub ServerIp: windows_sys::core::PSTR,
+    pub Method: windows_sys::core::PSTR,
+    pub UriQuery: windows_sys::core::PSTR,
+    pub Host: windows_sys::core::PSTR,
+    pub UserAgent: windows_sys::core::PSTR,
+    pub Cookie: windows_sys::core::PSTR,
+    pub Referrer: windows_sys::core::PSTR,
+    pub ServerPort: u16,
+    pub ProtocolStatus: u16,
+    pub Win32Status: u32,
+    pub MethodNum: HTTP_VERB,
+    pub SubStatus: u16,
+}
 pub const HTTP_LOG_FIELD_BYTES_RECV: u32 = 8192u32;
 pub const HTTP_LOG_FIELD_BYTES_SENT: u32 = 4096u32;
 pub const HTTP_LOG_FIELD_CLIENT_IP: u32 = 4u32;
@@ -129,26 +354,277 @@ pub const HTTP_LOG_FIELD_VERSION: u32 = 524288u32;
 pub const HTTP_LOG_FIELD_WIN32_STATUS: u32 = 2048u32;
 pub const HTTP_MAX_SERVER_QUEUE_LENGTH: u32 = 2147483647u32;
 pub const HTTP_MIN_SERVER_QUEUE_LENGTH: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_MULTIPLE_KNOWN_HEADERS {
+    pub HeaderId: HTTP_HEADER_ID,
+    pub Flags: u32,
+    pub KnownHeaderCount: u16,
+    pub KnownHeaders: *mut HTTP_KNOWN_HEADER,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_PERFORMANCE_PARAM {
+    pub Type: HTTP_PERFORMANCE_PARAM_TYPE,
+    pub BufferSize: u32,
+    pub Buffer: *mut core::ffi::c_void,
+}
+pub type HTTP_PERFORMANCE_PARAM_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_PROPERTY_FLAGS {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_PROTECTION_LEVEL_INFO {
+    pub Flags: HTTP_PROPERTY_FLAGS,
+    pub Level: HTTP_PROTECTION_LEVEL_TYPE,
+}
+pub type HTTP_PROTECTION_LEVEL_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_QOS_SETTING_INFO {
+    pub QosType: HTTP_QOS_SETTING_TYPE,
+    pub QosSetting: *mut core::ffi::c_void,
+}
+pub type HTTP_QOS_SETTING_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
+    pub Freshness: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_QUERY_REQUEST_QUALIFIER_TCP {
+    pub Freshness: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_QUIC_API_TIMINGS {
+    pub ConnectionTimings: HTTP_QUIC_CONNECTION_API_TIMINGS,
+    pub StreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_QUIC_CONNECTION_API_TIMINGS {
+    pub OpenTime: u64,
+    pub CloseTime: u64,
+    pub StartTime: u64,
+    pub ShutdownTime: u64,
+    pub SecConfigCreateTime: u64,
+    pub SecConfigDeleteTime: u64,
+    pub GetParamCount: u64,
+    pub GetParamSum: u64,
+    pub SetParamCount: u64,
+    pub SetParamSum: u64,
+    pub SetCallbackHandlerCount: u64,
+    pub SetCallbackHandlerSum: u64,
+    pub ControlStreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_QUIC_STREAM_API_TIMINGS {
+    pub OpenCount: u64,
+    pub OpenSum: u64,
+    pub CloseCount: u64,
+    pub CloseSum: u64,
+    pub StartCount: u64,
+    pub StartSum: u64,
+    pub ShutdownCount: u64,
+    pub ShutdownSum: u64,
+    pub SendCount: u64,
+    pub SendSum: u64,
+    pub ReceiveSetEnabledCount: u64,
+    pub ReceiveSetEnabledSum: u64,
+    pub GetParamCount: u64,
+    pub GetParamSum: u64,
+    pub SetParamCount: u64,
+    pub SetParamSum: u64,
+    pub SetCallbackHandlerCount: u64,
+    pub SetCallbackHandlerSum: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_QUIC_STREAM_REQUEST_STATS {
+    pub StreamWaitStart: u64,
+    pub StreamWaitEnd: u64,
+    pub RequestHeadersCompressionStart: u64,
+    pub RequestHeadersCompressionEnd: u64,
+    pub ResponseHeadersDecompressionStart: u64,
+    pub ResponseHeadersDecompressionEnd: u64,
+    pub RequestHeadersCompressedSize: u64,
+    pub ResponseHeadersCompressedSize: u64,
+}
 pub const HTTP_RECEIVE_FULL_CHAIN: u32 = 2u32;
+pub type HTTP_RECEIVE_HTTP_REQUEST_FLAGS = u32;
 pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: u32 = 1u32;
 pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = 1u32;
 pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = 2u32;
 pub const HTTP_RECEIVE_SECURE_CHANNEL_TOKEN: u32 = 1u32;
 pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_REQUEST_AUTH_INFO {
+    pub AuthStatus: HTTP_AUTH_STATUS,
+    pub SecStatus: windows_sys::core::HRESULT,
+    pub Flags: u32,
+    pub AuthType: HTTP_REQUEST_AUTH_TYPE,
+    pub AccessToken: super::super::Foundation::HANDLE,
+    pub ContextAttributes: u32,
+    pub PackedContextLength: u32,
+    pub PackedContextType: u32,
+    pub PackedContext: *mut core::ffi::c_void,
+    pub MutualAuthDataLength: u32,
+    pub pMutualAuthData: windows_sys::core::PSTR,
+    pub PackageNameLength: u16,
+    pub pPackageName: windows_sys::core::PWSTR,
+}
+pub type HTTP_REQUEST_AUTH_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
+    pub ServiceName: *mut HTTP_SERVICE_BINDING_BASE,
+    pub ChannelToken: *mut u8,
+    pub ChannelTokenSize: u32,
+    pub Flags: u32,
+}
 pub const HTTP_REQUEST_FLAG_HTTP2: u32 = 4u32;
 pub const HTTP_REQUEST_FLAG_HTTP3: u32 = 8u32;
 pub const HTTP_REQUEST_FLAG_IP_ROUTED: u32 = 2u32;
 pub const HTTP_REQUEST_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_REQUEST_HEADERS {
+    pub UnknownHeaderCount: u16,
+    pub pUnknownHeaders: *mut HTTP_UNKNOWN_HEADER,
+    pub TrailerCount: u16,
+    pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
+    pub KnownHeaders: [HTTP_KNOWN_HEADER; 41],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_REQUEST_INFO {
+    pub InfoType: HTTP_REQUEST_INFO_TYPE,
+    pub InfoLength: u32,
+    pub pInfo: *mut core::ffi::c_void,
+}
+pub type HTTP_REQUEST_INFO_TYPE = i32;
+pub type HTTP_REQUEST_PROPERTY = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_REQUEST_PROPERTY_SNI {
+    pub Hostname: [u16; 256],
+    pub Flags: u32,
+}
 pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_NO_SNI: u32 = 2u32;
 pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_SNI_USED: u32 = 1u32;
 pub const HTTP_REQUEST_PROPERTY_SNI_HOST_MAX_LENGTH: u32 = 255u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_REQUEST_PROPERTY_STREAM_ERROR {
+    pub ErrorCode: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_REQUEST_SIZING_INFO {
+    pub Flags: u64,
+    pub RequestIndex: u32,
+    pub RequestSizingCount: u32,
+    pub RequestSizing: [u64; 5],
+}
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_FIRST_REQUEST: u32 = 8u32;
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TCP_FAST_OPEN: u32 = 1u32;
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_FALSE_START: u32 = 4u32;
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
+pub type HTTP_REQUEST_SIZING_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_REQUEST_TIMING_INFO {
+    pub RequestTimingCount: u32,
+    pub RequestTiming: [u64; 30],
+}
+pub type HTTP_REQUEST_TIMING_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
+    pub TokenBinding: *mut u8,
+    pub TokenBindingSize: u32,
+    pub EKM: *mut u8,
+    pub EKMSize: u32,
+    pub KeyType: u8,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_REQUEST_V1 {
+    pub Flags: u32,
+    pub ConnectionId: u64,
+    pub RequestId: u64,
+    pub UrlContext: u64,
+    pub Version: HTTP_VERSION,
+    pub Verb: HTTP_VERB,
+    pub UnknownVerbLength: u16,
+    pub RawUrlLength: u16,
+    pub pUnknownVerb: windows_sys::core::PCSTR,
+    pub pRawUrl: windows_sys::core::PCSTR,
+    pub CookedUrl: HTTP_COOKED_URL,
+    pub Address: HTTP_TRANSPORT_ADDRESS,
+    pub Headers: HTTP_REQUEST_HEADERS,
+    pub BytesReceived: u64,
+    pub EntityChunkCount: u16,
+    pub pEntityChunks: *mut HTTP_DATA_CHUNK,
+    pub RawConnectionId: u64,
+    pub pSslInfo: *mut HTTP_SSL_INFO,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_REQUEST_V2 {
+    pub Base: HTTP_REQUEST_V1,
+    pub RequestInfoCount: u16,
+    pub pRequestInfo: *mut HTTP_REQUEST_INFO,
+}
 pub const HTTP_RESPONSE_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 2u32;
 pub const HTTP_RESPONSE_FLAG_MULTIPLE_ENCODINGS_AVAILABLE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_RESPONSE_HEADERS {
+    pub UnknownHeaderCount: u16,
+    pub pUnknownHeaders: *mut HTTP_UNKNOWN_HEADER,
+    pub TrailerCount: u16,
+    pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
+    pub KnownHeaders: [HTTP_KNOWN_HEADER; 30],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_RESPONSE_INFO {
+    pub Type: HTTP_RESPONSE_INFO_TYPE,
+    pub Length: u32,
+    pub pInfo: *mut core::ffi::c_void,
+}
 pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: u32 = 1u32;
+pub type HTTP_RESPONSE_INFO_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_RESPONSE_V1 {
+    pub Flags: u32,
+    pub Version: HTTP_VERSION,
+    pub StatusCode: u16,
+    pub ReasonLength: u16,
+    pub pReason: windows_sys::core::PCSTR,
+    pub Headers: HTTP_RESPONSE_HEADERS,
+    pub EntityChunkCount: u16,
+    pub pEntityChunks: *mut HTTP_DATA_CHUNK,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_RESPONSE_V2 {
+    pub Base: HTTP_RESPONSE_V1,
+    pub ResponseInfoCount: u16,
+    pub pResponseInfo: *mut HTTP_RESPONSE_INFO,
+}
+pub type HTTP_SCHEME = i32;
 pub const HTTP_SEND_RESPONSE_FLAG_BUFFER_DATA: u32 = 4u32;
 pub const HTTP_SEND_RESPONSE_FLAG_DISCONNECT: u32 = 1u32;
 pub const HTTP_SEND_RESPONSE_FLAG_ENABLE_NAGLING: u32 = 8u32;
@@ -156,6 +632,120 @@ pub const HTTP_SEND_RESPONSE_FLAG_GOAWAY: u32 = 256u32;
 pub const HTTP_SEND_RESPONSE_FLAG_MORE_DATA: u32 = 2u32;
 pub const HTTP_SEND_RESPONSE_FLAG_OPAQUE: u32 = 64u32;
 pub const HTTP_SEND_RESPONSE_FLAG_PROCESS_RANGES: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
+    pub RealmLength: u16,
+    pub Realm: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
+    pub DomainNameLength: u16,
+    pub DomainName: windows_sys::core::PWSTR,
+    pub RealmLength: u16,
+    pub Realm: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVER_AUTHENTICATION_INFO {
+    pub Flags: HTTP_PROPERTY_FLAGS,
+    pub AuthSchemes: u32,
+    pub ReceiveMutualAuth: super::super::Foundation::BOOLEAN,
+    pub ReceiveContextHandle: super::super::Foundation::BOOLEAN,
+    pub DisableNTLMCredentialCaching: super::super::Foundation::BOOLEAN,
+    pub ExFlags: u8,
+    pub DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
+    pub BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
+}
+pub type HTTP_SERVER_PROPERTY = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_BINDING_A {
+    pub Base: HTTP_SERVICE_BINDING_BASE,
+    pub Buffer: windows_sys::core::PSTR,
+    pub BufferSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_BINDING_BASE {
+    pub Type: HTTP_SERVICE_BINDING_TYPE,
+}
+pub type HTTP_SERVICE_BINDING_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_BINDING_W {
+    pub Base: HTTP_SERVICE_BINDING_BASE,
+    pub Buffer: windows_sys::core::PWSTR,
+    pub BufferSize: u32,
+}
+pub type HTTP_SERVICE_CONFIG_CACHE_KEY = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
+    pub KeyDesc: HTTP_SERVICE_CONFIG_CACHE_KEY,
+    pub ParamDesc: u32,
+}
+pub type HTTP_SERVICE_CONFIG_ID = i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
+    pub AddrLength: u16,
+    pub pAddress: *mut super::WinSock::SOCKADDR,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
+    pub AddrCount: u32,
+    pub AddrList: [super::WinSock::SOCKADDR_STORAGE; 1],
+}
+pub type HTTP_SERVICE_CONFIG_QUERY_TYPE = i32;
+pub type HTTP_SERVICE_CONFIG_SETTING_KEY = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SETTING_SET {
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SETTING_KEY,
+    pub ParamDesc: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
+    pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
+    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
+    pub dwToken: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
+    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
+    pub dwToken: u32,
+    pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET {
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
+    pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
+    pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
+}
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_HTTP2: u32 = 16u32;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_LEGACY_TLS: u32 = 1024u32;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_OCSP_STAPLING: u32 = 128u32;
@@ -171,8 +761,250 @@ pub const HTTP_SERVICE_CONFIG_SSL_FLAG_NEGOTIATE_CLIENT_CERT: u32 = 2u32;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_NO_RAW_FILTER: u32 = 4u32;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT: u32 = 8u32;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_KEY {
+    pub pIpPort: *mut super::WinSock::SOCKADDR,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX {
+    pub IpPort: super::WinSock::SOCKADDR_STORAGE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
+    pub SslHashLength: u32,
+    pub pSslHash: *mut core::ffi::c_void,
+    pub AppId: windows_sys::core::GUID,
+    pub pSslCertStoreName: windows_sys::core::PWSTR,
+    pub DefaultCertCheckMode: u32,
+    pub DefaultRevocationFreshnessTime: u32,
+    pub DefaultRevocationUrlRetrievalTimeout: u32,
+    pub pDefaultSslCtlIdentifier: windows_sys::core::PWSTR,
+    pub pDefaultSslCtlStoreName: windows_sys::core::PWSTR,
+    pub DefaultFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
+    pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
+    pub Flags: u64,
+    pub Anonymous: HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
+    pub Http2WindowSizeParam: HTTP2_WINDOW_SIZE_PARAM,
+    pub Http2SettingsLimitsParam: HTTP2_SETTINGS_LIMITS_PARAM,
+    pub HttpPerformanceParam: HTTP_PERFORMANCE_PARAM,
+    pub HttpTlsRestrictionsParam: HTTP_TLS_RESTRICTIONS_PARAM,
+    pub HttpErrorHeadersParam: HTTP_ERROR_HEADERS_PARAM,
+    pub HttpTlsSessionTicketKeysParam: HTTP_TLS_SESSION_TICKET_KEYS_PARAM,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
+    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
+    pub dwToken: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
+    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
+    pub dwToken: u32,
+    pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_SET {
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
+    pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_SET_EX {
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
+    pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
+    pub IpPort: super::WinSock::SOCKADDR_STORAGE,
+    pub Host: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
+    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
+    pub dwToken: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
+    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
+    pub dwToken: u32,
+    pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET {
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
+    pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
+    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
+    pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
+}
+pub type HTTP_SERVICE_CONFIG_TIMEOUT_KEY = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_TIMEOUT_SET {
+    pub KeyDesc: HTTP_SERVICE_CONFIG_TIMEOUT_KEY,
+    pub ParamDesc: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_URLACL_KEY {
+    pub pUrlPrefix: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_URLACL_PARAM {
+    pub pStringSecurityDescriptor: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_URLACL_QUERY {
+    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
+    pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
+    pub dwToken: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SERVICE_CONFIG_URLACL_SET {
+    pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
+    pub ParamDesc: HTTP_SERVICE_CONFIG_URLACL_PARAM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SSL_CLIENT_CERT_INFO {
+    pub CertFlags: u32,
+    pub CertEncodedSize: u32,
+    pub pCertEncoded: *mut u8,
+    pub Token: super::super::Foundation::HANDLE,
+    pub CertDeniedByMapper: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SSL_INFO {
+    pub ServerCertKeySize: u16,
+    pub ConnectionKeySize: u16,
+    pub ServerCertIssuerSize: u32,
+    pub ServerCertSubjectSize: u32,
+    pub pServerCertIssuer: windows_sys::core::PCSTR,
+    pub pServerCertSubject: windows_sys::core::PCSTR,
+    pub pClientCertInfo: *mut HTTP_SSL_CLIENT_CERT_INFO,
+    pub SslClientCertNegotiated: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_SSL_PROTOCOL_INFO {
+    pub Protocol: u32,
+    pub CipherType: u32,
+    pub CipherStrength: u32,
+    pub HashType: u32,
+    pub HashStrength: u32,
+    pub KeyExchangeType: u32,
+    pub KeyExchangeStrength: u32,
+}
+pub type HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_STATE_INFO {
+    pub Flags: HTTP_PROPERTY_FLAGS,
+    pub State: HTTP_ENABLED_STATE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_TIMEOUT_LIMIT_INFO {
+    pub Flags: HTTP_PROPERTY_FLAGS,
+    pub EntityBody: u16,
+    pub DrainEntityBody: u16,
+    pub RequestQueue: u16,
+    pub IdleConnection: u16,
+    pub HeaderWait: u16,
+    pub MinSendRate: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_TLS_RESTRICTIONS_PARAM {
+    pub RestrictionCount: u32,
+    pub TlsRestrictions: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
+    pub SessionTicketKeyCount: u32,
+    pub SessionTicketKeys: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct HTTP_TRANSPORT_ADDRESS {
+    pub pRemoteAddress: *mut super::WinSock::SOCKADDR,
+    pub pLocalAddress: *mut super::WinSock::SOCKADDR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_UNKNOWN_HEADER {
+    pub NameLength: u16,
+    pub RawValueLength: u16,
+    pub pName: windows_sys::core::PCSTR,
+    pub pRawValue: windows_sys::core::PCSTR,
+}
 pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;
+pub type HTTP_VERB = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_VERSION {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+}
 pub const HTTP_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("HTTP/1.0");
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_WSK_API_TIMINGS {
+    pub ConnectCount: u64,
+    pub ConnectSum: u64,
+    pub DisconnectCount: u64,
+    pub DisconnectSum: u64,
+    pub SendCount: u64,
+    pub SendSum: u64,
+    pub ReceiveCount: u64,
+    pub ReceiveSum: u64,
+    pub ReleaseCount: u64,
+    pub ReleaseSum: u64,
+    pub ControlSocketCount: u64,
+    pub ControlSocketSum: u64,
+}
 pub const HeaderWaitTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = 1i32;
 pub const Http503ResponseVerbosityBasic: HTTP_503_RESPONSE_VERBOSITY = 0i32;
 pub const Http503ResponseVerbosityFull: HTTP_503_RESPONSE_VERBOSITY = 2i32;
@@ -405,835 +1237,3 @@ pub const PerformanceParamMaxConcurrentClientStreams: HTTP_PERFORMANCE_PARAM_TYP
 pub const PerformanceParamMaxReceiveBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = 4i32;
 pub const PerformanceParamMaxSendBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = 2i32;
 pub const PerformanceParamSendBufferingFlags: HTTP_PERFORMANCE_PARAM_TYPE = 0i32;
-pub type HTTP_503_RESPONSE_VERBOSITY = i32;
-pub type HTTP_AUTHENTICATION_HARDENING_LEVELS = i32;
-pub type HTTP_AUTH_STATUS = i32;
-pub type HTTP_CACHE_POLICY_TYPE = i32;
-pub type HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = i32;
-pub type HTTP_DATA_CHUNK_TYPE = i32;
-pub type HTTP_DELEGATE_REQUEST_PROPERTY_ID = i32;
-pub type HTTP_ENABLED_STATE = i32;
-pub type HTTP_FEATURE_ID = i32;
-pub type HTTP_HEADER_ID = i32;
-pub type HTTP_INITIALIZE = u32;
-pub type HTTP_LOGGING_ROLLOVER_TYPE = i32;
-pub type HTTP_LOGGING_TYPE = i32;
-pub type HTTP_LOG_DATA_TYPE = i32;
-pub type HTTP_PERFORMANCE_PARAM_TYPE = i32;
-pub type HTTP_PROTECTION_LEVEL_TYPE = i32;
-pub type HTTP_QOS_SETTING_TYPE = i32;
-pub type HTTP_RECEIVE_HTTP_REQUEST_FLAGS = u32;
-pub type HTTP_REQUEST_AUTH_TYPE = i32;
-pub type HTTP_REQUEST_INFO_TYPE = i32;
-pub type HTTP_REQUEST_PROPERTY = i32;
-pub type HTTP_REQUEST_SIZING_TYPE = i32;
-pub type HTTP_REQUEST_TIMING_TYPE = i32;
-pub type HTTP_RESPONSE_INFO_TYPE = i32;
-pub type HTTP_SCHEME = i32;
-pub type HTTP_SERVER_PROPERTY = i32;
-pub type HTTP_SERVICE_BINDING_TYPE = i32;
-pub type HTTP_SERVICE_CONFIG_CACHE_KEY = i32;
-pub type HTTP_SERVICE_CONFIG_ID = i32;
-pub type HTTP_SERVICE_CONFIG_QUERY_TYPE = i32;
-pub type HTTP_SERVICE_CONFIG_SETTING_KEY = i32;
-pub type HTTP_SERVICE_CONFIG_TIMEOUT_KEY = i32;
-pub type HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = i32;
-pub type HTTP_VERB = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP2_SETTINGS_LIMITS_PARAM {
-    pub Http2MaxSettingsPerFrame: u32,
-    pub Http2MaxSettingsPerMinute: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP2_WINDOW_SIZE_PARAM {
-    pub Http2ReceiveWindowSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTPAPI_VERSION {
-    pub HttpApiMajorVersion: u16,
-    pub HttpApiMinorVersion: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_BANDWIDTH_LIMIT_INFO {
-    pub Flags: HTTP_PROPERTY_FLAGS,
-    pub MaxBandwidth: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_BINDING_INFO {
-    pub Flags: HTTP_PROPERTY_FLAGS,
-    pub RequestQueueHandle: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_BYTE_RANGE {
-    pub StartingOffset: u64,
-    pub Length: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_CACHE_POLICY {
-    pub Policy: HTTP_CACHE_POLICY_TYPE,
-    pub SecondsToLive: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_CHANNEL_BIND_INFO {
-    pub Hardening: HTTP_AUTHENTICATION_HARDENING_LEVELS,
-    pub Flags: u32,
-    pub ServiceNames: *mut *mut HTTP_SERVICE_BINDING_BASE,
-    pub NumberOfServiceNames: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_CONNECTION_LIMIT_INFO {
-    pub Flags: HTTP_PROPERTY_FLAGS,
-    pub MaxConnections: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_COOKED_URL {
-    pub FullUrlLength: u16,
-    pub HostLength: u16,
-    pub AbsPathLength: u16,
-    pub QueryStringLength: u16,
-    pub pFullUrl: windows_sys::core::PCWSTR,
-    pub pHost: windows_sys::core::PCWSTR,
-    pub pAbsPath: windows_sys::core::PCWSTR,
-    pub pQueryString: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
-    pub PropertyId: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID,
-    pub PropertyInfoLength: u32,
-    pub PropertyInfo: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_DATA_CHUNK {
-    pub DataChunkType: HTTP_DATA_CHUNK_TYPE,
-    pub Anonymous: HTTP_DATA_CHUNK_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union HTTP_DATA_CHUNK_0 {
-    pub FromMemory: HTTP_DATA_CHUNK_0_0,
-    pub FromFileHandle: HTTP_DATA_CHUNK_0_1,
-    pub FromFragmentCache: HTTP_DATA_CHUNK_0_2,
-    pub FromFragmentCacheEx: HTTP_DATA_CHUNK_0_3,
-    pub Trailers: HTTP_DATA_CHUNK_0_4,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_DATA_CHUNK_0_1 {
-    pub ByteRange: HTTP_BYTE_RANGE,
-    pub FileHandle: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_DATA_CHUNK_0_3 {
-    pub ByteRange: HTTP_BYTE_RANGE,
-    pub pFragmentName: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_DATA_CHUNK_0_2 {
-    pub FragmentNameLength: u16,
-    pub pFragmentName: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_DATA_CHUNK_0_0 {
-    pub pBuffer: *mut core::ffi::c_void,
-    pub BufferLength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_DATA_CHUNK_0_4 {
-    pub TrailerCount: u16,
-    pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
-    pub PropertyId: HTTP_DELEGATE_REQUEST_PROPERTY_ID,
-    pub PropertyInfoLength: u32,
-    pub PropertyInfo: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_ERROR_HEADERS_PARAM {
-    pub StatusCode: u16,
-    pub HeaderCount: u16,
-    pub Headers: *mut HTTP_UNKNOWN_HEADER,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_FLOWRATE_INFO {
-    pub Flags: HTTP_PROPERTY_FLAGS,
-    pub MaxBandwidth: u32,
-    pub MaxPeakBandwidth: u32,
-    pub BurstSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_KNOWN_HEADER {
-    pub RawValueLength: u16,
-    pub pRawValue: windows_sys::core::PCSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_LISTEN_ENDPOINT_INFO {
-    pub Flags: HTTP_PROPERTY_FLAGS,
-    pub EnableSharing: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct HTTP_LOGGING_INFO {
-    pub Flags: HTTP_PROPERTY_FLAGS,
-    pub LoggingFlags: u32,
-    pub SoftwareName: windows_sys::core::PCWSTR,
-    pub SoftwareNameLength: u16,
-    pub DirectoryNameLength: u16,
-    pub DirectoryName: windows_sys::core::PCWSTR,
-    pub Format: HTTP_LOGGING_TYPE,
-    pub Fields: u32,
-    pub pExtFields: *mut core::ffi::c_void,
-    pub NumOfExtFields: u16,
-    pub MaxRecordSize: u16,
-    pub RolloverType: HTTP_LOGGING_ROLLOVER_TYPE,
-    pub RolloverSize: u32,
-    pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_LOG_DATA {
-    pub Type: HTTP_LOG_DATA_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_LOG_FIELDS_DATA {
-    pub Base: HTTP_LOG_DATA,
-    pub UserNameLength: u16,
-    pub UriStemLength: u16,
-    pub ClientIpLength: u16,
-    pub ServerNameLength: u16,
-    pub ServiceNameLength: u16,
-    pub ServerIpLength: u16,
-    pub MethodLength: u16,
-    pub UriQueryLength: u16,
-    pub HostLength: u16,
-    pub UserAgentLength: u16,
-    pub CookieLength: u16,
-    pub ReferrerLength: u16,
-    pub UserName: windows_sys::core::PWSTR,
-    pub UriStem: windows_sys::core::PWSTR,
-    pub ClientIp: windows_sys::core::PSTR,
-    pub ServerName: windows_sys::core::PSTR,
-    pub ServiceName: windows_sys::core::PSTR,
-    pub ServerIp: windows_sys::core::PSTR,
-    pub Method: windows_sys::core::PSTR,
-    pub UriQuery: windows_sys::core::PSTR,
-    pub Host: windows_sys::core::PSTR,
-    pub UserAgent: windows_sys::core::PSTR,
-    pub Cookie: windows_sys::core::PSTR,
-    pub Referrer: windows_sys::core::PSTR,
-    pub ServerPort: u16,
-    pub ProtocolStatus: u16,
-    pub Win32Status: u32,
-    pub MethodNum: HTTP_VERB,
-    pub SubStatus: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_MULTIPLE_KNOWN_HEADERS {
-    pub HeaderId: HTTP_HEADER_ID,
-    pub Flags: u32,
-    pub KnownHeaderCount: u16,
-    pub KnownHeaders: *mut HTTP_KNOWN_HEADER,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_PERFORMANCE_PARAM {
-    pub Type: HTTP_PERFORMANCE_PARAM_TYPE,
-    pub BufferSize: u32,
-    pub Buffer: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_PROPERTY_FLAGS {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_PROTECTION_LEVEL_INFO {
-    pub Flags: HTTP_PROPERTY_FLAGS,
-    pub Level: HTTP_PROTECTION_LEVEL_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_QOS_SETTING_INFO {
-    pub QosType: HTTP_QOS_SETTING_TYPE,
-    pub QosSetting: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
-    pub Freshness: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_QUERY_REQUEST_QUALIFIER_TCP {
-    pub Freshness: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_QUIC_API_TIMINGS {
-    pub ConnectionTimings: HTTP_QUIC_CONNECTION_API_TIMINGS,
-    pub StreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_QUIC_CONNECTION_API_TIMINGS {
-    pub OpenTime: u64,
-    pub CloseTime: u64,
-    pub StartTime: u64,
-    pub ShutdownTime: u64,
-    pub SecConfigCreateTime: u64,
-    pub SecConfigDeleteTime: u64,
-    pub GetParamCount: u64,
-    pub GetParamSum: u64,
-    pub SetParamCount: u64,
-    pub SetParamSum: u64,
-    pub SetCallbackHandlerCount: u64,
-    pub SetCallbackHandlerSum: u64,
-    pub ControlStreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_QUIC_STREAM_API_TIMINGS {
-    pub OpenCount: u64,
-    pub OpenSum: u64,
-    pub CloseCount: u64,
-    pub CloseSum: u64,
-    pub StartCount: u64,
-    pub StartSum: u64,
-    pub ShutdownCount: u64,
-    pub ShutdownSum: u64,
-    pub SendCount: u64,
-    pub SendSum: u64,
-    pub ReceiveSetEnabledCount: u64,
-    pub ReceiveSetEnabledSum: u64,
-    pub GetParamCount: u64,
-    pub GetParamSum: u64,
-    pub SetParamCount: u64,
-    pub SetParamSum: u64,
-    pub SetCallbackHandlerCount: u64,
-    pub SetCallbackHandlerSum: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_QUIC_STREAM_REQUEST_STATS {
-    pub StreamWaitStart: u64,
-    pub StreamWaitEnd: u64,
-    pub RequestHeadersCompressionStart: u64,
-    pub RequestHeadersCompressionEnd: u64,
-    pub ResponseHeadersDecompressionStart: u64,
-    pub ResponseHeadersDecompressionEnd: u64,
-    pub RequestHeadersCompressedSize: u64,
-    pub ResponseHeadersCompressedSize: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_REQUEST_AUTH_INFO {
-    pub AuthStatus: HTTP_AUTH_STATUS,
-    pub SecStatus: windows_sys::core::HRESULT,
-    pub Flags: u32,
-    pub AuthType: HTTP_REQUEST_AUTH_TYPE,
-    pub AccessToken: super::super::Foundation::HANDLE,
-    pub ContextAttributes: u32,
-    pub PackedContextLength: u32,
-    pub PackedContextType: u32,
-    pub PackedContext: *mut core::ffi::c_void,
-    pub MutualAuthDataLength: u32,
-    pub pMutualAuthData: windows_sys::core::PSTR,
-    pub PackageNameLength: u16,
-    pub pPackageName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
-    pub ServiceName: *mut HTTP_SERVICE_BINDING_BASE,
-    pub ChannelToken: *mut u8,
-    pub ChannelTokenSize: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_REQUEST_HEADERS {
-    pub UnknownHeaderCount: u16,
-    pub pUnknownHeaders: *mut HTTP_UNKNOWN_HEADER,
-    pub TrailerCount: u16,
-    pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
-    pub KnownHeaders: [HTTP_KNOWN_HEADER; 41],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_REQUEST_INFO {
-    pub InfoType: HTTP_REQUEST_INFO_TYPE,
-    pub InfoLength: u32,
-    pub pInfo: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_REQUEST_PROPERTY_SNI {
-    pub Hostname: [u16; 256],
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_REQUEST_PROPERTY_STREAM_ERROR {
-    pub ErrorCode: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_REQUEST_SIZING_INFO {
-    pub Flags: u64,
-    pub RequestIndex: u32,
-    pub RequestSizingCount: u32,
-    pub RequestSizing: [u64; 5],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_REQUEST_TIMING_INFO {
-    pub RequestTimingCount: u32,
-    pub RequestTiming: [u64; 30],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
-    pub TokenBinding: *mut u8,
-    pub TokenBindingSize: u32,
-    pub EKM: *mut u8,
-    pub EKMSize: u32,
-    pub KeyType: u8,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_REQUEST_V1 {
-    pub Flags: u32,
-    pub ConnectionId: u64,
-    pub RequestId: u64,
-    pub UrlContext: u64,
-    pub Version: HTTP_VERSION,
-    pub Verb: HTTP_VERB,
-    pub UnknownVerbLength: u16,
-    pub RawUrlLength: u16,
-    pub pUnknownVerb: windows_sys::core::PCSTR,
-    pub pRawUrl: windows_sys::core::PCSTR,
-    pub CookedUrl: HTTP_COOKED_URL,
-    pub Address: HTTP_TRANSPORT_ADDRESS,
-    pub Headers: HTTP_REQUEST_HEADERS,
-    pub BytesReceived: u64,
-    pub EntityChunkCount: u16,
-    pub pEntityChunks: *mut HTTP_DATA_CHUNK,
-    pub RawConnectionId: u64,
-    pub pSslInfo: *mut HTTP_SSL_INFO,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_REQUEST_V2 {
-    pub Base: HTTP_REQUEST_V1,
-    pub RequestInfoCount: u16,
-    pub pRequestInfo: *mut HTTP_REQUEST_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_RESPONSE_HEADERS {
-    pub UnknownHeaderCount: u16,
-    pub pUnknownHeaders: *mut HTTP_UNKNOWN_HEADER,
-    pub TrailerCount: u16,
-    pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
-    pub KnownHeaders: [HTTP_KNOWN_HEADER; 30],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_RESPONSE_INFO {
-    pub Type: HTTP_RESPONSE_INFO_TYPE,
-    pub Length: u32,
-    pub pInfo: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_RESPONSE_V1 {
-    pub Flags: u32,
-    pub Version: HTTP_VERSION,
-    pub StatusCode: u16,
-    pub ReasonLength: u16,
-    pub pReason: windows_sys::core::PCSTR,
-    pub Headers: HTTP_RESPONSE_HEADERS,
-    pub EntityChunkCount: u16,
-    pub pEntityChunks: *mut HTTP_DATA_CHUNK,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_RESPONSE_V2 {
-    pub Base: HTTP_RESPONSE_V1,
-    pub ResponseInfoCount: u16,
-    pub pResponseInfo: *mut HTTP_RESPONSE_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
-    pub RealmLength: u16,
-    pub Realm: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
-    pub DomainNameLength: u16,
-    pub DomainName: windows_sys::core::PWSTR,
-    pub RealmLength: u16,
-    pub Realm: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVER_AUTHENTICATION_INFO {
-    pub Flags: HTTP_PROPERTY_FLAGS,
-    pub AuthSchemes: u32,
-    pub ReceiveMutualAuth: super::super::Foundation::BOOLEAN,
-    pub ReceiveContextHandle: super::super::Foundation::BOOLEAN,
-    pub DisableNTLMCredentialCaching: super::super::Foundation::BOOLEAN,
-    pub ExFlags: u8,
-    pub DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
-    pub BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_BINDING_A {
-    pub Base: HTTP_SERVICE_BINDING_BASE,
-    pub Buffer: windows_sys::core::PSTR,
-    pub BufferSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_BINDING_BASE {
-    pub Type: HTTP_SERVICE_BINDING_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_BINDING_W {
-    pub Base: HTTP_SERVICE_BINDING_BASE,
-    pub Buffer: windows_sys::core::PWSTR,
-    pub BufferSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
-    pub KeyDesc: HTTP_SERVICE_CONFIG_CACHE_KEY,
-    pub ParamDesc: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
-    pub AddrLength: u16,
-    pub pAddress: *mut super::WinSock::SOCKADDR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
-    pub AddrCount: u32,
-    pub AddrList: [super::WinSock::SOCKADDR_STORAGE; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SETTING_SET {
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SETTING_KEY,
-    pub ParamDesc: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
-    pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
-    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
-    pub dwToken: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
-    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
-    pub dwToken: u32,
-    pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET {
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
-    pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
-    pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_KEY {
-    pub pIpPort: *mut super::WinSock::SOCKADDR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX {
-    pub IpPort: super::WinSock::SOCKADDR_STORAGE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
-    pub SslHashLength: u32,
-    pub pSslHash: *mut core::ffi::c_void,
-    pub AppId: windows_sys::core::GUID,
-    pub pSslCertStoreName: windows_sys::core::PWSTR,
-    pub DefaultCertCheckMode: u32,
-    pub DefaultRevocationFreshnessTime: u32,
-    pub DefaultRevocationUrlRetrievalTimeout: u32,
-    pub pDefaultSslCtlIdentifier: windows_sys::core::PWSTR,
-    pub pDefaultSslCtlStoreName: windows_sys::core::PWSTR,
-    pub DefaultFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
-    pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
-    pub Flags: u64,
-    pub Anonymous: HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
-    pub Http2WindowSizeParam: HTTP2_WINDOW_SIZE_PARAM,
-    pub Http2SettingsLimitsParam: HTTP2_SETTINGS_LIMITS_PARAM,
-    pub HttpPerformanceParam: HTTP_PERFORMANCE_PARAM,
-    pub HttpTlsRestrictionsParam: HTTP_TLS_RESTRICTIONS_PARAM,
-    pub HttpErrorHeadersParam: HTTP_ERROR_HEADERS_PARAM,
-    pub HttpTlsSessionTicketKeysParam: HTTP_TLS_SESSION_TICKET_KEYS_PARAM,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
-    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
-    pub dwToken: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
-    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
-    pub dwToken: u32,
-    pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_SET {
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
-    pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_SET_EX {
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
-    pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
-    pub IpPort: super::WinSock::SOCKADDR_STORAGE,
-    pub Host: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
-    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
-    pub dwToken: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
-    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
-    pub dwToken: u32,
-    pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET {
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
-    pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
-    pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
-    pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_TIMEOUT_SET {
-    pub KeyDesc: HTTP_SERVICE_CONFIG_TIMEOUT_KEY,
-    pub ParamDesc: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_URLACL_KEY {
-    pub pUrlPrefix: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_URLACL_PARAM {
-    pub pStringSecurityDescriptor: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_URLACL_QUERY {
-    pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
-    pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
-    pub dwToken: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SERVICE_CONFIG_URLACL_SET {
-    pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
-    pub ParamDesc: HTTP_SERVICE_CONFIG_URLACL_PARAM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SSL_CLIENT_CERT_INFO {
-    pub CertFlags: u32,
-    pub CertEncodedSize: u32,
-    pub pCertEncoded: *mut u8,
-    pub Token: super::super::Foundation::HANDLE,
-    pub CertDeniedByMapper: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SSL_INFO {
-    pub ServerCertKeySize: u16,
-    pub ConnectionKeySize: u16,
-    pub ServerCertIssuerSize: u32,
-    pub ServerCertSubjectSize: u32,
-    pub pServerCertIssuer: windows_sys::core::PCSTR,
-    pub pServerCertSubject: windows_sys::core::PCSTR,
-    pub pClientCertInfo: *mut HTTP_SSL_CLIENT_CERT_INFO,
-    pub SslClientCertNegotiated: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_SSL_PROTOCOL_INFO {
-    pub Protocol: u32,
-    pub CipherType: u32,
-    pub CipherStrength: u32,
-    pub HashType: u32,
-    pub HashStrength: u32,
-    pub KeyExchangeType: u32,
-    pub KeyExchangeStrength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_STATE_INFO {
-    pub Flags: HTTP_PROPERTY_FLAGS,
-    pub State: HTTP_ENABLED_STATE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_TIMEOUT_LIMIT_INFO {
-    pub Flags: HTTP_PROPERTY_FLAGS,
-    pub EntityBody: u16,
-    pub DrainEntityBody: u16,
-    pub RequestQueue: u16,
-    pub IdleConnection: u16,
-    pub HeaderWait: u16,
-    pub MinSendRate: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_TLS_RESTRICTIONS_PARAM {
-    pub RestrictionCount: u32,
-    pub TlsRestrictions: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
-    pub SessionTicketKeyCount: u32,
-    pub SessionTicketKeys: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct HTTP_TRANSPORT_ADDRESS {
-    pub pRemoteAddress: *mut super::WinSock::SOCKADDR,
-    pub pLocalAddress: *mut super::WinSock::SOCKADDR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_UNKNOWN_HEADER {
-    pub NameLength: u16,
-    pub RawValueLength: u16,
-    pub pName: windows_sys::core::PCSTR,
-    pub pRawValue: windows_sys::core::PCSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_VERSION {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_WSK_API_TIMINGS {
-    pub ConnectCount: u64,
-    pub ConnectSum: u64,
-    pub DisconnectCount: u64,
-    pub DisconnectSum: u64,
-    pub SendCount: u64,
-    pub SendSum: u64,
-    pub ReceiveCount: u64,
-    pub ReceiveSum: u64,
-    pub ReleaseCount: u64,
-    pub ReleaseSum: u64,
-    pub ControlSocketCount: u64,
-    pub ControlSocketSum: u64,
-}

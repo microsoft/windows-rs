@@ -1,10 +1,4 @@
 windows_core::imp::define_interface!(IIsolatedEnvironmentInterop, IIsolatedEnvironmentInterop_Vtbl, 0x85713c2e_8e62_46c5_8de2_c647e1d54636);
-impl core::ops::Deref for IIsolatedEnvironmentInterop {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IIsolatedEnvironmentInterop, windows_core::IUnknown);
 impl IIsolatedEnvironmentInterop {
     pub unsafe fn GetHostHwndInterop<P0>(&self, containerhwnd: P0) -> windows_core::Result<super::super::super::Foundation::HWND>
@@ -20,12 +14,11 @@ pub struct IIsolatedEnvironmentInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHostHwndInterop: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
-pub trait IIsolatedEnvironmentInterop_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IIsolatedEnvironmentInterop_Impl: windows_core::IUnknownImpl {
     fn GetHostHwndInterop(&self, containerhwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::Foundation::HWND>;
 }
-impl windows_core::RuntimeName for IIsolatedEnvironmentInterop {}
 impl IIsolatedEnvironmentInterop_Vtbl {
-    pub const fn new<Identity: IIsolatedEnvironmentInterop_Impl, const OFFSET: isize>() -> IIsolatedEnvironmentInterop_Vtbl {
+    pub const fn new<Identity: IIsolatedEnvironmentInterop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetHostHwndInterop<Identity: IIsolatedEnvironmentInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, containerhwnd: super::super::super::Foundation::HWND, hosthwnd: *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIsolatedEnvironmentInterop_Impl::GetHostHwndInterop(this, core::mem::transmute_copy(&containerhwnd)) {
@@ -42,3 +35,4 @@ impl IIsolatedEnvironmentInterop_Vtbl {
         iid == &<IIsolatedEnvironmentInterop as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IIsolatedEnvironmentInterop {}

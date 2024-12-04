@@ -42,21 +42,86 @@ windows_targets::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : windows_
 windows_targets::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : windows_sys::core::PCWSTR, pguidparam : *const windows_sys::core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
 windows_targets::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const windows_sys::core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
+#[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
+pub struct ADDRESS_LIST_DESCRIPTOR {
+    pub MediaType: u32,
+    pub AddressList: super::Ndis::NETWORK_ADDRESS_LIST,
+}
 pub const ADM_CTRL_FAILED: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ADSPEC {
+    pub adspec_header: RsvpObjHdr,
+    pub adspec_body: IS_ADSPEC_BODY,
+}
 pub const AD_FLAG_BREAK_BIT: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AD_GENERAL_PARAMS {
+    pub IntServAwareHopCount: u32,
+    pub PathBandwidthEstimate: u32,
+    pub MinimumLatency: u32,
+    pub PathMTU: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AD_GUARANTEED {
+    pub CTotal: u32,
+    pub DTotal: u32,
+    pub CSum: u32,
+    pub DSum: u32,
+}
 pub const ALLOWED_TO_SEND_DATA: u32 = 50001u32;
 pub const ANY_DEST_ADDR: u32 = 4294967295u32;
+pub type CBADMITRESULT = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut POLICY_DECISION) -> *mut u32>;
+pub type CBGETRSVPOBJECTS = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32>;
 pub const CONTROLLED_DELAY_SERV: u32 = 4u32;
 pub const CONTROLLED_LOAD_SERV: u32 = 5u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONTROL_SERVICE {
+    pub Length: u32,
+    pub Service: u32,
+    pub Overrides: AD_GENERAL_PARAMS,
+    pub Anonymous: CONTROL_SERVICE_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CONTROL_SERVICE_0 {
+    pub Guaranteed: AD_GUARANTEED,
+    pub ParamBuffer: [PARAM_BUFFER; 1],
+}
 pub const CREDENTIAL_SUB_TYPE_ASCII_ID: u32 = 1u32;
 pub const CREDENTIAL_SUB_TYPE_KERBEROS_TKT: u32 = 3u32;
 pub const CREDENTIAL_SUB_TYPE_PGP_CERT: u32 = 5u32;
 pub const CREDENTIAL_SUB_TYPE_UNICODE_ID: u32 = 2u32;
 pub const CREDENTIAL_SUB_TYPE_X509_V3_CERT: u32 = 4u32;
 pub const CURRENT_TCI_VERSION: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CtrlLoadFlowspec {
+    pub CL_spec_serv_hdr: IntServServiceHdr,
+    pub CL_spec_parm_hdr: IntServParmHdr,
+    pub CL_spec_parms: GenTspecParms,
+}
 pub const DD_TCP_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\Tcp");
 pub const DUP_RESULTS: u32 = 4u32;
 pub const END_TO_END_QOSABILITY: u32 = 50006u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct ENUMERATION_BUFFER {
+    pub Length: u32,
+    pub OwnerProcessId: u32,
+    pub FlowNameLength: u16,
+    pub FlowName: [u16; 256],
+    pub pFlow: *mut TC_GEN_FLOW,
+    pub NumberOfFilters: u32,
+    pub GenericFilter: [TC_GEN_FILTER; 1],
+}
 pub const ERROR_ADDRESS_TYPE_NOT_SUPPORTED: u32 = 7511u32;
 pub const ERROR_DS_MAPPING_EXISTS: u32 = 7518u32;
 pub const ERROR_DUPLICATE_FILTER: u32 = 7509u32;
@@ -75,6 +140,19 @@ pub const ERROR_INVALID_SHAPE_RATE: u32 = 7519u32;
 pub const ERROR_INVALID_TOKEN_RATE: u32 = 7503u32;
 pub const ERROR_INVALID_TRAFFIC_CLASS: u32 = 7507u32;
 pub const ERROR_NO_MORE_INFO: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct ERROR_SPEC {
+    pub errs_header: RsvpObjHdr,
+    pub errs_u: ERROR_SPEC_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union ERROR_SPEC_0 {
+    pub errs_ipv4: Error_Spec_IPv4,
+}
 pub const ERROR_SPECF_InPlace: u32 = 1u32;
 pub const ERROR_SPECF_NotGuilty: u32 = 2u32;
 pub const ERROR_TC_NOT_SUPPORTED: u32 = 7514u32;
@@ -87,12 +165,64 @@ pub const ERR_Usage_local: u32 = 16u32;
 pub const ERR_Usage_serv: u32 = 17u32;
 pub const ERR_global_mask: u32 = 4095u32;
 pub const EXPIRED_CREDENTIAL: u32 = 4u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Error_Spec_IPv4 {
+    pub errs_errnode: super::super::Networking::WinSock::IN_ADDR,
+    pub errs_flags: u8,
+    pub errs_code: u8,
+    pub errs_value: u16,
+}
 pub const FILTERSPECV4: FilterType = 1i32;
 pub const FILTERSPECV4_GPI: FilterType = 4i32;
 pub const FILTERSPECV6: FilterType = 2i32;
 pub const FILTERSPECV6_FLOW: FilterType = 3i32;
 pub const FILTERSPECV6_GPI: FilterType = 5i32;
 pub const FILTERSPEC_END: FilterType = 6i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct FILTER_SPEC {
+    pub filt_header: RsvpObjHdr,
+    pub filt_u: FILTER_SPEC_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union FILTER_SPEC_0 {
+    pub filt_ipv4: Filter_Spec_IPv4,
+    pub filt_ipv4gpi: Filter_Spec_IPv4GPI,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct FLOWDESCRIPTOR {
+    pub FlowSpec: super::super::Networking::WinSock::FLOWSPEC,
+    pub NumFilters: u32,
+    pub FilterList: *mut RSVP_FILTERSPEC,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct FLOW_DESC {
+    pub u1: FLOW_DESC_0,
+    pub u2: FLOW_DESC_1,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union FLOW_DESC_0 {
+    pub stspec: *mut SENDER_TSPEC,
+    pub isflow: *mut IS_FLOWSPEC,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union FLOW_DESC_1 {
+    pub stemp: *mut FILTER_SPEC,
+    pub fspec: *mut FILTER_SPEC,
+}
 pub const FLOW_DURATION: u32 = 5u32;
 pub const FORCE_IMMEDIATE_REFRESH: u32 = 1u32;
 pub const FSCTL_TCP_BASE: u32 = 18u32;
@@ -106,6 +236,22 @@ pub const FVEB_UNLOCK_FLAG_PASSPHRASE: u32 = 128u32;
 pub const FVEB_UNLOCK_FLAG_PIN: u32 = 16u32;
 pub const FVEB_UNLOCK_FLAG_RECOVERY: u32 = 64u32;
 pub const FVEB_UNLOCK_FLAG_TPM: u32 = 4u32;
+pub type FilterType = i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Filter_Spec_IPv4 {
+    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub filt_unused: u16,
+    pub filt_port: u16,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Filter_Spec_IPv4GPI {
+    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub filt_gpi: u32,
+}
 pub const GENERAL_INFO: u32 = 1u32;
 pub const GQOS_API: u32 = 56400u32;
 pub const GQOS_ERRORCODE_UNKNOWN: u32 = 4294967295u32;
@@ -141,8 +287,91 @@ pub const GUID_QOS_NON_BESTEFFORT_LIMIT: windows_sys::core::GUID = windows_sys::
 pub const GUID_QOS_REMAINING_BANDWIDTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4c51720_40ec_11d1_2c91_00aa00574915);
 pub const GUID_QOS_STATISTICS_BUFFER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbb2c0980_e900_11d1_b07e_0080c71382bf);
 pub const GUID_QOS_TIMER_RESOLUTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xba10cc88_f13e_11d2_be1b_00a0c99ee63b);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Gads_parms_t {
+    pub Gads_serv_hdr: IntServServiceHdr,
+    pub Gads_Ctot_hdr: IntServParmHdr,
+    pub Gads_Ctot: u32,
+    pub Gads_Dtot_hdr: IntServParmHdr,
+    pub Gads_Dtot: u32,
+    pub Gads_Csum_hdr: IntServParmHdr,
+    pub Gads_Csum: u32,
+    pub Gads_Dsum_hdr: IntServParmHdr,
+    pub Gads_Dsum: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GenAdspecParams {
+    pub gen_parm_hdr: IntServServiceHdr,
+    pub gen_parm_hopcnt_hdr: IntServParmHdr,
+    pub gen_parm_hopcnt: u32,
+    pub gen_parm_pathbw_hdr: IntServParmHdr,
+    pub gen_parm_path_bw: f32,
+    pub gen_parm_minlat_hdr: IntServParmHdr,
+    pub gen_parm_min_latency: u32,
+    pub gen_parm_compmtu_hdr: IntServParmHdr,
+    pub gen_parm_composed_MTU: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GenTspec {
+    pub gen_Tspec_serv_hdr: IntServServiceHdr,
+    pub gen_Tspec_parm_hdr: IntServParmHdr,
+    pub gen_Tspec_parms: GenTspecParms,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GenTspecParms {
+    pub TB_Tspec_r: f32,
+    pub TB_Tspec_b: f32,
+    pub TB_Tspec_p: f32,
+    pub TB_Tspec_m: u32,
+    pub TB_Tspec_M: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GuarFlowSpec {
+    pub Guar_serv_hdr: IntServServiceHdr,
+    pub Guar_Tspec_hdr: IntServParmHdr,
+    pub Guar_Tspec_parms: GenTspecParms,
+    pub Guar_Rspec_hdr: IntServParmHdr,
+    pub Guar_Rspec: GuarRspec,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GuarRspec {
+    pub Guar_R: f32,
+    pub Guar_S: u32,
+}
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct HSP_UPGRADE_IMAGEDATA {
+    pub hashAlgID: u16,
+    pub digestSize: u16,
+    pub digest: [u8; 64],
+    pub fileName: [u16; 64],
+}
 pub const IDENTITY_CHANGED: u32 = 5u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IDPE_ATTR {
+    pub PeAttribLength: u16,
+    pub PeAttribType: u8,
+    pub PeAttribSubType: u8,
+    pub PeAttribValue: [u8; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ID_ERROR_OBJECT {
+    pub usIdErrLength: u16,
+    pub ucAType: u8,
+    pub ucSubType: u8,
+    pub usReserved: u16,
+    pub usIdErrorValue: u16,
+    pub ucIdErrData: [u8; 4],
+}
 pub const IF_MIB_STATS_ID: u32 = 1u32;
 pub const INFO_NOT_AVAILABLE: u32 = 4294967295u32;
 pub const INSUFFICIENT_PRIVILEGES: u32 = 3u32;
@@ -151,11 +380,78 @@ pub const INTSERV_VERS_MASK: u32 = 240u32;
 pub const INV_LPM_HANDLE: u32 = 1u32;
 pub const INV_REQ_HANDLE: u32 = 3u32;
 pub const INV_RESULTS: u32 = 5u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IN_ADDR_IPV4 {
+    pub Addr: u32,
+    pub AddrBytes: [u8; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IN_ADDR_IPV6 {
+    pub Addr: [u8; 16],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IPX_PATTERN {
+    pub Src: IPX_PATTERN_0,
+    pub Dest: IPX_PATTERN_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IPX_PATTERN_0 {
+    pub NetworkAddress: u32,
+    pub NodeAddress: [u8; 6],
+    pub Socket: u16,
+}
 pub const IP_INTFC_INFO_ID: u32 = 259u32;
 pub const IP_MIB_ADDRTABLE_ENTRY_ID: u32 = 258u32;
 pub const IP_MIB_STATS_ID: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IP_PATTERN {
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub SrcAddr: u32,
+    pub DstAddr: u32,
+    pub S_un: IP_PATTERN_0,
+    pub ProtocolId: u8,
+    pub Reserved3: [u8; 3],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IP_PATTERN_0 {
+    pub S_un_ports: IP_PATTERN_0_0,
+    pub S_un_icmp: IP_PATTERN_0_1,
+    pub S_Spi: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IP_PATTERN_0_1 {
+    pub s_type: u8,
+    pub s_code: u8,
+    pub filler: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IP_PATTERN_0_0 {
+    pub s_srcport: u16,
+    pub s_dstport: u16,
+}
 pub const ISPH_FLG_INV: u32 = 128u32;
 pub const ISSH_BREAK_BIT: u32 = 128u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IS_ADSPEC_BODY {
+    pub adspec_mh: IntServMainHdr,
+    pub adspec_genparms: GenAdspecParams,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IS_FLOWSPEC {
+    pub flow_header: RsvpObjHdr,
+    pub flow_body: IntServFlowSpec,
+}
 pub const IS_GUAR_RSPEC: i32 = 130i32;
 pub const IS_WKP_COMPOSED_MTU: int_serv_wkp = 10i32;
 pub const IS_WKP_HOP_CNT: int_serv_wkp = 4i32;
@@ -163,10 +459,77 @@ pub const IS_WKP_MIN_LATENCY: int_serv_wkp = 8i32;
 pub const IS_WKP_PATH_BW: int_serv_wkp = 6i32;
 pub const IS_WKP_Q_TSPEC: int_serv_wkp = 128i32;
 pub const IS_WKP_TB_TSPEC: int_serv_wkp = 127i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IntServFlowSpec {
+    pub spec_mh: IntServMainHdr,
+    pub spec_u: IntServFlowSpec_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IntServFlowSpec_0 {
+    pub CL_spec: CtrlLoadFlowspec,
+    pub G_spec: GuarFlowSpec,
+    pub Q_spec: QualAppFlowSpec,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IntServMainHdr {
+    pub ismh_version: u8,
+    pub ismh_unused: u8,
+    pub ismh_len32b: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IntServParmHdr {
+    pub isph_parm_num: u8,
+    pub isph_flags: u8,
+    pub isph_len32b: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IntServServiceHdr {
+    pub issh_service: u8,
+    pub issh_flags: u8,
+    pub issh_len32b: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IntServTspecBody {
+    pub st_mh: IntServMainHdr,
+    pub tspec_u: IntServTspecBody_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IntServTspecBody_0 {
+    pub gen_stspec: GenTspec,
+    pub qual_stspec: QualTspec,
+}
 pub const LINE_RATE: u32 = 50003u32;
 pub const LOCAL_QOSABILITY: u32 = 50005u32;
 pub const LOCAL_TRAFFIC_CONTROL: u32 = 50004u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct LPMIPTABLE {
+    pub ulIfIndex: u32,
+    pub MediaType: u32,
+    pub IfIpAddr: super::super::Networking::WinSock::IN_ADDR,
+    pub IfNetMask: super::super::Networking::WinSock::IN_ADDR,
+}
 pub const LPM_API_VERSION_1: u32 = 1u32;
+pub type LPM_HANDLE = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LPM_INIT_INFO {
+    pub PcmVersionNumber: u32,
+    pub ResultTimeLimit: u32,
+    pub ConfiguredLpmCount: i32,
+    pub AllocMemory: PALLOCMEM,
+    pub FreeMemory: PFREEMEM,
+    pub PcmAdmitResultCallback: CBADMITRESULT,
+    pub GetRsvpObjectsCallback: CBGETRSVPOBJECTS,
+}
 pub const LPM_OK: u32 = 0u32;
 pub const LPM_PE_ALL_TYPES: u32 = 0u32;
 pub const LPM_PE_APP_IDENTITY: u32 = 3u32;
@@ -203,10 +566,40 @@ pub const Opt_Share_mask: u32 = 24u32;
 pub const Opt_Shared: u32 = 16u32;
 pub const Opt_SndSel_mask: u32 = 7u32;
 pub const Opt_Wildcard: u32 = 1u32;
+pub type PALLOCMEM = Option<unsafe extern "system" fn(size: u32) -> *mut core::ffi::c_void>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PARAM_BUFFER {
+    pub ParameterId: u32,
+    pub Length: u32,
+    pub Buffer: [u8; 1],
+}
 pub const PCM_VERSION_1: u32 = 1u32;
 pub const PE_ATTRIB_TYPE_CREDENTIAL: u32 = 2u32;
 pub const PE_ATTRIB_TYPE_POLICY_LOCATOR: u32 = 1u32;
 pub const PE_TYPE_APPID: u32 = 3u32;
+pub type PFREEMEM = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct POLICY_DATA {
+    pub PolicyObjHdr: RsvpObjHdr,
+    pub usPeOffset: u16,
+    pub usReserved: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct POLICY_DECISION {
+    pub lpvResult: u32,
+    pub wPolicyErrCode: u16,
+    pub wPolicyErrValue: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct POLICY_ELEMENT {
+    pub usPeLength: u16,
+    pub usPeType: u16,
+    pub ucPeData: [u8; 4],
+}
 pub const POLICY_ERRV_CRAZY_FLOWSPEC: u32 = 57u32;
 pub const POLICY_ERRV_EXPIRED_CREDENTIALS: u32 = 4u32;
 pub const POLICY_ERRV_EXPIRED_USER_TOKEN: u32 = 51u32;
@@ -301,18 +694,154 @@ pub const QOSTrafficTypeControl: QOS_TRAFFIC_TYPE = 5i32;
 pub const QOSTrafficTypeExcellentEffort: QOS_TRAFFIC_TYPE = 2i32;
 pub const QOSTrafficTypeVoice: QOS_TRAFFIC_TYPE = 4i32;
 pub const QOSUseNonConformantMarkings: QOS_SHAPING = 2i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct QOS_DESTADDR {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub SocketAddress: *const super::super::Networking::WinSock::SOCKADDR,
+    pub SocketAddressLength: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_DIFFSERV {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub DSFieldCount: u32,
+    pub DiffservRule: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_DIFFSERV_RULE {
+    pub InboundDSField: u8,
+    pub ConformingOutboundDSField: u8,
+    pub NonConformingOutboundDSField: u8,
+    pub ConformingUserPriority: u8,
+    pub NonConformingUserPriority: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_DS_CLASS {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub DSField: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_FLOWRATE_OUTGOING {
+    pub Bandwidth: u64,
+    pub ShapingBehavior: QOS_SHAPING,
+    pub Reason: QOS_FLOWRATE_REASON,
+}
+pub type QOS_FLOWRATE_REASON = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_FLOW_FUNDAMENTALS {
+    pub BottleneckBandwidthSet: super::super::Foundation::BOOL,
+    pub BottleneckBandwidth: u64,
+    pub AvailableBandwidthSet: super::super::Foundation::BOOL,
+    pub AvailableBandwidth: u64,
+    pub RTTSet: super::super::Foundation::BOOL,
+    pub RTT: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_FRIENDLY_NAME {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub FriendlyName: [u16; 256],
+}
 pub const QOS_GENERAL_ID_BASE: u32 = 2000u32;
 pub const QOS_MAX_OBJECT_STRING_LENGTH: u32 = 256u32;
 pub const QOS_NON_ADAPTIVE_FLOW: u32 = 2u32;
+pub type QOS_NOTIFY_FLOW = i32;
 pub const QOS_NOT_SPECIFIED: u32 = 4294967295u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_OBJECT_HDR {
+    pub ObjectType: u32,
+    pub ObjectLength: u32,
+}
 pub const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_PACKET_PRIORITY {
+    pub ConformantDSCPValue: u32,
+    pub NonConformantDSCPValue: u32,
+    pub ConformantL2Value: u32,
+    pub NonConformantL2Value: u32,
+}
 pub const QOS_QUERYFLOW_FRESH: u32 = 1u32;
+pub type QOS_QUERY_FLOW = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_SD_MODE {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub ShapeDiscardMode: u32,
+}
+pub type QOS_SET_FLOW = i32;
+pub type QOS_SHAPING = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_SHAPING_RATE {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub ShapingRate: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_TCP_TRAFFIC {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_TRAFFIC_CLASS {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub TrafficClass: u32,
+}
 pub const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000u32;
+pub type QOS_TRAFFIC_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QOS_VERSION {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+}
 pub const QUALITATIVE_SERV: u32 = 6u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QualAppFlowSpec {
+    pub Q_spec_serv_hdr: IntServServiceHdr,
+    pub Q_spec_parm_hdr: IntServParmHdr,
+    pub Q_spec_parms: QualTspecParms,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QualTspec {
+    pub qual_Tspec_serv_hdr: IntServServiceHdr,
+    pub qual_Tspec_parm_hdr: IntServParmHdr,
+    pub qual_Tspec_parms: QualTspecParms,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QualTspecParms {
+    pub TB_Tspec_M: u32,
+}
 pub const RCVD_PATH_TEAR: u32 = 1u32;
 pub const RCVD_RESV_TEAR: u32 = 2u32;
 pub const RESOURCES_ALLOCATED: u32 = 1u32;
 pub const RESOURCES_MODIFIED: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RESV_STYLE {
+    pub style_header: RsvpObjHdr,
+    pub style_word: u32,
+}
+pub type RHANDLE = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_ADSPEC {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub GeneralParams: AD_GENERAL_PARAMS,
+    pub NumberOfServices: u32,
+    pub Services: [CONTROL_SERVICE; 1],
+}
 pub const RSVP_DEFAULT_STYLE: u32 = 0u32;
 pub const RSVP_Err_ADMISSION: u32 = 1u32;
 pub const RSVP_Err_AMBIG_FILTER: u32 = 9u32;
@@ -346,16 +875,173 @@ pub const RSVP_Erv_No_Serv: u32 = 2u32;
 pub const RSVP_Erv_Nonev: u32 = 0u32;
 pub const RSVP_Erv_Other: u32 = 0u32;
 pub const RSVP_Erv_Peak_Rate: u32 = 32771u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_FILTERSPEC {
+    pub Type: FilterType,
+    pub Anonymous: RSVP_FILTERSPEC_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union RSVP_FILTERSPEC_0 {
+    pub FilterSpecV4: RSVP_FILTERSPEC_V4,
+    pub FilterSpecV6: RSVP_FILTERSPEC_V6,
+    pub FilterSpecV6Flow: RSVP_FILTERSPEC_V6_FLOW,
+    pub FilterSpecV4Gpi: RSVP_FILTERSPEC_V4_GPI,
+    pub FilterSpecV6Gpi: RSVP_FILTERSPEC_V6_GPI,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_FILTERSPEC_V4 {
+    pub Address: IN_ADDR_IPV4,
+    pub Unused: u16,
+    pub Port: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_FILTERSPEC_V4_GPI {
+    pub Address: IN_ADDR_IPV4,
+    pub GeneralPortId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_FILTERSPEC_V6 {
+    pub Address: IN_ADDR_IPV6,
+    pub UnUsed: u16,
+    pub Port: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_FILTERSPEC_V6_FLOW {
+    pub Address: IN_ADDR_IPV6,
+    pub UnUsed: u8,
+    pub FlowLabel: [u8; 3],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_FILTERSPEC_V6_GPI {
+    pub Address: IN_ADDR_IPV6,
+    pub GeneralPortId: u32,
+}
 pub const RSVP_FIXED_FILTER_STYLE: u32 = 2u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct RSVP_HOP {
+    pub hop_header: RsvpObjHdr,
+    pub hop_u: RSVP_HOP_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union RSVP_HOP_0 {
+    pub hop_ipv4: Rsvp_Hop_IPv4,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct RSVP_MSG_OBJS {
+    pub RsvpMsgType: i32,
+    pub pRsvpSession: *mut RSVP_SESSION,
+    pub pRsvpFromHop: *mut RSVP_HOP,
+    pub pRsvpToHop: *mut RSVP_HOP,
+    pub pResvStyle: *mut RESV_STYLE,
+    pub pRsvpScope: *mut RSVP_SCOPE,
+    pub FlowDescCount: i32,
+    pub pFlowDescs: *mut FLOW_DESC,
+    pub PdObjectCount: i32,
+    pub ppPdObjects: *mut *mut POLICY_DATA,
+    pub pErrorSpec: *mut ERROR_SPEC,
+    pub pAdspec: *mut ADSPEC,
+}
 pub const RSVP_OBJECT_ID_BASE: u32 = 1000u32;
 pub const RSVP_PATH: u32 = 1u32;
 pub const RSVP_PATH_ERR: u32 = 3u32;
 pub const RSVP_PATH_TEAR: u32 = 5u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_POLICY {
+    pub Len: u16,
+    pub Type: u16,
+    pub Info: [u8; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_POLICY_INFO {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub NumPolicyElement: u32,
+    pub PolicyElement: [RSVP_POLICY; 1],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct RSVP_RESERVE_INFO {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub Style: u32,
+    pub ConfirmRequest: u32,
+    pub PolicyElementList: *mut RSVP_POLICY_INFO,
+    pub NumFlowDesc: u32,
+    pub FlowDescList: *mut FLOWDESCRIPTOR,
+}
 pub const RSVP_RESV: u32 = 2u32;
 pub const RSVP_RESV_ERR: u32 = 4u32;
 pub const RSVP_RESV_TEAR: u32 = 6u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct RSVP_SCOPE {
+    pub scopl_header: RsvpObjHdr,
+    pub scope_u: RSVP_SCOPE_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union RSVP_SCOPE_0 {
+    pub scopl_ipv4: Scope_list_ipv4,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct RSVP_SESSION {
+    pub sess_header: RsvpObjHdr,
+    pub sess_u: RSVP_SESSION_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union RSVP_SESSION_0 {
+    pub sess_ipv4: Session_IPv4,
+}
 pub const RSVP_SHARED_EXPLICIT_STYLE: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_STATUS_INFO {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub StatusCode: u32,
+    pub ExtendedStatus1: u32,
+    pub ExtendedStatus2: u32,
+}
 pub const RSVP_WILDCARD_STYLE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RsvpObjHdr {
+    pub obj_length: u16,
+    pub obj_class: u8,
+    pub obj_ctype: u8,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Rsvp_Hop_IPv4 {
+    pub hop_ipaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub hop_LIH: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SENDER_TSPEC {
+    pub stspec_header: RsvpObjHdr,
+    pub stspec_body: IntServTspecBody,
+}
 pub const SERVICETYPE_BESTEFFORT: u32 = 1u32;
 pub const SERVICETYPE_CONTROLLEDLOAD: u32 = 2u32;
 pub const SERVICETYPE_GENERAL_INFORMATION: u32 = 5u32;
@@ -433,6 +1119,13 @@ pub const SIPAEVENT_IMAGESIZE: u32 = 458754u32;
 pub const SIPAEVENT_IMAGEVALIDATED: u32 = 458762u32;
 pub const SIPAEVENT_INFORMATION: u32 = 131073u32;
 pub const SIPAEVENT_KSR_SIGNATURE: u32 = 720897u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    pub SignAlgID: u32,
+    pub SignatureLength: u32,
+    pub Signature: [u8; 1],
+}
 pub const SIPAEVENT_LSAISO_CONFIG: u32 = 327720u32;
 pub const SIPAEVENT_MODULE_HSP: u32 = 458764u32;
 pub const SIPAEVENT_MODULE_SVN: u32 = 458763u32;
@@ -444,9 +1137,37 @@ pub const SIPAEVENT_OSKERNELDEBUG: u32 = 327681u32;
 pub const SIPAEVENT_OS_REVOCATION_LIST: u32 = 327699u32;
 pub const SIPAEVENT_PAGEFILE_ENCRYPTION_ENABLED: u32 = 327714u32;
 pub const SIPAEVENT_PHYSICALADDRESSEXTENSION: u32 = 327687u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    pub CreationTime: i64,
+    pub DigestLength: u32,
+    pub HashAlgID: u16,
+    pub Digest: [u8; 1],
+}
 pub const SIPAEVENT_SAFEMODE: u32 = 327685u32;
 pub const SIPAEVENT_SBCP_INFO: u32 = 327721u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    pub PayloadVersion: u32,
+    pub VarDataOffset: u32,
+    pub HashAlgID: u16,
+    pub DigestLength: u16,
+    pub Options: u32,
+    pub SignersCount: u32,
+    pub VarData: [u8; 1],
+}
 pub const SIPAEVENT_SI_POLICY: u32 = 327695u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_SI_POLICY_PAYLOAD {
+    pub PolicyVersion: u64,
+    pub PolicyNameLength: u16,
+    pub HashAlgID: u16,
+    pub DigestLength: u32,
+    pub VarLengthData: [u8; 1],
+}
 pub const SIPAEVENT_SMT_STATUS: u32 = 327700u32;
 pub const SIPAEVENT_SVN_CHAIN_STATUS: u32 = 131082u32;
 pub const SIPAEVENT_SYSTEMROOT: u32 = 327689u32;
@@ -464,6 +1185,25 @@ pub const SIPAEVENT_VBS_VSM_NOSECRETS_ENFORCED: u32 = 655370u32;
 pub const SIPAEVENT_VBS_VSM_REQUIRED: u32 = 655361u32;
 pub const SIPAEVENT_VSM_IDKS_INFO: u32 = 327715u32;
 pub const SIPAEVENT_VSM_IDK_INFO: u32 = 327712u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    pub KeyAlgID: u32,
+    pub Anonymous: SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    pub RsaKeyInfo: SIPAEVENT_VSM_IDK_RSA_INFO,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_VSM_IDK_RSA_INFO {
+    pub KeyBitLength: u32,
+    pub PublicExpLengthBytes: u32,
+    pub ModulusSizeBytes: u32,
+    pub PublicKeyData: [u8; 1],
+}
 pub const SIPAEVENT_VSM_LAUNCH_TYPE: u32 = 327698u32;
 pub const SIPAEVENT_WINPE: u32 = 327686u32;
 pub const SIPAEV_ACTION: u32 = 5u32;
@@ -538,7 +1278,76 @@ pub const SIPAHDRSIGNATURE: u32 = 1279476311u32;
 pub const SIPAKSRHDRSIGNATURE: u32 = 1297240907u32;
 pub const SIPALOGVERSION: u32 = 1u32;
 pub const STATE_TIMEOUT: u32 = 4u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Scope_list_ipv4 {
+    pub scopl_ipaddr: [super::super::Networking::WinSock::IN_ADDR; 1],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Session_IPv4 {
+    pub sess_destaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub sess_protid: u8,
+    pub sess_flags: u8,
+    pub sess_destport: u16,
+}
 pub const TCBASE: u32 = 7500u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct TCG_PCClientPCREventStruct {
+    pub pcrIndex: u32,
+    pub eventType: u32,
+    pub digest: [u8; 20],
+    pub eventDataSize: u32,
+    pub event: [u8; 1],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct TCG_PCClientTaggedEventStruct {
+    pub EventID: u32,
+    pub EventDataSize: u32,
+    pub EventData: [u8; 1],
+}
+pub type TCI_ADD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TCI_CLIENT_FUNC_LIST {
+    pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
+    pub ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,
+    pub ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
+    pub ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
+}
+pub type TCI_DEL_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const core::ffi::c_void)>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TC_GEN_FILTER {
+    pub AddressType: u16,
+    pub PatternSize: u32,
+    pub Pattern: *mut core::ffi::c_void,
+    pub Mask: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct TC_GEN_FLOW {
+    pub SendingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
+    pub ReceivingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
+    pub TcObjectsLength: u32,
+    pub TcObjects: [QOS_OBJECT_HDR; 1],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
+pub struct TC_IFC_DESCRIPTOR {
+    pub Length: u32,
+    pub pInterfaceName: windows_sys::core::PWSTR,
+    pub pInterfaceID: windows_sys::core::PWSTR,
+    pub AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
+}
 pub const TC_NONCONF_BORROW: u32 = 0u32;
 pub const TC_NONCONF_BORROW_PLUS: u32 = 3u32;
 pub const TC_NONCONF_DISCARD: u32 = 2u32;
@@ -548,6 +1357,15 @@ pub const TC_NOTIFY_IFC_CHANGE: u32 = 3u32;
 pub const TC_NOTIFY_IFC_CLOSE: u32 = 2u32;
 pub const TC_NOTIFY_IFC_UP: u32 = 1u32;
 pub const TC_NOTIFY_PARAM_CHANGED: u32 = 4u32;
+#[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
+pub struct TC_SUPPORTED_INFO_BUFFER {
+    pub InstanceIDLength: u16,
+    pub InstanceID: [u16; 256],
+    pub InterfaceLuid: u64,
+    pub AddrListDesc: ADDRESS_LIST_DESCRIPTOR,
+}
 pub const UNSUPPORTED_CREDENTIAL_TYPE: u32 = 2u32;
 pub const WBCL_DIGEST_ALG_BITMAP_SHA3_256: u32 = 32u32;
 pub const WBCL_DIGEST_ALG_BITMAP_SHA3_384: u32 = 64u32;
@@ -566,6 +1384,28 @@ pub const WBCL_DIGEST_ALG_ID_SHA_2_384: u32 = 12u32;
 pub const WBCL_DIGEST_ALG_ID_SHA_2_512: u32 = 13u32;
 pub const WBCL_DIGEST_ALG_ID_SM3_256: u32 = 18u32;
 pub const WBCL_HASH_LEN_SHA1: u32 = 20u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct WBCL_Iterator {
+    pub firstElementPtr: *mut core::ffi::c_void,
+    pub logSize: u32,
+    pub currentElementPtr: *mut core::ffi::c_void,
+    pub currentElementSize: u32,
+    pub digestSize: u16,
+    pub logFormat: u16,
+    pub numberOfDigests: u32,
+    pub digestSizes: *mut core::ffi::c_void,
+    pub supportedAlgorithms: u32,
+    pub hashAlgorithm: u16,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct WBCL_LogHdr {
+    pub signature: u32,
+    pub version: u32,
+    pub entries: u32,
+    pub length: u32,
+}
 pub const WBCL_MAX_HSP_UPGRADE_HASH_LEN: u32 = 64u32;
 pub const class_ADSPEC: u32 = 13u32;
 pub const class_CONFIRM: u32 = 15u32;
@@ -599,849 +1439,9 @@ pub const ctype_SENDER_TSPEC: u32 = 2u32;
 pub const ctype_SESSION_ipv4: u32 = 1u32;
 pub const ctype_SESSION_ipv4GPI: u32 = 3u32;
 pub const ctype_STYLE: u32 = 1u32;
+pub type int_serv_wkp = i32;
 pub const ioctl_code: u32 = 1u32;
 pub const mCOMPANY: u32 = 402653184u32;
 pub const mIOC_IN: u32 = 2147483648u32;
 pub const mIOC_OUT: u32 = 1073741824u32;
 pub const mIOC_VENDOR: u32 = 67108864u32;
-pub type FilterType = i32;
-pub type QOS_FLOWRATE_REASON = i32;
-pub type QOS_NOTIFY_FLOW = i32;
-pub type QOS_QUERY_FLOW = i32;
-pub type QOS_SET_FLOW = i32;
-pub type QOS_SHAPING = i32;
-pub type QOS_TRAFFIC_TYPE = i32;
-pub type int_serv_wkp = i32;
-#[repr(C)]
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy)]
-pub struct ADDRESS_LIST_DESCRIPTOR {
-    pub MediaType: u32,
-    pub AddressList: super::Ndis::NETWORK_ADDRESS_LIST,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ADSPEC {
-    pub adspec_header: RsvpObjHdr,
-    pub adspec_body: IS_ADSPEC_BODY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AD_GENERAL_PARAMS {
-    pub IntServAwareHopCount: u32,
-    pub PathBandwidthEstimate: u32,
-    pub MinimumLatency: u32,
-    pub PathMTU: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AD_GUARANTEED {
-    pub CTotal: u32,
-    pub DTotal: u32,
-    pub CSum: u32,
-    pub DSum: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONTROL_SERVICE {
-    pub Length: u32,
-    pub Service: u32,
-    pub Overrides: AD_GENERAL_PARAMS,
-    pub Anonymous: CONTROL_SERVICE_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CONTROL_SERVICE_0 {
-    pub Guaranteed: AD_GUARANTEED,
-    pub ParamBuffer: [PARAM_BUFFER; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CtrlLoadFlowspec {
-    pub CL_spec_serv_hdr: IntServServiceHdr,
-    pub CL_spec_parm_hdr: IntServParmHdr,
-    pub CL_spec_parms: GenTspecParms,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct ENUMERATION_BUFFER {
-    pub Length: u32,
-    pub OwnerProcessId: u32,
-    pub FlowNameLength: u16,
-    pub FlowName: [u16; 256],
-    pub pFlow: *mut TC_GEN_FLOW,
-    pub NumberOfFilters: u32,
-    pub GenericFilter: [TC_GEN_FILTER; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct ERROR_SPEC {
-    pub errs_header: RsvpObjHdr,
-    pub errs_u: ERROR_SPEC_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union ERROR_SPEC_0 {
-    pub errs_ipv4: Error_Spec_IPv4,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Error_Spec_IPv4 {
-    pub errs_errnode: super::super::Networking::WinSock::IN_ADDR,
-    pub errs_flags: u8,
-    pub errs_code: u8,
-    pub errs_value: u16,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct FILTER_SPEC {
-    pub filt_header: RsvpObjHdr,
-    pub filt_u: FILTER_SPEC_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union FILTER_SPEC_0 {
-    pub filt_ipv4: Filter_Spec_IPv4,
-    pub filt_ipv4gpi: Filter_Spec_IPv4GPI,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct FLOWDESCRIPTOR {
-    pub FlowSpec: super::super::Networking::WinSock::FLOWSPEC,
-    pub NumFilters: u32,
-    pub FilterList: *mut RSVP_FILTERSPEC,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct FLOW_DESC {
-    pub u1: FLOW_DESC_0,
-    pub u2: FLOW_DESC_1,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union FLOW_DESC_0 {
-    pub stspec: *mut SENDER_TSPEC,
-    pub isflow: *mut IS_FLOWSPEC,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union FLOW_DESC_1 {
-    pub stemp: *mut FILTER_SPEC,
-    pub fspec: *mut FILTER_SPEC,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Filter_Spec_IPv4 {
-    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
-    pub filt_unused: u16,
-    pub filt_port: u16,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Filter_Spec_IPv4GPI {
-    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
-    pub filt_gpi: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Gads_parms_t {
-    pub Gads_serv_hdr: IntServServiceHdr,
-    pub Gads_Ctot_hdr: IntServParmHdr,
-    pub Gads_Ctot: u32,
-    pub Gads_Dtot_hdr: IntServParmHdr,
-    pub Gads_Dtot: u32,
-    pub Gads_Csum_hdr: IntServParmHdr,
-    pub Gads_Csum: u32,
-    pub Gads_Dsum_hdr: IntServParmHdr,
-    pub Gads_Dsum: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GenAdspecParams {
-    pub gen_parm_hdr: IntServServiceHdr,
-    pub gen_parm_hopcnt_hdr: IntServParmHdr,
-    pub gen_parm_hopcnt: u32,
-    pub gen_parm_pathbw_hdr: IntServParmHdr,
-    pub gen_parm_path_bw: f32,
-    pub gen_parm_minlat_hdr: IntServParmHdr,
-    pub gen_parm_min_latency: u32,
-    pub gen_parm_compmtu_hdr: IntServParmHdr,
-    pub gen_parm_composed_MTU: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GenTspec {
-    pub gen_Tspec_serv_hdr: IntServServiceHdr,
-    pub gen_Tspec_parm_hdr: IntServParmHdr,
-    pub gen_Tspec_parms: GenTspecParms,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GenTspecParms {
-    pub TB_Tspec_r: f32,
-    pub TB_Tspec_b: f32,
-    pub TB_Tspec_p: f32,
-    pub TB_Tspec_m: u32,
-    pub TB_Tspec_M: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GuarFlowSpec {
-    pub Guar_serv_hdr: IntServServiceHdr,
-    pub Guar_Tspec_hdr: IntServParmHdr,
-    pub Guar_Tspec_parms: GenTspecParms,
-    pub Guar_Rspec_hdr: IntServParmHdr,
-    pub Guar_Rspec: GuarRspec,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GuarRspec {
-    pub Guar_R: f32,
-    pub Guar_S: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct HSP_UPGRADE_IMAGEDATA {
-    pub hashAlgID: u16,
-    pub digestSize: u16,
-    pub digest: [u8; 64],
-    pub fileName: [u16; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IDPE_ATTR {
-    pub PeAttribLength: u16,
-    pub PeAttribType: u8,
-    pub PeAttribSubType: u8,
-    pub PeAttribValue: [u8; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ID_ERROR_OBJECT {
-    pub usIdErrLength: u16,
-    pub ucAType: u8,
-    pub ucSubType: u8,
-    pub usReserved: u16,
-    pub usIdErrorValue: u16,
-    pub ucIdErrData: [u8; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IN_ADDR_IPV4 {
-    pub Addr: u32,
-    pub AddrBytes: [u8; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IN_ADDR_IPV6 {
-    pub Addr: [u8; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IPX_PATTERN {
-    pub Src: IPX_PATTERN_0,
-    pub Dest: IPX_PATTERN_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IPX_PATTERN_0 {
-    pub NetworkAddress: u32,
-    pub NodeAddress: [u8; 6],
-    pub Socket: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IP_PATTERN {
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub SrcAddr: u32,
-    pub DstAddr: u32,
-    pub S_un: IP_PATTERN_0,
-    pub ProtocolId: u8,
-    pub Reserved3: [u8; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IP_PATTERN_0 {
-    pub S_un_ports: IP_PATTERN_0_0,
-    pub S_un_icmp: IP_PATTERN_0_1,
-    pub S_Spi: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IP_PATTERN_0_1 {
-    pub s_type: u8,
-    pub s_code: u8,
-    pub filler: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IP_PATTERN_0_0 {
-    pub s_srcport: u16,
-    pub s_dstport: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IS_ADSPEC_BODY {
-    pub adspec_mh: IntServMainHdr,
-    pub adspec_genparms: GenAdspecParams,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IS_FLOWSPEC {
-    pub flow_header: RsvpObjHdr,
-    pub flow_body: IntServFlowSpec,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IntServFlowSpec {
-    pub spec_mh: IntServMainHdr,
-    pub spec_u: IntServFlowSpec_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IntServFlowSpec_0 {
-    pub CL_spec: CtrlLoadFlowspec,
-    pub G_spec: GuarFlowSpec,
-    pub Q_spec: QualAppFlowSpec,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IntServMainHdr {
-    pub ismh_version: u8,
-    pub ismh_unused: u8,
-    pub ismh_len32b: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IntServParmHdr {
-    pub isph_parm_num: u8,
-    pub isph_flags: u8,
-    pub isph_len32b: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IntServServiceHdr {
-    pub issh_service: u8,
-    pub issh_flags: u8,
-    pub issh_len32b: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IntServTspecBody {
-    pub st_mh: IntServMainHdr,
-    pub tspec_u: IntServTspecBody_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IntServTspecBody_0 {
-    pub gen_stspec: GenTspec,
-    pub qual_stspec: QualTspec,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct LPMIPTABLE {
-    pub ulIfIndex: u32,
-    pub MediaType: u32,
-    pub IfIpAddr: super::super::Networking::WinSock::IN_ADDR,
-    pub IfNetMask: super::super::Networking::WinSock::IN_ADDR,
-}
-pub type LPM_HANDLE = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LPM_INIT_INFO {
-    pub PcmVersionNumber: u32,
-    pub ResultTimeLimit: u32,
-    pub ConfiguredLpmCount: i32,
-    pub AllocMemory: PALLOCMEM,
-    pub FreeMemory: PFREEMEM,
-    pub PcmAdmitResultCallback: CBADMITRESULT,
-    pub GetRsvpObjectsCallback: CBGETRSVPOBJECTS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PARAM_BUFFER {
-    pub ParameterId: u32,
-    pub Length: u32,
-    pub Buffer: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct POLICY_DATA {
-    pub PolicyObjHdr: RsvpObjHdr,
-    pub usPeOffset: u16,
-    pub usReserved: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct POLICY_DECISION {
-    pub lpvResult: u32,
-    pub wPolicyErrCode: u16,
-    pub wPolicyErrValue: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct POLICY_ELEMENT {
-    pub usPeLength: u16,
-    pub usPeType: u16,
-    pub ucPeData: [u8; 4],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct QOS_DESTADDR {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub SocketAddress: *const super::super::Networking::WinSock::SOCKADDR,
-    pub SocketAddressLength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_DIFFSERV {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub DSFieldCount: u32,
-    pub DiffservRule: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_DIFFSERV_RULE {
-    pub InboundDSField: u8,
-    pub ConformingOutboundDSField: u8,
-    pub NonConformingOutboundDSField: u8,
-    pub ConformingUserPriority: u8,
-    pub NonConformingUserPriority: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_DS_CLASS {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub DSField: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_FLOWRATE_OUTGOING {
-    pub Bandwidth: u64,
-    pub ShapingBehavior: QOS_SHAPING,
-    pub Reason: QOS_FLOWRATE_REASON,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_FLOW_FUNDAMENTALS {
-    pub BottleneckBandwidthSet: super::super::Foundation::BOOL,
-    pub BottleneckBandwidth: u64,
-    pub AvailableBandwidthSet: super::super::Foundation::BOOL,
-    pub AvailableBandwidth: u64,
-    pub RTTSet: super::super::Foundation::BOOL,
-    pub RTT: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_FRIENDLY_NAME {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub FriendlyName: [u16; 256],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_OBJECT_HDR {
-    pub ObjectType: u32,
-    pub ObjectLength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_PACKET_PRIORITY {
-    pub ConformantDSCPValue: u32,
-    pub NonConformantDSCPValue: u32,
-    pub ConformantL2Value: u32,
-    pub NonConformantL2Value: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_SD_MODE {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub ShapeDiscardMode: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_SHAPING_RATE {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub ShapingRate: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_TCP_TRAFFIC {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_TRAFFIC_CLASS {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub TrafficClass: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QOS_VERSION {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QualAppFlowSpec {
-    pub Q_spec_serv_hdr: IntServServiceHdr,
-    pub Q_spec_parm_hdr: IntServParmHdr,
-    pub Q_spec_parms: QualTspecParms,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QualTspec {
-    pub qual_Tspec_serv_hdr: IntServServiceHdr,
-    pub qual_Tspec_parm_hdr: IntServParmHdr,
-    pub qual_Tspec_parms: QualTspecParms,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QualTspecParms {
-    pub TB_Tspec_M: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RESV_STYLE {
-    pub style_header: RsvpObjHdr,
-    pub style_word: u32,
-}
-pub type RHANDLE = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_ADSPEC {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub GeneralParams: AD_GENERAL_PARAMS,
-    pub NumberOfServices: u32,
-    pub Services: [CONTROL_SERVICE; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_FILTERSPEC {
-    pub Type: FilterType,
-    pub Anonymous: RSVP_FILTERSPEC_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union RSVP_FILTERSPEC_0 {
-    pub FilterSpecV4: RSVP_FILTERSPEC_V4,
-    pub FilterSpecV6: RSVP_FILTERSPEC_V6,
-    pub FilterSpecV6Flow: RSVP_FILTERSPEC_V6_FLOW,
-    pub FilterSpecV4Gpi: RSVP_FILTERSPEC_V4_GPI,
-    pub FilterSpecV6Gpi: RSVP_FILTERSPEC_V6_GPI,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_FILTERSPEC_V4 {
-    pub Address: IN_ADDR_IPV4,
-    pub Unused: u16,
-    pub Port: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_FILTERSPEC_V4_GPI {
-    pub Address: IN_ADDR_IPV4,
-    pub GeneralPortId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_FILTERSPEC_V6 {
-    pub Address: IN_ADDR_IPV6,
-    pub UnUsed: u16,
-    pub Port: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_FILTERSPEC_V6_FLOW {
-    pub Address: IN_ADDR_IPV6,
-    pub UnUsed: u8,
-    pub FlowLabel: [u8; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_FILTERSPEC_V6_GPI {
-    pub Address: IN_ADDR_IPV6,
-    pub GeneralPortId: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RSVP_HOP {
-    pub hop_header: RsvpObjHdr,
-    pub hop_u: RSVP_HOP_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union RSVP_HOP_0 {
-    pub hop_ipv4: Rsvp_Hop_IPv4,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RSVP_MSG_OBJS {
-    pub RsvpMsgType: i32,
-    pub pRsvpSession: *mut RSVP_SESSION,
-    pub pRsvpFromHop: *mut RSVP_HOP,
-    pub pRsvpToHop: *mut RSVP_HOP,
-    pub pResvStyle: *mut RESV_STYLE,
-    pub pRsvpScope: *mut RSVP_SCOPE,
-    pub FlowDescCount: i32,
-    pub pFlowDescs: *mut FLOW_DESC,
-    pub PdObjectCount: i32,
-    pub ppPdObjects: *mut *mut POLICY_DATA,
-    pub pErrorSpec: *mut ERROR_SPEC,
-    pub pAdspec: *mut ADSPEC,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_POLICY {
-    pub Len: u16,
-    pub Type: u16,
-    pub Info: [u8; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_POLICY_INFO {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub NumPolicyElement: u32,
-    pub PolicyElement: [RSVP_POLICY; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RSVP_RESERVE_INFO {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub Style: u32,
-    pub ConfirmRequest: u32,
-    pub PolicyElementList: *mut RSVP_POLICY_INFO,
-    pub NumFlowDesc: u32,
-    pub FlowDescList: *mut FLOWDESCRIPTOR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RSVP_SCOPE {
-    pub scopl_header: RsvpObjHdr,
-    pub scope_u: RSVP_SCOPE_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union RSVP_SCOPE_0 {
-    pub scopl_ipv4: Scope_list_ipv4,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RSVP_SESSION {
-    pub sess_header: RsvpObjHdr,
-    pub sess_u: RSVP_SESSION_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union RSVP_SESSION_0 {
-    pub sess_ipv4: Session_IPv4,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_STATUS_INFO {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub StatusCode: u32,
-    pub ExtendedStatus1: u32,
-    pub ExtendedStatus2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RsvpObjHdr {
-    pub obj_length: u16,
-    pub obj_class: u8,
-    pub obj_ctype: u8,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Rsvp_Hop_IPv4 {
-    pub hop_ipaddr: super::super::Networking::WinSock::IN_ADDR,
-    pub hop_LIH: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SENDER_TSPEC {
-    pub stspec_header: RsvpObjHdr,
-    pub stspec_body: IntServTspecBody,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
-    pub SignAlgID: u32,
-    pub SignatureLength: u32,
-    pub Signature: [u8; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SIPAEVENT_REVOCATION_LIST_PAYLOAD {
-    pub CreationTime: i64,
-    pub DigestLength: u32,
-    pub HashAlgID: u16,
-    pub Digest: [u8; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
-    pub PayloadVersion: u32,
-    pub VarDataOffset: u32,
-    pub HashAlgID: u16,
-    pub DigestLength: u16,
-    pub Options: u32,
-    pub SignersCount: u32,
-    pub VarData: [u8; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SIPAEVENT_SI_POLICY_PAYLOAD {
-    pub PolicyVersion: u64,
-    pub PolicyNameLength: u16,
-    pub HashAlgID: u16,
-    pub DigestLength: u32,
-    pub VarLengthData: [u8; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
-    pub KeyAlgID: u32,
-    pub Anonymous: SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
-    pub RsaKeyInfo: SIPAEVENT_VSM_IDK_RSA_INFO,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SIPAEVENT_VSM_IDK_RSA_INFO {
-    pub KeyBitLength: u32,
-    pub PublicExpLengthBytes: u32,
-    pub ModulusSizeBytes: u32,
-    pub PublicKeyData: [u8; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Scope_list_ipv4 {
-    pub scopl_ipaddr: [super::super::Networking::WinSock::IN_ADDR; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Session_IPv4 {
-    pub sess_destaddr: super::super::Networking::WinSock::IN_ADDR,
-    pub sess_protid: u8,
-    pub sess_flags: u8,
-    pub sess_destport: u16,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct TCG_PCClientPCREventStruct {
-    pub pcrIndex: u32,
-    pub eventType: u32,
-    pub digest: [u8; 20],
-    pub eventDataSize: u32,
-    pub event: [u8; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct TCG_PCClientTaggedEventStruct {
-    pub EventID: u32,
-    pub EventDataSize: u32,
-    pub EventData: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TCI_CLIENT_FUNC_LIST {
-    pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
-    pub ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,
-    pub ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
-    pub ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TC_GEN_FILTER {
-    pub AddressType: u16,
-    pub PatternSize: u32,
-    pub Pattern: *mut core::ffi::c_void,
-    pub Mask: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct TC_GEN_FLOW {
-    pub SendingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
-    pub ReceivingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
-    pub TcObjectsLength: u32,
-    pub TcObjects: [QOS_OBJECT_HDR; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy)]
-pub struct TC_IFC_DESCRIPTOR {
-    pub Length: u32,
-    pub pInterfaceName: windows_sys::core::PWSTR,
-    pub pInterfaceID: windows_sys::core::PWSTR,
-    pub AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy)]
-pub struct TC_SUPPORTED_INFO_BUFFER {
-    pub InstanceIDLength: u16,
-    pub InstanceID: [u16; 256],
-    pub InterfaceLuid: u64,
-    pub AddrListDesc: ADDRESS_LIST_DESCRIPTOR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct WBCL_Iterator {
-    pub firstElementPtr: *mut core::ffi::c_void,
-    pub logSize: u32,
-    pub currentElementPtr: *mut core::ffi::c_void,
-    pub currentElementSize: u32,
-    pub digestSize: u16,
-    pub logFormat: u16,
-    pub numberOfDigests: u32,
-    pub digestSizes: *mut core::ffi::c_void,
-    pub supportedAlgorithms: u32,
-    pub hashAlgorithm: u16,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct WBCL_LogHdr {
-    pub signature: u32,
-    pub version: u32,
-    pub entries: u32,
-    pub length: u32,
-}
-pub type CBADMITRESULT = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut POLICY_DECISION) -> *mut u32>;
-pub type CBGETRSVPOBJECTS = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32>;
-pub type PALLOCMEM = Option<unsafe extern "system" fn(size: u32) -> *mut core::ffi::c_void>;
-pub type PFREEMEM = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;
-pub type TCI_ADD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-pub type TCI_DEL_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const core::ffi::c_void)>;

@@ -237,6 +237,18 @@ windows_targets::link!("winspool.drv" "system" fn UploadPrinterDriverPackageW(ps
 windows_targets::link!("winspool.drv" "system" fn WaitForPrinterChange(hprinter : PRINTER_HANDLE, flags : u32) -> u32);
 windows_targets::link!("winspool.drv" "system" fn WritePrinter(hprinter : PRINTER_HANDLE, pbuf : *const core::ffi::c_void, cbbuf : u32, pcwritten : *mut u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("winspool.drv" "system" fn XcvDataW(hxcv : super::super::Foundation:: HANDLE, pszdataname : windows_sys::core::PCWSTR, pinputdata : *const u8, cbinputdata : u32, poutputdata : *mut u8, cboutputdata : u32, pcboutputneeded : *mut u32, pdwstatus : *mut u32) -> super::super::Foundation:: BOOL);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ADDJOB_INFO_1A {
+    pub Path: windows_sys::core::PSTR,
+    pub JobId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ADDJOB_INFO_1W {
+    pub Path: windows_sys::core::PWSTR,
+    pub JobId: u32,
+}
 pub const ALREADY_REGISTERED: PrintAsyncNotifyError = 15i32;
 pub const ALREADY_UNREGISTERED: PrintAsyncNotifyError = 14i32;
 pub const APD_COPY_ALL_FILES: u32 = 4u32;
@@ -249,6 +261,62 @@ pub const APPLYCPSUI_OK_CANCEL_BUTTON: u32 = 2u32;
 pub const ASYNC_CALL_ALREADY_PARKED: PrintAsyncNotifyError = 12i32;
 pub const ASYNC_CALL_IN_PROGRESS: PrintAsyncNotifyError = 17i32;
 pub const ASYNC_NOTIFICATION_FAILURE: PrintAsyncNotifyError = 6i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ATTRIBUTE_INFO_1 {
+    pub dwJobNumberOfPagesPerSide: u32,
+    pub dwDrvNumberOfPagesPerSide: u32,
+    pub dwNupBorderFlags: u32,
+    pub dwJobPageOrderFlags: u32,
+    pub dwDrvPageOrderFlags: u32,
+    pub dwJobNumberOfCopies: u32,
+    pub dwDrvNumberOfCopies: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ATTRIBUTE_INFO_2 {
+    pub dwJobNumberOfPagesPerSide: u32,
+    pub dwDrvNumberOfPagesPerSide: u32,
+    pub dwNupBorderFlags: u32,
+    pub dwJobPageOrderFlags: u32,
+    pub dwDrvPageOrderFlags: u32,
+    pub dwJobNumberOfCopies: u32,
+    pub dwDrvNumberOfCopies: u32,
+    pub dwColorOptimization: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ATTRIBUTE_INFO_3 {
+    pub dwJobNumberOfPagesPerSide: u32,
+    pub dwDrvNumberOfPagesPerSide: u32,
+    pub dwNupBorderFlags: u32,
+    pub dwJobPageOrderFlags: u32,
+    pub dwDrvPageOrderFlags: u32,
+    pub dwJobNumberOfCopies: u32,
+    pub dwDrvNumberOfCopies: u32,
+    pub dwColorOptimization: u32,
+    pub dmPrintQuality: i16,
+    pub dmYResolution: i16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ATTRIBUTE_INFO_4 {
+    pub dwJobNumberOfPagesPerSide: u32,
+    pub dwDrvNumberOfPagesPerSide: u32,
+    pub dwNupBorderFlags: u32,
+    pub dwJobPageOrderFlags: u32,
+    pub dwDrvPageOrderFlags: u32,
+    pub dwJobNumberOfCopies: u32,
+    pub dwDrvNumberOfCopies: u32,
+    pub dwColorOptimization: u32,
+    pub dmPrintQuality: i16,
+    pub dmYResolution: i16,
+    pub dwDuplexFlags: u32,
+    pub dwNupDirection: u32,
+    pub dwBookletFlags: u32,
+    pub dwScalingPercentX: u32,
+    pub dwScalingPercentY: u32,
+}
 pub const BIDI_ACCESS_ADMINISTRATOR: u32 = 1u32;
 pub const BIDI_ACCESS_USER: u32 = 2u32;
 pub const BIDI_ACTION_ENUM_SCHEMA: windows_sys::core::PCWSTR = windows_sys::core::w!("EnumSchema");
@@ -258,16 +326,145 @@ pub const BIDI_ACTION_GET_WITH_ARGUMENT: windows_sys::core::PCWSTR = windows_sys
 pub const BIDI_ACTION_SET: windows_sys::core::PCWSTR = windows_sys::core::w!("Set");
 pub const BIDI_BLOB: BIDI_TYPE = 7i32;
 pub const BIDI_BOOL: BIDI_TYPE = 3i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BIDI_DATA {
+    pub dwBidiType: u32,
+    pub u: BIDI_DATA_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union BIDI_DATA_0 {
+    pub bData: super::super::Foundation::BOOL,
+    pub iData: i32,
+    pub sData: windows_sys::core::PWSTR,
+    pub fData: f32,
+    pub biData: BINARY_CONTAINER,
+}
 pub const BIDI_ENUM: BIDI_TYPE = 6i32;
 pub const BIDI_FLOAT: BIDI_TYPE = 2i32;
 pub const BIDI_INT: BIDI_TYPE = 1i32;
 pub const BIDI_NULL: BIDI_TYPE = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BIDI_REQUEST_CONTAINER {
+    pub Version: u32,
+    pub Flags: u32,
+    pub Count: u32,
+    pub aData: [BIDI_REQUEST_DATA; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BIDI_REQUEST_DATA {
+    pub dwReqNumber: u32,
+    pub pSchema: windows_sys::core::PWSTR,
+    pub data: BIDI_DATA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BIDI_RESPONSE_CONTAINER {
+    pub Version: u32,
+    pub Flags: u32,
+    pub Count: u32,
+    pub aData: [BIDI_RESPONSE_DATA; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BIDI_RESPONSE_DATA {
+    pub dwResult: u32,
+    pub dwReqNumber: u32,
+    pub pSchema: windows_sys::core::PWSTR,
+    pub data: BIDI_DATA,
+}
 pub const BIDI_STRING: BIDI_TYPE = 4i32;
 pub const BIDI_TEXT: BIDI_TYPE = 5i32;
+pub type BIDI_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BINARY_CONTAINER {
+    pub cbBuf: u32,
+    pub pData: *mut u8,
+}
 pub const BOOKLET_EDGE_LEFT: u32 = 0u32;
 pub const BOOKLET_EDGE_RIGHT: u32 = 1u32;
 pub const BOOKLET_PRINT: u32 = 2u32;
 pub const BORDER_PRINT: u32 = 0u32;
+pub const BidiRequest: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb9162a23_45f9_47cc_80f5_fe0fe9b9e1a2);
+pub const BidiRequestContainer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc5b8a24_db05_4a01_8388_22edf6c2bbba);
+pub const BidiSpl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2a614240_a4c5_4c33_bd87_1bc709331639);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BranchOfficeJobData {
+    pub eEventType: EBranchOfficeJobEventType,
+    pub JobId: u32,
+    pub JobInfo: BranchOfficeJobData_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union BranchOfficeJobData_0 {
+    pub LogJobPrinted: BranchOfficeJobDataPrinted,
+    pub LogJobRendered: BranchOfficeJobDataRendered,
+    pub LogJobError: BranchOfficeJobDataError,
+    pub LogPipelineFailed: BranchOfficeJobDataPipelineFailed,
+    pub LogOfflineFileFull: BranchOfficeLogOfflineFileFull,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BranchOfficeJobDataContainer {
+    pub cJobDataEntries: u32,
+    pub JobData: [BranchOfficeJobData; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BranchOfficeJobDataError {
+    pub LastError: u32,
+    pub pDocumentName: windows_sys::core::PWSTR,
+    pub pUserName: windows_sys::core::PWSTR,
+    pub pPrinterName: windows_sys::core::PWSTR,
+    pub pDataType: windows_sys::core::PWSTR,
+    pub TotalSize: i64,
+    pub PrintedSize: i64,
+    pub TotalPages: u32,
+    pub PrintedPages: u32,
+    pub pMachineName: windows_sys::core::PWSTR,
+    pub pJobError: windows_sys::core::PWSTR,
+    pub pErrorDescription: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BranchOfficeJobDataPipelineFailed {
+    pub pDocumentName: windows_sys::core::PWSTR,
+    pub pPrinterName: windows_sys::core::PWSTR,
+    pub pExtraErrorInfo: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BranchOfficeJobDataPrinted {
+    pub Status: u32,
+    pub pDocumentName: windows_sys::core::PWSTR,
+    pub pUserName: windows_sys::core::PWSTR,
+    pub pMachineName: windows_sys::core::PWSTR,
+    pub pPrinterName: windows_sys::core::PWSTR,
+    pub pPortName: windows_sys::core::PWSTR,
+    pub Size: i64,
+    pub TotalPages: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BranchOfficeJobDataRendered {
+    pub Size: i64,
+    pub ICMMethod: u32,
+    pub Color: i16,
+    pub PrintQuality: i16,
+    pub YResolution: i16,
+    pub Copies: i16,
+    pub TTOption: i16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BranchOfficeLogOfflineFileFull {
+    pub pMachineName: windows_sys::core::PWSTR,
+}
 pub const CC_BIG5: i32 = -10i32;
 pub const CC_CP437: i32 = -1i32;
 pub const CC_CP850: i32 = -2i32;
@@ -308,6 +505,33 @@ pub const CLSID_OEMUIMXDC: windows_sys::core::GUID = windows_sys::core::GUID::fr
 pub const CLSID_PTPROVIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x46ac151b_8490_4531_96cc_55bf2bf19e11);
 pub const CLSID_XPSRASTERIZER_FACTORY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x503e79bf_1d09_4764_9d72_1eb0c65967c6);
 pub const COLOR_OPTIMIZATION: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct COMPROPSHEETUI {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub hInstCaller: super::super::Foundation::HINSTANCE,
+    pub pCallerName: *mut i8,
+    pub UserData: usize,
+    pub pHelpFile: *mut i8,
+    pub pfnCallBack: _CPSUICALLBACK,
+    pub pOptItem: *mut OPTITEM,
+    pub pDlgPage: *mut DLGPAGE,
+    pub cOptItem: u16,
+    pub cDlgPage: u16,
+    pub IconID: usize,
+    pub pOptItemName: *mut i8,
+    pub CallerVersion: u16,
+    pub OptItemVersion: u16,
+    pub dwReserved: [usize; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONFIG_INFO_DATA_1 {
+    pub Reserved: [u8; 128],
+    pub dwVersion: u32,
+}
 pub const COPYFILE_EVENT_ADD_PRINTER_CONNECTION: u32 = 3u32;
 pub const COPYFILE_EVENT_DELETE_PRINTER: u32 = 2u32;
 pub const COPYFILE_EVENT_DELETE_PRINTER_CONNECTION: u32 = 4u32;
@@ -315,6 +539,22 @@ pub const COPYFILE_EVENT_FILES_CHANGED: u32 = 5u32;
 pub const COPYFILE_EVENT_SET_PRINTER_DATAEX: u32 = 1u32;
 pub const COPYFILE_FLAG_CLIENT_SPOOLER: u32 = 1u32;
 pub const COPYFILE_FLAG_SERVER_SPOOLER: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CORE_PRINTER_DRIVERA {
+    pub CoreDriverGUID: windows_sys::core::GUID,
+    pub ftDriverDate: super::super::Foundation::FILETIME,
+    pub dwlDriverVersion: u64,
+    pub szPackageID: [i8; 260],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CORE_PRINTER_DRIVERW {
+    pub CoreDriverGUID: windows_sys::core::GUID,
+    pub ftDriverDate: super::super::Foundation::FILETIME,
+    pub dwlDriverVersion: u64,
+    pub szPackageID: [u16; 260],
+}
 pub const CPSFUNC_ADD_HPROPSHEETPAGE: u32 = 0u32;
 pub const CPSFUNC_ADD_PCOMPROPSHEETUI: u32 = 3u32;
 pub const CPSFUNC_ADD_PCOMPROPSHEETUIA: u32 = 2u32;
@@ -348,6 +588,28 @@ pub const CPSFUNC_SET_PSUIPAGE_TITLE: u32 = 19u32;
 pub const CPSFUNC_SET_PSUIPAGE_TITLEA: u32 = 18u32;
 pub const CPSFUNC_SET_PSUIPAGE_TITLEW: u32 = 19u32;
 pub const CPSFUNC_SET_RESULT: u32 = 9u32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct CPSUICBPARAM {
+    pub cbSize: u16,
+    pub Reason: u16,
+    pub hDlg: super::super::Foundation::HWND,
+    pub pOptItem: *mut OPTITEM,
+    pub cOptItem: u16,
+    pub Flags: u16,
+    pub pCurItem: *mut OPTITEM,
+    pub Anonymous: CPSUICBPARAM_0,
+    pub UserData: usize,
+    pub Result: usize,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub union CPSUICBPARAM_0 {
+    pub OldSel: i32,
+    pub pOldSel: *mut i8,
+}
 pub const CPSUICB_ACTION_ITEMS_APPLIED: u32 = 4u32;
 pub const CPSUICB_ACTION_NONE: u32 = 0u32;
 pub const CPSUICB_ACTION_NO_APPLY_EXIT: u32 = 3u32;
@@ -365,6 +627,12 @@ pub const CPSUICB_REASON_PUSHBUTTON: u32 = 1u32;
 pub const CPSUICB_REASON_SEL_CHANGED: u32 = 0u32;
 pub const CPSUICB_REASON_SETACTIVE: u32 = 10u32;
 pub const CPSUICB_REASON_UNDO_CHANGES: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CPSUIDATABLOCK {
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
 pub const CPSUIF_ABOUT_CALLBACK: u32 = 4u32;
 pub const CPSUIF_ICONID_AS_HICON: u32 = 2u32;
 pub const CPSUIF_UPDATE_PERMISSION: u32 = 1u32;
@@ -378,11 +646,65 @@ pub const CUSTOMPARAM_MAX: u32 = 5u32;
 pub const CUSTOMPARAM_ORIENTATION: u32 = 4u32;
 pub const CUSTOMPARAM_WIDTH: u32 = 0u32;
 pub const CUSTOMPARAM_WIDTHOFFSET: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CUSTOMSIZEPARAM {
+    pub dwOrder: i32,
+    pub lMinVal: i32,
+    pub lMaxVal: i32,
+}
 pub const Compression_Fast: EXpsCompressionOptions = 3i32;
 pub const Compression_Normal: EXpsCompressionOptions = 1i32;
 pub const Compression_NotCompressed: EXpsCompressionOptions = 0i32;
 pub const Compression_Small: EXpsCompressionOptions = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DATATYPES_INFO_1A {
+    pub pName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DATATYPES_INFO_1W {
+    pub pName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DATA_HEADER {
+    pub dwSignature: u32,
+    pub wSize: u16,
+    pub wDataID: u16,
+    pub dwDataSize: u32,
+    pub dwReserved: u32,
+}
 pub const DEF_PRIORITY: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DELETE_PORT_DATA_1 {
+    pub psztPortName: [u16; 64],
+    pub Reserved: [u8; 98],
+    pub dwVersion: u32,
+    pub dwReserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVICEPROPERTYHEADER {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub hPrinter: super::super::Foundation::HANDLE,
+    pub pszPrinterName: *mut i8,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct DEVQUERYPRINT_INFO {
+    pub cbSize: u16,
+    pub Level: u16,
+    pub hPrinter: super::super::Foundation::HANDLE,
+    pub pDevMode: *mut super::Gdi::DEVMODEA,
+    pub pszErrorStr: windows_sys::core::PWSTR,
+    pub cchErrorStr: u32,
+    pub cchNeeded: u32,
+}
 pub const DF_BKSP_OK: u32 = 64u32;
 pub const DF_NOITALIC: u32 = 1u32;
 pub const DF_NOUNDER: u32 = 2u32;
@@ -532,6 +854,24 @@ pub const DISPID_PRINTSCHEMA_TICKET_VALIDATEASYNC: u32 = 11003u32;
 pub const DI_CHANNEL: u32 = 1u32;
 pub const DI_MEMORYMAP_WRITE: u32 = 1u32;
 pub const DI_READ_SPOOL_JOB: u32 = 3u32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct DLGPAGE {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub DlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
+    pub pTabName: *mut i8,
+    pub IconID: usize,
+    pub Anonymous: DLGPAGE_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub union DLGPAGE_0 {
+    pub DlgTemplateID: u16,
+    pub hDlgTemplate: super::super::Foundation::HANDLE,
+}
 pub const DMPUB_BOOKLET_EDGE: u32 = 21u32;
 pub const DMPUB_COLOR: u32 = 6u32;
 pub const DMPUB_COPIES_COLLATE: u32 = 3u32;
@@ -566,6 +906,31 @@ pub const DM_NOPERMISSION: u32 = 32u32;
 pub const DM_PROMPT_NON_MODAL: u32 = 1073741824u32;
 pub const DM_RESERVED: u32 = 2147483648u32;
 pub const DM_USER_DEFAULT: u32 = 64u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct DOCEVENT_CREATEDCPRE {
+    pub pszDriver: windows_sys::core::PWSTR,
+    pub pszDevice: windows_sys::core::PWSTR,
+    pub pdm: *mut super::Gdi::DEVMODEW,
+    pub bIC: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DOCEVENT_ESCAPE {
+    pub iEscape: i32,
+    pub cjInput: i32,
+    pub pvInData: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DOCEVENT_FILTER {
+    pub cbSize: u32,
+    pub cElementsAllocated: u32,
+    pub cElementsNeeded: u32,
+    pub cElementsReturned: u32,
+    pub aDocEventCall: [u32; 1],
+}
 pub const DOCUMENTEVENT_ABORTDOC: u32 = 9u32;
 pub const DOCUMENTEVENT_CREATEDCPOST: u32 = 2u32;
 pub const DOCUMENTEVENT_CREATEDCPRE: u32 = 1u32;
@@ -601,6 +966,76 @@ pub const DOCUMENTEVENT_XPS_ADDFIXEDPAGEPOST: u32 = 4u32;
 pub const DOCUMENTEVENT_XPS_ADDFIXEDPAGEPRINTTICKETPOST: u32 = 10u32;
 pub const DOCUMENTEVENT_XPS_ADDFIXEDPAGEPRINTTICKETPRE: u32 = 9u32;
 pub const DOCUMENTEVENT_XPS_CANCELJOB: u32 = 6u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct DOCUMENTPROPERTYHEADER {
+    pub cbSize: u16,
+    pub Reserved: u16,
+    pub hPrinter: super::super::Foundation::HANDLE,
+    pub pszPrinterName: *mut i8,
+    pub pdmIn: *mut super::Gdi::DEVMODEA,
+    pub pdmOut: *mut super::Gdi::DEVMODEA,
+    pub cbOut: u32,
+    pub fMode: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DOC_INFO_1A {
+    pub pDocName: windows_sys::core::PSTR,
+    pub pOutputFile: windows_sys::core::PSTR,
+    pub pDatatype: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DOC_INFO_1W {
+    pub pDocName: windows_sys::core::PWSTR,
+    pub pOutputFile: windows_sys::core::PWSTR,
+    pub pDatatype: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DOC_INFO_2A {
+    pub pDocName: windows_sys::core::PSTR,
+    pub pOutputFile: windows_sys::core::PSTR,
+    pub pDatatype: windows_sys::core::PSTR,
+    pub dwMode: u32,
+    pub JobId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DOC_INFO_2W {
+    pub pDocName: windows_sys::core::PWSTR,
+    pub pOutputFile: windows_sys::core::PWSTR,
+    pub pDatatype: windows_sys::core::PWSTR,
+    pub dwMode: u32,
+    pub JobId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DOC_INFO_3A {
+    pub pDocName: windows_sys::core::PSTR,
+    pub pOutputFile: windows_sys::core::PSTR,
+    pub pDatatype: windows_sys::core::PSTR,
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DOC_INFO_3W {
+    pub pDocName: windows_sys::core::PWSTR,
+    pub pOutputFile: windows_sys::core::PWSTR,
+    pub pDatatype: windows_sys::core::PWSTR,
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DOC_INFO_INTERNAL {
+    pub pDocName: *mut i8,
+    pub pOutputFile: *mut i8,
+    pub pDatatype: *mut i8,
+    pub bLowILJob: super::super::Foundation::BOOL,
+    pub hTokenLowIL: super::super::Foundation::HANDLE,
+}
 pub const DOC_INFO_INTERNAL_LEVEL: u32 = 100u32;
 pub const DPD_DELETE_ALL_FILES: u32 = 4u32;
 pub const DPD_DELETE_SPECIFIC_VERSION: u32 = 2u32;
@@ -614,13 +1049,252 @@ pub const DP_STD_RESERVED_START: u32 = 65520u32;
 pub const DP_STD_TREEVIEWPAGE: u32 = 65535u32;
 pub const DRIVER_EVENT_DELETE: u32 = 2u32;
 pub const DRIVER_EVENT_INITIALIZE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_1A {
+    pub pName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_1W {
+    pub pName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_2A {
+    pub cVersion: u32,
+    pub pName: windows_sys::core::PSTR,
+    pub pEnvironment: windows_sys::core::PSTR,
+    pub pDriverPath: windows_sys::core::PSTR,
+    pub pDataFile: windows_sys::core::PSTR,
+    pub pConfigFile: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_2W {
+    pub cVersion: u32,
+    pub pName: windows_sys::core::PWSTR,
+    pub pEnvironment: windows_sys::core::PWSTR,
+    pub pDriverPath: windows_sys::core::PWSTR,
+    pub pDataFile: windows_sys::core::PWSTR,
+    pub pConfigFile: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_3A {
+    pub cVersion: u32,
+    pub pName: windows_sys::core::PSTR,
+    pub pEnvironment: windows_sys::core::PSTR,
+    pub pDriverPath: windows_sys::core::PSTR,
+    pub pDataFile: windows_sys::core::PSTR,
+    pub pConfigFile: windows_sys::core::PSTR,
+    pub pHelpFile: windows_sys::core::PSTR,
+    pub pDependentFiles: windows_sys::core::PSTR,
+    pub pMonitorName: windows_sys::core::PSTR,
+    pub pDefaultDataType: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_3W {
+    pub cVersion: u32,
+    pub pName: windows_sys::core::PWSTR,
+    pub pEnvironment: windows_sys::core::PWSTR,
+    pub pDriverPath: windows_sys::core::PWSTR,
+    pub pDataFile: windows_sys::core::PWSTR,
+    pub pConfigFile: windows_sys::core::PWSTR,
+    pub pHelpFile: windows_sys::core::PWSTR,
+    pub pDependentFiles: windows_sys::core::PWSTR,
+    pub pMonitorName: windows_sys::core::PWSTR,
+    pub pDefaultDataType: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_4A {
+    pub cVersion: u32,
+    pub pName: windows_sys::core::PSTR,
+    pub pEnvironment: windows_sys::core::PSTR,
+    pub pDriverPath: windows_sys::core::PSTR,
+    pub pDataFile: windows_sys::core::PSTR,
+    pub pConfigFile: windows_sys::core::PSTR,
+    pub pHelpFile: windows_sys::core::PSTR,
+    pub pDependentFiles: windows_sys::core::PSTR,
+    pub pMonitorName: windows_sys::core::PSTR,
+    pub pDefaultDataType: windows_sys::core::PSTR,
+    pub pszzPreviousNames: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_4W {
+    pub cVersion: u32,
+    pub pName: windows_sys::core::PWSTR,
+    pub pEnvironment: windows_sys::core::PWSTR,
+    pub pDriverPath: windows_sys::core::PWSTR,
+    pub pDataFile: windows_sys::core::PWSTR,
+    pub pConfigFile: windows_sys::core::PWSTR,
+    pub pHelpFile: windows_sys::core::PWSTR,
+    pub pDependentFiles: windows_sys::core::PWSTR,
+    pub pMonitorName: windows_sys::core::PWSTR,
+    pub pDefaultDataType: windows_sys::core::PWSTR,
+    pub pszzPreviousNames: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_5A {
+    pub cVersion: u32,
+    pub pName: windows_sys::core::PSTR,
+    pub pEnvironment: windows_sys::core::PSTR,
+    pub pDriverPath: windows_sys::core::PSTR,
+    pub pDataFile: windows_sys::core::PSTR,
+    pub pConfigFile: windows_sys::core::PSTR,
+    pub dwDriverAttributes: u32,
+    pub dwConfigVersion: u32,
+    pub dwDriverVersion: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_5W {
+    pub cVersion: u32,
+    pub pName: windows_sys::core::PWSTR,
+    pub pEnvironment: windows_sys::core::PWSTR,
+    pub pDriverPath: windows_sys::core::PWSTR,
+    pub pDataFile: windows_sys::core::PWSTR,
+    pub pConfigFile: windows_sys::core::PWSTR,
+    pub dwDriverAttributes: u32,
+    pub dwConfigVersion: u32,
+    pub dwDriverVersion: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_6A {
+    pub cVersion: u32,
+    pub pName: windows_sys::core::PSTR,
+    pub pEnvironment: windows_sys::core::PSTR,
+    pub pDriverPath: windows_sys::core::PSTR,
+    pub pDataFile: windows_sys::core::PSTR,
+    pub pConfigFile: windows_sys::core::PSTR,
+    pub pHelpFile: windows_sys::core::PSTR,
+    pub pDependentFiles: windows_sys::core::PSTR,
+    pub pMonitorName: windows_sys::core::PSTR,
+    pub pDefaultDataType: windows_sys::core::PSTR,
+    pub pszzPreviousNames: windows_sys::core::PSTR,
+    pub ftDriverDate: super::super::Foundation::FILETIME,
+    pub dwlDriverVersion: u64,
+    pub pszMfgName: windows_sys::core::PSTR,
+    pub pszOEMUrl: windows_sys::core::PSTR,
+    pub pszHardwareID: windows_sys::core::PSTR,
+    pub pszProvider: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_6W {
+    pub cVersion: u32,
+    pub pName: windows_sys::core::PWSTR,
+    pub pEnvironment: windows_sys::core::PWSTR,
+    pub pDriverPath: windows_sys::core::PWSTR,
+    pub pDataFile: windows_sys::core::PWSTR,
+    pub pConfigFile: windows_sys::core::PWSTR,
+    pub pHelpFile: windows_sys::core::PWSTR,
+    pub pDependentFiles: windows_sys::core::PWSTR,
+    pub pMonitorName: windows_sys::core::PWSTR,
+    pub pDefaultDataType: windows_sys::core::PWSTR,
+    pub pszzPreviousNames: windows_sys::core::PWSTR,
+    pub ftDriverDate: super::super::Foundation::FILETIME,
+    pub dwlDriverVersion: u64,
+    pub pszMfgName: windows_sys::core::PWSTR,
+    pub pszOEMUrl: windows_sys::core::PWSTR,
+    pub pszHardwareID: windows_sys::core::PWSTR,
+    pub pszProvider: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_8A {
+    pub cVersion: u32,
+    pub pName: windows_sys::core::PSTR,
+    pub pEnvironment: windows_sys::core::PSTR,
+    pub pDriverPath: windows_sys::core::PSTR,
+    pub pDataFile: windows_sys::core::PSTR,
+    pub pConfigFile: windows_sys::core::PSTR,
+    pub pHelpFile: windows_sys::core::PSTR,
+    pub pDependentFiles: windows_sys::core::PSTR,
+    pub pMonitorName: windows_sys::core::PSTR,
+    pub pDefaultDataType: windows_sys::core::PSTR,
+    pub pszzPreviousNames: windows_sys::core::PSTR,
+    pub ftDriverDate: super::super::Foundation::FILETIME,
+    pub dwlDriverVersion: u64,
+    pub pszMfgName: windows_sys::core::PSTR,
+    pub pszOEMUrl: windows_sys::core::PSTR,
+    pub pszHardwareID: windows_sys::core::PSTR,
+    pub pszProvider: windows_sys::core::PSTR,
+    pub pszPrintProcessor: windows_sys::core::PSTR,
+    pub pszVendorSetup: windows_sys::core::PSTR,
+    pub pszzColorProfiles: windows_sys::core::PSTR,
+    pub pszInfPath: windows_sys::core::PSTR,
+    pub dwPrinterDriverAttributes: u32,
+    pub pszzCoreDriverDependencies: windows_sys::core::PSTR,
+    pub ftMinInboxDriverVerDate: super::super::Foundation::FILETIME,
+    pub dwlMinInboxDriverVerVersion: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_8W {
+    pub cVersion: u32,
+    pub pName: windows_sys::core::PWSTR,
+    pub pEnvironment: windows_sys::core::PWSTR,
+    pub pDriverPath: windows_sys::core::PWSTR,
+    pub pDataFile: windows_sys::core::PWSTR,
+    pub pConfigFile: windows_sys::core::PWSTR,
+    pub pHelpFile: windows_sys::core::PWSTR,
+    pub pDependentFiles: windows_sys::core::PWSTR,
+    pub pMonitorName: windows_sys::core::PWSTR,
+    pub pDefaultDataType: windows_sys::core::PWSTR,
+    pub pszzPreviousNames: windows_sys::core::PWSTR,
+    pub ftDriverDate: super::super::Foundation::FILETIME,
+    pub dwlDriverVersion: u64,
+    pub pszMfgName: windows_sys::core::PWSTR,
+    pub pszOEMUrl: windows_sys::core::PWSTR,
+    pub pszHardwareID: windows_sys::core::PWSTR,
+    pub pszProvider: windows_sys::core::PWSTR,
+    pub pszPrintProcessor: windows_sys::core::PWSTR,
+    pub pszVendorSetup: windows_sys::core::PWSTR,
+    pub pszzColorProfiles: windows_sys::core::PWSTR,
+    pub pszInfPath: windows_sys::core::PWSTR,
+    pub dwPrinterDriverAttributes: u32,
+    pub pszzCoreDriverDependencies: windows_sys::core::PWSTR,
+    pub ftMinInboxDriverVerDate: super::super::Foundation::FILETIME,
+    pub dwlMinInboxDriverVerVersion: u64,
+}
 pub const DRIVER_KERNELMODE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_UPGRADE_INFO_1 {
+    pub pPrinterName: *mut i8,
+    pub pOldDriverDirectory: *mut i8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_UPGRADE_INFO_2 {
+    pub pPrinterName: *mut i8,
+    pub pOldDriverDirectory: *mut i8,
+    pub cVersion: u32,
+    pub pName: *mut i8,
+    pub pEnvironment: *mut i8,
+    pub pDriverPath: *mut i8,
+    pub pDataFile: *mut i8,
+    pub pConfigFile: *mut i8,
+    pub pHelpFile: *mut i8,
+    pub pDependentFiles: *mut i8,
+    pub pMonitorName: *mut i8,
+    pub pDefaultDataType: *mut i8,
+    pub pszzPreviousNames: *mut i8,
+}
 pub const DRIVER_USERMODE: u32 = 2u32;
 pub const DSPRINT_PENDING: u32 = 2147483648u32;
 pub const DSPRINT_PUBLISH: u32 = 1u32;
 pub const DSPRINT_REPUBLISH: u32 = 8u32;
 pub const DSPRINT_UNPUBLISH: u32 = 4u32;
 pub const DSPRINT_UPDATE: u32 = 2u32;
+pub type EATTRIBUTE_DATATYPE = i32;
+pub type EBranchOfficeJobEventType = i32;
 pub const ECBF_CHECKNAME_AT_FRONT: u32 = 1u32;
 pub const ECBF_CHECKNAME_ONLY: u32 = 128u32;
 pub const ECBF_CHECKNAME_ONLY_ENABLED: u32 = 2u32;
@@ -630,6 +1304,8 @@ pub const ECBF_OVERLAY_ECBICON_IF_CHECKED: u32 = 16u32;
 pub const ECBF_OVERLAY_NO_ICON: u32 = 64u32;
 pub const ECBF_OVERLAY_STOP_ICON: u32 = 32u32;
 pub const ECBF_OVERLAY_WARNING_ICON: u32 = 8u32;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type EMFPLAYPROC = Option<unsafe extern "system" fn(param0: super::Gdi::HDC, param1: i32, param2: super::super::Foundation::HANDLE) -> i32>;
 pub const EMF_PP_COLOR_OPTIMIZATION: u32 = 1u32;
 pub const EPF_ICONID_AS_HICON: u32 = 8u32;
 pub const EPF_INCL_SETUP_TITLE: u32 = 2u32;
@@ -640,6 +1316,9 @@ pub const EPF_OVERLAY_STOP_ICON: u32 = 32u32;
 pub const EPF_OVERLAY_WARNING_ICON: u32 = 16u32;
 pub const EPF_PUSH_TYPE_DLGPROC: u32 = 1u32;
 pub const EPF_USE_HDLGTEMPLATE: u32 = 128u32;
+pub type EPrintPropertyType = i32;
+pub type EPrintXPSJobOperation = i32;
+pub type EPrintXPSJobProgress = i32;
 pub const ERROR_BIDI_DEVICE_CONFIG_UNCHANGED: u32 = 13014u32;
 pub const ERROR_BIDI_DEVICE_OFFLINE: u32 = 13004u32;
 pub const ERROR_BIDI_ERROR_BASE: u32 = 13000u32;
@@ -705,6 +1384,78 @@ pub const ERR_CPSUI_SUBITEM_DIFF_OPTIF_HIDE: i32 = -36i32;
 pub const ERR_CPSUI_TOO_MANY_DLGPAGES: i32 = -15i32;
 pub const ERR_CPSUI_TOO_MANY_PROPSHEETPAGES: i32 = -9i32;
 pub const ERR_CPSUI_ZERO_OPTITEM: i32 = -44i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXTCHKBOX {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub pTitle: *mut i8,
+    pub pSeparator: *mut i8,
+    pub pCheckedName: *mut i8,
+    pub IconID: usize,
+    pub wReserved: [u16; 4],
+    pub dwReserved: [usize; 2],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct EXTPUSH {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub pTitle: *mut i8,
+    pub Anonymous1: EXTPUSH_0,
+    pub IconID: usize,
+    pub Anonymous2: EXTPUSH_1,
+    pub dwReserved: [usize; 3],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub union EXTPUSH_0 {
+    pub DlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
+    pub pfnCallBack: super::super::Foundation::FARPROC,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub union EXTPUSH_1 {
+    pub DlgTemplateID: u16,
+    pub hDlgTemplate: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXTTEXTMETRIC {
+    pub emSize: i16,
+    pub emPointSize: i16,
+    pub emOrientation: i16,
+    pub emMasterHeight: i16,
+    pub emMinScale: i16,
+    pub emMaxScale: i16,
+    pub emMasterUnits: i16,
+    pub emCapHeight: i16,
+    pub emXHeight: i16,
+    pub emLowerCaseAscent: i16,
+    pub emLowerCaseDescent: i16,
+    pub emSlant: i16,
+    pub emSuperScript: i16,
+    pub emSubScript: i16,
+    pub emSuperScriptSize: i16,
+    pub emSubScriptSize: i16,
+    pub emUnderlineOffset: i16,
+    pub emUnderlineWidth: i16,
+    pub emDoubleUpperUnderlineOffset: i16,
+    pub emDoubleLowerUnderlineOffset: i16,
+    pub emDoubleUpperUnderlineWidth: i16,
+    pub emDoubleLowerUnderlineWidth: i16,
+    pub emStrikeOutOffset: i16,
+    pub emStrikeOutWidth: i16,
+    pub emKernPairs: u16,
+    pub emKernTracks: u16,
+}
+pub type EXpsCompressionOptions = i32;
+pub type EXpsFontOptions = i32;
+pub type EXpsFontRestriction = i32;
+pub type EXpsJobConsumption = i32;
 pub const E_VERSION_NOT_SUPPORTED: u32 = 2147745793u32;
 pub const FG_CANCHANGE: u32 = 128u32;
 pub const FILL_WITH_DEFAULTS: u32 = 1u32;
@@ -734,11 +1485,61 @@ pub const FONT_FL_RESERVED: u32 = 32768u32;
 pub const FONT_FL_SOFTFONT: u32 = 4u32;
 pub const FONT_FL_UFM: u32 = 1u32;
 pub const FORM_BUILTIN: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FORM_INFO_1A {
+    pub Flags: u32,
+    pub pName: windows_sys::core::PSTR,
+    pub Size: super::super::Foundation::SIZE,
+    pub ImageableArea: super::super::Foundation::RECTL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FORM_INFO_1W {
+    pub Flags: u32,
+    pub pName: windows_sys::core::PWSTR,
+    pub Size: super::super::Foundation::SIZE,
+    pub ImageableArea: super::super::Foundation::RECTL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FORM_INFO_2A {
+    pub Flags: u32,
+    pub pName: windows_sys::core::PCSTR,
+    pub Size: super::super::Foundation::SIZE,
+    pub ImageableArea: super::super::Foundation::RECTL,
+    pub pKeyword: windows_sys::core::PCSTR,
+    pub StringType: u32,
+    pub pMuiDll: windows_sys::core::PCSTR,
+    pub dwResourceId: u32,
+    pub pDisplayName: windows_sys::core::PCSTR,
+    pub wLangId: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FORM_INFO_2W {
+    pub Flags: u32,
+    pub pName: windows_sys::core::PCWSTR,
+    pub Size: super::super::Foundation::SIZE,
+    pub ImageableArea: super::super::Foundation::RECTL,
+    pub pKeyword: windows_sys::core::PCSTR,
+    pub StringType: u32,
+    pub pMuiDll: windows_sys::core::PCWSTR,
+    pub dwResourceId: u32,
+    pub pDisplayName: windows_sys::core::PCWSTR,
+    pub wLangId: u16,
+}
 pub const FORM_PRINTER: u32 = 2u32;
 pub const FORM_USER: u32 = 0u32;
 pub const FinalPageCount: PageCountType = 0i32;
 pub const Font_Normal: EXpsFontOptions = 0i32;
 pub const Font_Obfusticate: EXpsFontOptions = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GLYPHRUN {
+    pub wcLow: u16,
+    pub wGlyphCount: u16,
+}
 pub const GPD_OEMCUSTOMDATA: u32 = 1u32;
 pub const GUID_DEVINTERFACE_IPPUSB_PRINT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2f40381_f46d_4e51_bce7_62de6cf2d098);
 pub const GUID_DEVINTERFACE_USBPRINT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x28d78fad_5a12_11d1_ae5b_0000f803a8c2);
@@ -1049,6 +1850,16 @@ pub const IDS_CPSUI_VERTICAL: u32 = 64769u32;
 pub const IDS_CPSUI_WARNING: u32 = 64847u32;
 pub const IDS_CPSUI_WATERMARK: u32 = 64797u32;
 pub const IDS_CPSUI_YES: u32 = 64729u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INSERTPSUIPAGE_INFO {
+    pub cbSize: u16,
+    pub Type: u8,
+    pub Mode: u8,
+    pub dwData1: usize,
+    pub dwData2: usize,
+    pub dwData3: usize,
+}
 pub const INSPSUIPAGE_MODE_AFTER: u32 = 1u32;
 pub const INSPSUIPAGE_MODE_BEFORE: u32 = 0u32;
 pub const INSPSUIPAGE_MODE_FIRST_CHILD: u32 = 2u32;
@@ -1056,6 +1867,12 @@ pub const INSPSUIPAGE_MODE_INDEX: u32 = 4u32;
 pub const INSPSUIPAGE_MODE_LAST_CHILD: u32 = 3u32;
 pub const INTERNAL_NOTIFICATION_QUEUE_IS_FULL: PrintAsyncNotifyError = 19i32;
 pub const INVALID_NOTIFICATION_TYPE: PrintAsyncNotifyError = 20i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INVOC {
+    pub dwCount: u32,
+    pub loOffset: u32,
+}
 pub const IOCTL_USBPRINT_ADD_CHILD_DEVICE: u32 = 2228316u32;
 pub const IOCTL_USBPRINT_ADD_MSIPP_COMPAT_ID: u32 = 2228308u32;
 pub const IOCTL_USBPRINT_CYCLE_PORT: u32 = 2228320u32;
@@ -1070,1584 +1887,6 @@ pub const IOCTL_USBPRINT_SOFT_RESET: u32 = 2228288u32;
 pub const IOCTL_USBPRINT_VENDOR_GET_COMMAND: u32 = 2228284u32;
 pub const IOCTL_USBPRINT_VENDOR_SET_COMMAND: u32 = 2228280u32;
 pub const IPDFP_COPY_ALL_FILES: u32 = 1u32;
-pub const IntermediatePageCount: PageCountType = 1i32;
-pub const JOB_ACCESS_ADMINISTER: u32 = 16u32;
-pub const JOB_ACCESS_READ: u32 = 32u32;
-pub const JOB_CONTROL_CANCEL: u32 = 3u32;
-pub const JOB_CONTROL_DELETE: u32 = 5u32;
-pub const JOB_CONTROL_LAST_PAGE_EJECTED: u32 = 7u32;
-pub const JOB_CONTROL_PAUSE: u32 = 1u32;
-pub const JOB_CONTROL_RELEASE: u32 = 9u32;
-pub const JOB_CONTROL_RESTART: u32 = 4u32;
-pub const JOB_CONTROL_RESUME: u32 = 2u32;
-pub const JOB_CONTROL_RETAIN: u32 = 8u32;
-pub const JOB_CONTROL_SEND_TOAST: u32 = 10u32;
-pub const JOB_CONTROL_SENT_TO_PRINTER: u32 = 6u32;
-pub const JOB_NOTIFY_FIELD_BYTES_PRINTED: u32 = 23u32;
-pub const JOB_NOTIFY_FIELD_DATATYPE: u32 = 5u32;
-pub const JOB_NOTIFY_FIELD_DEVMODE: u32 = 9u32;
-pub const JOB_NOTIFY_FIELD_DOCUMENT: u32 = 13u32;
-pub const JOB_NOTIFY_FIELD_DRIVER_NAME: u32 = 8u32;
-pub const JOB_NOTIFY_FIELD_MACHINE_NAME: u32 = 1u32;
-pub const JOB_NOTIFY_FIELD_NOTIFY_NAME: u32 = 4u32;
-pub const JOB_NOTIFY_FIELD_PAGES_PRINTED: u32 = 21u32;
-pub const JOB_NOTIFY_FIELD_PARAMETERS: u32 = 7u32;
-pub const JOB_NOTIFY_FIELD_PORT_NAME: u32 = 2u32;
-pub const JOB_NOTIFY_FIELD_POSITION: u32 = 15u32;
-pub const JOB_NOTIFY_FIELD_PRINTER_NAME: u32 = 0u32;
-pub const JOB_NOTIFY_FIELD_PRINT_PROCESSOR: u32 = 6u32;
-pub const JOB_NOTIFY_FIELD_PRIORITY: u32 = 14u32;
-pub const JOB_NOTIFY_FIELD_REMOTE_JOB_ID: u32 = 24u32;
-pub const JOB_NOTIFY_FIELD_SECURITY_DESCRIPTOR: u32 = 12u32;
-pub const JOB_NOTIFY_FIELD_START_TIME: u32 = 17u32;
-pub const JOB_NOTIFY_FIELD_STATUS: u32 = 10u32;
-pub const JOB_NOTIFY_FIELD_STATUS_STRING: u32 = 11u32;
-pub const JOB_NOTIFY_FIELD_SUBMITTED: u32 = 16u32;
-pub const JOB_NOTIFY_FIELD_TIME: u32 = 19u32;
-pub const JOB_NOTIFY_FIELD_TOTAL_BYTES: u32 = 22u32;
-pub const JOB_NOTIFY_FIELD_TOTAL_PAGES: u32 = 20u32;
-pub const JOB_NOTIFY_FIELD_UNTIL_TIME: u32 = 18u32;
-pub const JOB_NOTIFY_FIELD_USER_NAME: u32 = 3u32;
-pub const JOB_NOTIFY_TYPE: u32 = 1u32;
-pub const JOB_POSITION_UNSPECIFIED: u32 = 0u32;
-pub const JOB_STATUS_BLOCKED_DEVQ: u32 = 512u32;
-pub const JOB_STATUS_COMPLETE: u32 = 4096u32;
-pub const JOB_STATUS_DELETED: u32 = 256u32;
-pub const JOB_STATUS_DELETING: u32 = 4u32;
-pub const JOB_STATUS_ERROR: u32 = 2u32;
-pub const JOB_STATUS_OFFLINE: u32 = 32u32;
-pub const JOB_STATUS_PAPEROUT: u32 = 64u32;
-pub const JOB_STATUS_PAUSED: u32 = 1u32;
-pub const JOB_STATUS_PRINTED: u32 = 128u32;
-pub const JOB_STATUS_PRINTING: u32 = 16u32;
-pub const JOB_STATUS_RENDERING_LOCALLY: u32 = 16384u32;
-pub const JOB_STATUS_RESTART: u32 = 2048u32;
-pub const JOB_STATUS_RETAINED: u32 = 8192u32;
-pub const JOB_STATUS_SPOOLING: u32 = 8u32;
-pub const JOB_STATUS_USER_INTERVENTION: u32 = 1024u32;
-pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = 23i32;
-pub const LPR: u32 = 2u32;
-pub const MAX_ADDRESS_STR_LEN: u32 = 13u32;
-pub const MAX_CHANNEL_COUNT_EXCEEDED: PrintAsyncNotifyError = 22i32;
-pub const MAX_CPSFUNC_INDEX: u32 = 26u32;
-pub const MAX_DEVICEDESCRIPTION_STR_LEN: u32 = 257u32;
-pub const MAX_DLGPAGE_COUNT: u32 = 64u32;
-pub const MAX_FORM_KEYWORD_LENGTH: u32 = 64u32;
-pub const MAX_IPADDR_STR_LEN: u32 = 16u32;
-pub const MAX_NETWORKNAME2_LEN: u32 = 128u32;
-pub const MAX_NETWORKNAME_LEN: u32 = 49u32;
-pub const MAX_NOTIFICATION_SIZE_EXCEEDED: PrintAsyncNotifyError = 18i32;
-pub const MAX_PORTNAME_LEN: u32 = 64u32;
-pub const MAX_PRIORITY: u32 = 99u32;
-pub const MAX_PROPSHEETUI_REASON_INDEX: u32 = 5u32;
-pub const MAX_PSUIPAGEINSERT_INDEX: u32 = 5u32;
-pub const MAX_QUEUENAME_LEN: u32 = 33u32;
-pub const MAX_REGISTRATION_COUNT_EXCEEDED: PrintAsyncNotifyError = 21i32;
-pub const MAX_RES_STR_CHARS: u32 = 160u32;
-pub const MAX_SNMP_COMMUNITY_STR_LEN: u32 = 33u32;
-pub const MIN_PRIORITY: u32 = 1u32;
-pub const MS_PRINT_JOB_OUTPUT_FILE: windows_sys::core::PCWSTR = windows_sys::core::w!("MsPrintJobOutputFile");
-pub const MTYPE_ADD: u32 = 64u32;
-pub const MTYPE_COMPOSE: u32 = 1u32;
-pub const MTYPE_DIRECT: u32 = 2u32;
-pub const MTYPE_DISABLE: u32 = 128u32;
-pub const MTYPE_DOUBLE: u32 = 16u32;
-pub const MTYPE_DOUBLEBYTECHAR_MASK: u32 = 24u32;
-pub const MTYPE_FORMAT_MASK: u32 = 7u32;
-pub const MTYPE_PAIRED: u32 = 4u32;
-pub const MTYPE_PREDEFIN_MASK: u32 = 224u32;
-pub const MTYPE_REPLACE: u32 = 32u32;
-pub const MTYPE_SINGLE: u32 = 8u32;
-pub const MV_GRAPHICS: u32 = 4u32;
-pub const MV_PHYSICAL: u32 = 8u32;
-pub const MV_RELATIVE: u32 = 2u32;
-pub const MV_SENDXMOVECMD: u32 = 16u32;
-pub const MV_SENDYMOVECMD: u32 = 32u32;
-pub const MV_UPDATE: u32 = 1u32;
-pub const MXDCOP_GET_FILENAME: u32 = 14u32;
-pub const MXDCOP_PRINTTICKET_FIXED_DOC: u32 = 24u32;
-pub const MXDCOP_PRINTTICKET_FIXED_DOC_SEQ: u32 = 22u32;
-pub const MXDCOP_PRINTTICKET_FIXED_PAGE: u32 = 26u32;
-pub const MXDCOP_SET_S0PAGE: u32 = 28u32;
-pub const MXDCOP_SET_S0PAGE_RESOURCE: u32 = 30u32;
-pub const MXDCOP_SET_XPSPASSTHRU_MODE: u32 = 32u32;
-pub const MXDC_ESCAPE: u32 = 4122u32;
-pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = 1i32;
-pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = 3i32;
-pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = 2i32;
-pub const MXDC_IMAGETYPE_PNG: MXDC_IMAGE_TYPE_ENUMS = 4i32;
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = -90i32;
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = 90i32;
-pub const MXDC_LANDSCAPE_ROTATE_NONE: MXDC_LANDSCAPE_ROTATION_ENUMS = 0i32;
-pub const MXDC_RESOURCE_DICTIONARY: MXDC_S0_PAGE_ENUMS = 5i32;
-pub const MXDC_RESOURCE_ICC_PROFILE: MXDC_S0_PAGE_ENUMS = 6i32;
-pub const MXDC_RESOURCE_JPEG: MXDC_S0_PAGE_ENUMS = 1i32;
-pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = 7i32;
-pub const MXDC_RESOURCE_MAX: MXDC_S0_PAGE_ENUMS = 9i32;
-pub const MXDC_RESOURCE_PNG: MXDC_S0_PAGE_ENUMS = 2i32;
-pub const MXDC_RESOURCE_PNG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = 8i32;
-pub const MXDC_RESOURCE_TIFF: MXDC_S0_PAGE_ENUMS = 3i32;
-pub const MXDC_RESOURCE_TTF: MXDC_S0_PAGE_ENUMS = 0i32;
-pub const MXDC_RESOURCE_WDP: MXDC_S0_PAGE_ENUMS = 4i32;
-pub const NORMAL_PRINT: u32 = 0u32;
-pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = 1i32;
-pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = 2i32;
-pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = 0i32;
-pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = 8i32;
-pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = 1i32;
-pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: NOTIFICATION_CONFIG_FLAGS = 4i32;
-pub const NOTIFICATION_CONFIG_REGISTER_CALLBACK: NOTIFICATION_CONFIG_FLAGS = 2i32;
-pub const NOTIFICATION_RELEASE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xba9a5027_a70e_4ae7_9b7d_eb3e06ad4157);
-pub const NOT_REGISTERED: PrintAsyncNotifyError = 13i32;
-pub const NO_BORDER_PRINT: u32 = 1u32;
-pub const NO_COLOR_OPTIMIZATION: u32 = 0u32;
-pub const NO_LISTENERS: PrintAsyncNotifyError = 7i32;
-pub const NO_PRIORITY: u32 = 0u32;
-pub const OEMCUIP_DOCPROP: u32 = 1u32;
-pub const OEMCUIP_PRNPROP: u32 = 2u32;
-pub const OEMDM_CONVERT: u32 = 3u32;
-pub const OEMDM_DEFAULT: u32 = 2u32;
-pub const OEMDM_MERGE: u32 = 4u32;
-pub const OEMDM_SIZE: u32 = 1u32;
-pub const OEMGDS_FREEMEM: u32 = 32769u32;
-pub const OEMGDS_JOBTIMEOUT: u32 = 32770u32;
-pub const OEMGDS_MAX: u32 = 65536u32;
-pub const OEMGDS_MAXBITMAP: u32 = 32774u32;
-pub const OEMGDS_MINOUTLINE: u32 = 32773u32;
-pub const OEMGDS_MIN_DOCSTICKY: u32 = 1u32;
-pub const OEMGDS_MIN_PRINTERSTICKY: u32 = 32768u32;
-pub const OEMGDS_PRINTFLAGS: u32 = 32768u32;
-pub const OEMGDS_PROTOCOL: u32 = 32772u32;
-pub const OEMGDS_PSDM_CUSTOMSIZE: u32 = 6u32;
-pub const OEMGDS_PSDM_DIALECT: u32 = 2u32;
-pub const OEMGDS_PSDM_FLAGS: u32 = 1u32;
-pub const OEMGDS_PSDM_NUP: u32 = 4u32;
-pub const OEMGDS_PSDM_PSLEVEL: u32 = 5u32;
-pub const OEMGDS_PSDM_TTDLFMT: u32 = 3u32;
-pub const OEMGDS_UNIDM_FLAGS: u32 = 16385u32;
-pub const OEMGDS_UNIDM_GPDVER: u32 = 16384u32;
-pub const OEMGDS_WAITTIMEOUT: u32 = 32771u32;
-pub const OEMGI_GETINTERFACEVERSION: u32 = 2u32;
-pub const OEMGI_GETPUBLISHERINFO: u32 = 4u32;
-pub const OEMGI_GETREQUESTEDHELPERINTERFACES: u32 = 5u32;
-pub const OEMGI_GETSIGNATURE: u32 = 1u32;
-pub const OEMGI_GETVERSION: u32 = 3u32;
-pub const OEMPUBLISH_DEFAULT: u32 = 0u32;
-pub const OEMPUBLISH_IPRINTCOREHELPER: u32 = 1u32;
-pub const OEMTTY_INFO_CODEPAGE: u32 = 2u32;
-pub const OEMTTY_INFO_MARGINS: u32 = 1u32;
-pub const OEMTTY_INFO_NUM_UFMS: u32 = 3u32;
-pub const OEMTTY_INFO_UFM_IDS: u32 = 4u32;
-pub const OEM_MODE_PUBLISHER: u32 = 1u32;
-pub const OIEXTF_ANSI_STRING: u32 = 1u32;
-pub const OPTCF_HIDE: u32 = 1u32;
-pub const OPTCF_MASK: u32 = 1u32;
-pub const OPTIF_CALLBACK: i32 = 4i32;
-pub const OPTIF_CHANGED: i32 = 8i32;
-pub const OPTIF_CHANGEONCE: i32 = 16i32;
-pub const OPTIF_COLLAPSE: i32 = 1i32;
-pub const OPTIF_DISABLED: i32 = 32i32;
-pub const OPTIF_ECB_CHECKED: i32 = 64i32;
-pub const OPTIF_EXT_DISABLED: i32 = 256i32;
-pub const OPTIF_EXT_HIDE: i32 = 128i32;
-pub const OPTIF_EXT_IS_EXTPUSH: i32 = 1024i32;
-pub const OPTIF_HAS_POIEXT: i32 = 65536i32;
-pub const OPTIF_HIDE: i32 = 2i32;
-pub const OPTIF_INITIAL_TVITEM: i32 = 32768i32;
-pub const OPTIF_MASK: i32 = 131071i32;
-pub const OPTIF_NO_GROUPBOX_NAME: i32 = 2048i32;
-pub const OPTIF_OVERLAY_NO_ICON: i32 = 16384i32;
-pub const OPTIF_OVERLAY_STOP_ICON: i32 = 8192i32;
-pub const OPTIF_OVERLAY_WARNING_ICON: i32 = 4096i32;
-pub const OPTIF_SEL_AS_HICON: i32 = 512i32;
-pub const OPTPF_DISABLED: u32 = 2u32;
-pub const OPTPF_HIDE: u32 = 1u32;
-pub const OPTPF_ICONID_AS_HICON: u32 = 4u32;
-pub const OPTPF_MASK: u32 = 127u32;
-pub const OPTPF_OVERLAY_NO_ICON: u32 = 32u32;
-pub const OPTPF_OVERLAY_STOP_ICON: u32 = 16u32;
-pub const OPTPF_OVERLAY_WARNING_ICON: u32 = 8u32;
-pub const OPTPF_USE_HDLGTEMPLATE: u32 = 64u32;
-pub const OPTTF_MASK: u32 = 3u32;
-pub const OPTTF_NOSPACE_BEFORE_POSTFIX: u32 = 2u32;
-pub const OPTTF_TYPE_DISABLED: u32 = 1u32;
-pub const OTS_LBCB_INCL_ITEM_NONE: u32 = 8u32;
-pub const OTS_LBCB_NO_ICON16_IN_ITEM: u32 = 16u32;
-pub const OTS_LBCB_PROPPAGE_CBUSELB: u32 = 4u32;
-pub const OTS_LBCB_PROPPAGE_LBUSECB: u32 = 2u32;
-pub const OTS_LBCB_SORT: u32 = 1u32;
-pub const OTS_MASK: u32 = 255u32;
-pub const OTS_PUSH_ENABLE_ALWAYS: u32 = 128u32;
-pub const OTS_PUSH_INCL_SETUP_TITLE: u32 = 32u32;
-pub const OTS_PUSH_NO_DOT_DOT_DOT: u32 = 64u32;
-pub const PDEV_ADJUST_PAPER_MARGIN_TYPE: u32 = 1u32;
-pub const PDEV_HOSTFONT_ENABLED_TYPE: u32 = 2u32;
-pub const PDEV_USE_TRUE_COLOR_TYPE: u32 = 3u32;
-pub const PORT_STATUS_DOOR_OPEN: u32 = 7u32;
-pub const PORT_STATUS_NO_TONER: u32 = 6u32;
-pub const PORT_STATUS_OFFLINE: u32 = 1u32;
-pub const PORT_STATUS_OUTPUT_BIN_FULL: u32 = 4u32;
-pub const PORT_STATUS_OUT_OF_MEMORY: u32 = 9u32;
-pub const PORT_STATUS_PAPER_JAM: u32 = 2u32;
-pub const PORT_STATUS_PAPER_OUT: u32 = 3u32;
-pub const PORT_STATUS_PAPER_PROBLEM: u32 = 5u32;
-pub const PORT_STATUS_POWER_SAVE: u32 = 12u32;
-pub const PORT_STATUS_TONER_LOW: u32 = 10u32;
-pub const PORT_STATUS_TYPE_ERROR: u32 = 1u32;
-pub const PORT_STATUS_TYPE_INFO: u32 = 3u32;
-pub const PORT_STATUS_TYPE_WARNING: u32 = 2u32;
-pub const PORT_STATUS_USER_INTERVENTION: u32 = 8u32;
-pub const PORT_STATUS_WARMING_UP: u32 = 11u32;
-pub const PORT_TYPE_NET_ATTACHED: u32 = 8u32;
-pub const PORT_TYPE_READ: u32 = 2u32;
-pub const PORT_TYPE_REDIRECTED: u32 = 4u32;
-pub const PORT_TYPE_WRITE: u32 = 1u32;
-pub const PPCAPS_BOOKLET_EDGE: u32 = 1u32;
-pub const PPCAPS_BORDER_PRINT: u32 = 1u32;
-pub const PPCAPS_REVERSE_PAGES_FOR_REVERSE_DUPLEX: u32 = 1u32;
-pub const PPCAPS_RIGHT_THEN_DOWN: u32 = 1u32;
-pub const PPCAPS_SQUARE_SCALING: u32 = 1u32;
-pub const PRINTER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = 4u32;
-pub const PRINTER_ACCESS_MANAGE_LIMITED: PRINTER_ACCESS_RIGHTS = 64u32;
-pub const PRINTER_ACCESS_USE: PRINTER_ACCESS_RIGHTS = 8u32;
-pub const PRINTER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = 983052u32;
-pub const PRINTER_ATTRIBUTE_DEFAULT: u32 = 4u32;
-pub const PRINTER_ATTRIBUTE_DIRECT: u32 = 2u32;
-pub const PRINTER_ATTRIBUTE_DO_COMPLETE_FIRST: u32 = 512u32;
-pub const PRINTER_ATTRIBUTE_ENABLE_BIDI: u32 = 2048u32;
-pub const PRINTER_ATTRIBUTE_ENABLE_DEVQ: u32 = 128u32;
-pub const PRINTER_ATTRIBUTE_ENTERPRISE_CLOUD: u32 = 8388608u32;
-pub const PRINTER_ATTRIBUTE_FAX: u32 = 16384u32;
-pub const PRINTER_ATTRIBUTE_FRIENDLY_NAME: u32 = 1048576u32;
-pub const PRINTER_ATTRIBUTE_HIDDEN: u32 = 32u32;
-pub const PRINTER_ATTRIBUTE_KEEPPRINTEDJOBS: u32 = 256u32;
-pub const PRINTER_ATTRIBUTE_LOCAL: u32 = 64u32;
-pub const PRINTER_ATTRIBUTE_MACHINE: u32 = 524288u32;
-pub const PRINTER_ATTRIBUTE_NETWORK: u32 = 16u32;
-pub const PRINTER_ATTRIBUTE_PER_USER: u32 = 4194304u32;
-pub const PRINTER_ATTRIBUTE_PUBLISHED: u32 = 8192u32;
-pub const PRINTER_ATTRIBUTE_PUSHED_MACHINE: u32 = 262144u32;
-pub const PRINTER_ATTRIBUTE_PUSHED_USER: u32 = 131072u32;
-pub const PRINTER_ATTRIBUTE_QUEUED: u32 = 1u32;
-pub const PRINTER_ATTRIBUTE_RAW_ONLY: u32 = 4096u32;
-pub const PRINTER_ATTRIBUTE_SHARED: u32 = 8u32;
-pub const PRINTER_ATTRIBUTE_TS: u32 = 32768u32;
-pub const PRINTER_ATTRIBUTE_TS_GENERIC_DRIVER: u32 = 2097152u32;
-pub const PRINTER_ATTRIBUTE_WORK_OFFLINE: u32 = 1024u32;
-pub const PRINTER_CHANGE_ADD_FORM: u32 = 65536u32;
-pub const PRINTER_CHANGE_ADD_JOB: u32 = 256u32;
-pub const PRINTER_CHANGE_ADD_PORT: u32 = 1048576u32;
-pub const PRINTER_CHANGE_ADD_PRINTER: u32 = 1u32;
-pub const PRINTER_CHANGE_ADD_PRINTER_DRIVER: u32 = 268435456u32;
-pub const PRINTER_CHANGE_ADD_PRINT_PROCESSOR: u32 = 16777216u32;
-pub const PRINTER_CHANGE_ALL: u32 = 2138570751u32;
-pub const PRINTER_CHANGE_CONFIGURE_PORT: u32 = 2097152u32;
-pub const PRINTER_CHANGE_DELETE_FORM: u32 = 262144u32;
-pub const PRINTER_CHANGE_DELETE_JOB: u32 = 1024u32;
-pub const PRINTER_CHANGE_DELETE_PORT: u32 = 4194304u32;
-pub const PRINTER_CHANGE_DELETE_PRINTER: u32 = 4u32;
-pub const PRINTER_CHANGE_DELETE_PRINTER_DRIVER: u32 = 1073741824u32;
-pub const PRINTER_CHANGE_DELETE_PRINT_PROCESSOR: u32 = 67108864u32;
-pub const PRINTER_CHANGE_FAILED_CONNECTION_PRINTER: u32 = 8u32;
-pub const PRINTER_CHANGE_FORM: u32 = 458752u32;
-pub const PRINTER_CHANGE_JOB: u32 = 65280u32;
-pub const PRINTER_CHANGE_PORT: u32 = 7340032u32;
-pub const PRINTER_CHANGE_PRINTER: u32 = 255u32;
-pub const PRINTER_CHANGE_PRINTER_DRIVER: u32 = 1879048192u32;
-pub const PRINTER_CHANGE_PRINT_PROCESSOR: u32 = 117440512u32;
-pub const PRINTER_CHANGE_SERVER: u32 = 134217728u32;
-pub const PRINTER_CHANGE_SET_FORM: u32 = 131072u32;
-pub const PRINTER_CHANGE_SET_JOB: u32 = 512u32;
-pub const PRINTER_CHANGE_SET_PRINTER: u32 = 2u32;
-pub const PRINTER_CHANGE_SET_PRINTER_DRIVER: u32 = 536870912u32;
-pub const PRINTER_CHANGE_TIMEOUT: u32 = 2147483648u32;
-pub const PRINTER_CHANGE_WRITE_JOB: u32 = 2048u32;
-pub const PRINTER_CONNECTION_MISMATCH: u32 = 32u32;
-pub const PRINTER_CONNECTION_NO_UI: u32 = 64u32;
-pub const PRINTER_CONTROL_PAUSE: u32 = 1u32;
-pub const PRINTER_CONTROL_PURGE: u32 = 3u32;
-pub const PRINTER_CONTROL_RESUME: u32 = 2u32;
-pub const PRINTER_CONTROL_SET_STATUS: u32 = 4u32;
-pub const PRINTER_DELETE: PRINTER_ACCESS_RIGHTS = 65536u32;
-pub const PRINTER_DRIVER_CATEGORY_3D: u32 = 4096u32;
-pub const PRINTER_DRIVER_CATEGORY_CLOUD: u32 = 8192u32;
-pub const PRINTER_DRIVER_CATEGORY_FAX: u32 = 64u32;
-pub const PRINTER_DRIVER_CATEGORY_FILE: u32 = 128u32;
-pub const PRINTER_DRIVER_CATEGORY_SERVICE: u32 = 512u32;
-pub const PRINTER_DRIVER_CATEGORY_VIRTUAL: u32 = 256u32;
-pub const PRINTER_DRIVER_CLASS: u32 = 8u32;
-pub const PRINTER_DRIVER_DERIVED: u32 = 16u32;
-pub const PRINTER_DRIVER_NOT_SHAREABLE: u32 = 32u32;
-pub const PRINTER_DRIVER_PACKAGE_AWARE: u32 = 1u32;
-pub const PRINTER_DRIVER_SANDBOX_DISABLED: u32 = 2048u32;
-pub const PRINTER_DRIVER_SANDBOX_ENABLED: u32 = 4u32;
-pub const PRINTER_DRIVER_SOFT_RESET_REQUIRED: u32 = 1024u32;
-pub const PRINTER_DRIVER_XPS: u32 = 2u32;
-pub const PRINTER_ENUM_CATEGORY_3D: u32 = 67108864u32;
-pub const PRINTER_ENUM_CATEGORY_ALL: u32 = 33554432u32;
-pub const PRINTER_ENUM_CONNECTIONS: u32 = 4u32;
-pub const PRINTER_ENUM_CONTAINER: u32 = 32768u32;
-pub const PRINTER_ENUM_DEFAULT: u32 = 1u32;
-pub const PRINTER_ENUM_EXPAND: u32 = 16384u32;
-pub const PRINTER_ENUM_FAVORITE: u32 = 4u32;
-pub const PRINTER_ENUM_HIDE: u32 = 16777216u32;
-pub const PRINTER_ENUM_ICON1: u32 = 65536u32;
-pub const PRINTER_ENUM_ICON2: u32 = 131072u32;
-pub const PRINTER_ENUM_ICON3: u32 = 262144u32;
-pub const PRINTER_ENUM_ICON4: u32 = 524288u32;
-pub const PRINTER_ENUM_ICON5: u32 = 1048576u32;
-pub const PRINTER_ENUM_ICON6: u32 = 2097152u32;
-pub const PRINTER_ENUM_ICON7: u32 = 4194304u32;
-pub const PRINTER_ENUM_ICON8: u32 = 8388608u32;
-pub const PRINTER_ENUM_ICONMASK: u32 = 16711680u32;
-pub const PRINTER_ENUM_LOCAL: u32 = 2u32;
-pub const PRINTER_ENUM_NAME: u32 = 8u32;
-pub const PRINTER_ENUM_NETWORK: u32 = 64u32;
-pub const PRINTER_ENUM_REMOTE: u32 = 16u32;
-pub const PRINTER_ENUM_SHARED: u32 = 32u32;
-pub const PRINTER_ERROR_INFORMATION: u32 = 2147483648u32;
-pub const PRINTER_ERROR_JAM: u32 = 2u32;
-pub const PRINTER_ERROR_OUTOFPAPER: u32 = 1u32;
-pub const PRINTER_ERROR_OUTOFTONER: u32 = 4u32;
-pub const PRINTER_ERROR_SEVERE: u32 = 536870912u32;
-pub const PRINTER_ERROR_WARNING: u32 = 1073741824u32;
-pub const PRINTER_EVENT_ADD_CONNECTION: u32 = 1u32;
-pub const PRINTER_EVENT_ADD_CONNECTION_NO_UI: u32 = 9u32;
-pub const PRINTER_EVENT_ATTRIBUTES_CHANGED: u32 = 7u32;
-pub const PRINTER_EVENT_CACHE_DELETE: u32 = 6u32;
-pub const PRINTER_EVENT_CACHE_REFRESH: u32 = 5u32;
-pub const PRINTER_EVENT_CONFIGURATION_CHANGE: u32 = 0u32;
-pub const PRINTER_EVENT_CONFIGURATION_UPDATE: u32 = 8u32;
-pub const PRINTER_EVENT_DELETE: u32 = 4u32;
-pub const PRINTER_EVENT_DELETE_CONNECTION: u32 = 2u32;
-pub const PRINTER_EVENT_DELETE_CONNECTION_NO_UI: u32 = 10u32;
-pub const PRINTER_EVENT_FLAG_NO_UI: u32 = 1u32;
-pub const PRINTER_EVENT_INITIALIZE: u32 = 3u32;
-pub const PRINTER_EXECUTE: PRINTER_ACCESS_RIGHTS = 131080u32;
-pub const PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5d5a1704_dfd1_4181_8eee_815c86edad31);
-pub const PRINTER_EXTENSION_REASON_DRIVER_EVENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x23bb1328_63de_4293_915b_a6a23d929acb);
-pub const PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec8f261f_267c_469f_b5d6_3933023c29cc);
-pub const PRINTER_NOTIFY_CATEGORY_3D: u32 = 8192u32;
-pub const PRINTER_NOTIFY_CATEGORY_ALL: u32 = 4096u32;
-pub const PRINTER_NOTIFY_FIELD_ATTRIBUTES: u32 = 13u32;
-pub const PRINTER_NOTIFY_FIELD_AVERAGE_PPM: u32 = 21u32;
-pub const PRINTER_NOTIFY_FIELD_BRANCH_OFFICE_PRINTING: u32 = 28u32;
-pub const PRINTER_NOTIFY_FIELD_BYTES_PRINTED: u32 = 25u32;
-pub const PRINTER_NOTIFY_FIELD_CJOBS: u32 = 20u32;
-pub const PRINTER_NOTIFY_FIELD_COMMENT: u32 = 5u32;
-pub const PRINTER_NOTIFY_FIELD_DATATYPE: u32 = 11u32;
-pub const PRINTER_NOTIFY_FIELD_DEFAULT_PRIORITY: u32 = 15u32;
-pub const PRINTER_NOTIFY_FIELD_DEVMODE: u32 = 7u32;
-pub const PRINTER_NOTIFY_FIELD_DRIVER_NAME: u32 = 4u32;
-pub const PRINTER_NOTIFY_FIELD_FRIENDLY_NAME: u32 = 27u32;
-pub const PRINTER_NOTIFY_FIELD_LOCATION: u32 = 6u32;
-pub const PRINTER_NOTIFY_FIELD_OBJECT_GUID: u32 = 26u32;
-pub const PRINTER_NOTIFY_FIELD_PAGES_PRINTED: u32 = 23u32;
-pub const PRINTER_NOTIFY_FIELD_PARAMETERS: u32 = 10u32;
-pub const PRINTER_NOTIFY_FIELD_PORT_NAME: u32 = 3u32;
-pub const PRINTER_NOTIFY_FIELD_PRINTER_NAME: u32 = 1u32;
-pub const PRINTER_NOTIFY_FIELD_PRINT_PROCESSOR: u32 = 9u32;
-pub const PRINTER_NOTIFY_FIELD_PRIORITY: u32 = 14u32;
-pub const PRINTER_NOTIFY_FIELD_SECURITY_DESCRIPTOR: u32 = 12u32;
-pub const PRINTER_NOTIFY_FIELD_SEPFILE: u32 = 8u32;
-pub const PRINTER_NOTIFY_FIELD_SERVER_NAME: u32 = 0u32;
-pub const PRINTER_NOTIFY_FIELD_SHARE_NAME: u32 = 2u32;
-pub const PRINTER_NOTIFY_FIELD_START_TIME: u32 = 16u32;
-pub const PRINTER_NOTIFY_FIELD_STATUS: u32 = 18u32;
-pub const PRINTER_NOTIFY_FIELD_STATUS_STRING: u32 = 19u32;
-pub const PRINTER_NOTIFY_FIELD_TOTAL_BYTES: u32 = 24u32;
-pub const PRINTER_NOTIFY_FIELD_TOTAL_PAGES: u32 = 22u32;
-pub const PRINTER_NOTIFY_FIELD_UNTIL_TIME: u32 = 17u32;
-pub const PRINTER_NOTIFY_INFO_DATA_COMPACT: u32 = 1u32;
-pub const PRINTER_NOTIFY_INFO_DISCARDED: u32 = 1u32;
-pub const PRINTER_NOTIFY_OPTIONS_REFRESH: u32 = 1u32;
-pub const PRINTER_NOTIFY_STATUS_ENDPOINT: u32 = 1u32;
-pub const PRINTER_NOTIFY_STATUS_INFO: u32 = 4u32;
-pub const PRINTER_NOTIFY_STATUS_POLL: u32 = 2u32;
-pub const PRINTER_NOTIFY_TYPE: u32 = 0u32;
-pub const PRINTER_OEMINTF_VERSION: u32 = 65536u32;
-pub const PRINTER_OPTION_CACHE: PRINTER_OPTION_FLAGS = 2i32;
-pub const PRINTER_OPTION_CLIENT_CHANGE: PRINTER_OPTION_FLAGS = 4i32;
-pub const PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = 1i32;
-pub const PRINTER_OPTION_NO_CLIENT_DATA: PRINTER_OPTION_FLAGS = 8i32;
-pub const PRINTER_READ: PRINTER_ACCESS_RIGHTS = 131080u32;
-pub const PRINTER_READ_CONTROL: PRINTER_ACCESS_RIGHTS = 131072u32;
-pub const PRINTER_STANDARD_RIGHTS_EXECUTE: PRINTER_ACCESS_RIGHTS = 131072u32;
-pub const PRINTER_STANDARD_RIGHTS_READ: PRINTER_ACCESS_RIGHTS = 131072u32;
-pub const PRINTER_STANDARD_RIGHTS_REQUIRED: PRINTER_ACCESS_RIGHTS = 983040u32;
-pub const PRINTER_STANDARD_RIGHTS_WRITE: PRINTER_ACCESS_RIGHTS = 131072u32;
-pub const PRINTER_STATUS_BUSY: u32 = 512u32;
-pub const PRINTER_STATUS_DOOR_OPEN: u32 = 4194304u32;
-pub const PRINTER_STATUS_DRIVER_UPDATE_NEEDED: u32 = 67108864u32;
-pub const PRINTER_STATUS_ERROR: u32 = 2u32;
-pub const PRINTER_STATUS_INITIALIZING: u32 = 32768u32;
-pub const PRINTER_STATUS_IO_ACTIVE: u32 = 256u32;
-pub const PRINTER_STATUS_MANUAL_FEED: u32 = 32u32;
-pub const PRINTER_STATUS_NOT_AVAILABLE: u32 = 4096u32;
-pub const PRINTER_STATUS_NO_TONER: u32 = 262144u32;
-pub const PRINTER_STATUS_OFFLINE: u32 = 128u32;
-pub const PRINTER_STATUS_OUTPUT_BIN_FULL: u32 = 2048u32;
-pub const PRINTER_STATUS_OUT_OF_MEMORY: u32 = 2097152u32;
-pub const PRINTER_STATUS_PAGE_PUNT: u32 = 524288u32;
-pub const PRINTER_STATUS_PAPER_JAM: u32 = 8u32;
-pub const PRINTER_STATUS_PAPER_OUT: u32 = 16u32;
-pub const PRINTER_STATUS_PAPER_PROBLEM: u32 = 64u32;
-pub const PRINTER_STATUS_PAUSED: u32 = 1u32;
-pub const PRINTER_STATUS_PENDING_DELETION: u32 = 4u32;
-pub const PRINTER_STATUS_POWER_SAVE: u32 = 16777216u32;
-pub const PRINTER_STATUS_PRINTING: u32 = 1024u32;
-pub const PRINTER_STATUS_PROCESSING: u32 = 16384u32;
-pub const PRINTER_STATUS_SERVER_OFFLINE: u32 = 33554432u32;
-pub const PRINTER_STATUS_SERVER_UNKNOWN: u32 = 8388608u32;
-pub const PRINTER_STATUS_TONER_LOW: u32 = 131072u32;
-pub const PRINTER_STATUS_USER_INTERVENTION: u32 = 1048576u32;
-pub const PRINTER_STATUS_WAITING: u32 = 8192u32;
-pub const PRINTER_STATUS_WARMING_UP: u32 = 65536u32;
-pub const PRINTER_SYNCHRONIZE: PRINTER_ACCESS_RIGHTS = 1048576u32;
-pub const PRINTER_WRITE: PRINTER_ACCESS_RIGHTS = 131080u32;
-pub const PRINTER_WRITE_DAC: PRINTER_ACCESS_RIGHTS = 262144u32;
-pub const PRINTER_WRITE_OWNER: PRINTER_ACCESS_RIGHTS = 524288u32;
-pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2abad223_b994_4aca_82fc_4571b1b585ac);
-pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = 0i32;
-pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PRINT_EXECUTION_CONTEXT = 3i32;
-pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEXT = 2i32;
-pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = 1i32;
-pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = 4i32;
-pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25df3b0e_74a9_47f5_80ce_79b4b1eb5c58);
-pub const PROPSHEETUI_INFO_VERSION: u32 = 256u32;
-pub const PROPSHEETUI_REASON_BEFORE_INIT: u32 = 5u32;
-pub const PROPSHEETUI_REASON_DESTROY: u32 = 2u32;
-pub const PROPSHEETUI_REASON_GET_ICON: u32 = 4u32;
-pub const PROPSHEETUI_REASON_GET_INFO_HEADER: u32 = 1u32;
-pub const PROPSHEETUI_REASON_INIT: u32 = 0u32;
-pub const PROPSHEETUI_REASON_SET_RESULT: u32 = 3u32;
-pub const PROTOCOL_LPR_TYPE: u32 = 2u32;
-pub const PROTOCOL_RAWTCP_TYPE: u32 = 1u32;
-pub const PROTOCOL_UNKNOWN_TYPE: u32 = 0u32;
-pub const PSUIHDRF_DEFTITLE: u32 = 16u32;
-pub const PSUIHDRF_EXACT_PTITLE: u32 = 32u32;
-pub const PSUIHDRF_NOAPPLYNOW: u32 = 2u32;
-pub const PSUIHDRF_OBSOLETE: u32 = 1u32;
-pub const PSUIHDRF_PROPTITLE: u32 = 4u32;
-pub const PSUIHDRF_USEHICON: u32 = 8u32;
-pub const PSUIINFO_UNICODE: u32 = 1u32;
-pub const PSUIPAGEINSERT_DLL: u32 = 5u32;
-pub const PSUIPAGEINSERT_GROUP_PARENT: u32 = 0u32;
-pub const PSUIPAGEINSERT_HPROPSHEETPAGE: u32 = 4u32;
-pub const PSUIPAGEINSERT_PCOMPROPSHEETUI: u32 = 1u32;
-pub const PSUIPAGEINSERT_PFNPROPSHEETUI: u32 = 2u32;
-pub const PSUIPAGEINSERT_PROPSHEETPAGE: u32 = 3u32;
-pub const PTSHIM_DEFAULT: SHIMOPTS = 0i32;
-pub const PTSHIM_NOSNAPSHOT: SHIMOPTS = 1i32;
-pub const PUSHBUTTON_TYPE_CALLBACK: u32 = 1u32;
-pub const PUSHBUTTON_TYPE_DLGPROC: u32 = 0u32;
-pub const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2u32;
-pub const PUSHBUTTON_TYPE_HTSETUP: u32 = 3u32;
-pub const PrintJobStatus_BlockedDeviceQueue: PrintJobStatus = 512i32;
-pub const PrintJobStatus_Complete: PrintJobStatus = 4096i32;
-pub const PrintJobStatus_Deleted: PrintJobStatus = 256i32;
-pub const PrintJobStatus_Deleting: PrintJobStatus = 4i32;
-pub const PrintJobStatus_Error: PrintJobStatus = 2i32;
-pub const PrintJobStatus_Offline: PrintJobStatus = 32i32;
-pub const PrintJobStatus_PaperOut: PrintJobStatus = 64i32;
-pub const PrintJobStatus_Paused: PrintJobStatus = 1i32;
-pub const PrintJobStatus_Printed: PrintJobStatus = 128i32;
-pub const PrintJobStatus_Printing: PrintJobStatus = 16i32;
-pub const PrintJobStatus_Restarted: PrintJobStatus = 2048i32;
-pub const PrintJobStatus_Retained: PrintJobStatus = 8192i32;
-pub const PrintJobStatus_Spooling: PrintJobStatus = 8i32;
-pub const PrintJobStatus_UserIntervention: PrintJobStatus = 1024i32;
-pub const PrintSchemaConstrainedSetting_Admin: PrintSchemaConstrainedSetting = 2i32;
-pub const PrintSchemaConstrainedSetting_Device: PrintSchemaConstrainedSetting = 3i32;
-pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = 0i32;
-pub const PrintSchemaConstrainedSetting_PrintTicket: PrintSchemaConstrainedSetting = 1i32;
-pub const PrintSchemaParameterDataType_Integer: PrintSchemaParameterDataType = 0i32;
-pub const PrintSchemaParameterDataType_NumericString: PrintSchemaParameterDataType = 1i32;
-pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = 2i32;
-pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = 1i32;
-pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = 0i32;
-pub const QCP_DEVICEPROFILE: u32 = 0u32;
-pub const QCP_PROFILEDISK: u32 = 2u32;
-pub const QCP_PROFILEMEMORY: u32 = 1u32;
-pub const QCP_SOURCEPROFILE: u32 = 1u32;
-pub const RAWTCP: u32 = 1u32;
-pub const REMOTE_ONLY_REGISTRATION: PrintAsyncNotifyError = 24i32;
-pub const REVERSE_PAGES_FOR_REVERSE_DUPLEX: u32 = 1u32;
-pub const REVERSE_PRINT: u32 = 1u32;
-pub const RIGHT_THEN_DOWN: u32 = 1u32;
-pub const ROUTER_STOP_ROUTING: u32 = 2u32;
-pub const ROUTER_SUCCESS: u32 = 1u32;
-pub const ROUTER_UNKNOWN: u32 = 0u32;
-pub const SERVER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = 1u32;
-pub const SERVER_ACCESS_ENUMERATE: PRINTER_ACCESS_RIGHTS = 2u32;
-pub const SERVER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = 983043u32;
-pub const SERVER_EXECUTE: PRINTER_ACCESS_RIGHTS = 131074u32;
-pub const SERVER_NOTIFY_FIELD_PRINT_DRIVER_ISOLATION_GROUP: u32 = 0u32;
-pub const SERVER_NOTIFY_TYPE: u32 = 2u32;
-pub const SERVER_READ: PRINTER_ACCESS_RIGHTS = 131074u32;
-pub const SERVER_WRITE: PRINTER_ACCESS_RIGHTS = 131075u32;
-pub const SETOPTIONS_FLAG_KEEP_CONFLICT: u32 = 2u32;
-pub const SETOPTIONS_FLAG_RESOLVE_CONFLICT: u32 = 1u32;
-pub const SETOPTIONS_RESULT_CONFLICT_REMAINED: u32 = 2u32;
-pub const SETOPTIONS_RESULT_CONFLICT_RESOLVED: u32 = 1u32;
-pub const SETOPTIONS_RESULT_NO_CONFLICT: u32 = 0u32;
-pub const SPLCLIENT_INFO_INTERNAL_LEVEL: u32 = 100u32;
-pub const SPLDS_ASSET_NUMBER: windows_sys::core::PCWSTR = windows_sys::core::w!("assetNumber");
-pub const SPLDS_BYTES_PER_MINUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("bytesPerMinute");
-pub const SPLDS_DESCRIPTION: windows_sys::core::PCWSTR = windows_sys::core::w!("description");
-pub const SPLDS_DRIVER_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("DsDriver");
-pub const SPLDS_DRIVER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("driverName");
-pub const SPLDS_DRIVER_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("driverVersion");
-pub const SPLDS_FLAGS: windows_sys::core::PCWSTR = windows_sys::core::w!("flags");
-pub const SPLDS_LOCATION: windows_sys::core::PCWSTR = windows_sys::core::w!("location");
-pub const SPLDS_PORT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("portName");
-pub const SPLDS_PRINTER_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("printQueue");
-pub const SPLDS_PRINTER_LOCATIONS: windows_sys::core::PCWSTR = windows_sys::core::w!("printerLocations");
-pub const SPLDS_PRINTER_MODEL: windows_sys::core::PCWSTR = windows_sys::core::w!("printerModel");
-pub const SPLDS_PRINTER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("printerName");
-pub const SPLDS_PRINTER_NAME_ALIASES: windows_sys::core::PCWSTR = windows_sys::core::w!("printerNameAliases");
-pub const SPLDS_PRINT_ATTRIBUTES: windows_sys::core::PCWSTR = windows_sys::core::w!("printAttributes");
-pub const SPLDS_PRINT_BIN_NAMES: windows_sys::core::PCWSTR = windows_sys::core::w!("printBinNames");
-pub const SPLDS_PRINT_COLLATE: windows_sys::core::PCWSTR = windows_sys::core::w!("printCollate");
-pub const SPLDS_PRINT_COLOR: windows_sys::core::PCWSTR = windows_sys::core::w!("printColor");
-pub const SPLDS_PRINT_DUPLEX_SUPPORTED: windows_sys::core::PCWSTR = windows_sys::core::w!("printDuplexSupported");
-pub const SPLDS_PRINT_END_TIME: windows_sys::core::PCWSTR = windows_sys::core::w!("printEndTime");
-pub const SPLDS_PRINT_KEEP_PRINTED_JOBS: windows_sys::core::PCWSTR = windows_sys::core::w!("printKeepPrintedJobs");
-pub const SPLDS_PRINT_LANGUAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("printLanguage");
-pub const SPLDS_PRINT_MAC_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("printMACAddress");
-pub const SPLDS_PRINT_MAX_RESOLUTION_SUPPORTED: windows_sys::core::PCWSTR = windows_sys::core::w!("printMaxResolutionSupported");
-pub const SPLDS_PRINT_MAX_X_EXTENT: windows_sys::core::PCWSTR = windows_sys::core::w!("printMaxXExtent");
-pub const SPLDS_PRINT_MAX_Y_EXTENT: windows_sys::core::PCWSTR = windows_sys::core::w!("printMaxYExtent");
-pub const SPLDS_PRINT_MEDIA_READY: windows_sys::core::PCWSTR = windows_sys::core::w!("printMediaReady");
-pub const SPLDS_PRINT_MEDIA_SUPPORTED: windows_sys::core::PCWSTR = windows_sys::core::w!("printMediaSupported");
-pub const SPLDS_PRINT_MEMORY: windows_sys::core::PCWSTR = windows_sys::core::w!("printMemory");
-pub const SPLDS_PRINT_MIN_X_EXTENT: windows_sys::core::PCWSTR = windows_sys::core::w!("printMinXExtent");
-pub const SPLDS_PRINT_MIN_Y_EXTENT: windows_sys::core::PCWSTR = windows_sys::core::w!("printMinYExtent");
-pub const SPLDS_PRINT_NETWORK_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("printNetworkAddress");
-pub const SPLDS_PRINT_NOTIFY: windows_sys::core::PCWSTR = windows_sys::core::w!("printNotify");
-pub const SPLDS_PRINT_NUMBER_UP: windows_sys::core::PCWSTR = windows_sys::core::w!("printNumberUp");
-pub const SPLDS_PRINT_ORIENTATIONS_SUPPORTED: windows_sys::core::PCWSTR = windows_sys::core::w!("printOrientationsSupported");
-pub const SPLDS_PRINT_OWNER: windows_sys::core::PCWSTR = windows_sys::core::w!("printOwner");
-pub const SPLDS_PRINT_PAGES_PER_MINUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("printPagesPerMinute");
-pub const SPLDS_PRINT_RATE: windows_sys::core::PCWSTR = windows_sys::core::w!("printRate");
-pub const SPLDS_PRINT_RATE_UNIT: windows_sys::core::PCWSTR = windows_sys::core::w!("printRateUnit");
-pub const SPLDS_PRINT_SEPARATOR_FILE: windows_sys::core::PCWSTR = windows_sys::core::w!("printSeparatorFile");
-pub const SPLDS_PRINT_SHARE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("printShareName");
-pub const SPLDS_PRINT_SPOOLING: windows_sys::core::PCWSTR = windows_sys::core::w!("printSpooling");
-pub const SPLDS_PRINT_STAPLING_SUPPORTED: windows_sys::core::PCWSTR = windows_sys::core::w!("printStaplingSupported");
-pub const SPLDS_PRINT_START_TIME: windows_sys::core::PCWSTR = windows_sys::core::w!("printStartTime");
-pub const SPLDS_PRINT_STATUS: windows_sys::core::PCWSTR = windows_sys::core::w!("printStatus");
-pub const SPLDS_PRIORITY: windows_sys::core::PCWSTR = windows_sys::core::w!("priority");
-pub const SPLDS_SERVER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("serverName");
-pub const SPLDS_SHORT_SERVER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("shortServerName");
-pub const SPLDS_SPOOLER_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("DsSpooler");
-pub const SPLDS_UNC_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("uNCName");
-pub const SPLDS_URL: windows_sys::core::PCWSTR = windows_sys::core::w!("url");
-pub const SPLDS_USER_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("DsUser");
-pub const SPLDS_VERSION_NUMBER: windows_sys::core::PCWSTR = windows_sys::core::w!("versionNumber");
-pub const SPLPRINTER_USER_MODE_PRINTER_DRIVER: windows_sys::core::PCWSTR = windows_sys::core::w!("SPLUserModePrinterDriver");
-pub const SPLREG_ALLOW_USER_MANAGEFORMS: windows_sys::core::PCWSTR = windows_sys::core::w!("AllowUserManageForms");
-pub const SPLREG_ARCHITECTURE: windows_sys::core::PCWSTR = windows_sys::core::w!("Architecture");
-pub const SPLREG_BEEP_ENABLED: windows_sys::core::PCWSTR = windows_sys::core::w!("BeepEnabled");
-pub const SPLREG_DEFAULT_SPOOL_DIRECTORY: windows_sys::core::PCWSTR = windows_sys::core::w!("DefaultSpoolDirectory");
-pub const SPLREG_DNS_MACHINE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DNSMachineName");
-pub const SPLREG_DS_PRESENT: windows_sys::core::PCWSTR = windows_sys::core::w!("DsPresent");
-pub const SPLREG_DS_PRESENT_FOR_USER: windows_sys::core::PCWSTR = windows_sys::core::w!("DsPresentForUser");
-pub const SPLREG_EVENT_LOG: windows_sys::core::PCWSTR = windows_sys::core::w!("EventLog");
-pub const SPLREG_MAJOR_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("MajorVersion");
-pub const SPLREG_MINOR_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("MinorVersion");
-pub const SPLREG_NET_POPUP: windows_sys::core::PCWSTR = windows_sys::core::w!("NetPopup");
-pub const SPLREG_NET_POPUP_TO_COMPUTER: windows_sys::core::PCWSTR = windows_sys::core::w!("NetPopupToComputer");
-pub const SPLREG_OS_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("OSVersion");
-pub const SPLREG_OS_VERSIONEX: windows_sys::core::PCWSTR = windows_sys::core::w!("OSVersionEx");
-pub const SPLREG_PORT_THREAD_PRIORITY: windows_sys::core::PCWSTR = windows_sys::core::w!("PortThreadPriority");
-pub const SPLREG_PORT_THREAD_PRIORITY_DEFAULT: windows_sys::core::PCWSTR = windows_sys::core::w!("PortThreadPriorityDefault");
-pub const SPLREG_PRINT_DRIVER_ISOLATION_EXECUTION_POLICY: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDriverIsolationExecutionPolicy");
-pub const SPLREG_PRINT_DRIVER_ISOLATION_GROUPS: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDriverIsolationGroups");
-pub const SPLREG_PRINT_DRIVER_ISOLATION_IDLE_TIMEOUT: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDriverIsolationIdleTimeout");
-pub const SPLREG_PRINT_DRIVER_ISOLATION_MAX_OBJECTS_BEFORE_RECYCLE: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDriverIsolationMaxobjsBeforeRecycle");
-pub const SPLREG_PRINT_DRIVER_ISOLATION_OVERRIDE_POLICY: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDriverIsolationOverrideCompat");
-pub const SPLREG_PRINT_DRIVER_ISOLATION_TIME_BEFORE_RECYCLE: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDriverIsolationTimeBeforeRecycle");
-pub const SPLREG_PRINT_QUEUE_V4_DRIVER_DIRECTORY: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintQueueV4DriverDirectory");
-pub const SPLREG_REMOTE_FAX: windows_sys::core::PCWSTR = windows_sys::core::w!("RemoteFax");
-pub const SPLREG_RESTART_JOB_ON_POOL_ENABLED: windows_sys::core::PCWSTR = windows_sys::core::w!("RestartJobOnPoolEnabled");
-pub const SPLREG_RESTART_JOB_ON_POOL_ERROR: windows_sys::core::PCWSTR = windows_sys::core::w!("RestartJobOnPoolError");
-pub const SPLREG_RETRY_POPUP: windows_sys::core::PCWSTR = windows_sys::core::w!("RetryPopup");
-pub const SPLREG_SCHEDULER_THREAD_PRIORITY: windows_sys::core::PCWSTR = windows_sys::core::w!("SchedulerThreadPriority");
-pub const SPLREG_SCHEDULER_THREAD_PRIORITY_DEFAULT: windows_sys::core::PCWSTR = windows_sys::core::w!("SchedulerThreadPriorityDefault");
-pub const SPLREG_WEBSHAREMGMT: windows_sys::core::PCWSTR = windows_sys::core::w!("WebShareMgmt");
-pub const SPOOL_FILE_PERSISTENT: u32 = 1u32;
-pub const SPOOL_FILE_TEMPORARY: u32 = 2u32;
-pub const SR_OWNER: u32 = 0u32;
-pub const SR_OWNER_PARENT: u32 = 1u32;
-pub const SSP_STDPAGE1: u32 = 10001u32;
-pub const SSP_STDPAGE2: u32 = 10002u32;
-pub const SSP_TVPAGE: u32 = 10000u32;
-pub const STRING_LANGPAIR: u32 = 4u32;
-pub const STRING_MUIDLL: u32 = 2u32;
-pub const STRING_NONE: u32 = 1u32;
-pub const S_CONFLICT_RESOLVED: u32 = 262146u32;
-pub const S_DEVCAP_OUTPUT_FULL_REPLACEMENT: windows_sys::core::HRESULT = 0x4DC01_u32 as _;
-pub const S_NO_CONFLICT: u32 = 262145u32;
-pub const TTDOWNLOAD_BITMAP: u32 = 2u32;
-pub const TTDOWNLOAD_DONTCARE: u32 = 0u32;
-pub const TTDOWNLOAD_GRAPHICS: u32 = 1u32;
-pub const TTDOWNLOAD_TTOUTLINE: u32 = 3u32;
-pub const TVOT_2STATES: u32 = 0u32;
-pub const TVOT_3STATES: u32 = 1u32;
-pub const TVOT_CHKBOX: u32 = 9u32;
-pub const TVOT_COMBOBOX: u32 = 6u32;
-pub const TVOT_EDITBOX: u32 = 7u32;
-pub const TVOT_LISTBOX: u32 = 5u32;
-pub const TVOT_NSTATES_EX: u32 = 10u32;
-pub const TVOT_PUSHBUTTON: u32 = 8u32;
-pub const TVOT_SCROLLBAR: u32 = 4u32;
-pub const TVOT_TRACKBAR: u32 = 3u32;
-pub const TVOT_UDARROW: u32 = 2u32;
-pub const TYPE_GLYPHHANDLE: u32 = 3u32;
-pub const TYPE_GLYPHID: u32 = 4u32;
-pub const TYPE_TRANSDATA: u32 = 2u32;
-pub const TYPE_UNICODE: u32 = 1u32;
-pub const UFF_VERSION_NUMBER: u32 = 65537u32;
-pub const UFM_CART: u32 = 2u32;
-pub const UFM_SCALABLE: u32 = 4u32;
-pub const UFM_SOFT: u32 = 1u32;
-pub const UFOFLAG_TTDOWNLOAD_BITMAP: u32 = 2u32;
-pub const UFOFLAG_TTDOWNLOAD_TTOUTLINE: u32 = 4u32;
-pub const UFOFLAG_TTFONT: u32 = 1u32;
-pub const UFOFLAG_TTOUTLINE_BOLD_SIM: u32 = 8u32;
-pub const UFOFLAG_TTOUTLINE_ITALIC_SIM: u32 = 16u32;
-pub const UFOFLAG_TTOUTLINE_VERTICAL: u32 = 32u32;
-pub const UFOFLAG_TTSUBSTITUTED: u32 = 64u32;
-pub const UFO_GETINFO_FONTOBJ: u32 = 1u32;
-pub const UFO_GETINFO_GLYPHBITMAP: u32 = 3u32;
-pub const UFO_GETINFO_GLYPHSTRING: u32 = 2u32;
-pub const UFO_GETINFO_GLYPHWIDTH: u32 = 4u32;
-pub const UFO_GETINFO_MEMORY: u32 = 5u32;
-pub const UFO_GETINFO_STDVARIABLE: u32 = 6u32;
-pub const UNIFM_VERSION_1_0: u32 = 65536u32;
-pub const UNIRECTIONAL_NOTIFICATION_LOST: PrintAsyncNotifyError = 5i32;
-pub const UNI_GLYPHSETDATA_VERSION_1_0: u32 = 65536u32;
-pub const UNKNOWN_PROTOCOL: u32 = 0u32;
-pub const UPDP_CHECK_DRIVERSTORE: u32 = 4u32;
-pub const UPDP_SILENT_UPLOAD: u32 = 1u32;
-pub const UPDP_UPLOAD_ALWAYS: u32 = 2u32;
-pub const USBPRINT_IOCTL_INDEX: u32 = 0u32;
-pub const USB_PRINTER_INTERFACE_CLASSIC: u32 = 1u32;
-pub const USB_PRINTER_INTERFACE_DUAL: u32 = 3u32;
-pub const USB_PRINTER_INTERFACE_IPP: u32 = 2u32;
-pub const WM_FI_FILENAME: u32 = 900u32;
-pub const XPSRAS_BACKGROUND_COLOR_OPAQUE: XPSRAS_BACKGROUND_COLOR = 1i32;
-pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XPSRAS_BACKGROUND_COLOR = 0i32;
-pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XPSRAS_PIXEL_FORMAT = 3i32;
-pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XPSRAS_PIXEL_FORMAT = 1i32;
-pub const XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XPSRAS_PIXEL_FORMAT = 2i32;
-pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = 1i32;
-pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = 0i32;
-pub const XPS_FP_DRIVER_PROPERTY_BAG: windows_sys::core::PCWSTR = windows_sys::core::w!("DriverPropertyBag");
-pub const XPS_FP_JOB_ID: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintJobId");
-pub const XPS_FP_JOB_LEVEL_PRINTTICKET: windows_sys::core::PCWSTR = windows_sys::core::w!("JobPrintTicket");
-pub const XPS_FP_MERGED_DATAFILE_PATH: windows_sys::core::PCWSTR = windows_sys::core::w!("MergedDataFilePath");
-pub const XPS_FP_MS_CONTENT_TYPE: windows_sys::core::PCWSTR = windows_sys::core::w!("DriverMultiContentType");
-pub const XPS_FP_MS_CONTENT_TYPE_OPENXPS: windows_sys::core::PCWSTR = windows_sys::core::w!("OpenXPS");
-pub const XPS_FP_MS_CONTENT_TYPE_XPS: windows_sys::core::PCWSTR = windows_sys::core::w!("XPS");
-pub const XPS_FP_OUTPUT_FILE: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintOutputFileName");
-pub const XPS_FP_PRINTDEVICECAPABILITIES: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDeviceCapabilities");
-pub const XPS_FP_PRINTER_HANDLE: windows_sys::core::PCWSTR = windows_sys::core::w!("PrinterHandle");
-pub const XPS_FP_PRINTER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("PrinterName");
-pub const XPS_FP_PRINT_CLASS_FACTORY: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintClassFactory");
-pub const XPS_FP_PROGRESS_REPORT: windows_sys::core::PCWSTR = windows_sys::core::w!("ProgressReport");
-pub const XPS_FP_QUEUE_PROPERTY_BAG: windows_sys::core::PCWSTR = windows_sys::core::w!("QueuePropertyBag");
-pub const XPS_FP_RESOURCE_DLL_PATHS: windows_sys::core::PCWSTR = windows_sys::core::w!("ResourceDLLPaths");
-pub const XPS_FP_USER_PRINT_TICKET: windows_sys::core::PCWSTR = windows_sys::core::w!("PerUserPrintTicket");
-pub const XPS_FP_USER_TOKEN: windows_sys::core::PCWSTR = windows_sys::core::w!("UserSecurityToken");
-pub const XpsJob_DocumentSequenceAdded: EXpsJobConsumption = 0i32;
-pub const XpsJob_FixedDocumentAdded: EXpsJobConsumption = 1i32;
-pub const XpsJob_FixedPageAdded: EXpsJobConsumption = 2i32;
-pub const Xps_Restricted_Font_Editable: EXpsFontRestriction = 8i32;
-pub const Xps_Restricted_Font_Installable: EXpsFontRestriction = 0i32;
-pub const Xps_Restricted_Font_NoEmbedding: EXpsFontRestriction = 2i32;
-pub const Xps_Restricted_Font_PreviewPrint: EXpsFontRestriction = 4i32;
-pub const kADT_ASCII: EATTRIBUTE_DATATYPE = 5i32;
-pub const kADT_BINARY: EATTRIBUTE_DATATYPE = 7i32;
-pub const kADT_BOOL: EATTRIBUTE_DATATYPE = 1i32;
-pub const kADT_CUSTOMSIZEPARAMS: EATTRIBUTE_DATATYPE = 10i32;
-pub const kADT_DWORD: EATTRIBUTE_DATATYPE = 4i32;
-pub const kADT_INT: EATTRIBUTE_DATATYPE = 2i32;
-pub const kADT_LONG: EATTRIBUTE_DATATYPE = 3i32;
-pub const kADT_RECT: EATTRIBUTE_DATATYPE = 9i32;
-pub const kADT_SIZE: EATTRIBUTE_DATATYPE = 8i32;
-pub const kADT_UNICODE: EATTRIBUTE_DATATYPE = 6i32;
-pub const kADT_UNKNOWN: EATTRIBUTE_DATATYPE = 0i32;
-pub const kAddingDocumentSequence: EPrintXPSJobProgress = 0i32;
-pub const kAddingFixedDocument: EPrintXPSJobProgress = 2i32;
-pub const kAddingFixedPage: EPrintXPSJobProgress = 4i32;
-pub const kAllUsers: PrintAsyncNotifyUserFilter = 1i32;
-pub const kBiDirectional: PrintAsyncNotifyConversationStyle = 0i32;
-pub const kDocumentSequenceAdded: EPrintXPSJobProgress = 1i32;
-pub const kFixedDocumentAdded: EPrintXPSJobProgress = 3i32;
-pub const kFixedPageAdded: EPrintXPSJobProgress = 5i32;
-pub const kFontAdded: EPrintXPSJobProgress = 7i32;
-pub const kImageAdded: EPrintXPSJobProgress = 8i32;
-pub const kInvalidJobState: EBranchOfficeJobEventType = 0i32;
-pub const kJobConsumption: EPrintXPSJobOperation = 2i32;
-pub const kJobProduction: EPrintXPSJobOperation = 1i32;
-pub const kLogJobError: EBranchOfficeJobEventType = 3i32;
-pub const kLogJobPipelineError: EBranchOfficeJobEventType = 4i32;
-pub const kLogJobPrinted: EBranchOfficeJobEventType = 1i32;
-pub const kLogJobRendered: EBranchOfficeJobEventType = 2i32;
-pub const kLogOfflineFileFull: EBranchOfficeJobEventType = 5i32;
-pub const kMessageBox: UI_TYPE = 0i32;
-pub const kPerUser: PrintAsyncNotifyUserFilter = 0i32;
-pub const kPropertyTypeBuffer: EPrintPropertyType = 10i32;
-pub const kPropertyTypeByte: EPrintPropertyType = 4i32;
-pub const kPropertyTypeDevMode: EPrintPropertyType = 6i32;
-pub const kPropertyTypeInt32: EPrintPropertyType = 2i32;
-pub const kPropertyTypeInt64: EPrintPropertyType = 3i32;
-pub const kPropertyTypeNotificationOptions: EPrintPropertyType = 9i32;
-pub const kPropertyTypeNotificationReply: EPrintPropertyType = 8i32;
-pub const kPropertyTypeSD: EPrintPropertyType = 7i32;
-pub const kPropertyTypeString: EPrintPropertyType = 1i32;
-pub const kPropertyTypeTime: EPrintPropertyType = 5i32;
-pub const kResourceAdded: EPrintXPSJobProgress = 6i32;
-pub const kUniDirectional: PrintAsyncNotifyConversationStyle = 1i32;
-pub const kXpsDocumentCommitted: EPrintXPSJobProgress = 9i32;
-pub type BIDI_TYPE = i32;
-pub type EATTRIBUTE_DATATYPE = i32;
-pub type EBranchOfficeJobEventType = i32;
-pub type EPrintPropertyType = i32;
-pub type EPrintXPSJobOperation = i32;
-pub type EPrintXPSJobProgress = i32;
-pub type EXpsCompressionOptions = i32;
-pub type EXpsFontOptions = i32;
-pub type EXpsFontRestriction = i32;
-pub type EXpsJobConsumption = i32;
-pub type MXDC_IMAGE_TYPE_ENUMS = i32;
-pub type MXDC_LANDSCAPE_ROTATION_ENUMS = i32;
-pub type MXDC_S0_PAGE_ENUMS = i32;
-pub type NOTIFICATION_CALLBACK_COMMANDS = i32;
-pub type NOTIFICATION_CONFIG_FLAGS = i32;
-pub type PRINTER_ACCESS_RIGHTS = u32;
-pub type PRINTER_OPTION_FLAGS = i32;
-pub type PRINT_EXECUTION_CONTEXT = i32;
-pub type PageCountType = i32;
-pub type PrintAsyncNotifyConversationStyle = i32;
-pub type PrintAsyncNotifyError = i32;
-pub type PrintAsyncNotifyUserFilter = i32;
-pub type PrintJobStatus = i32;
-pub type PrintSchemaConstrainedSetting = i32;
-pub type PrintSchemaParameterDataType = i32;
-pub type PrintSchemaSelectionType = i32;
-pub type SHIMOPTS = i32;
-pub type UI_TYPE = i32;
-pub type XPSRAS_BACKGROUND_COLOR = i32;
-pub type XPSRAS_PIXEL_FORMAT = i32;
-pub type XPSRAS_RENDERING_MODE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ADDJOB_INFO_1A {
-    pub Path: windows_sys::core::PSTR,
-    pub JobId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ADDJOB_INFO_1W {
-    pub Path: windows_sys::core::PWSTR,
-    pub JobId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ATTRIBUTE_INFO_1 {
-    pub dwJobNumberOfPagesPerSide: u32,
-    pub dwDrvNumberOfPagesPerSide: u32,
-    pub dwNupBorderFlags: u32,
-    pub dwJobPageOrderFlags: u32,
-    pub dwDrvPageOrderFlags: u32,
-    pub dwJobNumberOfCopies: u32,
-    pub dwDrvNumberOfCopies: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ATTRIBUTE_INFO_2 {
-    pub dwJobNumberOfPagesPerSide: u32,
-    pub dwDrvNumberOfPagesPerSide: u32,
-    pub dwNupBorderFlags: u32,
-    pub dwJobPageOrderFlags: u32,
-    pub dwDrvPageOrderFlags: u32,
-    pub dwJobNumberOfCopies: u32,
-    pub dwDrvNumberOfCopies: u32,
-    pub dwColorOptimization: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ATTRIBUTE_INFO_3 {
-    pub dwJobNumberOfPagesPerSide: u32,
-    pub dwDrvNumberOfPagesPerSide: u32,
-    pub dwNupBorderFlags: u32,
-    pub dwJobPageOrderFlags: u32,
-    pub dwDrvPageOrderFlags: u32,
-    pub dwJobNumberOfCopies: u32,
-    pub dwDrvNumberOfCopies: u32,
-    pub dwColorOptimization: u32,
-    pub dmPrintQuality: i16,
-    pub dmYResolution: i16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ATTRIBUTE_INFO_4 {
-    pub dwJobNumberOfPagesPerSide: u32,
-    pub dwDrvNumberOfPagesPerSide: u32,
-    pub dwNupBorderFlags: u32,
-    pub dwJobPageOrderFlags: u32,
-    pub dwDrvPageOrderFlags: u32,
-    pub dwJobNumberOfCopies: u32,
-    pub dwDrvNumberOfCopies: u32,
-    pub dwColorOptimization: u32,
-    pub dmPrintQuality: i16,
-    pub dmYResolution: i16,
-    pub dwDuplexFlags: u32,
-    pub dwNupDirection: u32,
-    pub dwBookletFlags: u32,
-    pub dwScalingPercentX: u32,
-    pub dwScalingPercentY: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BIDI_DATA {
-    pub dwBidiType: u32,
-    pub u: BIDI_DATA_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union BIDI_DATA_0 {
-    pub bData: super::super::Foundation::BOOL,
-    pub iData: i32,
-    pub sData: windows_sys::core::PWSTR,
-    pub fData: f32,
-    pub biData: BINARY_CONTAINER,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BIDI_REQUEST_CONTAINER {
-    pub Version: u32,
-    pub Flags: u32,
-    pub Count: u32,
-    pub aData: [BIDI_REQUEST_DATA; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BIDI_REQUEST_DATA {
-    pub dwReqNumber: u32,
-    pub pSchema: windows_sys::core::PWSTR,
-    pub data: BIDI_DATA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BIDI_RESPONSE_CONTAINER {
-    pub Version: u32,
-    pub Flags: u32,
-    pub Count: u32,
-    pub aData: [BIDI_RESPONSE_DATA; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BIDI_RESPONSE_DATA {
-    pub dwResult: u32,
-    pub dwReqNumber: u32,
-    pub pSchema: windows_sys::core::PWSTR,
-    pub data: BIDI_DATA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BINARY_CONTAINER {
-    pub cbBuf: u32,
-    pub pData: *mut u8,
-}
-pub const BidiRequest: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb9162a23_45f9_47cc_80f5_fe0fe9b9e1a2);
-pub const BidiRequestContainer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc5b8a24_db05_4a01_8388_22edf6c2bbba);
-pub const BidiSpl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2a614240_a4c5_4c33_bd87_1bc709331639);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BranchOfficeJobData {
-    pub eEventType: EBranchOfficeJobEventType,
-    pub JobId: u32,
-    pub JobInfo: BranchOfficeJobData_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union BranchOfficeJobData_0 {
-    pub LogJobPrinted: BranchOfficeJobDataPrinted,
-    pub LogJobRendered: BranchOfficeJobDataRendered,
-    pub LogJobError: BranchOfficeJobDataError,
-    pub LogPipelineFailed: BranchOfficeJobDataPipelineFailed,
-    pub LogOfflineFileFull: BranchOfficeLogOfflineFileFull,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BranchOfficeJobDataContainer {
-    pub cJobDataEntries: u32,
-    pub JobData: [BranchOfficeJobData; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BranchOfficeJobDataError {
-    pub LastError: u32,
-    pub pDocumentName: windows_sys::core::PWSTR,
-    pub pUserName: windows_sys::core::PWSTR,
-    pub pPrinterName: windows_sys::core::PWSTR,
-    pub pDataType: windows_sys::core::PWSTR,
-    pub TotalSize: i64,
-    pub PrintedSize: i64,
-    pub TotalPages: u32,
-    pub PrintedPages: u32,
-    pub pMachineName: windows_sys::core::PWSTR,
-    pub pJobError: windows_sys::core::PWSTR,
-    pub pErrorDescription: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BranchOfficeJobDataPipelineFailed {
-    pub pDocumentName: windows_sys::core::PWSTR,
-    pub pPrinterName: windows_sys::core::PWSTR,
-    pub pExtraErrorInfo: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BranchOfficeJobDataPrinted {
-    pub Status: u32,
-    pub pDocumentName: windows_sys::core::PWSTR,
-    pub pUserName: windows_sys::core::PWSTR,
-    pub pMachineName: windows_sys::core::PWSTR,
-    pub pPrinterName: windows_sys::core::PWSTR,
-    pub pPortName: windows_sys::core::PWSTR,
-    pub Size: i64,
-    pub TotalPages: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BranchOfficeJobDataRendered {
-    pub Size: i64,
-    pub ICMMethod: u32,
-    pub Color: i16,
-    pub PrintQuality: i16,
-    pub YResolution: i16,
-    pub Copies: i16,
-    pub TTOption: i16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BranchOfficeLogOfflineFileFull {
-    pub pMachineName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct COMPROPSHEETUI {
-    pub cbSize: u16,
-    pub Flags: u16,
-    pub hInstCaller: super::super::Foundation::HINSTANCE,
-    pub pCallerName: *mut i8,
-    pub UserData: usize,
-    pub pHelpFile: *mut i8,
-    pub pfnCallBack: _CPSUICALLBACK,
-    pub pOptItem: *mut OPTITEM,
-    pub pDlgPage: *mut DLGPAGE,
-    pub cOptItem: u16,
-    pub cDlgPage: u16,
-    pub IconID: usize,
-    pub pOptItemName: *mut i8,
-    pub CallerVersion: u16,
-    pub OptItemVersion: u16,
-    pub dwReserved: [usize; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONFIG_INFO_DATA_1 {
-    pub Reserved: [u8; 128],
-    pub dwVersion: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CORE_PRINTER_DRIVERA {
-    pub CoreDriverGUID: windows_sys::core::GUID,
-    pub ftDriverDate: super::super::Foundation::FILETIME,
-    pub dwlDriverVersion: u64,
-    pub szPackageID: [i8; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CORE_PRINTER_DRIVERW {
-    pub CoreDriverGUID: windows_sys::core::GUID,
-    pub ftDriverDate: super::super::Foundation::FILETIME,
-    pub dwlDriverVersion: u64,
-    pub szPackageID: [u16; 260],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct CPSUICBPARAM {
-    pub cbSize: u16,
-    pub Reason: u16,
-    pub hDlg: super::super::Foundation::HWND,
-    pub pOptItem: *mut OPTITEM,
-    pub cOptItem: u16,
-    pub Flags: u16,
-    pub pCurItem: *mut OPTITEM,
-    pub Anonymous: CPSUICBPARAM_0,
-    pub UserData: usize,
-    pub Result: usize,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub union CPSUICBPARAM_0 {
-    pub OldSel: i32,
-    pub pOldSel: *mut i8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CPSUIDATABLOCK {
-    pub cbData: u32,
-    pub pbData: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CUSTOMSIZEPARAM {
-    pub dwOrder: i32,
-    pub lMinVal: i32,
-    pub lMaxVal: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DATATYPES_INFO_1A {
-    pub pName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DATATYPES_INFO_1W {
-    pub pName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DATA_HEADER {
-    pub dwSignature: u32,
-    pub wSize: u16,
-    pub wDataID: u16,
-    pub dwDataSize: u32,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DELETE_PORT_DATA_1 {
-    pub psztPortName: [u16; 64],
-    pub Reserved: [u8; 98],
-    pub dwVersion: u32,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEVICEPROPERTYHEADER {
-    pub cbSize: u16,
-    pub Flags: u16,
-    pub hPrinter: super::super::Foundation::HANDLE,
-    pub pszPrinterName: *mut i8,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct DEVQUERYPRINT_INFO {
-    pub cbSize: u16,
-    pub Level: u16,
-    pub hPrinter: super::super::Foundation::HANDLE,
-    pub pDevMode: *mut super::Gdi::DEVMODEA,
-    pub pszErrorStr: windows_sys::core::PWSTR,
-    pub cchErrorStr: u32,
-    pub cchNeeded: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct DLGPAGE {
-    pub cbSize: u16,
-    pub Flags: u16,
-    pub DlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
-    pub pTabName: *mut i8,
-    pub IconID: usize,
-    pub Anonymous: DLGPAGE_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub union DLGPAGE_0 {
-    pub DlgTemplateID: u16,
-    pub hDlgTemplate: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct DOCEVENT_CREATEDCPRE {
-    pub pszDriver: windows_sys::core::PWSTR,
-    pub pszDevice: windows_sys::core::PWSTR,
-    pub pdm: *mut super::Gdi::DEVMODEW,
-    pub bIC: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DOCEVENT_ESCAPE {
-    pub iEscape: i32,
-    pub cjInput: i32,
-    pub pvInData: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DOCEVENT_FILTER {
-    pub cbSize: u32,
-    pub cElementsAllocated: u32,
-    pub cElementsNeeded: u32,
-    pub cElementsReturned: u32,
-    pub aDocEventCall: [u32; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct DOCUMENTPROPERTYHEADER {
-    pub cbSize: u16,
-    pub Reserved: u16,
-    pub hPrinter: super::super::Foundation::HANDLE,
-    pub pszPrinterName: *mut i8,
-    pub pdmIn: *mut super::Gdi::DEVMODEA,
-    pub pdmOut: *mut super::Gdi::DEVMODEA,
-    pub cbOut: u32,
-    pub fMode: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DOC_INFO_1A {
-    pub pDocName: windows_sys::core::PSTR,
-    pub pOutputFile: windows_sys::core::PSTR,
-    pub pDatatype: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DOC_INFO_1W {
-    pub pDocName: windows_sys::core::PWSTR,
-    pub pOutputFile: windows_sys::core::PWSTR,
-    pub pDatatype: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DOC_INFO_2A {
-    pub pDocName: windows_sys::core::PSTR,
-    pub pOutputFile: windows_sys::core::PSTR,
-    pub pDatatype: windows_sys::core::PSTR,
-    pub dwMode: u32,
-    pub JobId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DOC_INFO_2W {
-    pub pDocName: windows_sys::core::PWSTR,
-    pub pOutputFile: windows_sys::core::PWSTR,
-    pub pDatatype: windows_sys::core::PWSTR,
-    pub dwMode: u32,
-    pub JobId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DOC_INFO_3A {
-    pub pDocName: windows_sys::core::PSTR,
-    pub pOutputFile: windows_sys::core::PSTR,
-    pub pDatatype: windows_sys::core::PSTR,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DOC_INFO_3W {
-    pub pDocName: windows_sys::core::PWSTR,
-    pub pOutputFile: windows_sys::core::PWSTR,
-    pub pDatatype: windows_sys::core::PWSTR,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DOC_INFO_INTERNAL {
-    pub pDocName: *mut i8,
-    pub pOutputFile: *mut i8,
-    pub pDatatype: *mut i8,
-    pub bLowILJob: super::super::Foundation::BOOL,
-    pub hTokenLowIL: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_1A {
-    pub pName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_1W {
-    pub pName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_2A {
-    pub cVersion: u32,
-    pub pName: windows_sys::core::PSTR,
-    pub pEnvironment: windows_sys::core::PSTR,
-    pub pDriverPath: windows_sys::core::PSTR,
-    pub pDataFile: windows_sys::core::PSTR,
-    pub pConfigFile: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_2W {
-    pub cVersion: u32,
-    pub pName: windows_sys::core::PWSTR,
-    pub pEnvironment: windows_sys::core::PWSTR,
-    pub pDriverPath: windows_sys::core::PWSTR,
-    pub pDataFile: windows_sys::core::PWSTR,
-    pub pConfigFile: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_3A {
-    pub cVersion: u32,
-    pub pName: windows_sys::core::PSTR,
-    pub pEnvironment: windows_sys::core::PSTR,
-    pub pDriverPath: windows_sys::core::PSTR,
-    pub pDataFile: windows_sys::core::PSTR,
-    pub pConfigFile: windows_sys::core::PSTR,
-    pub pHelpFile: windows_sys::core::PSTR,
-    pub pDependentFiles: windows_sys::core::PSTR,
-    pub pMonitorName: windows_sys::core::PSTR,
-    pub pDefaultDataType: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_3W {
-    pub cVersion: u32,
-    pub pName: windows_sys::core::PWSTR,
-    pub pEnvironment: windows_sys::core::PWSTR,
-    pub pDriverPath: windows_sys::core::PWSTR,
-    pub pDataFile: windows_sys::core::PWSTR,
-    pub pConfigFile: windows_sys::core::PWSTR,
-    pub pHelpFile: windows_sys::core::PWSTR,
-    pub pDependentFiles: windows_sys::core::PWSTR,
-    pub pMonitorName: windows_sys::core::PWSTR,
-    pub pDefaultDataType: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_4A {
-    pub cVersion: u32,
-    pub pName: windows_sys::core::PSTR,
-    pub pEnvironment: windows_sys::core::PSTR,
-    pub pDriverPath: windows_sys::core::PSTR,
-    pub pDataFile: windows_sys::core::PSTR,
-    pub pConfigFile: windows_sys::core::PSTR,
-    pub pHelpFile: windows_sys::core::PSTR,
-    pub pDependentFiles: windows_sys::core::PSTR,
-    pub pMonitorName: windows_sys::core::PSTR,
-    pub pDefaultDataType: windows_sys::core::PSTR,
-    pub pszzPreviousNames: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_4W {
-    pub cVersion: u32,
-    pub pName: windows_sys::core::PWSTR,
-    pub pEnvironment: windows_sys::core::PWSTR,
-    pub pDriverPath: windows_sys::core::PWSTR,
-    pub pDataFile: windows_sys::core::PWSTR,
-    pub pConfigFile: windows_sys::core::PWSTR,
-    pub pHelpFile: windows_sys::core::PWSTR,
-    pub pDependentFiles: windows_sys::core::PWSTR,
-    pub pMonitorName: windows_sys::core::PWSTR,
-    pub pDefaultDataType: windows_sys::core::PWSTR,
-    pub pszzPreviousNames: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_5A {
-    pub cVersion: u32,
-    pub pName: windows_sys::core::PSTR,
-    pub pEnvironment: windows_sys::core::PSTR,
-    pub pDriverPath: windows_sys::core::PSTR,
-    pub pDataFile: windows_sys::core::PSTR,
-    pub pConfigFile: windows_sys::core::PSTR,
-    pub dwDriverAttributes: u32,
-    pub dwConfigVersion: u32,
-    pub dwDriverVersion: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_5W {
-    pub cVersion: u32,
-    pub pName: windows_sys::core::PWSTR,
-    pub pEnvironment: windows_sys::core::PWSTR,
-    pub pDriverPath: windows_sys::core::PWSTR,
-    pub pDataFile: windows_sys::core::PWSTR,
-    pub pConfigFile: windows_sys::core::PWSTR,
-    pub dwDriverAttributes: u32,
-    pub dwConfigVersion: u32,
-    pub dwDriverVersion: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_6A {
-    pub cVersion: u32,
-    pub pName: windows_sys::core::PSTR,
-    pub pEnvironment: windows_sys::core::PSTR,
-    pub pDriverPath: windows_sys::core::PSTR,
-    pub pDataFile: windows_sys::core::PSTR,
-    pub pConfigFile: windows_sys::core::PSTR,
-    pub pHelpFile: windows_sys::core::PSTR,
-    pub pDependentFiles: windows_sys::core::PSTR,
-    pub pMonitorName: windows_sys::core::PSTR,
-    pub pDefaultDataType: windows_sys::core::PSTR,
-    pub pszzPreviousNames: windows_sys::core::PSTR,
-    pub ftDriverDate: super::super::Foundation::FILETIME,
-    pub dwlDriverVersion: u64,
-    pub pszMfgName: windows_sys::core::PSTR,
-    pub pszOEMUrl: windows_sys::core::PSTR,
-    pub pszHardwareID: windows_sys::core::PSTR,
-    pub pszProvider: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_6W {
-    pub cVersion: u32,
-    pub pName: windows_sys::core::PWSTR,
-    pub pEnvironment: windows_sys::core::PWSTR,
-    pub pDriverPath: windows_sys::core::PWSTR,
-    pub pDataFile: windows_sys::core::PWSTR,
-    pub pConfigFile: windows_sys::core::PWSTR,
-    pub pHelpFile: windows_sys::core::PWSTR,
-    pub pDependentFiles: windows_sys::core::PWSTR,
-    pub pMonitorName: windows_sys::core::PWSTR,
-    pub pDefaultDataType: windows_sys::core::PWSTR,
-    pub pszzPreviousNames: windows_sys::core::PWSTR,
-    pub ftDriverDate: super::super::Foundation::FILETIME,
-    pub dwlDriverVersion: u64,
-    pub pszMfgName: windows_sys::core::PWSTR,
-    pub pszOEMUrl: windows_sys::core::PWSTR,
-    pub pszHardwareID: windows_sys::core::PWSTR,
-    pub pszProvider: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_8A {
-    pub cVersion: u32,
-    pub pName: windows_sys::core::PSTR,
-    pub pEnvironment: windows_sys::core::PSTR,
-    pub pDriverPath: windows_sys::core::PSTR,
-    pub pDataFile: windows_sys::core::PSTR,
-    pub pConfigFile: windows_sys::core::PSTR,
-    pub pHelpFile: windows_sys::core::PSTR,
-    pub pDependentFiles: windows_sys::core::PSTR,
-    pub pMonitorName: windows_sys::core::PSTR,
-    pub pDefaultDataType: windows_sys::core::PSTR,
-    pub pszzPreviousNames: windows_sys::core::PSTR,
-    pub ftDriverDate: super::super::Foundation::FILETIME,
-    pub dwlDriverVersion: u64,
-    pub pszMfgName: windows_sys::core::PSTR,
-    pub pszOEMUrl: windows_sys::core::PSTR,
-    pub pszHardwareID: windows_sys::core::PSTR,
-    pub pszProvider: windows_sys::core::PSTR,
-    pub pszPrintProcessor: windows_sys::core::PSTR,
-    pub pszVendorSetup: windows_sys::core::PSTR,
-    pub pszzColorProfiles: windows_sys::core::PSTR,
-    pub pszInfPath: windows_sys::core::PSTR,
-    pub dwPrinterDriverAttributes: u32,
-    pub pszzCoreDriverDependencies: windows_sys::core::PSTR,
-    pub ftMinInboxDriverVerDate: super::super::Foundation::FILETIME,
-    pub dwlMinInboxDriverVerVersion: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_INFO_8W {
-    pub cVersion: u32,
-    pub pName: windows_sys::core::PWSTR,
-    pub pEnvironment: windows_sys::core::PWSTR,
-    pub pDriverPath: windows_sys::core::PWSTR,
-    pub pDataFile: windows_sys::core::PWSTR,
-    pub pConfigFile: windows_sys::core::PWSTR,
-    pub pHelpFile: windows_sys::core::PWSTR,
-    pub pDependentFiles: windows_sys::core::PWSTR,
-    pub pMonitorName: windows_sys::core::PWSTR,
-    pub pDefaultDataType: windows_sys::core::PWSTR,
-    pub pszzPreviousNames: windows_sys::core::PWSTR,
-    pub ftDriverDate: super::super::Foundation::FILETIME,
-    pub dwlDriverVersion: u64,
-    pub pszMfgName: windows_sys::core::PWSTR,
-    pub pszOEMUrl: windows_sys::core::PWSTR,
-    pub pszHardwareID: windows_sys::core::PWSTR,
-    pub pszProvider: windows_sys::core::PWSTR,
-    pub pszPrintProcessor: windows_sys::core::PWSTR,
-    pub pszVendorSetup: windows_sys::core::PWSTR,
-    pub pszzColorProfiles: windows_sys::core::PWSTR,
-    pub pszInfPath: windows_sys::core::PWSTR,
-    pub dwPrinterDriverAttributes: u32,
-    pub pszzCoreDriverDependencies: windows_sys::core::PWSTR,
-    pub ftMinInboxDriverVerDate: super::super::Foundation::FILETIME,
-    pub dwlMinInboxDriverVerVersion: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_UPGRADE_INFO_1 {
-    pub pPrinterName: *mut i8,
-    pub pOldDriverDirectory: *mut i8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRIVER_UPGRADE_INFO_2 {
-    pub pPrinterName: *mut i8,
-    pub pOldDriverDirectory: *mut i8,
-    pub cVersion: u32,
-    pub pName: *mut i8,
-    pub pEnvironment: *mut i8,
-    pub pDriverPath: *mut i8,
-    pub pDataFile: *mut i8,
-    pub pConfigFile: *mut i8,
-    pub pHelpFile: *mut i8,
-    pub pDependentFiles: *mut i8,
-    pub pMonitorName: *mut i8,
-    pub pDefaultDataType: *mut i8,
-    pub pszzPreviousNames: *mut i8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXTCHKBOX {
-    pub cbSize: u16,
-    pub Flags: u16,
-    pub pTitle: *mut i8,
-    pub pSeparator: *mut i8,
-    pub pCheckedName: *mut i8,
-    pub IconID: usize,
-    pub wReserved: [u16; 4],
-    pub dwReserved: [usize; 2],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct EXTPUSH {
-    pub cbSize: u16,
-    pub Flags: u16,
-    pub pTitle: *mut i8,
-    pub Anonymous1: EXTPUSH_0,
-    pub IconID: usize,
-    pub Anonymous2: EXTPUSH_1,
-    pub dwReserved: [usize; 3],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub union EXTPUSH_0 {
-    pub DlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
-    pub pfnCallBack: super::super::Foundation::FARPROC,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub union EXTPUSH_1 {
-    pub DlgTemplateID: u16,
-    pub hDlgTemplate: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXTTEXTMETRIC {
-    pub emSize: i16,
-    pub emPointSize: i16,
-    pub emOrientation: i16,
-    pub emMasterHeight: i16,
-    pub emMinScale: i16,
-    pub emMaxScale: i16,
-    pub emMasterUnits: i16,
-    pub emCapHeight: i16,
-    pub emXHeight: i16,
-    pub emLowerCaseAscent: i16,
-    pub emLowerCaseDescent: i16,
-    pub emSlant: i16,
-    pub emSuperScript: i16,
-    pub emSubScript: i16,
-    pub emSuperScriptSize: i16,
-    pub emSubScriptSize: i16,
-    pub emUnderlineOffset: i16,
-    pub emUnderlineWidth: i16,
-    pub emDoubleUpperUnderlineOffset: i16,
-    pub emDoubleLowerUnderlineOffset: i16,
-    pub emDoubleUpperUnderlineWidth: i16,
-    pub emDoubleLowerUnderlineWidth: i16,
-    pub emStrikeOutOffset: i16,
-    pub emStrikeOutWidth: i16,
-    pub emKernPairs: u16,
-    pub emKernTracks: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FORM_INFO_1A {
-    pub Flags: u32,
-    pub pName: windows_sys::core::PSTR,
-    pub Size: super::super::Foundation::SIZE,
-    pub ImageableArea: super::super::Foundation::RECTL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FORM_INFO_1W {
-    pub Flags: u32,
-    pub pName: windows_sys::core::PWSTR,
-    pub Size: super::super::Foundation::SIZE,
-    pub ImageableArea: super::super::Foundation::RECTL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FORM_INFO_2A {
-    pub Flags: u32,
-    pub pName: windows_sys::core::PCSTR,
-    pub Size: super::super::Foundation::SIZE,
-    pub ImageableArea: super::super::Foundation::RECTL,
-    pub pKeyword: windows_sys::core::PCSTR,
-    pub StringType: u32,
-    pub pMuiDll: windows_sys::core::PCSTR,
-    pub dwResourceId: u32,
-    pub pDisplayName: windows_sys::core::PCSTR,
-    pub wLangId: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FORM_INFO_2W {
-    pub Flags: u32,
-    pub pName: windows_sys::core::PCWSTR,
-    pub Size: super::super::Foundation::SIZE,
-    pub ImageableArea: super::super::Foundation::RECTL,
-    pub pKeyword: windows_sys::core::PCSTR,
-    pub StringType: u32,
-    pub pMuiDll: windows_sys::core::PCWSTR,
-    pub dwResourceId: u32,
-    pub pDisplayName: windows_sys::core::PCWSTR,
-    pub wLangId: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GLYPHRUN {
-    pub wcLow: u16,
-    pub wGlyphCount: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INSERTPSUIPAGE_INFO {
-    pub cbSize: u16,
-    pub Type: u8,
-    pub Mode: u8,
-    pub dwData1: usize,
-    pub dwData2: usize,
-    pub dwData3: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INVOC {
-    pub dwCount: u32,
-    pub loOffset: u32,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ImgErrorInfo {
@@ -2663,6 +1902,19 @@ pub struct ImgErrorInfo {
     pub userFallback: windows_sys::core::BSTR,
     pub exceptionID: u32,
 }
+pub const IntermediatePageCount: PageCountType = 1i32;
+pub const JOB_ACCESS_ADMINISTER: u32 = 16u32;
+pub const JOB_ACCESS_READ: u32 = 32u32;
+pub const JOB_CONTROL_CANCEL: u32 = 3u32;
+pub const JOB_CONTROL_DELETE: u32 = 5u32;
+pub const JOB_CONTROL_LAST_PAGE_EJECTED: u32 = 7u32;
+pub const JOB_CONTROL_PAUSE: u32 = 1u32;
+pub const JOB_CONTROL_RELEASE: u32 = 9u32;
+pub const JOB_CONTROL_RESTART: u32 = 4u32;
+pub const JOB_CONTROL_RESUME: u32 = 2u32;
+pub const JOB_CONTROL_RETAIN: u32 = 8u32;
+pub const JOB_CONTROL_SEND_TOAST: u32 = 10u32;
+pub const JOB_CONTROL_SENT_TO_PRINTER: u32 = 6u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JOB_INFO_1A {
@@ -2818,6 +2070,48 @@ pub struct JOB_INFO_4W {
     pub PagesPrinted: u32,
     pub SizeHigh: i32,
 }
+pub const JOB_NOTIFY_FIELD_BYTES_PRINTED: u32 = 23u32;
+pub const JOB_NOTIFY_FIELD_DATATYPE: u32 = 5u32;
+pub const JOB_NOTIFY_FIELD_DEVMODE: u32 = 9u32;
+pub const JOB_NOTIFY_FIELD_DOCUMENT: u32 = 13u32;
+pub const JOB_NOTIFY_FIELD_DRIVER_NAME: u32 = 8u32;
+pub const JOB_NOTIFY_FIELD_MACHINE_NAME: u32 = 1u32;
+pub const JOB_NOTIFY_FIELD_NOTIFY_NAME: u32 = 4u32;
+pub const JOB_NOTIFY_FIELD_PAGES_PRINTED: u32 = 21u32;
+pub const JOB_NOTIFY_FIELD_PARAMETERS: u32 = 7u32;
+pub const JOB_NOTIFY_FIELD_PORT_NAME: u32 = 2u32;
+pub const JOB_NOTIFY_FIELD_POSITION: u32 = 15u32;
+pub const JOB_NOTIFY_FIELD_PRINTER_NAME: u32 = 0u32;
+pub const JOB_NOTIFY_FIELD_PRINT_PROCESSOR: u32 = 6u32;
+pub const JOB_NOTIFY_FIELD_PRIORITY: u32 = 14u32;
+pub const JOB_NOTIFY_FIELD_REMOTE_JOB_ID: u32 = 24u32;
+pub const JOB_NOTIFY_FIELD_SECURITY_DESCRIPTOR: u32 = 12u32;
+pub const JOB_NOTIFY_FIELD_START_TIME: u32 = 17u32;
+pub const JOB_NOTIFY_FIELD_STATUS: u32 = 10u32;
+pub const JOB_NOTIFY_FIELD_STATUS_STRING: u32 = 11u32;
+pub const JOB_NOTIFY_FIELD_SUBMITTED: u32 = 16u32;
+pub const JOB_NOTIFY_FIELD_TIME: u32 = 19u32;
+pub const JOB_NOTIFY_FIELD_TOTAL_BYTES: u32 = 22u32;
+pub const JOB_NOTIFY_FIELD_TOTAL_PAGES: u32 = 20u32;
+pub const JOB_NOTIFY_FIELD_UNTIL_TIME: u32 = 18u32;
+pub const JOB_NOTIFY_FIELD_USER_NAME: u32 = 3u32;
+pub const JOB_NOTIFY_TYPE: u32 = 1u32;
+pub const JOB_POSITION_UNSPECIFIED: u32 = 0u32;
+pub const JOB_STATUS_BLOCKED_DEVQ: u32 = 512u32;
+pub const JOB_STATUS_COMPLETE: u32 = 4096u32;
+pub const JOB_STATUS_DELETED: u32 = 256u32;
+pub const JOB_STATUS_DELETING: u32 = 4u32;
+pub const JOB_STATUS_ERROR: u32 = 2u32;
+pub const JOB_STATUS_OFFLINE: u32 = 32u32;
+pub const JOB_STATUS_PAPEROUT: u32 = 64u32;
+pub const JOB_STATUS_PAUSED: u32 = 1u32;
+pub const JOB_STATUS_PRINTED: u32 = 128u32;
+pub const JOB_STATUS_PRINTING: u32 = 16u32;
+pub const JOB_STATUS_RENDERING_LOCALLY: u32 = 16384u32;
+pub const JOB_STATUS_RESTART: u32 = 2048u32;
+pub const JOB_STATUS_RETAINED: u32 = 8192u32;
+pub const JOB_STATUS_SPOOLING: u32 = 8u32;
+pub const JOB_STATUS_USER_INTERVENTION: u32 = 1024u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Display")]
 #[derive(Clone, Copy)]
@@ -2826,6 +2120,8 @@ pub struct KERNDATA {
     pub dwKernPairNum: u32,
     pub KernPair: [super::super::Devices::Display::FD_KERNINGPAIR; 1],
 }
+pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = 23i32;
+pub const LPR: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MAPTABLE {
@@ -2833,6 +2129,24 @@ pub struct MAPTABLE {
     pub dwGlyphNum: u32,
     pub Trans: [TRANSDATA; 1],
 }
+pub const MAX_ADDRESS_STR_LEN: u32 = 13u32;
+pub const MAX_CHANNEL_COUNT_EXCEEDED: PrintAsyncNotifyError = 22i32;
+pub const MAX_CPSFUNC_INDEX: u32 = 26u32;
+pub const MAX_DEVICEDESCRIPTION_STR_LEN: u32 = 257u32;
+pub const MAX_DLGPAGE_COUNT: u32 = 64u32;
+pub const MAX_FORM_KEYWORD_LENGTH: u32 = 64u32;
+pub const MAX_IPADDR_STR_LEN: u32 = 16u32;
+pub const MAX_NETWORKNAME2_LEN: u32 = 128u32;
+pub const MAX_NETWORKNAME_LEN: u32 = 49u32;
+pub const MAX_NOTIFICATION_SIZE_EXCEEDED: PrintAsyncNotifyError = 18i32;
+pub const MAX_PORTNAME_LEN: u32 = 64u32;
+pub const MAX_PRIORITY: u32 = 99u32;
+pub const MAX_PROPSHEETUI_REASON_INDEX: u32 = 5u32;
+pub const MAX_PSUIPAGEINSERT_INDEX: u32 = 5u32;
+pub const MAX_QUEUENAME_LEN: u32 = 33u32;
+pub const MAX_REGISTRATION_COUNT_EXCEEDED: PrintAsyncNotifyError = 21i32;
+pub const MAX_RES_STR_CHARS: u32 = 160u32;
+pub const MAX_SNMP_COMMUNITY_STR_LEN: u32 = 33u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MESSAGEBOX_PARAMS {
@@ -2843,6 +2157,7 @@ pub struct MESSAGEBOX_PARAMS {
     pub dwTimeout: u32,
     pub bWait: super::super::Foundation::BOOL,
 }
+pub const MIN_PRIORITY: u32 = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -2958,6 +2273,32 @@ pub struct MONITOR_INFO_2W {
     pub pEnvironment: windows_sys::core::PWSTR,
     pub pDLLName: windows_sys::core::PWSTR,
 }
+pub const MS_PRINT_JOB_OUTPUT_FILE: windows_sys::core::PCWSTR = windows_sys::core::w!("MsPrintJobOutputFile");
+pub const MTYPE_ADD: u32 = 64u32;
+pub const MTYPE_COMPOSE: u32 = 1u32;
+pub const MTYPE_DIRECT: u32 = 2u32;
+pub const MTYPE_DISABLE: u32 = 128u32;
+pub const MTYPE_DOUBLE: u32 = 16u32;
+pub const MTYPE_DOUBLEBYTECHAR_MASK: u32 = 24u32;
+pub const MTYPE_FORMAT_MASK: u32 = 7u32;
+pub const MTYPE_PAIRED: u32 = 4u32;
+pub const MTYPE_PREDEFIN_MASK: u32 = 224u32;
+pub const MTYPE_REPLACE: u32 = 32u32;
+pub const MTYPE_SINGLE: u32 = 8u32;
+pub const MV_GRAPHICS: u32 = 4u32;
+pub const MV_PHYSICAL: u32 = 8u32;
+pub const MV_RELATIVE: u32 = 2u32;
+pub const MV_SENDXMOVECMD: u32 = 16u32;
+pub const MV_SENDYMOVECMD: u32 = 32u32;
+pub const MV_UPDATE: u32 = 1u32;
+pub const MXDCOP_GET_FILENAME: u32 = 14u32;
+pub const MXDCOP_PRINTTICKET_FIXED_DOC: u32 = 24u32;
+pub const MXDCOP_PRINTTICKET_FIXED_DOC_SEQ: u32 = 22u32;
+pub const MXDCOP_PRINTTICKET_FIXED_PAGE: u32 = 26u32;
+pub const MXDCOP_SET_S0PAGE: u32 = 28u32;
+pub const MXDCOP_SET_S0PAGE_RESOURCE: u32 = 30u32;
+pub const MXDCOP_SET_XPSPASSTHRU_MODE: u32 = 32u32;
+pub const MXDC_ESCAPE: u32 = 4122u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MXDC_ESCAPE_HEADER_T {
@@ -2971,6 +2312,15 @@ pub struct MXDC_GET_FILENAME_DATA_T {
     pub cbOutput: u32,
     pub wszData: [u16; 1],
 }
+pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = 1i32;
+pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = 3i32;
+pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = 2i32;
+pub const MXDC_IMAGETYPE_PNG: MXDC_IMAGE_TYPE_ENUMS = 4i32;
+pub type MXDC_IMAGE_TYPE_ENUMS = i32;
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = -90i32;
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = 90i32;
+pub const MXDC_LANDSCAPE_ROTATE_NONE: MXDC_LANDSCAPE_ROTATION_ENUMS = 0i32;
+pub type MXDC_LANDSCAPE_ROTATION_ENUMS = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MXDC_PRINTTICKET_DATA_T {
@@ -2983,6 +2333,16 @@ pub struct MXDC_PRINTTICKET_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub printTicketData: MXDC_PRINTTICKET_DATA_T,
 }
+pub const MXDC_RESOURCE_DICTIONARY: MXDC_S0_PAGE_ENUMS = 5i32;
+pub const MXDC_RESOURCE_ICC_PROFILE: MXDC_S0_PAGE_ENUMS = 6i32;
+pub const MXDC_RESOURCE_JPEG: MXDC_S0_PAGE_ENUMS = 1i32;
+pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = 7i32;
+pub const MXDC_RESOURCE_MAX: MXDC_S0_PAGE_ENUMS = 9i32;
+pub const MXDC_RESOURCE_PNG: MXDC_S0_PAGE_ENUMS = 2i32;
+pub const MXDC_RESOURCE_PNG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = 8i32;
+pub const MXDC_RESOURCE_TIFF: MXDC_S0_PAGE_ENUMS = 3i32;
+pub const MXDC_RESOURCE_TTF: MXDC_S0_PAGE_ENUMS = 0i32;
+pub const MXDC_RESOURCE_WDP: MXDC_S0_PAGE_ENUMS = 4i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MXDC_S0PAGE_DATA_T {
@@ -3001,6 +2361,7 @@ pub struct MXDC_S0PAGE_RESOURCE_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub xpsS0PageResourcePassthrough: MXDC_XPS_S0PAGE_RESOURCE_T,
 }
+pub type MXDC_S0_PAGE_ENUMS = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MXDC_XPS_S0PAGE_RESOURCE_T {
@@ -3010,6 +2371,11 @@ pub struct MXDC_XPS_S0PAGE_RESOURCE_T {
     pub dwDataSize: u32,
     pub bData: [u8; 1],
 }
+pub const NORMAL_PRINT: u32 = 0u32;
+pub type NOTIFICATION_CALLBACK_COMMANDS = i32;
+pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = 1i32;
+pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = 2i32;
+pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NOTIFICATION_CONFIG_1 {
@@ -3018,6 +2384,19 @@ pub struct NOTIFICATION_CONFIG_1 {
     pub pfnNotifyCallback: ROUTER_NOTIFY_CALLBACK,
     pub pContext: *mut core::ffi::c_void,
 }
+pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = 8i32;
+pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = 1i32;
+pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: NOTIFICATION_CONFIG_FLAGS = 4i32;
+pub type NOTIFICATION_CONFIG_FLAGS = i32;
+pub const NOTIFICATION_CONFIG_REGISTER_CALLBACK: NOTIFICATION_CONFIG_FLAGS = 2i32;
+pub const NOTIFICATION_RELEASE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xba9a5027_a70e_4ae7_9b7d_eb3e06ad4157);
+pub const NOT_REGISTERED: PrintAsyncNotifyError = 13i32;
+pub const NO_BORDER_PRINT: u32 = 1u32;
+pub const NO_COLOR_OPTIMIZATION: u32 = 0u32;
+pub const NO_LISTENERS: PrintAsyncNotifyError = 7i32;
+pub const NO_PRIORITY: u32 = 0u32;
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type OEMCUIPCALLBACK = Option<unsafe extern "system" fn(param0: *mut CPSUICBPARAM, param1: *mut OEMCUIPPARAM) -> i32>;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -3038,6 +2417,8 @@ pub struct OEMCUIPPARAM {
     pub pOEMUserData: *mut core::ffi::c_void,
     pub OEMCUIPCallback: OEMCUIPCALLBACK,
 }
+pub const OEMCUIP_DOCPROP: u32 = 1u32;
+pub const OEMCUIP_PRNPROP: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -3052,6 +2433,10 @@ pub struct OEMDMPARAM {
     pub pOEMDMOut: *mut core::ffi::c_void,
     pub cbBufSize: u32,
 }
+pub const OEMDM_CONVERT: u32 = 3u32;
+pub const OEMDM_DEFAULT: u32 = 2u32;
+pub const OEMDM_MERGE: u32 = 4u32;
+pub const OEMDM_SIZE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OEMFONTINSTPARAM {
@@ -3062,6 +2447,35 @@ pub struct OEMFONTINSTPARAM {
     pub dwFlags: u32,
     pub pFontInstallerName: windows_sys::core::PWSTR,
 }
+pub const OEMGDS_FREEMEM: u32 = 32769u32;
+pub const OEMGDS_JOBTIMEOUT: u32 = 32770u32;
+pub const OEMGDS_MAX: u32 = 65536u32;
+pub const OEMGDS_MAXBITMAP: u32 = 32774u32;
+pub const OEMGDS_MINOUTLINE: u32 = 32773u32;
+pub const OEMGDS_MIN_DOCSTICKY: u32 = 1u32;
+pub const OEMGDS_MIN_PRINTERSTICKY: u32 = 32768u32;
+pub const OEMGDS_PRINTFLAGS: u32 = 32768u32;
+pub const OEMGDS_PROTOCOL: u32 = 32772u32;
+pub const OEMGDS_PSDM_CUSTOMSIZE: u32 = 6u32;
+pub const OEMGDS_PSDM_DIALECT: u32 = 2u32;
+pub const OEMGDS_PSDM_FLAGS: u32 = 1u32;
+pub const OEMGDS_PSDM_NUP: u32 = 4u32;
+pub const OEMGDS_PSDM_PSLEVEL: u32 = 5u32;
+pub const OEMGDS_PSDM_TTDLFMT: u32 = 3u32;
+pub const OEMGDS_UNIDM_FLAGS: u32 = 16385u32;
+pub const OEMGDS_UNIDM_GPDVER: u32 = 16384u32;
+pub const OEMGDS_WAITTIMEOUT: u32 = 32771u32;
+pub const OEMGI_GETINTERFACEVERSION: u32 = 2u32;
+pub const OEMGI_GETPUBLISHERINFO: u32 = 4u32;
+pub const OEMGI_GETREQUESTEDHELPERINTERFACES: u32 = 5u32;
+pub const OEMGI_GETSIGNATURE: u32 = 1u32;
+pub const OEMGI_GETVERSION: u32 = 3u32;
+pub const OEMPUBLISH_DEFAULT: u32 = 0u32;
+pub const OEMPUBLISH_IPRINTCOREHELPER: u32 = 1u32;
+pub const OEMTTY_INFO_CODEPAGE: u32 = 2u32;
+pub const OEMTTY_INFO_MARGINS: u32 = 1u32;
+pub const OEMTTY_INFO_NUM_UFMS: u32 = 3u32;
+pub const OEMTTY_INFO_UFM_IDS: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OEMUIOBJ {
@@ -3097,6 +2511,7 @@ pub struct OEM_DMEXTRAHEADER {
     pub dwSignature: u32,
     pub dwVersion: u32,
 }
+pub const OEM_MODE_PUBLISHER: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OIEXT {
@@ -3106,6 +2521,9 @@ pub struct OIEXT {
     pub pHelpFile: *mut i8,
     pub dwReserved: [usize; 4],
 }
+pub const OIEXTF_ANSI_STRING: u32 = 1u32;
+pub const OPTCF_HIDE: u32 = 1u32;
+pub const OPTCF_MASK: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OPTCOMBO {
@@ -3116,6 +2534,24 @@ pub struct OPTCOMBO {
     pub Sel: i32,
     pub dwReserved: [u32; 3],
 }
+pub const OPTIF_CALLBACK: i32 = 4i32;
+pub const OPTIF_CHANGED: i32 = 8i32;
+pub const OPTIF_CHANGEONCE: i32 = 16i32;
+pub const OPTIF_COLLAPSE: i32 = 1i32;
+pub const OPTIF_DISABLED: i32 = 32i32;
+pub const OPTIF_ECB_CHECKED: i32 = 64i32;
+pub const OPTIF_EXT_DISABLED: i32 = 256i32;
+pub const OPTIF_EXT_HIDE: i32 = 128i32;
+pub const OPTIF_EXT_IS_EXTPUSH: i32 = 1024i32;
+pub const OPTIF_HAS_POIEXT: i32 = 65536i32;
+pub const OPTIF_HIDE: i32 = 2i32;
+pub const OPTIF_INITIAL_TVITEM: i32 = 32768i32;
+pub const OPTIF_MASK: i32 = 131071i32;
+pub const OPTIF_NO_GROUPBOX_NAME: i32 = 2048i32;
+pub const OPTIF_OVERLAY_NO_ICON: i32 = 16384i32;
+pub const OPTIF_OVERLAY_STOP_ICON: i32 = 8192i32;
+pub const OPTIF_OVERLAY_WARNING_ICON: i32 = 4096i32;
+pub const OPTIF_SEL_AS_HICON: i32 = 512i32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -3161,6 +2597,17 @@ pub struct OPTPARAM {
     pub lParam: super::super::Foundation::LPARAM,
     pub dwReserved: [usize; 2],
 }
+pub const OPTPF_DISABLED: u32 = 2u32;
+pub const OPTPF_HIDE: u32 = 1u32;
+pub const OPTPF_ICONID_AS_HICON: u32 = 4u32;
+pub const OPTPF_MASK: u32 = 127u32;
+pub const OPTPF_OVERLAY_NO_ICON: u32 = 32u32;
+pub const OPTPF_OVERLAY_STOP_ICON: u32 = 16u32;
+pub const OPTPF_OVERLAY_WARNING_ICON: u32 = 8u32;
+pub const OPTPF_USE_HDLGTEMPLATE: u32 = 64u32;
+pub const OPTTF_MASK: u32 = 3u32;
+pub const OPTTF_NOSPACE_BEFORE_POSTFIX: u32 = 2u32;
+pub const OPTTF_TYPE_DISABLED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OPTTYPE {
@@ -3174,6 +2621,67 @@ pub struct OPTTYPE {
     pub wReserved: [u16; 3],
     pub dwReserved: [usize; 3],
 }
+pub const OTS_LBCB_INCL_ITEM_NONE: u32 = 8u32;
+pub const OTS_LBCB_NO_ICON16_IN_ITEM: u32 = 16u32;
+pub const OTS_LBCB_PROPPAGE_CBUSELB: u32 = 4u32;
+pub const OTS_LBCB_PROPPAGE_LBUSECB: u32 = 2u32;
+pub const OTS_LBCB_SORT: u32 = 1u32;
+pub const OTS_MASK: u32 = 255u32;
+pub const OTS_PUSH_ENABLE_ALWAYS: u32 = 128u32;
+pub const OTS_PUSH_INCL_SETUP_TITLE: u32 = 32u32;
+pub const OTS_PUSH_NO_DOT_DOT_DOT: u32 = 64u32;
+pub const PDEV_ADJUST_PAPER_MARGIN_TYPE: u32 = 1u32;
+pub const PDEV_HOSTFONT_ENABLED_TYPE: u32 = 2u32;
+pub const PDEV_USE_TRUE_COLOR_TYPE: u32 = 3u32;
+pub type PFNCOMPROPSHEET = Option<unsafe extern "system" fn(hcompropsheet: super::super::Foundation::HANDLE, function: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> isize>;
+pub type PFNPROPSHEETUI = Option<unsafe extern "system" fn(ppsuiinfo: *mut PROPSHEETUI_INFO, lparam: super::super::Foundation::LPARAM) -> i32>;
+pub type PFN_DrvGetDriverSetting = Option<unsafe extern "system" fn(pdriverobj: *mut core::ffi::c_void, feature: windows_sys::core::PCSTR, poutput: *mut core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvUpdateUISetting = Option<unsafe extern "system" fn(pdriverobj: *mut core::ffi::c_void, poptitem: *mut core::ffi::c_void, dwpreviousselection: u32, dwmode: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvUpgradeRegistrySetting = Option<unsafe extern "system" fn(hprinter: super::super::Foundation::HANDLE, pfeature: windows_sys::core::PCSTR, poption: windows_sys::core::PCSTR) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_ADDPORT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::HWND, param2: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_ADDPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HWND, param3: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_ADDPORTEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: u32, param2: *const u8, param3: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_ADDPORTEX2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: u32, param3: *const u8, param4: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_CLOSEPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_CLOSEPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_CONFIGUREPORT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::HWND, param2: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_CONFIGUREPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HWND, param3: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_DELETEPORT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::HWND, param2: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_DELETEPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HWND, param3: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_ENDDOCPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_ENDDOCPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_ENUMPORTS = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: u32, param2: *mut u8, param3: u32, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_ENUMPORTS2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: u32, param3: *mut u8, param4: u32, param5: *mut u32, param6: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_GETPRINTERDATAFROMPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: windows_sys::core::PCWSTR, param3: windows_sys::core::PCWSTR, param4: u32, param5: windows_sys::core::PCWSTR, param6: u32, param7: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_GETPRINTERDATAFROMPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: windows_sys::core::PCWSTR, param3: windows_sys::core::PCWSTR, param4: u32, param5: windows_sys::core::PCWSTR, param6: u32, param7: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_NOTIFYUNUSEDPORTS2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: windows_sys::core::PCWSTR) -> u32>;
+pub type PFN_PRINTING_NOTIFYUSEDPORTS2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: windows_sys::core::PCWSTR) -> u32>;
+pub type PFN_PRINTING_OPENPORT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_OPENPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
+pub type PFN_PRINTING_OPENPORTEX = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *mut super::super::Foundation::HANDLE, param4: *const MONITOR2) -> super::super::Foundation::BOOL>;
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
+pub type PFN_PRINTING_OPENPORTEX2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: windows_sys::core::PCWSTR, param3: windows_sys::core::PCWSTR, param4: *mut super::super::Foundation::HANDLE, param5: *const MONITOR2) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_System_Power")]
+pub type PFN_PRINTING_POWEREVENT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *const super::super::System::Power::POWERBROADCAST_SETTING) -> u32>;
+pub type PFN_PRINTING_READPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *mut u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_READPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *mut u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_SENDRECVBIDIDATAFROMPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: windows_sys::core::PCWSTR, param3: *const BIDI_REQUEST_CONTAINER, param4: *mut *mut BIDI_RESPONSE_CONTAINER) -> u32>;
+#[cfg(feature = "Win32_Devices_Communication")]
+pub type PFN_PRINTING_SETPORTTIMEOUTS = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const super::super::Devices::Communication::COMMTIMEOUTS, param2: u32) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_Devices_Communication")]
+pub type PFN_PRINTING_SETPORTTIMEOUTS2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const super::super::Devices::Communication::COMMTIMEOUTS, param2: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_SHUTDOWN2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE)>;
+pub type PFN_PRINTING_STARTDOCPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: u32, param3: u32, param4: *const u8) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_STARTDOCPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: u32, param3: u32, param4: *const u8) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_WRITEPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_WRITEPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_XCVCLOSEPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_XCVCLOSEPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_XCVDATAPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: *const u8, param3: u32, param4: *mut u8, param5: u32, param6: *mut u32) -> u32>;
+pub type PFN_PRINTING_XCVDATAPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: *const u8, param3: u32, param4: *mut u8, param5: u32, param6: *mut u32) -> u32>;
+pub type PFN_PRINTING_XCVOPENPORT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: u32, param2: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFN_PRINTING_XCVOPENPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: u32, param3: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PORT_DATA_1 {
@@ -3259,6 +2767,86 @@ pub struct PORT_INFO_3W {
     pub pszStatus: windows_sys::core::PWSTR,
     pub dwSeverity: u32,
 }
+pub const PORT_STATUS_DOOR_OPEN: u32 = 7u32;
+pub const PORT_STATUS_NO_TONER: u32 = 6u32;
+pub const PORT_STATUS_OFFLINE: u32 = 1u32;
+pub const PORT_STATUS_OUTPUT_BIN_FULL: u32 = 4u32;
+pub const PORT_STATUS_OUT_OF_MEMORY: u32 = 9u32;
+pub const PORT_STATUS_PAPER_JAM: u32 = 2u32;
+pub const PORT_STATUS_PAPER_OUT: u32 = 3u32;
+pub const PORT_STATUS_PAPER_PROBLEM: u32 = 5u32;
+pub const PORT_STATUS_POWER_SAVE: u32 = 12u32;
+pub const PORT_STATUS_TONER_LOW: u32 = 10u32;
+pub const PORT_STATUS_TYPE_ERROR: u32 = 1u32;
+pub const PORT_STATUS_TYPE_INFO: u32 = 3u32;
+pub const PORT_STATUS_TYPE_WARNING: u32 = 2u32;
+pub const PORT_STATUS_USER_INTERVENTION: u32 = 8u32;
+pub const PORT_STATUS_WARMING_UP: u32 = 11u32;
+pub const PORT_TYPE_NET_ATTACHED: u32 = 8u32;
+pub const PORT_TYPE_READ: u32 = 2u32;
+pub const PORT_TYPE_REDIRECTED: u32 = 4u32;
+pub const PORT_TYPE_WRITE: u32 = 1u32;
+pub const PPCAPS_BOOKLET_EDGE: u32 = 1u32;
+pub const PPCAPS_BORDER_PRINT: u32 = 1u32;
+pub const PPCAPS_REVERSE_PAGES_FOR_REVERSE_DUPLEX: u32 = 1u32;
+pub const PPCAPS_RIGHT_THEN_DOWN: u32 = 1u32;
+pub const PPCAPS_SQUARE_SCALING: u32 = 1u32;
+pub const PRINTER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = 4u32;
+pub const PRINTER_ACCESS_MANAGE_LIMITED: PRINTER_ACCESS_RIGHTS = 64u32;
+pub type PRINTER_ACCESS_RIGHTS = u32;
+pub const PRINTER_ACCESS_USE: PRINTER_ACCESS_RIGHTS = 8u32;
+pub const PRINTER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = 983052u32;
+pub const PRINTER_ATTRIBUTE_DEFAULT: u32 = 4u32;
+pub const PRINTER_ATTRIBUTE_DIRECT: u32 = 2u32;
+pub const PRINTER_ATTRIBUTE_DO_COMPLETE_FIRST: u32 = 512u32;
+pub const PRINTER_ATTRIBUTE_ENABLE_BIDI: u32 = 2048u32;
+pub const PRINTER_ATTRIBUTE_ENABLE_DEVQ: u32 = 128u32;
+pub const PRINTER_ATTRIBUTE_ENTERPRISE_CLOUD: u32 = 8388608u32;
+pub const PRINTER_ATTRIBUTE_FAX: u32 = 16384u32;
+pub const PRINTER_ATTRIBUTE_FRIENDLY_NAME: u32 = 1048576u32;
+pub const PRINTER_ATTRIBUTE_HIDDEN: u32 = 32u32;
+pub const PRINTER_ATTRIBUTE_KEEPPRINTEDJOBS: u32 = 256u32;
+pub const PRINTER_ATTRIBUTE_LOCAL: u32 = 64u32;
+pub const PRINTER_ATTRIBUTE_MACHINE: u32 = 524288u32;
+pub const PRINTER_ATTRIBUTE_NETWORK: u32 = 16u32;
+pub const PRINTER_ATTRIBUTE_PER_USER: u32 = 4194304u32;
+pub const PRINTER_ATTRIBUTE_PUBLISHED: u32 = 8192u32;
+pub const PRINTER_ATTRIBUTE_PUSHED_MACHINE: u32 = 262144u32;
+pub const PRINTER_ATTRIBUTE_PUSHED_USER: u32 = 131072u32;
+pub const PRINTER_ATTRIBUTE_QUEUED: u32 = 1u32;
+pub const PRINTER_ATTRIBUTE_RAW_ONLY: u32 = 4096u32;
+pub const PRINTER_ATTRIBUTE_SHARED: u32 = 8u32;
+pub const PRINTER_ATTRIBUTE_TS: u32 = 32768u32;
+pub const PRINTER_ATTRIBUTE_TS_GENERIC_DRIVER: u32 = 2097152u32;
+pub const PRINTER_ATTRIBUTE_WORK_OFFLINE: u32 = 1024u32;
+pub const PRINTER_CHANGE_ADD_FORM: u32 = 65536u32;
+pub const PRINTER_CHANGE_ADD_JOB: u32 = 256u32;
+pub const PRINTER_CHANGE_ADD_PORT: u32 = 1048576u32;
+pub const PRINTER_CHANGE_ADD_PRINTER: u32 = 1u32;
+pub const PRINTER_CHANGE_ADD_PRINTER_DRIVER: u32 = 268435456u32;
+pub const PRINTER_CHANGE_ADD_PRINT_PROCESSOR: u32 = 16777216u32;
+pub const PRINTER_CHANGE_ALL: u32 = 2138570751u32;
+pub const PRINTER_CHANGE_CONFIGURE_PORT: u32 = 2097152u32;
+pub const PRINTER_CHANGE_DELETE_FORM: u32 = 262144u32;
+pub const PRINTER_CHANGE_DELETE_JOB: u32 = 1024u32;
+pub const PRINTER_CHANGE_DELETE_PORT: u32 = 4194304u32;
+pub const PRINTER_CHANGE_DELETE_PRINTER: u32 = 4u32;
+pub const PRINTER_CHANGE_DELETE_PRINTER_DRIVER: u32 = 1073741824u32;
+pub const PRINTER_CHANGE_DELETE_PRINT_PROCESSOR: u32 = 67108864u32;
+pub const PRINTER_CHANGE_FAILED_CONNECTION_PRINTER: u32 = 8u32;
+pub const PRINTER_CHANGE_FORM: u32 = 458752u32;
+pub const PRINTER_CHANGE_JOB: u32 = 65280u32;
+pub const PRINTER_CHANGE_PORT: u32 = 7340032u32;
+pub const PRINTER_CHANGE_PRINTER: u32 = 255u32;
+pub const PRINTER_CHANGE_PRINTER_DRIVER: u32 = 1879048192u32;
+pub const PRINTER_CHANGE_PRINT_PROCESSOR: u32 = 117440512u32;
+pub const PRINTER_CHANGE_SERVER: u32 = 134217728u32;
+pub const PRINTER_CHANGE_SET_FORM: u32 = 131072u32;
+pub const PRINTER_CHANGE_SET_JOB: u32 = 512u32;
+pub const PRINTER_CHANGE_SET_PRINTER: u32 = 2u32;
+pub const PRINTER_CHANGE_SET_PRINTER_DRIVER: u32 = 536870912u32;
+pub const PRINTER_CHANGE_TIMEOUT: u32 = 2147483648u32;
+pub const PRINTER_CHANGE_WRITE_JOB: u32 = 2048u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_CONNECTION_INFO_1A {
@@ -3271,6 +2859,12 @@ pub struct PRINTER_CONNECTION_INFO_1W {
     pub dwFlags: u32,
     pub pszDriverName: windows_sys::core::PWSTR,
 }
+pub const PRINTER_CONNECTION_MISMATCH: u32 = 32u32;
+pub const PRINTER_CONNECTION_NO_UI: u32 = 64u32;
+pub const PRINTER_CONTROL_PAUSE: u32 = 1u32;
+pub const PRINTER_CONTROL_PURGE: u32 = 3u32;
+pub const PRINTER_CONTROL_RESUME: u32 = 2u32;
+pub const PRINTER_CONTROL_SET_STATUS: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -3287,6 +2881,43 @@ pub struct PRINTER_DEFAULTSW {
     pub pDevMode: *mut super::Gdi::DEVMODEW,
     pub DesiredAccess: PRINTER_ACCESS_RIGHTS,
 }
+pub const PRINTER_DELETE: PRINTER_ACCESS_RIGHTS = 65536u32;
+pub const PRINTER_DRIVER_CATEGORY_3D: u32 = 4096u32;
+pub const PRINTER_DRIVER_CATEGORY_CLOUD: u32 = 8192u32;
+pub const PRINTER_DRIVER_CATEGORY_FAX: u32 = 64u32;
+pub const PRINTER_DRIVER_CATEGORY_FILE: u32 = 128u32;
+pub const PRINTER_DRIVER_CATEGORY_SERVICE: u32 = 512u32;
+pub const PRINTER_DRIVER_CATEGORY_VIRTUAL: u32 = 256u32;
+pub const PRINTER_DRIVER_CLASS: u32 = 8u32;
+pub const PRINTER_DRIVER_DERIVED: u32 = 16u32;
+pub const PRINTER_DRIVER_NOT_SHAREABLE: u32 = 32u32;
+pub const PRINTER_DRIVER_PACKAGE_AWARE: u32 = 1u32;
+pub const PRINTER_DRIVER_SANDBOX_DISABLED: u32 = 2048u32;
+pub const PRINTER_DRIVER_SANDBOX_ENABLED: u32 = 4u32;
+pub const PRINTER_DRIVER_SOFT_RESET_REQUIRED: u32 = 1024u32;
+pub const PRINTER_DRIVER_XPS: u32 = 2u32;
+pub const PRINTER_ENUM_CATEGORY_3D: u32 = 67108864u32;
+pub const PRINTER_ENUM_CATEGORY_ALL: u32 = 33554432u32;
+pub const PRINTER_ENUM_CONNECTIONS: u32 = 4u32;
+pub const PRINTER_ENUM_CONTAINER: u32 = 32768u32;
+pub const PRINTER_ENUM_DEFAULT: u32 = 1u32;
+pub const PRINTER_ENUM_EXPAND: u32 = 16384u32;
+pub const PRINTER_ENUM_FAVORITE: u32 = 4u32;
+pub const PRINTER_ENUM_HIDE: u32 = 16777216u32;
+pub const PRINTER_ENUM_ICON1: u32 = 65536u32;
+pub const PRINTER_ENUM_ICON2: u32 = 131072u32;
+pub const PRINTER_ENUM_ICON3: u32 = 262144u32;
+pub const PRINTER_ENUM_ICON4: u32 = 524288u32;
+pub const PRINTER_ENUM_ICON5: u32 = 1048576u32;
+pub const PRINTER_ENUM_ICON6: u32 = 2097152u32;
+pub const PRINTER_ENUM_ICON7: u32 = 4194304u32;
+pub const PRINTER_ENUM_ICON8: u32 = 8388608u32;
+pub const PRINTER_ENUM_ICONMASK: u32 = 16711680u32;
+pub const PRINTER_ENUM_LOCAL: u32 = 2u32;
+pub const PRINTER_ENUM_NAME: u32 = 8u32;
+pub const PRINTER_ENUM_NETWORK: u32 = 64u32;
+pub const PRINTER_ENUM_REMOTE: u32 = 16u32;
+pub const PRINTER_ENUM_SHARED: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_ENUM_VALUESA {
@@ -3305,6 +2936,15 @@ pub struct PRINTER_ENUM_VALUESW {
     pub pData: *mut u8,
     pub cbData: u32,
 }
+pub const PRINTER_ERROR_INFORMATION: u32 = 2147483648u32;
+pub const PRINTER_ERROR_JAM: u32 = 2u32;
+pub const PRINTER_ERROR_OUTOFPAPER: u32 = 1u32;
+pub const PRINTER_ERROR_OUTOFTONER: u32 = 4u32;
+pub const PRINTER_ERROR_SEVERE: u32 = 536870912u32;
+pub const PRINTER_ERROR_WARNING: u32 = 1073741824u32;
+pub const PRINTER_EVENT_ADD_CONNECTION: u32 = 1u32;
+pub const PRINTER_EVENT_ADD_CONNECTION_NO_UI: u32 = 9u32;
+pub const PRINTER_EVENT_ATTRIBUTES_CHANGED: u32 = 7u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_EVENT_ATTRIBUTES_INFO {
@@ -3312,6 +2952,19 @@ pub struct PRINTER_EVENT_ATTRIBUTES_INFO {
     pub dwOldAttributes: u32,
     pub dwNewAttributes: u32,
 }
+pub const PRINTER_EVENT_CACHE_DELETE: u32 = 6u32;
+pub const PRINTER_EVENT_CACHE_REFRESH: u32 = 5u32;
+pub const PRINTER_EVENT_CONFIGURATION_CHANGE: u32 = 0u32;
+pub const PRINTER_EVENT_CONFIGURATION_UPDATE: u32 = 8u32;
+pub const PRINTER_EVENT_DELETE: u32 = 4u32;
+pub const PRINTER_EVENT_DELETE_CONNECTION: u32 = 2u32;
+pub const PRINTER_EVENT_DELETE_CONNECTION_NO_UI: u32 = 10u32;
+pub const PRINTER_EVENT_FLAG_NO_UI: u32 = 1u32;
+pub const PRINTER_EVENT_INITIALIZE: u32 = 3u32;
+pub const PRINTER_EXECUTE: PRINTER_ACCESS_RIGHTS = 131080u32;
+pub const PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5d5a1704_dfd1_4181_8eee_815c86edad31);
+pub const PRINTER_EXTENSION_REASON_DRIVER_EVENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x23bb1328_63de_4293_915b_a6a23d929acb);
+pub const PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec8f261f_267c_469f_b5d6_3933023c29cc);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_HANDLE {
@@ -3464,6 +3117,37 @@ pub struct PRINTER_INFO_9A {
 pub struct PRINTER_INFO_9W {
     pub pDevMode: *mut super::Gdi::DEVMODEW,
 }
+pub const PRINTER_NOTIFY_CATEGORY_3D: u32 = 8192u32;
+pub const PRINTER_NOTIFY_CATEGORY_ALL: u32 = 4096u32;
+pub const PRINTER_NOTIFY_FIELD_ATTRIBUTES: u32 = 13u32;
+pub const PRINTER_NOTIFY_FIELD_AVERAGE_PPM: u32 = 21u32;
+pub const PRINTER_NOTIFY_FIELD_BRANCH_OFFICE_PRINTING: u32 = 28u32;
+pub const PRINTER_NOTIFY_FIELD_BYTES_PRINTED: u32 = 25u32;
+pub const PRINTER_NOTIFY_FIELD_CJOBS: u32 = 20u32;
+pub const PRINTER_NOTIFY_FIELD_COMMENT: u32 = 5u32;
+pub const PRINTER_NOTIFY_FIELD_DATATYPE: u32 = 11u32;
+pub const PRINTER_NOTIFY_FIELD_DEFAULT_PRIORITY: u32 = 15u32;
+pub const PRINTER_NOTIFY_FIELD_DEVMODE: u32 = 7u32;
+pub const PRINTER_NOTIFY_FIELD_DRIVER_NAME: u32 = 4u32;
+pub const PRINTER_NOTIFY_FIELD_FRIENDLY_NAME: u32 = 27u32;
+pub const PRINTER_NOTIFY_FIELD_LOCATION: u32 = 6u32;
+pub const PRINTER_NOTIFY_FIELD_OBJECT_GUID: u32 = 26u32;
+pub const PRINTER_NOTIFY_FIELD_PAGES_PRINTED: u32 = 23u32;
+pub const PRINTER_NOTIFY_FIELD_PARAMETERS: u32 = 10u32;
+pub const PRINTER_NOTIFY_FIELD_PORT_NAME: u32 = 3u32;
+pub const PRINTER_NOTIFY_FIELD_PRINTER_NAME: u32 = 1u32;
+pub const PRINTER_NOTIFY_FIELD_PRINT_PROCESSOR: u32 = 9u32;
+pub const PRINTER_NOTIFY_FIELD_PRIORITY: u32 = 14u32;
+pub const PRINTER_NOTIFY_FIELD_SECURITY_DESCRIPTOR: u32 = 12u32;
+pub const PRINTER_NOTIFY_FIELD_SEPFILE: u32 = 8u32;
+pub const PRINTER_NOTIFY_FIELD_SERVER_NAME: u32 = 0u32;
+pub const PRINTER_NOTIFY_FIELD_SHARE_NAME: u32 = 2u32;
+pub const PRINTER_NOTIFY_FIELD_START_TIME: u32 = 16u32;
+pub const PRINTER_NOTIFY_FIELD_STATUS: u32 = 18u32;
+pub const PRINTER_NOTIFY_FIELD_STATUS_STRING: u32 = 19u32;
+pub const PRINTER_NOTIFY_FIELD_TOTAL_BYTES: u32 = 24u32;
+pub const PRINTER_NOTIFY_FIELD_TOTAL_PAGES: u32 = 22u32;
+pub const PRINTER_NOTIFY_FIELD_UNTIL_TIME: u32 = 17u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_INFO {
@@ -3493,6 +3177,8 @@ pub struct PRINTER_NOTIFY_INFO_DATA_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,
 }
+pub const PRINTER_NOTIFY_INFO_DATA_COMPACT: u32 = 1u32;
+pub const PRINTER_NOTIFY_INFO_DISCARDED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_INIT {
@@ -3508,6 +3194,7 @@ pub struct PRINTER_NOTIFY_OPTIONS {
     pub Count: u32,
     pub pTypes: *mut PRINTER_NOTIFY_OPTIONS_TYPE,
 }
+pub const PRINTER_NOTIFY_OPTIONS_REFRESH: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
@@ -3518,6 +3205,11 @@ pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub Count: u32,
     pub pFields: *mut u16,
 }
+pub const PRINTER_NOTIFY_STATUS_ENDPOINT: u32 = 1u32;
+pub const PRINTER_NOTIFY_STATUS_INFO: u32 = 4u32;
+pub const PRINTER_NOTIFY_STATUS_POLL: u32 = 2u32;
+pub const PRINTER_NOTIFY_TYPE: u32 = 0u32;
+pub const PRINTER_OEMINTF_VERSION: u32 = 65536u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_OPTIONSA {
@@ -3530,6 +3222,48 @@ pub struct PRINTER_OPTIONSW {
     pub cbSize: u32,
     pub dwFlags: u32,
 }
+pub const PRINTER_OPTION_CACHE: PRINTER_OPTION_FLAGS = 2i32;
+pub const PRINTER_OPTION_CLIENT_CHANGE: PRINTER_OPTION_FLAGS = 4i32;
+pub type PRINTER_OPTION_FLAGS = i32;
+pub const PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = 1i32;
+pub const PRINTER_OPTION_NO_CLIENT_DATA: PRINTER_OPTION_FLAGS = 8i32;
+pub const PRINTER_READ: PRINTER_ACCESS_RIGHTS = 131080u32;
+pub const PRINTER_READ_CONTROL: PRINTER_ACCESS_RIGHTS = 131072u32;
+pub const PRINTER_STANDARD_RIGHTS_EXECUTE: PRINTER_ACCESS_RIGHTS = 131072u32;
+pub const PRINTER_STANDARD_RIGHTS_READ: PRINTER_ACCESS_RIGHTS = 131072u32;
+pub const PRINTER_STANDARD_RIGHTS_REQUIRED: PRINTER_ACCESS_RIGHTS = 983040u32;
+pub const PRINTER_STANDARD_RIGHTS_WRITE: PRINTER_ACCESS_RIGHTS = 131072u32;
+pub const PRINTER_STATUS_BUSY: u32 = 512u32;
+pub const PRINTER_STATUS_DOOR_OPEN: u32 = 4194304u32;
+pub const PRINTER_STATUS_DRIVER_UPDATE_NEEDED: u32 = 67108864u32;
+pub const PRINTER_STATUS_ERROR: u32 = 2u32;
+pub const PRINTER_STATUS_INITIALIZING: u32 = 32768u32;
+pub const PRINTER_STATUS_IO_ACTIVE: u32 = 256u32;
+pub const PRINTER_STATUS_MANUAL_FEED: u32 = 32u32;
+pub const PRINTER_STATUS_NOT_AVAILABLE: u32 = 4096u32;
+pub const PRINTER_STATUS_NO_TONER: u32 = 262144u32;
+pub const PRINTER_STATUS_OFFLINE: u32 = 128u32;
+pub const PRINTER_STATUS_OUTPUT_BIN_FULL: u32 = 2048u32;
+pub const PRINTER_STATUS_OUT_OF_MEMORY: u32 = 2097152u32;
+pub const PRINTER_STATUS_PAGE_PUNT: u32 = 524288u32;
+pub const PRINTER_STATUS_PAPER_JAM: u32 = 8u32;
+pub const PRINTER_STATUS_PAPER_OUT: u32 = 16u32;
+pub const PRINTER_STATUS_PAPER_PROBLEM: u32 = 64u32;
+pub const PRINTER_STATUS_PAUSED: u32 = 1u32;
+pub const PRINTER_STATUS_PENDING_DELETION: u32 = 4u32;
+pub const PRINTER_STATUS_POWER_SAVE: u32 = 16777216u32;
+pub const PRINTER_STATUS_PRINTING: u32 = 1024u32;
+pub const PRINTER_STATUS_PROCESSING: u32 = 16384u32;
+pub const PRINTER_STATUS_SERVER_OFFLINE: u32 = 33554432u32;
+pub const PRINTER_STATUS_SERVER_UNKNOWN: u32 = 8388608u32;
+pub const PRINTER_STATUS_TONER_LOW: u32 = 131072u32;
+pub const PRINTER_STATUS_USER_INTERVENTION: u32 = 1048576u32;
+pub const PRINTER_STATUS_WAITING: u32 = 8192u32;
+pub const PRINTER_STATUS_WARMING_UP: u32 = 65536u32;
+pub const PRINTER_SYNCHRONIZE: PRINTER_ACCESS_RIGHTS = 1048576u32;
+pub const PRINTER_WRITE: PRINTER_ACCESS_RIGHTS = 131080u32;
+pub const PRINTER_WRITE_DAC: PRINTER_ACCESS_RIGHTS = 262144u32;
+pub const PRINTER_WRITE_OWNER: PRINTER_ACCESS_RIGHTS = 524288u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -3749,6 +3483,13 @@ pub struct PRINTPROVIDOR {
     pub fpIppSetPrinterAttributes: isize,
     pub fpIppCreateJobOnPrinterWithAttributes: isize,
 }
+pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2abad223_b994_4aca_82fc_4571b1b585ac);
+pub type PRINT_EXECUTION_CONTEXT = i32;
+pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = 0i32;
+pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PRINT_EXECUTION_CONTEXT = 3i32;
+pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEXT = 2i32;
+pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = 1i32;
+pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = 4i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINT_EXECUTION_DATA {
@@ -3761,6 +3502,7 @@ pub struct PRINT_FEATURE_OPTION {
     pub pszFeature: windows_sys::core::PCSTR,
     pub pszOption: windows_sys::core::PCSTR,
 }
+pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25df3b0e_74a9_47f5_80ce_79b4b1eb5c58);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -3802,6 +3544,16 @@ pub union PROPSHEETUI_INFO_HEADER_0 {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub IconID: usize,
 }
+pub const PROPSHEETUI_INFO_VERSION: u32 = 256u32;
+pub const PROPSHEETUI_REASON_BEFORE_INIT: u32 = 5u32;
+pub const PROPSHEETUI_REASON_DESTROY: u32 = 2u32;
+pub const PROPSHEETUI_REASON_GET_ICON: u32 = 4u32;
+pub const PROPSHEETUI_REASON_GET_INFO_HEADER: u32 = 1u32;
+pub const PROPSHEETUI_REASON_INIT: u32 = 0u32;
+pub const PROPSHEETUI_REASON_SET_RESULT: u32 = 3u32;
+pub const PROTOCOL_LPR_TYPE: u32 = 2u32;
+pub const PROTOCOL_RAWTCP_TYPE: u32 = 1u32;
+pub const PROTOCOL_UNKNOWN_TYPE: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROVIDOR_INFO_1A {
@@ -3841,6 +3593,21 @@ pub struct PSPINFO {
     pub hCPSUIPage: super::super::Foundation::HANDLE,
     pub pfnComPropSheet: PFNCOMPROPSHEET,
 }
+pub const PSUIHDRF_DEFTITLE: u32 = 16u32;
+pub const PSUIHDRF_EXACT_PTITLE: u32 = 32u32;
+pub const PSUIHDRF_NOAPPLYNOW: u32 = 2u32;
+pub const PSUIHDRF_OBSOLETE: u32 = 1u32;
+pub const PSUIHDRF_PROPTITLE: u32 = 4u32;
+pub const PSUIHDRF_USEHICON: u32 = 8u32;
+pub const PSUIINFO_UNICODE: u32 = 1u32;
+pub const PSUIPAGEINSERT_DLL: u32 = 5u32;
+pub const PSUIPAGEINSERT_GROUP_PARENT: u32 = 0u32;
+pub const PSUIPAGEINSERT_HPROPSHEETPAGE: u32 = 4u32;
+pub const PSUIPAGEINSERT_PCOMPROPSHEETUI: u32 = 1u32;
+pub const PSUIPAGEINSERT_PFNPROPSHEETUI: u32 = 2u32;
+pub const PSUIPAGEINSERT_PROPSHEETPAGE: u32 = 3u32;
+pub const PTSHIM_DEFAULT: SHIMOPTS = 0i32;
+pub const PTSHIM_NOSNAPSHOT: SHIMOPTS = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PUBLISHERINFO {
@@ -3848,6 +3615,29 @@ pub struct PUBLISHERINFO {
     pub wMinoutlinePPEM: u16,
     pub wMaxbitmapPPEM: u16,
 }
+pub const PUSHBUTTON_TYPE_CALLBACK: u32 = 1u32;
+pub const PUSHBUTTON_TYPE_DLGPROC: u32 = 0u32;
+pub const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2u32;
+pub const PUSHBUTTON_TYPE_HTSETUP: u32 = 3u32;
+pub type PageCountType = i32;
+pub type PrintAsyncNotifyConversationStyle = i32;
+pub type PrintAsyncNotifyError = i32;
+pub type PrintAsyncNotifyUserFilter = i32;
+pub type PrintJobStatus = i32;
+pub const PrintJobStatus_BlockedDeviceQueue: PrintJobStatus = 512i32;
+pub const PrintJobStatus_Complete: PrintJobStatus = 4096i32;
+pub const PrintJobStatus_Deleted: PrintJobStatus = 256i32;
+pub const PrintJobStatus_Deleting: PrintJobStatus = 4i32;
+pub const PrintJobStatus_Error: PrintJobStatus = 2i32;
+pub const PrintJobStatus_Offline: PrintJobStatus = 32i32;
+pub const PrintJobStatus_PaperOut: PrintJobStatus = 64i32;
+pub const PrintJobStatus_Paused: PrintJobStatus = 1i32;
+pub const PrintJobStatus_Printed: PrintJobStatus = 128i32;
+pub const PrintJobStatus_Printing: PrintJobStatus = 16i32;
+pub const PrintJobStatus_Restarted: PrintJobStatus = 2048i32;
+pub const PrintJobStatus_Retained: PrintJobStatus = 8192i32;
+pub const PrintJobStatus_Spooling: PrintJobStatus = 8i32;
+pub const PrintJobStatus_UserIntervention: PrintJobStatus = 1024i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PrintNamedProperty {
@@ -3882,9 +3672,47 @@ pub struct PrintPropertyValue_0_0 {
     pub pBuf: *mut core::ffi::c_void,
 }
 pub const PrintSchemaAsyncOperation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43b2f83d_10f2_48ab_831b_55fdbdbd34a4);
+pub type PrintSchemaConstrainedSetting = i32;
+pub const PrintSchemaConstrainedSetting_Admin: PrintSchemaConstrainedSetting = 2i32;
+pub const PrintSchemaConstrainedSetting_Device: PrintSchemaConstrainedSetting = 3i32;
+pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = 0i32;
+pub const PrintSchemaConstrainedSetting_PrintTicket: PrintSchemaConstrainedSetting = 1i32;
+pub type PrintSchemaParameterDataType = i32;
+pub const PrintSchemaParameterDataType_Integer: PrintSchemaParameterDataType = 0i32;
+pub const PrintSchemaParameterDataType_NumericString: PrintSchemaParameterDataType = 1i32;
+pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = 2i32;
+pub type PrintSchemaSelectionType = i32;
+pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = 1i32;
+pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = 0i32;
 pub const PrinterExtensionManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x331b60da_9e90_4dd0_9c84_eac4e659b61f);
 pub const PrinterQueue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb54c230_798c_4c9e_b461_29fad04039b1);
 pub const PrinterQueueView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb54c231_798c_4c9e_b461_29fad04039b1);
+pub const QCP_DEVICEPROFILE: u32 = 0u32;
+pub const QCP_PROFILEDISK: u32 = 2u32;
+pub const QCP_PROFILEMEMORY: u32 = 1u32;
+pub const QCP_SOURCEPROFILE: u32 = 1u32;
+pub const RAWTCP: u32 = 1u32;
+pub const REMOTE_ONLY_REGISTRATION: PrintAsyncNotifyError = 24i32;
+pub const REVERSE_PAGES_FOR_REVERSE_DUPLEX: u32 = 1u32;
+pub const REVERSE_PRINT: u32 = 1u32;
+pub const RIGHT_THEN_DOWN: u32 = 1u32;
+pub type ROUTER_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(dwcommand: u32, pcontext: *const core::ffi::c_void, dwcolor: u32, pnofityinfo: *const PRINTER_NOTIFY_INFO, fdwflags: u32, pdwresult: *mut u32) -> super::super::Foundation::BOOL>;
+pub const ROUTER_STOP_ROUTING: u32 = 2u32;
+pub const ROUTER_SUCCESS: u32 = 1u32;
+pub const ROUTER_UNKNOWN: u32 = 0u32;
+pub const SERVER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = 1u32;
+pub const SERVER_ACCESS_ENUMERATE: PRINTER_ACCESS_RIGHTS = 2u32;
+pub const SERVER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = 983043u32;
+pub const SERVER_EXECUTE: PRINTER_ACCESS_RIGHTS = 131074u32;
+pub const SERVER_NOTIFY_FIELD_PRINT_DRIVER_ISOLATION_GROUP: u32 = 0u32;
+pub const SERVER_NOTIFY_TYPE: u32 = 2u32;
+pub const SERVER_READ: PRINTER_ACCESS_RIGHTS = 131074u32;
+pub const SERVER_WRITE: PRINTER_ACCESS_RIGHTS = 131075u32;
+pub const SETOPTIONS_FLAG_KEEP_CONFLICT: u32 = 2u32;
+pub const SETOPTIONS_FLAG_RESOLVE_CONFLICT: u32 = 1u32;
+pub const SETOPTIONS_RESULT_CONFLICT_REMAINED: u32 = 2u32;
+pub const SETOPTIONS_RESULT_CONFLICT_RESOLVED: u32 = 1u32;
+pub const SETOPTIONS_RESULT_NO_CONFLICT: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SETRESULT_INFO {
@@ -3893,6 +3721,7 @@ pub struct SETRESULT_INFO {
     pub hSetResult: super::super::Foundation::HANDLE,
     pub Result: super::super::Foundation::LRESULT,
 }
+pub type SHIMOPTS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SHOWUIPARAMS {
@@ -3925,16 +3754,16 @@ pub struct SPLCLIENT_INFO_2_W2K {
     pub hSplPrinter: usize,
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct SPLCLIENT_INFO_2_WINXP {
-    pub hSplPrinter: u64,
-}
-#[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct SPLCLIENT_INFO_2_WINXP {
     pub hSplPrinter: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct SPLCLIENT_INFO_2_WINXP {
+    pub hSplPrinter: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3966,6 +3795,104 @@ pub struct SPLCLIENT_INFO_INTERNAL {
     pub dwProcessId: u32,
     pub dwSessionId: u32,
 }
+pub const SPLCLIENT_INFO_INTERNAL_LEVEL: u32 = 100u32;
+pub const SPLDS_ASSET_NUMBER: windows_sys::core::PCWSTR = windows_sys::core::w!("assetNumber");
+pub const SPLDS_BYTES_PER_MINUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("bytesPerMinute");
+pub const SPLDS_DESCRIPTION: windows_sys::core::PCWSTR = windows_sys::core::w!("description");
+pub const SPLDS_DRIVER_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("DsDriver");
+pub const SPLDS_DRIVER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("driverName");
+pub const SPLDS_DRIVER_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("driverVersion");
+pub const SPLDS_FLAGS: windows_sys::core::PCWSTR = windows_sys::core::w!("flags");
+pub const SPLDS_LOCATION: windows_sys::core::PCWSTR = windows_sys::core::w!("location");
+pub const SPLDS_PORT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("portName");
+pub const SPLDS_PRINTER_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("printQueue");
+pub const SPLDS_PRINTER_LOCATIONS: windows_sys::core::PCWSTR = windows_sys::core::w!("printerLocations");
+pub const SPLDS_PRINTER_MODEL: windows_sys::core::PCWSTR = windows_sys::core::w!("printerModel");
+pub const SPLDS_PRINTER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("printerName");
+pub const SPLDS_PRINTER_NAME_ALIASES: windows_sys::core::PCWSTR = windows_sys::core::w!("printerNameAliases");
+pub const SPLDS_PRINT_ATTRIBUTES: windows_sys::core::PCWSTR = windows_sys::core::w!("printAttributes");
+pub const SPLDS_PRINT_BIN_NAMES: windows_sys::core::PCWSTR = windows_sys::core::w!("printBinNames");
+pub const SPLDS_PRINT_COLLATE: windows_sys::core::PCWSTR = windows_sys::core::w!("printCollate");
+pub const SPLDS_PRINT_COLOR: windows_sys::core::PCWSTR = windows_sys::core::w!("printColor");
+pub const SPLDS_PRINT_DUPLEX_SUPPORTED: windows_sys::core::PCWSTR = windows_sys::core::w!("printDuplexSupported");
+pub const SPLDS_PRINT_END_TIME: windows_sys::core::PCWSTR = windows_sys::core::w!("printEndTime");
+pub const SPLDS_PRINT_KEEP_PRINTED_JOBS: windows_sys::core::PCWSTR = windows_sys::core::w!("printKeepPrintedJobs");
+pub const SPLDS_PRINT_LANGUAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("printLanguage");
+pub const SPLDS_PRINT_MAC_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("printMACAddress");
+pub const SPLDS_PRINT_MAX_RESOLUTION_SUPPORTED: windows_sys::core::PCWSTR = windows_sys::core::w!("printMaxResolutionSupported");
+pub const SPLDS_PRINT_MAX_X_EXTENT: windows_sys::core::PCWSTR = windows_sys::core::w!("printMaxXExtent");
+pub const SPLDS_PRINT_MAX_Y_EXTENT: windows_sys::core::PCWSTR = windows_sys::core::w!("printMaxYExtent");
+pub const SPLDS_PRINT_MEDIA_READY: windows_sys::core::PCWSTR = windows_sys::core::w!("printMediaReady");
+pub const SPLDS_PRINT_MEDIA_SUPPORTED: windows_sys::core::PCWSTR = windows_sys::core::w!("printMediaSupported");
+pub const SPLDS_PRINT_MEMORY: windows_sys::core::PCWSTR = windows_sys::core::w!("printMemory");
+pub const SPLDS_PRINT_MIN_X_EXTENT: windows_sys::core::PCWSTR = windows_sys::core::w!("printMinXExtent");
+pub const SPLDS_PRINT_MIN_Y_EXTENT: windows_sys::core::PCWSTR = windows_sys::core::w!("printMinYExtent");
+pub const SPLDS_PRINT_NETWORK_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("printNetworkAddress");
+pub const SPLDS_PRINT_NOTIFY: windows_sys::core::PCWSTR = windows_sys::core::w!("printNotify");
+pub const SPLDS_PRINT_NUMBER_UP: windows_sys::core::PCWSTR = windows_sys::core::w!("printNumberUp");
+pub const SPLDS_PRINT_ORIENTATIONS_SUPPORTED: windows_sys::core::PCWSTR = windows_sys::core::w!("printOrientationsSupported");
+pub const SPLDS_PRINT_OWNER: windows_sys::core::PCWSTR = windows_sys::core::w!("printOwner");
+pub const SPLDS_PRINT_PAGES_PER_MINUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("printPagesPerMinute");
+pub const SPLDS_PRINT_RATE: windows_sys::core::PCWSTR = windows_sys::core::w!("printRate");
+pub const SPLDS_PRINT_RATE_UNIT: windows_sys::core::PCWSTR = windows_sys::core::w!("printRateUnit");
+pub const SPLDS_PRINT_SEPARATOR_FILE: windows_sys::core::PCWSTR = windows_sys::core::w!("printSeparatorFile");
+pub const SPLDS_PRINT_SHARE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("printShareName");
+pub const SPLDS_PRINT_SPOOLING: windows_sys::core::PCWSTR = windows_sys::core::w!("printSpooling");
+pub const SPLDS_PRINT_STAPLING_SUPPORTED: windows_sys::core::PCWSTR = windows_sys::core::w!("printStaplingSupported");
+pub const SPLDS_PRINT_START_TIME: windows_sys::core::PCWSTR = windows_sys::core::w!("printStartTime");
+pub const SPLDS_PRINT_STATUS: windows_sys::core::PCWSTR = windows_sys::core::w!("printStatus");
+pub const SPLDS_PRIORITY: windows_sys::core::PCWSTR = windows_sys::core::w!("priority");
+pub const SPLDS_SERVER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("serverName");
+pub const SPLDS_SHORT_SERVER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("shortServerName");
+pub const SPLDS_SPOOLER_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("DsSpooler");
+pub const SPLDS_UNC_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("uNCName");
+pub const SPLDS_URL: windows_sys::core::PCWSTR = windows_sys::core::w!("url");
+pub const SPLDS_USER_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("DsUser");
+pub const SPLDS_VERSION_NUMBER: windows_sys::core::PCWSTR = windows_sys::core::w!("versionNumber");
+pub const SPLPRINTER_USER_MODE_PRINTER_DRIVER: windows_sys::core::PCWSTR = windows_sys::core::w!("SPLUserModePrinterDriver");
+pub const SPLREG_ALLOW_USER_MANAGEFORMS: windows_sys::core::PCWSTR = windows_sys::core::w!("AllowUserManageForms");
+pub const SPLREG_ARCHITECTURE: windows_sys::core::PCWSTR = windows_sys::core::w!("Architecture");
+pub const SPLREG_BEEP_ENABLED: windows_sys::core::PCWSTR = windows_sys::core::w!("BeepEnabled");
+pub const SPLREG_DEFAULT_SPOOL_DIRECTORY: windows_sys::core::PCWSTR = windows_sys::core::w!("DefaultSpoolDirectory");
+pub const SPLREG_DNS_MACHINE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DNSMachineName");
+pub const SPLREG_DS_PRESENT: windows_sys::core::PCWSTR = windows_sys::core::w!("DsPresent");
+pub const SPLREG_DS_PRESENT_FOR_USER: windows_sys::core::PCWSTR = windows_sys::core::w!("DsPresentForUser");
+pub const SPLREG_EVENT_LOG: windows_sys::core::PCWSTR = windows_sys::core::w!("EventLog");
+pub const SPLREG_MAJOR_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("MajorVersion");
+pub const SPLREG_MINOR_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("MinorVersion");
+pub const SPLREG_NET_POPUP: windows_sys::core::PCWSTR = windows_sys::core::w!("NetPopup");
+pub const SPLREG_NET_POPUP_TO_COMPUTER: windows_sys::core::PCWSTR = windows_sys::core::w!("NetPopupToComputer");
+pub const SPLREG_OS_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("OSVersion");
+pub const SPLREG_OS_VERSIONEX: windows_sys::core::PCWSTR = windows_sys::core::w!("OSVersionEx");
+pub const SPLREG_PORT_THREAD_PRIORITY: windows_sys::core::PCWSTR = windows_sys::core::w!("PortThreadPriority");
+pub const SPLREG_PORT_THREAD_PRIORITY_DEFAULT: windows_sys::core::PCWSTR = windows_sys::core::w!("PortThreadPriorityDefault");
+pub const SPLREG_PRINT_DRIVER_ISOLATION_EXECUTION_POLICY: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDriverIsolationExecutionPolicy");
+pub const SPLREG_PRINT_DRIVER_ISOLATION_GROUPS: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDriverIsolationGroups");
+pub const SPLREG_PRINT_DRIVER_ISOLATION_IDLE_TIMEOUT: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDriverIsolationIdleTimeout");
+pub const SPLREG_PRINT_DRIVER_ISOLATION_MAX_OBJECTS_BEFORE_RECYCLE: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDriverIsolationMaxobjsBeforeRecycle");
+pub const SPLREG_PRINT_DRIVER_ISOLATION_OVERRIDE_POLICY: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDriverIsolationOverrideCompat");
+pub const SPLREG_PRINT_DRIVER_ISOLATION_TIME_BEFORE_RECYCLE: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDriverIsolationTimeBeforeRecycle");
+pub const SPLREG_PRINT_QUEUE_V4_DRIVER_DIRECTORY: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintQueueV4DriverDirectory");
+pub const SPLREG_REMOTE_FAX: windows_sys::core::PCWSTR = windows_sys::core::w!("RemoteFax");
+pub const SPLREG_RESTART_JOB_ON_POOL_ENABLED: windows_sys::core::PCWSTR = windows_sys::core::w!("RestartJobOnPoolEnabled");
+pub const SPLREG_RESTART_JOB_ON_POOL_ERROR: windows_sys::core::PCWSTR = windows_sys::core::w!("RestartJobOnPoolError");
+pub const SPLREG_RETRY_POPUP: windows_sys::core::PCWSTR = windows_sys::core::w!("RetryPopup");
+pub const SPLREG_SCHEDULER_THREAD_PRIORITY: windows_sys::core::PCWSTR = windows_sys::core::w!("SchedulerThreadPriority");
+pub const SPLREG_SCHEDULER_THREAD_PRIORITY_DEFAULT: windows_sys::core::PCWSTR = windows_sys::core::w!("SchedulerThreadPriorityDefault");
+pub const SPLREG_WEBSHAREMGMT: windows_sys::core::PCWSTR = windows_sys::core::w!("WebShareMgmt");
+pub const SPOOL_FILE_PERSISTENT: u32 = 1u32;
+pub const SPOOL_FILE_TEMPORARY: u32 = 2u32;
+pub const SR_OWNER: u32 = 0u32;
+pub const SR_OWNER_PARENT: u32 = 1u32;
+pub const SSP_STDPAGE1: u32 = 10001u32;
+pub const SSP_STDPAGE2: u32 = 10002u32;
+pub const SSP_TVPAGE: u32 = 10000u32;
+pub const STRING_LANGPAIR: u32 = 4u32;
+pub const STRING_MUIDLL: u32 = 2u32;
+pub const STRING_NONE: u32 = 1u32;
+pub const S_CONFLICT_RESOLVED: u32 = 262146u32;
+pub const S_DEVCAP_OUTPUT_FULL_REPLACEMENT: windows_sys::core::HRESULT = 0x4DC01_u32 as _;
+pub const S_NO_CONFLICT: u32 = 262145u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TRANSDATA {
@@ -3980,6 +3907,25 @@ pub union TRANSDATA_0 {
     pub ubCode: u8,
     pub ubPairs: [u8; 2],
 }
+pub const TTDOWNLOAD_BITMAP: u32 = 2u32;
+pub const TTDOWNLOAD_DONTCARE: u32 = 0u32;
+pub const TTDOWNLOAD_GRAPHICS: u32 = 1u32;
+pub const TTDOWNLOAD_TTOUTLINE: u32 = 3u32;
+pub const TVOT_2STATES: u32 = 0u32;
+pub const TVOT_3STATES: u32 = 1u32;
+pub const TVOT_CHKBOX: u32 = 9u32;
+pub const TVOT_COMBOBOX: u32 = 6u32;
+pub const TVOT_EDITBOX: u32 = 7u32;
+pub const TVOT_LISTBOX: u32 = 5u32;
+pub const TVOT_NSTATES_EX: u32 = 10u32;
+pub const TVOT_PUSHBUTTON: u32 = 8u32;
+pub const TVOT_SCROLLBAR: u32 = 4u32;
+pub const TVOT_TRACKBAR: u32 = 3u32;
+pub const TVOT_UDARROW: u32 = 2u32;
+pub const TYPE_GLYPHHANDLE: u32 = 3u32;
+pub const TYPE_GLYPHID: u32 = 4u32;
+pub const TYPE_TRANSDATA: u32 = 2u32;
+pub const TYPE_UNICODE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UFF_FILEHEADER {
@@ -4008,6 +3954,24 @@ pub struct UFF_FONTDIRECTORY {
     pub offGlyphData: u32,
     pub offVarData: u32,
 }
+pub const UFF_VERSION_NUMBER: u32 = 65537u32;
+pub const UFM_CART: u32 = 2u32;
+pub const UFM_SCALABLE: u32 = 4u32;
+pub const UFM_SOFT: u32 = 1u32;
+pub const UFOFLAG_TTDOWNLOAD_BITMAP: u32 = 2u32;
+pub const UFOFLAG_TTDOWNLOAD_TTOUTLINE: u32 = 4u32;
+pub const UFOFLAG_TTFONT: u32 = 1u32;
+pub const UFOFLAG_TTOUTLINE_BOLD_SIM: u32 = 8u32;
+pub const UFOFLAG_TTOUTLINE_ITALIC_SIM: u32 = 16u32;
+pub const UFOFLAG_TTOUTLINE_VERTICAL: u32 = 32u32;
+pub const UFOFLAG_TTSUBSTITUTED: u32 = 64u32;
+pub const UFO_GETINFO_FONTOBJ: u32 = 1u32;
+pub const UFO_GETINFO_GLYPHBITMAP: u32 = 3u32;
+pub const UFO_GETINFO_GLYPHSTRING: u32 = 2u32;
+pub const UFO_GETINFO_GLYPHWIDTH: u32 = 4u32;
+pub const UFO_GETINFO_MEMORY: u32 = 5u32;
+pub const UFO_GETINFO_STDVARIABLE: u32 = 6u32;
+pub type UI_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UNIDRVINFO {
@@ -4045,6 +4009,8 @@ pub struct UNIFM_HDR {
     pub loKernPair: u32,
     pub dwReserved: [u32; 2],
 }
+pub const UNIFM_VERSION_1_0: u32 = 65536u32;
+pub const UNIRECTIONAL_NOTIFICATION_LOST: PrintAsyncNotifyError = 5i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UNI_CODEPAGEINFO {
@@ -4067,6 +4033,15 @@ pub struct UNI_GLYPHSETDATA {
     pub loMapTableOffset: u32,
     pub dwReserved: [u32; 2],
 }
+pub const UNI_GLYPHSETDATA_VERSION_1_0: u32 = 65536u32;
+pub const UNKNOWN_PROTOCOL: u32 = 0u32;
+pub const UPDP_CHECK_DRIVERSTORE: u32 = 4u32;
+pub const UPDP_SILENT_UPLOAD: u32 = 1u32;
+pub const UPDP_UPLOAD_ALWAYS: u32 = 2u32;
+pub const USBPRINT_IOCTL_INDEX: u32 = 0u32;
+pub const USB_PRINTER_INTERFACE_CLASSIC: u32 = 1u32;
+pub const USB_PRINTER_INTERFACE_DUAL: u32 = 3u32;
+pub const USB_PRINTER_INTERFACE_IPP: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USERDATA {
@@ -4089,64 +4064,89 @@ pub struct WIDTHTABLE {
     pub dwRunNum: u32,
     pub WidthRun: [WIDTHRUN; 1],
 }
+pub const WM_FI_FILENAME: u32 = 900u32;
+pub type XPSRAS_BACKGROUND_COLOR = i32;
+pub const XPSRAS_BACKGROUND_COLOR_OPAQUE: XPSRAS_BACKGROUND_COLOR = 1i32;
+pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XPSRAS_BACKGROUND_COLOR = 0i32;
+pub type XPSRAS_PIXEL_FORMAT = i32;
+pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XPSRAS_PIXEL_FORMAT = 3i32;
+pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XPSRAS_PIXEL_FORMAT = 1i32;
+pub const XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XPSRAS_PIXEL_FORMAT = 2i32;
+pub type XPSRAS_RENDERING_MODE = i32;
+pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = 1i32;
+pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = 0i32;
+pub const XPS_FP_DRIVER_PROPERTY_BAG: windows_sys::core::PCWSTR = windows_sys::core::w!("DriverPropertyBag");
+pub const XPS_FP_JOB_ID: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintJobId");
+pub const XPS_FP_JOB_LEVEL_PRINTTICKET: windows_sys::core::PCWSTR = windows_sys::core::w!("JobPrintTicket");
+pub const XPS_FP_MERGED_DATAFILE_PATH: windows_sys::core::PCWSTR = windows_sys::core::w!("MergedDataFilePath");
+pub const XPS_FP_MS_CONTENT_TYPE: windows_sys::core::PCWSTR = windows_sys::core::w!("DriverMultiContentType");
+pub const XPS_FP_MS_CONTENT_TYPE_OPENXPS: windows_sys::core::PCWSTR = windows_sys::core::w!("OpenXPS");
+pub const XPS_FP_MS_CONTENT_TYPE_XPS: windows_sys::core::PCWSTR = windows_sys::core::w!("XPS");
+pub const XPS_FP_OUTPUT_FILE: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintOutputFileName");
+pub const XPS_FP_PRINTDEVICECAPABILITIES: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintDeviceCapabilities");
+pub const XPS_FP_PRINTER_HANDLE: windows_sys::core::PCWSTR = windows_sys::core::w!("PrinterHandle");
+pub const XPS_FP_PRINTER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("PrinterName");
+pub const XPS_FP_PRINT_CLASS_FACTORY: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintClassFactory");
+pub const XPS_FP_PROGRESS_REPORT: windows_sys::core::PCWSTR = windows_sys::core::w!("ProgressReport");
+pub const XPS_FP_QUEUE_PROPERTY_BAG: windows_sys::core::PCWSTR = windows_sys::core::w!("QueuePropertyBag");
+pub const XPS_FP_RESOURCE_DLL_PATHS: windows_sys::core::PCWSTR = windows_sys::core::w!("ResourceDLLPaths");
+pub const XPS_FP_USER_PRINT_TICKET: windows_sys::core::PCWSTR = windows_sys::core::w!("PerUserPrintTicket");
+pub const XPS_FP_USER_TOKEN: windows_sys::core::PCWSTR = windows_sys::core::w!("UserSecurityToken");
+pub const XpsJob_DocumentSequenceAdded: EXpsJobConsumption = 0i32;
+pub const XpsJob_FixedDocumentAdded: EXpsJobConsumption = 1i32;
+pub const XpsJob_FixedPageAdded: EXpsJobConsumption = 2i32;
+pub const Xps_Restricted_Font_Editable: EXpsFontRestriction = 8i32;
+pub const Xps_Restricted_Font_Installable: EXpsFontRestriction = 0i32;
+pub const Xps_Restricted_Font_NoEmbedding: EXpsFontRestriction = 2i32;
+pub const Xps_Restricted_Font_PreviewPrint: EXpsFontRestriction = 4i32;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type _CPSUICALLBACK = Option<unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct _SPLCLIENT_INFO_2_V3 {
     pub hSplPrinter: u64,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type EMFPLAYPROC = Option<unsafe extern "system" fn(param0: super::Gdi::HDC, param1: i32, param2: super::super::Foundation::HANDLE) -> i32>;
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type OEMCUIPCALLBACK = Option<unsafe extern "system" fn(param0: *mut CPSUICBPARAM, param1: *mut OEMCUIPPARAM) -> i32>;
-pub type PFNCOMPROPSHEET = Option<unsafe extern "system" fn(hcompropsheet: super::super::Foundation::HANDLE, function: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> isize>;
-pub type PFNPROPSHEETUI = Option<unsafe extern "system" fn(ppsuiinfo: *mut PROPSHEETUI_INFO, lparam: super::super::Foundation::LPARAM) -> i32>;
-pub type PFN_DrvGetDriverSetting = Option<unsafe extern "system" fn(pdriverobj: *mut core::ffi::c_void, feature: windows_sys::core::PCSTR, poutput: *mut core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvUpdateUISetting = Option<unsafe extern "system" fn(pdriverobj: *mut core::ffi::c_void, poptitem: *mut core::ffi::c_void, dwpreviousselection: u32, dwmode: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvUpgradeRegistrySetting = Option<unsafe extern "system" fn(hprinter: super::super::Foundation::HANDLE, pfeature: windows_sys::core::PCSTR, poption: windows_sys::core::PCSTR) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_ADDPORT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::HWND, param2: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_ADDPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HWND, param3: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_ADDPORTEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: u32, param2: *const u8, param3: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_ADDPORTEX2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: u32, param3: *const u8, param4: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_CLOSEPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_CLOSEPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_CONFIGUREPORT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::HWND, param2: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_CONFIGUREPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HWND, param3: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_DELETEPORT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::HWND, param2: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_DELETEPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HWND, param3: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_ENDDOCPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_ENDDOCPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_ENUMPORTS = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: u32, param2: *mut u8, param3: u32, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_ENUMPORTS2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: u32, param3: *mut u8, param4: u32, param5: *mut u32, param6: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_GETPRINTERDATAFROMPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: windows_sys::core::PCWSTR, param3: windows_sys::core::PCWSTR, param4: u32, param5: windows_sys::core::PCWSTR, param6: u32, param7: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_GETPRINTERDATAFROMPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: windows_sys::core::PCWSTR, param3: windows_sys::core::PCWSTR, param4: u32, param5: windows_sys::core::PCWSTR, param6: u32, param7: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_NOTIFYUNUSEDPORTS2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: windows_sys::core::PCWSTR) -> u32>;
-pub type PFN_PRINTING_NOTIFYUSEDPORTS2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: windows_sys::core::PCWSTR) -> u32>;
-pub type PFN_PRINTING_OPENPORT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_OPENPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-pub type PFN_PRINTING_OPENPORTEX = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *mut super::super::Foundation::HANDLE, param4: *const MONITOR2) -> super::super::Foundation::BOOL>;
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-pub type PFN_PRINTING_OPENPORTEX2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: windows_sys::core::PCWSTR, param3: windows_sys::core::PCWSTR, param4: *mut super::super::Foundation::HANDLE, param5: *const MONITOR2) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_System_Power")]
-pub type PFN_PRINTING_POWEREVENT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *const super::super::System::Power::POWERBROADCAST_SETTING) -> u32>;
-pub type PFN_PRINTING_READPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *mut u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_READPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *mut u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_SENDRECVBIDIDATAFROMPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: windows_sys::core::PCWSTR, param3: *const BIDI_REQUEST_CONTAINER, param4: *mut *mut BIDI_RESPONSE_CONTAINER) -> u32>;
-#[cfg(feature = "Win32_Devices_Communication")]
-pub type PFN_PRINTING_SETPORTTIMEOUTS = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const super::super::Devices::Communication::COMMTIMEOUTS, param2: u32) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_Devices_Communication")]
-pub type PFN_PRINTING_SETPORTTIMEOUTS2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const super::super::Devices::Communication::COMMTIMEOUTS, param2: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_SHUTDOWN2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE)>;
-pub type PFN_PRINTING_STARTDOCPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: u32, param3: u32, param4: *const u8) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_STARTDOCPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: u32, param3: u32, param4: *const u8) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_WRITEPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_WRITEPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_XCVCLOSEPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_XCVCLOSEPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_XCVDATAPORT = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: *const u8, param3: u32, param4: *mut u8, param5: u32, param6: *mut u32) -> u32>;
-pub type PFN_PRINTING_XCVDATAPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: *const u8, param3: u32, param4: *mut u8, param5: u32, param6: *mut u32) -> u32>;
-pub type PFN_PRINTING_XCVOPENPORT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: u32, param2: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PFN_PRINTING_XCVOPENPORT2 = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: windows_sys::core::PCWSTR, param2: u32, param3: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type ROUTER_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(dwcommand: u32, pcontext: *const core::ffi::c_void, dwcolor: u32, pnofityinfo: *const PRINTER_NOTIFY_INFO, fdwflags: u32, pdwresult: *mut u32) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type _CPSUICALLBACK = Option<unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32>;
+pub const kADT_ASCII: EATTRIBUTE_DATATYPE = 5i32;
+pub const kADT_BINARY: EATTRIBUTE_DATATYPE = 7i32;
+pub const kADT_BOOL: EATTRIBUTE_DATATYPE = 1i32;
+pub const kADT_CUSTOMSIZEPARAMS: EATTRIBUTE_DATATYPE = 10i32;
+pub const kADT_DWORD: EATTRIBUTE_DATATYPE = 4i32;
+pub const kADT_INT: EATTRIBUTE_DATATYPE = 2i32;
+pub const kADT_LONG: EATTRIBUTE_DATATYPE = 3i32;
+pub const kADT_RECT: EATTRIBUTE_DATATYPE = 9i32;
+pub const kADT_SIZE: EATTRIBUTE_DATATYPE = 8i32;
+pub const kADT_UNICODE: EATTRIBUTE_DATATYPE = 6i32;
+pub const kADT_UNKNOWN: EATTRIBUTE_DATATYPE = 0i32;
+pub const kAddingDocumentSequence: EPrintXPSJobProgress = 0i32;
+pub const kAddingFixedDocument: EPrintXPSJobProgress = 2i32;
+pub const kAddingFixedPage: EPrintXPSJobProgress = 4i32;
+pub const kAllUsers: PrintAsyncNotifyUserFilter = 1i32;
+pub const kBiDirectional: PrintAsyncNotifyConversationStyle = 0i32;
+pub const kDocumentSequenceAdded: EPrintXPSJobProgress = 1i32;
+pub const kFixedDocumentAdded: EPrintXPSJobProgress = 3i32;
+pub const kFixedPageAdded: EPrintXPSJobProgress = 5i32;
+pub const kFontAdded: EPrintXPSJobProgress = 7i32;
+pub const kImageAdded: EPrintXPSJobProgress = 8i32;
+pub const kInvalidJobState: EBranchOfficeJobEventType = 0i32;
+pub const kJobConsumption: EPrintXPSJobOperation = 2i32;
+pub const kJobProduction: EPrintXPSJobOperation = 1i32;
+pub const kLogJobError: EBranchOfficeJobEventType = 3i32;
+pub const kLogJobPipelineError: EBranchOfficeJobEventType = 4i32;
+pub const kLogJobPrinted: EBranchOfficeJobEventType = 1i32;
+pub const kLogJobRendered: EBranchOfficeJobEventType = 2i32;
+pub const kLogOfflineFileFull: EBranchOfficeJobEventType = 5i32;
+pub const kMessageBox: UI_TYPE = 0i32;
+pub const kPerUser: PrintAsyncNotifyUserFilter = 0i32;
+pub const kPropertyTypeBuffer: EPrintPropertyType = 10i32;
+pub const kPropertyTypeByte: EPrintPropertyType = 4i32;
+pub const kPropertyTypeDevMode: EPrintPropertyType = 6i32;
+pub const kPropertyTypeInt32: EPrintPropertyType = 2i32;
+pub const kPropertyTypeInt64: EPrintPropertyType = 3i32;
+pub const kPropertyTypeNotificationOptions: EPrintPropertyType = 9i32;
+pub const kPropertyTypeNotificationReply: EPrintPropertyType = 8i32;
+pub const kPropertyTypeSD: EPrintPropertyType = 7i32;
+pub const kPropertyTypeString: EPrintPropertyType = 1i32;
+pub const kPropertyTypeTime: EPrintPropertyType = 5i32;
+pub const kResourceAdded: EPrintXPSJobProgress = 6i32;
+pub const kUniDirectional: PrintAsyncNotifyConversationStyle = 1i32;
+pub const kXpsDocumentCommitted: EPrintXPSJobProgress = 9i32;

@@ -14,7 +14,6 @@ This repo is the home of the following crates (and other supporting crates):
 * [windows-core](https://crates.io/crates/windows-core) - Type support for the `windows` crate.
 * [windows-implement](https://crates.io/crates/windows-implement) - The `implement` macro for the `windows` crate, for implementing COM interfaces.
 * [windows-interface](https://crates.io/crates/windows-interface) - The `interface` macro for the `windows` crate, for declaring COM interfaces.
-* [windows-metadata](https://crates.io/crates/windows-metadata) - Windows metadata reader.
 * [windows-registry](https://crates.io/crates/windows-registry) - Windows registry.
 * [windows-result](https://crates.io/crates/windows-result) - Windows error handling.
 * [windows-strings](https://crates.io/crates/windows-strings) - Windows string types.

@@ -543,138 +543,6 @@ pub const ERROR_WSMAN_WMI_PROVIDER_INVALID_PARAMETER: u32 = 2150859038u32;
 pub const ERROR_WSMAN_WMI_PROVIDER_NOT_CAPABLE: u32 = 2150859010u32;
 pub const ERROR_WSMAN_WMI_SVC_ACCESS_DENIED: u32 = 2150859012u32;
 pub const ERROR_WSMAN_WRONG_METADATA: u32 = 2150859233u32;
-pub const WSMAN_CMDSHELL_OPTION_CODEPAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("WINRS_CODEPAGE");
-pub const WSMAN_CMDSHELL_OPTION_CONSOLEMODE_STDIN: windows_sys::core::PCWSTR = windows_sys::core::w!("WINRS_CONSOLEMODE_STDIN");
-pub const WSMAN_CMDSHELL_OPTION_SKIP_CMD_SHELL: windows_sys::core::PCWSTR = windows_sys::core::w!("WINRS_SKIP_CMD_SHELL");
-pub const WSMAN_DATA_NONE: WSManDataType = 0i32;
-pub const WSMAN_DATA_TYPE_BINARY: WSManDataType = 2i32;
-pub const WSMAN_DATA_TYPE_DWORD: WSManDataType = 4i32;
-pub const WSMAN_DATA_TYPE_TEXT: WSManDataType = 1i32;
-pub const WSMAN_DEFAULT_TIMEOUT_MS: u32 = 60000u32;
-pub const WSMAN_FLAG_AUTH_BASIC: WSManAuthenticationFlags = 8i32;
-pub const WSMAN_FLAG_AUTH_CLIENT_CERTIFICATE: WSManAuthenticationFlags = 32i32;
-pub const WSMAN_FLAG_AUTH_CREDSSP: WSManAuthenticationFlags = 128i32;
-pub const WSMAN_FLAG_AUTH_DIGEST: WSManAuthenticationFlags = 2i32;
-pub const WSMAN_FLAG_AUTH_KERBEROS: WSManAuthenticationFlags = 16i32;
-pub const WSMAN_FLAG_AUTH_NEGOTIATE: WSManAuthenticationFlags = 4i32;
-pub const WSMAN_FLAG_CALLBACK_END_OF_OPERATION: WSManCallbackFlags = 1i32;
-pub const WSMAN_FLAG_CALLBACK_END_OF_STREAM: WSManCallbackFlags = 8i32;
-pub const WSMAN_FLAG_CALLBACK_NETWORK_FAILURE_DETECTED: WSManCallbackFlags = 256i32;
-pub const WSMAN_FLAG_CALLBACK_RECEIVE_DELAY_STREAM_REQUEST_PROCESSED: WSManCallbackFlags = 8192i32;
-pub const WSMAN_FLAG_CALLBACK_RECONNECTED_AFTER_NETWORK_FAILURE: WSManCallbackFlags = 1024i32;
-pub const WSMAN_FLAG_CALLBACK_RETRYING_AFTER_NETWORK_FAILURE: WSManCallbackFlags = 512i32;
-pub const WSMAN_FLAG_CALLBACK_RETRY_ABORTED_DUE_TO_INTERNAL_ERROR: WSManCallbackFlags = 4096i32;
-pub const WSMAN_FLAG_CALLBACK_SHELL_AUTODISCONNECTED: WSManCallbackFlags = 64i32;
-pub const WSMAN_FLAG_CALLBACK_SHELL_AUTODISCONNECTING: WSManCallbackFlags = 2048i32;
-pub const WSMAN_FLAG_CALLBACK_SHELL_SUPPORTS_DISCONNECT: WSManCallbackFlags = 32i32;
-pub const WSMAN_FLAG_DEFAULT_AUTHENTICATION: WSManAuthenticationFlags = 0i32;
-pub const WSMAN_FLAG_DELETE_SERVER_SESSION: WSManShellFlag = 2i32;
-pub const WSMAN_FLAG_NO_AUTHENTICATION: WSManAuthenticationFlags = 1i32;
-pub const WSMAN_FLAG_NO_COMPRESSION: WSManShellFlag = 1i32;
-pub const WSMAN_FLAG_RECEIVE_DELAY_OUTPUT_STREAM: WSManShellFlag = 16i32;
-pub const WSMAN_FLAG_RECEIVE_FLUSH: u32 = 2u32;
-pub const WSMAN_FLAG_RECEIVE_RESULT_DATA_BOUNDARY: u32 = 4u32;
-pub const WSMAN_FLAG_RECEIVE_RESULT_NO_MORE_DATA: u32 = 1u32;
-pub const WSMAN_FLAG_REQUESTED_API_VERSION_1_0: u32 = 0u32;
-pub const WSMAN_FLAG_REQUESTED_API_VERSION_1_1: u32 = 1u32;
-pub const WSMAN_FLAG_SEND_NO_MORE_DATA: u32 = 1u32;
-pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_BLOCK: WSManShellFlag = 8i32;
-pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_DROP: WSManShellFlag = 4i32;
-pub const WSMAN_OPERATION_INFOV1: u32 = 0u32;
-pub const WSMAN_OPERATION_INFOV2: u32 = 2864434397u32;
-pub const WSMAN_OPTION_ALLOW_NEGOTIATE_IMPLICIT_CREDENTIALS: WSManSessionOption = 32i32;
-pub const WSMAN_OPTION_DEFAULT_OPERATION_TIMEOUTMS: WSManSessionOption = 1i32;
-pub const WSMAN_OPTION_ENABLE_SPN_SERVER_PORT: WSManSessionOption = 22i32;
-pub const WSMAN_OPTION_LOCALE: WSManSessionOption = 25i32;
-pub const WSMAN_OPTION_MACHINE_ID: WSManSessionOption = 23i32;
-pub const WSMAN_OPTION_MAX_ENVELOPE_SIZE_KB: WSManSessionOption = 28i32;
-pub const WSMAN_OPTION_MAX_RETRY_TIME: WSManSessionOption = 11i32;
-pub const WSMAN_OPTION_PROXY_AUTO_DETECT: WSManProxyAccessType = 4i32;
-pub const WSMAN_OPTION_PROXY_IE_PROXY_CONFIG: WSManProxyAccessType = 1i32;
-pub const WSMAN_OPTION_PROXY_NO_PROXY_SERVER: WSManProxyAccessType = 8i32;
-pub const WSMAN_OPTION_PROXY_WINHTTP_PROXY_CONFIG: WSManProxyAccessType = 2i32;
-pub const WSMAN_OPTION_REDIRECT_LOCATION: WSManSessionOption = 30i32;
-pub const WSMAN_OPTION_SHELL_MAX_DATA_SIZE_PER_MESSAGE_KB: WSManSessionOption = 29i32;
-pub const WSMAN_OPTION_SKIP_CA_CHECK: WSManSessionOption = 18i32;
-pub const WSMAN_OPTION_SKIP_CN_CHECK: WSManSessionOption = 19i32;
-pub const WSMAN_OPTION_SKIP_REVOCATION_CHECK: WSManSessionOption = 31i32;
-pub const WSMAN_OPTION_TIMEOUTMS_CLOSE_SHELL: WSManSessionOption = 17i32;
-pub const WSMAN_OPTION_TIMEOUTMS_CREATE_SHELL: WSManSessionOption = 12i32;
-pub const WSMAN_OPTION_TIMEOUTMS_RECEIVE_SHELL_OUTPUT: WSManSessionOption = 14i32;
-pub const WSMAN_OPTION_TIMEOUTMS_RUN_SHELL_COMMAND: WSManSessionOption = 13i32;
-pub const WSMAN_OPTION_TIMEOUTMS_SEND_SHELL_INPUT: WSManSessionOption = 15i32;
-pub const WSMAN_OPTION_TIMEOUTMS_SIGNAL_SHELL: WSManSessionOption = 16i32;
-pub const WSMAN_OPTION_UI_LANGUAGE: WSManSessionOption = 26i32;
-pub const WSMAN_OPTION_UNENCRYPTED_MESSAGES: WSManSessionOption = 20i32;
-pub const WSMAN_OPTION_USE_INTEARACTIVE_TOKEN: WSManSessionOption = 34i32;
-pub const WSMAN_OPTION_USE_SSL: WSManSessionOption = 33i32;
-pub const WSMAN_OPTION_UTF16: WSManSessionOption = 21i32;
-pub const WSMAN_PLUGIN_PARAMS_AUTORESTART: u32 = 3u32;
-pub const WSMAN_PLUGIN_PARAMS_GET_REQUESTED_DATA_LOCALE: u32 = 6u32;
-pub const WSMAN_PLUGIN_PARAMS_GET_REQUESTED_LOCALE: u32 = 5u32;
-pub const WSMAN_PLUGIN_PARAMS_HOSTIDLETIMEOUTSECONDS: u32 = 4u32;
-pub const WSMAN_PLUGIN_PARAMS_LARGEST_RESULT_SIZE: u32 = 4u32;
-pub const WSMAN_PLUGIN_PARAMS_MAX_ENVELOPE_SIZE: u32 = 1u32;
-pub const WSMAN_PLUGIN_PARAMS_NAME: u32 = 5u32;
-pub const WSMAN_PLUGIN_PARAMS_REMAINING_RESULT_SIZE: u32 = 3u32;
-pub const WSMAN_PLUGIN_PARAMS_RUNAS_USER: u32 = 2u32;
-pub const WSMAN_PLUGIN_PARAMS_SHAREDHOST: u32 = 1u32;
-pub const WSMAN_PLUGIN_PARAMS_TIMEOUT: u32 = 2u32;
-pub const WSMAN_PLUGIN_SHUTDOWN_IDLETIMEOUT_ELAPSED: u32 = 4u32;
-pub const WSMAN_PLUGIN_SHUTDOWN_IISHOST: u32 = 3u32;
-pub const WSMAN_PLUGIN_SHUTDOWN_SERVICE: u32 = 2u32;
-pub const WSMAN_PLUGIN_SHUTDOWN_SYSTEM: u32 = 1u32;
-pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_CRASH: u32 = 2u32;
-pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_REBOOT: u32 = 1u32;
-pub const WSMAN_PLUGIN_STARTUP_REQUEST_RECEIVED: u32 = 0u32;
-pub const WSMAN_SHELL_NS: windows_sys::core::PCWSTR = windows_sys::core::w!("http://schemas.microsoft.com/wbem/wsman/1/windows/shell");
-pub const WSMAN_SHELL_OPTION_NOPROFILE: windows_sys::core::PCWSTR = windows_sys::core::w!("WINRS_NOPROFILE");
-pub const WSMAN_STREAM_ID_STDERR: windows_sys::core::PCWSTR = windows_sys::core::w!("stderr");
-pub const WSMAN_STREAM_ID_STDIN: windows_sys::core::PCWSTR = windows_sys::core::w!("stdin");
-pub const WSMAN_STREAM_ID_STDOUT: windows_sys::core::PCWSTR = windows_sys::core::w!("stdout");
-pub const WSManFlagAllowNegotiateImplicitCredentials: WSManSessionFlags = 67108864i32;
-pub const WSManFlagAssociatedInstance: WSManEnumFlags = 0i32;
-pub const WSManFlagAssociationInstance: WSManEnumFlags = 128i32;
-pub const WSManFlagCredUsernamePassword: WSManSessionFlags = 4096i32;
-pub const WSManFlagEnableSPNServerPort: WSManSessionFlags = 4194304i32;
-pub const WSManFlagHierarchyDeep: WSManEnumFlags = 0i32;
-pub const WSManFlagHierarchyDeepBasePropsOnly: WSManEnumFlags = 64i32;
-pub const WSManFlagHierarchyShallow: WSManEnumFlags = 32i32;
-pub const WSManFlagNoEncryption: WSManSessionFlags = 1048576i32;
-pub const WSManFlagNonXmlText: WSManEnumFlags = 1i32;
-pub const WSManFlagProxyAuthenticationUseBasic: WSManProxyAuthenticationFlags = 2i32;
-pub const WSManFlagProxyAuthenticationUseDigest: WSManProxyAuthenticationFlags = 4i32;
-pub const WSManFlagProxyAuthenticationUseNegotiate: WSManProxyAuthenticationFlags = 1i32;
-pub const WSManFlagReturnEPR: WSManEnumFlags = 2i32;
-pub const WSManFlagReturnObject: WSManEnumFlags = 0i32;
-pub const WSManFlagReturnObjectAndEPR: WSManEnumFlags = 4i32;
-pub const WSManFlagSkipCACheck: WSManSessionFlags = 8192i32;
-pub const WSManFlagSkipCNCheck: WSManSessionFlags = 16384i32;
-pub const WSManFlagSkipRevocationCheck: WSManSessionFlags = 33554432i32;
-pub const WSManFlagUTF16: WSManSessionFlags = 8388608i32;
-pub const WSManFlagUTF8: WSManSessionFlags = 1i32;
-pub const WSManFlagUseBasic: WSManSessionFlags = 262144i32;
-pub const WSManFlagUseClientCertificate: WSManSessionFlags = 2097152i32;
-pub const WSManFlagUseCredSsp: WSManSessionFlags = 16777216i32;
-pub const WSManFlagUseDigest: WSManSessionFlags = 65536i32;
-pub const WSManFlagUseKerberos: WSManSessionFlags = 524288i32;
-pub const WSManFlagUseNegotiate: WSManSessionFlags = 131072i32;
-pub const WSManFlagUseNoAuthentication: WSManSessionFlags = 32768i32;
-pub const WSManFlagUseSsl: WSManSessionFlags = 134217728i32;
-pub const WSManProxyAutoDetect: WSManProxyAccessTypeFlags = 4i32;
-pub const WSManProxyIEConfig: WSManProxyAccessTypeFlags = 1i32;
-pub const WSManProxyNoProxyServer: WSManProxyAccessTypeFlags = 8i32;
-pub const WSManProxyWinHttpConfig: WSManProxyAccessTypeFlags = 2i32;
-pub type WSManAuthenticationFlags = i32;
-pub type WSManCallbackFlags = i32;
-pub type WSManDataType = i32;
-pub type WSManEnumFlags = i32;
-pub type WSManProxyAccessType = i32;
-pub type WSManProxyAccessTypeFlags = i32;
-pub type WSManProxyAuthenticationFlags = i32;
-pub type WSManSessionFlags = i32;
-pub type WSManSessionOption = i32;
-pub type WSManShellFlag = i32;
 pub type WSMAN_API_HANDLE = isize;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -704,6 +572,9 @@ pub struct WSMAN_CERTIFICATE_DETAILS {
     pub issuerThumbprint: windows_sys::core::PCWSTR,
     pub subjectName: windows_sys::core::PCWSTR,
 }
+pub const WSMAN_CMDSHELL_OPTION_CODEPAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("WINRS_CODEPAGE");
+pub const WSMAN_CMDSHELL_OPTION_CONSOLEMODE_STDIN: windows_sys::core::PCWSTR = windows_sys::core::w!("WINRS_CONSOLEMODE_STDIN");
+pub const WSMAN_CMDSHELL_OPTION_SKIP_CMD_SHELL: windows_sys::core::PCWSTR = windows_sys::core::w!("WINRS_SKIP_CMD_SHELL");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_COMMAND_ARG_SET {
@@ -740,12 +611,17 @@ pub struct WSMAN_DATA_BINARY {
     pub dataLength: u32,
     pub data: *mut u8,
 }
+pub const WSMAN_DATA_NONE: WSManDataType = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_DATA_TEXT {
     pub bufferLength: u32,
     pub buffer: windows_sys::core::PCWSTR,
 }
+pub const WSMAN_DATA_TYPE_BINARY: WSManDataType = 2i32;
+pub const WSMAN_DATA_TYPE_DWORD: WSManDataType = 4i32;
+pub const WSMAN_DATA_TYPE_TEXT: WSManDataType = 1i32;
+pub const WSMAN_DEFAULT_TIMEOUT_MS: u32 = 60000u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_ENVIRONMENT_VARIABLE {
@@ -773,6 +649,35 @@ pub struct WSMAN_FILTER {
     pub filter: windows_sys::core::PCWSTR,
     pub dialect: windows_sys::core::PCWSTR,
 }
+pub const WSMAN_FLAG_AUTH_BASIC: WSManAuthenticationFlags = 8i32;
+pub const WSMAN_FLAG_AUTH_CLIENT_CERTIFICATE: WSManAuthenticationFlags = 32i32;
+pub const WSMAN_FLAG_AUTH_CREDSSP: WSManAuthenticationFlags = 128i32;
+pub const WSMAN_FLAG_AUTH_DIGEST: WSManAuthenticationFlags = 2i32;
+pub const WSMAN_FLAG_AUTH_KERBEROS: WSManAuthenticationFlags = 16i32;
+pub const WSMAN_FLAG_AUTH_NEGOTIATE: WSManAuthenticationFlags = 4i32;
+pub const WSMAN_FLAG_CALLBACK_END_OF_OPERATION: WSManCallbackFlags = 1i32;
+pub const WSMAN_FLAG_CALLBACK_END_OF_STREAM: WSManCallbackFlags = 8i32;
+pub const WSMAN_FLAG_CALLBACK_NETWORK_FAILURE_DETECTED: WSManCallbackFlags = 256i32;
+pub const WSMAN_FLAG_CALLBACK_RECEIVE_DELAY_STREAM_REQUEST_PROCESSED: WSManCallbackFlags = 8192i32;
+pub const WSMAN_FLAG_CALLBACK_RECONNECTED_AFTER_NETWORK_FAILURE: WSManCallbackFlags = 1024i32;
+pub const WSMAN_FLAG_CALLBACK_RETRYING_AFTER_NETWORK_FAILURE: WSManCallbackFlags = 512i32;
+pub const WSMAN_FLAG_CALLBACK_RETRY_ABORTED_DUE_TO_INTERNAL_ERROR: WSManCallbackFlags = 4096i32;
+pub const WSMAN_FLAG_CALLBACK_SHELL_AUTODISCONNECTED: WSManCallbackFlags = 64i32;
+pub const WSMAN_FLAG_CALLBACK_SHELL_AUTODISCONNECTING: WSManCallbackFlags = 2048i32;
+pub const WSMAN_FLAG_CALLBACK_SHELL_SUPPORTS_DISCONNECT: WSManCallbackFlags = 32i32;
+pub const WSMAN_FLAG_DEFAULT_AUTHENTICATION: WSManAuthenticationFlags = 0i32;
+pub const WSMAN_FLAG_DELETE_SERVER_SESSION: WSManShellFlag = 2i32;
+pub const WSMAN_FLAG_NO_AUTHENTICATION: WSManAuthenticationFlags = 1i32;
+pub const WSMAN_FLAG_NO_COMPRESSION: WSManShellFlag = 1i32;
+pub const WSMAN_FLAG_RECEIVE_DELAY_OUTPUT_STREAM: WSManShellFlag = 16i32;
+pub const WSMAN_FLAG_RECEIVE_FLUSH: u32 = 2u32;
+pub const WSMAN_FLAG_RECEIVE_RESULT_DATA_BOUNDARY: u32 = 4u32;
+pub const WSMAN_FLAG_RECEIVE_RESULT_NO_MORE_DATA: u32 = 1u32;
+pub const WSMAN_FLAG_REQUESTED_API_VERSION_1_0: u32 = 0u32;
+pub const WSMAN_FLAG_REQUESTED_API_VERSION_1_1: u32 = 1u32;
+pub const WSMAN_FLAG_SEND_NO_MORE_DATA: u32 = 1u32;
+pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_BLOCK: WSManShellFlag = 8i32;
+pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_DROP: WSManShellFlag = 4i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_FRAGMENT {
@@ -807,6 +712,8 @@ pub struct WSMAN_OPERATION_INFOEX {
     pub uiLocale: windows_sys::core::PCWSTR,
     pub dataLocale: windows_sys::core::PCWSTR,
 }
+pub const WSMAN_OPERATION_INFOV1: u32 = 0u32;
+pub const WSMAN_OPERATION_INFOV2: u32 = 2864434397u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_OPTION {
@@ -814,6 +721,18 @@ pub struct WSMAN_OPTION {
     pub value: windows_sys::core::PCWSTR,
     pub mustComply: super::super::Foundation::BOOL,
 }
+pub const WSMAN_OPTION_ALLOW_NEGOTIATE_IMPLICIT_CREDENTIALS: WSManSessionOption = 32i32;
+pub const WSMAN_OPTION_DEFAULT_OPERATION_TIMEOUTMS: WSManSessionOption = 1i32;
+pub const WSMAN_OPTION_ENABLE_SPN_SERVER_PORT: WSManSessionOption = 22i32;
+pub const WSMAN_OPTION_LOCALE: WSManSessionOption = 25i32;
+pub const WSMAN_OPTION_MACHINE_ID: WSManSessionOption = 23i32;
+pub const WSMAN_OPTION_MAX_ENVELOPE_SIZE_KB: WSManSessionOption = 28i32;
+pub const WSMAN_OPTION_MAX_RETRY_TIME: WSManSessionOption = 11i32;
+pub const WSMAN_OPTION_PROXY_AUTO_DETECT: WSManProxyAccessType = 4i32;
+pub const WSMAN_OPTION_PROXY_IE_PROXY_CONFIG: WSManProxyAccessType = 1i32;
+pub const WSMAN_OPTION_PROXY_NO_PROXY_SERVER: WSManProxyAccessType = 8i32;
+pub const WSMAN_OPTION_PROXY_WINHTTP_PROXY_CONFIG: WSManProxyAccessType = 2i32;
+pub const WSMAN_OPTION_REDIRECT_LOCATION: WSManSessionOption = 30i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_OPTION_SET {
@@ -829,6 +748,41 @@ pub struct WSMAN_OPTION_SETEX {
     pub optionsMustUnderstand: super::super::Foundation::BOOL,
     pub optionTypes: *const windows_sys::core::PCWSTR,
 }
+pub const WSMAN_OPTION_SHELL_MAX_DATA_SIZE_PER_MESSAGE_KB: WSManSessionOption = 29i32;
+pub const WSMAN_OPTION_SKIP_CA_CHECK: WSManSessionOption = 18i32;
+pub const WSMAN_OPTION_SKIP_CN_CHECK: WSManSessionOption = 19i32;
+pub const WSMAN_OPTION_SKIP_REVOCATION_CHECK: WSManSessionOption = 31i32;
+pub const WSMAN_OPTION_TIMEOUTMS_CLOSE_SHELL: WSManSessionOption = 17i32;
+pub const WSMAN_OPTION_TIMEOUTMS_CREATE_SHELL: WSManSessionOption = 12i32;
+pub const WSMAN_OPTION_TIMEOUTMS_RECEIVE_SHELL_OUTPUT: WSManSessionOption = 14i32;
+pub const WSMAN_OPTION_TIMEOUTMS_RUN_SHELL_COMMAND: WSManSessionOption = 13i32;
+pub const WSMAN_OPTION_TIMEOUTMS_SEND_SHELL_INPUT: WSManSessionOption = 15i32;
+pub const WSMAN_OPTION_TIMEOUTMS_SIGNAL_SHELL: WSManSessionOption = 16i32;
+pub const WSMAN_OPTION_UI_LANGUAGE: WSManSessionOption = 26i32;
+pub const WSMAN_OPTION_UNENCRYPTED_MESSAGES: WSManSessionOption = 20i32;
+pub const WSMAN_OPTION_USE_INTEARACTIVE_TOKEN: WSManSessionOption = 34i32;
+pub const WSMAN_OPTION_USE_SSL: WSManSessionOption = 33i32;
+pub const WSMAN_OPTION_UTF16: WSManSessionOption = 21i32;
+pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: windows_sys::core::PCWSTR, resourceuri: windows_sys::core::PCWSTR)>;
+pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
+pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = Option<unsafe extern "system" fn(userauthorizationcontext: *const core::ffi::c_void)>;
+pub type WSMAN_PLUGIN_AUTHORIZE_USER = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
+pub type WSMAN_PLUGIN_COMMAND = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandline: windows_sys::core::PCWSTR, arguments: *const WSMAN_COMMAND_ARG_SET)>;
+pub type WSMAN_PLUGIN_CONNECT = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, inboundconnectinformation: *const WSMAN_DATA)>;
+pub const WSMAN_PLUGIN_PARAMS_AUTORESTART: u32 = 3u32;
+pub const WSMAN_PLUGIN_PARAMS_GET_REQUESTED_DATA_LOCALE: u32 = 6u32;
+pub const WSMAN_PLUGIN_PARAMS_GET_REQUESTED_LOCALE: u32 = 5u32;
+pub const WSMAN_PLUGIN_PARAMS_HOSTIDLETIMEOUTSECONDS: u32 = 4u32;
+pub const WSMAN_PLUGIN_PARAMS_LARGEST_RESULT_SIZE: u32 = 4u32;
+pub const WSMAN_PLUGIN_PARAMS_MAX_ENVELOPE_SIZE: u32 = 1u32;
+pub const WSMAN_PLUGIN_PARAMS_NAME: u32 = 5u32;
+pub const WSMAN_PLUGIN_PARAMS_REMAINING_RESULT_SIZE: u32 = 3u32;
+pub const WSMAN_PLUGIN_PARAMS_RUNAS_USER: u32 = 2u32;
+pub const WSMAN_PLUGIN_PARAMS_SHAREDHOST: u32 = 1u32;
+pub const WSMAN_PLUGIN_PARAMS_TIMEOUT: u32 = 2u32;
+pub type WSMAN_PLUGIN_RECEIVE = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET)>;
+pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = Option<unsafe extern "system" fn(shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void)>;
+pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = Option<unsafe extern "system" fn(shellcontext: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_PLUGIN_REQUEST {
@@ -840,6 +794,18 @@ pub struct WSMAN_PLUGIN_REQUEST {
     pub shutdownNotificationHandle: super::super::Foundation::HANDLE,
     pub dataLocale: windows_sys::core::PCWSTR,
 }
+pub type WSMAN_PLUGIN_SEND = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, stream: windows_sys::core::PCWSTR, inbounddata: *const WSMAN_DATA)>;
+pub type WSMAN_PLUGIN_SHELL = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA)>;
+pub type WSMAN_PLUGIN_SHUTDOWN = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, flags: u32, reason: u32) -> u32>;
+pub const WSMAN_PLUGIN_SHUTDOWN_IDLETIMEOUT_ELAPSED: u32 = 4u32;
+pub const WSMAN_PLUGIN_SHUTDOWN_IISHOST: u32 = 3u32;
+pub const WSMAN_PLUGIN_SHUTDOWN_SERVICE: u32 = 2u32;
+pub const WSMAN_PLUGIN_SHUTDOWN_SYSTEM: u32 = 1u32;
+pub type WSMAN_PLUGIN_SIGNAL = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, code: windows_sys::core::PCWSTR)>;
+pub type WSMAN_PLUGIN_STARTUP = Option<unsafe extern "system" fn(flags: u32, applicationidentification: windows_sys::core::PCWSTR, extrainfo: windows_sys::core::PCWSTR, plugincontext: *mut *mut core::ffi::c_void) -> u32>;
+pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_CRASH: u32 = 2u32;
+pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_REBOOT: u32 = 1u32;
+pub const WSMAN_PLUGIN_STARTUP_REQUEST_RECEIVED: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_PROXY_INFO {
@@ -883,12 +849,15 @@ pub struct WSMAN_SHELL_ASYNC {
     pub operationContext: *mut core::ffi::c_void,
     pub completionFunction: WSMAN_SHELL_COMPLETION_FUNCTION,
 }
+pub type WSMAN_SHELL_COMPLETION_FUNCTION = Option<unsafe extern "system" fn(operationcontext: *const core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, operationhandle: WSMAN_OPERATION_HANDLE, data: *const WSMAN_RESPONSE_DATA)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_SHELL_DISCONNECT_INFO {
     pub idleTimeoutMs: u32,
 }
 pub type WSMAN_SHELL_HANDLE = isize;
+pub const WSMAN_SHELL_NS: windows_sys::core::PCWSTR = windows_sys::core::w!("http://schemas.microsoft.com/wbem/wsman/1/windows/shell");
+pub const WSMAN_SHELL_OPTION_NOPROFILE: windows_sys::core::PCWSTR = windows_sys::core::w!("WINRS_NOPROFILE");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_SHELL_STARTUP_INFO_V10 {
@@ -910,6 +879,9 @@ pub struct WSMAN_STREAM_ID_SET {
     pub streamIDsCount: u32,
     pub streamIDs: *const windows_sys::core::PCWSTR,
 }
+pub const WSMAN_STREAM_ID_STDERR: windows_sys::core::PCWSTR = windows_sys::core::w!("stderr");
+pub const WSMAN_STREAM_ID_STDIN: windows_sys::core::PCWSTR = windows_sys::core::w!("stdin");
+pub const WSMAN_STREAM_ID_STDOUT: windows_sys::core::PCWSTR = windows_sys::core::w!("stdout");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_USERNAME_PASSWORD_CREDS {
@@ -917,19 +889,47 @@ pub struct WSMAN_USERNAME_PASSWORD_CREDS {
     pub password: windows_sys::core::PCWSTR,
 }
 pub const WSMan: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbced617b_ec03_420b_8508_977dc7a686bd);
+pub type WSManAuthenticationFlags = i32;
+pub type WSManCallbackFlags = i32;
+pub type WSManDataType = i32;
+pub type WSManEnumFlags = i32;
+pub const WSManFlagAllowNegotiateImplicitCredentials: WSManSessionFlags = 67108864i32;
+pub const WSManFlagAssociatedInstance: WSManEnumFlags = 0i32;
+pub const WSManFlagAssociationInstance: WSManEnumFlags = 128i32;
+pub const WSManFlagCredUsernamePassword: WSManSessionFlags = 4096i32;
+pub const WSManFlagEnableSPNServerPort: WSManSessionFlags = 4194304i32;
+pub const WSManFlagHierarchyDeep: WSManEnumFlags = 0i32;
+pub const WSManFlagHierarchyDeepBasePropsOnly: WSManEnumFlags = 64i32;
+pub const WSManFlagHierarchyShallow: WSManEnumFlags = 32i32;
+pub const WSManFlagNoEncryption: WSManSessionFlags = 1048576i32;
+pub const WSManFlagNonXmlText: WSManEnumFlags = 1i32;
+pub const WSManFlagProxyAuthenticationUseBasic: WSManProxyAuthenticationFlags = 2i32;
+pub const WSManFlagProxyAuthenticationUseDigest: WSManProxyAuthenticationFlags = 4i32;
+pub const WSManFlagProxyAuthenticationUseNegotiate: WSManProxyAuthenticationFlags = 1i32;
+pub const WSManFlagReturnEPR: WSManEnumFlags = 2i32;
+pub const WSManFlagReturnObject: WSManEnumFlags = 0i32;
+pub const WSManFlagReturnObjectAndEPR: WSManEnumFlags = 4i32;
+pub const WSManFlagSkipCACheck: WSManSessionFlags = 8192i32;
+pub const WSManFlagSkipCNCheck: WSManSessionFlags = 16384i32;
+pub const WSManFlagSkipRevocationCheck: WSManSessionFlags = 33554432i32;
+pub const WSManFlagUTF16: WSManSessionFlags = 8388608i32;
+pub const WSManFlagUTF8: WSManSessionFlags = 1i32;
+pub const WSManFlagUseBasic: WSManSessionFlags = 262144i32;
+pub const WSManFlagUseClientCertificate: WSManSessionFlags = 2097152i32;
+pub const WSManFlagUseCredSsp: WSManSessionFlags = 16777216i32;
+pub const WSManFlagUseDigest: WSManSessionFlags = 65536i32;
+pub const WSManFlagUseKerberos: WSManSessionFlags = 524288i32;
+pub const WSManFlagUseNegotiate: WSManSessionFlags = 131072i32;
+pub const WSManFlagUseNoAuthentication: WSManSessionFlags = 32768i32;
+pub const WSManFlagUseSsl: WSManSessionFlags = 134217728i32;
 pub const WSManInternal: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7de087a5_5dcb_4df7_bb12_0924ad8fbd9a);
-pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: windows_sys::core::PCWSTR, resourceuri: windows_sys::core::PCWSTR)>;
-pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
-pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = Option<unsafe extern "system" fn(userauthorizationcontext: *const core::ffi::c_void)>;
-pub type WSMAN_PLUGIN_AUTHORIZE_USER = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
-pub type WSMAN_PLUGIN_COMMAND = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandline: windows_sys::core::PCWSTR, arguments: *const WSMAN_COMMAND_ARG_SET)>;
-pub type WSMAN_PLUGIN_CONNECT = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, inboundconnectinformation: *const WSMAN_DATA)>;
-pub type WSMAN_PLUGIN_RECEIVE = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET)>;
-pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = Option<unsafe extern "system" fn(shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void)>;
-pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = Option<unsafe extern "system" fn(shellcontext: *const core::ffi::c_void)>;
-pub type WSMAN_PLUGIN_SEND = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, stream: windows_sys::core::PCWSTR, inbounddata: *const WSMAN_DATA)>;
-pub type WSMAN_PLUGIN_SHELL = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA)>;
-pub type WSMAN_PLUGIN_SHUTDOWN = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, flags: u32, reason: u32) -> u32>;
-pub type WSMAN_PLUGIN_SIGNAL = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, code: windows_sys::core::PCWSTR)>;
-pub type WSMAN_PLUGIN_STARTUP = Option<unsafe extern "system" fn(flags: u32, applicationidentification: windows_sys::core::PCWSTR, extrainfo: windows_sys::core::PCWSTR, plugincontext: *mut *mut core::ffi::c_void) -> u32>;
-pub type WSMAN_SHELL_COMPLETION_FUNCTION = Option<unsafe extern "system" fn(operationcontext: *const core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, operationhandle: WSMAN_OPERATION_HANDLE, data: *const WSMAN_RESPONSE_DATA)>;
+pub type WSManProxyAccessType = i32;
+pub type WSManProxyAccessTypeFlags = i32;
+pub type WSManProxyAuthenticationFlags = i32;
+pub const WSManProxyAutoDetect: WSManProxyAccessTypeFlags = 4i32;
+pub const WSManProxyIEConfig: WSManProxyAccessTypeFlags = 1i32;
+pub const WSManProxyNoProxyServer: WSManProxyAccessTypeFlags = 8i32;
+pub const WSManProxyWinHttpConfig: WSManProxyAccessTypeFlags = 2i32;
+pub type WSManSessionFlags = i32;
+pub type WSManSessionOption = i32;
+pub type WSManShellFlag = i32;

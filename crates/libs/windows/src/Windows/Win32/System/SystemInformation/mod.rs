@@ -4,22 +4,22 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameExW(hostname : windows_core::PCWSTR, computername : windows_core::PWSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
-    DnsHostnameToComputerNameExW(hostname.param().abi(), core::mem::transmute(computername), nsize)
+    DnsHostnameToComputerNameExW(hostname.param().abi(), core::mem::transmute(computername), core::mem::transmute(nsize))
 }
 #[inline]
 pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: Option<&mut [u8]>) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn EnumSystemFirmwareTables(firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer : *mut u8, buffersize : u32) -> u32);
-    EnumSystemFirmwareTables(firmwaretableprovidersignature, core::mem::transmute(pfirmwaretableenumbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfirmwaretableenumbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    EnumSystemFirmwareTables(core::mem::transmute(firmwaretableprovidersignature), core::mem::transmute(pfirmwaretableenumbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfirmwaretableenumbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: windows_core::PSTR, nsize: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetComputerNameExA(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
-    GetComputerNameExA(nametype, core::mem::transmute(lpbuffer), nsize).ok()
+    GetComputerNameExA(core::mem::transmute(nametype), core::mem::transmute(lpbuffer), core::mem::transmute(nsize)).ok()
 }
 #[inline]
 pub unsafe fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: windows_core::PWSTR, nsize: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetComputerNameExW(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PWSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
-    GetComputerNameExW(nametype, core::mem::transmute(lpbuffer), nsize).ok()
+    GetComputerNameExW(core::mem::transmute(nametype), core::mem::transmute(lpbuffer), core::mem::transmute(nsize)).ok()
 }
 #[inline]
 pub unsafe fn GetDeveloperDriveEnablementState() -> DEVELOPER_DRIVE_ENABLEMENT_STATE {
@@ -29,13 +29,13 @@ pub unsafe fn GetDeveloperDriveEnablementState() -> DEVELOPER_DRIVE_ENABLEMENT_S
 #[inline]
 pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetFirmwareType(firmwaretype : *mut FIRMWARE_TYPE) -> super::super::Foundation:: BOOL);
-    GetFirmwareType(firmwaretype).ok()
+    GetFirmwareType(core::mem::transmute(firmwaretype)).ok()
 }
 #[inline]
 pub unsafe fn GetIntegratedDisplaySize() -> windows_core::Result<f64> {
     windows_targets::link!("api-ms-win-core-sysinfo-l1-2-3.dll" "system" fn GetIntegratedDisplaySize(sizeininches : *mut f64) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetIntegratedDisplaySize(&mut result__).map(|| result__)
+    GetIntegratedDisplaySize(&mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetLocalTime() -> super::super::Foundation::SYSTEMTIME {
@@ -47,50 +47,50 @@ pub unsafe fn GetLocalTime() -> super::super::Foundation::SYSTEMTIME {
 #[inline]
 pub unsafe fn GetLogicalProcessorInformation(buffer: Option<*mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION>, returnedlength: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetLogicalProcessorInformation(buffer : *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION, returnedlength : *mut u32) -> super::super::Foundation:: BOOL);
-    GetLogicalProcessorInformation(core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), returnedlength).ok()
+    GetLogicalProcessorInformation(core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(returnedlength)).ok()
 }
 #[inline]
 pub unsafe fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, buffer: Option<*mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX>, returnedlength: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetLogicalProcessorInformationEx(relationshiptype : LOGICAL_PROCESSOR_RELATIONSHIP, buffer : *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength : *mut u32) -> super::super::Foundation:: BOOL);
-    GetLogicalProcessorInformationEx(relationshiptype, core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), returnedlength).ok()
+    GetLogicalProcessorInformationEx(core::mem::transmute(relationshiptype), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(returnedlength)).ok()
 }
 #[inline]
 pub unsafe fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
     windows_targets::link!("kernel32.dll" "system" fn GetNativeSystemInfo(lpsysteminfo : *mut SYSTEM_INFO));
-    GetNativeSystemInfo(lpsysteminfo)
+    GetNativeSystemInfo(core::mem::transmute(lpsysteminfo))
 }
 #[inline]
 pub unsafe fn GetOsManufacturingMode(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     windows_targets::link!("api-ms-win-core-sysinfo-l1-2-3.dll" "system" fn GetOsManufacturingMode(pbenabled : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetOsManufacturingMode(pbenabled)
+    GetOsManufacturingMode(core::mem::transmute(pbenabled))
 }
 #[inline]
 pub unsafe fn GetOsSafeBootMode(flags: *mut u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("api-ms-win-core-sysinfo-l1-2-0.dll" "system" fn GetOsSafeBootMode(flags : *mut u32) -> super::super::Foundation:: BOOL);
-    GetOsSafeBootMode(flags)
+    GetOsSafeBootMode(core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u64) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes : *mut u64) -> super::super::Foundation:: BOOL);
-    GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes).ok()
+    GetPhysicallyInstalledSystemMemory(core::mem::transmute(totalmemoryinkilobytes)).ok()
 }
 #[inline]
 pub unsafe fn GetProcessorSystemCycleTime(group: u16, buffer: Option<*mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION>, returnedlength: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetProcessorSystemCycleTime(group : u16, buffer : *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, returnedlength : *mut u32) -> super::super::Foundation:: BOOL);
-    GetProcessorSystemCycleTime(group, core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), returnedlength).ok()
+    GetProcessorSystemCycleTime(core::mem::transmute(group), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(returnedlength)).ok()
 }
 #[inline]
 pub unsafe fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspmajorversion: u32, dwspminorversion: u32, pdwreturnedproducttype: *mut OS_PRODUCT_TYPE) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn GetProductInfo(dwosmajorversion : u32, dwosminorversion : u32, dwspmajorversion : u32, dwspminorversion : u32, pdwreturnedproducttype : *mut OS_PRODUCT_TYPE) -> super::super::Foundation:: BOOL);
-    GetProductInfo(dwosmajorversion, dwosminorversion, dwspmajorversion, dwspminorversion, pdwreturnedproducttype)
+    GetProductInfo(core::mem::transmute(dwosmajorversion), core::mem::transmute(dwosminorversion), core::mem::transmute(dwspmajorversion), core::mem::transmute(dwspminorversion), core::mem::transmute(pdwreturnedproducttype))
 }
 #[inline]
-pub unsafe fn GetSystemCpuSetInformation<P0>(information: Option<*mut SYSTEM_CPU_SET_INFORMATION>, bufferlength: u32, returnedlength: *mut u32, process: P0, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetSystemCpuSetInformation<P3>(information: Option<*mut SYSTEM_CPU_SET_INFORMATION>, bufferlength: u32, returnedlength: *mut u32, process: P3, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetSystemCpuSetInformation(information : *mut SYSTEM_CPU_SET_INFORMATION, bufferlength : u32, returnedlength : *mut u32, process : super::super::Foundation:: HANDLE, flags : u32) -> super::super::Foundation:: BOOL);
-    GetSystemCpuSetInformation(core::mem::transmute(information.unwrap_or(core::ptr::null_mut())), bufferlength, returnedlength, process.param().abi(), flags)
+    GetSystemCpuSetInformation(core::mem::transmute(information.unwrap_or(core::ptr::null_mut())), core::mem::transmute(bufferlength), core::mem::transmute(returnedlength), process.param().abi(), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE {
@@ -110,17 +110,17 @@ pub unsafe fn GetSystemDirectoryW(lpbuffer: Option<&mut [u16]>) -> u32 {
 #[inline]
 pub unsafe fn GetSystemFirmwareTable(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: u32, pfirmwaretablebuffer: Option<&mut [u8]>) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn GetSystemFirmwareTable(firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER, firmwaretableid : u32, pfirmwaretablebuffer : *mut u8, buffersize : u32) -> u32);
-    GetSystemFirmwareTable(firmwaretableprovidersignature, firmwaretableid, core::mem::transmute(pfirmwaretablebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfirmwaretablebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetSystemFirmwareTable(core::mem::transmute(firmwaretableprovidersignature), core::mem::transmute(firmwaretableid), core::mem::transmute(pfirmwaretablebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfirmwaretablebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
     windows_targets::link!("kernel32.dll" "system" fn GetSystemInfo(lpsysteminfo : *mut SYSTEM_INFO));
-    GetSystemInfo(lpsysteminfo)
+    GetSystemInfo(core::mem::transmute(lpsysteminfo))
 }
 #[inline]
 pub unsafe fn GetSystemLeapSecondInformation(enabled: *mut super::super::Foundation::BOOL, flags: *mut u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn GetSystemLeapSecondInformation(enabled : *mut super::super::Foundation:: BOOL, flags : *mut u32) -> super::super::Foundation:: BOOL);
-    GetSystemLeapSecondInformation(enabled, flags)
+    GetSystemLeapSecondInformation(core::mem::transmute(enabled), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn GetSystemTime() -> super::super::Foundation::SYSTEMTIME {
@@ -132,12 +132,12 @@ pub unsafe fn GetSystemTime() -> super::super::Foundation::SYSTEMTIME {
 #[inline]
 pub unsafe fn GetSystemTimeAdjustment(lptimeadjustment: *mut u32, lptimeincrement: *mut u32, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetSystemTimeAdjustment(lptimeadjustment : *mut u32, lptimeincrement : *mut u32, lptimeadjustmentdisabled : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetSystemTimeAdjustment(lptimeadjustment, lptimeincrement, lptimeadjustmentdisabled).ok()
+    GetSystemTimeAdjustment(core::mem::transmute(lptimeadjustment), core::mem::transmute(lptimeincrement), core::mem::transmute(lptimeadjustmentdisabled)).ok()
 }
 #[inline]
 pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimeincrement: *mut u64, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-core-sysinfo-l1-2-4.dll" "system" fn GetSystemTimeAdjustmentPrecise(lptimeadjustment : *mut u64, lptimeincrement : *mut u64, lptimeadjustmentdisabled : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetSystemTimeAdjustmentPrecise(lptimeadjustment, lptimeincrement, lptimeadjustmentdisabled).ok()
+    GetSystemTimeAdjustmentPrecise(core::mem::transmute(lptimeadjustment), core::mem::transmute(lptimeincrement), core::mem::transmute(lptimeadjustmentdisabled)).ok()
 }
 #[inline]
 pub unsafe fn GetSystemTimeAsFileTime() -> super::super::Foundation::FILETIME {
@@ -166,12 +166,12 @@ pub unsafe fn GetSystemWindowsDirectoryW(lpbuffer: Option<&mut [u16]>) -> u32 {
 #[inline]
 pub unsafe fn GetSystemWow64Directory2A(lpbuffer: Option<&mut [u8]>, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32 {
     windows_targets::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow64Directory2A(lpbuffer : windows_core::PSTR, usize : u32, imagefilemachinetype : IMAGE_FILE_MACHINE) -> u32);
-    GetSystemWow64Directory2A(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), imagefilemachinetype)
+    GetSystemWow64Directory2A(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(imagefilemachinetype))
 }
 #[inline]
 pub unsafe fn GetSystemWow64Directory2W(lpbuffer: Option<&mut [u16]>, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32 {
     windows_targets::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow64Directory2W(lpbuffer : windows_core::PWSTR, usize : u32, imagefilemachinetype : IMAGE_FILE_MACHINE) -> u32);
-    GetSystemWow64Directory2W(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), imagefilemachinetype)
+    GetSystemWow64Directory2W(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(imagefilemachinetype))
 }
 #[inline]
 pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: Option<&mut [u8]>) -> u32 {
@@ -201,12 +201,12 @@ pub unsafe fn GetVersion() -> u32 {
 #[inline]
 pub unsafe fn GetVersionExA(lpversioninformation: *mut OSVERSIONINFOA) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetVersionExA(lpversioninformation : *mut OSVERSIONINFOA) -> super::super::Foundation:: BOOL);
-    GetVersionExA(lpversioninformation).ok()
+    GetVersionExA(core::mem::transmute(lpversioninformation)).ok()
 }
 #[inline]
 pub unsafe fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetVersionExW(lpversioninformation : *mut OSVERSIONINFOW) -> super::super::Foundation:: BOOL);
-    GetVersionExW(lpversioninformation).ok()
+    GetVersionExW(core::mem::transmute(lpversioninformation)).ok()
 }
 #[inline]
 pub unsafe fn GetWindowsDirectoryA(lpbuffer: Option<&mut [u8]>) -> u32 {
@@ -221,28 +221,28 @@ pub unsafe fn GetWindowsDirectoryW(lpbuffer: Option<&mut [u16]>) -> u32 {
 #[inline]
 pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
     windows_targets::link!("kernel32.dll" "system" fn GlobalMemoryStatus(lpbuffer : *mut MEMORYSTATUS));
-    GlobalMemoryStatus(lpbuffer)
+    GlobalMemoryStatus(core::mem::transmute(lpbuffer))
 }
 #[inline]
 pub unsafe fn GlobalMemoryStatusEx(lpbuffer: *mut MEMORYSTATUSEX) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GlobalMemoryStatusEx(lpbuffer : *mut MEMORYSTATUSEX) -> super::super::Foundation:: BOOL);
-    GlobalMemoryStatusEx(lpbuffer).ok()
+    GlobalMemoryStatusEx(core::mem::transmute(lpbuffer)).ok()
 }
 #[inline]
 pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIRONMENT) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn IsUserCetAvailableInEnvironment(usercetenvironment : USER_CET_ENVIRONMENT) -> super::super::Foundation:: BOOL);
-    IsUserCetAvailableInEnvironment(usercetenvironment)
+    IsUserCetAvailableInEnvironment(core::mem::transmute(usercetenvironment))
 }
 #[inline]
 pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE) -> windows_core::Result<super::super::Foundation::BOOL> {
     windows_targets::link!("kernel32.dll" "system" fn IsWow64GuestMachineSupported(wowguestmachine : IMAGE_FILE_MACHINE, machineissupported : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    IsWow64GuestMachineSupported(wowguestmachine, &mut result__).map(|| result__)
+    IsWow64GuestMachineSupported(core::mem::transmute(wowguestmachine), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: windows_core::PWSTR, deviceform: windows_core::PWSTR) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize : *mut u32, puldeviceformbuffersize : *mut u32, devicefamily : windows_core::PWSTR, deviceform : windows_core::PWSTR) -> u32);
-    RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize, puldeviceformbuffersize, core::mem::transmute(devicefamily), core::mem::transmute(deviceform))
+    RtlConvertDeviceFamilyInfoToString(core::mem::transmute(puldevicefamilybuffersize), core::mem::transmute(puldeviceformbuffersize), core::mem::transmute(devicefamily), core::mem::transmute(deviceform))
 }
 #[inline]
 pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: Option<*mut u64>, puldevicefamily: Option<*mut DEVICEFAMILYINFOENUM>, puldeviceform: Option<*mut DEVICEFAMILYDEVICEFORM>) {
@@ -252,22 +252,22 @@ pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: Option<*mut u64>, puldevic
 #[inline]
 pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: *mut u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("ntdll.dll" "system" fn RtlGetProductInfo(osmajorversion : u32, osminorversion : u32, spmajorversion : u32, spminorversion : u32, returnedproducttype : *mut u32) -> super::super::Foundation:: BOOLEAN);
-    RtlGetProductInfo(osmajorversion, osminorversion, spmajorversion, spminorversion, returnedproducttype)
+    RtlGetProductInfo(core::mem::transmute(osmajorversion), core::mem::transmute(osminorversion), core::mem::transmute(spmajorversion), core::mem::transmute(spminorversion), core::mem::transmute(returnedproducttype))
 }
 #[inline]
 pub unsafe fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: *mut core::ffi::c_void, size: u32) -> u32 {
     windows_targets::link!("ntdllk.dll" "system" fn RtlGetSystemGlobalData(dataid : RTL_SYSTEM_GLOBAL_DATA_ID, buffer : *mut core::ffi::c_void, size : u32) -> u32);
-    RtlGetSystemGlobalData(dataid, buffer, size)
+    RtlGetSystemGlobalData(core::mem::transmute(dataid), core::mem::transmute(buffer), core::mem::transmute(size))
 }
 #[inline]
 pub unsafe fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES {
     windows_targets::link!("ntdll.dll" "system" fn RtlOsDeploymentState(flags : u32) -> OS_DEPLOYEMENT_STATE_VALUES);
-    RtlOsDeploymentState(flags)
+    RtlOsDeploymentState(core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlSwitchedVVI(versioninfo : *const OSVERSIONINFOEXW, typemask : u32, conditionmask : u64) -> u32);
-    RtlSwitchedVVI(versioninfo, typemask, conditionmask)
+    RtlSwitchedVVI(core::mem::transmute(versioninfo), core::mem::transmute(typemask), core::mem::transmute(conditionmask))
 }
 #[inline]
 pub unsafe fn SetComputerNameA<P0>(lpcomputername: P0) -> windows_core::Result<()>
@@ -278,28 +278,28 @@ where
     SetComputerNameA(lpcomputername.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetComputerNameEx2W<P0>(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: P0) -> super::super::Foundation::BOOL
+pub unsafe fn SetComputerNameEx2W<P2>(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: P2) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetComputerNameEx2W(nametype : COMPUTER_NAME_FORMAT, flags : u32, lpbuffer : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    SetComputerNameEx2W(nametype, flags, lpbuffer.param().abi())
+    SetComputerNameEx2W(core::mem::transmute(nametype), core::mem::transmute(flags), lpbuffer.param().abi())
 }
 #[inline]
-pub unsafe fn SetComputerNameExA<P0>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P0) -> windows_core::Result<()>
+pub unsafe fn SetComputerNameExA<P1>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetComputerNameExA(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
-    SetComputerNameExA(nametype, lpbuffer.param().abi()).ok()
+    SetComputerNameExA(core::mem::transmute(nametype), lpbuffer.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetComputerNameExW<P0>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P0) -> windows_core::Result<()>
+pub unsafe fn SetComputerNameExW<P1>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetComputerNameExW(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    SetComputerNameExW(nametype, lpbuffer.param().abi()).ok()
+    SetComputerNameExW(core::mem::transmute(nametype), lpbuffer.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetComputerNameW<P0>(lpcomputername: P0) -> windows_core::Result<()>
@@ -312,45 +312,102 @@ where
 #[inline]
 pub unsafe fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetLocalTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME) -> super::super::Foundation:: BOOL);
-    SetLocalTime(lpsystemtime).ok()
+    SetLocalTime(core::mem::transmute(lpsystemtime)).ok()
 }
 #[inline]
 pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetSystemTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME) -> super::super::Foundation:: BOOL);
-    SetSystemTime(lpsystemtime).ok()
+    SetSystemTime(core::mem::transmute(lpsystemtime)).ok()
 }
 #[inline]
-pub unsafe fn SetSystemTimeAdjustment<P0>(dwtimeadjustment: u32, btimeadjustmentdisabled: P0) -> windows_core::Result<()>
+pub unsafe fn SetSystemTimeAdjustment<P1>(dwtimeadjustment: u32, btimeadjustmentdisabled: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetSystemTimeAdjustment(dwtimeadjustment : u32, btimeadjustmentdisabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetSystemTimeAdjustment(dwtimeadjustment, btimeadjustmentdisabled.param().abi()).ok()
+    SetSystemTimeAdjustment(core::mem::transmute(dwtimeadjustment), btimeadjustmentdisabled.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetSystemTimeAdjustmentPrecise<P0>(dwtimeadjustment: u64, btimeadjustmentdisabled: P0) -> windows_core::Result<()>
+pub unsafe fn SetSystemTimeAdjustmentPrecise<P1>(dwtimeadjustment: u64, btimeadjustmentdisabled: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("api-ms-win-core-sysinfo-l1-2-4.dll" "system" fn SetSystemTimeAdjustmentPrecise(dwtimeadjustment : u64, btimeadjustmentdisabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetSystemTimeAdjustmentPrecise(dwtimeadjustment, btimeadjustmentdisabled.param().abi()).ok()
+    SetSystemTimeAdjustmentPrecise(core::mem::transmute(dwtimeadjustment), btimeadjustmentdisabled.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condition: u8) -> u64 {
     windows_targets::link!("kernel32.dll" "system" fn VerSetConditionMask(conditionmask : u64, typemask : VER_FLAGS, condition : u8) -> u64);
-    VerSetConditionMask(conditionmask, typemask, condition)
+    VerSetConditionMask(core::mem::transmute(conditionmask), core::mem::transmute(typemask), core::mem::transmute(condition))
 }
 #[inline]
 pub unsafe fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn VerifyVersionInfoA(lpversioninformation : *mut OSVERSIONINFOEXA, dwtypemask : VER_FLAGS, dwlconditionmask : u64) -> super::super::Foundation:: BOOL);
-    VerifyVersionInfoA(lpversioninformation, dwtypemask, dwlconditionmask).ok()
+    VerifyVersionInfoA(core::mem::transmute(lpversioninformation), core::mem::transmute(dwtypemask), core::mem::transmute(dwlconditionmask)).ok()
 }
 #[inline]
 pub unsafe fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn VerifyVersionInfoW(lpversioninformation : *mut OSVERSIONINFOEXW, dwtypemask : VER_FLAGS, dwlconditionmask : u64) -> super::super::Foundation:: BOOL);
-    VerifyVersionInfoW(lpversioninformation, dwtypemask, dwlconditionmask).ok()
+    VerifyVersionInfoW(core::mem::transmute(lpversioninformation), core::mem::transmute(dwtypemask), core::mem::transmute(dwlconditionmask)).ok()
 }
 pub const ACPI: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1094930505u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CACHE_DESCRIPTOR {
+    pub Level: u8,
+    pub Associativity: u8,
+    pub LineSize: u16,
+    pub Size: u32,
+    pub Type: PROCESSOR_CACHE_TYPE,
+}
+impl Default for CACHE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CACHE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CACHE_RELATIONSHIP {
+    pub Level: u8,
+    pub Associativity: u8,
+    pub LineSize: u16,
+    pub CacheSize: u32,
+    pub Type: PROCESSOR_CACHE_TYPE,
+    pub Reserved: [u8; 18],
+    pub GroupCount: u16,
+    pub Anonymous: CACHE_RELATIONSHIP_0,
+}
+impl Default for CACHE_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CACHE_RELATIONSHIP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CACHE_RELATIONSHIP_0 {
+    pub GroupMask: GROUP_AFFINITY,
+    pub GroupMasks: [GROUP_AFFINITY; 1],
+}
+impl Default for CACHE_RELATIONSHIP_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CACHE_RELATIONSHIP_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMPUTER_NAME_FORMAT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CPU_SET_INFORMATION_TYPE(pub i32);
 pub const CacheData: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(2i32);
 pub const CacheInstruction: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(1i32);
 pub const CacheTrace: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(3i32);
@@ -370,6 +427,15 @@ pub const DEPPolicyAlwaysOn: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(1i3
 pub const DEPPolicyOptIn: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(2i32);
 pub const DEPPolicyOptOut: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(3i32);
 pub const DEPTotalPolicyCount: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEP_SYSTEM_POLICY_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVELOPER_DRIVE_ENABLEMENT_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVICEFAMILYDEVICEFORM(pub u32);
 pub const DEVICEFAMILYDEVICEFORM_ALLINONE: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(7u32);
 pub const DEVICEFAMILYDEVICEFORM_BANKING: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(14u32);
 pub const DEVICEFAMILYDEVICEFORM_BUILDING_AUTOMATION: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(15u32);
@@ -417,6 +483,9 @@ pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_09: DEVICEFAMILYDEVICEFORM = DEVI
 pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_S: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(36u32);
 pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(34u32);
 pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X_DEVKIT: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(35u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVICEFAMILYINFOENUM(pub u32);
 pub const DEVICEFAMILYINFOENUM_7067329: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(15u32);
 pub const DEVICEFAMILYINFOENUM_8828080: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(14u32);
 pub const DEVICEFAMILYINFOENUM_DESKTOP: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(3u32);
@@ -441,10 +510,47 @@ pub const DeveloperDriveDisabledBySystemPolicy: DEVELOPER_DRIVE_ENABLEMENT_STATE
 pub const DeveloperDriveEnabled: DEVELOPER_DRIVE_ENABLEMENT_STATE = DEVELOPER_DRIVE_ENABLEMENT_STATE(1i32);
 pub const DeveloperDriveEnablementStateError: DEVELOPER_DRIVE_ENABLEMENT_STATE = DEVELOPER_DRIVE_ENABLEMENT_STATE(0i32);
 pub const FIRM: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1179210317u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FIRMWARE_TABLE_PROVIDER(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FIRMWARE_TYPE(pub i32);
 pub const FirmwareTypeBios: FIRMWARE_TYPE = FIRMWARE_TYPE(1i32);
 pub const FirmwareTypeMax: FIRMWARE_TYPE = FIRMWARE_TYPE(3i32);
 pub const FirmwareTypeUefi: FIRMWARE_TYPE = FIRMWARE_TYPE(2i32);
 pub const FirmwareTypeUnknown: FIRMWARE_TYPE = FIRMWARE_TYPE(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GROUP_AFFINITY {
+    pub Mask: usize,
+    pub Group: u16,
+    pub Reserved: [u16; 3],
+}
+impl Default for GROUP_AFFINITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GROUP_AFFINITY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GROUP_RELATIONSHIP {
+    pub MaximumGroupCount: u16,
+    pub ActiveGroupCount: u16,
+    pub Reserved: [u8; 20],
+    pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
+}
+impl Default for GROUP_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GROUP_RELATIONSHIP {
+    type TypeKind = windows_core::CopyType;
+}
 pub const GlobalDataIdConsoleSharedDataFlags: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(14i32);
 pub const GlobalDataIdCyclesPerYield: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(11i32);
 pub const GlobalDataIdImageNumberHigh: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(5i32);
@@ -465,6 +571,9 @@ pub const GlobalDataIdSystemExpirationDate: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYST
 pub const GlobalDataIdTimeZoneBias: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(3i32);
 pub const GlobalDataIdTimeZoneId: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(6i32);
 pub const GlobalDataIdUnknown: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMAGE_FILE_MACHINE(pub u16);
 pub const IMAGE_FILE_MACHINE_ALPHA: IMAGE_FILE_MACHINE = IMAGE_FILE_MACHINE(388u16);
 pub const IMAGE_FILE_MACHINE_ALPHA64: IMAGE_FILE_MACHINE = IMAGE_FILE_MACHINE(644u16);
 pub const IMAGE_FILE_MACHINE_AM33: IMAGE_FILE_MACHINE = IMAGE_FILE_MACHINE(467u16);
@@ -497,6 +606,50 @@ pub const IMAGE_FILE_MACHINE_THUMB: IMAGE_FILE_MACHINE = IMAGE_FILE_MACHINE(450u
 pub const IMAGE_FILE_MACHINE_TRICORE: IMAGE_FILE_MACHINE = IMAGE_FILE_MACHINE(1312u16);
 pub const IMAGE_FILE_MACHINE_UNKNOWN: IMAGE_FILE_MACHINE = IMAGE_FILE_MACHINE(0u16);
 pub const IMAGE_FILE_MACHINE_WCEMIPSV2: IMAGE_FILE_MACHINE = IMAGE_FILE_MACHINE(361u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LOGICAL_PROCESSOR_RELATIONSHIP(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MEMORYSTATUS {
+    pub dwLength: u32,
+    pub dwMemoryLoad: u32,
+    pub dwTotalPhys: usize,
+    pub dwAvailPhys: usize,
+    pub dwTotalPageFile: usize,
+    pub dwAvailPageFile: usize,
+    pub dwTotalVirtual: usize,
+    pub dwAvailVirtual: usize,
+}
+impl Default for MEMORYSTATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MEMORYSTATUS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MEMORYSTATUSEX {
+    pub dwLength: u32,
+    pub dwMemoryLoad: u32,
+    pub ullTotalPhys: u64,
+    pub ullAvailPhys: u64,
+    pub ullTotalPageFile: u64,
+    pub ullAvailPageFile: u64,
+    pub ullTotalVirtual: u64,
+    pub ullAvailVirtual: u64,
+    pub ullAvailExtendedVirtual: u64,
+}
+impl Default for MEMORYSTATUSEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MEMORYSTATUSEX {
+    type TypeKind = windows_core::CopyType;
+}
 pub const NTDDI_LONGHORN: u32 = 100663296u32;
 pub const NTDDI_VERSION: u32 = 167772172u32;
 pub const NTDDI_VISTA: u32 = 100663296u32;
@@ -546,9 +699,132 @@ pub const NTDDI_WS08: u32 = 100663552u32;
 pub const NTDDI_WS08SP2: u32 = 100663808u32;
 pub const NTDDI_WS08SP3: u32 = 100664064u32;
 pub const NTDDI_WS08SP4: u32 = 100664320u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NUMA_NODE_RELATIONSHIP {
+    pub NodeNumber: u32,
+    pub Reserved: [u8; 18],
+    pub GroupCount: u16,
+    pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
+}
+impl Default for NUMA_NODE_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NUMA_NODE_RELATIONSHIP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NUMA_NODE_RELATIONSHIP_0 {
+    pub GroupMask: GROUP_AFFINITY,
+    pub GroupMasks: [GROUP_AFFINITY; 1],
+}
+impl Default for NUMA_NODE_RELATIONSHIP_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NUMA_NODE_RELATIONSHIP_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OSVERSIONINFOA {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [i8; 128],
+}
+impl Default for OSVERSIONINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for OSVERSIONINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OSVERSIONINFOEXA {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [i8; 128],
+    pub wServicePackMajor: u16,
+    pub wServicePackMinor: u16,
+    pub wSuiteMask: u16,
+    pub wProductType: u8,
+    pub wReserved: u8,
+}
+impl Default for OSVERSIONINFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for OSVERSIONINFOEXA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OSVERSIONINFOEXW {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [u16; 128],
+    pub wServicePackMajor: u16,
+    pub wServicePackMinor: u16,
+    pub wSuiteMask: u16,
+    pub wProductType: u8,
+    pub wReserved: u8,
+}
+impl Default for OSVERSIONINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for OSVERSIONINFOEXW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OSVERSIONINFOW {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [u16; 128],
+}
+impl Default for OSVERSIONINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for OSVERSIONINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const OSVERSION_MASK: u32 = 4294901760u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OS_DEPLOYEMENT_STATE_VALUES(pub i32);
 pub const OS_DEPLOYMENT_COMPACT: OS_DEPLOYEMENT_STATE_VALUES = OS_DEPLOYEMENT_STATE_VALUES(2i32);
 pub const OS_DEPLOYMENT_STANDARD: OS_DEPLOYEMENT_STATE_VALUES = OS_DEPLOYEMENT_STATE_VALUES(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OS_PRODUCT_TYPE(pub u32);
+pub type PGET_SYSTEM_WOW64_DIRECTORY_A = Option<unsafe extern "system" fn(lpbuffer: windows_core::PSTR, usize: u32) -> u32>;
+pub type PGET_SYSTEM_WOW64_DIRECTORY_W = Option<unsafe extern "system" fn(lpbuffer: windows_core::PWSTR, usize: u32) -> u32>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROCESSOR_ARCHITECTURE(pub u16);
 pub const PROCESSOR_ARCHITECTURE_ALPHA: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(2u16);
 pub const PROCESSOR_ARCHITECTURE_ALPHA64: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(7u16);
 pub const PROCESSOR_ARCHITECTURE_AMD64: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(9u16);
@@ -565,6 +841,42 @@ pub const PROCESSOR_ARCHITECTURE_NEUTRAL: PROCESSOR_ARCHITECTURE = PROCESSOR_ARC
 pub const PROCESSOR_ARCHITECTURE_PPC: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(3u16);
 pub const PROCESSOR_ARCHITECTURE_SHX: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(4u16);
 pub const PROCESSOR_ARCHITECTURE_UNKNOWN: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(65535u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROCESSOR_CACHE_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PROCESSOR_GROUP_INFO {
+    pub MaximumProcessorCount: u8,
+    pub ActiveProcessorCount: u8,
+    pub Reserved: [u8; 38],
+    pub ActiveProcessorMask: usize,
+}
+impl Default for PROCESSOR_GROUP_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PROCESSOR_GROUP_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PROCESSOR_RELATIONSHIP {
+    pub Flags: u8,
+    pub EfficiencyClass: u8,
+    pub Reserved: [u8; 20],
+    pub GroupCount: u16,
+    pub GroupMask: [GROUP_AFFINITY; 1],
+}
+impl Default for PROCESSOR_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PROCESSOR_RELATIONSHIP {
+    type TypeKind = windows_core::CopyType;
+}
 pub const PRODUCT_BUSINESS: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(6u32);
 pub const PRODUCT_BUSINESS_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(16u32);
 pub const PRODUCT_CLUSTER_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(18u32);
@@ -662,6 +974,9 @@ pub const PRODUCT_UNDEFINED: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(0u32);
 pub const PRODUCT_WEB_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(17u32);
 pub const PRODUCT_WEB_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(29u32);
 pub const RSMB: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1381190978u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTL_SYSTEM_GLOBAL_DATA_ID(pub i32);
 pub const RelationAll: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(65535i32);
 pub const RelationCache: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(2i32);
 pub const RelationGroup: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(4i32);
@@ -674,15 +989,322 @@ pub const RelationProcessorPackage: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PRO
 pub const SCEX2_ALT_NETBIOS_NAME: u32 = 1u32;
 pub const SPVERSION_MASK: u32 = 65280u32;
 pub const SUBVERSION_MASK: u32 = 255u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_CPU_SET_INFORMATION {
+    pub Size: u32,
+    pub Type: CPU_SET_INFORMATION_TYPE,
+    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0,
+}
+impl Default for SYSTEM_CPU_SET_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYSTEM_CPU_SET_INFORMATION_0 {
+    pub CpuSet: SYSTEM_CPU_SET_INFORMATION_0_0,
+}
+impl Default for SYSTEM_CPU_SET_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
+    pub Id: u32,
+    pub Group: u16,
+    pub LogicalProcessorIndex: u8,
+    pub CoreIndex: u8,
+    pub LastLevelCacheIndex: u8,
+    pub NumaNodeIndex: u8,
+    pub EfficiencyClass: u8,
+    pub Anonymous1: SYSTEM_CPU_SET_INFORMATION_0_0_0,
+    pub Anonymous2: SYSTEM_CPU_SET_INFORMATION_0_0_1,
+    pub AllocationTag: u64,
+}
+impl Default for SYSTEM_CPU_SET_INFORMATION_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    pub AllFlags: u8,
+    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0_0,
+}
+impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    pub _bitfield: u8,
+}
+impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    pub Reserved: u32,
+    pub SchedulingClass: u8,
+}
+impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: u32 = 2u32;
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4u32;
 pub const SYSTEM_CPU_SET_INFORMATION_PARKED: u32 = 1u32;
 pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: u32 = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_INFO {
+    pub Anonymous: SYSTEM_INFO_0,
+    pub dwPageSize: u32,
+    pub lpMinimumApplicationAddress: *mut core::ffi::c_void,
+    pub lpMaximumApplicationAddress: *mut core::ffi::c_void,
+    pub dwActiveProcessorMask: usize,
+    pub dwNumberOfProcessors: u32,
+    pub dwProcessorType: u32,
+    pub dwAllocationGranularity: u32,
+    pub wProcessorLevel: u16,
+    pub wProcessorRevision: u16,
+}
+impl Default for SYSTEM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYSTEM_INFO_0 {
+    pub dwOemId: u32,
+    pub Anonymous: SYSTEM_INFO_0_0,
+}
+impl Default for SYSTEM_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYSTEM_INFO_0_0 {
+    pub wProcessorArchitecture: PROCESSOR_ARCHITECTURE,
+    pub wReserved: u16,
+}
+impl Default for SYSTEM_INFO_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
+    pub ProcessorMask: usize,
+    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
+    pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0,
+}
+impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
+    pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
+    pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
+    pub Cache: CACHE_DESCRIPTOR,
+    pub Reserved: [u64; 2],
+}
+impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+    pub NodeNumber: u32,
+}
+impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+    pub Flags: u8,
+}
+impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
+    pub Size: u32,
+    pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
+}
+impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    pub Processor: PROCESSOR_RELATIONSHIP,
+    pub NumaNode: NUMA_NODE_RELATIONSHIP,
+    pub Cache: CACHE_RELATIONSHIP,
+    pub Group: GROUP_RELATIONSHIP,
+}
+impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYSTEM_POOL_ZEROING_INFORMATION {
+    pub PoolZeroingSupportPresent: super::super::Foundation::BOOLEAN,
+}
+impl Default for SYSTEM_POOL_ZEROING_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_POOL_ZEROING_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+    pub CycleTime: u64,
+}
+impl Default for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+    pub _bitfield: u32,
+}
+impl Default for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct USER_CET_ENVIRONMENT(pub u32);
 pub const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(2u32);
 pub const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(17u32);
 pub const USER_CET_ENVIRONMENT_VBS_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(16u32);
 pub const USER_CET_ENVIRONMENT_WIN32_PROCESS: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(0u32);
 pub const VER_BUILDNUMBER: VER_FLAGS = VER_FLAGS(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VER_FLAGS(pub u32);
+impl VER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for VER_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for VER_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for VER_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for VER_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for VER_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const VER_MAJORVERSION: VER_FLAGS = VER_FLAGS(2u32);
 pub const VER_MINORVERSION: VER_FLAGS = VER_FLAGS(1u32);
 pub const VER_PLATFORMID: VER_FLAGS = VER_FLAGS(8u32);
@@ -747,761 +1369,3 @@ pub const _WIN32_WINNT_WINTHRESHOLD: u32 = 2560u32;
 pub const _WIN32_WINNT_WINXP: u32 = 1281u32;
 pub const _WIN32_WINNT_WS03: u32 = 1282u32;
 pub const _WIN32_WINNT_WS08: u32 = 1536u32;
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct COMPUTER_NAME_FORMAT(pub i32);
-impl windows_core::TypeKind for COMPUTER_NAME_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for COMPUTER_NAME_FORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COMPUTER_NAME_FORMAT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CPU_SET_INFORMATION_TYPE(pub i32);
-impl windows_core::TypeKind for CPU_SET_INFORMATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CPU_SET_INFORMATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CPU_SET_INFORMATION_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DEP_SYSTEM_POLICY_TYPE(pub i32);
-impl windows_core::TypeKind for DEP_SYSTEM_POLICY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DEP_SYSTEM_POLICY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DEP_SYSTEM_POLICY_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DEVELOPER_DRIVE_ENABLEMENT_STATE(pub i32);
-impl windows_core::TypeKind for DEVELOPER_DRIVE_ENABLEMENT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DEVELOPER_DRIVE_ENABLEMENT_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DEVELOPER_DRIVE_ENABLEMENT_STATE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DEVICEFAMILYDEVICEFORM(pub u32);
-impl windows_core::TypeKind for DEVICEFAMILYDEVICEFORM {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DEVICEFAMILYDEVICEFORM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DEVICEFAMILYDEVICEFORM").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DEVICEFAMILYINFOENUM(pub u32);
-impl windows_core::TypeKind for DEVICEFAMILYINFOENUM {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DEVICEFAMILYINFOENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DEVICEFAMILYINFOENUM").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FIRMWARE_TABLE_PROVIDER(pub u32);
-impl windows_core::TypeKind for FIRMWARE_TABLE_PROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FIRMWARE_TABLE_PROVIDER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FIRMWARE_TABLE_PROVIDER").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FIRMWARE_TYPE(pub i32);
-impl windows_core::TypeKind for FIRMWARE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FIRMWARE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FIRMWARE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IMAGE_FILE_MACHINE(pub u16);
-impl windows_core::TypeKind for IMAGE_FILE_MACHINE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMAGE_FILE_MACHINE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_FILE_MACHINE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct LOGICAL_PROCESSOR_RELATIONSHIP(pub i32);
-impl windows_core::TypeKind for LOGICAL_PROCESSOR_RELATIONSHIP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LOGICAL_PROCESSOR_RELATIONSHIP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LOGICAL_PROCESSOR_RELATIONSHIP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct OS_DEPLOYEMENT_STATE_VALUES(pub i32);
-impl windows_core::TypeKind for OS_DEPLOYEMENT_STATE_VALUES {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for OS_DEPLOYEMENT_STATE_VALUES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("OS_DEPLOYEMENT_STATE_VALUES").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct OS_PRODUCT_TYPE(pub u32);
-impl windows_core::TypeKind for OS_PRODUCT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for OS_PRODUCT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("OS_PRODUCT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PROCESSOR_ARCHITECTURE(pub u16);
-impl windows_core::TypeKind for PROCESSOR_ARCHITECTURE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PROCESSOR_ARCHITECTURE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PROCESSOR_ARCHITECTURE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PROCESSOR_CACHE_TYPE(pub i32);
-impl windows_core::TypeKind for PROCESSOR_CACHE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PROCESSOR_CACHE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PROCESSOR_CACHE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct RTL_SYSTEM_GLOBAL_DATA_ID(pub i32);
-impl windows_core::TypeKind for RTL_SYSTEM_GLOBAL_DATA_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for RTL_SYSTEM_GLOBAL_DATA_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RTL_SYSTEM_GLOBAL_DATA_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct USER_CET_ENVIRONMENT(pub u32);
-impl windows_core::TypeKind for USER_CET_ENVIRONMENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for USER_CET_ENVIRONMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("USER_CET_ENVIRONMENT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct VER_FLAGS(pub u32);
-impl windows_core::TypeKind for VER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VER_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VER_FLAGS").field(&self.0).finish()
-    }
-}
-impl VER_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for VER_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for VER_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for VER_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for VER_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for VER_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CACHE_DESCRIPTOR {
-    pub Level: u8,
-    pub Associativity: u8,
-    pub LineSize: u16,
-    pub Size: u32,
-    pub Type: PROCESSOR_CACHE_TYPE,
-}
-impl windows_core::TypeKind for CACHE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CACHE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CACHE_RELATIONSHIP {
-    pub Level: u8,
-    pub Associativity: u8,
-    pub LineSize: u16,
-    pub CacheSize: u32,
-    pub Type: PROCESSOR_CACHE_TYPE,
-    pub Reserved: [u8; 18],
-    pub GroupCount: u16,
-    pub Anonymous: CACHE_RELATIONSHIP_0,
-}
-impl windows_core::TypeKind for CACHE_RELATIONSHIP {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CACHE_RELATIONSHIP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CACHE_RELATIONSHIP_0 {
-    pub GroupMask: GROUP_AFFINITY,
-    pub GroupMasks: [GROUP_AFFINITY; 1],
-}
-impl windows_core::TypeKind for CACHE_RELATIONSHIP_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CACHE_RELATIONSHIP_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct GROUP_AFFINITY {
-    pub Mask: usize,
-    pub Group: u16,
-    pub Reserved: [u16; 3],
-}
-impl windows_core::TypeKind for GROUP_AFFINITY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for GROUP_AFFINITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct GROUP_RELATIONSHIP {
-    pub MaximumGroupCount: u16,
-    pub ActiveGroupCount: u16,
-    pub Reserved: [u8; 20],
-    pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
-}
-impl windows_core::TypeKind for GROUP_RELATIONSHIP {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for GROUP_RELATIONSHIP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MEMORYSTATUS {
-    pub dwLength: u32,
-    pub dwMemoryLoad: u32,
-    pub dwTotalPhys: usize,
-    pub dwAvailPhys: usize,
-    pub dwTotalPageFile: usize,
-    pub dwAvailPageFile: usize,
-    pub dwTotalVirtual: usize,
-    pub dwAvailVirtual: usize,
-}
-impl windows_core::TypeKind for MEMORYSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MEMORYSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MEMORYSTATUSEX {
-    pub dwLength: u32,
-    pub dwMemoryLoad: u32,
-    pub ullTotalPhys: u64,
-    pub ullAvailPhys: u64,
-    pub ullTotalPageFile: u64,
-    pub ullAvailPageFile: u64,
-    pub ullTotalVirtual: u64,
-    pub ullAvailVirtual: u64,
-    pub ullAvailExtendedVirtual: u64,
-}
-impl windows_core::TypeKind for MEMORYSTATUSEX {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MEMORYSTATUSEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NUMA_NODE_RELATIONSHIP {
-    pub NodeNumber: u32,
-    pub Reserved: [u8; 18],
-    pub GroupCount: u16,
-    pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
-}
-impl windows_core::TypeKind for NUMA_NODE_RELATIONSHIP {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NUMA_NODE_RELATIONSHIP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NUMA_NODE_RELATIONSHIP_0 {
-    pub GroupMask: GROUP_AFFINITY,
-    pub GroupMasks: [GROUP_AFFINITY; 1],
-}
-impl windows_core::TypeKind for NUMA_NODE_RELATIONSHIP_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NUMA_NODE_RELATIONSHIP_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct OSVERSIONINFOA {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [i8; 128],
-}
-impl windows_core::TypeKind for OSVERSIONINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for OSVERSIONINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct OSVERSIONINFOEXA {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [i8; 128],
-    pub wServicePackMajor: u16,
-    pub wServicePackMinor: u16,
-    pub wSuiteMask: u16,
-    pub wProductType: u8,
-    pub wReserved: u8,
-}
-impl windows_core::TypeKind for OSVERSIONINFOEXA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for OSVERSIONINFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct OSVERSIONINFOEXW {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [u16; 128],
-    pub wServicePackMajor: u16,
-    pub wServicePackMinor: u16,
-    pub wSuiteMask: u16,
-    pub wProductType: u8,
-    pub wReserved: u8,
-}
-impl windows_core::TypeKind for OSVERSIONINFOEXW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for OSVERSIONINFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct OSVERSIONINFOW {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [u16; 128],
-}
-impl windows_core::TypeKind for OSVERSIONINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for OSVERSIONINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PROCESSOR_GROUP_INFO {
-    pub MaximumProcessorCount: u8,
-    pub ActiveProcessorCount: u8,
-    pub Reserved: [u8; 38],
-    pub ActiveProcessorMask: usize,
-}
-impl windows_core::TypeKind for PROCESSOR_GROUP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PROCESSOR_GROUP_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PROCESSOR_RELATIONSHIP {
-    pub Flags: u8,
-    pub EfficiencyClass: u8,
-    pub Reserved: [u8; 20],
-    pub GroupCount: u16,
-    pub GroupMask: [GROUP_AFFINITY; 1],
-}
-impl windows_core::TypeKind for PROCESSOR_RELATIONSHIP {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PROCESSOR_RELATIONSHIP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_CPU_SET_INFORMATION {
-    pub Size: u32,
-    pub Type: CPU_SET_INFORMATION_TYPE,
-    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0,
-}
-impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_CPU_SET_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_CPU_SET_INFORMATION_0 {
-    pub CpuSet: SYSTEM_CPU_SET_INFORMATION_0_0,
-}
-impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_CPU_SET_INFORMATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
-    pub Id: u32,
-    pub Group: u16,
-    pub LogicalProcessorIndex: u8,
-    pub CoreIndex: u8,
-    pub LastLevelCacheIndex: u8,
-    pub NumaNodeIndex: u8,
-    pub EfficiencyClass: u8,
-    pub Anonymous1: SYSTEM_CPU_SET_INFORMATION_0_0_0,
-    pub Anonymous2: SYSTEM_CPU_SET_INFORMATION_0_0_1,
-    pub AllocationTag: u64,
-}
-impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_CPU_SET_INFORMATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
-    pub AllFlags: u8,
-    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0_0,
-}
-impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
-    pub _bitfield: u8,
-}
-impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
-    pub Reserved: u32,
-    pub SchedulingClass: u8,
-}
-impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_INFO {
-    pub Anonymous: SYSTEM_INFO_0,
-    pub dwPageSize: u32,
-    pub lpMinimumApplicationAddress: *mut core::ffi::c_void,
-    pub lpMaximumApplicationAddress: *mut core::ffi::c_void,
-    pub dwActiveProcessorMask: usize,
-    pub dwNumberOfProcessors: u32,
-    pub dwProcessorType: u32,
-    pub dwAllocationGranularity: u32,
-    pub wProcessorLevel: u16,
-    pub wProcessorRevision: u16,
-}
-impl windows_core::TypeKind for SYSTEM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_INFO_0 {
-    pub dwOemId: u32,
-    pub Anonymous: SYSTEM_INFO_0_0,
-}
-impl windows_core::TypeKind for SYSTEM_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SYSTEM_INFO_0_0 {
-    pub wProcessorArchitecture: PROCESSOR_ARCHITECTURE,
-    pub wReserved: u16,
-}
-impl windows_core::TypeKind for SYSTEM_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
-    pub ProcessorMask: usize,
-    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
-    pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0,
-}
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
-    pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
-    pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
-    pub Cache: CACHE_DESCRIPTOR,
-    pub Reserved: [u64; 2],
-}
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
-    pub NodeNumber: u32,
-}
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
-    pub Flags: u8,
-}
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
-    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
-    pub Size: u32,
-    pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
-}
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
-    pub Processor: PROCESSOR_RELATIONSHIP,
-    pub NumaNode: NUMA_NODE_RELATIONSHIP,
-    pub Cache: CACHE_RELATIONSHIP,
-    pub Group: GROUP_RELATIONSHIP,
-}
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SYSTEM_POOL_ZEROING_INFORMATION {
-    pub PoolZeroingSupportPresent: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for SYSTEM_POOL_ZEROING_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_POOL_ZEROING_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
-    pub CycleTime: u64,
-}
-impl windows_core::TypeKind for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
-    pub _bitfield: u32,
-}
-impl windows_core::TypeKind for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub type PGET_SYSTEM_WOW64_DIRECTORY_A = Option<unsafe extern "system" fn(lpbuffer: windows_core::PSTR, usize: u32) -> u32>;
-pub type PGET_SYSTEM_WOW64_DIRECTORY_W = Option<unsafe extern "system" fn(lpbuffer: windows_core::PWSTR, usize: u32) -> u32>;

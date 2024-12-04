@@ -393,16 +393,32 @@ windows_targets::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn Wow64SetTh
 windows_targets::link!("kernel32.dll" "system" fn Wow64SuspendThread(hthread : super::super::Foundation:: HANDLE) -> u32);
 pub const ABOVE_NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 32768u32;
 pub const ALL_PROCESSOR_GROUPS: u16 = 65535u16;
+pub type APC_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void, param2: *mut core::ffi::c_void)>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct APP_MEMORY_INFORMATION {
+    pub AvailableCommit: u64,
+    pub PrivateCommitUsage: u64,
+    pub PeakPrivateCommitUsage: u64,
+    pub TotalCommitUsage: u64,
+}
+pub type AVRT_PRIORITY = i32;
 pub const AVRT_PRIORITY_CRITICAL: AVRT_PRIORITY = 2i32;
 pub const AVRT_PRIORITY_HIGH: AVRT_PRIORITY = 1i32;
 pub const AVRT_PRIORITY_LOW: AVRT_PRIORITY = -1i32;
 pub const AVRT_PRIORITY_NORMAL: AVRT_PRIORITY = 0i32;
 pub const AVRT_PRIORITY_VERYLOW: AVRT_PRIORITY = -2i32;
 pub const BELOW_NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 16384u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONDITION_VARIABLE {
+    pub Ptr: *mut core::ffi::c_void,
+}
 pub const CONDITION_VARIABLE_INIT: CONDITION_VARIABLE = CONDITION_VARIABLE { Ptr: core::ptr::null_mut() };
 pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
 pub const CREATE_BREAKAWAY_FROM_JOB: PROCESS_CREATION_FLAGS = 16777216u32;
 pub const CREATE_DEFAULT_ERROR_MODE: PROCESS_CREATION_FLAGS = 67108864u32;
+pub type CREATE_EVENT = u32;
 pub const CREATE_EVENT_INITIAL_SET: CREATE_EVENT = 2u32;
 pub const CREATE_EVENT_MANUAL_RESET: CREATE_EVENT = 1u32;
 pub const CREATE_FORCEDOS: PROCESS_CREATION_FLAGS = 8192u32;
@@ -412,6 +428,7 @@ pub const CREATE_NEW_CONSOLE: PROCESS_CREATION_FLAGS = 16u32;
 pub const CREATE_NEW_PROCESS_GROUP: PROCESS_CREATION_FLAGS = 512u32;
 pub const CREATE_NO_WINDOW: PROCESS_CREATION_FLAGS = 134217728u32;
 pub const CREATE_PRESERVE_CODE_AUTHZ_LEVEL: PROCESS_CREATION_FLAGS = 33554432u32;
+pub type CREATE_PROCESS_LOGON_FLAGS = u32;
 pub const CREATE_PROTECTED_PROCESS: PROCESS_CREATION_FLAGS = 262144u32;
 pub const CREATE_SECURE_PROCESS: PROCESS_CREATION_FLAGS = 4194304u32;
 pub const CREATE_SEPARATE_WOW_VDM: PROCESS_CREATION_FLAGS = 2048u32;
@@ -420,6 +437,31 @@ pub const CREATE_SUSPENDED: PROCESS_CREATION_FLAGS = 4u32;
 pub const CREATE_UNICODE_ENVIRONMENT: PROCESS_CREATION_FLAGS = 1024u32;
 pub const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: u32 = 2u32;
 pub const CREATE_WAITABLE_TIMER_MANUAL_RESET: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct CRITICAL_SECTION {
+    pub DebugInfo: *mut CRITICAL_SECTION_DEBUG,
+    pub LockCount: i32,
+    pub RecursionCount: i32,
+    pub OwningThread: super::super::Foundation::HANDLE,
+    pub LockSemaphore: super::super::Foundation::HANDLE,
+    pub SpinCount: usize,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct CRITICAL_SECTION_DEBUG {
+    pub Type: u16,
+    pub CreatorBackTraceIndex: u16,
+    pub CriticalSection: *mut CRITICAL_SECTION,
+    pub ProcessLocksList: super::Kernel::LIST_ENTRY,
+    pub EntryCount: u32,
+    pub ContentionCount: u32,
+    pub Flags: u32,
+    pub CreatorBackTraceIndexHigh: u16,
+    pub Identifier: u16,
+}
 pub const DEBUG_ONLY_THIS_PROCESS: PROCESS_CREATION_FLAGS = 2u32;
 pub const DEBUG_PROCESS: PROCESS_CREATION_FLAGS = 1u32;
 pub const DETACHED_PROCESS: PROCESS_CREATION_FLAGS = 8u32;
@@ -427,6 +469,7 @@ pub const EVENT_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031619u32;
 pub const EVENT_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 2u32;
 pub const EXTENDED_STARTUPINFO_PRESENT: PROCESS_CREATION_FLAGS = 524288u32;
 pub const FLS_OUT_OF_INDEXES: u32 = 4294967295u32;
+pub type GET_GUI_RESOURCES_FLAGS = u32;
 pub const GR_GDIOBJECTS: GET_GUI_RESOURCES_FLAGS = 0u32;
 pub const GR_GDIOBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = 2u32;
 pub const GR_GLOBAL: GET_GUI_RESOURCES_FLAGS = 4294967294u32;
@@ -437,15 +480,40 @@ pub const IDLE_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 64u32;
 pub const INFINITE: u32 = 4294967295u32;
 pub const INHERIT_CALLER_PRIORITY: PROCESS_CREATION_FLAGS = 131072u32;
 pub const INHERIT_PARENT_AFFINITY: PROCESS_CREATION_FLAGS = 65536u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union INIT_ONCE {
+    pub Ptr: *mut core::ffi::c_void,
+}
 pub const INIT_ONCE_ASYNC: u32 = 2u32;
 pub const INIT_ONCE_CHECK_ONLY: u32 = 1u32;
 pub const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
 pub const INIT_ONCE_INIT_FAILED: u32 = 4u32;
 pub const INIT_ONCE_STATIC_INIT: INIT_ONCE = INIT_ONCE { Ptr: core::ptr::null_mut() };
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IO_COUNTERS {
+    pub ReadOperationCount: u64,
+    pub WriteOperationCount: u64,
+    pub OtherOperationCount: u64,
+    pub ReadTransferCount: u64,
+    pub WriteTransferCount: u64,
+    pub OtherTransferCount: u64,
+}
 pub const KernelEnabled: MACHINE_ATTRIBUTES = 2i32;
 pub const LOGON_NETCREDENTIALS_ONLY: CREATE_PROCESS_LOGON_FLAGS = 2u32;
 pub const LOGON_WITH_PROFILE: CREATE_PROCESS_LOGON_FLAGS = 1u32;
+pub type LPFIBER_START_ROUTINE = Option<unsafe extern "system" fn(lpfiberparameter: *mut core::ffi::c_void)>;
+pub type LPPROC_THREAD_ATTRIBUTE_LIST = *mut core::ffi::c_void;
+pub type LPTHREAD_START_ROUTINE = Option<unsafe extern "system" fn(lpthreadparameter: *mut core::ffi::c_void) -> u32>;
+pub type MACHINE_ATTRIBUTES = i32;
+pub type MEMORY_PRIORITY = u32;
 pub const MEMORY_PRIORITY_BELOW_NORMAL: MEMORY_PRIORITY = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MEMORY_PRIORITY_INFORMATION {
+    pub MemoryPriority: MEMORY_PRIORITY,
+}
 pub const MEMORY_PRIORITY_LOW: MEMORY_PRIORITY = 2u32;
 pub const MEMORY_PRIORITY_MEDIUM: MEMORY_PRIORITY = 3u32;
 pub const MEMORY_PRIORITY_NORMAL: MEMORY_PRIORITY = 5u32;
@@ -454,6 +522,44 @@ pub const MUTEX_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031617u32;
 pub const MUTEX_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 1u32;
 pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 20i32;
 pub const NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OVERRIDE_PREFETCH_PARAMETER {
+    pub Value: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct PEB {
+    pub Reserved1: [u8; 2],
+    pub BeingDebugged: u8,
+    pub Reserved2: [u8; 1],
+    pub Reserved3: [*mut core::ffi::c_void; 2],
+    pub Ldr: *mut PEB_LDR_DATA,
+    pub ProcessParameters: *mut RTL_USER_PROCESS_PARAMETERS,
+    pub Reserved4: [*mut core::ffi::c_void; 3],
+    pub AtlThunkSListPtr: *mut core::ffi::c_void,
+    pub Reserved5: *mut core::ffi::c_void,
+    pub Reserved6: u32,
+    pub Reserved7: *mut core::ffi::c_void,
+    pub Reserved8: u32,
+    pub AtlThunkSListPtr32: u32,
+    pub Reserved9: [*mut core::ffi::c_void; 45],
+    pub Reserved10: [u8; 96],
+    pub PostProcessInitRoutine: PPS_POST_PROCESS_INIT_ROUTINE,
+    pub Reserved11: [u8; 128],
+    pub Reserved12: [*mut core::ffi::c_void; 1],
+    pub SessionId: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct PEB_LDR_DATA {
+    pub Reserved1: [u8; 8],
+    pub Reserved2: [*mut core::ffi::c_void; 3],
+    pub InMemoryOrderModuleList: super::Kernel::LIST_ENTRY,
+}
+pub type PFLS_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(lpflsdata: *const core::ffi::c_void)>;
 pub const PF_3DNOW_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 7u32;
 pub const PF_ALPHA_BYTE_INSTRUCTIONS: PROCESSOR_FEATURE_ID = 5u32;
 pub const PF_ARM_64BIT_LOADSTORE_ATOMIC: PROCESSOR_FEATURE_ID = 25u32;
@@ -500,33 +606,128 @@ pub const PF_VIRT_FIRMWARE_ENABLED: PROCESSOR_FEATURE_ID = 21u32;
 pub const PF_XMMI64_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 10u32;
 pub const PF_XMMI_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 6u32;
 pub const PF_XSAVE_ENABLED: PROCESSOR_FEATURE_ID = 17u32;
+pub type PINIT_ONCE_FN = Option<unsafe extern "system" fn(initonce: *mut INIT_ONCE, parameter: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub const PMETypeFailFastOnCommitFailure: PROCESS_MEMORY_EXHAUSTION_TYPE = 0i32;
 pub const PMETypeMax: PROCESS_MEMORY_EXHAUSTION_TYPE = 1i32;
 pub const PME_CURRENT_VERSION: u32 = 1u32;
 pub const PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: u32 = 0u32;
 pub const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1u32;
 pub const POWER_REQUEST_CONTEXT_DETAILED_STRING: POWER_REQUEST_CONTEXT_FLAGS = 2u32;
+pub type POWER_REQUEST_CONTEXT_FLAGS = u32;
 pub const POWER_REQUEST_CONTEXT_SIMPLE_STRING: POWER_REQUEST_CONTEXT_FLAGS = 1u32;
+pub type PPS_POST_PROCESS_INIT_ROUTINE = Option<unsafe extern "system" fn()>;
 pub const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1u32;
+pub type PROCESSOR_FEATURE_ID = u32;
+pub type PROCESS_ACCESS_RIGHTS = u32;
+pub type PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = u32;
 pub const PROCESS_AFFINITY_DISABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = 0u32;
 pub const PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = 1u32;
 pub const PROCESS_ALL_ACCESS: PROCESS_ACCESS_RIGHTS = 2097151u32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct PROCESS_BASIC_INFORMATION {
+    pub ExitStatus: super::super::Foundation::NTSTATUS,
+    pub PebBaseAddress: *mut PEB,
+    pub AffinityMask: usize,
+    pub BasePriority: i32,
+    pub UniqueProcessId: usize,
+    pub InheritedFromUniqueProcessId: usize,
+}
 pub const PROCESS_CREATE_PROCESS: PROCESS_ACCESS_RIGHTS = 128u32;
 pub const PROCESS_CREATE_THREAD: PROCESS_ACCESS_RIGHTS = 2u32;
+pub type PROCESS_CREATION_FLAGS = u32;
 pub const PROCESS_DELETE: PROCESS_ACCESS_RIGHTS = 65536u32;
 pub const PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION: PROCESS_DEP_FLAGS = 2u32;
 pub const PROCESS_DEP_ENABLE: PROCESS_DEP_FLAGS = 1u32;
+pub type PROCESS_DEP_FLAGS = u32;
 pub const PROCESS_DEP_NONE: PROCESS_DEP_FLAGS = 0u32;
 pub const PROCESS_DUP_HANDLE: PROCESS_ACCESS_RIGHTS = 64u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
+    pub TargetAddress: usize,
+    pub Flags: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
+    pub NumberOfTargets: u16,
+    pub Reserved: u16,
+    pub Reserved2: u32,
+    pub Targets: *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
+    pub BaseAddress: usize,
+    pub Size: usize,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
+    pub NumberOfRanges: u16,
+    pub Reserved: u16,
+    pub Reserved2: u32,
+    pub Ranges: *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_INFORMATION {
+    pub hProcess: super::super::Foundation::HANDLE,
+    pub hThread: super::super::Foundation::HANDLE,
+    pub dwProcessId: u32,
+    pub dwThreadId: u32,
+}
+pub type PROCESS_INFORMATION_CLASS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_LEAP_SECOND_INFO {
+    pub Flags: u32,
+    pub Reserved: u32,
+}
 pub const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1u32;
 pub const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_SystemInformation")]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MACHINE_INFORMATION {
+    pub ProcessMachine: super::SystemInformation::IMAGE_FILE_MACHINE,
+    pub Res0: u16,
+    pub MachineAttributes: MACHINE_ATTRIBUTES,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MEMORY_EXHAUSTION_INFO {
+    pub Version: u16,
+    pub Reserved: u16,
+    pub Type: PROCESS_MEMORY_EXHAUSTION_TYPE,
+    pub Value: usize,
+}
+pub type PROCESS_MEMORY_EXHAUSTION_TYPE = i32;
+pub type PROCESS_MITIGATION_POLICY = i32;
 pub const PROCESS_MODE_BACKGROUND_BEGIN: PROCESS_CREATION_FLAGS = 1048576u32;
 pub const PROCESS_MODE_BACKGROUND_END: PROCESS_CREATION_FLAGS = 2097152u32;
+pub type PROCESS_NAME_FORMAT = u32;
 pub const PROCESS_NAME_NATIVE: PROCESS_NAME_FORMAT = 1u32;
 pub const PROCESS_NAME_WIN32: PROCESS_NAME_FORMAT = 0u32;
 pub const PROCESS_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
 pub const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
 pub const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_POWER_THROTTLING_STATE {
+    pub Version: u32,
+    pub ControlMask: u32,
+    pub StateMask: u32,
+}
+pub type PROCESS_PROTECTION_LEVEL = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_PROTECTION_LEVEL_INFORMATION {
+    pub ProtectionLevel: PROCESS_PROTECTION_LEVEL,
+}
 pub const PROCESS_QUERY_INFORMATION: PROCESS_ACCESS_RIGHTS = 1024u32;
 pub const PROCESS_QUERY_LIMITED_INFORMATION: PROCESS_ACCESS_RIGHTS = 4096u32;
 pub const PROCESS_READ_CONTROL: PROCESS_ACCESS_RIGHTS = 131072u32;
@@ -555,6 +756,7 @@ pub const PROC_THREAD_ATTRIBUTE_JOB_LIST: u32 = 131085u32;
 pub const PROC_THREAD_ATTRIBUTE_MACHINE_TYPE: u32 = 131097u32;
 pub const PROC_THREAD_ATTRIBUTE_MITIGATION_AUDIT_POLICY: u32 = 131096u32;
 pub const PROC_THREAD_ATTRIBUTE_MITIGATION_POLICY: u32 = 131079u32;
+pub type PROC_THREAD_ATTRIBUTE_NUM = u32;
 pub const PROC_THREAD_ATTRIBUTE_PARENT_PROCESS: u32 = 131072u32;
 pub const PROC_THREAD_ATTRIBUTE_PREFERRED_NODE: u32 = 131076u32;
 pub const PROC_THREAD_ATTRIBUTE_PROTECTION_LEVEL: u32 = 131083u32;
@@ -576,6 +778,22 @@ pub const PROTECTION_LEVEL_WINDOWS: PROCESS_PROTECTION_LEVEL = 1u32;
 pub const PROTECTION_LEVEL_WINDOWS_LIGHT: PROCESS_PROTECTION_LEVEL = 2u32;
 pub const PROTECTION_LEVEL_WINTCB: PROCESS_PROTECTION_LEVEL = 5u32;
 pub const PROTECTION_LEVEL_WINTCB_LIGHT: PROCESS_PROTECTION_LEVEL = 0u32;
+#[cfg(feature = "Win32_System_SystemServices")]
+pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: super::SystemServices::RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const core::ffi::c_void)>;
+pub type PTIMERAPCROUTINE = Option<unsafe extern "system" fn(lpargtocompletionroutine: *const core::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32)>;
+pub type PTP_CALLBACK_INSTANCE = isize;
+pub type PTP_CLEANUP_GROUP = isize;
+pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<unsafe extern "system" fn(objectcontext: *mut core::ffi::c_void, cleanupcontext: *mut core::ffi::c_void)>;
+pub type PTP_IO = isize;
+pub type PTP_POOL = isize;
+pub type PTP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
+pub type PTP_TIMER = isize;
+pub type PTP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: PTP_TIMER)>;
+pub type PTP_WAIT = isize;
+pub type PTP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: PTP_WAIT, waitresult: u32)>;
+pub type PTP_WIN32_IO_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, overlapped: *mut core::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: PTP_IO)>;
+pub type PTP_WORK = isize;
+pub type PTP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: PTP_WORK)>;
 pub const ProcThreadAttributeAllApplicationPackagesPolicy: PROC_THREAD_ATTRIBUTE_NUM = 15u32;
 pub const ProcThreadAttributeChildProcessPolicy: PROC_THREAD_ATTRIBUTE_NUM = 14u32;
 pub const ProcThreadAttributeComponentFilter: PROC_THREAD_ATTRIBUTE_NUM = 26u32;
@@ -631,325 +849,10 @@ pub const ProcessTelemetryCoverageInfo: PROCESS_INFORMATION_CLASS = 6i32;
 pub const ProcessUserPointerAuthPolicy: PROCESS_MITIGATION_POLICY = 17i32;
 pub const ProcessUserShadowStackPolicy: PROCESS_MITIGATION_POLICY = 15i32;
 pub const QUEUE_USER_APC_CALLBACK_DATA_CONTEXT: QUEUE_USER_APC_FLAGS = 65536i32;
+pub type QUEUE_USER_APC_FLAGS = i32;
 pub const QUEUE_USER_APC_FLAGS_NONE: QUEUE_USER_APC_FLAGS = 0i32;
 pub const QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = 1i32;
 pub const REALTIME_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 256u32;
-pub const RTL_CRITICAL_SECTION_ALL_FLAG_BITS: u32 = 4278190080u32;
-pub const RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT: u32 = 1u32;
-pub const RTL_CRITICAL_SECTION_FLAG_DYNAMIC_SPIN: u32 = 33554432u32;
-pub const RTL_CRITICAL_SECTION_FLAG_FORCE_DEBUG_INFO: u32 = 268435456u32;
-pub const RTL_CRITICAL_SECTION_FLAG_NO_DEBUG_INFO: u32 = 16777216u32;
-pub const RTL_CRITICAL_SECTION_FLAG_RESOURCE_TYPE: u32 = 134217728u32;
-pub const RTL_CRITICAL_SECTION_FLAG_STATIC_INIT: u32 = 67108864u32;
-pub const RTWQ_MULTITHREADED_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 2i32;
-pub const RTWQ_STANDARD_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 0i32;
-pub const RTWQ_WINDOW_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 1i32;
-pub const SEMAPHORE_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031619u32;
-pub const SEMAPHORE_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 2u32;
-pub const SRWLOCK_INIT: SRWLOCK = SRWLOCK { Ptr: core::ptr::null_mut() };
-pub const STACK_SIZE_PARAM_IS_A_RESERVATION: THREAD_CREATION_FLAGS = 65536u32;
-pub const STARTF_FORCEOFFFEEDBACK: STARTUPINFOW_FLAGS = 128u32;
-pub const STARTF_FORCEONFEEDBACK: STARTUPINFOW_FLAGS = 64u32;
-pub const STARTF_PREVENTPINNING: STARTUPINFOW_FLAGS = 8192u32;
-pub const STARTF_RUNFULLSCREEN: STARTUPINFOW_FLAGS = 32u32;
-pub const STARTF_TITLEISAPPID: STARTUPINFOW_FLAGS = 4096u32;
-pub const STARTF_TITLEISLINKNAME: STARTUPINFOW_FLAGS = 2048u32;
-pub const STARTF_UNTRUSTEDSOURCE: STARTUPINFOW_FLAGS = 32768u32;
-pub const STARTF_USECOUNTCHARS: STARTUPINFOW_FLAGS = 8u32;
-pub const STARTF_USEFILLATTRIBUTE: STARTUPINFOW_FLAGS = 16u32;
-pub const STARTF_USEHOTKEY: STARTUPINFOW_FLAGS = 512u32;
-pub const STARTF_USEPOSITION: STARTUPINFOW_FLAGS = 4u32;
-pub const STARTF_USESHOWWINDOW: STARTUPINFOW_FLAGS = 1u32;
-pub const STARTF_USESIZE: STARTUPINFOW_FLAGS = 2u32;
-pub const STARTF_USESTDHANDLES: STARTUPINFOW_FLAGS = 256u32;
-pub const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: u32 = 2u32;
-pub const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: u32 = 4u32;
-pub const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1u32;
-pub const SYNCHRONIZATION_DELETE: SYNCHRONIZATION_ACCESS_RIGHTS = 65536u32;
-pub const SYNCHRONIZATION_READ_CONTROL: SYNCHRONIZATION_ACCESS_RIGHTS = 131072u32;
-pub const SYNCHRONIZATION_SYNCHRONIZE: SYNCHRONIZATION_ACCESS_RIGHTS = 1048576u32;
-pub const SYNCHRONIZATION_WRITE_DAC: SYNCHRONIZATION_ACCESS_RIGHTS = 262144u32;
-pub const SYNCHRONIZATION_WRITE_OWNER: SYNCHRONIZATION_ACCESS_RIGHTS = 524288u32;
-pub const THREAD_ALL_ACCESS: THREAD_ACCESS_RIGHTS = 2097151u32;
-pub const THREAD_CREATE_RUN_IMMEDIATELY: THREAD_CREATION_FLAGS = 0u32;
-pub const THREAD_CREATE_SUSPENDED: THREAD_CREATION_FLAGS = 4u32;
-pub const THREAD_DELETE: THREAD_ACCESS_RIGHTS = 65536u32;
-pub const THREAD_DIRECT_IMPERSONATION: THREAD_ACCESS_RIGHTS = 512u32;
-pub const THREAD_GET_CONTEXT: THREAD_ACCESS_RIGHTS = 8u32;
-pub const THREAD_IMPERSONATE: THREAD_ACCESS_RIGHTS = 256u32;
-pub const THREAD_MODE_BACKGROUND_BEGIN: THREAD_PRIORITY = 65536i32;
-pub const THREAD_MODE_BACKGROUND_END: THREAD_PRIORITY = 131072i32;
-pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
-pub const THREAD_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
-pub const THREAD_POWER_THROTTLING_VALID_FLAGS: u32 = 1u32;
-pub const THREAD_PRIORITY_ABOVE_NORMAL: THREAD_PRIORITY = 1i32;
-pub const THREAD_PRIORITY_BELOW_NORMAL: THREAD_PRIORITY = -1i32;
-pub const THREAD_PRIORITY_HIGHEST: THREAD_PRIORITY = 2i32;
-pub const THREAD_PRIORITY_IDLE: THREAD_PRIORITY = -15i32;
-pub const THREAD_PRIORITY_LOWEST: THREAD_PRIORITY = -2i32;
-pub const THREAD_PRIORITY_MIN: THREAD_PRIORITY = -2i32;
-pub const THREAD_PRIORITY_NORMAL: THREAD_PRIORITY = 0i32;
-pub const THREAD_PRIORITY_TIME_CRITICAL: THREAD_PRIORITY = 15i32;
-pub const THREAD_QUERY_INFORMATION: THREAD_ACCESS_RIGHTS = 64u32;
-pub const THREAD_QUERY_LIMITED_INFORMATION: THREAD_ACCESS_RIGHTS = 2048u32;
-pub const THREAD_READ_CONTROL: THREAD_ACCESS_RIGHTS = 131072u32;
-pub const THREAD_RESUME: THREAD_ACCESS_RIGHTS = 4096u32;
-pub const THREAD_SET_CONTEXT: THREAD_ACCESS_RIGHTS = 16u32;
-pub const THREAD_SET_INFORMATION: THREAD_ACCESS_RIGHTS = 32u32;
-pub const THREAD_SET_LIMITED_INFORMATION: THREAD_ACCESS_RIGHTS = 1024u32;
-pub const THREAD_SET_THREAD_TOKEN: THREAD_ACCESS_RIGHTS = 128u32;
-pub const THREAD_STANDARD_RIGHTS_REQUIRED: THREAD_ACCESS_RIGHTS = 983040u32;
-pub const THREAD_SUSPEND_RESUME: THREAD_ACCESS_RIGHTS = 2u32;
-pub const THREAD_SYNCHRONIZE: THREAD_ACCESS_RIGHTS = 1048576u32;
-pub const THREAD_TERMINATE: THREAD_ACCESS_RIGHTS = 1u32;
-pub const THREAD_WRITE_DAC: THREAD_ACCESS_RIGHTS = 262144u32;
-pub const THREAD_WRITE_OWNER: THREAD_ACCESS_RIGHTS = 524288u32;
-pub const TIMER_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031619u32;
-pub const TIMER_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 2u32;
-pub const TIMER_QUERY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 1u32;
-pub const TLS_OUT_OF_INDEXES: u32 = 4294967295u32;
-pub const TP_CALLBACK_PRIORITY_COUNT: TP_CALLBACK_PRIORITY = 3i32;
-pub const TP_CALLBACK_PRIORITY_HIGH: TP_CALLBACK_PRIORITY = 0i32;
-pub const TP_CALLBACK_PRIORITY_INVALID: TP_CALLBACK_PRIORITY = 3i32;
-pub const TP_CALLBACK_PRIORITY_LOW: TP_CALLBACK_PRIORITY = 2i32;
-pub const TP_CALLBACK_PRIORITY_NORMAL: TP_CALLBACK_PRIORITY = 1i32;
-pub const ThreadAbsoluteCpuPriority: THREAD_INFORMATION_CLASS = 1i32;
-pub const ThreadDynamicCodePolicy: THREAD_INFORMATION_CLASS = 2i32;
-pub const ThreadInformationClassMax: THREAD_INFORMATION_CLASS = 4i32;
-pub const ThreadMemoryPriority: THREAD_INFORMATION_CLASS = 0i32;
-pub const ThreadPowerThrottling: THREAD_INFORMATION_CLASS = 3i32;
-pub const UmsThreadAffinity: UMS_THREAD_INFO_CLASS = 3i32;
-pub const UmsThreadInvalidInfoClass: UMS_THREAD_INFO_CLASS = 0i32;
-pub const UmsThreadIsSuspended: UMS_THREAD_INFO_CLASS = 5i32;
-pub const UmsThreadIsTerminated: UMS_THREAD_INFO_CLASS = 6i32;
-pub const UmsThreadMaxInfoClass: UMS_THREAD_INFO_CLASS = 7i32;
-pub const UmsThreadPriority: UMS_THREAD_INFO_CLASS = 2i32;
-pub const UmsThreadTeb: UMS_THREAD_INFO_CLASS = 4i32;
-pub const UmsThreadUserContext: UMS_THREAD_INFO_CLASS = 1i32;
-pub const UserEnabled: MACHINE_ATTRIBUTES = 1i32;
-pub const WT_EXECUTEDEFAULT: WORKER_THREAD_FLAGS = 0u32;
-pub const WT_EXECUTEINIOTHREAD: WORKER_THREAD_FLAGS = 1u32;
-pub const WT_EXECUTEINPERSISTENTTHREAD: WORKER_THREAD_FLAGS = 128u32;
-pub const WT_EXECUTEINTIMERTHREAD: WORKER_THREAD_FLAGS = 32u32;
-pub const WT_EXECUTEINWAITTHREAD: WORKER_THREAD_FLAGS = 4u32;
-pub const WT_EXECUTELONGFUNCTION: WORKER_THREAD_FLAGS = 16u32;
-pub const WT_EXECUTEONLYONCE: WORKER_THREAD_FLAGS = 8u32;
-pub const WT_TRANSFER_IMPERSONATION: WORKER_THREAD_FLAGS = 256u32;
-pub const Wow64Container: MACHINE_ATTRIBUTES = 4i32;
-pub type AVRT_PRIORITY = i32;
-pub type CREATE_EVENT = u32;
-pub type CREATE_PROCESS_LOGON_FLAGS = u32;
-pub type GET_GUI_RESOURCES_FLAGS = u32;
-pub type MACHINE_ATTRIBUTES = i32;
-pub type MEMORY_PRIORITY = u32;
-pub type POWER_REQUEST_CONTEXT_FLAGS = u32;
-pub type PROCESSOR_FEATURE_ID = u32;
-pub type PROCESS_ACCESS_RIGHTS = u32;
-pub type PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = u32;
-pub type PROCESS_CREATION_FLAGS = u32;
-pub type PROCESS_DEP_FLAGS = u32;
-pub type PROCESS_INFORMATION_CLASS = i32;
-pub type PROCESS_MEMORY_EXHAUSTION_TYPE = i32;
-pub type PROCESS_MITIGATION_POLICY = i32;
-pub type PROCESS_NAME_FORMAT = u32;
-pub type PROCESS_PROTECTION_LEVEL = u32;
-pub type PROC_THREAD_ATTRIBUTE_NUM = u32;
-pub type QUEUE_USER_APC_FLAGS = i32;
-pub type RTWQ_WORKQUEUE_TYPE = i32;
-pub type STARTUPINFOW_FLAGS = u32;
-pub type SYNCHRONIZATION_ACCESS_RIGHTS = u32;
-pub type THREAD_ACCESS_RIGHTS = u32;
-pub type THREAD_CREATION_FLAGS = u32;
-pub type THREAD_INFORMATION_CLASS = i32;
-pub type THREAD_PRIORITY = i32;
-pub type TP_CALLBACK_PRIORITY = i32;
-pub type UMS_THREAD_INFO_CLASS = i32;
-pub type WORKER_THREAD_FLAGS = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct APP_MEMORY_INFORMATION {
-    pub AvailableCommit: u64,
-    pub PrivateCommitUsage: u64,
-    pub PeakPrivateCommitUsage: u64,
-    pub TotalCommitUsage: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONDITION_VARIABLE {
-    pub Ptr: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct CRITICAL_SECTION {
-    pub DebugInfo: *mut CRITICAL_SECTION_DEBUG,
-    pub LockCount: i32,
-    pub RecursionCount: i32,
-    pub OwningThread: super::super::Foundation::HANDLE,
-    pub LockSemaphore: super::super::Foundation::HANDLE,
-    pub SpinCount: usize,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct CRITICAL_SECTION_DEBUG {
-    pub Type: u16,
-    pub CreatorBackTraceIndex: u16,
-    pub CriticalSection: *mut CRITICAL_SECTION,
-    pub ProcessLocksList: super::Kernel::LIST_ENTRY,
-    pub EntryCount: u32,
-    pub ContentionCount: u32,
-    pub Flags: u32,
-    pub CreatorBackTraceIndexHigh: u16,
-    pub Identifier: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union INIT_ONCE {
-    pub Ptr: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IO_COUNTERS {
-    pub ReadOperationCount: u64,
-    pub WriteOperationCount: u64,
-    pub OtherOperationCount: u64,
-    pub ReadTransferCount: u64,
-    pub WriteTransferCount: u64,
-    pub OtherTransferCount: u64,
-}
-pub type LPPROC_THREAD_ATTRIBUTE_LIST = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MEMORY_PRIORITY_INFORMATION {
-    pub MemoryPriority: MEMORY_PRIORITY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OVERRIDE_PREFETCH_PARAMETER {
-    pub Value: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct PEB {
-    pub Reserved1: [u8; 2],
-    pub BeingDebugged: u8,
-    pub Reserved2: [u8; 1],
-    pub Reserved3: [*mut core::ffi::c_void; 2],
-    pub Ldr: *mut PEB_LDR_DATA,
-    pub ProcessParameters: *mut RTL_USER_PROCESS_PARAMETERS,
-    pub Reserved4: [*mut core::ffi::c_void; 3],
-    pub AtlThunkSListPtr: *mut core::ffi::c_void,
-    pub Reserved5: *mut core::ffi::c_void,
-    pub Reserved6: u32,
-    pub Reserved7: *mut core::ffi::c_void,
-    pub Reserved8: u32,
-    pub AtlThunkSListPtr32: u32,
-    pub Reserved9: [*mut core::ffi::c_void; 45],
-    pub Reserved10: [u8; 96],
-    pub PostProcessInitRoutine: PPS_POST_PROCESS_INIT_ROUTINE,
-    pub Reserved11: [u8; 128],
-    pub Reserved12: [*mut core::ffi::c_void; 1],
-    pub SessionId: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct PEB_LDR_DATA {
-    pub Reserved1: [u8; 8],
-    pub Reserved2: [*mut core::ffi::c_void; 3],
-    pub InMemoryOrderModuleList: super::Kernel::LIST_ENTRY,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct PROCESS_BASIC_INFORMATION {
-    pub ExitStatus: super::super::Foundation::NTSTATUS,
-    pub PebBaseAddress: *mut PEB,
-    pub AffinityMask: usize,
-    pub BasePriority: i32,
-    pub UniqueProcessId: usize,
-    pub InheritedFromUniqueProcessId: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
-    pub TargetAddress: usize,
-    pub Flags: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
-    pub NumberOfTargets: u16,
-    pub Reserved: u16,
-    pub Reserved2: u32,
-    pub Targets: *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
-    pub BaseAddress: usize,
-    pub Size: usize,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
-    pub NumberOfRanges: u16,
-    pub Reserved: u16,
-    pub Reserved2: u32,
-    pub Ranges: *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_INFORMATION {
-    pub hProcess: super::super::Foundation::HANDLE,
-    pub hThread: super::super::Foundation::HANDLE,
-    pub dwProcessId: u32,
-    pub dwThreadId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_LEAP_SECOND_INFO {
-    pub Flags: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MACHINE_INFORMATION {
-    pub ProcessMachine: super::SystemInformation::IMAGE_FILE_MACHINE,
-    pub Res0: u16,
-    pub MachineAttributes: MACHINE_ATTRIBUTES,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MEMORY_EXHAUSTION_INFO {
-    pub Version: u16,
-    pub Reserved: u16,
-    pub Type: PROCESS_MEMORY_EXHAUSTION_TYPE,
-    pub Value: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_POWER_THROTTLING_STATE {
-    pub Version: u32,
-    pub ControlMask: u32,
-    pub StateMask: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_PROTECTION_LEVEL_INFORMATION {
-    pub ProtectionLevel: PROCESS_PROTECTION_LEVEL,
-}
-pub type PTP_CALLBACK_INSTANCE = isize;
-pub type PTP_CLEANUP_GROUP = isize;
-pub type PTP_IO = isize;
-pub type PTP_POOL = isize;
-pub type PTP_TIMER = isize;
-pub type PTP_WAIT = isize;
-pub type PTP_WORK = isize;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REASON_CONTEXT {
@@ -971,6 +874,13 @@ pub struct REASON_CONTEXT_0_0 {
     pub ReasonStringCount: u32,
     pub ReasonStrings: *mut windows_sys::core::PWSTR,
 }
+pub const RTL_CRITICAL_SECTION_ALL_FLAG_BITS: u32 = 4278190080u32;
+pub const RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT: u32 = 1u32;
+pub const RTL_CRITICAL_SECTION_FLAG_DYNAMIC_SPIN: u32 = 33554432u32;
+pub const RTL_CRITICAL_SECTION_FLAG_FORCE_DEBUG_INFO: u32 = 268435456u32;
+pub const RTL_CRITICAL_SECTION_FLAG_NO_DEBUG_INFO: u32 = 16777216u32;
+pub const RTL_CRITICAL_SECTION_FLAG_RESOURCE_TYPE: u32 = 134217728u32;
+pub const RTL_CRITICAL_SECTION_FLAG_STATIC_INIT: u32 = 67108864u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTL_USER_PROCESS_PARAMETERS {
@@ -979,11 +889,34 @@ pub struct RTL_USER_PROCESS_PARAMETERS {
     pub ImagePathName: super::super::Foundation::UNICODE_STRING,
     pub CommandLine: super::super::Foundation::UNICODE_STRING,
 }
+pub type RTWQPERIODICCALLBACK = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+pub const RTWQ_MULTITHREADED_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 2i32;
+pub const RTWQ_STANDARD_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 0i32;
+pub const RTWQ_WINDOW_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 1i32;
+pub type RTWQ_WORKQUEUE_TYPE = i32;
+pub const SEMAPHORE_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031619u32;
+pub const SEMAPHORE_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SRWLOCK {
     pub Ptr: *mut core::ffi::c_void,
 }
+pub const SRWLOCK_INIT: SRWLOCK = SRWLOCK { Ptr: core::ptr::null_mut() };
+pub const STACK_SIZE_PARAM_IS_A_RESERVATION: THREAD_CREATION_FLAGS = 65536u32;
+pub const STARTF_FORCEOFFFEEDBACK: STARTUPINFOW_FLAGS = 128u32;
+pub const STARTF_FORCEONFEEDBACK: STARTUPINFOW_FLAGS = 64u32;
+pub const STARTF_PREVENTPINNING: STARTUPINFOW_FLAGS = 8192u32;
+pub const STARTF_RUNFULLSCREEN: STARTUPINFOW_FLAGS = 32u32;
+pub const STARTF_TITLEISAPPID: STARTUPINFOW_FLAGS = 4096u32;
+pub const STARTF_TITLEISLINKNAME: STARTUPINFOW_FLAGS = 2048u32;
+pub const STARTF_UNTRUSTEDSOURCE: STARTUPINFOW_FLAGS = 32768u32;
+pub const STARTF_USECOUNTCHARS: STARTUPINFOW_FLAGS = 8u32;
+pub const STARTF_USEFILLATTRIBUTE: STARTUPINFOW_FLAGS = 16u32;
+pub const STARTF_USEHOTKEY: STARTUPINFOW_FLAGS = 512u32;
+pub const STARTF_USEPOSITION: STARTUPINFOW_FLAGS = 4u32;
+pub const STARTF_USESHOWWINDOW: STARTUPINFOW_FLAGS = 1u32;
+pub const STARTF_USESIZE: STARTUPINFOW_FLAGS = 2u32;
+pub const STARTF_USESTDHANDLES: STARTUPINFOW_FLAGS = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STARTUPINFOA {
@@ -1040,6 +973,8 @@ pub struct STARTUPINFOW {
     pub hStdOutput: super::super::Foundation::HANDLE,
     pub hStdError: super::super::Foundation::HANDLE,
 }
+pub type STARTUPINFOW_FLAGS = u32;
+pub type SYNCHRONIZATION_ACCESS_RIGHTS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYNCHRONIZATION_BARRIER {
@@ -1049,6 +984,14 @@ pub struct SYNCHRONIZATION_BARRIER {
     pub Reserved4: u32,
     pub Reserved5: u32,
 }
+pub const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: u32 = 2u32;
+pub const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: u32 = 4u32;
+pub const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1u32;
+pub const SYNCHRONIZATION_DELETE: SYNCHRONIZATION_ACCESS_RIGHTS = 65536u32;
+pub const SYNCHRONIZATION_READ_CONTROL: SYNCHRONIZATION_ACCESS_RIGHTS = 131072u32;
+pub const SYNCHRONIZATION_SYNCHRONIZE: SYNCHRONIZATION_ACCESS_RIGHTS = 1048576u32;
+pub const SYNCHRONIZATION_WRITE_DAC: SYNCHRONIZATION_ACCESS_RIGHTS = 262144u32;
+pub const SYNCHRONIZATION_WRITE_OWNER: SYNCHRONIZATION_ACCESS_RIGHTS = 524288u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -1064,6 +1007,20 @@ pub struct TEB {
     pub Reserved6: [*mut core::ffi::c_void; 4],
     pub TlsExpansionSlots: *mut core::ffi::c_void,
 }
+pub type THREAD_ACCESS_RIGHTS = u32;
+pub const THREAD_ALL_ACCESS: THREAD_ACCESS_RIGHTS = 2097151u32;
+pub const THREAD_CREATE_RUN_IMMEDIATELY: THREAD_CREATION_FLAGS = 0u32;
+pub const THREAD_CREATE_SUSPENDED: THREAD_CREATION_FLAGS = 4u32;
+pub type THREAD_CREATION_FLAGS = u32;
+pub const THREAD_DELETE: THREAD_ACCESS_RIGHTS = 65536u32;
+pub const THREAD_DIRECT_IMPERSONATION: THREAD_ACCESS_RIGHTS = 512u32;
+pub const THREAD_GET_CONTEXT: THREAD_ACCESS_RIGHTS = 8u32;
+pub const THREAD_IMPERSONATE: THREAD_ACCESS_RIGHTS = 256u32;
+pub type THREAD_INFORMATION_CLASS = i32;
+pub const THREAD_MODE_BACKGROUND_BEGIN: THREAD_PRIORITY = 65536i32;
+pub const THREAD_MODE_BACKGROUND_END: THREAD_PRIORITY = 131072i32;
+pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
+pub const THREAD_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct THREAD_POWER_THROTTLING_STATE {
@@ -1071,6 +1028,34 @@ pub struct THREAD_POWER_THROTTLING_STATE {
     pub ControlMask: u32,
     pub StateMask: u32,
 }
+pub const THREAD_POWER_THROTTLING_VALID_FLAGS: u32 = 1u32;
+pub type THREAD_PRIORITY = i32;
+pub const THREAD_PRIORITY_ABOVE_NORMAL: THREAD_PRIORITY = 1i32;
+pub const THREAD_PRIORITY_BELOW_NORMAL: THREAD_PRIORITY = -1i32;
+pub const THREAD_PRIORITY_HIGHEST: THREAD_PRIORITY = 2i32;
+pub const THREAD_PRIORITY_IDLE: THREAD_PRIORITY = -15i32;
+pub const THREAD_PRIORITY_LOWEST: THREAD_PRIORITY = -2i32;
+pub const THREAD_PRIORITY_MIN: THREAD_PRIORITY = -2i32;
+pub const THREAD_PRIORITY_NORMAL: THREAD_PRIORITY = 0i32;
+pub const THREAD_PRIORITY_TIME_CRITICAL: THREAD_PRIORITY = 15i32;
+pub const THREAD_QUERY_INFORMATION: THREAD_ACCESS_RIGHTS = 64u32;
+pub const THREAD_QUERY_LIMITED_INFORMATION: THREAD_ACCESS_RIGHTS = 2048u32;
+pub const THREAD_READ_CONTROL: THREAD_ACCESS_RIGHTS = 131072u32;
+pub const THREAD_RESUME: THREAD_ACCESS_RIGHTS = 4096u32;
+pub const THREAD_SET_CONTEXT: THREAD_ACCESS_RIGHTS = 16u32;
+pub const THREAD_SET_INFORMATION: THREAD_ACCESS_RIGHTS = 32u32;
+pub const THREAD_SET_LIMITED_INFORMATION: THREAD_ACCESS_RIGHTS = 1024u32;
+pub const THREAD_SET_THREAD_TOKEN: THREAD_ACCESS_RIGHTS = 128u32;
+pub const THREAD_STANDARD_RIGHTS_REQUIRED: THREAD_ACCESS_RIGHTS = 983040u32;
+pub const THREAD_SUSPEND_RESUME: THREAD_ACCESS_RIGHTS = 2u32;
+pub const THREAD_SYNCHRONIZE: THREAD_ACCESS_RIGHTS = 1048576u32;
+pub const THREAD_TERMINATE: THREAD_ACCESS_RIGHTS = 1u32;
+pub const THREAD_WRITE_DAC: THREAD_ACCESS_RIGHTS = 262144u32;
+pub const THREAD_WRITE_OWNER: THREAD_ACCESS_RIGHTS = 524288u32;
+pub const TIMER_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031619u32;
+pub const TIMER_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 2u32;
+pub const TIMER_QUERY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 1u32;
+pub const TLS_OUT_OF_INDEXES: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TP_CALLBACK_ENVIRON_V3 {
@@ -1096,12 +1081,23 @@ pub union TP_CALLBACK_ENVIRON_V3_0 {
 pub struct TP_CALLBACK_ENVIRON_V3_0_0 {
     pub _bitfield: u32,
 }
+pub type TP_CALLBACK_PRIORITY = i32;
+pub const TP_CALLBACK_PRIORITY_COUNT: TP_CALLBACK_PRIORITY = 3i32;
+pub const TP_CALLBACK_PRIORITY_HIGH: TP_CALLBACK_PRIORITY = 0i32;
+pub const TP_CALLBACK_PRIORITY_INVALID: TP_CALLBACK_PRIORITY = 3i32;
+pub const TP_CALLBACK_PRIORITY_LOW: TP_CALLBACK_PRIORITY = 2i32;
+pub const TP_CALLBACK_PRIORITY_NORMAL: TP_CALLBACK_PRIORITY = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TP_POOL_STACK_INFORMATION {
     pub StackReserve: usize,
     pub StackCommit: usize,
 }
+pub const ThreadAbsoluteCpuPriority: THREAD_INFORMATION_CLASS = 1i32;
+pub const ThreadDynamicCodePolicy: THREAD_INFORMATION_CLASS = 2i32;
+pub const ThreadInformationClassMax: THREAD_INFORMATION_CLASS = 4i32;
+pub const ThreadMemoryPriority: THREAD_INFORMATION_CLASS = 0i32;
+pub const ThreadPowerThrottling: THREAD_INFORMATION_CLASS = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
 #[derive(Clone, Copy)]
@@ -1128,21 +1124,25 @@ pub union UMS_SYSTEM_THREAD_INFORMATION_0 {
 pub struct UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
-pub type APC_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void, param2: *mut core::ffi::c_void)>;
-pub type LPFIBER_START_ROUTINE = Option<unsafe extern "system" fn(lpfiberparameter: *mut core::ffi::c_void)>;
-pub type LPTHREAD_START_ROUTINE = Option<unsafe extern "system" fn(lpthreadparameter: *mut core::ffi::c_void) -> u32>;
-pub type PFLS_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(lpflsdata: *const core::ffi::c_void)>;
-pub type PINIT_ONCE_FN = Option<unsafe extern "system" fn(initonce: *mut INIT_ONCE, parameter: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PPS_POST_PROCESS_INIT_ROUTINE = Option<unsafe extern "system" fn()>;
-#[cfg(feature = "Win32_System_SystemServices")]
-pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: super::SystemServices::RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const core::ffi::c_void)>;
-pub type PTIMERAPCROUTINE = Option<unsafe extern "system" fn(lpargtocompletionroutine: *const core::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32)>;
-pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<unsafe extern "system" fn(objectcontext: *mut core::ffi::c_void, cleanupcontext: *mut core::ffi::c_void)>;
-pub type PTP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
-pub type PTP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: PTP_TIMER)>;
-pub type PTP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: PTP_WAIT, waitresult: u32)>;
-pub type PTP_WIN32_IO_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, overlapped: *mut core::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: PTP_IO)>;
-pub type PTP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: PTP_WORK)>;
-pub type RTWQPERIODICCALLBACK = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+pub type UMS_THREAD_INFO_CLASS = i32;
+pub const UmsThreadAffinity: UMS_THREAD_INFO_CLASS = 3i32;
+pub const UmsThreadInvalidInfoClass: UMS_THREAD_INFO_CLASS = 0i32;
+pub const UmsThreadIsSuspended: UMS_THREAD_INFO_CLASS = 5i32;
+pub const UmsThreadIsTerminated: UMS_THREAD_INFO_CLASS = 6i32;
+pub const UmsThreadMaxInfoClass: UMS_THREAD_INFO_CLASS = 7i32;
+pub const UmsThreadPriority: UMS_THREAD_INFO_CLASS = 2i32;
+pub const UmsThreadTeb: UMS_THREAD_INFO_CLASS = 4i32;
+pub const UmsThreadUserContext: UMS_THREAD_INFO_CLASS = 1i32;
+pub const UserEnabled: MACHINE_ATTRIBUTES = 1i32;
 pub type WAITORTIMERCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::super::Foundation::BOOLEAN)>;
 pub type WORKERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
+pub type WORKER_THREAD_FLAGS = u32;
+pub const WT_EXECUTEDEFAULT: WORKER_THREAD_FLAGS = 0u32;
+pub const WT_EXECUTEINIOTHREAD: WORKER_THREAD_FLAGS = 1u32;
+pub const WT_EXECUTEINPERSISTENTTHREAD: WORKER_THREAD_FLAGS = 128u32;
+pub const WT_EXECUTEINTIMERTHREAD: WORKER_THREAD_FLAGS = 32u32;
+pub const WT_EXECUTEINWAITTHREAD: WORKER_THREAD_FLAGS = 4u32;
+pub const WT_EXECUTELONGFUNCTION: WORKER_THREAD_FLAGS = 16u32;
+pub const WT_EXECUTEONLYONCE: WORKER_THREAD_FLAGS = 8u32;
+pub const WT_TRANSFER_IMPERSONATION: WORKER_THREAD_FLAGS = 256u32;
+pub const Wow64Container: MACHINE_ATTRIBUTES = 4i32;

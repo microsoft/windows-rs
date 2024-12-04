@@ -2,6 +2,7 @@ use std::collections::BTreeMap;
 use std::io::prelude::*;
 use std::io::SeekFrom;
 use std::str::FromStr;
+use windows_bindgen::*;
 
 fn main() {
     let platform = if let Some(platform) = option_env!("Platform") {
@@ -19,7 +20,7 @@ fn main() {
         return;
     };
 
-    let libraries = helpers::libraries();
+    let libraries = libraries();
     let output = std::path::PathBuf::from("crates/targets/baseline");
     _ = std::fs::remove_dir_all(&output);
     std::fs::create_dir_all(&output).unwrap();
@@ -71,7 +72,7 @@ changes can sneak in undetected.
 fn build_library(
     output: &std::path::Path,
     library: &str,
-    functions: &BTreeMap<String, helpers::CallingConvention>,
+    functions: &BTreeMap<String, CallingConvention>,
 ) {
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
 
@@ -96,7 +97,7 @@ EXPORTS
 
     for (function, calling_convention) in functions {
         let buffer = match calling_convention {
-            helpers::CallingConvention::Stdcall(size) => {
+            CallingConvention::Stdcall(size) => {
                 let mut buffer = format!("void __stdcall {function}(");
 
                 for param in 0..(*size / 4) {
@@ -111,7 +112,7 @@ EXPORTS
                 buffer.push_str(") {}\n");
                 buffer
             }
-            helpers::CallingConvention::Cdecl => {
+            CallingConvention::Cdecl => {
                 format!("void __cdecl {function}() {{}}\n")
             }
         };

@@ -2,6 +2,8 @@
 
 use std::path::Path;
 
+// TODO: move these into the new bindgen test/tool
+
 fn main() {
     if !Path::new("crates/tests/misc/standalone/Cargo.toml").exists() {
         println!("This tool must be run from the root of the repo.");
@@ -208,39 +210,41 @@ fn main() {
         &src.join("b_prepend.rs"),
         &["Windows.Foundation.DateTime"],
         &[
-            "flatten",
-            "minimal",
-            "prepend:Windows.Foundation.DateTime=#[derive(std::cmp::PartialOrd,std::cmp::Ord)]",
+            "--flat",
+            "--derive",
+            "Windows.Foundation.DateTime=PartialOrd,Ord,Eq",
         ],
     );
 }
 
 fn write_sys(output: &Path, filter: &[&str]) {
-    bindgen(output, filter, &["flatten", "sys", "minimal"]);
+    bindgen(output, filter, &["--flat", "--sys", "--no-core"]);
 }
 
 fn write_win(output: &Path, filter: &[&str]) {
-    bindgen(output, filter, &["flatten", "minimal"]);
+    let output: &str = output.as_os_str().to_str().unwrap();
+    let mut args = vec!["--in", "default", "--out", output, "--filter"];
+    args.extend_from_slice(filter);
+    args.extend_from_slice(&["--no-comment"]);
+    args.extend_from_slice(&["--flat"]);
+    println!("running: bindgen {}", args.join(" "));
+    windows_bindgen::bindgen(args);
 }
 
 fn write_no_inner_attr(output: &Path, filter: &[&str]) {
-    bindgen(
-        output,
-        filter,
-        &["flatten", "no-inner-attributes", "minimal"],
-    );
+    bindgen(output, filter, &["--flat", "--no-allow"]);
 }
 
 fn write_vtbl(output: &Path, filter: &[&str]) {
-    bindgen(output, filter, &["flatten", "sys", "minimal", "vtbl"]);
+    bindgen(output, filter, &["--flat", "--sys", "--no-core"]);
 }
 
 fn bindgen(output: &Path, filter: &[&str], config: &[&str]) {
     let output: &str = output.as_os_str().to_str().unwrap();
-    let mut args = vec!["--out", output, "--filter"];
+    let mut args = vec!["--in", "default", "--out", output, "--filter"];
     args.extend_from_slice(filter);
-    args.extend_from_slice(&["--config", "no-bindgen-comment"]);
+    args.extend_from_slice(&["--no-comment"]);
     args.extend_from_slice(config);
     println!("running: bindgen {}", args.join(" "));
-    windows_bindgen::bindgen(args).unwrap();
+    windows_bindgen::bindgen(args);
 }

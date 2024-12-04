@@ -5,11 +5,12 @@
     dead_code,
     clippy::all
 )]
+
 windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
+windows_targets::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const GUID, punkouter : * mut core::ffi::c_void, dwclscontext : CLSCTX, riid : *const GUID, ppv : *mut *mut core::ffi::c_void) -> HRESULT);
 windows_targets::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const SECURITY_ATTRIBUTES, bmanualreset : BOOL, binitialstate : BOOL, lpname : PCWSTR) -> HANDLE);
 windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : HANDLE) -> BOOL);
 windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HANDLE, dwmilliseconds : u32) -> WAIT_EVENT);
-windows_targets::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const GUID, punkouter : * mut core::ffi::c_void, dwclscontext : CLSCTX, riid : *const GUID, ppv : *mut *mut core::ffi::c_void) -> HRESULT);
 windows_targets::link!("user32.dll" "cdecl" fn wsprintfA(param0 : PSTR, param1 : PCSTR, ...) -> i32);
 pub type BOOL = i32;
 pub type CLSCTX = u32;
@@ -34,6 +35,17 @@ impl GUID {
 }
 pub type HANDLE = *mut core::ffi::c_void;
 pub type HRESULT = i32;
+pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IUnknown_Vtbl {
+    pub QueryInterface: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        iid: *const GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> HRESULT,
+    pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+    pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+}
 pub type PCSTR = *const u8;
 pub type PCWSTR = *const u16;
 pub type PSTR = *mut u8;

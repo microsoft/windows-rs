@@ -70,6 +70,9 @@ windows_targets::link!("sensorsutilsv2.dll" "system" fn PropertiesListGetFillabl
 windows_targets::link!("sensorsutilsv2.dll" "system" fn SensorCollectionGetAt(index : u32, psensorslist : *const SENSOR_COLLECTION_LIST, pkey : *mut super::super::Foundation:: PROPERTYKEY, pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferAllocate(sizeinbytes : u32, pbuffer : *mut *mut u8) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferFree(buffer : *const u8));
+pub type ACTIVITY_STATE = i32;
+pub type ACTIVITY_STATE_COUNT = i32;
+pub type AXIS = i32;
 pub const AXIS_MAX: AXIS = 3i32;
 pub const AXIS_X: AXIS = 0i32;
 pub const AXIS_Y: AXIS = 1i32;
@@ -85,6 +88,7 @@ pub const ActivityState_Running: ACTIVITY_STATE = 16i32;
 pub const ActivityState_Stationary: ACTIVITY_STATE = 2i32;
 pub const ActivityState_Unknown: ACTIVITY_STATE = 1i32;
 pub const ActivityState_Walking: ACTIVITY_STATE = 8i32;
+pub type ELEVATION_CHANGE_MODE = i32;
 pub const ElevationChangeMode_Elevator: ELEVATION_CHANGE_MODE = 1i32;
 pub const ElevationChangeMode_Force_Dword: ELEVATION_CHANGE_MODE = -1i32;
 pub const ElevationChangeMode_Max: ELEVATION_CHANGE_MODE = 3i32;
@@ -124,6 +128,8 @@ pub const GUID_SensorType_Proximity: windows_sys::core::GUID = windows_sys::core
 pub const GUID_SensorType_RelativeOrientation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x40993b51_4706_44dc_98d5_c920c037ffab);
 pub const GUID_SensorType_SimpleDeviceOrientation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86a19291_0482_402c_bf4c_addac52b1c39);
 pub const GUID_SensorType_Temperature: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x04fd0ec4_d5da_45fa_95a9_5db38ee19306);
+pub type HUMAN_PRESENCE_DETECTION_TYPE = i32;
+pub type HUMAN_PRESENCE_DETECTION_TYPE_COUNT = i32;
 pub const HumanPresenceDetectionTypeCount: HUMAN_PRESENCE_DETECTION_TYPE_COUNT = 4i32;
 pub const HumanPresenceDetectionType_AudioBiometric: HUMAN_PRESENCE_DETECTION_TYPE = 8i32;
 pub const HumanPresenceDetectionType_FacialBiometric: HUMAN_PRESENCE_DETECTION_TYPE = 4i32;
@@ -131,21 +137,61 @@ pub const HumanPresenceDetectionType_Force_Dword: HUMAN_PRESENCE_DETECTION_TYPE 
 pub const HumanPresenceDetectionType_Undefined: HUMAN_PRESENCE_DETECTION_TYPE = 0i32;
 pub const HumanPresenceDetectionType_VendorDefinedBiometric: HUMAN_PRESENCE_DETECTION_TYPE = 2i32;
 pub const HumanPresenceDetectionType_VendorDefinedNonBiometric: HUMAN_PRESENCE_DETECTION_TYPE = 1i32;
+pub type LOCATION_DESIRED_ACCURACY = i32;
 pub const LOCATION_DESIRED_ACCURACY_DEFAULT: LOCATION_DESIRED_ACCURACY = 0i32;
 pub const LOCATION_DESIRED_ACCURACY_HIGH: LOCATION_DESIRED_ACCURACY = 1i32;
+pub type LOCATION_POSITION_SOURCE = i32;
 pub const LOCATION_POSITION_SOURCE_CELLULAR: LOCATION_POSITION_SOURCE = 0i32;
 pub const LOCATION_POSITION_SOURCE_IPADDRESS: LOCATION_POSITION_SOURCE = 3i32;
 pub const LOCATION_POSITION_SOURCE_SATELLITE: LOCATION_POSITION_SOURCE = 1i32;
 pub const LOCATION_POSITION_SOURCE_UNKNOWN: LOCATION_POSITION_SOURCE = 4i32;
 pub const LOCATION_POSITION_SOURCE_WIFI: LOCATION_POSITION_SOURCE = 2i32;
+pub type MAGNETOMETER_ACCURACY = i32;
 pub const MAGNETOMETER_ACCURACY_APPROXIMATE: MagnetometerAccuracy = 2i32;
 pub const MAGNETOMETER_ACCURACY_HIGH: MagnetometerAccuracy = 3i32;
 pub const MAGNETOMETER_ACCURACY_UNKNOWN: MagnetometerAccuracy = 0i32;
 pub const MAGNETOMETER_ACCURACY_UNRELIABLE: MagnetometerAccuracy = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MATRIX3X3 {
+    pub Anonymous: MATRIX3X3_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union MATRIX3X3_0 {
+    pub Anonymous1: MATRIX3X3_0_0,
+    pub Anonymous2: MATRIX3X3_0_1,
+    pub M: [f32; 9],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MATRIX3X3_0_0 {
+    pub A11: f32,
+    pub A12: f32,
+    pub A13: f32,
+    pub A21: f32,
+    pub A22: f32,
+    pub A23: f32,
+    pub A31: f32,
+    pub A32: f32,
+    pub A33: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MATRIX3X3_0_1 {
+    pub V1: VEC3D,
+    pub V2: VEC3D,
+    pub V3: VEC3D,
+}
+pub type MagnetometerAccuracy = i32;
 pub const MagnetometerAccuracy_Approximate: MAGNETOMETER_ACCURACY = 2i32;
 pub const MagnetometerAccuracy_High: MAGNETOMETER_ACCURACY = 3i32;
 pub const MagnetometerAccuracy_Unknown: MAGNETOMETER_ACCURACY = 0i32;
 pub const MagnetometerAccuracy_Unreliable: MAGNETOMETER_ACCURACY = 1i32;
+pub type PEDOMETER_STEP_TYPE = i32;
+pub type PEDOMETER_STEP_TYPE_COUNT = i32;
+pub type PROXIMITY_SENSOR_CAPABILITIES = i32;
+pub type PROXIMITY_TYPE = i32;
 pub const PedometerStepTypeCount: PEDOMETER_STEP_TYPE_COUNT = 3i32;
 pub const PedometerStepType_Force_Dword: PEDOMETER_STEP_TYPE = -1i32;
 pub const PedometerStepType_Max: PEDOMETER_STEP_TYPE = 8i32;
@@ -158,6 +204,14 @@ pub const ProximityType_ObjectProximity: PROXIMITY_TYPE = 0i32;
 pub const Proximity_Sensor_Human_Engagement_Capable: PROXIMITY_SENSOR_CAPABILITIES = 2i32;
 pub const Proximity_Sensor_Human_Presence_Capable: PROXIMITY_SENSOR_CAPABILITIES = 1i32;
 pub const Proximity_Sensor_Supported_Capabilities: PROXIMITY_SENSOR_CAPABILITIES = 3i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QUATERNION {
+    pub X: f32,
+    pub Y: f32,
+    pub Z: f32,
+    pub W: f32,
+}
 pub const SENSOR_CATEGORY_ALL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc317c286_c468_4288_9975_d4c4587c442c);
 pub const SENSOR_CATEGORY_BIOMETRIC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xca19690f_a2c7_477d_a99e_99ec6e2b5648);
 pub const SENSOR_CATEGORY_ELECTRICAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb73fcd8_fc4a_483c_ac58_27b691c6beff);
@@ -170,6 +224,15 @@ pub const SENSOR_CATEGORY_ORIENTATION: windows_sys::core::GUID = windows_sys::co
 pub const SENSOR_CATEGORY_OTHER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c90e7a9_f4c9_4fa2_af37_56d471fe5a3d);
 pub const SENSOR_CATEGORY_SCANNER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb000e77e_f5b5_420f_815d_0270a726f270);
 pub const SENSOR_CATEGORY_UNSUPPORTED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2beae7fa_19b0_48c5_a1f6_b5480dc206b0);
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct SENSOR_COLLECTION_LIST {
+    pub AllocatedSizeInBytes: u32,
+    pub Count: u32,
+    pub List: [SENSOR_VALUE_PAIR; 1],
+}
+pub type SENSOR_CONNECTION_TYPES = i32;
 pub const SENSOR_CONNECTION_TYPE_PC_ATTACHED: SensorConnectionType = 1i32;
 pub const SENSOR_CONNECTION_TYPE_PC_EXTERNAL: SensorConnectionType = 2i32;
 pub const SENSOR_CONNECTION_TYPE_PC_INTEGRATED: SensorConnectionType = 0i32;
@@ -334,6 +397,13 @@ pub const SENSOR_PROPERTY_DEVICE_PATH: super::super::Foundation::PROPERTYKEY = s
 pub const SENSOR_PROPERTY_FRIENDLY_NAME: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 9 };
 pub const SENSOR_PROPERTY_HID_USAGE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 22 };
 pub const SENSOR_PROPERTY_LIGHT_RESPONSE_CURVE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 16 };
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SENSOR_PROPERTY_LIST {
+    pub AllocatedSizeInBytes: u32,
+    pub Count: u32,
+    pub List: [super::super::Foundation::PROPERTYKEY; 1],
+}
 pub const SENSOR_PROPERTY_LIST_HEADER_SIZE: u32 = 8u32;
 pub const SENSOR_PROPERTY_LOCATION_DESIRED_ACCURACY: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 19 };
 pub const SENSOR_PROPERTY_MANUFACTURER: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 6 };
@@ -350,6 +420,7 @@ pub const SENSOR_PROPERTY_STATE: super::super::Foundation::PROPERTYKEY = super::
 pub const SENSOR_PROPERTY_TEST_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe1e962f4_6e65_45f7_9c36_d487b7b1bd34);
 pub const SENSOR_PROPERTY_TURN_ON_OFF_NMEA: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xe1e962f4_6e65_45f7_9c36_d487b7b1bd34), pid: 3 };
 pub const SENSOR_PROPERTY_TYPE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 2 };
+pub type SENSOR_STATE = i32;
 pub const SENSOR_STATE_ACCESS_DENIED: SensorState = 4i32;
 pub const SENSOR_STATE_ERROR: SensorState = 5i32;
 pub const SENSOR_STATE_INITIALIZING: SensorState = 3i32;
@@ -413,100 +484,6 @@ pub const SENSOR_TYPE_STRAIN: windows_sys::core::GUID = windows_sys::core::GUID:
 pub const SENSOR_TYPE_TOUCH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17db3018_06c4_4f7d_81af_9274b7599c27);
 pub const SENSOR_TYPE_UNKNOWN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x10ba83e3_ef4f_41ed_9885_a87d6435a8e1);
 pub const SENSOR_TYPE_VOLTAGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc5484637_4fb7_4953_98b8_a56d8aa1fb1e);
-pub const SIMPLE_DEVICE_ORIENTATION_NOT_ROTATED: SimpleDeviceOrientation = 0i32;
-pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_180: SimpleDeviceOrientation = 2i32;
-pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_270: SimpleDeviceOrientation = 3i32;
-pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_90: SimpleDeviceOrientation = 1i32;
-pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_DOWN: SimpleDeviceOrientation = 5i32;
-pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_UP: SimpleDeviceOrientation = 4i32;
-pub const SensorConnectionType_Attached: SENSOR_CONNECTION_TYPES = 1i32;
-pub const SensorConnectionType_External: SENSOR_CONNECTION_TYPES = 2i32;
-pub const SensorConnectionType_Integrated: SENSOR_CONNECTION_TYPES = 0i32;
-pub const SensorState_Active: SENSOR_STATE = 2i32;
-pub const SensorState_Error: SENSOR_STATE = 3i32;
-pub const SensorState_Idle: SENSOR_STATE = 1i32;
-pub const SensorState_Initializing: SENSOR_STATE = 0i32;
-pub const SimpleDeviceOrientation_Facedown: SIMPLE_DEVICE_ORIENTATION = 5i32;
-pub const SimpleDeviceOrientation_Faceup: SIMPLE_DEVICE_ORIENTATION = 4i32;
-pub const SimpleDeviceOrientation_NotRotated: SIMPLE_DEVICE_ORIENTATION = 0i32;
-pub const SimpleDeviceOrientation_Rotated180DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 2i32;
-pub const SimpleDeviceOrientation_Rotated270DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 3i32;
-pub const SimpleDeviceOrientation_Rotated90DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 1i32;
-pub type ACTIVITY_STATE = i32;
-pub type ACTIVITY_STATE_COUNT = i32;
-pub type AXIS = i32;
-pub type ELEVATION_CHANGE_MODE = i32;
-pub type HUMAN_PRESENCE_DETECTION_TYPE = i32;
-pub type HUMAN_PRESENCE_DETECTION_TYPE_COUNT = i32;
-pub type LOCATION_DESIRED_ACCURACY = i32;
-pub type LOCATION_POSITION_SOURCE = i32;
-pub type MAGNETOMETER_ACCURACY = i32;
-pub type MagnetometerAccuracy = i32;
-pub type PEDOMETER_STEP_TYPE = i32;
-pub type PEDOMETER_STEP_TYPE_COUNT = i32;
-pub type PROXIMITY_SENSOR_CAPABILITIES = i32;
-pub type PROXIMITY_TYPE = i32;
-pub type SENSOR_CONNECTION_TYPES = i32;
-pub type SENSOR_STATE = i32;
-pub type SIMPLE_DEVICE_ORIENTATION = i32;
-pub type SensorConnectionType = i32;
-pub type SensorState = i32;
-pub type SimpleDeviceOrientation = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MATRIX3X3 {
-    pub Anonymous: MATRIX3X3_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union MATRIX3X3_0 {
-    pub Anonymous1: MATRIX3X3_0_0,
-    pub Anonymous2: MATRIX3X3_0_1,
-    pub M: [f32; 9],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MATRIX3X3_0_0 {
-    pub A11: f32,
-    pub A12: f32,
-    pub A13: f32,
-    pub A21: f32,
-    pub A22: f32,
-    pub A23: f32,
-    pub A31: f32,
-    pub A32: f32,
-    pub A33: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MATRIX3X3_0_1 {
-    pub V1: VEC3D,
-    pub V2: VEC3D,
-    pub V3: VEC3D,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QUATERNION {
-    pub X: f32,
-    pub Y: f32,
-    pub Z: f32,
-    pub W: f32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct SENSOR_COLLECTION_LIST {
-    pub AllocatedSizeInBytes: u32,
-    pub Count: u32,
-    pub List: [SENSOR_VALUE_PAIR; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SENSOR_PROPERTY_LIST {
-    pub AllocatedSizeInBytes: u32,
-    pub Count: u32,
-    pub List: [super::super::Foundation::PROPERTYKEY; 1],
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -514,10 +491,33 @@ pub struct SENSOR_VALUE_PAIR {
     pub Key: super::super::Foundation::PROPERTYKEY,
     pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
 }
+pub type SIMPLE_DEVICE_ORIENTATION = i32;
+pub const SIMPLE_DEVICE_ORIENTATION_NOT_ROTATED: SimpleDeviceOrientation = 0i32;
+pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_180: SimpleDeviceOrientation = 2i32;
+pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_270: SimpleDeviceOrientation = 3i32;
+pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_90: SimpleDeviceOrientation = 1i32;
+pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_DOWN: SimpleDeviceOrientation = 5i32;
+pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_UP: SimpleDeviceOrientation = 4i32;
 pub const Sensor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe97ced00_523a_4133_bf6f_d3a2dae7f6ba);
 pub const SensorCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x79c43adb_a429_469f_aa39_2f2b74b75937);
+pub type SensorConnectionType = i32;
+pub const SensorConnectionType_Attached: SENSOR_CONNECTION_TYPES = 1i32;
+pub const SensorConnectionType_External: SENSOR_CONNECTION_TYPES = 2i32;
+pub const SensorConnectionType_Integrated: SENSOR_CONNECTION_TYPES = 0i32;
 pub const SensorDataReport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
 pub const SensorManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
+pub type SensorState = i32;
+pub const SensorState_Active: SENSOR_STATE = 2i32;
+pub const SensorState_Error: SENSOR_STATE = 3i32;
+pub const SensorState_Idle: SENSOR_STATE = 1i32;
+pub const SensorState_Initializing: SENSOR_STATE = 0i32;
+pub type SimpleDeviceOrientation = i32;
+pub const SimpleDeviceOrientation_Facedown: SIMPLE_DEVICE_ORIENTATION = 5i32;
+pub const SimpleDeviceOrientation_Faceup: SIMPLE_DEVICE_ORIENTATION = 4i32;
+pub const SimpleDeviceOrientation_NotRotated: SIMPLE_DEVICE_ORIENTATION = 0i32;
+pub const SimpleDeviceOrientation_Rotated180DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 2i32;
+pub const SimpleDeviceOrientation_Rotated270DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 3i32;
+pub const SimpleDeviceOrientation_Rotated90DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VEC3D {

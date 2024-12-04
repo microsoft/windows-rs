@@ -155,6 +155,7 @@ windows_targets::link!("mscms.dll" "system" fn WcsTranslateColors(hcolortransfor
 pub const ATTRIB_MATTE: u32 = 2u32;
 pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
 pub const BEST_MODE: u32 = 3u32;
+pub type BMFORMAT = i32;
 pub const BM_10b_G3CH: BMFORMAT = 1028i32;
 pub const BM_10b_Lab: BMFORMAT = 1027i32;
 pub const BM_10b_RGB: BMFORMAT = 9i32;
@@ -196,6 +197,12 @@ pub const BM_x555Yxy: BMFORMAT = 258i32;
 pub const BM_xBGRQUADS: BMFORMAT = 16i32;
 pub const BM_xG3CHQUADS: BMFORMAT = 772i32;
 pub const BM_xRGBQUADS: BMFORMAT = 8i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BlackInformation {
+    pub fBlackOnly: super::super::Foundation::BOOL,
+    pub blackWeight: f32,
+}
 pub const CATID_WcsPlugin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
 pub const CMM_DESCRIPTION: u32 = 5u32;
 pub const CMM_DLL_VERSION: u32 = 3u32;
@@ -222,130 +229,6 @@ pub const CMS_TARGETOVERFLOW: i32 = 536870912i32;
 pub const CMS_USEAPPLYCALLBACK: u32 = 256u32;
 pub const CMS_USEDESCRIPTION: u32 = 512u32;
 pub const CMS_USEHOOK: u32 = 128u32;
-pub const COLOR_10b_R10G10B10A2: COLORDATATYPE = 5i32;
-pub const COLOR_10b_R10G10B10A2_XR: COLORDATATYPE = 6i32;
-pub const COLOR_3_CHANNEL: COLORTYPE = 6i32;
-pub const COLOR_5_CHANNEL: COLORTYPE = 8i32;
-pub const COLOR_6_CHANNEL: COLORTYPE = 9i32;
-pub const COLOR_7_CHANNEL: COLORTYPE = 10i32;
-pub const COLOR_8_CHANNEL: COLORTYPE = 11i32;
-pub const COLOR_BYTE: COLORDATATYPE = 1i32;
-pub const COLOR_CMYK: COLORTYPE = 7i32;
-pub const COLOR_FLOAT: COLORDATATYPE = 3i32;
-pub const COLOR_FLOAT16: COLORDATATYPE = 7i32;
-pub const COLOR_GRAY: COLORTYPE = 1i32;
-pub const COLOR_Lab: COLORTYPE = 5i32;
-pub const COLOR_MATCH_VERSION: u32 = 512u32;
-pub const COLOR_NAMED: COLORTYPE = 12i32;
-pub const COLOR_RGB: COLORTYPE = 2i32;
-pub const COLOR_S2DOT13FIXED: COLORDATATYPE = 4i32;
-pub const COLOR_WORD: COLORDATATYPE = 2i32;
-pub const COLOR_XYZ: COLORTYPE = 3i32;
-pub const COLOR_Yxy: COLORTYPE = 4i32;
-pub const CPST_ABSOLUTE_COLORIMETRIC: COLORPROFILESUBTYPE = 3i32;
-pub const CPST_CUSTOM_WORKING_SPACE: COLORPROFILESUBTYPE = 6i32;
-pub const CPST_EXTENDED_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = 8i32;
-pub const CPST_NONE: COLORPROFILESUBTYPE = 4i32;
-pub const CPST_PERCEPTUAL: COLORPROFILESUBTYPE = 0i32;
-pub const CPST_RELATIVE_COLORIMETRIC: COLORPROFILESUBTYPE = 1i32;
-pub const CPST_RGB_WORKING_SPACE: COLORPROFILESUBTYPE = 5i32;
-pub const CPST_SATURATION: COLORPROFILESUBTYPE = 2i32;
-pub const CPST_STANDARD_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = 7i32;
-pub const CPT_CAMP: COLORPROFILETYPE = 2i32;
-pub const CPT_DMP: COLORPROFILETYPE = 1i32;
-pub const CPT_GMMP: COLORPROFILETYPE = 3i32;
-pub const CPT_ICC: COLORPROFILETYPE = 0i32;
-pub const CSA_A: u32 = 1u32;
-pub const CSA_ABC: u32 = 2u32;
-pub const CSA_CMYK: u32 = 7u32;
-pub const CSA_DEF: u32 = 3u32;
-pub const CSA_DEFG: u32 = 4u32;
-pub const CSA_GRAY: u32 = 5u32;
-pub const CSA_Lab: u32 = 8u32;
-pub const CSA_RGB: u32 = 6u32;
-pub const CS_DELETE_TRANSFORM: COLOR_MATCH_TO_TARGET_ACTION = 3u32;
-pub const CS_DISABLE: COLOR_MATCH_TO_TARGET_ACTION = 2u32;
-pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = 1u32;
-pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1i32;
-pub const ENABLE_GAMUT_CHECKING: u32 = 65536u32;
-pub const ENUM_TYPE_VERSION: u32 = 768u32;
-pub const ET_ATTRIBUTES: u32 = 8192u32;
-pub const ET_CLASS: u32 = 32u32;
-pub const ET_CMMTYPE: u32 = 16u32;
-pub const ET_CONNECTIONSPACE: u32 = 128u32;
-pub const ET_CREATOR: u32 = 32768u32;
-pub const ET_DATACOLORSPACE: u32 = 64u32;
-pub const ET_DEVICECLASS: u32 = 65536u32;
-pub const ET_DEVICENAME: u32 = 1u32;
-pub const ET_DITHERMODE: u32 = 4u32;
-pub const ET_EXTENDEDDISPLAYCOLOR: u32 = 262144u32;
-pub const ET_MANUFACTURER: u32 = 2048u32;
-pub const ET_MEDIATYPE: u32 = 2u32;
-pub const ET_MODEL: u32 = 4096u32;
-pub const ET_PLATFORM: u32 = 512u32;
-pub const ET_PROFILEFLAGS: u32 = 1024u32;
-pub const ET_RENDERINGINTENT: u32 = 16384u32;
-pub const ET_RESOLUTION: u32 = 8u32;
-pub const ET_SIGNATURE: u32 = 256u32;
-pub const ET_STANDARDDISPLAYCOLOR: u32 = 131072u32;
-pub const FAST_TRANSLATE: u32 = 262144u32;
-pub const FLAG_DEPENDENTONDATA: u32 = 2u32;
-pub const FLAG_EMBEDDEDPROFILE: u32 = 1u32;
-pub const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432u32;
-pub const ICM_ADDPROFILE: ICM_COMMAND = 1u32;
-pub const ICM_DELETEPROFILE: ICM_COMMAND = 2u32;
-pub const ICM_DONE_OUTSIDEDC: ICM_MODE = 4i32;
-pub const ICM_OFF: ICM_MODE = 1i32;
-pub const ICM_ON: ICM_MODE = 2i32;
-pub const ICM_QUERY: ICM_MODE = 3i32;
-pub const ICM_QUERYMATCH: ICM_COMMAND = 7u32;
-pub const ICM_QUERYPROFILE: ICM_COMMAND = 3u32;
-pub const ICM_REGISTERICMATCHER: ICM_COMMAND = 5u32;
-pub const ICM_SETDEFAULTPROFILE: ICM_COMMAND = 4u32;
-pub const ICM_UNREGISTERICMATCHER: ICM_COMMAND = 6u32;
-pub const INDEX_DONT_CARE: u32 = 0u32;
-pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3u32;
-pub const INTENT_PERCEPTUAL: u32 = 0u32;
-pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1u32;
-pub const INTENT_SATURATION: u32 = 2u32;
-pub const LCS_CALIBRATED_RGB: LCSCSTYPE = 0i32;
-pub const LCS_WINDOWS_COLOR_SPACE: LCSCSTYPE = 1466527264i32;
-pub const LCS_sRGB: LCSCSTYPE = 1934772034i32;
-pub const MAX_COLOR_CHANNELS: u32 = 8u32;
-pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = 2i32;
-pub const NORMAL_MODE: u32 = 2u32;
-pub const PRESERVEBLACK: u32 = 1048576u32;
-pub const PROFILE_FILENAME: u32 = 1u32;
-pub const PROFILE_MEMBUFFER: u32 = 2u32;
-pub const PROFILE_READ: u32 = 1u32;
-pub const PROFILE_READWRITE: u32 = 2u32;
-pub const PROOF_MODE: u32 = 1u32;
-pub const RESERVED: u32 = 2147483648u32;
-pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
-pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
-pub const VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = 1i32;
-pub const WCS_ALWAYS: u32 = 2097152u32;
-pub const WCS_DEFAULT: i32 = 0i32;
-pub const WCS_ICCONLY: i32 = 65536i32;
-pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = 1i32;
-pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = 0i32;
-pub type BMFORMAT = i32;
-pub type COLORDATATYPE = i32;
-pub type COLORPROFILESUBTYPE = i32;
-pub type COLORPROFILETYPE = i32;
-pub type COLORTYPE = i32;
-pub type COLOR_MATCH_TO_TARGET_ACTION = u32;
-pub type ICM_COMMAND = u32;
-pub type ICM_MODE = i32;
-pub type LCSCSTYPE = i32;
-pub type WCS_DEVICE_CAPABILITIES_TYPE = i32;
-pub type WCS_PROFILE_MANAGEMENT_SCOPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BlackInformation {
-    pub fBlackOnly: super::super::Foundation::BOOL,
-    pub blackWeight: f32,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CMYKCOLOR {
@@ -374,6 +257,7 @@ pub struct COLOR_0 {
     pub reserved1: u32,
     pub reserved2: *mut core::ffi::c_void,
 }
+pub type COLORDATATYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -422,6 +306,55 @@ pub struct COLORMATCHSETUPW {
     pub lpfnApplyCallback: PCMSCALLBACKW,
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
+pub type COLORPROFILESUBTYPE = i32;
+pub type COLORPROFILETYPE = i32;
+pub type COLORTYPE = i32;
+pub const COLOR_10b_R10G10B10A2: COLORDATATYPE = 5i32;
+pub const COLOR_10b_R10G10B10A2_XR: COLORDATATYPE = 6i32;
+pub const COLOR_3_CHANNEL: COLORTYPE = 6i32;
+pub const COLOR_5_CHANNEL: COLORTYPE = 8i32;
+pub const COLOR_6_CHANNEL: COLORTYPE = 9i32;
+pub const COLOR_7_CHANNEL: COLORTYPE = 10i32;
+pub const COLOR_8_CHANNEL: COLORTYPE = 11i32;
+pub const COLOR_BYTE: COLORDATATYPE = 1i32;
+pub const COLOR_CMYK: COLORTYPE = 7i32;
+pub const COLOR_FLOAT: COLORDATATYPE = 3i32;
+pub const COLOR_FLOAT16: COLORDATATYPE = 7i32;
+pub const COLOR_GRAY: COLORTYPE = 1i32;
+pub const COLOR_Lab: COLORTYPE = 5i32;
+pub type COLOR_MATCH_TO_TARGET_ACTION = u32;
+pub const COLOR_MATCH_VERSION: u32 = 512u32;
+pub const COLOR_NAMED: COLORTYPE = 12i32;
+pub const COLOR_RGB: COLORTYPE = 2i32;
+pub const COLOR_S2DOT13FIXED: COLORDATATYPE = 4i32;
+pub const COLOR_WORD: COLORDATATYPE = 2i32;
+pub const COLOR_XYZ: COLORTYPE = 3i32;
+pub const COLOR_Yxy: COLORTYPE = 4i32;
+pub const CPST_ABSOLUTE_COLORIMETRIC: COLORPROFILESUBTYPE = 3i32;
+pub const CPST_CUSTOM_WORKING_SPACE: COLORPROFILESUBTYPE = 6i32;
+pub const CPST_EXTENDED_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = 8i32;
+pub const CPST_NONE: COLORPROFILESUBTYPE = 4i32;
+pub const CPST_PERCEPTUAL: COLORPROFILESUBTYPE = 0i32;
+pub const CPST_RELATIVE_COLORIMETRIC: COLORPROFILESUBTYPE = 1i32;
+pub const CPST_RGB_WORKING_SPACE: COLORPROFILESUBTYPE = 5i32;
+pub const CPST_SATURATION: COLORPROFILESUBTYPE = 2i32;
+pub const CPST_STANDARD_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = 7i32;
+pub const CPT_CAMP: COLORPROFILETYPE = 2i32;
+pub const CPT_DMP: COLORPROFILETYPE = 1i32;
+pub const CPT_GMMP: COLORPROFILETYPE = 3i32;
+pub const CPT_ICC: COLORPROFILETYPE = 0i32;
+pub const CSA_A: u32 = 1u32;
+pub const CSA_ABC: u32 = 2u32;
+pub const CSA_CMYK: u32 = 7u32;
+pub const CSA_DEF: u32 = 3u32;
+pub const CSA_DEFG: u32 = 4u32;
+pub const CSA_GRAY: u32 = 5u32;
+pub const CSA_Lab: u32 = 8u32;
+pub const CSA_RGB: u32 = 6u32;
+pub const CS_DELETE_TRANSFORM: COLOR_MATCH_TO_TARGET_ACTION = 3u32;
+pub const CS_DISABLE: COLOR_MATCH_TO_TARGET_ACTION = 2u32;
+pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = 1u32;
+pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -441,6 +374,7 @@ pub struct EMRCREATECOLORSPACEW {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
+pub const ENABLE_GAMUT_CHECKING: u32 = 65536u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ENUMTYPEA {
@@ -489,6 +423,30 @@ pub struct ENUMTYPEW {
     pub dwCreator: u32,
     pub dwDeviceClass: u32,
 }
+pub const ENUM_TYPE_VERSION: u32 = 768u32;
+pub const ET_ATTRIBUTES: u32 = 8192u32;
+pub const ET_CLASS: u32 = 32u32;
+pub const ET_CMMTYPE: u32 = 16u32;
+pub const ET_CONNECTIONSPACE: u32 = 128u32;
+pub const ET_CREATOR: u32 = 32768u32;
+pub const ET_DATACOLORSPACE: u32 = 64u32;
+pub const ET_DEVICECLASS: u32 = 65536u32;
+pub const ET_DEVICENAME: u32 = 1u32;
+pub const ET_DITHERMODE: u32 = 4u32;
+pub const ET_EXTENDEDDISPLAYCOLOR: u32 = 262144u32;
+pub const ET_MANUFACTURER: u32 = 2048u32;
+pub const ET_MEDIATYPE: u32 = 2u32;
+pub const ET_MODEL: u32 = 4096u32;
+pub const ET_PLATFORM: u32 = 512u32;
+pub const ET_PROFILEFLAGS: u32 = 1024u32;
+pub const ET_RENDERINGINTENT: u32 = 16384u32;
+pub const ET_RESOLUTION: u32 = 8u32;
+pub const ET_SIGNATURE: u32 = 256u32;
+pub const ET_STANDARDDISPLAYCOLOR: u32 = 131072u32;
+pub const FAST_TRANSLATE: u32 = 262144u32;
+pub const FLAG_DEPENDENTONDATA: u32 = 2u32;
+pub const FLAG_EMBEDDEDPROFILE: u32 = 1u32;
+pub const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GENERIC3CHANNEL {
@@ -532,6 +490,26 @@ pub type HCOLORSPACE = *mut core::ffi::c_void;
 pub struct HiFiCOLOR {
     pub channel: [u8; 8],
 }
+pub type ICMENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> i32>;
+pub type ICMENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> i32>;
+pub const ICM_ADDPROFILE: ICM_COMMAND = 1u32;
+pub type ICM_COMMAND = u32;
+pub const ICM_DELETEPROFILE: ICM_COMMAND = 2u32;
+pub const ICM_DONE_OUTSIDEDC: ICM_MODE = 4i32;
+pub type ICM_MODE = i32;
+pub const ICM_OFF: ICM_MODE = 1i32;
+pub const ICM_ON: ICM_MODE = 2i32;
+pub const ICM_QUERY: ICM_MODE = 3i32;
+pub const ICM_QUERYMATCH: ICM_COMMAND = 7u32;
+pub const ICM_QUERYPROFILE: ICM_COMMAND = 3u32;
+pub const ICM_REGISTERICMATCHER: ICM_COMMAND = 5u32;
+pub const ICM_SETDEFAULTPROFILE: ICM_COMMAND = 4u32;
+pub const ICM_UNREGISTERICMATCHER: ICM_COMMAND = 6u32;
+pub const INDEX_DONT_CARE: u32 = 0u32;
+pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3u32;
+pub const INTENT_PERCEPTUAL: u32 = 0u32;
+pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1u32;
+pub const INTENT_SATURATION: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JChColorF {
@@ -546,6 +524,10 @@ pub struct JabColorF {
     pub a: f32,
     pub b: f32,
 }
+pub type LCSCSTYPE = i32;
+pub const LCS_CALIBRATED_RGB: LCSCSTYPE = 0i32;
+pub const LCS_WINDOWS_COLOR_SPACE: LCSCSTYPE = 1466527264i32;
+pub const LCS_sRGB: LCSCSTYPE = 1934772034i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -576,6 +558,7 @@ pub struct LOGCOLORSPACEW {
     pub lcsGammaBlue: u32,
     pub lcsFilename: [u16; 260],
 }
+pub type LPBMCALLBACKFN = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LabCOLOR {
@@ -583,6 +566,8 @@ pub struct LabCOLOR {
     pub a: u16,
     pub b: u16,
 }
+pub const MAX_COLOR_CHANNELS: u32 = 8u32;
+pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NAMEDCOLOR {
@@ -597,6 +582,12 @@ pub struct NAMED_PROFILE_INFO {
     pub szPrefix: [i8; 32],
     pub szSuffix: [i8; 32],
 }
+pub const NORMAL_MODE: u32 = 2u32;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type PCMSCALLBACKA = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPA, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type PCMSCALLBACKW = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub const PRESERVEBLACK: u32 = 1048576u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROFILE {
@@ -626,6 +617,11 @@ pub struct PROFILEHEADER {
     pub phCreator: u32,
     pub phReserved: [u8; 44],
 }
+pub const PROFILE_FILENAME: u32 = 1u32;
+pub const PROFILE_MEMBUFFER: u32 = 2u32;
+pub const PROFILE_READ: u32 = 1u32;
+pub const PROFILE_READWRITE: u32 = 2u32;
+pub const PROOF_MODE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PrimaryJabColors {
@@ -650,6 +646,7 @@ pub struct PrimaryXYZColors {
     pub black: XYZColorF,
     pub white: XYZColorF,
 }
+pub const RESERVED: u32 = 2147483648u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RGBCOLOR {
@@ -657,6 +654,12 @@ pub struct RGBCOLOR {
     pub green: u16,
     pub blue: u16,
 }
+pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
+pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
+pub const VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = 1i32;
+pub const WCS_ALWAYS: u32 = 2097152u32;
+pub const WCS_DEFAULT: i32 = 0i32;
+pub type WCS_DEVICE_CAPABILITIES_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WCS_DEVICE_MHC2_CAPABILITIES {
@@ -672,6 +675,10 @@ pub struct WCS_DEVICE_VCGT_CAPABILITIES {
     pub Size: u32,
     pub SupportsVcgt: super::super::Foundation::BOOL,
 }
+pub const WCS_ICCONLY: i32 = 65536i32;
+pub type WCS_PROFILE_MANAGEMENT_SCOPE = i32;
+pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = 1i32;
+pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct XYZCOLOR {
@@ -693,10 +700,3 @@ pub struct YxyCOLOR {
     pub x: u16,
     pub y: u16,
 }
-pub type ICMENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> i32>;
-pub type ICMENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> i32>;
-pub type LPBMCALLBACKFN = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PCMSCALLBACKA = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPA, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PCMSCALLBACKW = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;

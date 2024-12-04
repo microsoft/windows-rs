@@ -20,20 +20,18 @@ fn main() {
         panic!("Failed to run midlrt");
     }
 
-    // TODO: this looks more complicated but soon the midlrt step above should disappear and then overall it should be simpler...
-
-    let command: Vec<String> = vec![
-        "--in".to_owned(),
-        "component.winmd".to_owned(),
-        metadata_dir.to_owned(),
-        "--out".to_owned(),
-        "src/bindings.rs".to_owned(),
-        "--filter".to_owned(),
-        "test_component".to_owned(),
-        "--config".to_owned(),
-        "implement".to_owned(),
-        "no-bindgen-comment".to_owned(),
-    ];
-
-    windows_bindgen::bindgen(&command).unwrap();
+    windows_bindgen::bindgen([
+        "--in",
+        "component.winmd",
+        &metadata_dir,
+        "--out",
+        "src/bindings.rs",
+        "--filter",
+        "test_component",
+        "--flat",
+        "--implement",
+        "--no-comment",
+        "--reference",
+        "windows,skip-root,Windows.Foundation",
+    ]);
 }

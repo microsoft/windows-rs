@@ -207,6 +207,7 @@ windows_targets::link!("dciman32.dll" "system" fn WinWatchNotify(hww : HWINWATCH
 windows_targets::link!("dciman32.dll" "system" fn WinWatchOpen(hwnd : super::super::Foundation:: HWND) -> HWINWATCH);
 windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteBuffer(host : *const windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, buffer : *const u8, buffersize : u32, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
 windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteFile(host : *const windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle : super::super::Foundation:: HANDLE, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteStream(host : *const windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, stream : * mut core::ffi::c_void, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
 windows_targets::link!("wldp.dll" "system" fn WldpGetLockdownPolicy(hostinformation : *const WLDP_HOST_INFORMATION, lockdownstate : *mut u32, lockdownflags : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("wldp.dll" "system" fn WldpIsClassInApprovedList(classid : *const windows_sys::core::GUID, hostinformation : *const WLDP_HOST_INFORMATION, isapproved : *mut super::super::Foundation:: BOOL, optionalflags : u32) -> windows_sys::core::HRESULT);
@@ -258,6 +259,35 @@ pub const ACTCTX_FLAG_PROCESSOR_ARCHITECTURE_VALID: u32 = 1u32;
 pub const ACTCTX_FLAG_RESOURCE_NAME_VALID: u32 = 8u32;
 pub const ACTCTX_FLAG_SET_PROCESS_DEFAULT: u32 = 16u32;
 pub const ACTCTX_FLAG_SOURCE_IS_ASSEMBLYREF: u32 = 64u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
+    pub cbSize: u32,
+    pub ulDataFormatVersion: u32,
+    pub lpData: *mut core::ffi::c_void,
+    pub ulLength: u32,
+    pub lpSectionGlobalData: *mut core::ffi::c_void,
+    pub ulSectionGlobalDataLength: u32,
+    pub lpSectionBase: *mut core::ffi::c_void,
+    pub ulSectionTotalLength: u32,
+    pub hActCtx: super::super::Foundation::HANDLE,
+    pub ulAssemblyRosterIndex: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
+    pub lpInformation: *mut core::ffi::c_void,
+    pub lpSectionBase: *mut core::ffi::c_void,
+    pub ulSectionLength: u32,
+    pub lpSectionGlobalDataBase: *mut core::ffi::c_void,
+    pub ulSectionGlobalDataLength: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTIVATION_CONTEXT_BASIC_INFORMATION {
+    pub hActCtx: super::super::Foundation::HANDLE,
+    pub dwFlags: u32,
+}
 pub const ACTIVATION_CONTEXT_BASIC_INFORMATION_DEFINED: u32 = 1u32;
 pub const AC_LINE_BACKUP_POWER: u32 = 2u32;
 pub const AC_LINE_OFFLINE: u32 = 0u32;
@@ -292,6 +322,7 @@ pub const ALINF_QUIET: u32 = 4u32;
 pub const ALINF_ROLLBACK: u32 = 64u32;
 pub const ALINF_ROLLBKDOALL: u32 = 256u32;
 pub const ALINF_UPDHLPDLLS: u32 = 16u32;
+pub type APPLICATION_RECOVERY_CALLBACK = Option<unsafe extern "system" fn(pvparameter: *mut core::ffi::c_void) -> u32>;
 pub const ARSR_NOMESSAGES: u32 = 8u32;
 pub const ARSR_REGSECTION: u32 = 128u32;
 pub const ARSR_REMOVREGBKDATA: u32 = 4096u32;
@@ -333,6 +364,24 @@ pub const BAUD_600: u32 = 32u32;
 pub const BAUD_7200: u32 = 1024u32;
 pub const BAUD_9600: u32 = 2048u32;
 pub const BAUD_USER: u32 = 268435456u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CABINFOA {
+    pub pszCab: windows_sys::core::PSTR,
+    pub pszInf: windows_sys::core::PSTR,
+    pub pszSection: windows_sys::core::PSTR,
+    pub szSrcPath: [i8; 260],
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CABINFOW {
+    pub pszCab: windows_sys::core::PWSTR,
+    pub pszInf: windows_sys::core::PWSTR,
+    pub pszSection: windows_sys::core::PWSTR,
+    pub szSrcPath: [u16; 260],
+    pub dwFlags: u32,
+}
 pub const CATID_DeleteBrowsingHistory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x31caf6e4_d6aa_4090_a050_a5ac8972e9ef);
 pub const CBR_110: u32 = 110u32;
 pub const CBR_115200: u32 = 115200u32;
@@ -355,6 +404,12 @@ pub const CE_MODE: u32 = 32768u32;
 pub const CE_OOP: u32 = 4096u32;
 pub const CE_PTO: u32 = 512u32;
 pub const CE_TXFULL: u32 = 256u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLIENT_ID {
+    pub UniqueProcess: super::super::Foundation::HANDLE,
+    pub UniqueThread: super::super::Foundation::HANDLE,
+}
 pub const CL_NL_ENTITY: TDIENTITY_ENTITY_TYPE = 769u32;
 pub const CL_NL_IP: u32 = 771u32;
 pub const CL_NL_IPX: u32 = 769u32;
@@ -390,11 +445,138 @@ pub const CP_OPEN: u32 = 1u32;
 pub const CREATE_FOR_DIR: u32 = 2u32;
 pub const CREATE_FOR_IMPORT: u32 = 1u32;
 pub const CRITICAL_SECTION_NO_DEBUG_INFO: u32 = 16777216u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
+    pub Size: u32,
+    pub TriggerId: windows_sys::core::PCWSTR,
+}
+pub const CameraUIControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct CameraUIControlCaptureMode(pub i32);
+impl CameraUIControlCaptureMode {
+    pub const PhotoOrVideo: Self = Self(0i32);
+    pub const Photo: Self = Self(1i32);
+    pub const Video: Self = Self(2i32);
+}
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct CameraUIControlLinearSelectionMode(pub i32);
+impl CameraUIControlLinearSelectionMode {
+    pub const Single: Self = Self(0i32);
+    pub const Multiple: Self = Self(1i32);
+}
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct CameraUIControlMode(pub i32);
+impl CameraUIControlMode {
+    pub const Browse: Self = Self(0i32);
+    pub const Linear: Self = Self(1i32);
+}
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct CameraUIControlPhotoFormat(pub i32);
+impl CameraUIControlPhotoFormat {
+    pub const Jpeg: Self = Self(0i32);
+    pub const Png: Self = Self(1i32);
+    pub const JpegXR: Self = Self(2i32);
+}
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct CameraUIControlVideoFormat(pub i32);
+impl CameraUIControlVideoFormat {
+    pub const Mp4: Self = Self(0i32);
+    pub const Wmv: Self = Self(1i32);
+}
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct CameraUIControlViewType(pub i32);
+impl CameraUIControlViewType {
+    pub const SingleItem: Self = Self(0i32);
+    pub const ItemList: Self = Self(1i32);
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DATETIME {
+    pub year: u16,
+    pub month: u16,
+    pub day: u16,
+    pub hour: u16,
+    pub min: u16,
+    pub sec: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCICMD {
+    pub dwCommand: u32,
+    pub dwParam1: u32,
+    pub dwParam2: u32,
+    pub dwVersion: u32,
+    pub dwReserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCICREATEINPUT {
+    pub cmd: DCICMD,
+    pub dwCompression: u32,
+    pub dwMask: [u32; 3],
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub dwDCICaps: u32,
+    pub dwBitCount: u32,
+    pub lpSurface: *mut core::ffi::c_void,
+}
 pub const DCICREATEOFFSCREENSURFACE: u32 = 2u32;
 pub const DCICREATEOVERLAYSURFACE: u32 = 3u32;
 pub const DCICREATEPRIMARYSURFACE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCIENUMINPUT {
+    pub cmd: DCICMD,
+    pub rSrc: super::super::Foundation::RECT,
+    pub rDst: super::super::Foundation::RECT,
+    pub EnumCallback: isize,
+    pub lpContext: *mut core::ffi::c_void,
+}
 pub const DCIENUMSURFACE: u32 = 4u32;
 pub const DCIESCAPE: u32 = 5u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCIOFFSCREEN {
+    pub dciInfo: DCISURFACEINFO,
+    pub Draw: isize,
+    pub SetClipList: isize,
+    pub SetDestination: isize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCIOVERLAY {
+    pub dciInfo: DCISURFACEINFO,
+    pub dwChromakeyValue: u32,
+    pub dwChromakeyMask: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCISURFACEINFO {
+    pub dwSize: u32,
+    pub dwDCICaps: u32,
+    pub dwCompression: u32,
+    pub dwMask: [u32; 3],
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub lStride: i32,
+    pub dwBitCount: u32,
+    pub dwOffSurface: usize,
+    pub wSelSurface: u16,
+    pub wReserved: u16,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub dwReserved3: u32,
+    pub BeginAccess: isize,
+    pub EndAccess: isize,
+    pub DestroySurface: isize,
+}
 pub const DCI_1632_ACCESS: u32 = 64u32;
 pub const DCI_ASYNC: u32 = 1024u32;
 pub const DCI_CANOVERLAY: u32 = 65536u32;
@@ -441,6 +623,7 @@ pub const DCI_VERSION: u32 = 256u32;
 pub const DCI_VISIBLE: u32 = 16u32;
 pub const DCI_WRITEONLY: u32 = 512u32;
 pub const DEACTIVATE_ACTCTX_FLAG_FORCE_EARLY_DEACTIVATION: u32 = 1u32;
+pub type DECISION_LOCATION = i32;
 pub const DECISION_LOCATION_AUDIT: DECISION_LOCATION = 2i32;
 pub const DECISION_LOCATION_ENFORCE_STATE_LIST: DECISION_LOCATION = 7i32;
 pub const DECISION_LOCATION_ENTERPRISE_DEFINED_CLASS_ID: DECISION_LOCATION = 4i32;
@@ -452,6 +635,44 @@ pub const DECISION_LOCATION_PROVIDER_BUILT_IN_LIST: DECISION_LOCATION = 6i32;
 pub const DECISION_LOCATION_REFRESH_GLOBAL_DATA: DECISION_LOCATION = 0i32;
 pub const DECISION_LOCATION_UNKNOWN: DECISION_LOCATION = 9i32;
 pub const DELAYLOAD_GPA_FAILURE: u32 = 4u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DELAYLOAD_INFO {
+    pub Size: u32,
+    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
+    pub ThunkAddress: *mut IMAGE_THUNK_DATA32,
+    pub TargetDllName: windows_sys::core::PCSTR,
+    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
+    pub TargetModuleBase: *mut core::ffi::c_void,
+    pub Unused: *mut core::ffi::c_void,
+    pub LastError: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct DELAYLOAD_INFO {
+    pub Size: u32,
+    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
+    pub ThunkAddress: *mut IMAGE_THUNK_DATA64,
+    pub TargetDllName: windows_sys::core::PCSTR,
+    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
+    pub TargetModuleBase: *mut core::ffi::c_void,
+    pub Unused: *mut core::ffi::c_void,
+    pub LastError: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DELAYLOAD_PROC_DESCRIPTOR {
+    pub ImportDescribedByName: u32,
+    pub Description: DELAYLOAD_PROC_DESCRIPTOR_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DELAYLOAD_PROC_DESCRIPTOR_0 {
+    pub Name: windows_sys::core::PCSTR,
+    pub Ordinal: u32,
+}
 pub const DELETE_BROWSING_HISTORY_COOKIES: u32 = 2u32;
 pub const DELETE_BROWSING_HISTORY_DOWNLOADHISTORY: u32 = 64u32;
 pub const DELETE_BROWSING_HISTORY_FORMDATA: u32 = 8u32;
@@ -472,24 +693,49 @@ pub const DRIVE_UNKNOWN: u32 = 0u32;
 pub const DTR_CONTROL_DISABLE: u32 = 0u32;
 pub const DTR_CONTROL_ENABLE: u32 = 1u32;
 pub const DTR_CONTROL_HANDSHAKE: u32 = 2u32;
+pub const DefaultBrowserSyncSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3ac83423_3112_4aa6_9b5b_1feb23d0c5f9);
 pub const EFSRPC_SECURE_ONLY: u32 = 8u32;
 pub const EFS_DROP_ALTERNATE_STREAMS: u32 = 16u32;
 pub const EFS_USE_RECOVERY_KEYS: u32 = 1u32;
 pub const ENTITY_LIST_ID: u32 = 0u32;
 pub const ENTITY_TYPE_ID: u32 = 1u32;
+pub type ENUM_CALLBACK = Option<unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut core::ffi::c_void)>;
 pub const ER_ENTITY: TDIENTITY_ENTITY_TYPE = 896u32;
 pub const ER_ICMP: u32 = 896u32;
 pub const EVENTLOG_FULL_INFO: u32 = 0u32;
+pub const EditionUpgradeBroker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
+pub const EditionUpgradeHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
 pub const EndpointIoControlType: TDI_TL_IO_CONTROL_TYPE = 0i32;
 pub const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1u32;
 pub const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2u32;
+pub type FEATURE_CHANGE_TIME = i32;
 pub const FEATURE_CHANGE_TIME_MODULE_RELOAD: FEATURE_CHANGE_TIME = 1i32;
 pub const FEATURE_CHANGE_TIME_READ: FEATURE_CHANGE_TIME = 0i32;
 pub const FEATURE_CHANGE_TIME_REBOOT: FEATURE_CHANGE_TIME = 3i32;
 pub const FEATURE_CHANGE_TIME_SESSION: FEATURE_CHANGE_TIME = 2i32;
+pub type FEATURE_ENABLED_STATE = i32;
 pub const FEATURE_ENABLED_STATE_DEFAULT: FEATURE_ENABLED_STATE = 0i32;
 pub const FEATURE_ENABLED_STATE_DISABLED: FEATURE_ENABLED_STATE = 1i32;
 pub const FEATURE_ENABLED_STATE_ENABLED: FEATURE_ENABLED_STATE = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FEATURE_ERROR {
+    pub hr: windows_sys::core::HRESULT,
+    pub lineNumber: u16,
+    pub file: windows_sys::core::PCSTR,
+    pub process: windows_sys::core::PCSTR,
+    pub module: windows_sys::core::PCSTR,
+    pub callerReturnAddressOffset: u32,
+    pub callerModule: windows_sys::core::PCSTR,
+    pub message: windows_sys::core::PCSTR,
+    pub originLineNumber: u16,
+    pub originFile: windows_sys::core::PCSTR,
+    pub originModule: windows_sys::core::PCSTR,
+    pub originCallerReturnAddressOffset: u32,
+    pub originCallerModule: windows_sys::core::PCSTR,
+    pub originName: windows_sys::core::PCSTR,
+}
+pub type FEATURE_STATE_CHANGE_SUBSCRIPTION = *mut core::ffi::c_void;
 pub const FIBER_FLAG_FLOAT_SWITCH: u32 = 1u32;
 pub const FILE_CREATED: u32 = 2u32;
 pub const FILE_DIR_DISALLOWED: u32 = 9u32;
@@ -559,7 +805,22 @@ pub const GMEM_VALID_FLAGS: u32 = 32626u32;
 pub const GetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = 2i32;
 pub const HANJA_WINDOW: u32 = 2u32;
 pub const HINSTANCE_ERROR: u32 = 32u32;
+pub type HWINWATCH = *mut core::ffi::c_void;
 pub const HW_PROFILE_GUIDLEN: u32 = 39u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HW_PROFILE_INFOA {
+    pub dwDockInfo: u32,
+    pub szHwProfileGuid: [i8; 39],
+    pub szHwProfileName: [i8; 80],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HW_PROFILE_INFOW {
+    pub dwDockInfo: u32,
+    pub szHwProfileGuid: [u16; 39],
+    pub szHwProfileName: [u16; 80],
+}
 pub const IE4_BACKNEW: u32 = 2u32;
 pub const IE4_EXTRAINCREFCNT: u32 = 2048u32;
 pub const IE4_FRDOALL: u32 = 256u32;
@@ -585,9 +846,90 @@ pub const IF_ENTITY: TDIENTITY_ENTITY_TYPE = 512u32;
 pub const IF_GENERIC: u32 = 512u32;
 pub const IF_MIB: u32 = 514u32;
 pub const IGNORE: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_DELAYLOAD_DESCRIPTOR {
+    pub Attributes: IMAGE_DELAYLOAD_DESCRIPTOR_0,
+    pub DllNameRVA: u32,
+    pub ModuleHandleRVA: u32,
+    pub ImportAddressTableRVA: u32,
+    pub ImportNameTableRVA: u32,
+    pub BoundImportAddressTableRVA: u32,
+    pub UnloadInformationTableRVA: u32,
+    pub TimeDateStamp: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_DELAYLOAD_DESCRIPTOR_0 {
+    pub AllAttributes: u32,
+    pub Anonymous: IMAGE_DELAYLOAD_DESCRIPTOR_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_THUNK_DATA32 {
+    pub u1: IMAGE_THUNK_DATA32_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_THUNK_DATA32_0 {
+    pub ForwarderString: u32,
+    pub Function: u32,
+    pub Ordinal: u32,
+    pub AddressOfData: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_THUNK_DATA64 {
+    pub u1: IMAGE_THUNK_DATA64_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_THUNK_DATA64_0 {
+    pub ForwarderString: u64,
+    pub Function: u64,
+    pub Ordinal: u64,
+    pub AddressOfData: u64,
+}
 pub const IMEA_INIT: u32 = 1u32;
 pub const IMEA_NEXT: u32 = 2u32;
 pub const IMEA_PREV: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMEPROA {
+    pub hWnd: super::super::Foundation::HWND,
+    pub InstDate: DATETIME,
+    pub wVersion: u32,
+    pub szDescription: [u8; 50],
+    pub szName: [u8; 80],
+    pub szOptions: [u8; 30],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMEPROW {
+    pub hWnd: super::super::Foundation::HWND,
+    pub InstDate: DATETIME,
+    pub wVersion: u32,
+    pub szDescription: [u16; 50],
+    pub szName: [u16; 80],
+    pub szOptions: [u16; 30],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMESTRUCT {
+    pub fnc: u32,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub wCount: u32,
+    pub dchSource: u32,
+    pub dchDest: u32,
+    pub lParam1: super::super::Foundation::LPARAM,
+    pub lParam2: super::super::Foundation::LPARAM,
+    pub lParam3: super::super::Foundation::LPARAM,
+}
 pub const IME_BANJAtoJUNJA: u32 = 19u32;
 pub const IME_ENABLE_CONVERT: u32 = 2u32;
 pub const IME_ENTERWORDREGISTERMODE: u32 = 24u32;
@@ -648,9 +990,58 @@ pub const IR_STRINGEND: u32 = 257u32;
 pub const IR_STRINGEX: u32 = 384u32;
 pub const IR_STRINGSTART: u32 = 256u32;
 pub const IR_UNDETERMINE: u32 = 368u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct JAVA_TRUST {
+    pub cbSize: u32,
+    pub flag: u32,
+    pub fAllActiveXPermissions: super::super::Foundation::BOOL,
+    pub fAllPermissions: super::super::Foundation::BOOL,
+    pub dwEncodingType: u32,
+    pub pbJavaPermissions: *mut u8,
+    pub cbJavaPermissions: u32,
+    pub pbSigner: *mut u8,
+    pub cbSigner: u32,
+    pub pwszZone: windows_sys::core::PCWSTR,
+    pub guidZone: windows_sys::core::GUID,
+    pub hVerify: windows_sys::core::HRESULT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct JIT_DEBUG_INFO {
+    pub dwSize: u32,
+    pub dwProcessorArchitecture: u32,
+    pub dwThreadID: u32,
+    pub dwReserved0: u32,
+    pub lpExceptionAddress: u64,
+    pub lpExceptionRecord: u64,
+    pub lpContextRecord: u64,
+}
 pub const KEY_ALL_KEYS: WLDP_KEY = 2i32;
 pub const KEY_OVERRIDE: WLDP_KEY = 1i32;
 pub const KEY_UNKNOWN: WLDP_KEY = 0i32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct LDR_DATA_TABLE_ENTRY {
+    pub Reserved1: [*mut core::ffi::c_void; 2],
+    pub InMemoryOrderLinks: super::Kernel::LIST_ENTRY,
+    pub Reserved2: [*mut core::ffi::c_void; 2],
+    pub DllBase: *mut core::ffi::c_void,
+    pub Reserved3: [*mut core::ffi::c_void; 2],
+    pub FullDllName: super::super::Foundation::UNICODE_STRING,
+    pub Reserved4: [u8; 8],
+    pub Reserved5: [*mut core::ffi::c_void; 3],
+    pub Anonymous: LDR_DATA_TABLE_ENTRY_0,
+    pub TimeDateStamp: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub union LDR_DATA_TABLE_ENTRY_0 {
+    pub CheckSum: u32,
+    pub Reserved6: *mut core::ffi::c_void,
+}
 pub const LIS_NOGRPCONV: u32 = 2u32;
 pub const LIS_QUIET: u32 = 1u32;
 pub const LOGON32_PROVIDER_VIRTUAL: u32 = 4u32;
@@ -682,6 +1073,34 @@ pub const PCF_SETXCHAR: u32 = 32u32;
 pub const PCF_SPECIALCHARS: u32 = 256u32;
 pub const PCF_TOTALTIMEOUTS: u32 = 64u32;
 pub const PCF_XONXOFF: u32 = 16u32;
+pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = Option<unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *const DELAYLOAD_INFO) -> *mut core::ffi::c_void>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PERUSERSECTIONA {
+    pub szGUID: [i8; 59],
+    pub szDispName: [i8; 128],
+    pub szLocale: [i8; 10],
+    pub szStub: [i8; 1040],
+    pub szVersion: [i8; 32],
+    pub szCompID: [i8; 128],
+    pub dwIsInstalled: u32,
+    pub bRollback: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PERUSERSECTIONW {
+    pub szGUID: [u16; 59],
+    pub szDispName: [u16; 128],
+    pub szLocale: [u16; 10],
+    pub szStub: [u16; 1040],
+    pub szVersion: [u16; 32],
+    pub szCompID: [u16; 128],
+    pub dwIsInstalled: u32,
+    pub bRollback: super::super::Foundation::BOOL,
+}
+pub type PFEATURE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type PFIBER_CALLOUT_ROUTINE = Option<unsafe extern "system" fn(lpparameter: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
+pub type PQUERYACTCTXW_FUNC = Option<unsafe extern "system" fn(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL>;
 pub const PROCESS_CREATION_ALL_APPLICATION_PACKAGES_OPT_OUT: u32 = 1u32;
 pub const PROCESS_CREATION_CHILD_PROCESS_OVERRIDE: u32 = 2u32;
 pub const PROCESS_CREATION_CHILD_PROCESS_RESTRICTED: u32 = 1u32;
@@ -710,11 +1129,46 @@ pub const PST_SCANNER: u32 = 34u32;
 pub const PST_TCPIP_TELNET: u32 = 258u32;
 pub const PST_UNSPECIFIED: u32 = 0u32;
 pub const PST_X25: u32 = 259u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PUBLIC_OBJECT_BASIC_INFORMATION {
+    pub Attributes: u32,
+    pub GrantedAccess: u32,
+    pub HandleCount: u32,
+    pub PointerCount: u32,
+    pub Reserved: [u32; 10],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PUBLIC_OBJECT_TYPE_INFORMATION {
+    pub TypeName: super::super::Foundation::UNICODE_STRING,
+    pub Reserved: [u32; 22],
+}
+pub type PWINSTATIONQUERYINFORMATIONW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut core::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN>;
+pub type PWLDP_CANEXECUTEBUFFER_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
+pub type PWLDP_CANEXECUTEFILE_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_Com")]
+pub type PWLDP_CANEXECUTESTREAM_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: *mut core::ffi::c_void, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
+pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = Option<unsafe extern "system" fn(packagefamilyname: windows_sys::core::PCWSTR, packageversion: u64) -> windows_sys::core::HRESULT>;
+pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = Option<unsafe extern "system" fn(pbenabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
+pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
+pub type PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYDEVICESECURITYINFORMATION_API = Option<unsafe extern "system" fn(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYDYNAMICODETRUST_API = Option<unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, baseimage: *const core::ffi::c_void, imagesize: u32) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYPOLICYSETTINGENABLED2_API = Option<unsafe extern "system" fn(setting: windows_sys::core::PCWSTR, enabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYPOLICYSETTINGENABLED_API = Option<unsafe extern "system" fn(setting: WLDP_POLICY_SETTING, enabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = Option<unsafe extern "system" fn(lockdownmode: *mut WLDP_WINDOWS_LOCKDOWN_MODE) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API = Option<unsafe extern "system" fn(lockdownrestriction: *mut WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> windows_sys::core::HRESULT>;
+pub type PWLDP_RESETPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+pub type PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+pub type PWLDP_SETDYNAMICCODETRUST_API = Option<unsafe extern "system" fn(hfilehandle: super::super::Foundation::HANDLE) -> windows_sys::core::HRESULT>;
+pub type PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = Option<unsafe extern "system" fn(lockdownrestriction: WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> windows_sys::core::HRESULT>;
 pub const QUERY_ACTCTX_FLAG_ACTCTX_IS_ADDRESS: u32 = 16u32;
 pub const QUERY_ACTCTX_FLAG_ACTCTX_IS_HMODULE: u32 = 8u32;
 pub const QUERY_ACTCTX_FLAG_NO_ADDREF: u32 = 2147483648u32;
 pub const QUERY_ACTCTX_FLAG_USE_ACTIVE_ACTCTX: u32 = 4u32;
 pub const RECOVERY_DEFAULT_PING_INTERVAL: u32 = 5000u32;
+pub type REGINSTALLA = Option<unsafe extern "system" fn(hm: super::super::Foundation::HMODULE, pszsection: windows_sys::core::PCSTR, psttable: *const STRTABLEA) -> windows_sys::core::HRESULT>;
 pub const REG_RESTORE_LOG_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("RegRestoreLogFile");
 pub const REG_SAVE_LOG_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("RegSaveLogFile");
 pub const REMOTE_PROTOCOL_INFO_FLAG_LOOPBACK: u32 = 1u32;
@@ -776,565 +1230,6 @@ pub const STREAM_CONTAINS_SECURITY: u32 = 2u32;
 pub const STREAM_MODIFIED_WHEN_READ: u32 = 1u32;
 pub const STREAM_NORMAL_ATTRIBUTE: u32 = 0u32;
 pub const STREAM_SPARSE_ATTRIBUTE: u32 = 8u32;
-pub const SYSTEM_STATUS_FLAG_POWER_SAVING_ON: u32 = 1u32;
-pub const S_ALLTHRESHOLD: u32 = 2u32;
-pub const S_LEGATO: u32 = 1u32;
-pub const S_NORMAL: u32 = 0u32;
-pub const S_PERIOD1024: u32 = 1u32;
-pub const S_PERIOD2048: u32 = 2u32;
-pub const S_PERIOD512: u32 = 0u32;
-pub const S_PERIODVOICE: u32 = 3u32;
-pub const S_QUEUEEMPTY: u32 = 0u32;
-pub const S_SERBDNT: i32 = -5i32;
-pub const S_SERDCC: i32 = -7i32;
-pub const S_SERDDR: i32 = -14i32;
-pub const S_SERDFQ: i32 = -13i32;
-pub const S_SERDLN: i32 = -6i32;
-pub const S_SERDMD: i32 = -10i32;
-pub const S_SERDPT: i32 = -12i32;
-pub const S_SERDSH: i32 = -11i32;
-pub const S_SERDSR: i32 = -15i32;
-pub const S_SERDST: i32 = -16i32;
-pub const S_SERDTP: i32 = -8i32;
-pub const S_SERDVL: i32 = -9i32;
-pub const S_SERDVNA: i32 = -1i32;
-pub const S_SERMACT: i32 = -3i32;
-pub const S_SEROFM: i32 = -2i32;
-pub const S_SERQFUL: i32 = -4i32;
-pub const S_STACCATO: u32 = 2u32;
-pub const S_THRESHOLD: u32 = 1u32;
-pub const S_WHITE1024: u32 = 5u32;
-pub const S_WHITE2048: u32 = 6u32;
-pub const S_WHITE512: u32 = 4u32;
-pub const S_WHITEVOICE: u32 = 7u32;
-pub const SetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = 1i32;
-pub const SocketIoControlType: TDI_TL_IO_CONTROL_TYPE = 3i32;
-pub const TC_GP_TRAP: u32 = 2u32;
-pub const TC_HARDERR: u32 = 1u32;
-pub const TC_NORMAL: u32 = 0u32;
-pub const TC_SIGNAL: u32 = 3u32;
-pub const THREAD_PRIORITY_ERROR_RETURN: u32 = 2147483647u32;
-pub const UMS_VERSION: u32 = 256u32;
-pub const VALUENAME_BUILT_IN_LIST: VALUENAME = 2i32;
-pub const VALUENAME_ENTERPRISE_DEFINED_CLASS_ID: VALUENAME = 1i32;
-pub const VALUENAME_UNKNOWN: VALUENAME = 0i32;
-pub const WINWATCHNOTIFY_CHANGED: u32 = 4u32;
-pub const WINWATCHNOTIFY_CHANGING: u32 = 3u32;
-pub const WINWATCHNOTIFY_DESTROY: u32 = 2u32;
-pub const WINWATCHNOTIFY_START: u32 = 0u32;
-pub const WINWATCHNOTIFY_STOP: u32 = 1u32;
-pub const WLDP_CANEXECUTEBUFFER_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpCanExecuteBuffer");
-pub const WLDP_CANEXECUTEFILE_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpCanExecuteFile");
-pub const WLDP_DLL: windows_sys::core::PCWSTR = windows_sys::core::w!("WLDP.DLL");
-pub const WLDP_EXECUTION_EVALUATION_OPTION_EXECUTE_IN_INTERACTIVE_SESSION: WLDP_EXECUTION_EVALUATION_OPTIONS = 1i32;
-pub const WLDP_EXECUTION_EVALUATION_OPTION_NONE: WLDP_EXECUTION_EVALUATION_OPTIONS = 0i32;
-pub const WLDP_EXECUTION_POLICY_ALLOWED: WLDP_EXECUTION_POLICY = 1i32;
-pub const WLDP_EXECUTION_POLICY_BLOCKED: WLDP_EXECUTION_POLICY = 0i32;
-pub const WLDP_EXECUTION_POLICY_REQUIRE_SANDBOX: WLDP_EXECUTION_POLICY = 2i32;
-pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
-pub const WLDP_GETLOCKDOWNPOLICY_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpGetLockdownPolicy");
-pub const WLDP_HOST_CMD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5baea1d6_6f1c_488e_8490_347fa5c5067f);
-pub const WLDP_HOST_HTML: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb35a71b6_fe56_48d6_9543_2dff0ecded66);
-pub const WLDP_HOST_ID_ALL: WLDP_HOST_ID = 7i32;
-pub const WLDP_HOST_ID_GLOBAL: WLDP_HOST_ID = 1i32;
-pub const WLDP_HOST_ID_IE: WLDP_HOST_ID = 5i32;
-pub const WLDP_HOST_ID_MAX: WLDP_HOST_ID = 8i32;
-pub const WLDP_HOST_ID_MSI: WLDP_HOST_ID = 6i32;
-pub const WLDP_HOST_ID_POWERSHELL: WLDP_HOST_ID = 4i32;
-pub const WLDP_HOST_ID_UNKNOWN: WLDP_HOST_ID = 0i32;
-pub const WLDP_HOST_ID_VBA: WLDP_HOST_ID = 2i32;
-pub const WLDP_HOST_ID_WSH: WLDP_HOST_ID = 3i32;
-pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
-pub const WLDP_HOST_JAVASCRIPT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5629f0d5_1cca_4fed_a1a3_36a8c18d74c0);
-pub const WLDP_HOST_MAX: WLDP_HOST = 2i32;
-pub const WLDP_HOST_MSI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x624eb611_6e7e_4eec_9bfe_f0ecdbfcf390);
-pub const WLDP_HOST_OTHER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x626cbec3_e1fa_4227_9800_ed210274cf7c);
-pub const WLDP_HOST_POWERSHELL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8e9aaa7c_198b_4879_ae41_a50d47ad6458);
-pub const WLDP_HOST_PYTHON: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbfd557ef_2448_42ec_810b_0d9f09352d4a);
-pub const WLDP_HOST_RUNDLL32: WLDP_HOST = 0i32;
-pub const WLDP_HOST_SVCHOST: WLDP_HOST = 1i32;
-pub const WLDP_HOST_WINDOWS_SCRIPT_HOST: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd30b84c5_29ce_4ff3_86ec_a30007a82e49);
-pub const WLDP_HOST_XML: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5594be58_c6bf_4295_82f4_d494d20e3a36);
-pub const WLDP_ISAPPAPPROVEDBYPOLICY_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpIsAppApprovedByPolicy");
-pub const WLDP_ISCLASSINAPPROVEDLIST_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpIsClassInApprovedList");
-pub const WLDP_ISDYNAMICCODEPOLICYENABLED_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpIsDynamicCodePolicyEnabled");
-pub const WLDP_ISPRODUCTIONCONFIGURATION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpIsProductionConfiguration");
-pub const WLDP_ISWCOSPRODUCTIONCONFIGURATION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpIsWcosProductionConfiguration");
-pub const WLDP_LOCKDOWN_AUDIT_FLAG: u32 = 8u32;
-pub const WLDP_LOCKDOWN_CONFIG_CI_AUDIT_FLAG: u32 = 2u32;
-pub const WLDP_LOCKDOWN_CONFIG_CI_FLAG: u32 = 1u32;
-pub const WLDP_LOCKDOWN_DEFINED_FLAG: u32 = 2147483648u32;
-pub const WLDP_LOCKDOWN_EXCLUSION_FLAG: u32 = 16u32;
-pub const WLDP_LOCKDOWN_OFF: u32 = 2147483648u32;
-pub const WLDP_LOCKDOWN_UMCIENFORCE_FLAG: u32 = 4u32;
-pub const WLDP_LOCKDOWN_UNDEFINED: u32 = 0u32;
-pub const WLDP_POLICY_SETTING_AV_PERF_MODE: WLDP_POLICY_SETTING = 1000i32;
-pub const WLDP_QUERYDANAMICCODETRUST_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryDynamicCodeTrust");
-pub const WLDP_QUERYDEVICESECURITYINFORMATION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryDeviceSecurityInformation");
-pub const WLDP_QUERYDYNAMICCODETRUST_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryDynamicCodeTrust");
-pub const WLDP_QUERYPOLICYSETTINGENABLED2_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryPolicySettingEnabled2");
-pub const WLDP_QUERYPOLICYSETTINGENABLED_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryPolicySettingEnabled");
-pub const WLDP_QUERYWINDOWSLOCKDOWNMODE_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryWindowsLockdownMode");
-pub const WLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryWindowsLockdownRestriction");
-pub const WLDP_RESETPRODUCTIONCONFIGURATION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpResetProductionConfiguration");
-pub const WLDP_RESETWCOSPRODUCTIONCONFIGURATION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpResetWcosProductionConfiguration");
-pub const WLDP_SETDYNAMICCODETRUST_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpSetDynamicCodeTrust");
-pub const WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpSetWindowsLockdownRestriction");
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_LOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = 2i32;
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_MAX: WLDP_WINDOWS_LOCKDOWN_MODE = 3i32;
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_TRIAL: WLDP_WINDOWS_LOCKDOWN_MODE = 1i32;
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_UNLOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = 0i32;
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_MAX: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = 3i32;
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NONE: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = 0i32;
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = 1i32;
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK_PERMANENT: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = 2i32;
-pub const WM_CONVERTREQUEST: u32 = 266u32;
-pub const WM_CONVERTRESULT: u32 = 267u32;
-pub const WM_IMEKEYDOWN: u32 = 656u32;
-pub const WM_IMEKEYUP: u32 = 657u32;
-pub const WM_IME_REPORT: u32 = 640u32;
-pub const WM_INTERIM: u32 = 268u32;
-pub const WM_WNT_CONVERTREQUESTEX: u32 = 265u32;
-pub const WinStationInformation: WINSTATIONINFOCLASS = 8i32;
-#[repr(transparent)]
-#[derive(Copy, Clone)]
-pub struct CameraUIControlCaptureMode(pub i32);
-impl CameraUIControlCaptureMode {
-    pub const PhotoOrVideo: Self = Self(0i32);
-    pub const Photo: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
-}
-#[repr(transparent)]
-#[derive(Copy, Clone)]
-pub struct CameraUIControlLinearSelectionMode(pub i32);
-impl CameraUIControlLinearSelectionMode {
-    pub const Single: Self = Self(0i32);
-    pub const Multiple: Self = Self(1i32);
-}
-#[repr(transparent)]
-#[derive(Copy, Clone)]
-pub struct CameraUIControlMode(pub i32);
-impl CameraUIControlMode {
-    pub const Browse: Self = Self(0i32);
-    pub const Linear: Self = Self(1i32);
-}
-#[repr(transparent)]
-#[derive(Copy, Clone)]
-pub struct CameraUIControlPhotoFormat(pub i32);
-impl CameraUIControlPhotoFormat {
-    pub const Jpeg: Self = Self(0i32);
-    pub const Png: Self = Self(1i32);
-    pub const JpegXR: Self = Self(2i32);
-}
-#[repr(transparent)]
-#[derive(Copy, Clone)]
-pub struct CameraUIControlVideoFormat(pub i32);
-impl CameraUIControlVideoFormat {
-    pub const Mp4: Self = Self(0i32);
-    pub const Wmv: Self = Self(1i32);
-}
-#[repr(transparent)]
-#[derive(Copy, Clone)]
-pub struct CameraUIControlViewType(pub i32);
-impl CameraUIControlViewType {
-    pub const SingleItem: Self = Self(0i32);
-    pub const ItemList: Self = Self(1i32);
-}
-pub type DECISION_LOCATION = i32;
-pub type FEATURE_CHANGE_TIME = i32;
-pub type FEATURE_ENABLED_STATE = i32;
-pub type TDIENTITY_ENTITY_TYPE = u32;
-pub type TDI_TL_IO_CONTROL_TYPE = i32;
-pub type VALUENAME = i32;
-pub type WINSTATIONINFOCLASS = i32;
-pub type WLDP_EXECUTION_EVALUATION_OPTIONS = i32;
-pub type WLDP_EXECUTION_POLICY = i32;
-pub type WLDP_HOST = i32;
-pub type WLDP_HOST_ID = i32;
-pub type WLDP_KEY = i32;
-pub type WLDP_POLICY_SETTING = i32;
-pub type WLDP_WINDOWS_LOCKDOWN_MODE = i32;
-pub type WLDP_WINDOWS_LOCKDOWN_RESTRICTION = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
-    pub cbSize: u32,
-    pub ulDataFormatVersion: u32,
-    pub lpData: *mut core::ffi::c_void,
-    pub ulLength: u32,
-    pub lpSectionGlobalData: *mut core::ffi::c_void,
-    pub ulSectionGlobalDataLength: u32,
-    pub lpSectionBase: *mut core::ffi::c_void,
-    pub ulSectionTotalLength: u32,
-    pub hActCtx: super::super::Foundation::HANDLE,
-    pub ulAssemblyRosterIndex: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    pub lpInformation: *mut core::ffi::c_void,
-    pub lpSectionBase: *mut core::ffi::c_void,
-    pub ulSectionLength: u32,
-    pub lpSectionGlobalDataBase: *mut core::ffi::c_void,
-    pub ulSectionGlobalDataLength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    pub hActCtx: super::super::Foundation::HANDLE,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CABINFOA {
-    pub pszCab: windows_sys::core::PSTR,
-    pub pszInf: windows_sys::core::PSTR,
-    pub pszSection: windows_sys::core::PSTR,
-    pub szSrcPath: [i8; 260],
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CABINFOW {
-    pub pszCab: windows_sys::core::PWSTR,
-    pub pszInf: windows_sys::core::PWSTR,
-    pub pszSection: windows_sys::core::PWSTR,
-    pub szSrcPath: [u16; 260],
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLIENT_ID {
-    pub UniqueProcess: super::super::Foundation::HANDLE,
-    pub UniqueThread: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    pub Size: u32,
-    pub TriggerId: windows_sys::core::PCWSTR,
-}
-pub const CameraUIControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DATETIME {
-    pub year: u16,
-    pub month: u16,
-    pub day: u16,
-    pub hour: u16,
-    pub min: u16,
-    pub sec: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCICMD {
-    pub dwCommand: u32,
-    pub dwParam1: u32,
-    pub dwParam2: u32,
-    pub dwVersion: u32,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCICREATEINPUT {
-    pub cmd: DCICMD,
-    pub dwCompression: u32,
-    pub dwMask: [u32; 3],
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub dwDCICaps: u32,
-    pub dwBitCount: u32,
-    pub lpSurface: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCIENUMINPUT {
-    pub cmd: DCICMD,
-    pub rSrc: super::super::Foundation::RECT,
-    pub rDst: super::super::Foundation::RECT,
-    pub EnumCallback: isize,
-    pub lpContext: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCIOFFSCREEN {
-    pub dciInfo: DCISURFACEINFO,
-    pub Draw: isize,
-    pub SetClipList: isize,
-    pub SetDestination: isize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCIOVERLAY {
-    pub dciInfo: DCISURFACEINFO,
-    pub dwChromakeyValue: u32,
-    pub dwChromakeyMask: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCISURFACEINFO {
-    pub dwSize: u32,
-    pub dwDCICaps: u32,
-    pub dwCompression: u32,
-    pub dwMask: [u32; 3],
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub lStride: i32,
-    pub dwBitCount: u32,
-    pub dwOffSurface: usize,
-    pub wSelSurface: u16,
-    pub wReserved: u16,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub dwReserved3: u32,
-    pub BeginAccess: isize,
-    pub EndAccess: isize,
-    pub DestroySurface: isize,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct DELAYLOAD_INFO {
-    pub Size: u32,
-    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
-    pub ThunkAddress: *mut IMAGE_THUNK_DATA64,
-    pub TargetDllName: windows_sys::core::PCSTR,
-    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
-    pub TargetModuleBase: *mut core::ffi::c_void,
-    pub Unused: *mut core::ffi::c_void,
-    pub LastError: u32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DELAYLOAD_INFO {
-    pub Size: u32,
-    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
-    pub ThunkAddress: *mut IMAGE_THUNK_DATA32,
-    pub TargetDllName: windows_sys::core::PCSTR,
-    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
-    pub TargetModuleBase: *mut core::ffi::c_void,
-    pub Unused: *mut core::ffi::c_void,
-    pub LastError: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DELAYLOAD_PROC_DESCRIPTOR {
-    pub ImportDescribedByName: u32,
-    pub Description: DELAYLOAD_PROC_DESCRIPTOR_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DELAYLOAD_PROC_DESCRIPTOR_0 {
-    pub Name: windows_sys::core::PCSTR,
-    pub Ordinal: u32,
-}
-pub const DefaultBrowserSyncSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3ac83423_3112_4aa6_9b5b_1feb23d0c5f9);
-pub const EditionUpgradeBroker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
-pub const EditionUpgradeHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FEATURE_ERROR {
-    pub hr: windows_sys::core::HRESULT,
-    pub lineNumber: u16,
-    pub file: windows_sys::core::PCSTR,
-    pub process: windows_sys::core::PCSTR,
-    pub module: windows_sys::core::PCSTR,
-    pub callerReturnAddressOffset: u32,
-    pub callerModule: windows_sys::core::PCSTR,
-    pub message: windows_sys::core::PCSTR,
-    pub originLineNumber: u16,
-    pub originFile: windows_sys::core::PCSTR,
-    pub originModule: windows_sys::core::PCSTR,
-    pub originCallerReturnAddressOffset: u32,
-    pub originCallerModule: windows_sys::core::PCSTR,
-    pub originName: windows_sys::core::PCSTR,
-}
-pub type FEATURE_STATE_CHANGE_SUBSCRIPTION = *mut core::ffi::c_void;
-pub type HWINWATCH = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HW_PROFILE_INFOA {
-    pub dwDockInfo: u32,
-    pub szHwProfileGuid: [i8; 39],
-    pub szHwProfileName: [i8; 80],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HW_PROFILE_INFOW {
-    pub dwDockInfo: u32,
-    pub szHwProfileGuid: [u16; 39],
-    pub szHwProfileName: [u16; 80],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_DELAYLOAD_DESCRIPTOR {
-    pub Attributes: IMAGE_DELAYLOAD_DESCRIPTOR_0,
-    pub DllNameRVA: u32,
-    pub ModuleHandleRVA: u32,
-    pub ImportAddressTableRVA: u32,
-    pub ImportNameTableRVA: u32,
-    pub BoundImportAddressTableRVA: u32,
-    pub UnloadInformationTableRVA: u32,
-    pub TimeDateStamp: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_DELAYLOAD_DESCRIPTOR_0 {
-    pub AllAttributes: u32,
-    pub Anonymous: IMAGE_DELAYLOAD_DESCRIPTOR_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_THUNK_DATA32 {
-    pub u1: IMAGE_THUNK_DATA32_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_THUNK_DATA32_0 {
-    pub ForwarderString: u32,
-    pub Function: u32,
-    pub Ordinal: u32,
-    pub AddressOfData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_THUNK_DATA64 {
-    pub u1: IMAGE_THUNK_DATA64_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_THUNK_DATA64_0 {
-    pub ForwarderString: u64,
-    pub Function: u64,
-    pub Ordinal: u64,
-    pub AddressOfData: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMEPROA {
-    pub hWnd: super::super::Foundation::HWND,
-    pub InstDate: DATETIME,
-    pub wVersion: u32,
-    pub szDescription: [u8; 50],
-    pub szName: [u8; 80],
-    pub szOptions: [u8; 30],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMEPROW {
-    pub hWnd: super::super::Foundation::HWND,
-    pub InstDate: DATETIME,
-    pub wVersion: u32,
-    pub szDescription: [u16; 50],
-    pub szName: [u16; 80],
-    pub szOptions: [u16; 30],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMESTRUCT {
-    pub fnc: u32,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub wCount: u32,
-    pub dchSource: u32,
-    pub dchDest: u32,
-    pub lParam1: super::super::Foundation::LPARAM,
-    pub lParam2: super::super::Foundation::LPARAM,
-    pub lParam3: super::super::Foundation::LPARAM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct JAVA_TRUST {
-    pub cbSize: u32,
-    pub flag: u32,
-    pub fAllActiveXPermissions: super::super::Foundation::BOOL,
-    pub fAllPermissions: super::super::Foundation::BOOL,
-    pub dwEncodingType: u32,
-    pub pbJavaPermissions: *mut u8,
-    pub cbJavaPermissions: u32,
-    pub pbSigner: *mut u8,
-    pub cbSigner: u32,
-    pub pwszZone: windows_sys::core::PCWSTR,
-    pub guidZone: windows_sys::core::GUID,
-    pub hVerify: windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct JIT_DEBUG_INFO {
-    pub dwSize: u32,
-    pub dwProcessorArchitecture: u32,
-    pub dwThreadID: u32,
-    pub dwReserved0: u32,
-    pub lpExceptionAddress: u64,
-    pub lpExceptionRecord: u64,
-    pub lpContextRecord: u64,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct LDR_DATA_TABLE_ENTRY {
-    pub Reserved1: [*mut core::ffi::c_void; 2],
-    pub InMemoryOrderLinks: super::Kernel::LIST_ENTRY,
-    pub Reserved2: [*mut core::ffi::c_void; 2],
-    pub DllBase: *mut core::ffi::c_void,
-    pub Reserved3: [*mut core::ffi::c_void; 2],
-    pub FullDllName: super::super::Foundation::UNICODE_STRING,
-    pub Reserved4: [u8; 8],
-    pub Reserved5: [*mut core::ffi::c_void; 3],
-    pub Anonymous: LDR_DATA_TABLE_ENTRY_0,
-    pub TimeDateStamp: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub union LDR_DATA_TABLE_ENTRY_0 {
-    pub CheckSum: u32,
-    pub Reserved6: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PERUSERSECTIONA {
-    pub szGUID: [i8; 59],
-    pub szDispName: [i8; 128],
-    pub szLocale: [i8; 10],
-    pub szStub: [i8; 1040],
-    pub szVersion: [i8; 32],
-    pub szCompID: [i8; 128],
-    pub dwIsInstalled: u32,
-    pub bRollback: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PERUSERSECTIONW {
-    pub szGUID: [u16; 59],
-    pub szDispName: [u16; 128],
-    pub szLocale: [u16; 10],
-    pub szStub: [u16; 1040],
-    pub szVersion: [u16; 32],
-    pub szCompID: [u16; 128],
-    pub dwIsInstalled: u32,
-    pub bRollback: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PUBLIC_OBJECT_BASIC_INFORMATION {
-    pub Attributes: u32,
-    pub GrantedAccess: u32,
-    pub HandleCount: u32,
-    pub PointerCount: u32,
-    pub Reserved: [u32; 10],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PUBLIC_OBJECT_TYPE_INFORMATION {
-    pub TypeName: super::super::Foundation::UNICODE_STRING,
-    pub Reserved: [u32; 22],
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STRENTRYA {
@@ -1450,6 +1345,7 @@ pub struct SYSTEM_REGISTRY_QUOTA_INFORMATION {
     pub RegistryQuotaUsed: u32,
     pub Reserved1: *mut core::ffi::c_void,
 }
+pub const SYSTEM_STATUS_FLAG_POWER_SAVING_ON: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_THREAD_INFORMATION {
@@ -1468,6 +1364,38 @@ pub struct SYSTEM_THREAD_INFORMATION {
 pub struct SYSTEM_TIMEOFDAY_INFORMATION {
     pub Reserved1: [u8; 48],
 }
+pub const S_ALLTHRESHOLD: u32 = 2u32;
+pub const S_LEGATO: u32 = 1u32;
+pub const S_NORMAL: u32 = 0u32;
+pub const S_PERIOD1024: u32 = 1u32;
+pub const S_PERIOD2048: u32 = 2u32;
+pub const S_PERIOD512: u32 = 0u32;
+pub const S_PERIODVOICE: u32 = 3u32;
+pub const S_QUEUEEMPTY: u32 = 0u32;
+pub const S_SERBDNT: i32 = -5i32;
+pub const S_SERDCC: i32 = -7i32;
+pub const S_SERDDR: i32 = -14i32;
+pub const S_SERDFQ: i32 = -13i32;
+pub const S_SERDLN: i32 = -6i32;
+pub const S_SERDMD: i32 = -10i32;
+pub const S_SERDPT: i32 = -12i32;
+pub const S_SERDSH: i32 = -11i32;
+pub const S_SERDSR: i32 = -15i32;
+pub const S_SERDST: i32 = -16i32;
+pub const S_SERDTP: i32 = -8i32;
+pub const S_SERDVL: i32 = -9i32;
+pub const S_SERDVNA: i32 = -1i32;
+pub const S_SERMACT: i32 = -3i32;
+pub const S_SEROFM: i32 = -2i32;
+pub const S_SERQFUL: i32 = -4i32;
+pub const S_STACCATO: u32 = 2u32;
+pub const S_THRESHOLD: u32 = 1u32;
+pub const S_WHITE1024: u32 = 5u32;
+pub const S_WHITE2048: u32 = 6u32;
+pub const S_WHITE512: u32 = 4u32;
+pub const S_WHITEVOICE: u32 = 7u32;
+pub const SetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = 1i32;
+pub const SocketIoControlType: TDI_TL_IO_CONTROL_TYPE = 3i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1494,6 +1422,11 @@ pub struct TCP_REQUEST_SET_INFORMATION_EX {
     pub BufferSize: u32,
     pub Buffer: [u8; 1],
 }
+pub const TC_GP_TRAP: u32 = 2u32;
+pub const TC_HARDERR: u32 = 1u32;
+pub const TC_NORMAL: u32 = 0u32;
+pub const TC_SIGNAL: u32 = 3u32;
+pub type TDIENTITY_ENTITY_TYPE = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TDIEntityID {
@@ -1525,11 +1458,14 @@ pub union TDI_TL_IO_CONTROL_ENDPOINT_0 {
     pub IoControlCode: u32,
     pub OptionName: u32,
 }
+pub type TDI_TL_IO_CONTROL_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct THREAD_NAME_INFORMATION {
     pub ThreadName: super::super::Foundation::UNICODE_STRING,
 }
+pub const THREAD_PRIORITY_ERROR_RETURN: u32 = 2147483647u32;
+pub const UMS_VERSION: u32 = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UNDETERMINESTRUCT {
@@ -1548,6 +1484,11 @@ pub struct UNDETERMINESTRUCT {
     pub uYomiTextPos: u32,
     pub uYomiDelimPos: u32,
 }
+pub type VALUENAME = i32;
+pub const VALUENAME_BUILT_IN_LIST: VALUENAME = 2i32;
+pub const VALUENAME_ENTERPRISE_DEFINED_CLASS_ID: VALUENAME = 1i32;
+pub const VALUENAME_UNKNOWN: VALUENAME = 0i32;
+pub type WINSTATIONINFOCLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINSTATIONINFORMATIONW {
@@ -1555,6 +1496,14 @@ pub struct WINSTATIONINFORMATIONW {
     pub LogonId: u32,
     pub Reserved3: [u8; 1140],
 }
+pub type WINWATCHNOTIFYPROC = Option<unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM)>;
+pub const WINWATCHNOTIFY_CHANGED: u32 = 4u32;
+pub const WINWATCHNOTIFY_CHANGING: u32 = 3u32;
+pub const WINWATCHNOTIFY_DESTROY: u32 = 2u32;
+pub const WINWATCHNOTIFY_START: u32 = 0u32;
+pub const WINWATCHNOTIFY_STOP: u32 = 1u32;
+pub const WLDP_CANEXECUTEBUFFER_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpCanExecuteBuffer");
+pub const WLDP_CANEXECUTEFILE_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpCanExecuteFile");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WLDP_DEVICE_SECURITY_INFORMATION {
@@ -1563,6 +1512,29 @@ pub struct WLDP_DEVICE_SECURITY_INFORMATION {
     pub ManufacturerIDLength: u32,
     pub ManufacturerID: windows_sys::core::PWSTR,
 }
+pub const WLDP_DLL: windows_sys::core::PCWSTR = windows_sys::core::w!("WLDP.DLL");
+pub type WLDP_EXECUTION_EVALUATION_OPTIONS = i32;
+pub const WLDP_EXECUTION_EVALUATION_OPTION_EXECUTE_IN_INTERACTIVE_SESSION: WLDP_EXECUTION_EVALUATION_OPTIONS = 1i32;
+pub const WLDP_EXECUTION_EVALUATION_OPTION_NONE: WLDP_EXECUTION_EVALUATION_OPTIONS = 0i32;
+pub type WLDP_EXECUTION_POLICY = i32;
+pub const WLDP_EXECUTION_POLICY_ALLOWED: WLDP_EXECUTION_POLICY = 1i32;
+pub const WLDP_EXECUTION_POLICY_BLOCKED: WLDP_EXECUTION_POLICY = 0i32;
+pub const WLDP_EXECUTION_POLICY_REQUIRE_SANDBOX: WLDP_EXECUTION_POLICY = 2i32;
+pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
+pub const WLDP_GETLOCKDOWNPOLICY_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpGetLockdownPolicy");
+pub type WLDP_HOST = i32;
+pub const WLDP_HOST_CMD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5baea1d6_6f1c_488e_8490_347fa5c5067f);
+pub const WLDP_HOST_HTML: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb35a71b6_fe56_48d6_9543_2dff0ecded66);
+pub type WLDP_HOST_ID = i32;
+pub const WLDP_HOST_ID_ALL: WLDP_HOST_ID = 7i32;
+pub const WLDP_HOST_ID_GLOBAL: WLDP_HOST_ID = 1i32;
+pub const WLDP_HOST_ID_IE: WLDP_HOST_ID = 5i32;
+pub const WLDP_HOST_ID_MAX: WLDP_HOST_ID = 8i32;
+pub const WLDP_HOST_ID_MSI: WLDP_HOST_ID = 6i32;
+pub const WLDP_HOST_ID_POWERSHELL: WLDP_HOST_ID = 4i32;
+pub const WLDP_HOST_ID_UNKNOWN: WLDP_HOST_ID = 0i32;
+pub const WLDP_HOST_ID_VBA: WLDP_HOST_ID = 2i32;
+pub const WLDP_HOST_ID_WSH: WLDP_HOST_ID = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WLDP_HOST_INFORMATION {
@@ -1571,29 +1543,59 @@ pub struct WLDP_HOST_INFORMATION {
     pub szSource: windows_sys::core::PCWSTR,
     pub hSource: super::super::Foundation::HANDLE,
 }
-pub type APPLICATION_RECOVERY_CALLBACK = Option<unsafe extern "system" fn(pvparameter: *mut core::ffi::c_void) -> u32>;
-pub type ENUM_CALLBACK = Option<unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut core::ffi::c_void)>;
-pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = Option<unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *const DELAYLOAD_INFO) -> *mut core::ffi::c_void>;
-pub type PFEATURE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type PFIBER_CALLOUT_ROUTINE = Option<unsafe extern "system" fn(lpparameter: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
-pub type PQUERYACTCTXW_FUNC = Option<unsafe extern "system" fn(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL>;
-pub type PWINSTATIONQUERYINFORMATIONW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut core::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN>;
-pub type PWLDP_CANEXECUTEBUFFER_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
-pub type PWLDP_CANEXECUTEFILE_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
-pub type PWLDP_CANEXECUTESTREAM_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: *mut core::ffi::c_void, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
-pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = Option<unsafe extern "system" fn(packagefamilyname: windows_sys::core::PCWSTR, packageversion: u64) -> windows_sys::core::HRESULT>;
-pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = Option<unsafe extern "system" fn(pbenabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
-pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
-pub type PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYDEVICESECURITYINFORMATION_API = Option<unsafe extern "system" fn(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYDYNAMICODETRUST_API = Option<unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, baseimage: *const core::ffi::c_void, imagesize: u32) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYPOLICYSETTINGENABLED2_API = Option<unsafe extern "system" fn(setting: windows_sys::core::PCWSTR, enabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYPOLICYSETTINGENABLED_API = Option<unsafe extern "system" fn(setting: WLDP_POLICY_SETTING, enabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = Option<unsafe extern "system" fn(lockdownmode: *mut WLDP_WINDOWS_LOCKDOWN_MODE) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API = Option<unsafe extern "system" fn(lockdownrestriction: *mut WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> windows_sys::core::HRESULT>;
-pub type PWLDP_RESETPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
-pub type PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
-pub type PWLDP_SETDYNAMICCODETRUST_API = Option<unsafe extern "system" fn(hfilehandle: super::super::Foundation::HANDLE) -> windows_sys::core::HRESULT>;
-pub type PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = Option<unsafe extern "system" fn(lockdownrestriction: WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> windows_sys::core::HRESULT>;
-pub type REGINSTALLA = Option<unsafe extern "system" fn(hm: super::super::Foundation::HMODULE, pszsection: windows_sys::core::PCSTR, psttable: *const STRTABLEA) -> windows_sys::core::HRESULT>;
-pub type WINWATCHNOTIFYPROC = Option<unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM)>;
+pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
+pub const WLDP_HOST_JAVASCRIPT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5629f0d5_1cca_4fed_a1a3_36a8c18d74c0);
+pub const WLDP_HOST_MAX: WLDP_HOST = 2i32;
+pub const WLDP_HOST_MSI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x624eb611_6e7e_4eec_9bfe_f0ecdbfcf390);
+pub const WLDP_HOST_OTHER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x626cbec3_e1fa_4227_9800_ed210274cf7c);
+pub const WLDP_HOST_POWERSHELL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8e9aaa7c_198b_4879_ae41_a50d47ad6458);
+pub const WLDP_HOST_PYTHON: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbfd557ef_2448_42ec_810b_0d9f09352d4a);
+pub const WLDP_HOST_RUNDLL32: WLDP_HOST = 0i32;
+pub const WLDP_HOST_SVCHOST: WLDP_HOST = 1i32;
+pub const WLDP_HOST_WINDOWS_SCRIPT_HOST: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd30b84c5_29ce_4ff3_86ec_a30007a82e49);
+pub const WLDP_HOST_XML: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5594be58_c6bf_4295_82f4_d494d20e3a36);
+pub const WLDP_ISAPPAPPROVEDBYPOLICY_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpIsAppApprovedByPolicy");
+pub const WLDP_ISCLASSINAPPROVEDLIST_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpIsClassInApprovedList");
+pub const WLDP_ISDYNAMICCODEPOLICYENABLED_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpIsDynamicCodePolicyEnabled");
+pub const WLDP_ISPRODUCTIONCONFIGURATION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpIsProductionConfiguration");
+pub const WLDP_ISWCOSPRODUCTIONCONFIGURATION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpIsWcosProductionConfiguration");
+pub type WLDP_KEY = i32;
+pub const WLDP_LOCKDOWN_AUDIT_FLAG: u32 = 8u32;
+pub const WLDP_LOCKDOWN_CONFIG_CI_AUDIT_FLAG: u32 = 2u32;
+pub const WLDP_LOCKDOWN_CONFIG_CI_FLAG: u32 = 1u32;
+pub const WLDP_LOCKDOWN_DEFINED_FLAG: u32 = 2147483648u32;
+pub const WLDP_LOCKDOWN_EXCLUSION_FLAG: u32 = 16u32;
+pub const WLDP_LOCKDOWN_OFF: u32 = 2147483648u32;
+pub const WLDP_LOCKDOWN_UMCIENFORCE_FLAG: u32 = 4u32;
+pub const WLDP_LOCKDOWN_UNDEFINED: u32 = 0u32;
+pub type WLDP_POLICY_SETTING = i32;
+pub const WLDP_POLICY_SETTING_AV_PERF_MODE: WLDP_POLICY_SETTING = 1000i32;
+pub const WLDP_QUERYDANAMICCODETRUST_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryDynamicCodeTrust");
+pub const WLDP_QUERYDEVICESECURITYINFORMATION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryDeviceSecurityInformation");
+pub const WLDP_QUERYDYNAMICCODETRUST_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryDynamicCodeTrust");
+pub const WLDP_QUERYPOLICYSETTINGENABLED2_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryPolicySettingEnabled2");
+pub const WLDP_QUERYPOLICYSETTINGENABLED_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryPolicySettingEnabled");
+pub const WLDP_QUERYWINDOWSLOCKDOWNMODE_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryWindowsLockdownMode");
+pub const WLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpQueryWindowsLockdownRestriction");
+pub const WLDP_RESETPRODUCTIONCONFIGURATION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpResetProductionConfiguration");
+pub const WLDP_RESETWCOSPRODUCTIONCONFIGURATION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpResetWcosProductionConfiguration");
+pub const WLDP_SETDYNAMICCODETRUST_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpSetDynamicCodeTrust");
+pub const WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN: windows_sys::core::PCSTR = windows_sys::core::s!("WldpSetWindowsLockdownRestriction");
+pub type WLDP_WINDOWS_LOCKDOWN_MODE = i32;
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_LOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = 2i32;
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_MAX: WLDP_WINDOWS_LOCKDOWN_MODE = 3i32;
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_TRIAL: WLDP_WINDOWS_LOCKDOWN_MODE = 1i32;
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_UNLOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = 0i32;
+pub type WLDP_WINDOWS_LOCKDOWN_RESTRICTION = i32;
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_MAX: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = 3i32;
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NONE: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = 0i32;
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = 1i32;
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK_PERMANENT: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = 2i32;
+pub const WM_CONVERTREQUEST: u32 = 266u32;
+pub const WM_CONVERTRESULT: u32 = 267u32;
+pub const WM_IMEKEYDOWN: u32 = 656u32;
+pub const WM_IMEKEYUP: u32 = 657u32;
+pub const WM_IME_REPORT: u32 = 640u32;
+pub const WM_INTERIM: u32 = 268u32;
+pub const WM_WNT_CONVERTREQUESTEX: u32 = 265u32;
+pub const WinStationInformation: WINSTATIONINFOCLASS = 8i32;

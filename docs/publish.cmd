@@ -8,7 +8,6 @@
 :: cargo publish -p windows_x86_64_msvc
 
 :: cargo publish -p windows-targets
-:: cargo publish -p windows-metadata
 :: cargo publish -p windows-bindgen
 :: cargo publish -p windows-result
 :: cargo publish -p windows-registry

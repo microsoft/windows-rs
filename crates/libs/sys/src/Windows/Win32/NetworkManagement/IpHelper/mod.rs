@@ -294,6 +294,12 @@ windows_targets::link!("iphlpapi.dll" "system" fn UnregisterInterfaceTimestampCo
 windows_targets::link!("iphlpapi.dll" "system" fn if_indextoname(interfaceindex : u32, interfacename : windows_sys::core::PSTR) -> windows_sys::core::PSTR);
 windows_targets::link!("iphlpapi.dll" "system" fn if_nametoindex(interfacename : windows_sys::core::PCSTR) -> u32);
 pub const ANY_SIZE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ARP_SEND_REPLY {
+    pub DestAddress: u32,
+    pub SrcAddress: u32,
+}
 pub const BEST_IF: u32 = 20u32;
 pub const BEST_ROUTE: u32 = 21u32;
 pub const BROADCAST_NODETYPE: u32 = 1u32;
@@ -308,17 +314,118 @@ pub const DNS_DOH_POLICY_AUTO: u32 = 16u32;
 pub const DNS_DOH_POLICY_DISABLE: u32 = 8u32;
 pub const DNS_DOH_POLICY_NOT_CONFIGURED: u32 = 4u32;
 pub const DNS_DOH_POLICY_REQUIRED: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DNS_DOH_SERVER_SETTINGS {
+    pub Template: windows_sys::core::PWSTR,
+    pub Flags: u64,
+}
 pub const DNS_DOH_SERVER_SETTINGS_ENABLE: u32 = 2u32;
 pub const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: u32 = 1u32;
 pub const DNS_DOH_SERVER_SETTINGS_ENABLE_DDR: u32 = 16u32;
 pub const DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP: u32 = 4u32;
 pub const DNS_ENABLE_DDR: u32 = 64u32;
 pub const DNS_ENABLE_DOH: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DNS_INTERFACE_SETTINGS {
+    pub Version: u32,
+    pub Flags: u64,
+    pub Domain: windows_sys::core::PWSTR,
+    pub NameServer: windows_sys::core::PWSTR,
+    pub SearchList: windows_sys::core::PWSTR,
+    pub RegistrationEnabled: u32,
+    pub RegisterAdapterName: u32,
+    pub EnableLLMNR: u32,
+    pub QueryAdapterName: u32,
+    pub ProfileNameServer: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DNS_INTERFACE_SETTINGS3 {
+    pub Version: u32,
+    pub Flags: u64,
+    pub Domain: windows_sys::core::PWSTR,
+    pub NameServer: windows_sys::core::PWSTR,
+    pub SearchList: windows_sys::core::PWSTR,
+    pub RegistrationEnabled: u32,
+    pub RegisterAdapterName: u32,
+    pub EnableLLMNR: u32,
+    pub QueryAdapterName: u32,
+    pub ProfileNameServer: windows_sys::core::PWSTR,
+    pub DisableUnconstrainedQueries: u32,
+    pub SupplementalSearchList: windows_sys::core::PWSTR,
+    pub cServerProperties: u32,
+    pub ServerProperties: *mut DNS_SERVER_PROPERTY,
+    pub cProfileServerProperties: u32,
+    pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DNS_INTERFACE_SETTINGS4 {
+    pub Version: u32,
+    pub Flags: u64,
+    pub Domain: windows_sys::core::PWSTR,
+    pub NameServer: windows_sys::core::PWSTR,
+    pub SearchList: windows_sys::core::PWSTR,
+    pub RegistrationEnabled: u32,
+    pub RegisterAdapterName: u32,
+    pub EnableLLMNR: u32,
+    pub QueryAdapterName: u32,
+    pub ProfileNameServer: windows_sys::core::PWSTR,
+    pub DisableUnconstrainedQueries: u32,
+    pub SupplementalSearchList: windows_sys::core::PWSTR,
+    pub cServerProperties: u32,
+    pub ServerProperties: *mut DNS_SERVER_PROPERTY,
+    pub cProfileServerProperties: u32,
+    pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
+    pub EncryptedDnsAdapterFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DNS_INTERFACE_SETTINGS_EX {
+    pub SettingsV1: DNS_INTERFACE_SETTINGS,
+    pub DisableUnconstrainedQueries: u32,
+    pub SupplementalSearchList: windows_sys::core::PWSTR,
+}
 pub const DNS_INTERFACE_SETTINGS_VERSION1: u32 = 1u32;
 pub const DNS_INTERFACE_SETTINGS_VERSION2: u32 = 2u32;
 pub const DNS_INTERFACE_SETTINGS_VERSION3: u32 = 3u32;
 pub const DNS_INTERFACE_SETTINGS_VERSION4: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DNS_SERVER_PROPERTY {
+    pub Version: u32,
+    pub ServerIndex: u32,
+    pub Type: DNS_SERVER_PROPERTY_TYPE,
+    pub Property: DNS_SERVER_PROPERTY_TYPES,
+}
+pub type DNS_SERVER_PROPERTY_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DNS_SERVER_PROPERTY_TYPES {
+    pub DohSettings: *mut DNS_DOH_SERVER_SETTINGS,
+}
 pub const DNS_SERVER_PROPERTY_VERSION1: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DNS_SETTINGS {
+    pub Version: u32,
+    pub Flags: u64,
+    pub Hostname: windows_sys::core::PWSTR,
+    pub Domain: windows_sys::core::PWSTR,
+    pub SearchList: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DNS_SETTINGS2 {
+    pub Version: u32,
+    pub Flags: u64,
+    pub Hostname: windows_sys::core::PWSTR,
+    pub Domain: windows_sys::core::PWSTR,
+    pub SearchList: windows_sys::core::PWSTR,
+    pub SettingFlags: u64,
+}
 pub const DNS_SETTINGS_ENABLE_LLMNR: u32 = 128u32;
 pub const DNS_SETTINGS_QUERY_ADAPTER_NAME: u32 = 256u32;
 pub const DNS_SETTINGS_VERSION1: u32 = 1u32;
@@ -345,6 +452,19 @@ pub const FD_FLAGS_ALLFLAGS: u32 = 1u32;
 pub const FD_FLAGS_NOSYN: u32 = 1u32;
 pub const FILTER_ICMP_CODE_ANY: u8 = 255u8;
 pub const FILTER_ICMP_TYPE_ANY: u8 = 255u8;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FIXED_INFO_W2KSP1 {
+    pub HostName: [i8; 132],
+    pub DomainName: [i8; 132],
+    pub CurrentDnsServer: *mut IP_ADDR_STRING,
+    pub DnsServerList: IP_ADDR_STRING,
+    pub NodeType: u32,
+    pub ScopeId: [i8; 260],
+    pub EnableRouting: u32,
+    pub EnableProxy: u32,
+    pub EnableDns: u32,
+}
 pub const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: GET_ADAPTERS_ADDRESSES_FLAGS = 512u32;
 pub const GAA_FLAG_INCLUDE_ALL_INTERFACES: GET_ADAPTERS_ADDRESSES_FLAGS = 256u32;
 pub const GAA_FLAG_INCLUDE_GATEWAYS: GET_ADAPTERS_ADDRESSES_FLAGS = 128u32;
@@ -357,9 +477,12 @@ pub const GAA_FLAG_SKIP_DNS_SERVER: GET_ADAPTERS_ADDRESSES_FLAGS = 8u32;
 pub const GAA_FLAG_SKIP_FRIENDLY_NAME: GET_ADAPTERS_ADDRESSES_FLAGS = 32u32;
 pub const GAA_FLAG_SKIP_MULTICAST: GET_ADAPTERS_ADDRESSES_FLAGS = 4u32;
 pub const GAA_FLAG_SKIP_UNICAST: GET_ADAPTERS_ADDRESSES_FLAGS = 1u32;
+pub type GET_ADAPTERS_ADDRESSES_FLAGS = u32;
 pub const GF_FRAGCACHE: GLOBAL_FILTER = 9i32;
 pub const GF_FRAGMENTS: GLOBAL_FILTER = 2i32;
 pub const GF_STRONGHOST: GLOBAL_FILTER = 8i32;
+pub type GLOBAL_FILTER = i32;
+pub type HIFTIMESTAMPCHANGE = *mut core::ffi::c_void;
 pub const HYBRID_NODETYPE: u32 = 8u32;
 pub const ICMP4_DST_UNREACH: ICMP4_TYPE = 3i32;
 pub const ICMP4_ECHO_REPLY: ICMP4_TYPE = 0i32;
@@ -374,6 +497,7 @@ pub const ICMP4_SOURCE_QUENCH: ICMP4_TYPE = 4i32;
 pub const ICMP4_TIMESTAMP_REPLY: ICMP4_TYPE = 14i32;
 pub const ICMP4_TIMESTAMP_REQUEST: ICMP4_TYPE = 13i32;
 pub const ICMP4_TIME_EXCEEDED: ICMP4_TYPE = 11i32;
+pub type ICMP4_TYPE = i32;
 pub const ICMP6_DST_UNREACH: ICMP6_TYPE = 1i32;
 pub const ICMP6_ECHO_REPLY: ICMP6_TYPE = 129i32;
 pub const ICMP6_ECHO_REQUEST: ICMP6_TYPE = 128i32;
@@ -384,7 +508,38 @@ pub const ICMP6_MEMBERSHIP_REPORT: ICMP6_TYPE = 131i32;
 pub const ICMP6_PACKET_TOO_BIG: ICMP6_TYPE = 2i32;
 pub const ICMP6_PARAM_PROB: ICMP6_TYPE = 4i32;
 pub const ICMP6_TIME_EXCEEDED: ICMP6_TYPE = 3i32;
+pub type ICMP6_TYPE = i32;
 pub const ICMP6_V2_MEMBERSHIP_REPORT: ICMP6_TYPE = 143i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ICMPV6_ECHO_REPLY_LH {
+    pub Address: IPV6_ADDRESS_EX,
+    pub Status: u32,
+    pub RoundTripTime: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ICMP_ECHO_REPLY {
+    pub Address: u32,
+    pub Status: u32,
+    pub RoundTripTime: u32,
+    pub DataSize: u16,
+    pub Reserved: u16,
+    pub Data: *mut core::ffi::c_void,
+    pub Options: IP_OPTION_INFORMATION,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct ICMP_ECHO_REPLY32 {
+    pub Address: u32,
+    pub Status: u32,
+    pub RoundTripTime: u32,
+    pub DataSize: u16,
+    pub Reserved: u16,
+    pub Data: *mut core::ffi::c_void,
+    pub Options: IP_OPTION_INFORMATION32,
+}
 pub const ICMP_STATS: u32 = 11u32;
 pub const IF_ACCESS_BROADCAST: IF_ACCESS_TYPE = 2i32;
 pub const IF_ACCESS_LOOPBACK: IF_ACCESS_TYPE = 1i32;
@@ -392,6 +547,7 @@ pub const IF_ACCESS_POINTTOMULTIPOINT: IF_ACCESS_TYPE = 4i32;
 pub const IF_ACCESS_POINTTOPOINT: IF_ACCESS_TYPE = 3i32;
 pub const IF_ACCESS_POINT_TO_MULTI_POINT: IF_ACCESS_TYPE = 4i32;
 pub const IF_ACCESS_POINT_TO_POINT: IF_ACCESS_TYPE = 3i32;
+pub type IF_ACCESS_TYPE = i32;
 pub const IF_ADMIN_STATUS_DOWN: u32 = 2u32;
 pub const IF_ADMIN_STATUS_TESTING: u32 = 3u32;
 pub const IF_ADMIN_STATUS_UP: u32 = 1u32;
@@ -612,467 +768,6 @@ pub const IF_TYPE_X25_HUNTGROUP: u32 = 122u32;
 pub const IF_TYPE_X25_MLP: u32 = 121u32;
 pub const IF_TYPE_X25_PLE: u32 = 40u32;
 pub const IF_TYPE_XBOX_WIRELESS: u32 = 281u32;
-pub const INTERFACE_HARDWARE_CROSSTIMESTAMP_VERSION_1: u32 = 1u32;
-pub const INTERFACE_TIMESTAMP_CAPABILITIES_VERSION_1: u32 = 1u32;
-pub const IOCTL_ARP_SEND_REQUEST: u32 = 103u32;
-pub const IOCTL_IP_ADDCHANGE_NOTIFY_REQUEST: u32 = 102u32;
-pub const IOCTL_IP_GET_BEST_INTERFACE: u32 = 105u32;
-pub const IOCTL_IP_INTERFACE_INFO: u32 = 104u32;
-pub const IOCTL_IP_RTCHANGE_NOTIFY_REQUEST: u32 = 101u32;
-pub const IOCTL_IP_UNIDIRECTIONAL_ADAPTER_ADDRESS: u32 = 106u32;
-pub const IP6_STATS: u32 = 36u32;
-pub const IPRTRMGR_PID: u32 = 10000u32;
-pub const IPV6_GLOBAL_INFO: u32 = 4294901775u32;
-pub const IPV6_ROUTE_INFO: u32 = 4294901776u32;
-pub const IP_ADAPTER_ADDRESS_DNS_ELIGIBLE: u32 = 1u32;
-pub const IP_ADAPTER_ADDRESS_TRANSIENT: u32 = 2u32;
-pub const IP_ADAPTER_DDNS_ENABLED: u32 = 1u32;
-pub const IP_ADAPTER_DHCP_ENABLED: u32 = 4u32;
-pub const IP_ADAPTER_IPV4_ENABLED: u32 = 128u32;
-pub const IP_ADAPTER_IPV6_ENABLED: u32 = 256u32;
-pub const IP_ADAPTER_IPV6_MANAGE_ADDRESS_CONFIG: u32 = 512u32;
-pub const IP_ADAPTER_IPV6_OTHER_STATEFUL_CONFIG: u32 = 32u32;
-pub const IP_ADAPTER_NETBIOS_OVER_TCPIP_ENABLED: u32 = 64u32;
-pub const IP_ADAPTER_NO_MULTICAST: u32 = 16u32;
-pub const IP_ADAPTER_RECEIVE_ONLY: u32 = 8u32;
-pub const IP_ADAPTER_REGISTER_ADAPTER_SUFFIX: u32 = 2u32;
-pub const IP_ADDRROW: u32 = 5u32;
-pub const IP_ADDRTABLE: u32 = 4u32;
-pub const IP_ADDR_ADDED: u32 = 11023u32;
-pub const IP_ADDR_DELETED: u32 = 11019u32;
-pub const IP_BAD_DESTINATION: u32 = 11018u32;
-pub const IP_BAD_HEADER: u32 = 11042u32;
-pub const IP_BAD_OPTION: u32 = 11007u32;
-pub const IP_BAD_REQ: u32 = 11011u32;
-pub const IP_BAD_ROUTE: u32 = 11012u32;
-pub const IP_BIND_ADAPTER: u32 = 11026u32;
-pub const IP_BUF_TOO_SMALL: u32 = 11001u32;
-pub const IP_DEMAND_DIAL_FILTER_INFO: u32 = 4294901769u32;
-pub const IP_DEMAND_DIAL_FILTER_INFO_V6: u32 = 4294901779u32;
-pub const IP_DEST_ADDR_UNREACHABLE: u32 = 11003u32;
-pub const IP_DEST_HOST_UNREACHABLE: u32 = 11003u32;
-pub const IP_DEST_NET_UNREACHABLE: u32 = 11002u32;
-pub const IP_DEST_NO_ROUTE: u32 = 11002u32;
-pub const IP_DEST_PORT_UNREACHABLE: u32 = 11005u32;
-pub const IP_DEST_PROHIBITED: u32 = 11004u32;
-pub const IP_DEST_PROT_UNREACHABLE: u32 = 11004u32;
-pub const IP_DEST_SCOPE_MISMATCH: u32 = 11045u32;
-pub const IP_DEST_UNREACHABLE: u32 = 11040u32;
-pub const IP_DEVICE_DOES_NOT_EXIST: u32 = 11028u32;
-pub const IP_DUPLICATE_ADDRESS: u32 = 11029u32;
-pub const IP_DUPLICATE_IPADD: u32 = 11034u32;
-pub const IP_EXPORT_INCLUDED: u32 = 1u32;
-pub const IP_FILTER_ENABLE_INFO: u32 = 4294901781u32;
-pub const IP_FILTER_ENABLE_INFO_V6: u32 = 4294901782u32;
-pub const IP_FLAG_DF: u32 = 2u32;
-pub const IP_FLAG_REVERSE: u32 = 1u32;
-pub const IP_FORWARDNUMBER: u32 = 6u32;
-pub const IP_FORWARDROW: u32 = 8u32;
-pub const IP_FORWARDTABLE: u32 = 7u32;
-pub const IP_GENERAL_FAILURE: u32 = 11050u32;
-pub const IP_GENERAL_INFO_BASE: u32 = 4294901760u32;
-pub const IP_GLOBAL_INFO: u32 = 4294901763u32;
-pub const IP_HOP_LIMIT_EXCEEDED: u32 = 11013u32;
-pub const IP_HW_ERROR: u32 = 11008u32;
-pub const IP_ICMP_ERROR: u32 = 11044u32;
-pub const IP_IFFILTER_INFO: u32 = 4294901773u32;
-pub const IP_IFFILTER_INFO_V6: u32 = 4294901780u32;
-pub const IP_INTERFACE_METRIC_CHANGE: u32 = 11030u32;
-pub const IP_INTERFACE_STATUS_INFO: u32 = 4294901764u32;
-pub const IP_INTERFACE_WOL_CAPABILITY_CHANGE: u32 = 11033u32;
-pub const IP_IN_FILTER_INFO: u32 = 4294901761u32;
-pub const IP_IN_FILTER_INFO_V6: u32 = 4294901777u32;
-pub const IP_IPINIP_CFG_INFO: u32 = 4294901772u32;
-pub const IP_MCAST_BOUNDARY_INFO: u32 = 4294901771u32;
-pub const IP_MCAST_HEARBEAT_INFO: u32 = 4294901770u32;
-pub const IP_MCAST_LIMIT_INFO: u32 = 4294901774u32;
-pub const IP_MEDIA_CONNECT: u32 = 11024u32;
-pub const IP_MEDIA_DISCONNECT: u32 = 11025u32;
-pub const IP_MTU_CHANGE: u32 = 11021u32;
-pub const IP_NEGOTIATING_IPSEC: u32 = 11032u32;
-pub const IP_NETROW: u32 = 10u32;
-pub const IP_NETTABLE: u32 = 9u32;
-pub const IP_NO_RESOURCES: u32 = 11006u32;
-pub const IP_OPTION_TOO_BIG: u32 = 11017u32;
-pub const IP_OUT_FILTER_INFO: u32 = 4294901762u32;
-pub const IP_OUT_FILTER_INFO_V6: u32 = 4294901778u32;
-pub const IP_PACKET_TOO_BIG: u32 = 11009u32;
-pub const IP_PARAMETER_PROBLEM: u32 = 11015u32;
-pub const IP_PARAM_PROBLEM: u32 = 11015u32;
-pub const IP_PENDING: u32 = 11255u32;
-pub const IP_PROT_PRIORITY_INFO: u32 = 4294901766u32;
-pub const IP_PROT_PRIORITY_INFO_EX: u32 = 4294901783u32;
-pub const IP_REASSEMBLY_TIME_EXCEEDED: u32 = 11014u32;
-pub const IP_RECONFIG_SECFLTR: u32 = 11031u32;
-pub const IP_REQ_TIMED_OUT: u32 = 11010u32;
-pub const IP_ROUTER_DISC_INFO: u32 = 4294901767u32;
-pub const IP_ROUTER_MANAGER_VERSION: u32 = 1u32;
-pub const IP_ROUTE_INFO: u32 = 4294901765u32;
-pub const IP_SOURCE_QUENCH: u32 = 11016u32;
-pub const IP_SPEC_MTU_CHANGE: u32 = 11020u32;
-pub const IP_STATS: u32 = 3u32;
-pub const IP_STATUS_BASE: u32 = 11000u32;
-pub const IP_SUCCESS: u32 = 0u32;
-pub const IP_TIME_EXCEEDED: u32 = 11041u32;
-pub const IP_TTL_EXPIRED_REASSEM: u32 = 11014u32;
-pub const IP_TTL_EXPIRED_TRANSIT: u32 = 11013u32;
-pub const IP_UNBIND_ADAPTER: u32 = 11027u32;
-pub const IP_UNLOAD: u32 = 11022u32;
-pub const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043u32;
-pub const LB_DST_ADDR_USE_DSTADDR_FLAG: u32 = 8u32;
-pub const LB_DST_ADDR_USE_SRCADDR_FLAG: u32 = 4u32;
-pub const LB_DST_MASK_LATE_FLAG: u32 = 32u32;
-pub const LB_SRC_ADDR_USE_DSTADDR_FLAG: u32 = 2u32;
-pub const LB_SRC_ADDR_USE_SRCADDR_FLAG: u32 = 1u32;
-pub const LB_SRC_MASK_LATE_FLAG: u32 = 16u32;
-pub const MAXLEN_IFDESCR: u32 = 256u32;
-pub const MAXLEN_PHYSADDR: u32 = 8u32;
-pub const MAX_ADAPTER_ADDRESS_LENGTH: u32 = 8u32;
-pub const MAX_ADAPTER_DESCRIPTION_LENGTH: u32 = 128u32;
-pub const MAX_ADAPTER_NAME: u32 = 128u32;
-pub const MAX_ADAPTER_NAME_LENGTH: u32 = 256u32;
-pub const MAX_DHCPV6_DUID_LENGTH: u32 = 130u32;
-pub const MAX_DNS_SUFFIX_STRING_LENGTH: u32 = 256u32;
-pub const MAX_DOMAIN_NAME_LEN: u32 = 128u32;
-pub const MAX_HOSTNAME_LEN: u32 = 128u32;
-pub const MAX_IF_TYPE: u32 = 281u32;
-pub const MAX_INTERFACE_NAME_LEN: u32 = 256u32;
-pub const MAX_IP_STATUS: u32 = 11050u32;
-pub const MAX_MIB_OFFSET: u32 = 8u32;
-pub const MAX_OPT_SIZE: u32 = 40u32;
-pub const MAX_SCOPE_ID_LEN: u32 = 256u32;
-pub const MAX_SCOPE_NAME_LEN: u32 = 255u32;
-pub const MCAST_BOUNDARY: u32 = 26u32;
-pub const MCAST_GLOBAL: u32 = 24u32;
-pub const MCAST_IF_ENTRY: u32 = 23u32;
-pub const MCAST_MFE: u32 = 18u32;
-pub const MCAST_MFE_STATS: u32 = 19u32;
-pub const MCAST_MFE_STATS_EX: u32 = 35u32;
-pub const MCAST_SCOPE: u32 = 27u32;
-pub const MIB_IF_ADMIN_STATUS_DOWN: u32 = 2u32;
-pub const MIB_IF_ADMIN_STATUS_TESTING: u32 = 3u32;
-pub const MIB_IF_ADMIN_STATUS_UP: u32 = 1u32;
-pub const MIB_IF_TYPE_ETHERNET: u32 = 6u32;
-pub const MIB_IF_TYPE_FDDI: u32 = 15u32;
-pub const MIB_IF_TYPE_LOOPBACK: u32 = 24u32;
-pub const MIB_IF_TYPE_OTHER: u32 = 1u32;
-pub const MIB_IF_TYPE_PPP: u32 = 23u32;
-pub const MIB_IF_TYPE_SLIP: u32 = 28u32;
-pub const MIB_IF_TYPE_TOKENRING: u32 = 9u32;
-pub const MIB_INVALID_TEREDO_PORT_NUMBER: u32 = 0u32;
-pub const MIB_IPADDR_DELETED: u32 = 64u32;
-pub const MIB_IPADDR_DISCONNECTED: u32 = 8u32;
-pub const MIB_IPADDR_DNS_ELIGIBLE: u32 = 256u32;
-pub const MIB_IPADDR_DYNAMIC: u32 = 4u32;
-pub const MIB_IPADDR_PRIMARY: u32 = 1u32;
-pub const MIB_IPADDR_TRANSIENT: u32 = 128u32;
-pub const MIB_IPNET_TYPE_DYNAMIC: MIB_IPNET_TYPE = 3i32;
-pub const MIB_IPNET_TYPE_INVALID: MIB_IPNET_TYPE = 2i32;
-pub const MIB_IPNET_TYPE_OTHER: MIB_IPNET_TYPE = 1i32;
-pub const MIB_IPNET_TYPE_STATIC: MIB_IPNET_TYPE = 4i32;
-pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295u32;
-pub const MIB_IPROUTE_TYPE_DIRECT: MIB_IPFORWARD_TYPE = 3i32;
-pub const MIB_IPROUTE_TYPE_INDIRECT: MIB_IPFORWARD_TYPE = 4i32;
-pub const MIB_IPROUTE_TYPE_INVALID: MIB_IPFORWARD_TYPE = 2i32;
-pub const MIB_IPROUTE_TYPE_OTHER: MIB_IPFORWARD_TYPE = 1i32;
-pub const MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = 1i32;
-pub const MIB_IP_NOT_FORWARDING: MIB_IPSTATS_FORWARDING = 2i32;
-pub const MIB_TCP_RTO_CONSTANT: TCP_RTO_ALGORITHM = 2i32;
-pub const MIB_TCP_RTO_OTHER: TCP_RTO_ALGORITHM = 1i32;
-pub const MIB_TCP_RTO_RSRE: TCP_RTO_ALGORITHM = 3i32;
-pub const MIB_TCP_RTO_VANJ: TCP_RTO_ALGORITHM = 4i32;
-pub const MIB_TCP_STATE_CLOSED: MIB_TCP_STATE = 1i32;
-pub const MIB_TCP_STATE_CLOSE_WAIT: MIB_TCP_STATE = 8i32;
-pub const MIB_TCP_STATE_CLOSING: MIB_TCP_STATE = 9i32;
-pub const MIB_TCP_STATE_DELETE_TCB: MIB_TCP_STATE = 12i32;
-pub const MIB_TCP_STATE_ESTAB: MIB_TCP_STATE = 5i32;
-pub const MIB_TCP_STATE_FIN_WAIT1: MIB_TCP_STATE = 6i32;
-pub const MIB_TCP_STATE_FIN_WAIT2: MIB_TCP_STATE = 7i32;
-pub const MIB_TCP_STATE_LAST_ACK: MIB_TCP_STATE = 10i32;
-pub const MIB_TCP_STATE_LISTEN: MIB_TCP_STATE = 2i32;
-pub const MIB_TCP_STATE_RESERVED: MIB_TCP_STATE = 100i32;
-pub const MIB_TCP_STATE_SYN_RCVD: MIB_TCP_STATE = 4i32;
-pub const MIB_TCP_STATE_SYN_SENT: MIB_TCP_STATE = 3i32;
-pub const MIB_TCP_STATE_TIME_WAIT: MIB_TCP_STATE = 11i32;
-pub const MIB_USE_CURRENT_FORWARDING: u32 = 4294967295u32;
-pub const MIB_USE_CURRENT_TTL: u32 = 4294967295u32;
-pub const MIN_IF_TYPE: u32 = 1u32;
-pub const MIXED_NODETYPE: u32 = 4u32;
-pub const MibAddInstance: MIB_NOTIFICATION_TYPE = 1i32;
-pub const MibDeleteInstance: MIB_NOTIFICATION_TYPE = 2i32;
-pub const MibIfEntryNormal: MIB_IF_ENTRY_LEVEL = 0i32;
-pub const MibIfEntryNormalWithoutStatistics: MIB_IF_ENTRY_LEVEL = 2i32;
-pub const MibIfTableNormal: MIB_IF_TABLE_LEVEL = 0i32;
-pub const MibIfTableNormalWithoutStatistics: MIB_IF_TABLE_LEVEL = 2i32;
-pub const MibIfTableRaw: MIB_IF_TABLE_LEVEL = 1i32;
-pub const MibInitialNotification: MIB_NOTIFICATION_TYPE = 3i32;
-pub const MibParameterNotification: MIB_NOTIFICATION_TYPE = 0i32;
-pub const ND_NEIGHBOR_ADVERT: ICMP6_TYPE = 136i32;
-pub const ND_NEIGHBOR_SOLICIT: ICMP6_TYPE = 135i32;
-pub const ND_REDIRECT: ICMP6_TYPE = 137i32;
-pub const ND_ROUTER_ADVERT: ICMP6_TYPE = 134i32;
-pub const ND_ROUTER_SOLICIT: ICMP6_TYPE = 133i32;
-pub const NET_ADDRESS_DNS_NAME: NET_ADDRESS_FORMAT = 1i32;
-pub const NET_ADDRESS_FORMAT_UNSPECIFIED: NET_ADDRESS_FORMAT = 0i32;
-pub const NET_ADDRESS_IPV4: NET_ADDRESS_FORMAT = 2i32;
-pub const NET_ADDRESS_IPV6: NET_ADDRESS_FORMAT = 3i32;
-pub const NET_STRING_IPV4_ADDRESS: u32 = 1u32;
-pub const NET_STRING_IPV4_NETWORK: u32 = 4u32;
-pub const NET_STRING_IPV4_SERVICE: u32 = 2u32;
-pub const NET_STRING_IPV6_ADDRESS: u32 = 8u32;
-pub const NET_STRING_IPV6_ADDRESS_NO_SCOPE: u32 = 16u32;
-pub const NET_STRING_IPV6_NETWORK: u32 = 128u32;
-pub const NET_STRING_IPV6_SERVICE: u32 = 32u32;
-pub const NET_STRING_IPV6_SERVICE_NO_SCOPE: u32 = 64u32;
-pub const NET_STRING_NAMED_ADDRESS: u32 = 256u32;
-pub const NET_STRING_NAMED_SERVICE: u32 = 512u32;
-pub const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39u32;
-pub const PEER_TO_PEER_NODETYPE: u32 = 2u32;
-pub const PFERROR_BUFFER_TOO_SMALL: u32 = 23002u32;
-pub const PFERROR_NO_FILTERS_GIVEN: u32 = 23001u32;
-pub const PFERROR_NO_PF_INTERFACE: u32 = 23000u32;
-pub const PFFT_FILTER: PFFRAMETYPE = 1i32;
-pub const PFFT_FRAG: PFFRAMETYPE = 2i32;
-pub const PFFT_SPOOF: PFFRAMETYPE = 3i32;
-pub const PF_ACTION_DROP: PFFORWARD_ACTION = 1i32;
-pub const PF_ACTION_FORWARD: PFFORWARD_ACTION = 0i32;
-pub const PF_IPV4: PFADDRESSTYPE = 0i32;
-pub const PF_IPV6: PFADDRESSTYPE = 1i32;
-pub const PROXY_ARP: u32 = 22u32;
-pub const ROUTE_LONGER: u32 = 32u32;
-pub const ROUTE_MATCHING: u32 = 31u32;
-pub const ROUTE_SHORTER: u32 = 33u32;
-pub const ROUTE_STATE: u32 = 34u32;
-pub const TCP6_STATS: u32 = 38u32;
-pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = 0i32;
-pub const TCPIP_OWNING_MODULE_SIZE: u32 = 16u32;
-pub const TCP_ROW: u32 = 14u32;
-pub const TCP_STATS: u32 = 12u32;
-pub const TCP_TABLE: u32 = 13u32;
-pub const TCP_TABLE_BASIC_ALL: TCP_TABLE_CLASS = 2i32;
-pub const TCP_TABLE_BASIC_CONNECTIONS: TCP_TABLE_CLASS = 1i32;
-pub const TCP_TABLE_BASIC_LISTENER: TCP_TABLE_CLASS = 0i32;
-pub const TCP_TABLE_OWNER_MODULE_ALL: TCP_TABLE_CLASS = 8i32;
-pub const TCP_TABLE_OWNER_MODULE_CONNECTIONS: TCP_TABLE_CLASS = 7i32;
-pub const TCP_TABLE_OWNER_MODULE_LISTENER: TCP_TABLE_CLASS = 6i32;
-pub const TCP_TABLE_OWNER_PID_ALL: TCP_TABLE_CLASS = 5i32;
-pub const TCP_TABLE_OWNER_PID_CONNECTIONS: TCP_TABLE_CLASS = 4i32;
-pub const TCP_TABLE_OWNER_PID_LISTENER: TCP_TABLE_CLASS = 3i32;
-pub const TcpBoolOptDisabled: TCP_BOOLEAN_OPTIONAL = 0i32;
-pub const TcpBoolOptEnabled: TCP_BOOLEAN_OPTIONAL = 1i32;
-pub const TcpBoolOptUnchanged: TCP_BOOLEAN_OPTIONAL = -1i32;
-pub const TcpConnectionEstatsBandwidth: TCP_ESTATS_TYPE = 7i32;
-pub const TcpConnectionEstatsData: TCP_ESTATS_TYPE = 1i32;
-pub const TcpConnectionEstatsFineRtt: TCP_ESTATS_TYPE = 8i32;
-pub const TcpConnectionEstatsMaximum: TCP_ESTATS_TYPE = 9i32;
-pub const TcpConnectionEstatsObsRec: TCP_ESTATS_TYPE = 6i32;
-pub const TcpConnectionEstatsPath: TCP_ESTATS_TYPE = 3i32;
-pub const TcpConnectionEstatsRec: TCP_ESTATS_TYPE = 5i32;
-pub const TcpConnectionEstatsSendBuff: TCP_ESTATS_TYPE = 4i32;
-pub const TcpConnectionEstatsSndCong: TCP_ESTATS_TYPE = 2i32;
-pub const TcpConnectionEstatsSynOpts: TCP_ESTATS_TYPE = 0i32;
-pub const TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE = 0i32;
-pub const TcpConnectionOffloadStateMax: TCP_CONNECTION_OFFLOAD_STATE = 4i32;
-pub const TcpConnectionOffloadStateOffloaded: TCP_CONNECTION_OFFLOAD_STATE = 2i32;
-pub const TcpConnectionOffloadStateOffloading: TCP_CONNECTION_OFFLOAD_STATE = 1i32;
-pub const TcpConnectionOffloadStateUploading: TCP_CONNECTION_OFFLOAD_STATE = 3i32;
-pub const TcpErrorAboveAckWindow: TCP_SOFT_ERROR = 4i32;
-pub const TcpErrorAboveDataWindow: TCP_SOFT_ERROR = 2i32;
-pub const TcpErrorAboveTsWindow: TCP_SOFT_ERROR = 6i32;
-pub const TcpErrorBelowAckWindow: TCP_SOFT_ERROR = 3i32;
-pub const TcpErrorBelowDataWindow: TCP_SOFT_ERROR = 1i32;
-pub const TcpErrorBelowTsWindow: TCP_SOFT_ERROR = 5i32;
-pub const TcpErrorDataChecksumError: TCP_SOFT_ERROR = 7i32;
-pub const TcpErrorDataLengthError: TCP_SOFT_ERROR = 8i32;
-pub const TcpErrorMaxSoftError: TCP_SOFT_ERROR = 9i32;
-pub const TcpErrorNone: TCP_SOFT_ERROR = 0i32;
-pub const TcpRtoAlgorithmConstant: TCP_RTO_ALGORITHM = 2i32;
-pub const TcpRtoAlgorithmOther: TCP_RTO_ALGORITHM = 1i32;
-pub const TcpRtoAlgorithmRsre: TCP_RTO_ALGORITHM = 3i32;
-pub const TcpRtoAlgorithmVanj: TCP_RTO_ALGORITHM = 4i32;
-pub const UDP6_STATS: u32 = 37u32;
-pub const UDP_ROW: u32 = 17u32;
-pub const UDP_STATS: u32 = 15u32;
-pub const UDP_TABLE: u32 = 16u32;
-pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = 0i32;
-pub const UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = 2i32;
-pub const UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = 1i32;
-pub type DNS_SERVER_PROPERTY_TYPE = i32;
-pub type GET_ADAPTERS_ADDRESSES_FLAGS = u32;
-pub type GLOBAL_FILTER = i32;
-pub type ICMP4_TYPE = i32;
-pub type ICMP6_TYPE = i32;
-pub type IF_ACCESS_TYPE = i32;
-pub type INTERNAL_IF_OPER_STATUS = i32;
-pub type MIB_IF_ENTRY_LEVEL = i32;
-pub type MIB_IF_TABLE_LEVEL = i32;
-pub type MIB_IPFORWARD_TYPE = i32;
-pub type MIB_IPNET_TYPE = i32;
-pub type MIB_IPSTATS_FORWARDING = i32;
-pub type MIB_NOTIFICATION_TYPE = i32;
-pub type MIB_TCP_STATE = i32;
-pub type NET_ADDRESS_FORMAT = i32;
-pub type PFADDRESSTYPE = i32;
-pub type PFFORWARD_ACTION = i32;
-pub type PFFRAMETYPE = i32;
-pub type TCPIP_OWNER_MODULE_INFO_CLASS = i32;
-pub type TCP_BOOLEAN_OPTIONAL = i32;
-pub type TCP_CONNECTION_OFFLOAD_STATE = i32;
-pub type TCP_ESTATS_TYPE = i32;
-pub type TCP_RTO_ALGORITHM = i32;
-pub type TCP_SOFT_ERROR = i32;
-pub type TCP_TABLE_CLASS = i32;
-pub type UDP_TABLE_CLASS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ARP_SEND_REPLY {
-    pub DestAddress: u32,
-    pub SrcAddress: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DNS_DOH_SERVER_SETTINGS {
-    pub Template: windows_sys::core::PWSTR,
-    pub Flags: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DNS_INTERFACE_SETTINGS {
-    pub Version: u32,
-    pub Flags: u64,
-    pub Domain: windows_sys::core::PWSTR,
-    pub NameServer: windows_sys::core::PWSTR,
-    pub SearchList: windows_sys::core::PWSTR,
-    pub RegistrationEnabled: u32,
-    pub RegisterAdapterName: u32,
-    pub EnableLLMNR: u32,
-    pub QueryAdapterName: u32,
-    pub ProfileNameServer: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DNS_INTERFACE_SETTINGS3 {
-    pub Version: u32,
-    pub Flags: u64,
-    pub Domain: windows_sys::core::PWSTR,
-    pub NameServer: windows_sys::core::PWSTR,
-    pub SearchList: windows_sys::core::PWSTR,
-    pub RegistrationEnabled: u32,
-    pub RegisterAdapterName: u32,
-    pub EnableLLMNR: u32,
-    pub QueryAdapterName: u32,
-    pub ProfileNameServer: windows_sys::core::PWSTR,
-    pub DisableUnconstrainedQueries: u32,
-    pub SupplementalSearchList: windows_sys::core::PWSTR,
-    pub cServerProperties: u32,
-    pub ServerProperties: *mut DNS_SERVER_PROPERTY,
-    pub cProfileServerProperties: u32,
-    pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DNS_INTERFACE_SETTINGS4 {
-    pub Version: u32,
-    pub Flags: u64,
-    pub Domain: windows_sys::core::PWSTR,
-    pub NameServer: windows_sys::core::PWSTR,
-    pub SearchList: windows_sys::core::PWSTR,
-    pub RegistrationEnabled: u32,
-    pub RegisterAdapterName: u32,
-    pub EnableLLMNR: u32,
-    pub QueryAdapterName: u32,
-    pub ProfileNameServer: windows_sys::core::PWSTR,
-    pub DisableUnconstrainedQueries: u32,
-    pub SupplementalSearchList: windows_sys::core::PWSTR,
-    pub cServerProperties: u32,
-    pub ServerProperties: *mut DNS_SERVER_PROPERTY,
-    pub cProfileServerProperties: u32,
-    pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
-    pub EncryptedDnsAdapterFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DNS_INTERFACE_SETTINGS_EX {
-    pub SettingsV1: DNS_INTERFACE_SETTINGS,
-    pub DisableUnconstrainedQueries: u32,
-    pub SupplementalSearchList: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DNS_SERVER_PROPERTY {
-    pub Version: u32,
-    pub ServerIndex: u32,
-    pub Type: DNS_SERVER_PROPERTY_TYPE,
-    pub Property: DNS_SERVER_PROPERTY_TYPES,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DNS_SERVER_PROPERTY_TYPES {
-    pub DohSettings: *mut DNS_DOH_SERVER_SETTINGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DNS_SETTINGS {
-    pub Version: u32,
-    pub Flags: u64,
-    pub Hostname: windows_sys::core::PWSTR,
-    pub Domain: windows_sys::core::PWSTR,
-    pub SearchList: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DNS_SETTINGS2 {
-    pub Version: u32,
-    pub Flags: u64,
-    pub Hostname: windows_sys::core::PWSTR,
-    pub Domain: windows_sys::core::PWSTR,
-    pub SearchList: windows_sys::core::PWSTR,
-    pub SettingFlags: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FIXED_INFO_W2KSP1 {
-    pub HostName: [i8; 132],
-    pub DomainName: [i8; 132],
-    pub CurrentDnsServer: *mut IP_ADDR_STRING,
-    pub DnsServerList: IP_ADDR_STRING,
-    pub NodeType: u32,
-    pub ScopeId: [i8; 260],
-    pub EnableRouting: u32,
-    pub EnableProxy: u32,
-    pub EnableDns: u32,
-}
-pub type HIFTIMESTAMPCHANGE = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ICMPV6_ECHO_REPLY_LH {
-    pub Address: IPV6_ADDRESS_EX,
-    pub Status: u32,
-    pub RoundTripTime: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ICMP_ECHO_REPLY {
-    pub Address: u32,
-    pub Status: u32,
-    pub RoundTripTime: u32,
-    pub DataSize: u16,
-    pub Reserved: u16,
-    pub Data: *mut core::ffi::c_void,
-    pub Options: IP_OPTION_INFORMATION,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct ICMP_ECHO_REPLY32 {
-    pub Address: u32,
-    pub Status: u32,
-    pub RoundTripTime: u32,
-    pub DataSize: u16,
-    pub Reserved: u16,
-    pub Data: *mut core::ffi::c_void,
-    pub Options: IP_OPTION_INFORMATION32,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INTERFACE_HARDWARE_CROSSTIMESTAMP {
@@ -1080,6 +775,7 @@ pub struct INTERFACE_HARDWARE_CROSSTIMESTAMP {
     pub HardwareClockTimestamp: u64,
     pub SystemTimestamp2: u64,
 }
+pub const INTERFACE_HARDWARE_CROSSTIMESTAMP_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
@@ -1110,6 +806,16 @@ pub struct INTERFACE_TIMESTAMP_CAPABILITIES {
     pub HardwareCapabilities: INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES,
     pub SoftwareCapabilities: INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES,
 }
+pub const INTERFACE_TIMESTAMP_CAPABILITIES_VERSION_1: u32 = 1u32;
+pub type INTERNAL_IF_OPER_STATUS = i32;
+pub const IOCTL_ARP_SEND_REQUEST: u32 = 103u32;
+pub const IOCTL_IP_ADDCHANGE_NOTIFY_REQUEST: u32 = 102u32;
+pub const IOCTL_IP_GET_BEST_INTERFACE: u32 = 105u32;
+pub const IOCTL_IP_INTERFACE_INFO: u32 = 104u32;
+pub const IOCTL_IP_RTCHANGE_NOTIFY_REQUEST: u32 = 101u32;
+pub const IOCTL_IP_UNIDIRECTIONAL_ADAPTER_ADDRESS: u32 = 106u32;
+pub const IP6_STATS: u32 = 36u32;
+pub const IPRTRMGR_PID: u32 = 10000u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IPV6_ADDRESS_EX {
@@ -1118,6 +824,8 @@ pub struct IPV6_ADDRESS_EX {
     pub sin6_addr: [u16; 8],
     pub sin6_scope_id: u32,
 }
+pub const IPV6_GLOBAL_INFO: u32 = 4294901775u32;
+pub const IPV6_ROUTE_INFO: u32 = 4294901776u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy)]
@@ -1224,6 +932,8 @@ pub struct IP_ADAPTER_ADDRESSES_XP_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
 }
+pub const IP_ADAPTER_ADDRESS_DNS_ELIGIBLE: u32 = 1u32;
+pub const IP_ADAPTER_ADDRESS_TRANSIENT: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -1246,6 +956,8 @@ pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+pub const IP_ADAPTER_DDNS_ENABLED: u32 = 1u32;
+pub const IP_ADAPTER_DHCP_ENABLED: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -1324,6 +1036,10 @@ pub struct IP_ADAPTER_INFO {
     pub LeaseObtained: i64,
     pub LeaseExpires: i64,
 }
+pub const IP_ADAPTER_IPV4_ENABLED: u32 = 128u32;
+pub const IP_ADAPTER_IPV6_ENABLED: u32 = 256u32;
+pub const IP_ADAPTER_IPV6_MANAGE_ADDRESS_CONFIG: u32 = 512u32;
+pub const IP_ADAPTER_IPV6_OTHER_STATEFUL_CONFIG: u32 = 32u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -1346,6 +1062,8 @@ pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+pub const IP_ADAPTER_NETBIOS_OVER_TCPIP_ENABLED: u32 = 64u32;
+pub const IP_ADAPTER_NO_MULTICAST: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ORDER_MAP {
@@ -1375,6 +1093,8 @@ pub struct IP_ADAPTER_PREFIX_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+pub const IP_ADAPTER_RECEIVE_ONLY: u32 = 8u32;
+pub const IP_ADAPTER_REGISTER_ADAPTER_SUFFIX: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -1466,6 +1186,10 @@ pub struct IP_ADDRESS_PREFIX {
 pub struct IP_ADDRESS_STRING {
     pub String: [i8; 16],
 }
+pub const IP_ADDRROW: u32 = 5u32;
+pub const IP_ADDRTABLE: u32 = 4u32;
+pub const IP_ADDR_ADDED: u32 = 11023u32;
+pub const IP_ADDR_DELETED: u32 = 11019u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP_ADDR_STRING {
@@ -1474,12 +1198,50 @@ pub struct IP_ADDR_STRING {
     pub IpMask: IP_ADDRESS_STRING,
     pub Context: u32,
 }
+pub const IP_BAD_DESTINATION: u32 = 11018u32;
+pub const IP_BAD_HEADER: u32 = 11042u32;
+pub const IP_BAD_OPTION: u32 = 11007u32;
+pub const IP_BAD_REQ: u32 = 11011u32;
+pub const IP_BAD_ROUTE: u32 = 11012u32;
+pub const IP_BIND_ADAPTER: u32 = 11026u32;
+pub const IP_BUF_TOO_SMALL: u32 = 11001u32;
+pub const IP_DEMAND_DIAL_FILTER_INFO: u32 = 4294901769u32;
+pub const IP_DEMAND_DIAL_FILTER_INFO_V6: u32 = 4294901779u32;
+pub const IP_DEST_ADDR_UNREACHABLE: u32 = 11003u32;
+pub const IP_DEST_HOST_UNREACHABLE: u32 = 11003u32;
+pub const IP_DEST_NET_UNREACHABLE: u32 = 11002u32;
+pub const IP_DEST_NO_ROUTE: u32 = 11002u32;
+pub const IP_DEST_PORT_UNREACHABLE: u32 = 11005u32;
+pub const IP_DEST_PROHIBITED: u32 = 11004u32;
+pub const IP_DEST_PROT_UNREACHABLE: u32 = 11004u32;
+pub const IP_DEST_SCOPE_MISMATCH: u32 = 11045u32;
+pub const IP_DEST_UNREACHABLE: u32 = 11040u32;
+pub const IP_DEVICE_DOES_NOT_EXIST: u32 = 11028u32;
+pub const IP_DUPLICATE_ADDRESS: u32 = 11029u32;
+pub const IP_DUPLICATE_IPADD: u32 = 11034u32;
+pub const IP_EXPORT_INCLUDED: u32 = 1u32;
+pub const IP_FILTER_ENABLE_INFO: u32 = 4294901781u32;
+pub const IP_FILTER_ENABLE_INFO_V6: u32 = 4294901782u32;
+pub const IP_FLAG_DF: u32 = 2u32;
+pub const IP_FLAG_REVERSE: u32 = 1u32;
+pub const IP_FORWARDNUMBER: u32 = 6u32;
+pub const IP_FORWARDROW: u32 = 8u32;
+pub const IP_FORWARDTABLE: u32 = 7u32;
+pub const IP_GENERAL_FAILURE: u32 = 11050u32;
+pub const IP_GENERAL_INFO_BASE: u32 = 4294901760u32;
+pub const IP_GLOBAL_INFO: u32 = 4294901763u32;
+pub const IP_HOP_LIMIT_EXCEEDED: u32 = 11013u32;
+pub const IP_HW_ERROR: u32 = 11008u32;
+pub const IP_ICMP_ERROR: u32 = 11044u32;
+pub const IP_IFFILTER_INFO: u32 = 4294901773u32;
+pub const IP_IFFILTER_INFO_V6: u32 = 4294901780u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP_INTERFACE_INFO {
     pub NumAdapters: i32,
     pub Adapter: [IP_ADAPTER_INDEX_MAP; 1],
 }
+pub const IP_INTERFACE_METRIC_CHANGE: u32 = 11030u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP_INTERFACE_NAME_INFO_W2KSP1 {
@@ -1490,6 +1252,12 @@ pub struct IP_INTERFACE_NAME_INFO_W2KSP1 {
     pub DeviceGuid: windows_sys::core::GUID,
     pub InterfaceGuid: windows_sys::core::GUID,
 }
+pub const IP_INTERFACE_STATUS_INFO: u32 = 4294901764u32;
+pub const IP_INTERFACE_WOL_CAPABILITY_CHANGE: u32 = 11033u32;
+pub const IP_IN_FILTER_INFO: u32 = 4294901761u32;
+pub const IP_IN_FILTER_INFO_V6: u32 = 4294901777u32;
+pub const IP_IPINIP_CFG_INFO: u32 = 4294901772u32;
+pub const IP_MCAST_BOUNDARY_INFO: u32 = 4294901771u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP_MCAST_COUNTER_INFO {
@@ -1498,6 +1266,15 @@ pub struct IP_MCAST_COUNTER_INFO {
     pub InMcastPkts: u64,
     pub OutMcastPkts: u64,
 }
+pub const IP_MCAST_HEARBEAT_INFO: u32 = 4294901770u32;
+pub const IP_MCAST_LIMIT_INFO: u32 = 4294901774u32;
+pub const IP_MEDIA_CONNECT: u32 = 11024u32;
+pub const IP_MEDIA_DISCONNECT: u32 = 11025u32;
+pub const IP_MTU_CHANGE: u32 = 11021u32;
+pub const IP_NEGOTIATING_IPSEC: u32 = 11032u32;
+pub const IP_NETROW: u32 = 10u32;
+pub const IP_NETTABLE: u32 = 9u32;
+pub const IP_NO_RESOURCES: u32 = 11006u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP_OPTION_INFORMATION {
@@ -1517,6 +1294,13 @@ pub struct IP_OPTION_INFORMATION32 {
     pub OptionsSize: u8,
     pub OptionsData: *mut u8,
 }
+pub const IP_OPTION_TOO_BIG: u32 = 11017u32;
+pub const IP_OUT_FILTER_INFO: u32 = 4294901762u32;
+pub const IP_OUT_FILTER_INFO_V6: u32 = 4294901778u32;
+pub const IP_PACKET_TOO_BIG: u32 = 11009u32;
+pub const IP_PARAMETER_PROBLEM: u32 = 11015u32;
+pub const IP_PARAM_PROBLEM: u32 = 11015u32;
+pub const IP_PENDING: u32 = 11255u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP_PER_ADAPTER_INFO_W2KSP1 {
@@ -1525,12 +1309,61 @@ pub struct IP_PER_ADAPTER_INFO_W2KSP1 {
     pub CurrentDnsServer: *mut IP_ADDR_STRING,
     pub DnsServerList: IP_ADDR_STRING,
 }
+pub const IP_PROT_PRIORITY_INFO: u32 = 4294901766u32;
+pub const IP_PROT_PRIORITY_INFO_EX: u32 = 4294901783u32;
+pub const IP_REASSEMBLY_TIME_EXCEEDED: u32 = 11014u32;
+pub const IP_RECONFIG_SECFLTR: u32 = 11031u32;
+pub const IP_REQ_TIMED_OUT: u32 = 11010u32;
+pub const IP_ROUTER_DISC_INFO: u32 = 4294901767u32;
+pub const IP_ROUTER_MANAGER_VERSION: u32 = 1u32;
+pub const IP_ROUTE_INFO: u32 = 4294901765u32;
+pub const IP_SOURCE_QUENCH: u32 = 11016u32;
+pub const IP_SPEC_MTU_CHANGE: u32 = 11020u32;
+pub const IP_STATS: u32 = 3u32;
+pub const IP_STATUS_BASE: u32 = 11000u32;
+pub const IP_SUCCESS: u32 = 0u32;
+pub const IP_TIME_EXCEEDED: u32 = 11041u32;
+pub const IP_TTL_EXPIRED_REASSEM: u32 = 11014u32;
+pub const IP_TTL_EXPIRED_TRANSIT: u32 = 11013u32;
+pub const IP_UNBIND_ADAPTER: u32 = 11027u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     pub NumAdapters: u32,
     pub Address: [u32; 1],
 }
+pub const IP_UNLOAD: u32 = 11022u32;
+pub const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043u32;
+pub const LB_DST_ADDR_USE_DSTADDR_FLAG: u32 = 8u32;
+pub const LB_DST_ADDR_USE_SRCADDR_FLAG: u32 = 4u32;
+pub const LB_DST_MASK_LATE_FLAG: u32 = 32u32;
+pub const LB_SRC_ADDR_USE_DSTADDR_FLAG: u32 = 2u32;
+pub const LB_SRC_ADDR_USE_SRCADDR_FLAG: u32 = 1u32;
+pub const LB_SRC_MASK_LATE_FLAG: u32 = 16u32;
+pub const MAXLEN_IFDESCR: u32 = 256u32;
+pub const MAXLEN_PHYSADDR: u32 = 8u32;
+pub const MAX_ADAPTER_ADDRESS_LENGTH: u32 = 8u32;
+pub const MAX_ADAPTER_DESCRIPTION_LENGTH: u32 = 128u32;
+pub const MAX_ADAPTER_NAME: u32 = 128u32;
+pub const MAX_ADAPTER_NAME_LENGTH: u32 = 256u32;
+pub const MAX_DHCPV6_DUID_LENGTH: u32 = 130u32;
+pub const MAX_DNS_SUFFIX_STRING_LENGTH: u32 = 256u32;
+pub const MAX_DOMAIN_NAME_LEN: u32 = 128u32;
+pub const MAX_HOSTNAME_LEN: u32 = 128u32;
+pub const MAX_IF_TYPE: u32 = 281u32;
+pub const MAX_INTERFACE_NAME_LEN: u32 = 256u32;
+pub const MAX_IP_STATUS: u32 = 11050u32;
+pub const MAX_MIB_OFFSET: u32 = 8u32;
+pub const MAX_OPT_SIZE: u32 = 40u32;
+pub const MAX_SCOPE_ID_LEN: u32 = 256u32;
+pub const MAX_SCOPE_NAME_LEN: u32 = 255u32;
+pub const MCAST_BOUNDARY: u32 = 26u32;
+pub const MCAST_GLOBAL: u32 = 24u32;
+pub const MCAST_IF_ENTRY: u32 = 23u32;
+pub const MCAST_MFE: u32 = 18u32;
+pub const MCAST_MFE_STATS: u32 = 19u32;
+pub const MCAST_MFE_STATS_EX: u32 = 35u32;
+pub const MCAST_SCOPE: u32 = 27u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIBICMPINFO {
@@ -1660,6 +1493,10 @@ pub struct MIB_IFTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IFROW; 1],
 }
+pub const MIB_IF_ADMIN_STATUS_DOWN: u32 = 2u32;
+pub const MIB_IF_ADMIN_STATUS_TESTING: u32 = 3u32;
+pub const MIB_IF_ADMIN_STATUS_UP: u32 = 1u32;
+pub type MIB_IF_ENTRY_LEVEL = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy)]
@@ -1719,6 +1556,15 @@ pub struct MIB_IF_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IF_ROW2; 1],
 }
+pub type MIB_IF_TABLE_LEVEL = i32;
+pub const MIB_IF_TYPE_ETHERNET: u32 = 6u32;
+pub const MIB_IF_TYPE_FDDI: u32 = 15u32;
+pub const MIB_IF_TYPE_LOOPBACK: u32 = 24u32;
+pub const MIB_IF_TYPE_OTHER: u32 = 1u32;
+pub const MIB_IF_TYPE_PPP: u32 = 23u32;
+pub const MIB_IF_TYPE_SLIP: u32 = 28u32;
+pub const MIB_IF_TYPE_TOKENRING: u32 = 9u32;
+pub const MIB_INVALID_TEREDO_PORT_NUMBER: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIB_INVERTEDIFSTACK_ROW {
@@ -1759,6 +1605,12 @@ pub struct MIB_IPADDRTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPADDRROW_XP; 1],
 }
+pub const MIB_IPADDR_DELETED: u32 = 64u32;
+pub const MIB_IPADDR_DISCONNECTED: u32 = 8u32;
+pub const MIB_IPADDR_DNS_ELIGIBLE: u32 = 256u32;
+pub const MIB_IPADDR_DYNAMIC: u32 = 4u32;
+pub const MIB_IPADDR_PRIMARY: u32 = 1u32;
+pub const MIB_IPADDR_TRANSIENT: u32 = 128u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -1846,6 +1698,7 @@ pub struct MIB_IPFORWARD_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IPFORWARD_ROW2; 1],
 }
+pub type MIB_IPFORWARD_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy)]
@@ -2111,6 +1964,11 @@ pub struct MIB_IPNET_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IPNET_ROW2; 1],
 }
+pub type MIB_IPNET_TYPE = i32;
+pub const MIB_IPNET_TYPE_DYNAMIC: MIB_IPNET_TYPE = 3i32;
+pub const MIB_IPNET_TYPE_INVALID: MIB_IPNET_TYPE = 2i32;
+pub const MIB_IPNET_TYPE_OTHER: MIB_IPNET_TYPE = 1i32;
+pub const MIB_IPNET_TYPE_STATIC: MIB_IPNET_TYPE = 4i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy)]
@@ -2142,6 +2000,12 @@ pub struct MIB_IPPATH_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IPPATH_ROW; 1],
 }
+pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295u32;
+pub const MIB_IPROUTE_TYPE_DIRECT: MIB_IPFORWARD_TYPE = 3i32;
+pub const MIB_IPROUTE_TYPE_INDIRECT: MIB_IPFORWARD_TYPE = 4i32;
+pub const MIB_IPROUTE_TYPE_INVALID: MIB_IPFORWARD_TYPE = 2i32;
+pub const MIB_IPROUTE_TYPE_OTHER: MIB_IPFORWARD_TYPE = 1i32;
+pub type MIB_IPSTATS_FORWARDING = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIB_IPSTATS_LH {
@@ -2202,6 +2066,7 @@ pub struct MIB_IPSTATS_W2K {
     pub dwNumAddr: u32,
     pub dwNumRoutes: u32,
 }
+pub const MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -2209,6 +2074,7 @@ pub struct MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     pub InboundBandwidthInformation: super::super::Networking::WinSock::NL_BANDWIDTH_INFORMATION,
     pub OutboundBandwidthInformation: super::super::Networking::WinSock::NL_BANDWIDTH_INFORMATION,
 }
+pub const MIB_IP_NOT_FORWARDING: MIB_IPSTATS_FORWARDING = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIB_MCAST_LIMIT_ROW {
@@ -2249,6 +2115,7 @@ pub struct MIB_MULTICASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_MULTICASTIPADDRESS_ROW; 1],
 }
+pub type MIB_NOTIFICATION_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIB_OPAQUE_INFO {
@@ -2501,6 +2368,24 @@ pub struct MIB_TCPTABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_OWNER_PID; 1],
 }
+pub const MIB_TCP_RTO_CONSTANT: TCP_RTO_ALGORITHM = 2i32;
+pub const MIB_TCP_RTO_OTHER: TCP_RTO_ALGORITHM = 1i32;
+pub const MIB_TCP_RTO_RSRE: TCP_RTO_ALGORITHM = 3i32;
+pub const MIB_TCP_RTO_VANJ: TCP_RTO_ALGORITHM = 4i32;
+pub type MIB_TCP_STATE = i32;
+pub const MIB_TCP_STATE_CLOSED: MIB_TCP_STATE = 1i32;
+pub const MIB_TCP_STATE_CLOSE_WAIT: MIB_TCP_STATE = 8i32;
+pub const MIB_TCP_STATE_CLOSING: MIB_TCP_STATE = 9i32;
+pub const MIB_TCP_STATE_DELETE_TCB: MIB_TCP_STATE = 12i32;
+pub const MIB_TCP_STATE_ESTAB: MIB_TCP_STATE = 5i32;
+pub const MIB_TCP_STATE_FIN_WAIT1: MIB_TCP_STATE = 6i32;
+pub const MIB_TCP_STATE_FIN_WAIT2: MIB_TCP_STATE = 7i32;
+pub const MIB_TCP_STATE_LAST_ACK: MIB_TCP_STATE = 10i32;
+pub const MIB_TCP_STATE_LISTEN: MIB_TCP_STATE = 2i32;
+pub const MIB_TCP_STATE_RESERVED: MIB_TCP_STATE = 100i32;
+pub const MIB_TCP_STATE_SYN_RCVD: MIB_TCP_STATE = 4i32;
+pub const MIB_TCP_STATE_SYN_SENT: MIB_TCP_STATE = 3i32;
+pub const MIB_TCP_STATE_TIME_WAIT: MIB_TCP_STATE = 11i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -2712,6 +2597,27 @@ pub struct MIB_UNICASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_UNICASTIPADDRESS_ROW; 1],
 }
+pub const MIB_USE_CURRENT_FORWARDING: u32 = 4294967295u32;
+pub const MIB_USE_CURRENT_TTL: u32 = 4294967295u32;
+pub const MIN_IF_TYPE: u32 = 1u32;
+pub const MIXED_NODETYPE: u32 = 4u32;
+pub const MibAddInstance: MIB_NOTIFICATION_TYPE = 1i32;
+pub const MibDeleteInstance: MIB_NOTIFICATION_TYPE = 2i32;
+pub const MibIfEntryNormal: MIB_IF_ENTRY_LEVEL = 0i32;
+pub const MibIfEntryNormalWithoutStatistics: MIB_IF_ENTRY_LEVEL = 2i32;
+pub const MibIfTableNormal: MIB_IF_TABLE_LEVEL = 0i32;
+pub const MibIfTableNormalWithoutStatistics: MIB_IF_TABLE_LEVEL = 2i32;
+pub const MibIfTableRaw: MIB_IF_TABLE_LEVEL = 1i32;
+pub const MibInitialNotification: MIB_NOTIFICATION_TYPE = 3i32;
+pub const MibParameterNotification: MIB_NOTIFICATION_TYPE = 0i32;
+pub const ND_NEIGHBOR_ADVERT: ICMP6_TYPE = 136i32;
+pub const ND_NEIGHBOR_SOLICIT: ICMP6_TYPE = 135i32;
+pub const ND_REDIRECT: ICMP6_TYPE = 137i32;
+pub const ND_ROUTER_ADVERT: ICMP6_TYPE = 134i32;
+pub const ND_ROUTER_SOLICIT: ICMP6_TYPE = 133i32;
+pub const NET_ADDRESS_DNS_NAME: NET_ADDRESS_FORMAT = 1i32;
+pub type NET_ADDRESS_FORMAT = i32;
+pub const NET_ADDRESS_FORMAT_UNSPECIFIED: NET_ADDRESS_FORMAT = 0i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -2735,6 +2641,29 @@ pub struct NET_ADDRESS_INFO_0_0 {
     pub Address: [u16; 256],
     pub Port: [u16; 6],
 }
+pub const NET_ADDRESS_IPV4: NET_ADDRESS_FORMAT = 2i32;
+pub const NET_ADDRESS_IPV6: NET_ADDRESS_FORMAT = 3i32;
+pub const NET_STRING_IPV4_ADDRESS: u32 = 1u32;
+pub const NET_STRING_IPV4_NETWORK: u32 = 4u32;
+pub const NET_STRING_IPV4_SERVICE: u32 = 2u32;
+pub const NET_STRING_IPV6_ADDRESS: u32 = 8u32;
+pub const NET_STRING_IPV6_ADDRESS_NO_SCOPE: u32 = 16u32;
+pub const NET_STRING_IPV6_NETWORK: u32 = 128u32;
+pub const NET_STRING_IPV6_SERVICE: u32 = 32u32;
+pub const NET_STRING_IPV6_SERVICE_NO_SCOPE: u32 = 64u32;
+pub const NET_STRING_NAMED_ADDRESS: u32 = 256u32;
+pub const NET_STRING_NAMED_SERVICE: u32 = 512u32;
+pub const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39u32;
+pub const PEER_TO_PEER_NODETYPE: u32 = 2u32;
+pub type PFADDRESSTYPE = i32;
+pub const PFERROR_BUFFER_TOO_SMALL: u32 = 23002u32;
+pub const PFERROR_NO_FILTERS_GIVEN: u32 = 23001u32;
+pub const PFERROR_NO_PF_INTERFACE: u32 = 23000u32;
+pub type PFFORWARD_ACTION = i32;
+pub type PFFRAMETYPE = i32;
+pub const PFFT_FILTER: PFFRAMETYPE = 1i32;
+pub const PFFT_FRAG: PFFRAMETYPE = 2i32;
+pub const PFFT_SPOOF: PFFRAMETYPE = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PFLOGFRAME {
@@ -2748,6 +2677,8 @@ pub struct PFLOGFRAME {
     pub dwIPIndex: u32,
     pub bPacketData: [u8; 1],
 }
+pub const PF_ACTION_DROP: PFFORWARD_ACTION = 1i32;
+pub const PF_ACTION_FORWARD: PFFORWARD_ACTION = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PF_FILTER_DESCRIPTOR {
@@ -2791,6 +2722,8 @@ pub struct PF_INTERFACE_STATS {
     pub dwLostLogEntries: u32,
     pub FilterInfo: [PF_FILTER_STATS; 1],
 }
+pub const PF_IPV4: PFADDRESSTYPE = 0i32;
+pub const PF_IPV6: PFADDRESSTYPE = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PF_LATEBIND_INFO {
@@ -2798,12 +2731,35 @@ pub struct PF_LATEBIND_INFO {
     pub DstAddr: *mut u8,
     pub Mask: *mut u8,
 }
+pub type PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void)>;
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+pub type PIPFORWARD_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_IPFORWARD_ROW2, notificationtype: MIB_NOTIFICATION_TYPE)>;
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+pub type PIPINTERFACE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_IPINTERFACE_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, connectivityhint: super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT)>;
+pub const PROXY_ARP: u32 = 22u32;
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+pub type PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, addresstable: *const MIB_UNICASTIPADDRESS_TABLE)>;
+pub type PTEREDO_PORT_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, port: u16, notificationtype: MIB_NOTIFICATION_TYPE)>;
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_UNICASTIPADDRESS_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;
+pub const ROUTE_LONGER: u32 = 32u32;
+pub const ROUTE_MATCHING: u32 = 31u32;
+pub const ROUTE_SHORTER: u32 = 33u32;
+pub const ROUTE_STATE: u32 = 34u32;
+pub const TCP6_STATS: u32 = 38u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCPIP_OWNER_MODULE_BASIC_INFO {
     pub pModuleName: windows_sys::core::PWSTR,
     pub pModulePath: windows_sys::core::PWSTR,
 }
+pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = 0i32;
+pub type TCPIP_OWNER_MODULE_INFO_CLASS = i32;
+pub const TCPIP_OWNING_MODULE_SIZE: u32 = 16u32;
+pub type TCP_BOOLEAN_OPTIONAL = i32;
+pub type TCP_CONNECTION_OFFLOAD_STATE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
@@ -2993,21 +2949,65 @@ pub struct TCP_ESTATS_SYN_OPTS_ROS_v0 {
     pub MssRcvd: u32,
     pub MssSent: u32,
 }
+pub type TCP_ESTATS_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCP_RESERVE_PORT_RANGE {
     pub UpperRange: u16,
     pub LowerRange: u16,
 }
-pub type PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void)>;
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-pub type PIPFORWARD_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_IPFORWARD_ROW2, notificationtype: MIB_NOTIFICATION_TYPE)>;
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-pub type PIPINTERFACE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_IPINTERFACE_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, connectivityhint: super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT)>;
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-pub type PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, addresstable: *const MIB_UNICASTIPADDRESS_TABLE)>;
-pub type PTEREDO_PORT_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, port: u16, notificationtype: MIB_NOTIFICATION_TYPE)>;
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_UNICASTIPADDRESS_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;
+pub const TCP_ROW: u32 = 14u32;
+pub type TCP_RTO_ALGORITHM = i32;
+pub type TCP_SOFT_ERROR = i32;
+pub const TCP_STATS: u32 = 12u32;
+pub const TCP_TABLE: u32 = 13u32;
+pub const TCP_TABLE_BASIC_ALL: TCP_TABLE_CLASS = 2i32;
+pub const TCP_TABLE_BASIC_CONNECTIONS: TCP_TABLE_CLASS = 1i32;
+pub const TCP_TABLE_BASIC_LISTENER: TCP_TABLE_CLASS = 0i32;
+pub type TCP_TABLE_CLASS = i32;
+pub const TCP_TABLE_OWNER_MODULE_ALL: TCP_TABLE_CLASS = 8i32;
+pub const TCP_TABLE_OWNER_MODULE_CONNECTIONS: TCP_TABLE_CLASS = 7i32;
+pub const TCP_TABLE_OWNER_MODULE_LISTENER: TCP_TABLE_CLASS = 6i32;
+pub const TCP_TABLE_OWNER_PID_ALL: TCP_TABLE_CLASS = 5i32;
+pub const TCP_TABLE_OWNER_PID_CONNECTIONS: TCP_TABLE_CLASS = 4i32;
+pub const TCP_TABLE_OWNER_PID_LISTENER: TCP_TABLE_CLASS = 3i32;
+pub const TcpBoolOptDisabled: TCP_BOOLEAN_OPTIONAL = 0i32;
+pub const TcpBoolOptEnabled: TCP_BOOLEAN_OPTIONAL = 1i32;
+pub const TcpBoolOptUnchanged: TCP_BOOLEAN_OPTIONAL = -1i32;
+pub const TcpConnectionEstatsBandwidth: TCP_ESTATS_TYPE = 7i32;
+pub const TcpConnectionEstatsData: TCP_ESTATS_TYPE = 1i32;
+pub const TcpConnectionEstatsFineRtt: TCP_ESTATS_TYPE = 8i32;
+pub const TcpConnectionEstatsMaximum: TCP_ESTATS_TYPE = 9i32;
+pub const TcpConnectionEstatsObsRec: TCP_ESTATS_TYPE = 6i32;
+pub const TcpConnectionEstatsPath: TCP_ESTATS_TYPE = 3i32;
+pub const TcpConnectionEstatsRec: TCP_ESTATS_TYPE = 5i32;
+pub const TcpConnectionEstatsSendBuff: TCP_ESTATS_TYPE = 4i32;
+pub const TcpConnectionEstatsSndCong: TCP_ESTATS_TYPE = 2i32;
+pub const TcpConnectionEstatsSynOpts: TCP_ESTATS_TYPE = 0i32;
+pub const TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE = 0i32;
+pub const TcpConnectionOffloadStateMax: TCP_CONNECTION_OFFLOAD_STATE = 4i32;
+pub const TcpConnectionOffloadStateOffloaded: TCP_CONNECTION_OFFLOAD_STATE = 2i32;
+pub const TcpConnectionOffloadStateOffloading: TCP_CONNECTION_OFFLOAD_STATE = 1i32;
+pub const TcpConnectionOffloadStateUploading: TCP_CONNECTION_OFFLOAD_STATE = 3i32;
+pub const TcpErrorAboveAckWindow: TCP_SOFT_ERROR = 4i32;
+pub const TcpErrorAboveDataWindow: TCP_SOFT_ERROR = 2i32;
+pub const TcpErrorAboveTsWindow: TCP_SOFT_ERROR = 6i32;
+pub const TcpErrorBelowAckWindow: TCP_SOFT_ERROR = 3i32;
+pub const TcpErrorBelowDataWindow: TCP_SOFT_ERROR = 1i32;
+pub const TcpErrorBelowTsWindow: TCP_SOFT_ERROR = 5i32;
+pub const TcpErrorDataChecksumError: TCP_SOFT_ERROR = 7i32;
+pub const TcpErrorDataLengthError: TCP_SOFT_ERROR = 8i32;
+pub const TcpErrorMaxSoftError: TCP_SOFT_ERROR = 9i32;
+pub const TcpErrorNone: TCP_SOFT_ERROR = 0i32;
+pub const TcpRtoAlgorithmConstant: TCP_RTO_ALGORITHM = 2i32;
+pub const TcpRtoAlgorithmOther: TCP_RTO_ALGORITHM = 1i32;
+pub const TcpRtoAlgorithmRsre: TCP_RTO_ALGORITHM = 3i32;
+pub const TcpRtoAlgorithmVanj: TCP_RTO_ALGORITHM = 4i32;
+pub const UDP6_STATS: u32 = 37u32;
+pub const UDP_ROW: u32 = 17u32;
+pub const UDP_STATS: u32 = 15u32;
+pub const UDP_TABLE: u32 = 16u32;
+pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = 0i32;
+pub type UDP_TABLE_CLASS = i32;
+pub const UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = 2i32;
+pub const UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = 1i32;

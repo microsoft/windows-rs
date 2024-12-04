@@ -5,7 +5,7 @@ pub mod PropertiesSystem;
 windows_targets::link!("shlwapi.dll" "system" fn AssocCreate(clsid : windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
 windows_targets::link!("shell32.dll" "system" fn AssocCreateForClasses(rgclasses : *const ASSOCIATIONELEMENT, cclasses : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shell32.dll" "system" fn AssocGetDetailsOfPropKey(psf : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, pkey : *const super::super::Foundation:: PROPERTYKEY, pv : *mut super::super::System::Variant:: VARIANT, pffoundpropkey : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shlwapi.dll" "system" fn AssocGetPerceivedType(pszext : windows_sys::core::PCWSTR, ptype : *mut Common:: PERCEIVED, pflag : *mut u32, ppsztype : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
@@ -20,9 +20,9 @@ windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringByKeyA(flags : 
 #[cfg(feature = "Win32_System_Registry")]
 windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringByKeyW(flags : ASSOCF, str : ASSOCSTR, hkassoc : super::super::System::Registry:: HKEY, pszextra : windows_sys::core::PCWSTR, pszout : windows_sys::core::PWSTR, pcchout : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringW(flags : ASSOCF, str : ASSOCSTR, pszassoc : windows_sys::core::PCWSTR, pszextra : windows_sys::core::PCWSTR, pszout : windows_sys::core::PWSTR, pcchout : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : *const Common:: ITEMIDLIST, hwnd : super::super::Foundation:: HWND, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, psf : * mut core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::super::System::Registry:: HKEY, ppcm : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shell32.dll" "system" fn CIDLData_CreateFromIDArray(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, ppdtobj : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("shlwapi.dll" "system" fn ChrCmpIA(w1 : u16, w2 : u16) -> super::super::Foundation:: BOOL);
 windows_targets::link!("shlwapi.dll" "system" fn ChrCmpIW(w1 : u16, w2 : u16) -> super::super::Foundation:: BOOL);
@@ -30,10 +30,12 @@ windows_targets::link!("shlwapi.dll" "system" fn ColorAdjustLuma(clrrgb : super:
 windows_targets::link!("shlwapi.dll" "system" fn ColorHLSToRGB(whue : u16, wluminance : u16, wsaturation : u16) -> super::super::Foundation:: COLORREF);
 windows_targets::link!("shlwapi.dll" "system" fn ColorRGBToHLS(clrrgb : super::super::Foundation:: COLORREF, pwhue : *mut u16, pwluminance : *mut u16, pwsaturation : *mut u16));
 windows_targets::link!("shell32.dll" "system" fn CommandLineToArgvW(lpcmdline : windows_sys::core::PCWSTR, pnumargs : *mut i32) -> *mut windows_sys::core::PWSTR);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn ConnectToConnectionPoint(punk : * mut core::ffi::c_void, riidevent : *const windows_sys::core::GUID, fconnect : super::super::Foundation:: BOOL, punktarget : * mut core::ffi::c_void, pdwcookie : *mut u32, ppcpout : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("userenv.dll" "system" fn CreateProfile(pszusersid : windows_sys::core::PCWSTR, pszusername : windows_sys::core::PCWSTR, pszprofilepath : windows_sys::core::PWSTR, cchprofilepath : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn DAD_AutoScroll(hwnd : super::super::Foundation:: HWND, pad : *mut AUTO_SCROLL_DATA, pptnow : *const super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
 windows_targets::link!("shell32.dll" "system" fn DAD_DragEnterEx(hwndtarget : super::super::Foundation:: HWND, ptstart : super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn DAD_DragEnterEx2(hwndtarget : super::super::Foundation:: HWND, ptstart : super::super::Foundation:: POINT, pdtobject : * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
 windows_targets::link!("shell32.dll" "system" fn DAD_DragLeave() -> super::super::Foundation:: BOOL);
 windows_targets::link!("shell32.dll" "system" fn DAD_DragMove(pt : super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
@@ -115,31 +117,43 @@ windows_targets::link!("shlwapi.dll" "system" fn HashData(pbdata : *const u8, cb
 windows_targets::link!("hlink.dll" "system" fn HlinkClone(pihl : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, pihlsiteforclone : * mut core::ffi::c_void, dwsitedata : u32, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("hlink.dll" "system" fn HlinkCreateBrowseContext(piunkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("hlink.dll" "system" fn HlinkCreateExtensionServices(pwzadditionalheaders : windows_sys::core::PCWSTR, phwnd : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCWSTR, pszpassword : windows_sys::core::PCWSTR, piunkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkCreateFromData(pidataobj : * mut core::ffi::c_void, pihlsite : * mut core::ffi::c_void, dwsitedata : u32, piunkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkCreateFromMoniker(pimktrgt : * mut core::ffi::c_void, pwzlocation : windows_sys::core::PCWSTR, pwzfriendlyname : windows_sys::core::PCWSTR, pihlsite : * mut core::ffi::c_void, dwsitedata : u32, piunkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("hlink.dll" "system" fn HlinkCreateFromString(pwztarget : windows_sys::core::PCWSTR, pwzlocation : windows_sys::core::PCWSTR, pwzfriendlyname : windows_sys::core::PCWSTR, pihlsite : * mut core::ffi::c_void, dwsitedata : u32, piunkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("hlink.dll" "system" fn HlinkCreateShortcut(grfhlshortcutf : u32, pihl : * mut core::ffi::c_void, pwzdir : windows_sys::core::PCWSTR, pwzfilename : windows_sys::core::PCWSTR, ppwzshortcutfile : *mut windows_sys::core::PWSTR, dwreserved : u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkCreateShortcutFromMoniker(grfhlshortcutf : u32, pimktarget : * mut core::ffi::c_void, pwzlocation : windows_sys::core::PCWSTR, pwzdir : windows_sys::core::PCWSTR, pwzfilename : windows_sys::core::PCWSTR, ppwzshortcutfile : *mut windows_sys::core::PWSTR, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("hlink.dll" "system" fn HlinkCreateShortcutFromString(grfhlshortcutf : u32, pwztarget : windows_sys::core::PCWSTR, pwzlocation : windows_sys::core::PCWSTR, pwzdir : windows_sys::core::PCWSTR, pwzfilename : windows_sys::core::PCWSTR, ppwzshortcutfile : *mut windows_sys::core::PWSTR, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("hlink.dll" "system" fn HlinkGetSpecialReference(ureference : u32, ppwzreference : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("hlink.dll" "system" fn HlinkGetValueFromParams(pwzparams : windows_sys::core::PCWSTR, pwzname : windows_sys::core::PCWSTR, ppwzvalue : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("hlink.dll" "system" fn HlinkIsShortcut(pwzfilename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkNavigate(pihl : * mut core::ffi::c_void, pihlframe : * mut core::ffi::c_void, grfhlnf : u32, pbc : * mut core::ffi::c_void, pibsc : * mut core::ffi::c_void, pihlbc : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkNavigateToStringReference(pwztarget : windows_sys::core::PCWSTR, pwzlocation : windows_sys::core::PCWSTR, pihlsite : * mut core::ffi::c_void, dwsitedata : u32, pihlframe : * mut core::ffi::c_void, grfhlnf : u32, pibc : * mut core::ffi::c_void, pibsc : * mut core::ffi::c_void, pihlbc : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkOnNavigate(pihlframe : * mut core::ffi::c_void, pihlbc : * mut core::ffi::c_void, grfhlnf : u32, pimktarget : * mut core::ffi::c_void, pwzlocation : windows_sys::core::PCWSTR, pwzfriendlyname : windows_sys::core::PCWSTR, puhlid : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkOnRenameDocument(dwreserved : u32, pihlbc : * mut core::ffi::c_void, pimkold : * mut core::ffi::c_void, pimknew : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkParseDisplayName(pibc : * mut core::ffi::c_void, pwzdisplayname : windows_sys::core::PCWSTR, fnoforceabs : super::super::Foundation:: BOOL, pccheaten : *mut u32, ppimk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkPreprocessMoniker(pibc : * mut core::ffi::c_void, pimkin : * mut core::ffi::c_void, ppimkout : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkQueryCreateFromData(pidataobj : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkResolveMonikerForData(pimkreference : * mut core::ffi::c_void, reserved : u32, pibc : * mut core::ffi::c_void, cfmtetc : u32, rgfmtetc : *mut super::super::System::Com:: FORMATETC, pibsc : * mut core::ffi::c_void, pimkbase : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("hlink.dll" "system" fn HlinkResolveShortcut(pwzshortcutfilename : windows_sys::core::PCWSTR, pihlsite : * mut core::ffi::c_void, dwsitedata : u32, piunkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkResolveShortcutToMoniker(pwzshortcutfilename : windows_sys::core::PCWSTR, ppimktarget : *mut * mut core::ffi::c_void, ppwzlocation : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("hlink.dll" "system" fn HlinkResolveShortcutToString(pwzshortcutfilename : windows_sys::core::PCWSTR, ppwztarget : *mut windows_sys::core::PWSTR, ppwzlocation : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkResolveStringForData(pwzreference : windows_sys::core::PCWSTR, reserved : u32, pibc : * mut core::ffi::c_void, cfmtetc : u32, rgfmtetc : *mut super::super::System::Com:: FORMATETC, pibsc : * mut core::ffi::c_void, pimkbase : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("hlink.dll" "system" fn HlinkSetSpecialReference(ureference : u32, pwzreference : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("hlink.dll" "system" fn HlinkTranslateURL(pwzurl : windows_sys::core::PCWSTR, grfflags : u32, ppwztranslatedurl : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn HlinkUpdateStackItem(pihlframe : * mut core::ffi::c_void, pihlbc : * mut core::ffi::c_void, uhlid : u32, pimktrgt : * mut core::ffi::c_void, pwzlocation : windows_sys::core::PCWSTR, pwzfriendlyname : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn ILAppendID(pidl : *const Common:: ITEMIDLIST, pmkid : *const Common:: SHITEMID, fappend : super::super::Foundation:: BOOL) -> *mut Common:: ITEMIDLIST);
@@ -167,22 +181,29 @@ windows_targets::link!("shell32.dll" "system" fn ILGetSize(pidl : *const Common:
 windows_targets::link!("shell32.dll" "system" fn ILIsEqual(pidl1 : *const Common:: ITEMIDLIST, pidl2 : *const Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn ILIsParent(pidl1 : *const Common:: ITEMIDLIST, pidl2 : *const Common:: ITEMIDLIST, fimmediate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shell32.dll" "system" fn ILLoadFromStreamEx(pstm : * mut core::ffi::c_void, pidl : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn ILRemoveLastID(pidl : *mut Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shell32.dll" "system" fn ILSaveToStream(pstm : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn IStream_Copy(pstmfrom : * mut core::ffi::c_void, pstmto : * mut core::ffi::c_void, cb : u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn IStream_Read(pstm : * mut core::ffi::c_void, pv : *mut core::ffi::c_void, cb : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shlwapi.dll" "system" fn IStream_ReadPidl(pstm : * mut core::ffi::c_void, ppidlout : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn IStream_ReadStr(pstm : * mut core::ffi::c_void, ppsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn IStream_Reset(pstm : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn IStream_Size(pstm : * mut core::ffi::c_void, pui : *mut u64) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn IStream_Write(pstm : * mut core::ffi::c_void, pv : *const core::ffi::c_void, cb : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shlwapi.dll" "system" fn IStream_WritePidl(pstm : * mut core::ffi::c_void, pidlwrite : *const Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn IStream_WriteStr(pstm : * mut core::ffi::c_void, psz : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("shlwapi.dll" "system" fn IUnknown_AtomicRelease(ppunk : *mut *mut core::ffi::c_void));
 windows_targets::link!("shlwapi.dll" "system" fn IUnknown_GetSite(punk : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -194,7 +215,7 @@ windows_targets::link!("shdocvw.dll" "system" fn ImportPrivacySettings(pszfilena
 windows_targets::link!("shell32.dll" "system" fn InitNetworkAddressControl() -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromStrRet(pstrret : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("propsys.dll" "system" fn InitVariantFromStrRet(pstrret : *const Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pvar : *mut super::super::System::Variant:: VARIANT) -> windows_sys::core::HRESULT);
 windows_targets::link!("shlwapi.dll" "system" fn IntlStrEqWorkerA(fcasesens : super::super::Foundation:: BOOL, lpstring1 : windows_sys::core::PCSTR, lpstring2 : windows_sys::core::PCSTR, nchar : i32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("shlwapi.dll" "system" fn IntlStrEqWorkerW(fcasesens : super::super::Foundation:: BOOL, lpstring1 : windows_sys::core::PCWSTR, lpstring2 : windows_sys::core::PCWSTR, nchar : i32) -> super::super::Foundation:: BOOL);
@@ -208,8 +229,9 @@ windows_targets::link!("shlwapi.dll" "system" fn IsOS(dwos : OS) -> super::super
 windows_targets::link!("shell32.dll" "system" fn IsUserAnAdmin() -> super::super::Foundation:: BOOL);
 windows_targets::link!("userenv.dll" "system" fn LoadUserProfileA(htoken : super::super::Foundation:: HANDLE, lpprofileinfo : *mut PROFILEINFOA) -> super::super::Foundation:: BOOL);
 windows_targets::link!("userenv.dll" "system" fn LoadUserProfileW(htoken : super::super::Foundation:: HANDLE, lpprofileinfo : *mut PROFILEINFOW) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("hlink.dll" "system" fn OleSaveToStreamEx(piunk : * mut core::ffi::c_void, pistm : * mut core::ffi::c_void, fcleardirty : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 windows_targets::link!("shell32.dll" "system" fn OpenRegStream(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, grfmode : u32) -> * mut core::ffi::c_void);
 windows_targets::link!("shlwapi.dll" "system" fn ParseURLA(pcszurl : windows_sys::core::PCSTR, ppu : *mut PARSEDURLA) -> windows_sys::core::HRESULT);
 windows_targets::link!("shlwapi.dll" "system" fn ParseURLW(pcszurl : windows_sys::core::PCWSTR, ppu : *mut PARSEDURLW) -> windows_sys::core::HRESULT);
@@ -386,9 +408,9 @@ windows_targets::link!("shell32.dll" "system" fn SHAssocEnumHandlersForProtocolB
 windows_targets::link!("shlwapi.dll" "system" fn SHAutoComplete(hwndedit : super::super::Foundation:: HWND, dwflags : SHELL_AUTOCOMPLETE_FLAGS) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHBindToFolderIDListParent(psfroot : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shell32.dll" "system" fn SHBindToFolderIDListParentEx(psfroot : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, ppbc : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shell32.dll" "system" fn SHBindToObject(psf : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, pbc : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHBindToParent(pidl : *const Common:: ITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
@@ -413,7 +435,7 @@ windows_targets::link!("shlwapi.dll" "system" fn SHCopyKeyA(hkeysrc : super::sup
 #[cfg(feature = "Win32_System_Registry")]
 windows_targets::link!("shlwapi.dll" "system" fn SHCopyKeyW(hkeysrc : super::super::System::Registry:: HKEY, pszsrcsubkey : windows_sys::core::PCWSTR, hkeydest : super::super::System::Registry:: HKEY, freserved : u32) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("shell32.dll" "system" fn SHCreateAssociationRegistration(riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, pdtinner : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shell32.dll" "system" fn SHCreateDefaultContextMenu(pdcm : *const DEFCONTEXTMENU, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -427,24 +449,30 @@ windows_targets::link!("shell32.dll" "system" fn SHCreateDirectoryExW(hwnd : sup
 windows_targets::link!("shell32.dll" "system" fn SHCreateFileExtractIconW(pszfile : windows_sys::core::PCWSTR, dwfileattributes : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateItemFromIDList(pidl : *const Common:: ITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateItemFromParsingName(pszpath : windows_sys::core::PCWSTR, pbc : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateItemFromRelativeName(psiparent : * mut core::ffi::c_void, pszname : windows_sys::core::PCWSTR, pbc : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const windows_sys::core::GUID, dwkfflags : u32, pszitem : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateItemWithParent(pidlparent : *const Common:: ITEMIDLIST, psfparent : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, riid : *const windows_sys::core::GUID, ppvitem : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const u8, cbinit : u32) -> * mut core::ffi::c_void);
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
 windows_targets::link!("shell32.dll" "system" fn SHCreateProcessAsUserW(pscpi : *mut SHCREATEPROCESSINFOW) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Registry")]
 windows_targets::link!("shell32.dll" "system" fn SHCreatePropSheetExtArray(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, max_iface : u32) -> HPSXA);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Ole")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateShellFolderView(pcsfv : *const SFV_CREATE, ppsv : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shell32.dll" "system" fn SHCreateShellFolderViewEx(pcsfv : *const CSFV, ppsv : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateShellItem(pidlparent : *const Common:: ITEMIDLIST, psfparent : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, ppsi : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : *const Common:: ITEMIDLIST, psf : * mut core::ffi::c_void, cidl : u32, ppidl : *const *const Common:: ITEMIDLIST, ppsiitemarray : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromDataObject(pdo : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromIDLists(cidl : u32, rgpidl : *const *const Common:: ITEMIDLIST, ppsiitemarray : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -453,8 +481,11 @@ windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromShell
 windows_targets::link!("shlwapi.dll" "system" fn SHCreateShellPalette(hdc : super::super::Graphics::Gdi:: HDC) -> super::super::Graphics::Gdi:: HPALETTE);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateStdEnumFmtEtc(cfmt : u32, afmt : *const super::super::System::Com:: FORMATETC, ppenumformatetc : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileA(pszfile : windows_sys::core::PCSTR, grfmode : u32, ppstm : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileEx(pszfile : windows_sys::core::PCWSTR, grfmode : u32, dwattributes : u32, fcreate : super::super::Foundation:: BOOL, pstmtemplate : * mut core::ffi::c_void, ppstm : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileW(pszfile : windows_sys::core::PCWSTR, grfmode : u32, ppstm : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Threading")]
 windows_targets::link!("shlwapi.dll" "system" fn SHCreateThread(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE) -> super::super::Foundation:: BOOL);
@@ -478,7 +509,7 @@ windows_targets::link!("shlwapi.dll" "system" fn SHDeleteValueA(hkey : super::su
 #[cfg(feature = "Win32_System_Registry")]
 windows_targets::link!("shlwapi.dll" "system" fn SHDeleteValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("shell32.dll" "system" fn SHDestroyPropSheetExtArray(hpsxa : HPSXA));
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_targets::link!("shell32.dll" "system" fn SHDoDragDrop(hwnd : super::super::Foundation:: HWND, pdata : * mut core::ffi::c_void, pdsrc : * mut core::ffi::c_void, dweffect : super::super::System::Ole:: DROPEFFECT, pdweffect : *mut super::super::System::Ole:: DROPEFFECT) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn SHEmptyRecycleBinA(hwnd : super::super::Foundation:: HWND, pszrootpath : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn SHEmptyRecycleBinW(hwnd : super::super::Foundation:: HWND, pszrootpath : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
@@ -506,6 +537,7 @@ windows_targets::link!("shell32.dll" "system" fn SHFormatDrive(hwnd : super::sup
 windows_targets::link!("shell32.dll" "system" fn SHFree(pv : *const core::ffi::c_void));
 windows_targets::link!("shell32.dll" "system" fn SHFreeNameMappings(hnamemappings : super::super::Foundation:: HANDLE));
 windows_targets::link!("shlwapi.dll" "system" fn SHFreeShared(hdata : super::super::Foundation:: HANDLE, dwprocessid : u32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn SHGetAttributesFromDataObject(pdo : * mut core::ffi::c_void, dwattributemask : u32, pdwattributes : *mut u32, pcitems : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHGetDataFromIDListA(psf : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, nformat : SHGDFIL_FORMAT, pv : *mut core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
@@ -532,6 +564,7 @@ windows_targets::link!("shell32.dll" "system" fn SHGetIconOverlayIndexW(psziconp
 windows_targets::link!("shell32.dll" "system" fn SHGetImageList(iimagelist : i32, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn SHGetInstanceExplorer(ppunk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("shlwapi.dll" "system" fn SHGetInverseCMAP(pbmap : *mut u8, cbmap : u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn SHGetItemFromDataObject(pdtobj : * mut core::ffi::c_void, dwflags : DATAOBJ_GET_ITEM_FLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn SHGetItemFromObject(punk : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -539,6 +572,7 @@ windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderIDList(rfid : *
 windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderItem(rfid : *const windows_sys::core::GUID, flags : KNOWN_FOLDER_FLAG, htoken : super::super::Foundation:: HANDLE, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderPath(rfid : *const windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, ppszpath : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn SHGetLocalizedName(pszpath : windows_sys::core::PCWSTR, pszresmodule : windows_sys::core::PWSTR, cch : u32, pidsres : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn SHGetMalloc(ppmalloc : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHGetNameFromIDList(pidl : *const Common:: ITEMIDLIST, sigdnname : SIGDN, ppszname : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
@@ -592,22 +626,23 @@ windows_targets::link!("shlwapi.dll" "system" fn SHLockShared(hdata : super::sup
 windows_targets::link!("shell32.dll" "system" fn SHMapPIDLToSystemImageListIndex(pshf : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, piindexsel : *mut i32) -> i32);
 windows_targets::link!("shlwapi.dll" "system" fn SHMessageBoxCheckA(hwnd : super::super::Foundation:: HWND, psztext : windows_sys::core::PCSTR, pszcaption : windows_sys::core::PCSTR, utype : u32, idefault : i32, pszregval : windows_sys::core::PCSTR) -> i32);
 windows_targets::link!("shlwapi.dll" "system" fn SHMessageBoxCheckW(hwnd : super::super::Foundation:: HWND, psztext : windows_sys::core::PCWSTR, pszcaption : windows_sys::core::PCWSTR, utype : u32, idefault : i32, pszregval : windows_sys::core::PCWSTR) -> i32);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn SHMultiFileProperties(pdtobj : * mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn SHObjectProperties(hwnd : super::super::Foundation:: HWND, shopobjecttype : u32, pszobjectname : windows_sys::core::PCWSTR, pszpropertypage : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Registry"))]
 windows_targets::link!("shell32.dll" "system" fn SHOpenPropSheetW(pszcaption : windows_sys::core::PCWSTR, ahkeys : *const super::super::System::Registry:: HKEY, ckeys : u32, pclsiddefault : *const windows_sys::core::GUID, pdtobj : * mut core::ffi::c_void, psb : * mut core::ffi::c_void, pstartpage : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 windows_targets::link!("shlwapi.dll" "system" fn SHOpenRegStream2A(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, grfmode : u32) -> * mut core::ffi::c_void);
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 windows_targets::link!("shlwapi.dll" "system" fn SHOpenRegStream2W(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, grfmode : u32) -> * mut core::ffi::c_void);
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 windows_targets::link!("shlwapi.dll" "system" fn SHOpenRegStreamA(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, grfmode : u32) -> * mut core::ffi::c_void);
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 windows_targets::link!("shlwapi.dll" "system" fn SHOpenRegStreamW(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, grfmode : u32) -> * mut core::ffi::c_void);
 windows_targets::link!("shell32.dll" "system" fn SHOpenWithDialog(hwndparent : super::super::Foundation:: HWND, poainfo : *const OPENASINFO) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("shell32.dll" "system" fn SHParseDisplayName(pszname : windows_sys::core::PCWSTR, pbc : * mut core::ffi::c_void, ppidl : *mut *mut Common:: ITEMIDLIST, sfgaoin : u32, psfgaoout : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn SHPathPrepareForWriteA(hwnd : super::super::Foundation:: HWND, punkenablemodless : * mut core::ffi::c_void, pszpath : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn SHPathPrepareForWriteW(hwnd : super::super::Foundation:: HWND, punkenablemodless : * mut core::ffi::c_void, pszpath : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
@@ -690,6 +725,7 @@ windows_targets::link!("shell32.dll" "system" fn SHShellFolderView_Message(hwndm
 windows_targets::link!("shell32.dll" "system" fn SHShowManageLibraryUI(psilibrary : * mut core::ffi::c_void, hwndowner : super::super::Foundation:: HWND, psztitle : windows_sys::core::PCWSTR, pszinstruction : windows_sys::core::PCWSTR, lmdoptions : LIBRARYMANAGEDIALOGOPTIONS) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHSimpleIDListFromPath(pszpath : windows_sys::core::PCWSTR) -> *mut Common:: ITEMIDLIST);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shlwapi.dll" "system" fn SHSkipJunction(pbc : * mut core::ffi::c_void, pclsid : *const windows_sys::core::GUID) -> super::super::Foundation:: BOOL);
 windows_targets::link!("shell32.dll" "system" fn SHStartNetConnectionDialogW(hwnd : super::super::Foundation:: HWND, pszremotename : windows_sys::core::PCWSTR, dwtype : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("shlwapi.dll" "system" fn SHStrDupA(psz : windows_sys::core::PCSTR, ppwsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
@@ -740,6 +776,7 @@ windows_targets::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : N
 windows_targets::link!("shell32.dll" "system" fn SignalFileOpen(pidl : *const Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Com_Urlmon")]
 windows_targets::link!("shdocvw.dll" "system" fn SoftwareUpdateMessageBox(hwnd : super::super::Foundation:: HWND, pszdistunit : windows_sys::core::PCWSTR, dwflags : u32, psdi : *mut super::super::System::Com::Urlmon:: SOFTDISTINFO) -> u32);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("shell32.dll" "system" fn StgMakeUniqueName(pstgparent : * mut core::ffi::c_void, pszfilespec : windows_sys::core::PCWSTR, grfmode : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("shlwapi.dll" "system" fn StrCSpnA(pszstr : windows_sys::core::PCSTR, pszset : windows_sys::core::PCSTR) -> i32);
 windows_targets::link!("shlwapi.dll" "system" fn StrCSpnIA(pszstr : windows_sys::core::PCSTR, pszset : windows_sys::core::PCSTR) -> i32);
@@ -851,7 +888,7 @@ windows_targets::link!("shlwapi.dll" "system" fn UrlIsOpaqueW(pszurl : windows_s
 windows_targets::link!("shlwapi.dll" "system" fn UrlIsW(pszurl : windows_sys::core::PCWSTR, urlis : URLIS) -> super::super::Foundation:: BOOL);
 windows_targets::link!("shlwapi.dll" "system" fn UrlUnescapeA(pszurl : windows_sys::core::PSTR, pszunescaped : windows_sys::core::PSTR, pcchunescaped : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("shlwapi.dll" "system" fn UrlUnescapeW(pszurl : windows_sys::core::PWSTR, pszunescaped : windows_sys::core::PWSTR, pcchunescaped : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
 windows_targets::link!("propsys.dll" "system" fn VariantToStrRet(varin : *const super::super::System::Variant:: VARIANT, pstrret : *mut Common:: STRRET) -> windows_sys::core::HRESULT);
 windows_targets::link!("shlwapi.dll" "system" fn WhichPlatform() -> u32);
 windows_targets::link!("shell32.dll" "system" fn Win32DeleteFile(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
@@ -862,6 +899,22 @@ windows_targets::link!("shlwapi.dll" "cdecl" fn wnsprintfA(pszdest : windows_sys
 windows_targets::link!("shlwapi.dll" "cdecl" fn wnsprintfW(pszdest : windows_sys::core::PWSTR, cchdest : i32, pszfmt : windows_sys::core::PCWSTR, ...) -> i32);
 windows_targets::link!("shlwapi.dll" "system" fn wvnsprintfA(pszdest : windows_sys::core::PSTR, cchdest : i32, pszfmt : windows_sys::core::PCSTR, arglist : *const i8) -> i32);
 windows_targets::link!("shlwapi.dll" "system" fn wvnsprintfW(pszdest : windows_sys::core::PWSTR, cchdest : i32, pszfmt : windows_sys::core::PCWSTR, arglist : *const i8) -> i32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AASHELLMENUFILENAME {
+    pub cbTotal: i16,
+    pub rgbReserved: [u8; 12],
+    pub szFileName: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AASHELLMENUITEM {
+    pub lpReserved1: *mut core::ffi::c_void,
+    pub iReserved: i32,
+    pub uiReserved: u32,
+    pub lpName: *mut AASHELLMENUFILENAME,
+    pub psz: windows_sys::core::PWSTR,
+}
 pub const ABE_BOTTOM: u32 = 3u32;
 pub const ABE_LEFT: u32 = 0u32;
 pub const ABE_RIGHT: u32 = 2u32;
@@ -886,6 +939,7 @@ pub const ABN_WINDOWARRANGE: u32 = 3u32;
 pub const ABS_ALWAYSONTOP: u32 = 2u32;
 pub const ABS_AUTOHIDE: u32 = 1u32;
 pub const ACDD_VISIBLE: u32 = 1u32;
+pub type ACENUMOPTION = i32;
 pub const ACEO_FIRSTUNUSED: ACENUMOPTION = 65536i32;
 pub const ACEO_MOSTRECENTFIRST: ACENUMOPTION = 1i32;
 pub const ACEO_NONE: ACENUMOPTION = 0i32;
@@ -907,10 +961,12 @@ pub const ACO_SEARCH: AUTOCOMPLETEOPTIONS = 4i32;
 pub const ACO_UPDOWNKEYDROPSLIST: AUTOCOMPLETEOPTIONS = 32i32;
 pub const ACO_USETAB: AUTOCOMPLETEOPTIONS = 16i32;
 pub const ACO_WORD_FILTER: AUTOCOMPLETEOPTIONS = 128i32;
+pub type ACTIVATEOPTIONS = i32;
 pub const ADDURL_SILENT: u32 = 1u32;
 pub const ADE_LEFT: ADJACENT_DISPLAY_EDGES = 1i32;
 pub const ADE_NONE: ADJACENT_DISPLAY_EDGES = 0i32;
 pub const ADE_RIGHT: ADJACENT_DISPLAY_EDGES = 2i32;
+pub type ADJACENT_DISPLAY_EDGES = i32;
 pub const ADLT_FREQUENT: APPDOCLISTTYPE = 1i32;
 pub const ADLT_RECENT: APPDOCLISTTYPE = 0i32;
 pub const AD_APPLY_BUFFERED_REFRESH: u32 = 16u32;
@@ -924,6 +980,8 @@ pub const AD_GETWP_IMAGE: u32 = 1u32;
 pub const AD_GETWP_LAST_APPLIED: u32 = 2u32;
 pub const AHE_DESKTOP: AHE_TYPE = 0i32;
 pub const AHE_IMMERSIVE: AHE_TYPE = 1i32;
+pub type AHE_TYPE = i32;
+pub type AHTYPE = i32;
 pub const AHTYPE_ANY_APPLICATION: AHTYPE = 16i32;
 pub const AHTYPE_ANY_PROGID: AHTYPE = 512i32;
 pub const AHTYPE_APPLICATION: AHTYPE = 128i32;
@@ -958,6 +1016,7 @@ pub const AO_NOERRORUI: ACTIVATEOPTIONS = 2i32;
 pub const AO_NONE: ACTIVATEOPTIONS = 0i32;
 pub const AO_NOSPLASHSCREEN: ACTIVATEOPTIONS = 4i32;
 pub const AO_PRELAUNCH: ACTIVATEOPTIONS = 33554432i32;
+pub type APPACTIONFLAGS = i32;
 pub const APPACTION_ADDLATER: APPACTIONFLAGS = 256i32;
 pub const APPACTION_CANGETSIZE: APPACTIONFLAGS = 32i32;
 pub const APPACTION_INSTALL: APPACTIONFLAGS = 1i32;
@@ -967,6 +1026,72 @@ pub const APPACTION_REPAIR: APPACTIONFLAGS = 8i32;
 pub const APPACTION_UNINSTALL: APPACTIONFLAGS = 2i32;
 pub const APPACTION_UNSCHEDULE: APPACTIONFLAGS = 512i32;
 pub const APPACTION_UPGRADE: APPACTIONFLAGS = 16i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct APPBARDATA {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uCallbackMessage: u32,
+    pub uEdge: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct APPBARDATA {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uCallbackMessage: u32,
+    pub uEdge: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct APPCATEGORYINFO {
+    pub Locale: u32,
+    pub pszDescription: windows_sys::core::PWSTR,
+    pub AppCategoryId: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct APPCATEGORYINFOLIST {
+    pub cCategory: u32,
+    pub pCategoryInfo: *mut APPCATEGORYINFO,
+}
+pub type APPDOCLISTTYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct APPINFODATA {
+    pub cbSize: u32,
+    pub dwMask: u32,
+    pub pszDisplayName: windows_sys::core::PWSTR,
+    pub pszVersion: windows_sys::core::PWSTR,
+    pub pszPublisher: windows_sys::core::PWSTR,
+    pub pszProductID: windows_sys::core::PWSTR,
+    pub pszRegisteredOwner: windows_sys::core::PWSTR,
+    pub pszRegisteredCompany: windows_sys::core::PWSTR,
+    pub pszLanguage: windows_sys::core::PWSTR,
+    pub pszSupportUrl: windows_sys::core::PWSTR,
+    pub pszSupportTelephone: windows_sys::core::PWSTR,
+    pub pszHelpLink: windows_sys::core::PWSTR,
+    pub pszInstallLocation: windows_sys::core::PWSTR,
+    pub pszInstallSource: windows_sys::core::PWSTR,
+    pub pszInstallDate: windows_sys::core::PWSTR,
+    pub pszContact: windows_sys::core::PWSTR,
+    pub pszComments: windows_sys::core::PWSTR,
+    pub pszImage: windows_sys::core::PWSTR,
+    pub pszReadmeUrl: windows_sys::core::PWSTR,
+    pub pszUpdateInfoUrl: windows_sys::core::PWSTR,
+}
+pub type APPINFODATAFLAGS = i32;
+pub type APPLET_PROC = Option<unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32>;
+pub type APPLICATION_VIEW_MIN_WIDTH = i32;
+pub type APPLICATION_VIEW_ORIENTATION = i32;
+pub type APPLICATION_VIEW_SIZE_PREFERENCE = i32;
+pub type APPLICATION_VIEW_STATE = i32;
 pub const APPNAMEBUFFERLEN: u32 = 40u32;
 pub const ARCONTENT_AUDIOCD: u32 = 4u32;
 pub const ARCONTENT_AUTOPLAYMUSIC: u32 = 256u32;
@@ -991,6 +1116,7 @@ pub const ARCONTENT_PHASE_UNKNOWN: u32 = 0u32;
 pub const ARCONTENT_SVCD: u32 = 2048u32;
 pub const ARCONTENT_UNKNOWNCONTENT: u32 = 64u32;
 pub const ARCONTENT_VCD: u32 = 1024u32;
+pub type ASSOCCLASS = i32;
 pub const ASSOCCLASS_APP_KEY: ASSOCCLASS = 5i32;
 pub const ASSOCCLASS_APP_STR: ASSOCCLASS = 6i32;
 pub const ASSOCCLASS_CLSID_KEY: ASSOCCLASS = 3i32;
@@ -1003,6 +1129,7 @@ pub const ASSOCCLASS_PROTOCOL_STR: ASSOCCLASS = 11i32;
 pub const ASSOCCLASS_SHELL_KEY: ASSOCCLASS = 0i32;
 pub const ASSOCCLASS_STAR: ASSOCCLASS = 9i32;
 pub const ASSOCCLASS_SYSTEM_STR: ASSOCCLASS = 7i32;
+pub type ASSOCDATA = i32;
 pub const ASSOCDATA_EDITFLAGS: ASSOCDATA = 5i32;
 pub const ASSOCDATA_HASPERUSERASSOC: ASSOCDATA = 4i32;
 pub const ASSOCDATA_MAX: ASSOCDATA = 7i32;
@@ -1010,7 +1137,9 @@ pub const ASSOCDATA_MSIDESCRIPTOR: ASSOCDATA = 1i32;
 pub const ASSOCDATA_NOACTIVATEHANDLER: ASSOCDATA = 2i32;
 pub const ASSOCDATA_UNUSED1: ASSOCDATA = 3i32;
 pub const ASSOCDATA_VALUE: ASSOCDATA = 6i32;
+pub type ASSOCENUM = i32;
 pub const ASSOCENUM_NONE: ASSOCENUM = 0i32;
+pub type ASSOCF = u32;
 pub const ASSOCF_APP_TO_APP: ASSOCF = 65536u32;
 pub const ASSOCF_IGNOREBASECLASS: ASSOCF = 512u32;
 pub const ASSOCF_INIT_BYEXENAME: ASSOCF = 2u32;
@@ -1030,11 +1159,33 @@ pub const ASSOCF_OPEN_BYEXENAME: ASSOCF = 2u32;
 pub const ASSOCF_PER_MACHINE_ONLY: ASSOCF = 32768u32;
 pub const ASSOCF_REMAPRUNDLL: ASSOCF = 128u32;
 pub const ASSOCF_VERIFY: ASSOCF = 64u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct ASSOCIATIONELEMENT {
+    pub ac: ASSOCCLASS,
+    pub hkClass: super::super::System::Registry::HKEY,
+    pub pszClass: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct ASSOCIATIONELEMENT {
+    pub ac: ASSOCCLASS,
+    pub hkClass: super::super::System::Registry::HKEY,
+    pub pszClass: windows_sys::core::PCWSTR,
+}
+pub type ASSOCIATIONLEVEL = i32;
+pub type ASSOCIATIONTYPE = i32;
+pub type ASSOCKEY = i32;
 pub const ASSOCKEY_APP: ASSOCKEY = 2i32;
 pub const ASSOCKEY_BASECLASS: ASSOCKEY = 4i32;
 pub const ASSOCKEY_CLASS: ASSOCKEY = 3i32;
 pub const ASSOCKEY_MAX: ASSOCKEY = 5i32;
 pub const ASSOCKEY_SHELLEXECCLASS: ASSOCKEY = 1i32;
+pub type ASSOCSTR = i32;
 pub const ASSOCSTR_APPICONREFERENCE: ASSOCSTR = 23i32;
 pub const ASSOCSTR_APPID: ASSOCSTR = 21i32;
 pub const ASSOCSTR_APPPUBLISHER: ASSOCSTR = 22i32;
@@ -1059,11 +1210,14 @@ pub const ASSOCSTR_SHELLEXTENSION: ASSOCSTR = 16i32;
 pub const ASSOCSTR_SHELLNEWVALUE: ASSOCSTR = 6i32;
 pub const ASSOCSTR_SUPPORTED_URI_PROTOCOLS: ASSOCSTR = 19i32;
 pub const ASSOCSTR_TILEINFO: ASSOCSTR = 13i32;
+pub type ASSOC_FILTER = i32;
 pub const ASSOC_FILTER_NONE: ASSOC_FILTER = 0i32;
 pub const ASSOC_FILTER_RECOMMENDED: ASSOC_FILTER = 1i32;
+pub type ATTACHMENT_ACTION = i32;
 pub const ATTACHMENT_ACTION_CANCEL: ATTACHMENT_ACTION = 0i32;
 pub const ATTACHMENT_ACTION_EXEC: ATTACHMENT_ACTION = 2i32;
 pub const ATTACHMENT_ACTION_SAVE: ATTACHMENT_ACTION = 1i32;
+pub type ATTACHMENT_PROMPT = i32;
 pub const ATTACHMENT_PROMPT_EXEC: ATTACHMENT_PROMPT = 2i32;
 pub const ATTACHMENT_PROMPT_EXEC_OR_SAVE: ATTACHMENT_PROMPT = 3i32;
 pub const ATTACHMENT_PROMPT_NONE: ATTACHMENT_PROMPT = 0i32;
@@ -1072,6 +1226,17 @@ pub const AT_FILEEXTENSION: ASSOCIATIONTYPE = 0i32;
 pub const AT_MIMETYPE: ASSOCIATIONTYPE = 3i32;
 pub const AT_STARTMENUCLIENT: ASSOCIATIONTYPE = 2i32;
 pub const AT_URLPROTOCOL: ASSOCIATIONTYPE = 1i32;
+pub type AUTOCOMPLETELISTOPTIONS = i32;
+pub type AUTOCOMPLETEOPTIONS = i32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct AUTO_SCROLL_DATA {
+    pub iNextSample: i32,
+    pub dwLastScroll: u32,
+    pub bFull: super::super::Foundation::BOOL,
+    pub pts: [super::super::Foundation::POINT; 3],
+    pub dwTimes: [u32; 3],
+}
 pub const AVMW_320: APPLICATION_VIEW_MIN_WIDTH = 1i32;
 pub const AVMW_500: APPLICATION_VIEW_MIN_WIDTH = 2i32;
 pub const AVMW_DEFAULT: APPLICATION_VIEW_MIN_WIDTH = 0i32;
@@ -1088,7 +1253,114 @@ pub const AVS_FILLED: APPLICATION_VIEW_STATE = 1i32;
 pub const AVS_FULLSCREEN_LANDSCAPE: APPLICATION_VIEW_STATE = 0i32;
 pub const AVS_FULLSCREEN_PORTRAIT: APPLICATION_VIEW_STATE = 3i32;
 pub const AVS_SNAPPED: APPLICATION_VIEW_STATE = 2i32;
+pub const AccessibilityDockingService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402);
 pub const AllowSmallerSize: ThumbnailStreamCacheOptions = 4i32;
+pub const AlphabeticalCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c2654c6_7372_4f6b_b310_55d6128f49d2);
+pub const AppShellVerbHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4ed3a719_cea8_4bd9_910d_e252f997afc2);
+pub const AppStartupLink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x273eb5e7_88b0_4843_bfef_e2c81d43aae5);
+pub const AppVisibility: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7e5fe3d9_985f_4908_91f9_ee19f9fd1514);
+pub const ApplicationActivationManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x45ba127d_10a8_46ea_8ab7_56ea9078943c);
+pub const ApplicationAssociationRegistration: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x591209c7_767b_42b2_9fba_44ee4615f2c7);
+pub const ApplicationAssociationRegistrationUI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1968106d_f3b5_44cf_890e_116fcb9ecef1);
+pub const ApplicationDesignModeSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x958a6fb5_dcb2_4faf_aafd_7fb054ad1a3b);
+pub const ApplicationDestinations: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86c14003_4d6b_4ef3_a7b4_0506663b2e68);
+pub const ApplicationDocumentLists: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86bec222_30f2_47e0_9f25_60d11cd75c28);
+pub const AttachmentServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4125dd96_e03a_4103_8f70_e0597d803b9c);
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_Common")]
+#[derive(Clone, Copy)]
+pub struct BANDINFOSFB {
+    pub dwMask: u32,
+    pub dwStateMask: u32,
+    pub dwState: u32,
+    pub crBkgnd: super::super::Foundation::COLORREF,
+    pub crBtnLt: super::super::Foundation::COLORREF,
+    pub crBtnDk: super::super::Foundation::COLORREF,
+    pub wViewMode: u16,
+    pub wAlign: u16,
+    pub psf: *mut core::ffi::c_void,
+    pub pidl: *mut Common::ITEMIDLIST,
+}
+pub type BANDSITECID = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BANDSITEINFO {
+    pub dwMask: u32,
+    pub dwState: u32,
+    pub dwStyle: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BANNER_NOTIFICATION {
+    pub event: BANNER_NOTIFICATION_EVENT,
+    pub providerIdentity: windows_sys::core::PCWSTR,
+    pub contentId: windows_sys::core::PCWSTR,
+}
+pub type BANNER_NOTIFICATION_EVENT = i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
+#[derive(Clone, Copy)]
+pub struct BASEBROWSERDATALH {
+    pub _hwnd: super::super::Foundation::HWND,
+    pub _ptl: *mut core::ffi::c_void,
+    pub _phlf: *mut core::ffi::c_void,
+    pub _pautoWB2: *mut core::ffi::c_void,
+    pub _pautoEDS: *mut core::ffi::c_void,
+    pub _pautoSS: *mut core::ffi::c_void,
+    pub _eSecureLockIcon: i32,
+    pub _bitfield: u32,
+    pub _uActivateState: u32,
+    pub _pidlViewState: *mut Common::ITEMIDLIST,
+    pub _pctView: *mut core::ffi::c_void,
+    pub _pidlCur: *mut Common::ITEMIDLIST,
+    pub _psv: *mut core::ffi::c_void,
+    pub _psf: *mut core::ffi::c_void,
+    pub _hwndView: super::super::Foundation::HWND,
+    pub _pszTitleCur: windows_sys::core::PWSTR,
+    pub _pidlPending: *mut Common::ITEMIDLIST,
+    pub _psvPending: *mut core::ffi::c_void,
+    pub _psfPending: *mut core::ffi::c_void,
+    pub _hwndViewPending: super::super::Foundation::HWND,
+    pub _pszTitlePending: windows_sys::core::PWSTR,
+    pub _fIsViewMSHTML: super::super::Foundation::BOOL,
+    pub _fPrivacyImpacted: super::super::Foundation::BOOL,
+    pub _clsidView: windows_sys::core::GUID,
+    pub _clsidViewPending: windows_sys::core::GUID,
+    pub _hwndFrame: super::super::Foundation::HWND,
+    pub _lPhishingFilterStatus: i32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
+#[derive(Clone, Copy)]
+pub struct BASEBROWSERDATAXP {
+    pub _hwnd: super::super::Foundation::HWND,
+    pub _ptl: *mut core::ffi::c_void,
+    pub _phlf: *mut core::ffi::c_void,
+    pub _pautoWB2: *mut core::ffi::c_void,
+    pub _pautoEDS: *mut core::ffi::c_void,
+    pub _pautoSS: *mut core::ffi::c_void,
+    pub _eSecureLockIcon: i32,
+    pub _bitfield: u32,
+    pub _uActivateState: u32,
+    pub _pidlViewState: *mut Common::ITEMIDLIST,
+    pub _pctView: *mut core::ffi::c_void,
+    pub _pidlCur: *mut Common::ITEMIDLIST,
+    pub _psv: *mut core::ffi::c_void,
+    pub _psf: *mut core::ffi::c_void,
+    pub _hwndView: super::super::Foundation::HWND,
+    pub _pszTitleCur: windows_sys::core::PWSTR,
+    pub _pidlPending: *mut Common::ITEMIDLIST,
+    pub _psvPending: *mut core::ffi::c_void,
+    pub _psfPending: *mut core::ffi::c_void,
+    pub _hwndViewPending: super::super::Foundation::HWND,
+    pub _pszTitlePending: windows_sys::core::PWSTR,
+    pub _fIsViewMSHTML: super::super::Foundation::BOOL,
+    pub _fPrivacyImpacted: super::super::Foundation::BOOL,
+    pub _clsidView: windows_sys::core::GUID,
+    pub _clsidViewPending: windows_sys::core::GUID,
+    pub _hwndFrame: super::super::Foundation::HWND,
+}
+pub type BFFCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32>;
 pub const BFFM_ENABLEOK: u32 = 1125u32;
 pub const BFFM_INITIALIZED: u32 = 1u32;
 pub const BFFM_IUNKNOWN: u32 = 5u32;
@@ -1167,9 +1439,36 @@ pub const BNE_Closed: BANNER_NOTIFICATION_EVENT = 2i32;
 pub const BNE_Dismissed: BANNER_NOTIFICATION_EVENT = 3i32;
 pub const BNE_Hovered: BANNER_NOTIFICATION_EVENT = 1i32;
 pub const BNE_Rendered: BANNER_NOTIFICATION_EVENT = 0i32;
+pub type BNSTATE = i32;
 pub const BNS_BEGIN_NAVIGATE: BNSTATE = 1i32;
 pub const BNS_NAVIGATE: BNSTATE = 2i32;
 pub const BNS_NORMAL: BNSTATE = 0i32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_Common")]
+#[derive(Clone, Copy)]
+pub struct BROWSEINFOA {
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub pidlRoot: *mut Common::ITEMIDLIST,
+    pub pszDisplayName: windows_sys::core::PSTR,
+    pub lpszTitle: windows_sys::core::PCSTR,
+    pub ulFlags: u32,
+    pub lpfn: BFFCALLBACK,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iImage: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_Common")]
+#[derive(Clone, Copy)]
+pub struct BROWSEINFOW {
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub pidlRoot: *mut Common::ITEMIDLIST,
+    pub pszDisplayName: windows_sys::core::PWSTR,
+    pub lpszTitle: windows_sys::core::PCWSTR,
+    pub ulFlags: u32,
+    pub lpfn: BFFCALLBACK,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iImage: i32,
+}
 pub const BSF_CANMAXIMIZE: u32 = 1024u32;
 pub const BSF_DELEGATEDNAVIGATION: u32 = 65536u32;
 pub const BSF_DONTSHOWNAVCANCELPAGE: u32 = 16384u32;
@@ -1206,8 +1505,24 @@ pub const BSSF_NOTITLE: u32 = 2u32;
 pub const BSSF_UNDELETEABLE: u32 = 4096u32;
 pub const BSSF_VISIBLE: u32 = 1u32;
 pub const BUFFLEN: u32 = 255u32;
+pub type BrowserNavConstants = i32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct CABINETSTATE {
+    pub cLength: u16,
+    pub nVersion: u16,
+    pub _bitfield: i32,
+    pub fMenuEnumFilter: u32,
+}
 pub const CABINETSTATE_VERSION: u32 = 2u32;
 pub const CAMERAROLL_E_NO_DOWNSAMPLING_REQUIRED: windows_sys::core::HRESULT = 0x80270120_u32 as _;
+pub type CATEGORYINFO_FLAGS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CATEGORY_INFO {
+    pub cif: CATEGORYINFO_FLAGS,
+    pub wszName: [u16; 260],
+}
 pub const CATID_BrowsableShellExt: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021490_0000_0000_c000_000000000046);
 pub const CATID_BrowseInPlace: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021491_0000_0000_c000_000000000046);
 pub const CATID_CommBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021494_0000_0000_c000_000000000046);
@@ -1228,6 +1543,7 @@ pub const CATINFO_SEPARATE_IMAGES: CATEGORYINFO_FLAGS = 128i32;
 pub const CATINFO_SHOWEMPTY: CATEGORYINFO_FLAGS = 256i32;
 pub const CATINFO_SUBSETTED: CATEGORYINFO_FLAGS = 64i32;
 pub const CATSORT_DEFAULT: CATSORT_FLAGS = 0i32;
+pub type CATSORT_FLAGS = i32;
 pub const CATSORT_NAME: CATSORT_FLAGS = 1i32;
 pub const CDB2GVF_ADDSHIELD: u32 = 64u32;
 pub const CDB2GVF_ALLOWPREVIEWPANE: u32 = 4u32;
@@ -1249,6 +1565,9 @@ pub const CDBOSC_RENAME: u32 = 3u32;
 pub const CDBOSC_SELCHANGE: u32 = 2u32;
 pub const CDBOSC_SETFOCUS: u32 = 0u32;
 pub const CDBOSC_STATECHANGE: u32 = 4u32;
+pub type CDBURNINGEXTENSIONRET = i32;
+pub const CDBurn: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfbeb8a05_beee_4442_804e_409d6c4515e9);
+pub type CDCONTROLSTATEF = i32;
 pub const CDCS_ENABLED: CDCONTROLSTATEF = 1i32;
 pub const CDCS_ENABLEDVISIBLE: CDCONTROLSTATEF = 3i32;
 pub const CDCS_INACTIVE: CDCONTROLSTATEF = 0i32;
@@ -1293,6 +1612,12 @@ pub const CGID_MENUDESKBAR: windows_sys::core::GUID = windows_sys::core::GUID::f
 pub const CGID_ShellDocView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000214d1_0000_0000_c000_000000000046);
 pub const CGID_ShellServiceObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000214d2_0000_0000_c000_000000000046);
 pub const CGID_ShortCut: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x93a68750_951a_11d1_946f_000000000000);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct CIDA {
+    pub cidl: u32,
+    pub aoffset: [u32; 1],
+}
 pub const CLOSEPROPS_DISCARD: u32 = 1u32;
 pub const CLOSEPROPS_NONE: u32 = 0u32;
 pub const CLSID_ACLCustomMRU: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6935db93_21e8_4ccc_beb9_9fe3c77a297a);
@@ -1369,13 +1694,80 @@ pub const CMF_VERBSONLY: u32 = 2u32;
 pub const CMIC_MASK_CONTROL_DOWN: u32 = 1073741824u32;
 pub const CMIC_MASK_PTINVOKE: u32 = 536870912u32;
 pub const CMIC_MASK_SHIFT_DOWN: u32 = 268435456u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CMINVOKECOMMANDINFO {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerb: windows_sys::core::PCSTR,
+    pub lpParameters: windows_sys::core::PCSTR,
+    pub lpDirectory: windows_sys::core::PCSTR,
+    pub nShow: i32,
+    pub dwHotKey: u32,
+    pub hIcon: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CMINVOKECOMMANDINFOEX {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerb: windows_sys::core::PCSTR,
+    pub lpParameters: windows_sys::core::PCSTR,
+    pub lpDirectory: windows_sys::core::PCSTR,
+    pub nShow: i32,
+    pub dwHotKey: u32,
+    pub hIcon: super::super::Foundation::HANDLE,
+    pub lpTitle: windows_sys::core::PCSTR,
+    pub lpVerbW: windows_sys::core::PCWSTR,
+    pub lpParametersW: windows_sys::core::PCWSTR,
+    pub lpDirectoryW: windows_sys::core::PCWSTR,
+    pub lpTitleW: windows_sys::core::PCWSTR,
+    pub ptInvoke: super::super::Foundation::POINT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CMINVOKECOMMANDINFOEX_REMOTE {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerbString: windows_sys::core::PCSTR,
+    pub lpParameters: windows_sys::core::PCSTR,
+    pub lpDirectory: windows_sys::core::PCSTR,
+    pub nShow: i32,
+    pub dwHotKey: u32,
+    pub lpTitle: windows_sys::core::PCSTR,
+    pub lpVerbWString: windows_sys::core::PCWSTR,
+    pub lpParametersW: windows_sys::core::PCWSTR,
+    pub lpDirectoryW: windows_sys::core::PCWSTR,
+    pub lpTitleW: windows_sys::core::PCWSTR,
+    pub ptInvoke: super::super::Foundation::POINT,
+    pub lpVerbInt: u32,
+    pub lpVerbWInt: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CM_COLUMNINFO {
+    pub cbSize: u32,
+    pub dwMask: u32,
+    pub dwState: u32,
+    pub uWidth: u32,
+    pub uDefaultWidth: u32,
+    pub uIdealWidth: u32,
+    pub wszName: [u16; 80],
+}
 pub const CM_ENUM_ALL: CM_ENUM_FLAGS = 1i32;
+pub type CM_ENUM_FLAGS = i32;
 pub const CM_ENUM_VISIBLE: CM_ENUM_FLAGS = 2i32;
+pub type CM_MASK = i32;
 pub const CM_MASK_DEFAULTWIDTH: CM_MASK = 2i32;
 pub const CM_MASK_IDEALWIDTH: CM_MASK = 4i32;
 pub const CM_MASK_NAME: CM_MASK = 8i32;
 pub const CM_MASK_STATE: CM_MASK = 16i32;
 pub const CM_MASK_WIDTH: CM_MASK = 1i32;
+pub type CM_SET_WIDTH_VALUE = i32;
+pub type CM_STATE = i32;
 pub const CM_STATE_ALWAYSVISIBLE: CM_STATE = 8i32;
 pub const CM_STATE_FIXEDWIDTH: CM_STATE = 2i32;
 pub const CM_STATE_NONE: CM_STATE = 0i32;
@@ -1407,6 +1799,22 @@ pub const COMP_TYPE_HTMLDOC: u32 = 0u32;
 pub const COMP_TYPE_MAX: u32 = 4u32;
 pub const COMP_TYPE_PICTURE: u32 = 1u32;
 pub const COMP_TYPE_WEBSITE: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONFIRM_CONFLICT_ITEM {
+    pub pShellItem: *mut core::ffi::c_void,
+    pub pszOriginalName: windows_sys::core::PWSTR,
+    pub pszAlternateName: windows_sys::core::PWSTR,
+    pub pszLocationShort: windows_sys::core::PWSTR,
+    pub pszLocationFull: windows_sys::core::PWSTR,
+    pub nType: SYNCMGR_CONFLICT_ITEM_TYPE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONFIRM_CONFLICT_RESULT_INFO {
+    pub pszNewName: windows_sys::core::PWSTR,
+    pub iItemIndex: u32,
+}
 pub const CONFLICT_RESOLUTION_CLSID_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("ConflictResolutionCLSID");
 pub const COPYENGINE_E_ACCESSDENIED_READONLY: windows_sys::core::HRESULT = 0x8027003F_u32 as _;
 pub const COPYENGINE_E_ACCESS_DENIED_DEST: windows_sys::core::HRESULT = 0x80270022_u32 as _;
@@ -1537,6 +1945,14 @@ pub const CPGSR_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RE
 pub const CPGSR_NO_CREDENTIAL_NOT_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = 0i32;
 pub const CPGSR_RETURN_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = 2i32;
 pub const CPGSR_RETURN_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = 3i32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct CPLINFO {
+    pub idIcon: i32,
+    pub idName: i32,
+    pub idInfo: i32,
+    pub lData: isize,
+}
 pub const CPLPAGE_DISPLAY_BACKGROUND: u32 = 1u32;
 pub const CPLPAGE_KEYBOARD_SPEED: u32 = 1u32;
 pub const CPLPAGE_MOUSE_BUTTONS: u32 = 1u32;
@@ -1565,14 +1981,51 @@ pub const CPUS_INVALID: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 0i32;
 pub const CPUS_LOGON: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 1i32;
 pub const CPUS_PLAP: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 5i32;
 pub const CPUS_UNLOCK_WORKSTATION: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 2i32;
+pub type CPVIEW = i32;
 pub const CPVIEW_ALLITEMS: CPVIEW = 0i32;
 pub const CPVIEW_CATEGORY: CPVIEW = 1i32;
 pub const CPVIEW_CLASSIC: CPVIEW = 0i32;
 pub const CPVIEW_HOME: CPVIEW = 1i32;
+pub type CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = i32;
+pub type CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
+    pub ulAuthenticationPackage: u32,
+    pub clsidCredentialProvider: windows_sys::core::GUID,
+    pub cbSerialization: u32,
+    pub rgbSerialization: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
+    pub dwFieldID: u32,
+    pub cpft: CREDENTIAL_PROVIDER_FIELD_TYPE,
+    pub pszLabel: windows_sys::core::PWSTR,
+    pub guidFieldType: windows_sys::core::GUID,
+}
+pub type CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = i32;
+pub type CREDENTIAL_PROVIDER_FIELD_STATE = i32;
+pub type CREDENTIAL_PROVIDER_FIELD_TYPE = i32;
+pub type CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = i32;
 pub const CREDENTIAL_PROVIDER_NO_DEFAULT: u32 = 4294967295u32;
+pub type CREDENTIAL_PROVIDER_STATUS_ICON = i32;
+pub type CREDENTIAL_PROVIDER_USAGE_SCENARIO = i32;
 pub const CSC_NAVIGATEBACK: CommandStateChangeConstants = 2i32;
 pub const CSC_NAVIGATEFORWARD: CommandStateChangeConstants = 1i32;
 pub const CSC_UPDATECOMMANDS: CommandStateChangeConstants = -1i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
+#[derive(Clone, Copy)]
+pub struct CSFV {
+    pub cbSize: u32,
+    pub pshf: *mut core::ffi::c_void,
+    pub psvOuter: *mut core::ffi::c_void,
+    pub pidl: *mut Common::ITEMIDLIST,
+    pub lEvents: i32,
+    pub pfnCallback: LPFNVIEWCALLBACK,
+    pub fvm: FOLDERVIEWMODE,
+}
 pub const CSIDL_ADMINTOOLS: u32 = 48u32;
 pub const CSIDL_ALTSTARTUP: u32 = 29u32;
 pub const CSIDL_APPDATA: u32 = 26u32;
@@ -1637,6 +2090,7 @@ pub const CSIDL_SYSTEM: u32 = 37u32;
 pub const CSIDL_SYSTEMX86: u32 = 41u32;
 pub const CSIDL_TEMPLATES: u32 = 21u32;
 pub const CSIDL_WINDOWS: u32 = 36u32;
+pub const CScriptErrorList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xefd01300_160f_11d2_bb2e_00805ff7efca);
 pub const CTF_COINIT: i32 = 8i32;
 pub const CTF_COINIT_MTA: i32 = 4096i32;
 pub const CTF_COINIT_STA: i32 = 8i32;
@@ -1652,6 +2106,15 @@ pub const CTF_THREAD_REF: i32 = 2i32;
 pub const CTF_UNUSED: i32 = 128i32;
 pub const CTF_WAIT_ALLOWCOM: i32 = 64i32;
 pub const CTF_WAIT_NO_REENTRANCY: i32 = 512i32;
+pub type CommandStateChangeConstants = i32;
+pub const ConflictFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x289978ac_a101_4341_a817_21eba7fd046d);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DATABLOCK_HEADER {
+    pub cbSize: u32,
+    pub dwSignature: u32,
+}
+pub type DATAOBJ_GET_ITEM_FLAGS = i32;
 pub const DBCID_CLSIDOFBAR: i32 = 2i32;
 pub const DBCID_EMPTY: i32 = 0i32;
 pub const DBCID_GETBAR: i32 = 4i32;
@@ -1697,10 +2160,73 @@ pub const DBIM_MINSIZE: u32 = 1u32;
 pub const DBIM_MODEFLAGS: u32 = 32u32;
 pub const DBIM_TITLE: u32 = 16u32;
 pub const DBPC_SELECTFIRST: u32 = 4294967295u32;
+pub type DEFAULTSAVEFOLDERTYPE = i32;
+pub type DEFAULT_FOLDER_MENU_RESTRICTIONS = i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
+#[derive(Clone, Copy)]
+pub struct DEFCONTEXTMENU {
+    pub hwnd: super::super::Foundation::HWND,
+    pub pcmcb: *mut core::ffi::c_void,
+    pub pidlFolder: *mut Common::ITEMIDLIST,
+    pub psf: *mut core::ffi::c_void,
+    pub cidl: u32,
+    pub apidl: *mut *mut Common::ITEMIDLIST,
+    pub punkAssociationInfo: *mut core::ffi::c_void,
+    pub cKeys: u32,
+    pub aKeys: *const super::super::System::Registry::HKEY,
+}
 pub const DEFSHAREID_PUBLIC: DEF_SHARE_ID = 2i32;
 pub const DEFSHAREID_USERS: DEF_SHARE_ID = 1i32;
+pub type DEF_SHARE_ID = i32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DELEGATEITEMID {
+    pub cbSize: u16,
+    pub wOuter: u16,
+    pub cbInner: u16,
+    pub rgb: [u8; 1],
+}
+pub type DESKBANDCID = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DESKBANDINFO {
+    pub dwMask: u32,
+    pub ptMinSize: super::super::Foundation::POINTL,
+    pub ptMaxSize: super::super::Foundation::POINTL,
+    pub ptIntegral: super::super::Foundation::POINTL,
+    pub ptActual: super::super::Foundation::POINTL,
+    pub wszTitle: [u16; 256],
+    pub dwModeFlags: u32,
+    pub crBkgnd: super::super::Foundation::COLORREF,
+}
+pub type DESKTOP_SLIDESHOW_DIRECTION = i32;
+pub type DESKTOP_SLIDESHOW_OPTIONS = i32;
+pub type DESKTOP_SLIDESHOW_STATE = i32;
+pub type DESKTOP_WALLPAPER_POSITION = i32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_Common")]
+#[derive(Clone, Copy)]
+pub struct DETAILSINFO {
+    pub pidl: *mut Common::ITEMIDLIST,
+    pub fmt: i32,
+    pub cxChar: i32,
+    pub str: Common::STRRET,
+    pub iImage: i32,
+}
 pub const DEVICE_IMMERSIVE: DISPLAY_DEVICE_TYPE = 1i32;
 pub const DEVICE_PRIMARY: DISPLAY_DEVICE_TYPE = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DFMICS {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub idCmdFirst: u32,
+    pub idDefMax: u32,
+    pub pici: *mut CMINVOKECOMMANDINFO,
+    pub punkSite: *mut core::ffi::c_void,
+}
 pub const DFMR_DEFAULT: DEFAULT_FOLDER_MENU_RESTRICTIONS = 0i32;
 pub const DFMR_NO_ASYNC_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 1024i32;
 pub const DFMR_NO_NATIVECPU_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 2048i32;
@@ -1712,6 +2238,7 @@ pub const DFMR_RESOURCE_AND_FOLDER_VERBS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS 
 pub const DFMR_STATIC_VERBS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS = 16i32;
 pub const DFMR_USE_SPECIFIED_HANDLERS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 256i32;
 pub const DFMR_USE_SPECIFIED_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 512i32;
+pub type DFM_CMD = i32;
 pub const DFM_CMD_COPY: DFM_CMD = -3i32;
 pub const DFM_CMD_DELETE: DFM_CMD = -1i32;
 pub const DFM_CMD_LINK: DFM_CMD = -4i32;
@@ -1736,6 +2263,7 @@ pub const DFM_MAPCOMMANDNAME: DFM_MESSAGE_ID = 13i32;
 pub const DFM_MERGECONTEXTMENU: DFM_MESSAGE_ID = 1i32;
 pub const DFM_MERGECONTEXTMENU_BOTTOM: DFM_MESSAGE_ID = 17i32;
 pub const DFM_MERGECONTEXTMENU_TOP: DFM_MESSAGE_ID = 10i32;
+pub type DFM_MESSAGE_ID = i32;
 pub const DFM_MODIFYQCMFLAGS: DFM_MESSAGE_ID = 18i32;
 pub const DFM_VALIDATECMD: DFM_MESSAGE_ID = 9i32;
 pub const DFM_WM_DRAWITEM: DFM_MESSAGE_ID = 7i32;
@@ -1780,8 +2308,26 @@ pub const DISPID_VERBINVOKED: u32 = 202u32;
 pub const DISPID_VIEWMODECHANGED: u32 = 205u32;
 pub const DISPID_VIEWPAINTDONE: u32 = 211u32;
 pub const DISPID_WORDWHEELEDITED: u32 = 219u32;
+pub type DISPLAY_DEVICE_TYPE = i32;
 pub const DI_GETDRAGIMAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("ShellGetDragImage");
 pub const DLG_SCRNSAVECONFIGURE: u32 = 2003u32;
+pub type DLLGETVERSIONPROC = Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> windows_sys::core::HRESULT>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DLLVERSIONINFO {
+    pub cbSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformID: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DLLVERSIONINFO2 {
+    pub info1: DLLVERSIONINFO,
+    pub dwFlags: u32,
+    pub ullVersion: u64,
+}
 pub const DLLVER_BUILD_MASK: u64 = 4294901760u64;
 pub const DLLVER_MAJOR_MASK: u64 = 18446462598732840960u64;
 pub const DLLVER_MINOR_MASK: u64 = 281470681743360u64;
@@ -1793,6 +2339,62 @@ pub const DOGIF_NO_HDROP: DATAOBJ_GET_ITEM_FLAGS = 2i32;
 pub const DOGIF_NO_URL: DATAOBJ_GET_ITEM_FLAGS = 4i32;
 pub const DOGIF_ONLY_IF_ONE: DATAOBJ_GET_ITEM_FLAGS = 8i32;
 pub const DOGIF_TRAVERSE_LINK: DATAOBJ_GET_ITEM_FLAGS = 1i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DRAGINFOA {
+    pub uSize: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub fNC: super::super::Foundation::BOOL,
+    pub lpFileList: windows_sys::core::PSTR,
+    pub grfKeyState: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct DRAGINFOA {
+    pub uSize: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub fNC: super::super::Foundation::BOOL,
+    pub lpFileList: windows_sys::core::PSTR,
+    pub grfKeyState: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DRAGINFOW {
+    pub uSize: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub fNC: super::super::Foundation::BOOL,
+    pub lpFileList: windows_sys::core::PWSTR,
+    pub grfKeyState: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct DRAGINFOW {
+    pub uSize: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub fNC: super::super::Foundation::BOOL,
+    pub lpFileList: windows_sys::core::PWSTR,
+    pub grfKeyState: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DROPDESCRIPTION {
+    pub r#type: DROPIMAGETYPE,
+    pub szMessage: [u16; 260],
+    pub szInsert: [u16; 260],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DROPFILES {
+    pub pFiles: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub fNC: super::super::Foundation::BOOL,
+    pub fWide: super::super::Foundation::BOOL,
+}
+pub type DROPIMAGETYPE = i32;
 pub const DROPIMAGE_COPY: DROPIMAGETYPE = 1i32;
 pub const DROPIMAGE_INVALID: DROPIMAGETYPE = -1i32;
 pub const DROPIMAGE_LABEL: DROPIMAGETYPE = 6i32;
@@ -1807,6 +2409,7 @@ pub const DSFT_DETECT: DEFAULTSAVEFOLDERTYPE = 1i32;
 pub const DSFT_PRIVATE: DEFAULTSAVEFOLDERTYPE = 2i32;
 pub const DSFT_PUBLIC: DEFAULTSAVEFOLDERTYPE = 3i32;
 pub const DSH_ALLOWDROPDESCRIPTIONTEXT: DSH_FLAGS = 1i32;
+pub type DSH_FLAGS = i32;
 pub const DSO_SHUFFLEIMAGES: DESKTOP_SLIDESHOW_OPTIONS = 1i32;
 pub const DSS_DISABLED_BY_REMOTE_SESSION: DESKTOP_SLIDESHOW_STATE = 4i32;
 pub const DSS_ENABLED: DESKTOP_SLIDESHOW_STATE = 1i32;
@@ -1826,6 +2429,13 @@ pub const DWPOS_FIT: DESKTOP_WALLPAPER_POSITION = 3i32;
 pub const DWPOS_SPAN: DESKTOP_WALLPAPER_POSITION = 5i32;
 pub const DWPOS_STRETCH: DESKTOP_WALLPAPER_POSITION = 2i32;
 pub const DWPOS_TILE: DESKTOP_WALLPAPER_POSITION = 1i32;
+pub const DefFolderMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc63382be_7933_48d0_9ac8_85fb46be2fdd);
+pub const DesktopGadget: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x924ccc1b_6562_4c85_8657_d177925222b6);
+pub const DesktopWallpaper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc2cf3110_460e_4fc1_b9d0_8a1c0c9cc4bd);
+pub const DestinationList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x77f10cf0_3db5_4966_b520_b7c54fd35ed6);
+pub const DocPropShellExtension: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x883373c3_bf89_11d1_be35_080036b11a03);
+pub const DriveSizeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94357b53_ca29_4b78_83ae_e8fe7409134f);
+pub const DriveTypeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0a8f3cf_4333_4bab_8873_1ccb1cada48b);
 pub const EBF_NODROPTARGET: EXPLORER_BROWSER_FILL_FLAGS = 512i32;
 pub const EBF_NONE: EXPLORER_BROWSER_FILL_FLAGS = 0i32;
 pub const EBF_SELECTFROMDATAOBJECT: EXPLORER_BROWSER_FILL_FLAGS = 256i32;
@@ -1858,6 +2468,8 @@ pub const ECS_DISABLED: _EXPCMDSTATE = 1i32;
 pub const ECS_ENABLED: _EXPCMDSTATE = 0i32;
 pub const ECS_HIDDEN: _EXPCMDSTATE = 2i32;
 pub const ECS_RADIOCHECK: _EXPCMDSTATE = 16i32;
+pub type EC_HOST_UI_MODE = i32;
+pub type EDGE_GESTURE_KIND = i32;
 pub const EGK_KEYBOARD: EDGE_GESTURE_KIND = 1i32;
 pub const EGK_MOUSE: EDGE_GESTURE_KIND = 2i32;
 pub const EGK_TOUCH: EDGE_GESTURE_KIND = 0i32;
@@ -1878,12 +2490,51 @@ pub const EP_QueryPane: windows_sys::core::GUID = windows_sys::core::GUID::from_
 pub const EP_Ribbon: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd27524a8_c9f2_4834_a106_df8889fd4f37);
 pub const EP_StatusBar: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65fe56ce_5cfe_4bc4_ad8a_7ae3fe7e8f7c);
 pub const EXECUTE_E_LAUNCH_APPLICATION: windows_sys::core::HRESULT = 0x80270101_u32 as _;
+pub type EXPLORER_BROWSER_FILL_FLAGS = i32;
+pub type EXPLORER_BROWSER_OPTIONS = i32;
 pub const EXPPS_FILETYPES: _EXPPS = 1i32;
 pub const EXP_DARWIN_ID_SIG: u32 = 2684354566u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct EXP_DARWIN_LINK {
+    pub dbh: DATABLOCK_HEADER,
+    pub szDarwinID: [i8; 260],
+    pub szwDarwinID: [u16; 260],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct EXP_PROPERTYSTORAGE {
+    pub cbSize: u32,
+    pub dwSignature: u32,
+    pub abPropertyStorage: [u8; 1],
+}
 pub const EXP_PROPERTYSTORAGE_SIG: u32 = 2684354569u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct EXP_SPECIAL_FOLDER {
+    pub cbSize: u32,
+    pub dwSignature: u32,
+    pub idSpecialFolder: u32,
+    pub cbOffset: u32,
+}
 pub const EXP_SPECIAL_FOLDER_SIG: u32 = 2684354565u32;
 pub const EXP_SZ_ICON_SIG: u32 = 2684354567u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct EXP_SZ_LINK {
+    pub cbSize: u32,
+    pub dwSignature: u32,
+    pub szTarget: [i8; 260],
+    pub swzTarget: [u16; 260],
+}
 pub const EXP_SZ_LINK_SIG: u32 = 2684354561u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXTRASEARCH {
+    pub guidSearch: windows_sys::core::GUID,
+    pub wszFriendlyName: [u16; 80],
+    pub wszUrl: [u16; 2084],
+}
 pub const E_ACTIVATIONDENIED_SHELLERROR: windows_sys::core::HRESULT = 0x80270131_u32 as _;
 pub const E_ACTIVATIONDENIED_SHELLNOTREADY: windows_sys::core::HRESULT = 0x80270134_u32 as _;
 pub const E_ACTIVATIONDENIED_SHELLRESTART: windows_sys::core::HRESULT = 0x80270132_u32 as _;
@@ -1907,6 +2558,10 @@ pub const E_USERTILE_FILESIZE: windows_sys::core::HRESULT = 0x80270214_u32 as _;
 pub const E_USERTILE_LARGEORDYNAMIC: windows_sys::core::HRESULT = 0x80270212_u32 as _;
 pub const E_USERTILE_UNSUPPORTEDFILETYPE: windows_sys::core::HRESULT = 0x80270210_u32 as _;
 pub const E_USERTILE_VIDEOFRAMESIZE: windows_sys::core::HRESULT = 0x80270213_u32 as _;
+pub const EnumerableObjectCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2d3468c1_36a7_43b6_ac24_d3f02fd9607a);
+pub const ExecuteFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x11dbb47c_a525_400b_9e80_a54615a090c0);
+pub const ExecuteUnknown: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe44e9428_bdbc_4987_a099_40dc8fd255e7);
+pub const ExplorerBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x71f96385_ddd6_48d3_a0c1_ae06e8b055fb);
 pub const ExtractIfNotCached: ThumbnailStreamCacheOptions = 0i32;
 pub const FCIDM_BROWSERFIRST: u32 = 40960u32;
 pub const FCIDM_BROWSERLAST: u32 = 48896u32;
@@ -1944,6 +2599,7 @@ pub const FCW_PROGRESS: u32 = 8u32;
 pub const FCW_STATUS: u32 = 1u32;
 pub const FCW_TOOLBAR: u32 = 2u32;
 pub const FCW_TREE: u32 = 3u32;
+pub type FDAP = i32;
 pub const FDAP_BOTTOM: FDAP = 0i32;
 pub const FDAP_TOP: FDAP = 1i32;
 pub const FDEOR_ACCEPT: FDE_OVERWRITE_RESPONSE = 1i32;
@@ -1952,6 +2608,8 @@ pub const FDEOR_REFUSE: FDE_OVERWRITE_RESPONSE = 2i32;
 pub const FDESVR_ACCEPT: FDE_SHAREVIOLATION_RESPONSE = 1i32;
 pub const FDESVR_DEFAULT: FDE_SHAREVIOLATION_RESPONSE = 0i32;
 pub const FDESVR_REFUSE: FDE_SHAREVIOLATION_RESPONSE = 2i32;
+pub type FDE_OVERWRITE_RESPONSE = i32;
+pub type FDE_SHAREVIOLATION_RESPONSE = i32;
 pub const FDTF_LONGDATE: u32 = 4u32;
 pub const FDTF_LONGTIME: u32 = 8u32;
 pub const FDTF_LTRDATE: u32 = 256u32;
@@ -1965,6 +2623,7 @@ pub const FD_ATTRIBUTES: FD_FLAGS = 4i32;
 pub const FD_CLSID: FD_FLAGS = 1i32;
 pub const FD_CREATETIME: FD_FLAGS = 8i32;
 pub const FD_FILESIZE: FD_FLAGS = 64i32;
+pub type FD_FLAGS = i32;
 pub const FD_LINKUI: FD_FLAGS = 32768i32;
 pub const FD_PROGRESSUI: FD_FLAGS = 16384i32;
 pub const FD_SIZEPOINT: FD_FLAGS = 2i32;
@@ -1973,7 +2632,63 @@ pub const FD_WRITESTIME: FD_FLAGS = 32i32;
 pub const FEM_NAVIGATION: FOLDER_ENUM_MODE = 1i32;
 pub const FEM_VIEWRESULT: FOLDER_ENUM_MODE = 0i32;
 pub const FFFP_EXACTMATCH: FFFP_MODE = 0i32;
+pub type FFFP_MODE = i32;
 pub const FFFP_NEARESTPARENTMATCH: FFFP_MODE = 1i32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct FILEDESCRIPTORA {
+    pub dwFlags: u32,
+    pub clsid: windows_sys::core::GUID,
+    pub sizel: super::super::Foundation::SIZE,
+    pub pointl: super::super::Foundation::POINTL,
+    pub dwFileAttributes: u32,
+    pub ftCreationTime: super::super::Foundation::FILETIME,
+    pub ftLastAccessTime: super::super::Foundation::FILETIME,
+    pub ftLastWriteTime: super::super::Foundation::FILETIME,
+    pub nFileSizeHigh: u32,
+    pub nFileSizeLow: u32,
+    pub cFileName: [i8; 260],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct FILEDESCRIPTORW {
+    pub dwFlags: u32,
+    pub clsid: windows_sys::core::GUID,
+    pub sizel: super::super::Foundation::SIZE,
+    pub pointl: super::super::Foundation::POINTL,
+    pub dwFileAttributes: u32,
+    pub ftCreationTime: super::super::Foundation::FILETIME,
+    pub ftLastAccessTime: super::super::Foundation::FILETIME,
+    pub ftLastWriteTime: super::super::Foundation::FILETIME,
+    pub nFileSizeHigh: u32,
+    pub nFileSizeLow: u32,
+    pub cFileName: [u16; 260],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct FILEGROUPDESCRIPTORA {
+    pub cItems: u32,
+    pub fgd: [FILEDESCRIPTORA; 1],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct FILEGROUPDESCRIPTORW {
+    pub cItems: u32,
+    pub fgd: [FILEDESCRIPTORW; 1],
+}
+pub type FILEOPENDIALOGOPTIONS = u32;
+pub type FILEOPERATION_FLAGS = u32;
+pub type FILETYPEATTRIBUTEFLAGS = i32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct FILE_ATTRIBUTES_ARRAY {
+    pub cItems: u32,
+    pub dwSumFileAttributes: u32,
+    pub dwProductFileAttributes: u32,
+    pub rgdwFileAttributes: [u32; 1],
+}
+pub type FILE_OPERATION_FLAGS2 = i32;
+pub type FILE_USAGE_TYPE = i32;
 pub const FLVM_CONTENT: FOLDERLOGICALVIEWMODE = 5i32;
 pub const FLVM_DETAILS: FOLDERLOGICALVIEWMODE = 1i32;
 pub const FLVM_FIRST: FOLDERLOGICALVIEWMODE = 1i32;
@@ -1982,6 +2697,7 @@ pub const FLVM_LAST: FOLDERLOGICALVIEWMODE = 5i32;
 pub const FLVM_LIST: FOLDERLOGICALVIEWMODE = 4i32;
 pub const FLVM_TILES: FOLDERLOGICALVIEWMODE = 2i32;
 pub const FLVM_UNSPECIFIED: FOLDERLOGICALVIEWMODE = -1i32;
+pub type FLYOUT_PLACEMENT = i32;
 pub const FMTID_Briefcase: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x328d8b21_7729_4bfc_954c_902b329d56b0);
 pub const FMTID_CustomImageProperties: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ecd8b0e_c136_4a9b_9411_4ebd6673ccc3);
 pub const FMTID_DRM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaeac19e4_89ae_4508_b9b7_bb867abee2ed);
@@ -2032,6 +2748,7 @@ pub const FOF_SILENT: FILEOPERATION_FLAGS = 4u32;
 pub const FOF_SIMPLEPROGRESS: FILEOPERATION_FLAGS = 256u32;
 pub const FOF_WANTMAPPINGHANDLE: FILEOPERATION_FLAGS = 32u32;
 pub const FOF_WANTNUKEWARNING: FILEOPERATION_FLAGS = 16384u32;
+pub type FOLDERFLAGS = i32;
 pub const FOLDERID_AccountPictures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x008ca0b1_55b4_4c56_b8a8_4de4b299d3be);
 pub const FOLDERID_AddNewPrograms: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde61d971_5ebc_4f02_a3a9_6c82895e5c04);
 pub const FOLDERID_AdminTools: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x724ef170_a42d_4fef_9f26_b60e846fba4f);
@@ -2174,6 +2891,20 @@ pub const FOLDERID_UsersLibraries: windows_sys::core::GUID = windows_sys::core::
 pub const FOLDERID_Videos: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x18989b1d_99b5_455b_841c_ab7c74e4ddfc);
 pub const FOLDERID_VideosLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x491e922f_5643_4af4_a7eb_4e7a138d8174);
 pub const FOLDERID_Windows: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf38bf404_1d43_42f2_9305_67de0b28fc23);
+pub type FOLDERLOGICALVIEWMODE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FOLDERSETDATA {
+    pub _fs: FOLDERSETTINGS,
+    pub _vidRestore: windows_sys::core::GUID,
+    pub _dwViewPriority: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FOLDERSETTINGS {
+    pub ViewMode: u32,
+    pub fFlags: u32,
+}
 pub const FOLDERTYPEID_AccountPictures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdb2a5d8f_06e6_4007_aba6_af877d526ea6);
 pub const FOLDERTYPEID_Communications: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x91475fe5_586b_4eba_8d75_d17434b8cdf6);
 pub const FOLDERTYPEID_CompressedFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x80213e82_bcfd_4c4f_8817_bb27601267a9);
@@ -2210,6 +2941,9 @@ pub const FOLDERTYPEID_StorageProviderVideos: windows_sys::core::GUID = windows_
 pub const FOLDERTYPEID_UserFiles: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcd0fc69b_71e2_46e5_9690_5bcd9f57aab3);
 pub const FOLDERTYPEID_UsersLibraries: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4d98f09_6124_4fe0_9942_826416082da9);
 pub const FOLDERTYPEID_Videos: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5fa96407_7e77_483c_ac93_691d05850de8);
+pub type FOLDERVIEWMODE = i32;
+pub type FOLDERVIEWOPTIONS = i32;
+pub type FOLDER_ENUM_MODE = i32;
 pub const FOS_ALLNONSTORAGEITEMS: FILEOPENDIALOGOPTIONS = 128u32;
 pub const FOS_ALLOWMULTISELECT: FILEOPENDIALOGOPTIONS = 512u32;
 pub const FOS_CREATEPROMPT: FILEOPENDIALOGOPTIONS = 8192u32;
@@ -2242,6 +2976,7 @@ pub const FP_BELOW: FLYOUT_PLACEMENT = 2i32;
 pub const FP_DEFAULT: FLYOUT_PLACEMENT = 0i32;
 pub const FP_LEFT: FLYOUT_PLACEMENT = 3i32;
 pub const FP_RIGHT: FLYOUT_PLACEMENT = 4i32;
+pub const FSCopyHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd197380a_0a79_4dc8_a033_ed882c2fa14b);
 pub const FTA_AlwaysUnsafe: FILETYPEATTRIBUTEFLAGS = 131072i32;
 pub const FTA_AlwaysUseDirectInvoke: FILETYPEATTRIBUTEFLAGS = 4194304i32;
 pub const FTA_Exclude: FILETYPEATTRIBUTEFLAGS = 1i32;
@@ -2290,6 +3025,7 @@ pub const FVSIF_NEWFILE: u32 = 2147483648u32;
 pub const FVSIF_PINNED: u32 = 2u32;
 pub const FVSIF_RECT: u32 = 1u32;
 pub const FVST_EMPTYTEXT: FVTEXTTYPE = 0i32;
+pub type FVTEXTTYPE = i32;
 pub const FWF_ABBREVIATEDNAMES: FOLDERFLAGS = 2i32;
 pub const FWF_ALIGNLEFT: FOLDERFLAGS = 2048i32;
 pub const FWF_ALLOWRTLREADING: FOLDERFLAGS = -2147483648i32;
@@ -2323,6 +3059,13 @@ pub const FWF_SUBSETGROUPS: FOLDERFLAGS = 536870912i32;
 pub const FWF_TRANSPARENT: FOLDERFLAGS = 256i32;
 pub const FWF_TRICHECKSELECT: FOLDERFLAGS = 67108864i32;
 pub const FWF_USESEARCHFOLDER: FOLDERFLAGS = 1073741824i32;
+pub const FileOpenDialog: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdc1c5a9c_e88a_4dde_a5a1_60f82a20aef7);
+pub const FileOperation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3ad05575_8857_4850_9277_11b85bdb8e09);
+pub const FileSaveDialog: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc0b4e2f3_ba21_4773_8dba_335ec946eb8b);
+pub const FileSearchBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4ee31f3_4768_11d2_be5c_00a0c9a83da1);
+pub const FolderViewHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x20b1cb23_6968_4eb9_b7d4_a66d00d07cee);
+pub const FrameworkInputPane: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5120aa3_46ba_44c5_822d_ca8092c1fc72);
+pub const FreeSpaceCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb5607793_24ac_44c7_82e2_831726aa6cb7);
 pub const GADOF_DIRTY: u32 = 1u32;
 pub const GCS_HELPTEXT: u32 = 5u32;
 pub const GCS_HELPTEXTA: u32 = 1u32;
@@ -2413,9 +3156,45 @@ pub const GLOBALCOUNTER_SYSTEMPIDLCHANGE: SHGLOBALCOUNTER = 7i32;
 pub const GLOBALCOUNTER_USERINFOCHANGED: SHGLOBALCOUNTER = 56i32;
 pub const GPFIDL_ALTNAME: GPFIDL_FLAGS = 1u32;
 pub const GPFIDL_DEFAULT: GPFIDL_FLAGS = 0u32;
+pub type GPFIDL_FLAGS = u32;
 pub const GPFIDL_UNCPRINTER: GPFIDL_FLAGS = 2u32;
+pub const GenericCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25cbb996_92ed_457e_b28c_4774084bd562);
+pub type HDROP = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HELPINFO {
+    pub cbSize: u32,
+    pub iContextType: HELP_INFO_TYPE,
+    pub iCtrlId: i32,
+    pub hItemHandle: super::super::Foundation::HANDLE,
+    pub dwContextId: usize,
+    pub MousePos: super::super::Foundation::POINT,
+}
 pub const HELPINFO_MENUITEM: HELP_INFO_TYPE = 2i32;
 pub const HELPINFO_WINDOW: HELP_INFO_TYPE = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HELPWININFOA {
+    pub wStructSize: i32,
+    pub x: i32,
+    pub y: i32,
+    pub dx: i32,
+    pub dy: i32,
+    pub wMax: i32,
+    pub rgchMember: [i8; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HELPWININFOW {
+    pub wStructSize: i32,
+    pub x: i32,
+    pub y: i32,
+    pub dx: i32,
+    pub dy: i32,
+    pub wMax: i32,
+    pub rgchMember: [u16; 2],
+}
+pub type HELP_INFO_TYPE = i32;
 pub const HGSC_DOCUMENTSLIBRARY: HOMEGROUPSHARINGCHOICES = 8i32;
 pub const HGSC_MUSICLIBRARY: HOMEGROUPSHARINGCHOICES = 1i32;
 pub const HGSC_NONE: HOMEGROUPSHARINGCHOICES = 0i32;
@@ -2423,33 +3202,56 @@ pub const HGSC_PICTURESLIBRARY: HOMEGROUPSHARINGCHOICES = 2i32;
 pub const HGSC_PRINTERS: HOMEGROUPSHARINGCHOICES = 16i32;
 pub const HGSC_VIDEOSLIBRARY: HOMEGROUPSHARINGCHOICES = 4i32;
 pub const HLBWIF_DOCWNDMAXIMIZED: HLBWIF_FLAGS = 8i32;
+pub type HLBWIF_FLAGS = i32;
 pub const HLBWIF_FRAMEWNDMAXIMIZED: HLBWIF_FLAGS = 4i32;
 pub const HLBWIF_HASDOCWNDINFO: HLBWIF_FLAGS = 2i32;
 pub const HLBWIF_HASFRAMEWNDINFO: HLBWIF_FLAGS = 1i32;
 pub const HLBWIF_HASWEBTOOLBARINFO: HLBWIF_FLAGS = 16i32;
 pub const HLBWIF_WEBTOOLBARHIDDEN: HLBWIF_FLAGS = 32i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HLBWINFO {
+    pub cbSize: u32,
+    pub grfHLBWIF: u32,
+    pub rcFramePos: super::super::Foundation::RECT,
+    pub rcDocPos: super::super::Foundation::RECT,
+    pub hltbinfo: HLTBINFO,
+}
+pub type HLFNAMEF = i32;
 pub const HLFNAMEF_DEFAULT: HLFNAMEF = 0i32;
 pub const HLFNAMEF_TRYCACHE: HLFNAMEF = 1i32;
 pub const HLFNAMEF_TRYFULLTARGET: HLFNAMEF = 4i32;
 pub const HLFNAMEF_TRYPRETTYTARGET: HLFNAMEF = 2i32;
 pub const HLFNAMEF_TRYWIN95SHORTCUT: HLFNAMEF = 8i32;
 pub const HLID_CURRENT: HLID_INFO = 4294967293u32;
+pub type HLID_INFO = u32;
 pub const HLID_INVALID: HLID_INFO = 0u32;
 pub const HLID_NEXT: HLID_INFO = 4294967294u32;
 pub const HLID_PREVIOUS: HLID_INFO = 4294967295u32;
 pub const HLID_STACKBOTTOM: HLID_INFO = 4294967292u32;
 pub const HLID_STACKTOP: HLID_INFO = 4294967291u32;
+pub type HLINKGETREF = i32;
 pub const HLINKGETREF_ABSOLUTE: HLINKGETREF = 1i32;
 pub const HLINKGETREF_DEFAULT: HLINKGETREF = 0i32;
 pub const HLINKGETREF_RELATIVE: HLINKGETREF = 2i32;
+pub type HLINKMISC = i32;
 pub const HLINKMISC_RELATIVE: HLINKMISC = 1i32;
+pub type HLINKSETF = i32;
 pub const HLINKSETF_LOCATION: HLINKSETF = 2i32;
 pub const HLINKSETF_TARGET: HLINKSETF = 1i32;
+pub type HLINKWHICHMK = i32;
 pub const HLINKWHICHMK_BASE: HLINKWHICHMK = 2i32;
 pub const HLINKWHICHMK_CONTAINER: HLINKWHICHMK = 1i32;
 pub const HLINK_E_FIRST: windows_sys::core::HRESULT = 0x80040100_u32 as _;
 pub const HLINK_S_DONTHIDE: i32 = 262400i32;
 pub const HLINK_S_FIRST: windows_sys::core::HRESULT = 0x40100_u32 as _;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HLITEM {
+    pub uHLID: u32,
+    pub pwzFriendlyName: windows_sys::core::PWSTR,
+}
+pub type HLNF = u32;
 pub const HLNF_ALLOW_AUTONAVIGATE: u32 = 536870912u32;
 pub const HLNF_CALLERUNTRUSTED: u32 = 2097152u32;
 pub const HLNF_CREATENOHISTORY: HLNF = 32u32;
@@ -2464,25 +3266,40 @@ pub const HLNF_OPENINNEWWINDOW: HLNF = 2u32;
 pub const HLNF_TRUSTEDFORACTIVEX: u32 = 4194304u32;
 pub const HLNF_TRUSTFIRSTDOWNLOAD: u32 = 16777216u32;
 pub const HLNF_UNTRUSTEDFORDOWNLOAD: u32 = 33554432u32;
+pub type HLQF_INFO = i32;
 pub const HLQF_ISCURRENT: HLQF_INFO = 2i32;
 pub const HLQF_ISVALID: HLQF_INFO = 1i32;
+pub type HLSHORTCUTF = i32;
 pub const HLSHORTCUTF_DEFAULT: HLSHORTCUTF = 0i32;
 pub const HLSHORTCUTF_DONTACTUALLYCREATE: HLSHORTCUTF = 1i32;
 pub const HLSHORTCUTF_MAYUSEEXISTINGSHORTCUT: HLSHORTCUTF = 8i32;
 pub const HLSHORTCUTF_USEFILENAMEFROMFRIENDLYNAME: HLSHORTCUTF = 2i32;
 pub const HLSHORTCUTF_USEUNIQUEFILENAME: HLSHORTCUTF = 4i32;
+pub type HLSR = i32;
 pub const HLSR_HISTORYFOLDER: HLSR = 2i32;
 pub const HLSR_HOME: HLSR = 0i32;
 pub const HLSR_SEARCHPAGE: HLSR = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HLTBINFO {
+    pub uDockType: u32,
+    pub rcTbPos: super::super::Foundation::RECT,
+}
 pub const HLTB_DOCKEDBOTTOM: HLTB_INFO = 3i32;
 pub const HLTB_DOCKEDLEFT: HLTB_INFO = 0i32;
 pub const HLTB_DOCKEDRIGHT: HLTB_INFO = 2i32;
 pub const HLTB_DOCKEDTOP: HLTB_INFO = 1i32;
 pub const HLTB_FLOATING: HLTB_INFO = 4i32;
+pub type HLTB_INFO = i32;
+pub type HLTRANSLATEF = i32;
 pub const HLTRANSLATEF_DEFAULT: HLTRANSLATEF = 0i32;
 pub const HLTRANSLATEF_DONTAPPLYDEFAULTPREFIX: HLTRANSLATEF = 1i32;
+pub type HOMEGROUPSHARINGCHOICES = i32;
 pub const HOMEGROUP_SECURITY_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("HomeUsers");
 pub const HOMEGROUP_SECURITY_GROUP_MULTI: windows_sys::core::PCWSTR = windows_sys::core::w!("HUG");
+pub type HPSXA = *mut core::ffi::c_void;
+pub const HideInputPaneAnimationCoordinator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x384742b1_2a77_4cb3_8cf8_1136f5e17e59);
+pub const HomeGroup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde77ba04_3c92_4d11_a1a5_42352a53e0e3);
 pub const IDC_OFFLINE_HAND: u32 = 103u32;
 pub const IDC_PANTOOL_HAND_CLOSED: u32 = 105u32;
 pub const IDC_PANTOOL_HAND_OPEN: u32 = 104u32;
@@ -2508,7 +3325,10 @@ pub const IEIFLAG_SCREEN: u32 = 32u32;
 pub const IEIT_PRIORITY_NORMAL: u32 = 268435456u32;
 pub const IEI_PRIORITY_MAX: u32 = 2147483647u32;
 pub const IEI_PRIORITY_MIN: u32 = 0u32;
+pub const IENamespaceTreeControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xace52d03_e5cd_4b20_82ff_e71b11beae1d);
+pub type IEPDNFLAGS = i32;
 pub const IEPDN_BINDINGUI: IEPDNFLAGS = 1i32;
+pub type IESHORTCUTFLAGS = i32;
 pub const IESHORTCUT_BACKGROUNDTAB: IESHORTCUTFLAGS = 8i32;
 pub const IESHORTCUT_FORCENAVIGATE: IESHORTCUTFLAGS = 4i32;
 pub const IESHORTCUT_NEWBROWSER: IESHORTCUTFLAGS = 1i32;
@@ -2552,6 +3372,14 @@ pub const IS_E_EXEC_FAILED: windows_sys::core::HRESULT = 0x80042002_u32 as _;
 pub const IS_FULLSCREEN: u32 = 2u32;
 pub const IS_NORMAL: u32 = 1u32;
 pub const IS_SPLIT: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ITEMSPACING {
+    pub cxSmall: i32,
+    pub cySmall: i32,
+    pub cxLarge: i32,
+    pub cyLarge: i32,
+}
 pub const ITSAT_DEFAULT_PRIORITY: u32 = 268435456u32;
 pub const ITSAT_MAX_PRIORITY: u32 = 2147483647u32;
 pub const ITSAT_MIN_PRIORITY: u32 = 0u32;
@@ -2559,14 +3387,23 @@ pub const ITSSFLAG_COMPLETE_ON_DESTROY: u32 = 0u32;
 pub const ITSSFLAG_FLAGS_MASK: u32 = 3u32;
 pub const ITSSFLAG_KILL_ON_DESTROY: u32 = 1u32;
 pub const ITSS_THREAD_TIMEOUT_NO_CHANGE: u32 = 4294967294u32;
+pub type IURL_INVOKECOMMAND_FLAGS = i32;
 pub const IURL_INVOKECOMMAND_FL_ALLOW_UI: IURL_INVOKECOMMAND_FLAGS = 1i32;
 pub const IURL_INVOKECOMMAND_FL_ASYNCOK: IURL_INVOKECOMMAND_FLAGS = 8i32;
 pub const IURL_INVOKECOMMAND_FL_DDEWAIT: IURL_INVOKECOMMAND_FLAGS = 4i32;
 pub const IURL_INVOKECOMMAND_FL_LOG_USAGE: IURL_INVOKECOMMAND_FLAGS = 16i32;
 pub const IURL_INVOKECOMMAND_FL_USE_DEFAULT_VERB: IURL_INVOKECOMMAND_FLAGS = 2i32;
+pub type IURL_SETURL_FLAGS = i32;
 pub const IURL_SETURL_FL_GUESS_PROTOCOL: IURL_SETURL_FLAGS = 1i32;
 pub const IURL_SETURL_FL_USE_DEFAULT_PROTOCOL: IURL_SETURL_FLAGS = 2i32;
 pub const Identity_LocalUserProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa198529b_730f_4089_b646_a12557f5665e);
+pub const ImageProperties: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ab770c7_0e23_4d7a_8aa2_19bfad479829);
+pub const ImageRecompress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e33091c_d2f8_4740_b55e_2e11d1477a2c);
+pub const ImageTranscode: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17b75166_928f_417d_9685_64aa135565c1);
+pub const InputPanelConfiguration: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2853add3_f096_4c63_a78f_7fa3ea837fb7);
+pub const InternetExplorer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0002df01_0000_0000_c000_000000000046);
+pub const InternetExplorerMedium: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5e8041d_920f_45e9_b8fb_b1deb82c6e5e);
+pub const InternetPrintOrdering: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xadd36aa8_751a_4579_a266_d66f5202ccbb);
 pub const ItemCount_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xabbf5c45_5ccc_47b7_bb4e_87cb87bbd162);
 pub const ItemIndex_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x92a053da_2969_4021_bf27_514cfc2e4a69);
 pub const KDC_FREQUENT: KNOWNDESTCATEGORY = 1i32;
@@ -2577,6 +3414,7 @@ pub const KFDF_PRECREATE: _KF_DEFINITION_FLAGS = 8i32;
 pub const KFDF_PUBLISHEXPANDEDPATH: _KF_DEFINITION_FLAGS = 32i32;
 pub const KFDF_ROAMABLE: _KF_DEFINITION_FLAGS = 4i32;
 pub const KFDF_STREAM: _KF_DEFINITION_FLAGS = 16i32;
+pub type KF_CATEGORY = i32;
 pub const KF_CATEGORY_COMMON: KF_CATEGORY = 3i32;
 pub const KF_CATEGORY_FIXED: KF_CATEGORY = 2i32;
 pub const KF_CATEGORY_PERUSER: KF_CATEGORY = 4i32;
@@ -2614,9 +3452,33 @@ pub const KF_REDIRECT_SET_OWNER_EXPLICIT: _KF_REDIRECT_FLAGS = 8i32;
 pub const KF_REDIRECT_UNPIN: _KF_REDIRECT_FLAGS = 64i32;
 pub const KF_REDIRECT_USER_EXCLUSIVE: _KF_REDIRECT_FLAGS = 1i32;
 pub const KF_REDIRECT_WITH_UI: _KF_REDIRECT_FLAGS = 32i32;
+pub type KNOWNDESTCATEGORY = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KNOWNFOLDER_DEFINITION {
+    pub category: KF_CATEGORY,
+    pub pszName: windows_sys::core::PWSTR,
+    pub pszDescription: windows_sys::core::PWSTR,
+    pub fidParent: windows_sys::core::GUID,
+    pub pszRelativePath: windows_sys::core::PWSTR,
+    pub pszParsingName: windows_sys::core::PWSTR,
+    pub pszTooltip: windows_sys::core::PWSTR,
+    pub pszLocalizedName: windows_sys::core::PWSTR,
+    pub pszIcon: windows_sys::core::PWSTR,
+    pub pszSecurity: windows_sys::core::PWSTR,
+    pub dwAttributes: u32,
+    pub kfdFlags: u32,
+    pub ftidType: windows_sys::core::GUID,
+}
+pub type KNOWN_FOLDER_FLAG = i32;
+pub const KnownFolderManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4df0c730_df9d_4ae3_9153_aa6b82e9795a);
 pub const LFF_ALLITEMS: LIBRARYFOLDERFILTER = 3i32;
 pub const LFF_FORCEFILESYSTEM: LIBRARYFOLDERFILTER = 1i32;
 pub const LFF_STORAGEITEMS: LIBRARYFOLDERFILTER = 2i32;
+pub type LIBRARYFOLDERFILTER = i32;
+pub type LIBRARYMANAGEDIALOGOPTIONS = i32;
+pub type LIBRARYOPTIONFLAGS = i32;
+pub type LIBRARYSAVEFLAGS = i32;
 pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: windows_sys::core::HRESULT = 0x80270201_u32 as _;
 pub const LIBRARY_E_NO_SAVE_LOCATION: windows_sys::core::HRESULT = 0x80270200_u32 as _;
 pub const LINK_E_DELETE: windows_sys::core::HRESULT = 0x80270103_u32 as _;
@@ -2625,9 +3487,14 @@ pub const LMD_DEFAULT: LIBRARYMANAGEDIALOGOPTIONS = 0i32;
 pub const LOF_DEFAULT: LIBRARYOPTIONFLAGS = 0i32;
 pub const LOF_MASK_ALL: LIBRARYOPTIONFLAGS = 1i32;
 pub const LOF_PINNEDTONAVPANE: LIBRARYOPTIONFLAGS = 1i32;
+#[cfg(feature = "Win32_System_Com")]
+pub type LPFNDFMCALLBACK = Option<unsafe extern "system" fn(psf: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pdtobj: *mut core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_Ole")]
+pub type LPFNVIEWCALLBACK = Option<unsafe extern "system" fn(psvouter: *mut core::ffi::c_void, psf: *mut core::ffi::c_void, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_sys::core::HRESULT>;
 pub const LSF_FAILIFTHERE: LIBRARYSAVEFLAGS = 0i32;
 pub const LSF_MAKEUNIQUENAME: LIBRARYSAVEFLAGS = 2i32;
 pub const LSF_OVERRIDEEXISTING: LIBRARYSAVEFLAGS = 1i32;
+pub const LocalThumbnailCache: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50ef4544_ac9f_4a8e_b21b_8a26180db13f);
 pub const MAV_APP_VISIBLE: MONITOR_APP_VISIBILITY = 2i32;
 pub const MAV_NO_APP_VISIBLE: MONITOR_APP_VISIBILITY = 1i32;
 pub const MAV_UNKNOWN: MONITOR_APP_VISIBILITY = 0i32;
@@ -2640,10 +3507,17 @@ pub const MAX_SYNCMGR_ID: u32 = 64u32;
 pub const MAX_SYNCMGR_NAME: u32 = 128u32;
 pub const MAX_SYNCMGR_PROGRESSTEXT: u32 = 260u32;
 pub const MBHANDCID_PIDLSELECT: MENUBANDHANDLERCID = 0i32;
+pub type MENUBANDHANDLERCID = i32;
+pub type MENUPOPUPPOPUPFLAGS = i32;
+pub type MENUPOPUPSELECT = i32;
+pub type MERGE_UPDATE_STATUS = i32;
 pub const MIMEASSOCDLG_FL_REGISTER_ASSOC: MIMEASSOCIATIONDIALOG_IN_FLAGS = 1i32;
+pub type MIMEASSOCIATIONDIALOG_IN_FLAGS = i32;
 pub const MM_ADDSEPARATOR: MM_FLAGS = 1u32;
 pub const MM_DONTREMOVESEPS: MM_FLAGS = 4u32;
+pub type MM_FLAGS = u32;
 pub const MM_SUBMENUSHAVEIDS: MM_FLAGS = 2u32;
+pub type MONITOR_APP_VISIBILITY = i32;
 pub const MPOS_CANCELLEVEL: MENUPOPUPSELECT = 2i32;
 pub const MPOS_CHILDTRACKING: MENUPOPUPSELECT = 5i32;
 pub const MPOS_EXECUTE: MENUPOPUPSELECT = 0i32;
@@ -2664,16 +3538,68 @@ pub const MPPF_REPOSITION: MENUPOPUPPOPUPFLAGS = 32i32;
 pub const MPPF_RIGHT: MENUPOPUPPOPUPFLAGS = 1610612736i32;
 pub const MPPF_SETFOCUS: MENUPOPUPPOPUPFLAGS = 1i32;
 pub const MPPF_TOP: MENUPOPUPPOPUPFLAGS = 536870912i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MULTIKEYHELPA {
+    pub mkSize: u32,
+    pub mkKeylist: i8,
+    pub szKeyphrase: [i8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MULTIKEYHELPW {
+    pub mkSize: u32,
+    pub mkKeylist: u16,
+    pub szKeyphrase: [u16; 1],
+}
 pub const MUS_COMPLETE: MERGE_UPDATE_STATUS = 0i32;
 pub const MUS_FAILED: MERGE_UPDATE_STATUS = 2i32;
 pub const MUS_USERINPUTNEEDED: MERGE_UPDATE_STATUS = 1i32;
+pub const MailRecipient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9e56be60_c50f_11cf_9a2c_00a0c90a90ce);
+pub const MergedCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
+pub type NAMESPACEWALKFLAG = i32;
+pub type NATIVE_DISPLAY_ORIENTATION = i32;
 pub const NCM_DISPLAYERRORTIP: u32 = 1028u32;
 pub const NCM_GETADDRESS: u32 = 1025u32;
 pub const NCM_GETALLOWTYPE: u32 = 1027u32;
 pub const NCM_SETALLOWTYPE: u32 = 1026u32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_NetworkManagement_IpHelper", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
+pub struct NC_ADDRESS {
+    pub pAddrInfo: *mut super::super::NetworkManagement::IpHelper::NET_ADDRESS_INFO,
+    pub PortNumber: u16,
+    pub PrefixLength: u8,
+}
 pub const NDO_LANDSCAPE: NATIVE_DISPLAY_ORIENTATION = 0i32;
 pub const NDO_PORTRAIT: NATIVE_DISPLAY_ORIENTATION = 1i32;
 pub const NETCACHE_E_NEGATIVE_CACHE: windows_sys::core::HRESULT = 0x80270100_u32 as _;
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct NEWCPLINFOA {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwHelpContext: u32,
+    pub lData: isize,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szName: [i8; 32],
+    pub szInfo: [i8; 64],
+    pub szHelpFile: [i8; 128],
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct NEWCPLINFOW {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwHelpContext: u32,
+    pub lData: isize,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szName: [u16; 32],
+    pub szInfo: [u16; 64],
+    pub szHelpFile: [u16; 128],
+}
 pub const NIF_GUID: NOTIFY_ICON_DATA_FLAGS = 32u32;
 pub const NIF_ICON: NOTIFY_ICON_DATA_FLAGS = 2u32;
 pub const NIF_INFO: NOTIFY_ICON_DATA_FLAGS = 16u32;
@@ -2711,8 +3637,167 @@ pub const NMCII_ITEMS: _NMCII_FLAGS = 1i32;
 pub const NMCII_NONE: _NMCII_FLAGS = 0i32;
 pub const NMCSAEI_EDIT: _NMCSAEI_FLAGS = 1i32;
 pub const NMCSAEI_SELECT: _NMCSAEI_FLAGS = 0i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct NOTIFYICONDATAA {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
+    pub uCallbackMessage: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szTip: [i8; 128],
+    pub dwState: NOTIFY_ICON_STATE,
+    pub dwStateMask: NOTIFY_ICON_STATE,
+    pub szInfo: [i8; 256],
+    pub Anonymous: NOTIFYICONDATAA_0,
+    pub szInfoTitle: [i8; 64],
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
+    pub guidItem: windows_sys::core::GUID,
+    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub union NOTIFYICONDATAA_0 {
+    pub uTimeout: u32,
+    pub uVersion: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct NOTIFYICONDATAA {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
+    pub uCallbackMessage: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szTip: [i8; 128],
+    pub dwState: NOTIFY_ICON_STATE,
+    pub dwStateMask: NOTIFY_ICON_STATE,
+    pub szInfo: [i8; 256],
+    pub Anonymous: NOTIFYICONDATAA_0,
+    pub szInfoTitle: [i8; 64],
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
+    pub guidItem: windows_sys::core::GUID,
+    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub union NOTIFYICONDATAA_0 {
+    pub uTimeout: u32,
+    pub uVersion: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct NOTIFYICONDATAW {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
+    pub uCallbackMessage: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szTip: [u16; 128],
+    pub dwState: NOTIFY_ICON_STATE,
+    pub dwStateMask: NOTIFY_ICON_STATE,
+    pub szInfo: [u16; 256],
+    pub Anonymous: NOTIFYICONDATAW_0,
+    pub szInfoTitle: [u16; 64],
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
+    pub guidItem: windows_sys::core::GUID,
+    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub union NOTIFYICONDATAW_0 {
+    pub uTimeout: u32,
+    pub uVersion: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct NOTIFYICONDATAW {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
+    pub uCallbackMessage: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szTip: [u16; 128],
+    pub dwState: NOTIFY_ICON_STATE,
+    pub dwStateMask: NOTIFY_ICON_STATE,
+    pub szInfo: [u16; 256],
+    pub Anonymous: NOTIFYICONDATAW_0,
+    pub szInfoTitle: [u16; 64],
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
+    pub guidItem: windows_sys::core::GUID,
+    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub union NOTIFYICONDATAW_0 {
+    pub uTimeout: u32,
+    pub uVersion: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct NOTIFYICONIDENTIFIER {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub guidItem: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct NOTIFYICONIDENTIFIER {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub guidItem: windows_sys::core::GUID,
+}
 pub const NOTIFYICON_VERSION: u32 = 3u32;
 pub const NOTIFYICON_VERSION_4: u32 = 4u32;
+pub type NOTIFY_ICON_DATA_FLAGS = u32;
+pub type NOTIFY_ICON_INFOTIP_FLAGS = u32;
+pub type NOTIFY_ICON_MESSAGE = u32;
+pub type NOTIFY_ICON_STATE = u32;
+pub const NPCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3dd6bec0_8193_4ffe_ae25_e08e39ea4063);
+#[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_WNet")]
+#[derive(Clone, Copy)]
+pub struct NRESARRAY {
+    pub cItems: u32,
+    pub nr: [super::super::NetworkManagement::WNet::NETRESOURCEA; 1],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
+pub struct NSTCCUSTOMDRAW {
+    pub psi: *mut core::ffi::c_void,
+    pub uItemState: u32,
+    pub nstcis: u32,
+    pub pszText: windows_sys::core::PCWSTR,
+    pub iImage: i32,
+    pub himl: super::Controls::HIMAGELIST,
+    pub iLevel: i32,
+    pub iIndent: i32,
+}
 pub const NSTCDHPOS_ONTOP: i32 = -1i32;
 pub const NSTCECT_BUTTON: _NSTCECLICKTYPE = 3i32;
 pub const NSTCECT_DBLCLICK: _NSTCECLICKTYPE = 4i32;
@@ -2731,6 +3816,8 @@ pub const NSTCEHT_ONITEMTABBUTTON: _NSTCEHITTEST = 4096i32;
 pub const NSTCFC_DELAY_REGISTER_NOTIFY: NSTCFOLDERCAPABILITIES = 2i32;
 pub const NSTCFC_NONE: NSTCFOLDERCAPABILITIES = 0i32;
 pub const NSTCFC_PINNEDITEMFILTERING: NSTCFOLDERCAPABILITIES = 1i32;
+pub type NSTCFOLDERCAPABILITIES = i32;
+pub type NSTCGNI = i32;
 pub const NSTCGNI_CHILD: NSTCGNI = 5i32;
 pub const NSTCGNI_FIRSTVISIBLE: NSTCGNI = 6i32;
 pub const NSTCGNI_LASTVISIBLE: NSTCGNI = 7i32;
@@ -2753,6 +3840,7 @@ pub const NSTCS2_DISPLAYPADDING: NSTCSTYLE2 = 4i32;
 pub const NSTCS2_DISPLAYPINNEDONLY: NSTCSTYLE2 = 8i32;
 pub const NSTCS2_INTERRUPTNOTIFICATIONS: NSTCSTYLE2 = 1i32;
 pub const NSTCS2_SHOWNULLSPACEMENU: NSTCSTYLE2 = 2i32;
+pub type NSTCSTYLE2 = i32;
 pub const NSTCS_ALLOWJUNCTIONS: _NSTCSTYLE = 268435456i32;
 pub const NSTCS_AUTOHSCROLL: _NSTCSTYLE = 1048576i32;
 pub const NSTCS_BORDER: _NSTCSTYLE = 32768i32;
@@ -2802,9 +3890,42 @@ pub const NSWF_TRAVERSE_STREAM_JUNCTIONS: NAMESPACEWALKFLAG = 16i32;
 pub const NSWF_USE_TRANSFER_MEDIUM: NAMESPACEWALKFLAG = 8192i32;
 pub const NTSCS2_NEVERINSERTNONENUMERATED: NSTCSTYLE2 = 32i32;
 pub const NTSCS2_NOSINGLETONAUTOEXPAND: NSTCSTYLE2 = 16i32;
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Console")]
+#[derive(Clone, Copy)]
+pub struct NT_CONSOLE_PROPS {
+    pub dbh: DATABLOCK_HEADER,
+    pub wFillAttribute: u16,
+    pub wPopupFillAttribute: u16,
+    pub dwScreenBufferSize: super::super::System::Console::COORD,
+    pub dwWindowSize: super::super::System::Console::COORD,
+    pub dwWindowOrigin: super::super::System::Console::COORD,
+    pub nFont: u32,
+    pub nInputBufferSize: u32,
+    pub dwFontSize: super::super::System::Console::COORD,
+    pub uFontFamily: u32,
+    pub uFontWeight: u32,
+    pub FaceName: [u16; 32],
+    pub uCursorSize: u32,
+    pub bFullScreen: super::super::Foundation::BOOL,
+    pub bQuickEdit: super::super::Foundation::BOOL,
+    pub bInsertMode: super::super::Foundation::BOOL,
+    pub bAutoPosition: super::super::Foundation::BOOL,
+    pub uHistoryBufferSize: u32,
+    pub uNumberOfHistoryBuffers: u32,
+    pub bHistoryNoDup: super::super::Foundation::BOOL,
+    pub ColorTable: [super::super::Foundation::COLORREF; 16],
+}
 pub const NT_CONSOLE_PROPS_SIG: u32 = 2684354562u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct NT_FE_CONSOLE_PROPS {
+    pub dbh: DATABLOCK_HEADER,
+    pub uCodePage: u32,
+}
 pub const NT_FE_CONSOLE_PROPS_SIG: u32 = 2684354564u32;
 pub const NUM_POINTS: u32 = 3u32;
+pub type NWMF = i32;
 pub const NWMF_FIRST: NWMF = 4i32;
 pub const NWMF_FORCETAB: NWMF = 131072i32;
 pub const NWMF_FORCEWINDOW: NWMF = 65536i32;
@@ -2819,6 +3940,12 @@ pub const NWMF_UNLOADING: NWMF = 1i32;
 pub const NWMF_USERALLOWED: NWMF = 256i32;
 pub const NWMF_USERINITED: NWMF = 2i32;
 pub const NWMF_USERREQUESTED: NWMF = 128i32;
+pub const NamespaceTreeControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae054212_3535_4430_83ed_d501aa6680e6);
+pub const NamespaceWalker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x72eb61e0_8672_4303_9175_f2e4c68b2e7c);
+pub const NetworkConnections: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7007acc7_3202_11d1_aad2_00805fc1270e);
+pub const NetworkExplorerFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf02c1a0d_be21_4350_88b0_7367fc96ef3c);
+pub const NetworkPlaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x208d2c60_3aea_1069_a2d7_08002b30309d);
+pub type NewProcessCauseConstants = i32;
 pub const OAIF_ALLOW_REGISTRATION: OPEN_AS_INFO_FLAGS = 1i32;
 pub const OAIF_EXEC: OPEN_AS_INFO_FLAGS = 4i32;
 pub const OAIF_FILE_IS_URI: OPEN_AS_INFO_FLAGS = 128i32;
@@ -2840,8 +3967,56 @@ pub const OF_CAP_CANCLOSE: u32 = 2u32;
 pub const OF_CAP_CANSWITCHTO: u32 = 1u32;
 pub const OI_ASYNC: u32 = 4294962926u32;
 pub const OI_DEFAULT: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OPENASINFO {
+    pub pcszFile: windows_sys::core::PCWSTR,
+    pub pcszClass: windows_sys::core::PCWSTR,
+    pub oaifInFlags: OPEN_AS_INFO_FLAGS,
+}
 pub const OPENPROPS_INHIBITPIF: u32 = 32768u32;
 pub const OPENPROPS_NONE: u32 = 0u32;
+pub type OPEN_AS_INFO_FLAGS = i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct OPEN_PRINTER_PROPS_INFOA {
+    pub dwSize: u32,
+    pub pszSheetName: windows_sys::core::PSTR,
+    pub uSheetIndex: u32,
+    pub dwFlags: u32,
+    pub bModal: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct OPEN_PRINTER_PROPS_INFOA {
+    pub dwSize: u32,
+    pub pszSheetName: windows_sys::core::PSTR,
+    pub uSheetIndex: u32,
+    pub dwFlags: u32,
+    pub bModal: super::super::Foundation::BOOL,
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct OPEN_PRINTER_PROPS_INFOW {
+    pub dwSize: u32,
+    pub pszSheetName: windows_sys::core::PWSTR,
+    pub uSheetIndex: u32,
+    pub dwFlags: u32,
+    pub bModal: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct OPEN_PRINTER_PROPS_INFOW {
+    pub dwSize: u32,
+    pub pszSheetName: windows_sys::core::PWSTR,
+    pub uSheetIndex: u32,
+    pub dwFlags: u32,
+    pub bModal: super::super::Foundation::BOOL,
+}
 pub const OPPROGDLG_ALLOWUNDO: _OPPROGDLGF = 256i32;
 pub const OPPROGDLG_DEFAULT: _OPPROGDLGF = 0i32;
 pub const OPPROGDLG_DONTDISPLAYDESTPATH: _OPPROGDLGF = 1024i32;
@@ -2849,6 +4024,7 @@ pub const OPPROGDLG_DONTDISPLAYLOCATIONS: _OPPROGDLGF = 4096i32;
 pub const OPPROGDLG_DONTDISPLAYSOURCEPATH: _OPPROGDLGF = 512i32;
 pub const OPPROGDLG_ENABLEPAUSE: _OPPROGDLGF = 128i32;
 pub const OPPROGDLG_NOMULTIDAYESTIMATES: _OPPROGDLGF = 2048i32;
+pub type OS = u32;
 pub const OS_ADVSERVER: OS = 22u32;
 pub const OS_ANYSERVER: OS = 29u32;
 pub const OS_APPLIANCE: OS = 36u32;
@@ -2885,6 +4061,11 @@ pub const OS_WIN98_GOLD: OS = 6u32;
 pub const OS_WINDOWS: OS = 0u32;
 pub const OS_WOW6432: OS = 30u32;
 pub const OS_XPORGREATER: OS = 18u32;
+pub type OfflineFolderStatus = i32;
+pub const OnexCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x07aa0886_cc8d_4e19_a410_1c75af686e62);
+pub const OnexPlapSmartcardCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x33c86cd6_705f_4ba1_9adb_67070b837775);
+pub const OpenControlPanel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06622d85_6856_4460_8de1_a81921b41c4b);
+pub type PACKAGE_EXECUTION_STATE = i32;
 pub const PAI_ASSIGNEDTIME: PUBAPPINFOFLAGS = 2i32;
 pub const PAI_EXPIRETIME: PUBAPPINFOFLAGS = 16i32;
 pub const PAI_PUBLISHEDTIME: PUBAPPINFOFLAGS = 4i32;
@@ -2898,6 +4079,30 @@ pub const PANE_PRIVACY: u32 = 7u32;
 pub const PANE_PROGRESS: u32 = 6u32;
 pub const PANE_SSL: u32 = 4u32;
 pub const PANE_ZONE: u32 = 1u32;
+pub type PAPPCONSTRAIN_CHANGE_ROUTINE = Option<unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const core::ffi::c_void)>;
+pub type PAPPCONSTRAIN_REGISTRATION = isize;
+pub type PAPPSTATE_CHANGE_ROUTINE = Option<unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const core::ffi::c_void)>;
+pub type PAPPSTATE_REGISTRATION = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PARSEDURLA {
+    pub cbSize: u32,
+    pub pszProtocol: windows_sys::core::PCSTR,
+    pub cchProtocol: u32,
+    pub pszSuffix: windows_sys::core::PCSTR,
+    pub cchSuffix: u32,
+    pub nScheme: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PARSEDURLW {
+    pub cbSize: u32,
+    pub pszProtocol: windows_sys::core::PCWSTR,
+    pub cchProtocol: u32,
+    pub pszSuffix: windows_sys::core::PCWSTR,
+    pub cchSuffix: u32,
+    pub nScheme: u32,
+}
 pub const PATHCCH_ALLOW_LONG_PATHS: PATHCCH_OPTIONS = 1u32;
 pub const PATHCCH_CANONICALIZE_SLASHES: PATHCCH_OPTIONS = 64u32;
 pub const PATHCCH_DO_NOT_NORMALIZE_SEGMENTS: PATHCCH_OPTIONS = 8u32;
@@ -2907,10 +4112,12 @@ pub const PATHCCH_FORCE_DISABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = 4u32;
 pub const PATHCCH_FORCE_ENABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = 2u32;
 pub const PATHCCH_MAX_CCH: u32 = 32768u32;
 pub const PATHCCH_NONE: PATHCCH_OPTIONS = 0u32;
+pub type PATHCCH_OPTIONS = u32;
 pub const PCS_FATAL: PCS_RET = 2147483648u32;
 pub const PCS_PATHTOOLONG: PCS_RET = 8u32;
 pub const PCS_REMOVEDCHAR: PCS_RET = 2u32;
 pub const PCS_REPLACEDCHAR: PCS_RET = 1u32;
+pub type PCS_RET = u32;
 pub const PCS_TRUNCATED: PCS_RET = 4u32;
 pub const PDM_DEFAULT: _PDMODE = 0i32;
 pub const PDM_ERRORSBLOCKING: _PDMODE = 8i32;
@@ -2921,11 +4128,23 @@ pub const PDM_UNDOING: _PDMODE = 4i32;
 pub const PDTIMER_PAUSE: u32 = 2u32;
 pub const PDTIMER_RESET: u32 = 1u32;
 pub const PDTIMER_RESUME: u32 = 3u32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_Common")]
+#[derive(Clone, Copy)]
+pub struct PERSIST_FOLDER_TARGET_INFO {
+    pub pidlTargetFolder: *mut Common::ITEMIDLIST,
+    pub szTargetParsingName: [u16; 260],
+    pub szNetworkProvider: [u16; 260],
+    pub dwAttributes: u32,
+    pub csidl: i32,
+}
 pub const PES_RUNNING: PACKAGE_EXECUTION_STATE = 1i32;
 pub const PES_SUSPENDED: PACKAGE_EXECUTION_STATE = 3i32;
 pub const PES_SUSPENDING: PACKAGE_EXECUTION_STATE = 2i32;
 pub const PES_TERMINATED: PACKAGE_EXECUTION_STATE = 4i32;
 pub const PES_UNKNOWN: PACKAGE_EXECUTION_STATE = 0i32;
+pub type PFNCANSHAREFOLDERW = Option<unsafe extern "system" fn(pszpath: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
+pub type PFNSHOWSHAREFOLDERUIW = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
 pub const PIDASI_AVG_DATA_RATE: u32 = 4u32;
 pub const PIDASI_CHANNEL_COUNT: u32 = 7u32;
 pub const PIDASI_COMPRESSION: u32 = 10u32;
@@ -2942,11 +4161,14 @@ pub const PIDDRSI_PLAYSTARTS: u32 = 5u32;
 pub const PIDDRSI_PROTECTED: u32 = 2u32;
 pub const PIDISF_CACHEDSTICKY: PIDISF_FLAGS = 2i32;
 pub const PIDISF_CACHEIMAGES: PIDISF_FLAGS = 16i32;
+pub type PIDISF_FLAGS = i32;
 pub const PIDISF_FOLLOWALLLINKS: PIDISF_FLAGS = 32i32;
 pub const PIDISF_RECENTLYCHANGED: PIDISF_FLAGS = 1i32;
 pub const PIDISM_DONTWATCH: PIDISM_OPTIONS = 2i32;
 pub const PIDISM_GLOBAL: PIDISM_OPTIONS = 0i32;
+pub type PIDISM_OPTIONS = i32;
 pub const PIDISM_WATCH: PIDISM_OPTIONS = 1i32;
+pub type PIDISR_INFO = i32;
 pub const PIDISR_NEEDS_ADD: PIDISR_INFO = 1i32;
 pub const PIDISR_NEEDS_DELETE: PIDISR_INFO = 3i32;
 pub const PIDISR_NEEDS_UPDATE: PIDISR_INFO = 2i32;
@@ -2978,6 +4200,7 @@ pub const PID_DISPLAY_PROPERTIES: u32 = 0u32;
 pub const PID_FINDDATA: u32 = 0u32;
 pub const PID_HTMLINFOTIPFILE: u32 = 5u32;
 pub const PID_INTROTEXT: u32 = 1u32;
+pub type PID_INTSITE = i32;
 pub const PID_INTSITE_AUTHOR: PID_INTSITE = 3i32;
 pub const PID_INTSITE_CODEPAGE: PID_INTSITE = 18i32;
 pub const PID_INTSITE_COMMENT: PID_INTSITE = 8i32;
@@ -2998,6 +4221,7 @@ pub const PID_INTSITE_URL: PID_INTSITE = 15i32;
 pub const PID_INTSITE_VISITCOUNT: PID_INTSITE = 6i32;
 pub const PID_INTSITE_WATCH: PID_INTSITE = 13i32;
 pub const PID_INTSITE_WHATSNEW: PID_INTSITE = 2i32;
+pub type PID_IS = i32;
 pub const PID_IS_AUTHOR: PID_IS = 11i32;
 pub const PID_IS_COMMENT: PID_IS = 13i32;
 pub const PID_IS_DESCRIPTION: PID_IS = 12i32;
@@ -3033,6 +4257,7 @@ pub const PIFPARAMSSIZE: u32 = 64u32;
 pub const PIFSHDATASIZE: u32 = 64u32;
 pub const PIFSHPROGSIZE: u32 = 64u32;
 pub const PIFSTARTLOCSIZE: u32 = 63u32;
+pub const PINLogonCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcb82ea12_9f71_446d_89e1_8d0924e1256e);
 pub const PLATFORM_BROWSERONLY: u32 = 1u32;
 pub const PLATFORM_IE3: u32 = 1u32;
 pub const PLATFORM_INTEGRATED: u32 = 2u32;
@@ -3049,8 +4274,16 @@ pub const PPCF_ADDQUOTES: u32 = 1u32;
 pub const PPCF_FORCEQUALIFY: u32 = 64u32;
 pub const PPCF_LONGESTPOSSIBLE: u32 = 128u32;
 pub const PPCF_NODIRECTORIES: u32 = 16u32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct PREVIEWHANDLERFRAMEINFO {
+    pub haccel: super::WindowsAndMessaging::HACCEL,
+    pub cAccelEntries: u32,
+}
 pub const PRF_DONTFINDLNK: PRF_FLAGS = 8i32;
 pub const PRF_FIRSTDIRDEF: PRF_FLAGS = 4i32;
+pub type PRF_FLAGS = i32;
 pub const PRF_REQUIREABSOLUTE: PRF_FLAGS = 16i32;
 pub const PRF_TRYPROGRAMEXTENSIONS: PRF_FLAGS = 3i32;
 pub const PRF_VERIFYEXISTS: PRF_FLAGS = 1i32;
@@ -3063,6 +4296,30 @@ pub const PRINTACTION_PROPERTIES: u32 = 1u32;
 pub const PRINTACTION_SERVERPROPERTIES: u32 = 7u32;
 pub const PRINTACTION_TESTPAGE: u32 = 4u32;
 pub const PRINT_PROP_FORCE_NAME: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROFILEINFOA {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub lpUserName: windows_sys::core::PSTR,
+    pub lpProfilePath: windows_sys::core::PSTR,
+    pub lpDefaultPath: windows_sys::core::PSTR,
+    pub lpServerName: windows_sys::core::PSTR,
+    pub lpPolicyPath: windows_sys::core::PSTR,
+    pub hProfile: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROFILEINFOW {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub lpUserName: windows_sys::core::PWSTR,
+    pub lpProfilePath: windows_sys::core::PWSTR,
+    pub lpDefaultPath: windows_sys::core::PWSTR,
+    pub lpServerName: windows_sys::core::PWSTR,
+    pub lpPolicyPath: windows_sys::core::PWSTR,
+    pub hProfile: super::super::Foundation::HANDLE,
+}
 pub const PROGDLG_AUTOTIME: u32 = 2u32;
 pub const PROGDLG_MARQUEEPROGRESS: u32 = 32u32;
 pub const PROGDLG_MODAL: u32 = 1u32;
@@ -3094,17 +4351,65 @@ pub const PSGUID_SUMMARYINFORMATION: windows_sys::core::GUID = windows_sys::core
 pub const PSGUID_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x64440491_4c8b_11d1_8b70_080036b11a03);
 pub const PSGUID_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b174b35_40ff_11d2_a27e_00c04fc30871);
 pub const PSGUID_WEBVIEW: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2275480_f782_4291_bd94_f13693513aec);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PUBAPPINFO {
+    pub cbSize: u32,
+    pub dwMask: u32,
+    pub pszSource: windows_sys::core::PWSTR,
+    pub stAssigned: super::super::Foundation::SYSTEMTIME,
+    pub stPublished: super::super::Foundation::SYSTEMTIME,
+    pub stScheduled: super::super::Foundation::SYSTEMTIME,
+    pub stExpire: super::super::Foundation::SYSTEMTIME,
+}
+pub type PUBAPPINFOFLAGS = i32;
+pub const PackageDebugSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb1aec16f_2383_4852_b0e9_8f0b1dc66b4d);
+pub const PasswordCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x60b78e88_ead8_445c_9cfd_0b87f74ea6cd);
+pub const PreviousVersions: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x596ab062_b4d2_4215_9f74_e9109b0a8153);
+pub const PropertiesUI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd912f8cf_0396_4915_884e_fb425d32943b);
 pub const ProtectedModeRedirect: NewProcessCauseConstants = 1i32;
+pub const PublishDropTarget: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcc6eeffb_43f6_46c5_9619_51d571967f7d);
+pub const PublishingWizard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b33163c_76a5_4b6c_bf21_45de9cd503a1);
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct QCMINFO {
+    pub hmenu: super::WindowsAndMessaging::HMENU,
+    pub indexMenu: u32,
+    pub idCmdFirst: u32,
+    pub idCmdLast: u32,
+    pub pIdMap: *const QCMINFO_IDMAP,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QCMINFO_IDMAP {
+    pub nMaxIds: u32,
+    pub pIdList: [QCMINFO_IDMAP_PLACEMENT; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QCMINFO_IDMAP_PLACEMENT {
+    pub id: u32,
+    pub fFlags: u32,
+}
 pub const QCMINFO_PLACE_AFTER: u32 = 1u32;
 pub const QCMINFO_PLACE_BEFORE: u32 = 0u32;
 pub const QIF_CACHED: QITIPF_FLAGS = 1i32;
 pub const QIF_DONTEXPANDFOLDER: QITIPF_FLAGS = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QITAB {
+    pub piid: *const windows_sys::core::GUID,
+    pub dwOffset: u32,
+}
 pub const QITIPF_DEFAULT: QITIPF_FLAGS = 0i32;
+pub type QITIPF_FLAGS = i32;
 pub const QITIPF_LINKNOTARGET: QITIPF_FLAGS = 2i32;
 pub const QITIPF_LINKUSETARGET: QITIPF_FLAGS = 4i32;
 pub const QITIPF_SINGLELINE: QITIPF_FLAGS = 16i32;
 pub const QITIPF_USENAME: QITIPF_FLAGS = 1i32;
 pub const QITIPF_USESLOWTIP: QITIPF_FLAGS = 8i32;
+pub type QUERY_USER_NOTIFICATION_STATE = i32;
 pub const QUNS_ACCEPTS_NOTIFICATIONS: QUERY_USER_NOTIFICATION_STATE = 5i32;
 pub const QUNS_APP: QUERY_USER_NOTIFICATION_STATE = 7i32;
 pub const QUNS_BUSY: QUERY_USER_NOTIFICATION_STATE = 2i32;
@@ -3112,9 +4417,12 @@ pub const QUNS_NOT_PRESENT: QUERY_USER_NOTIFICATION_STATE = 1i32;
 pub const QUNS_PRESENTATION_MODE: QUERY_USER_NOTIFICATION_STATE = 4i32;
 pub const QUNS_QUIET_TIME: QUERY_USER_NOTIFICATION_STATE = 6i32;
 pub const QUNS_RUNNING_D3D_FULL_SCREEN: QUERY_USER_NOTIFICATION_STATE = 3i32;
+pub const QueryCancelAutoPlay: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x331f1768_05a9_4ddd_b86e_dae34ddc998a);
+pub const RASProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5537e283_b1e7_4ef8_9c6e_7ab0afe5056d);
 pub const REFRESH_COMPLETELY: RefreshConstants = 3i32;
 pub const REFRESH_IFEXPIRED: RefreshConstants = 1i32;
 pub const REFRESH_NORMAL: RefreshConstants = 0i32;
+pub type RESTRICTIONS = i32;
 pub const REST_ALLOWBITBUCKDRIVES: RESTRICTIONS = 1073741905i32;
 pub const REST_ALLOWCOMMENTTOGGLE: RESTRICTIONS = 1090519044i32;
 pub const REST_ALLOWFILECLSIDJUNCTIONS: RESTRICTIONS = 1073741980i32;
@@ -3279,6 +4587,7 @@ pub const REST_SETVISUALSTYLE: RESTRICTIONS = 1073741920i32;
 pub const REST_STARTBANNER: RESTRICTIONS = 4096i32;
 pub const REST_STARTMENULOGOFF: RESTRICTIONS = 268435456i32;
 pub const REST_STARTRUNNOHOMEPATH: RESTRICTIONS = 1073741921i32;
+pub type RefreshConstants = i32;
 pub const ResizeThumbnail: ThumbnailStreamCacheOptions = 2i32;
 pub const ReturnOnlyIfCached: ThumbnailStreamCacheOptions = 1i32;
 pub const SBSC_HIDE: SHELLBROWSERSHOWCONTROL = 0i32;
@@ -3313,6 +4622,7 @@ pub const SBSP_TRUSTEDFORACTIVEX: u32 = 268435456u32;
 pub const SBSP_TRUSTFIRSTDOWNLOAD: u32 = 16777216u32;
 pub const SBSP_UNTRUSTEDFORDOWNLOAD: u32 = 33554432u32;
 pub const SBSP_WRITENOHISTORY: u32 = 134217728u32;
+pub type SCALE_CHANGE_FLAGS = i32;
 pub const SCF_PHYSICAL: SCALE_CHANGE_FLAGS = 2i32;
 pub const SCF_SCALE: SCALE_CHANGE_FLAGS = 1i32;
 pub const SCF_VALUE_NONE: SCALE_CHANGE_FLAGS = 0i32;
@@ -3326,7 +4636,9 @@ pub const SCHEME_REFRESH: u32 = 16u32;
 pub const SCHEME_UPDATE: u32 = 32u32;
 pub const SCNRT_DISABLE: SCNRT_STATUS = 1i32;
 pub const SCNRT_ENABLE: SCNRT_STATUS = 0i32;
+pub type SCNRT_STATUS = i32;
 pub const SCRM_VERIFYPW: u32 = 32768u32;
+pub type SECURELOCKCODE = i32;
 pub const SECURELOCK_FIRSTSUGGEST: SECURELOCKCODE = 7i32;
 pub const SECURELOCK_NOCHANGE: SECURELOCKCODE = -1i32;
 pub const SECURELOCK_SET_FORTEZZA: SECURELOCKCODE = 5i32;
@@ -3378,6 +4690,7 @@ pub const SE_ERR_OOM: u32 = 8u32;
 pub const SE_ERR_PNF: u32 = 3u32;
 pub const SE_ERR_SHARE: u32 = 26u32;
 pub const SFBID_PIDLCHANGED: i32 = 0i32;
+pub type SFBS_FLAGS = i32;
 pub const SFBS_FLAGS_ROUND_TO_NEAREST_DISPLAYED_DIGIT: SFBS_FLAGS = 1i32;
 pub const SFBS_FLAGS_TRUNCATE_UNDISPLAYED_DECIMAL_DIGITS: SFBS_FLAGS = 2i32;
 pub const SFVM_ADDOBJECT: u32 = 3u32;
@@ -3401,9 +4714,24 @@ pub const SFVM_GETSELECTEDOBJECTS: u32 = 9u32;
 pub const SFVM_GETSORTDEFAULTS: SFVM_MESSAGE_ID = 53i32;
 pub const SFVM_GETTOOLTIPTEXT: SFVM_MESSAGE_ID = 4i32;
 pub const SFVM_GETZONE: SFVM_MESSAGE_ID = 58i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SFVM_HELPTOPIC_DATA {
+    pub wszHelpFile: [u16; 260],
+    pub wszHelpTopic: [u16; 260],
+}
 pub const SFVM_INITMENUPOPUP: SFVM_MESSAGE_ID = 7i32;
 pub const SFVM_INVOKECOMMAND: SFVM_MESSAGE_ID = 2i32;
 pub const SFVM_MERGEMENU: SFVM_MESSAGE_ID = 1i32;
+pub type SFVM_MESSAGE_ID = i32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
+pub struct SFVM_PROPPAGE_DATA {
+    pub dwReserved: u32,
+    pub pfn: super::Controls::LPFNSVADDPROPSHEETPAGE,
+    pub lParam: super::super::Foundation::LPARAM,
+}
 pub const SFVM_QUERYFSNOTIFY: SFVM_MESSAGE_ID = 25i32;
 pub const SFVM_REARRANGE: u32 = 1u32;
 pub const SFVM_REMOVEOBJECT: u32 = 6u32;
@@ -3419,6 +4747,7 @@ pub const SFVM_UPDATESTATUSBAR: SFVM_MESSAGE_ID = 31i32;
 pub const SFVM_WINDOWCREATED: SFVM_MESSAGE_ID = 15i32;
 pub const SFVSOC_INVALIDATE_ALL: u32 = 1u32;
 pub const SFVSOC_NOSCROLL: u32 = 2u32;
+pub type SFVS_SELECT = i32;
 pub const SFVS_SELECT_ALLITEMS: SFVS_SELECT = 1i32;
 pub const SFVS_SELECT_INVERT: SFVS_SELECT = 2i32;
 pub const SFVS_SELECT_NONE: SFVS_SELECT = 0i32;
@@ -3429,6 +4758,22 @@ pub const SFVVO_SHOWCOMPCOLOR: ShellFolderViewOptions = 8i32;
 pub const SFVVO_SHOWEXTENSIONS: ShellFolderViewOptions = 2i32;
 pub const SFVVO_SHOWSYSFILES: ShellFolderViewOptions = 32i32;
 pub const SFVVO_WIN95CLASSIC: ShellFolderViewOptions = 64i32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Ole")]
+#[derive(Clone, Copy)]
+pub struct SFV_CREATE {
+    pub cbSize: u32,
+    pub pshf: *mut core::ffi::c_void,
+    pub psvOuter: *mut core::ffi::c_void,
+    pub psfvcb: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_Common")]
+#[derive(Clone, Copy)]
+pub struct SFV_SETITEMPOS {
+    pub pidl: *mut Common::ITEMIDLIST,
+    pub pt: super::super::Foundation::POINT,
+}
 pub const SHACF_AUTOAPPEND_FORCE_OFF: SHELL_AUTOCOMPLETE_FLAGS = 2147483648u32;
 pub const SHACF_AUTOAPPEND_FORCE_ON: SHELL_AUTOCOMPLETE_FLAGS = 1073741824u32;
 pub const SHACF_AUTOSUGGEST_FORCE_OFF: SHELL_AUTOCOMPLETE_FLAGS = 536870912u32;
@@ -3442,6 +4787,26 @@ pub const SHACF_URLHISTORY: SHELL_AUTOCOMPLETE_FLAGS = 2u32;
 pub const SHACF_URLMRU: SHELL_AUTOCOMPLETE_FLAGS = 4u32;
 pub const SHACF_USETAB: SHELL_AUTOCOMPLETE_FLAGS = 8u32;
 pub const SHACF_VIRTUAL_NAMESPACE: SHELL_AUTOCOMPLETE_FLAGS = 64u32;
+pub type SHARD = i32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SHARDAPPIDINFO {
+    pub psi: *mut core::ffi::c_void,
+    pub pszAppID: windows_sys::core::PCWSTR,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_UI_Shell_Common")]
+#[derive(Clone, Copy)]
+pub struct SHARDAPPIDINFOIDLIST {
+    pub pidl: *mut Common::ITEMIDLIST,
+    pub pszAppID: windows_sys::core::PCWSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SHARDAPPIDINFOLINK {
+    pub psl: *mut core::ffi::c_void,
+    pub pszAppID: windows_sys::core::PCWSTR,
+}
 pub const SHARD_APPIDINFO: SHARD = 4i32;
 pub const SHARD_APPIDINFOIDLIST: SHARD = 5i32;
 pub const SHARD_APPIDINFOLINK: SHARD = 7i32;
@@ -3450,6 +4815,7 @@ pub const SHARD_PATHA: SHARD = 2i32;
 pub const SHARD_PATHW: SHARD = 3i32;
 pub const SHARD_PIDL: SHARD = 1i32;
 pub const SHARD_SHELLITEM: SHARD = 8i32;
+pub type SHARE_ROLE = i32;
 pub const SHARE_ROLE_CONTRIBUTOR: SHARE_ROLE = 1i32;
 pub const SHARE_ROLE_CO_OWNER: SHARE_ROLE = 2i32;
 pub const SHARE_ROLE_CUSTOM: SHARE_ROLE = 4i32;
@@ -3477,6 +4843,7 @@ pub const SHCNE_DRIVEREMOVED: SHCNE_ID = 128u32;
 pub const SHCNE_EXTENDED_EVENT: SHCNE_ID = 67108864u32;
 pub const SHCNE_FREESPACE: SHCNE_ID = 262144u32;
 pub const SHCNE_GLOBALEVENTS: SHCNE_ID = 201687520u32;
+pub type SHCNE_ID = u32;
 pub const SHCNE_INTERRUPT: SHCNE_ID = 2147483648u32;
 pub const SHCNE_MEDIAINSERTED: SHCNE_ID = 32u32;
 pub const SHCNE_MEDIAREMOVED: SHCNE_ID = 64u32;
@@ -3491,6 +4858,7 @@ pub const SHCNE_UPDATEDIR: SHCNE_ID = 4096u32;
 pub const SHCNE_UPDATEIMAGE: SHCNE_ID = 32768u32;
 pub const SHCNE_UPDATEITEM: SHCNE_ID = 8192u32;
 pub const SHCNF_DWORD: SHCNF_FLAGS = 3u32;
+pub type SHCNF_FLAGS = u32;
 pub const SHCNF_FLUSH: SHCNF_FLAGS = 4096u32;
 pub const SHCNF_FLUSHNOWAIT: SHCNF_FLAGS = 12288u32;
 pub const SHCNF_IDLIST: SHCNF_FLAGS = 0u32;
@@ -3505,7 +4873,36 @@ pub const SHCNF_TYPE: SHCNF_FLAGS = 255u32;
 pub const SHCNRF_InterruptLevel: SHCNRF_SOURCE = 1i32;
 pub const SHCNRF_NewDelivery: SHCNRF_SOURCE = 32768i32;
 pub const SHCNRF_RecursiveInterrupt: SHCNRF_SOURCE = 4096i32;
+pub type SHCNRF_SOURCE = i32;
 pub const SHCNRF_ShellLevel: SHCNRF_SOURCE = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SHCOLUMNDATA {
+    pub dwFlags: u32,
+    pub dwFileAttributes: u32,
+    pub dwReserved: u32,
+    pub pwszExt: windows_sys::core::PWSTR,
+    pub wszFile: [u16; 260],
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
+pub struct SHCOLUMNINFO {
+    pub scid: super::super::Foundation::PROPERTYKEY,
+    pub vt: super::super::System::Variant::VARENUM,
+    pub fmt: u32,
+    pub cChars: u32,
+    pub csFlags: u32,
+    pub wszTitle: [u16; 80],
+    pub wszDescription: [u16; 128],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SHCOLUMNINIT {
+    pub dwFlags: u32,
+    pub dwReserved: u32,
+    pub wszFolder: [u16; 260],
+}
 pub const SHCONTF_CHECKING_FOR_CHILDREN: _SHCONTF = 16i32;
 pub const SHCONTF_ENABLE_ASYNC: _SHCONTF = 32768i32;
 pub const SHCONTF_FASTITEMS: _SHCONTF = 8192i32;
@@ -3519,7 +4916,84 @@ pub const SHCONTF_NETPRINTERSRCH: _SHCONTF = 512i32;
 pub const SHCONTF_NONFOLDERS: _SHCONTF = 64i32;
 pub const SHCONTF_SHAREABLE: _SHCONTF = 1024i32;
 pub const SHCONTF_STORAGE: _SHCONTF = 2048i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
+#[derive(Clone, Copy)]
+pub struct SHCREATEPROCESSINFOW {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub pszFile: windows_sys::core::PCWSTR,
+    pub pszParameters: windows_sys::core::PCWSTR,
+    pub pszCurrentDirectory: windows_sys::core::PCWSTR,
+    pub hUserToken: super::super::Foundation::HANDLE,
+    pub lpProcessAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+    pub lpThreadAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+    pub bInheritHandles: super::super::Foundation::BOOL,
+    pub dwCreationFlags: u32,
+    pub lpStartupInfo: *mut super::super::System::Threading::STARTUPINFOW,
+    pub lpProcessInformation: *mut super::super::System::Threading::PROCESS_INFORMATION,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
+#[derive(Clone, Copy)]
+pub struct SHCREATEPROCESSINFOW {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub pszFile: windows_sys::core::PCWSTR,
+    pub pszParameters: windows_sys::core::PCWSTR,
+    pub pszCurrentDirectory: windows_sys::core::PCWSTR,
+    pub hUserToken: super::super::Foundation::HANDLE,
+    pub lpProcessAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+    pub lpThreadAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+    pub bInheritHandles: super::super::Foundation::BOOL,
+    pub dwCreationFlags: u32,
+    pub lpStartupInfo: *mut super::super::System::Threading::STARTUPINFOW,
+    pub lpProcessInformation: *mut super::super::System::Threading::PROCESS_INFORMATION,
+}
 pub const SHC_E_SHELL_COMPONENT_STARTUP_FAILURE: windows_sys::core::HRESULT = 0x80270234_u32 as _;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SHChangeDWORDAsIDList {
+    pub cb: u16,
+    pub dwItem1: u32,
+    pub dwItem2: u32,
+    pub cbZero: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_UI_Shell_Common")]
+#[derive(Clone, Copy)]
+pub struct SHChangeNotifyEntry {
+    pub pidl: *mut Common::ITEMIDLIST,
+    pub fRecursive: super::super::Foundation::BOOL,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SHChangeProductKeyAsIDList {
+    pub cb: u16,
+    pub wszProductKey: [u16; 39],
+    pub cbZero: u16,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SHChangeUpdateImageIDList {
+    pub cb: u16,
+    pub iIconIndex: i32,
+    pub iCurIndex: i32,
+    pub uFlags: u32,
+    pub dwProcessID: u32,
+    pub szName: [u16; 260],
+    pub cbZero: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SHDESCRIPTIONID {
+    pub dwDescriptionId: u32,
+    pub clsid: windows_sys::core::GUID,
+}
 pub const SHDID_COMPUTER_AUDIO: SHDID_ID = 19i32;
 pub const SHDID_COMPUTER_CDROM: SHDID_ID = 10i32;
 pub const SHDID_COMPUTER_DRIVE35: SHDID_ID = 5i32;
@@ -3534,6 +5008,7 @@ pub const SHDID_COMPUTER_SHAREDDOCS: SHDID_ID = 20i32;
 pub const SHDID_FS_DIRECTORY: SHDID_ID = 3i32;
 pub const SHDID_FS_FILE: SHDID_ID = 2i32;
 pub const SHDID_FS_OTHER: SHDID_ID = 4i32;
+pub type SHDID_ID = i32;
 pub const SHDID_MOBILE_DEVICE: SHDID_ID = 21i32;
 pub const SHDID_NET_DOMAIN: SHDID_ID = 13i32;
 pub const SHDID_NET_OTHER: SHDID_ID = 17i32;
@@ -3542,25 +5017,309 @@ pub const SHDID_NET_SERVER: SHDID_ID = 14i32;
 pub const SHDID_NET_SHARE: SHDID_ID = 15i32;
 pub const SHDID_REMOTE_DESKTOP_DRIVE: SHDID_ID = 22i32;
 pub const SHDID_ROOT_REGITEM: SHDID_ID = 1i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct SHDRAGIMAGE {
+    pub sizeDragImage: super::super::Foundation::SIZE,
+    pub ptOffset: super::super::Foundation::POINT,
+    pub hbmpDragImage: super::super::Graphics::Gdi::HBITMAP,
+    pub crColorKey: super::super::Foundation::COLORREF,
+}
+pub type SHELLBROWSERSHOWCONTROL = i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct SHELLEXECUTEINFOA {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerb: windows_sys::core::PCSTR,
+    pub lpFile: windows_sys::core::PCSTR,
+    pub lpParameters: windows_sys::core::PCSTR,
+    pub lpDirectory: windows_sys::core::PCSTR,
+    pub nShow: i32,
+    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub lpIDList: *mut core::ffi::c_void,
+    pub lpClass: windows_sys::core::PCSTR,
+    pub hkeyClass: super::super::System::Registry::HKEY,
+    pub dwHotKey: u32,
+    pub Anonymous: SHELLEXECUTEINFOA_0,
+    pub hProcess: super::super::Foundation::HANDLE,
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub union SHELLEXECUTEINFOA_0 {
+    pub hIcon: super::super::Foundation::HANDLE,
+    pub hMonitor: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct SHELLEXECUTEINFOA {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerb: windows_sys::core::PCSTR,
+    pub lpFile: windows_sys::core::PCSTR,
+    pub lpParameters: windows_sys::core::PCSTR,
+    pub lpDirectory: windows_sys::core::PCSTR,
+    pub nShow: i32,
+    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub lpIDList: *mut core::ffi::c_void,
+    pub lpClass: windows_sys::core::PCSTR,
+    pub hkeyClass: super::super::System::Registry::HKEY,
+    pub dwHotKey: u32,
+    pub Anonymous: SHELLEXECUTEINFOA_0,
+    pub hProcess: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub union SHELLEXECUTEINFOA_0 {
+    pub hIcon: super::super::Foundation::HANDLE,
+    pub hMonitor: super::super::Foundation::HANDLE,
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct SHELLEXECUTEINFOW {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerb: windows_sys::core::PCWSTR,
+    pub lpFile: windows_sys::core::PCWSTR,
+    pub lpParameters: windows_sys::core::PCWSTR,
+    pub lpDirectory: windows_sys::core::PCWSTR,
+    pub nShow: i32,
+    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub lpIDList: *mut core::ffi::c_void,
+    pub lpClass: windows_sys::core::PCWSTR,
+    pub hkeyClass: super::super::System::Registry::HKEY,
+    pub dwHotKey: u32,
+    pub Anonymous: SHELLEXECUTEINFOW_0,
+    pub hProcess: super::super::Foundation::HANDLE,
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub union SHELLEXECUTEINFOW_0 {
+    pub hIcon: super::super::Foundation::HANDLE,
+    pub hMonitor: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct SHELLEXECUTEINFOW {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerb: windows_sys::core::PCWSTR,
+    pub lpFile: windows_sys::core::PCWSTR,
+    pub lpParameters: windows_sys::core::PCWSTR,
+    pub lpDirectory: windows_sys::core::PCWSTR,
+    pub nShow: i32,
+    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub lpIDList: *mut core::ffi::c_void,
+    pub lpClass: windows_sys::core::PCWSTR,
+    pub hkeyClass: super::super::System::Registry::HKEY,
+    pub dwHotKey: u32,
+    pub Anonymous: SHELLEXECUTEINFOW_0,
+    pub hProcess: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub union SHELLEXECUTEINFOW_0 {
+    pub hIcon: super::super::Foundation::HANDLE,
+    pub hMonitor: super::super::Foundation::HANDLE,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SHELLFLAGSTATE {
+    pub _bitfield: i32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SHELLSTATEA {
+    pub _bitfield1: i32,
+    pub dwWin95Unused: u32,
+    pub uWin95Unused: u32,
+    pub lParamSort: i32,
+    pub iSortDirection: i32,
+    pub version: u32,
+    pub uNotUsed: u32,
+    pub _bitfield2: i32,
+}
 pub const SHELLSTATEVERSION_IE4: u32 = 9u32;
 pub const SHELLSTATEVERSION_WIN2K: u32 = 10u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SHELLSTATEW {
+    pub _bitfield1: i32,
+    pub dwWin95Unused: u32,
+    pub uWin95Unused: u32,
+    pub lParamSort: i32,
+    pub iSortDirection: i32,
+    pub version: u32,
+    pub uNotUsed: u32,
+    pub _bitfield2: i32,
+}
+pub type SHELL_AUTOCOMPLETE_FLAGS = u32;
 pub const SHELL_E_WRONG_BITDEPTH: windows_sys::core::HRESULT = 0x80270102_u32 as _;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SHELL_ITEM_RESOURCE {
+    pub guidType: windows_sys::core::GUID,
+    pub szName: [u16; 260],
+}
+pub type SHELL_LINK_DATA_FLAGS = i32;
+pub type SHELL_UI_COMPONENT = i32;
 pub const SHELL_UI_COMPONENT_DESKBAND: SHELL_UI_COMPONENT = 2i32;
 pub const SHELL_UI_COMPONENT_NOTIFICATIONAREA: SHELL_UI_COMPONENT = 1i32;
 pub const SHELL_UI_COMPONENT_TASKBARS: SHELL_UI_COMPONENT = 0i32;
 pub const SHERB_NOCONFIRMATION: u32 = 1u32;
 pub const SHERB_NOPROGRESSUI: u32 = 2u32;
 pub const SHERB_NOSOUND: u32 = 4u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct SHFILEINFOA {
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iIcon: i32,
+    pub dwAttributes: u32,
+    pub szDisplayName: [i8; 260],
+    pub szTypeName: [i8; 80],
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct SHFILEINFOA {
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iIcon: i32,
+    pub dwAttributes: u32,
+    pub szDisplayName: [i8; 260],
+    pub szTypeName: [i8; 80],
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct SHFILEINFOW {
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iIcon: i32,
+    pub dwAttributes: u32,
+    pub szDisplayName: [u16; 260],
+    pub szTypeName: [u16; 80],
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct SHFILEINFOW {
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iIcon: i32,
+    pub dwAttributes: u32,
+    pub szDisplayName: [u16; 260],
+    pub szTypeName: [u16; 80],
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SHFILEOPSTRUCTA {
+    pub hwnd: super::super::Foundation::HWND,
+    pub wFunc: u32,
+    pub pFrom: *mut i8,
+    pub pTo: *mut i8,
+    pub fFlags: u16,
+    pub fAnyOperationsAborted: super::super::Foundation::BOOL,
+    pub hNameMappings: *mut core::ffi::c_void,
+    pub lpszProgressTitle: windows_sys::core::PCSTR,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct SHFILEOPSTRUCTA {
+    pub hwnd: super::super::Foundation::HWND,
+    pub wFunc: u32,
+    pub pFrom: *mut i8,
+    pub pTo: *mut i8,
+    pub fFlags: u16,
+    pub fAnyOperationsAborted: super::super::Foundation::BOOL,
+    pub hNameMappings: *mut core::ffi::c_void,
+    pub lpszProgressTitle: windows_sys::core::PCSTR,
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SHFILEOPSTRUCTW {
+    pub hwnd: super::super::Foundation::HWND,
+    pub wFunc: u32,
+    pub pFrom: windows_sys::core::PCWSTR,
+    pub pTo: windows_sys::core::PCWSTR,
+    pub fFlags: u16,
+    pub fAnyOperationsAborted: super::super::Foundation::BOOL,
+    pub hNameMappings: *mut core::ffi::c_void,
+    pub lpszProgressTitle: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct SHFILEOPSTRUCTW {
+    pub hwnd: super::super::Foundation::HWND,
+    pub wFunc: u32,
+    pub pFrom: windows_sys::core::PCWSTR,
+    pub pTo: windows_sys::core::PCWSTR,
+    pub fFlags: u16,
+    pub fAnyOperationsAborted: super::super::Foundation::BOOL,
+    pub hNameMappings: *mut core::ffi::c_void,
+    pub lpszProgressTitle: windows_sys::core::PCWSTR,
+}
 pub const SHFMT_CANCEL: SHFMT_RET = 4294967294u32;
 pub const SHFMT_ERROR: SHFMT_RET = 4294967295u32;
+pub type SHFMT_ID = u32;
 pub const SHFMT_ID_DEFAULT: SHFMT_ID = 65535u32;
 pub const SHFMT_NOFORMAT: SHFMT_RET = 4294967293u32;
+pub type SHFMT_OPT = i32;
 pub const SHFMT_OPT_FULL: SHFMT_OPT = 1i32;
 pub const SHFMT_OPT_NONE: SHFMT_OPT = 0i32;
 pub const SHFMT_OPT_SYSONLY: SHFMT_OPT = 2i32;
+pub type SHFMT_RET = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SHFOLDERCUSTOMSETTINGS {
+    pub dwSize: u32,
+    pub dwMask: u32,
+    pub pvid: *mut windows_sys::core::GUID,
+    pub pszWebViewTemplate: windows_sys::core::PWSTR,
+    pub cchWebViewTemplate: u32,
+    pub pszWebViewTemplateVersion: windows_sys::core::PWSTR,
+    pub pszInfoTip: windows_sys::core::PWSTR,
+    pub cchInfoTip: u32,
+    pub pclsid: *mut windows_sys::core::GUID,
+    pub dwFlags: u32,
+    pub pszIconFile: windows_sys::core::PWSTR,
+    pub cchIconFile: u32,
+    pub iIconIndex: i32,
+    pub pszLogo: windows_sys::core::PWSTR,
+    pub cchLogo: u32,
+}
 pub const SHGDFIL_DESCRIPTIONID: SHGDFIL_FORMAT = 3i32;
 pub const SHGDFIL_FINDDATA: SHGDFIL_FORMAT = 1i32;
+pub type SHGDFIL_FORMAT = i32;
 pub const SHGDFIL_NETRESOURCE: SHGDFIL_FORMAT = 2i32;
+pub type SHGDNF = u32;
 pub const SHGDN_FORADDRESSBAR: SHGDNF = 16384u32;
 pub const SHGDN_FOREDITING: SHGDNF = 4096u32;
 pub const SHGDN_FORPARSING: SHGDNF = 32768u32;
@@ -3571,6 +5330,7 @@ pub const SHGFI_ATTRIBUTES: SHGFI_FLAGS = 2048u32;
 pub const SHGFI_ATTR_SPECIFIED: SHGFI_FLAGS = 131072u32;
 pub const SHGFI_DISPLAYNAME: SHGFI_FLAGS = 512u32;
 pub const SHGFI_EXETYPE: SHGFI_FLAGS = 8192u32;
+pub type SHGFI_FLAGS = u32;
 pub const SHGFI_ICON: SHGFI_FLAGS = 256u32;
 pub const SHGFI_ICONLOCATION: SHGFI_FLAGS = 4096u32;
 pub const SHGFI_LARGEICON: SHGFI_FLAGS = 0u32;
@@ -3584,14 +5344,17 @@ pub const SHGFI_SMALLICON: SHGFI_FLAGS = 1u32;
 pub const SHGFI_SYSICONINDEX: SHGFI_FLAGS = 16384u32;
 pub const SHGFI_TYPENAME: SHGFI_FLAGS = 1024u32;
 pub const SHGFI_USEFILEATTRIBUTES: SHGFI_FLAGS = 16u32;
+pub type SHGFP_TYPE = i32;
 pub const SHGFP_TYPE_CURRENT: SHGFP_TYPE = 0i32;
 pub const SHGFP_TYPE_DEFAULT: SHGFP_TYPE = 1i32;
+pub type SHGLOBALCOUNTER = i32;
 pub const SHGNLI_NOLNK: u64 = 8u64;
 pub const SHGNLI_NOLOCNAME: u64 = 16u64;
 pub const SHGNLI_NOUNIQUE: u64 = 4u64;
 pub const SHGNLI_PIDL: u64 = 1u64;
 pub const SHGNLI_PREFIXNAME: u64 = 2u64;
 pub const SHGNLI_USEURLEXT: u64 = 32u64;
+pub type SHGSI_FLAGS = u32;
 pub const SHGSI_ICON: SHGSI_FLAGS = 256u32;
 pub const SHGSI_ICONLOCATION: SHGSI_FLAGS = 0u32;
 pub const SHGSI_LARGEICON: SHGSI_FLAGS = 0u32;
@@ -3622,8 +5385,45 @@ pub const SHIMGKEY_QUALITY: windows_sys::core::PCWSTR = windows_sys::core::w!("C
 pub const SHIMGKEY_RAWFORMAT: windows_sys::core::PCWSTR = windows_sys::core::w!("RawDataFormat");
 pub const SHIMSTCAPFLAG_LOCKABLE: u32 = 1u32;
 pub const SHIMSTCAPFLAG_PURGEABLE: u32 = 2u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SHNAMEMAPPINGA {
+    pub pszOldPath: windows_sys::core::PSTR,
+    pub pszNewPath: windows_sys::core::PSTR,
+    pub cchOldPath: i32,
+    pub cchNewPath: i32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct SHNAMEMAPPINGA {
+    pub pszOldPath: windows_sys::core::PSTR,
+    pub pszNewPath: windows_sys::core::PSTR,
+    pub cchOldPath: i32,
+    pub cchNewPath: i32,
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SHNAMEMAPPINGW {
+    pub pszOldPath: windows_sys::core::PWSTR,
+    pub pszNewPath: windows_sys::core::PWSTR,
+    pub cchOldPath: i32,
+    pub cchNewPath: i32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct SHNAMEMAPPINGW {
+    pub pszOldPath: windows_sys::core::PWSTR,
+    pub pszNewPath: windows_sys::core::PWSTR,
+    pub cchOldPath: i32,
+    pub cchNewPath: i32,
+}
 pub const SHOP_FILEPATH: SHOP_TYPE = 2i32;
 pub const SHOP_PRINTERNAME: SHOP_TYPE = 1i32;
+pub type SHOP_TYPE = i32;
 pub const SHOP_VOLUMEGUID: SHOP_TYPE = 4i32;
 pub const SHPPFW_ASKDIRCREATE: u32 = 2u32;
 pub const SHPPFW_DIRCREATE: u32 = 1u32;
@@ -3637,18 +5437,60 @@ pub const SHPWHF_NONETPLACECREATE: u32 = 2u32;
 pub const SHPWHF_NORECOMPRESS: u32 = 1u32;
 pub const SHPWHF_USEMRU: u32 = 8u32;
 pub const SHPWHF_VALIDATEVIAWEBFOLDERS: u32 = 65536u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SHQUERYRBINFO {
+    pub cbSize: u32,
+    pub i64Size: i64,
+    pub i64NumItems: i64,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct SHQUERYRBINFO {
+    pub cbSize: u32,
+    pub i64Size: i64,
+    pub i64NumItems: i64,
+}
 pub const SHREGDEL_BOTH: SHREGDEL_FLAGS = 17i32;
 pub const SHREGDEL_DEFAULT: SHREGDEL_FLAGS = 0i32;
+pub type SHREGDEL_FLAGS = i32;
 pub const SHREGDEL_HKCU: SHREGDEL_FLAGS = 1i32;
 pub const SHREGDEL_HKLM: SHREGDEL_FLAGS = 16i32;
 pub const SHREGENUM_BOTH: SHREGENUM_FLAGS = 17i32;
 pub const SHREGENUM_DEFAULT: SHREGENUM_FLAGS = 0i32;
+pub type SHREGENUM_FLAGS = i32;
 pub const SHREGENUM_HKCU: SHREGENUM_FLAGS = 1i32;
 pub const SHREGENUM_HKLM: SHREGENUM_FLAGS = 16i32;
 pub const SHREGSET_FORCE_HKCU: u32 = 2u32;
 pub const SHREGSET_FORCE_HKLM: u32 = 8u32;
 pub const SHREGSET_HKCU: u32 = 1u32;
 pub const SHREGSET_HKLM: u32 = 4u32;
+pub type SHSTOCKICONID = i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct SHSTOCKICONINFO {
+    pub cbSize: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iSysImageIndex: i32,
+    pub iIcon: i32,
+    pub szPath: [u16; 260],
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct SHSTOCKICONINFO {
+    pub cbSize: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iSysImageIndex: i32,
+    pub iIcon: i32,
+    pub szPath: [u16; 260],
+}
+pub type SIATTRIBFLAGS = i32;
 pub const SIATTRIBFLAGS_ALLITEMS: SIATTRIBFLAGS = 16384i32;
 pub const SIATTRIBFLAGS_AND: SIATTRIBFLAGS = 1i32;
 pub const SIATTRIBFLAGS_APPCOMPAT: SIATTRIBFLAGS = 3i32;
@@ -3682,6 +5524,7 @@ pub const SID_STopLevelBrowser: windows_sys::core::GUID = windows_sys::core::GUI
 pub const SID_STopWindow: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x49e1b500_4636_11d3_97f7_00c04f45d0b3);
 pub const SID_ShellExecuteNamedPropertyStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb84ada2_00ff_4992_8324_ed5ce061cb29);
 pub const SID_URLExecutionContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb5f8ebc_bbb6_4d10_a461_777291a09030);
+pub type SIGDN = i32;
 pub const SIGDN_DESKTOPABSOLUTEEDITING: SIGDN = -2147172352i32;
 pub const SIGDN_DESKTOPABSOLUTEPARSING: SIGDN = -2147319808i32;
 pub const SIGDN_FILESYSPATH: SIGDN = -2147123200i32;
@@ -3786,6 +5629,7 @@ pub const SIID_VIDEOFILES: SHSTOCKICONID = 73i32;
 pub const SIID_WARNING: SHSTOCKICONID = 78i32;
 pub const SIID_WORLD: SHSTOCKICONID = 13i32;
 pub const SIID_ZIPFILE: SHSTOCKICONID = 105i32;
+pub type SIIGBF = i32;
 pub const SIIGBF_BIGGERSIZEOK: SIIGBF = 1i32;
 pub const SIIGBF_CROPTOSQUARE: SIIGBF = 32i32;
 pub const SIIGBF_ICONBACKGROUND: SIIGBF = 128i32;
@@ -3832,11 +5676,21 @@ pub const SLDF_RUN_WITH_SHIMLAYER: SHELL_LINK_DATA_FLAGS = 131072i32;
 pub const SLDF_UNALIAS_ON_SAVE: SHELL_LINK_DATA_FLAGS = 16777216i32;
 pub const SLDF_UNICODE: SHELL_LINK_DATA_FLAGS = 128i32;
 pub const SLDF_VALID: SHELL_LINK_DATA_FLAGS = 268433407i32;
+pub type SLGP_FLAGS = i32;
 pub const SLGP_RAWPATH: SLGP_FLAGS = 4i32;
 pub const SLGP_RELATIVEPRIORITY: SLGP_FLAGS = 8i32;
 pub const SLGP_SHORTPATH: SLGP_FLAGS = 1i32;
 pub const SLGP_UNCPRIORITY: SLGP_FLAGS = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SLOWAPPINFO {
+    pub ullSize: u64,
+    pub ftLastUsed: super::super::Foundation::FILETIME,
+    pub iTimesUsed: i32,
+    pub pszImage: windows_sys::core::PWSTR,
+}
 pub const SLR_ANY_MATCH: SLR_FLAGS = 2i32;
+pub type SLR_FLAGS = i32;
 pub const SLR_INVOKE_MSI: SLR_FLAGS = 128i32;
 pub const SLR_KNOWNFOLDER: SLR_FLAGS = 1024i32;
 pub const SLR_MACHINE_IN_LOCAL_TARGET: SLR_FLAGS = 2048i32;
@@ -3855,6 +5709,14 @@ pub const SMAE_CONTRACTED: u32 = 2u32;
 pub const SMAE_EXPANDED: u32 = 1u32;
 pub const SMAE_USER: u32 = 4u32;
 pub const SMAE_VALID: u32 = 7u32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_Common")]
+#[derive(Clone, Copy)]
+pub struct SMCSHCHANGENOTIFYSTRUCT {
+    pub lEvent: i32,
+    pub pidl1: *mut Common::ITEMIDLIST,
+    pub pidl2: *mut Common::ITEMIDLIST,
+}
 pub const SMC_AUTOEXPANDCHANGE: u32 = 66u32;
 pub const SMC_CHEVRONEXPAND: u32 = 25u32;
 pub const SMC_CHEVRONGETTIP: u32 = 47u32;
@@ -3881,6 +5743,23 @@ pub const SMC_SFEXEC: u32 = 9u32;
 pub const SMC_SFEXEC_MIDDLE: u32 = 49u32;
 pub const SMC_SFSELECTITEM: u32 = 10u32;
 pub const SMC_SHCHANGENOTIFY: u32 = 46u32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct SMDATA {
+    pub dwMask: u32,
+    pub dwFlags: u32,
+    pub hmenu: super::WindowsAndMessaging::HMENU,
+    pub hwnd: super::super::Foundation::HWND,
+    pub uId: u32,
+    pub uIdParent: u32,
+    pub uIdAncestor: u32,
+    pub punk: *mut core::ffi::c_void,
+    pub pidlFolder: *mut Common::ITEMIDLIST,
+    pub pidlItem: *mut Common::ITEMIDLIST,
+    pub psf: *mut core::ffi::c_void,
+    pub pvUserData: *mut core::ffi::c_void,
+}
 pub const SMDM_HMENU: u32 = 2u32;
 pub const SMDM_SHELLFOLDER: u32 = 1u32;
 pub const SMDM_TOOLBAR: u32 = 4u32;
@@ -3900,6 +5779,17 @@ pub const SMIF_TRACKPOPUP: SMINFOFLAGS = 512i32;
 pub const SMIM_FLAGS: SMINFOMASK = 2i32;
 pub const SMIM_ICON: SMINFOMASK = 4i32;
 pub const SMIM_TYPE: SMINFOMASK = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SMINFO {
+    pub dwMask: u32,
+    pub dwType: u32,
+    pub dwFlags: u32,
+    pub iIcon: i32,
+}
+pub type SMINFOFLAGS = i32;
+pub type SMINFOMASK = i32;
+pub type SMINFOTYPE = i32;
 pub const SMINIT_AUTOEXPAND: u32 = 256u32;
 pub const SMINIT_AUTOTOOLTIP: u32 = 512u32;
 pub const SMINIT_CACHED: u32 = 16u32;
@@ -3916,10 +5806,19 @@ pub const SMIT_STRING: SMINFOTYPE = 2i32;
 pub const SMSET_BOTTOM: u32 = 536870912u32;
 pub const SMSET_DONTOWN: u32 = 1u32;
 pub const SMSET_TOP: u32 = 268435456u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SORTCOLUMN {
+    pub propkey: super::super::Foundation::PROPERTYKEY,
+    pub direction: SORTDIRECTION,
+}
+pub type SORTDIRECTION = i32;
 pub const SORT_ASCENDING: SORTDIRECTION = 1i32;
 pub const SORT_DESCENDING: SORTDIRECTION = -1i32;
+pub type SORT_ORDER_TYPE = i32;
 pub const SOT_DEFAULT: SORT_ORDER_TYPE = 0i32;
 pub const SOT_IGNORE_FOLDERNESS: SORT_ORDER_TYPE = 1i32;
+pub type SPACTION = i32;
 pub const SPACTION_APPLYINGATTRIBS: SPACTION = 4i32;
 pub const SPACTION_CALCULATING: SPACTION = 7i32;
 pub const SPACTION_COPYING: SPACTION = 2i32;
@@ -3961,6 +5860,7 @@ pub const SPMODE_PERFTAGS: u32 = 2048u32;
 pub const SPMODE_PROFILE: u32 = 256u32;
 pub const SPMODE_SHELL: u32 = 1u32;
 pub const SPMODE_TEST: u32 = 4u32;
+pub type SPTEXT = i32;
 pub const SPTEXT_ACTIONDESCRIPTION: SPTEXT = 1i32;
 pub const SPTEXT_ACTIONDETAIL: SPTEXT = 2i32;
 pub const SRRF_NOEXPAND: u32 = 268435456u32;
@@ -3987,6 +5887,7 @@ pub const SSF_HIDDENFILEEXTS: SSF_MASK = 4u32;
 pub const SSF_HIDEICONS: SSF_MASK = 16384u32;
 pub const SSF_ICONSONLY: SSF_MASK = 16777216u32;
 pub const SSF_MAPNETDRVBUTTON: SSF_MASK = 4096u32;
+pub type SSF_MASK = u32;
 pub const SSF_NOCONFIRMRECYCLE: SSF_MASK = 32768u32;
 pub const SSF_NONETCRAWLING: SSF_MASK = 1048576u32;
 pub const SSF_SEPPROCESS: SSF_MASK = 524288u32;
@@ -4009,6 +5910,7 @@ pub const SSM_CLEAR: u32 = 0u32;
 pub const SSM_REFRESH: u32 = 2u32;
 pub const SSM_SET: u32 = 1u32;
 pub const SSM_UPDATE: u32 = 4u32;
+pub type STGOP = i32;
 pub const STGOP_APPLYPROPERTIES: STGOP = 8i32;
 pub const STGOP_COPY: STGOP = 2i32;
 pub const STGOP_MOVE: STGOP = 1i32;
@@ -4018,7 +5920,9 @@ pub const STGOP_RENAME: STGOP = 6i32;
 pub const STGOP_SYNC: STGOP = 3i32;
 pub const STIF_DEFAULT: i32 = 0i32;
 pub const STIF_SUPPORT_HEX: i32 = 1i32;
+pub type STORAGE_PROVIDER_FILE_FLAGS = i32;
 pub const STORE_E_NEWER_VERSION_AVAILABLE: windows_sys::core::HRESULT = 0x80270104_u32 as _;
+pub type STPFLAG = i32;
 pub const STPF_NONE: STPFLAG = 0i32;
 pub const STPF_USEAPPPEEKALWAYS: STPFLAG = 4i32;
 pub const STPF_USEAPPPEEKWHENACTIVE: STPFLAG = 8i32;
@@ -4067,6 +5971,19 @@ pub const STR_SKIP_BINDING_CLSID: windows_sys::core::PCWSTR = windows_sys::core:
 pub const STR_STORAGEITEM_CREATION_FLAGS: windows_sys::core::PCWSTR = windows_sys::core::w!("SHGETSTORAGEITEM");
 pub const STR_TAB_REUSE_IDENTIFIER: windows_sys::core::PCWSTR = windows_sys::core::w!("Tab Reuse Identifier");
 pub const STR_TRACK_CLSID: windows_sys::core::PCWSTR = windows_sys::core::w!("Track the CLSID");
+pub type SUBCLASSPROC = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT>;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Ole")]
+#[derive(Clone, Copy)]
+pub struct SV2CVW2_PARAMS {
+    pub cbSize: u32,
+    pub psvPrev: *mut core::ffi::c_void,
+    pub pfs: *mut FOLDERSETTINGS,
+    pub psbOwner: *mut core::ffi::c_void,
+    pub prcView: *mut super::super::Foundation::RECT,
+    pub pvid: *const windows_sys::core::GUID,
+    pub hwndView: super::super::Foundation::HWND,
+}
 pub const SV3CVW3_DEFAULT: _SV3CVW3_FLAGS = 0i32;
 pub const SV3CVW3_FORCEFOLDERFLAGS: _SV3CVW3_FLAGS = 4i32;
 pub const SV3CVW3_FORCEVIEWMODE: _SV3CVW3_FLAGS = 2i32;
@@ -4094,6 +6011,7 @@ pub const SVUIA_ACTIVATE_FOCUS: SVUIA_STATUS = 2i32;
 pub const SVUIA_ACTIVATE_NOFOCUS: SVUIA_STATUS = 1i32;
 pub const SVUIA_DEACTIVATE: SVUIA_STATUS = 0i32;
 pub const SVUIA_INPLACEACTIVATE: SVUIA_STATUS = 3i32;
+pub type SVUIA_STATUS = i32;
 pub const SWC_3RDPARTY: ShellWindowTypeConstants = 2i32;
 pub const SWC_BROWSER: ShellWindowTypeConstants = 1i32;
 pub const SWC_CALLBACK: ShellWindowTypeConstants = 4i32;
@@ -4102,7 +6020,9 @@ pub const SWC_EXPLORER: ShellWindowTypeConstants = 0i32;
 pub const SWFO_COOKIEPASSED: ShellWindowFindWindowOptions = 4i32;
 pub const SWFO_INCLUDEPENDING: ShellWindowFindWindowOptions = 2i32;
 pub const SWFO_NEEDDISPATCH: ShellWindowFindWindowOptions = 1i32;
+pub type SYNCMGRERRORFLAGS = i32;
 pub const SYNCMGRERRORFLAG_ENABLEJUMPTEXT: SYNCMGRERRORFLAGS = 1i32;
+pub type SYNCMGRFLAG = i32;
 pub const SYNCMGRFLAG_CONNECT: SYNCMGRFLAG = 1i32;
 pub const SYNCMGRFLAG_EVENTMASK: SYNCMGRFLAG = 255i32;
 pub const SYNCMGRFLAG_IDLE: SYNCMGRFLAG = 4i32;
@@ -4112,13 +6032,38 @@ pub const SYNCMGRFLAG_MAYBOTHERUSER: SYNCMGRFLAG = 512i32;
 pub const SYNCMGRFLAG_PENDINGDISCONNECT: SYNCMGRFLAG = 2i32;
 pub const SYNCMGRFLAG_SCHEDULED: SYNCMGRFLAG = 6i32;
 pub const SYNCMGRFLAG_SETTINGS: SYNCMGRFLAG = 256i32;
+pub type SYNCMGRHANDLERFLAGS = i32;
 pub const SYNCMGRHANDLERFLAG_MASK: u32 = 15u32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct SYNCMGRHANDLERINFO {
+    pub cbSize: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub SyncMgrHandlerFlags: u32,
+    pub wszHandlerName: [u16; 32],
+}
 pub const SYNCMGRHANDLER_ALWAYSLISTHANDLER: SYNCMGRHANDLERFLAGS = 4i32;
 pub const SYNCMGRHANDLER_HASPROPERTIES: SYNCMGRHANDLERFLAGS = 1i32;
 pub const SYNCMGRHANDLER_HIDDEN: SYNCMGRHANDLERFLAGS = 8i32;
 pub const SYNCMGRHANDLER_MAYESTABLISHCONNECTION: SYNCMGRHANDLERFLAGS = 2i32;
+pub type SYNCMGRINVOKEFLAGS = i32;
 pub const SYNCMGRINVOKE_MINIMIZED: SYNCMGRINVOKEFLAGS = 4i32;
 pub const SYNCMGRINVOKE_STARTSYNC: SYNCMGRINVOKEFLAGS = 2i32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct SYNCMGRITEM {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub ItemID: windows_sys::core::GUID,
+    pub dwItemState: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub wszItemName: [u16; 128],
+    pub ftLastUpdate: super::super::Foundation::FILETIME,
+}
+pub type SYNCMGRITEMFLAGS = i32;
+pub type SYNCMGRITEMSTATE = i32;
 pub const SYNCMGRITEMSTATE_CHECKED: SYNCMGRITEMSTATE = 1i32;
 pub const SYNCMGRITEMSTATE_UNCHECKED: SYNCMGRITEMSTATE = 0i32;
 pub const SYNCMGRITEM_HASPROPERTIES: SYNCMGRITEMFLAGS = 1i32;
@@ -4128,21 +6073,43 @@ pub const SYNCMGRITEM_LASTUPDATETIME: SYNCMGRITEMFLAGS = 8i32;
 pub const SYNCMGRITEM_MAYDELETEITEM: SYNCMGRITEMFLAGS = 16i32;
 pub const SYNCMGRITEM_ROAMINGUSER: SYNCMGRITEMFLAGS = 4i32;
 pub const SYNCMGRITEM_TEMPORARY: SYNCMGRITEMFLAGS = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYNCMGRLOGERRORINFO {
+    pub cbSize: u32,
+    pub mask: u32,
+    pub dwSyncMgrErrorFlags: u32,
+    pub ErrorID: windows_sys::core::GUID,
+    pub ItemID: windows_sys::core::GUID,
+}
 pub const SYNCMGRLOGERROR_ERRORFLAGS: u32 = 1u32;
 pub const SYNCMGRLOGERROR_ERRORID: u32 = 2u32;
 pub const SYNCMGRLOGERROR_ITEMID: u32 = 4u32;
+pub type SYNCMGRLOGLEVEL = i32;
 pub const SYNCMGRLOGLEVEL_ERROR: SYNCMGRLOGLEVEL = 3i32;
 pub const SYNCMGRLOGLEVEL_INFORMATION: SYNCMGRLOGLEVEL = 1i32;
 pub const SYNCMGRLOGLEVEL_LOGLEVELMAX: SYNCMGRLOGLEVEL = 3i32;
 pub const SYNCMGRLOGLEVEL_WARNING: SYNCMGRLOGLEVEL = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYNCMGRPROGRESSITEM {
+    pub cbSize: u32,
+    pub mask: u32,
+    pub lpcStatusText: windows_sys::core::PCWSTR,
+    pub dwStatusType: u32,
+    pub iProgValue: i32,
+    pub iMaxValue: i32,
+}
 pub const SYNCMGRPROGRESSITEM_MAXVALUE: u32 = 8u32;
 pub const SYNCMGRPROGRESSITEM_PROGVALUE: u32 = 4u32;
 pub const SYNCMGRPROGRESSITEM_STATUSTEXT: u32 = 1u32;
 pub const SYNCMGRPROGRESSITEM_STATUSTYPE: u32 = 2u32;
+pub type SYNCMGRREGISTERFLAGS = i32;
 pub const SYNCMGRREGISTERFLAGS_MASK: u32 = 7u32;
 pub const SYNCMGRREGISTERFLAG_CONNECT: SYNCMGRREGISTERFLAGS = 1i32;
 pub const SYNCMGRREGISTERFLAG_IDLE: SYNCMGRREGISTERFLAGS = 4i32;
 pub const SYNCMGRREGISTERFLAG_PENDINGDISCONNECT: SYNCMGRREGISTERFLAGS = 2i32;
+pub type SYNCMGRSTATUS = i32;
 pub const SYNCMGRSTATUS_DELETED: SYNCMGRSTATUS = 256i32;
 pub const SYNCMGRSTATUS_FAILED: SYNCMGRSTATUS = 5i32;
 pub const SYNCMGRSTATUS_PAUSED: SYNCMGRSTATUS = 6i32;
@@ -4153,6 +6120,7 @@ pub const SYNCMGRSTATUS_STOPPED: SYNCMGRSTATUS = 0i32;
 pub const SYNCMGRSTATUS_SUCCEEDED: SYNCMGRSTATUS = 4i32;
 pub const SYNCMGRSTATUS_UPDATING: SYNCMGRSTATUS = 3i32;
 pub const SYNCMGRSTATUS_UPDATING_INDETERMINATE: SYNCMGRSTATUS = 8i32;
+pub type SYNCMGR_CANCEL_REQUEST = i32;
 pub const SYNCMGR_CF_NONE: SYNCMGR_CONTROL_FLAGS = 0i32;
 pub const SYNCMGR_CF_NOUI: SYNCMGR_CONTROL_FLAGS = 2i32;
 pub const SYNCMGR_CF_NOWAIT: SYNCMGR_CONTROL_FLAGS = 0i32;
@@ -4160,6 +6128,15 @@ pub const SYNCMGR_CF_VALID: SYNCMGR_CONTROL_FLAGS = 3i32;
 pub const SYNCMGR_CF_WAIT: SYNCMGR_CONTROL_FLAGS = 1i32;
 pub const SYNCMGR_CIT_DELETED: SYNCMGR_CONFLICT_ITEM_TYPE = 2i32;
 pub const SYNCMGR_CIT_UPDATED: SYNCMGR_CONFLICT_ITEM_TYPE = 1i32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct SYNCMGR_CONFLICT_ID_INFO {
+    pub pblobID: *mut super::super::System::Com::BYTE_BLOB,
+    pub pblobExtra: *mut super::super::System::Com::BYTE_BLOB,
+}
+pub type SYNCMGR_CONFLICT_ITEM_TYPE = i32;
+pub type SYNCMGR_CONTROL_FLAGS = i32;
 pub const SYNCMGR_CR_CANCEL_ALL: SYNCMGR_CANCEL_REQUEST = 2i32;
 pub const SYNCMGR_CR_CANCEL_ITEM: SYNCMGR_CANCEL_REQUEST = 1i32;
 pub const SYNCMGR_CR_MAX: SYNCMGR_CANCEL_REQUEST = 2i32;
@@ -4170,6 +6147,11 @@ pub const SYNCMGR_EL_ERROR: SYNCMGR_EVENT_LEVEL = 3i32;
 pub const SYNCMGR_EL_INFORMATION: SYNCMGR_EVENT_LEVEL = 1i32;
 pub const SYNCMGR_EL_MAX: SYNCMGR_EVENT_LEVEL = 3i32;
 pub const SYNCMGR_EL_WARNING: SYNCMGR_EVENT_LEVEL = 2i32;
+pub type SYNCMGR_EVENT_FLAGS = i32;
+pub type SYNCMGR_EVENT_LEVEL = i32;
+pub type SYNCMGR_HANDLER_CAPABILITIES = i32;
+pub type SYNCMGR_HANDLER_POLICIES = i32;
+pub type SYNCMGR_HANDLER_TYPE = i32;
 pub const SYNCMGR_HCM_CAN_BROWSE_CONTENT: SYNCMGR_HANDLER_CAPABILITIES = 65536i32;
 pub const SYNCMGR_HCM_CAN_SHOW_SCHEDULE: SYNCMGR_HANDLER_CAPABILITIES = 131072i32;
 pub const SYNCMGR_HCM_CONFLICT_STORE: SYNCMGR_HANDLER_CAPABILITIES = 4i32;
@@ -4229,6 +6211,8 @@ pub const SYNCMGR_IPM_PREVENT_ENABLE: SYNCMGR_ITEM_POLICIES = 1i32;
 pub const SYNCMGR_IPM_PREVENT_START_SYNC: SYNCMGR_ITEM_POLICIES = 4i32;
 pub const SYNCMGR_IPM_PREVENT_STOP_SYNC: SYNCMGR_ITEM_POLICIES = 8i32;
 pub const SYNCMGR_IPM_VALID_MASK: SYNCMGR_ITEM_POLICIES = 66303i32;
+pub type SYNCMGR_ITEM_CAPABILITIES = i32;
+pub type SYNCMGR_ITEM_POLICIES = i32;
 pub const SYNCMGR_OBJECTID_BrowseContent: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x57cbb584_e9b4_47ae_a120_c4df3335dee2);
 pub const SYNCMGR_OBJECTID_ConflictStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd78181f4_2389_47e4_a960_60bcc2ed930b);
 pub const SYNCMGR_OBJECTID_EventLinkClick: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2203bdc1_1af1_4082_8c30_28399f41384c);
@@ -4249,6 +6233,9 @@ pub const SYNCMGR_PC_SKIP: SYNCMGR_PRESENTER_CHOICE = 5i32;
 pub const SYNCMGR_PNS_CANCEL: SYNCMGR_PRESENTER_NEXT_STEP = 2i32;
 pub const SYNCMGR_PNS_CONTINUE: SYNCMGR_PRESENTER_NEXT_STEP = 0i32;
 pub const SYNCMGR_PNS_DEFAULT: SYNCMGR_PRESENTER_NEXT_STEP = 1i32;
+pub type SYNCMGR_PRESENTER_CHOICE = i32;
+pub type SYNCMGR_PRESENTER_NEXT_STEP = i32;
+pub type SYNCMGR_PROGRESS_STATUS = i32;
 pub const SYNCMGR_PS_CANCELED: SYNCMGR_PROGRESS_STATUS = 5i32;
 pub const SYNCMGR_PS_DISCONNECTED: SYNCMGR_PROGRESS_STATUS = 6i32;
 pub const SYNCMGR_PS_FAILED: SYNCMGR_PROGRESS_STATUS = 4i32;
@@ -4262,12 +6249,16 @@ pub const SYNCMGR_RA_KEEP_MULTIPLE: SYNCMGR_RESOLUTION_ABILITIES = 16i32;
 pub const SYNCMGR_RA_KEEP_SINGLE: SYNCMGR_RESOLUTION_ABILITIES = 8i32;
 pub const SYNCMGR_RA_REMOVEFROMSYNCSET: SYNCMGR_RESOLUTION_ABILITIES = 4i32;
 pub const SYNCMGR_RA_VALID: SYNCMGR_RESOLUTION_ABILITIES = 31i32;
+pub type SYNCMGR_RESOLUTION_ABILITIES = i32;
+pub type SYNCMGR_RESOLUTION_FEEDBACK = i32;
 pub const SYNCMGR_RF_CANCEL: SYNCMGR_RESOLUTION_FEEDBACK = 2i32;
 pub const SYNCMGR_RF_CONTINUE: SYNCMGR_RESOLUTION_FEEDBACK = 0i32;
 pub const SYNCMGR_RF_REFRESH: SYNCMGR_RESOLUTION_FEEDBACK = 1i32;
 pub const SYNCMGR_SCF_IGNORE_IF_ALREADY_SYNCING: SYNCMGR_SYNC_CONTROL_FLAGS = 1i32;
 pub const SYNCMGR_SCF_NONE: SYNCMGR_SYNC_CONTROL_FLAGS = 0i32;
 pub const SYNCMGR_SCF_VALID: SYNCMGR_SYNC_CONTROL_FLAGS = 1i32;
+pub type SYNCMGR_SYNC_CONTROL_FLAGS = i32;
+pub type SYNCMGR_UPDATE_REASON = i32;
 pub const SYNCMGR_UR_ADDED: SYNCMGR_UPDATE_REASON = 0i32;
 pub const SYNCMGR_UR_CHANGED: SYNCMGR_UPDATE_REASON = 1i32;
 pub const SYNCMGR_UR_MAX: SYNCMGR_UPDATE_REASON = 2i32;
@@ -4284,7 +6275,49 @@ pub const S_SYNCMGR_ENUMITEMS: windows_sys::core::HRESULT = 0x40211_u32 as _;
 pub const S_SYNCMGR_ITEMDELETED: windows_sys::core::HRESULT = 0x40210_u32 as _;
 pub const S_SYNCMGR_MISSINGITEMS: windows_sys::core::HRESULT = 0x40201_u32 as _;
 pub const S_SYNCMGR_RETRYSYNC: windows_sys::core::HRESULT = 0x40202_u32 as _;
+pub const ScheduledTasks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd6277990_4c6a_11cf_8d87_00aa0060f5bf);
+pub const SearchFolderItemFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x14010e02_bbbd_41f0_88e3_eda371216584);
+pub type SecureLockIconConstants = i32;
 pub const SelectedItemCount_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fe316d2_0e52_460a_9c1e_48f273d470a3);
+pub const SharedBitmap: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4db26476_6787_4046_b836_e8412a9e8a27);
+pub const SharingConfigurationManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x49f371e1_8c5c_4d9c_9a3b_54a6827f513c);
+pub const Shell: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13709620_c279_11ce_a49e_444553540000);
+pub const ShellBrowserWindow: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc08afd90_f2a1_11d1_8455_00a0c91f3880);
+pub const ShellDesktop: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021400_0000_0000_c000_000000000046);
+pub const ShellDispatchInproc: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0a89a860_d7b1_11ce_8350_444553540000);
+pub const ShellFSFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf3364ba0_65b9_11ce_a9ba_00aa004ae837);
+pub const ShellFolderItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2fe352ea_fd1f_11d2_b1f4_00c04f8eeb3e);
+pub const ShellFolderView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x62112aa1_ebe4_11cf_a5fb_0020afe7292d);
+pub const ShellFolderViewOC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9ba05971_f6a8_11cf_a442_00a0c90a8f39);
+pub type ShellFolderViewOptions = i32;
+pub const ShellImageDataFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66e4e4fb_f385_4dd0_8d74_a2efd1bc6178);
+pub const ShellItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9ac9fbe1_e0a2_4ad6_b4ee_e212013ea917);
+pub const ShellLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd9b3211d_e57f_4426_aaef_30a806add397);
+pub const ShellLink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021401_0000_0000_c000_000000000046);
+pub const ShellLinkObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x11219420_1768_11d1_95be_00609797ea4f);
+pub const ShellNameSpace: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x55136805_b2de_11d1_b9f2_00a0c98bc547);
+pub type ShellSpecialFolderConstants = i32;
+pub const ShellUIHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x64ab4bb7_111e_11d1_8f79_00c04fc2fbe1);
+pub type ShellWindowFindWindowOptions = i32;
+pub type ShellWindowTypeConstants = i32;
+pub const ShellWindows: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9ba05972_f6a8_11cf_a442_00a0c90a8f39);
+pub const ShowInputPaneAnimationCoordinator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1f046abf_3202_4dc1_8cb5_3c67617ce1fa);
+pub const SimpleConflictPresenter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7a0f6ab7_ed84_46b6_b47e_02aa159a152b);
+pub const SizeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x55d7b852_f6d1_42f2_aa75_8728a1b2d264);
+pub const SmartcardCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fd7e19c_3bf7_489b_a72c_846ab3678c96);
+pub const SmartcardPinProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94596c7e_3744_41ce_893e_bbf09122f76a);
+pub const SmartcardReaderSelectionProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1b283861_754f_4022_ad47_a5eaaa618894);
+pub const SmartcardWinRTProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ee7337f_85ac_45e2_a23c_37c753209769);
+pub const StartMenuPin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa2a9545d_a0c2_42b4_9708_a0b2badd77c8);
+pub const StorageProviderBanners: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ccdf9f4_e576_455a_8bc7_f6ec68d6f063);
+pub const SuspensionDependencyManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b273fc5_61fd_4918_95a2_c3b5e9d7f581);
+pub const SyncMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6295df27_35ee_11d1_8707_00c04fd93327);
+pub const SyncMgrClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1202db60_1dac_42c5_aed5_1abdd432248e);
+pub const SyncMgrControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1a1f4206_0688_4e7f_be03_d82ec69df9a5);
+pub const SyncMgrFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c73f5e5_7ae7_4e32_a8e8_8d23b85255bf);
+pub const SyncMgrScheduleWizard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8d8b8e30_c451_421b_8553_d2976afa648c);
+pub const SyncResultsFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x71d99464_3b6b_475c_b241_e15883207529);
+pub const SyncSetupFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2e9e59c0_b437_4981_a647_9c34b9b90891);
 pub const TBIF_APPEND: u32 = 0u32;
 pub const TBIF_DEFAULT: u32 = 0u32;
 pub const TBIF_INTERNETBAR: u32 = 65536u32;
@@ -4292,6 +6325,13 @@ pub const TBIF_NOTOOLBAR: u32 = 196608u32;
 pub const TBIF_PREPEND: u32 = 1u32;
 pub const TBIF_REPLACE: u32 = 2u32;
 pub const TBIF_STANDARDTOOLBAR: u32 = 131072u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TBINFO {
+    pub cbuttons: u32,
+    pub uFlags: u32,
+}
+pub type TBPFLAG = i32;
 pub const TBPF_ERROR: TBPFLAG = 4i32;
 pub const TBPF_INDETERMINATE: TBPFLAG = 1i32;
 pub const TBPF_NOPROGRESS: TBPFLAG = 0i32;
@@ -4308,8 +6348,22 @@ pub const THB_BITMAP: THUMBBUTTONMASK = 1i32;
 pub const THB_FLAGS: THUMBBUTTONMASK = 8i32;
 pub const THB_ICON: THUMBBUTTONMASK = 2i32;
 pub const THB_TOOLTIP: THUMBBUTTONMASK = 4i32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct THUMBBUTTON {
+    pub dwMask: THUMBBUTTONMASK,
+    pub iId: u32,
+    pub iBitmap: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szTip: [u16; 260],
+    pub dwFlags: THUMBBUTTONFLAGS,
+}
+pub type THUMBBUTTONFLAGS = i32;
+pub type THUMBBUTTONMASK = i32;
 pub const TITLEBARNAMELEN: u32 = 40u32;
 pub const TI_BITMAP: TI_FLAGS = 1i32;
+pub type TI_FLAGS = i32;
 pub const TI_JPEG: TI_FLAGS = 2i32;
 pub const TLEF_ABSOLUTE: TLENUMF = 49i32;
 pub const TLEF_EXCLUDE_ABOUT_PAGES: TLENUMF = 256i32;
@@ -4318,14 +6372,26 @@ pub const TLEF_INCLUDE_UNINVOKEABLE: TLENUMF = 64i32;
 pub const TLEF_RELATIVE_BACK: TLENUMF = 16i32;
 pub const TLEF_RELATIVE_FORE: TLENUMF = 32i32;
 pub const TLEF_RELATIVE_INCLUDE_CURRENT: TLENUMF = 1i32;
+pub type TLENUMF = i32;
 pub const TLMENUF_BACK: u32 = 16u32;
 pub const TLMENUF_FORE: u32 = 32u32;
 pub const TLMENUF_INCLUDECURRENT: u32 = 1u32;
 pub const TLOG_BACK: i32 = -1i32;
 pub const TLOG_CURRENT: u32 = 0u32;
 pub const TLOG_FORE: u32 = 1u32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
+#[derive(Clone, Copy)]
+pub struct TOOLBARITEM {
+    pub ptbar: *mut core::ffi::c_void,
+    pub rcBorderTool: super::super::Foundation::RECT,
+    pub pwszItem: windows_sys::core::PWSTR,
+    pub fShow: super::super::Foundation::BOOL,
+    pub hMon: super::super::Graphics::Gdi::HMONITOR,
+}
 pub const TRANSLATEURL_FL_GUESS_PROTOCOL: TRANSLATEURL_IN_FLAGS = 1i32;
 pub const TRANSLATEURL_FL_USE_DEFAULT_PROTOCOL: TRANSLATEURL_IN_FLAGS = 2i32;
+pub type TRANSLATEURL_IN_FLAGS = i32;
 pub const TSF_ALLOW_DECRYPTION: _TRANSFER_SOURCE_FLAGS = 4i32;
 pub const TSF_COPY_CREATION_TIME: _TRANSFER_SOURCE_FLAGS = 16i32;
 pub const TSF_COPY_HARD_LINK: _TRANSFER_SOURCE_FLAGS = 256i32;
@@ -4344,8 +6410,34 @@ pub const TS_INDETERMINATE: _TRANSFER_ADVISE_STATE = 4i32;
 pub const TS_NONE: _TRANSFER_ADVISE_STATE = 0i32;
 pub const TS_PERFORMING: _TRANSFER_ADVISE_STATE = 1i32;
 pub const TS_PREPARING: _TRANSFER_ADVISE_STATE = 2i32;
+pub const TaskbarList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x56fdf344_fd6d_11d0_958a_006097c9a090);
+pub const ThumbnailStreamCache: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcbe0fed3_4b91_4e90_8354_8a8c84ec6872);
+pub type ThumbnailStreamCacheOptions = i32;
+pub const TimeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3bb4118f_ddfd_4d30_a348_9fb5d6bf1afe);
+pub const TrackShellMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8278f931_2a3e_11d2_838f_00c04fd918d0);
+pub const TrayBandSiteService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf60ad0a0_e5e1_45cb_b51a_e15b9f8b2934);
+pub const TrayDeskBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe6442437_6c68_4f52_94dd_2cfed267efb9);
+pub type UNDOCK_REASON = i32;
 pub const URLASSOCDLG_FL_REGISTER_ASSOC: URLASSOCIATIONDIALOG_IN_FLAGS = 2i32;
 pub const URLASSOCDLG_FL_USE_DEFAULT_NAME: URLASSOCIATIONDIALOG_IN_FLAGS = 1i32;
+pub type URLASSOCIATIONDIALOG_IN_FLAGS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct URLINVOKECOMMANDINFOA {
+    pub dwcbSize: u32,
+    pub dwFlags: u32,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub pcszVerb: windows_sys::core::PCSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct URLINVOKECOMMANDINFOW {
+    pub dwcbSize: u32,
+    pub dwFlags: u32,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub pcszVerb: windows_sys::core::PCWSTR,
+}
+pub type URLIS = i32;
 pub const URLIS_APPLIABLE: URLIS = 4i32;
 pub const URLIS_DIRECTORY: URLIS = 5i32;
 pub const URLIS_FILEURL: URLIS = 3i32;
@@ -4374,6 +6466,7 @@ pub const URL_E_UNREGISTERED_PROTOCOL: windows_sys::core::HRESULT = 0x80041002_u
 pub const URL_FILE_USE_PATHURL: u32 = 65536u32;
 pub const URL_INTERNAL_PATH: u32 = 8388608u32;
 pub const URL_NO_META: u32 = 134217728u32;
+pub type URL_PART = i32;
 pub const URL_PARTFLAG_KEEPSCHEME: u32 = 1u32;
 pub const URL_PART_HOSTNAME: URL_PART = 2i32;
 pub const URL_PART_NONE: URL_PART = 0i32;
@@ -4383,6 +6476,7 @@ pub const URL_PART_QUERY: URL_PART = 6i32;
 pub const URL_PART_SCHEME: URL_PART = 1i32;
 pub const URL_PART_USERNAME: URL_PART = 3i32;
 pub const URL_PLUGGABLE_PROTOCOL: u32 = 1073741824u32;
+pub type URL_SCHEME = i32;
 pub const URL_SCHEME_ABOUT: URL_SCHEME = 17i32;
 pub const URL_SCHEME_FILE: URL_SCHEME = 9i32;
 pub const URL_SCHEME_FTP: URL_SCHEME = 1i32;
@@ -4420,8 +6514,13 @@ pub const URL_UNESCAPE_URI_COMPONENT: u32 = 262144u32;
 pub const URL_WININET_COMPATIBILITY: u32 = 2147483648u32;
 pub const UR_MONITOR_DISCONNECT: UNDOCK_REASON = 1i32;
 pub const UR_RESOLUTION_CHANGE: UNDOCK_REASON = 0i32;
+pub const UserNotification: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0010890e_8789_413c_adbc_48f5b511b3af);
+pub const V1PasswordCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f45dc1e_5384_457a_bc13_2cd81b0d28ed);
+pub const V1SmartcardCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8bf9a910_a8ff_457f_999f_a5ca10b4a885);
+pub const V1WinBioCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xac3ac249_e820_4343_a65b_377ac634dc09);
 pub const VALIDATEUNC_CONNECT: VALIDATEUNC_OPTION = 1i32;
 pub const VALIDATEUNC_NOUI: VALIDATEUNC_OPTION = 2i32;
+pub type VALIDATEUNC_OPTION = i32;
 pub const VALIDATEUNC_PERSIST: VALIDATEUNC_OPTION = 8i32;
 pub const VALIDATEUNC_PRINT: VALIDATEUNC_OPTION = 4i32;
 pub const VALIDATEUNC_VALID: VALIDATEUNC_OPTION = 15i32;
@@ -4449,9 +6548,24 @@ pub const VPCF_SORTCOLUMN: VPCOLORFLAGS = 3i32;
 pub const VPCF_SUBTEXT: VPCOLORFLAGS = 4i32;
 pub const VPCF_TEXT: VPCOLORFLAGS = 1i32;
 pub const VPCF_TEXTBACKGROUND: VPCOLORFLAGS = 5i32;
+pub type VPCOLORFLAGS = i32;
+pub type VPWATERMARKFLAGS = i32;
 pub const VPWF_ALPHABLEND: VPWATERMARKFLAGS = 1i32;
 pub const VPWF_DEFAULT: VPWATERMARKFLAGS = 0i32;
+pub const VaultProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x503739d0_4c5e_4cfd_b3ba_d881334f0df2);
+pub const VirtualDesktopManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaa509086_5ca9_4c25_8f95_589d3c07b48a);
 pub const WC_NETADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_netaddress");
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_Common")]
+#[derive(Clone, Copy)]
+pub struct WINDOWDATA {
+    pub dwWindowID: u32,
+    pub uiCP: u32,
+    pub pidl: *mut Common::ITEMIDLIST,
+    pub lpszUrl: windows_sys::core::PWSTR,
+    pub lpszUrlLocation: windows_sys::core::PWSTR,
+    pub lpszTitle: windows_sys::core::PWSTR,
+}
 pub const WM_CPL_LAUNCH: u32 = 2024u32;
 pub const WM_CPL_LAUNCHED: u32 = 2025u32;
 pub const WPSTYLE_CENTER: u32 = 0u32;
@@ -4469,8 +6583,11 @@ pub const WTSCF_DEFAULT: WTS_CONTEXTFLAGS = 0i32;
 pub const WTSCF_FAST: WTS_CONTEXTFLAGS = 8i32;
 pub const WTSCF_SQUARE: WTS_CONTEXTFLAGS = 2i32;
 pub const WTSCF_WIDE: WTS_CONTEXTFLAGS = 4i32;
+pub type WTS_ALPHATYPE = i32;
 pub const WTS_APPSTYLE: WTS_FLAGS = 8192i32;
 pub const WTS_CACHED: WTS_CACHEFLAGS = 2i32;
+pub type WTS_CACHEFLAGS = i32;
+pub type WTS_CONTEXTFLAGS = i32;
 pub const WTS_CROPTOSQUARE: WTS_FLAGS = 512i32;
 pub const WTS_DEFAULT: WTS_CACHEFLAGS = 0i32;
 pub const WTS_EXTRACT: WTS_FLAGS = 0i32;
@@ -4485,6 +6602,7 @@ pub const WTS_E_FASTEXTRACTIONNOTSUPPORTED: windows_sys::core::HRESULT = 0x8004B
 pub const WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER: windows_sys::core::HRESULT = 0x8004B207_u32 as _;
 pub const WTS_E_SURROGATEUNAVAILABLE: windows_sys::core::HRESULT = 0x8004B202_u32 as _;
 pub const WTS_FASTEXTRACT: WTS_FLAGS = 2i32;
+pub type WTS_FLAGS = i32;
 pub const WTS_FORCEEXTRACTION: WTS_FLAGS = 4i32;
 pub const WTS_IDEALCACHESIZEONLY: WTS_FLAGS = 32768i32;
 pub const WTS_INCACHEONLY: WTS_FLAGS = 1i32;
@@ -4496,7 +6614,43 @@ pub const WTS_SCALETOREQUESTEDSIZE: WTS_FLAGS = 64i32;
 pub const WTS_SCALEUP: WTS_FLAGS = 65536i32;
 pub const WTS_SKIPFASTEXTRACT: WTS_FLAGS = 128i32;
 pub const WTS_SLOWRECLAIM: WTS_FLAGS = 8i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WTS_THUMBNAILID {
+    pub rgbKey: [u8; 16],
+}
 pub const WTS_WIDETHUMBNAILS: WTS_FLAGS = 16384i32;
+pub const WebBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8856f961_340a_11d0_a96b_00c04fd705a2);
+pub const WebBrowser_V1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeab22ac3_30c1_11cf_a7eb_0000c05bae0b);
+pub const WebWizardHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc827f149_55c1_4d28_935e_57e47caed973);
+pub const WinBioCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbec09223_b018_416d_a0ac_523971b639f5);
+pub type _BROWSERFRAMEOPTIONS = i32;
+pub type _CDBE_ACTIONS = i32;
+pub type _EXPCMDFLAGS = i32;
+pub type _EXPCMDSTATE = i32;
+pub type _EXPLORERPANESTATE = i32;
+pub type _EXPPS = i32;
+pub type _KF_DEFINITION_FLAGS = i32;
+pub type _KF_REDIRECTION_CAPABILITIES = i32;
+pub type _KF_REDIRECT_FLAGS = i32;
+pub type _NMCII_FLAGS = i32;
+pub type _NMCSAEI_FLAGS = i32;
+pub type _NSTCECLICKTYPE = i32;
+pub type _NSTCEHITTEST = i32;
+pub type _NSTCITEMSTATE = i32;
+pub type _NSTCROOTSTYLE = i32;
+pub type _NSTCSTYLE = i32;
+pub type _OPPROGDLGF = i32;
+pub type _PDMODE = i32;
+pub type _SHCONTF = i32;
+pub type _SICHINTF = i32;
+pub type _SPBEGINF = i32;
+pub type _SPINITF = i32;
+pub type _SV3CVW3_FLAGS = i32;
+pub type _SVGIO = i32;
+pub type _SVSIF = i32;
+pub type _TRANSFER_ADVISE_STATE = i32;
+pub type _TRANSFER_SOURCE_FLAGS = i32;
 pub const __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_CSCSYNCINPROGRESS: SHGLOBALCOUNTER = 13i32;
 pub const __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEDIRTYCOUNT_SERVERDRIVE: SHGLOBALCOUNTER = 42i32;
 pub const __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEGLOBALDIRTYCOUNT: SHGLOBALCOUNTER = 43i32;
@@ -4588,2116 +6742,3 @@ pub const ssfSYSTEM: ShellSpecialFolderConstants = 37i32;
 pub const ssfSYSTEMx86: ShellSpecialFolderConstants = 41i32;
 pub const ssfTEMPLATES: ShellSpecialFolderConstants = 21i32;
 pub const ssfWINDOWS: ShellSpecialFolderConstants = 36i32;
-pub type ACENUMOPTION = i32;
-pub type ACTIVATEOPTIONS = i32;
-pub type ADJACENT_DISPLAY_EDGES = i32;
-pub type AHE_TYPE = i32;
-pub type AHTYPE = i32;
-pub type APPACTIONFLAGS = i32;
-pub type APPDOCLISTTYPE = i32;
-pub type APPINFODATAFLAGS = i32;
-pub type APPLICATION_VIEW_MIN_WIDTH = i32;
-pub type APPLICATION_VIEW_ORIENTATION = i32;
-pub type APPLICATION_VIEW_SIZE_PREFERENCE = i32;
-pub type APPLICATION_VIEW_STATE = i32;
-pub type ASSOCCLASS = i32;
-pub type ASSOCDATA = i32;
-pub type ASSOCENUM = i32;
-pub type ASSOCF = u32;
-pub type ASSOCIATIONLEVEL = i32;
-pub type ASSOCIATIONTYPE = i32;
-pub type ASSOCKEY = i32;
-pub type ASSOCSTR = i32;
-pub type ASSOC_FILTER = i32;
-pub type ATTACHMENT_ACTION = i32;
-pub type ATTACHMENT_PROMPT = i32;
-pub type AUTOCOMPLETELISTOPTIONS = i32;
-pub type AUTOCOMPLETEOPTIONS = i32;
-pub type BANDSITECID = i32;
-pub type BANNER_NOTIFICATION_EVENT = i32;
-pub type BNSTATE = i32;
-pub type BrowserNavConstants = i32;
-pub type CATEGORYINFO_FLAGS = i32;
-pub type CATSORT_FLAGS = i32;
-pub type CDBURNINGEXTENSIONRET = i32;
-pub type CDCONTROLSTATEF = i32;
-pub type CM_ENUM_FLAGS = i32;
-pub type CM_MASK = i32;
-pub type CM_SET_WIDTH_VALUE = i32;
-pub type CM_STATE = i32;
-pub type CPVIEW = i32;
-pub type CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = i32;
-pub type CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = i32;
-pub type CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = i32;
-pub type CREDENTIAL_PROVIDER_FIELD_STATE = i32;
-pub type CREDENTIAL_PROVIDER_FIELD_TYPE = i32;
-pub type CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = i32;
-pub type CREDENTIAL_PROVIDER_STATUS_ICON = i32;
-pub type CREDENTIAL_PROVIDER_USAGE_SCENARIO = i32;
-pub type CommandStateChangeConstants = i32;
-pub type DATAOBJ_GET_ITEM_FLAGS = i32;
-pub type DEFAULTSAVEFOLDERTYPE = i32;
-pub type DEFAULT_FOLDER_MENU_RESTRICTIONS = i32;
-pub type DEF_SHARE_ID = i32;
-pub type DESKBANDCID = i32;
-pub type DESKTOP_SLIDESHOW_DIRECTION = i32;
-pub type DESKTOP_SLIDESHOW_OPTIONS = i32;
-pub type DESKTOP_SLIDESHOW_STATE = i32;
-pub type DESKTOP_WALLPAPER_POSITION = i32;
-pub type DFM_CMD = i32;
-pub type DFM_MESSAGE_ID = i32;
-pub type DISPLAY_DEVICE_TYPE = i32;
-pub type DROPIMAGETYPE = i32;
-pub type DSH_FLAGS = i32;
-pub type EC_HOST_UI_MODE = i32;
-pub type EDGE_GESTURE_KIND = i32;
-pub type EXPLORER_BROWSER_FILL_FLAGS = i32;
-pub type EXPLORER_BROWSER_OPTIONS = i32;
-pub type FDAP = i32;
-pub type FDE_OVERWRITE_RESPONSE = i32;
-pub type FDE_SHAREVIOLATION_RESPONSE = i32;
-pub type FD_FLAGS = i32;
-pub type FFFP_MODE = i32;
-pub type FILEOPENDIALOGOPTIONS = u32;
-pub type FILEOPERATION_FLAGS = u32;
-pub type FILETYPEATTRIBUTEFLAGS = i32;
-pub type FILE_OPERATION_FLAGS2 = i32;
-pub type FILE_USAGE_TYPE = i32;
-pub type FLYOUT_PLACEMENT = i32;
-pub type FOLDERFLAGS = i32;
-pub type FOLDERLOGICALVIEWMODE = i32;
-pub type FOLDERVIEWMODE = i32;
-pub type FOLDERVIEWOPTIONS = i32;
-pub type FOLDER_ENUM_MODE = i32;
-pub type FVTEXTTYPE = i32;
-pub type GPFIDL_FLAGS = u32;
-pub type HELP_INFO_TYPE = i32;
-pub type HLBWIF_FLAGS = i32;
-pub type HLFNAMEF = i32;
-pub type HLID_INFO = u32;
-pub type HLINKGETREF = i32;
-pub type HLINKMISC = i32;
-pub type HLINKSETF = i32;
-pub type HLINKWHICHMK = i32;
-pub type HLNF = u32;
-pub type HLQF_INFO = i32;
-pub type HLSHORTCUTF = i32;
-pub type HLSR = i32;
-pub type HLTB_INFO = i32;
-pub type HLTRANSLATEF = i32;
-pub type HOMEGROUPSHARINGCHOICES = i32;
-pub type IEPDNFLAGS = i32;
-pub type IESHORTCUTFLAGS = i32;
-pub type IURL_INVOKECOMMAND_FLAGS = i32;
-pub type IURL_SETURL_FLAGS = i32;
-pub type KF_CATEGORY = i32;
-pub type KNOWNDESTCATEGORY = i32;
-pub type KNOWN_FOLDER_FLAG = i32;
-pub type LIBRARYFOLDERFILTER = i32;
-pub type LIBRARYMANAGEDIALOGOPTIONS = i32;
-pub type LIBRARYOPTIONFLAGS = i32;
-pub type LIBRARYSAVEFLAGS = i32;
-pub type MENUBANDHANDLERCID = i32;
-pub type MENUPOPUPPOPUPFLAGS = i32;
-pub type MENUPOPUPSELECT = i32;
-pub type MERGE_UPDATE_STATUS = i32;
-pub type MIMEASSOCIATIONDIALOG_IN_FLAGS = i32;
-pub type MM_FLAGS = u32;
-pub type MONITOR_APP_VISIBILITY = i32;
-pub type NAMESPACEWALKFLAG = i32;
-pub type NATIVE_DISPLAY_ORIENTATION = i32;
-pub type NOTIFY_ICON_DATA_FLAGS = u32;
-pub type NOTIFY_ICON_INFOTIP_FLAGS = u32;
-pub type NOTIFY_ICON_MESSAGE = u32;
-pub type NOTIFY_ICON_STATE = u32;
-pub type NSTCFOLDERCAPABILITIES = i32;
-pub type NSTCGNI = i32;
-pub type NSTCSTYLE2 = i32;
-pub type NWMF = i32;
-pub type NewProcessCauseConstants = i32;
-pub type OPEN_AS_INFO_FLAGS = i32;
-pub type OS = u32;
-pub type OfflineFolderStatus = i32;
-pub type PACKAGE_EXECUTION_STATE = i32;
-pub type PATHCCH_OPTIONS = u32;
-pub type PCS_RET = u32;
-pub type PIDISF_FLAGS = i32;
-pub type PIDISM_OPTIONS = i32;
-pub type PIDISR_INFO = i32;
-pub type PID_INTSITE = i32;
-pub type PID_IS = i32;
-pub type PRF_FLAGS = i32;
-pub type PUBAPPINFOFLAGS = i32;
-pub type QITIPF_FLAGS = i32;
-pub type QUERY_USER_NOTIFICATION_STATE = i32;
-pub type RESTRICTIONS = i32;
-pub type RefreshConstants = i32;
-pub type SCALE_CHANGE_FLAGS = i32;
-pub type SCNRT_STATUS = i32;
-pub type SECURELOCKCODE = i32;
-pub type SFBS_FLAGS = i32;
-pub type SFVM_MESSAGE_ID = i32;
-pub type SFVS_SELECT = i32;
-pub type SHARD = i32;
-pub type SHARE_ROLE = i32;
-pub type SHCNE_ID = u32;
-pub type SHCNF_FLAGS = u32;
-pub type SHCNRF_SOURCE = i32;
-pub type SHDID_ID = i32;
-pub type SHELLBROWSERSHOWCONTROL = i32;
-pub type SHELL_AUTOCOMPLETE_FLAGS = u32;
-pub type SHELL_LINK_DATA_FLAGS = i32;
-pub type SHELL_UI_COMPONENT = i32;
-pub type SHFMT_ID = u32;
-pub type SHFMT_OPT = i32;
-pub type SHFMT_RET = u32;
-pub type SHGDFIL_FORMAT = i32;
-pub type SHGDNF = u32;
-pub type SHGFI_FLAGS = u32;
-pub type SHGFP_TYPE = i32;
-pub type SHGLOBALCOUNTER = i32;
-pub type SHGSI_FLAGS = u32;
-pub type SHOP_TYPE = i32;
-pub type SHREGDEL_FLAGS = i32;
-pub type SHREGENUM_FLAGS = i32;
-pub type SHSTOCKICONID = i32;
-pub type SIATTRIBFLAGS = i32;
-pub type SIGDN = i32;
-pub type SIIGBF = i32;
-pub type SLGP_FLAGS = i32;
-pub type SLR_FLAGS = i32;
-pub type SMINFOFLAGS = i32;
-pub type SMINFOMASK = i32;
-pub type SMINFOTYPE = i32;
-pub type SORTDIRECTION = i32;
-pub type SORT_ORDER_TYPE = i32;
-pub type SPACTION = i32;
-pub type SPTEXT = i32;
-pub type SSF_MASK = u32;
-pub type STGOP = i32;
-pub type STORAGE_PROVIDER_FILE_FLAGS = i32;
-pub type STPFLAG = i32;
-pub type SVUIA_STATUS = i32;
-pub type SYNCMGRERRORFLAGS = i32;
-pub type SYNCMGRFLAG = i32;
-pub type SYNCMGRHANDLERFLAGS = i32;
-pub type SYNCMGRINVOKEFLAGS = i32;
-pub type SYNCMGRITEMFLAGS = i32;
-pub type SYNCMGRITEMSTATE = i32;
-pub type SYNCMGRLOGLEVEL = i32;
-pub type SYNCMGRREGISTERFLAGS = i32;
-pub type SYNCMGRSTATUS = i32;
-pub type SYNCMGR_CANCEL_REQUEST = i32;
-pub type SYNCMGR_CONFLICT_ITEM_TYPE = i32;
-pub type SYNCMGR_CONTROL_FLAGS = i32;
-pub type SYNCMGR_EVENT_FLAGS = i32;
-pub type SYNCMGR_EVENT_LEVEL = i32;
-pub type SYNCMGR_HANDLER_CAPABILITIES = i32;
-pub type SYNCMGR_HANDLER_POLICIES = i32;
-pub type SYNCMGR_HANDLER_TYPE = i32;
-pub type SYNCMGR_ITEM_CAPABILITIES = i32;
-pub type SYNCMGR_ITEM_POLICIES = i32;
-pub type SYNCMGR_PRESENTER_CHOICE = i32;
-pub type SYNCMGR_PRESENTER_NEXT_STEP = i32;
-pub type SYNCMGR_PROGRESS_STATUS = i32;
-pub type SYNCMGR_RESOLUTION_ABILITIES = i32;
-pub type SYNCMGR_RESOLUTION_FEEDBACK = i32;
-pub type SYNCMGR_SYNC_CONTROL_FLAGS = i32;
-pub type SYNCMGR_UPDATE_REASON = i32;
-pub type SecureLockIconConstants = i32;
-pub type ShellFolderViewOptions = i32;
-pub type ShellSpecialFolderConstants = i32;
-pub type ShellWindowFindWindowOptions = i32;
-pub type ShellWindowTypeConstants = i32;
-pub type TBPFLAG = i32;
-pub type THUMBBUTTONFLAGS = i32;
-pub type THUMBBUTTONMASK = i32;
-pub type TI_FLAGS = i32;
-pub type TLENUMF = i32;
-pub type TRANSLATEURL_IN_FLAGS = i32;
-pub type ThumbnailStreamCacheOptions = i32;
-pub type UNDOCK_REASON = i32;
-pub type URLASSOCIATIONDIALOG_IN_FLAGS = i32;
-pub type URLIS = i32;
-pub type URL_PART = i32;
-pub type URL_SCHEME = i32;
-pub type VALIDATEUNC_OPTION = i32;
-pub type VPCOLORFLAGS = i32;
-pub type VPWATERMARKFLAGS = i32;
-pub type WTS_ALPHATYPE = i32;
-pub type WTS_CACHEFLAGS = i32;
-pub type WTS_CONTEXTFLAGS = i32;
-pub type WTS_FLAGS = i32;
-pub type _BROWSERFRAMEOPTIONS = i32;
-pub type _CDBE_ACTIONS = i32;
-pub type _EXPCMDFLAGS = i32;
-pub type _EXPCMDSTATE = i32;
-pub type _EXPLORERPANESTATE = i32;
-pub type _EXPPS = i32;
-pub type _KF_DEFINITION_FLAGS = i32;
-pub type _KF_REDIRECTION_CAPABILITIES = i32;
-pub type _KF_REDIRECT_FLAGS = i32;
-pub type _NMCII_FLAGS = i32;
-pub type _NMCSAEI_FLAGS = i32;
-pub type _NSTCECLICKTYPE = i32;
-pub type _NSTCEHITTEST = i32;
-pub type _NSTCITEMSTATE = i32;
-pub type _NSTCROOTSTYLE = i32;
-pub type _NSTCSTYLE = i32;
-pub type _OPPROGDLGF = i32;
-pub type _PDMODE = i32;
-pub type _SHCONTF = i32;
-pub type _SICHINTF = i32;
-pub type _SPBEGINF = i32;
-pub type _SPINITF = i32;
-pub type _SV3CVW3_FLAGS = i32;
-pub type _SVGIO = i32;
-pub type _SVSIF = i32;
-pub type _TRANSFER_ADVISE_STATE = i32;
-pub type _TRANSFER_SOURCE_FLAGS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AASHELLMENUFILENAME {
-    pub cbTotal: i16,
-    pub rgbReserved: [u8; 12],
-    pub szFileName: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AASHELLMENUITEM {
-    pub lpReserved1: *mut core::ffi::c_void,
-    pub iReserved: i32,
-    pub uiReserved: u32,
-    pub lpName: *mut AASHELLMENUFILENAME,
-    pub psz: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct APPBARDATA {
-    pub cbSize: u32,
-    pub hWnd: super::super::Foundation::HWND,
-    pub uCallbackMessage: u32,
-    pub uEdge: u32,
-    pub rc: super::super::Foundation::RECT,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct APPBARDATA {
-    pub cbSize: u32,
-    pub hWnd: super::super::Foundation::HWND,
-    pub uCallbackMessage: u32,
-    pub uEdge: u32,
-    pub rc: super::super::Foundation::RECT,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct APPCATEGORYINFO {
-    pub Locale: u32,
-    pub pszDescription: windows_sys::core::PWSTR,
-    pub AppCategoryId: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct APPCATEGORYINFOLIST {
-    pub cCategory: u32,
-    pub pCategoryInfo: *mut APPCATEGORYINFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct APPINFODATA {
-    pub cbSize: u32,
-    pub dwMask: u32,
-    pub pszDisplayName: windows_sys::core::PWSTR,
-    pub pszVersion: windows_sys::core::PWSTR,
-    pub pszPublisher: windows_sys::core::PWSTR,
-    pub pszProductID: windows_sys::core::PWSTR,
-    pub pszRegisteredOwner: windows_sys::core::PWSTR,
-    pub pszRegisteredCompany: windows_sys::core::PWSTR,
-    pub pszLanguage: windows_sys::core::PWSTR,
-    pub pszSupportUrl: windows_sys::core::PWSTR,
-    pub pszSupportTelephone: windows_sys::core::PWSTR,
-    pub pszHelpLink: windows_sys::core::PWSTR,
-    pub pszInstallLocation: windows_sys::core::PWSTR,
-    pub pszInstallSource: windows_sys::core::PWSTR,
-    pub pszInstallDate: windows_sys::core::PWSTR,
-    pub pszContact: windows_sys::core::PWSTR,
-    pub pszComments: windows_sys::core::PWSTR,
-    pub pszImage: windows_sys::core::PWSTR,
-    pub pszReadmeUrl: windows_sys::core::PWSTR,
-    pub pszUpdateInfoUrl: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub struct ASSOCIATIONELEMENT {
-    pub ac: ASSOCCLASS,
-    pub hkClass: super::super::System::Registry::HKEY,
-    pub pszClass: windows_sys::core::PCWSTR,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub struct ASSOCIATIONELEMENT {
-    pub ac: ASSOCCLASS,
-    pub hkClass: super::super::System::Registry::HKEY,
-    pub pszClass: windows_sys::core::PCWSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct AUTO_SCROLL_DATA {
-    pub iNextSample: i32,
-    pub dwLastScroll: u32,
-    pub bFull: super::super::Foundation::BOOL,
-    pub pts: [super::super::Foundation::POINT; 3],
-    pub dwTimes: [u32; 3],
-}
-pub const AccessibilityDockingService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402);
-pub const AlphabeticalCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c2654c6_7372_4f6b_b310_55d6128f49d2);
-pub const AppShellVerbHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4ed3a719_cea8_4bd9_910d_e252f997afc2);
-pub const AppStartupLink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x273eb5e7_88b0_4843_bfef_e2c81d43aae5);
-pub const AppVisibility: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7e5fe3d9_985f_4908_91f9_ee19f9fd1514);
-pub const ApplicationActivationManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x45ba127d_10a8_46ea_8ab7_56ea9078943c);
-pub const ApplicationAssociationRegistration: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x591209c7_767b_42b2_9fba_44ee4615f2c7);
-pub const ApplicationAssociationRegistrationUI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1968106d_f3b5_44cf_890e_116fcb9ecef1);
-pub const ApplicationDesignModeSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x958a6fb5_dcb2_4faf_aafd_7fb054ad1a3b);
-pub const ApplicationDestinations: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86c14003_4d6b_4ef3_a7b4_0506663b2e68);
-pub const ApplicationDocumentLists: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86bec222_30f2_47e0_9f25_60d11cd75c28);
-pub const AttachmentServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4125dd96_e03a_4103_8f70_e0597d803b9c);
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct BANDINFOSFB {
-    pub dwMask: u32,
-    pub dwStateMask: u32,
-    pub dwState: u32,
-    pub crBkgnd: super::super::Foundation::COLORREF,
-    pub crBtnLt: super::super::Foundation::COLORREF,
-    pub crBtnDk: super::super::Foundation::COLORREF,
-    pub wViewMode: u16,
-    pub wAlign: u16,
-    pub psf: *mut core::ffi::c_void,
-    pub pidl: *mut Common::ITEMIDLIST,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BANDSITEINFO {
-    pub dwMask: u32,
-    pub dwState: u32,
-    pub dwStyle: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BANNER_NOTIFICATION {
-    pub event: BANNER_NOTIFICATION_EVENT,
-    pub providerIdentity: windows_sys::core::PCWSTR,
-    pub contentId: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct BASEBROWSERDATALH {
-    pub _hwnd: super::super::Foundation::HWND,
-    pub _ptl: *mut core::ffi::c_void,
-    pub _phlf: *mut core::ffi::c_void,
-    pub _pautoWB2: *mut core::ffi::c_void,
-    pub _pautoEDS: *mut core::ffi::c_void,
-    pub _pautoSS: *mut core::ffi::c_void,
-    pub _eSecureLockIcon: i32,
-    pub _bitfield: u32,
-    pub _uActivateState: u32,
-    pub _pidlViewState: *mut Common::ITEMIDLIST,
-    pub _pctView: *mut core::ffi::c_void,
-    pub _pidlCur: *mut Common::ITEMIDLIST,
-    pub _psv: *mut core::ffi::c_void,
-    pub _psf: *mut core::ffi::c_void,
-    pub _hwndView: super::super::Foundation::HWND,
-    pub _pszTitleCur: windows_sys::core::PWSTR,
-    pub _pidlPending: *mut Common::ITEMIDLIST,
-    pub _psvPending: *mut core::ffi::c_void,
-    pub _psfPending: *mut core::ffi::c_void,
-    pub _hwndViewPending: super::super::Foundation::HWND,
-    pub _pszTitlePending: windows_sys::core::PWSTR,
-    pub _fIsViewMSHTML: super::super::Foundation::BOOL,
-    pub _fPrivacyImpacted: super::super::Foundation::BOOL,
-    pub _clsidView: windows_sys::core::GUID,
-    pub _clsidViewPending: windows_sys::core::GUID,
-    pub _hwndFrame: super::super::Foundation::HWND,
-    pub _lPhishingFilterStatus: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct BASEBROWSERDATAXP {
-    pub _hwnd: super::super::Foundation::HWND,
-    pub _ptl: *mut core::ffi::c_void,
-    pub _phlf: *mut core::ffi::c_void,
-    pub _pautoWB2: *mut core::ffi::c_void,
-    pub _pautoEDS: *mut core::ffi::c_void,
-    pub _pautoSS: *mut core::ffi::c_void,
-    pub _eSecureLockIcon: i32,
-    pub _bitfield: u32,
-    pub _uActivateState: u32,
-    pub _pidlViewState: *mut Common::ITEMIDLIST,
-    pub _pctView: *mut core::ffi::c_void,
-    pub _pidlCur: *mut Common::ITEMIDLIST,
-    pub _psv: *mut core::ffi::c_void,
-    pub _psf: *mut core::ffi::c_void,
-    pub _hwndView: super::super::Foundation::HWND,
-    pub _pszTitleCur: windows_sys::core::PWSTR,
-    pub _pidlPending: *mut Common::ITEMIDLIST,
-    pub _psvPending: *mut core::ffi::c_void,
-    pub _psfPending: *mut core::ffi::c_void,
-    pub _hwndViewPending: super::super::Foundation::HWND,
-    pub _pszTitlePending: windows_sys::core::PWSTR,
-    pub _fIsViewMSHTML: super::super::Foundation::BOOL,
-    pub _fPrivacyImpacted: super::super::Foundation::BOOL,
-    pub _clsidView: windows_sys::core::GUID,
-    pub _clsidViewPending: windows_sys::core::GUID,
-    pub _hwndFrame: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct BROWSEINFOA {
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub pidlRoot: *mut Common::ITEMIDLIST,
-    pub pszDisplayName: windows_sys::core::PSTR,
-    pub lpszTitle: windows_sys::core::PCSTR,
-    pub ulFlags: u32,
-    pub lpfn: BFFCALLBACK,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iImage: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct BROWSEINFOW {
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub pidlRoot: *mut Common::ITEMIDLIST,
-    pub pszDisplayName: windows_sys::core::PWSTR,
-    pub lpszTitle: windows_sys::core::PCWSTR,
-    pub ulFlags: u32,
-    pub lpfn: BFFCALLBACK,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iImage: i32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct CABINETSTATE {
-    pub cLength: u16,
-    pub nVersion: u16,
-    pub _bitfield: i32,
-    pub fMenuEnumFilter: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CATEGORY_INFO {
-    pub cif: CATEGORYINFO_FLAGS,
-    pub wszName: [u16; 260],
-}
-pub const CDBurn: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfbeb8a05_beee_4442_804e_409d6c4515e9);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct CIDA {
-    pub cidl: u32,
-    pub aoffset: [u32; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CMINVOKECOMMANDINFO {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub lpVerb: windows_sys::core::PCSTR,
-    pub lpParameters: windows_sys::core::PCSTR,
-    pub lpDirectory: windows_sys::core::PCSTR,
-    pub nShow: i32,
-    pub dwHotKey: u32,
-    pub hIcon: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CMINVOKECOMMANDINFOEX {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub lpVerb: windows_sys::core::PCSTR,
-    pub lpParameters: windows_sys::core::PCSTR,
-    pub lpDirectory: windows_sys::core::PCSTR,
-    pub nShow: i32,
-    pub dwHotKey: u32,
-    pub hIcon: super::super::Foundation::HANDLE,
-    pub lpTitle: windows_sys::core::PCSTR,
-    pub lpVerbW: windows_sys::core::PCWSTR,
-    pub lpParametersW: windows_sys::core::PCWSTR,
-    pub lpDirectoryW: windows_sys::core::PCWSTR,
-    pub lpTitleW: windows_sys::core::PCWSTR,
-    pub ptInvoke: super::super::Foundation::POINT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CMINVOKECOMMANDINFOEX_REMOTE {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub lpVerbString: windows_sys::core::PCSTR,
-    pub lpParameters: windows_sys::core::PCSTR,
-    pub lpDirectory: windows_sys::core::PCSTR,
-    pub nShow: i32,
-    pub dwHotKey: u32,
-    pub lpTitle: windows_sys::core::PCSTR,
-    pub lpVerbWString: windows_sys::core::PCWSTR,
-    pub lpParametersW: windows_sys::core::PCWSTR,
-    pub lpDirectoryW: windows_sys::core::PCWSTR,
-    pub lpTitleW: windows_sys::core::PCWSTR,
-    pub ptInvoke: super::super::Foundation::POINT,
-    pub lpVerbInt: u32,
-    pub lpVerbWInt: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CM_COLUMNINFO {
-    pub cbSize: u32,
-    pub dwMask: u32,
-    pub dwState: u32,
-    pub uWidth: u32,
-    pub uDefaultWidth: u32,
-    pub uIdealWidth: u32,
-    pub wszName: [u16; 80],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONFIRM_CONFLICT_ITEM {
-    pub pShellItem: *mut core::ffi::c_void,
-    pub pszOriginalName: windows_sys::core::PWSTR,
-    pub pszAlternateName: windows_sys::core::PWSTR,
-    pub pszLocationShort: windows_sys::core::PWSTR,
-    pub pszLocationFull: windows_sys::core::PWSTR,
-    pub nType: SYNCMGR_CONFLICT_ITEM_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONFIRM_CONFLICT_RESULT_INFO {
-    pub pszNewName: windows_sys::core::PWSTR,
-    pub iItemIndex: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct CPLINFO {
-    pub idIcon: i32,
-    pub idName: i32,
-    pub idInfo: i32,
-    pub lData: isize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
-    pub ulAuthenticationPackage: u32,
-    pub clsidCredentialProvider: windows_sys::core::GUID,
-    pub cbSerialization: u32,
-    pub rgbSerialization: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
-    pub dwFieldID: u32,
-    pub cpft: CREDENTIAL_PROVIDER_FIELD_TYPE,
-    pub pszLabel: windows_sys::core::PWSTR,
-    pub guidFieldType: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct CSFV {
-    pub cbSize: u32,
-    pub pshf: *mut core::ffi::c_void,
-    pub psvOuter: *mut core::ffi::c_void,
-    pub pidl: *mut Common::ITEMIDLIST,
-    pub lEvents: i32,
-    pub pfnCallback: LPFNVIEWCALLBACK,
-    pub fvm: FOLDERVIEWMODE,
-}
-pub const CScriptErrorList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xefd01300_160f_11d2_bb2e_00805ff7efca);
-pub const ConflictFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x289978ac_a101_4341_a817_21eba7fd046d);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DATABLOCK_HEADER {
-    pub cbSize: u32,
-    pub dwSignature: u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
-#[derive(Clone, Copy)]
-pub struct DEFCONTEXTMENU {
-    pub hwnd: super::super::Foundation::HWND,
-    pub pcmcb: *mut core::ffi::c_void,
-    pub pidlFolder: *mut Common::ITEMIDLIST,
-    pub psf: *mut core::ffi::c_void,
-    pub cidl: u32,
-    pub apidl: *mut *mut Common::ITEMIDLIST,
-    pub punkAssociationInfo: *mut core::ffi::c_void,
-    pub cKeys: u32,
-    pub aKeys: *const super::super::System::Registry::HKEY,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DELEGATEITEMID {
-    pub cbSize: u16,
-    pub wOuter: u16,
-    pub cbInner: u16,
-    pub rgb: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DESKBANDINFO {
-    pub dwMask: u32,
-    pub ptMinSize: super::super::Foundation::POINTL,
-    pub ptMaxSize: super::super::Foundation::POINTL,
-    pub ptIntegral: super::super::Foundation::POINTL,
-    pub ptActual: super::super::Foundation::POINTL,
-    pub wszTitle: [u16; 256],
-    pub dwModeFlags: u32,
-    pub crBkgnd: super::super::Foundation::COLORREF,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct DETAILSINFO {
-    pub pidl: *mut Common::ITEMIDLIST,
-    pub fmt: i32,
-    pub cxChar: i32,
-    pub str: Common::STRRET,
-    pub iImage: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DFMICS {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub idCmdFirst: u32,
-    pub idDefMax: u32,
-    pub pici: *mut CMINVOKECOMMANDINFO,
-    pub punkSite: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DLLVERSIONINFO {
-    pub cbSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformID: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DLLVERSIONINFO2 {
-    pub info1: DLLVERSIONINFO,
-    pub dwFlags: u32,
-    pub ullVersion: u64,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct DRAGINFOA {
-    pub uSize: u32,
-    pub pt: super::super::Foundation::POINT,
-    pub fNC: super::super::Foundation::BOOL,
-    pub lpFileList: windows_sys::core::PSTR,
-    pub grfKeyState: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DRAGINFOA {
-    pub uSize: u32,
-    pub pt: super::super::Foundation::POINT,
-    pub fNC: super::super::Foundation::BOOL,
-    pub lpFileList: windows_sys::core::PSTR,
-    pub grfKeyState: u32,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct DRAGINFOW {
-    pub uSize: u32,
-    pub pt: super::super::Foundation::POINT,
-    pub fNC: super::super::Foundation::BOOL,
-    pub lpFileList: windows_sys::core::PWSTR,
-    pub grfKeyState: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DRAGINFOW {
-    pub uSize: u32,
-    pub pt: super::super::Foundation::POINT,
-    pub fNC: super::super::Foundation::BOOL,
-    pub lpFileList: windows_sys::core::PWSTR,
-    pub grfKeyState: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DROPDESCRIPTION {
-    pub r#type: DROPIMAGETYPE,
-    pub szMessage: [u16; 260],
-    pub szInsert: [u16; 260],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DROPFILES {
-    pub pFiles: u32,
-    pub pt: super::super::Foundation::POINT,
-    pub fNC: super::super::Foundation::BOOL,
-    pub fWide: super::super::Foundation::BOOL,
-}
-pub const DefFolderMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc63382be_7933_48d0_9ac8_85fb46be2fdd);
-pub const DesktopGadget: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x924ccc1b_6562_4c85_8657_d177925222b6);
-pub const DesktopWallpaper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc2cf3110_460e_4fc1_b9d0_8a1c0c9cc4bd);
-pub const DestinationList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x77f10cf0_3db5_4966_b520_b7c54fd35ed6);
-pub const DocPropShellExtension: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x883373c3_bf89_11d1_be35_080036b11a03);
-pub const DriveSizeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94357b53_ca29_4b78_83ae_e8fe7409134f);
-pub const DriveTypeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0a8f3cf_4333_4bab_8873_1ccb1cada48b);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct EXP_DARWIN_LINK {
-    pub dbh: DATABLOCK_HEADER,
-    pub szDarwinID: [i8; 260],
-    pub szwDarwinID: [u16; 260],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct EXP_PROPERTYSTORAGE {
-    pub cbSize: u32,
-    pub dwSignature: u32,
-    pub abPropertyStorage: [u8; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct EXP_SPECIAL_FOLDER {
-    pub cbSize: u32,
-    pub dwSignature: u32,
-    pub idSpecialFolder: u32,
-    pub cbOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct EXP_SZ_LINK {
-    pub cbSize: u32,
-    pub dwSignature: u32,
-    pub szTarget: [i8; 260],
-    pub swzTarget: [u16; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXTRASEARCH {
-    pub guidSearch: windows_sys::core::GUID,
-    pub wszFriendlyName: [u16; 80],
-    pub wszUrl: [u16; 2084],
-}
-pub const EnumerableObjectCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2d3468c1_36a7_43b6_ac24_d3f02fd9607a);
-pub const ExecuteFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x11dbb47c_a525_400b_9e80_a54615a090c0);
-pub const ExecuteUnknown: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe44e9428_bdbc_4987_a099_40dc8fd255e7);
-pub const ExplorerBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x71f96385_ddd6_48d3_a0c1_ae06e8b055fb);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct FILEDESCRIPTORA {
-    pub dwFlags: u32,
-    pub clsid: windows_sys::core::GUID,
-    pub sizel: super::super::Foundation::SIZE,
-    pub pointl: super::super::Foundation::POINTL,
-    pub dwFileAttributes: u32,
-    pub ftCreationTime: super::super::Foundation::FILETIME,
-    pub ftLastAccessTime: super::super::Foundation::FILETIME,
-    pub ftLastWriteTime: super::super::Foundation::FILETIME,
-    pub nFileSizeHigh: u32,
-    pub nFileSizeLow: u32,
-    pub cFileName: [i8; 260],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct FILEDESCRIPTORW {
-    pub dwFlags: u32,
-    pub clsid: windows_sys::core::GUID,
-    pub sizel: super::super::Foundation::SIZE,
-    pub pointl: super::super::Foundation::POINTL,
-    pub dwFileAttributes: u32,
-    pub ftCreationTime: super::super::Foundation::FILETIME,
-    pub ftLastAccessTime: super::super::Foundation::FILETIME,
-    pub ftLastWriteTime: super::super::Foundation::FILETIME,
-    pub nFileSizeHigh: u32,
-    pub nFileSizeLow: u32,
-    pub cFileName: [u16; 260],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct FILEGROUPDESCRIPTORA {
-    pub cItems: u32,
-    pub fgd: [FILEDESCRIPTORA; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct FILEGROUPDESCRIPTORW {
-    pub cItems: u32,
-    pub fgd: [FILEDESCRIPTORW; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct FILE_ATTRIBUTES_ARRAY {
-    pub cItems: u32,
-    pub dwSumFileAttributes: u32,
-    pub dwProductFileAttributes: u32,
-    pub rgdwFileAttributes: [u32; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FOLDERSETDATA {
-    pub _fs: FOLDERSETTINGS,
-    pub _vidRestore: windows_sys::core::GUID,
-    pub _dwViewPriority: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FOLDERSETTINGS {
-    pub ViewMode: u32,
-    pub fFlags: u32,
-}
-pub const FSCopyHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd197380a_0a79_4dc8_a033_ed882c2fa14b);
-pub const FileOpenDialog: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdc1c5a9c_e88a_4dde_a5a1_60f82a20aef7);
-pub const FileOperation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3ad05575_8857_4850_9277_11b85bdb8e09);
-pub const FileSaveDialog: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc0b4e2f3_ba21_4773_8dba_335ec946eb8b);
-pub const FileSearchBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4ee31f3_4768_11d2_be5c_00a0c9a83da1);
-pub const FolderViewHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x20b1cb23_6968_4eb9_b7d4_a66d00d07cee);
-pub const FrameworkInputPane: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5120aa3_46ba_44c5_822d_ca8092c1fc72);
-pub const FreeSpaceCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb5607793_24ac_44c7_82e2_831726aa6cb7);
-pub const GenericCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25cbb996_92ed_457e_b28c_4774084bd562);
-pub type HDROP = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HELPINFO {
-    pub cbSize: u32,
-    pub iContextType: HELP_INFO_TYPE,
-    pub iCtrlId: i32,
-    pub hItemHandle: super::super::Foundation::HANDLE,
-    pub dwContextId: usize,
-    pub MousePos: super::super::Foundation::POINT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HELPWININFOA {
-    pub wStructSize: i32,
-    pub x: i32,
-    pub y: i32,
-    pub dx: i32,
-    pub dy: i32,
-    pub wMax: i32,
-    pub rgchMember: [i8; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HELPWININFOW {
-    pub wStructSize: i32,
-    pub x: i32,
-    pub y: i32,
-    pub dx: i32,
-    pub dy: i32,
-    pub wMax: i32,
-    pub rgchMember: [u16; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HLBWINFO {
-    pub cbSize: u32,
-    pub grfHLBWIF: u32,
-    pub rcFramePos: super::super::Foundation::RECT,
-    pub rcDocPos: super::super::Foundation::RECT,
-    pub hltbinfo: HLTBINFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HLITEM {
-    pub uHLID: u32,
-    pub pwzFriendlyName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HLTBINFO {
-    pub uDockType: u32,
-    pub rcTbPos: super::super::Foundation::RECT,
-}
-pub type HPSXA = *mut core::ffi::c_void;
-pub const HideInputPaneAnimationCoordinator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x384742b1_2a77_4cb3_8cf8_1136f5e17e59);
-pub const HomeGroup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde77ba04_3c92_4d11_a1a5_42352a53e0e3);
-pub const IENamespaceTreeControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xace52d03_e5cd_4b20_82ff_e71b11beae1d);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ITEMSPACING {
-    pub cxSmall: i32,
-    pub cySmall: i32,
-    pub cxLarge: i32,
-    pub cyLarge: i32,
-}
-pub const ImageProperties: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ab770c7_0e23_4d7a_8aa2_19bfad479829);
-pub const ImageRecompress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e33091c_d2f8_4740_b55e_2e11d1477a2c);
-pub const ImageTranscode: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17b75166_928f_417d_9685_64aa135565c1);
-pub const InputPanelConfiguration: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2853add3_f096_4c63_a78f_7fa3ea837fb7);
-pub const InternetExplorer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0002df01_0000_0000_c000_000000000046);
-pub const InternetExplorerMedium: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5e8041d_920f_45e9_b8fb_b1deb82c6e5e);
-pub const InternetPrintOrdering: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xadd36aa8_751a_4579_a266_d66f5202ccbb);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KNOWNFOLDER_DEFINITION {
-    pub category: KF_CATEGORY,
-    pub pszName: windows_sys::core::PWSTR,
-    pub pszDescription: windows_sys::core::PWSTR,
-    pub fidParent: windows_sys::core::GUID,
-    pub pszRelativePath: windows_sys::core::PWSTR,
-    pub pszParsingName: windows_sys::core::PWSTR,
-    pub pszTooltip: windows_sys::core::PWSTR,
-    pub pszLocalizedName: windows_sys::core::PWSTR,
-    pub pszIcon: windows_sys::core::PWSTR,
-    pub pszSecurity: windows_sys::core::PWSTR,
-    pub dwAttributes: u32,
-    pub kfdFlags: u32,
-    pub ftidType: windows_sys::core::GUID,
-}
-pub const KnownFolderManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4df0c730_df9d_4ae3_9153_aa6b82e9795a);
-pub const LocalThumbnailCache: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50ef4544_ac9f_4a8e_b21b_8a26180db13f);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MULTIKEYHELPA {
-    pub mkSize: u32,
-    pub mkKeylist: i8,
-    pub szKeyphrase: [i8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MULTIKEYHELPW {
-    pub mkSize: u32,
-    pub mkKeylist: u16,
-    pub szKeyphrase: [u16; 1],
-}
-pub const MailRecipient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9e56be60_c50f_11cf_9a2c_00a0c90a90ce);
-pub const MergedCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
-#[repr(C)]
-#[cfg(all(feature = "Win32_NetworkManagement_IpHelper", feature = "Win32_Networking_WinSock"))]
-#[derive(Clone, Copy)]
-pub struct NC_ADDRESS {
-    pub pAddrInfo: *mut super::super::NetworkManagement::IpHelper::NET_ADDRESS_INFO,
-    pub PortNumber: u16,
-    pub PrefixLength: u8,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct NEWCPLINFOA {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwHelpContext: u32,
-    pub lData: isize,
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szName: [i8; 32],
-    pub szInfo: [i8; 64],
-    pub szHelpFile: [i8; 128],
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct NEWCPLINFOW {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwHelpContext: u32,
-    pub lData: isize,
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szName: [u16; 32],
-    pub szInfo: [u16; 64],
-    pub szHelpFile: [u16; 128],
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct NOTIFYICONDATAA {
-    pub cbSize: u32,
-    pub hWnd: super::super::Foundation::HWND,
-    pub uID: u32,
-    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
-    pub uCallbackMessage: u32,
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szTip: [i8; 128],
-    pub dwState: NOTIFY_ICON_STATE,
-    pub dwStateMask: NOTIFY_ICON_STATE,
-    pub szInfo: [i8; 256],
-    pub Anonymous: NOTIFYICONDATAA_0,
-    pub szInfoTitle: [i8; 64],
-    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
-    pub guidItem: windows_sys::core::GUID,
-    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub union NOTIFYICONDATAA_0 {
-    pub uTimeout: u32,
-    pub uVersion: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct NOTIFYICONDATAA {
-    pub cbSize: u32,
-    pub hWnd: super::super::Foundation::HWND,
-    pub uID: u32,
-    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
-    pub uCallbackMessage: u32,
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szTip: [i8; 128],
-    pub dwState: NOTIFY_ICON_STATE,
-    pub dwStateMask: NOTIFY_ICON_STATE,
-    pub szInfo: [i8; 256],
-    pub Anonymous: NOTIFYICONDATAA_0,
-    pub szInfoTitle: [i8; 64],
-    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
-    pub guidItem: windows_sys::core::GUID,
-    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub union NOTIFYICONDATAA_0 {
-    pub uTimeout: u32,
-    pub uVersion: u32,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct NOTIFYICONDATAW {
-    pub cbSize: u32,
-    pub hWnd: super::super::Foundation::HWND,
-    pub uID: u32,
-    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
-    pub uCallbackMessage: u32,
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szTip: [u16; 128],
-    pub dwState: NOTIFY_ICON_STATE,
-    pub dwStateMask: NOTIFY_ICON_STATE,
-    pub szInfo: [u16; 256],
-    pub Anonymous: NOTIFYICONDATAW_0,
-    pub szInfoTitle: [u16; 64],
-    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
-    pub guidItem: windows_sys::core::GUID,
-    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub union NOTIFYICONDATAW_0 {
-    pub uTimeout: u32,
-    pub uVersion: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct NOTIFYICONDATAW {
-    pub cbSize: u32,
-    pub hWnd: super::super::Foundation::HWND,
-    pub uID: u32,
-    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
-    pub uCallbackMessage: u32,
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szTip: [u16; 128],
-    pub dwState: NOTIFY_ICON_STATE,
-    pub dwStateMask: NOTIFY_ICON_STATE,
-    pub szInfo: [u16; 256],
-    pub Anonymous: NOTIFYICONDATAW_0,
-    pub szInfoTitle: [u16; 64],
-    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
-    pub guidItem: windows_sys::core::GUID,
-    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub union NOTIFYICONDATAW_0 {
-    pub uTimeout: u32,
-    pub uVersion: u32,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct NOTIFYICONIDENTIFIER {
-    pub cbSize: u32,
-    pub hWnd: super::super::Foundation::HWND,
-    pub uID: u32,
-    pub guidItem: windows_sys::core::GUID,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct NOTIFYICONIDENTIFIER {
-    pub cbSize: u32,
-    pub hWnd: super::super::Foundation::HWND,
-    pub uID: u32,
-    pub guidItem: windows_sys::core::GUID,
-}
-pub const NPCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3dd6bec0_8193_4ffe_ae25_e08e39ea4063);
-#[repr(C)]
-#[cfg(feature = "Win32_NetworkManagement_WNet")]
-#[derive(Clone, Copy)]
-pub struct NRESARRAY {
-    pub cItems: u32,
-    pub nr: [super::super::NetworkManagement::WNet::NETRESOURCEA; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy)]
-pub struct NSTCCUSTOMDRAW {
-    pub psi: *mut core::ffi::c_void,
-    pub uItemState: u32,
-    pub nstcis: u32,
-    pub pszText: windows_sys::core::PCWSTR,
-    pub iImage: i32,
-    pub himl: super::Controls::HIMAGELIST,
-    pub iLevel: i32,
-    pub iIndent: i32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Console")]
-#[derive(Clone, Copy)]
-pub struct NT_CONSOLE_PROPS {
-    pub dbh: DATABLOCK_HEADER,
-    pub wFillAttribute: u16,
-    pub wPopupFillAttribute: u16,
-    pub dwScreenBufferSize: super::super::System::Console::COORD,
-    pub dwWindowSize: super::super::System::Console::COORD,
-    pub dwWindowOrigin: super::super::System::Console::COORD,
-    pub nFont: u32,
-    pub nInputBufferSize: u32,
-    pub dwFontSize: super::super::System::Console::COORD,
-    pub uFontFamily: u32,
-    pub uFontWeight: u32,
-    pub FaceName: [u16; 32],
-    pub uCursorSize: u32,
-    pub bFullScreen: super::super::Foundation::BOOL,
-    pub bQuickEdit: super::super::Foundation::BOOL,
-    pub bInsertMode: super::super::Foundation::BOOL,
-    pub bAutoPosition: super::super::Foundation::BOOL,
-    pub uHistoryBufferSize: u32,
-    pub uNumberOfHistoryBuffers: u32,
-    pub bHistoryNoDup: super::super::Foundation::BOOL,
-    pub ColorTable: [super::super::Foundation::COLORREF; 16],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct NT_FE_CONSOLE_PROPS {
-    pub dbh: DATABLOCK_HEADER,
-    pub uCodePage: u32,
-}
-pub const NamespaceTreeControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae054212_3535_4430_83ed_d501aa6680e6);
-pub const NamespaceWalker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x72eb61e0_8672_4303_9175_f2e4c68b2e7c);
-pub const NetworkConnections: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7007acc7_3202_11d1_aad2_00805fc1270e);
-pub const NetworkExplorerFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf02c1a0d_be21_4350_88b0_7367fc96ef3c);
-pub const NetworkPlaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x208d2c60_3aea_1069_a2d7_08002b30309d);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OPENASINFO {
-    pub pcszFile: windows_sys::core::PCWSTR,
-    pub pcszClass: windows_sys::core::PCWSTR,
-    pub oaifInFlags: OPEN_AS_INFO_FLAGS,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct OPEN_PRINTER_PROPS_INFOA {
-    pub dwSize: u32,
-    pub pszSheetName: windows_sys::core::PSTR,
-    pub uSheetIndex: u32,
-    pub dwFlags: u32,
-    pub bModal: super::super::Foundation::BOOL,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct OPEN_PRINTER_PROPS_INFOA {
-    pub dwSize: u32,
-    pub pszSheetName: windows_sys::core::PSTR,
-    pub uSheetIndex: u32,
-    pub dwFlags: u32,
-    pub bModal: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct OPEN_PRINTER_PROPS_INFOW {
-    pub dwSize: u32,
-    pub pszSheetName: windows_sys::core::PWSTR,
-    pub uSheetIndex: u32,
-    pub dwFlags: u32,
-    pub bModal: super::super::Foundation::BOOL,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct OPEN_PRINTER_PROPS_INFOW {
-    pub dwSize: u32,
-    pub pszSheetName: windows_sys::core::PWSTR,
-    pub uSheetIndex: u32,
-    pub dwFlags: u32,
-    pub bModal: super::super::Foundation::BOOL,
-}
-pub const OnexCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x07aa0886_cc8d_4e19_a410_1c75af686e62);
-pub const OnexPlapSmartcardCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x33c86cd6_705f_4ba1_9adb_67070b837775);
-pub const OpenControlPanel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06622d85_6856_4460_8de1_a81921b41c4b);
-pub type PAPPCONSTRAIN_REGISTRATION = isize;
-pub type PAPPSTATE_REGISTRATION = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PARSEDURLA {
-    pub cbSize: u32,
-    pub pszProtocol: windows_sys::core::PCSTR,
-    pub cchProtocol: u32,
-    pub pszSuffix: windows_sys::core::PCSTR,
-    pub cchSuffix: u32,
-    pub nScheme: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PARSEDURLW {
-    pub cbSize: u32,
-    pub pszProtocol: windows_sys::core::PCWSTR,
-    pub cchProtocol: u32,
-    pub pszSuffix: windows_sys::core::PCWSTR,
-    pub cchSuffix: u32,
-    pub nScheme: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct PERSIST_FOLDER_TARGET_INFO {
-    pub pidlTargetFolder: *mut Common::ITEMIDLIST,
-    pub szTargetParsingName: [u16; 260],
-    pub szNetworkProvider: [u16; 260],
-    pub dwAttributes: u32,
-    pub csidl: i32,
-}
-pub const PINLogonCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcb82ea12_9f71_446d_89e1_8d0924e1256e);
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct PREVIEWHANDLERFRAMEINFO {
-    pub haccel: super::WindowsAndMessaging::HACCEL,
-    pub cAccelEntries: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROFILEINFOA {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub lpUserName: windows_sys::core::PSTR,
-    pub lpProfilePath: windows_sys::core::PSTR,
-    pub lpDefaultPath: windows_sys::core::PSTR,
-    pub lpServerName: windows_sys::core::PSTR,
-    pub lpPolicyPath: windows_sys::core::PSTR,
-    pub hProfile: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROFILEINFOW {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub lpUserName: windows_sys::core::PWSTR,
-    pub lpProfilePath: windows_sys::core::PWSTR,
-    pub lpDefaultPath: windows_sys::core::PWSTR,
-    pub lpServerName: windows_sys::core::PWSTR,
-    pub lpPolicyPath: windows_sys::core::PWSTR,
-    pub hProfile: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PUBAPPINFO {
-    pub cbSize: u32,
-    pub dwMask: u32,
-    pub pszSource: windows_sys::core::PWSTR,
-    pub stAssigned: super::super::Foundation::SYSTEMTIME,
-    pub stPublished: super::super::Foundation::SYSTEMTIME,
-    pub stScheduled: super::super::Foundation::SYSTEMTIME,
-    pub stExpire: super::super::Foundation::SYSTEMTIME,
-}
-pub const PackageDebugSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb1aec16f_2383_4852_b0e9_8f0b1dc66b4d);
-pub const PasswordCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x60b78e88_ead8_445c_9cfd_0b87f74ea6cd);
-pub const PreviousVersions: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x596ab062_b4d2_4215_9f74_e9109b0a8153);
-pub const PropertiesUI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd912f8cf_0396_4915_884e_fb425d32943b);
-pub const PublishDropTarget: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcc6eeffb_43f6_46c5_9619_51d571967f7d);
-pub const PublishingWizard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b33163c_76a5_4b6c_bf21_45de9cd503a1);
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct QCMINFO {
-    pub hmenu: super::WindowsAndMessaging::HMENU,
-    pub indexMenu: u32,
-    pub idCmdFirst: u32,
-    pub idCmdLast: u32,
-    pub pIdMap: *const QCMINFO_IDMAP,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QCMINFO_IDMAP {
-    pub nMaxIds: u32,
-    pub pIdList: [QCMINFO_IDMAP_PLACEMENT; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QCMINFO_IDMAP_PLACEMENT {
-    pub id: u32,
-    pub fFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QITAB {
-    pub piid: *const windows_sys::core::GUID,
-    pub dwOffset: u32,
-}
-pub const QueryCancelAutoPlay: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x331f1768_05a9_4ddd_b86e_dae34ddc998a);
-pub const RASProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5537e283_b1e7_4ef8_9c6e_7ab0afe5056d);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SFVM_HELPTOPIC_DATA {
-    pub wszHelpFile: [u16; 260],
-    pub wszHelpTopic: [u16; 260],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy)]
-pub struct SFVM_PROPPAGE_DATA {
-    pub dwReserved: u32,
-    pub pfn: super::Controls::LPFNSVADDPROPSHEETPAGE,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SFV_CREATE {
-    pub cbSize: u32,
-    pub pshf: *mut core::ffi::c_void,
-    pub psvOuter: *mut core::ffi::c_void,
-    pub psfvcb: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct SFV_SETITEMPOS {
-    pub pidl: *mut Common::ITEMIDLIST,
-    pub pt: super::super::Foundation::POINT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SHARDAPPIDINFO {
-    pub psi: *mut core::ffi::c_void,
-    pub pszAppID: windows_sys::core::PCWSTR,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct SHARDAPPIDINFOIDLIST {
-    pub pidl: *mut Common::ITEMIDLIST,
-    pub pszAppID: windows_sys::core::PCWSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SHARDAPPIDINFOLINK {
-    pub psl: *mut core::ffi::c_void,
-    pub pszAppID: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SHCOLUMNDATA {
-    pub dwFlags: u32,
-    pub dwFileAttributes: u32,
-    pub dwReserved: u32,
-    pub pwszExt: windows_sys::core::PWSTR,
-    pub wszFile: [u16; 260],
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
-pub struct SHCOLUMNINFO {
-    pub scid: super::super::Foundation::PROPERTYKEY,
-    pub vt: super::super::System::Variant::VARENUM,
-    pub fmt: u32,
-    pub cChars: u32,
-    pub csFlags: u32,
-    pub wszTitle: [u16; 80],
-    pub wszDescription: [u16; 128],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SHCOLUMNINIT {
-    pub dwFlags: u32,
-    pub dwReserved: u32,
-    pub wszFolder: [u16; 260],
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
-#[derive(Clone, Copy)]
-pub struct SHCREATEPROCESSINFOW {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub pszFile: windows_sys::core::PCWSTR,
-    pub pszParameters: windows_sys::core::PCWSTR,
-    pub pszCurrentDirectory: windows_sys::core::PCWSTR,
-    pub hUserToken: super::super::Foundation::HANDLE,
-    pub lpProcessAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
-    pub lpThreadAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
-    pub bInheritHandles: super::super::Foundation::BOOL,
-    pub dwCreationFlags: u32,
-    pub lpStartupInfo: *mut super::super::System::Threading::STARTUPINFOW,
-    pub lpProcessInformation: *mut super::super::System::Threading::PROCESS_INFORMATION,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
-#[derive(Clone, Copy)]
-pub struct SHCREATEPROCESSINFOW {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub pszFile: windows_sys::core::PCWSTR,
-    pub pszParameters: windows_sys::core::PCWSTR,
-    pub pszCurrentDirectory: windows_sys::core::PCWSTR,
-    pub hUserToken: super::super::Foundation::HANDLE,
-    pub lpProcessAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
-    pub lpThreadAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
-    pub bInheritHandles: super::super::Foundation::BOOL,
-    pub dwCreationFlags: u32,
-    pub lpStartupInfo: *mut super::super::System::Threading::STARTUPINFOW,
-    pub lpProcessInformation: *mut super::super::System::Threading::PROCESS_INFORMATION,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SHChangeDWORDAsIDList {
-    pub cb: u16,
-    pub dwItem1: u32,
-    pub dwItem2: u32,
-    pub cbZero: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct SHChangeNotifyEntry {
-    pub pidl: *mut Common::ITEMIDLIST,
-    pub fRecursive: super::super::Foundation::BOOL,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SHChangeProductKeyAsIDList {
-    pub cb: u16,
-    pub wszProductKey: [u16; 39],
-    pub cbZero: u16,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SHChangeUpdateImageIDList {
-    pub cb: u16,
-    pub iIconIndex: i32,
-    pub iCurIndex: i32,
-    pub uFlags: u32,
-    pub dwProcessID: u32,
-    pub szName: [u16; 260],
-    pub cbZero: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SHDESCRIPTIONID {
-    pub dwDescriptionId: u32,
-    pub clsid: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct SHDRAGIMAGE {
-    pub sizeDragImage: super::super::Foundation::SIZE,
-    pub ptOffset: super::super::Foundation::POINT,
-    pub hbmpDragImage: super::super::Graphics::Gdi::HBITMAP,
-    pub crColorKey: super::super::Foundation::COLORREF,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub struct SHELLEXECUTEINFOA {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub lpVerb: windows_sys::core::PCSTR,
-    pub lpFile: windows_sys::core::PCSTR,
-    pub lpParameters: windows_sys::core::PCSTR,
-    pub lpDirectory: windows_sys::core::PCSTR,
-    pub nShow: i32,
-    pub hInstApp: super::super::Foundation::HINSTANCE,
-    pub lpIDList: *mut core::ffi::c_void,
-    pub lpClass: windows_sys::core::PCSTR,
-    pub hkeyClass: super::super::System::Registry::HKEY,
-    pub dwHotKey: u32,
-    pub Anonymous: SHELLEXECUTEINFOA_0,
-    pub hProcess: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub union SHELLEXECUTEINFOA_0 {
-    pub hIcon: super::super::Foundation::HANDLE,
-    pub hMonitor: super::super::Foundation::HANDLE,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub struct SHELLEXECUTEINFOA {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub lpVerb: windows_sys::core::PCSTR,
-    pub lpFile: windows_sys::core::PCSTR,
-    pub lpParameters: windows_sys::core::PCSTR,
-    pub lpDirectory: windows_sys::core::PCSTR,
-    pub nShow: i32,
-    pub hInstApp: super::super::Foundation::HINSTANCE,
-    pub lpIDList: *mut core::ffi::c_void,
-    pub lpClass: windows_sys::core::PCSTR,
-    pub hkeyClass: super::super::System::Registry::HKEY,
-    pub dwHotKey: u32,
-    pub Anonymous: SHELLEXECUTEINFOA_0,
-    pub hProcess: super::super::Foundation::HANDLE,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub union SHELLEXECUTEINFOA_0 {
-    pub hIcon: super::super::Foundation::HANDLE,
-    pub hMonitor: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub struct SHELLEXECUTEINFOW {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub lpVerb: windows_sys::core::PCWSTR,
-    pub lpFile: windows_sys::core::PCWSTR,
-    pub lpParameters: windows_sys::core::PCWSTR,
-    pub lpDirectory: windows_sys::core::PCWSTR,
-    pub nShow: i32,
-    pub hInstApp: super::super::Foundation::HINSTANCE,
-    pub lpIDList: *mut core::ffi::c_void,
-    pub lpClass: windows_sys::core::PCWSTR,
-    pub hkeyClass: super::super::System::Registry::HKEY,
-    pub dwHotKey: u32,
-    pub Anonymous: SHELLEXECUTEINFOW_0,
-    pub hProcess: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub union SHELLEXECUTEINFOW_0 {
-    pub hIcon: super::super::Foundation::HANDLE,
-    pub hMonitor: super::super::Foundation::HANDLE,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub struct SHELLEXECUTEINFOW {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub lpVerb: windows_sys::core::PCWSTR,
-    pub lpFile: windows_sys::core::PCWSTR,
-    pub lpParameters: windows_sys::core::PCWSTR,
-    pub lpDirectory: windows_sys::core::PCWSTR,
-    pub nShow: i32,
-    pub hInstApp: super::super::Foundation::HINSTANCE,
-    pub lpIDList: *mut core::ffi::c_void,
-    pub lpClass: windows_sys::core::PCWSTR,
-    pub hkeyClass: super::super::System::Registry::HKEY,
-    pub dwHotKey: u32,
-    pub Anonymous: SHELLEXECUTEINFOW_0,
-    pub hProcess: super::super::Foundation::HANDLE,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub union SHELLEXECUTEINFOW_0 {
-    pub hIcon: super::super::Foundation::HANDLE,
-    pub hMonitor: super::super::Foundation::HANDLE,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SHELLFLAGSTATE {
-    pub _bitfield: i32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SHELLSTATEA {
-    pub _bitfield1: i32,
-    pub dwWin95Unused: u32,
-    pub uWin95Unused: u32,
-    pub lParamSort: i32,
-    pub iSortDirection: i32,
-    pub version: u32,
-    pub uNotUsed: u32,
-    pub _bitfield2: i32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SHELLSTATEW {
-    pub _bitfield1: i32,
-    pub dwWin95Unused: u32,
-    pub uWin95Unused: u32,
-    pub lParamSort: i32,
-    pub iSortDirection: i32,
-    pub version: u32,
-    pub uNotUsed: u32,
-    pub _bitfield2: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SHELL_ITEM_RESOURCE {
-    pub guidType: windows_sys::core::GUID,
-    pub szName: [u16; 260],
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct SHFILEINFOA {
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub iIcon: i32,
-    pub dwAttributes: u32,
-    pub szDisplayName: [i8; 260],
-    pub szTypeName: [i8; 80],
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct SHFILEINFOA {
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub iIcon: i32,
-    pub dwAttributes: u32,
-    pub szDisplayName: [i8; 260],
-    pub szTypeName: [i8; 80],
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct SHFILEINFOW {
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub iIcon: i32,
-    pub dwAttributes: u32,
-    pub szDisplayName: [u16; 260],
-    pub szTypeName: [u16; 80],
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct SHFILEINFOW {
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub iIcon: i32,
-    pub dwAttributes: u32,
-    pub szDisplayName: [u16; 260],
-    pub szTypeName: [u16; 80],
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct SHFILEOPSTRUCTA {
-    pub hwnd: super::super::Foundation::HWND,
-    pub wFunc: u32,
-    pub pFrom: *mut i8,
-    pub pTo: *mut i8,
-    pub fFlags: u16,
-    pub fAnyOperationsAborted: super::super::Foundation::BOOL,
-    pub hNameMappings: *mut core::ffi::c_void,
-    pub lpszProgressTitle: windows_sys::core::PCSTR,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SHFILEOPSTRUCTA {
-    pub hwnd: super::super::Foundation::HWND,
-    pub wFunc: u32,
-    pub pFrom: *mut i8,
-    pub pTo: *mut i8,
-    pub fFlags: u16,
-    pub fAnyOperationsAborted: super::super::Foundation::BOOL,
-    pub hNameMappings: *mut core::ffi::c_void,
-    pub lpszProgressTitle: windows_sys::core::PCSTR,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct SHFILEOPSTRUCTW {
-    pub hwnd: super::super::Foundation::HWND,
-    pub wFunc: u32,
-    pub pFrom: windows_sys::core::PCWSTR,
-    pub pTo: windows_sys::core::PCWSTR,
-    pub fFlags: u16,
-    pub fAnyOperationsAborted: super::super::Foundation::BOOL,
-    pub hNameMappings: *mut core::ffi::c_void,
-    pub lpszProgressTitle: windows_sys::core::PCWSTR,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SHFILEOPSTRUCTW {
-    pub hwnd: super::super::Foundation::HWND,
-    pub wFunc: u32,
-    pub pFrom: windows_sys::core::PCWSTR,
-    pub pTo: windows_sys::core::PCWSTR,
-    pub fFlags: u16,
-    pub fAnyOperationsAborted: super::super::Foundation::BOOL,
-    pub hNameMappings: *mut core::ffi::c_void,
-    pub lpszProgressTitle: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SHFOLDERCUSTOMSETTINGS {
-    pub dwSize: u32,
-    pub dwMask: u32,
-    pub pvid: *mut windows_sys::core::GUID,
-    pub pszWebViewTemplate: windows_sys::core::PWSTR,
-    pub cchWebViewTemplate: u32,
-    pub pszWebViewTemplateVersion: windows_sys::core::PWSTR,
-    pub pszInfoTip: windows_sys::core::PWSTR,
-    pub cchInfoTip: u32,
-    pub pclsid: *mut windows_sys::core::GUID,
-    pub dwFlags: u32,
-    pub pszIconFile: windows_sys::core::PWSTR,
-    pub cchIconFile: u32,
-    pub iIconIndex: i32,
-    pub pszLogo: windows_sys::core::PWSTR,
-    pub cchLogo: u32,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct SHNAMEMAPPINGA {
-    pub pszOldPath: windows_sys::core::PSTR,
-    pub pszNewPath: windows_sys::core::PSTR,
-    pub cchOldPath: i32,
-    pub cchNewPath: i32,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SHNAMEMAPPINGA {
-    pub pszOldPath: windows_sys::core::PSTR,
-    pub pszNewPath: windows_sys::core::PSTR,
-    pub cchOldPath: i32,
-    pub cchNewPath: i32,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct SHNAMEMAPPINGW {
-    pub pszOldPath: windows_sys::core::PWSTR,
-    pub pszNewPath: windows_sys::core::PWSTR,
-    pub cchOldPath: i32,
-    pub cchNewPath: i32,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SHNAMEMAPPINGW {
-    pub pszOldPath: windows_sys::core::PWSTR,
-    pub pszNewPath: windows_sys::core::PWSTR,
-    pub cchOldPath: i32,
-    pub cchNewPath: i32,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct SHQUERYRBINFO {
-    pub cbSize: u32,
-    pub i64Size: i64,
-    pub i64NumItems: i64,
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SHQUERYRBINFO {
-    pub cbSize: u32,
-    pub i64Size: i64,
-    pub i64NumItems: i64,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct SHSTOCKICONINFO {
-    pub cbSize: u32,
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub iSysImageIndex: i32,
-    pub iIcon: i32,
-    pub szPath: [u16; 260],
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct SHSTOCKICONINFO {
-    pub cbSize: u32,
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub iSysImageIndex: i32,
-    pub iIcon: i32,
-    pub szPath: [u16; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SLOWAPPINFO {
-    pub ullSize: u64,
-    pub ftLastUsed: super::super::Foundation::FILETIME,
-    pub iTimesUsed: i32,
-    pub pszImage: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct SMCSHCHANGENOTIFYSTRUCT {
-    pub lEvent: i32,
-    pub pidl1: *mut Common::ITEMIDLIST,
-    pub pidl2: *mut Common::ITEMIDLIST,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct SMDATA {
-    pub dwMask: u32,
-    pub dwFlags: u32,
-    pub hmenu: super::WindowsAndMessaging::HMENU,
-    pub hwnd: super::super::Foundation::HWND,
-    pub uId: u32,
-    pub uIdParent: u32,
-    pub uIdAncestor: u32,
-    pub punk: *mut core::ffi::c_void,
-    pub pidlFolder: *mut Common::ITEMIDLIST,
-    pub pidlItem: *mut Common::ITEMIDLIST,
-    pub psf: *mut core::ffi::c_void,
-    pub pvUserData: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SMINFO {
-    pub dwMask: u32,
-    pub dwType: u32,
-    pub dwFlags: u32,
-    pub iIcon: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SORTCOLUMN {
-    pub propkey: super::super::Foundation::PROPERTYKEY,
-    pub direction: SORTDIRECTION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SV2CVW2_PARAMS {
-    pub cbSize: u32,
-    pub psvPrev: *mut core::ffi::c_void,
-    pub pfs: *mut FOLDERSETTINGS,
-    pub psbOwner: *mut core::ffi::c_void,
-    pub prcView: *mut super::super::Foundation::RECT,
-    pub pvid: *const windows_sys::core::GUID,
-    pub hwndView: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct SYNCMGRHANDLERINFO {
-    pub cbSize: u32,
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub SyncMgrHandlerFlags: u32,
-    pub wszHandlerName: [u16; 32],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct SYNCMGRITEM {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub ItemID: windows_sys::core::GUID,
-    pub dwItemState: u32,
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub wszItemName: [u16; 128],
-    pub ftLastUpdate: super::super::Foundation::FILETIME,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYNCMGRLOGERRORINFO {
-    pub cbSize: u32,
-    pub mask: u32,
-    pub dwSyncMgrErrorFlags: u32,
-    pub ErrorID: windows_sys::core::GUID,
-    pub ItemID: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYNCMGRPROGRESSITEM {
-    pub cbSize: u32,
-    pub mask: u32,
-    pub lpcStatusText: windows_sys::core::PCWSTR,
-    pub dwStatusType: u32,
-    pub iProgValue: i32,
-    pub iMaxValue: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct SYNCMGR_CONFLICT_ID_INFO {
-    pub pblobID: *mut super::super::System::Com::BYTE_BLOB,
-    pub pblobExtra: *mut super::super::System::Com::BYTE_BLOB,
-}
-pub const ScheduledTasks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd6277990_4c6a_11cf_8d87_00aa0060f5bf);
-pub const SearchFolderItemFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x14010e02_bbbd_41f0_88e3_eda371216584);
-pub const SharedBitmap: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4db26476_6787_4046_b836_e8412a9e8a27);
-pub const SharingConfigurationManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x49f371e1_8c5c_4d9c_9a3b_54a6827f513c);
-pub const Shell: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13709620_c279_11ce_a49e_444553540000);
-pub const ShellBrowserWindow: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc08afd90_f2a1_11d1_8455_00a0c91f3880);
-pub const ShellDesktop: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021400_0000_0000_c000_000000000046);
-pub const ShellDispatchInproc: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0a89a860_d7b1_11ce_8350_444553540000);
-pub const ShellFSFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf3364ba0_65b9_11ce_a9ba_00aa004ae837);
-pub const ShellFolderItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2fe352ea_fd1f_11d2_b1f4_00c04f8eeb3e);
-pub const ShellFolderView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x62112aa1_ebe4_11cf_a5fb_0020afe7292d);
-pub const ShellFolderViewOC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9ba05971_f6a8_11cf_a442_00a0c90a8f39);
-pub const ShellImageDataFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66e4e4fb_f385_4dd0_8d74_a2efd1bc6178);
-pub const ShellItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9ac9fbe1_e0a2_4ad6_b4ee_e212013ea917);
-pub const ShellLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd9b3211d_e57f_4426_aaef_30a806add397);
-pub const ShellLink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021401_0000_0000_c000_000000000046);
-pub const ShellLinkObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x11219420_1768_11d1_95be_00609797ea4f);
-pub const ShellNameSpace: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x55136805_b2de_11d1_b9f2_00a0c98bc547);
-pub const ShellUIHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x64ab4bb7_111e_11d1_8f79_00c04fc2fbe1);
-pub const ShellWindows: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9ba05972_f6a8_11cf_a442_00a0c90a8f39);
-pub const ShowInputPaneAnimationCoordinator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1f046abf_3202_4dc1_8cb5_3c67617ce1fa);
-pub const SimpleConflictPresenter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7a0f6ab7_ed84_46b6_b47e_02aa159a152b);
-pub const SizeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x55d7b852_f6d1_42f2_aa75_8728a1b2d264);
-pub const SmartcardCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fd7e19c_3bf7_489b_a72c_846ab3678c96);
-pub const SmartcardPinProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94596c7e_3744_41ce_893e_bbf09122f76a);
-pub const SmartcardReaderSelectionProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1b283861_754f_4022_ad47_a5eaaa618894);
-pub const SmartcardWinRTProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ee7337f_85ac_45e2_a23c_37c753209769);
-pub const StartMenuPin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa2a9545d_a0c2_42b4_9708_a0b2badd77c8);
-pub const StorageProviderBanners: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ccdf9f4_e576_455a_8bc7_f6ec68d6f063);
-pub const SuspensionDependencyManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b273fc5_61fd_4918_95a2_c3b5e9d7f581);
-pub const SyncMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6295df27_35ee_11d1_8707_00c04fd93327);
-pub const SyncMgrClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1202db60_1dac_42c5_aed5_1abdd432248e);
-pub const SyncMgrControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1a1f4206_0688_4e7f_be03_d82ec69df9a5);
-pub const SyncMgrFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c73f5e5_7ae7_4e32_a8e8_8d23b85255bf);
-pub const SyncMgrScheduleWizard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8d8b8e30_c451_421b_8553_d2976afa648c);
-pub const SyncResultsFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x71d99464_3b6b_475c_b241_e15883207529);
-pub const SyncSetupFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2e9e59c0_b437_4981_a647_9c34b9b90891);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TBINFO {
-    pub cbuttons: u32,
-    pub uFlags: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct THUMBBUTTON {
-    pub dwMask: THUMBBUTTONMASK,
-    pub iId: u32,
-    pub iBitmap: u32,
-    pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szTip: [u16; 260],
-    pub dwFlags: THUMBBUTTONFLAGS,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct TOOLBARITEM {
-    pub ptbar: *mut core::ffi::c_void,
-    pub rcBorderTool: super::super::Foundation::RECT,
-    pub pwszItem: windows_sys::core::PWSTR,
-    pub fShow: super::super::Foundation::BOOL,
-    pub hMon: super::super::Graphics::Gdi::HMONITOR,
-}
-pub const TaskbarList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x56fdf344_fd6d_11d0_958a_006097c9a090);
-pub const ThumbnailStreamCache: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcbe0fed3_4b91_4e90_8354_8a8c84ec6872);
-pub const TimeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3bb4118f_ddfd_4d30_a348_9fb5d6bf1afe);
-pub const TrackShellMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8278f931_2a3e_11d2_838f_00c04fd918d0);
-pub const TrayBandSiteService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf60ad0a0_e5e1_45cb_b51a_e15b9f8b2934);
-pub const TrayDeskBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe6442437_6c68_4f52_94dd_2cfed267efb9);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct URLINVOKECOMMANDINFOA {
-    pub dwcbSize: u32,
-    pub dwFlags: u32,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub pcszVerb: windows_sys::core::PCSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct URLINVOKECOMMANDINFOW {
-    pub dwcbSize: u32,
-    pub dwFlags: u32,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub pcszVerb: windows_sys::core::PCWSTR,
-}
-pub const UserNotification: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0010890e_8789_413c_adbc_48f5b511b3af);
-pub const V1PasswordCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f45dc1e_5384_457a_bc13_2cd81b0d28ed);
-pub const V1SmartcardCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8bf9a910_a8ff_457f_999f_a5ca10b4a885);
-pub const V1WinBioCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xac3ac249_e820_4343_a65b_377ac634dc09);
-pub const VaultProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x503739d0_4c5e_4cfd_b3ba_d881334f0df2);
-pub const VirtualDesktopManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaa509086_5ca9_4c25_8f95_589d3c07b48a);
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy)]
-pub struct WINDOWDATA {
-    pub dwWindowID: u32,
-    pub uiCP: u32,
-    pub pidl: *mut Common::ITEMIDLIST,
-    pub lpszUrl: windows_sys::core::PWSTR,
-    pub lpszUrlLocation: windows_sys::core::PWSTR,
-    pub lpszTitle: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WTS_THUMBNAILID {
-    pub rgbKey: [u8; 16],
-}
-pub const WebBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8856f961_340a_11d0_a96b_00c04fd705a2);
-pub const WebBrowser_V1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeab22ac3_30c1_11cf_a7eb_0000c05bae0b);
-pub const WebWizardHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc827f149_55c1_4d28_935e_57e47caed973);
-pub const WinBioCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbec09223_b018_416d_a0ac_523971b639f5);
-pub type APPLET_PROC = Option<unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32>;
-pub type BFFCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32>;
-pub type DLLGETVERSIONPROC = Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> windows_sys::core::HRESULT>;
-pub type LPFNDFMCALLBACK = Option<unsafe extern "system" fn(psf: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pdtobj: *mut core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_sys::core::HRESULT>;
-pub type LPFNVIEWCALLBACK = Option<unsafe extern "system" fn(psvouter: *mut core::ffi::c_void, psf: *mut core::ffi::c_void, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_sys::core::HRESULT>;
-pub type PAPPCONSTRAIN_CHANGE_ROUTINE = Option<unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const core::ffi::c_void)>;
-pub type PAPPSTATE_CHANGE_ROUTINE = Option<unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const core::ffi::c_void)>;
-pub type PFNCANSHAREFOLDERW = Option<unsafe extern "system" fn(pszpath: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
-pub type PFNSHOWSHAREFOLDERUIW = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
-pub type SUBCLASSPROC = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT>;

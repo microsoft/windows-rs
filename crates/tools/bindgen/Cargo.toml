@@ -1,0 +1,10 @@
+[package]
+name = "tool_bindgen"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true

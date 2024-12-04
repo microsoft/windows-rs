@@ -1,21 +1,3 @@
-windows_core::imp::define_interface!(IApiInformationStatics, IApiInformationStatics_Vtbl, 0x997439fe_f681_4a11_b416_c13a47e8ba36);
-impl windows_core::RuntimeType for IApiInformationStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IApiInformationStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsTypePresent: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
-    pub IsMethodPresent: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
-    pub IsMethodPresentWithArity: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *mut bool) -> windows_core::HRESULT,
-    pub IsEventPresent: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
-    pub IsPropertyPresent: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
-    pub IsReadOnlyPropertyPresent: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
-    pub IsWriteablePropertyPresent: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
-    pub IsEnumNamedValuePresent: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
-    pub IsApiContractPresentByMajor: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u16, *mut bool) -> windows_core::HRESULT,
-    pub IsApiContractPresentByMajorAndMinor: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u16, u16, *mut bool) -> windows_core::HRESULT,
-}
 pub struct ApiInformation;
 impl ApiInformation {
     pub fn IsTypePresent(typename: &windows_core::HSTRING) -> windows_core::Result<bool> {
@@ -87,7 +69,7 @@ impl windows_core::RuntimeName for ApiInformation {
     const NAME: &'static str = "Windows.Foundation.Metadata.ApiInformation";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AttributeTargets(pub u32);
 impl AttributeTargets {
     pub const All: Self = Self(4294967295u32);
@@ -107,10 +89,8 @@ impl AttributeTargets {
 impl windows_core::TypeKind for AttributeTargets {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for AttributeTargets {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AttributeTargets").field(&self.0).finish()
-    }
+impl windows_core::RuntimeType for AttributeTargets {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
 }
 impl AttributeTargets {
     pub const fn contains(&self, other: Self) -> bool {
@@ -145,11 +125,8 @@ impl core::ops::Not for AttributeTargets {
         Self(self.0.not())
     }
 }
-impl windows_core::RuntimeType for AttributeTargets {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionType(pub i32);
 impl CompositionType {
     pub const Protected: Self = Self(1i32);
@@ -158,16 +135,11 @@ impl CompositionType {
 impl windows_core::TypeKind for CompositionType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CompositionType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CompositionType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for CompositionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeprecationType(pub i32);
 impl DeprecationType {
     pub const Deprecate: Self = Self(0i32);
@@ -176,16 +148,11 @@ impl DeprecationType {
 impl windows_core::TypeKind for DeprecationType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DeprecationType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DeprecationType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DeprecationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FeatureStage(pub i32);
 impl FeatureStage {
     pub const AlwaysDisabled: Self = Self(0i32);
@@ -196,16 +163,11 @@ impl FeatureStage {
 impl windows_core::TypeKind for FeatureStage {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FeatureStage {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FeatureStage").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for FeatureStage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GCPressureAmount(pub i32);
 impl GCPressureAmount {
     pub const Low: Self = Self(0i32);
@@ -215,16 +177,29 @@ impl GCPressureAmount {
 impl windows_core::TypeKind for GCPressureAmount {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GCPressureAmount {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GCPressureAmount").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GCPressureAmount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
 }
+windows_core::imp::define_interface!(IApiInformationStatics, IApiInformationStatics_Vtbl, 0x997439fe_f681_4a11_b416_c13a47e8ba36);
+impl windows_core::RuntimeType for IApiInformationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IApiInformationStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsTypePresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsMethodPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsMethodPresentWithArity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut bool) -> windows_core::HRESULT,
+    pub IsEventPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsPropertyPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsReadOnlyPropertyPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsWriteablePropertyPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsEnumNamedValuePresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsApiContractPresentByMajor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u16, *mut bool) -> windows_core::HRESULT,
+    pub IsApiContractPresentByMajorAndMinor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u16, u16, *mut bool) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MarshalingType(pub i32);
 impl MarshalingType {
     pub const None: Self = Self(1i32);
@@ -235,16 +210,11 @@ impl MarshalingType {
 impl windows_core::TypeKind for MarshalingType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MarshalingType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MarshalingType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for MarshalingType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Platform(pub i32);
 impl Platform {
     pub const Windows: Self = Self(0i32);
@@ -253,16 +223,11 @@ impl Platform {
 impl windows_core::TypeKind for Platform {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for Platform {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("Platform").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for Platform {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ThreadingModel(pub i32);
 impl ThreadingModel {
     pub const STA: Self = Self(1i32);
@@ -272,11 +237,6 @@ impl ThreadingModel {
 }
 impl windows_core::TypeKind for ThreadingModel {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for ThreadingModel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ThreadingModel").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for ThreadingModel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.ThreadingModel;i4)");

@@ -1,10 +1,1434 @@
-windows_core::imp::define_interface!(IRichEditOle, IRichEditOle_Vtbl, 0x00020d00_0000_0000_c000_000000000046);
-impl core::ops::Deref for IRichEditOle {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
+pub const ATP_CHANGE: u32 = 1u32;
+pub const ATP_NOCHANGE: u32 = 0u32;
+pub const ATP_NODELIMITER: u32 = 2u32;
+pub const ATP_REPLACEALLTEXT: u32 = 4u32;
+pub const AURL_DISABLEMIXEDLGC: u32 = 32u32;
+pub const AURL_ENABLEDRIVELETTERS: u32 = 16u32;
+pub const AURL_ENABLEEA: u32 = 1u32;
+pub const AURL_ENABLEEAURLS: u32 = 8u32;
+pub const AURL_ENABLEEMAILADDR: u32 = 2u32;
+pub const AURL_ENABLETELNO: u32 = 4u32;
+pub const AURL_ENABLEURL: u32 = 1u32;
+pub type AutoCorrectProc = Option<unsafe extern "system" fn(langid: u16, pszbefore: windows_core::PCWSTR, pszafter: windows_core::PCWSTR, cchafter: i32, pcchreplaced: *mut i32) -> i32>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BIDIOPTIONS {
+    pub cbSize: u32,
+    pub wMask: u16,
+    pub wEffects: u16,
+}
+impl Default for BIDIOPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for BIDIOPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
+pub const BOE_CONTEXTALIGNMENT: u32 = 16u32;
+pub const BOE_CONTEXTREADING: u32 = 8u32;
+pub const BOE_FORCERECALC: u32 = 32u32;
+pub const BOE_LEGACYBIDICLASS: u32 = 64u32;
+pub const BOE_NEUTRALOVERRIDE: u32 = 4u32;
+pub const BOE_PLAINTEXT: u32 = 2u32;
+pub const BOE_RTLDIR: u32 = 1u32;
+pub const BOE_UNICODEBIDI: u32 = 128u32;
+pub const BOM_CONTEXTALIGNMENT: u32 = 16u32;
+pub const BOM_CONTEXTREADING: u32 = 8u32;
+pub const BOM_DEFPARADIR: u32 = 1u32;
+pub const BOM_LEGACYBIDICLASS: u32 = 64u32;
+pub const BOM_NEUTRALOVERRIDE: u32 = 4u32;
+pub const BOM_PLAINTEXT: u32 = 2u32;
+pub const BOM_UNICODEBIDI: u32 = 128u32;
+pub const CARET_CUSTOM: CARET_FLAGS = CARET_FLAGS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CARET_FLAGS(pub i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub union CARET_INFO {
+    pub hbitmap: super::super::super::Graphics::Gdi::HBITMAP,
+    pub caretFlags: CARET_FLAGS,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CARET_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CARET_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CARET_ITALIC: CARET_FLAGS = CARET_FLAGS(32i32);
+pub const CARET_NONE: CARET_FLAGS = CARET_FLAGS(0i32);
+pub const CARET_NULL: CARET_FLAGS = CARET_FLAGS(64i32);
+pub const CARET_ROTATE90: CARET_FLAGS = CARET_FLAGS(128i32);
+pub const CARET_RTL: CARET_FLAGS = CARET_FLAGS(2i32);
+pub const CERICHEDIT_CLASSA: windows_core::PCSTR = windows_core::s!("RichEditCEA");
+pub const CERICHEDIT_CLASSW: windows_core::PCWSTR = windows_core::w!("RichEditCEW");
+pub const CFE_ALLCAPS: CFE_EFFECTS = CFE_EFFECTS(128u32);
+pub const CFE_AUTOBACKCOLOR: CFE_EFFECTS = CFE_EFFECTS(67108864u32);
+pub const CFE_AUTOCOLOR: CFE_EFFECTS = CFE_EFFECTS(1073741824u32);
+pub const CFE_BOLD: CFE_EFFECTS = CFE_EFFECTS(1u32);
+pub const CFE_DISABLED: CFE_EFFECTS = CFE_EFFECTS(8192u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CFE_EFFECTS(pub u32);
+impl CFE_EFFECTS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CFE_EFFECTS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CFE_EFFECTS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CFE_EFFECTS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CFE_EFFECTS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CFE_EFFECTS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const CFE_EMBOSS: CFE_EFFECTS = CFE_EFFECTS(2048u32);
+pub const CFE_EXTENDED: CFE_EFFECTS = CFE_EFFECTS(33554432u32);
+pub const CFE_FONTBOUND: CFE_EFFECTS = CFE_EFFECTS(1048576u32);
+pub const CFE_HIDDEN: CFE_EFFECTS = CFE_EFFECTS(256u32);
+pub const CFE_IMPRINT: CFE_EFFECTS = CFE_EFFECTS(4096u32);
+pub const CFE_ITALIC: CFE_EFFECTS = CFE_EFFECTS(2u32);
+pub const CFE_LINK: CFE_EFFECTS = CFE_EFFECTS(32u32);
+pub const CFE_LINKPROTECTED: CFE_EFFECTS = CFE_EFFECTS(8388608u32);
+pub const CFE_MATH: CFE_EFFECTS = CFE_EFFECTS(268435456u32);
+pub const CFE_MATHNOBUILDUP: CFE_EFFECTS = CFE_EFFECTS(134217728u32);
+pub const CFE_MATHORDINARY: CFE_EFFECTS = CFE_EFFECTS(536870912u32);
+pub const CFE_OUTLINE: CFE_EFFECTS = CFE_EFFECTS(512u32);
+pub const CFE_PROTECTED: CFE_EFFECTS = CFE_EFFECTS(16u32);
+pub const CFE_REVISED: CFE_EFFECTS = CFE_EFFECTS(16384u32);
+pub const CFE_SHADOW: CFE_EFFECTS = CFE_EFFECTS(1024u32);
+pub const CFE_SMALLCAPS: CFE_EFFECTS = CFE_EFFECTS(64u32);
+pub const CFE_STRIKEOUT: CFE_EFFECTS = CFE_EFFECTS(8u32);
+pub const CFE_SUBSCRIPT: CFE_EFFECTS = CFE_EFFECTS(65536u32);
+pub const CFE_SUPERSCRIPT: CFE_EFFECTS = CFE_EFFECTS(131072u32);
+pub const CFE_UNDERLINE: CFE_EFFECTS = CFE_EFFECTS(4u32);
+pub const CFM_ALL: CFM_MASK = CFM_MASK(4160749631u32);
+pub const CFM_ALL2: CFM_MASK = CFM_MASK(4294967295u32);
+pub const CFM_ALLCAPS: CFM_MASK = CFM_MASK(128u32);
+pub const CFM_ALLEFFECTS: CFM_MASK = CFM_MASK(2115207167u32);
+pub const CFM_ANIMATION: CFM_MASK = CFM_MASK(262144u32);
+pub const CFM_BACKCOLOR: CFM_MASK = CFM_MASK(67108864u32);
+pub const CFM_BOLD: CFM_MASK = CFM_MASK(1u32);
+pub const CFM_CHARSET: CFM_MASK = CFM_MASK(134217728u32);
+pub const CFM_COLOR: CFM_MASK = CFM_MASK(1073741824u32);
+pub const CFM_COOKIE: CFM_MASK = CFM_MASK(16777216u32);
+pub const CFM_DISABLED: CFM_MASK = CFM_MASK(8192u32);
+pub const CFM_EFFECTS: CFM_MASK = CFM_MASK(1073741887u32);
+pub const CFM_EFFECTS2: CFM_MASK = CFM_MASK(1141080063u32);
+pub const CFM_EMBOSS: CFM_MASK = CFM_MASK(2048u32);
+pub const CFM_EXTENDED: CFM_MASK = CFM_MASK(33554432u32);
+pub const CFM_FACE: CFM_MASK = CFM_MASK(536870912u32);
+pub const CFM_FONTBOUND: CFM_MASK = CFM_MASK(1048576u32);
+pub const CFM_HIDDEN: CFM_MASK = CFM_MASK(256u32);
+pub const CFM_IMPRINT: CFM_MASK = CFM_MASK(4096u32);
+pub const CFM_ITALIC: CFM_MASK = CFM_MASK(2u32);
+pub const CFM_KERNING: CFM_MASK = CFM_MASK(1048576u32);
+pub const CFM_LCID: CFM_MASK = CFM_MASK(33554432u32);
+pub const CFM_LINK: CFM_MASK = CFM_MASK(32u32);
+pub const CFM_LINKPROTECTED: CFM_MASK = CFM_MASK(8388608u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CFM_MASK(pub u32);
+impl CFM_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CFM_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CFM_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CFM_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CFM_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CFM_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const CFM_MATH: CFM_MASK = CFM_MASK(268435456u32);
+pub const CFM_MATHNOBUILDUP: CFM_MASK = CFM_MASK(134217728u32);
+pub const CFM_MATHORDINARY: CFM_MASK = CFM_MASK(536870912u32);
+pub const CFM_OFFSET: CFM_MASK = CFM_MASK(268435456u32);
+pub const CFM_OUTLINE: CFM_MASK = CFM_MASK(512u32);
+pub const CFM_PROTECTED: CFM_MASK = CFM_MASK(16u32);
+pub const CFM_REVAUTHOR: CFM_MASK = CFM_MASK(32768u32);
+pub const CFM_REVISED: CFM_MASK = CFM_MASK(16384u32);
+pub const CFM_SHADOW: CFM_MASK = CFM_MASK(1024u32);
+pub const CFM_SIZE: CFM_MASK = CFM_MASK(2147483648u32);
+pub const CFM_SMALLCAPS: CFM_MASK = CFM_MASK(64u32);
+pub const CFM_SPACING: CFM_MASK = CFM_MASK(2097152u32);
+pub const CFM_STRIKEOUT: CFM_MASK = CFM_MASK(8u32);
+pub const CFM_STYLE: CFM_MASK = CFM_MASK(524288u32);
+pub const CFM_SUBSCRIPT: CFM_MASK = CFM_MASK(196608u32);
+pub const CFM_SUPERSCRIPT: CFM_MASK = CFM_MASK(196608u32);
+pub const CFM_UNDERLINE: CFM_MASK = CFM_MASK(4u32);
+pub const CFM_UNDERLINETYPE: CFM_MASK = CFM_MASK(8388608u32);
+pub const CFM_WEIGHT: CFM_MASK = CFM_MASK(4194304u32);
+pub const CF_RETEXTOBJ: windows_core::PCWSTR = windows_core::w!("RichEdit Text and Objects");
+pub const CF_RTF: windows_core::PCWSTR = windows_core::w!("Rich Text Format");
+pub const CF_RTFNOOBJS: windows_core::PCWSTR = windows_core::w!("Rich Text Format Without Objects");
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CHANGENOTIFY {
+    pub dwChangeType: u32,
+    pub pvCookieData: *mut core::ffi::c_void,
+}
+impl Default for CHANGENOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CHANGENOTIFY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CHANGETYPE(pub i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct CHARFORMAT2A {
+    pub Base: CHARFORMATA,
+    pub wWeight: u16,
+    pub sSpacing: i16,
+    pub crBackColor: super::super::super::Foundation::COLORREF,
+    pub lcid: u32,
+    pub Anonymous: CHARFORMAT2A_0,
+    pub sStyle: i16,
+    pub wKerning: u16,
+    pub bUnderlineType: u8,
+    pub bAnimation: u8,
+    pub bRevAuthor: u8,
+    pub bUnderlineColor: u8,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CHARFORMAT2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CHARFORMAT2A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub union CHARFORMAT2A_0 {
+    pub dwReserved: u32,
+    pub dwCookie: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CHARFORMAT2A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CHARFORMAT2A_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct CHARFORMAT2W {
+    pub Base: CHARFORMATW,
+    pub wWeight: u16,
+    pub sSpacing: i16,
+    pub crBackColor: super::super::super::Foundation::COLORREF,
+    pub lcid: u32,
+    pub Anonymous: CHARFORMAT2W_0,
+    pub sStyle: i16,
+    pub wKerning: u16,
+    pub bUnderlineType: u8,
+    pub bAnimation: u8,
+    pub bRevAuthor: u8,
+    pub bUnderlineColor: u8,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CHARFORMAT2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CHARFORMAT2W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub union CHARFORMAT2W_0 {
+    pub dwReserved: u32,
+    pub dwCookie: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CHARFORMAT2W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CHARFORMAT2W_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CHARFORMATA {
+    pub cbSize: u32,
+    pub dwMask: CFM_MASK,
+    pub dwEffects: CFE_EFFECTS,
+    pub yHeight: i32,
+    pub yOffset: i32,
+    pub crTextColor: super::super::super::Foundation::COLORREF,
+    pub bCharSet: super::super::super::Graphics::Gdi::FONT_CHARSET,
+    pub bPitchAndFamily: u8,
+    pub szFaceName: [i8; 32],
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CHARFORMATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CHARFORMATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CHARFORMATW {
+    pub cbSize: u32,
+    pub dwMask: CFM_MASK,
+    pub dwEffects: CFE_EFFECTS,
+    pub yHeight: i32,
+    pub yOffset: i32,
+    pub crTextColor: super::super::super::Foundation::COLORREF,
+    pub bCharSet: super::super::super::Graphics::Gdi::FONT_CHARSET,
+    pub bPitchAndFamily: u8,
+    pub szFaceName: [u16; 32],
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CHARFORMATW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CHARFORMATW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CHARRANGE {
+    pub cpMin: i32,
+    pub cpMax: i32,
+}
+impl Default for CHARRANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CHARRANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLIPBOARDFORMAT {
+    pub nmhdr: super::NMHDR,
+    pub cf: u16,
+}
+#[cfg(target_arch = "x86")]
+impl Default for CLIPBOARDFORMAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for CLIPBOARDFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct CLIPBOARDFORMAT {
+    pub nmhdr: super::NMHDR,
+    pub cf: u16,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for CLIPBOARDFORMAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for CLIPBOARDFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CN_GENERIC: CHANGETYPE = CHANGETYPE(0i32);
+pub const CN_NEWREDO: CHANGETYPE = CHANGETYPE(4i32);
+pub const CN_NEWUNDO: CHANGETYPE = CHANGETYPE(2i32);
+pub const CN_TEXTCHANGED: CHANGETYPE = CHANGETYPE(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COMPCOLOR {
+    pub crText: super::super::super::Foundation::COLORREF,
+    pub crBackground: super::super::super::Foundation::COLORREF,
+    pub dwEffects: u32,
+}
+impl Default for COMPCOLOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COMPCOLOR {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CTFMODEBIAS_CONVERSATION: u32 = 5u32;
+pub const CTFMODEBIAS_DATETIME: u32 = 4u32;
+pub const CTFMODEBIAS_DEFAULT: u32 = 0u32;
+pub const CTFMODEBIAS_FILENAME: u32 = 1u32;
+pub const CTFMODEBIAS_FULLWIDTHALPHANUMERIC: u32 = 11u32;
+pub const CTFMODEBIAS_HALFWIDTHALPHANUMERIC: u32 = 12u32;
+pub const CTFMODEBIAS_HALFWIDTHKATAKANA: u32 = 10u32;
+pub const CTFMODEBIAS_HANGUL: u32 = 9u32;
+pub const CTFMODEBIAS_HIRAGANA: u32 = 7u32;
+pub const CTFMODEBIAS_KATAKANA: u32 = 8u32;
+pub const CTFMODEBIAS_NAME: u32 = 2u32;
+pub const CTFMODEBIAS_NUMERIC: u32 = 6u32;
+pub const CTFMODEBIAS_READING: u32 = 3u32;
+pub const ECN_ENDCOMPOSITION: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(1u32);
+pub const ECN_NEWTEXT: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(2u32);
+pub const ECOOP_AND: u32 = 3u32;
+pub const ECOOP_OR: u32 = 2u32;
+pub const ECOOP_SET: u32 = 1u32;
+pub const ECOOP_XOR: u32 = 4u32;
+pub const ECO_AUTOHSCROLL: u32 = 128u32;
+pub const ECO_AUTOVSCROLL: u32 = 64u32;
+pub const ECO_AUTOWORDSELECTION: u32 = 1u32;
+pub const ECO_NOHIDESEL: u32 = 256u32;
+pub const ECO_READONLY: u32 = 2048u32;
+pub const ECO_SAVESEL: u32 = 32768u32;
+pub const ECO_SELECTIONBAR: u32 = 16777216u32;
+pub const ECO_VERTICAL: u32 = 4194304u32;
+pub const ECO_WANTRETURN: u32 = 4096u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EDITSTREAM {
+    pub dwCookie: usize,
+    pub dwError: u32,
+    pub pfnCallback: EDITSTREAMCALLBACK,
+}
+#[cfg(target_arch = "x86")]
+impl Default for EDITSTREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for EDITSTREAM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct EDITSTREAM {
+    pub dwCookie: usize,
+    pub dwError: u32,
+    pub pfnCallback: EDITSTREAMCALLBACK,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for EDITSTREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for EDITSTREAM {
+    type TypeKind = windows_core::CopyType;
+}
+pub type EDITSTREAMCALLBACK = Option<unsafe extern "system" fn(dwcookie: usize, pbbuff: *mut u8, cb: i32, pcb: *mut i32) -> u32>;
+pub type EDITWORDBREAKPROCEX = Option<unsafe extern "system" fn(pchtext: windows_core::PCSTR, cchtext: i32, bcharset: u8, action: i32) -> i32>;
+pub const ELLIPSIS_END: u32 = 1u32;
+pub const ELLIPSIS_MASK: u32 = 3u32;
+pub const ELLIPSIS_NONE: u32 = 0u32;
+pub const ELLIPSIS_WORD: u32 = 3u32;
+pub const EMO_ENTER: u32 = 1u32;
+pub const EMO_EXIT: u32 = 0u32;
+pub const EMO_EXPAND: u32 = 3u32;
+pub const EMO_EXPANDDOCUMENT: u32 = 1u32;
+pub const EMO_EXPANDSELECTION: u32 = 0u32;
+pub const EMO_GETVIEWMODE: u32 = 5u32;
+pub const EMO_MOVESELECTION: u32 = 4u32;
+pub const EMO_PROMOTE: u32 = 2u32;
+pub const EM_AUTOURLDETECT: u32 = 1115u32;
+pub const EM_CALLAUTOCORRECTPROC: u32 = 1279u32;
+pub const EM_CANPASTE: u32 = 1074u32;
+pub const EM_CANREDO: u32 = 1109u32;
+pub const EM_CONVPOSITION: u32 = 1132u32;
+pub const EM_DISPLAYBAND: u32 = 1075u32;
+pub const EM_EXGETSEL: u32 = 1076u32;
+pub const EM_EXLIMITTEXT: u32 = 1077u32;
+pub const EM_EXLINEFROMCHAR: u32 = 1078u32;
+pub const EM_EXSETSEL: u32 = 1079u32;
+pub const EM_FINDTEXT: u32 = 1080u32;
+pub const EM_FINDTEXTEX: u32 = 1103u32;
+pub const EM_FINDTEXTEXW: u32 = 1148u32;
+pub const EM_FINDTEXTW: u32 = 1147u32;
+pub const EM_FINDWORDBREAK: u32 = 1100u32;
+pub const EM_FORMATRANGE: u32 = 1081u32;
+pub const EM_GETAUTOCORRECTPROC: u32 = 1257u32;
+pub const EM_GETAUTOURLDETECT: u32 = 1116u32;
+pub const EM_GETBIDIOPTIONS: u32 = 1225u32;
+pub const EM_GETCHARFORMAT: u32 = 1082u32;
+pub const EM_GETCTFMODEBIAS: u32 = 1261u32;
+pub const EM_GETCTFOPENSTATUS: u32 = 1264u32;
+pub const EM_GETEDITSTYLE: u32 = 1229u32;
+pub const EM_GETEDITSTYLEEX: u32 = 1300u32;
+pub const EM_GETELLIPSISMODE: u32 = 1329u32;
+pub const EM_GETELLIPSISSTATE: u32 = 1346u32;
+pub const EM_GETEVENTMASK: u32 = 1083u32;
+pub const EM_GETHYPHENATEINFO: u32 = 1254u32;
+pub const EM_GETIMECOLOR: u32 = 1129u32;
+pub const EM_GETIMECOMPMODE: u32 = 1146u32;
+pub const EM_GETIMECOMPTEXT: u32 = 1266u32;
+pub const EM_GETIMEMODEBIAS: u32 = 1151u32;
+pub const EM_GETIMEOPTIONS: u32 = 1131u32;
+pub const EM_GETIMEPROPERTY: u32 = 1268u32;
+pub const EM_GETLANGOPTIONS: u32 = 1145u32;
+pub const EM_GETOLEINTERFACE: u32 = 1084u32;
+pub const EM_GETOPTIONS: u32 = 1102u32;
+pub const EM_GETPAGE: u32 = 1252u32;
+pub const EM_GETPAGEROTATE: u32 = 1259u32;
+pub const EM_GETPARAFORMAT: u32 = 1085u32;
+pub const EM_GETPUNCTUATION: u32 = 1125u32;
+pub const EM_GETQUERYRTFOBJ: u32 = 1293u32;
+pub const EM_GETREDONAME: u32 = 1111u32;
+pub const EM_GETSCROLLPOS: u32 = 1245u32;
+pub const EM_GETSELTEXT: u32 = 1086u32;
+pub const EM_GETSTORYTYPE: u32 = 1314u32;
+pub const EM_GETTABLEPARMS: u32 = 1289u32;
+pub const EM_GETTEXTEX: u32 = 1118u32;
+pub const EM_GETTEXTLENGTHEX: u32 = 1119u32;
+pub const EM_GETTEXTMODE: u32 = 1114u32;
+pub const EM_GETTEXTRANGE: u32 = 1099u32;
+pub const EM_GETTOUCHOPTIONS: u32 = 1334u32;
+pub const EM_GETTYPOGRAPHYOPTIONS: u32 = 1227u32;
+pub const EM_GETUNDONAME: u32 = 1110u32;
+pub const EM_GETVIEWKIND: u32 = 1250u32;
+pub const EM_GETWORDBREAKPROCEX: u32 = 1104u32;
+pub const EM_GETWORDWRAPMODE: u32 = 1127u32;
+pub const EM_GETZOOM: u32 = 1248u32;
+pub const EM_HIDESELECTION: u32 = 1087u32;
+pub const EM_INSERTIMAGE: u32 = 1338u32;
+pub const EM_INSERTTABLE: u32 = 1256u32;
+pub const EM_ISIME: u32 = 1267u32;
+pub const EM_OUTLINE: u32 = 1244u32;
+pub const EM_PASTESPECIAL: u32 = 1088u32;
+pub const EM_RECONVERSION: u32 = 1149u32;
+pub const EM_REDO: u32 = 1108u32;
+pub const EM_REQUESTRESIZE: u32 = 1089u32;
+pub const EM_SELECTIONTYPE: u32 = 1090u32;
+pub const EM_SETAUTOCORRECTPROC: u32 = 1258u32;
+pub const EM_SETBIDIOPTIONS: u32 = 1224u32;
+pub const EM_SETBKGNDCOLOR: u32 = 1091u32;
+pub const EM_SETCHARFORMAT: u32 = 1092u32;
+pub const EM_SETCTFMODEBIAS: u32 = 1262u32;
+pub const EM_SETCTFOPENSTATUS: u32 = 1265u32;
+pub const EM_SETDISABLEOLELINKCONVERSION: u32 = 1428u32;
+pub const EM_SETEDITSTYLE: u32 = 1228u32;
+pub const EM_SETEDITSTYLEEX: u32 = 1299u32;
+pub const EM_SETELLIPSISMODE: u32 = 1330u32;
+pub const EM_SETEVENTMASK: u32 = 1093u32;
+pub const EM_SETFONTSIZE: u32 = 1247u32;
+pub const EM_SETHYPHENATEINFO: u32 = 1255u32;
+pub const EM_SETIMECOLOR: u32 = 1128u32;
+pub const EM_SETIMEMODEBIAS: u32 = 1150u32;
+pub const EM_SETIMEOPTIONS: u32 = 1130u32;
+pub const EM_SETLANGOPTIONS: u32 = 1144u32;
+pub const EM_SETOLECALLBACK: u32 = 1094u32;
+pub const EM_SETOPTIONS: u32 = 1101u32;
+pub const EM_SETPAGE: u32 = 1253u32;
+pub const EM_SETPAGEROTATE: u32 = 1260u32;
+pub const EM_SETPALETTE: u32 = 1117u32;
+pub const EM_SETPARAFORMAT: u32 = 1095u32;
+pub const EM_SETPUNCTUATION: u32 = 1124u32;
+pub const EM_SETQUERYCONVERTOLELINKCALLBACK: u32 = 1427u32;
+pub const EM_SETQUERYRTFOBJ: u32 = 1294u32;
+pub const EM_SETSCROLLPOS: u32 = 1246u32;
+pub const EM_SETSTORYTYPE: u32 = 1315u32;
+pub const EM_SETTABLEPARMS: u32 = 1331u32;
+pub const EM_SETTARGETDEVICE: u32 = 1096u32;
+pub const EM_SETTEXTEX: u32 = 1121u32;
+pub const EM_SETTEXTMODE: u32 = 1113u32;
+pub const EM_SETTOUCHOPTIONS: u32 = 1335u32;
+pub const EM_SETTYPOGRAPHYOPTIONS: u32 = 1226u32;
+pub const EM_SETUIANAME: u32 = 1344u32;
+pub const EM_SETUNDOLIMIT: u32 = 1106u32;
+pub const EM_SETVIEWKIND: u32 = 1251u32;
+pub const EM_SETWORDBREAKPROCEX: u32 = 1105u32;
+pub const EM_SETWORDWRAPMODE: u32 = 1126u32;
+pub const EM_SETZOOM: u32 = 1249u32;
+pub const EM_SHOWSCROLLBAR: u32 = 1120u32;
+pub const EM_STOPGROUPTYPING: u32 = 1112u32;
+pub const EM_STREAMIN: u32 = 1097u32;
+pub const EM_STREAMOUT: u32 = 1098u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCORRECTTEXT {
+    pub nmhdr: super::NMHDR,
+    pub chrg: CHARRANGE,
+    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
+}
+#[cfg(target_arch = "x86")]
+impl Default for ENCORRECTTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for ENCORRECTTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct ENCORRECTTEXT {
+    pub nmhdr: super::NMHDR,
+    pub chrg: CHARRANGE,
+    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for ENCORRECTTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ENCORRECTTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENDCOMPOSITIONNOTIFY {
+    pub nmhdr: super::NMHDR,
+    pub dwCode: ENDCOMPOSITIONNOTIFY_CODE,
+}
+#[cfg(target_arch = "x86")]
+impl Default for ENDCOMPOSITIONNOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for ENDCOMPOSITIONNOTIFY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct ENDCOMPOSITIONNOTIFY {
+    pub nmhdr: super::NMHDR,
+    pub dwCode: ENDCOMPOSITIONNOTIFY_CODE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for ENDCOMPOSITIONNOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ENDCOMPOSITIONNOTIFY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ENDCOMPOSITIONNOTIFY_CODE(pub u32);
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENDROPFILES {
+    pub nmhdr: super::NMHDR,
+    pub hDrop: super::super::super::Foundation::HANDLE,
+    pub cp: i32,
+    pub fProtected: super::super::super::Foundation::BOOL,
+}
+#[cfg(target_arch = "x86")]
+impl Default for ENDROPFILES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for ENDROPFILES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct ENDROPFILES {
+    pub nmhdr: super::NMHDR,
+    pub hDrop: super::super::super::Foundation::HANDLE,
+    pub cp: i32,
+    pub fProtected: super::super::super::Foundation::BOOL,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for ENDROPFILES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ENDROPFILES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENLINK {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+    pub chrg: CHARRANGE,
+}
+#[cfg(target_arch = "x86")]
+impl Default for ENLINK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for ENLINK {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct ENLINK {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+    pub chrg: CHARRANGE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for ENLINK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ENLINK {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENLOWFIRTF {
+    pub nmhdr: super::NMHDR,
+    pub szControl: windows_core::PSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for ENLOWFIRTF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for ENLOWFIRTF {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct ENLOWFIRTF {
+    pub nmhdr: super::NMHDR,
+    pub szControl: windows_core::PSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for ENLOWFIRTF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ENLOWFIRTF {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ENM_CHANGE: u32 = 1u32;
+pub const ENM_CLIPFORMAT: u32 = 128u32;
+pub const ENM_CORRECTTEXT: u32 = 4194304u32;
+pub const ENM_DRAGDROPDONE: u32 = 16u32;
+pub const ENM_DROPFILES: u32 = 1048576u32;
+pub const ENM_ENDCOMPOSITION: u32 = 536870912u32;
+pub const ENM_GROUPTYPINGCHANGE: u32 = 1073741824u32;
+pub const ENM_HIDELINKTOOLTIP: u32 = 2147483648u32;
+pub const ENM_IMECHANGE: u32 = 8388608u32;
+pub const ENM_KEYEVENTS: u32 = 65536u32;
+pub const ENM_LANGCHANGE: u32 = 16777216u32;
+pub const ENM_LINK: u32 = 67108864u32;
+pub const ENM_LOWFIRTF: u32 = 134217728u32;
+pub const ENM_MOUSEEVENTS: u32 = 131072u32;
+pub const ENM_NONE: u32 = 0u32;
+pub const ENM_OBJECTPOSITIONS: u32 = 33554432u32;
+pub const ENM_PAGECHANGE: u32 = 64u32;
+pub const ENM_PARAGRAPHEXPANDED: u32 = 32u32;
+pub const ENM_PROTECTED: u32 = 2097152u32;
+pub const ENM_REQUESTRESIZE: u32 = 262144u32;
+pub const ENM_SCROLL: u32 = 4u32;
+pub const ENM_SCROLLEVENTS: u32 = 8u32;
+pub const ENM_SELCHANGE: u32 = 524288u32;
+pub const ENM_STARTCOMPOSITION: u32 = 268435456u32;
+pub const ENM_UPDATE: u32 = 2u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENOLEOPFAILED {
+    pub nmhdr: super::NMHDR,
+    pub iob: i32,
+    pub lOper: i32,
+    pub hr: windows_core::HRESULT,
+}
+#[cfg(target_arch = "x86")]
+impl Default for ENOLEOPFAILED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for ENOLEOPFAILED {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct ENOLEOPFAILED {
+    pub nmhdr: super::NMHDR,
+    pub iob: i32,
+    pub lOper: i32,
+    pub hr: windows_core::HRESULT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for ENOLEOPFAILED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ENOLEOPFAILED {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENPROTECTED {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+    pub chrg: CHARRANGE,
+}
+#[cfg(target_arch = "x86")]
+impl Default for ENPROTECTED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for ENPROTECTED {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct ENPROTECTED {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+    pub chrg: CHARRANGE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for ENPROTECTED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ENPROTECTED {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENSAVECLIPBOARD {
+    pub nmhdr: super::NMHDR,
+    pub cObjectCount: i32,
+    pub cch: i32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for ENSAVECLIPBOARD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for ENSAVECLIPBOARD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct ENSAVECLIPBOARD {
+    pub nmhdr: super::NMHDR,
+    pub cObjectCount: i32,
+    pub cch: i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for ENSAVECLIPBOARD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ENSAVECLIPBOARD {
+    type TypeKind = windows_core::CopyType;
+}
+pub const EN_ALIGNLTR: u32 = 1808u32;
+pub const EN_ALIGNRTL: u32 = 1809u32;
+pub const EN_CLIPFORMAT: u32 = 1810u32;
+pub const EN_CORRECTTEXT: u32 = 1797u32;
+pub const EN_DRAGDROPDONE: u32 = 1804u32;
+pub const EN_DROPFILES: u32 = 1795u32;
+pub const EN_ENDCOMPOSITION: u32 = 1812u32;
+pub const EN_IMECHANGE: u32 = 1799u32;
+pub const EN_LINK: u32 = 1803u32;
+pub const EN_LOWFIRTF: u32 = 1807u32;
+pub const EN_MSGFILTER: u32 = 1792u32;
+pub const EN_OBJECTPOSITIONS: u32 = 1802u32;
+pub const EN_OLEOPFAILED: u32 = 1801u32;
+pub const EN_PAGECHANGE: u32 = 1806u32;
+pub const EN_PARAGRAPHEXPANDED: u32 = 1805u32;
+pub const EN_PROTECTED: u32 = 1796u32;
+pub const EN_REQUESTRESIZE: u32 = 1793u32;
+pub const EN_SAVECLIPBOARD: u32 = 1800u32;
+pub const EN_SELCHANGE: u32 = 1794u32;
+pub const EN_STARTCOMPOSITION: u32 = 1811u32;
+pub const EN_STOPNOUNDO: u32 = 1798u32;
+pub const EPR_0: u32 = 0u32;
+pub const EPR_180: u32 = 2u32;
+pub const EPR_270: u32 = 1u32;
+pub const EPR_90: u32 = 3u32;
+pub const EPR_SE: u32 = 5u32;
+pub const ES_DISABLENOSCROLL: u32 = 8192u32;
+pub const ES_EX_NOCALLOLEINIT: u32 = 0u32;
+pub const ES_NOIME: u32 = 524288u32;
+pub const ES_NOOLEDRAGDROP: u32 = 8u32;
+pub const ES_SAVESEL: u32 = 32768u32;
+pub const ES_SELECTIONBAR: u32 = 16777216u32;
+pub const ES_SELFIME: u32 = 262144u32;
+pub const ES_SUNKEN: u32 = 16384u32;
+pub const ES_VERTICAL: u32 = 4194304u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FINDTEXTA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PCSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for FINDTEXTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FINDTEXTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct FINDTEXTA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PCSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for FINDTEXTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FINDTEXTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FINDTEXTEXA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PCSTR,
+    pub chrgText: CHARRANGE,
+}
+#[cfg(target_arch = "x86")]
+impl Default for FINDTEXTEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FINDTEXTEXA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct FINDTEXTEXA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PCSTR,
+    pub chrgText: CHARRANGE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for FINDTEXTEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FINDTEXTEXA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FINDTEXTEXW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PCWSTR,
+    pub chrgText: CHARRANGE,
+}
+#[cfg(target_arch = "x86")]
+impl Default for FINDTEXTEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FINDTEXTEXW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct FINDTEXTEXW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PCWSTR,
+    pub chrgText: CHARRANGE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for FINDTEXTEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FINDTEXTEXW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FINDTEXTW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for FINDTEXTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FINDTEXTW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct FINDTEXTW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PCWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for FINDTEXTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FINDTEXTW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FORMATRANGE {
+    pub hdc: super::super::super::Graphics::Gdi::HDC,
+    pub hdcTarget: super::super::super::Graphics::Gdi::HDC,
+    pub rc: super::super::super::Foundation::RECT,
+    pub rcPage: super::super::super::Foundation::RECT,
+    pub chrg: CHARRANGE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for FORMATRANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for FORMATRANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct FORMATRANGE {
+    pub hdc: super::super::super::Graphics::Gdi::HDC,
+    pub hdcTarget: super::super::super::Graphics::Gdi::HDC,
+    pub rc: super::super::super::Foundation::RECT,
+    pub rcPage: super::super::super::Foundation::RECT,
+    pub chrg: CHARRANGE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for FORMATRANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for FORMATRANGE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const GCMF_GRIPPER: u32 = 1u32;
+pub const GCMF_MOUSEMENU: u32 = 8192u32;
+pub const GCMF_SPELLING: u32 = 2u32;
+pub const GCMF_TOUCHMENU: u32 = 16384u32;
+pub const GCM_MOUSEMENU: u32 = 8192u32;
+pub const GCM_RIGHTMOUSEDROP: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(32768u16);
+pub const GCM_TOUCHMENU: u32 = 16384u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GETCONTEXTMENUEX {
+    pub chrg: CHARRANGE,
+    pub dwFlags: u32,
+    pub pt: super::super::super::Foundation::POINT,
+    pub pvReserved: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+impl Default for GETCONTEXTMENUEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for GETCONTEXTMENUEX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct GETCONTEXTMENUEX {
+    pub chrg: CHARRANGE,
+    pub dwFlags: u32,
+    pub pt: super::super::super::Foundation::POINT,
+    pub pvReserved: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for GETCONTEXTMENUEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for GETCONTEXTMENUEX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GETTEXTEX {
+    pub cb: u32,
+    pub flags: GETTEXTEX_FLAGS,
+    pub codepage: u32,
+    pub lpDefaultChar: windows_core::PCSTR,
+    pub lpUsedDefChar: *mut super::super::super::Foundation::BOOL,
+}
+#[cfg(target_arch = "x86")]
+impl Default for GETTEXTEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for GETTEXTEX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct GETTEXTEX {
+    pub cb: u32,
+    pub flags: GETTEXTEX_FLAGS,
+    pub codepage: u32,
+    pub lpDefaultChar: windows_core::PCSTR,
+    pub lpUsedDefChar: *mut super::super::super::Foundation::BOOL,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for GETTEXTEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for GETTEXTEX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GETTEXTEX_FLAGS(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GETTEXTLENGTHEX {
+    pub flags: GETTEXTLENGTHEX_FLAGS,
+    pub codepage: u32,
+}
+impl Default for GETTEXTLENGTHEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GETTEXTLENGTHEX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GETTEXTLENGTHEX_FLAGS(pub u32);
+impl GETTEXTLENGTHEX_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for GETTEXTLENGTHEX_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for GETTEXTLENGTHEX_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for GETTEXTLENGTHEX_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for GETTEXTLENGTHEX_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for GETTEXTLENGTHEX_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct GROUPTYPINGCHANGE {
+    pub nmhdr: super::NMHDR,
+    pub fGroupTyping: super::super::super::Foundation::BOOL,
+}
+impl Default for GROUPTYPINGCHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GROUPTYPINGCHANGE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const GTL_CLOSE: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(4u32);
+pub const GTL_DEFAULT: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(0u32);
+pub const GTL_NUMBYTES: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(16u32);
+pub const GTL_NUMCHARS: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(8u32);
+pub const GTL_PRECISE: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(2u32);
+pub const GTL_USECRLF: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(1u32);
+pub const GT_DEFAULT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(0u32);
+pub const GT_NOHIDDENTEXT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(8u32);
+pub const GT_RAWTEXT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(4u32);
+pub const GT_SELECTION: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(2u32);
+pub const GT_USECRLF: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(1u32);
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HYPHENATEINFO {
+    pub cbSize: i16,
+    pub dxHyphenateZone: i16,
+    pub pfnHyphenate: isize,
+}
+#[cfg(target_arch = "x86")]
+impl Default for HYPHENATEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for HYPHENATEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct HYPHENATEINFO {
+    pub cbSize: i16,
+    pub dxHyphenateZone: i16,
+    pub pfnHyphenate: isize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for HYPHENATEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for HYPHENATEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HYPHRESULT {
+    pub khyph: KHYPH,
+    pub ichHyph: i32,
+    pub chHyph: u16,
+}
+impl Default for HYPHRESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HYPHRESULT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ICM_CTF: u32 = 5u32;
+pub const ICM_LEVEL2: u32 = 2u32;
+pub const ICM_LEVEL2_5: u32 = 3u32;
+pub const ICM_LEVEL2_SUI: u32 = 4u32;
+pub const ICM_LEVEL3: u32 = 1u32;
+pub const ICM_NOTOPEN: u32 = 0u32;
+pub const ICT_RESULTREADSTR: IMECOMPTEXT_FLAGS = IMECOMPTEXT_FLAGS(1u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMECOMPTEXT {
+    pub cb: i32,
+    pub flags: IMECOMPTEXT_FLAGS,
+}
+impl Default for IMECOMPTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMECOMPTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMECOMPTEXT_FLAGS(pub u32);
+pub const IMF_AUTOFONT: u32 = 2u32;
+pub const IMF_AUTOFONTSIZEADJUST: u32 = 16u32;
+pub const IMF_AUTOKEYBOARD: u32 = 1u32;
+pub const IMF_CLOSESTATUSWINDOW: u32 = 8u32;
+pub const IMF_DUALFONT: u32 = 128u32;
+pub const IMF_FORCEACTIVE: u32 = 64u32;
+pub const IMF_FORCEDISABLE: u32 = 4u32;
+pub const IMF_FORCEENABLE: u32 = 2u32;
+pub const IMF_FORCEINACTIVE: u32 = 128u32;
+pub const IMF_FORCENONE: u32 = 1u32;
+pub const IMF_FORCEREMEMBER: u32 = 256u32;
+pub const IMF_IMEALWAYSSENDNOTIFY: u32 = 8u32;
+pub const IMF_IMECANCELCOMPLETE: u32 = 4u32;
+pub const IMF_IMEUIINTEGRATION: u32 = 8192u32;
+pub const IMF_MULTIPLEEDIT: u32 = 1024u32;
+pub const IMF_NOIMPLICITLANG: u32 = 64u32;
+pub const IMF_NOKBDLIDFIXUP: u32 = 512u32;
+pub const IMF_NORTFFONTSUBSTITUTE: u32 = 1024u32;
+pub const IMF_SMODE_NONE: u32 = 2u32;
+pub const IMF_SMODE_PLAURALCLAUSE: u32 = 1u32;
+pub const IMF_SPELLCHECKING: u32 = 2048u32;
+pub const IMF_TKBPREDICTION: u32 = 4096u32;
+pub const IMF_UIFONTS: u32 = 32u32;
+pub const IMF_VERTICAL: u32 = 32u32;
+windows_core::imp::define_interface!(IRichEditOle, IRichEditOle_Vtbl, 0x00020d00_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IRichEditOle, windows_core::IUnknown);
 impl IRichEditOle {
     #[cfg(feature = "Win32_System_Ole")]
@@ -20,20 +1444,20 @@ impl IRichEditOle {
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn GetObject(&self, iob: i32, lpreobject: *mut REOBJECT, dwflags: RICH_EDIT_GET_OBJECT_FLAGS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), iob, lpreobject, dwflags).ok()
+        (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(iob), core::mem::transmute(lpreobject), core::mem::transmute(dwflags)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn InsertObject(&self, lpreobject: *mut REOBJECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InsertObject)(windows_core::Interface::as_raw(self), lpreobject).ok()
+        (windows_core::Interface::vtable(self).InsertObject)(windows_core::Interface::as_raw(self), core::mem::transmute(lpreobject)).ok()
     }
-    pub unsafe fn ConvertObject<P0>(&self, iob: i32, rclsidnew: *const windows_core::GUID, lpstrusertypenew: P0) -> windows_core::Result<()>
+    pub unsafe fn ConvertObject<P2>(&self, iob: i32, rclsidnew: *const windows_core::GUID, lpstrusertypenew: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertObject)(windows_core::Interface::as_raw(self), iob, rclsidnew, lpstrusertypenew.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ConvertObject)(windows_core::Interface::as_raw(self), core::mem::transmute(iob), core::mem::transmute(rclsidnew), lpstrusertypenew.param().abi()).ok()
     }
     pub unsafe fn ActivateAs(&self, rclsid: *const windows_core::GUID, rclsidas: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ActivateAs)(windows_core::Interface::as_raw(self), rclsid, rclsidas).ok()
+        (windows_core::Interface::vtable(self).ActivateAs)(windows_core::Interface::as_raw(self), core::mem::transmute(rclsid), core::mem::transmute(rclsidas)).ok()
     }
     pub unsafe fn SetHostNames<P0, P1>(&self, lpstrcontainerapp: P0, lpstrcontainerobj: P1) -> windows_core::Result<()>
     where
@@ -42,24 +1466,24 @@ impl IRichEditOle {
     {
         (windows_core::Interface::vtable(self).SetHostNames)(windows_core::Interface::as_raw(self), lpstrcontainerapp.param().abi(), lpstrcontainerobj.param().abi()).ok()
     }
-    pub unsafe fn SetLinkAvailable<P0>(&self, iob: i32, favailable: P0) -> windows_core::Result<()>
+    pub unsafe fn SetLinkAvailable<P1>(&self, iob: i32, favailable: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetLinkAvailable)(windows_core::Interface::as_raw(self), iob, favailable.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLinkAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute(iob), favailable.param().abi()).ok()
     }
     pub unsafe fn SetDvaspect(&self, iob: i32, dvaspect: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDvaspect)(windows_core::Interface::as_raw(self), iob, dvaspect).ok()
+        (windows_core::Interface::vtable(self).SetDvaspect)(windows_core::Interface::as_raw(self), core::mem::transmute(iob), core::mem::transmute(dvaspect)).ok()
     }
     pub unsafe fn HandsOffStorage(&self, iob: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).HandsOffStorage)(windows_core::Interface::as_raw(self), iob).ok()
+        (windows_core::Interface::vtable(self).HandsOffStorage)(windows_core::Interface::as_raw(self), core::mem::transmute(iob)).ok()
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn SaveCompleted<P0>(&self, iob: i32, lpstg: P0) -> windows_core::Result<()>
+    pub unsafe fn SaveCompleted<P1>(&self, iob: i32, lpstg: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::System::Com::StructuredStorage::IStorage>,
+        P1: windows_core::Param<super::super::super::System::Com::StructuredStorage::IStorage>,
     {
-        (windows_core::Interface::vtable(self).SaveCompleted)(windows_core::Interface::as_raw(self), iob, lpstg.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SaveCompleted)(windows_core::Interface::as_raw(self), core::mem::transmute(iob), lpstg.param().abi()).ok()
     }
     pub unsafe fn InPlaceDeactivate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InPlaceDeactivate)(windows_core::Interface::as_raw(self)).ok()
@@ -72,15 +1496,15 @@ impl IRichEditOle {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut Option<super::super::super::System::Com::IDataObject>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetClipboardData)(windows_core::Interface::as_raw(self), lpchrg, reco, core::mem::transmute(lplpdataobj)).ok()
+        (windows_core::Interface::vtable(self).GetClipboardData)(windows_core::Interface::as_raw(self), core::mem::transmute(lpchrg), core::mem::transmute(reco), core::mem::transmute(lplpdataobj)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ImportDataObject<P0, P1>(&self, lpdataobj: P0, cf: u16, hmetapict: P1) -> windows_core::Result<()>
+    pub unsafe fn ImportDataObject<P0, P2>(&self, lpdataobj: P0, cf: u16, hmetapict: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::System::Com::IDataObject>,
-        P1: windows_core::Param<super::super::super::Foundation::HGLOBAL>,
+        P2: windows_core::Param<super::super::super::Foundation::HGLOBAL>,
     {
-        (windows_core::Interface::vtable(self).ImportDataObject)(windows_core::Interface::as_raw(self), lpdataobj.param().abi(), cf, hmetapict.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ImportDataObject)(windows_core::Interface::as_raw(self), lpdataobj.param().abi(), core::mem::transmute(cf), hmetapict.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -122,7 +1546,7 @@ pub struct IRichEditOle_Vtbl {
     ImportDataObject: usize,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-pub trait IRichEditOle_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IRichEditOle_Impl: windows_core::IUnknownImpl {
     fn GetClientSite(&self) -> windows_core::Result<super::super::super::System::Ole::IOleClientSite>;
     fn GetObjectCount(&self) -> i32;
     fn GetLinkCount(&self) -> i32;
@@ -141,10 +1565,8 @@ pub trait IRichEditOle_Impl: Sized + windows_core::IUnknownImpl {
     fn ImportDataObject(&self, lpdataobj: Option<&super::super::super::System::Com::IDataObject>, cf: u16, hmetapict: super::super::super::Foundation::HGLOBAL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-impl windows_core::RuntimeName for IRichEditOle {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl IRichEditOle_Vtbl {
-    pub const fn new<Identity: IRichEditOle_Impl, const OFFSET: isize>() -> IRichEditOle_Vtbl {
+    pub const fn new<Identity: IRichEditOle_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetClientSite<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lplpolesite: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRichEditOle_Impl::GetClientSite(this) {
@@ -239,13 +1661,9 @@ impl IRichEditOle_Vtbl {
         iid == &<IRichEditOle as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+impl windows_core::RuntimeName for IRichEditOle {}
 windows_core::imp::define_interface!(IRichEditOleCallback, IRichEditOleCallback_Vtbl, 0x00020d03_0000_0000_c000_000000000046);
-impl core::ops::Deref for IRichEditOleCallback {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IRichEditOleCallback, windows_core::IUnknown);
 impl IRichEditOleCallback {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -255,7 +1673,7 @@ impl IRichEditOleCallback {
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetInPlaceContext(&self, lplpframe: *mut Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: *mut Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: *mut super::super::super::System::Ole::OLEINPLACEFRAMEINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetInPlaceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(lplpframe), core::mem::transmute(lplpdoc), lpframeinfo).ok()
+        (windows_core::Interface::vtable(self).GetInPlaceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(lplpframe), core::mem::transmute(lplpdoc), core::mem::transmute(lpframeinfo)).ok()
     }
     pub unsafe fn ShowContainerUI<P0>(&self, fshow: P0) -> windows_core::Result<()>
     where
@@ -264,11 +1682,11 @@ impl IRichEditOleCallback {
         (windows_core::Interface::vtable(self).ShowContainerUI)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn QueryInsertObject<P0>(&self, lpclsid: *mut windows_core::GUID, lpstg: P0, cp: i32) -> windows_core::Result<()>
+    pub unsafe fn QueryInsertObject<P1>(&self, lpclsid: *mut windows_core::GUID, lpstg: P1, cp: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::System::Com::StructuredStorage::IStorage>,
+        P1: windows_core::Param<super::super::super::System::Com::StructuredStorage::IStorage>,
     {
-        (windows_core::Interface::vtable(self).QueryInsertObject)(windows_core::Interface::as_raw(self), lpclsid, lpstg.param().abi(), cp).ok()
+        (windows_core::Interface::vtable(self).QueryInsertObject)(windows_core::Interface::as_raw(self), core::mem::transmute(lpclsid), lpstg.param().abi(), core::mem::transmute(cp)).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn DeleteObject<P0>(&self, lpoleobj: P0) -> windows_core::Result<()>
@@ -278,13 +1696,13 @@ impl IRichEditOleCallback {
         (windows_core::Interface::vtable(self).DeleteObject)(windows_core::Interface::as_raw(self), lpoleobj.param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
-    pub unsafe fn QueryAcceptData<P0, P1, P2>(&self, lpdataobj: P0, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: P1, hmetapict: P2) -> windows_core::Result<()>
+    pub unsafe fn QueryAcceptData<P0, P3, P4>(&self, lpdataobj: P0, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: P3, hmetapict: P4) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::System::Com::IDataObject>,
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::super::super::Foundation::HGLOBAL>,
+        P3: windows_core::Param<super::super::super::Foundation::BOOL>,
+        P4: windows_core::Param<super::super::super::Foundation::HGLOBAL>,
     {
-        (windows_core::Interface::vtable(self).QueryAcceptData)(windows_core::Interface::as_raw(self), lpdataobj.param().abi(), lpcfformat, reco, freally.param().abi(), hmetapict.param().abi()).ok()
+        (windows_core::Interface::vtable(self).QueryAcceptData)(windows_core::Interface::as_raw(self), lpdataobj.param().abi(), core::mem::transmute(lpcfformat), core::mem::transmute(reco), freally.param().abi(), hmetapict.param().abi()).ok()
     }
     pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
     where
@@ -294,21 +1712,21 @@ impl IRichEditOleCallback {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut Option<super::super::super::System::Com::IDataObject>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetClipboardData)(windows_core::Interface::as_raw(self), lpchrg, reco, core::mem::transmute(lplpdataobj)).ok()
+        (windows_core::Interface::vtable(self).GetClipboardData)(windows_core::Interface::as_raw(self), core::mem::transmute(lpchrg), core::mem::transmute(reco), core::mem::transmute(lplpdataobj)).ok()
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_SystemServices"))]
     pub unsafe fn GetDragDropEffect<P0>(&self, fdrag: P0, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetDragDropEffect)(windows_core::Interface::as_raw(self), fdrag.param().abi(), grfkeystate, pdweffect).ok()
+        (windows_core::Interface::vtable(self).GetDragDropEffect)(windows_core::Interface::as_raw(self), fdrag.param().abi(), core::mem::transmute(grfkeystate), core::mem::transmute(pdweffect)).ok()
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn GetContextMenu<P0>(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: P0, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> windows_core::Result<()>
+    pub unsafe fn GetContextMenu<P1>(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: P1, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::System::Ole::IOleObject>,
+        P1: windows_core::Param<super::super::super::System::Ole::IOleObject>,
     {
-        (windows_core::Interface::vtable(self).GetContextMenu)(windows_core::Interface::as_raw(self), seltype, lpoleobj.param().abi(), lpchrg, lphmenu).ok()
+        (windows_core::Interface::vtable(self).GetContextMenu)(windows_core::Interface::as_raw(self), core::mem::transmute(seltype), lpoleobj.param().abi(), core::mem::transmute(lpchrg), core::mem::transmute(lphmenu)).ok()
     }
 }
 #[repr(C)]
@@ -350,7 +1768,7 @@ pub struct IRichEditOleCallback_Vtbl {
     GetContextMenu: usize,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IRichEditOleCallback_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IRichEditOleCallback_Impl: windows_core::IUnknownImpl {
     fn GetNewStorage(&self) -> windows_core::Result<super::super::super::System::Com::StructuredStorage::IStorage>;
     fn GetInPlaceContext(&self, lplpframe: *mut Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: *mut Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: *mut super::super::super::System::Ole::OLEINPLACEFRAMEINFO) -> windows_core::Result<()>;
     fn ShowContainerUI(&self, fshow: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -363,10 +1781,8 @@ pub trait IRichEditOleCallback_Impl: Sized + windows_core::IUnknownImpl {
     fn GetContextMenu(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: Option<&super::super::super::System::Ole::IOleObject>, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::RuntimeName for IRichEditOleCallback {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IRichEditOleCallback_Vtbl {
-    pub const fn new<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>() -> IRichEditOleCallback_Vtbl {
+    pub const fn new<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNewStorage<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lplpstg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRichEditOleCallback_Impl::GetNewStorage(this) {
@@ -431,38 +1847,32 @@ impl IRichEditOleCallback_Vtbl {
         iid == &<IRichEditOleCallback as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::RuntimeName for IRichEditOleCallback {}
 windows_core::imp::define_interface!(IRicheditUiaOverrides, IRicheditUiaOverrides_Vtbl, 0);
-impl core::ops::Deref for IRicheditUiaOverrides {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IRicheditUiaOverrides, windows_core::IUnknown);
 impl IRicheditUiaOverrides {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPropertyOverrideValue)(windows_core::Interface::as_raw(self), propertyid, core::mem::transmute(pretvalue)).ok()
+        (windows_core::Interface::vtable(self).GetPropertyOverrideValue)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyid), core::mem::transmute(pretvalue)).ok()
     }
 }
 #[repr(C)]
 pub struct IRicheditUiaOverrides_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetPropertyOverrideValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub GetPropertyOverrideValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetPropertyOverrideValue: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IRicheditUiaOverrides_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IRicheditUiaOverrides_Impl: windows_core::IUnknownImpl {
     fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IRicheditUiaOverrides {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRicheditUiaOverrides_Vtbl {
-    pub const fn new<Identity: IRicheditUiaOverrides_Impl, const OFFSET: isize>() -> IRicheditUiaOverrides_Vtbl {
-        unsafe extern "system" fn GetPropertyOverrideValue<Identity: IRicheditUiaOverrides_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: i32, pretvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: IRicheditUiaOverrides_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetPropertyOverrideValue<Identity: IRicheditUiaOverrides_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: i32, pretvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRicheditUiaOverrides_Impl::GetPropertyOverrideValue(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&pretvalue)).into()
         }
@@ -472,6 +1882,8 @@ impl IRicheditUiaOverrides_Vtbl {
         iid == &<IRicheditUiaOverrides as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IRicheditUiaOverrides {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextDisplays, ITextDisplays_Vtbl, 0xc241f5f2_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
@@ -484,25 +1896,23 @@ impl core::ops::Deref for ITextDisplays {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ITextDisplays, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ITextDisplays {}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct ITextDisplays_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextDisplays_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextDisplays {}
+pub trait ITextDisplays_Impl: super::super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextDisplays_Vtbl {
-    pub const fn new<Identity: ITextDisplays_Impl, const OFFSET: isize>() -> ITextDisplays_Vtbl {
+    pub const fn new<Identity: ITextDisplays_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITextDisplays as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextDisplays {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextDocument, ITextDocument_Vtbl, 0x8cc497c0_a1df_11ce_8098_00aa0047be5d);
 #[cfg(feature = "Win32_System_Com")]
@@ -518,9 +1928,8 @@ windows_core::imp::interface_hierarchy!(ITextDocument, windows_core::IUnknown, s
 impl ITextDocument {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(&self) -> windows_core::Result<ITextSelection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -529,7 +1938,6 @@ impl ITextDocument {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStoryCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStoryRanges(&self) -> windows_core::Result<ITextStoryRanges> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStoryRanges)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -539,25 +1947,25 @@ impl ITextDocument {
         (windows_core::Interface::vtable(self).GetSaved)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSaved(&self, value: tomConstants) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSaved)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetSaved)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetDefaultTabStop(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDefaultTabStop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDefaultTabStop(&self, value: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDefaultTabStop)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetDefaultTabStop)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn New(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).New)(windows_core::Interface::as_raw(self)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Open(&self, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), flags, codepage).ok()
+        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), core::mem::transmute(flags), core::mem::transmute(codepage)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Save(&self, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), flags, codepage).ok()
+        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), core::mem::transmute(flags), core::mem::transmute(codepage)).ok()
     }
     pub unsafe fn Freeze(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -575,48 +1983,40 @@ impl ITextDocument {
     }
     pub unsafe fn Undo(&self, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Undo)(windows_core::Interface::as_raw(self), count, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Undo)(windows_core::Interface::as_raw(self), core::mem::transmute(count), &mut result__).map(|| result__)
     }
     pub unsafe fn Redo(&self, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Redo)(windows_core::Interface::as_raw(self), count, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Redo)(windows_core::Interface::as_raw(self), core::mem::transmute(count), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Range(&self, cpactive: i32, cpanchor: i32) -> windows_core::Result<ITextRange> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Range)(windows_core::Interface::as_raw(self), cpactive, cpanchor, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Range)(windows_core::Interface::as_raw(self), core::mem::transmute(cpactive), core::mem::transmute(cpanchor), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RangeFromPoint(&self, x: i32, y: i32) -> windows_core::Result<ITextRange> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RangeFromPoint)(windows_core::Interface::as_raw(self), x, y, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RangeFromPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(x), core::mem::transmute(y), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct ITextDocument_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
+    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetSelection: usize,
     pub GetStoryCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetStoryRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetStoryRanges: usize,
     pub GetSaved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetSaved: unsafe extern "system" fn(*mut core::ffi::c_void, tomConstants) -> windows_core::HRESULT,
     pub GetDefaultTabStop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetDefaultTabStop: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub New: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, tomConstants, i32) -> windows_core::HRESULT,
+    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::System::Variant::VARIANT, tomConstants, i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Open: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, tomConstants, i32) -> windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::System::Variant::VARIANT, tomConstants, i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Save: usize,
     pub Freeze: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -625,17 +2025,11 @@ pub struct ITextDocument_Vtbl {
     pub EndEditCollection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Undo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub Redo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Range: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Range: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub RangeFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    RangeFromPoint: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextDocument_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait ITextDocument_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetSelection(&self) -> windows_core::Result<ITextSelection>;
     fn GetStoryCount(&self) -> windows_core::Result<i32>;
@@ -657,11 +2051,9 @@ pub trait ITextDocument_Impl: Sized + super::super::super::System::Com::IDispatc
     fn RangeFromPoint(&self, x: i32, y: i32) -> windows_core::Result<ITextRange>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextDocument {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextDocument_Vtbl {
-    pub const fn new<Identity: ITextDocument_Impl, const OFFSET: isize>() -> ITextDocument_Vtbl {
-        unsafe extern "system" fn GetName<Identity: ITextDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+    pub const fn new<Identity: ITextDocument_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetName<Identity: ITextDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextDocument_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -733,11 +2125,11 @@ impl ITextDocument_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextDocument_Impl::New(this).into()
         }
-        unsafe extern "system" fn Open<Identity: ITextDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, flags: tomConstants, codepage: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Open<Identity: ITextDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextDocument_Impl::Open(this, core::mem::transmute_copy(&pvar), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&codepage)).into()
         }
-        unsafe extern "system" fn Save<Identity: ITextDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, flags: tomConstants, codepage: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Save<Identity: ITextDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextDocument_Impl::Save(this, core::mem::transmute_copy(&pvar), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&codepage)).into()
         }
@@ -836,6 +2228,8 @@ impl ITextDocument_Vtbl {
         iid == &<ITextDocument as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextDocument {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextDocument2, ITextDocument2_Vtbl, 0xc241f5e0_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
@@ -854,31 +2248,26 @@ impl ITextDocument2 {
         (windows_core::Interface::vtable(self).GetCaretType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCaretType(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCaretType)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCaretType)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDisplays(&self) -> windows_core::Result<ITextDisplays> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDisplays)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocumentFont(&self) -> windows_core::Result<ITextFont2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDocumentFont)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDocumentFont<P0>(&self, pfont: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextFont2>,
     {
         (windows_core::Interface::vtable(self).SetDocumentFont)(windows_core::Interface::as_raw(self), pfont.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocumentPara(&self) -> windows_core::Result<ITextPara2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDocumentPara)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDocumentPara<P0>(&self, ppara: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextPara2>,
@@ -891,24 +2280,22 @@ impl ITextDocument2 {
     }
     pub unsafe fn GetGenerator(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetGenerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetGenerator)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetIMEInProgress(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIMEInProgress)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetIMEInProgress)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetNotificationMode(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNotificationMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNotificationMode(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetNotificationMode)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetNotificationMode)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection2(&self) -> windows_core::Result<ITextSelection2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSelection2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStoryRanges2(&self) -> windows_core::Result<ITextStoryRanges2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStoryRanges2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -932,47 +2319,44 @@ impl ITextDocument2 {
         (windows_core::Interface::vtable(self).AttachMsgFilter)(windows_core::Interface::as_raw(self), pfilter.param().abi()).ok()
     }
     pub unsafe fn CheckTextLimit(&self, cch: i32, pcch: *const i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CheckTextLimit)(windows_core::Interface::as_raw(self), cch, pcch).ok()
+        (windows_core::Interface::vtable(self).CheckTextLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(cch), core::mem::transmute(pcch)).ok()
     }
     pub unsafe fn GetCallManager(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCallManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetClientRect(&self, r#type: tomConstants, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetClientRect)(windows_core::Interface::as_raw(self), r#type, pleft, ptop, pright, pbottom).ok()
+        (windows_core::Interface::vtable(self).GetClientRect)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(pleft), core::mem::transmute(ptop), core::mem::transmute(pright), core::mem::transmute(pbottom)).ok()
     }
     pub unsafe fn GetEffectColor(&self, index: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetEffectColor)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetEffectColor)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).map(|| result__)
     }
     pub unsafe fn GetImmContext(&self) -> windows_core::Result<i64> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetImmContext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPreferredFont(&self, cp: i32, charrep: i32, options: i32, curcharrep: i32, curfontsize: i32, pbstr: *mut windows_core::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPreferredFont)(windows_core::Interface::as_raw(self), cp, charrep, options, curcharrep, curfontsize, core::mem::transmute(pbstr), ppitchandfamily, pnewfontsize).ok()
+        (windows_core::Interface::vtable(self).GetPreferredFont)(windows_core::Interface::as_raw(self), core::mem::transmute(cp), core::mem::transmute(charrep), core::mem::transmute(options), core::mem::transmute(curcharrep), core::mem::transmute(curfontsize), core::mem::transmute(pbstr), core::mem::transmute(ppitchandfamily), core::mem::transmute(pnewfontsize)).ok()
     }
     pub unsafe fn GetProperty(&self, r#type: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStrings(&self) -> windows_core::Result<ITextStrings> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStrings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Notify(&self, notify: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), notify).ok()
+        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), core::mem::transmute(notify)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Range2(&self, cpactive: i32, cpanchor: i32) -> windows_core::Result<ITextRange2> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Range2)(windows_core::Interface::as_raw(self), cpactive, cpanchor, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Range2)(windows_core::Interface::as_raw(self), core::mem::transmute(cpactive), core::mem::transmute(cpanchor), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RangeFromPoint2(&self, x: i32, y: i32, r#type: i32) -> windows_core::Result<ITextRange2> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RangeFromPoint2)(windows_core::Interface::as_raw(self), x, y, r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RangeFromPoint2)(windows_core::Interface::as_raw(self), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(r#type), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ReleaseCallManager<P0>(&self, pvoid: P0) -> windows_core::Result<()>
     where
@@ -981,22 +2365,22 @@ impl ITextDocument2 {
         (windows_core::Interface::vtable(self).ReleaseCallManager)(windows_core::Interface::as_raw(self), pvoid.param().abi()).ok()
     }
     pub unsafe fn ReleaseImmContext(&self, context: i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReleaseImmContext)(windows_core::Interface::as_raw(self), context).ok()
+        (windows_core::Interface::vtable(self).ReleaseImmContext)(windows_core::Interface::as_raw(self), core::mem::transmute(context)).ok()
     }
     pub unsafe fn SetEffectColor(&self, index: i32, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEffectColor)(windows_core::Interface::as_raw(self), index, value).ok()
+        (windows_core::Interface::vtable(self).SetEffectColor)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(value)).ok()
     }
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), r#type, value).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(value)).ok()
     }
     pub unsafe fn SetTypographyOptions(&self, options: i32, mask: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetTypographyOptions)(windows_core::Interface::as_raw(self), options, mask).ok()
+        (windows_core::Interface::vtable(self).SetTypographyOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(options), core::mem::transmute(mask)).ok()
     }
     pub unsafe fn SysBeep(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SysBeep)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Update(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn UpdateWindow(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UpdateWindow)(windows_core::Interface::as_raw(self)).ok()
@@ -1006,7 +2390,7 @@ impl ITextDocument2 {
         (windows_core::Interface::vtable(self).GetMathProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMathProperties(&self, options: i32, mask: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMathProperties)(windows_core::Interface::as_raw(self), options, mask).ok()
+        (windows_core::Interface::vtable(self).SetMathProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(options), core::mem::transmute(mask)).ok()
     }
     pub unsafe fn GetActiveStory(&self) -> windows_core::Result<ITextStory> {
         let mut result__ = core::mem::zeroed();
@@ -1028,7 +2412,7 @@ impl ITextDocument2 {
     }
     pub unsafe fn GetStory(&self, index: i32) -> windows_core::Result<ITextStory> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStory)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetStory)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1037,39 +2421,18 @@ pub struct ITextDocument2_Vtbl {
     pub base__: ITextDocument_Vtbl,
     pub GetCaretType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetCaretType: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetDisplays: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetDisplays: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetDocumentFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetDocumentFont: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetDocumentFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetDocumentFont: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetDocumentPara: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetDocumentPara: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetDocumentPara: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetDocumentPara: usize,
     pub GetEastAsianFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut tomConstants) -> windows_core::HRESULT,
-    pub GetGenerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetGenerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetIMEInProgress: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetNotificationMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetNotificationMode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetSelection2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetSelection2: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetStoryRanges2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetStoryRanges2: usize,
     pub GetTypographyOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -1079,21 +2442,12 @@ pub struct ITextDocument2_Vtbl {
     pub GetClientRect: unsafe extern "system" fn(*mut core::ffi::c_void, tomConstants, *mut i32, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetEffectColor: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub GetImmContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    pub GetPreferredFont: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut i32, *mut i32) -> windows_core::HRESULT,
+    pub GetPreferredFont: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, i32, *mut *mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetStrings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetStrings: usize,
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Range2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Range2: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub RangeFromPoint2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    RangeFromPoint2: usize,
     pub ReleaseCallManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReleaseImmContext: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub SetEffectColor: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
@@ -1111,7 +2465,7 @@ pub struct ITextDocument2_Vtbl {
     pub GetStory: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextDocument2_Impl: Sized + ITextDocument_Impl {
+pub trait ITextDocument2_Impl: ITextDocument_Impl {
     fn GetCaretType(&self) -> windows_core::Result<i32>;
     fn SetCaretType(&self, value: i32) -> windows_core::Result<()>;
     fn GetDisplays(&self) -> windows_core::Result<ITextDisplays>;
@@ -1158,10 +2512,8 @@ pub trait ITextDocument2_Impl: Sized + ITextDocument_Impl {
     fn GetStory(&self, index: i32) -> windows_core::Result<ITextStory>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextDocument2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextDocument2_Vtbl {
-    pub const fn new<Identity: ITextDocument2_Impl, const OFFSET: isize>() -> ITextDocument2_Vtbl {
+    pub const fn new<Identity: ITextDocument2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCaretType<Identity: ITextDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextDocument2_Impl::GetCaretType(this) {
@@ -1224,7 +2576,7 @@ impl ITextDocument2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGenerator<Identity: ITextDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetGenerator<Identity: ITextDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextDocument2_Impl::GetGenerator(this) {
                 Ok(ok__) => {
@@ -1344,7 +2696,7 @@ impl ITextDocument2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPreferredFont<Identity: ITextDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cp: i32, charrep: i32, options: i32, curcharrep: i32, curfontsize: i32, pbstr: *mut core::mem::MaybeUninit<windows_core::BSTR>, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPreferredFont<Identity: ITextDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cp: i32, charrep: i32, options: i32, curcharrep: i32, curfontsize: i32, pbstr: *mut *mut core::ffi::c_void, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextDocument2_Impl::GetPreferredFont(this, core::mem::transmute_copy(&cp), core::mem::transmute_copy(&charrep), core::mem::transmute_copy(&options), core::mem::transmute_copy(&curcharrep), core::mem::transmute_copy(&curfontsize), core::mem::transmute_copy(&pbstr), core::mem::transmute_copy(&ppitchandfamily), core::mem::transmute_copy(&pnewfontsize)).into()
         }
@@ -1534,6 +2886,8 @@ impl ITextDocument2_Vtbl {
         iid == &<ITextDocument2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITextDocument as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextDocument2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextDocument2Old, ITextDocument2Old_Vtbl, 0x01c25500_4268_11d1_883a_3c8b00c10000);
 #[cfg(feature = "Win32_System_Com")]
@@ -1553,44 +2907,43 @@ impl ITextDocument2Old {
     {
         (windows_core::Interface::vtable(self).AttachMsgFilter)(windows_core::Interface::as_raw(self), pfilter.param().abi()).ok()
     }
-    pub unsafe fn SetEffectColor<P0>(&self, index: i32, cr: P0) -> windows_core::Result<()>
+    pub unsafe fn SetEffectColor<P1>(&self, index: i32, cr: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::COLORREF>,
+        P1: windows_core::Param<super::super::super::Foundation::COLORREF>,
     {
-        (windows_core::Interface::vtable(self).SetEffectColor)(windows_core::Interface::as_raw(self), index, cr.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEffectColor)(windows_core::Interface::as_raw(self), core::mem::transmute(index), cr.param().abi()).ok()
     }
     pub unsafe fn GetEffectColor(&self, index: i32) -> windows_core::Result<super::super::super::Foundation::COLORREF> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetEffectColor)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetEffectColor)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCaretType(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCaretType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCaretType(&self, carettype: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCaretType)(windows_core::Interface::as_raw(self), carettype).ok()
+        (windows_core::Interface::vtable(self).SetCaretType)(windows_core::Interface::as_raw(self), core::mem::transmute(carettype)).ok()
     }
     pub unsafe fn GetImmContext(&self) -> windows_core::Result<i64> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetImmContext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ReleaseImmContext(&self, context: i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReleaseImmContext)(windows_core::Interface::as_raw(self), context).ok()
+        (windows_core::Interface::vtable(self).ReleaseImmContext)(windows_core::Interface::as_raw(self), core::mem::transmute(context)).ok()
     }
     pub unsafe fn GetPreferredFont(&self, cp: i32, charrep: i32, option: i32, charrepcur: i32, curfontsize: i32, pbstr: *mut windows_core::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPreferredFont)(windows_core::Interface::as_raw(self), cp, charrep, option, charrepcur, curfontsize, core::mem::transmute(pbstr), ppitchandfamily, pnewfontsize).ok()
+        (windows_core::Interface::vtable(self).GetPreferredFont)(windows_core::Interface::as_raw(self), core::mem::transmute(cp), core::mem::transmute(charrep), core::mem::transmute(option), core::mem::transmute(charrepcur), core::mem::transmute(curfontsize), core::mem::transmute(pbstr), core::mem::transmute(ppitchandfamily), core::mem::transmute(pnewfontsize)).ok()
     }
     pub unsafe fn GetNotificationMode(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNotificationMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNotificationMode(&self, mode: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetNotificationMode)(windows_core::Interface::as_raw(self), mode).ok()
+        (windows_core::Interface::vtable(self).SetNotificationMode)(windows_core::Interface::as_raw(self), core::mem::transmute(mode)).ok()
     }
     pub unsafe fn GetClientRect(&self, r#type: i32, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetClientRect)(windows_core::Interface::as_raw(self), r#type, pleft, ptop, pright, pbottom).ok()
+        (windows_core::Interface::vtable(self).GetClientRect)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(pleft), core::mem::transmute(ptop), core::mem::transmute(pright), core::mem::transmute(pbottom)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection2(&self) -> windows_core::Result<ITextSelection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSelection2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1607,26 +2960,24 @@ impl ITextDocument2Old {
         (windows_core::Interface::vtable(self).UpdateWindow)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn CheckTextLimit(&self, cch: i32, pcch: *const i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CheckTextLimit)(windows_core::Interface::as_raw(self), cch, pcch).ok()
+        (windows_core::Interface::vtable(self).CheckTextLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(cch), core::mem::transmute(pcch)).ok()
     }
     pub unsafe fn IMEInProgress(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).IMEInProgress)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).IMEInProgress)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn SysBeep(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SysBeep)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Update(&self, mode: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), mode).ok()
+        (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), core::mem::transmute(mode)).ok()
     }
     pub unsafe fn Notify(&self, notify: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), notify).ok()
+        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), core::mem::transmute(notify)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocumentFont(&self) -> windows_core::Result<ITextFont> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDocumentFont)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocumentPara(&self) -> windows_core::Result<ITextPara> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDocumentPara)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1653,14 +3004,11 @@ pub struct ITextDocument2Old_Vtbl {
     pub SetCaretType: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetImmContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub ReleaseImmContext: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    pub GetPreferredFont: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut i32, *mut i32) -> windows_core::HRESULT,
+    pub GetPreferredFont: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, i32, *mut *mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetNotificationMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetNotificationMode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetClientRect: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetSelection2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetSelection2: usize,
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetFEFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub UpdateWindow: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1669,19 +3017,13 @@ pub struct ITextDocument2Old_Vtbl {
     pub SysBeep: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetDocumentFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetDocumentFont: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetDocumentPara: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetDocumentPara: usize,
     pub GetCallManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReleaseCallManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextDocument2Old_Impl: Sized + ITextDocument_Impl {
+pub trait ITextDocument2Old_Impl: ITextDocument_Impl {
     fn AttachMsgFilter(&self, pfilter: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetEffectColor(&self, index: i32, cr: super::super::super::Foundation::COLORREF) -> windows_core::Result<()>;
     fn GetEffectColor(&self, index: i32) -> windows_core::Result<super::super::super::Foundation::COLORREF>;
@@ -1708,10 +3050,8 @@ pub trait ITextDocument2Old_Impl: Sized + ITextDocument_Impl {
     fn ReleaseCallManager(&self, pvoid: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextDocument2Old {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextDocument2Old_Vtbl {
-    pub const fn new<Identity: ITextDocument2Old_Impl, const OFFSET: isize>() -> ITextDocument2Old_Vtbl {
+    pub const fn new<Identity: ITextDocument2Old_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AttachMsgFilter<Identity: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextDocument2Old_Impl::AttachMsgFilter(this, windows_core::from_raw_borrowed(&pfilter)).into()
@@ -1758,7 +3098,7 @@ impl ITextDocument2Old_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextDocument2Old_Impl::ReleaseImmContext(this, core::mem::transmute_copy(&context)).into()
         }
-        unsafe extern "system" fn GetPreferredFont<Identity: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cp: i32, charrep: i32, option: i32, charrepcur: i32, curfontsize: i32, pbstr: *mut core::mem::MaybeUninit<windows_core::BSTR>, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPreferredFont<Identity: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cp: i32, charrep: i32, option: i32, charrepcur: i32, curfontsize: i32, pbstr: *mut *mut core::ffi::c_void, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextDocument2Old_Impl::GetPreferredFont(this, core::mem::transmute_copy(&cp), core::mem::transmute_copy(&charrep), core::mem::transmute_copy(&option), core::mem::transmute_copy(&charrepcur), core::mem::transmute_copy(&curfontsize), core::mem::transmute_copy(&pbstr), core::mem::transmute_copy(&ppitchandfamily), core::mem::transmute_copy(&pnewfontsize)).into()
         }
@@ -1900,6 +3240,8 @@ impl ITextDocument2Old_Vtbl {
         iid == &<ITextDocument2Old as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITextDocument as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextDocument2Old {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextFont, ITextFont_Vtbl, 0x8cc497c3_a1df_11ce_8098_00aa0047be5d);
 #[cfg(feature = "Win32_System_Com")]
@@ -1913,12 +3255,10 @@ impl core::ops::Deref for ITextFont {
 windows_core::imp::interface_hierarchy!(ITextFont, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextFont {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate(&self) -> windows_core::Result<ITextFont> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDuplicate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDuplicate<P0>(&self, pfont: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextFont>,
@@ -1929,7 +3269,6 @@ impl ITextFont {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CanChange)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<P0>(&self, pfont: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<ITextFont>,
@@ -1938,204 +3277,192 @@ impl ITextFont {
         (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), pfont.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Reset(&self, value: tomConstants) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetStyle(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStyle(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStyle)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetStyle)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetAllCaps(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAllCaps)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAllCaps(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAllCaps)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetAllCaps)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetAnimation(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAnimation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAnimation(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAnimation)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetAnimation)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetBackColor(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBackColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBackColor(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBackColor)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetBackColor)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetBold(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBold)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBold(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBold)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetBold)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetEmboss(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEmboss)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEmboss(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEmboss)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetEmboss)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetForeColor(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetForeColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetForeColor(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetForeColor)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetForeColor)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetHidden(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetHidden(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetHidden)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetHidden)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetEngrave(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEngrave)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEngrave(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEngrave)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetEngrave)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetItalic(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetItalic)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetItalic(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetItalic)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetItalic)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetKerning(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetKerning)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetKerning(&self, value: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetKerning)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetKerning)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetLanguageID(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLanguageID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLanguageID(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLanguageID)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetLanguageID)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn SetName<P0>(&self, bstr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstr.param().abi()).ok()
+    pub unsafe fn SetName(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr)).ok()
     }
     pub unsafe fn GetOutline(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOutline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOutline(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOutline)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetOutline)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetPosition(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPosition(&self, value: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetProtected(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProtected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetProtected(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProtected)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetProtected)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetShadow(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetShadow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetShadow(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetShadow)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetShadow)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetSize(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSize(&self, value: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetSmallCaps(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSmallCaps)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSmallCaps(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSmallCaps)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetSmallCaps)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetSpacing(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSpacing)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSpacing(&self, value: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSpacing)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetSpacing)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetStrikeThrough(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStrikeThrough)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStrikeThrough(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStrikeThrough)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetStrikeThrough)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetSubscript(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSubscript)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSubscript(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSubscript)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetSubscript)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetSuperscript(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSuperscript)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSuperscript(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSuperscript)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetSuperscript)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetUnderline(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUnderline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetUnderline(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetUnderline)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetUnderline)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetWeight(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetWeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetWeight(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetWeight)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetWeight)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct ITextFont_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetDuplicate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetDuplicate: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetDuplicate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetDuplicate: usize,
     pub CanChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    IsEqual: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, tomConstants) -> windows_core::HRESULT,
     pub GetStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetStyle: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -2161,8 +3488,8 @@ pub struct ITextFont_Vtbl {
     pub SetKerning: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub GetLanguageID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetLanguageID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetOutline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetOutline: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -2189,7 +3516,7 @@ pub struct ITextFont_Vtbl {
     pub SetWeight: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextFont_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait ITextFont_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn GetDuplicate(&self) -> windows_core::Result<ITextFont>;
     fn SetDuplicate(&self, pfont: Option<&ITextFont>) -> windows_core::Result<()>;
     fn CanChange(&self) -> windows_core::Result<i32>;
@@ -2247,10 +3574,8 @@ pub trait ITextFont_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn SetWeight(&self, value: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextFont {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextFont_Vtbl {
-    pub const fn new<Identity: ITextFont_Impl, const OFFSET: isize>() -> ITextFont_Vtbl {
+    pub const fn new<Identity: ITextFont_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDuplicate<Identity: ITextFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppfont: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextFont_Impl::GetDuplicate(this) {
@@ -2457,7 +3782,7 @@ impl ITextFont_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextFont_Impl::SetLanguageID(this, core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn GetName<Identity: ITextFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ITextFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextFont_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -2467,7 +3792,7 @@ impl ITextFont_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: ITextFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: ITextFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextFont_Impl::SetName(this, core::mem::transmute(&bstr)).into()
         }
@@ -2702,6 +4027,8 @@ impl ITextFont_Vtbl {
         iid == &<ITextFont as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextFont {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextFont2, ITextFont2_Vtbl, 0xc241f5e3_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
@@ -2724,63 +4051,61 @@ impl ITextFont2 {
         (windows_core::Interface::vtable(self).GetAutoLigatures)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAutoLigatures(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAutoLigatures)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetAutoLigatures)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetAutospaceAlpha(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAutospaceAlpha)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAutospaceAlpha(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAutospaceAlpha)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetAutospaceAlpha)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetAutospaceNumeric(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAutospaceNumeric)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAutospaceNumeric(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAutospaceNumeric)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetAutospaceNumeric)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetAutospaceParens(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAutospaceParens)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAutospaceParens(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAutospaceParens)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetAutospaceParens)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCharRep(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCharRep)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCharRep(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCharRep)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCharRep)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCompressionMode(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCompressionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCompressionMode(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCompressionMode)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCompressionMode)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCookie(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCookie)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCookie(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCookie)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCookie)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetDoubleStrike(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDoubleStrike)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDoubleStrike(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDoubleStrike)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetDoubleStrike)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate2(&self) -> windows_core::Result<ITextFont2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDuplicate2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDuplicate2<P0>(&self, pfont: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextFont2>,
@@ -2796,78 +4121,77 @@ impl ITextFont2 {
         (windows_core::Interface::vtable(self).GetMathZone)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMathZone(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMathZone)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetMathZone)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetModWidthPairs(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetModWidthPairs)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetModWidthPairs(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetModWidthPairs)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetModWidthPairs)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetModWidthSpace(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetModWidthSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetModWidthSpace(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetModWidthSpace)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetModWidthSpace)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetOldNumbers(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOldNumbers)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOldNumbers(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOldNumbers)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetOldNumbers)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetOverlapping(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOverlapping)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOverlapping(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOverlapping)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetOverlapping)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetPositionSubSuper(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPositionSubSuper)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPositionSubSuper(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPositionSubSuper)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetPositionSubSuper)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetScaling(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetScaling)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetScaling(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetScaling)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetScaling)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetSpaceExtension(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSpaceExtension)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSpaceExtension(&self, value: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSpaceExtension)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetSpaceExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetUnderlinePositionMode(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUnderlinePositionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetUnderlinePositionMode(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetUnderlinePositionMode)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetUnderlinePositionMode)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetEffects(&self, pvalue: *mut i32, pmask: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetEffects)(windows_core::Interface::as_raw(self), pvalue, pmask).ok()
+        (windows_core::Interface::vtable(self).GetEffects)(windows_core::Interface::as_raw(self), core::mem::transmute(pvalue), core::mem::transmute(pmask)).ok()
     }
     pub unsafe fn GetEffects2(&self, pvalue: *mut i32, pmask: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetEffects2)(windows_core::Interface::as_raw(self), pvalue, pmask).ok()
+        (windows_core::Interface::vtable(self).GetEffects2)(windows_core::Interface::as_raw(self), core::mem::transmute(pvalue), core::mem::transmute(pmask)).ok()
     }
     pub unsafe fn GetProperty(&self, r#type: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPropertyInfo(&self, index: i32, ptype: *mut i32, pvalue: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), index, ptype, pvalue).ok()
+        (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(ptype), core::mem::transmute(pvalue)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual2<P0>(&self, pfont: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<ITextFont2>,
@@ -2876,13 +4200,13 @@ impl ITextFont2 {
         (windows_core::Interface::vtable(self).IsEqual2)(windows_core::Interface::as_raw(self), pfont.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEffects(&self, value: i32, mask: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEffects)(windows_core::Interface::as_raw(self), value, mask).ok()
+        (windows_core::Interface::vtable(self).SetEffects)(windows_core::Interface::as_raw(self), core::mem::transmute(value), core::mem::transmute(mask)).ok()
     }
     pub unsafe fn SetEffects2(&self, value: i32, mask: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEffects2)(windows_core::Interface::as_raw(self), value, mask).ok()
+        (windows_core::Interface::vtable(self).SetEffects2)(windows_core::Interface::as_raw(self), core::mem::transmute(value), core::mem::transmute(mask)).ok()
     }
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), r#type, value).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(value)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2906,14 +4230,8 @@ pub struct ITextFont2_Vtbl {
     pub SetCookie: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetDoubleStrike: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetDoubleStrike: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetDuplicate2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetDuplicate2: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetDuplicate2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetDuplicate2: usize,
     pub GetLinkType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetMathZone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetMathZone: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -2937,16 +4255,13 @@ pub struct ITextFont2_Vtbl {
     pub GetEffects2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub GetPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub IsEqual2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    IsEqual2: usize,
     pub SetEffects: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub SetEffects2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextFont2_Impl: Sized + ITextFont_Impl {
+pub trait ITextFont2_Impl: ITextFont_Impl {
     fn GetCount(&self) -> windows_core::Result<i32>;
     fn GetAutoLigatures(&self) -> windows_core::Result<i32>;
     fn SetAutoLigatures(&self, value: i32) -> windows_core::Result<()>;
@@ -2995,10 +4310,8 @@ pub trait ITextFont2_Impl: Sized + ITextFont_Impl {
     fn SetProperty(&self, r#type: i32, value: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextFont2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextFont2_Vtbl {
-    pub const fn new<Identity: ITextFont2_Impl, const OFFSET: isize>() -> ITextFont2_Vtbl {
+    pub const fn new<Identity: ITextFont2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: ITextFont2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextFont2_Impl::GetCount(this) {
@@ -3369,13 +4682,9 @@ impl ITextFont2_Vtbl {
         iid == &<ITextFont2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITextFont as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextFont2 {}
 windows_core::imp::define_interface!(ITextHost, ITextHost_Vtbl, 0);
-impl core::ops::Deref for ITextHost {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ITextHost, windows_core::IUnknown);
 impl ITextHost {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3389,33 +4698,33 @@ impl ITextHost {
     {
         (windows_core::Interface::vtable(self).TxReleaseDC)(windows_core::Interface::as_raw(self), hdc.param().abi())
     }
-    pub unsafe fn TxShowScrollBar<P0>(&self, fnbar: i32, fshow: P0) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxShowScrollBar<P1>(&self, fnbar: i32, fshow: P1) -> super::super::super::Foundation::BOOL
     where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).TxShowScrollBar)(windows_core::Interface::as_raw(self), fnbar, fshow.param().abi())
+        (windows_core::Interface::vtable(self).TxShowScrollBar)(windows_core::Interface::as_raw(self), core::mem::transmute(fnbar), fshow.param().abi())
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: i32) -> super::super::super::Foundation::BOOL {
-        (windows_core::Interface::vtable(self).TxEnableScrollBar)(windows_core::Interface::as_raw(self), fusbflags, fuarrowflags)
+        (windows_core::Interface::vtable(self).TxEnableScrollBar)(windows_core::Interface::as_raw(self), core::mem::transmute(fusbflags), core::mem::transmute(fuarrowflags))
     }
-    pub unsafe fn TxSetScrollRange<P0>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxSetScrollRange<P3>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: P3) -> super::super::super::Foundation::BOOL
     where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).TxSetScrollRange)(windows_core::Interface::as_raw(self), fnbar, nminpos, nmaxpos, fredraw.param().abi())
+        (windows_core::Interface::vtable(self).TxSetScrollRange)(windows_core::Interface::as_raw(self), core::mem::transmute(fnbar), core::mem::transmute(nminpos), core::mem::transmute(nmaxpos), fredraw.param().abi())
     }
-    pub unsafe fn TxSetScrollPos<P0>(&self, fnbar: i32, npos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxSetScrollPos<P2>(&self, fnbar: i32, npos: i32, fredraw: P2) -> super::super::super::Foundation::BOOL
     where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).TxSetScrollPos)(windows_core::Interface::as_raw(self), fnbar, npos, fredraw.param().abi())
+        (windows_core::Interface::vtable(self).TxSetScrollPos)(windows_core::Interface::as_raw(self), core::mem::transmute(fnbar), core::mem::transmute(npos), fredraw.param().abi())
     }
-    pub unsafe fn TxInvalidateRect<P0>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: P0)
+    pub unsafe fn TxInvalidateRect<P1>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: P1)
     where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).TxInvalidateRect)(windows_core::Interface::as_raw(self), prc, fmode.param().abi())
+        (windows_core::Interface::vtable(self).TxInvalidateRect)(windows_core::Interface::as_raw(self), core::mem::transmute(prc), fmode.param().abi())
     }
     pub unsafe fn TxViewChange<P0>(&self, fupdate: P0)
     where
@@ -3428,7 +4737,7 @@ impl ITextHost {
     where
         P0: windows_core::Param<super::super::super::Graphics::Gdi::HBITMAP>,
     {
-        (windows_core::Interface::vtable(self).TxCreateCaret)(windows_core::Interface::as_raw(self), hbmp.param().abi(), xwidth, yheight)
+        (windows_core::Interface::vtable(self).TxCreateCaret)(windows_core::Interface::as_raw(self), hbmp.param().abi(), core::mem::transmute(xwidth), core::mem::transmute(yheight))
     }
     pub unsafe fn TxShowCaret<P0>(&self, fshow: P0) -> super::super::super::Foundation::BOOL
     where
@@ -3437,20 +4746,20 @@ impl ITextHost {
         (windows_core::Interface::vtable(self).TxShowCaret)(windows_core::Interface::as_raw(self), fshow.param().abi())
     }
     pub unsafe fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL {
-        (windows_core::Interface::vtable(self).TxSetCaretPos)(windows_core::Interface::as_raw(self), x, y)
+        (windows_core::Interface::vtable(self).TxSetCaretPos)(windows_core::Interface::as_raw(self), core::mem::transmute(x), core::mem::transmute(y))
     }
     pub unsafe fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL {
-        (windows_core::Interface::vtable(self).TxSetTimer)(windows_core::Interface::as_raw(self), idtimer, utimeout)
+        (windows_core::Interface::vtable(self).TxSetTimer)(windows_core::Interface::as_raw(self), core::mem::transmute(idtimer), core::mem::transmute(utimeout))
     }
     pub unsafe fn TxKillTimer(&self, idtimer: u32) {
-        (windows_core::Interface::vtable(self).TxKillTimer)(windows_core::Interface::as_raw(self), idtimer)
+        (windows_core::Interface::vtable(self).TxKillTimer)(windows_core::Interface::as_raw(self), core::mem::transmute(idtimer))
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxScrollWindowEx<P0>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: P0, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SCROLL_WINDOW_FLAGS)
+    pub unsafe fn TxScrollWindowEx<P4>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: P4, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SCROLL_WINDOW_FLAGS)
     where
-        P0: windows_core::Param<super::super::super::Graphics::Gdi::HRGN>,
+        P4: windows_core::Param<super::super::super::Graphics::Gdi::HRGN>,
     {
-        (windows_core::Interface::vtable(self).TxScrollWindowEx)(windows_core::Interface::as_raw(self), dx, dy, lprcscroll, lprcclip, hrgnupdate.param().abi(), lprcupdate, fuscroll)
+        (windows_core::Interface::vtable(self).TxScrollWindowEx)(windows_core::Interface::as_raw(self), core::mem::transmute(dx), core::mem::transmute(dy), core::mem::transmute(lprcscroll), core::mem::transmute(lprcclip), hrgnupdate.param().abi(), core::mem::transmute(lprcupdate), core::mem::transmute(fuscroll))
     }
     pub unsafe fn TxSetCapture<P0>(&self, fcapture: P0)
     where
@@ -3470,65 +4779,65 @@ impl ITextHost {
         (windows_core::Interface::vtable(self).TxSetCursor)(windows_core::Interface::as_raw(self), hcur.param().abi(), ftext.param().abi())
     }
     pub unsafe fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
-        (windows_core::Interface::vtable(self).TxScreenToClient)(windows_core::Interface::as_raw(self), lppt)
+        (windows_core::Interface::vtable(self).TxScreenToClient)(windows_core::Interface::as_raw(self), core::mem::transmute(lppt))
     }
     pub unsafe fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
-        (windows_core::Interface::vtable(self).TxClientToScreen)(windows_core::Interface::as_raw(self), lppt)
+        (windows_core::Interface::vtable(self).TxClientToScreen)(windows_core::Interface::as_raw(self), core::mem::transmute(lppt))
     }
     pub unsafe fn TxActivate(&self, ploldstate: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxActivate)(windows_core::Interface::as_raw(self), ploldstate).ok()
+        (windows_core::Interface::vtable(self).TxActivate)(windows_core::Interface::as_raw(self), core::mem::transmute(ploldstate)).ok()
     }
     pub unsafe fn TxDeactivate(&self, lnewstate: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxDeactivate)(windows_core::Interface::as_raw(self), lnewstate).ok()
+        (windows_core::Interface::vtable(self).TxDeactivate)(windows_core::Interface::as_raw(self), core::mem::transmute(lnewstate)).ok()
     }
     pub unsafe fn TxGetClientRect(&self, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetClientRect)(windows_core::Interface::as_raw(self), prc).ok()
+        (windows_core::Interface::vtable(self).TxGetClientRect)(windows_core::Interface::as_raw(self), core::mem::transmute(prc)).ok()
     }
     pub unsafe fn TxGetViewInset(&self, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetViewInset)(windows_core::Interface::as_raw(self), prc).ok()
+        (windows_core::Interface::vtable(self).TxGetViewInset)(windows_core::Interface::as_raw(self), core::mem::transmute(prc)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxGetCharFormat(&self, ppcf: *const *const CHARFORMATW) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetCharFormat)(windows_core::Interface::as_raw(self), ppcf).ok()
+        (windows_core::Interface::vtable(self).TxGetCharFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(ppcf)).ok()
     }
     pub unsafe fn TxGetParaFormat(&self, pppf: *const *const PARAFORMAT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetParaFormat)(windows_core::Interface::as_raw(self), pppf).ok()
+        (windows_core::Interface::vtable(self).TxGetParaFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(pppf)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxGetSysColor(&self, nindex: super::super::super::Graphics::Gdi::SYS_COLOR_INDEX) -> super::super::super::Foundation::COLORREF {
-        (windows_core::Interface::vtable(self).TxGetSysColor)(windows_core::Interface::as_raw(self), nindex)
+        (windows_core::Interface::vtable(self).TxGetSysColor)(windows_core::Interface::as_raw(self), core::mem::transmute(nindex))
     }
     pub unsafe fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetBackStyle)(windows_core::Interface::as_raw(self), pstyle).ok()
+        (windows_core::Interface::vtable(self).TxGetBackStyle)(windows_core::Interface::as_raw(self), core::mem::transmute(pstyle)).ok()
     }
     pub unsafe fn TxGetMaxLength(&self, plength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetMaxLength)(windows_core::Interface::as_raw(self), plength).ok()
+        (windows_core::Interface::vtable(self).TxGetMaxLength)(windows_core::Interface::as_raw(self), core::mem::transmute(plength)).ok()
     }
     pub unsafe fn TxGetScrollBars(&self, pdwscrollbar: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetScrollBars)(windows_core::Interface::as_raw(self), pdwscrollbar).ok()
+        (windows_core::Interface::vtable(self).TxGetScrollBars)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwscrollbar)).ok()
     }
     pub unsafe fn TxGetPasswordChar(&self) -> windows_core::Result<i8> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TxGetPasswordChar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn TxGetAcceleratorPos(&self, pcp: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetAcceleratorPos)(windows_core::Interface::as_raw(self), pcp).ok()
+        (windows_core::Interface::vtable(self).TxGetAcceleratorPos)(windows_core::Interface::as_raw(self), core::mem::transmute(pcp)).ok()
     }
     pub unsafe fn TxGetExtent(&self, lpextent: *mut super::super::super::Foundation::SIZE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetExtent)(windows_core::Interface::as_raw(self), lpextent).ok()
+        (windows_core::Interface::vtable(self).TxGetExtent)(windows_core::Interface::as_raw(self), core::mem::transmute(lpextent)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn OnTxCharFormatChange(&self, pcf: *const CHARFORMATW) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnTxCharFormatChange)(windows_core::Interface::as_raw(self), pcf).ok()
+        (windows_core::Interface::vtable(self).OnTxCharFormatChange)(windows_core::Interface::as_raw(self), core::mem::transmute(pcf)).ok()
     }
     pub unsafe fn OnTxParaFormatChange(&self, ppf: *const PARAFORMAT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnTxParaFormatChange)(windows_core::Interface::as_raw(self), ppf).ok()
+        (windows_core::Interface::vtable(self).OnTxParaFormatChange)(windows_core::Interface::as_raw(self), core::mem::transmute(ppf)).ok()
     }
     pub unsafe fn TxGetPropertyBits(&self, dwmask: u32, pdwbits: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetPropertyBits)(windows_core::Interface::as_raw(self), dwmask, pdwbits).ok()
+        (windows_core::Interface::vtable(self).TxGetPropertyBits)(windows_core::Interface::as_raw(self), core::mem::transmute(dwmask), core::mem::transmute(pdwbits)).ok()
     }
     pub unsafe fn TxNotify(&self, inotify: u32, pv: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxNotify)(windows_core::Interface::as_raw(self), inotify, pv).ok()
+        (windows_core::Interface::vtable(self).TxNotify)(windows_core::Interface::as_raw(self), core::mem::transmute(inotify), core::mem::transmute(pv)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_Ime")]
     pub unsafe fn TxImmGetContext(&self) -> super::super::Input::Ime::HIMC {
@@ -3542,7 +4851,7 @@ impl ITextHost {
         (windows_core::Interface::vtable(self).TxImmReleaseContext)(windows_core::Interface::as_raw(self), himc.param().abi())
     }
     pub unsafe fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetSelectionBarWidth)(windows_core::Interface::as_raw(self), lselbarwidth).ok()
+        (windows_core::Interface::vtable(self).TxGetSelectionBarWidth)(windows_core::Interface::as_raw(self), core::mem::transmute(lselbarwidth)).ok()
     }
 }
 #[repr(C)]
@@ -3622,7 +4931,7 @@ pub struct ITextHost_Vtbl {
     pub TxGetSelectionBarWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait ITextHost_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ITextHost_Impl: windows_core::IUnknownImpl {
     fn TxGetDC(&self) -> super::super::super::Graphics::Gdi::HDC;
     fn TxReleaseDC(&self, hdc: super::super::super::Graphics::Gdi::HDC) -> i32;
     fn TxShowScrollBar(&self, fnbar: i32, fshow: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
@@ -3664,10 +4973,8 @@ pub trait ITextHost_Impl: Sized + windows_core::IUnknownImpl {
     fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::RuntimeName for ITextHost {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ITextHost_Vtbl {
-    pub const fn new<Identity: ITextHost_Impl, const OFFSET: isize>() -> ITextHost_Vtbl {
+    pub const fn new<Identity: ITextHost_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TxGetDC<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::super::Graphics::Gdi::HDC {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextHost_Impl::TxGetDC(this)
@@ -3877,6 +5184,8 @@ impl ITextHost_Vtbl {
         iid == &<ITextHost as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::RuntimeName for ITextHost {}
 windows_core::imp::define_interface!(ITextHost2, ITextHost2_Vtbl, 0);
 impl core::ops::Deref for ITextHost2 {
     type Target = ITextHost;
@@ -3890,7 +5199,7 @@ impl ITextHost2 {
         (windows_core::Interface::vtable(self).TxIsDoubleClickPending)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn TxGetWindow(&self, phwnd: *mut super::super::super::Foundation::HWND) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetWindow)(windows_core::Interface::as_raw(self), phwnd).ok()
+        (windows_core::Interface::vtable(self).TxGetWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(phwnd)).ok()
     }
     pub unsafe fn TxSetForegroundWindow(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TxSetForegroundWindow)(windows_core::Interface::as_raw(self)).ok()
@@ -3900,7 +5209,7 @@ impl ITextHost2 {
         (windows_core::Interface::vtable(self).TxGetPalette)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn TxGetEastAsianFlags(&self, pflags: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetEastAsianFlags)(windows_core::Interface::as_raw(self), pflags).ok()
+        (windows_core::Interface::vtable(self).TxGetEastAsianFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pflags)).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn TxSetCursor2<P0, P1>(&self, hcur: P0, btext: P1) -> super::super::WindowsAndMessaging::HCURSOR
@@ -3914,10 +5223,10 @@ impl ITextHost2 {
         (windows_core::Interface::vtable(self).TxFreeTextServicesNotification)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn TxGetEditStyle(&self, dwitem: u32, pdwdata: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetEditStyle)(windows_core::Interface::as_raw(self), dwitem, pdwdata).ok()
+        (windows_core::Interface::vtable(self).TxGetEditStyle)(windows_core::Interface::as_raw(self), core::mem::transmute(dwitem), core::mem::transmute(pdwdata)).ok()
     }
     pub unsafe fn TxGetWindowStyles(&self, pdwstyle: *mut u32, pdwexstyle: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetWindowStyles)(windows_core::Interface::as_raw(self), pdwstyle, pdwexstyle).ok()
+        (windows_core::Interface::vtable(self).TxGetWindowStyles)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwstyle), core::mem::transmute(pdwexstyle)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxShowDropCaret<P0, P1>(&self, fshow: P0, hdc: P1, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()>
@@ -3925,13 +5234,13 @@ impl ITextHost2 {
         P0: windows_core::Param<super::super::super::Foundation::BOOL>,
         P1: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
     {
-        (windows_core::Interface::vtable(self).TxShowDropCaret)(windows_core::Interface::as_raw(self), fshow.param().abi(), hdc.param().abi(), prc).ok()
+        (windows_core::Interface::vtable(self).TxShowDropCaret)(windows_core::Interface::as_raw(self), fshow.param().abi(), hdc.param().abi(), core::mem::transmute(prc)).ok()
     }
     pub unsafe fn TxDestroyCaret(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TxDestroyCaret)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn TxGetHorzExtent(&self, plhorzextent: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetHorzExtent)(windows_core::Interface::as_raw(self), plhorzextent).ok()
+        (windows_core::Interface::vtable(self).TxGetHorzExtent)(windows_core::Interface::as_raw(self), core::mem::transmute(plhorzextent)).ok()
     }
 }
 #[repr(C)]
@@ -3960,7 +5269,7 @@ pub struct ITextHost2_Vtbl {
     pub TxGetHorzExtent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait ITextHost2_Impl: Sized + ITextHost_Impl {
+pub trait ITextHost2_Impl: ITextHost_Impl {
     fn TxIsDoubleClickPending(&self) -> super::super::super::Foundation::BOOL;
     fn TxGetWindow(&self, phwnd: *mut super::super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn TxSetForegroundWindow(&self) -> windows_core::Result<()>;
@@ -3975,10 +5284,8 @@ pub trait ITextHost2_Impl: Sized + ITextHost_Impl {
     fn TxGetHorzExtent(&self, plhorzextent: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::RuntimeName for ITextHost2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ITextHost2_Vtbl {
-    pub const fn new<Identity: ITextHost2_Impl, const OFFSET: isize>() -> ITextHost2_Vtbl {
+    pub const fn new<Identity: ITextHost2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TxIsDoubleClickPending<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextHost2_Impl::TxIsDoubleClickPending(this)
@@ -4047,6 +5354,8 @@ impl ITextHost2_Vtbl {
         iid == &<ITextHost2 as windows_core::Interface>::IID || iid == &<ITextHost as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::RuntimeName for ITextHost2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextPara, ITextPara_Vtbl, 0x8cc497c4_a1df_11ce_8098_00aa0047be5d);
 #[cfg(feature = "Win32_System_Com")]
@@ -4060,12 +5369,10 @@ impl core::ops::Deref for ITextPara {
 windows_core::imp::interface_hierarchy!(ITextPara, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextPara {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate(&self) -> windows_core::Result<ITextPara> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDuplicate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDuplicate<P0>(&self, ppara: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextPara>,
@@ -4076,7 +5383,6 @@ impl ITextPara {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CanChange)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<P0>(&self, ppara: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<ITextPara>,
@@ -4085,28 +5391,28 @@ impl ITextPara {
         (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), ppara.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Reset(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetStyle(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStyle(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStyle)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetStyle)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetAlignment(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAlignment)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAlignment(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAlignment)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetAlignment)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetHyphenation(&self) -> windows_core::Result<tomConstants> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHyphenation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetHyphenation(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetHyphenation)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetHyphenation)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetFirstLineIndent(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
@@ -4117,14 +5423,14 @@ impl ITextPara {
         (windows_core::Interface::vtable(self).GetKeepTogether)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetKeepTogether(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetKeepTogether)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetKeepTogether)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetKeepWithNext(&self) -> windows_core::Result<tomConstants> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetKeepWithNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetKeepWithNext(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetKeepWithNext)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetKeepWithNext)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetLeftIndent(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
@@ -4143,118 +5449,109 @@ impl ITextPara {
         (windows_core::Interface::vtable(self).GetListAlignment)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetListAlignment(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetListAlignment)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetListAlignment)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetListLevelIndex(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetListLevelIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetListLevelIndex(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetListLevelIndex)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetListLevelIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetListStart(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetListStart)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetListStart(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetListStart)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetListStart)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetListTab(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetListTab)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetListTab(&self, value: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetListTab)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetListTab)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetListType(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetListType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetListType(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetListType)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetListType)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetNoLineNumber(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNoLineNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNoLineNumber(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetNoLineNumber)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetNoLineNumber)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetPageBreakBefore(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPageBreakBefore)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPageBreakBefore(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPageBreakBefore)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetPageBreakBefore)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetRightIndent(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRightIndent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetRightIndent(&self, value: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetRightIndent)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetRightIndent)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn SetIndents(&self, first: f32, left: f32, right: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIndents)(windows_core::Interface::as_raw(self), first, left, right).ok()
+        (windows_core::Interface::vtable(self).SetIndents)(windows_core::Interface::as_raw(self), core::mem::transmute(first), core::mem::transmute(left), core::mem::transmute(right)).ok()
     }
     pub unsafe fn SetLineSpacing(&self, rule: i32, spacing: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLineSpacing)(windows_core::Interface::as_raw(self), rule, spacing).ok()
+        (windows_core::Interface::vtable(self).SetLineSpacing)(windows_core::Interface::as_raw(self), core::mem::transmute(rule), core::mem::transmute(spacing)).ok()
     }
     pub unsafe fn GetSpaceAfter(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSpaceAfter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSpaceAfter(&self, value: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSpaceAfter)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetSpaceAfter)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetSpaceBefore(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSpaceBefore)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSpaceBefore(&self, value: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSpaceBefore)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetSpaceBefore)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetWidowControl(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetWidowControl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetWidowControl(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetWidowControl)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetWidowControl)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetTabCount(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTabCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AddTab(&self, tbpos: f32, tbalign: i32, tbleader: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddTab)(windows_core::Interface::as_raw(self), tbpos, tbalign, tbleader).ok()
+        (windows_core::Interface::vtable(self).AddTab)(windows_core::Interface::as_raw(self), core::mem::transmute(tbpos), core::mem::transmute(tbalign), core::mem::transmute(tbleader)).ok()
     }
     pub unsafe fn ClearAllTabs(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ClearAllTabs)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn DeleteTab(&self, tbpos: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeleteTab)(windows_core::Interface::as_raw(self), tbpos).ok()
+        (windows_core::Interface::vtable(self).DeleteTab)(windows_core::Interface::as_raw(self), core::mem::transmute(tbpos)).ok()
     }
     pub unsafe fn GetTab(&self, itab: i32, ptbpos: *mut f32, ptbalign: *mut i32, ptbleader: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTab)(windows_core::Interface::as_raw(self), itab, ptbpos, ptbalign, ptbleader).ok()
+        (windows_core::Interface::vtable(self).GetTab)(windows_core::Interface::as_raw(self), core::mem::transmute(itab), core::mem::transmute(ptbpos), core::mem::transmute(ptbalign), core::mem::transmute(ptbleader)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct ITextPara_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetDuplicate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetDuplicate: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetDuplicate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetDuplicate: usize,
     pub CanChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    IsEqual: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetStyle: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -4301,7 +5598,7 @@ pub struct ITextPara_Vtbl {
     pub GetTab: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut f32, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextPara_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait ITextPara_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn GetDuplicate(&self) -> windows_core::Result<ITextPara>;
     fn SetDuplicate(&self, ppara: Option<&ITextPara>) -> windows_core::Result<()>;
     fn CanChange(&self) -> windows_core::Result<i32>;
@@ -4352,10 +5649,8 @@ pub trait ITextPara_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn GetTab(&self, itab: i32, ptbpos: *mut f32, ptbalign: *mut i32, ptbleader: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextPara {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextPara_Vtbl {
-    pub const fn new<Identity: ITextPara_Impl, const OFFSET: isize>() -> ITextPara_Vtbl {
+    pub const fn new<Identity: ITextPara_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDuplicate<Identity: ITextPara_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppara: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextPara_Impl::GetDuplicate(this) {
@@ -4748,6 +6043,8 @@ impl ITextPara_Vtbl {
         iid == &<ITextPara as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextPara {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextPara2, ITextPara2_Vtbl, 0xc241f5e4_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
@@ -4765,12 +6062,10 @@ impl ITextPara2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBorders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate2(&self) -> windows_core::Result<ITextPara2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDuplicate2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDuplicate2<P0>(&self, ppara: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextPara2>,
@@ -4782,37 +6077,36 @@ impl ITextPara2 {
         (windows_core::Interface::vtable(self).GetFontAlignment)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFontAlignment(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFontAlignment)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetFontAlignment)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetHangingPunctuation(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHangingPunctuation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetHangingPunctuation(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetHangingPunctuation)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetHangingPunctuation)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetSnapToGrid(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSnapToGrid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSnapToGrid(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSnapToGrid)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetSnapToGrid)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetTrimPunctuationAtStart(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTrimPunctuationAtStart)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTrimPunctuationAtStart(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetTrimPunctuationAtStart)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetTrimPunctuationAtStart)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetEffects(&self, pvalue: *mut i32, pmask: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetEffects)(windows_core::Interface::as_raw(self), pvalue, pmask).ok()
+        (windows_core::Interface::vtable(self).GetEffects)(windows_core::Interface::as_raw(self), core::mem::transmute(pvalue), core::mem::transmute(pmask)).ok()
     }
     pub unsafe fn GetProperty(&self, r#type: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual2<P0>(&self, ppara: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<ITextPara2>,
@@ -4821,10 +6115,10 @@ impl ITextPara2 {
         (windows_core::Interface::vtable(self).IsEqual2)(windows_core::Interface::as_raw(self), ppara.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEffects(&self, value: i32, mask: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEffects)(windows_core::Interface::as_raw(self), value, mask).ok()
+        (windows_core::Interface::vtable(self).SetEffects)(windows_core::Interface::as_raw(self), core::mem::transmute(value), core::mem::transmute(mask)).ok()
     }
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), r#type, value).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(value)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4832,14 +6126,8 @@ impl ITextPara2 {
 pub struct ITextPara2_Vtbl {
     pub base__: ITextPara_Vtbl,
     pub GetBorders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetDuplicate2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetDuplicate2: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetDuplicate2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetDuplicate2: usize,
     pub GetFontAlignment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetFontAlignment: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetHangingPunctuation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -4850,15 +6138,12 @@ pub struct ITextPara2_Vtbl {
     pub SetTrimPunctuationAtStart: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub IsEqual2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    IsEqual2: usize,
     pub SetEffects: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextPara2_Impl: Sized + ITextPara_Impl {
+pub trait ITextPara2_Impl: ITextPara_Impl {
     fn GetBorders(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetDuplicate2(&self) -> windows_core::Result<ITextPara2>;
     fn SetDuplicate2(&self, ppara: Option<&ITextPara2>) -> windows_core::Result<()>;
@@ -4877,10 +6162,8 @@ pub trait ITextPara2_Impl: Sized + ITextPara_Impl {
     fn SetProperty(&self, r#type: i32, value: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextPara2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextPara2_Vtbl {
-    pub const fn new<Identity: ITextPara2_Impl, const OFFSET: isize>() -> ITextPara2_Vtbl {
+    pub const fn new<Identity: ITextPara2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBorders<Identity: ITextPara2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppborders: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextPara2_Impl::GetBorders(this) {
@@ -5017,6 +6300,8 @@ impl ITextPara2_Vtbl {
         iid == &<ITextPara2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITextPara as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextPara2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextRange, ITextRange_Vtbl, 0x8cc497c2_a1df_11ce_8098_00aa0047be5d);
 #[cfg(feature = "Win32_System_Com")]
@@ -5032,32 +6317,26 @@ windows_core::imp::interface_hierarchy!(ITextRange, windows_core::IUnknown, supe
 impl ITextRange {
     pub unsafe fn GetText(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn SetText<P0>(&self, bstr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), bstr.param().abi()).ok()
+    pub unsafe fn SetText(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr)).ok()
     }
     pub unsafe fn GetChar(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetChar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetChar(&self, char: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetChar)(windows_core::Interface::as_raw(self), char).ok()
+        (windows_core::Interface::vtable(self).SetChar)(windows_core::Interface::as_raw(self), core::mem::transmute(char)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate(&self) -> windows_core::Result<ITextRange> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDuplicate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText(&self) -> windows_core::Result<ITextRange> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFormattedText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormattedText<P0>(&self, prange: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextRange>,
@@ -5069,33 +6348,29 @@ impl ITextRange {
         (windows_core::Interface::vtable(self).GetStart)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStart(&self, cpfirst: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStart)(windows_core::Interface::as_raw(self), cpfirst).ok()
+        (windows_core::Interface::vtable(self).SetStart)(windows_core::Interface::as_raw(self), core::mem::transmute(cpfirst)).ok()
     }
     pub unsafe fn GetEnd(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEnd(&self, cplim: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEnd)(windows_core::Interface::as_raw(self), cplim).ok()
+        (windows_core::Interface::vtable(self).SetEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(cplim)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFont(&self) -> windows_core::Result<ITextFont> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFont)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFont<P0>(&self, pfont: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextFont>,
     {
         (windows_core::Interface::vtable(self).SetFont)(windows_core::Interface::as_raw(self), pfont.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPara(&self) -> windows_core::Result<ITextPara> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPara)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPara<P0>(&self, ppara: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextPara>,
@@ -5111,23 +6386,22 @@ impl ITextRange {
         (windows_core::Interface::vtable(self).GetStoryType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Collapse(&self, bstart: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Collapse)(windows_core::Interface::as_raw(self), bstart).ok()
+        (windows_core::Interface::vtable(self).Collapse)(windows_core::Interface::as_raw(self), core::mem::transmute(bstart)).ok()
     }
     pub unsafe fn Expand(&self, unit: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), unit, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), &mut result__).map(|| result__)
     }
     pub unsafe fn GetIndex(&self, unit: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIndex)(windows_core::Interface::as_raw(self), unit, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), &mut result__).map(|| result__)
     }
     pub unsafe fn SetIndex(&self, unit: i32, index: i32, extend: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIndex)(windows_core::Interface::as_raw(self), unit, index, extend).ok()
+        (windows_core::Interface::vtable(self).SetIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(index), core::mem::transmute(extend)).ok()
     }
     pub unsafe fn SetRange(&self, cpanchor: i32, cpactive: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetRange)(windows_core::Interface::as_raw(self), cpanchor, cpactive).ok()
+        (windows_core::Interface::vtable(self).SetRange)(windows_core::Interface::as_raw(self), core::mem::transmute(cpanchor), core::mem::transmute(cpactive)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InRange<P0>(&self, prange: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<ITextRange>,
@@ -5135,7 +6409,6 @@ impl ITextRange {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InRange)(windows_core::Interface::as_raw(self), prange.param().abi(), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InStory<P0>(&self, prange: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<ITextRange>,
@@ -5143,7 +6416,6 @@ impl ITextRange {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InStory)(windows_core::Interface::as_raw(self), prange.param().abi(), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<P0>(&self, prange: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<ITextRange>,
@@ -5156,113 +6428,104 @@ impl ITextRange {
     }
     pub unsafe fn StartOf(&self, unit: i32, extend: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).StartOf)(windows_core::Interface::as_raw(self), unit, extend, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StartOf)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(extend), &mut result__).map(|| result__)
     }
     pub unsafe fn EndOf(&self, unit: i32, extend: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EndOf)(windows_core::Interface::as_raw(self), unit, extend, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).EndOf)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(extend), &mut result__).map(|| result__)
     }
     pub unsafe fn Move(&self, unit: i32, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), unit, count, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(count), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveStart(&self, unit: i32, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MoveStart)(windows_core::Interface::as_raw(self), unit, count, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MoveStart)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(count), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveEnd(&self, unit: i32, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MoveEnd)(windows_core::Interface::as_raw(self), unit, count, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MoveEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(count), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MoveWhile)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MoveWhile)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), core::mem::transmute(count), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MoveStartWhile)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MoveStartWhile)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), core::mem::transmute(count), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MoveEndWhile)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MoveEndWhile)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), core::mem::transmute(count), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MoveUntil)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MoveUntil)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), core::mem::transmute(count), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MoveStartUntil)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MoveStartUntil)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), core::mem::transmute(count), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MoveEndUntil)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MoveEndUntil)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), core::mem::transmute(count), &mut result__).map(|| result__)
     }
-    pub unsafe fn FindText<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
+    pub unsafe fn FindText(&self, bstr: &windows_core::BSTR, count: i32, flags: tomConstants) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), bstr.param().abi(), count, flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr), core::mem::transmute(count), core::mem::transmute(flags), &mut result__).map(|| result__)
     }
-    pub unsafe fn FindTextStart<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
+    pub unsafe fn FindTextStart(&self, bstr: &windows_core::BSTR, count: i32, flags: tomConstants) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindTextStart)(windows_core::Interface::as_raw(self), bstr.param().abi(), count, flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).FindTextStart)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr), core::mem::transmute(count), core::mem::transmute(flags), &mut result__).map(|| result__)
     }
-    pub unsafe fn FindTextEnd<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
+    pub unsafe fn FindTextEnd(&self, bstr: &windows_core::BSTR, count: i32, flags: tomConstants) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindTextEnd)(windows_core::Interface::as_raw(self), bstr.param().abi(), count, flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).FindTextEnd)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr), core::mem::transmute(count), core::mem::transmute(flags), &mut result__).map(|| result__)
     }
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), unit, count, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(count), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Cut(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Cut)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Cut)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Copy(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), format).ok()
+        (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), core::mem::transmute(format)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CanPaste)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), format, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CanPaste)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), core::mem::transmute(format), &mut result__).map(|| result__)
     }
     pub unsafe fn CanEdit(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CanEdit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ChangeCase(&self, r#type: tomConstants) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ChangeCase)(windows_core::Interface::as_raw(self), r#type).ok()
+        (windows_core::Interface::vtable(self).ChangeCase)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type)).ok()
     }
     pub unsafe fn GetPoint(&self, r#type: tomConstants, px: *mut i32, py: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPoint)(windows_core::Interface::as_raw(self), r#type, px, py).ok()
+        (windows_core::Interface::vtable(self).GetPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(px), core::mem::transmute(py)).ok()
     }
     pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: tomConstants, extend: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPoint)(windows_core::Interface::as_raw(self), x, y, r#type, extend).ok()
+        (windows_core::Interface::vtable(self).SetPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(r#type), core::mem::transmute(extend)).ok()
     }
     pub unsafe fn ScrollIntoView(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetEmbeddedObject(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
@@ -5273,42 +6536,21 @@ impl ITextRange {
 #[repr(C)]
 pub struct ITextRange_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetChar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetChar: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetDuplicate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetDuplicate: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetFormattedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetFormattedText: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetFormattedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetFormattedText: usize,
     pub GetStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetStart: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetEnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetEnd: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetFont: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetFont: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetPara: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetPara: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetPara: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetPara: usize,
     pub GetStoryLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetStoryType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Collapse: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -5316,18 +6558,9 @@ pub struct ITextRange_Vtbl {
     pub GetIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub SetIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
     pub SetRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub InRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    InRange: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub InStory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    InStory: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    IsEqual: usize,
     pub Select: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartOf: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
     pub EndOf: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
@@ -5335,47 +6568,47 @@ pub struct ITextRange_Vtbl {
     pub MoveStart: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
     pub MoveEnd: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub MoveWhile: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    pub MoveWhile: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::System::Variant::VARIANT, i32, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MoveWhile: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub MoveStartWhile: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    pub MoveStartWhile: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::System::Variant::VARIANT, i32, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MoveStartWhile: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub MoveEndWhile: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    pub MoveEndWhile: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::System::Variant::VARIANT, i32, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MoveEndWhile: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub MoveUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    pub MoveUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::System::Variant::VARIANT, i32, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MoveUntil: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub MoveStartUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    pub MoveStartUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::System::Variant::VARIANT, i32, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MoveStartUntil: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub MoveEndUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    pub MoveEndUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::System::Variant::VARIANT, i32, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MoveEndUntil: usize,
-    pub FindText: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, tomConstants, *mut i32) -> windows_core::HRESULT,
-    pub FindTextStart: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, tomConstants, *mut i32) -> windows_core::HRESULT,
-    pub FindTextEnd: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, tomConstants, *mut i32) -> windows_core::HRESULT,
+    pub FindText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, tomConstants, *mut i32) -> windows_core::HRESULT,
+    pub FindTextStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, tomConstants, *mut i32) -> windows_core::HRESULT,
+    pub FindTextEnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, tomConstants, *mut i32) -> windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Cut: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Cut: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Cut: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Copy: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Paste: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32) -> windows_core::HRESULT,
+    pub Paste: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::System::Variant::VARIANT, i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Paste: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CanPaste: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    pub CanPaste: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::System::Variant::VARIANT, i32, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CanPaste: usize,
     pub CanEdit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -5386,7 +6619,7 @@ pub struct ITextRange_Vtbl {
     pub GetEmbeddedObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextRange_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait ITextRange_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn GetText(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetText(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetChar(&self) -> windows_core::Result<i32>;
@@ -5440,11 +6673,9 @@ pub trait ITextRange_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn GetEmbeddedObject(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextRange {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextRange_Vtbl {
-    pub const fn new<Identity: ITextRange_Impl, const OFFSET: isize>() -> ITextRange_Vtbl {
-        unsafe extern "system" fn GetText<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+    pub const fn new<Identity: ITextRange_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetText<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::GetText(this) {
                 Ok(ok__) => {
@@ -5454,7 +6685,7 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetText<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetText<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextRange_Impl::SetText(this, core::mem::transmute(&bstr)).into()
         }
@@ -5688,7 +6919,7 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveWhile<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cset: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, count: i32, pdelta: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveWhile<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::MoveWhile(this, core::mem::transmute_copy(&cset), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
@@ -5698,7 +6929,7 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveStartWhile<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cset: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, count: i32, pdelta: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveStartWhile<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::MoveStartWhile(this, core::mem::transmute_copy(&cset), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
@@ -5708,7 +6939,7 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveEndWhile<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cset: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, count: i32, pdelta: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveEndWhile<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::MoveEndWhile(this, core::mem::transmute_copy(&cset), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
@@ -5718,7 +6949,7 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveUntil<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cset: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, count: i32, pdelta: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveUntil<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::MoveUntil(this, core::mem::transmute_copy(&cset), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
@@ -5728,7 +6959,7 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveStartUntil<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cset: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, count: i32, pdelta: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveStartUntil<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::MoveStartUntil(this, core::mem::transmute_copy(&cset), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
@@ -5738,7 +6969,7 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveEndUntil<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cset: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, count: i32, pdelta: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveEndUntil<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::MoveEndUntil(this, core::mem::transmute_copy(&cset), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
@@ -5748,7 +6979,7 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindText<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: core::mem::MaybeUninit<windows_core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindText<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void, count: i32, flags: tomConstants, plength: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::FindText(this, core::mem::transmute(&bstr), core::mem::transmute_copy(&count), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
@@ -5758,7 +6989,7 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindTextStart<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: core::mem::MaybeUninit<windows_core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindTextStart<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void, count: i32, flags: tomConstants, plength: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::FindTextStart(this, core::mem::transmute(&bstr), core::mem::transmute_copy(&count), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
@@ -5768,7 +6999,7 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindTextEnd<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: core::mem::MaybeUninit<windows_core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindTextEnd<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void, count: i32, flags: tomConstants, plength: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::FindTextEnd(this, core::mem::transmute(&bstr), core::mem::transmute_copy(&count), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
@@ -5788,7 +7019,7 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Cut<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Cut<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::Cut(this) {
                 Ok(ok__) => {
@@ -5798,7 +7029,7 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Copy<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Copy<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::Copy(this) {
                 Ok(ok__) => {
@@ -5808,11 +7039,11 @@ impl ITextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Paste<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, format: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Paste<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextRange_Impl::Paste(this, core::mem::transmute_copy(&pvar), core::mem::transmute_copy(&format)).into()
         }
-        unsafe extern "system" fn CanPaste<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, format: i32, pvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanPaste<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const super::super::super::System::Variant::VARIANT, format: i32, pvalue: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange_Impl::CanPaste(this, core::mem::transmute_copy(&pvar), core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
@@ -5917,6 +7148,8 @@ impl ITextRange_Vtbl {
         iid == &<ITextRange as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextRange {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextRange2, ITextRange2_Vtbl, 0xc241f5e2_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
@@ -5946,29 +7179,24 @@ impl ITextRange2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate2(&self) -> windows_core::Result<ITextRange2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDuplicate2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFont2(&self) -> windows_core::Result<ITextFont2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFont2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFont2<P0>(&self, pfont: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextFont2>,
     {
         (windows_core::Interface::vtable(self).SetFont2)(windows_core::Interface::as_raw(self), pfont.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText2(&self) -> windows_core::Result<ITextRange2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFormattedText2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormattedText2<P0>(&self, prange: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextRange2>,
@@ -5980,21 +7208,18 @@ impl ITextRange2 {
         (windows_core::Interface::vtable(self).GetGravity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetGravity(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetGravity)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetGravity)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPara2(&self) -> windows_core::Result<ITextPara2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPara2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPara2<P0>(&self, ppara: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextPara2>,
     {
         (windows_core::Interface::vtable(self).SetPara2)(windows_core::Interface::as_raw(self), ppara.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRow(&self) -> windows_core::Result<ITextRow> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRow)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6009,98 +7234,87 @@ impl ITextRange2 {
     }
     pub unsafe fn GetURL(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetURL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn SetURL<P0>(&self, bstr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).SetURL)(windows_core::Interface::as_raw(self), bstr.param().abi()).ok()
+    pub unsafe fn SetURL(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr)).ok()
     }
     pub unsafe fn AddSubrange(&self, cp1: i32, cp2: i32, activate: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddSubrange)(windows_core::Interface::as_raw(self), cp1, cp2, activate).ok()
+        (windows_core::Interface::vtable(self).AddSubrange)(windows_core::Interface::as_raw(self), core::mem::transmute(cp1), core::mem::transmute(cp2), core::mem::transmute(activate)).ok()
     }
     pub unsafe fn BuildUpMath(&self, flags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BuildUpMath)(windows_core::Interface::as_raw(self), flags).ok()
+        (windows_core::Interface::vtable(self).BuildUpMath)(windows_core::Interface::as_raw(self), core::mem::transmute(flags)).ok()
     }
     pub unsafe fn DeleteSubrange(&self, cpfirst: i32, cplim: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeleteSubrange)(windows_core::Interface::as_raw(self), cpfirst, cplim).ok()
+        (windows_core::Interface::vtable(self).DeleteSubrange)(windows_core::Interface::as_raw(self), core::mem::transmute(cpfirst), core::mem::transmute(cplim)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Find<P0>(&self, prange: P0, count: i32, flags: i32) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<ITextRange2>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Find)(windows_core::Interface::as_raw(self), prange.param().abi(), count, flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Find)(windows_core::Interface::as_raw(self), prange.param().abi(), core::mem::transmute(count), core::mem::transmute(flags), &mut result__).map(|| result__)
     }
     pub unsafe fn GetChar2(&self, pchar: *mut i32, offset: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetChar2)(windows_core::Interface::as_raw(self), pchar, offset).ok()
+        (windows_core::Interface::vtable(self).GetChar2)(windows_core::Interface::as_raw(self), core::mem::transmute(pchar), core::mem::transmute(offset)).ok()
     }
     pub unsafe fn GetDropCap(&self, pcline: *mut i32, pposition: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDropCap)(windows_core::Interface::as_raw(self), pcline, pposition).ok()
+        (windows_core::Interface::vtable(self).GetDropCap)(windows_core::Interface::as_raw(self), core::mem::transmute(pcline), core::mem::transmute(pposition)).ok()
     }
     pub unsafe fn GetInlineObject(&self, ptype: *mut i32, palign: *mut i32, pchar: *mut i32, pchar1: *mut i32, pchar2: *mut i32, pcount: *mut i32, ptexstyle: *mut i32, pccol: *mut i32, plevel: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetInlineObject)(windows_core::Interface::as_raw(self), ptype, palign, pchar, pchar1, pchar2, pcount, ptexstyle, pccol, plevel).ok()
+        (windows_core::Interface::vtable(self).GetInlineObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ptype), core::mem::transmute(palign), core::mem::transmute(pchar), core::mem::transmute(pchar1), core::mem::transmute(pchar2), core::mem::transmute(pcount), core::mem::transmute(ptexstyle), core::mem::transmute(pccol), core::mem::transmute(plevel)).ok()
     }
     pub unsafe fn GetProperty(&self, r#type: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRect(&self, r#type: i32, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32, phit: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetRect)(windows_core::Interface::as_raw(self), r#type, pleft, ptop, pright, pbottom, phit).ok()
+        (windows_core::Interface::vtable(self).GetRect)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(pleft), core::mem::transmute(ptop), core::mem::transmute(pright), core::mem::transmute(pbottom), core::mem::transmute(phit)).ok()
     }
     pub unsafe fn GetSubrange(&self, isubrange: i32, pcpfirst: *mut i32, pcplim: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSubrange)(windows_core::Interface::as_raw(self), isubrange, pcpfirst, pcplim).ok()
+        (windows_core::Interface::vtable(self).GetSubrange)(windows_core::Interface::as_raw(self), core::mem::transmute(isubrange), core::mem::transmute(pcpfirst), core::mem::transmute(pcplim)).ok()
     }
     pub unsafe fn GetText2(&self, flags: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetText2)(windows_core::Interface::as_raw(self), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetText2)(windows_core::Interface::as_raw(self), core::mem::transmute(flags), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn HexToUnicode(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).HexToUnicode)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn InsertTable(&self, ccol: i32, crow: i32, autofit: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InsertTable)(windows_core::Interface::as_raw(self), ccol, crow, autofit).ok()
+        (windows_core::Interface::vtable(self).InsertTable)(windows_core::Interface::as_raw(self), core::mem::transmute(ccol), core::mem::transmute(crow), core::mem::transmute(autofit)).ok()
     }
     pub unsafe fn Linearize(&self, flags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Linearize)(windows_core::Interface::as_raw(self), flags).ok()
+        (windows_core::Interface::vtable(self).Linearize)(windows_core::Interface::as_raw(self), core::mem::transmute(flags)).ok()
     }
     pub unsafe fn SetActiveSubrange(&self, cpanchor: i32, cpactive: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetActiveSubrange)(windows_core::Interface::as_raw(self), cpanchor, cpactive).ok()
+        (windows_core::Interface::vtable(self).SetActiveSubrange)(windows_core::Interface::as_raw(self), core::mem::transmute(cpanchor), core::mem::transmute(cpactive)).ok()
     }
     pub unsafe fn SetDropCap(&self, cline: i32, position: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDropCap)(windows_core::Interface::as_raw(self), cline, position).ok()
+        (windows_core::Interface::vtable(self).SetDropCap)(windows_core::Interface::as_raw(self), core::mem::transmute(cline), core::mem::transmute(position)).ok()
     }
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), r#type, value).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(value)).ok()
     }
-    pub unsafe fn SetText2<P0>(&self, flags: i32, bstr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).SetText2)(windows_core::Interface::as_raw(self), flags, bstr.param().abi()).ok()
+    pub unsafe fn SetText2(&self, flags: i32, bstr: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetText2)(windows_core::Interface::as_raw(self), core::mem::transmute(flags), core::mem::transmute_copy(bstr)).ok()
     }
     pub unsafe fn UnicodeToHex(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnicodeToHex)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetInlineObject(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInlineObject)(windows_core::Interface::as_raw(self), r#type, align, char, char1, char2, count, texstyle, ccol).ok()
+        (windows_core::Interface::vtable(self).SetInlineObject)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(align), core::mem::transmute(char), core::mem::transmute(char1), core::mem::transmute(char2), core::mem::transmute(count), core::mem::transmute(texstyle), core::mem::transmute(ccol)).ok()
     }
-    pub unsafe fn GetMathFunctionType<P0>(&self, bstr: P0) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
+    pub unsafe fn GetMathFunctionType(&self, bstr: &windows_core::BSTR) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMathFunctionType)(windows_core::Interface::as_raw(self), bstr.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetMathFunctionType)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InsertImage<P0, P1>(&self, width: i32, height: i32, ascent: i32, r#type: i32, bstralttext: P0, pstream: P1) -> windows_core::Result<()>
+    pub unsafe fn InsertImage<P5>(&self, width: i32, height: i32, ascent: i32, r#type: i32, bstralttext: &windows_core::BSTR, pstream: P5) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::super::System::Com::IStream>,
+        P5: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).InsertImage)(windows_core::Interface::as_raw(self), width, height, ascent, r#type, bstralttext.param().abi(), pstream.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertImage)(windows_core::Interface::as_raw(self), core::mem::transmute(width), core::mem::transmute(height), core::mem::transmute(ascent), core::mem::transmute(r#type), core::mem::transmute_copy(bstralttext), pstream.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6111,75 +7325,48 @@ pub struct ITextRange2_Vtbl {
     pub GetCells: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetColumn: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetDuplicate2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetDuplicate2: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetFont2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetFont2: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetFont2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetFont2: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetFormattedText2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetFormattedText2: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetFormattedText2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetFormattedText2: usize,
     pub GetGravity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetGravity: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetPara2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetPara2: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetPara2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetPara2: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub GetRow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    GetRow: usize,
     pub GetStartPara: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetTable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetURL: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddSubrange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
     pub BuildUpMath: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub DeleteSubrange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Find: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Find: usize,
     pub GetChar2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, i32) -> windows_core::HRESULT,
     pub GetDropCap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetInlineObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub GetRect: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetSubrange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
-    pub GetText2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetText2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HexToUnicode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InsertTable: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
     pub Linearize: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SetActiveSubrange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub SetDropCap: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    pub SetText2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetText2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnicodeToHex: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetInlineObject: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, i32, i32, i32, i32) -> windows_core::HRESULT,
-    pub GetMathFunctionType: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut i32) -> windows_core::HRESULT,
+    pub GetMathFunctionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub InsertImage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InsertImage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     InsertImage: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextRange2_Impl: Sized + ITextSelection_Impl {
+pub trait ITextRange2_Impl: ITextSelection_Impl {
     fn GetCch(&self) -> windows_core::Result<i32>;
     fn GetCells(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetColumn(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -6222,10 +7409,8 @@ pub trait ITextRange2_Impl: Sized + ITextSelection_Impl {
     fn InsertImage(&self, width: i32, height: i32, ascent: i32, r#type: i32, bstralttext: &windows_core::BSTR, pstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextRange2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextRange2_Vtbl {
-    pub const fn new<Identity: ITextRange2_Impl, const OFFSET: isize>() -> ITextRange2_Vtbl {
+    pub const fn new<Identity: ITextRange2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCch<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcch: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange2_Impl::GetCch(this) {
@@ -6362,7 +7547,7 @@ impl ITextRange2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetURL<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetURL<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange2_Impl::GetURL(this) {
                 Ok(ok__) => {
@@ -6372,7 +7557,7 @@ impl ITextRange2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetURL<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetURL<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextRange2_Impl::SetURL(this, core::mem::transmute(&bstr)).into()
         }
@@ -6428,7 +7613,7 @@ impl ITextRange2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextRange2_Impl::GetSubrange(this, core::mem::transmute_copy(&isubrange), core::mem::transmute_copy(&pcpfirst), core::mem::transmute_copy(&pcplim)).into()
         }
-        unsafe extern "system" fn GetText2<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, pbstr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetText2<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange2_Impl::GetText2(this, core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
@@ -6462,7 +7647,7 @@ impl ITextRange2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextRange2_Impl::SetProperty(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SetText2<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, bstr: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetText2<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextRange2_Impl::SetText2(this, core::mem::transmute_copy(&flags), core::mem::transmute(&bstr)).into()
         }
@@ -6474,7 +7659,7 @@ impl ITextRange2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextRange2_Impl::SetInlineObject(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&align), core::mem::transmute_copy(&char), core::mem::transmute_copy(&char1), core::mem::transmute_copy(&char2), core::mem::transmute_copy(&count), core::mem::transmute_copy(&texstyle), core::mem::transmute_copy(&ccol)).into()
         }
-        unsafe extern "system" fn GetMathFunctionType<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: core::mem::MaybeUninit<windows_core::BSTR>, pvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMathFunctionType<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void, pvalue: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRange2_Impl::GetMathFunctionType(this, core::mem::transmute(&bstr)) {
                 Ok(ok__) => {
@@ -6484,7 +7669,7 @@ impl ITextRange2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InsertImage<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: i32, height: i32, ascent: i32, r#type: i32, bstralttext: core::mem::MaybeUninit<windows_core::BSTR>, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn InsertImage<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: i32, height: i32, ascent: i32, r#type: i32, bstralttext: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextRange2_Impl::InsertImage(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&ascent), core::mem::transmute_copy(&r#type), core::mem::transmute(&bstralttext), windows_core::from_raw_borrowed(&pstream)).into()
         }
@@ -6536,6 +7721,8 @@ impl ITextRange2_Vtbl {
         iid == &<ITextRange2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITextRange as windows_core::Interface>::IID || iid == &<ITextSelection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextRange2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextRow, ITextRow_Vtbl, 0xc241f5ef_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
@@ -6554,63 +7741,63 @@ impl ITextRow {
         (windows_core::Interface::vtable(self).GetAlignment)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAlignment(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAlignment)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetAlignment)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCellCount(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCellCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCellCount(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellCount)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCellCount)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCellCountCache(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCellCountCache)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCellCountCache(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellCountCache)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCellCountCache)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCellIndex(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCellIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCellIndex(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellIndex)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCellIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCellMargin(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCellMargin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCellMargin(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellMargin)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCellMargin)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetHeight(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetHeight(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetHeight)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetHeight)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetIndent(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetIndent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetIndent(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIndent)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetIndent)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetKeepTogether(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetKeepTogether)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetKeepTogether(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetKeepTogether)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetKeepTogether)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetKeepWithNext(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetKeepWithNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetKeepWithNext(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetKeepWithNext)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetKeepWithNext)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetNestLevel(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -6621,71 +7808,71 @@ impl ITextRow {
         (windows_core::Interface::vtable(self).GetRTL)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetRTL(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetRTL)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetRTL)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCellAlignment(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCellAlignment)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCellAlignment(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellAlignment)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCellAlignment)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCellColorBack(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCellColorBack)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCellColorBack(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellColorBack)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCellColorBack)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCellColorFore(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCellColorFore)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCellColorFore(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellColorFore)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCellColorFore)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCellMergeFlags(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCellMergeFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCellMergeFlags(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellMergeFlags)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCellMergeFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCellShading(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCellShading)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCellShading(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellShading)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCellShading)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCellVerticalText(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCellVerticalText)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCellVerticalText(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellVerticalText)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCellVerticalText)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCellWidth(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCellWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCellWidth(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellWidth)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetCellWidth)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetCellBorderColors(&self, pcrleft: *mut i32, pcrtop: *mut i32, pcrright: *mut i32, pcrbottom: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCellBorderColors)(windows_core::Interface::as_raw(self), pcrleft, pcrtop, pcrright, pcrbottom).ok()
+        (windows_core::Interface::vtable(self).GetCellBorderColors)(windows_core::Interface::as_raw(self), core::mem::transmute(pcrleft), core::mem::transmute(pcrtop), core::mem::transmute(pcrright), core::mem::transmute(pcrbottom)).ok()
     }
     pub unsafe fn GetCellBorderWidths(&self, pduleft: *mut i32, pdutop: *mut i32, pduright: *mut i32, pdubottom: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCellBorderWidths)(windows_core::Interface::as_raw(self), pduleft, pdutop, pduright, pdubottom).ok()
+        (windows_core::Interface::vtable(self).GetCellBorderWidths)(windows_core::Interface::as_raw(self), core::mem::transmute(pduleft), core::mem::transmute(pdutop), core::mem::transmute(pduright), core::mem::transmute(pdubottom)).ok()
     }
     pub unsafe fn SetCellBorderColors(&self, crleft: i32, crtop: i32, crright: i32, crbottom: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellBorderColors)(windows_core::Interface::as_raw(self), crleft, crtop, crright, crbottom).ok()
+        (windows_core::Interface::vtable(self).SetCellBorderColors)(windows_core::Interface::as_raw(self), core::mem::transmute(crleft), core::mem::transmute(crtop), core::mem::transmute(crright), core::mem::transmute(crbottom)).ok()
     }
     pub unsafe fn SetCellBorderWidths(&self, duleft: i32, dutop: i32, duright: i32, dubottom: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCellBorderWidths)(windows_core::Interface::as_raw(self), duleft, dutop, duright, dubottom).ok()
+        (windows_core::Interface::vtable(self).SetCellBorderWidths)(windows_core::Interface::as_raw(self), core::mem::transmute(duleft), core::mem::transmute(dutop), core::mem::transmute(duright), core::mem::transmute(dubottom)).ok()
     }
     pub unsafe fn Apply(&self, crow: i32, flags: tomConstants) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Apply)(windows_core::Interface::as_raw(self), crow, flags).ok()
+        (windows_core::Interface::vtable(self).Apply)(windows_core::Interface::as_raw(self), core::mem::transmute(crow), core::mem::transmute(flags)).ok()
     }
     pub unsafe fn CanChange(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -6693,12 +7880,11 @@ impl ITextRow {
     }
     pub unsafe fn GetProperty(&self, r#type: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), &mut result__).map(|| result__)
     }
     pub unsafe fn Insert(&self, crow: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), crow).ok()
+        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), core::mem::transmute(crow)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<P0>(&self, prow: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<ITextRow>,
@@ -6707,10 +7893,10 @@ impl ITextRow {
         (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), prow.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Reset(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), r#type, value).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(value)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6760,15 +7946,12 @@ pub struct ITextRow_Vtbl {
     pub CanChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub Insert: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    IsEqual: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextRow_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait ITextRow_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn GetAlignment(&self) -> windows_core::Result<i32>;
     fn SetAlignment(&self, value: i32) -> windows_core::Result<()>;
     fn GetCellCount(&self) -> windows_core::Result<i32>;
@@ -6817,10 +8000,8 @@ pub trait ITextRow_Impl: Sized + super::super::super::System::Com::IDispatch_Imp
     fn SetProperty(&self, r#type: i32, value: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextRow {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextRow_Vtbl {
-    pub const fn new<Identity: ITextRow_Impl, const OFFSET: isize>() -> ITextRow_Vtbl {
+    pub const fn new<Identity: ITextRow_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAlignment<Identity: ITextRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRow_Impl::GetAlignment(this) {
@@ -7185,6 +8366,8 @@ impl ITextRow_Vtbl {
         iid == &<ITextRow as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextRow {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextSelection, ITextSelection_Vtbl, 0x8cc497c1_a1df_11ce_8098_00aa0047be5d);
 #[cfg(feature = "Win32_System_Com")]
@@ -7203,7 +8386,7 @@ impl ITextSelection {
         (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFlags(&self, flags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), flags).ok()
+        (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(flags)).ok()
     }
     pub unsafe fn GetType(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -7211,33 +8394,30 @@ impl ITextSelection {
     }
     pub unsafe fn MoveLeft(&self, unit: i32, count: i32, extend: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MoveLeft)(windows_core::Interface::as_raw(self), unit, count, extend, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MoveLeft)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(count), core::mem::transmute(extend), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveRight(&self, unit: i32, count: i32, extend: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MoveRight)(windows_core::Interface::as_raw(self), unit, count, extend, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MoveRight)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(count), core::mem::transmute(extend), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveUp(&self, unit: i32, count: i32, extend: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MoveUp)(windows_core::Interface::as_raw(self), unit, count, extend, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MoveUp)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(count), core::mem::transmute(extend), &mut result__).map(|| result__)
     }
     pub unsafe fn MoveDown(&self, unit: i32, count: i32, extend: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MoveDown)(windows_core::Interface::as_raw(self), unit, count, extend, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MoveDown)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(count), core::mem::transmute(extend), &mut result__).map(|| result__)
     }
     pub unsafe fn HomeKey(&self, unit: tomConstants, extend: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).HomeKey)(windows_core::Interface::as_raw(self), unit, extend, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).HomeKey)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(extend), &mut result__).map(|| result__)
     }
     pub unsafe fn EndKey(&self, unit: i32, extend: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EndKey)(windows_core::Interface::as_raw(self), unit, extend, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).EndKey)(windows_core::Interface::as_raw(self), core::mem::transmute(unit), core::mem::transmute(extend), &mut result__).map(|| result__)
     }
-    pub unsafe fn TypeText<P0>(&self, bstr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).TypeText)(windows_core::Interface::as_raw(self), bstr.param().abi()).ok()
+    pub unsafe fn TypeText(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).TypeText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7253,10 +8433,10 @@ pub struct ITextSelection_Vtbl {
     pub MoveDown: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, *mut i32) -> windows_core::HRESULT,
     pub HomeKey: unsafe extern "system" fn(*mut core::ffi::c_void, tomConstants, i32, *mut i32) -> windows_core::HRESULT,
     pub EndKey: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
-    pub TypeText: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub TypeText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextSelection_Impl: Sized + ITextRange_Impl {
+pub trait ITextSelection_Impl: ITextRange_Impl {
     fn GetFlags(&self) -> windows_core::Result<i32>;
     fn SetFlags(&self, flags: i32) -> windows_core::Result<()>;
     fn GetType(&self) -> windows_core::Result<i32>;
@@ -7269,10 +8449,8 @@ pub trait ITextSelection_Impl: Sized + ITextRange_Impl {
     fn TypeText(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextSelection {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextSelection_Vtbl {
-    pub const fn new<Identity: ITextSelection_Impl, const OFFSET: isize>() -> ITextSelection_Vtbl {
+    pub const fn new<Identity: ITextSelection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFlags<Identity: ITextSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextSelection_Impl::GetFlags(this) {
@@ -7357,7 +8535,7 @@ impl ITextSelection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TypeText<Identity: ITextSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TypeText<Identity: ITextSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextSelection_Impl::TypeText(this, core::mem::transmute(&bstr)).into()
         }
@@ -7379,6 +8557,8 @@ impl ITextSelection_Vtbl {
         iid == &<ITextSelection as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITextRange as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextSelection {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextSelection2, ITextSelection2_Vtbl, 0xc241f5e1_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
@@ -7391,73 +8571,65 @@ impl core::ops::Deref for ITextSelection2 {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ITextSelection2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection, ITextRange2);
 #[cfg(feature = "Win32_System_Com")]
-impl ITextSelection2 {}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct ITextSelection2_Vtbl {
     pub base__: ITextRange2_Vtbl,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextSelection2_Impl: Sized + ITextRange2_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextSelection2 {}
+pub trait ITextSelection2_Impl: ITextRange2_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextSelection2_Vtbl {
-    pub const fn new<Identity: ITextSelection2_Impl, const OFFSET: isize>() -> ITextSelection2_Vtbl {
+    pub const fn new<Identity: ITextSelection2_Impl, const OFFSET: isize>() -> Self {
         Self { base__: ITextRange2_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITextSelection2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITextRange as windows_core::Interface>::IID || iid == &<ITextSelection as windows_core::Interface>::IID || iid == &<ITextRange2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextSelection2 {}
 windows_core::imp::define_interface!(ITextServices, ITextServices_Vtbl, 0);
-impl core::ops::Deref for ITextServices {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ITextServices, windows_core::IUnknown);
 impl ITextServices {
-    pub unsafe fn TxSendMessage<P0, P1>(&self, msg: u32, wparam: P0, lparam: P1, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>
+    pub unsafe fn TxSendMessage<P1, P2>(&self, msg: u32, wparam: P1, lparam: P2, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P1: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).TxSendMessage)(windows_core::Interface::as_raw(self), msg, wparam.param().abi(), lparam.param().abi(), plresult).ok()
+        (windows_core::Interface::vtable(self).TxSendMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(msg), wparam.param().abi(), lparam.param().abi(), core::mem::transmute(plresult)).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxDraw<P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> windows_core::Result<()>
+    pub unsafe fn TxDraw<P4, P5>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P4, hictargetdev: P5, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
-        P1: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
+        P4: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
+        P5: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
     {
-        (windows_core::Interface::vtable(self).TxDraw)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect, ptd, hdcdraw.param().abi(), hictargetdev.param().abi(), lprcbounds, lprcwbounds, lprcupdate, pfncontinue, dwcontinue, lviewid).ok()
+        (windows_core::Interface::vtable(self).TxDraw)(windows_core::Interface::as_raw(self), core::mem::transmute(dwdrawaspect), core::mem::transmute(lindex), core::mem::transmute(pvaspect), core::mem::transmute(ptd), hdcdraw.param().abi(), hictargetdev.param().abi(), core::mem::transmute(lprcbounds), core::mem::transmute(lprcwbounds), core::mem::transmute(lprcupdate), core::mem::transmute(pfncontinue), core::mem::transmute(dwcontinue), core::mem::transmute(lviewid)).ok()
     }
     pub unsafe fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetHScroll)(windows_core::Interface::as_raw(self), plmin, plmax, plpos, plpage, pfenabled).ok()
+        (windows_core::Interface::vtable(self).TxGetHScroll)(windows_core::Interface::as_raw(self), core::mem::transmute(plmin), core::mem::transmute(plmax), core::mem::transmute(plpos), core::mem::transmute(plpage), core::mem::transmute(pfenabled)).ok()
     }
     pub unsafe fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetVScroll)(windows_core::Interface::as_raw(self), plmin, plmax, plpos, plpage, pfenabled).ok()
+        (windows_core::Interface::vtable(self).TxGetVScroll)(windows_core::Interface::as_raw(self), core::mem::transmute(plmin), core::mem::transmute(plmax), core::mem::transmute(plpos), core::mem::transmute(plpage), core::mem::transmute(pfenabled)).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn OnTxSetCursor<P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> windows_core::Result<()>
+    pub unsafe fn OnTxSetCursor<P4, P5>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P4, hictargetdev: P5, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
-        P1: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
+        P4: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
+        P5: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
     {
-        (windows_core::Interface::vtable(self).OnTxSetCursor)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect, ptd, hdcdraw.param().abi(), hictargetdev.param().abi(), lprcclient, x, y).ok()
+        (windows_core::Interface::vtable(self).OnTxSetCursor)(windows_core::Interface::as_raw(self), core::mem::transmute(dwdrawaspect), core::mem::transmute(lindex), core::mem::transmute(pvaspect), core::mem::transmute(ptd), hdcdraw.param().abi(), hictargetdev.param().abi(), core::mem::transmute(lprcclient), core::mem::transmute(x), core::mem::transmute(y)).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxQueryHitPoint<P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn TxQueryHitPoint<P4, P5>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P4, hictargetdev: P5, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
-        P1: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
+        P4: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
+        P5: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
     {
-        (windows_core::Interface::vtable(self).TxQueryHitPoint)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect, ptd, hdcdraw.param().abi(), hictargetdev.param().abi(), lprcclient, x, y, phitresult).ok()
+        (windows_core::Interface::vtable(self).TxQueryHitPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(dwdrawaspect), core::mem::transmute(lindex), core::mem::transmute(pvaspect), core::mem::transmute(ptd), hdcdraw.param().abi(), hictargetdev.param().abi(), core::mem::transmute(lprcclient), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(phitresult)).ok()
     }
     pub unsafe fn OnTxInPlaceActivate(&self, prcclient: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnTxInPlaceActivate)(windows_core::Interface::as_raw(self), prcclient).ok()
+        (windows_core::Interface::vtable(self).OnTxInPlaceActivate)(windows_core::Interface::as_raw(self), core::mem::transmute(prcclient)).ok()
     }
     pub unsafe fn OnTxInPlaceDeactivate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnTxInPlaceDeactivate)(windows_core::Interface::as_raw(self)).ok()
@@ -7478,18 +8650,18 @@ impl ITextServices {
         (windows_core::Interface::vtable(self).TxSetText)(windows_core::Interface::as_raw(self), psztext.param().abi()).ok()
     }
     pub unsafe fn TxGetCurTargetX(&self, param0: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetCurTargetX)(windows_core::Interface::as_raw(self), param0).ok()
+        (windows_core::Interface::vtable(self).TxGetCurTargetX)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
     pub unsafe fn TxGetBaseLinePos(&self, param0: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetBaseLinePos)(windows_core::Interface::as_raw(self), param0).ok()
+        (windows_core::Interface::vtable(self).TxGetBaseLinePos)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxGetNaturalSize<P0, P1>(&self, dwaspect: u32, hdcdraw: P0, hictargetdev: P1, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn TxGetNaturalSize<P1, P2>(&self, dwaspect: u32, hdcdraw: P1, hictargetdev: P2, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
         P1: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
+        P2: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
     {
-        (windows_core::Interface::vtable(self).TxGetNaturalSize)(windows_core::Interface::as_raw(self), dwaspect, hdcdraw.param().abi(), hictargetdev.param().abi(), ptd, dwmode, psizelextent, pwidth, pheight).ok()
+        (windows_core::Interface::vtable(self).TxGetNaturalSize)(windows_core::Interface::as_raw(self), core::mem::transmute(dwaspect), hdcdraw.param().abi(), hictargetdev.param().abi(), core::mem::transmute(ptd), core::mem::transmute(dwmode), core::mem::transmute(psizelextent), core::mem::transmute(pwidth), core::mem::transmute(pheight)).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn TxGetDropTarget(&self) -> windows_core::Result<super::super::super::System::Ole::IDropTarget> {
@@ -7497,10 +8669,10 @@ impl ITextServices {
         (windows_core::Interface::vtable(self).TxGetDropTarget)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OnTxPropertyBitsChange(&self, dwmask: u32, dwbits: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnTxPropertyBitsChange)(windows_core::Interface::as_raw(self), dwmask, dwbits).ok()
+        (windows_core::Interface::vtable(self).OnTxPropertyBitsChange)(windows_core::Interface::as_raw(self), core::mem::transmute(dwmask), core::mem::transmute(dwbits)).ok()
     }
     pub unsafe fn TxGetCachedSize(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TxGetCachedSize)(windows_core::Interface::as_raw(self), pdwwidth, pdwheight).ok()
+        (windows_core::Interface::vtable(self).TxGetCachedSize)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwwidth), core::mem::transmute(pdwheight)).ok()
     }
 }
 #[repr(C)]
@@ -7525,7 +8697,7 @@ pub struct ITextServices_Vtbl {
     pub OnTxInPlaceDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnTxUIActivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnTxUIDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TxGetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub TxGetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TxSetText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub TxGetCurTargetX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub TxGetBaseLinePos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -7541,7 +8713,7 @@ pub struct ITextServices_Vtbl {
     pub TxGetCachedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITextServices_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ITextServices_Impl: windows_core::IUnknownImpl {
     fn TxSendMessage(&self, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>;
     fn TxDraw(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> windows_core::Result<()>;
     fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -7562,10 +8734,8 @@ pub trait ITextServices_Impl: Sized + windows_core::IUnknownImpl {
     fn TxGetCachedSize(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl windows_core::RuntimeName for ITextServices {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextServices_Vtbl {
-    pub const fn new<Identity: ITextServices_Impl, const OFFSET: isize>() -> ITextServices_Vtbl {
+    pub const fn new<Identity: ITextServices_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TxSendMessage<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextServices_Impl::TxSendMessage(this, core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam), core::mem::transmute_copy(&plresult)).into()
@@ -7606,7 +8776,7 @@ impl ITextServices_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextServices_Impl::OnTxUIDeactivate(this).into()
         }
-        unsafe extern "system" fn TxGetText<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtext: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxGetText<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextServices_Impl::TxGetText(this, core::mem::transmute_copy(&pbstrtext)).into()
         }
@@ -7670,6 +8840,8 @@ impl ITextServices_Vtbl {
         iid == &<ITextServices as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl windows_core::RuntimeName for ITextServices {}
 windows_core::imp::define_interface!(ITextServices2, ITextServices2_Vtbl, 0);
 impl core::ops::Deref for ITextServices2 {
     type Target = ITextServices;
@@ -7680,19 +8852,19 @@ impl core::ops::Deref for ITextServices2 {
 windows_core::imp::interface_hierarchy!(ITextServices2, windows_core::IUnknown, ITextServices);
 impl ITextServices2 {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxGetNaturalSize2<P0, P1>(&self, dwaspect: u32, hdcdraw: P0, hictargetdev: P1, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn TxGetNaturalSize2<P1, P2>(&self, dwaspect: u32, hdcdraw: P1, hictargetdev: P2, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
         P1: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
+        P2: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
     {
-        (windows_core::Interface::vtable(self).TxGetNaturalSize2)(windows_core::Interface::as_raw(self), dwaspect, hdcdraw.param().abi(), hictargetdev.param().abi(), ptd, dwmode, psizelextent, pwidth, pheight, pascent).ok()
+        (windows_core::Interface::vtable(self).TxGetNaturalSize2)(windows_core::Interface::as_raw(self), core::mem::transmute(dwaspect), hdcdraw.param().abi(), hictargetdev.param().abi(), core::mem::transmute(ptd), core::mem::transmute(dwmode), core::mem::transmute(psizelextent), core::mem::transmute(pwidth), core::mem::transmute(pheight), core::mem::transmute(pascent)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub unsafe fn TxDrawD2D<P0>(&self, prendertarget: P0, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Graphics::Direct2D::ID2D1RenderTarget>,
     {
-        (windows_core::Interface::vtable(self).TxDrawD2D)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), lprcbounds, lprcupdate, lviewid).ok()
+        (windows_core::Interface::vtable(self).TxDrawD2D)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), core::mem::transmute(lprcbounds), core::mem::transmute(lprcupdate), core::mem::transmute(lviewid)).ok()
     }
 }
 #[repr(C)]
@@ -7708,15 +8880,13 @@ pub struct ITextServices2_Vtbl {
     TxDrawD2D: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITextServices2_Impl: Sized + ITextServices_Impl {
+pub trait ITextServices2_Impl: ITextServices_Impl {
     fn TxGetNaturalSize2(&self, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> windows_core::Result<()>;
     fn TxDrawD2D(&self, prendertarget: Option<&super::super::super::Graphics::Direct2D::ID2D1RenderTarget>, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl windows_core::RuntimeName for ITextServices2 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextServices2_Vtbl {
-    pub const fn new<Identity: ITextServices2_Impl, const OFFSET: isize>() -> ITextServices2_Vtbl {
+    pub const fn new<Identity: ITextServices2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TxGetNaturalSize2<Identity: ITextServices2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextServices2_Impl::TxGetNaturalSize2(this, core::mem::transmute_copy(&dwaspect), core::mem::transmute_copy(&hdcdraw), core::mem::transmute_copy(&hictargetdev), core::mem::transmute_copy(&ptd), core::mem::transmute_copy(&dwmode), core::mem::transmute_copy(&psizelextent), core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight), core::mem::transmute_copy(&pascent)).into()
@@ -7735,13 +8905,9 @@ impl ITextServices2_Vtbl {
         iid == &<ITextServices2 as windows_core::Interface>::IID || iid == &<ITextServices as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl windows_core::RuntimeName for ITextServices2 {}
 windows_core::imp::define_interface!(ITextStory, ITextStory_Vtbl, 0xc241f5f3_7206_11d8_a2c7_00a0d1d6c6b3);
-impl core::ops::Deref for ITextStory {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ITextStory, windows_core::IUnknown);
 impl ITextStory {
     pub unsafe fn GetActive(&self) -> windows_core::Result<i32> {
@@ -7749,7 +8915,7 @@ impl ITextStory {
         (windows_core::Interface::vtable(self).GetActive)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetActive(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetActive)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetActive)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetDisplay(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
@@ -7764,20 +8930,20 @@ impl ITextStory {
         (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetType(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), value).ok()
+        (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetProperty(&self, r#type: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRange(&self, cpactive: i32, cpanchor: i32) -> windows_core::Result<ITextRange2> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRange)(windows_core::Interface::as_raw(self), cpactive, cpanchor, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetRange)(windows_core::Interface::as_raw(self), core::mem::transmute(cpactive), core::mem::transmute(cpanchor), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetText(&self, flags: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), core::mem::transmute(flags), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetFormattedText<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
@@ -7786,13 +8952,10 @@ impl ITextStory {
         (windows_core::Interface::vtable(self).SetFormattedText)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), r#type, value).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(value)).ok()
     }
-    pub unsafe fn SetText<P0>(&self, flags: i32, bstr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), flags, bstr.param().abi()).ok()
+    pub unsafe fn SetText(&self, flags: i32, bstr: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), core::mem::transmute(flags), core::mem::transmute_copy(bstr)).ok()
     }
 }
 #[repr(C)]
@@ -7809,13 +8972,13 @@ pub struct ITextStory_Vtbl {
     pub GetRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetRange: usize,
-    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFormattedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait ITextStory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ITextStory_Impl: windows_core::IUnknownImpl {
     fn GetActive(&self) -> windows_core::Result<i32>;
     fn SetActive(&self, value: i32) -> windows_core::Result<()>;
     fn GetDisplay(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -7830,10 +8993,8 @@ pub trait ITextStory_Impl: Sized + windows_core::IUnknownImpl {
     fn SetText(&self, flags: i32, bstr: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for ITextStory {}
-#[cfg(feature = "Win32_System_Com")]
 impl ITextStory_Vtbl {
-    pub const fn new<Identity: ITextStory_Impl, const OFFSET: isize>() -> ITextStory_Vtbl {
+    pub const fn new<Identity: ITextStory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetActive<Identity: ITextStory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextStory_Impl::GetActive(this) {
@@ -7902,7 +9063,7 @@ impl ITextStory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetText<Identity: ITextStory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, pbstr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetText<Identity: ITextStory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextStory_Impl::GetText(this, core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
@@ -7920,7 +9081,7 @@ impl ITextStory_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextStory_Impl::SetProperty(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SetText<Identity: ITextStory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, bstr: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetText<Identity: ITextStory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextStory_Impl::SetText(this, core::mem::transmute_copy(&flags), core::mem::transmute(&bstr)).into()
         }
@@ -7945,6 +9106,8 @@ impl ITextStory_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for ITextStory {}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextStoryRanges, ITextStoryRanges_Vtbl, 0x8cc497c5_a1df_11ce_8098_00aa0047be5d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITextStoryRanges {
@@ -7961,10 +9124,9 @@ impl ITextStoryRanges {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<ITextRange> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -7976,23 +9138,18 @@ impl ITextStoryRanges {
 pub struct ITextStoryRanges_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Item: usize,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextStoryRanges_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait ITextStoryRanges_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, index: i32) -> windows_core::Result<ITextRange>;
     fn GetCount(&self) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextStoryRanges {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextStoryRanges_Vtbl {
-    pub const fn new<Identity: ITextStoryRanges_Impl, const OFFSET: isize>() -> ITextStoryRanges_Vtbl {
+    pub const fn new<Identity: ITextStoryRanges_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: ITextStoryRanges_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextStoryRanges_Impl::_NewEnum(this) {
@@ -8034,6 +9191,8 @@ impl ITextStoryRanges_Vtbl {
         iid == &<ITextStoryRanges as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextStoryRanges {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextStoryRanges2, ITextStoryRanges2_Vtbl, 0xc241f5e5_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
@@ -8047,30 +9206,24 @@ impl core::ops::Deref for ITextStoryRanges2 {
 windows_core::imp::interface_hierarchy!(ITextStoryRanges2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextStoryRanges);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextStoryRanges2 {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item2(&self, index: i32) -> windows_core::Result<ITextRange2> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Item2)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Item2)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct ITextStoryRanges2_Vtbl {
     pub base__: ITextStoryRanges_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub Item2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Item2: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextStoryRanges2_Impl: Sized + ITextStoryRanges_Impl {
+pub trait ITextStoryRanges2_Impl: ITextStoryRanges_Impl {
     fn Item2(&self, index: i32) -> windows_core::Result<ITextRange2>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextStoryRanges2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextStoryRanges2_Vtbl {
-    pub const fn new<Identity: ITextStoryRanges2_Impl, const OFFSET: isize>() -> ITextStoryRanges2_Vtbl {
+    pub const fn new<Identity: ITextStoryRanges2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Item2<Identity: ITextStoryRanges2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pprange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextStoryRanges2_Impl::Item2(this, core::mem::transmute_copy(&index)) {
@@ -8087,6 +9240,8 @@ impl ITextStoryRanges2_Vtbl {
         iid == &<ITextStoryRanges2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITextStoryRanges as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextStoryRanges2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextStrings, ITextStrings_Vtbl, 0xc241f5e7_7206_11d8_a2c7_00a0d1d6c6b3);
 #[cfg(feature = "Win32_System_Com")]
@@ -8100,71 +9255,57 @@ impl core::ops::Deref for ITextStrings {
 windows_core::imp::interface_hierarchy!(ITextStrings, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextStrings {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<ITextRange2> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Add<P0>(&self, bstr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), bstr.param().abi()).ok()
+    pub unsafe fn Add(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Append<P0>(&self, prange: P0, istring: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextRange2>,
     {
-        (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), prange.param().abi(), istring).ok()
+        (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), prange.param().abi(), core::mem::transmute(istring)).ok()
     }
     pub unsafe fn Cat2(&self, istring: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Cat2)(windows_core::Interface::as_raw(self), istring).ok()
+        (windows_core::Interface::vtable(self).Cat2)(windows_core::Interface::as_raw(self), core::mem::transmute(istring)).ok()
     }
-    pub unsafe fn CatTop2<P0>(&self, bstr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).CatTop2)(windows_core::Interface::as_raw(self), bstr.param().abi()).ok()
+    pub unsafe fn CatTop2(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CatTop2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeleteRange<P0>(&self, prange: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextRange2>,
     {
         (windows_core::Interface::vtable(self).DeleteRange)(windows_core::Interface::as_raw(self), prange.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EncodeFunction<P0>(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: P0) -> windows_core::Result<()>
+    pub unsafe fn EncodeFunction<P8>(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: P8) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITextRange2>,
+        P8: windows_core::Param<ITextRange2>,
     {
-        (windows_core::Interface::vtable(self).EncodeFunction)(windows_core::Interface::as_raw(self), r#type, align, char, char1, char2, count, texstyle, ccol, prange.param().abi()).ok()
+        (windows_core::Interface::vtable(self).EncodeFunction)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(align), core::mem::transmute(char), core::mem::transmute(char1), core::mem::transmute(char2), core::mem::transmute(count), core::mem::transmute(texstyle), core::mem::transmute(ccol), prange.param().abi()).ok()
     }
     pub unsafe fn GetCch(&self, istring: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCch)(windows_core::Interface::as_raw(self), istring, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetCch)(windows_core::Interface::as_raw(self), core::mem::transmute(istring), &mut result__).map(|| result__)
     }
     pub unsafe fn InsertNullStr(&self, istring: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InsertNullStr)(windows_core::Interface::as_raw(self), istring).ok()
+        (windows_core::Interface::vtable(self).InsertNullStr)(windows_core::Interface::as_raw(self), core::mem::transmute(istring)).ok()
     }
     pub unsafe fn MoveBoundary(&self, istring: i32, cch: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).MoveBoundary)(windows_core::Interface::as_raw(self), istring, cch).ok()
+        (windows_core::Interface::vtable(self).MoveBoundary)(windows_core::Interface::as_raw(self), core::mem::transmute(istring), core::mem::transmute(cch)).ok()
     }
-    pub unsafe fn PrefixTop<P0>(&self, bstr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).PrefixTop)(windows_core::Interface::as_raw(self), bstr.param().abi()).ok()
+    pub unsafe fn PrefixTop(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).PrefixTop)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr)).ok()
     }
     pub unsafe fn Remove(&self, istring: i32, cstring: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), istring, cstring).ok()
+        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute(istring), core::mem::transmute(cstring)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormattedText<P0, P1>(&self, pranged: P0, pranges: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextRange2>,
@@ -8173,15 +9314,13 @@ impl ITextStrings {
         (windows_core::Interface::vtable(self).SetFormattedText)(windows_core::Interface::as_raw(self), pranged.param().abi(), pranges.param().abi()).ok()
     }
     pub unsafe fn SetOpCp(&self, istring: i32, cp: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOpCp)(windows_core::Interface::as_raw(self), istring, cp).ok()
+        (windows_core::Interface::vtable(self).SetOpCp)(windows_core::Interface::as_raw(self), core::mem::transmute(istring), core::mem::transmute(cp)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SuffixTop<P0, P1>(&self, bstr: P0, prange: P1) -> windows_core::Result<()>
+    pub unsafe fn SuffixTop<P1>(&self, bstr: &windows_core::BSTR, prange: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<ITextRange2>,
     {
-        (windows_core::Interface::vtable(self).SuffixTop)(windows_core::Interface::as_raw(self), bstr.param().abi(), prange.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SuffixTop)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr), prange.param().abi()).ok()
     }
     pub unsafe fn Swap(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Swap)(windows_core::Interface::as_raw(self)).ok()
@@ -8191,44 +9330,26 @@ impl ITextStrings {
 #[repr(C)]
 pub struct ITextStrings_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Item: usize,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Append: usize,
     pub Cat2: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub CatTop2: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
+    pub CatTop2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    DeleteRange: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub EncodeFunction: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, i32, i32, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    EncodeFunction: usize,
     pub GetCch: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub InsertNullStr: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub MoveBoundary: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    pub PrefixTop: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub PrefixTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetFormattedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetFormattedText: usize,
     pub SetOpCp: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
-    pub SuffixTop: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SuffixTop: usize,
+    pub SuffixTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Swap: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITextStrings_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait ITextStrings_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn Item(&self, index: i32) -> windows_core::Result<ITextRange2>;
     fn GetCount(&self) -> windows_core::Result<i32>;
     fn Add(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -8248,10 +9369,8 @@ pub trait ITextStrings_Impl: Sized + super::super::super::System::Com::IDispatch
     fn Swap(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITextStrings {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextStrings_Vtbl {
-    pub const fn new<Identity: ITextStrings_Impl, const OFFSET: isize>() -> ITextStrings_Vtbl {
+    pub const fn new<Identity: ITextStrings_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Item<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pprange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextStrings_Impl::Item(this, core::mem::transmute_copy(&index)) {
@@ -8272,7 +9391,7 @@ impl ITextStrings_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextStrings_Impl::Add(this, core::mem::transmute(&bstr)).into()
         }
@@ -8284,7 +9403,7 @@ impl ITextStrings_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextStrings_Impl::Cat2(this, core::mem::transmute_copy(&istring)).into()
         }
-        unsafe extern "system" fn CatTop2<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CatTop2<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextStrings_Impl::CatTop2(this, core::mem::transmute(&bstr)).into()
         }
@@ -8314,7 +9433,7 @@ impl ITextStrings_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextStrings_Impl::MoveBoundary(this, core::mem::transmute_copy(&istring), core::mem::transmute_copy(&cch)).into()
         }
-        unsafe extern "system" fn PrefixTop<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PrefixTop<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextStrings_Impl::PrefixTop(this, core::mem::transmute(&bstr)).into()
         }
@@ -8330,7 +9449,7 @@ impl ITextStrings_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextStrings_Impl::SetOpCp(this, core::mem::transmute_copy(&istring), core::mem::transmute_copy(&cp)).into()
         }
-        unsafe extern "system" fn SuffixTop<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: core::mem::MaybeUninit<windows_core::BSTR>, prange: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SuffixTop<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void, prange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextStrings_Impl::SuffixTop(this, core::mem::transmute(&bstr), windows_core::from_raw_borrowed(&prange)).into()
         }
@@ -8363,376 +9482,14 @@ impl ITextStrings_Vtbl {
         iid == &<ITextStrings as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-pub const ATP_CHANGE: u32 = 1u32;
-pub const ATP_NOCHANGE: u32 = 0u32;
-pub const ATP_NODELIMITER: u32 = 2u32;
-pub const ATP_REPLACEALLTEXT: u32 = 4u32;
-pub const AURL_DISABLEMIXEDLGC: u32 = 32u32;
-pub const AURL_ENABLEDRIVELETTERS: u32 = 16u32;
-pub const AURL_ENABLEEA: u32 = 1u32;
-pub const AURL_ENABLEEAURLS: u32 = 8u32;
-pub const AURL_ENABLEEMAILADDR: u32 = 2u32;
-pub const AURL_ENABLETELNO: u32 = 4u32;
-pub const AURL_ENABLEURL: u32 = 1u32;
-pub const BOE_CONTEXTALIGNMENT: u32 = 16u32;
-pub const BOE_CONTEXTREADING: u32 = 8u32;
-pub const BOE_FORCERECALC: u32 = 32u32;
-pub const BOE_LEGACYBIDICLASS: u32 = 64u32;
-pub const BOE_NEUTRALOVERRIDE: u32 = 4u32;
-pub const BOE_PLAINTEXT: u32 = 2u32;
-pub const BOE_RTLDIR: u32 = 1u32;
-pub const BOE_UNICODEBIDI: u32 = 128u32;
-pub const BOM_CONTEXTALIGNMENT: u32 = 16u32;
-pub const BOM_CONTEXTREADING: u32 = 8u32;
-pub const BOM_DEFPARADIR: u32 = 1u32;
-pub const BOM_LEGACYBIDICLASS: u32 = 64u32;
-pub const BOM_NEUTRALOVERRIDE: u32 = 4u32;
-pub const BOM_PLAINTEXT: u32 = 2u32;
-pub const BOM_UNICODEBIDI: u32 = 128u32;
-pub const CARET_CUSTOM: CARET_FLAGS = CARET_FLAGS(1i32);
-pub const CARET_ITALIC: CARET_FLAGS = CARET_FLAGS(32i32);
-pub const CARET_NONE: CARET_FLAGS = CARET_FLAGS(0i32);
-pub const CARET_NULL: CARET_FLAGS = CARET_FLAGS(64i32);
-pub const CARET_ROTATE90: CARET_FLAGS = CARET_FLAGS(128i32);
-pub const CARET_RTL: CARET_FLAGS = CARET_FLAGS(2i32);
-pub const CERICHEDIT_CLASSA: windows_core::PCSTR = windows_core::s!("RichEditCEA");
-pub const CERICHEDIT_CLASSW: windows_core::PCWSTR = windows_core::w!("RichEditCEW");
-pub const CFE_ALLCAPS: CFE_EFFECTS = CFE_EFFECTS(128u32);
-pub const CFE_AUTOBACKCOLOR: CFE_EFFECTS = CFE_EFFECTS(67108864u32);
-pub const CFE_AUTOCOLOR: CFE_EFFECTS = CFE_EFFECTS(1073741824u32);
-pub const CFE_BOLD: CFE_EFFECTS = CFE_EFFECTS(1u32);
-pub const CFE_DISABLED: CFE_EFFECTS = CFE_EFFECTS(8192u32);
-pub const CFE_EMBOSS: CFE_EFFECTS = CFE_EFFECTS(2048u32);
-pub const CFE_EXTENDED: CFE_EFFECTS = CFE_EFFECTS(33554432u32);
-pub const CFE_FONTBOUND: CFE_EFFECTS = CFE_EFFECTS(1048576u32);
-pub const CFE_HIDDEN: CFE_EFFECTS = CFE_EFFECTS(256u32);
-pub const CFE_IMPRINT: CFE_EFFECTS = CFE_EFFECTS(4096u32);
-pub const CFE_ITALIC: CFE_EFFECTS = CFE_EFFECTS(2u32);
-pub const CFE_LINK: CFE_EFFECTS = CFE_EFFECTS(32u32);
-pub const CFE_LINKPROTECTED: CFE_EFFECTS = CFE_EFFECTS(8388608u32);
-pub const CFE_MATH: CFE_EFFECTS = CFE_EFFECTS(268435456u32);
-pub const CFE_MATHNOBUILDUP: CFE_EFFECTS = CFE_EFFECTS(134217728u32);
-pub const CFE_MATHORDINARY: CFE_EFFECTS = CFE_EFFECTS(536870912u32);
-pub const CFE_OUTLINE: CFE_EFFECTS = CFE_EFFECTS(512u32);
-pub const CFE_PROTECTED: CFE_EFFECTS = CFE_EFFECTS(16u32);
-pub const CFE_REVISED: CFE_EFFECTS = CFE_EFFECTS(16384u32);
-pub const CFE_SHADOW: CFE_EFFECTS = CFE_EFFECTS(1024u32);
-pub const CFE_SMALLCAPS: CFE_EFFECTS = CFE_EFFECTS(64u32);
-pub const CFE_STRIKEOUT: CFE_EFFECTS = CFE_EFFECTS(8u32);
-pub const CFE_SUBSCRIPT: CFE_EFFECTS = CFE_EFFECTS(65536u32);
-pub const CFE_SUPERSCRIPT: CFE_EFFECTS = CFE_EFFECTS(131072u32);
-pub const CFE_UNDERLINE: CFE_EFFECTS = CFE_EFFECTS(4u32);
-pub const CFM_ALL: CFM_MASK = CFM_MASK(4160749631u32);
-pub const CFM_ALL2: CFM_MASK = CFM_MASK(4294967295u32);
-pub const CFM_ALLCAPS: CFM_MASK = CFM_MASK(128u32);
-pub const CFM_ALLEFFECTS: CFM_MASK = CFM_MASK(2115207167u32);
-pub const CFM_ANIMATION: CFM_MASK = CFM_MASK(262144u32);
-pub const CFM_BACKCOLOR: CFM_MASK = CFM_MASK(67108864u32);
-pub const CFM_BOLD: CFM_MASK = CFM_MASK(1u32);
-pub const CFM_CHARSET: CFM_MASK = CFM_MASK(134217728u32);
-pub const CFM_COLOR: CFM_MASK = CFM_MASK(1073741824u32);
-pub const CFM_COOKIE: CFM_MASK = CFM_MASK(16777216u32);
-pub const CFM_DISABLED: CFM_MASK = CFM_MASK(8192u32);
-pub const CFM_EFFECTS: CFM_MASK = CFM_MASK(1073741887u32);
-pub const CFM_EFFECTS2: CFM_MASK = CFM_MASK(1141080063u32);
-pub const CFM_EMBOSS: CFM_MASK = CFM_MASK(2048u32);
-pub const CFM_EXTENDED: CFM_MASK = CFM_MASK(33554432u32);
-pub const CFM_FACE: CFM_MASK = CFM_MASK(536870912u32);
-pub const CFM_FONTBOUND: CFM_MASK = CFM_MASK(1048576u32);
-pub const CFM_HIDDEN: CFM_MASK = CFM_MASK(256u32);
-pub const CFM_IMPRINT: CFM_MASK = CFM_MASK(4096u32);
-pub const CFM_ITALIC: CFM_MASK = CFM_MASK(2u32);
-pub const CFM_KERNING: CFM_MASK = CFM_MASK(1048576u32);
-pub const CFM_LCID: CFM_MASK = CFM_MASK(33554432u32);
-pub const CFM_LINK: CFM_MASK = CFM_MASK(32u32);
-pub const CFM_LINKPROTECTED: CFM_MASK = CFM_MASK(8388608u32);
-pub const CFM_MATH: CFM_MASK = CFM_MASK(268435456u32);
-pub const CFM_MATHNOBUILDUP: CFM_MASK = CFM_MASK(134217728u32);
-pub const CFM_MATHORDINARY: CFM_MASK = CFM_MASK(536870912u32);
-pub const CFM_OFFSET: CFM_MASK = CFM_MASK(268435456u32);
-pub const CFM_OUTLINE: CFM_MASK = CFM_MASK(512u32);
-pub const CFM_PROTECTED: CFM_MASK = CFM_MASK(16u32);
-pub const CFM_REVAUTHOR: CFM_MASK = CFM_MASK(32768u32);
-pub const CFM_REVISED: CFM_MASK = CFM_MASK(16384u32);
-pub const CFM_SHADOW: CFM_MASK = CFM_MASK(1024u32);
-pub const CFM_SIZE: CFM_MASK = CFM_MASK(2147483648u32);
-pub const CFM_SMALLCAPS: CFM_MASK = CFM_MASK(64u32);
-pub const CFM_SPACING: CFM_MASK = CFM_MASK(2097152u32);
-pub const CFM_STRIKEOUT: CFM_MASK = CFM_MASK(8u32);
-pub const CFM_STYLE: CFM_MASK = CFM_MASK(524288u32);
-pub const CFM_SUBSCRIPT: CFM_MASK = CFM_MASK(196608u32);
-pub const CFM_SUPERSCRIPT: CFM_MASK = CFM_MASK(196608u32);
-pub const CFM_UNDERLINE: CFM_MASK = CFM_MASK(4u32);
-pub const CFM_UNDERLINETYPE: CFM_MASK = CFM_MASK(8388608u32);
-pub const CFM_WEIGHT: CFM_MASK = CFM_MASK(4194304u32);
-pub const CF_RETEXTOBJ: windows_core::PCWSTR = windows_core::w!("RichEdit Text and Objects");
-pub const CF_RTF: windows_core::PCWSTR = windows_core::w!("Rich Text Format");
-pub const CF_RTFNOOBJS: windows_core::PCWSTR = windows_core::w!("Rich Text Format Without Objects");
-pub const CN_GENERIC: CHANGETYPE = CHANGETYPE(0i32);
-pub const CN_NEWREDO: CHANGETYPE = CHANGETYPE(4i32);
-pub const CN_NEWUNDO: CHANGETYPE = CHANGETYPE(2i32);
-pub const CN_TEXTCHANGED: CHANGETYPE = CHANGETYPE(1i32);
-pub const CTFMODEBIAS_CONVERSATION: u32 = 5u32;
-pub const CTFMODEBIAS_DATETIME: u32 = 4u32;
-pub const CTFMODEBIAS_DEFAULT: u32 = 0u32;
-pub const CTFMODEBIAS_FILENAME: u32 = 1u32;
-pub const CTFMODEBIAS_FULLWIDTHALPHANUMERIC: u32 = 11u32;
-pub const CTFMODEBIAS_HALFWIDTHALPHANUMERIC: u32 = 12u32;
-pub const CTFMODEBIAS_HALFWIDTHKATAKANA: u32 = 10u32;
-pub const CTFMODEBIAS_HANGUL: u32 = 9u32;
-pub const CTFMODEBIAS_HIRAGANA: u32 = 7u32;
-pub const CTFMODEBIAS_KATAKANA: u32 = 8u32;
-pub const CTFMODEBIAS_NAME: u32 = 2u32;
-pub const CTFMODEBIAS_NUMERIC: u32 = 6u32;
-pub const CTFMODEBIAS_READING: u32 = 3u32;
-pub const ECN_ENDCOMPOSITION: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(1u32);
-pub const ECN_NEWTEXT: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(2u32);
-pub const ECOOP_AND: u32 = 3u32;
-pub const ECOOP_OR: u32 = 2u32;
-pub const ECOOP_SET: u32 = 1u32;
-pub const ECOOP_XOR: u32 = 4u32;
-pub const ECO_AUTOHSCROLL: u32 = 128u32;
-pub const ECO_AUTOVSCROLL: u32 = 64u32;
-pub const ECO_AUTOWORDSELECTION: u32 = 1u32;
-pub const ECO_NOHIDESEL: u32 = 256u32;
-pub const ECO_READONLY: u32 = 2048u32;
-pub const ECO_SAVESEL: u32 = 32768u32;
-pub const ECO_SELECTIONBAR: u32 = 16777216u32;
-pub const ECO_VERTICAL: u32 = 4194304u32;
-pub const ECO_WANTRETURN: u32 = 4096u32;
-pub const ELLIPSIS_END: u32 = 1u32;
-pub const ELLIPSIS_MASK: u32 = 3u32;
-pub const ELLIPSIS_NONE: u32 = 0u32;
-pub const ELLIPSIS_WORD: u32 = 3u32;
-pub const EMO_ENTER: u32 = 1u32;
-pub const EMO_EXIT: u32 = 0u32;
-pub const EMO_EXPAND: u32 = 3u32;
-pub const EMO_EXPANDDOCUMENT: u32 = 1u32;
-pub const EMO_EXPANDSELECTION: u32 = 0u32;
-pub const EMO_GETVIEWMODE: u32 = 5u32;
-pub const EMO_MOVESELECTION: u32 = 4u32;
-pub const EMO_PROMOTE: u32 = 2u32;
-pub const EM_AUTOURLDETECT: u32 = 1115u32;
-pub const EM_CALLAUTOCORRECTPROC: u32 = 1279u32;
-pub const EM_CANPASTE: u32 = 1074u32;
-pub const EM_CANREDO: u32 = 1109u32;
-pub const EM_CONVPOSITION: u32 = 1132u32;
-pub const EM_DISPLAYBAND: u32 = 1075u32;
-pub const EM_EXGETSEL: u32 = 1076u32;
-pub const EM_EXLIMITTEXT: u32 = 1077u32;
-pub const EM_EXLINEFROMCHAR: u32 = 1078u32;
-pub const EM_EXSETSEL: u32 = 1079u32;
-pub const EM_FINDTEXT: u32 = 1080u32;
-pub const EM_FINDTEXTEX: u32 = 1103u32;
-pub const EM_FINDTEXTEXW: u32 = 1148u32;
-pub const EM_FINDTEXTW: u32 = 1147u32;
-pub const EM_FINDWORDBREAK: u32 = 1100u32;
-pub const EM_FORMATRANGE: u32 = 1081u32;
-pub const EM_GETAUTOCORRECTPROC: u32 = 1257u32;
-pub const EM_GETAUTOURLDETECT: u32 = 1116u32;
-pub const EM_GETBIDIOPTIONS: u32 = 1225u32;
-pub const EM_GETCHARFORMAT: u32 = 1082u32;
-pub const EM_GETCTFMODEBIAS: u32 = 1261u32;
-pub const EM_GETCTFOPENSTATUS: u32 = 1264u32;
-pub const EM_GETEDITSTYLE: u32 = 1229u32;
-pub const EM_GETEDITSTYLEEX: u32 = 1300u32;
-pub const EM_GETELLIPSISMODE: u32 = 1329u32;
-pub const EM_GETELLIPSISSTATE: u32 = 1346u32;
-pub const EM_GETEVENTMASK: u32 = 1083u32;
-pub const EM_GETHYPHENATEINFO: u32 = 1254u32;
-pub const EM_GETIMECOLOR: u32 = 1129u32;
-pub const EM_GETIMECOMPMODE: u32 = 1146u32;
-pub const EM_GETIMECOMPTEXT: u32 = 1266u32;
-pub const EM_GETIMEMODEBIAS: u32 = 1151u32;
-pub const EM_GETIMEOPTIONS: u32 = 1131u32;
-pub const EM_GETIMEPROPERTY: u32 = 1268u32;
-pub const EM_GETLANGOPTIONS: u32 = 1145u32;
-pub const EM_GETOLEINTERFACE: u32 = 1084u32;
-pub const EM_GETOPTIONS: u32 = 1102u32;
-pub const EM_GETPAGE: u32 = 1252u32;
-pub const EM_GETPAGEROTATE: u32 = 1259u32;
-pub const EM_GETPARAFORMAT: u32 = 1085u32;
-pub const EM_GETPUNCTUATION: u32 = 1125u32;
-pub const EM_GETQUERYRTFOBJ: u32 = 1293u32;
-pub const EM_GETREDONAME: u32 = 1111u32;
-pub const EM_GETSCROLLPOS: u32 = 1245u32;
-pub const EM_GETSELTEXT: u32 = 1086u32;
-pub const EM_GETSTORYTYPE: u32 = 1314u32;
-pub const EM_GETTABLEPARMS: u32 = 1289u32;
-pub const EM_GETTEXTEX: u32 = 1118u32;
-pub const EM_GETTEXTLENGTHEX: u32 = 1119u32;
-pub const EM_GETTEXTMODE: u32 = 1114u32;
-pub const EM_GETTEXTRANGE: u32 = 1099u32;
-pub const EM_GETTOUCHOPTIONS: u32 = 1334u32;
-pub const EM_GETTYPOGRAPHYOPTIONS: u32 = 1227u32;
-pub const EM_GETUNDONAME: u32 = 1110u32;
-pub const EM_GETVIEWKIND: u32 = 1250u32;
-pub const EM_GETWORDBREAKPROCEX: u32 = 1104u32;
-pub const EM_GETWORDWRAPMODE: u32 = 1127u32;
-pub const EM_GETZOOM: u32 = 1248u32;
-pub const EM_HIDESELECTION: u32 = 1087u32;
-pub const EM_INSERTIMAGE: u32 = 1338u32;
-pub const EM_INSERTTABLE: u32 = 1256u32;
-pub const EM_ISIME: u32 = 1267u32;
-pub const EM_OUTLINE: u32 = 1244u32;
-pub const EM_PASTESPECIAL: u32 = 1088u32;
-pub const EM_RECONVERSION: u32 = 1149u32;
-pub const EM_REDO: u32 = 1108u32;
-pub const EM_REQUESTRESIZE: u32 = 1089u32;
-pub const EM_SELECTIONTYPE: u32 = 1090u32;
-pub const EM_SETAUTOCORRECTPROC: u32 = 1258u32;
-pub const EM_SETBIDIOPTIONS: u32 = 1224u32;
-pub const EM_SETBKGNDCOLOR: u32 = 1091u32;
-pub const EM_SETCHARFORMAT: u32 = 1092u32;
-pub const EM_SETCTFMODEBIAS: u32 = 1262u32;
-pub const EM_SETCTFOPENSTATUS: u32 = 1265u32;
-pub const EM_SETDISABLEOLELINKCONVERSION: u32 = 1428u32;
-pub const EM_SETEDITSTYLE: u32 = 1228u32;
-pub const EM_SETEDITSTYLEEX: u32 = 1299u32;
-pub const EM_SETELLIPSISMODE: u32 = 1330u32;
-pub const EM_SETEVENTMASK: u32 = 1093u32;
-pub const EM_SETFONTSIZE: u32 = 1247u32;
-pub const EM_SETHYPHENATEINFO: u32 = 1255u32;
-pub const EM_SETIMECOLOR: u32 = 1128u32;
-pub const EM_SETIMEMODEBIAS: u32 = 1150u32;
-pub const EM_SETIMEOPTIONS: u32 = 1130u32;
-pub const EM_SETLANGOPTIONS: u32 = 1144u32;
-pub const EM_SETOLECALLBACK: u32 = 1094u32;
-pub const EM_SETOPTIONS: u32 = 1101u32;
-pub const EM_SETPAGE: u32 = 1253u32;
-pub const EM_SETPAGEROTATE: u32 = 1260u32;
-pub const EM_SETPALETTE: u32 = 1117u32;
-pub const EM_SETPARAFORMAT: u32 = 1095u32;
-pub const EM_SETPUNCTUATION: u32 = 1124u32;
-pub const EM_SETQUERYCONVERTOLELINKCALLBACK: u32 = 1427u32;
-pub const EM_SETQUERYRTFOBJ: u32 = 1294u32;
-pub const EM_SETSCROLLPOS: u32 = 1246u32;
-pub const EM_SETSTORYTYPE: u32 = 1315u32;
-pub const EM_SETTABLEPARMS: u32 = 1331u32;
-pub const EM_SETTARGETDEVICE: u32 = 1096u32;
-pub const EM_SETTEXTEX: u32 = 1121u32;
-pub const EM_SETTEXTMODE: u32 = 1113u32;
-pub const EM_SETTOUCHOPTIONS: u32 = 1335u32;
-pub const EM_SETTYPOGRAPHYOPTIONS: u32 = 1226u32;
-pub const EM_SETUIANAME: u32 = 1344u32;
-pub const EM_SETUNDOLIMIT: u32 = 1106u32;
-pub const EM_SETVIEWKIND: u32 = 1251u32;
-pub const EM_SETWORDBREAKPROCEX: u32 = 1105u32;
-pub const EM_SETWORDWRAPMODE: u32 = 1126u32;
-pub const EM_SETZOOM: u32 = 1249u32;
-pub const EM_SHOWSCROLLBAR: u32 = 1120u32;
-pub const EM_STOPGROUPTYPING: u32 = 1112u32;
-pub const EM_STREAMIN: u32 = 1097u32;
-pub const EM_STREAMOUT: u32 = 1098u32;
-pub const ENM_CHANGE: u32 = 1u32;
-pub const ENM_CLIPFORMAT: u32 = 128u32;
-pub const ENM_CORRECTTEXT: u32 = 4194304u32;
-pub const ENM_DRAGDROPDONE: u32 = 16u32;
-pub const ENM_DROPFILES: u32 = 1048576u32;
-pub const ENM_ENDCOMPOSITION: u32 = 536870912u32;
-pub const ENM_GROUPTYPINGCHANGE: u32 = 1073741824u32;
-pub const ENM_HIDELINKTOOLTIP: u32 = 2147483648u32;
-pub const ENM_IMECHANGE: u32 = 8388608u32;
-pub const ENM_KEYEVENTS: u32 = 65536u32;
-pub const ENM_LANGCHANGE: u32 = 16777216u32;
-pub const ENM_LINK: u32 = 67108864u32;
-pub const ENM_LOWFIRTF: u32 = 134217728u32;
-pub const ENM_MOUSEEVENTS: u32 = 131072u32;
-pub const ENM_NONE: u32 = 0u32;
-pub const ENM_OBJECTPOSITIONS: u32 = 33554432u32;
-pub const ENM_PAGECHANGE: u32 = 64u32;
-pub const ENM_PARAGRAPHEXPANDED: u32 = 32u32;
-pub const ENM_PROTECTED: u32 = 2097152u32;
-pub const ENM_REQUESTRESIZE: u32 = 262144u32;
-pub const ENM_SCROLL: u32 = 4u32;
-pub const ENM_SCROLLEVENTS: u32 = 8u32;
-pub const ENM_SELCHANGE: u32 = 524288u32;
-pub const ENM_STARTCOMPOSITION: u32 = 268435456u32;
-pub const ENM_UPDATE: u32 = 2u32;
-pub const EN_ALIGNLTR: u32 = 1808u32;
-pub const EN_ALIGNRTL: u32 = 1809u32;
-pub const EN_CLIPFORMAT: u32 = 1810u32;
-pub const EN_CORRECTTEXT: u32 = 1797u32;
-pub const EN_DRAGDROPDONE: u32 = 1804u32;
-pub const EN_DROPFILES: u32 = 1795u32;
-pub const EN_ENDCOMPOSITION: u32 = 1812u32;
-pub const EN_IMECHANGE: u32 = 1799u32;
-pub const EN_LINK: u32 = 1803u32;
-pub const EN_LOWFIRTF: u32 = 1807u32;
-pub const EN_MSGFILTER: u32 = 1792u32;
-pub const EN_OBJECTPOSITIONS: u32 = 1802u32;
-pub const EN_OLEOPFAILED: u32 = 1801u32;
-pub const EN_PAGECHANGE: u32 = 1806u32;
-pub const EN_PARAGRAPHEXPANDED: u32 = 1805u32;
-pub const EN_PROTECTED: u32 = 1796u32;
-pub const EN_REQUESTRESIZE: u32 = 1793u32;
-pub const EN_SAVECLIPBOARD: u32 = 1800u32;
-pub const EN_SELCHANGE: u32 = 1794u32;
-pub const EN_STARTCOMPOSITION: u32 = 1811u32;
-pub const EN_STOPNOUNDO: u32 = 1798u32;
-pub const EPR_0: u32 = 0u32;
-pub const EPR_180: u32 = 2u32;
-pub const EPR_270: u32 = 1u32;
-pub const EPR_90: u32 = 3u32;
-pub const EPR_SE: u32 = 5u32;
-pub const ES_DISABLENOSCROLL: u32 = 8192u32;
-pub const ES_EX_NOCALLOLEINIT: u32 = 0u32;
-pub const ES_NOIME: u32 = 524288u32;
-pub const ES_NOOLEDRAGDROP: u32 = 8u32;
-pub const ES_SAVESEL: u32 = 32768u32;
-pub const ES_SELECTIONBAR: u32 = 16777216u32;
-pub const ES_SELFIME: u32 = 262144u32;
-pub const ES_SUNKEN: u32 = 16384u32;
-pub const ES_VERTICAL: u32 = 4194304u32;
-pub const GCMF_GRIPPER: u32 = 1u32;
-pub const GCMF_MOUSEMENU: u32 = 8192u32;
-pub const GCMF_SPELLING: u32 = 2u32;
-pub const GCMF_TOUCHMENU: u32 = 16384u32;
-pub const GCM_MOUSEMENU: u32 = 8192u32;
-pub const GCM_RIGHTMOUSEDROP: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(32768u16);
-pub const GCM_TOUCHMENU: u32 = 16384u32;
-pub const GTL_CLOSE: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(4u32);
-pub const GTL_DEFAULT: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(0u32);
-pub const GTL_NUMBYTES: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(16u32);
-pub const GTL_NUMCHARS: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(8u32);
-pub const GTL_PRECISE: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(2u32);
-pub const GTL_USECRLF: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(1u32);
-pub const GT_DEFAULT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(0u32);
-pub const GT_NOHIDDENTEXT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(8u32);
-pub const GT_RAWTEXT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(4u32);
-pub const GT_SELECTION: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(2u32);
-pub const GT_USECRLF: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(1u32);
-pub const ICM_CTF: u32 = 5u32;
-pub const ICM_LEVEL2: u32 = 2u32;
-pub const ICM_LEVEL2_5: u32 = 3u32;
-pub const ICM_LEVEL2_SUI: u32 = 4u32;
-pub const ICM_LEVEL3: u32 = 1u32;
-pub const ICM_NOTOPEN: u32 = 0u32;
-pub const ICT_RESULTREADSTR: IMECOMPTEXT_FLAGS = IMECOMPTEXT_FLAGS(1u32);
-pub const IMF_AUTOFONT: u32 = 2u32;
-pub const IMF_AUTOFONTSIZEADJUST: u32 = 16u32;
-pub const IMF_AUTOKEYBOARD: u32 = 1u32;
-pub const IMF_CLOSESTATUSWINDOW: u32 = 8u32;
-pub const IMF_DUALFONT: u32 = 128u32;
-pub const IMF_FORCEACTIVE: u32 = 64u32;
-pub const IMF_FORCEDISABLE: u32 = 4u32;
-pub const IMF_FORCEENABLE: u32 = 2u32;
-pub const IMF_FORCEINACTIVE: u32 = 128u32;
-pub const IMF_FORCENONE: u32 = 1u32;
-pub const IMF_FORCEREMEMBER: u32 = 256u32;
-pub const IMF_IMEALWAYSSENDNOTIFY: u32 = 8u32;
-pub const IMF_IMECANCELCOMPLETE: u32 = 4u32;
-pub const IMF_IMEUIINTEGRATION: u32 = 8192u32;
-pub const IMF_MULTIPLEEDIT: u32 = 1024u32;
-pub const IMF_NOIMPLICITLANG: u32 = 64u32;
-pub const IMF_NOKBDLIDFIXUP: u32 = 512u32;
-pub const IMF_NORTFFONTSUBSTITUTE: u32 = 1024u32;
-pub const IMF_SMODE_NONE: u32 = 2u32;
-pub const IMF_SMODE_PLAURALCLAUSE: u32 = 1u32;
-pub const IMF_SPELLCHECKING: u32 = 2048u32;
-pub const IMF_TKBPREDICTION: u32 = 4096u32;
-pub const IMF_UIFONTS: u32 = 32u32;
-pub const IMF_VERTICAL: u32 = 32u32;
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITextStrings {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KHYPH(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MANCODE(pub i32);
 pub const MAX_TABLE_CELLS: u32 = 63u32;
 pub const MAX_TAB_STOPS: u32 = 32u32;
 pub const MBOLD: MANCODE = MANCODE(16i32);
@@ -8750,9 +9507,188 @@ pub const MROMN: MANCODE = MANCODE(0i32);
 pub const MSANS: MANCODE = MANCODE(4i32);
 pub const MSCRP: MANCODE = MANCODE(1i32);
 pub const MSFTEDIT_CLASS: windows_core::PCWSTR = windows_core::w!("RICHEDIT50W");
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MSGFILTER {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+}
+#[cfg(target_arch = "x86")]
+impl Default for MSGFILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for MSGFILTER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct MSGFILTER {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for MSGFILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MSGFILTER {
+    type TypeKind = windows_core::CopyType;
+}
 pub const MSTRCH: MANCODE = MANCODE(10i32);
 pub const MTAIL: MANCODE = MANCODE(9i32);
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OBJECTPOSITIONS {
+    pub nmhdr: super::NMHDR,
+    pub cObjectCount: i32,
+    pub pcpPositions: *mut i32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for OBJECTPOSITIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for OBJECTPOSITIONS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct OBJECTPOSITIONS {
+    pub nmhdr: super::NMHDR,
+    pub cObjectCount: i32,
+    pub pcpPositions: *mut i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for OBJECTPOSITIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for OBJECTPOSITIONS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OBJECTTYPE(pub i32);
 pub const OLEOP_DOVERB: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PARAFORMAT {
+    pub cbSize: u32,
+    pub dwMask: PARAFORMAT_MASK,
+    pub wNumbering: PARAFORMAT_NUMBERING,
+    pub Anonymous: PARAFORMAT_0,
+    pub dxStartIndent: i32,
+    pub dxRightIndent: i32,
+    pub dxOffset: i32,
+    pub wAlignment: PARAFORMAT_ALIGNMENT,
+    pub cTabCount: i16,
+    pub rgxTabs: [u32; 32],
+}
+impl Default for PARAFORMAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PARAFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PARAFORMAT_0 {
+    pub wReserved: u16,
+    pub wEffects: u16,
+}
+impl Default for PARAFORMAT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PARAFORMAT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PARAFORMAT2 {
+    pub Base: PARAFORMAT,
+    pub dySpaceBefore: i32,
+    pub dySpaceAfter: i32,
+    pub dyLineSpacing: i32,
+    pub sStyle: i16,
+    pub bLineSpacingRule: u8,
+    pub bOutlineLevel: u8,
+    pub wShadingWeight: u16,
+    pub wShadingStyle: PARAFORMAT_SHADING_STYLE,
+    pub wNumberingStart: u16,
+    pub wNumberingStyle: PARAFORMAT_NUMBERING_STYLE,
+    pub wNumberingTab: u16,
+    pub wBorderSpace: u16,
+    pub wBorderWidth: u16,
+    pub wBorders: PARAFORMAT_BORDERS,
+}
+impl Default for PARAFORMAT2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PARAFORMAT2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PARAFORMAT_ALIGNMENT(pub u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PARAFORMAT_BORDERS(pub u16);
+impl PARAFORMAT_BORDERS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PARAFORMAT_BORDERS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PARAFORMAT_BORDERS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PARAFORMAT_BORDERS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PARAFORMAT_BORDERS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PARAFORMAT_BORDERS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const PARAFORMAT_BORDERS_AUTOCOLOR: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(64u16);
 pub const PARAFORMAT_BORDERS_BOTTOM: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(8u16);
 pub const PARAFORMAT_BORDERS_INSIDE: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(16u16);
@@ -8760,6 +9696,84 @@ pub const PARAFORMAT_BORDERS_LEFT: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(1u16)
 pub const PARAFORMAT_BORDERS_OUTSIDE: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(32u16);
 pub const PARAFORMAT_BORDERS_RIGHT: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(2u16);
 pub const PARAFORMAT_BORDERS_TOP: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(4u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PARAFORMAT_MASK(pub u32);
+impl PARAFORMAT_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PARAFORMAT_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PARAFORMAT_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PARAFORMAT_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PARAFORMAT_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PARAFORMAT_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PARAFORMAT_NUMBERING(pub u16);
+impl PARAFORMAT_NUMBERING {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PARAFORMAT_NUMBERING {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PARAFORMAT_NUMBERING {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PARAFORMAT_NUMBERING {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PARAFORMAT_NUMBERING {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PARAFORMAT_NUMBERING {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PARAFORMAT_NUMBERING_STYLE(pub u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PARAFORMAT_SHADING_STYLE(pub u16);
 pub const PARAFORMAT_SHADING_STYLE_DARK_DOWN_DIAG: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(3u16);
 pub const PARAFORMAT_SHADING_STYLE_DARK_GRID: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(5u16);
 pub const PARAFORMAT_SHADING_STYLE_DARK_HORIZ: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(1u16);
@@ -8777,6 +9791,7 @@ pub const PC_DELIMITER: u32 = 4u32;
 pub const PC_FOLLOWING: u32 = 1u32;
 pub const PC_LEADING: u32 = 2u32;
 pub const PC_OVERFLOW: u32 = 3u32;
+pub type PCreateTextServices = Option<unsafe extern "system" fn(punkouter: Option<windows_core::IUnknown>, pitexthost: Option<ITextHost>, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT>;
 pub const PFA_CENTER: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(3u16);
 pub const PFA_FULL_GLYPHS: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(8u16);
 pub const PFA_FULL_INTERLETTER: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(6u16);
@@ -8832,6 +9847,102 @@ pub const PFN_LCLETTER: PARAFORMAT_NUMBERING = PARAFORMAT_NUMBERING(3u16);
 pub const PFN_LCROMAN: PARAFORMAT_NUMBERING = PARAFORMAT_NUMBERING(5u16);
 pub const PFN_UCLETTER: PARAFORMAT_NUMBERING = PARAFORMAT_NUMBERING(4u16);
 pub const PFN_UCROMAN: PARAFORMAT_NUMBERING = PARAFORMAT_NUMBERING(6u16);
+pub type PShutdownTextServices = Option<unsafe extern "system" fn(ptextservices: Option<windows_core::IUnknown>) -> windows_core::HRESULT>;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PUNCTUATION {
+    pub iSize: u32,
+    pub szPunctuation: windows_core::PSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for PUNCTUATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for PUNCTUATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct PUNCTUATION {
+    pub iSize: u32,
+    pub szPunctuation: windows_core::PSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for PUNCTUATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for PUNCTUATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[derive(Clone, Debug, PartialEq)]
+pub struct REOBJECT {
+    pub cbStruct: u32,
+    pub cp: i32,
+    pub clsid: windows_core::GUID,
+    pub poleobj: core::mem::ManuallyDrop<Option<super::super::super::System::Ole::IOleObject>>,
+    pub pstg: core::mem::ManuallyDrop<Option<super::super::super::System::Com::StructuredStorage::IStorage>>,
+    pub polesite: core::mem::ManuallyDrop<Option<super::super::super::System::Ole::IOleClientSite>>,
+    pub sizel: super::super::super::Foundation::SIZE,
+    pub dvaspect: u32,
+    pub dwFlags: REOBJECT_FLAGS,
+    pub dwUser: u32,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+impl Default for REOBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+impl windows_core::TypeKind for REOBJECT {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REOBJECT_FLAGS(pub u32);
+impl REOBJECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for REOBJECT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for REOBJECT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for REOBJECT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for REOBJECT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for REOBJECT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const REO_ALIGNTORIGHT: REOBJECT_FLAGS = REOBJECT_FLAGS(256u32);
 pub const REO_BELOWBASELINE: REOBJECT_FLAGS = REOBJECT_FLAGS(2u32);
 pub const REO_BLANK: REOBJECT_FLAGS = REOBJECT_FLAGS(16u32);
@@ -8858,11 +9969,204 @@ pub const REO_SELECTED: REOBJECT_FLAGS = REOBJECT_FLAGS(134217728u32);
 pub const REO_STATIC: REOBJECT_FLAGS = REOBJECT_FLAGS(1073741824u32);
 pub const REO_USEASBACKGROUND: REOBJECT_FLAGS = REOBJECT_FLAGS(1024u32);
 pub const REO_WRAPTEXTAROUND: REOBJECT_FLAGS = REOBJECT_FLAGS(512u32);
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct REPASTESPECIAL {
+    pub dwAspect: super::super::super::System::Com::DVASPECT,
+    pub dwParam: usize,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for REPASTESPECIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for REPASTESPECIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct REPASTESPECIAL {
+    pub dwAspect: super::super::super::System::Com::DVASPECT,
+    pub dwParam: usize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for REPASTESPECIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for REPASTESPECIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct REQRESIZE {
+    pub nmhdr: super::NMHDR,
+    pub rc: super::super::super::Foundation::RECT,
+}
+#[cfg(target_arch = "x86")]
+impl Default for REQRESIZE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for REQRESIZE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct REQRESIZE {
+    pub nmhdr: super::NMHDR,
+    pub rc: super::super::super::Foundation::RECT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for REQRESIZE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for REQRESIZE {
+    type TypeKind = windows_core::CopyType;
+}
 pub const RICHEDIT60_CLASS: windows_core::PCWSTR = windows_core::w!("RICHEDIT60W");
 pub const RICHEDIT_CLASS: windows_core::PCWSTR = windows_core::w!("RichEdit20W");
 pub const RICHEDIT_CLASS10A: windows_core::PCSTR = windows_core::s!("RICHEDIT");
 pub const RICHEDIT_CLASSA: windows_core::PCSTR = windows_core::s!("RichEdit20A");
 pub const RICHEDIT_CLASSW: windows_core::PCWSTR = windows_core::w!("RichEdit20W");
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Debug, PartialEq)]
+pub struct RICHEDIT_IMAGE_PARAMETERS {
+    pub xWidth: i32,
+    pub yHeight: i32,
+    pub Ascent: i32,
+    pub Type: i32,
+    pub pwszAlternateText: windows_core::PCWSTR,
+    pub pIStream: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IStream>>,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for RICHEDIT_IMAGE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for RICHEDIT_IMAGE_PARAMETERS {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct RICHEDIT_IMAGE_PARAMETERS {
+    pub xWidth: i32,
+    pub yHeight: i32,
+    pub Ascent: i32,
+    pub Type: i32,
+    pub pwszAlternateText: windows_core::PCWSTR,
+    pub pIStream: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IStream>>,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for RICHEDIT_IMAGE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for RICHEDIT_IMAGE_PARAMETERS {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(pub u16);
+impl RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RICH_EDIT_GET_OBJECT_FLAGS(pub u32);
+impl RICH_EDIT_GET_OBJECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for RICH_EDIT_GET_OBJECT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for RICH_EDIT_GET_OBJECT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for RICH_EDIT_GET_OBJECT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for RICH_EDIT_GET_OBJECT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for RICH_EDIT_GET_OBJECT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const RTO_DISABLEHANDLES: u32 = 2u32;
 pub const RTO_READINGMODE: u32 = 3u32;
 pub const RTO_SHOWHANDLES: u32 = 1u32;
@@ -8876,6 +10180,42 @@ pub const SCF_SELECTION: u32 = 1u32;
 pub const SCF_SMARTFONT: u32 = 128u32;
 pub const SCF_USEUIRULES: u32 = 8u32;
 pub const SCF_WORD: u32 = 2u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SELCHANGE {
+    pub nmhdr: super::NMHDR,
+    pub chrg: CHARRANGE,
+    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SELCHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SELCHANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct SELCHANGE {
+    pub nmhdr: super::NMHDR,
+    pub chrg: CHARRANGE,
+    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SELCHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SELCHANGE {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SEL_EMPTY: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(0u16);
 pub const SEL_MULTICHAR: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(4u16);
 pub const SEL_MULTIOBJECT: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(8u16);
@@ -8924,6 +10264,20 @@ pub const SES_USECRLF: u32 = 32u32;
 pub const SES_USECTF: u32 = 65536u32;
 pub const SES_WORDDRAGDROP: u32 = 33554432u32;
 pub const SES_XLTCRCRLFTOCR: u32 = 16384u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SETTEXTEX {
+    pub flags: u32,
+    pub codepage: u32,
+}
+impl Default for SETTEXTEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SETTEXTEX {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SFF_KEEPDOCINFO: u32 = 4096u32;
 pub const SFF_PERSISTVIEWSCALE: u32 = 8192u32;
 pub const SFF_PLAINRTF: u32 = 16384u32;
@@ -8946,6 +10300,125 @@ pub const ST_NEWCHARS: u32 = 4u32;
 pub const ST_SELECTION: u32 = 2u32;
 pub const ST_UNICODE: u32 = 8u32;
 pub const S_MSG_KEY_IGNORED: windows_core::HRESULT = windows_core::HRESULT(0x40201_u32 as _);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TABLECELLPARMS {
+    pub dxWidth: i32,
+    pub _bitfield: u16,
+    pub wShading: u16,
+    pub dxBrdrLeft: i16,
+    pub dyBrdrTop: i16,
+    pub dxBrdrRight: i16,
+    pub dyBrdrBottom: i16,
+    pub crBrdrLeft: super::super::super::Foundation::COLORREF,
+    pub crBrdrTop: super::super::super::Foundation::COLORREF,
+    pub crBrdrRight: super::super::super::Foundation::COLORREF,
+    pub crBrdrBottom: super::super::super::Foundation::COLORREF,
+    pub crBackPat: super::super::super::Foundation::COLORREF,
+    pub crForePat: super::super::super::Foundation::COLORREF,
+}
+impl Default for TABLECELLPARMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TABLECELLPARMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TABLEROWPARMS {
+    pub cbRow: u8,
+    pub cbCell: u8,
+    pub cCell: u8,
+    pub cRow: u8,
+    pub dxCellMargin: i32,
+    pub dxIndent: i32,
+    pub dyHeight: i32,
+    pub _bitfield: u32,
+    pub cpStartRow: i32,
+    pub bTableLevel: u8,
+    pub iCell: u8,
+}
+impl Default for TABLEROWPARMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TABLEROWPARMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TEXTMODE(pub i32);
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TEXTRANGEA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for TEXTRANGEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for TEXTRANGEA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct TEXTRANGEA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for TEXTRANGEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for TEXTRANGEA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TEXTRANGEW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for TEXTRANGEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for TEXTRANGEW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct TEXTRANGEW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for TEXTRANGEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for TEXTRANGEW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TM_MULTICODEPAGE: TEXTMODE = TEXTMODE(32i32);
 pub const TM_MULTILEVELUNDO: TEXTMODE = TEXTMODE(8i32);
 pub const TM_PLAINTEXT: TEXTMODE = TEXTMODE(1i32);
@@ -8957,6 +10430,9 @@ pub const TO_ADVANCEDTYPOGRAPHY: u32 = 1u32;
 pub const TO_DISABLECUSTOMTEXTOUT: u32 = 4u32;
 pub const TO_SIMPLELINEBREAK: u32 = 2u32;
 pub const TXES_ISDIALOG: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TXTBACKSTYLE(pub i32);
 pub const TXTBACK_OPAQUE: TXTBACKSTYLE = TXTBACKSTYLE(1i32);
 pub const TXTBACK_TRANSPARENT: TXTBACKSTYLE = TXTBACKSTYLE(0i32);
 pub const TXTBIT_ADVANCEDINPUT: u32 = 536870912u32;
@@ -8989,10 +10465,16 @@ pub const TXTBIT_USEPASSWORD: u32 = 16u32;
 pub const TXTBIT_VERTICAL: u32 = 256u32;
 pub const TXTBIT_VIEWINSETCHANGE: u32 = 8192u32;
 pub const TXTBIT_WORDWRAP: u32 = 1024u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TXTHITRESULT(pub i32);
 pub const TXTHITRESULT_CLOSE: TXTHITRESULT = TXTHITRESULT(2i32);
 pub const TXTHITRESULT_HIT: TXTHITRESULT = TXTHITRESULT(3i32);
 pub const TXTHITRESULT_NOHIT: TXTHITRESULT = TXTHITRESULT(0i32);
 pub const TXTHITRESULT_TRANSPARENT: TXTHITRESULT = TXTHITRESULT(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TXTNATURALSIZE(pub i32);
 pub const TXTNS_EMU: TXTNATURALSIZE = TXTNATURALSIZE(-2147483648i32);
 pub const TXTNS_FITTOCONTENT: TXTNATURALSIZE = TXTNATURALSIZE(1i32);
 pub const TXTNS_FITTOCONTENT2: TXTNATURALSIZE = TXTNATURALSIZE(0i32);
@@ -9000,6 +10482,9 @@ pub const TXTNS_FITTOCONTENT3: TXTNATURALSIZE = TXTNATURALSIZE(3i32);
 pub const TXTNS_FITTOCONTENTWSP: TXTNATURALSIZE = TXTNATURALSIZE(4i32);
 pub const TXTNS_INCLUDELASTLINE: TXTNATURALSIZE = TXTNATURALSIZE(1073741824i32);
 pub const TXTNS_ROUNDTOLINE: TXTNATURALSIZE = TXTNATURALSIZE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TXTVIEW(pub i32);
 pub const TXTVIEW_ACTIVE: TXTVIEW = TXTVIEW(0i32);
 pub const TXTVIEW_INACTIVE: TXTVIEW = TXTVIEW(-1i32);
 pub const UID_AUTOTABLE: UNDONAMEID = UNDONAMEID(6i32);
@@ -9009,6 +10494,9 @@ pub const UID_DRAGDROP: UNDONAMEID = UNDONAMEID(3i32);
 pub const UID_PASTE: UNDONAMEID = UNDONAMEID(5i32);
 pub const UID_TYPING: UNDONAMEID = UNDONAMEID(1i32);
 pub const UID_UNKNOWN: UNDONAMEID = UNDONAMEID(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UNDONAMEID(pub i32);
 pub const VM_NORMAL: u32 = 4u32;
 pub const VM_OUTLINE: u32 = 2u32;
 pub const VM_PAGE: u32 = 9u32;
@@ -9113,6 +10601,9 @@ pub const tomCompressMax: tomConstants = tomConstants(2i32);
 pub const tomCompressNone: tomConstants = tomConstants(0i32);
 pub const tomCompressPunctuation: tomConstants = tomConstants(1i32);
 pub const tomCompressPunctuationAndKana: tomConstants = tomConstants(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tomConstants(pub i32);
 pub const tomConvertMathChar: tomConstants = tomConstants(512i32);
 pub const tomConvertRTF: tomConstants = tomConstants(8192i32);
 pub const tomCreateAlways: tomConstants = tomConstants(32i32);
@@ -9647,2031 +11138,3 @@ pub const tomWordDocument: tomConstants = tomConstants(4i32);
 pub const tomWords: tomConstants = tomConstants(2i32);
 pub const tomYi: tomConstants = tomConstants(45i32);
 pub const yHeightCharPtsMost: u32 = 1638u32;
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CARET_FLAGS(pub i32);
-impl windows_core::TypeKind for CARET_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CARET_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CARET_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CFE_EFFECTS(pub u32);
-impl windows_core::TypeKind for CFE_EFFECTS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CFE_EFFECTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CFE_EFFECTS").field(&self.0).finish()
-    }
-}
-impl CFE_EFFECTS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CFE_EFFECTS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CFE_EFFECTS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CFE_EFFECTS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CFE_EFFECTS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CFE_EFFECTS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CFM_MASK(pub u32);
-impl windows_core::TypeKind for CFM_MASK {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CFM_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CFM_MASK").field(&self.0).finish()
-    }
-}
-impl CFM_MASK {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CFM_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CFM_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CFM_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CFM_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CFM_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CHANGETYPE(pub i32);
-impl windows_core::TypeKind for CHANGETYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CHANGETYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CHANGETYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct ENDCOMPOSITIONNOTIFY_CODE(pub u32);
-impl windows_core::TypeKind for ENDCOMPOSITIONNOTIFY_CODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for ENDCOMPOSITIONNOTIFY_CODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ENDCOMPOSITIONNOTIFY_CODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct GETTEXTEX_FLAGS(pub u32);
-impl windows_core::TypeKind for GETTEXTEX_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GETTEXTEX_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GETTEXTEX_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct GETTEXTLENGTHEX_FLAGS(pub u32);
-impl windows_core::TypeKind for GETTEXTLENGTHEX_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GETTEXTLENGTHEX_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GETTEXTLENGTHEX_FLAGS").field(&self.0).finish()
-    }
-}
-impl GETTEXTLENGTHEX_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GETTEXTLENGTHEX_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GETTEXTLENGTHEX_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GETTEXTLENGTHEX_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GETTEXTLENGTHEX_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GETTEXTLENGTHEX_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IMECOMPTEXT_FLAGS(pub u32);
-impl windows_core::TypeKind for IMECOMPTEXT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMECOMPTEXT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMECOMPTEXT_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct KHYPH(pub i32);
-impl windows_core::TypeKind for KHYPH {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for KHYPH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KHYPH").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct MANCODE(pub i32);
-impl windows_core::TypeKind for MANCODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for MANCODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MANCODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct OBJECTTYPE(pub i32);
-impl windows_core::TypeKind for OBJECTTYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for OBJECTTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("OBJECTTYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PARAFORMAT_ALIGNMENT(pub u16);
-impl windows_core::TypeKind for PARAFORMAT_ALIGNMENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PARAFORMAT_ALIGNMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PARAFORMAT_ALIGNMENT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PARAFORMAT_BORDERS(pub u16);
-impl windows_core::TypeKind for PARAFORMAT_BORDERS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PARAFORMAT_BORDERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PARAFORMAT_BORDERS").field(&self.0).finish()
-    }
-}
-impl PARAFORMAT_BORDERS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PARAFORMAT_BORDERS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PARAFORMAT_BORDERS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PARAFORMAT_BORDERS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PARAFORMAT_BORDERS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PARAFORMAT_BORDERS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PARAFORMAT_MASK(pub u32);
-impl windows_core::TypeKind for PARAFORMAT_MASK {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PARAFORMAT_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PARAFORMAT_MASK").field(&self.0).finish()
-    }
-}
-impl PARAFORMAT_MASK {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PARAFORMAT_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PARAFORMAT_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PARAFORMAT_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PARAFORMAT_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PARAFORMAT_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PARAFORMAT_NUMBERING(pub u16);
-impl windows_core::TypeKind for PARAFORMAT_NUMBERING {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PARAFORMAT_NUMBERING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PARAFORMAT_NUMBERING").field(&self.0).finish()
-    }
-}
-impl PARAFORMAT_NUMBERING {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PARAFORMAT_NUMBERING {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PARAFORMAT_NUMBERING {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PARAFORMAT_NUMBERING {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PARAFORMAT_NUMBERING {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PARAFORMAT_NUMBERING {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PARAFORMAT_NUMBERING_STYLE(pub u16);
-impl windows_core::TypeKind for PARAFORMAT_NUMBERING_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PARAFORMAT_NUMBERING_STYLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PARAFORMAT_NUMBERING_STYLE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PARAFORMAT_SHADING_STYLE(pub u16);
-impl windows_core::TypeKind for PARAFORMAT_SHADING_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PARAFORMAT_SHADING_STYLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PARAFORMAT_SHADING_STYLE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct REOBJECT_FLAGS(pub u32);
-impl windows_core::TypeKind for REOBJECT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for REOBJECT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("REOBJECT_FLAGS").field(&self.0).finish()
-    }
-}
-impl REOBJECT_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for REOBJECT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for REOBJECT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for REOBJECT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for REOBJECT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for REOBJECT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(pub u16);
-impl windows_core::TypeKind for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE").field(&self.0).finish()
-    }
-}
-impl RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct RICH_EDIT_GET_OBJECT_FLAGS(pub u32);
-impl windows_core::TypeKind for RICH_EDIT_GET_OBJECT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for RICH_EDIT_GET_OBJECT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RICH_EDIT_GET_OBJECT_FLAGS").field(&self.0).finish()
-    }
-}
-impl RICH_EDIT_GET_OBJECT_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for RICH_EDIT_GET_OBJECT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for RICH_EDIT_GET_OBJECT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for RICH_EDIT_GET_OBJECT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for RICH_EDIT_GET_OBJECT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for RICH_EDIT_GET_OBJECT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TEXTMODE(pub i32);
-impl windows_core::TypeKind for TEXTMODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TEXTMODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TEXTMODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TXTBACKSTYLE(pub i32);
-impl windows_core::TypeKind for TXTBACKSTYLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TXTBACKSTYLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TXTBACKSTYLE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TXTHITRESULT(pub i32);
-impl windows_core::TypeKind for TXTHITRESULT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TXTHITRESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TXTHITRESULT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TXTNATURALSIZE(pub i32);
-impl windows_core::TypeKind for TXTNATURALSIZE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TXTNATURALSIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TXTNATURALSIZE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TXTVIEW(pub i32);
-impl windows_core::TypeKind for TXTVIEW {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TXTVIEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TXTVIEW").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct UNDONAMEID(pub i32);
-impl windows_core::TypeKind for UNDONAMEID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for UNDONAMEID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UNDONAMEID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct tomConstants(pub i32);
-impl windows_core::TypeKind for tomConstants {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for tomConstants {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("tomConstants").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct BIDIOPTIONS {
-    pub cbSize: u32,
-    pub wMask: u16,
-    pub wEffects: u16,
-}
-impl windows_core::TypeKind for BIDIOPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for BIDIOPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub union CARET_INFO {
-    pub hbitmap: super::super::super::Graphics::Gdi::HBITMAP,
-    pub caretFlags: CARET_FLAGS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CARET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for CARET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CHANGENOTIFY {
-    pub dwChangeType: u32,
-    pub pvCookieData: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for CHANGENOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CHANGENOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct CHARFORMAT2A {
-    pub Base: CHARFORMATA,
-    pub wWeight: u16,
-    pub sSpacing: i16,
-    pub crBackColor: super::super::super::Foundation::COLORREF,
-    pub lcid: u32,
-    pub Anonymous: CHARFORMAT2A_0,
-    pub sStyle: i16,
-    pub wKerning: u16,
-    pub bUnderlineType: u8,
-    pub bAnimation: u8,
-    pub bRevAuthor: u8,
-    pub bUnderlineColor: u8,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CHARFORMAT2A {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for CHARFORMAT2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub union CHARFORMAT2A_0 {
-    pub dwReserved: u32,
-    pub dwCookie: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CHARFORMAT2A_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for CHARFORMAT2A_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct CHARFORMAT2W {
-    pub Base: CHARFORMATW,
-    pub wWeight: u16,
-    pub sSpacing: i16,
-    pub crBackColor: super::super::super::Foundation::COLORREF,
-    pub lcid: u32,
-    pub Anonymous: CHARFORMAT2W_0,
-    pub sStyle: i16,
-    pub wKerning: u16,
-    pub bUnderlineType: u8,
-    pub bAnimation: u8,
-    pub bRevAuthor: u8,
-    pub bUnderlineColor: u8,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CHARFORMAT2W {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for CHARFORMAT2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub union CHARFORMAT2W_0 {
-    pub dwReserved: u32,
-    pub dwCookie: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CHARFORMAT2W_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for CHARFORMAT2W_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CHARFORMATA {
-    pub cbSize: u32,
-    pub dwMask: CFM_MASK,
-    pub dwEffects: CFE_EFFECTS,
-    pub yHeight: i32,
-    pub yOffset: i32,
-    pub crTextColor: super::super::super::Foundation::COLORREF,
-    pub bCharSet: super::super::super::Graphics::Gdi::FONT_CHARSET,
-    pub bPitchAndFamily: u8,
-    pub szFaceName: [i8; 32],
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CHARFORMATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for CHARFORMATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CHARFORMATW {
-    pub cbSize: u32,
-    pub dwMask: CFM_MASK,
-    pub dwEffects: CFE_EFFECTS,
-    pub yHeight: i32,
-    pub yOffset: i32,
-    pub crTextColor: super::super::super::Foundation::COLORREF,
-    pub bCharSet: super::super::super::Graphics::Gdi::FONT_CHARSET,
-    pub bPitchAndFamily: u8,
-    pub szFaceName: [u16; 32],
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CHARFORMATW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for CHARFORMATW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CHARRANGE {
-    pub cpMin: i32,
-    pub cpMax: i32,
-}
-impl windows_core::TypeKind for CHARRANGE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CHARRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct CLIPBOARDFORMAT {
-    pub nmhdr: super::NMHDR,
-    pub cf: u16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CLIPBOARDFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for CLIPBOARDFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct CLIPBOARDFORMAT {
-    pub nmhdr: super::NMHDR,
-    pub cf: u16,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for CLIPBOARDFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for CLIPBOARDFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COMPCOLOR {
-    pub crText: super::super::super::Foundation::COLORREF,
-    pub crBackground: super::super::super::Foundation::COLORREF,
-    pub dwEffects: u32,
-}
-impl windows_core::TypeKind for COMPCOLOR {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COMPCOLOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct EDITSTREAM {
-    pub dwCookie: usize,
-    pub dwError: u32,
-    pub pfnCallback: EDITSTREAMCALLBACK,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for EDITSTREAM {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for EDITSTREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct EDITSTREAM {
-    pub dwCookie: usize,
-    pub dwError: u32,
-    pub pfnCallback: EDITSTREAMCALLBACK,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for EDITSTREAM {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for EDITSTREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct ENCORRECTTEXT {
-    pub nmhdr: super::NMHDR,
-    pub chrg: CHARRANGE,
-    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ENCORRECTTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for ENCORRECTTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct ENCORRECTTEXT {
-    pub nmhdr: super::NMHDR,
-    pub chrg: CHARRANGE,
-    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ENCORRECTTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for ENCORRECTTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct ENDCOMPOSITIONNOTIFY {
-    pub nmhdr: super::NMHDR,
-    pub dwCode: ENDCOMPOSITIONNOTIFY_CODE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ENDCOMPOSITIONNOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for ENDCOMPOSITIONNOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct ENDCOMPOSITIONNOTIFY {
-    pub nmhdr: super::NMHDR,
-    pub dwCode: ENDCOMPOSITIONNOTIFY_CODE,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ENDCOMPOSITIONNOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for ENDCOMPOSITIONNOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct ENDROPFILES {
-    pub nmhdr: super::NMHDR,
-    pub hDrop: super::super::super::Foundation::HANDLE,
-    pub cp: i32,
-    pub fProtected: super::super::super::Foundation::BOOL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ENDROPFILES {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for ENDROPFILES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct ENDROPFILES {
-    pub nmhdr: super::NMHDR,
-    pub hDrop: super::super::super::Foundation::HANDLE,
-    pub cp: i32,
-    pub fProtected: super::super::super::Foundation::BOOL,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ENDROPFILES {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for ENDROPFILES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct ENLINK {
-    pub nmhdr: super::NMHDR,
-    pub msg: u32,
-    pub wParam: super::super::super::Foundation::WPARAM,
-    pub lParam: super::super::super::Foundation::LPARAM,
-    pub chrg: CHARRANGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ENLINK {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for ENLINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct ENLINK {
-    pub nmhdr: super::NMHDR,
-    pub msg: u32,
-    pub wParam: super::super::super::Foundation::WPARAM,
-    pub lParam: super::super::super::Foundation::LPARAM,
-    pub chrg: CHARRANGE,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ENLINK {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for ENLINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct ENLOWFIRTF {
-    pub nmhdr: super::NMHDR,
-    pub szControl: windows_core::PSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ENLOWFIRTF {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for ENLOWFIRTF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct ENLOWFIRTF {
-    pub nmhdr: super::NMHDR,
-    pub szControl: windows_core::PSTR,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ENLOWFIRTF {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for ENLOWFIRTF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct ENOLEOPFAILED {
-    pub nmhdr: super::NMHDR,
-    pub iob: i32,
-    pub lOper: i32,
-    pub hr: windows_core::HRESULT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ENOLEOPFAILED {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for ENOLEOPFAILED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct ENOLEOPFAILED {
-    pub nmhdr: super::NMHDR,
-    pub iob: i32,
-    pub lOper: i32,
-    pub hr: windows_core::HRESULT,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ENOLEOPFAILED {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for ENOLEOPFAILED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct ENPROTECTED {
-    pub nmhdr: super::NMHDR,
-    pub msg: u32,
-    pub wParam: super::super::super::Foundation::WPARAM,
-    pub lParam: super::super::super::Foundation::LPARAM,
-    pub chrg: CHARRANGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ENPROTECTED {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for ENPROTECTED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct ENPROTECTED {
-    pub nmhdr: super::NMHDR,
-    pub msg: u32,
-    pub wParam: super::super::super::Foundation::WPARAM,
-    pub lParam: super::super::super::Foundation::LPARAM,
-    pub chrg: CHARRANGE,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ENPROTECTED {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for ENPROTECTED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct ENSAVECLIPBOARD {
-    pub nmhdr: super::NMHDR,
-    pub cObjectCount: i32,
-    pub cch: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ENSAVECLIPBOARD {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for ENSAVECLIPBOARD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct ENSAVECLIPBOARD {
-    pub nmhdr: super::NMHDR,
-    pub cObjectCount: i32,
-    pub cch: i32,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ENSAVECLIPBOARD {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for ENSAVECLIPBOARD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct FINDTEXTA {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FINDTEXTA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FINDTEXTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct FINDTEXTA {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FINDTEXTA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for FINDTEXTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct FINDTEXTEXA {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PCSTR,
-    pub chrgText: CHARRANGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FINDTEXTEXA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FINDTEXTEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct FINDTEXTEXA {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PCSTR,
-    pub chrgText: CHARRANGE,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FINDTEXTEXA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for FINDTEXTEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct FINDTEXTEXW {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PCWSTR,
-    pub chrgText: CHARRANGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FINDTEXTEXW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FINDTEXTEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct FINDTEXTEXW {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PCWSTR,
-    pub chrgText: CHARRANGE,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FINDTEXTEXW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for FINDTEXTEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct FINDTEXTW {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FINDTEXTW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FINDTEXTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct FINDTEXTW {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FINDTEXTW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for FINDTEXTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct FORMATRANGE {
-    pub hdc: super::super::super::Graphics::Gdi::HDC,
-    pub hdcTarget: super::super::super::Graphics::Gdi::HDC,
-    pub rc: super::super::super::Foundation::RECT,
-    pub rcPage: super::super::super::Foundation::RECT,
-    pub chrg: CHARRANGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for FORMATRANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for FORMATRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct FORMATRANGE {
-    pub hdc: super::super::super::Graphics::Gdi::HDC,
-    pub hdcTarget: super::super::super::Graphics::Gdi::HDC,
-    pub rc: super::super::super::Foundation::RECT,
-    pub rcPage: super::super::super::Foundation::RECT,
-    pub chrg: CHARRANGE,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for FORMATRANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for FORMATRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct GETCONTEXTMENUEX {
-    pub chrg: CHARRANGE,
-    pub dwFlags: u32,
-    pub pt: super::super::super::Foundation::POINT,
-    pub pvReserved: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for GETCONTEXTMENUEX {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for GETCONTEXTMENUEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct GETCONTEXTMENUEX {
-    pub chrg: CHARRANGE,
-    pub dwFlags: u32,
-    pub pt: super::super::super::Foundation::POINT,
-    pub pvReserved: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for GETCONTEXTMENUEX {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for GETCONTEXTMENUEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct GETTEXTEX {
-    pub cb: u32,
-    pub flags: GETTEXTEX_FLAGS,
-    pub codepage: u32,
-    pub lpDefaultChar: windows_core::PCSTR,
-    pub lpUsedDefChar: *mut super::super::super::Foundation::BOOL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for GETTEXTEX {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for GETTEXTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct GETTEXTEX {
-    pub cb: u32,
-    pub flags: GETTEXTEX_FLAGS,
-    pub codepage: u32,
-    pub lpDefaultChar: windows_core::PCSTR,
-    pub lpUsedDefChar: *mut super::super::super::Foundation::BOOL,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for GETTEXTEX {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for GETTEXTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct GETTEXTLENGTHEX {
-    pub flags: GETTEXTLENGTHEX_FLAGS,
-    pub codepage: u32,
-}
-impl windows_core::TypeKind for GETTEXTLENGTHEX {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for GETTEXTLENGTHEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct GROUPTYPINGCHANGE {
-    pub nmhdr: super::NMHDR,
-    pub fGroupTyping: super::super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for GROUPTYPINGCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for GROUPTYPINGCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct HYPHENATEINFO {
-    pub cbSize: i16,
-    pub dxHyphenateZone: i16,
-    pub pfnHyphenate: isize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for HYPHENATEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for HYPHENATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct HYPHENATEINFO {
-    pub cbSize: i16,
-    pub dxHyphenateZone: i16,
-    pub pfnHyphenate: isize,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for HYPHENATEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for HYPHENATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct HYPHRESULT {
-    pub khyph: KHYPH,
-    pub ichHyph: i32,
-    pub chHyph: u16,
-}
-impl windows_core::TypeKind for HYPHRESULT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for HYPHRESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMECOMPTEXT {
-    pub cb: i32,
-    pub flags: IMECOMPTEXT_FLAGS,
-}
-impl windows_core::TypeKind for IMECOMPTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMECOMPTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct MSGFILTER {
-    pub nmhdr: super::NMHDR,
-    pub msg: u32,
-    pub wParam: super::super::super::Foundation::WPARAM,
-    pub lParam: super::super::super::Foundation::LPARAM,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MSGFILTER {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for MSGFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct MSGFILTER {
-    pub nmhdr: super::NMHDR,
-    pub msg: u32,
-    pub wParam: super::super::super::Foundation::WPARAM,
-    pub lParam: super::super::super::Foundation::LPARAM,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for MSGFILTER {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for MSGFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct OBJECTPOSITIONS {
-    pub nmhdr: super::NMHDR,
-    pub cObjectCount: i32,
-    pub pcpPositions: *mut i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for OBJECTPOSITIONS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for OBJECTPOSITIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct OBJECTPOSITIONS {
-    pub nmhdr: super::NMHDR,
-    pub cObjectCount: i32,
-    pub pcpPositions: *mut i32,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for OBJECTPOSITIONS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for OBJECTPOSITIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PARAFORMAT {
-    pub cbSize: u32,
-    pub dwMask: PARAFORMAT_MASK,
-    pub wNumbering: PARAFORMAT_NUMBERING,
-    pub Anonymous: PARAFORMAT_0,
-    pub dxStartIndent: i32,
-    pub dxRightIndent: i32,
-    pub dxOffset: i32,
-    pub wAlignment: PARAFORMAT_ALIGNMENT,
-    pub cTabCount: i16,
-    pub rgxTabs: [u32; 32],
-}
-impl windows_core::TypeKind for PARAFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PARAFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PARAFORMAT_0 {
-    pub wReserved: u16,
-    pub wEffects: u16,
-}
-impl windows_core::TypeKind for PARAFORMAT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PARAFORMAT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PARAFORMAT2 {
-    pub Base: PARAFORMAT,
-    pub dySpaceBefore: i32,
-    pub dySpaceAfter: i32,
-    pub dyLineSpacing: i32,
-    pub sStyle: i16,
-    pub bLineSpacingRule: u8,
-    pub bOutlineLevel: u8,
-    pub wShadingWeight: u16,
-    pub wShadingStyle: PARAFORMAT_SHADING_STYLE,
-    pub wNumberingStart: u16,
-    pub wNumberingStyle: PARAFORMAT_NUMBERING_STYLE,
-    pub wNumberingTab: u16,
-    pub wBorderSpace: u16,
-    pub wBorderWidth: u16,
-    pub wBorders: PARAFORMAT_BORDERS,
-}
-impl windows_core::TypeKind for PARAFORMAT2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PARAFORMAT2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct PUNCTUATION {
-    pub iSize: u32,
-    pub szPunctuation: windows_core::PSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for PUNCTUATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for PUNCTUATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct PUNCTUATION {
-    pub iSize: u32,
-    pub szPunctuation: windows_core::PSTR,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for PUNCTUATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for PUNCTUATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-#[derive(Debug, Eq, PartialEq)]
-pub struct REOBJECT {
-    pub cbStruct: u32,
-    pub cp: i32,
-    pub clsid: windows_core::GUID,
-    pub poleobj: core::mem::ManuallyDrop<Option<super::super::super::System::Ole::IOleObject>>,
-    pub pstg: core::mem::ManuallyDrop<Option<super::super::super::System::Com::StructuredStorage::IStorage>>,
-    pub polesite: core::mem::ManuallyDrop<Option<super::super::super::System::Ole::IOleClientSite>>,
-    pub sizel: super::super::super::Foundation::SIZE,
-    pub dvaspect: u32,
-    pub dwFlags: REOBJECT_FLAGS,
-    pub dwUser: u32,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-impl Clone for REOBJECT {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-impl windows_core::TypeKind for REOBJECT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-impl Default for REOBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct REPASTESPECIAL {
-    pub dwAspect: super::super::super::System::Com::DVASPECT,
-    pub dwParam: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for REPASTESPECIAL {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl Default for REPASTESPECIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct REPASTESPECIAL {
-    pub dwAspect: super::super::super::System::Com::DVASPECT,
-    pub dwParam: usize,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for REPASTESPECIAL {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl Default for REPASTESPECIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct REQRESIZE {
-    pub nmhdr: super::NMHDR,
-    pub rc: super::super::super::Foundation::RECT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for REQRESIZE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for REQRESIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct REQRESIZE {
-    pub nmhdr: super::NMHDR,
-    pub rc: super::super::super::Foundation::RECT,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for REQRESIZE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for REQRESIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-pub struct RICHEDIT_IMAGE_PARAMETERS {
-    pub xWidth: i32,
-    pub yHeight: i32,
-    pub Ascent: i32,
-    pub Type: i32,
-    pub pwszAlternateText: windows_core::PCWSTR,
-    pub pIStream: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IStream>>,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for RICHEDIT_IMAGE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl Default for RICHEDIT_IMAGE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-pub struct RICHEDIT_IMAGE_PARAMETERS {
-    pub xWidth: i32,
-    pub yHeight: i32,
-    pub Ascent: i32,
-    pub Type: i32,
-    pub pwszAlternateText: windows_core::PCWSTR,
-    pub pIStream: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IStream>>,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for RICHEDIT_IMAGE_PARAMETERS {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for RICHEDIT_IMAGE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl Default for RICHEDIT_IMAGE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct SELCHANGE {
-    pub nmhdr: super::NMHDR,
-    pub chrg: CHARRANGE,
-    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SELCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SELCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SELCHANGE {
-    pub nmhdr: super::NMHDR,
-    pub chrg: CHARRANGE,
-    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SELCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for SELCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SETTEXTEX {
-    pub flags: u32,
-    pub codepage: u32,
-}
-impl windows_core::TypeKind for SETTEXTEX {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SETTEXTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TABLECELLPARMS {
-    pub dxWidth: i32,
-    pub _bitfield: u16,
-    pub wShading: u16,
-    pub dxBrdrLeft: i16,
-    pub dyBrdrTop: i16,
-    pub dxBrdrRight: i16,
-    pub dyBrdrBottom: i16,
-    pub crBrdrLeft: super::super::super::Foundation::COLORREF,
-    pub crBrdrTop: super::super::super::Foundation::COLORREF,
-    pub crBrdrRight: super::super::super::Foundation::COLORREF,
-    pub crBrdrBottom: super::super::super::Foundation::COLORREF,
-    pub crBackPat: super::super::super::Foundation::COLORREF,
-    pub crForePat: super::super::super::Foundation::COLORREF,
-}
-impl windows_core::TypeKind for TABLECELLPARMS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TABLECELLPARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TABLEROWPARMS {
-    pub cbRow: u8,
-    pub cbCell: u8,
-    pub cCell: u8,
-    pub cRow: u8,
-    pub dxCellMargin: i32,
-    pub dxIndent: i32,
-    pub dyHeight: i32,
-    pub _bitfield: u32,
-    pub cpStartRow: i32,
-    pub bTableLevel: u8,
-    pub iCell: u8,
-}
-impl windows_core::TypeKind for TABLEROWPARMS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TABLEROWPARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct TEXTRANGEA {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for TEXTRANGEA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for TEXTRANGEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct TEXTRANGEA {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PSTR,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for TEXTRANGEA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for TEXTRANGEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct TEXTRANGEW {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for TEXTRANGEW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for TEXTRANGEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct TEXTRANGEW {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for TEXTRANGEW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-impl Default for TEXTRANGEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub type AutoCorrectProc = Option<unsafe extern "system" fn(langid: u16, pszbefore: windows_core::PCWSTR, pszafter: windows_core::PCWSTR, cchafter: i32, pcchreplaced: *mut i32) -> i32>;
-pub type EDITSTREAMCALLBACK = Option<unsafe extern "system" fn(dwcookie: usize, pbbuff: *mut u8, cb: i32, pcb: *mut i32) -> u32>;
-pub type EDITWORDBREAKPROCEX = Option<unsafe extern "system" fn(pchtext: windows_core::PCSTR, cchtext: i32, bcharset: u8, action: i32) -> i32>;
-pub type PCreateTextServices = Option<unsafe extern "system" fn(punkouter: Option<windows_core::IUnknown>, pitexthost: Option<ITextHost>, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT>;
-pub type PShutdownTextServices = Option<unsafe extern "system" fn(ptextservices: Option<windows_core::IUnknown>) -> windows_core::HRESULT>;

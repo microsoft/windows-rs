@@ -56,10 +56,10 @@ impl windows_core::RuntimeType for ILearningModel {
 #[repr(C)]
 pub struct ILearningModel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Author: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Domain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Author: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Domain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Version: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub Metadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -81,9 +81,9 @@ impl windows_core::RuntimeType for ILearningModelBinding {
 #[repr(C)]
 pub struct ILearningModelBinding_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Bind: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Bind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub BindWithProperties: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub BindWithProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     BindWithProperties: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -95,7 +95,10 @@ impl windows_core::RuntimeType for ILearningModelBindingFactory {
 #[repr(C)]
 pub struct ILearningModelBindingFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateFromSession: usize,
 }
 windows_core::imp::define_interface!(ILearningModelDevice, ILearningModelDevice_Vtbl, 0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252);
 impl windows_core::RuntimeType for ILearningModelDevice {
@@ -141,7 +144,7 @@ impl windows_core::RuntimeType for ILearningModelEvaluationResult {
 #[repr(C)]
 pub struct ILearningModelEvaluationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub CorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ErrorStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -150,11 +153,8 @@ pub struct ILearningModelEvaluationResult_Vtbl {
     Outputs: usize,
 }
 windows_core::imp::define_interface!(ILearningModelFeatureDescriptor, ILearningModelFeatureDescriptor_Vtbl, 0xbc08cf7c_6ed0_4004_97ba_b9a2eecd2b4f);
-impl core::ops::Deref for ILearningModelFeatureDescriptor {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for ILearningModelFeatureDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(ILearningModelFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl ILearningModelFeatureDescriptor {
@@ -162,14 +162,14 @@ impl ILearningModelFeatureDescriptor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
@@ -187,29 +187,18 @@ impl ILearningModelFeatureDescriptor {
         }
     }
 }
-impl windows_core::RuntimeType for ILearningModelFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl windows_core::RuntimeName for ILearningModelFeatureDescriptor {
+    const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureDescriptor";
 }
-#[repr(C)]
-pub struct ILearningModelFeatureDescriptor_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelFeatureKind) -> windows_core::HRESULT,
-    pub IsRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-pub trait ILearningModelFeatureDescriptor_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ILearningModelFeatureDescriptor_Impl: windows_core::IUnknownImpl {
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Description(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind>;
     fn IsRequired(&self) -> windows_core::Result<bool>;
 }
-impl windows_core::RuntimeName for ILearningModelFeatureDescriptor {
-    const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureDescriptor";
-}
 impl ILearningModelFeatureDescriptor_Vtbl {
-    pub const fn new<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>() -> ILearningModelFeatureDescriptor_Vtbl {
-        unsafe extern "system" fn Name<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+    pub const fn new<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Name<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILearningModelFeatureDescriptor_Impl::Name(this) {
                 Ok(ok__) => {
@@ -220,7 +209,7 @@ impl ILearningModelFeatureDescriptor_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Description<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILearningModelFeatureDescriptor_Impl::Description(this) {
                 Ok(ok__) => {
@@ -263,12 +252,17 @@ impl ILearningModelFeatureDescriptor_Vtbl {
         iid == &<ILearningModelFeatureDescriptor as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ILearningModelFeatureDescriptor_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelFeatureKind) -> windows_core::HRESULT,
+    pub IsRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ILearningModelFeatureValue, ILearningModelFeatureValue_Vtbl, 0xf51005db_4085_4dfe_9fed_95eb0c0cf75c);
-impl core::ops::Deref for ILearningModelFeatureValue {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for ILearningModelFeatureValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(ILearningModelFeatureValue, windows_core::IUnknown, windows_core::IInspectable);
 impl ILearningModelFeatureValue {
@@ -280,22 +274,14 @@ impl ILearningModelFeatureValue {
         }
     }
 }
-impl windows_core::RuntimeType for ILearningModelFeatureValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ILearningModelFeatureValue_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelFeatureKind) -> windows_core::HRESULT,
-}
-pub trait ILearningModelFeatureValue_Impl: Sized + windows_core::IUnknownImpl {
-    fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind>;
-}
 impl windows_core::RuntimeName for ILearningModelFeatureValue {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureValue";
 }
+pub trait ILearningModelFeatureValue_Impl: windows_core::IUnknownImpl {
+    fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind>;
+}
 impl ILearningModelFeatureValue_Vtbl {
-    pub const fn new<Identity: ILearningModelFeatureValue_Impl, const OFFSET: isize>() -> ILearningModelFeatureValue_Vtbl {
+    pub const fn new<Identity: ILearningModelFeatureValue_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Kind<Identity: ILearningModelFeatureValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILearningModelFeatureValue_Impl::Kind(this) {
@@ -312,33 +298,31 @@ impl ILearningModelFeatureValue_Vtbl {
         iid == &<ILearningModelFeatureValue as windows_core::Interface>::IID
     }
 }
-windows_core::imp::define_interface!(ILearningModelOperatorProvider, ILearningModelOperatorProvider_Vtbl, 0x2a222e5d_afb1_47ed_bfad_b5b3a459ec04);
-impl core::ops::Deref for ILearningModelOperatorProvider {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+#[repr(C)]
+pub struct ILearningModelFeatureValue_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelFeatureKind) -> windows_core::HRESULT,
 }
-windows_core::imp::interface_hierarchy!(ILearningModelOperatorProvider, windows_core::IUnknown, windows_core::IInspectable);
-impl ILearningModelOperatorProvider {}
+windows_core::imp::define_interface!(ILearningModelOperatorProvider, ILearningModelOperatorProvider_Vtbl, 0x2a222e5d_afb1_47ed_bfad_b5b3a459ec04);
 impl windows_core::RuntimeType for ILearningModelOperatorProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct ILearningModelOperatorProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-pub trait ILearningModelOperatorProvider_Impl: Sized + windows_core::IUnknownImpl {}
+windows_core::imp::interface_hierarchy!(ILearningModelOperatorProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl windows_core::RuntimeName for ILearningModelOperatorProvider {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelOperatorProvider";
 }
+pub trait ILearningModelOperatorProvider_Impl: windows_core::IUnknownImpl {}
 impl ILearningModelOperatorProvider_Vtbl {
-    pub const fn new<Identity: ILearningModelOperatorProvider_Impl, const OFFSET: isize>() -> ILearningModelOperatorProvider_Vtbl {
+    pub const fn new<Identity: ILearningModelOperatorProvider_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ILearningModelOperatorProvider, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILearningModelOperatorProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILearningModelOperatorProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ILearningModelSession, ILearningModelSession_Vtbl, 0x8e58f8f6_b787_4c11_90f0_7129aeca74a9);
 impl windows_core::RuntimeType for ILearningModelSession {
@@ -353,14 +337,20 @@ pub struct ILearningModelSession_Vtbl {
     pub EvaluationProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     EvaluationProperties: usize,
-    pub EvaluateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub EvaluateFeaturesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub EvaluateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    EvaluateAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub EvaluateFeaturesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     EvaluateFeaturesAsync: usize,
-    pub Evaluate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub EvaluateFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Evaluate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Evaluate: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub EvaluateFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     EvaluateFeatures: usize,
 }
@@ -410,7 +400,7 @@ impl windows_core::RuntimeType for ILearningModelSessionOptions3 {
 #[repr(C)]
 pub struct ILearningModelSessionOptions3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub OverrideNamedDimension: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32) -> windows_core::HRESULT,
+    pub OverrideNamedDimension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILearningModelStatics, ILearningModelStatics_Vtbl, 0xe3b977e8_6952_4e47_8ef4_1f7f07897c6d);
 impl windows_core::RuntimeType for ILearningModelStatics {
@@ -419,28 +409,28 @@ impl windows_core::RuntimeType for ILearningModelStatics {
 #[repr(C)]
 pub struct ILearningModelStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage")]
+    #[cfg(feature = "Storage_Streams")]
     pub LoadFromStorageFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStorageFileAsync: usize,
     #[cfg(feature = "Storage_Streams")]
     pub LoadFromStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStreamAsync: usize,
-    pub LoadFromFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LoadFromFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub LoadFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStream: usize,
-    #[cfg(feature = "Storage")]
+    #[cfg(feature = "Storage_Streams")]
     pub LoadFromStorageFileWithOperatorProviderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStorageFileWithOperatorProviderAsync: usize,
     #[cfg(feature = "Storage_Streams")]
     pub LoadFromStreamWithOperatorProviderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStreamWithOperatorProviderAsync: usize,
-    pub LoadFromFilePathWithOperatorProvider: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LoadFromFilePathWithOperatorProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub LoadFromStreamWithOperatorProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -466,11 +456,8 @@ pub struct ISequenceFeatureDescriptor_Vtbl {
     pub ElementDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITensor, ITensor_Vtbl, 0x05489593_a305_4a25_ad09_440119b4b7f6);
-impl core::ops::Deref for ITensor {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for ITensor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(ITensor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ITensor, ILearningModelFeatureValue);
@@ -498,30 +485,18 @@ impl ITensor {
         }
     }
 }
-impl windows_core::RuntimeType for ITensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITensor_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TensorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TensorKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Shape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Shape: usize,
-}
-#[cfg(feature = "Foundation_Collections")]
-pub trait ITensor_Impl: Sized + windows_core::IUnknownImpl + ILearningModelFeatureValue_Impl {
-    fn TensorKind(&self) -> windows_core::Result<TensorKind>;
-    fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>>;
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ITensor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ITensor";
 }
 #[cfg(feature = "Foundation_Collections")]
+pub trait ITensor_Impl: ILearningModelFeatureValue_Impl {
+    fn TensorKind(&self) -> windows_core::Result<TensorKind>;
+    fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>>;
+}
+#[cfg(feature = "Foundation_Collections")]
 impl ITensor_Vtbl {
-    pub const fn new<Identity: ITensor_Impl, const OFFSET: isize>() -> ITensor_Vtbl {
+    pub const fn new<Identity: ITensor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TensorKind<Identity: ITensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut TensorKind) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITensor_Impl::TensorKind(this) {
@@ -552,6 +527,15 @@ impl ITensor_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITensor as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ITensor_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TensorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TensorKind) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Shape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Shape: usize,
 }
 windows_core::imp::define_interface!(ITensorBoolean, ITensorBoolean_Vtbl, 0x50f311ed_29e9_4a5c_a44d_8fc512584eed);
 impl windows_core::RuntimeType for ITensorBoolean {
@@ -959,7 +943,7 @@ pub struct ITensorStringStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::HSTRING, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
@@ -974,7 +958,7 @@ impl windows_core::RuntimeType for ITensorStringStatics2 {
 #[repr(C)]
 pub struct ITensorStringStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const i64, u32, *const core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const i64, u32, *const windows_core::HSTRING, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITensorUInt16Bit, ITensorUInt16Bit_Vtbl, 0x68140f4b_23c0_42f3_81f6_a891c011bc3f);
 impl windows_core::RuntimeType for ITensorUInt16Bit {
@@ -1161,7 +1145,7 @@ pub struct ITensorUInt8BitStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImageFeatureDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageFeatureDescriptor, ILearningModelFeatureDescriptor);
@@ -1207,14 +1191,14 @@ impl ImageFeatureDescriptor {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
@@ -1236,7 +1220,7 @@ impl windows_core::RuntimeType for ImageFeatureDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageFeatureDescriptor>();
 }
 unsafe impl windows_core::Interface for ImageFeatureDescriptor {
-    type Vtable = IImageFeatureDescriptor_Vtbl;
+    type Vtable = <IImageFeatureDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImageFeatureDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ImageFeatureDescriptor {
@@ -1245,7 +1229,7 @@ impl windows_core::RuntimeName for ImageFeatureDescriptor {
 unsafe impl Send for ImageFeatureDescriptor {}
 unsafe impl Sync for ImageFeatureDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImageFeatureValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageFeatureValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageFeatureValue, ILearningModelFeatureValue);
@@ -1284,7 +1268,7 @@ impl windows_core::RuntimeType for ImageFeatureValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageFeatureValue>();
 }
 unsafe impl windows_core::Interface for ImageFeatureValue {
-    type Vtable = IImageFeatureValue_Vtbl;
+    type Vtable = <IImageFeatureValue as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImageFeatureValue as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ImageFeatureValue {
@@ -1293,7 +1277,7 @@ impl windows_core::RuntimeName for ImageFeatureValue {
 unsafe impl Send for ImageFeatureValue {}
 unsafe impl Sync for ImageFeatureValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LearningModel, super::super::Foundation::IClosable);
@@ -1306,28 +1290,28 @@ impl LearningModel {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Author)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Author)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Domain(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Domain)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Domain)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Version(&self) -> windows_core::Result<i64> {
@@ -1361,7 +1345,7 @@ impl LearningModel {
             (windows_core::Interface::vtable(this).OutputFeatures)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStorageFileAsync<P0>(modelfile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -1397,7 +1381,7 @@ impl LearningModel {
             (windows_core::Interface::vtable(this).LoadFromStream)(windows_core::Interface::as_raw(this), modelstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStorageFileWithOperatorProviderAsync<P0, P1>(modelfile: P0, operatorprovider: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -1419,9 +1403,9 @@ impl LearningModel {
             (windows_core::Interface::vtable(this).LoadFromStreamWithOperatorProviderAsync)(windows_core::Interface::as_raw(this), modelstream.param().abi(), operatorprovider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LoadFromFilePathWithOperatorProvider<P0>(filepath: &windows_core::HSTRING, operatorprovider: P0) -> windows_core::Result<LearningModel>
+    pub fn LoadFromFilePathWithOperatorProvider<P1>(filepath: &windows_core::HSTRING, operatorprovider: P1) -> windows_core::Result<LearningModel>
     where
-        P0: windows_core::Param<ILearningModelOperatorProvider>,
+        P1: windows_core::Param<ILearningModelOperatorProvider>,
     {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1448,7 +1432,7 @@ impl windows_core::RuntimeType for LearningModel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModel>();
 }
 unsafe impl windows_core::Interface for LearningModel {
-    type Vtable = ILearningModel_Vtbl;
+    type Vtable = <ILearningModel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModel as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LearningModel {
@@ -1456,14 +1440,16 @@ impl windows_core::RuntimeName for LearningModel {
 }
 unsafe impl Send for LearningModel {}
 unsafe impl Sync for LearningModel {}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModelBinding(windows_core::IUnknown);
+#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(LearningModelBinding, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(LearningModelBinding, super::super::Foundation::Collections::IIterable::<super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, windows_core::IInspectable>>, super::super::Foundation::Collections::IMapView::<windows_core::HSTRING, windows_core::IInspectable>);
+windows_core::imp::required_hierarchy ! ( LearningModelBinding , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , super::super::Foundation::Collections:: IMapView < windows_core::HSTRING , windows_core::IInspectable > );
+#[cfg(feature = "Foundation_Collections")]
 impl LearningModelBinding {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
         unsafe {
@@ -1471,18 +1457,18 @@ impl LearningModelBinding {
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Bind<P0>(&self, name: &windows_core::HSTRING, value: P0) -> windows_core::Result<()>
+    pub fn Bind<P1>(&self, name: &windows_core::HSTRING, value: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Bind)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn BindWithProperties<P0, P1>(&self, name: &windows_core::HSTRING, value: P0, props: P1) -> windows_core::Result<()>
+    pub fn BindWithProperties<P1, P2>(&self, name: &windows_core::HSTRING, value: P1, props: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
+        P1: windows_core::Param<windows_core::IInspectable>,
+        P2: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).BindWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.param().abi(), props.param().abi()).ok() }
@@ -1500,7 +1486,6 @@ impl LearningModelBinding {
             (windows_core::Interface::vtable(this).CreateFromSession)(windows_core::Interface::as_raw(this), session.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
@@ -1508,7 +1493,6 @@ impl LearningModelBinding {
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
@@ -1516,7 +1500,6 @@ impl LearningModelBinding {
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
@@ -1524,7 +1507,6 @@ impl LearningModelBinding {
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Split(&self, first: &mut Option<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>, second: &mut Option<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Split)(windows_core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
@@ -1534,16 +1516,23 @@ impl LearningModelBinding {
         SHARED.call(callback)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for LearningModelBinding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelBinding>();
 }
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for LearningModelBinding {
-    type Vtable = ILearningModelBinding_Vtbl;
+    type Vtable = <ILearningModelBinding as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModelBinding as windows_core::Interface>::IID;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for LearningModelBinding {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelBinding";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for LearningModelBinding {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for LearningModelBinding {}
 #[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for LearningModelBinding {
     type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
@@ -1560,10 +1549,8 @@ impl IntoIterator for &LearningModelBinding {
         self.First().unwrap()
     }
 }
-unsafe impl Send for LearningModelBinding {}
-unsafe impl Sync for LearningModelBinding {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModelDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl LearningModelDevice {
@@ -1572,7 +1559,7 @@ impl LearningModelDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -1612,7 +1599,7 @@ impl windows_core::RuntimeType for LearningModelDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelDevice>();
 }
 unsafe impl windows_core::Interface for LearningModelDevice {
-    type Vtable = ILearningModelDevice_Vtbl;
+    type Vtable = <ILearningModelDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModelDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LearningModelDevice {
@@ -1621,7 +1608,23 @@ impl windows_core::RuntimeName for LearningModelDevice {
 unsafe impl Send for LearningModelDevice {}
 unsafe impl Sync for LearningModelDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LearningModelDeviceKind(pub i32);
+impl LearningModelDeviceKind {
+    pub const Default: Self = Self(0i32);
+    pub const Cpu: Self = Self(1i32);
+    pub const DirectX: Self = Self(2i32);
+    pub const DirectXHighPerformance: Self = Self(3i32);
+    pub const DirectXMinPower: Self = Self(4i32);
+}
+impl windows_core::TypeKind for LearningModelDeviceKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for LearningModelDeviceKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelDeviceKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModelEvaluationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelEvaluationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl LearningModelEvaluationResult {
@@ -1629,7 +1632,7 @@ impl LearningModelEvaluationResult {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CorrelationId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CorrelationId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ErrorStatus(&self) -> windows_core::Result<i32> {
@@ -1659,7 +1662,7 @@ impl windows_core::RuntimeType for LearningModelEvaluationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelEvaluationResult>();
 }
 unsafe impl windows_core::Interface for LearningModelEvaluationResult {
-    type Vtable = ILearningModelEvaluationResult_Vtbl;
+    type Vtable = <ILearningModelEvaluationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModelEvaluationResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LearningModelEvaluationResult {
@@ -1668,7 +1671,36 @@ impl windows_core::RuntimeName for LearningModelEvaluationResult {
 unsafe impl Send for LearningModelEvaluationResult {}
 unsafe impl Sync for LearningModelEvaluationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LearningModelFeatureKind(pub i32);
+impl LearningModelFeatureKind {
+    pub const Tensor: Self = Self(0i32);
+    pub const Sequence: Self = Self(1i32);
+    pub const Map: Self = Self(2i32);
+    pub const Image: Self = Self(3i32);
+}
+impl windows_core::TypeKind for LearningModelFeatureKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for LearningModelFeatureKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelFeatureKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LearningModelPixelRange(pub i32);
+impl LearningModelPixelRange {
+    pub const ZeroTo255: Self = Self(0i32);
+    pub const ZeroToOne: Self = Self(1i32);
+    pub const MinusOneToOne: Self = Self(2i32);
+}
+impl windows_core::TypeKind for LearningModelPixelRange {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for LearningModelPixelRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelPixelRange;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModelSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LearningModelSession, super::super::Foundation::IClosable);
@@ -1699,6 +1731,7 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).EvaluationProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn EvaluateAsync<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
     where
         P0: windows_core::Param<LearningModelBinding>,
@@ -1720,6 +1753,7 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).EvaluateFeaturesAsync)(windows_core::Interface::as_raw(this), features.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn Evaluate<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<LearningModelEvaluationResult>
     where
         P0: windows_core::Param<LearningModelBinding>,
@@ -1784,7 +1818,7 @@ impl windows_core::RuntimeType for LearningModelSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelSession>();
 }
 unsafe impl windows_core::Interface for LearningModelSession {
-    type Vtable = ILearningModelSession_Vtbl;
+    type Vtable = <ILearningModelSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModelSession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LearningModelSession {
@@ -1793,7 +1827,7 @@ impl windows_core::RuntimeName for LearningModelSession {
 unsafe impl Send for LearningModelSession {}
 unsafe impl Sync for LearningModelSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModelSessionOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelSessionOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl LearningModelSessionOptions {
@@ -1835,7 +1869,7 @@ impl windows_core::RuntimeType for LearningModelSessionOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelSessionOptions>();
 }
 unsafe impl windows_core::Interface for LearningModelSessionOptions {
-    type Vtable = ILearningModelSessionOptions_Vtbl;
+    type Vtable = <ILearningModelSessionOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModelSessionOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LearningModelSessionOptions {
@@ -1844,7 +1878,7 @@ impl windows_core::RuntimeName for LearningModelSessionOptions {
 unsafe impl Send for LearningModelSessionOptions {}
 unsafe impl Sync for LearningModelSessionOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MapFeatureDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MapFeatureDescriptor, ILearningModelFeatureDescriptor);
@@ -1853,14 +1887,14 @@ impl MapFeatureDescriptor {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
@@ -1896,7 +1930,7 @@ impl windows_core::RuntimeType for MapFeatureDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapFeatureDescriptor>();
 }
 unsafe impl windows_core::Interface for MapFeatureDescriptor {
-    type Vtable = IMapFeatureDescriptor_Vtbl;
+    type Vtable = <IMapFeatureDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapFeatureDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapFeatureDescriptor {
@@ -1905,7 +1939,7 @@ impl windows_core::RuntimeName for MapFeatureDescriptor {
 unsafe impl Send for MapFeatureDescriptor {}
 unsafe impl Sync for MapFeatureDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SequenceFeatureDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SequenceFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SequenceFeatureDescriptor, ILearningModelFeatureDescriptor);
@@ -1914,14 +1948,14 @@ impl SequenceFeatureDescriptor {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
@@ -1950,7 +1984,7 @@ impl windows_core::RuntimeType for SequenceFeatureDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISequenceFeatureDescriptor>();
 }
 unsafe impl windows_core::Interface for SequenceFeatureDescriptor {
-    type Vtable = ISequenceFeatureDescriptor_Vtbl;
+    type Vtable = <ISequenceFeatureDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISequenceFeatureDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SequenceFeatureDescriptor {
@@ -1959,7 +1993,7 @@ impl windows_core::RuntimeName for SequenceFeatureDescriptor {
 unsafe impl Send for SequenceFeatureDescriptor {}
 unsafe impl Sync for SequenceFeatureDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorBoolean(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorBoolean, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorBoolean, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -2049,9 +2083,9 @@ impl TensorBoolean {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorBoolean>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorBoolean>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorBooleanStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2071,7 +2105,7 @@ impl windows_core::RuntimeType for TensorBoolean {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorBoolean>();
 }
 unsafe impl windows_core::Interface for TensorBoolean {
-    type Vtable = ITensorBoolean_Vtbl;
+    type Vtable = <ITensorBoolean as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorBoolean as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorBoolean {
@@ -2080,7 +2114,7 @@ impl windows_core::RuntimeName for TensorBoolean {
 unsafe impl Send for TensorBoolean {}
 unsafe impl Sync for TensorBoolean {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorDouble(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorDouble, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorDouble, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -2170,9 +2204,9 @@ impl TensorDouble {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorDouble>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorDouble>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorDoubleStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2192,7 +2226,7 @@ impl windows_core::RuntimeType for TensorDouble {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorDouble>();
 }
 unsafe impl windows_core::Interface for TensorDouble {
-    type Vtable = ITensorDouble_Vtbl;
+    type Vtable = <ITensorDouble as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorDouble as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorDouble {
@@ -2201,7 +2235,7 @@ impl windows_core::RuntimeName for TensorDouble {
 unsafe impl Send for TensorDouble {}
 unsafe impl Sync for TensorDouble {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorFeatureDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorFeatureDescriptor, ILearningModelFeatureDescriptor);
@@ -2210,14 +2244,14 @@ impl TensorFeatureDescriptor {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
@@ -2254,7 +2288,7 @@ impl windows_core::RuntimeType for TensorFeatureDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorFeatureDescriptor>();
 }
 unsafe impl windows_core::Interface for TensorFeatureDescriptor {
-    type Vtable = ITensorFeatureDescriptor_Vtbl;
+    type Vtable = <ITensorFeatureDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorFeatureDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorFeatureDescriptor {
@@ -2263,7 +2297,7 @@ impl windows_core::RuntimeName for TensorFeatureDescriptor {
 unsafe impl Send for TensorFeatureDescriptor {}
 unsafe impl Sync for TensorFeatureDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorFloat(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorFloat, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorFloat, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -2353,9 +2387,9 @@ impl TensorFloat {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorFloat>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorFloat>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorFloatStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2375,7 +2409,7 @@ impl windows_core::RuntimeType for TensorFloat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorFloat>();
 }
 unsafe impl windows_core::Interface for TensorFloat {
-    type Vtable = ITensorFloat_Vtbl;
+    type Vtable = <ITensorFloat as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorFloat as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorFloat {
@@ -2384,7 +2418,7 @@ impl windows_core::RuntimeName for TensorFloat {
 unsafe impl Send for TensorFloat {}
 unsafe impl Sync for TensorFloat {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorFloat16Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorFloat16Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorFloat16Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -2474,9 +2508,9 @@ impl TensorFloat16Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorFloat16Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorFloat16Bit>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2496,7 +2530,7 @@ impl windows_core::RuntimeType for TensorFloat16Bit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorFloat16Bit>();
 }
 unsafe impl windows_core::Interface for TensorFloat16Bit {
-    type Vtable = ITensorFloat16Bit_Vtbl;
+    type Vtable = <ITensorFloat16Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorFloat16Bit as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorFloat16Bit {
@@ -2505,7 +2539,7 @@ impl windows_core::RuntimeName for TensorFloat16Bit {
 unsafe impl Send for TensorFloat16Bit {}
 unsafe impl Sync for TensorFloat16Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorInt16Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorInt16Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt16Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -2595,9 +2629,9 @@ impl TensorInt16Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorInt16Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorInt16Bit>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorInt16BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2617,7 +2651,7 @@ impl windows_core::RuntimeType for TensorInt16Bit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt16Bit>();
 }
 unsafe impl windows_core::Interface for TensorInt16Bit {
-    type Vtable = ITensorInt16Bit_Vtbl;
+    type Vtable = <ITensorInt16Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorInt16Bit as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorInt16Bit {
@@ -2626,7 +2660,7 @@ impl windows_core::RuntimeName for TensorInt16Bit {
 unsafe impl Send for TensorInt16Bit {}
 unsafe impl Sync for TensorInt16Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorInt32Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorInt32Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt32Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -2716,9 +2750,9 @@ impl TensorInt32Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorInt32Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorInt32Bit>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorInt32BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2738,7 +2772,7 @@ impl windows_core::RuntimeType for TensorInt32Bit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt32Bit>();
 }
 unsafe impl windows_core::Interface for TensorInt32Bit {
-    type Vtable = ITensorInt32Bit_Vtbl;
+    type Vtable = <ITensorInt32Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorInt32Bit as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorInt32Bit {
@@ -2747,7 +2781,7 @@ impl windows_core::RuntimeName for TensorInt32Bit {
 unsafe impl Send for TensorInt32Bit {}
 unsafe impl Sync for TensorInt32Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorInt64Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorInt64Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt64Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -2837,9 +2871,9 @@ impl TensorInt64Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorInt64Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorInt64Bit>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorInt64BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2859,7 +2893,7 @@ impl windows_core::RuntimeType for TensorInt64Bit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt64Bit>();
 }
 unsafe impl windows_core::Interface for TensorInt64Bit {
-    type Vtable = ITensorInt64Bit_Vtbl;
+    type Vtable = <ITensorInt64Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorInt64Bit as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorInt64Bit {
@@ -2868,7 +2902,7 @@ impl windows_core::RuntimeName for TensorInt64Bit {
 unsafe impl Send for TensorInt64Bit {}
 unsafe impl Sync for TensorInt64Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorInt8Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorInt8Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt8Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -2958,9 +2992,9 @@ impl TensorInt8Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorInt8Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorInt8Bit>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorInt8BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2980,7 +3014,7 @@ impl windows_core::RuntimeType for TensorInt8Bit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt8Bit>();
 }
 unsafe impl windows_core::Interface for TensorInt8Bit {
-    type Vtable = ITensorInt8Bit_Vtbl;
+    type Vtable = <ITensorInt8Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorInt8Bit as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorInt8Bit {
@@ -2989,7 +3023,34 @@ impl windows_core::RuntimeName for TensorInt8Bit {
 unsafe impl Send for TensorInt8Bit {}
 unsafe impl Sync for TensorInt8Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TensorKind(pub i32);
+impl TensorKind {
+    pub const Undefined: Self = Self(0i32);
+    pub const Float: Self = Self(1i32);
+    pub const UInt8: Self = Self(2i32);
+    pub const Int8: Self = Self(3i32);
+    pub const UInt16: Self = Self(4i32);
+    pub const Int16: Self = Self(5i32);
+    pub const Int32: Self = Self(6i32);
+    pub const Int64: Self = Self(7i32);
+    pub const String: Self = Self(8i32);
+    pub const Boolean: Self = Self(9i32);
+    pub const Float16: Self = Self(10i32);
+    pub const Double: Self = Self(11i32);
+    pub const UInt32: Self = Self(12i32);
+    pub const UInt64: Self = Self(13i32);
+    pub const Complex64: Self = Self(14i32);
+    pub const Complex128: Self = Self(15i32);
+}
+impl windows_core::TypeKind for TensorKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for TensorKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.TensorKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorString(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorString, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorString, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -3091,7 +3152,7 @@ impl windows_core::RuntimeType for TensorString {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorString>();
 }
 unsafe impl windows_core::Interface for TensorString {
-    type Vtable = ITensorString_Vtbl;
+    type Vtable = <ITensorString as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorString as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorString {
@@ -3100,7 +3161,7 @@ impl windows_core::RuntimeName for TensorString {
 unsafe impl Send for TensorString {}
 unsafe impl Sync for TensorString {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorUInt16Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorUInt16Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt16Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -3190,9 +3251,9 @@ impl TensorUInt16Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorUInt16Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorUInt16Bit>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3212,7 +3273,7 @@ impl windows_core::RuntimeType for TensorUInt16Bit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt16Bit>();
 }
 unsafe impl windows_core::Interface for TensorUInt16Bit {
-    type Vtable = ITensorUInt16Bit_Vtbl;
+    type Vtable = <ITensorUInt16Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorUInt16Bit as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorUInt16Bit {
@@ -3221,7 +3282,7 @@ impl windows_core::RuntimeName for TensorUInt16Bit {
 unsafe impl Send for TensorUInt16Bit {}
 unsafe impl Sync for TensorUInt16Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorUInt32Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorUInt32Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt32Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -3311,9 +3372,9 @@ impl TensorUInt32Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorUInt32Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorUInt32Bit>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3333,7 +3394,7 @@ impl windows_core::RuntimeType for TensorUInt32Bit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt32Bit>();
 }
 unsafe impl windows_core::Interface for TensorUInt32Bit {
-    type Vtable = ITensorUInt32Bit_Vtbl;
+    type Vtable = <ITensorUInt32Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorUInt32Bit as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorUInt32Bit {
@@ -3342,7 +3403,7 @@ impl windows_core::RuntimeName for TensorUInt32Bit {
 unsafe impl Send for TensorUInt32Bit {}
 unsafe impl Sync for TensorUInt32Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorUInt64Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorUInt64Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt64Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -3432,9 +3493,9 @@ impl TensorUInt64Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorUInt64Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorUInt64Bit>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3454,7 +3515,7 @@ impl windows_core::RuntimeType for TensorUInt64Bit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt64Bit>();
 }
 unsafe impl windows_core::Interface for TensorUInt64Bit {
-    type Vtable = ITensorUInt64Bit_Vtbl;
+    type Vtable = <ITensorUInt64Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorUInt64Bit as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorUInt64Bit {
@@ -3463,7 +3524,7 @@ impl windows_core::RuntimeName for TensorUInt64Bit {
 unsafe impl Send for TensorUInt64Bit {}
 unsafe impl Sync for TensorUInt64Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorUInt8Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorUInt8Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt8Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
@@ -3553,9 +3614,9 @@ impl TensorUInt8Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorUInt8Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorUInt8Bit>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3575,7 +3636,7 @@ impl windows_core::RuntimeType for TensorUInt8Bit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt8Bit>();
 }
 unsafe impl windows_core::Interface for TensorUInt8Bit {
-    type Vtable = ITensorUInt8Bit_Vtbl;
+    type Vtable = <ITensorUInt8Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorUInt8Bit as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TensorUInt8Bit {
@@ -3583,95 +3644,3 @@ impl windows_core::RuntimeName for TensorUInt8Bit {
 }
 unsafe impl Send for TensorUInt8Bit {}
 unsafe impl Sync for TensorUInt8Bit {}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct LearningModelDeviceKind(pub i32);
-impl LearningModelDeviceKind {
-    pub const Default: Self = Self(0i32);
-    pub const Cpu: Self = Self(1i32);
-    pub const DirectX: Self = Self(2i32);
-    pub const DirectXHighPerformance: Self = Self(3i32);
-    pub const DirectXMinPower: Self = Self(4i32);
-}
-impl windows_core::TypeKind for LearningModelDeviceKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LearningModelDeviceKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LearningModelDeviceKind").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for LearningModelDeviceKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelDeviceKind;i4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct LearningModelFeatureKind(pub i32);
-impl LearningModelFeatureKind {
-    pub const Tensor: Self = Self(0i32);
-    pub const Sequence: Self = Self(1i32);
-    pub const Map: Self = Self(2i32);
-    pub const Image: Self = Self(3i32);
-}
-impl windows_core::TypeKind for LearningModelFeatureKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LearningModelFeatureKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LearningModelFeatureKind").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for LearningModelFeatureKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelFeatureKind;i4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct LearningModelPixelRange(pub i32);
-impl LearningModelPixelRange {
-    pub const ZeroTo255: Self = Self(0i32);
-    pub const ZeroToOne: Self = Self(1i32);
-    pub const MinusOneToOne: Self = Self(2i32);
-}
-impl windows_core::TypeKind for LearningModelPixelRange {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LearningModelPixelRange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LearningModelPixelRange").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for LearningModelPixelRange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelPixelRange;i4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TensorKind(pub i32);
-impl TensorKind {
-    pub const Undefined: Self = Self(0i32);
-    pub const Float: Self = Self(1i32);
-    pub const UInt8: Self = Self(2i32);
-    pub const Int8: Self = Self(3i32);
-    pub const UInt16: Self = Self(4i32);
-    pub const Int16: Self = Self(5i32);
-    pub const Int32: Self = Self(6i32);
-    pub const Int64: Self = Self(7i32);
-    pub const String: Self = Self(8i32);
-    pub const Boolean: Self = Self(9i32);
-    pub const Float16: Self = Self(10i32);
-    pub const Double: Self = Self(11i32);
-    pub const UInt32: Self = Self(12i32);
-    pub const UInt64: Self = Self(13i32);
-    pub const Complex64: Self = Self(14i32);
-    pub const Complex128: Self = Self(15i32);
-}
-impl windows_core::TypeKind for TensorKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TensorKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TensorKind").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for TensorKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.TensorKind;i4)");
-}

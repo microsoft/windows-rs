@@ -17,6 +17,35 @@ pub const EC_CREATE_NEW: u32 = 1u32;
 pub const EC_OPEN_ALWAYS: u32 = 0u32;
 pub const EC_OPEN_EXISTING: u32 = 2u32;
 pub const EC_READ_ACCESS: u32 = 1u32;
+pub type EC_SUBSCRIPTION_CONFIGURATION_MODE = i32;
+pub type EC_SUBSCRIPTION_CONTENT_FORMAT = i32;
+pub type EC_SUBSCRIPTION_CREDENTIALS_TYPE = i32;
+pub type EC_SUBSCRIPTION_DELIVERY_MODE = i32;
+pub type EC_SUBSCRIPTION_PROPERTY_ID = i32;
+pub type EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS = i32;
+pub type EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = i32;
+pub type EC_SUBSCRIPTION_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EC_VARIANT {
+    pub Anonymous: EC_VARIANT_0,
+    pub Count: u32,
+    pub Type: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EC_VARIANT_0 {
+    pub BooleanVal: super::super::Foundation::BOOL,
+    pub UInt32Val: u32,
+    pub DateTimeVal: u64,
+    pub StringVal: windows_sys::core::PCWSTR,
+    pub BinaryVal: *mut u8,
+    pub BooleanArr: *mut super::super::Foundation::BOOL,
+    pub Int32Arr: *mut i32,
+    pub StringArr: *mut windows_sys::core::PWSTR,
+    pub PropertyHandleVal: isize,
+}
+pub type EC_VARIANT_TYPE = i32;
 pub const EC_VARIANT_TYPE_ARRAY: u32 = 128u32;
 pub const EC_VARIANT_TYPE_MASK: u32 = 127u32;
 pub const EC_WRITE_ACCESS: u32 = 2u32;
@@ -86,32 +115,3 @@ pub const EcVarTypeDateTime: EC_VARIANT_TYPE = 3i32;
 pub const EcVarTypeNull: EC_VARIANT_TYPE = 0i32;
 pub const EcVarTypeString: EC_VARIANT_TYPE = 4i32;
 pub const EcVarTypeUInt32: EC_VARIANT_TYPE = 2i32;
-pub type EC_SUBSCRIPTION_CONFIGURATION_MODE = i32;
-pub type EC_SUBSCRIPTION_CONTENT_FORMAT = i32;
-pub type EC_SUBSCRIPTION_CREDENTIALS_TYPE = i32;
-pub type EC_SUBSCRIPTION_DELIVERY_MODE = i32;
-pub type EC_SUBSCRIPTION_PROPERTY_ID = i32;
-pub type EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS = i32;
-pub type EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = i32;
-pub type EC_SUBSCRIPTION_TYPE = i32;
-pub type EC_VARIANT_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EC_VARIANT {
-    pub Anonymous: EC_VARIANT_0,
-    pub Count: u32,
-    pub Type: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EC_VARIANT_0 {
-    pub BooleanVal: super::super::Foundation::BOOL,
-    pub UInt32Val: u32,
-    pub DateTimeVal: u64,
-    pub StringVal: windows_sys::core::PCWSTR,
-    pub BinaryVal: *mut u8,
-    pub BooleanArr: *mut super::super::Foundation::BOOL,
-    pub Int32Arr: *mut i32,
-    pub StringArr: *mut windows_sys::core::PWSTR,
-    pub PropertyHandleVal: isize,
-}

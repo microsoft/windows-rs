@@ -7,6 +7,7 @@
     dead_code,
     clippy::all
 )]
+
 windows_core::imp::define_interface!(
     IJsonValidator,
     IJsonValidator_Vtbl,
@@ -21,8 +22,8 @@ pub struct IJsonValidator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Validate: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        core::mem::MaybeUninit<windows_core::HSTRING>,
-        *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -39,12 +40,12 @@ pub struct IJsonValidatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        core::mem::MaybeUninit<windows_core::HSTRING>,
+        *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct JsonValidator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     JsonValidator,
@@ -64,7 +65,7 @@ impl JsonValidator {
                 core::mem::transmute_copy(value),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .map(|| core::mem::transmute(result__))
         }
     }
     pub fn CreateInstance(schema: &windows_core::HSTRING) -> windows_core::Result<JsonValidator> {
@@ -91,7 +92,7 @@ impl windows_core::RuntimeType for JsonValidator {
         windows_core::imp::ConstBuffer::for_class::<Self, IJsonValidator>();
 }
 unsafe impl windows_core::Interface for JsonValidator {
-    type Vtable = IJsonValidator_Vtbl;
+    type Vtable = <IJsonValidator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IJsonValidator as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for JsonValidator {

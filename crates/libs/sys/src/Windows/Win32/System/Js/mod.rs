@@ -9,10 +9,6 @@ windows_targets::link!("chakra.dll" "system" fn JsConvertValueToNumber(value : *
 windows_targets::link!("chakra.dll" "system" fn JsConvertValueToObject(value : *const core::ffi::c_void, object : *mut *mut core::ffi::c_void) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsConvertValueToString(value : *const core::ffi::c_void, stringvalue : *mut *mut core::ffi::c_void) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsCreateArray(length : u32, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_targets::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : * mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
-#[cfg(target_arch = "x86")]
-windows_targets::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : * mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsCreateError(message : *const core::ffi::c_void, error : *mut *mut core::ffi::c_void) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsCreateExternalObject(data : *const core::ffi::c_void, finalizecallback : JsFinalizeCallback, object : *mut *mut core::ffi::c_void) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsCreateFunction(nativefunction : JsNativeFunction, callbackstate : *const core::ffi::c_void, function : *mut *mut core::ffi::c_void) -> JsErrorCode);
@@ -30,7 +26,6 @@ windows_targets::link!("chakra.dll" "system" fn JsDisableRuntimeExecution(runtim
 windows_targets::link!("chakra.dll" "system" fn JsDisposeRuntime(runtime : *const core::ffi::c_void) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsDoubleToNumber(doublevalue : f64, value : *mut *mut core::ffi::c_void) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsEnableRuntimeExecution(runtime : *const core::ffi::c_void) -> JsErrorCode);
-windows_targets::link!("chakra.dll" "system" fn JsEnumerateHeap(enumerator : *mut * mut core::ffi::c_void) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsEquals(object1 : *const core::ffi::c_void, object2 : *const core::ffi::c_void, result : *mut bool) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsGetAndClearException(exception : *mut *mut core::ffi::c_void) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsGetCurrentContext(currentcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
@@ -79,19 +74,17 @@ windows_targets::link!("chakra.dll" "system" fn JsSetPrototype(object : *const c
 windows_targets::link!("chakra.dll" "system" fn JsSetRuntimeBeforeCollectCallback(runtime : *const core::ffi::c_void, callbackstate : *const core::ffi::c_void, beforecollectcallback : JsBeforeCollectCallback) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsSetRuntimeMemoryAllocationCallback(runtime : *const core::ffi::c_void, callbackstate : *const core::ffi::c_void, allocationcallback : JsMemoryAllocationCallback) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsSetRuntimeMemoryLimit(runtime : *const core::ffi::c_void, memorylimit : usize) -> JsErrorCode);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_targets::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut core::ffi::c_void) -> JsErrorCode);
-#[cfg(target_arch = "x86")]
-windows_targets::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut core::ffi::c_void) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsStopProfiling(reason : windows_sys::core::HRESULT) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsStrictEquals(object1 : *const core::ffi::c_void, object2 : *const core::ffi::c_void, result : *mut bool) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsStringToPointer(value : *const core::ffi::c_void, stringvalue : *mut *mut u16, stringlength : *mut usize) -> JsErrorCode);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("chakra.dll" "system" fn JsValueToVariant(object : *const core::ffi::c_void, variant : *mut super::Variant:: VARIANT) -> JsErrorCode);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("chakra.dll" "system" fn JsVariantToValue(variant : *const super::Variant:: VARIANT, value : *mut *mut core::ffi::c_void) -> JsErrorCode);
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 pub const JsArray: JsValueType = 8i32;
+pub type JsBackgroundWorkItemCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
+pub type JsBeforeCollectCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
 pub const JsBoolean: JsValueType = 4i32;
 pub const JsError: JsValueType = 7i32;
 pub const JsErrorAlreadyDebuggingContext: JsErrorCode = 65552u32;
@@ -104,6 +97,7 @@ pub const JsErrorCategoryEngine: JsErrorCode = 131072u32;
 pub const JsErrorCategoryFatal: JsErrorCode = 262144u32;
 pub const JsErrorCategoryScript: JsErrorCode = 196608u32;
 pub const JsErrorCategoryUsage: JsErrorCode = 65536u32;
+pub type JsErrorCode = u32;
 pub const JsErrorFatal: JsErrorCode = 262145u32;
 pub const JsErrorHeapEnumInProgress: JsErrorCode = 65547u32;
 pub const JsErrorIdleNotEnabled: JsErrorCode = 65554u32;
@@ -122,10 +116,14 @@ pub const JsErrorScriptEvalDisabled: JsErrorCode = 196612u32;
 pub const JsErrorScriptException: JsErrorCode = 196609u32;
 pub const JsErrorScriptTerminated: JsErrorCode = 196611u32;
 pub const JsErrorWrongThread: JsErrorCode = 65542u32;
+pub type JsFinalizeCallback = Option<unsafe extern "system" fn(data: *const core::ffi::c_void)>;
 pub const JsFunction: JsValueType = 6i32;
 pub const JsMemoryAllocate: JsMemoryEventType = 0i32;
+pub type JsMemoryAllocationCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool>;
+pub type JsMemoryEventType = i32;
 pub const JsMemoryFailure: JsMemoryEventType = 2i32;
 pub const JsMemoryFree: JsMemoryEventType = 1i32;
+pub type JsNativeFunction = Option<unsafe extern "system" fn(callee: *const core::ffi::c_void, isconstructcall: bool, arguments: *const *const core::ffi::c_void, argumentcount: u16, callbackstate: *const core::ffi::c_void) -> *mut core::ffi::c_void>;
 pub const JsNoError: JsErrorCode = 0u32;
 pub const JsNull: JsValueType = 1i32;
 pub const JsNumber: JsValueType = 2i32;
@@ -136,19 +134,12 @@ pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = 16i32;
 pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = 8i32;
 pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = 4i32;
 pub const JsRuntimeAttributeNone: JsRuntimeAttributes = 0i32;
+pub type JsRuntimeAttributes = i32;
+pub type JsRuntimeVersion = i32;
 pub const JsRuntimeVersion10: JsRuntimeVersion = 0i32;
 pub const JsRuntimeVersion11: JsRuntimeVersion = 1i32;
 pub const JsRuntimeVersionEdge: JsRuntimeVersion = -1i32;
 pub const JsString: JsValueType = 3i32;
-pub const JsUndefined: JsValueType = 0i32;
-pub type JsErrorCode = u32;
-pub type JsMemoryEventType = i32;
-pub type JsRuntimeAttributes = i32;
-pub type JsRuntimeVersion = i32;
-pub type JsValueType = i32;
-pub type JsBackgroundWorkItemCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
-pub type JsBeforeCollectCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
-pub type JsFinalizeCallback = Option<unsafe extern "system" fn(data: *const core::ffi::c_void)>;
-pub type JsMemoryAllocationCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool>;
-pub type JsNativeFunction = Option<unsafe extern "system" fn(callee: *const core::ffi::c_void, isconstructcall: bool, arguments: *const *const core::ffi::c_void, argumentcount: u16, callbackstate: *const core::ffi::c_void) -> *mut core::ffi::c_void>;
 pub type JsThreadServiceCallback = Option<unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const core::ffi::c_void) -> bool>;
+pub const JsUndefined: JsValueType = 0i32;
+pub type JsValueType = i32;

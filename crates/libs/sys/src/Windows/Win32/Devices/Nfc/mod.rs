@@ -96,50 +96,6 @@ pub const MAX_LLCP_SERVICE_NAME_SIZE: u32 = 256u32;
 pub const MAX_SNEP_SERVER_NAME_SIZE: u32 = 256u32;
 pub const MAX_UID_SIZE: u32 = 16u32;
 pub const NFCRMDDI_IOCTL_BASE: u32 = 80u32;
-pub const NfcConnectBySap: NFC_LLCP_SOCKET_CONNECT_TYPE = 0i32;
-pub const NfcConnectByUri: NFC_LLCP_SOCKET_CONNECT_TYPE = 1i32;
-pub const NfcDepDefault: NFC_P2P_MODE = 0i32;
-pub const NfcDepListen: NFC_P2P_MODE = 2i32;
-pub const NfcDepPoll: NFC_P2P_MODE = 1i32;
-pub const NfcIP1Initiator: NFC_DEVICE_TYPE = 5i32;
-pub const NfcIP1Target: NFC_DEVICE_TYPE = 4i32;
-pub const NfcLlcpErrorBusyCondition: NFC_LLCP_SOCKET_ERROR = 2i32;
-pub const NfcLlcpErrorDisconnected: NFC_LLCP_SOCKET_ERROR = 0i32;
-pub const NfcLlcpErrorFrameRejected: NFC_LLCP_SOCKET_ERROR = 1i32;
-pub const NfcLlcpErrorNotBusyCondition: NFC_LLCP_SOCKET_ERROR = 3i32;
-pub const NfcReader: NFC_DEVICE_TYPE = 6i32;
-pub const NfcType1Tag: NFC_DEVICE_TYPE = 0i32;
-pub const NfcType2Tag: NFC_DEVICE_TYPE = 1i32;
-pub const NfcType3Tag: NFC_DEVICE_TYPE = 2i32;
-pub const NfcType4Tag: NFC_DEVICE_TYPE = 3i32;
-pub const RFDiscoveryResume: NFC_RF_DISCOVERY_MODE = 2i32;
-pub const RfDiscoveryConfig: NFC_RF_DISCOVERY_MODE = 0i32;
-pub const RfDiscoveryStart: NFC_RF_DISCOVERY_MODE = 1i32;
-pub const RoutingTypeAid: SECURE_ELEMENT_ROUTING_TYPE = 2i32;
-pub const RoutingTypeProtocol: SECURE_ELEMENT_ROUTING_TYPE = 1i32;
-pub const RoutingTypeTech: SECURE_ELEMENT_ROUTING_TYPE = 0i32;
-pub const SEPowerMode_AllowOff: SECURE_ELEMENT_POWER_MODE = 1i32;
-pub const SEPowerMode_ForceOn: SECURE_ELEMENT_POWER_MODE = 0i32;
-pub const SleepMode: NFC_RELEASE_TYPE = 1i32;
-pub const SnepRequestGet: NFC_SNEP_REQUEST_TYPE = 0i32;
-pub const SnepRequestPut: NFC_SNEP_REQUEST_TYPE = 1i32;
-pub const Transaction: SECURE_ELEMENT_EVENT_TYPE = 3i32;
-pub type NFC_DEVICE_TYPE = i32;
-pub type NFC_LLCP_LINK_STATUS = i32;
-pub type NFC_LLCP_SOCKET_CONNECT_TYPE = i32;
-pub type NFC_LLCP_SOCKET_ERROR = i32;
-pub type NFC_LLCP_SOCKET_TYPE = i32;
-pub type NFC_P2P_MODE = i32;
-pub type NFC_RELEASE_TYPE = i32;
-pub type NFC_RF_DISCOVERY_MODE = i32;
-pub type NFC_SE_EMULATION_MODE = i32;
-pub type NFC_SNEP_REQUEST_TYPE = i32;
-pub type NFC_SNEP_SERVER_TYPE = i32;
-pub type SECURE_ELEMENT_CARD_EMULATION_MODE = i32;
-pub type SECURE_ELEMENT_EVENT_TYPE = i32;
-pub type SECURE_ELEMENT_POWER_MODE = i32;
-pub type SECURE_ELEMENT_ROUTING_TYPE = i32;
-pub type SECURE_ELEMENT_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFCRM_RADIO_STATE {
@@ -157,6 +113,7 @@ pub struct NFC_DATA_BUFFER {
     pub cbBuffer: u16,
     pub pbBuffer: [u8; 1],
 }
+pub type NFC_DEVICE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFC_LLCP_CONFIG {
@@ -166,6 +123,7 @@ pub struct NFC_LLCP_CONFIG {
     pub bOptions: u8,
     pub fAutoActivate: super::super::Foundation::BOOLEAN,
 }
+pub type NFC_LLCP_LINK_STATUS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFC_LLCP_SERVICE_DISCOVER_REQUEST {
@@ -212,6 +170,8 @@ pub union NFC_LLCP_SOCKET_CONNECT_INFO_0 {
     pub bSAP: u8,
     pub sServiceName: NFC_LLCP_SERVICE_NAME_ENTRY,
 }
+pub type NFC_LLCP_SOCKET_CONNECT_TYPE = i32;
+pub type NFC_LLCP_SOCKET_ERROR = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFC_LLCP_SOCKET_ERROR_INFO {
@@ -244,6 +204,7 @@ pub struct NFC_LLCP_SOCKET_SERVICE_INFO {
     pub bSAP: u8,
     pub sServiceName: NFC_LLCP_SERVICE_NAME_ENTRY,
 }
+pub type NFC_LLCP_SOCKET_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFC_NDEF_INFO {
@@ -252,6 +213,7 @@ pub struct NFC_NDEF_INFO {
     pub dwActualMessageLength: u32,
     pub dwMaxMessageLength: u32,
 }
+pub type NFC_P2P_MODE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFC_P2P_PARAM_CONFIG {
@@ -259,6 +221,7 @@ pub struct NFC_P2P_PARAM_CONFIG {
     pub cbGeneralBytes: u8,
     pub pbGeneralBytes: [u8; 48],
 }
+pub type NFC_RELEASE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFC_REMOTE_DEVICE_DISCONNET {
@@ -304,6 +267,7 @@ pub struct NFC_RF_DISCOVERY_CONFIG {
     pub ucTimeSlotNumber: u8,
     pub eRfDiscoveryMode: NFC_RF_DISCOVERY_MODE,
 }
+pub type NFC_RF_DISCOVERY_MODE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFC_SE_AID_ROUTING_INFO {
@@ -312,6 +276,7 @@ pub struct NFC_SE_AID_ROUTING_INFO {
     pub cbAid: u32,
     pub pbAid: [u8; 16],
 }
+pub type NFC_SE_EMULATION_MODE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFC_SE_EMULATION_MODE_INFO {
@@ -391,6 +356,7 @@ pub struct NFC_SNEP_CLIENT_PUT_INFO {
     pub hSnepClient: isize,
     pub sPutPayload: NFC_DATA_BUFFER,
 }
+pub type NFC_SNEP_REQUEST_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFC_SNEP_SERVER_ACCEPT_INFO {
@@ -423,6 +389,29 @@ pub struct NFC_SNEP_SERVER_RESPONSE_INFO {
     pub dwResponseStatus: u32,
     pub sResponsePayload: NFC_DATA_BUFFER,
 }
+pub type NFC_SNEP_SERVER_TYPE = i32;
+pub const NfcConnectBySap: NFC_LLCP_SOCKET_CONNECT_TYPE = 0i32;
+pub const NfcConnectByUri: NFC_LLCP_SOCKET_CONNECT_TYPE = 1i32;
+pub const NfcDepDefault: NFC_P2P_MODE = 0i32;
+pub const NfcDepListen: NFC_P2P_MODE = 2i32;
+pub const NfcDepPoll: NFC_P2P_MODE = 1i32;
+pub const NfcIP1Initiator: NFC_DEVICE_TYPE = 5i32;
+pub const NfcIP1Target: NFC_DEVICE_TYPE = 4i32;
+pub const NfcLlcpErrorBusyCondition: NFC_LLCP_SOCKET_ERROR = 2i32;
+pub const NfcLlcpErrorDisconnected: NFC_LLCP_SOCKET_ERROR = 0i32;
+pub const NfcLlcpErrorFrameRejected: NFC_LLCP_SOCKET_ERROR = 1i32;
+pub const NfcLlcpErrorNotBusyCondition: NFC_LLCP_SOCKET_ERROR = 3i32;
+pub const NfcReader: NFC_DEVICE_TYPE = 6i32;
+pub const NfcType1Tag: NFC_DEVICE_TYPE = 0i32;
+pub const NfcType2Tag: NFC_DEVICE_TYPE = 1i32;
+pub const NfcType3Tag: NFC_DEVICE_TYPE = 2i32;
+pub const NfcType4Tag: NFC_DEVICE_TYPE = 3i32;
+pub const RFDiscoveryResume: NFC_RF_DISCOVERY_MODE = 2i32;
+pub const RfDiscoveryConfig: NFC_RF_DISCOVERY_MODE = 0i32;
+pub const RfDiscoveryStart: NFC_RF_DISCOVERY_MODE = 1i32;
+pub const RoutingTypeAid: SECURE_ELEMENT_ROUTING_TYPE = 2i32;
+pub const RoutingTypeProtocol: SECURE_ELEMENT_ROUTING_TYPE = 1i32;
+pub const RoutingTypeTech: SECURE_ELEMENT_ROUTING_TYPE = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURE_ELEMENT_AID_ROUTING_INFO {
@@ -430,6 +419,7 @@ pub struct SECURE_ELEMENT_AID_ROUTING_INFO {
     pub cbAid: u32,
     pub pbAid: [u8; 16],
 }
+pub type SECURE_ELEMENT_CARD_EMULATION_MODE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURE_ELEMENT_ENDPOINT_INFO {
@@ -456,6 +446,7 @@ pub struct SECURE_ELEMENT_EVENT_SUBSCRIPTION_INFO {
     pub guidSecureElementId: windows_sys::core::GUID,
     pub eEventType: SECURE_ELEMENT_EVENT_TYPE,
 }
+pub type SECURE_ELEMENT_EVENT_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURE_ELEMENT_HCE_ACTIVATION_PAYLOAD {
@@ -478,6 +469,7 @@ pub struct SECURE_ELEMENT_NFCC_CAPABILITIES {
     pub IsProtocolRoutingSupported: super::super::Foundation::BOOLEAN,
     pub IsTechRoutingSupported: super::super::Foundation::BOOLEAN,
 }
+pub type SECURE_ELEMENT_POWER_MODE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURE_ELEMENT_PROTO_ROUTING_INFO {
@@ -503,6 +495,7 @@ pub union SECURE_ELEMENT_ROUTING_TABLE_ENTRY_0 {
     pub ProtoRoutingInfo: SECURE_ELEMENT_PROTO_ROUTING_INFO,
     pub AidRoutingInfo: SECURE_ELEMENT_AID_ROUTING_INFO,
 }
+pub type SECURE_ELEMENT_ROUTING_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURE_ELEMENT_SET_CARD_EMULATION_MODE_INFO {
@@ -521,3 +514,10 @@ pub struct SECURE_ELEMENT_TECH_ROUTING_INFO {
     pub guidSecureElementId: windows_sys::core::GUID,
     pub eRfTechType: u8,
 }
+pub type SECURE_ELEMENT_TYPE = i32;
+pub const SEPowerMode_AllowOff: SECURE_ELEMENT_POWER_MODE = 1i32;
+pub const SEPowerMode_ForceOn: SECURE_ELEMENT_POWER_MODE = 0i32;
+pub const SleepMode: NFC_RELEASE_TYPE = 1i32;
+pub const SnepRequestGet: NFC_SNEP_REQUEST_TYPE = 0i32;
+pub const SnepRequestPut: NFC_SNEP_REQUEST_TYPE = 1i32;
+pub const Transaction: SECURE_ELEMENT_EVENT_TYPE = 3i32;

@@ -5,4 +5,5 @@
     dead_code,
     clippy::all
 )]
+
 pub type WIN32_ERROR = u32;

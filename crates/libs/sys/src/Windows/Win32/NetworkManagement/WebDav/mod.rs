@@ -9,6 +9,7 @@ windows_targets::link!("netapi32.dll" "system" fn DavGetUNCFromHTTPPath(url : wi
 windows_targets::link!("davclnt.dll" "system" fn DavInvalidateCache(urlname : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("davclnt.dll" "system" fn DavRegisterAuthCallback(callback : PFNDAVAUTHCALLBACK, version : u32) -> u32);
 windows_targets::link!("davclnt.dll" "system" fn DavUnregisterAuthCallback(hcallback : u32));
+pub type AUTHNEXTSTEP = i32;
 pub const CancelRequest: AUTHNEXTSTEP = 2i32;
 pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
 pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
@@ -17,9 +18,6 @@ pub const DAV_AUTHN_SCHEME_FBA: u32 = 1048576u32;
 pub const DAV_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
 pub const DAV_AUTHN_SCHEME_NTLM: u32 = 2u32;
 pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
-pub const DefaultBehavior: AUTHNEXTSTEP = 0i32;
-pub const RetryRequest: AUTHNEXTSTEP = 1i32;
-pub type AUTHNEXTSTEP = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DAV_CALLBACK_AUTH_BLOB {
@@ -43,5 +41,7 @@ pub struct DAV_CALLBACK_CRED {
     pub bAuthBlobValid: super::super::Foundation::BOOL,
     pub bSave: super::super::Foundation::BOOL,
 }
+pub const DefaultBehavior: AUTHNEXTSTEP = 0i32;
 pub type PFNDAVAUTHCALLBACK = Option<unsafe extern "system" fn(lpwzservername: windows_sys::core::PCWSTR, lpwzremotename: windows_sys::core::PCWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32>;
 pub type PFNDAVAUTHCALLBACK_FREECRED = Option<unsafe extern "system" fn(pbuffer: *const core::ffi::c_void) -> u32>;
+pub const RetryRequest: AUTHNEXTSTEP = 1i32;

@@ -256,14 +256,18 @@ jobs:
         run:  cargo test -p test_query_signature --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_readme
         run:  cargo test -p test_readme --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_reference
+        run:  cargo test -p test_reference --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_reference_client
+        run:  cargo test -p test_reference_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_reference_float
         run:  cargo test -p test_reference_float --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_registry
         run:  cargo test -p test_registry --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_registry_default
         run:  cargo test -p test_registry_default --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_reserved
         run:  cargo test -p test_reserved --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_resources
@@ -304,6 +308,8 @@ jobs:
         run:  cargo test -p test_window_long --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_winrt
         run:  cargo test -p test_winrt --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_bindgen
+        run:  cargo test -p tool_bindgen --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_bindings
         run:  cargo test -p tool_bindings --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_gnu
@@ -326,8 +332,6 @@ jobs:
         run:  cargo test -p windows-implement --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-interface
         run:  cargo test -p windows-interface --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test windows-metadata
-        run:  cargo test -p windows-metadata --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-registry
         run:  cargo test -p windows-registry --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-result

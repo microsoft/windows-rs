@@ -5,6 +5,140 @@
     dead_code,
     clippy::all
 )]
+
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct Activatable(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    Activatable,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl Activatable {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            Activatable,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Property(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Property)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn WithValue(arg: i32) -> windows_core::Result<Activatable> {
+        Self::IActivatableFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WithValue)(
+                windows_core::Interface::as_raw(this),
+                arg,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IActivatableFactory<R, F: FnOnce(&IActivatableFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Activatable, IActivatableFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for Activatable {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IActivatable>();
+}
+unsafe impl windows_core::Interface for Activatable {
+    type Vtable = <IActivatable as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IActivatable as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for Activatable {
+    const NAME: &'static str = "test_constructors.Activatable";
+}
+unsafe impl Send for Activatable {}
+unsafe impl Sync for Activatable {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct Composable(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    Composable,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl Composable {
+    pub fn Property(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Property)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn new() -> windows_core::Result<Composable> {
+        Self::IComposableFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                &mut core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn WithValue(arg: i32) -> windows_core::Result<Composable> {
+        Self::IComposableFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WithValue)(
+                windows_core::Interface::as_raw(this),
+                arg,
+                core::ptr::null_mut(),
+                &mut core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IComposableFactory<R, F: FnOnce(&IComposableFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Composable, IComposableFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for Composable {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IComposable>();
+}
+unsafe impl windows_core::Interface for Composable {
+    type Vtable = <IComposable as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IComposable as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for Composable {
+    const NAME: &'static str = "test_constructors.Composable";
+}
+unsafe impl Send for Composable {}
+unsafe impl Sync for Composable {}
 windows_core::imp::define_interface!(
     IActivatable,
     IActivatable_Vtbl,
@@ -79,136 +213,3 @@ pub struct IComposableFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
-pub struct Activatable(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(
-    Activatable,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-impl Activatable {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<
-        R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
-    >(
-        callback: F,
-    ) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<
-            Activatable,
-            windows_core::imp::IGenericFactory,
-        > = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Property(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Property)(
-                windows_core::Interface::as_raw(this),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn WithValue(arg: i32) -> windows_core::Result<Activatable> {
-        Self::IActivatableFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WithValue)(
-                windows_core::Interface::as_raw(this),
-                arg,
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IActivatableFactory<R, F: FnOnce(&IActivatableFactory) -> windows_core::Result<R>>(
-        callback: F,
-    ) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<Activatable, IActivatableFactory> =
-            windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for Activatable {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IActivatable>();
-}
-unsafe impl windows_core::Interface for Activatable {
-    type Vtable = IActivatable_Vtbl;
-    const IID: windows_core::GUID = <IActivatable as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for Activatable {
-    const NAME: &'static str = "test_constructors.Activatable";
-}
-unsafe impl Send for Activatable {}
-unsafe impl Sync for Activatable {}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
-pub struct Composable(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(
-    Composable,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-impl Composable {
-    pub fn Property(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Property)(
-                windows_core::Interface::as_raw(this),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn new() -> windows_core::Result<Composable> {
-        Self::IComposableFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn WithValue(arg: i32) -> windows_core::Result<Composable> {
-        Self::IComposableFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WithValue)(
-                windows_core::Interface::as_raw(this),
-                arg,
-                core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IComposableFactory<R, F: FnOnce(&IComposableFactory) -> windows_core::Result<R>>(
-        callback: F,
-    ) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<Composable, IComposableFactory> =
-            windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for Composable {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IComposable>();
-}
-unsafe impl windows_core::Interface for Composable {
-    type Vtable = IComposable_Vtbl;
-    const IID: windows_core::GUID = <IComposable as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for Composable {
-    const NAME: &'static str = "test_constructors.Composable";
-}
-unsafe impl Send for Composable {}
-unsafe impl Sync for Composable {}

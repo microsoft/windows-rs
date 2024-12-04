@@ -429,6 +429,13 @@ windows_targets::link!("opengl32.dll" "system" fn wglUseFontBitmapsW(param0 : su
 windows_targets::link!("opengl32.dll" "system" fn wglUseFontOutlinesA(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("opengl32.dll" "system" fn wglUseFontOutlinesW(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> super::super::Foundation:: BOOL);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct EMRPIXELFORMAT {
+    pub emr: super::Gdi::EMR,
+    pub pfd: PIXELFORMATDESCRIPTOR,
+}
 pub const GLU_AUTO_LOAD_MATRIX: u32 = 100200u32;
 pub const GLU_BEGIN: u32 = 100100u32;
 pub const GLU_CCW: u32 = 100121u32;
@@ -544,6 +551,32 @@ pub const GLU_VERSION_1_1: u32 = 1u32;
 pub const GLU_VERSION_1_2: u32 = 1u32;
 pub const GLU_VERTEX: u32 = 100101u32;
 pub const GLU_V_STEP: u32 = 100207u32;
+pub type GLUnurbs = isize;
+pub type GLUnurbsErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUquadric = isize;
+pub type GLUquadricErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUtessBeginDataProc = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void)>;
+pub type GLUtessBeginProc = Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUtessCombineDataProc = Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut core::ffi::c_void, param2: *mut f32, param3: *mut *mut core::ffi::c_void, param4: *mut core::ffi::c_void)>;
+pub type GLUtessCombineProc = Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut core::ffi::c_void, param2: *mut f32, param3: *mut *mut core::ffi::c_void)>;
+pub type GLUtessEdgeFlagDataProc = Option<unsafe extern "system" fn(param0: u8, param1: *mut core::ffi::c_void)>;
+pub type GLUtessEdgeFlagProc = Option<unsafe extern "system" fn(param0: u8)>;
+pub type GLUtessEndDataProc = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
+pub type GLUtessEndProc = Option<unsafe extern "system" fn()>;
+pub type GLUtessErrorDataProc = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void)>;
+pub type GLUtessErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUtessVertexDataProc = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void)>;
+pub type GLUtessVertexProc = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
+pub type GLUtesselator = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GLYPHMETRICSFLOAT {
+    pub gmfBlackBoxX: f32,
+    pub gmfBlackBoxY: f32,
+    pub gmfptGlyphOrigin: POINTFLOAT,
+    pub gmfCellIncX: f32,
+    pub gmfCellIncY: f32,
+}
 pub const GL_2D: u32 = 1536u32;
 pub const GL_2_BYTES: u32 = 5127u32;
 pub const GL_3D: u32 = 1537u32;
@@ -1132,52 +1165,6 @@ pub const GL_XOR: u32 = 5382u32;
 pub const GL_ZERO: u32 = 0u32;
 pub const GL_ZOOM_X: u32 = 3350u32;
 pub const GL_ZOOM_Y: u32 = 3351u32;
-pub const PFD_DEPTH_DONTCARE: PFD_FLAGS = 536870912u32;
-pub const PFD_DIRECT3D_ACCELERATED: PFD_FLAGS = 16384u32;
-pub const PFD_DOUBLEBUFFER: PFD_FLAGS = 1u32;
-pub const PFD_DOUBLEBUFFER_DONTCARE: PFD_FLAGS = 1073741824u32;
-pub const PFD_DRAW_TO_BITMAP: PFD_FLAGS = 8u32;
-pub const PFD_DRAW_TO_WINDOW: PFD_FLAGS = 4u32;
-pub const PFD_GENERIC_ACCELERATED: PFD_FLAGS = 4096u32;
-pub const PFD_GENERIC_FORMAT: PFD_FLAGS = 64u32;
-pub const PFD_MAIN_PLANE: PFD_LAYER_TYPE = 0i8;
-pub const PFD_NEED_PALETTE: PFD_FLAGS = 128u32;
-pub const PFD_NEED_SYSTEM_PALETTE: PFD_FLAGS = 256u32;
-pub const PFD_OVERLAY_PLANE: PFD_LAYER_TYPE = 1i8;
-pub const PFD_STEREO: PFD_FLAGS = 2u32;
-pub const PFD_STEREO_DONTCARE: PFD_FLAGS = 2147483648u32;
-pub const PFD_SUPPORT_COMPOSITION: PFD_FLAGS = 32768u32;
-pub const PFD_SUPPORT_DIRECTDRAW: PFD_FLAGS = 8192u32;
-pub const PFD_SUPPORT_GDI: PFD_FLAGS = 16u32;
-pub const PFD_SUPPORT_OPENGL: PFD_FLAGS = 32u32;
-pub const PFD_SWAP_COPY: PFD_FLAGS = 1024u32;
-pub const PFD_SWAP_EXCHANGE: PFD_FLAGS = 512u32;
-pub const PFD_SWAP_LAYER_BUFFERS: PFD_FLAGS = 2048u32;
-pub const PFD_TYPE_COLORINDEX: PFD_PIXEL_TYPE = 1u8;
-pub const PFD_TYPE_RGBA: PFD_PIXEL_TYPE = 0u8;
-pub const PFD_UNDERLAY_PLANE: PFD_LAYER_TYPE = -1i8;
-pub type PFD_FLAGS = u32;
-pub type PFD_LAYER_TYPE = i8;
-pub type PFD_PIXEL_TYPE = u8;
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct EMRPIXELFORMAT {
-    pub emr: super::Gdi::EMR,
-    pub pfd: PIXELFORMATDESCRIPTOR,
-}
-pub type GLUnurbs = isize;
-pub type GLUquadric = isize;
-pub type GLUtesselator = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GLYPHMETRICSFLOAT {
-    pub gmfBlackBoxX: f32,
-    pub gmfBlackBoxY: f32,
-    pub gmfptGlyphOrigin: POINTFLOAT,
-    pub gmfCellIncX: f32,
-    pub gmfCellIncY: f32,
-}
 pub type HGLRC = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1207,6 +1194,50 @@ pub struct LAYERPLANEDESCRIPTOR {
     pub bReserved: u8,
     pub crTransparent: super::super::Foundation::COLORREF,
 }
+pub const PFD_DEPTH_DONTCARE: PFD_FLAGS = 536870912u32;
+pub const PFD_DIRECT3D_ACCELERATED: PFD_FLAGS = 16384u32;
+pub const PFD_DOUBLEBUFFER: PFD_FLAGS = 1u32;
+pub const PFD_DOUBLEBUFFER_DONTCARE: PFD_FLAGS = 1073741824u32;
+pub const PFD_DRAW_TO_BITMAP: PFD_FLAGS = 8u32;
+pub const PFD_DRAW_TO_WINDOW: PFD_FLAGS = 4u32;
+pub type PFD_FLAGS = u32;
+pub const PFD_GENERIC_ACCELERATED: PFD_FLAGS = 4096u32;
+pub const PFD_GENERIC_FORMAT: PFD_FLAGS = 64u32;
+pub type PFD_LAYER_TYPE = i8;
+pub const PFD_MAIN_PLANE: PFD_LAYER_TYPE = 0i8;
+pub const PFD_NEED_PALETTE: PFD_FLAGS = 128u32;
+pub const PFD_NEED_SYSTEM_PALETTE: PFD_FLAGS = 256u32;
+pub const PFD_OVERLAY_PLANE: PFD_LAYER_TYPE = 1i8;
+pub type PFD_PIXEL_TYPE = u8;
+pub const PFD_STEREO: PFD_FLAGS = 2u32;
+pub const PFD_STEREO_DONTCARE: PFD_FLAGS = 2147483648u32;
+pub const PFD_SUPPORT_COMPOSITION: PFD_FLAGS = 32768u32;
+pub const PFD_SUPPORT_DIRECTDRAW: PFD_FLAGS = 8192u32;
+pub const PFD_SUPPORT_GDI: PFD_FLAGS = 16u32;
+pub const PFD_SUPPORT_OPENGL: PFD_FLAGS = 32u32;
+pub const PFD_SWAP_COPY: PFD_FLAGS = 1024u32;
+pub const PFD_SWAP_EXCHANGE: PFD_FLAGS = 512u32;
+pub const PFD_SWAP_LAYER_BUFFERS: PFD_FLAGS = 2048u32;
+pub const PFD_TYPE_COLORINDEX: PFD_PIXEL_TYPE = 1u8;
+pub const PFD_TYPE_RGBA: PFD_PIXEL_TYPE = 0u8;
+pub const PFD_UNDERLAY_PLANE: PFD_LAYER_TYPE = -1i8;
+pub type PFNGLADDSWAPHINTRECTWINPROC = Option<unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32)>;
+pub type PFNGLARRAYELEMENTARRAYEXTPROC = Option<unsafe extern "system" fn(mode: u32, count: i32, pi: *const core::ffi::c_void)>;
+pub type PFNGLARRAYELEMENTEXTPROC = Option<unsafe extern "system" fn(i: i32)>;
+pub type PFNGLCOLORPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
+pub type PFNGLCOLORSUBTABLEEXTPROC = Option<unsafe extern "system" fn(target: u32, start: i32, count: i32, format: u32, r#type: u32, data: *const core::ffi::c_void)>;
+pub type PFNGLCOLORTABLEEXTPROC = Option<unsafe extern "system" fn(target: u32, internalformat: u32, width: i32, format: u32, r#type: u32, data: *const core::ffi::c_void)>;
+pub type PFNGLDRAWARRAYSEXTPROC = Option<unsafe extern "system" fn(mode: u32, first: i32, count: i32)>;
+pub type PFNGLDRAWRANGEELEMENTSWINPROC = Option<unsafe extern "system" fn(mode: u32, start: u32, end: u32, count: i32, r#type: u32, indices: *const core::ffi::c_void)>;
+pub type PFNGLEDGEFLAGPOINTEREXTPROC = Option<unsafe extern "system" fn(stride: i32, count: i32, pointer: *const u8)>;
+pub type PFNGLGETCOLORTABLEEXTPROC = Option<unsafe extern "system" fn(target: u32, format: u32, r#type: u32, data: *mut core::ffi::c_void)>;
+pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut f32)>;
+pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut i32)>;
+pub type PFNGLGETPOINTERVEXTPROC = Option<unsafe extern "system" fn(pname: u32, params: *mut *mut core::ffi::c_void)>;
+pub type PFNGLINDEXPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
+pub type PFNGLNORMALPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
+pub type PFNGLTEXCOORDPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
+pub type PFNGLVERTEXPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PIXELFORMATDESCRIPTOR {
@@ -1243,34 +1274,3 @@ pub struct POINTFLOAT {
     pub x: f32,
     pub y: f32,
 }
-pub type GLUnurbsErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
-pub type GLUquadricErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
-pub type GLUtessBeginDataProc = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void)>;
-pub type GLUtessBeginProc = Option<unsafe extern "system" fn(param0: u32)>;
-pub type GLUtessCombineDataProc = Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut core::ffi::c_void, param2: *mut f32, param3: *mut *mut core::ffi::c_void, param4: *mut core::ffi::c_void)>;
-pub type GLUtessCombineProc = Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut core::ffi::c_void, param2: *mut f32, param3: *mut *mut core::ffi::c_void)>;
-pub type GLUtessEdgeFlagDataProc = Option<unsafe extern "system" fn(param0: u8, param1: *mut core::ffi::c_void)>;
-pub type GLUtessEdgeFlagProc = Option<unsafe extern "system" fn(param0: u8)>;
-pub type GLUtessEndDataProc = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
-pub type GLUtessEndProc = Option<unsafe extern "system" fn()>;
-pub type GLUtessErrorDataProc = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void)>;
-pub type GLUtessErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
-pub type GLUtessVertexDataProc = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void)>;
-pub type GLUtessVertexProc = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
-pub type PFNGLADDSWAPHINTRECTWINPROC = Option<unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32)>;
-pub type PFNGLARRAYELEMENTARRAYEXTPROC = Option<unsafe extern "system" fn(mode: u32, count: i32, pi: *const core::ffi::c_void)>;
-pub type PFNGLARRAYELEMENTEXTPROC = Option<unsafe extern "system" fn(i: i32)>;
-pub type PFNGLCOLORPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
-pub type PFNGLCOLORSUBTABLEEXTPROC = Option<unsafe extern "system" fn(target: u32, start: i32, count: i32, format: u32, r#type: u32, data: *const core::ffi::c_void)>;
-pub type PFNGLCOLORTABLEEXTPROC = Option<unsafe extern "system" fn(target: u32, internalformat: u32, width: i32, format: u32, r#type: u32, data: *const core::ffi::c_void)>;
-pub type PFNGLDRAWARRAYSEXTPROC = Option<unsafe extern "system" fn(mode: u32, first: i32, count: i32)>;
-pub type PFNGLDRAWRANGEELEMENTSWINPROC = Option<unsafe extern "system" fn(mode: u32, start: u32, end: u32, count: i32, r#type: u32, indices: *const core::ffi::c_void)>;
-pub type PFNGLEDGEFLAGPOINTEREXTPROC = Option<unsafe extern "system" fn(stride: i32, count: i32, pointer: *const u8)>;
-pub type PFNGLGETCOLORTABLEEXTPROC = Option<unsafe extern "system" fn(target: u32, format: u32, r#type: u32, data: *mut core::ffi::c_void)>;
-pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut f32)>;
-pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut i32)>;
-pub type PFNGLGETPOINTERVEXTPROC = Option<unsafe extern "system" fn(pname: u32, params: *mut *mut core::ffi::c_void)>;
-pub type PFNGLINDEXPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
-pub type PFNGLNORMALPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
-pub type PFNGLTEXCOORDPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
-pub type PFNGLVERTEXPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;

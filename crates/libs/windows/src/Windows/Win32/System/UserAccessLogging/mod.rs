@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> windows_core::Result<()> {
     windows_targets::link!("ualapi.dll" "system" fn UalInstrument(data : *const UAL_DATA_BLOB) -> windows_core::HRESULT);
-    UalInstrument(data).ok()
+    UalInstrument(core::mem::transmute(data)).ok()
 }
 #[inline]
 pub unsafe fn UalRegisterProduct<P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> windows_core::Result<()>
@@ -18,17 +18,17 @@ where
 #[inline]
 pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> windows_core::Result<()> {
     windows_targets::link!("ualapi.dll" "system" fn UalStart(data : *const UAL_DATA_BLOB) -> windows_core::HRESULT);
-    UalStart(data).ok()
+    UalStart(core::mem::transmute(data)).ok()
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> windows_core::Result<()> {
     windows_targets::link!("ualapi.dll" "system" fn UalStop(data : *const UAL_DATA_BLOB) -> windows_core::HRESULT);
-    UalStop(data).ok()
+    UalStop(core::mem::transmute(data)).ok()
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UAL_DATA_BLOB {
     pub Size: u32,
     pub RoleGuid: windows_core::GUID,
@@ -37,12 +37,12 @@ pub struct UAL_DATA_BLOB {
     pub UserName: [u16; 260],
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for UAL_DATA_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for UAL_DATA_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for UAL_DATA_BLOB {
+    type TypeKind = windows_core::CopyType;
 }

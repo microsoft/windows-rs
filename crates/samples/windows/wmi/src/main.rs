@@ -18,8 +18,15 @@ fn main() -> Result<()> {
 
         let locator: IWbemLocator = CoCreateInstance(&WbemLocator, None, CLSCTX_INPROC_SERVER)?;
 
-        let server =
-            locator.ConnectServer(&BSTR::from("root\\cimv2"), None, None, None, 0, None, None)?;
+        let server = locator.ConnectServer(
+            &BSTR::from("root\\cimv2"),
+            &BSTR::new(),
+            &BSTR::new(),
+            &BSTR::new(),
+            0,
+            &BSTR::new(),
+            None,
+        )?;
 
         //
         // ExecQuery example
