@@ -108,7 +108,7 @@ impl ID3D12Object {
             windows_core::Interface::as_raw(self),
             core::mem::transmute(guid),
             core::mem::transmute(pdatasize),
-            core::mem::transmute(pdata.unwrap_or(core::ptr::null_mut())),
+            core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())),
         )
         .ok()
     }
@@ -122,7 +122,7 @@ impl ID3D12Object {
             windows_core::Interface::as_raw(self),
             core::mem::transmute(guid),
             core::mem::transmute(datasize),
-            core::mem::transmute(pdata.unwrap_or(core::ptr::null())),
+            core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())),
         )
         .ok()
     }

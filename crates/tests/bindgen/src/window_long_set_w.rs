@@ -12,17 +12,14 @@
     target_arch = "x86_64"
 ))]
 #[inline]
-pub unsafe fn SetWindowLongPtrW<P0>(
-    hwnd: P0,
+pub unsafe fn SetWindowLongPtrW(
+    hwnd: HWND,
     nindex: WINDOW_LONG_PTR_INDEX,
     dwnewlong: isize,
-) -> isize
-where
-    P0: windows_core::Param<HWND>,
-{
+) -> isize {
     windows_targets::link!("user32.dll" "system" fn SetWindowLongPtrW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : isize) -> isize);
     SetWindowLongPtrW(
-        hwnd.param().abi(),
+        core::mem::transmute(hwnd),
         core::mem::transmute(nindex),
         core::mem::transmute(dwnewlong),
     )
@@ -30,13 +27,10 @@ where
 #[cfg(target_pointer_width = "32")]
 pub use SetWindowLongW as SetWindowLongPtrW;
 #[inline]
-pub unsafe fn SetWindowLongW<P0>(hwnd: P0, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: i32) -> i32
-where
-    P0: windows_core::Param<HWND>,
-{
+pub unsafe fn SetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: i32) -> i32 {
     windows_targets::link!("user32.dll" "system" fn SetWindowLongW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : i32) -> i32);
     SetWindowLongW(
-        hwnd.param().abi(),
+        core::mem::transmute(hwnd),
         core::mem::transmute(nindex),
         core::mem::transmute(dwnewlong),
     )
