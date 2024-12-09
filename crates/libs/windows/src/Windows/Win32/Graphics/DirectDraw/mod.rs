@@ -7070,7 +7070,7 @@ impl IDDVideoPortContainer {
         (windows_core::Interface::vtable(self).EnumVideoPorts)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(param3)).ok()
     }
     pub unsafe fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: *mut u32, param2: Option<*mut DDVIDEOPORTCONNECT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetVideoPortConnectInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(pcinfo), core::mem::transmute(param2.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetVideoPortConnectInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(pcinfo), core::mem::transmute(param2.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn QueryVideoPortStatus(&self, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).QueryVideoPortStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
@@ -7190,20 +7190,14 @@ impl IDirectDraw {
     pub unsafe fn RestoreDisplayMode(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
     }
-    pub unsafe fn WaitForVerticalBlank<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1.param().abi()).ok()
+    pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
 }
 #[repr(C)]
@@ -7450,20 +7444,14 @@ impl IDirectDraw2 {
     pub unsafe fn RestoreDisplayMode(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(param3), core::mem::transmute(param4)).ok()
     }
-    pub unsafe fn WaitForVerticalBlank<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1.param().abi()).ok()
+    pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAvailableVidMem)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
@@ -7720,31 +7708,22 @@ impl IDirectDraw4 {
     pub unsafe fn RestoreDisplayMode(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(param3), core::mem::transmute(param4)).ok()
     }
-    pub unsafe fn WaitForVerticalBlank<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1.param().abi()).ok()
+    pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAvailableVidMem)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetSurfaceFromDC<P0>(&self, param0: P0) -> windows_core::Result<IDirectDrawSurface4>
-    where
-        P0: windows_core::Param<super::Gdi::HDC>,
-    {
+    pub unsafe fn GetSurfaceFromDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<IDirectDrawSurface4> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSurfaceFromDC)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSurfaceFromDC)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RestoreAllSurfaces(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RestoreAllSurfaces)(windows_core::Interface::as_raw(self)).ok()
@@ -8044,31 +8023,22 @@ impl IDirectDraw7 {
     pub unsafe fn RestoreDisplayMode(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(param3), core::mem::transmute(param4)).ok()
     }
-    pub unsafe fn WaitForVerticalBlank<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1.param().abi()).ok()
+    pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAvailableVidMem)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetSurfaceFromDC<P0>(&self, param0: P0) -> windows_core::Result<IDirectDrawSurface7>
-    where
-        P0: windows_core::Param<super::Gdi::HDC>,
-    {
+    pub unsafe fn GetSurfaceFromDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<IDirectDrawSurface7> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSurfaceFromDC)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSurfaceFromDC)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RestoreAllSurfaces(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RestoreAllSurfaces)(windows_core::Interface::as_raw(self)).ok()
@@ -8342,11 +8312,8 @@ impl IDirectDrawClipper {
     pub unsafe fn SetClipList(&self, param0: *mut super::Gdi::RGNDATA, param1: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetClipList)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn SetHWnd<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetHWnd)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1.param().abi()).ok()
+    pub unsafe fn SetHWnd(&self, param0: u32, param1: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetHWnd)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
 }
 #[repr(C)]
@@ -8719,18 +8686,12 @@ impl IDirectDrawSurface {
     pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Lock<P3>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), param3.param().abi()).ok()
+    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Gdi::HDC>,
-    {
-        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0.param().abi()).ok()
+    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
     pub unsafe fn Restore(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)).ok()
@@ -9131,18 +9092,12 @@ impl IDirectDrawSurface2 {
     pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Lock<P3>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), param3.param().abi()).ok()
+    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Gdi::HDC>,
-    {
-        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0.param().abi()).ok()
+    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
     pub unsafe fn Restore(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)).ok()
@@ -9573,18 +9528,12 @@ impl IDirectDrawSurface3 {
     pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Lock<P3>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), param3.param().abi()).ok()
+    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Gdi::HDC>,
-    {
-        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0.param().abi()).ok()
+    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
     pub unsafe fn Restore(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)).ok()
@@ -10025,18 +9974,12 @@ impl IDirectDrawSurface4 {
     pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Lock<P3>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), param3.param().abi()).ok()
+    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Gdi::HDC>,
-    {
-        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0.param().abi()).ok()
+    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
     pub unsafe fn Restore(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)).ok()
@@ -10527,18 +10470,12 @@ impl IDirectDrawSurface7 {
     pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Lock<P3>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), param3.param().abi()).ok()
+    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Gdi::HDC>,
-    {
-        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0.param().abi()).ok()
+    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
     pub unsafe fn Restore(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)).ok()
@@ -11036,10 +10973,10 @@ impl IDirectDrawVideoPort {
         (windows_core::Interface::vtable(self).GetColorControls)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
     pub unsafe fn GetInputFormats(&self, lpnumformats: *mut u32, param1: Option<*mut DDPIXELFORMAT>, param2: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetInputFormats)(windows_core::Interface::as_raw(self), core::mem::transmute(lpnumformats), core::mem::transmute(param1.unwrap_or(core::ptr::null_mut())), core::mem::transmute(param2)).ok()
+        (windows_core::Interface::vtable(self).GetInputFormats)(windows_core::Interface::as_raw(self), core::mem::transmute(lpnumformats), core::mem::transmute(param1.unwrap_or(core::mem::zeroed())), core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetOutputFormats(&self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: Option<*mut DDPIXELFORMAT>, param3: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetOutputFormats)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(lpnumformats), core::mem::transmute(param2.unwrap_or(core::ptr::null_mut())), core::mem::transmute(param3)).ok()
+        (windows_core::Interface::vtable(self).GetOutputFormats)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(lpnumformats), core::mem::transmute(param2.unwrap_or(core::mem::zeroed())), core::mem::transmute(param3)).ok()
     }
     pub unsafe fn GetFieldPolarity(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFieldPolarity)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
@@ -11193,11 +11130,8 @@ impl IDirectDrawVideoPortNotify {
     pub unsafe fn AcquireNotification(&self, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AcquireNotification)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn ReleaseNotification<P0>(&self, param0: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).ReleaseNotification)(windows_core::Interface::as_raw(self), param0.param().abi()).ok()
+    pub unsafe fn ReleaseNotification(&self, param0: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ReleaseNotification)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
 }
 #[repr(C)]

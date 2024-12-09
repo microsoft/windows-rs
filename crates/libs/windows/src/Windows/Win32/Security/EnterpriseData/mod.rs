@@ -42,21 +42,15 @@ where
     SrpEnablePermissiveModeFileEncryption(enterpriseid.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SrpGetEnterpriseIds<P0>(tokenhandle: P0, numberofbytes: Option<*mut u32>, enterpriseids: Option<*mut windows_core::PCWSTR>, enterpriseidcount: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SrpGetEnterpriseIds(tokenhandle: super::super::Foundation::HANDLE, numberofbytes: Option<*mut u32>, enterpriseids: Option<*mut windows_core::PCWSTR>, enterpriseidcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("srpapi.dll" "system" fn SrpGetEnterpriseIds(tokenhandle : super::super::Foundation:: HANDLE, numberofbytes : *mut u32, enterpriseids : *mut windows_core::PCWSTR, enterpriseidcount : *mut u32) -> windows_core::HRESULT);
-    SrpGetEnterpriseIds(tokenhandle.param().abi(), core::mem::transmute(numberofbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(enterpriseids.unwrap_or(core::ptr::null_mut())), core::mem::transmute(enterpriseidcount)).ok()
+    SrpGetEnterpriseIds(core::mem::transmute(tokenhandle), core::mem::transmute(numberofbytes.unwrap_or(core::mem::zeroed())), core::mem::transmute(enterpriseids.unwrap_or(core::mem::zeroed())), core::mem::transmute(enterpriseidcount)).ok()
 }
 #[inline]
-pub unsafe fn SrpGetEnterprisePolicy<P0>(tokenhandle: P0) -> windows_core::Result<ENTERPRISE_DATA_POLICIES>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SrpGetEnterprisePolicy(tokenhandle: super::super::Foundation::HANDLE) -> windows_core::Result<ENTERPRISE_DATA_POLICIES> {
     windows_targets::link!("srpapi.dll" "system" fn SrpGetEnterprisePolicy(tokenhandle : super::super::Foundation:: HANDLE, policyflags : *mut ENTERPRISE_DATA_POLICIES) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    SrpGetEnterprisePolicy(tokenhandle.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    SrpGetEnterprisePolicy(core::mem::transmute(tokenhandle), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTING_TYPE, pvdata: *const core::ffi::c_void, cbdata: u32) -> windows_core::Result<()> {
@@ -69,21 +63,17 @@ pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
     SrpHostingTerminate(core::mem::transmute(r#type))
 }
 #[inline]
-pub unsafe fn SrpIsTokenService<P0>(tokenhandle: P0, istokenservice: *mut u8) -> super::super::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, istokenservice: *mut u8) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("srpapi.dll" "system" fn SrpIsTokenService(tokenhandle : super::super::Foundation:: HANDLE, istokenservice : *mut u8) -> super::super::Foundation:: NTSTATUS);
-    SrpIsTokenService(tokenhandle.param().abi(), core::mem::transmute(istokenservice))
+    SrpIsTokenService(core::mem::transmute(tokenhandle), core::mem::transmute(istokenservice))
 }
 #[inline]
-pub unsafe fn SrpSetTokenEnterpriseId<P0, P1>(tokenhandle: P0, enterpriseid: P1) -> windows_core::Result<()>
+pub unsafe fn SrpSetTokenEnterpriseId<P1>(tokenhandle: super::super::Foundation::HANDLE, enterpriseid: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("srpapi.dll" "system" fn SrpSetTokenEnterpriseId(tokenhandle : super::super::Foundation:: HANDLE, enterpriseid : windows_core::PCWSTR) -> windows_core::HRESULT);
-    SrpSetTokenEnterpriseId(tokenhandle.param().abi(), enterpriseid.param().abi()).ok()
+    SrpSetTokenEnterpriseId(core::mem::transmute(tokenhandle), enterpriseid.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn UnprotectFile<P0>(fileorfolderpath: P0, options: Option<*const FILE_UNPROTECT_OPTIONS>) -> windows_core::Result<()>
@@ -91,7 +81,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("efswrt.dll" "system" fn UnprotectFile(fileorfolderpath : windows_core::PCWSTR, options : *const FILE_UNPROTECT_OPTIONS) -> windows_core::HRESULT);
-    UnprotectFile(fileorfolderpath.param().abi(), core::mem::transmute(options.unwrap_or(core::ptr::null()))).ok()
+    UnprotectFile(fileorfolderpath.param().abi(), core::mem::transmute(options.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -163,21 +153,19 @@ impl windows_core::TypeKind for HTHREAD_NETWORK_CONTEXT {
 windows_core::imp::define_interface!(IProtectionPolicyManagerInterop, IProtectionPolicyManagerInterop_Vtbl, 0x4652651d_c1fe_4ba1_9f0a_c0f56596f721);
 windows_core::imp::interface_hierarchy!(IProtectionPolicyManagerInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IProtectionPolicyManagerInterop {
-    pub unsafe fn RequestAccessForWindowAsync<P0, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING) -> windows_core::Result<T>
+    pub unsafe fn RequestAccessForWindowAsync<T>(&self, appwindow: super::super::Foundation::HWND, sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestAccessForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAccessForWindowAsync)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> windows_core::Result<T>
+    pub unsafe fn GetForWindow<T>(&self, appwindow: super::super::Foundation::HWND) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -214,49 +202,44 @@ impl windows_core::RuntimeName for IProtectionPolicyManagerInterop {}
 windows_core::imp::define_interface!(IProtectionPolicyManagerInterop2, IProtectionPolicyManagerInterop2_Vtbl, 0x157cfbe4_a78d_4156_b384_61fdac41e686);
 windows_core::imp::interface_hierarchy!(IProtectionPolicyManagerInterop2, windows_core::IUnknown, windows_core::IInspectable);
 impl IProtectionPolicyManagerInterop2 {
-    pub unsafe fn RequestAccessForAppWithWindowAsync<P0, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING) -> windows_core::Result<T>
+    pub unsafe fn RequestAccessForAppWithWindowAsync<T>(&self, appwindow: super::super::Foundation::HWND, sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestAccessForAppWithWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAccessForAppWithWindowAsync)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn RequestAccessWithAuditingInfoForWindowAsync<P0, P3, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfounk: P3) -> windows_core::Result<T>
+    pub unsafe fn RequestAccessWithAuditingInfoForWindowAsync<P3, T>(&self, appwindow: super::super::Foundation::HWND, sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfounk: P3) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P3: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestAccessWithAuditingInfoForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfounk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAccessWithAuditingInfoForWindowAsync)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfounk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn RequestAccessWithMessageForWindowAsync<P0, P3, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfounk: P3, messagefromapp: &windows_core::HSTRING) -> windows_core::Result<T>
+    pub unsafe fn RequestAccessWithMessageForWindowAsync<P3, T>(&self, appwindow: super::super::Foundation::HWND, sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfounk: P3, messagefromapp: &windows_core::HSTRING) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P3: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestAccessWithMessageForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAccessWithMessageForWindowAsync)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn RequestAccessForAppWithAuditingInfoForWindowAsync<P0, P3, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P3) -> windows_core::Result<T>
+    pub unsafe fn RequestAccessForAppWithAuditingInfoForWindowAsync<P3, T>(&self, appwindow: super::super::Foundation::HWND, sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P3) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P3: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestAccessForAppWithAuditingInfoForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAccessForAppWithAuditingInfoForWindowAsync)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn RequestAccessForAppWithMessageForWindowAsync<P0, P3, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P3, messagefromapp: &windows_core::HSTRING) -> windows_core::Result<T>
+    pub unsafe fn RequestAccessForAppWithMessageForWindowAsync<P3, T>(&self, appwindow: super::super::Foundation::HWND, sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P3, messagefromapp: &windows_core::HSTRING) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P3: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestAccessForAppWithMessageForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAccessForAppWithMessageForWindowAsync)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -314,63 +297,57 @@ impl windows_core::RuntimeName for IProtectionPolicyManagerInterop2 {}
 windows_core::imp::define_interface!(IProtectionPolicyManagerInterop3, IProtectionPolicyManagerInterop3_Vtbl, 0xc1c03933_b398_4d93_b0fd_2972adf802c2);
 windows_core::imp::interface_hierarchy!(IProtectionPolicyManagerInterop3, windows_core::IUnknown, windows_core::IInspectable);
 impl IProtectionPolicyManagerInterop3 {
-    pub unsafe fn RequestAccessWithBehaviorForWindowAsync<P0, P3, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfounk: P3, messagefromapp: &windows_core::HSTRING, behavior: u32) -> windows_core::Result<T>
+    pub unsafe fn RequestAccessWithBehaviorForWindowAsync<P3, T>(&self, appwindow: super::super::Foundation::HWND, sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfounk: P3, messagefromapp: &windows_core::HSTRING, behavior: u32) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P3: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestAccessWithBehaviorForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), core::mem::transmute(behavior), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAccessWithBehaviorForWindowAsync)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), core::mem::transmute(behavior), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn RequestAccessForAppWithBehaviorForWindowAsync<P0, P3, T>(&self, appwindow: P0, sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P3, messagefromapp: &windows_core::HSTRING, behavior: u32) -> windows_core::Result<T>
+    pub unsafe fn RequestAccessForAppWithBehaviorForWindowAsync<P3, T>(&self, appwindow: super::super::Foundation::HWND, sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P3, messagefromapp: &windows_core::HSTRING, behavior: u32) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P3: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestAccessForAppWithBehaviorForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), core::mem::transmute(behavior), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAccessForAppWithBehaviorForWindowAsync)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), core::mem::transmute(behavior), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn RequestAccessToFilesForAppForWindowAsync<P0, P1, P3, T>(&self, appwindow: P0, sourceitemlistunk: P1, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P3) -> windows_core::Result<T>
+    pub unsafe fn RequestAccessToFilesForAppForWindowAsync<P1, P3, T>(&self, appwindow: super::super::Foundation::HWND, sourceitemlistunk: P1, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P3) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestAccessToFilesForAppForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), sourceitemlistunk.param().abi(), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAccessToFilesForAppForWindowAsync)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), sourceitemlistunk.param().abi(), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync<P0, P1, P3, T>(&self, appwindow: P0, sourceitemlistunk: P1, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P3, messagefromapp: &windows_core::HSTRING, behavior: u32) -> windows_core::Result<T>
+    pub unsafe fn RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync<P1, P3, T>(&self, appwindow: super::super::Foundation::HWND, sourceitemlistunk: P1, apppackagefamilyname: &windows_core::HSTRING, auditinfounk: P3, messagefromapp: &windows_core::HSTRING, behavior: u32) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), sourceitemlistunk.param().abi(), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), core::mem::transmute(behavior), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), sourceitemlistunk.param().abi(), core::mem::transmute_copy(apppackagefamilyname), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), core::mem::transmute(behavior), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn RequestAccessToFilesForProcessForWindowAsync<P0, P1, P3, T>(&self, appwindow: P0, sourceitemlistunk: P1, processid: u32, auditinfounk: P3) -> windows_core::Result<T>
+    pub unsafe fn RequestAccessToFilesForProcessForWindowAsync<P1, P3, T>(&self, appwindow: super::super::Foundation::HWND, sourceitemlistunk: P1, processid: u32, auditinfounk: P3) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestAccessToFilesForProcessForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), sourceitemlistunk.param().abi(), core::mem::transmute(processid), auditinfounk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAccessToFilesForProcessForWindowAsync)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), sourceitemlistunk.param().abi(), core::mem::transmute(processid), auditinfounk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync<P0, P1, P3, T>(&self, appwindow: P0, sourceitemlistunk: P1, processid: u32, auditinfounk: P3, messagefromapp: &windows_core::HSTRING, behavior: u32) -> windows_core::Result<T>
+    pub unsafe fn RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync<P1, P3, T>(&self, appwindow: super::super::Foundation::HWND, sourceitemlistunk: P1, processid: u32, auditinfounk: P3, messagefromapp: &windows_core::HSTRING, behavior: u32) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), sourceitemlistunk.param().abi(), core::mem::transmute(processid), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), core::mem::transmute(behavior), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync)(windows_core::Interface::as_raw(self), core::mem::transmute(appwindow), sourceitemlistunk.param().abi(), core::mem::transmute(processid), auditinfounk.param().abi(), core::mem::transmute_copy(messagefromapp), core::mem::transmute(behavior), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

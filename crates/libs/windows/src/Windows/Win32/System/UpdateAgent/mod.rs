@@ -461,11 +461,8 @@ impl IAutomaticUpdatesSettings2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IncludeRecommendedUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIncludeRecommendedUpdates<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIncludeRecommendedUpdates)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetIncludeRecommendedUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIncludeRecommendedUpdates)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -543,21 +540,15 @@ impl IAutomaticUpdatesSettings3 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).NonAdministratorsElevated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetNonAdministratorsElevated<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetNonAdministratorsElevated)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetNonAdministratorsElevated(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetNonAdministratorsElevated)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn FeaturedUpdatesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FeaturedUpdatesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetFeaturedUpdatesEnabled<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetFeaturedUpdatesEnabled)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetFeaturedUpdatesEnabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetFeaturedUpdatesEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2837,11 +2828,8 @@ impl IUpdate {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIsHidden)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIsHidden)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -2934,11 +2922,8 @@ impl IUpdate {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DeploymentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn CopyFromCache<P1>(&self, path: &windows_core::BSTR, toextractcabfiles: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).CopyFromCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), toextractcabfiles.param().abi()).ok()
+    pub unsafe fn CopyFromCache(&self, path: &windows_core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CopyFromCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), core::mem::transmute(toextractcabfiles)).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority> {
         let mut result__ = core::mem::zeroed();
@@ -4265,11 +4250,8 @@ impl IUpdateDownloader {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsForced)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIsForced<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIsForced)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIsForced)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn Priority(&self) -> windows_core::Result<DownloadPriority> {
         let mut result__ = core::mem::zeroed();
@@ -5211,21 +5193,15 @@ impl IUpdateInstaller {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsForced)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIsForced<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIsForced)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIsForced)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn ParentHwnd(&self) -> windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ParentHwnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetParentHwnd<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetParentHwnd)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetParentHwnd(&self, value: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetParentHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn SetParentWindow<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -5299,11 +5275,8 @@ impl IUpdateInstaller {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AllowSourcePrompts)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAllowSourcePrompts<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAllowSourcePrompts)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetAllowSourcePrompts(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAllowSourcePrompts)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn RebootRequiredBeforeInstallation(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -5591,11 +5564,8 @@ impl IUpdateInstaller2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ForceQuiet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetForceQuiet<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetForceQuiet)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetForceQuiet(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetForceQuiet)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5656,11 +5626,8 @@ impl IUpdateInstaller3 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AttemptCloseAppsIfNecessary)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAttemptCloseAppsIfNecessary<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAttemptCloseAppsIfNecessary)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetAttemptCloseAppsIfNecessary(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAttemptCloseAppsIfNecessary)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5791,11 +5758,8 @@ impl IUpdateSearcher {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CanAutomaticallyUpgradeService)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetCanAutomaticallyUpgradeService<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetCanAutomaticallyUpgradeService)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetCanAutomaticallyUpgradeService(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCanAutomaticallyUpgradeService)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -5808,11 +5772,8 @@ impl IUpdateSearcher {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IncludePotentiallySupersededUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIncludePotentiallySupersededUpdates<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIncludePotentiallySupersededUpdates)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetIncludePotentiallySupersededUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIncludePotentiallySupersededUpdates)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn ServerSelection(&self) -> windows_core::Result<ServerSelection> {
         let mut result__ = core::mem::zeroed();
@@ -5852,11 +5813,8 @@ impl IUpdateSearcher {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Online)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetOnline<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetOnline)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetOnline(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetOnline)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetTotalHistoryCount(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -6109,11 +6067,8 @@ impl IUpdateSearcher2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IgnoreDownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIgnoreDownloadPriority<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIgnoreDownloadPriority)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetIgnoreDownloadPriority(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIgnoreDownloadPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7268,11 +7223,8 @@ impl IWebProxy {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BypassProxyOnLocal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetBypassProxyOnLocal<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBypassProxyOnLocal)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetBypassProxyOnLocal(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBypassProxyOnLocal)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
     pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -7294,21 +7246,15 @@ impl IWebProxy {
     {
         (windows_core::Interface::vtable(self).PromptForCredentials)(windows_core::Interface::as_raw(self), parentwindow.param().abi(), core::mem::transmute_copy(title)).ok()
     }
-    pub unsafe fn PromptForCredentialsFromHwnd<P0>(&self, parentwindow: P0, title: &windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).PromptForCredentialsFromHwnd)(windows_core::Interface::as_raw(self), parentwindow.param().abi(), core::mem::transmute_copy(title)).ok()
+    pub unsafe fn PromptForCredentialsFromHwnd(&self, parentwindow: super::super::Foundation::HWND, title: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).PromptForCredentialsFromHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute(parentwindow), core::mem::transmute_copy(title)).ok()
     }
     pub unsafe fn AutoDetect(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoDetect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAutoDetect<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAutoDetect)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetAutoDetect(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAutoDetect)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

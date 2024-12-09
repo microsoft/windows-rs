@@ -1,37 +1,29 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn AddStroke<P0>(hrc: P0, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-{
+pub unsafe fn AddStroke(hrc: HRECOCONTEXT, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn AddStroke(hrc : HRECOCONTEXT, ppacketdesc : *const PACKET_DESCRIPTION, cbpacket : u32, ppacket : *const u8, pxform : *const super::super::Graphics::Gdi:: XFORM) -> windows_core::HRESULT);
-    AddStroke(hrc.param().abi(), core::mem::transmute(ppacketdesc), core::mem::transmute(cbpacket), core::mem::transmute(ppacket), core::mem::transmute(pxform)).ok()
+    AddStroke(core::mem::transmute(hrc), core::mem::transmute(ppacketdesc), core::mem::transmute(cbpacket), core::mem::transmute(ppacket), core::mem::transmute(pxform)).ok()
 }
 #[inline]
-pub unsafe fn AddWordsToWordList<P0, P1>(hwl: P0, pwcwords: P1) -> windows_core::Result<()>
+pub unsafe fn AddWordsToWordList<P1>(hwl: HRECOWORDLIST, pwcwords: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HRECOWORDLIST>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("inkobjcore.dll" "system" fn AddWordsToWordList(hwl : HRECOWORDLIST, pwcwords : windows_core::PCWSTR) -> windows_core::HRESULT);
-    AddWordsToWordList(hwl.param().abi(), pwcwords.param().abi()).ok()
+    AddWordsToWordList(core::mem::transmute(hwl), pwcwords.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn AdviseInkChange<P0, P1>(hrc: P0, bnewstroke: P1) -> windows_core::Result<()>
+pub unsafe fn AdviseInkChange<P1>(hrc: HRECOCONTEXT, bnewstroke: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HRECOCONTEXT>,
     P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("inkobjcore.dll" "system" fn AdviseInkChange(hrc : HRECOCONTEXT, bnewstroke : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    AdviseInkChange(hrc.param().abi(), bnewstroke.param().abi()).ok()
+    AdviseInkChange(core::mem::transmute(hrc), bnewstroke.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn CreateContext<P0>(hrec: P0, phrc: *mut HRECOCONTEXT) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOGNIZER>,
-{
+pub unsafe fn CreateContext(hrec: HRECOGNIZER, phrc: *mut HRECOCONTEXT) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn CreateContext(hrec : HRECOGNIZER, phrc : *mut HRECOCONTEXT) -> windows_core::HRESULT);
-    CreateContext(hrec.param().abi(), core::mem::transmute(phrc)).ok()
+    CreateContext(core::mem::transmute(hrec), core::mem::transmute(phrc)).ok()
 }
 #[inline]
 pub unsafe fn CreateRecognizer(pclsid: *mut windows_core::GUID, phrec: *mut HRECOGNIZER) -> windows_core::Result<()> {
@@ -39,36 +31,24 @@ pub unsafe fn CreateRecognizer(pclsid: *mut windows_core::GUID, phrec: *mut HREC
     CreateRecognizer(core::mem::transmute(pclsid), core::mem::transmute(phrec)).ok()
 }
 #[inline]
-pub unsafe fn DestroyContext<P0>(hrc: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-{
+pub unsafe fn DestroyContext(hrc: HRECOCONTEXT) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn DestroyContext(hrc : HRECOCONTEXT) -> windows_core::HRESULT);
-    DestroyContext(hrc.param().abi()).ok()
+    DestroyContext(core::mem::transmute(hrc)).ok()
 }
 #[inline]
-pub unsafe fn DestroyRecognizer<P0>(hrec: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOGNIZER>,
-{
+pub unsafe fn DestroyRecognizer(hrec: HRECOGNIZER) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn DestroyRecognizer(hrec : HRECOGNIZER) -> windows_core::HRESULT);
-    DestroyRecognizer(hrec.param().abi()).ok()
+    DestroyRecognizer(core::mem::transmute(hrec)).ok()
 }
 #[inline]
-pub unsafe fn DestroyWordList<P0>(hwl: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOWORDLIST>,
-{
+pub unsafe fn DestroyWordList(hwl: HRECOWORDLIST) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn DestroyWordList(hwl : HRECOWORDLIST) -> windows_core::HRESULT);
-    DestroyWordList(hwl.param().abi()).ok()
+    DestroyWordList(core::mem::transmute(hwl)).ok()
 }
 #[inline]
-pub unsafe fn EndInkInput<P0>(hrc: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-{
+pub unsafe fn EndInkInput(hrc: HRECOCONTEXT) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn EndInkInput(hrc : HRECOCONTEXT) -> windows_core::HRESULT);
-    EndInkInput(hrc.param().abi()).ok()
+    EndInkInput(core::mem::transmute(hrc)).ok()
 }
 #[inline]
 pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut windows_core::GUID, count: *mut u32) -> windows_core::Result<()> {
@@ -76,69 +56,47 @@ pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut windows_core::GUID, 
     GetAllRecognizers(core::mem::transmute(recognizerclsids), core::mem::transmute(count)).ok()
 }
 #[inline]
-pub unsafe fn GetBestResultString<P0>(hrc: P0, pcsize: *mut u32, pwcbestresult: windows_core::PWSTR) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-{
+pub unsafe fn GetBestResultString(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcbestresult: Option<windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn GetBestResultString(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcbestresult : windows_core::PWSTR) -> windows_core::HRESULT);
-    GetBestResultString(hrc.param().abi(), core::mem::transmute(pcsize), core::mem::transmute(pwcbestresult)).ok()
+    GetBestResultString(core::mem::transmute(hrc), core::mem::transmute(pcsize), core::mem::transmute(pwcbestresult.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn GetLatticePtr<P0>(hrc: P0, pplattice: *mut *mut RECO_LATTICE) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-{
+pub unsafe fn GetLatticePtr(hrc: HRECOCONTEXT, pplattice: *mut *mut RECO_LATTICE) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn GetLatticePtr(hrc : HRECOCONTEXT, pplattice : *mut *mut RECO_LATTICE) -> windows_core::HRESULT);
-    GetLatticePtr(hrc.param().abi(), core::mem::transmute(pplattice)).ok()
+    GetLatticePtr(core::mem::transmute(hrc), core::mem::transmute(pplattice)).ok()
 }
 #[inline]
-pub unsafe fn GetLeftSeparator<P0>(hrc: P0, pcsize: *mut u32, pwcleftseparator: windows_core::PWSTR) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-{
+pub unsafe fn GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcleftseparator: windows_core::PWSTR) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn GetLeftSeparator(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcleftseparator : windows_core::PWSTR) -> windows_core::HRESULT);
-    GetLeftSeparator(hrc.param().abi(), core::mem::transmute(pcsize), core::mem::transmute(pwcleftseparator)).ok()
+    GetLeftSeparator(core::mem::transmute(hrc), core::mem::transmute(pcsize), core::mem::transmute(pwcleftseparator)).ok()
 }
 #[inline]
-pub unsafe fn GetRecoAttributes<P0>(hrec: P0, precoattrs: *mut RECO_ATTRS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOGNIZER>,
-{
+pub unsafe fn GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: *mut RECO_ATTRS) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn GetRecoAttributes(hrec : HRECOGNIZER, precoattrs : *mut RECO_ATTRS) -> windows_core::HRESULT);
-    GetRecoAttributes(hrec.param().abi(), core::mem::transmute(precoattrs)).ok()
+    GetRecoAttributes(core::mem::transmute(hrec), core::mem::transmute(precoattrs)).ok()
 }
 #[inline]
-pub unsafe fn GetResultPropertyList<P0>(hrec: P0, ppropertycount: *mut u32, ppropertyguid: *mut windows_core::GUID) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOGNIZER>,
-{
+pub unsafe fn GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: *mut u32, ppropertyguid: *mut windows_core::GUID) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn GetResultPropertyList(hrec : HRECOGNIZER, ppropertycount : *mut u32, ppropertyguid : *mut windows_core::GUID) -> windows_core::HRESULT);
-    GetResultPropertyList(hrec.param().abi(), core::mem::transmute(ppropertycount), core::mem::transmute(ppropertyguid)).ok()
+    GetResultPropertyList(core::mem::transmute(hrec), core::mem::transmute(ppropertycount), core::mem::transmute(ppropertyguid)).ok()
 }
 #[inline]
-pub unsafe fn GetRightSeparator<P0>(hrc: P0, pcsize: *mut u32, pwcrightseparator: windows_core::PWSTR) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-{
+pub unsafe fn GetRightSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcrightseparator: windows_core::PWSTR) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn GetRightSeparator(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcrightseparator : windows_core::PWSTR) -> windows_core::HRESULT);
-    GetRightSeparator(hrc.param().abi(), core::mem::transmute(pcsize), core::mem::transmute(pwcrightseparator)).ok()
+    GetRightSeparator(core::mem::transmute(hrc), core::mem::transmute(pcsize), core::mem::transmute(pwcrightseparator)).ok()
 }
 #[inline]
-pub unsafe fn GetUnicodeRanges<P0>(hrec: P0, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOGNIZER>,
-{
+pub unsafe fn GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn GetUnicodeRanges(hrec : HRECOGNIZER, pcranges : *mut u32, pcr : *mut CHARACTER_RANGE) -> windows_core::HRESULT);
-    GetUnicodeRanges(hrec.param().abi(), core::mem::transmute(pcranges), core::mem::transmute(pcr)).ok()
+    GetUnicodeRanges(core::mem::transmute(hrec), core::mem::transmute(pcranges), core::mem::transmute(pcr)).ok()
 }
 #[inline]
-pub unsafe fn IsStringSupported<P0, P2>(hrc: P0, wcstring: u32, pwcstring: P2) -> windows_core::Result<()>
+pub unsafe fn IsStringSupported<P2>(hrc: HRECOCONTEXT, wcstring: u32, pwcstring: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HRECOCONTEXT>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("inkobjcore.dll" "system" fn IsStringSupported(hrc : HRECOCONTEXT, wcstring : u32, pwcstring : windows_core::PCWSTR) -> windows_core::HRESULT);
-    IsStringSupported(hrc.param().abi(), core::mem::transmute(wcstring), pwcstring.param().abi()).ok()
+    IsStringSupported(core::mem::transmute(hrc), core::mem::transmute(wcstring), pwcstring.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn LoadCachedAttributes(clsid: windows_core::GUID, precoattributes: *mut RECO_ATTRS) -> windows_core::Result<()> {
@@ -146,71 +104,50 @@ pub unsafe fn LoadCachedAttributes(clsid: windows_core::GUID, precoattributes: *
     LoadCachedAttributes(core::mem::transmute(clsid), core::mem::transmute(precoattributes)).ok()
 }
 #[inline]
-pub unsafe fn MakeWordList<P0, P1>(hrec: P0, pbuffer: P1, phwl: *mut HRECOWORDLIST) -> windows_core::Result<()>
+pub unsafe fn MakeWordList<P1>(hrec: HRECOGNIZER, pbuffer: P1, phwl: *mut HRECOWORDLIST) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HRECOGNIZER>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("inkobjcore.dll" "system" fn MakeWordList(hrec : HRECOGNIZER, pbuffer : windows_core::PCWSTR, phwl : *mut HRECOWORDLIST) -> windows_core::HRESULT);
-    MakeWordList(hrec.param().abi(), pbuffer.param().abi(), core::mem::transmute(phwl)).ok()
+    MakeWordList(core::mem::transmute(hrec), pbuffer.param().abi(), core::mem::transmute(phwl)).ok()
 }
 #[inline]
-pub unsafe fn Process<P0>(hrc: P0, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-{
+pub unsafe fn Process(hrc: HRECOCONTEXT, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn Process(hrc : HRECOCONTEXT, pbpartialprocessing : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    Process(hrc.param().abi(), core::mem::transmute(pbpartialprocessing)).ok()
+    Process(core::mem::transmute(hrc), core::mem::transmute(pbpartialprocessing)).ok()
 }
 #[inline]
-pub unsafe fn SetEnabledUnicodeRanges<P0>(hrc: P0, cranges: u32, pcr: *mut CHARACTER_RANGE) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-{
+pub unsafe fn SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: u32, pcr: *mut CHARACTER_RANGE) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn SetEnabledUnicodeRanges(hrc : HRECOCONTEXT, cranges : u32, pcr : *mut CHARACTER_RANGE) -> windows_core::HRESULT);
-    SetEnabledUnicodeRanges(hrc.param().abi(), core::mem::transmute(cranges), core::mem::transmute(pcr)).ok()
+    SetEnabledUnicodeRanges(core::mem::transmute(hrc), core::mem::transmute(cranges), core::mem::transmute(pcr)).ok()
 }
 #[inline]
-pub unsafe fn SetFactoid<P0, P2>(hrc: P0, cwcfactoid: u32, pwcfactoid: P2) -> windows_core::Result<()>
+pub unsafe fn SetFactoid<P2>(hrc: HRECOCONTEXT, cwcfactoid: u32, pwcfactoid: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HRECOCONTEXT>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("inkobjcore.dll" "system" fn SetFactoid(hrc : HRECOCONTEXT, cwcfactoid : u32, pwcfactoid : windows_core::PCWSTR) -> windows_core::HRESULT);
-    SetFactoid(hrc.param().abi(), core::mem::transmute(cwcfactoid), pwcfactoid.param().abi()).ok()
+    SetFactoid(core::mem::transmute(hrc), core::mem::transmute(cwcfactoid), pwcfactoid.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetFlags<P0>(hrc: P0, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-{
+pub unsafe fn SetFlags(hrc: HRECOCONTEXT, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn SetFlags(hrc : HRECOCONTEXT, dwflags : u32) -> windows_core::HRESULT);
-    SetFlags(hrc.param().abi(), core::mem::transmute(dwflags)).ok()
+    SetFlags(core::mem::transmute(hrc), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SetGuide<P0>(hrc: P0, pguide: *const RECO_GUIDE, iindex: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-{
+pub unsafe fn SetGuide(hrc: HRECOCONTEXT, pguide: *const RECO_GUIDE, iindex: u32) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn SetGuide(hrc : HRECOCONTEXT, pguide : *const RECO_GUIDE, iindex : u32) -> windows_core::HRESULT);
-    SetGuide(hrc.param().abi(), core::mem::transmute(pguide), core::mem::transmute(iindex)).ok()
+    SetGuide(core::mem::transmute(hrc), core::mem::transmute(pguide), core::mem::transmute(iindex)).ok()
 }
 #[inline]
-pub unsafe fn SetTextContext<P0>(hrc: P0, pwcbefore: &[u16], pwcafter: &[u16]) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-{
+pub unsafe fn SetTextContext(hrc: HRECOCONTEXT, pwcbefore: &[u16], pwcafter: &[u16]) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn SetTextContext(hrc : HRECOCONTEXT, cwcbefore : u32, pwcbefore : windows_core::PCWSTR, cwcafter : u32, pwcafter : windows_core::PCWSTR) -> windows_core::HRESULT);
-    SetTextContext(hrc.param().abi(), pwcbefore.len().try_into().unwrap(), core::mem::transmute(pwcbefore.as_ptr()), pwcafter.len().try_into().unwrap(), core::mem::transmute(pwcafter.as_ptr())).ok()
+    SetTextContext(core::mem::transmute(hrc), pwcbefore.len().try_into().unwrap(), core::mem::transmute(pwcbefore.as_ptr()), pwcafter.len().try_into().unwrap(), core::mem::transmute(pwcafter.as_ptr())).ok()
 }
 #[inline]
-pub unsafe fn SetWordList<P0, P1>(hrc: P0, hwl: P1) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HRECOCONTEXT>,
-    P1: windows_core::Param<HRECOWORDLIST>,
-{
+pub unsafe fn SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn SetWordList(hrc : HRECOCONTEXT, hwl : HRECOWORDLIST) -> windows_core::HRESULT);
-    SetWordList(hrc.param().abi(), hwl.param().abi()).ok()
+    SetWordList(core::mem::transmute(hrc), core::mem::transmute(hwl)).ok()
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1367,11 +1304,8 @@ impl IDynamicRenderer {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HWND)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetHWND<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
-    {
-        (windows_core::Interface::vtable(self).SetHWND)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
+    pub unsafe fn SetHWND(&self, hwnd: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetHWND)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd)).ok()
     }
     pub unsafe fn ClipRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = core::mem::zeroed();
@@ -1384,11 +1318,8 @@ impl IDynamicRenderer {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ClipRegion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetClipRegion<P0>(&self, hcliprgn: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
-    {
-        (windows_core::Interface::vtable(self).SetClipRegion)(windows_core::Interface::as_raw(self), hcliprgn.param().abi()).ok()
+    pub unsafe fn SetClipRegion(&self, hcliprgn: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetClipRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(hcliprgn)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
@@ -1418,11 +1349,8 @@ impl IDynamicRenderer {
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Draw<P0>(&self, hdc: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
-    {
-        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), hdc.param().abi()).ok()
+    pub unsafe fn Draw(&self, hdc: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), core::mem::transmute(hdc)).ok()
     }
 }
 #[repr(C)]
@@ -1877,11 +1805,8 @@ impl IInkCollector {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, collecting: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), collecting.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(collecting)).ok()
     }
     pub unsafe fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
         let mut result__ = core::mem::zeroed();
@@ -1917,11 +1842,8 @@ impl IInkCollector {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoRedraw)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAutoRedraw<P0>(&self, autoredraw: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAutoRedraw)(windows_core::Interface::as_raw(self), autoredraw.param().abi()).ok()
+    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAutoRedraw)(windows_core::Interface::as_raw(self), core::mem::transmute(autoredraw)).ok()
     }
     pub unsafe fn CollectingInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -1938,11 +1860,8 @@ impl IInkCollector {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DynamicRendering)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetDynamicRendering<P0>(&self, enabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDynamicRendering)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
+    pub unsafe fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDynamicRendering)(windows_core::Interface::as_raw(self), core::mem::transmute(enabled)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DesiredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -2005,17 +1924,11 @@ impl IInkCollector {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SupportHighContrastInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetSupportHighContrastInk<P0>(&self, support: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSupportHighContrastInk)(windows_core::Interface::as_raw(self), support.param().abi()).ok()
+    pub unsafe fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSupportHighContrastInk)(windows_core::Interface::as_raw(self), core::mem::transmute(support)).ok()
     }
-    pub unsafe fn SetGestureStatus<P1>(&self, gesture: InkApplicationGesture, listen: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(gesture), listen.param().abi()).ok()
+    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(gesture), core::mem::transmute(listen)).ok()
     }
     pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -2030,11 +1943,8 @@ impl IInkCollector {
     {
         (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), windowinputrectangle.param().abi()).ok()
     }
-    pub unsafe fn SetAllTabletsMode<P0>(&self, usemouseforinput: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), usemouseforinput.param().abi()).ok()
+    pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), core::mem::transmute(usemouseforinput)).ok()
     }
     pub unsafe fn SetSingleTabletIntegratedMode<P0>(&self, tablet: P0) -> windows_core::Result<()>
     where
@@ -2046,11 +1956,8 @@ impl IInkCollector {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEventInterest)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEventInterest<P1>(&self, eventid: InkCollectorEventInterest, listen: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), listen.param().abi()).ok()
+    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), core::mem::transmute(listen)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3047,11 +2954,8 @@ impl IInkDisp {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Dirty)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetDirty<P0>(&self, dirty: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDirty)(windows_core::Interface::as_raw(self), dirty.param().abi()).ok()
+    pub unsafe fn SetDirty(&self, dirty: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDirty)(windows_core::Interface::as_raw(self), core::mem::transmute(dirty)).ok()
     }
     pub unsafe fn CustomStrokes(&self) -> windows_core::Result<IInkCustomStrokes> {
         let mut result__ = core::mem::zeroed();
@@ -3110,7 +3014,7 @@ impl IInkDisp {
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn HitTestWithLasso(&self, points: &super::super::System::Variant::VARIANT, intersectpercent: f32, lassopoints: Option<*mut super::super::System::Variant::VARIANT>, strokes: *mut Option<IInkStrokes>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).HitTestWithLasso)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(points), core::mem::transmute(intersectpercent), core::mem::transmute(lassopoints.unwrap_or(core::ptr::null_mut())), core::mem::transmute(strokes)).ok()
+        (windows_core::Interface::vtable(self).HitTestWithLasso)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(points), core::mem::transmute(intersectpercent), core::mem::transmute(lassopoints.unwrap_or(core::mem::zeroed())), core::mem::transmute(strokes)).ok()
     }
     pub unsafe fn NearestPoint(&self, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32, stroke: *mut Option<IInkStrokeDisp>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).NearestPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(pointonstroke), core::mem::transmute(distancefrompacket), core::mem::transmute(stroke)).ok()
@@ -3934,31 +3838,22 @@ impl IInkDrawingAttributes {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FitToCurve)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetFitToCurve<P0>(&self, flag: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetFitToCurve)(windows_core::Interface::as_raw(self), flag.param().abi()).ok()
+    pub unsafe fn SetFitToCurve(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetFitToCurve)(windows_core::Interface::as_raw(self), core::mem::transmute(flag)).ok()
     }
     pub unsafe fn IgnorePressure(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IgnorePressure)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIgnorePressure<P0>(&self, flag: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIgnorePressure)(windows_core::Interface::as_raw(self), flag.param().abi()).ok()
+    pub unsafe fn SetIgnorePressure(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIgnorePressure)(windows_core::Interface::as_raw(self), core::mem::transmute(flag)).ok()
     }
     pub unsafe fn AntiAliased(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AntiAliased)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAntiAliased<P0>(&self, flag: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAntiAliased)(windows_core::Interface::as_raw(self), flag.param().abi()).ok()
+    pub unsafe fn SetAntiAliased(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAntiAliased)(windows_core::Interface::as_raw(self), core::mem::transmute(flag)).ok()
     }
     pub unsafe fn Transparency(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -4238,11 +4133,8 @@ impl IInkEdit {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UseMouseForInput)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetUseMouseForInput<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetUseMouseForInput)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
+    pub unsafe fn SetUseMouseForInput(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetUseMouseForInput)(windows_core::Interface::as_raw(self), core::mem::transmute(newval)).ok()
     }
     pub unsafe fn InkMode(&self) -> windows_core::Result<InkMode> {
         let mut result__ = core::mem::zeroed();
@@ -4315,11 +4207,8 @@ impl IInkEdit {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGestureStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(gesture), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetGestureStatus<P1>(&self, gesture: InkApplicationGesture, listen: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(gesture), listen.param().abi()).ok()
+    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(gesture), core::mem::transmute(listen)).ok()
     }
     pub unsafe fn SetBackColor(&self, clr: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetBackColor)(windows_core::Interface::as_raw(self), core::mem::transmute(clr)).ok()
@@ -4396,21 +4285,15 @@ impl IInkEdit {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Locked)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetLocked<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetLocked)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
+    pub unsafe fn SetLocked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetLocked)(windows_core::Interface::as_raw(self), core::mem::transmute(newval)).ok()
     }
     pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(newval)).ok()
     }
     pub unsafe fn MaxLength(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -4423,11 +4306,8 @@ impl IInkEdit {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MultiLine)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetMultiLine<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMultiLine)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
+    pub unsafe fn SetMultiLine(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMultiLine)(windows_core::Interface::as_raw(self), core::mem::transmute(newval)).ok()
     }
     pub unsafe fn ScrollBars(&self) -> windows_core::Result<ScrollBarsConstants> {
         let mut result__ = core::mem::zeroed();
@@ -4440,11 +4320,8 @@ impl IInkEdit {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DisableNoScroll)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetDisableNoScroll<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDisableNoScroll)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
+    pub unsafe fn SetDisableNoScroll(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDisableNoScroll)(windows_core::Interface::as_raw(self), core::mem::transmute(newval)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SelAlignment(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -5846,11 +5723,8 @@ impl IInkOverlay {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, collecting: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), collecting.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(collecting)).ok()
     }
     pub unsafe fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
         let mut result__ = core::mem::zeroed();
@@ -5886,11 +5760,8 @@ impl IInkOverlay {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoRedraw)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAutoRedraw<P0>(&self, autoredraw: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAutoRedraw)(windows_core::Interface::as_raw(self), autoredraw.param().abi()).ok()
+    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAutoRedraw)(windows_core::Interface::as_raw(self), core::mem::transmute(autoredraw)).ok()
     }
     pub unsafe fn CollectingInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -5907,11 +5778,8 @@ impl IInkOverlay {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DynamicRendering)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetDynamicRendering<P0>(&self, enabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDynamicRendering)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
+    pub unsafe fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDynamicRendering)(windows_core::Interface::as_raw(self), core::mem::transmute(enabled)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DesiredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -6012,21 +5880,15 @@ impl IInkOverlay {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SupportHighContrastInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetSupportHighContrastInk<P0>(&self, support: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSupportHighContrastInk)(windows_core::Interface::as_raw(self), support.param().abi()).ok()
+    pub unsafe fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSupportHighContrastInk)(windows_core::Interface::as_raw(self), core::mem::transmute(support)).ok()
     }
     pub unsafe fn SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetSupportHighContrastSelectionUI<P0>(&self, support: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), support.param().abi()).ok()
+    pub unsafe fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), core::mem::transmute(support)).ok()
     }
     pub unsafe fn HitTestSelection(&self, x: i32, y: i32) -> windows_core::Result<SelectionHitResult> {
         let mut result__ = core::mem::zeroed();
@@ -6038,11 +5900,8 @@ impl IInkOverlay {
     {
         (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), rect.param().abi()).ok()
     }
-    pub unsafe fn SetGestureStatus<P1>(&self, gesture: InkApplicationGesture, listen: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(gesture), listen.param().abi()).ok()
+    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(gesture), core::mem::transmute(listen)).ok()
     }
     pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -6057,11 +5916,8 @@ impl IInkOverlay {
     {
         (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), windowinputrectangle.param().abi()).ok()
     }
-    pub unsafe fn SetAllTabletsMode<P0>(&self, usemouseforinput: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), usemouseforinput.param().abi()).ok()
+    pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), core::mem::transmute(usemouseforinput)).ok()
     }
     pub unsafe fn SetSingleTabletIntegratedMode<P0>(&self, tablet: P0) -> windows_core::Result<()>
     where
@@ -6073,11 +5929,8 @@ impl IInkOverlay {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEventInterest)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEventInterest<P1>(&self, eventid: InkCollectorEventInterest, listen: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), listen.param().abi()).ok()
+    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), core::mem::transmute(listen)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6701,11 +6554,8 @@ impl IInkPicture {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoRedraw)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAutoRedraw<P0>(&self, autoredraw: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAutoRedraw)(windows_core::Interface::as_raw(self), autoredraw.param().abi()).ok()
+    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAutoRedraw)(windows_core::Interface::as_raw(self), core::mem::transmute(autoredraw)).ok()
     }
     pub unsafe fn CollectingInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -6722,11 +6572,8 @@ impl IInkPicture {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DynamicRendering)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetDynamicRendering<P0>(&self, enabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDynamicRendering)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
+    pub unsafe fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDynamicRendering)(windows_core::Interface::as_raw(self), core::mem::transmute(enabled)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DesiredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -6853,31 +6700,22 @@ impl IInkPicture {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SupportHighContrastInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetSupportHighContrastInk<P0>(&self, support: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSupportHighContrastInk)(windows_core::Interface::as_raw(self), support.param().abi()).ok()
+    pub unsafe fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSupportHighContrastInk)(windows_core::Interface::as_raw(self), core::mem::transmute(support)).ok()
     }
     pub unsafe fn SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetSupportHighContrastSelectionUI<P0>(&self, support: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), support.param().abi()).ok()
+    pub unsafe fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), core::mem::transmute(support)).ok()
     }
     pub unsafe fn HitTestSelection(&self, x: i32, y: i32) -> windows_core::Result<SelectionHitResult> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HitTestSelection)(windows_core::Interface::as_raw(self), core::mem::transmute(x), core::mem::transmute(y), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetGestureStatus<P1>(&self, gesture: InkApplicationGesture, listen: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(gesture), listen.param().abi()).ok()
+    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(gesture), core::mem::transmute(listen)).ok()
     }
     pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -6892,11 +6730,8 @@ impl IInkPicture {
     {
         (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), windowinputrectangle.param().abi()).ok()
     }
-    pub unsafe fn SetAllTabletsMode<P0>(&self, usemouseforinput: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), usemouseforinput.param().abi()).ok()
+    pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), core::mem::transmute(usemouseforinput)).ok()
     }
     pub unsafe fn SetSingleTabletIntegratedMode<P0>(&self, tablet: P0) -> windows_core::Result<()>
     where
@@ -6908,31 +6743,22 @@ impl IInkPicture {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEventInterest)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEventInterest<P1>(&self, eventid: InkCollectorEventInterest, listen: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), listen.param().abi()).ok()
+    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), core::mem::transmute(listen)).ok()
     }
     pub unsafe fn InkEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InkEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetInkEnabled<P0>(&self, collecting: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetInkEnabled)(windows_core::Interface::as_raw(self), collecting.param().abi()).ok()
+    pub unsafe fn SetInkEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetInkEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(collecting)).ok()
     }
     pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, vbool: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), vbool.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, vbool: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(vbool)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9367,11 +9193,8 @@ impl IInkRenderer {
     pub unsafe fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Rotate)(windows_core::Interface::as_raw(self), core::mem::transmute(degrees), core::mem::transmute(x), core::mem::transmute(y)).ok()
     }
-    pub unsafe fn ScaleTransform<P2>(&self, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ScaleTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(horizontalmultiplier), core::mem::transmute(verticalmultiplier), applyonpenwidth.param().abi()).ok()
+    pub unsafe fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ScaleTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(horizontalmultiplier), core::mem::transmute(verticalmultiplier), core::mem::transmute(applyonpenwidth)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9660,12 +9483,11 @@ impl IInkStrokeDisp {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFlattenedBezierPoints)(windows_core::Interface::as_raw(self), core::mem::transmute(fittingerror), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn Transform<P0, P1>(&self, transform: P0, applyonpenwidth: P1) -> windows_core::Result<()>
+    pub unsafe fn Transform<P0>(&self, transform: P0, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkTransform>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).Transform)(windows_core::Interface::as_raw(self), transform.param().abi(), applyonpenwidth.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Transform)(windows_core::Interface::as_raw(self), transform.param().abi(), core::mem::transmute(applyonpenwidth)).ok()
     }
     pub unsafe fn ScaleToRectangle<P0>(&self, rectangle: P0) -> windows_core::Result<()>
     where
@@ -10186,12 +10008,11 @@ impl IInkStrokes {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBoundingBox)(windows_core::Interface::as_raw(self), core::mem::transmute(boundingboxmode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Transform<P0, P1>(&self, transform: P0, applyonpenwidth: P1) -> windows_core::Result<()>
+    pub unsafe fn Transform<P0>(&self, transform: P0, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkTransform>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).Transform)(windows_core::Interface::as_raw(self), transform.param().abi(), applyonpenwidth.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Transform)(windows_core::Interface::as_raw(self), transform.param().abi(), core::mem::transmute(applyonpenwidth)).ok()
     }
     pub unsafe fn ScaleToRectangle<P0>(&self, rectangle: P0) -> windows_core::Result<()>
     where
@@ -10814,12 +10635,8 @@ impl IInkTransform {
     pub unsafe fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Rotate)(windows_core::Interface::as_raw(self), core::mem::transmute(degrees), core::mem::transmute(x), core::mem::transmute(y)).ok()
     }
-    pub unsafe fn Reflect<P0, P1>(&self, horizontally: P0, vertically: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Reflect)(windows_core::Interface::as_raw(self), horizontally.param().abi(), vertically.param().abi()).ok()
+    pub unsafe fn Reflect(&self, horizontally: super::super::Foundation::VARIANT_BOOL, vertically: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Reflect)(windows_core::Interface::as_raw(self), core::mem::transmute(horizontally), core::mem::transmute(vertically)).ok()
     }
     pub unsafe fn Shear(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Shear)(windows_core::Interface::as_raw(self), core::mem::transmute(horizontalcomponent), core::mem::transmute(verticalcomponent)).ok()
@@ -11343,11 +11160,8 @@ impl IMathInputControl {
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetCustomPaint<P1>(&self, element: i32, paint: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetCustomPaint)(windows_core::Interface::as_raw(self), core::mem::transmute(element), paint.param().abi()).ok()
+    pub unsafe fn SetCustomPaint(&self, element: i32, paint: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCustomPaint)(windows_core::Interface::as_raw(self), core::mem::transmute(element), core::mem::transmute(paint)).ok()
     }
     pub unsafe fn SetCaptionText(&self, captiontext: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCaptionText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(captiontext)).ok()
@@ -11361,11 +11175,8 @@ impl IMathInputControl {
     pub unsafe fn SetOwnerWindow(&self, ownerwindow: isize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOwnerWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(ownerwindow)).ok()
     }
-    pub unsafe fn EnableExtendedButtons<P0>(&self, extended: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).EnableExtendedButtons)(windows_core::Interface::as_raw(self), extended.param().abi()).ok()
+    pub unsafe fn EnableExtendedButtons(&self, extended: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).EnableExtendedButtons)(windows_core::Interface::as_raw(self), core::mem::transmute(extended)).ok()
     }
     pub unsafe fn GetPreviewHeight(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -11374,11 +11185,8 @@ impl IMathInputControl {
     pub unsafe fn SetPreviewHeight(&self, height: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetPreviewHeight)(windows_core::Interface::as_raw(self), core::mem::transmute(height)).ok()
     }
-    pub unsafe fn EnableAutoGrow<P0>(&self, autogrow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).EnableAutoGrow)(windows_core::Interface::as_raw(self), autogrow.param().abi()).ok()
+    pub unsafe fn EnableAutoGrow(&self, autogrow: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).EnableAutoGrow)(windows_core::Interface::as_raw(self), core::mem::transmute(autogrow)).ok()
     }
     pub unsafe fn AddFunctionName(&self, functionname: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddFunctionName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(functionname)).ok()
@@ -11656,11 +11464,8 @@ impl IPenInputPanel {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Visible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetVisible<P0>(&self, visible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), visible.param().abi()).ok()
+    pub unsafe fn SetVisible(&self, visible: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), core::mem::transmute(visible)).ok()
     }
     pub unsafe fn Top(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -11696,11 +11501,8 @@ impl IPenInputPanel {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoShow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAutoShow<P0>(&self, autoshow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAutoShow)(windows_core::Interface::as_raw(self), autoshow.param().abi()).ok()
+    pub unsafe fn SetAutoShow(&self, autoshow: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAutoShow)(windows_core::Interface::as_raw(self), core::mem::transmute(autoshow)).ok()
     }
     pub unsafe fn MoveTo(&self, left: i32, top: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).MoveTo)(windows_core::Interface::as_raw(self), core::mem::transmute(left), core::mem::transmute(top)).ok()
@@ -11711,11 +11513,8 @@ impl IPenInputPanel {
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn EnableTsf<P0>(&self, enable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).EnableTsf)(windows_core::Interface::as_raw(self), enable.param().abi()).ok()
+    pub unsafe fn EnableTsf(&self, enable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).EnableTsf)(windows_core::Interface::as_raw(self), core::mem::transmute(enable)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12076,11 +11875,8 @@ impl IRealTimeStylus {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HWND)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetHWND<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
-    {
-        (windows_core::Interface::vtable(self).SetHWND)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
+    pub unsafe fn SetHWND(&self, hwnd: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetHWND)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd)).ok()
     }
     pub unsafe fn WindowInputRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = core::mem::zeroed();
@@ -12196,7 +11992,7 @@ impl IRealTimeStylus {
         (windows_core::Interface::vtable(self).GetDesiredPacketDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pcproperties), core::mem::transmute(pppropertyguids)).ok()
     }
     pub unsafe fn GetPacketDescriptionData(&self, tcid: u32, pfinktodevicescalex: Option<*mut f32>, pfinktodevicescaley: Option<*mut f32>, pcpacketproperties: *mut u32, pppacketproperties: *mut *mut PACKET_PROPERTY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPacketDescriptionData)(windows_core::Interface::as_raw(self), core::mem::transmute(tcid), core::mem::transmute(pfinktodevicescalex.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfinktodevicescaley.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcpacketproperties), core::mem::transmute(pppacketproperties)).ok()
+        (windows_core::Interface::vtable(self).GetPacketDescriptionData)(windows_core::Interface::as_raw(self), core::mem::transmute(tcid), core::mem::transmute(pfinktodevicescalex.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfinktodevicescaley.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcpacketproperties), core::mem::transmute(pppacketproperties)).ok()
     }
 }
 #[repr(C)]
@@ -12725,7 +12521,7 @@ impl IStrokeBuilder {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BeginStroke(&self, tcid: u32, sid: u32, ppacket: *const i32, ppacketproperties: &[PACKET_PROPERTY], finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: Option<*mut Option<IInkStrokeDisp>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BeginStroke)(windows_core::Interface::as_raw(self), core::mem::transmute(tcid), core::mem::transmute(sid), core::mem::transmute(ppacket), ppacketproperties.len().try_into().unwrap(), core::mem::transmute(ppacketproperties.as_ptr()), core::mem::transmute(finktodevicescalex), core::mem::transmute(finktodevicescaley), core::mem::transmute(ppiinkstroke.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).BeginStroke)(windows_core::Interface::as_raw(self), core::mem::transmute(tcid), core::mem::transmute(sid), core::mem::transmute(ppacket), ppacketproperties.len().try_into().unwrap(), core::mem::transmute(ppacketproperties.as_ptr()), core::mem::transmute(finktodevicescalex), core::mem::transmute(finktodevicescaley), core::mem::transmute(ppiinkstroke.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn AppendPackets(&self, tcid: u32, sid: u32, ppackets: &[i32]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AppendPackets)(windows_core::Interface::as_raw(self), core::mem::transmute(tcid), core::mem::transmute(sid), ppackets.len().try_into().unwrap(), core::mem::transmute(ppackets.as_ptr())).ok()
@@ -13142,11 +12938,8 @@ impl ITextInputPanel {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AttachedEditWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAttachedEditWindow<P0>(&self, attachededitwindow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetAttachedEditWindow)(windows_core::Interface::as_raw(self), attachededitwindow.param().abi()).ok()
+    pub unsafe fn SetAttachedEditWindow(&self, attachededitwindow: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAttachedEditWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(attachededitwindow)).ok()
     }
     pub unsafe fn CurrentInteractionMode(&self) -> windows_core::Result<InteractionMode> {
         let mut result__ = core::mem::zeroed();
@@ -13713,19 +13506,17 @@ impl windows_core::RuntimeName for ITextInputPanelRunInfo {}
 windows_core::imp::define_interface!(ITipAutoCompleteClient, ITipAutoCompleteClient_Vtbl, 0x5e078e03_8265_4bbe_9487_d242edbef910);
 windows_core::imp::interface_hierarchy!(ITipAutoCompleteClient, windows_core::IUnknown);
 impl ITipAutoCompleteClient {
-    pub unsafe fn AdviseProvider<P0, P1>(&self, hwndfield: P0, piprovider: P1) -> windows_core::Result<()>
+    pub unsafe fn AdviseProvider<P1>(&self, hwndfield: super::super::Foundation::HWND, piprovider: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<ITipAutoCompleteProvider>,
     {
-        (windows_core::Interface::vtable(self).AdviseProvider)(windows_core::Interface::as_raw(self), hwndfield.param().abi(), piprovider.param().abi()).ok()
+        (windows_core::Interface::vtable(self).AdviseProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndfield), piprovider.param().abi()).ok()
     }
-    pub unsafe fn UnadviseProvider<P0, P1>(&self, hwndfield: P0, piprovider: P1) -> windows_core::Result<()>
+    pub unsafe fn UnadviseProvider<P1>(&self, hwndfield: super::super::Foundation::HWND, piprovider: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<ITipAutoCompleteProvider>,
     {
-        (windows_core::Interface::vtable(self).UnadviseProvider)(windows_core::Interface::as_raw(self), hwndfield.param().abi(), piprovider.param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnadviseProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndfield), piprovider.param().abi()).ok()
     }
     pub unsafe fn UserSelection(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UserSelection)(windows_core::Interface::as_raw(self)).ok()
@@ -13733,12 +13524,9 @@ impl ITipAutoCompleteClient {
     pub unsafe fn PreferredRects(&self, prcaclist: *const super::super::Foundation::RECT, prcfield: *const super::super::Foundation::RECT, prcmodifiedaclist: *mut super::super::Foundation::RECT, pfshownabovetip: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PreferredRects)(windows_core::Interface::as_raw(self), core::mem::transmute(prcaclist), core::mem::transmute(prcfield), core::mem::transmute(prcmodifiedaclist), core::mem::transmute(pfshownabovetip)).ok()
     }
-    pub unsafe fn RequestShowUI<P0>(&self, hwndlist: P0) -> windows_core::Result<super::super::Foundation::BOOL>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
+    pub unsafe fn RequestShowUI(&self, hwndlist: super::super::Foundation::HWND) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RequestShowUI)(windows_core::Interface::as_raw(self), hwndlist.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).RequestShowUI)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndlist), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

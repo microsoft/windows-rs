@@ -690,7 +690,7 @@ impl IWiaDataTransfer {
         (windows_core::Interface::vtable(self).idtGetBandedData)(windows_core::Interface::as_raw(self), core::mem::transmute(pwiadatatransinfo), piwiadatacallback.param().abi()).ok()
     }
     pub unsafe fn idtQueryGetData(&self, pfe: Option<*const WIA_FORMAT_INFO>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).idtQueryGetData)(windows_core::Interface::as_raw(self), core::mem::transmute(pfe.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).idtQueryGetData)(windows_core::Interface::as_raw(self), core::mem::transmute(pfe.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn idtEnumWIA_FORMAT_INFO(&self) -> windows_core::Result<IEnumWIA_FORMAT_INFO> {
         let mut result__ = core::mem::zeroed();
@@ -775,24 +775,17 @@ impl IWiaDevMgr {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SelectDeviceDlg<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR, ppitemroot: *mut Option<IWiaItem>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(pbstrdeviceid), core::mem::transmute(ppitemroot)).ok()
+    pub unsafe fn SelectDeviceDlg(&self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR, ppitemroot: *mut Option<IWiaItem>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(pbstrdeviceid), core::mem::transmute(ppitemroot)).ok()
     }
-    pub unsafe fn SelectDeviceDlgID<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(pbstrdeviceid)).ok()
+    pub unsafe fn SelectDeviceDlgID(&self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(pbstrdeviceid)).ok()
     }
-    pub unsafe fn GetImageDlg<P0, P4>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: P4, bstrfilename: &windows_core::BSTR, pguidformat: *mut windows_core::GUID) -> windows_core::Result<()>
+    pub unsafe fn GetImageDlg<P4>(&self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: P4, bstrfilename: &windows_core::BSTR, pguidformat: *mut windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P4: windows_core::Param<IWiaItem>,
     {
-        (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(lintent), pitemroot.param().abi(), core::mem::transmute_copy(bstrfilename), core::mem::transmute(pguidformat)).ok()
+        (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(lintent), pitemroot.param().abi(), core::mem::transmute_copy(bstrfilename), core::mem::transmute(pguidformat)).ok()
     }
     pub unsafe fn RegisterEventCallbackProgram(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, bstrcommandline: &windows_core::BSTR, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RegisterEventCallbackProgram)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(peventguid), core::mem::transmute_copy(bstrcommandline), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)).ok()
@@ -807,11 +800,8 @@ impl IWiaDevMgr {
     pub unsafe fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(peventguid), core::mem::transmute(pclsid), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)).ok()
     }
-    pub unsafe fn AddDeviceDlg<P0>(&self, hwndparent: P0, lflags: i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).AddDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(lflags)).ok()
+    pub unsafe fn AddDeviceDlg(&self, hwndparent: super::super::Foundation::HWND, lflags: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).AddDeviceDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(lflags)).ok()
     }
 }
 #[repr(C)]
@@ -923,17 +913,11 @@ impl IWiaDevMgr2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SelectDeviceDlg<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR, ppitemroot: *mut Option<IWiaItem2>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(pbstrdeviceid), core::mem::transmute(ppitemroot)).ok()
+    pub unsafe fn SelectDeviceDlg(&self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR, ppitemroot: *mut Option<IWiaItem2>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(pbstrdeviceid), core::mem::transmute(ppitemroot)).ok()
     }
-    pub unsafe fn SelectDeviceDlgID<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(pbstrdeviceid)).ok()
+    pub unsafe fn SelectDeviceDlgID(&self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(pbstrdeviceid)).ok()
     }
     pub unsafe fn RegisterEventCallbackInterface<P3>(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, piwiaeventcallback: P3) -> windows_core::Result<windows_core::IUnknown>
     where
@@ -948,11 +932,8 @@ impl IWiaDevMgr2 {
     pub unsafe fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(peventguid), core::mem::transmute(pclsid), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)).ok()
     }
-    pub unsafe fn GetImageDlg<P2>(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, hwndparent: P2, bstrfoldername: &windows_core::BSTR, bstrfilename: &windows_core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: *mut Option<IWiaItem2>) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), hwndparent.param().abi(), core::mem::transmute_copy(bstrfoldername), core::mem::transmute_copy(bstrfilename), core::mem::transmute(plnumfiles), core::mem::transmute(ppbstrfilepaths), core::mem::transmute(ppitem)).ok()
+    pub unsafe fn GetImageDlg(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstrfoldername: &windows_core::BSTR, bstrfilename: &windows_core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: *mut Option<IWiaItem2>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(hwndparent), core::mem::transmute_copy(bstrfoldername), core::mem::transmute_copy(bstrfilename), core::mem::transmute(plnumfiles), core::mem::transmute(ppbstrfilepaths), core::mem::transmute(ppitem)).ok()
     }
 }
 #[repr(C)]
@@ -1273,12 +1254,11 @@ impl windows_core::RuntimeName for IWiaDrvItem {}
 windows_core::imp::define_interface!(IWiaErrorHandler, IWiaErrorHandler_Vtbl, 0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
 windows_core::imp::interface_hierarchy!(IWiaErrorHandler, windows_core::IUnknown);
 impl IWiaErrorHandler {
-    pub unsafe fn ReportStatus<P1, P2>(&self, lflags: i32, hwndparent: P1, pwiaitem2: P2, hrstatus: windows_core::HRESULT, lpercentcomplete: i32) -> windows_core::Result<()>
+    pub unsafe fn ReportStatus<P2>(&self, lflags: i32, hwndparent: super::super::Foundation::HWND, pwiaitem2: P2, hrstatus: windows_core::HRESULT, lpercentcomplete: i32) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::HWND>,
         P2: windows_core::Param<IWiaItem2>,
     {
-        (windows_core::Interface::vtable(self).ReportStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), hwndparent.param().abi(), pwiaitem2.param().abi(), core::mem::transmute(hrstatus), core::mem::transmute(lpercentcomplete)).ok()
+        (windows_core::Interface::vtable(self).ReportStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(hwndparent), pwiaitem2.param().abi(), core::mem::transmute(hrstatus), core::mem::transmute(lpercentcomplete)).ok()
     }
     pub unsafe fn GetStatusDescription<P1>(&self, lflags: i32, pwiaitem2: P1, hrstatus: windows_core::HRESULT) -> windows_core::Result<windows_core::BSTR>
     where
@@ -1464,11 +1444,8 @@ impl IWiaItem {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn DeviceDlg<P0>(&self, hwndparent: P0, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut Option<IWiaItem>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(lflags), core::mem::transmute(lintent), core::mem::transmute(plitemcount), core::mem::transmute(ppiwiaitem)).ok()
+    pub unsafe fn DeviceDlg(&self, hwndparent: super::super::Foundation::HWND, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut Option<IWiaItem>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(lflags), core::mem::transmute(lintent), core::mem::transmute(plitemcount), core::mem::transmute(ppiwiaitem)).ok()
     }
     pub unsafe fn DeviceCommand(&self, lflags: i32, pcmdguid: *const windows_core::GUID, piwiaitem: *mut Option<IWiaItem>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DeviceCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(pcmdguid), core::mem::transmute(piwiaitem)).ok()
@@ -1691,7 +1668,7 @@ impl IWiaItem2 {
     }
     pub unsafe fn EnumChildItems(&self, pcategoryguid: Option<*const windows_core::GUID>) -> windows_core::Result<IEnumWiaItem2> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumChildItems)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategoryguid.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumChildItems)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategoryguid.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindItemByName(&self, lflags: i32, bstrfullitemname: &windows_core::BSTR) -> windows_core::Result<IWiaItem2> {
         let mut result__ = core::mem::zeroed();
@@ -1705,11 +1682,8 @@ impl IWiaItem2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetItemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn DeviceDlg<P1>(&self, lflags: i32, hwndparent: P1, bstrfoldername: &windows_core::BSTR, bstrfilename: &windows_core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: Option<*mut Option<IWiaItem2>>) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), hwndparent.param().abi(), core::mem::transmute_copy(bstrfoldername), core::mem::transmute_copy(bstrfilename), core::mem::transmute(plnumfiles), core::mem::transmute(ppbstrfilepaths), core::mem::transmute(ppitem.unwrap_or(core::ptr::null_mut()))).ok()
+    pub unsafe fn DeviceDlg(&self, lflags: i32, hwndparent: super::super::Foundation::HWND, bstrfoldername: &windows_core::BSTR, bstrfilename: &windows_core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: Option<*mut Option<IWiaItem2>>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(hwndparent), core::mem::transmute_copy(bstrfoldername), core::mem::transmute_copy(bstrfilename), core::mem::transmute(plnumfiles), core::mem::transmute(ppbstrfilepaths), core::mem::transmute(ppitem.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn DeviceCommand(&self, lflags: i32, pcmdguid: *const windows_core::GUID, ppiwiaitem2: *mut Option<IWiaItem2>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DeviceCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(pcmdguid), core::mem::transmute(ppiwiaitem2)).ok()
@@ -3120,29 +3094,26 @@ impl IWiaVideo {
     pub unsafe fn SetImagesDirectory(&self, bstrimagedirectory: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetImagesDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrimagedirectory)).ok()
     }
-    pub unsafe fn CreateVideoByWiaDevID<P1, P2, P3>(&self, bstrwiadeviceid: &windows_core::BSTR, hwndparent: P1, bstretchtofitparent: P2, bautobeginplayback: P3) -> windows_core::Result<()>
+    pub unsafe fn CreateVideoByWiaDevID<P2, P3>(&self, bstrwiadeviceid: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: P2, bautobeginplayback: P3) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::HWND>,
         P2: windows_core::Param<super::super::Foundation::BOOL>,
         P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateVideoByWiaDevID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrwiadeviceid), hwndparent.param().abi(), bstretchtofitparent.param().abi(), bautobeginplayback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateVideoByWiaDevID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrwiadeviceid), core::mem::transmute(hwndparent), bstretchtofitparent.param().abi(), bautobeginplayback.param().abi()).ok()
     }
-    pub unsafe fn CreateVideoByDevNum<P1, P2, P3>(&self, uidevicenumber: u32, hwndparent: P1, bstretchtofitparent: P2, bautobeginplayback: P3) -> windows_core::Result<()>
+    pub unsafe fn CreateVideoByDevNum<P2, P3>(&self, uidevicenumber: u32, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: P2, bautobeginplayback: P3) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::HWND>,
         P2: windows_core::Param<super::super::Foundation::BOOL>,
         P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateVideoByDevNum)(windows_core::Interface::as_raw(self), core::mem::transmute(uidevicenumber), hwndparent.param().abi(), bstretchtofitparent.param().abi(), bautobeginplayback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateVideoByDevNum)(windows_core::Interface::as_raw(self), core::mem::transmute(uidevicenumber), core::mem::transmute(hwndparent), bstretchtofitparent.param().abi(), bautobeginplayback.param().abi()).ok()
     }
-    pub unsafe fn CreateVideoByName<P1, P2, P3>(&self, bstrfriendlyname: &windows_core::BSTR, hwndparent: P1, bstretchtofitparent: P2, bautobeginplayback: P3) -> windows_core::Result<()>
+    pub unsafe fn CreateVideoByName<P2, P3>(&self, bstrfriendlyname: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: P2, bautobeginplayback: P3) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::HWND>,
         P2: windows_core::Param<super::super::Foundation::BOOL>,
         P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateVideoByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfriendlyname), hwndparent.param().abi(), bstretchtofitparent.param().abi(), bautobeginplayback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateVideoByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfriendlyname), core::mem::transmute(hwndparent), bstretchtofitparent.param().abi(), bautobeginplayback.param().abi()).ok()
     }
     pub unsafe fn DestroyVideo(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DestroyVideo)(windows_core::Interface::as_raw(self)).ok()

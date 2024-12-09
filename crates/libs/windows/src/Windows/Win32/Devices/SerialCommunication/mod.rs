@@ -1,35 +1,25 @@
 #[inline]
-pub unsafe fn ComDBClaimNextFreePort<P0>(hcomdb: P0, comnumber: *mut u32) -> i32
-where
-    P0: windows_core::Param<HCOMDB>,
-{
+pub unsafe fn ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: *mut u32) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBClaimNextFreePort(hcomdb : HCOMDB, comnumber : *mut u32) -> i32);
-    ComDBClaimNextFreePort(hcomdb.param().abi(), core::mem::transmute(comnumber))
+    ComDBClaimNextFreePort(core::mem::transmute(hcomdb), core::mem::transmute(comnumber))
 }
 #[inline]
-pub unsafe fn ComDBClaimPort<P0, P2>(hcomdb: P0, comnumber: u32, forceclaim: P2, forced: Option<*mut super::super::Foundation::BOOL>) -> i32
+pub unsafe fn ComDBClaimPort<P2>(hcomdb: HCOMDB, comnumber: u32, forceclaim: P2, forced: Option<*mut super::super::Foundation::BOOL>) -> i32
 where
-    P0: windows_core::Param<HCOMDB>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("msports.dll" "system" fn ComDBClaimPort(hcomdb : HCOMDB, comnumber : u32, forceclaim : super::super::Foundation:: BOOL, forced : *mut super::super::Foundation:: BOOL) -> i32);
-    ComDBClaimPort(hcomdb.param().abi(), core::mem::transmute(comnumber), forceclaim.param().abi(), core::mem::transmute(forced.unwrap_or(core::ptr::null_mut())))
+    ComDBClaimPort(core::mem::transmute(hcomdb), core::mem::transmute(comnumber), forceclaim.param().abi(), core::mem::transmute(forced.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn ComDBClose<P0>(hcomdb: P0) -> i32
-where
-    P0: windows_core::Param<HCOMDB>,
-{
+pub unsafe fn ComDBClose(hcomdb: HCOMDB) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBClose(hcomdb : HCOMDB) -> i32);
-    ComDBClose(hcomdb.param().abi())
+    ComDBClose(core::mem::transmute(hcomdb))
 }
 #[inline]
-pub unsafe fn ComDBGetCurrentPortUsage<P0>(hcomdb: P0, buffer: Option<&mut [u8]>, reporttype: u32, maxportsreported: Option<*mut u32>) -> i32
-where
-    P0: windows_core::Param<HCOMDB>,
-{
+pub unsafe fn ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: Option<&mut [u8]>, reporttype: u32, maxportsreported: Option<*mut u32>) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBGetCurrentPortUsage(hcomdb : HCOMDB, buffer : *mut u8, buffersize : u32, reporttype : u32, maxportsreported : *mut u32) -> i32);
-    ComDBGetCurrentPortUsage(hcomdb.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(reporttype), core::mem::transmute(maxportsreported.unwrap_or(core::ptr::null_mut())))
+    ComDBGetCurrentPortUsage(core::mem::transmute(hcomdb), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(reporttype), core::mem::transmute(maxportsreported.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ComDBOpen(phcomdb: *mut HCOMDB) -> i32 {
@@ -37,20 +27,14 @@ pub unsafe fn ComDBOpen(phcomdb: *mut HCOMDB) -> i32 {
     ComDBOpen(core::mem::transmute(phcomdb))
 }
 #[inline]
-pub unsafe fn ComDBReleasePort<P0>(hcomdb: P0, comnumber: u32) -> i32
-where
-    P0: windows_core::Param<HCOMDB>,
-{
+pub unsafe fn ComDBReleasePort(hcomdb: HCOMDB, comnumber: u32) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBReleasePort(hcomdb : HCOMDB, comnumber : u32) -> i32);
-    ComDBReleasePort(hcomdb.param().abi(), core::mem::transmute(comnumber))
+    ComDBReleasePort(core::mem::transmute(hcomdb), core::mem::transmute(comnumber))
 }
 #[inline]
-pub unsafe fn ComDBResizeDatabase<P0>(hcomdb: P0, newsize: u32) -> i32
-where
-    P0: windows_core::Param<HCOMDB>,
-{
+pub unsafe fn ComDBResizeDatabase(hcomdb: HCOMDB, newsize: u32) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBResizeDatabase(hcomdb : HCOMDB, newsize : u32) -> i32);
-    ComDBResizeDatabase(hcomdb.param().abi(), core::mem::transmute(newsize))
+    ComDBResizeDatabase(core::mem::transmute(hcomdb), core::mem::transmute(newsize))
 }
 pub const CDB_REPORT_BITS: u32 = 0u32;
 pub const CDB_REPORT_BYTES: u32 = 1u32;

@@ -374,24 +374,24 @@ pub unsafe fn ReportActiveIScsiTargetMappingsW(buffersize: *mut u32, mappingcoun
     ReportActiveIScsiTargetMappingsW(core::mem::transmute(buffersize), core::mem::transmute(mappingcount), core::mem::transmute(mappings))
 }
 #[inline]
-pub unsafe fn ReportISNSServerListA(buffersizeinchar: *mut u32, buffer: windows_core::PSTR) -> u32 {
+pub unsafe fn ReportISNSServerListA(buffersizeinchar: *mut u32, buffer: Option<windows_core::PSTR>) -> u32 {
     windows_targets::link!("iscsidsc.dll" "system" fn ReportISNSServerListA(buffersizeinchar : *mut u32, buffer : windows_core::PSTR) -> u32);
-    ReportISNSServerListA(core::mem::transmute(buffersizeinchar), core::mem::transmute(buffer))
+    ReportISNSServerListA(core::mem::transmute(buffersizeinchar), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn ReportISNSServerListW(buffersizeinchar: *mut u32, buffer: windows_core::PWSTR) -> u32 {
+pub unsafe fn ReportISNSServerListW(buffersizeinchar: *mut u32, buffer: Option<windows_core::PWSTR>) -> u32 {
     windows_targets::link!("iscsidsc.dll" "system" fn ReportISNSServerListW(buffersizeinchar : *mut u32, buffer : windows_core::PWSTR) -> u32);
-    ReportISNSServerListW(core::mem::transmute(buffersizeinchar), core::mem::transmute(buffer))
+    ReportISNSServerListW(core::mem::transmute(buffersizeinchar), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn ReportIScsiInitiatorListA(buffersize: *mut u32, buffer: windows_core::PSTR) -> u32 {
+pub unsafe fn ReportIScsiInitiatorListA(buffersize: *mut u32, buffer: Option<windows_core::PSTR>) -> u32 {
     windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiInitiatorListA(buffersize : *mut u32, buffer : windows_core::PSTR) -> u32);
-    ReportIScsiInitiatorListA(core::mem::transmute(buffersize), core::mem::transmute(buffer))
+    ReportIScsiInitiatorListA(core::mem::transmute(buffersize), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn ReportIScsiInitiatorListW(buffersize: *mut u32, buffer: windows_core::PWSTR) -> u32 {
+pub unsafe fn ReportIScsiInitiatorListW(buffersize: *mut u32, buffer: Option<windows_core::PWSTR>) -> u32 {
     windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiInitiatorListW(buffersize : *mut u32, buffer : windows_core::PWSTR) -> u32);
-    ReportIScsiInitiatorListW(core::mem::transmute(buffersize), core::mem::transmute(buffer))
+    ReportIScsiInitiatorListW(core::mem::transmute(buffersize), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ReportIScsiPersistentLoginsA(count: *mut u32, persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOA, buffersizeinbytes: *mut u32) -> u32 {
@@ -442,40 +442,40 @@ where
     ReportIScsiTargetPortalsW(initiatorname.param().abi(), targetname.param().abi(), core::mem::transmute(targetportaltag), core::mem::transmute(elementcount), core::mem::transmute(portals))
 }
 #[inline]
-pub unsafe fn ReportIScsiTargetsA<P0>(forceupdate: P0, buffersize: *mut u32, buffer: windows_core::PSTR) -> u32
+pub unsafe fn ReportIScsiTargetsA<P0>(forceupdate: P0, buffersize: *mut u32, buffer: Option<windows_core::PSTR>) -> u32
 where
     P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetsA(forceupdate : super::super::Foundation:: BOOLEAN, buffersize : *mut u32, buffer : windows_core::PSTR) -> u32);
-    ReportIScsiTargetsA(forceupdate.param().abi(), core::mem::transmute(buffersize), core::mem::transmute(buffer))
+    ReportIScsiTargetsA(forceupdate.param().abi(), core::mem::transmute(buffersize), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn ReportIScsiTargetsW<P0>(forceupdate: P0, buffersize: *mut u32, buffer: windows_core::PWSTR) -> u32
+pub unsafe fn ReportIScsiTargetsW<P0>(forceupdate: P0, buffersize: *mut u32, buffer: Option<windows_core::PWSTR>) -> u32
 where
     P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetsW(forceupdate : super::super::Foundation:: BOOLEAN, buffersize : *mut u32, buffer : windows_core::PWSTR) -> u32);
-    ReportIScsiTargetsW(forceupdate.param().abi(), core::mem::transmute(buffersize), core::mem::transmute(buffer))
+    ReportIScsiTargetsW(forceupdate.param().abi(), core::mem::transmute(buffersize), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn ReportPersistentIScsiDevicesA(buffersizeinchar: *mut u32, buffer: windows_core::PSTR) -> u32 {
+pub unsafe fn ReportPersistentIScsiDevicesA(buffersizeinchar: *mut u32, buffer: Option<windows_core::PSTR>) -> u32 {
     windows_targets::link!("iscsidsc.dll" "system" fn ReportPersistentIScsiDevicesA(buffersizeinchar : *mut u32, buffer : windows_core::PSTR) -> u32);
-    ReportPersistentIScsiDevicesA(core::mem::transmute(buffersizeinchar), core::mem::transmute(buffer))
+    ReportPersistentIScsiDevicesA(core::mem::transmute(buffersizeinchar), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn ReportPersistentIScsiDevicesW(buffersizeinchar: *mut u32, buffer: windows_core::PWSTR) -> u32 {
+pub unsafe fn ReportPersistentIScsiDevicesW(buffersizeinchar: *mut u32, buffer: Option<windows_core::PWSTR>) -> u32 {
     windows_targets::link!("iscsidsc.dll" "system" fn ReportPersistentIScsiDevicesW(buffersizeinchar : *mut u32, buffer : windows_core::PWSTR) -> u32);
-    ReportPersistentIScsiDevicesW(core::mem::transmute(buffersizeinchar), core::mem::transmute(buffer))
+    ReportPersistentIScsiDevicesW(core::mem::transmute(buffersizeinchar), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn ReportRadiusServerListA(buffersizeinchar: *mut u32, buffer: windows_core::PSTR) -> u32 {
+pub unsafe fn ReportRadiusServerListA(buffersizeinchar: *mut u32, buffer: Option<windows_core::PSTR>) -> u32 {
     windows_targets::link!("iscsidsc.dll" "system" fn ReportRadiusServerListA(buffersizeinchar : *mut u32, buffer : windows_core::PSTR) -> u32);
-    ReportRadiusServerListA(core::mem::transmute(buffersizeinchar), core::mem::transmute(buffer))
+    ReportRadiusServerListA(core::mem::transmute(buffersizeinchar), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn ReportRadiusServerListW(buffersizeinchar: *mut u32, buffer: windows_core::PWSTR) -> u32 {
+pub unsafe fn ReportRadiusServerListW(buffersizeinchar: *mut u32, buffer: Option<windows_core::PWSTR>) -> u32 {
     windows_targets::link!("iscsidsc.dll" "system" fn ReportRadiusServerListW(buffersizeinchar : *mut u32, buffer : windows_core::PWSTR) -> u32);
-    ReportRadiusServerListW(core::mem::transmute(buffersizeinchar), core::mem::transmute(buffer))
+    ReportRadiusServerListW(core::mem::transmute(buffersizeinchar), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, evpdcmddt: u8, pagecode: u8, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32 {

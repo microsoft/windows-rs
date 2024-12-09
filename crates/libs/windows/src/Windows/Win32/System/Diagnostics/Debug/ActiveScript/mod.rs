@@ -5324,7 +5324,7 @@ impl IDebugDocumentText {
         (windows_core::Interface::vtable(self).GetLineOfPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(ccharacterposition), core::mem::transmute(pclinenumber), core::mem::transmute(pccharacteroffsetinline)).ok()
     }
     pub unsafe fn GetText(&self, ccharacterposition: u32, pchartext: windows_core::PWSTR, pstatextattr: Option<*mut u16>, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), core::mem::transmute(ccharacterposition), core::mem::transmute(pchartext), core::mem::transmute(pstatextattr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcnumchars), core::mem::transmute(cmaxchars)).ok()
+        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), core::mem::transmute(ccharacterposition), core::mem::transmute(pchartext), core::mem::transmute(pstatextattr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcnumchars), core::mem::transmute(cmaxchars)).ok()
     }
     pub unsafe fn GetPositionOfContext<P0>(&self, psc: P0, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::Result<()>
     where
@@ -9212,12 +9212,11 @@ impl windows_core::RuntimeName for ITridentEventSink {}
 windows_core::imp::define_interface!(IWebAppDiagnosticsObjectInitialization, IWebAppDiagnosticsObjectInitialization_Vtbl, 0x16ff3a42_a5f5_432b_b625_8e8e16f57e15);
 windows_core::imp::interface_hierarchy!(IWebAppDiagnosticsObjectInitialization, windows_core::IUnknown);
 impl IWebAppDiagnosticsObjectInitialization {
-    pub unsafe fn Initialize<P0, P1>(&self, hpassedhandle: P0, pdebugapplication: P1) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P1>(&self, hpassedhandle: super::super::super::super::Foundation::HANDLE_PTR, pdebugapplication: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::HANDLE_PTR>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hpassedhandle.param().abi(), pdebugapplication.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(hpassedhandle), pdebugapplication.param().abi()).ok()
     }
 }
 #[repr(C)]

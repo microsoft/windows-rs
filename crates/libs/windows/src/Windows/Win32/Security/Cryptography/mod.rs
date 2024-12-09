@@ -53,7 +53,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptCreateContext(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, pconfig : *const CRYPT_CONTEXT_CONFIG) -> super::super::Foundation:: NTSTATUS);
-    BCryptCreateContext(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(pconfig.unwrap_or(core::ptr::null())))
+    BCryptCreateContext(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(pconfig.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn BCryptCreateHash(halgorithm: BCRYPT_ALG_HANDLE, phhash: *mut BCRYPT_HASH_HANDLE, pbhashobject: Option<&mut [u8]>, pbsecret: Option<&[u8]>, dwflags: u32) -> super::super::Foundation::NTSTATUS {
@@ -72,7 +72,7 @@ pub unsafe fn BCryptDecrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppa
         core::mem::transmute(hkey),
         core::mem::transmute(pbinput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pbinput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        core::mem::transmute(ppaddinginfo.unwrap_or(core::ptr::null())),
+        core::mem::transmute(ppaddinginfo.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(pbiv.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pbiv.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
@@ -90,31 +90,23 @@ where
     BCryptDeleteContext(core::mem::transmute(dwtable), pszcontext.param().abi())
 }
 #[inline]
-pub unsafe fn BCryptDeriveKey<P0, P1>(hsharedsecret: P0, pwszkdf: P1, pparameterlist: Option<*const BCryptBufferDesc>, pbderivedkey: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptDeriveKey<P1>(hsharedsecret: BCRYPT_SECRET_HANDLE, pwszkdf: P1, pparameterlist: Option<*const BCryptBufferDesc>, pbderivedkey: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> super::super::Foundation::NTSTATUS
 where
-    P0: windows_core::Param<BCRYPT_SECRET_HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptDeriveKey(hsharedsecret : BCRYPT_SECRET_HANDLE, pwszkdf : windows_core::PCWSTR, pparameterlist : *const BCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
-    BCryptDeriveKey(hsharedsecret.param().abi(), pwszkdf.param().abi(), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(pbderivedkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbderivedkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags))
+    BCryptDeriveKey(core::mem::transmute(hsharedsecret), pwszkdf.param().abi(), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbderivedkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbderivedkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn BCryptDeriveKeyCapi<P0, P1>(hhash: P0, htargetalg: P1, pbderivedkey: &mut [u8], dwflags: u32) -> super::super::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<BCRYPT_HASH_HANDLE>,
-    P1: windows_core::Param<BCRYPT_ALG_HANDLE>,
-{
+pub unsafe fn BCryptDeriveKeyCapi(hhash: BCRYPT_HASH_HANDLE, htargetalg: Option<BCRYPT_ALG_HANDLE>, pbderivedkey: &mut [u8], dwflags: u32) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptDeriveKeyCapi(hhash : BCRYPT_HASH_HANDLE, htargetalg : BCRYPT_ALG_HANDLE, pbderivedkey : *mut u8, cbderivedkey : u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
-    BCryptDeriveKeyCapi(hhash.param().abi(), htargetalg.param().abi(), core::mem::transmute(pbderivedkey.as_ptr()), pbderivedkey.len().try_into().unwrap(), core::mem::transmute(dwflags))
+    BCryptDeriveKeyCapi(core::mem::transmute(hhash), core::mem::transmute(htargetalg.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbderivedkey.as_ptr()), pbderivedkey.len().try_into().unwrap(), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn BCryptDeriveKeyPBKDF2<P0>(hprf: P0, pbpassword: Option<&[u8]>, pbsalt: Option<&[u8]>, citerations: u64, pbderivedkey: &mut [u8], dwflags: u32) -> super::super::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<BCRYPT_ALG_HANDLE>,
-{
+pub unsafe fn BCryptDeriveKeyPBKDF2(hprf: BCRYPT_ALG_HANDLE, pbpassword: Option<&[u8]>, pbsalt: Option<&[u8]>, citerations: u64, pbderivedkey: &mut [u8], dwflags: u32) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptDeriveKeyPBKDF2(hprf : BCRYPT_ALG_HANDLE, pbpassword : *const u8, cbpassword : u32, pbsalt : *const u8, cbsalt : u32, citerations : u64, pbderivedkey : *mut u8, cbderivedkey : u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
     BCryptDeriveKeyPBKDF2(
-        hprf.param().abi(),
+        core::mem::transmute(hprf),
         core::mem::transmute(pbpassword.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pbpassword.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pbsalt.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
@@ -141,20 +133,14 @@ pub unsafe fn BCryptDestroySecret(hsecret: BCRYPT_SECRET_HANDLE) -> super::super
     BCryptDestroySecret(core::mem::transmute(hsecret))
 }
 #[inline]
-pub unsafe fn BCryptDuplicateHash<P0>(hhash: P0, phnewhash: *mut BCRYPT_HASH_HANDLE, pbhashobject: Option<&mut [u8]>, dwflags: u32) -> super::super::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<BCRYPT_HASH_HANDLE>,
-{
+pub unsafe fn BCryptDuplicateHash(hhash: BCRYPT_HASH_HANDLE, phnewhash: *mut BCRYPT_HASH_HANDLE, pbhashobject: Option<&mut [u8]>, dwflags: u32) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptDuplicateHash(hhash : BCRYPT_HASH_HANDLE, phnewhash : *mut BCRYPT_HASH_HANDLE, pbhashobject : *mut u8, cbhashobject : u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
-    BCryptDuplicateHash(hhash.param().abi(), core::mem::transmute(phnewhash), core::mem::transmute(pbhashobject.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbhashobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(dwflags))
+    BCryptDuplicateHash(core::mem::transmute(hhash), core::mem::transmute(phnewhash), core::mem::transmute(pbhashobject.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbhashobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn BCryptDuplicateKey<P0>(hkey: P0, phnewkey: *mut BCRYPT_KEY_HANDLE, pbkeyobject: Option<&mut [u8]>, dwflags: u32) -> super::super::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<BCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn BCryptDuplicateKey(hkey: BCRYPT_KEY_HANDLE, phnewkey: *mut BCRYPT_KEY_HANDLE, pbkeyobject: Option<&mut [u8]>, dwflags: u32) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptDuplicateKey(hkey : BCRYPT_KEY_HANDLE, phnewkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : *mut u8, cbkeyobject : u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
-    BCryptDuplicateKey(hkey.param().abi(), core::mem::transmute(phnewkey), core::mem::transmute(pbkeyobject.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbkeyobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(dwflags))
+    BCryptDuplicateKey(core::mem::transmute(hkey), core::mem::transmute(phnewkey), core::mem::transmute(pbkeyobject.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbkeyobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn BCryptEncrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pbiv: Option<&mut [u8]>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: BCRYPT_FLAGS) -> super::super::Foundation::NTSTATUS {
@@ -163,7 +149,7 @@ pub unsafe fn BCryptEncrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppa
         core::mem::transmute(hkey),
         core::mem::transmute(pbinput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pbinput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        core::mem::transmute(ppaddinginfo.unwrap_or(core::ptr::null())),
+        core::mem::transmute(ppaddinginfo.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(pbiv.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pbiv.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
@@ -184,7 +170,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptEnumContextFunctionProviders(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_CONTEXT_FUNCTION_PROVIDERS) -> super::super::Foundation:: NTSTATUS);
-    BCryptEnumContextFunctionProviders(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(dwinterface), pszfunction.param().abi(), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
+    BCryptEnumContextFunctionProviders(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(dwinterface), pszfunction.param().abi(), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn BCryptEnumContextFunctions<P1>(dwtable: BCRYPT_TABLE, pszcontext: P1, dwinterface: BCRYPT_INTERFACE, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_CONTEXT_FUNCTIONS>) -> super::super::Foundation::NTSTATUS
@@ -192,12 +178,12 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptEnumContextFunctions(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_CONTEXT_FUNCTIONS) -> super::super::Foundation:: NTSTATUS);
-    BCryptEnumContextFunctions(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(dwinterface), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
+    BCryptEnumContextFunctions(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(dwinterface), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn BCryptEnumContexts(dwtable: BCRYPT_TABLE, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_CONTEXTS>) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptEnumContexts(dwtable : BCRYPT_TABLE, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_CONTEXTS) -> super::super::Foundation:: NTSTATUS);
-    BCryptEnumContexts(core::mem::transmute(dwtable), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
+    BCryptEnumContexts(core::mem::transmute(dwtable), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn BCryptEnumProviders<P0>(pszalgid: P0, pimplcount: *mut u32, ppimpllist: *mut *mut BCRYPT_PROVIDER_NAME, dwflags: u32) -> super::super::Foundation::NTSTATUS
@@ -210,17 +196,15 @@ where
 #[inline]
 pub unsafe fn BCryptEnumRegisteredProviders(pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_PROVIDERS>) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptEnumRegisteredProviders(pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_PROVIDERS) -> super::super::Foundation:: NTSTATUS);
-    BCryptEnumRegisteredProviders(core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
+    BCryptEnumRegisteredProviders(core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn BCryptExportKey<P0, P1, P2>(hkey: P0, hexportkey: P1, pszblobtype: P2, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptExportKey<P2>(hkey: BCRYPT_KEY_HANDLE, hexportkey: Option<BCRYPT_KEY_HANDLE>, pszblobtype: P2, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> super::super::Foundation::NTSTATUS
 where
-    P0: windows_core::Param<BCRYPT_KEY_HANDLE>,
-    P1: windows_core::Param<BCRYPT_KEY_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptExportKey(hkey : BCRYPT_KEY_HANDLE, hexportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
-    BCryptExportKey(hkey.param().abi(), hexportkey.param().abi(), pszblobtype.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags))
+    BCryptExportKey(core::mem::transmute(hkey), core::mem::transmute(hexportkey.unwrap_or(core::mem::zeroed())), pszblobtype.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn BCryptFinalizeKeyPair(hkey: BCRYPT_KEY_HANDLE, dwflags: u32) -> super::super::Foundation::NTSTATUS {
@@ -238,12 +222,9 @@ pub unsafe fn BCryptFreeBuffer(pvbuffer: *const core::ffi::c_void) {
     BCryptFreeBuffer(core::mem::transmute(pvbuffer))
 }
 #[inline]
-pub unsafe fn BCryptGenRandom<P0>(halgorithm: P0, pbbuffer: &mut [u8], dwflags: BCRYPTGENRANDOM_FLAGS) -> super::super::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<BCRYPT_ALG_HANDLE>,
-{
+pub unsafe fn BCryptGenRandom(halgorithm: Option<BCRYPT_ALG_HANDLE>, pbbuffer: &mut [u8], dwflags: BCRYPTGENRANDOM_FLAGS) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptGenRandom(halgorithm : BCRYPT_ALG_HANDLE, pbbuffer : *mut u8, cbbuffer : u32, dwflags : BCRYPTGENRANDOM_FLAGS) -> super::super::Foundation:: NTSTATUS);
-    BCryptGenRandom(halgorithm.param().abi(), core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len().try_into().unwrap(), core::mem::transmute(dwflags))
+    BCryptGenRandom(core::mem::transmute(halgorithm.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len().try_into().unwrap(), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn BCryptGenerateKeyPair(halgorithm: BCRYPT_ALG_HANDLE, phkey: *mut BCRYPT_KEY_HANDLE, dwlength: u32, dwflags: u32) -> super::super::Foundation::NTSTATUS {
@@ -261,13 +242,12 @@ pub unsafe fn BCryptGetFipsAlgorithmMode(pfenabled: *mut u8) -> super::super::Fo
     BCryptGetFipsAlgorithmMode(core::mem::transmute(pfenabled))
 }
 #[inline]
-pub unsafe fn BCryptGetProperty<P0, P1>(hobject: P0, pszproperty: P1, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptGetProperty<P1>(hobject: BCRYPT_HANDLE, pszproperty: P1, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> super::super::Foundation::NTSTATUS
 where
-    P0: windows_core::Param<BCRYPT_HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptGetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
-    BCryptGetProperty(hobject.param().abi(), pszproperty.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags))
+    BCryptGetProperty(core::mem::transmute(hobject), pszproperty.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn BCryptHash(halgorithm: BCRYPT_ALG_HANDLE, pbsecret: Option<&[u8]>, pbinput: &[u8], pboutput: &mut [u8]) -> super::super::Foundation::NTSTATUS {
@@ -280,32 +260,25 @@ pub unsafe fn BCryptHashData(hhash: BCRYPT_HASH_HANDLE, pbinput: &[u8], dwflags:
     BCryptHashData(core::mem::transmute(hhash), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn BCryptImportKey<P0, P1, P2>(halgorithm: P0, himportkey: P1, pszblobtype: P2, phkey: *mut BCRYPT_KEY_HANDLE, pbkeyobject: Option<&mut [u8]>, pbinput: &[u8], dwflags: u32) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptImportKey<P2>(halgorithm: BCRYPT_ALG_HANDLE, himportkey: Option<BCRYPT_KEY_HANDLE>, pszblobtype: P2, phkey: *mut BCRYPT_KEY_HANDLE, pbkeyobject: Option<&mut [u8]>, pbinput: &[u8], dwflags: u32) -> super::super::Foundation::NTSTATUS
 where
-    P0: windows_core::Param<BCRYPT_ALG_HANDLE>,
-    P1: windows_core::Param<BCRYPT_KEY_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptImportKey(halgorithm : BCRYPT_ALG_HANDLE, himportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, phkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : *mut u8, cbkeyobject : u32, pbinput : *const u8, cbinput : u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
-    BCryptImportKey(halgorithm.param().abi(), himportkey.param().abi(), pszblobtype.param().abi(), core::mem::transmute(phkey), core::mem::transmute(pbkeyobject.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbkeyobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(dwflags))
+    BCryptImportKey(core::mem::transmute(halgorithm), core::mem::transmute(himportkey.unwrap_or(core::mem::zeroed())), pszblobtype.param().abi(), core::mem::transmute(phkey), core::mem::transmute(pbkeyobject.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbkeyobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn BCryptImportKeyPair<P0, P1, P2>(halgorithm: P0, himportkey: P1, pszblobtype: P2, phkey: *mut BCRYPT_KEY_HANDLE, pbinput: &[u8], dwflags: u32) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptImportKeyPair<P2>(halgorithm: BCRYPT_ALG_HANDLE, himportkey: Option<BCRYPT_KEY_HANDLE>, pszblobtype: P2, phkey: *mut BCRYPT_KEY_HANDLE, pbinput: &[u8], dwflags: u32) -> super::super::Foundation::NTSTATUS
 where
-    P0: windows_core::Param<BCRYPT_ALG_HANDLE>,
-    P1: windows_core::Param<BCRYPT_KEY_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptImportKeyPair(halgorithm : BCRYPT_ALG_HANDLE, himportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, phkey : *mut BCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
-    BCryptImportKeyPair(halgorithm.param().abi(), himportkey.param().abi(), pszblobtype.param().abi(), core::mem::transmute(phkey), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(dwflags))
+    BCryptImportKeyPair(core::mem::transmute(halgorithm), core::mem::transmute(himportkey.unwrap_or(core::mem::zeroed())), pszblobtype.param().abi(), core::mem::transmute(phkey), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn BCryptKeyDerivation<P0>(hkey: P0, pparameterlist: Option<*const BCryptBufferDesc>, pbderivedkey: &mut [u8], pcbresult: *mut u32, dwflags: u32) -> super::super::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<BCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn BCryptKeyDerivation(hkey: BCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, pbderivedkey: &mut [u8], pcbresult: *mut u32, dwflags: u32) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptKeyDerivation(hkey : BCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
-    BCryptKeyDerivation(hkey.param().abi(), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(pbderivedkey.as_ptr()), pbderivedkey.len().try_into().unwrap(), core::mem::transmute(pcbresult), core::mem::transmute(dwflags))
+    BCryptKeyDerivation(core::mem::transmute(hkey), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbderivedkey.as_ptr()), pbderivedkey.len().try_into().unwrap(), core::mem::transmute(pcbresult), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn BCryptOpenAlgorithmProvider<P1, P2>(phalgorithm: *mut BCRYPT_ALG_HANDLE, pszalgid: P1, pszimplementation: P2, dwflags: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS) -> super::super::Foundation::NTSTATUS
@@ -327,7 +300,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptQueryContextConfiguration(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_CONTEXT_CONFIG) -> super::super::Foundation:: NTSTATUS);
-    BCryptQueryContextConfiguration(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
+    BCryptQueryContextConfiguration(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn BCryptQueryContextFunctionConfiguration<P1, P3>(dwtable: BCRYPT_TABLE, pszcontext: P1, dwinterface: BCRYPT_INTERFACE, pszfunction: P3, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_CONTEXT_FUNCTION_CONFIG>) -> super::super::Foundation::NTSTATUS
@@ -336,7 +309,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptQueryContextFunctionConfiguration(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_CONTEXT_FUNCTION_CONFIG) -> super::super::Foundation:: NTSTATUS);
-    BCryptQueryContextFunctionConfiguration(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(dwinterface), pszfunction.param().abi(), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
+    BCryptQueryContextFunctionConfiguration(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(dwinterface), pszfunction.param().abi(), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn BCryptQueryContextFunctionProperty<P1, P3, P4>(dwtable: BCRYPT_TABLE, pszcontext: P1, dwinterface: BCRYPT_INTERFACE, pszfunction: P3, pszproperty: P4, pcbvalue: *mut u32, ppbvalue: Option<*mut *mut u8>) -> super::super::Foundation::NTSTATUS
@@ -346,7 +319,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptQueryContextFunctionProperty(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_core::PCWSTR, pszproperty : windows_core::PCWSTR, pcbvalue : *mut u32, ppbvalue : *mut *mut u8) -> super::super::Foundation:: NTSTATUS);
-    BCryptQueryContextFunctionProperty(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(dwinterface), pszfunction.param().abi(), pszproperty.param().abi(), core::mem::transmute(pcbvalue), core::mem::transmute(ppbvalue.unwrap_or(core::ptr::null_mut())))
+    BCryptQueryContextFunctionProperty(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(dwinterface), pszfunction.param().abi(), pszproperty.param().abi(), core::mem::transmute(pcbvalue), core::mem::transmute(ppbvalue.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn BCryptQueryProviderRegistration<P0>(pszprovider: P0, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwinterface: BCRYPT_INTERFACE, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_PROVIDER_REG>) -> super::super::Foundation::NTSTATUS
@@ -354,7 +327,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptQueryProviderRegistration(pszprovider : windows_core::PCWSTR, dwmode : BCRYPT_QUERY_PROVIDER_MODE, dwinterface : BCRYPT_INTERFACE, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_PROVIDER_REG) -> super::super::Foundation:: NTSTATUS);
-    BCryptQueryProviderRegistration(pszprovider.param().abi(), core::mem::transmute(dwmode), core::mem::transmute(dwinterface), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
+    BCryptQueryProviderRegistration(pszprovider.param().abi(), core::mem::transmute(dwmode), core::mem::transmute(dwinterface), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn BCryptRegisterConfigChangeNotify(phevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS {
@@ -389,23 +362,19 @@ where
     BCryptRemoveContextFunctionProvider(core::mem::transmute(dwtable), pszcontext.param().abi(), core::mem::transmute(dwinterface), pszfunction.param().abi(), pszprovider.param().abi())
 }
 #[inline]
-pub unsafe fn BCryptResolveProviders<P0, P2, P3>(pszcontext: P0, dwinterface: u32, pszfunction: P2, pszprovider: P3, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwflags: BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_PROVIDER_REFS>) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptResolveProviders<P0, P2, P3>(pszcontext: P0, dwinterface: Option<u32>, pszfunction: P2, pszprovider: P3, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwflags: BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_PROVIDER_REFS>) -> super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptResolveProviders(pszcontext : windows_core::PCWSTR, dwinterface : u32, pszfunction : windows_core::PCWSTR, pszprovider : windows_core::PCWSTR, dwmode : BCRYPT_QUERY_PROVIDER_MODE, dwflags : BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_PROVIDER_REFS) -> super::super::Foundation:: NTSTATUS);
-    BCryptResolveProviders(pszcontext.param().abi(), core::mem::transmute(dwinterface), pszfunction.param().abi(), pszprovider.param().abi(), core::mem::transmute(dwmode), core::mem::transmute(dwflags), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
+    BCryptResolveProviders(pszcontext.param().abi(), core::mem::transmute(dwinterface.unwrap_or(core::mem::zeroed())), pszfunction.param().abi(), pszprovider.param().abi(), core::mem::transmute(dwmode), core::mem::transmute(dwflags), core::mem::transmute(pcbbuffer), core::mem::transmute(ppbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn BCryptSecretAgreement<P0, P1>(hprivkey: P0, hpubkey: P1, phagreedsecret: *mut BCRYPT_SECRET_HANDLE, dwflags: u32) -> super::super::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<BCRYPT_KEY_HANDLE>,
-    P1: windows_core::Param<BCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn BCryptSecretAgreement(hprivkey: BCRYPT_KEY_HANDLE, hpubkey: BCRYPT_KEY_HANDLE, phagreedsecret: *mut BCRYPT_SECRET_HANDLE, dwflags: u32) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptSecretAgreement(hprivkey : BCRYPT_KEY_HANDLE, hpubkey : BCRYPT_KEY_HANDLE, phagreedsecret : *mut BCRYPT_SECRET_HANDLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
-    BCryptSecretAgreement(hprivkey.param().abi(), hpubkey.param().abi(), core::mem::transmute(phagreedsecret), core::mem::transmute(dwflags))
+    BCryptSecretAgreement(core::mem::transmute(hprivkey), core::mem::transmute(hpubkey), core::mem::transmute(phagreedsecret), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn BCryptSetContextFunctionProperty<P1, P3, P4>(dwtable: BCRYPT_TABLE, pszcontext: P1, dwinterface: BCRYPT_INTERFACE, pszfunction: P3, pszproperty: P4, pbvalue: Option<&[u8]>) -> super::super::Foundation::NTSTATUS
@@ -426,20 +395,14 @@ where
     BCryptSetProperty(core::mem::transmute(hobject), pszproperty.param().abi(), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn BCryptSignHash<P0>(hkey: P0, ppaddinginfo: Option<*const core::ffi::c_void>, pbinput: &[u8], pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: BCRYPT_FLAGS) -> super::super::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<BCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn BCryptSignHash(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Option<*const core::ffi::c_void>, pbinput: &[u8], pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: BCRYPT_FLAGS) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptSignHash(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbinput : *const u8, cbinput : u32, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : BCRYPT_FLAGS) -> super::super::Foundation:: NTSTATUS);
-    BCryptSignHash(hkey.param().abi(), core::mem::transmute(ppaddinginfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags))
+    BCryptSignHash(core::mem::transmute(hkey), core::mem::transmute(ppaddinginfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn BCryptUnregisterConfigChangeNotify<P0>(hevent: P0) -> super::super::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn BCryptUnregisterConfigChangeNotify(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptUnregisterConfigChangeNotify(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: NTSTATUS);
-    BCryptUnregisterConfigChangeNotify(hevent.param().abi())
+    BCryptUnregisterConfigChangeNotify(core::mem::transmute(hevent))
 }
 #[inline]
 pub unsafe fn BCryptUnregisterProvider<P0>(pszprovider: P0) -> super::super::Foundation::NTSTATUS
@@ -450,84 +413,54 @@ where
     BCryptUnregisterProvider(pszprovider.param().abi())
 }
 #[inline]
-pub unsafe fn BCryptVerifySignature<P0>(hkey: P0, ppaddinginfo: Option<*const core::ffi::c_void>, pbhash: &[u8], pbsignature: &[u8], dwflags: BCRYPT_FLAGS) -> super::super::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<BCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn BCryptVerifySignature(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Option<*const core::ffi::c_void>, pbhash: &[u8], pbsignature: &[u8], dwflags: BCRYPT_FLAGS) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptVerifySignature(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhash : *const u8, cbhash : u32, pbsignature : *const u8, cbsignature : u32, dwflags : BCRYPT_FLAGS) -> super::super::Foundation:: NTSTATUS);
-    BCryptVerifySignature(hkey.param().abi(), core::mem::transmute(ppaddinginfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), core::mem::transmute(dwflags))
+    BCryptVerifySignature(core::mem::transmute(hkey), core::mem::transmute(ppaddinginfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn CertAddCRLContextToStore<P0>(hcertstore: P0, pcrlcontext: *const CRL_CONTEXT, dwadddisposition: u32, ppstorecontext: Option<*mut *mut CRL_CONTEXT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertAddCRLContextToStore(hcertstore: Option<HCERTSTORE>, pcrlcontext: *const CRL_CONTEXT, dwadddisposition: u32, ppstorecontext: Option<*mut *mut CRL_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertAddCRLContextToStore(hcertstore : HCERTSTORE, pcrlcontext : *const CRL_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut *mut CRL_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertAddCRLContextToStore(hcertstore.param().abi(), core::mem::transmute(pcrlcontext), core::mem::transmute(dwadddisposition), core::mem::transmute(ppstorecontext.unwrap_or(core::ptr::null_mut()))).ok()
+    CertAddCRLContextToStore(core::mem::transmute(hcertstore.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcrlcontext), core::mem::transmute(dwadddisposition), core::mem::transmute(ppstorecontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CertAddCRLLinkToStore<P0>(hcertstore: P0, pcrlcontext: *const CRL_CONTEXT, dwadddisposition: u32, ppstorecontext: Option<*mut *mut CRL_CONTEXT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertAddCRLLinkToStore(hcertstore: HCERTSTORE, pcrlcontext: *const CRL_CONTEXT, dwadddisposition: u32, ppstorecontext: Option<*mut *mut CRL_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertAddCRLLinkToStore(hcertstore : HCERTSTORE, pcrlcontext : *const CRL_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut *mut CRL_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertAddCRLLinkToStore(hcertstore.param().abi(), core::mem::transmute(pcrlcontext), core::mem::transmute(dwadddisposition), core::mem::transmute(ppstorecontext.unwrap_or(core::ptr::null_mut()))).ok()
+    CertAddCRLLinkToStore(core::mem::transmute(hcertstore), core::mem::transmute(pcrlcontext), core::mem::transmute(dwadddisposition), core::mem::transmute(ppstorecontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CertAddCTLContextToStore<P0>(hcertstore: P0, pctlcontext: *const CTL_CONTEXT, dwadddisposition: u32, ppstorecontext: Option<*mut *mut CTL_CONTEXT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertAddCTLContextToStore(hcertstore: Option<HCERTSTORE>, pctlcontext: *const CTL_CONTEXT, dwadddisposition: u32, ppstorecontext: Option<*mut *mut CTL_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertAddCTLContextToStore(hcertstore : HCERTSTORE, pctlcontext : *const CTL_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut *mut CTL_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertAddCTLContextToStore(hcertstore.param().abi(), core::mem::transmute(pctlcontext), core::mem::transmute(dwadddisposition), core::mem::transmute(ppstorecontext.unwrap_or(core::ptr::null_mut()))).ok()
+    CertAddCTLContextToStore(core::mem::transmute(hcertstore.unwrap_or(core::mem::zeroed())), core::mem::transmute(pctlcontext), core::mem::transmute(dwadddisposition), core::mem::transmute(ppstorecontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CertAddCTLLinkToStore<P0>(hcertstore: P0, pctlcontext: *const CTL_CONTEXT, dwadddisposition: u32, ppstorecontext: Option<*mut *mut CTL_CONTEXT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertAddCTLLinkToStore(hcertstore: HCERTSTORE, pctlcontext: *const CTL_CONTEXT, dwadddisposition: u32, ppstorecontext: Option<*mut *mut CTL_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertAddCTLLinkToStore(hcertstore : HCERTSTORE, pctlcontext : *const CTL_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut *mut CTL_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertAddCTLLinkToStore(hcertstore.param().abi(), core::mem::transmute(pctlcontext), core::mem::transmute(dwadddisposition), core::mem::transmute(ppstorecontext.unwrap_or(core::ptr::null_mut()))).ok()
+    CertAddCTLLinkToStore(core::mem::transmute(hcertstore), core::mem::transmute(pctlcontext), core::mem::transmute(dwadddisposition), core::mem::transmute(ppstorecontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CertAddCertificateContextToStore<P0>(hcertstore: P0, pcertcontext: *const CERT_CONTEXT, dwadddisposition: u32, ppstorecontext: Option<*mut *mut CERT_CONTEXT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertAddCertificateContextToStore(hcertstore: Option<HCERTSTORE>, pcertcontext: *const CERT_CONTEXT, dwadddisposition: u32, ppstorecontext: Option<*mut *mut CERT_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertAddCertificateContextToStore(hcertstore : HCERTSTORE, pcertcontext : *const CERT_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut *mut CERT_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertAddCertificateContextToStore(hcertstore.param().abi(), core::mem::transmute(pcertcontext), core::mem::transmute(dwadddisposition), core::mem::transmute(ppstorecontext.unwrap_or(core::ptr::null_mut()))).ok()
+    CertAddCertificateContextToStore(core::mem::transmute(hcertstore.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcertcontext), core::mem::transmute(dwadddisposition), core::mem::transmute(ppstorecontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CertAddCertificateLinkToStore<P0>(hcertstore: P0, pcertcontext: *const CERT_CONTEXT, dwadddisposition: u32, ppstorecontext: Option<*mut *mut CERT_CONTEXT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertAddCertificateLinkToStore(hcertstore: HCERTSTORE, pcertcontext: *const CERT_CONTEXT, dwadddisposition: u32, ppstorecontext: Option<*mut *mut CERT_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertAddCertificateLinkToStore(hcertstore : HCERTSTORE, pcertcontext : *const CERT_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut *mut CERT_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertAddCertificateLinkToStore(hcertstore.param().abi(), core::mem::transmute(pcertcontext), core::mem::transmute(dwadddisposition), core::mem::transmute(ppstorecontext.unwrap_or(core::ptr::null_mut()))).ok()
+    CertAddCertificateLinkToStore(core::mem::transmute(hcertstore), core::mem::transmute(pcertcontext), core::mem::transmute(dwadddisposition), core::mem::transmute(ppstorecontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CertAddEncodedCRLToStore<P0>(hcertstore: P0, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcrlencoded: &[u8], dwadddisposition: u32, ppcrlcontext: Option<*mut *mut CRL_CONTEXT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertAddEncodedCRLToStore(hcertstore: Option<HCERTSTORE>, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcrlencoded: &[u8], dwadddisposition: u32, ppcrlcontext: Option<*mut *mut CRL_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertAddEncodedCRLToStore(hcertstore : HCERTSTORE, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pbcrlencoded : *const u8, cbcrlencoded : u32, dwadddisposition : u32, ppcrlcontext : *mut *mut CRL_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertAddEncodedCRLToStore(hcertstore.param().abi(), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pbcrlencoded.as_ptr()), pbcrlencoded.len().try_into().unwrap(), core::mem::transmute(dwadddisposition), core::mem::transmute(ppcrlcontext.unwrap_or(core::ptr::null_mut()))).ok()
+    CertAddEncodedCRLToStore(core::mem::transmute(hcertstore.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pbcrlencoded.as_ptr()), pbcrlencoded.len().try_into().unwrap(), core::mem::transmute(dwadddisposition), core::mem::transmute(ppcrlcontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CertAddEncodedCTLToStore<P0>(hcertstore: P0, dwmsgandcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbctlencoded: &[u8], dwadddisposition: u32, ppctlcontext: Option<*mut *mut CTL_CONTEXT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertAddEncodedCTLToStore(hcertstore: Option<HCERTSTORE>, dwmsgandcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbctlencoded: &[u8], dwadddisposition: u32, ppctlcontext: Option<*mut *mut CTL_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertAddEncodedCTLToStore(hcertstore : HCERTSTORE, dwmsgandcertencodingtype : CERT_QUERY_ENCODING_TYPE, pbctlencoded : *const u8, cbctlencoded : u32, dwadddisposition : u32, ppctlcontext : *mut *mut CTL_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertAddEncodedCTLToStore(hcertstore.param().abi(), core::mem::transmute(dwmsgandcertencodingtype), core::mem::transmute(pbctlencoded.as_ptr()), pbctlencoded.len().try_into().unwrap(), core::mem::transmute(dwadddisposition), core::mem::transmute(ppctlcontext.unwrap_or(core::ptr::null_mut()))).ok()
+    CertAddEncodedCTLToStore(core::mem::transmute(hcertstore.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwmsgandcertencodingtype), core::mem::transmute(pbctlencoded.as_ptr()), pbctlencoded.len().try_into().unwrap(), core::mem::transmute(dwadddisposition), core::mem::transmute(ppctlcontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CertAddEncodedCertificateToStore<P0>(hcertstore: P0, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcertencoded: &[u8], dwadddisposition: u32, ppcertcontext: Option<*mut *mut CERT_CONTEXT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertAddEncodedCertificateToStore(hcertstore: Option<HCERTSTORE>, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcertencoded: &[u8], dwadddisposition: u32, ppcertcontext: Option<*mut *mut CERT_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertAddEncodedCertificateToStore(hcertstore : HCERTSTORE, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pbcertencoded : *const u8, cbcertencoded : u32, dwadddisposition : u32, ppcertcontext : *mut *mut CERT_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertAddEncodedCertificateToStore(hcertstore.param().abi(), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pbcertencoded.as_ptr()), pbcertencoded.len().try_into().unwrap(), core::mem::transmute(dwadddisposition), core::mem::transmute(ppcertcontext.unwrap_or(core::ptr::null_mut()))).ok()
+    CertAddEncodedCertificateToStore(core::mem::transmute(hcertstore.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pbcertencoded.as_ptr()), pbcertencoded.len().try_into().unwrap(), core::mem::transmute(dwadddisposition), core::mem::transmute(ppcertcontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CertAddEncodedCertificateToSystemStoreA<P0>(szcertstorename: P0, pbcertencoded: &[u8]) -> windows_core::Result<()>
@@ -556,29 +489,22 @@ where
 #[inline]
 pub unsafe fn CertAddRefServerOcspResponse(hserverocspresponse: Option<*const core::ffi::c_void>) {
     windows_targets::link!("crypt32.dll" "system" fn CertAddRefServerOcspResponse(hserverocspresponse : *const core::ffi::c_void));
-    CertAddRefServerOcspResponse(core::mem::transmute(hserverocspresponse.unwrap_or(core::ptr::null())))
+    CertAddRefServerOcspResponse(core::mem::transmute(hserverocspresponse.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertAddRefServerOcspResponseContext(pserverocspresponsecontext: Option<*const CERT_SERVER_OCSP_RESPONSE_CONTEXT>) {
     windows_targets::link!("crypt32.dll" "system" fn CertAddRefServerOcspResponseContext(pserverocspresponsecontext : *const CERT_SERVER_OCSP_RESPONSE_CONTEXT));
-    CertAddRefServerOcspResponseContext(core::mem::transmute(pserverocspresponsecontext.unwrap_or(core::ptr::null())))
+    CertAddRefServerOcspResponseContext(core::mem::transmute(pserverocspresponsecontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn CertAddSerializedElementToStore<P0>(hcertstore: P0, pbelement: &[u8], dwadddisposition: u32, dwflags: u32, dwcontexttypeflags: u32, pdwcontexttype: Option<*mut u32>, ppvcontext: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertAddSerializedElementToStore(hcertstore: Option<HCERTSTORE>, pbelement: &[u8], dwadddisposition: u32, dwflags: u32, dwcontexttypeflags: u32, pdwcontexttype: Option<*mut u32>, ppvcontext: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertAddSerializedElementToStore(hcertstore : HCERTSTORE, pbelement : *const u8, cbelement : u32, dwadddisposition : u32, dwflags : u32, dwcontexttypeflags : u32, pdwcontexttype : *mut u32, ppvcontext : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CertAddSerializedElementToStore(hcertstore.param().abi(), core::mem::transmute(pbelement.as_ptr()), pbelement.len().try_into().unwrap(), core::mem::transmute(dwadddisposition), core::mem::transmute(dwflags), core::mem::transmute(dwcontexttypeflags), core::mem::transmute(pdwcontexttype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppvcontext.unwrap_or(core::ptr::null_mut()))).ok()
+    CertAddSerializedElementToStore(core::mem::transmute(hcertstore.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbelement.as_ptr()), pbelement.len().try_into().unwrap(), core::mem::transmute(dwadddisposition), core::mem::transmute(dwflags), core::mem::transmute(dwcontexttypeflags), core::mem::transmute(pdwcontexttype.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppvcontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CertAddStoreToCollection<P0, P1>(hcollectionstore: P0, hsiblingstore: P1, dwupdateflags: u32, dwpriority: u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HCERTSTORE>,
-    P1: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertAddStoreToCollection(hcollectionstore: HCERTSTORE, hsiblingstore: Option<HCERTSTORE>, dwupdateflags: u32, dwpriority: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CertAddStoreToCollection(hcollectionstore : HCERTSTORE, hsiblingstore : HCERTSTORE, dwupdateflags : u32, dwpriority : u32) -> super::super::Foundation:: BOOL);
-    CertAddStoreToCollection(hcollectionstore.param().abi(), hsiblingstore.param().abi(), core::mem::transmute(dwupdateflags), core::mem::transmute(dwpriority))
+    CertAddStoreToCollection(core::mem::transmute(hcollectionstore), core::mem::transmute(hsiblingstore.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwupdateflags), core::mem::transmute(dwpriority))
 }
 #[inline]
 pub unsafe fn CertAlgIdToOID(dwalgid: u32) -> windows_core::PCSTR {
@@ -588,15 +514,12 @@ pub unsafe fn CertAlgIdToOID(dwalgid: u32) -> windows_core::PCSTR {
 #[inline]
 pub unsafe fn CertCloseServerOcspResponse(hserverocspresponse: Option<*const core::ffi::c_void>, dwflags: u32) {
     windows_targets::link!("crypt32.dll" "system" fn CertCloseServerOcspResponse(hserverocspresponse : *const core::ffi::c_void, dwflags : u32));
-    CertCloseServerOcspResponse(core::mem::transmute(hserverocspresponse.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags))
+    CertCloseServerOcspResponse(core::mem::transmute(hserverocspresponse.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn CertCloseStore<P0>(hcertstore: P0, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertCloseStore(hcertstore: Option<HCERTSTORE>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertCloseStore(hcertstore : HCERTSTORE, dwflags : u32) -> super::super::Foundation:: BOOL);
-    CertCloseStore(hcertstore.param().abi(), core::mem::transmute(dwflags)).ok()
+    CertCloseStore(core::mem::transmute(hcertstore.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn CertCompareCertificate(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertid1: *const CERT_INFO, pcertid2: *const CERT_INFO) -> super::super::Foundation::BOOL {
@@ -619,12 +542,9 @@ pub unsafe fn CertComparePublicKeyInfo(dwcertencodingtype: CERT_QUERY_ENCODING_T
     CertComparePublicKeyInfo(core::mem::transmute(dwcertencodingtype), core::mem::transmute(ppublickey1), core::mem::transmute(ppublickey2))
 }
 #[inline]
-pub unsafe fn CertControlStore<P0>(hcertstore: P0, dwflags: CERT_CONTROL_STORE_FLAGS, dwctrltype: u32, pvctrlpara: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertControlStore(hcertstore: HCERTSTORE, dwflags: CERT_CONTROL_STORE_FLAGS, dwctrltype: u32, pvctrlpara: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertControlStore(hcertstore : HCERTSTORE, dwflags : CERT_CONTROL_STORE_FLAGS, dwctrltype : u32, pvctrlpara : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CertControlStore(hcertstore.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(dwctrltype), core::mem::transmute(pvctrlpara.unwrap_or(core::ptr::null()))).ok()
+    CertControlStore(core::mem::transmute(hcertstore), core::mem::transmute(dwflags), core::mem::transmute(dwctrltype), core::mem::transmute(pvctrlpara.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CertCreateCRLContext(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcrlencoded: &[u8]) -> *mut CRL_CONTEXT {
@@ -639,7 +559,7 @@ pub unsafe fn CertCreateCTLContext(dwmsgandcertencodingtype: u32, pbctlencoded: 
 #[inline]
 pub unsafe fn CertCreateCTLEntryFromCertificateContextProperties(pcertcontext: *const CERT_CONTEXT, rgoptattr: Option<&[CRYPT_ATTRIBUTE]>, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, pctlentry: Option<*mut CTL_ENTRY>, pcbctlentry: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertCreateCTLEntryFromCertificateContextProperties(pcertcontext : *const CERT_CONTEXT, coptattr : u32, rgoptattr : *const CRYPT_ATTRIBUTE, dwflags : u32, pvreserved : *const core::ffi::c_void, pctlentry : *mut CTL_ENTRY, pcbctlentry : *mut u32) -> super::super::Foundation:: BOOL);
-    CertCreateCTLEntryFromCertificateContextProperties(core::mem::transmute(pcertcontext), rgoptattr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgoptattr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pctlentry.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbctlentry)).ok()
+    CertCreateCTLEntryFromCertificateContextProperties(core::mem::transmute(pcertcontext), rgoptattr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgoptattr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pctlentry.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbctlentry)).ok()
 }
 #[inline]
 pub unsafe fn CertCreateCertificateChainEngine(pconfig: *const CERT_CHAIN_ENGINE_CONFIG, phchainengine: *mut HCERTCHAINENGINE) -> windows_core::Result<()> {
@@ -654,15 +574,21 @@ pub unsafe fn CertCreateCertificateContext(dwcertencodingtype: CERT_QUERY_ENCODI
 #[inline]
 pub unsafe fn CertCreateContext(dwcontexttype: u32, dwencodingtype: u32, pbencoded: &[u8], dwflags: u32, pcreatepara: Option<*const CERT_CREATE_CONTEXT_PARA>) -> *mut core::ffi::c_void {
     windows_targets::link!("crypt32.dll" "system" fn CertCreateContext(dwcontexttype : u32, dwencodingtype : u32, pbencoded : *const u8, cbencoded : u32, dwflags : u32, pcreatepara : *const CERT_CREATE_CONTEXT_PARA) -> *mut core::ffi::c_void);
-    CertCreateContext(core::mem::transmute(dwcontexttype), core::mem::transmute(dwencodingtype), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pcreatepara.unwrap_or(core::ptr::null())))
+    CertCreateContext(core::mem::transmute(dwcontexttype), core::mem::transmute(dwencodingtype), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pcreatepara.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn CertCreateSelfSignCertificate<P0>(hcryptprovorncryptkey: P0, psubjectissuerblob: *const CRYPT_INTEGER_BLOB, dwflags: CERT_CREATE_SELFSIGN_FLAGS, pkeyprovinfo: Option<*const CRYPT_KEY_PROV_INFO>, psignaturealgorithm: Option<*const CRYPT_ALGORITHM_IDENTIFIER>, pstarttime: Option<*const super::super::Foundation::SYSTEMTIME>, pendtime: Option<*const super::super::Foundation::SYSTEMTIME>, pextensions: Option<*const CERT_EXTENSIONS>) -> *mut CERT_CONTEXT
-where
-    P0: windows_core::Param<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn CertCreateSelfSignCertificate(hcryptprovorncryptkey: Option<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>, psubjectissuerblob: *const CRYPT_INTEGER_BLOB, dwflags: CERT_CREATE_SELFSIGN_FLAGS, pkeyprovinfo: Option<*const CRYPT_KEY_PROV_INFO>, psignaturealgorithm: Option<*const CRYPT_ALGORITHM_IDENTIFIER>, pstarttime: Option<*const super::super::Foundation::SYSTEMTIME>, pendtime: Option<*const super::super::Foundation::SYSTEMTIME>, pextensions: Option<*const CERT_EXTENSIONS>) -> *mut CERT_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertCreateSelfSignCertificate(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, psubjectissuerblob : *const CRYPT_INTEGER_BLOB, dwflags : CERT_CREATE_SELFSIGN_FLAGS, pkeyprovinfo : *const CRYPT_KEY_PROV_INFO, psignaturealgorithm : *const CRYPT_ALGORITHM_IDENTIFIER, pstarttime : *const super::super::Foundation:: SYSTEMTIME, pendtime : *const super::super::Foundation:: SYSTEMTIME, pextensions : *const CERT_EXTENSIONS) -> *mut CERT_CONTEXT);
-    CertCreateSelfSignCertificate(hcryptprovorncryptkey.param().abi(), core::mem::transmute(psubjectissuerblob), core::mem::transmute(dwflags), core::mem::transmute(pkeyprovinfo.unwrap_or(core::ptr::null())), core::mem::transmute(psignaturealgorithm.unwrap_or(core::ptr::null())), core::mem::transmute(pstarttime.unwrap_or(core::ptr::null())), core::mem::transmute(pendtime.unwrap_or(core::ptr::null())), core::mem::transmute(pextensions.unwrap_or(core::ptr::null())))
+    CertCreateSelfSignCertificate(
+        core::mem::transmute(hcryptprovorncryptkey.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(psubjectissuerblob),
+        core::mem::transmute(dwflags),
+        core::mem::transmute(pkeyprovinfo.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(psignaturealgorithm.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pstarttime.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pendtime.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pextensions.unwrap_or(core::mem::zeroed())),
+    )
 }
 #[inline]
 pub unsafe fn CertDeleteCRLFromStore(pcrlcontext: *const CRL_CONTEXT) -> windows_core::Result<()> {
@@ -682,12 +608,12 @@ pub unsafe fn CertDeleteCertificateFromStore(pcertcontext: *const CERT_CONTEXT) 
 #[inline]
 pub unsafe fn CertDuplicateCRLContext(pcrlcontext: Option<*const CRL_CONTEXT>) -> *mut CRL_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertDuplicateCRLContext(pcrlcontext : *const CRL_CONTEXT) -> *mut CRL_CONTEXT);
-    CertDuplicateCRLContext(core::mem::transmute(pcrlcontext.unwrap_or(core::ptr::null())))
+    CertDuplicateCRLContext(core::mem::transmute(pcrlcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertDuplicateCTLContext(pctlcontext: Option<*const CTL_CONTEXT>) -> *mut CTL_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertDuplicateCTLContext(pctlcontext : *const CTL_CONTEXT) -> *mut CTL_CONTEXT);
-    CertDuplicateCTLContext(core::mem::transmute(pctlcontext.unwrap_or(core::ptr::null())))
+    CertDuplicateCTLContext(core::mem::transmute(pctlcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertDuplicateCertificateChain(pchaincontext: *const CERT_CHAIN_CONTEXT) -> *mut CERT_CHAIN_CONTEXT {
@@ -697,15 +623,12 @@ pub unsafe fn CertDuplicateCertificateChain(pchaincontext: *const CERT_CHAIN_CON
 #[inline]
 pub unsafe fn CertDuplicateCertificateContext(pcertcontext: Option<*const CERT_CONTEXT>) -> *mut CERT_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertDuplicateCertificateContext(pcertcontext : *const CERT_CONTEXT) -> *mut CERT_CONTEXT);
-    CertDuplicateCertificateContext(core::mem::transmute(pcertcontext.unwrap_or(core::ptr::null())))
+    CertDuplicateCertificateContext(core::mem::transmute(pcertcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn CertDuplicateStore<P0>(hcertstore: P0) -> HCERTSTORE
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertDuplicateStore(hcertstore: HCERTSTORE) -> HCERTSTORE {
     windows_targets::link!("crypt32.dll" "system" fn CertDuplicateStore(hcertstore : HCERTSTORE) -> HCERTSTORE);
-    CertDuplicateStore(hcertstore.param().abi())
+    CertDuplicateStore(core::mem::transmute(hcertstore))
 }
 #[inline]
 pub unsafe fn CertEnumCRLContextProperties(pcrlcontext: *const CRL_CONTEXT, dwpropid: u32) -> u32 {
@@ -713,12 +636,9 @@ pub unsafe fn CertEnumCRLContextProperties(pcrlcontext: *const CRL_CONTEXT, dwpr
     CertEnumCRLContextProperties(core::mem::transmute(pcrlcontext), core::mem::transmute(dwpropid))
 }
 #[inline]
-pub unsafe fn CertEnumCRLsInStore<P0>(hcertstore: P0, pprevcrlcontext: Option<*const CRL_CONTEXT>) -> *mut CRL_CONTEXT
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertEnumCRLsInStore(hcertstore: HCERTSTORE, pprevcrlcontext: Option<*const CRL_CONTEXT>) -> *mut CRL_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertEnumCRLsInStore(hcertstore : HCERTSTORE, pprevcrlcontext : *const CRL_CONTEXT) -> *mut CRL_CONTEXT);
-    CertEnumCRLsInStore(hcertstore.param().abi(), core::mem::transmute(pprevcrlcontext.unwrap_or(core::ptr::null())))
+    CertEnumCRLsInStore(core::mem::transmute(hcertstore), core::mem::transmute(pprevcrlcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertEnumCTLContextProperties(pctlcontext: *const CTL_CONTEXT, dwpropid: u32) -> u32 {
@@ -726,12 +646,9 @@ pub unsafe fn CertEnumCTLContextProperties(pctlcontext: *const CTL_CONTEXT, dwpr
     CertEnumCTLContextProperties(core::mem::transmute(pctlcontext), core::mem::transmute(dwpropid))
 }
 #[inline]
-pub unsafe fn CertEnumCTLsInStore<P0>(hcertstore: P0, pprevctlcontext: Option<*const CTL_CONTEXT>) -> *mut CTL_CONTEXT
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertEnumCTLsInStore(hcertstore: HCERTSTORE, pprevctlcontext: Option<*const CTL_CONTEXT>) -> *mut CTL_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertEnumCTLsInStore(hcertstore : HCERTSTORE, pprevctlcontext : *const CTL_CONTEXT) -> *mut CTL_CONTEXT);
-    CertEnumCTLsInStore(hcertstore.param().abi(), core::mem::transmute(pprevctlcontext.unwrap_or(core::ptr::null())))
+    CertEnumCTLsInStore(core::mem::transmute(hcertstore), core::mem::transmute(pprevctlcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertEnumCertificateContextProperties(pcertcontext: *const CERT_CONTEXT, dwpropid: u32) -> u32 {
@@ -739,32 +656,29 @@ pub unsafe fn CertEnumCertificateContextProperties(pcertcontext: *const CERT_CON
     CertEnumCertificateContextProperties(core::mem::transmute(pcertcontext), core::mem::transmute(dwpropid))
 }
 #[inline]
-pub unsafe fn CertEnumCertificatesInStore<P0>(hcertstore: P0, pprevcertcontext: Option<*const CERT_CONTEXT>) -> *mut CERT_CONTEXT
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertEnumCertificatesInStore(hcertstore: HCERTSTORE, pprevcertcontext: Option<*const CERT_CONTEXT>) -> *mut CERT_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertEnumCertificatesInStore(hcertstore : HCERTSTORE, pprevcertcontext : *const CERT_CONTEXT) -> *mut CERT_CONTEXT);
-    CertEnumCertificatesInStore(hcertstore.param().abi(), core::mem::transmute(pprevcertcontext.unwrap_or(core::ptr::null())))
+    CertEnumCertificatesInStore(core::mem::transmute(hcertstore), core::mem::transmute(pprevcertcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertEnumPhysicalStore(pvsystemstore: *const core::ffi::c_void, dwflags: u32, pvarg: Option<*mut core::ffi::c_void>, pfnenum: PFN_CERT_ENUM_PHYSICAL_STORE) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertEnumPhysicalStore(pvsystemstore : *const core::ffi::c_void, dwflags : u32, pvarg : *mut core::ffi::c_void, pfnenum : PFN_CERT_ENUM_PHYSICAL_STORE) -> super::super::Foundation:: BOOL);
-    CertEnumPhysicalStore(core::mem::transmute(pvsystemstore), core::mem::transmute(dwflags), core::mem::transmute(pvarg.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfnenum)).ok()
+    CertEnumPhysicalStore(core::mem::transmute(pvsystemstore), core::mem::transmute(dwflags), core::mem::transmute(pvarg.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfnenum)).ok()
 }
 #[inline]
 pub unsafe fn CertEnumSubjectInSortedCTL(pctlcontext: *const CTL_CONTEXT, ppvnextsubject: *mut *mut core::ffi::c_void, psubjectidentifier: Option<*mut CRYPT_INTEGER_BLOB>, pencodedattributes: Option<*mut CRYPT_INTEGER_BLOB>) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CertEnumSubjectInSortedCTL(pctlcontext : *const CTL_CONTEXT, ppvnextsubject : *mut *mut core::ffi::c_void, psubjectidentifier : *mut CRYPT_INTEGER_BLOB, pencodedattributes : *mut CRYPT_INTEGER_BLOB) -> super::super::Foundation:: BOOL);
-    CertEnumSubjectInSortedCTL(core::mem::transmute(pctlcontext), core::mem::transmute(ppvnextsubject), core::mem::transmute(psubjectidentifier.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pencodedattributes.unwrap_or(core::ptr::null_mut())))
+    CertEnumSubjectInSortedCTL(core::mem::transmute(pctlcontext), core::mem::transmute(ppvnextsubject), core::mem::transmute(psubjectidentifier.unwrap_or(core::mem::zeroed())), core::mem::transmute(pencodedattributes.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertEnumSystemStore(dwflags: u32, pvsystemstorelocationpara: Option<*const core::ffi::c_void>, pvarg: Option<*mut core::ffi::c_void>, pfnenum: PFN_CERT_ENUM_SYSTEM_STORE) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CertEnumSystemStore(dwflags : u32, pvsystemstorelocationpara : *const core::ffi::c_void, pvarg : *mut core::ffi::c_void, pfnenum : PFN_CERT_ENUM_SYSTEM_STORE) -> super::super::Foundation:: BOOL);
-    CertEnumSystemStore(core::mem::transmute(dwflags), core::mem::transmute(pvsystemstorelocationpara.unwrap_or(core::ptr::null())), core::mem::transmute(pvarg.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfnenum))
+    CertEnumSystemStore(core::mem::transmute(dwflags), core::mem::transmute(pvsystemstorelocationpara.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvarg.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfnenum))
 }
 #[inline]
 pub unsafe fn CertEnumSystemStoreLocation(dwflags: u32, pvarg: Option<*mut core::ffi::c_void>, pfnenum: PFN_CERT_ENUM_SYSTEM_STORE_LOCATION) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CertEnumSystemStoreLocation(dwflags : u32, pvarg : *mut core::ffi::c_void, pfnenum : PFN_CERT_ENUM_SYSTEM_STORE_LOCATION) -> super::super::Foundation:: BOOL);
-    CertEnumSystemStoreLocation(core::mem::transmute(dwflags), core::mem::transmute(pvarg.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfnenum))
+    CertEnumSystemStoreLocation(core::mem::transmute(dwflags), core::mem::transmute(pvarg.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfnenum))
 }
 #[inline]
 pub unsafe fn CertFindAttribute<P0>(pszobjid: P0, rgattr: &[CRYPT_ATTRIBUTE]) -> *mut CRYPT_ATTRIBUTE
@@ -775,41 +689,29 @@ where
     CertFindAttribute(pszobjid.param().abi(), rgattr.len().try_into().unwrap(), core::mem::transmute(rgattr.as_ptr()))
 }
 #[inline]
-pub unsafe fn CertFindCRLInStore<P0>(hcertstore: P0, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwfindflags: u32, dwfindtype: u32, pvfindpara: Option<*const core::ffi::c_void>, pprevcrlcontext: Option<*const CRL_CONTEXT>) -> *mut CRL_CONTEXT
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertFindCRLInStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwfindflags: u32, dwfindtype: u32, pvfindpara: Option<*const core::ffi::c_void>, pprevcrlcontext: Option<*const CRL_CONTEXT>) -> *mut CRL_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertFindCRLInStore(hcertstore : HCERTSTORE, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, dwfindflags : u32, dwfindtype : u32, pvfindpara : *const core::ffi::c_void, pprevcrlcontext : *const CRL_CONTEXT) -> *mut CRL_CONTEXT);
-    CertFindCRLInStore(hcertstore.param().abi(), core::mem::transmute(dwcertencodingtype), core::mem::transmute(dwfindflags), core::mem::transmute(dwfindtype), core::mem::transmute(pvfindpara.unwrap_or(core::ptr::null())), core::mem::transmute(pprevcrlcontext.unwrap_or(core::ptr::null())))
+    CertFindCRLInStore(core::mem::transmute(hcertstore), core::mem::transmute(dwcertencodingtype), core::mem::transmute(dwfindflags), core::mem::transmute(dwfindtype), core::mem::transmute(pvfindpara.unwrap_or(core::mem::zeroed())), core::mem::transmute(pprevcrlcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn CertFindCTLInStore<P0>(hcertstore: P0, dwmsgandcertencodingtype: u32, dwfindflags: u32, dwfindtype: CERT_FIND_TYPE, pvfindpara: Option<*const core::ffi::c_void>, pprevctlcontext: Option<*const CTL_CONTEXT>) -> *mut CTL_CONTEXT
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertFindCTLInStore(hcertstore: HCERTSTORE, dwmsgandcertencodingtype: u32, dwfindflags: u32, dwfindtype: CERT_FIND_TYPE, pvfindpara: Option<*const core::ffi::c_void>, pprevctlcontext: Option<*const CTL_CONTEXT>) -> *mut CTL_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertFindCTLInStore(hcertstore : HCERTSTORE, dwmsgandcertencodingtype : u32, dwfindflags : u32, dwfindtype : CERT_FIND_TYPE, pvfindpara : *const core::ffi::c_void, pprevctlcontext : *const CTL_CONTEXT) -> *mut CTL_CONTEXT);
-    CertFindCTLInStore(hcertstore.param().abi(), core::mem::transmute(dwmsgandcertencodingtype), core::mem::transmute(dwfindflags), core::mem::transmute(dwfindtype), core::mem::transmute(pvfindpara.unwrap_or(core::ptr::null())), core::mem::transmute(pprevctlcontext.unwrap_or(core::ptr::null())))
+    CertFindCTLInStore(core::mem::transmute(hcertstore), core::mem::transmute(dwmsgandcertencodingtype), core::mem::transmute(dwfindflags), core::mem::transmute(dwfindtype), core::mem::transmute(pvfindpara.unwrap_or(core::mem::zeroed())), core::mem::transmute(pprevctlcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertFindCertificateInCRL(pcert: *const CERT_CONTEXT, pcrlcontext: *const CRL_CONTEXT, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, ppcrlentry: *mut *mut CRL_ENTRY) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CertFindCertificateInCRL(pcert : *const CERT_CONTEXT, pcrlcontext : *const CRL_CONTEXT, dwflags : u32, pvreserved : *const core::ffi::c_void, ppcrlentry : *mut *mut CRL_ENTRY) -> super::super::Foundation:: BOOL);
-    CertFindCertificateInCRL(core::mem::transmute(pcert), core::mem::transmute(pcrlcontext), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(ppcrlentry))
+    CertFindCertificateInCRL(core::mem::transmute(pcert), core::mem::transmute(pcrlcontext), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppcrlentry))
 }
 #[inline]
-pub unsafe fn CertFindCertificateInStore<P0>(hcertstore: P0, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwfindflags: u32, dwfindtype: CERT_FIND_FLAGS, pvfindpara: Option<*const core::ffi::c_void>, pprevcertcontext: Option<*const CERT_CONTEXT>) -> *mut CERT_CONTEXT
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertFindCertificateInStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwfindflags: u32, dwfindtype: CERT_FIND_FLAGS, pvfindpara: Option<*const core::ffi::c_void>, pprevcertcontext: Option<*const CERT_CONTEXT>) -> *mut CERT_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertFindCertificateInStore(hcertstore : HCERTSTORE, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, dwfindflags : u32, dwfindtype : CERT_FIND_FLAGS, pvfindpara : *const core::ffi::c_void, pprevcertcontext : *const CERT_CONTEXT) -> *mut CERT_CONTEXT);
-    CertFindCertificateInStore(hcertstore.param().abi(), core::mem::transmute(dwcertencodingtype), core::mem::transmute(dwfindflags), core::mem::transmute(dwfindtype), core::mem::transmute(pvfindpara.unwrap_or(core::ptr::null())), core::mem::transmute(pprevcertcontext.unwrap_or(core::ptr::null())))
+    CertFindCertificateInStore(core::mem::transmute(hcertstore), core::mem::transmute(dwcertencodingtype), core::mem::transmute(dwfindflags), core::mem::transmute(dwfindtype), core::mem::transmute(pvfindpara.unwrap_or(core::mem::zeroed())), core::mem::transmute(pprevcertcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn CertFindChainInStore<P0>(hcertstore: P0, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwfindflags: CERT_FIND_CHAIN_IN_STORE_FLAGS, dwfindtype: u32, pvfindpara: Option<*const core::ffi::c_void>, pprevchaincontext: Option<*const CERT_CHAIN_CONTEXT>) -> *mut CERT_CHAIN_CONTEXT
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertFindChainInStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwfindflags: CERT_FIND_CHAIN_IN_STORE_FLAGS, dwfindtype: u32, pvfindpara: Option<*const core::ffi::c_void>, pprevchaincontext: Option<*const CERT_CHAIN_CONTEXT>) -> *mut CERT_CHAIN_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertFindChainInStore(hcertstore : HCERTSTORE, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, dwfindflags : CERT_FIND_CHAIN_IN_STORE_FLAGS, dwfindtype : u32, pvfindpara : *const core::ffi::c_void, pprevchaincontext : *const CERT_CHAIN_CONTEXT) -> *mut CERT_CHAIN_CONTEXT);
-    CertFindChainInStore(hcertstore.param().abi(), core::mem::transmute(dwcertencodingtype), core::mem::transmute(dwfindflags), core::mem::transmute(dwfindtype), core::mem::transmute(pvfindpara.unwrap_or(core::ptr::null())), core::mem::transmute(pprevchaincontext.unwrap_or(core::ptr::null())))
+    CertFindChainInStore(core::mem::transmute(hcertstore), core::mem::transmute(dwcertencodingtype), core::mem::transmute(dwfindflags), core::mem::transmute(dwfindtype), core::mem::transmute(pvfindpara.unwrap_or(core::mem::zeroed())), core::mem::transmute(pprevchaincontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertFindExtension<P0>(pszobjid: P0, rgextensions: &[CERT_EXTENSION]) -> *mut CERT_EXTENSION
@@ -835,17 +737,17 @@ pub unsafe fn CertFindSubjectInCTL(dwencodingtype: u32, dwsubjecttype: u32, pvsu
 #[inline]
 pub unsafe fn CertFindSubjectInSortedCTL(psubjectidentifier: *const CRYPT_INTEGER_BLOB, pctlcontext: *const CTL_CONTEXT, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, pencodedattributes: Option<*mut CRYPT_INTEGER_BLOB>) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CertFindSubjectInSortedCTL(psubjectidentifier : *const CRYPT_INTEGER_BLOB, pctlcontext : *const CTL_CONTEXT, dwflags : u32, pvreserved : *const core::ffi::c_void, pencodedattributes : *mut CRYPT_INTEGER_BLOB) -> super::super::Foundation:: BOOL);
-    CertFindSubjectInSortedCTL(core::mem::transmute(psubjectidentifier), core::mem::transmute(pctlcontext), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pencodedattributes.unwrap_or(core::ptr::null_mut())))
+    CertFindSubjectInSortedCTL(core::mem::transmute(psubjectidentifier), core::mem::transmute(pctlcontext), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pencodedattributes.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertFreeCRLContext(pcrlcontext: Option<*const CRL_CONTEXT>) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CertFreeCRLContext(pcrlcontext : *const CRL_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertFreeCRLContext(core::mem::transmute(pcrlcontext.unwrap_or(core::ptr::null())))
+    CertFreeCRLContext(core::mem::transmute(pcrlcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertFreeCTLContext(pctlcontext: Option<*const CTL_CONTEXT>) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CertFreeCTLContext(pctlcontext : *const CTL_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertFreeCTLContext(core::mem::transmute(pctlcontext.unwrap_or(core::ptr::null())))
+    CertFreeCTLContext(core::mem::transmute(pctlcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertFreeCertificateChain(pchaincontext: *const CERT_CHAIN_CONTEXT) {
@@ -853,12 +755,9 @@ pub unsafe fn CertFreeCertificateChain(pchaincontext: *const CERT_CHAIN_CONTEXT)
     CertFreeCertificateChain(core::mem::transmute(pchaincontext))
 }
 #[inline]
-pub unsafe fn CertFreeCertificateChainEngine<P0>(hchainengine: P0)
-where
-    P0: windows_core::Param<HCERTCHAINENGINE>,
-{
+pub unsafe fn CertFreeCertificateChainEngine(hchainengine: Option<HCERTCHAINENGINE>) {
     windows_targets::link!("crypt32.dll" "system" fn CertFreeCertificateChainEngine(hchainengine : HCERTCHAINENGINE));
-    CertFreeCertificateChainEngine(hchainengine.param().abi())
+    CertFreeCertificateChainEngine(core::mem::transmute(hchainengine.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertFreeCertificateChainList(prgpselection: *const *const CERT_CHAIN_CONTEXT) {
@@ -868,49 +767,42 @@ pub unsafe fn CertFreeCertificateChainList(prgpselection: *const *const CERT_CHA
 #[inline]
 pub unsafe fn CertFreeCertificateContext(pcertcontext: Option<*const CERT_CONTEXT>) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CertFreeCertificateContext(pcertcontext : *const CERT_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertFreeCertificateContext(core::mem::transmute(pcertcontext.unwrap_or(core::ptr::null())))
+    CertFreeCertificateContext(core::mem::transmute(pcertcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertFreeServerOcspResponseContext(pserverocspresponsecontext: Option<*const CERT_SERVER_OCSP_RESPONSE_CONTEXT>) {
     windows_targets::link!("crypt32.dll" "system" fn CertFreeServerOcspResponseContext(pserverocspresponsecontext : *const CERT_SERVER_OCSP_RESPONSE_CONTEXT));
-    CertFreeServerOcspResponseContext(core::mem::transmute(pserverocspresponsecontext.unwrap_or(core::ptr::null())))
+    CertFreeServerOcspResponseContext(core::mem::transmute(pserverocspresponsecontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertGetCRLContextProperty(pcrlcontext: *const CRL_CONTEXT, dwpropid: u32, pvdata: Option<*mut core::ffi::c_void>, pcbdata: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertGetCRLContextProperty(pcrlcontext : *const CRL_CONTEXT, dwpropid : u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: BOOL);
-    CertGetCRLContextProperty(core::mem::transmute(pcrlcontext), core::mem::transmute(dwpropid), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata)).ok()
+    CertGetCRLContextProperty(core::mem::transmute(pcrlcontext), core::mem::transmute(dwpropid), core::mem::transmute(pvdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdata)).ok()
 }
 #[inline]
-pub unsafe fn CertGetCRLFromStore<P0>(hcertstore: P0, pissuercontext: Option<*const CERT_CONTEXT>, pprevcrlcontext: Option<*const CRL_CONTEXT>, pdwflags: *mut u32) -> *mut CRL_CONTEXT
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertGetCRLFromStore(hcertstore: HCERTSTORE, pissuercontext: Option<*const CERT_CONTEXT>, pprevcrlcontext: Option<*const CRL_CONTEXT>, pdwflags: *mut u32) -> *mut CRL_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertGetCRLFromStore(hcertstore : HCERTSTORE, pissuercontext : *const CERT_CONTEXT, pprevcrlcontext : *const CRL_CONTEXT, pdwflags : *mut u32) -> *mut CRL_CONTEXT);
-    CertGetCRLFromStore(hcertstore.param().abi(), core::mem::transmute(pissuercontext.unwrap_or(core::ptr::null())), core::mem::transmute(pprevcrlcontext.unwrap_or(core::ptr::null())), core::mem::transmute(pdwflags))
+    CertGetCRLFromStore(core::mem::transmute(hcertstore), core::mem::transmute(pissuercontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(pprevcrlcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwflags))
 }
 #[inline]
 pub unsafe fn CertGetCTLContextProperty(pctlcontext: *const CTL_CONTEXT, dwpropid: u32, pvdata: Option<*mut core::ffi::c_void>, pcbdata: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertGetCTLContextProperty(pctlcontext : *const CTL_CONTEXT, dwpropid : u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: BOOL);
-    CertGetCTLContextProperty(core::mem::transmute(pctlcontext), core::mem::transmute(dwpropid), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata)).ok()
+    CertGetCTLContextProperty(core::mem::transmute(pctlcontext), core::mem::transmute(dwpropid), core::mem::transmute(pvdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdata)).ok()
 }
 #[inline]
-pub unsafe fn CertGetCertificateChain<P0, P3>(hchainengine: P0, pcertcontext: *const CERT_CONTEXT, ptime: Option<*const super::super::Foundation::FILETIME>, hadditionalstore: P3, pchainpara: *const CERT_CHAIN_PARA, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, ppchaincontext: *mut *mut CERT_CHAIN_CONTEXT) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTCHAINENGINE>,
-    P3: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertGetCertificateChain(hchainengine: Option<HCERTCHAINENGINE>, pcertcontext: *const CERT_CONTEXT, ptime: Option<*const super::super::Foundation::FILETIME>, hadditionalstore: Option<HCERTSTORE>, pchainpara: *const CERT_CHAIN_PARA, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, ppchaincontext: *mut *mut CERT_CHAIN_CONTEXT) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertGetCertificateChain(hchainengine : HCERTCHAINENGINE, pcertcontext : *const CERT_CONTEXT, ptime : *const super::super::Foundation:: FILETIME, hadditionalstore : HCERTSTORE, pchainpara : *const CERT_CHAIN_PARA, dwflags : u32, pvreserved : *const core::ffi::c_void, ppchaincontext : *mut *mut CERT_CHAIN_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertGetCertificateChain(hchainengine.param().abi(), core::mem::transmute(pcertcontext), core::mem::transmute(ptime.unwrap_or(core::ptr::null())), hadditionalstore.param().abi(), core::mem::transmute(pchainpara), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(ppchaincontext)).ok()
+    CertGetCertificateChain(core::mem::transmute(hchainengine.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcertcontext), core::mem::transmute(ptime.unwrap_or(core::mem::zeroed())), core::mem::transmute(hadditionalstore.unwrap_or(core::mem::zeroed())), core::mem::transmute(pchainpara), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppchaincontext)).ok()
 }
 #[inline]
 pub unsafe fn CertGetCertificateContextProperty(pcertcontext: *const CERT_CONTEXT, dwpropid: u32, pvdata: Option<*mut core::ffi::c_void>, pcbdata: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertGetCertificateContextProperty(pcertcontext : *const CERT_CONTEXT, dwpropid : u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: BOOL);
-    CertGetCertificateContextProperty(core::mem::transmute(pcertcontext), core::mem::transmute(dwpropid), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata)).ok()
+    CertGetCertificateContextProperty(core::mem::transmute(pcertcontext), core::mem::transmute(dwpropid), core::mem::transmute(pvdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdata)).ok()
 }
 #[inline]
 pub unsafe fn CertGetEnhancedKeyUsage(pcertcontext: *const CERT_CONTEXT, dwflags: u32, pusage: Option<*mut CTL_USAGE>, pcbusage: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertGetEnhancedKeyUsage(pcertcontext : *const CERT_CONTEXT, dwflags : u32, pusage : *mut CTL_USAGE, pcbusage : *mut u32) -> super::super::Foundation:: BOOL);
-    CertGetEnhancedKeyUsage(core::mem::transmute(pcertcontext), core::mem::transmute(dwflags), core::mem::transmute(pusage.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbusage)).ok()
+    CertGetEnhancedKeyUsage(core::mem::transmute(pcertcontext), core::mem::transmute(dwflags), core::mem::transmute(pusage.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbusage)).ok()
 }
 #[inline]
 pub unsafe fn CertGetIntendedKeyUsage(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertinfo: *const CERT_INFO, pbkeyusage: &mut [u8]) -> windows_core::Result<()> {
@@ -918,22 +810,19 @@ pub unsafe fn CertGetIntendedKeyUsage(dwcertencodingtype: CERT_QUERY_ENCODING_TY
     CertGetIntendedKeyUsage(core::mem::transmute(dwcertencodingtype), core::mem::transmute(pcertinfo), core::mem::transmute(pbkeyusage.as_ptr()), pbkeyusage.len().try_into().unwrap()).ok()
 }
 #[inline]
-pub unsafe fn CertGetIssuerCertificateFromStore<P0>(hcertstore: P0, psubjectcontext: *const CERT_CONTEXT, pprevissuercontext: Option<*const CERT_CONTEXT>, pdwflags: *mut u32) -> *mut CERT_CONTEXT
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertGetIssuerCertificateFromStore(hcertstore: HCERTSTORE, psubjectcontext: *const CERT_CONTEXT, pprevissuercontext: Option<*const CERT_CONTEXT>, pdwflags: *mut u32) -> *mut CERT_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertGetIssuerCertificateFromStore(hcertstore : HCERTSTORE, psubjectcontext : *const CERT_CONTEXT, pprevissuercontext : *const CERT_CONTEXT, pdwflags : *mut u32) -> *mut CERT_CONTEXT);
-    CertGetIssuerCertificateFromStore(hcertstore.param().abi(), core::mem::transmute(psubjectcontext), core::mem::transmute(pprevissuercontext.unwrap_or(core::ptr::null())), core::mem::transmute(pdwflags))
+    CertGetIssuerCertificateFromStore(core::mem::transmute(hcertstore), core::mem::transmute(psubjectcontext), core::mem::transmute(pprevissuercontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwflags))
 }
 #[inline]
 pub unsafe fn CertGetNameStringA(pcertcontext: *const CERT_CONTEXT, dwtype: u32, dwflags: u32, pvtypepara: Option<*const core::ffi::c_void>, psznamestring: Option<&mut [u8]>) -> u32 {
     windows_targets::link!("crypt32.dll" "system" fn CertGetNameStringA(pcertcontext : *const CERT_CONTEXT, dwtype : u32, dwflags : u32, pvtypepara : *const core::ffi::c_void, psznamestring : windows_core::PSTR, cchnamestring : u32) -> u32);
-    CertGetNameStringA(core::mem::transmute(pcertcontext), core::mem::transmute(dwtype), core::mem::transmute(dwflags), core::mem::transmute(pvtypepara.unwrap_or(core::ptr::null())), core::mem::transmute(psznamestring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psznamestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    CertGetNameStringA(core::mem::transmute(pcertcontext), core::mem::transmute(dwtype), core::mem::transmute(dwflags), core::mem::transmute(pvtypepara.unwrap_or(core::mem::zeroed())), core::mem::transmute(psznamestring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psznamestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn CertGetNameStringW(pcertcontext: *const CERT_CONTEXT, dwtype: u32, dwflags: u32, pvtypepara: Option<*const core::ffi::c_void>, psznamestring: Option<&mut [u16]>) -> u32 {
     windows_targets::link!("crypt32.dll" "system" fn CertGetNameStringW(pcertcontext : *const CERT_CONTEXT, dwtype : u32, dwflags : u32, pvtypepara : *const core::ffi::c_void, psznamestring : windows_core::PWSTR, cchnamestring : u32) -> u32);
-    CertGetNameStringW(core::mem::transmute(pcertcontext), core::mem::transmute(dwtype), core::mem::transmute(dwflags), core::mem::transmute(pvtypepara.unwrap_or(core::ptr::null())), core::mem::transmute(psznamestring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psznamestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    CertGetNameStringW(core::mem::transmute(pcertcontext), core::mem::transmute(dwtype), core::mem::transmute(dwflags), core::mem::transmute(pvtypepara.unwrap_or(core::mem::zeroed())), core::mem::transmute(psznamestring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psznamestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn CertGetPublicKeyLength(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, ppublickey: *const CERT_PUBLIC_KEY_INFO) -> u32 {
@@ -943,28 +832,22 @@ pub unsafe fn CertGetPublicKeyLength(dwcertencodingtype: CERT_QUERY_ENCODING_TYP
 #[inline]
 pub unsafe fn CertGetServerOcspResponseContext(hserverocspresponse: *const core::ffi::c_void, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>) -> *mut CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertGetServerOcspResponseContext(hserverocspresponse : *const core::ffi::c_void, dwflags : u32, pvreserved : *const core::ffi::c_void) -> *mut CERT_SERVER_OCSP_RESPONSE_CONTEXT);
-    CertGetServerOcspResponseContext(core::mem::transmute(hserverocspresponse), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())))
+    CertGetServerOcspResponseContext(core::mem::transmute(hserverocspresponse), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn CertGetStoreProperty<P0>(hcertstore: P0, dwpropid: u32, pvdata: Option<*mut core::ffi::c_void>, pcbdata: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertGetStoreProperty(hcertstore: HCERTSTORE, dwpropid: u32, pvdata: Option<*mut core::ffi::c_void>, pcbdata: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertGetStoreProperty(hcertstore : HCERTSTORE, dwpropid : u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: BOOL);
-    CertGetStoreProperty(hcertstore.param().abi(), core::mem::transmute(dwpropid), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata)).ok()
+    CertGetStoreProperty(core::mem::transmute(hcertstore), core::mem::transmute(dwpropid), core::mem::transmute(pvdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdata)).ok()
 }
 #[inline]
-pub unsafe fn CertGetSubjectCertificateFromStore<P0>(hcertstore: P0, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertid: *const CERT_INFO) -> *mut CERT_CONTEXT
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertGetSubjectCertificateFromStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertid: *const CERT_INFO) -> *mut CERT_CONTEXT {
     windows_targets::link!("crypt32.dll" "system" fn CertGetSubjectCertificateFromStore(hcertstore : HCERTSTORE, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pcertid : *const CERT_INFO) -> *mut CERT_CONTEXT);
-    CertGetSubjectCertificateFromStore(hcertstore.param().abi(), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pcertid))
+    CertGetSubjectCertificateFromStore(core::mem::transmute(hcertstore), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pcertid))
 }
 #[inline]
 pub unsafe fn CertGetValidUsages(rghcerts: &[*const CERT_CONTEXT], cnumoids: *mut i32, rghoids: Option<*mut windows_core::PSTR>, pcboids: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertGetValidUsages(ccerts : u32, rghcerts : *const *const CERT_CONTEXT, cnumoids : *mut i32, rghoids : *mut windows_core::PSTR, pcboids : *mut u32) -> super::super::Foundation:: BOOL);
-    CertGetValidUsages(rghcerts.len().try_into().unwrap(), core::mem::transmute(rghcerts.as_ptr()), core::mem::transmute(cnumoids), core::mem::transmute(rghoids.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcboids)).ok()
+    CertGetValidUsages(rghcerts.len().try_into().unwrap(), core::mem::transmute(rghcerts.as_ptr()), core::mem::transmute(cnumoids), core::mem::transmute(rghoids.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcboids)).ok()
 }
 #[inline]
 pub unsafe fn CertIsRDNAttrsInCertificateName(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwflags: u32, pcertname: *const CRYPT_INTEGER_BLOB, prdn: *const CERT_RDN) -> windows_core::Result<()> {
@@ -977,12 +860,12 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertIsStrongHashToSign(pstrongsignpara : *const CERT_STRONG_SIGN_PARA, pwszcnghashalgid : windows_core::PCWSTR, psigningcert : *const CERT_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertIsStrongHashToSign(core::mem::transmute(pstrongsignpara), pwszcnghashalgid.param().abi(), core::mem::transmute(psigningcert.unwrap_or(core::ptr::null()))).ok()
+    CertIsStrongHashToSign(core::mem::transmute(pstrongsignpara), pwszcnghashalgid.param().abi(), core::mem::transmute(psigningcert.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CertIsValidCRLForCertificate(pcert: *const CERT_CONTEXT, pcrl: *const CRL_CONTEXT, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CertIsValidCRLForCertificate(pcert : *const CERT_CONTEXT, pcrl : *const CRL_CONTEXT, dwflags : u32, pvreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CertIsValidCRLForCertificate(core::mem::transmute(pcert), core::mem::transmute(pcrl), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())))
+    CertIsValidCRLForCertificate(core::mem::transmute(pcert), core::mem::transmute(pcrl), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertIsWeakHash<P1, P5>(dwhashusetype: u32, pwszcnghashalgid: P1, dwchainflags: u32, psignerchaincontext: Option<*const CERT_CHAIN_CONTEXT>, ptimestamp: Option<*const super::super::Foundation::FILETIME>, pwszfilename: P5) -> super::super::Foundation::BOOL
@@ -991,7 +874,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertIsWeakHash(dwhashusetype : u32, pwszcnghashalgid : windows_core::PCWSTR, dwchainflags : u32, psignerchaincontext : *const CERT_CHAIN_CONTEXT, ptimestamp : *const super::super::Foundation:: FILETIME, pwszfilename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    CertIsWeakHash(core::mem::transmute(dwhashusetype), pwszcnghashalgid.param().abi(), core::mem::transmute(dwchainflags), core::mem::transmute(psignerchaincontext.unwrap_or(core::ptr::null())), core::mem::transmute(ptimestamp.unwrap_or(core::ptr::null())), pwszfilename.param().abi())
+    CertIsWeakHash(core::mem::transmute(dwhashusetype), pwszcnghashalgid.param().abi(), core::mem::transmute(dwchainflags), core::mem::transmute(psignerchaincontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(ptimestamp.unwrap_or(core::mem::zeroed())), pwszfilename.param().abi())
 }
 #[inline]
 pub unsafe fn CertNameToStrA(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pname: *const CRYPT_INTEGER_BLOB, dwstrtype: CERT_STRING_TYPE, psz: Option<&mut [u8]>) -> u32 {
@@ -1014,36 +897,33 @@ where
 #[inline]
 pub unsafe fn CertOpenServerOcspResponse(pchaincontext: *const CERT_CHAIN_CONTEXT, dwflags: u32, popenpara: Option<*const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA>) -> *mut core::ffi::c_void {
     windows_targets::link!("crypt32.dll" "system" fn CertOpenServerOcspResponse(pchaincontext : *const CERT_CHAIN_CONTEXT, dwflags : u32, popenpara : *const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA) -> *mut core::ffi::c_void);
-    CertOpenServerOcspResponse(core::mem::transmute(pchaincontext), core::mem::transmute(dwflags), core::mem::transmute(popenpara.unwrap_or(core::ptr::null())))
+    CertOpenServerOcspResponse(core::mem::transmute(pchaincontext), core::mem::transmute(dwflags), core::mem::transmute(popenpara.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn CertOpenStore<P0, P2>(lpszstoreprovider: P0, dwencodingtype: CERT_QUERY_ENCODING_TYPE, hcryptprov: P2, dwflags: CERT_OPEN_STORE_FLAGS, pvpara: Option<*const core::ffi::c_void>) -> windows_core::Result<HCERTSTORE>
+pub unsafe fn CertOpenStore<P0>(lpszstoreprovider: P0, dwencodingtype: CERT_QUERY_ENCODING_TYPE, hcryptprov: Option<HCRYPTPROV_LEGACY>, dwflags: CERT_OPEN_STORE_FLAGS, pvpara: Option<*const core::ffi::c_void>) -> windows_core::Result<HCERTSTORE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<HCRYPTPROV_LEGACY>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertOpenStore(lpszstoreprovider : windows_core::PCSTR, dwencodingtype : CERT_QUERY_ENCODING_TYPE, hcryptprov : HCRYPTPROV_LEGACY, dwflags : CERT_OPEN_STORE_FLAGS, pvpara : *const core::ffi::c_void) -> HCERTSTORE);
-    let result__ = CertOpenStore(lpszstoreprovider.param().abi(), core::mem::transmute(dwencodingtype), hcryptprov.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvpara.unwrap_or(core::ptr::null())));
+    let result__ = CertOpenStore(lpszstoreprovider.param().abi(), core::mem::transmute(dwencodingtype), core::mem::transmute(hcryptprov.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pvpara.unwrap_or(core::mem::zeroed())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CertOpenSystemStoreA<P0, P1>(hprov: P0, szsubsystemprotocol: P1) -> windows_core::Result<HCERTSTORE>
+pub unsafe fn CertOpenSystemStoreA<P1>(hprov: Option<HCRYPTPROV_LEGACY>, szsubsystemprotocol: P1) -> windows_core::Result<HCERTSTORE>
 where
-    P0: windows_core::Param<HCRYPTPROV_LEGACY>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertOpenSystemStoreA(hprov : HCRYPTPROV_LEGACY, szsubsystemprotocol : windows_core::PCSTR) -> HCERTSTORE);
-    let result__ = CertOpenSystemStoreA(hprov.param().abi(), szsubsystemprotocol.param().abi());
+    let result__ = CertOpenSystemStoreA(core::mem::transmute(hprov.unwrap_or(core::mem::zeroed())), szsubsystemprotocol.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CertOpenSystemStoreW<P0, P1>(hprov: P0, szsubsystemprotocol: P1) -> windows_core::Result<HCERTSTORE>
+pub unsafe fn CertOpenSystemStoreW<P1>(hprov: Option<HCRYPTPROV_LEGACY>, szsubsystemprotocol: P1) -> windows_core::Result<HCERTSTORE>
 where
-    P0: windows_core::Param<HCRYPTPROV_LEGACY>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertOpenSystemStoreW(hprov : HCRYPTPROV_LEGACY, szsubsystemprotocol : windows_core::PCWSTR) -> HCERTSTORE);
-    let result__ = CertOpenSystemStoreW(hprov.param().abi(), szsubsystemprotocol.param().abi());
+    let result__ = CertOpenSystemStoreW(core::mem::transmute(hprov.unwrap_or(core::mem::zeroed())), szsubsystemprotocol.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1062,12 +942,12 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertRegisterPhysicalStore(pvsystemstore : *const core::ffi::c_void, dwflags : u32, pwszstorename : windows_core::PCWSTR, pstoreinfo : *const CERT_PHYSICAL_STORE_INFO, pvreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CertRegisterPhysicalStore(core::mem::transmute(pvsystemstore), core::mem::transmute(dwflags), pwszstorename.param().abi(), core::mem::transmute(pstoreinfo), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())))
+    CertRegisterPhysicalStore(core::mem::transmute(pvsystemstore), core::mem::transmute(dwflags), pwszstorename.param().abi(), core::mem::transmute(pstoreinfo), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertRegisterSystemStore(pvsystemstore: *const core::ffi::c_void, dwflags: u32, pstoreinfo: Option<*const CERT_SYSTEM_STORE_INFO>, pvreserved: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CertRegisterSystemStore(pvsystemstore : *const core::ffi::c_void, dwflags : u32, pstoreinfo : *const CERT_SYSTEM_STORE_INFO, pvreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CertRegisterSystemStore(core::mem::transmute(pvsystemstore), core::mem::transmute(dwflags), core::mem::transmute(pstoreinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())))
+    CertRegisterSystemStore(core::mem::transmute(pvsystemstore), core::mem::transmute(dwflags), core::mem::transmute(pstoreinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertRemoveEnhancedKeyUsageIdentifier<P1>(pcertcontext: *const CERT_CONTEXT, pszusageidentifier: P1) -> windows_core::Result<()>
@@ -1078,21 +958,14 @@ where
     CertRemoveEnhancedKeyUsageIdentifier(core::mem::transmute(pcertcontext), pszusageidentifier.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn CertRemoveStoreFromCollection<P0, P1>(hcollectionstore: P0, hsiblingstore: P1)
-where
-    P0: windows_core::Param<HCERTSTORE>,
-    P1: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertRemoveStoreFromCollection(hcollectionstore: HCERTSTORE, hsiblingstore: HCERTSTORE) {
     windows_targets::link!("crypt32.dll" "system" fn CertRemoveStoreFromCollection(hcollectionstore : HCERTSTORE, hsiblingstore : HCERTSTORE));
-    CertRemoveStoreFromCollection(hcollectionstore.param().abi(), hsiblingstore.param().abi())
+    CertRemoveStoreFromCollection(core::mem::transmute(hcollectionstore), core::mem::transmute(hsiblingstore))
 }
 #[inline]
-pub unsafe fn CertResyncCertificateChainEngine<P0>(hchainengine: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTCHAINENGINE>,
-{
+pub unsafe fn CertResyncCertificateChainEngine(hchainengine: Option<HCERTCHAINENGINE>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertResyncCertificateChainEngine(hchainengine : HCERTCHAINENGINE) -> super::super::Foundation:: BOOL);
-    CertResyncCertificateChainEngine(hchainengine.param().abi()).ok()
+    CertResyncCertificateChainEngine(core::mem::transmute(hchainengine.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CertRetrieveLogoOrBiometricInfo<P1>(pcertcontext: *const CERT_CONTEXT, lpszlogoorbiometrictype: P1, dwretrievalflags: u32, dwtimeout: u32, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, ppbdata: *mut *mut u8, pcbdata: *mut u32, ppwszmimetype: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
@@ -1100,48 +973,42 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertRetrieveLogoOrBiometricInfo(pcertcontext : *const CERT_CONTEXT, lpszlogoorbiometrictype : windows_core::PCSTR, dwretrievalflags : u32, dwtimeout : u32, dwflags : u32, pvreserved : *const core::ffi::c_void, ppbdata : *mut *mut u8, pcbdata : *mut u32, ppwszmimetype : *mut windows_core::PWSTR) -> super::super::Foundation:: BOOL);
-    CertRetrieveLogoOrBiometricInfo(core::mem::transmute(pcertcontext), lpszlogoorbiometrictype.param().abi(), core::mem::transmute(dwretrievalflags), core::mem::transmute(dwtimeout), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(ppbdata), core::mem::transmute(pcbdata), core::mem::transmute(ppwszmimetype.unwrap_or(core::ptr::null_mut()))).ok()
+    CertRetrieveLogoOrBiometricInfo(core::mem::transmute(pcertcontext), lpszlogoorbiometrictype.param().abi(), core::mem::transmute(dwretrievalflags), core::mem::transmute(dwtimeout), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppbdata), core::mem::transmute(pcbdata), core::mem::transmute(ppwszmimetype.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CertSaveStore<P0>(hcertstore: P0, dwencodingtype: CERT_QUERY_ENCODING_TYPE, dwsaveas: CERT_STORE_SAVE_AS, dwsaveto: CERT_STORE_SAVE_TO, pvsavetopara: *mut core::ffi::c_void, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertSaveStore(hcertstore: HCERTSTORE, dwencodingtype: CERT_QUERY_ENCODING_TYPE, dwsaveas: CERT_STORE_SAVE_AS, dwsaveto: CERT_STORE_SAVE_TO, pvsavetopara: *mut core::ffi::c_void, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertSaveStore(hcertstore : HCERTSTORE, dwencodingtype : CERT_QUERY_ENCODING_TYPE, dwsaveas : CERT_STORE_SAVE_AS, dwsaveto : CERT_STORE_SAVE_TO, pvsavetopara : *mut core::ffi::c_void, dwflags : u32) -> super::super::Foundation:: BOOL);
-    CertSaveStore(hcertstore.param().abi(), core::mem::transmute(dwencodingtype), core::mem::transmute(dwsaveas), core::mem::transmute(dwsaveto), core::mem::transmute(pvsavetopara), core::mem::transmute(dwflags)).ok()
+    CertSaveStore(core::mem::transmute(hcertstore), core::mem::transmute(dwencodingtype), core::mem::transmute(dwsaveas), core::mem::transmute(dwsaveto), core::mem::transmute(pvsavetopara), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn CertSelectCertificateChains<P5>(pselectioncontext: Option<*const windows_core::GUID>, dwflags: u32, pchainparameters: Option<*const CERT_SELECT_CHAIN_PARA>, rgpcriteria: Option<&[CERT_SELECT_CRITERIA]>, hstore: P5, pcselection: *mut u32, pprgpselection: *mut *mut *mut CERT_CHAIN_CONTEXT) -> windows_core::Result<()>
-where
-    P5: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertSelectCertificateChains(pselectioncontext: Option<*const windows_core::GUID>, dwflags: u32, pchainparameters: Option<*const CERT_SELECT_CHAIN_PARA>, rgpcriteria: Option<&[CERT_SELECT_CRITERIA]>, hstore: HCERTSTORE, pcselection: *mut u32, pprgpselection: *mut *mut *mut CERT_CHAIN_CONTEXT) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertSelectCertificateChains(pselectioncontext : *const windows_core::GUID, dwflags : u32, pchainparameters : *const CERT_SELECT_CHAIN_PARA, ccriteria : u32, rgpcriteria : *const CERT_SELECT_CRITERIA, hstore : HCERTSTORE, pcselection : *mut u32, pprgpselection : *mut *mut *mut CERT_CHAIN_CONTEXT) -> super::super::Foundation:: BOOL);
-    CertSelectCertificateChains(core::mem::transmute(pselectioncontext.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pchainparameters.unwrap_or(core::ptr::null())), rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), hstore.param().abi(), core::mem::transmute(pcselection), core::mem::transmute(pprgpselection)).ok()
+    CertSelectCertificateChains(core::mem::transmute(pselectioncontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pchainparameters.unwrap_or(core::mem::zeroed())), rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(hstore), core::mem::transmute(pcselection), core::mem::transmute(pprgpselection)).ok()
 }
 #[inline]
 pub unsafe fn CertSerializeCRLStoreElement(pcrlcontext: *const CRL_CONTEXT, dwflags: u32, pbelement: Option<*mut u8>, pcbelement: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertSerializeCRLStoreElement(pcrlcontext : *const CRL_CONTEXT, dwflags : u32, pbelement : *mut u8, pcbelement : *mut u32) -> super::super::Foundation:: BOOL);
-    CertSerializeCRLStoreElement(core::mem::transmute(pcrlcontext), core::mem::transmute(dwflags), core::mem::transmute(pbelement.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbelement)).ok()
+    CertSerializeCRLStoreElement(core::mem::transmute(pcrlcontext), core::mem::transmute(dwflags), core::mem::transmute(pbelement.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbelement)).ok()
 }
 #[inline]
 pub unsafe fn CertSerializeCTLStoreElement(pctlcontext: *const CTL_CONTEXT, dwflags: u32, pbelement: Option<*mut u8>, pcbelement: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertSerializeCTLStoreElement(pctlcontext : *const CTL_CONTEXT, dwflags : u32, pbelement : *mut u8, pcbelement : *mut u32) -> super::super::Foundation:: BOOL);
-    CertSerializeCTLStoreElement(core::mem::transmute(pctlcontext), core::mem::transmute(dwflags), core::mem::transmute(pbelement.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbelement)).ok()
+    CertSerializeCTLStoreElement(core::mem::transmute(pctlcontext), core::mem::transmute(dwflags), core::mem::transmute(pbelement.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbelement)).ok()
 }
 #[inline]
 pub unsafe fn CertSerializeCertificateStoreElement(pcertcontext: *const CERT_CONTEXT, dwflags: u32, pbelement: Option<*mut u8>, pcbelement: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertSerializeCertificateStoreElement(pcertcontext : *const CERT_CONTEXT, dwflags : u32, pbelement : *mut u8, pcbelement : *mut u32) -> super::super::Foundation:: BOOL);
-    CertSerializeCertificateStoreElement(core::mem::transmute(pcertcontext), core::mem::transmute(dwflags), core::mem::transmute(pbelement.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbelement)).ok()
+    CertSerializeCertificateStoreElement(core::mem::transmute(pcertcontext), core::mem::transmute(dwflags), core::mem::transmute(pbelement.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbelement)).ok()
 }
 #[inline]
 pub unsafe fn CertSetCRLContextProperty(pcrlcontext: *const CRL_CONTEXT, dwpropid: u32, dwflags: u32, pvdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertSetCRLContextProperty(pcrlcontext : *const CRL_CONTEXT, dwpropid : u32, dwflags : u32, pvdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CertSetCRLContextProperty(core::mem::transmute(pcrlcontext), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), core::mem::transmute(pvdata.unwrap_or(core::ptr::null()))).ok()
+    CertSetCRLContextProperty(core::mem::transmute(pcrlcontext), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), core::mem::transmute(pvdata.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CertSetCTLContextProperty(pctlcontext: *const CTL_CONTEXT, dwpropid: u32, dwflags: u32, pvdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertSetCTLContextProperty(pctlcontext : *const CTL_CONTEXT, dwpropid : u32, dwflags : u32, pvdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CertSetCTLContextProperty(core::mem::transmute(pctlcontext), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), core::mem::transmute(pvdata.unwrap_or(core::ptr::null()))).ok()
+    CertSetCTLContextProperty(core::mem::transmute(pctlcontext), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), core::mem::transmute(pvdata.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CertSetCertificateContextPropertiesFromCTLEntry(pcertcontext: *const CERT_CONTEXT, pctlentry: *const CTL_ENTRY, dwflags: u32) -> windows_core::Result<()> {
@@ -1151,20 +1018,17 @@ pub unsafe fn CertSetCertificateContextPropertiesFromCTLEntry(pcertcontext: *con
 #[inline]
 pub unsafe fn CertSetCertificateContextProperty(pcertcontext: *const CERT_CONTEXT, dwpropid: u32, dwflags: u32, pvdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertSetCertificateContextProperty(pcertcontext : *const CERT_CONTEXT, dwpropid : u32, dwflags : u32, pvdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CertSetCertificateContextProperty(core::mem::transmute(pcertcontext), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), core::mem::transmute(pvdata.unwrap_or(core::ptr::null()))).ok()
+    CertSetCertificateContextProperty(core::mem::transmute(pcertcontext), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), core::mem::transmute(pvdata.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CertSetEnhancedKeyUsage(pcertcontext: *const CERT_CONTEXT, pusage: Option<*const CTL_USAGE>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertSetEnhancedKeyUsage(pcertcontext : *const CERT_CONTEXT, pusage : *const CTL_USAGE) -> super::super::Foundation:: BOOL);
-    CertSetEnhancedKeyUsage(core::mem::transmute(pcertcontext), core::mem::transmute(pusage.unwrap_or(core::ptr::null()))).ok()
+    CertSetEnhancedKeyUsage(core::mem::transmute(pcertcontext), core::mem::transmute(pusage.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CertSetStoreProperty<P0>(hcertstore: P0, dwpropid: u32, dwflags: u32, pvdata: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CertSetStoreProperty(hcertstore: HCERTSTORE, dwpropid: u32, dwflags: u32, pvdata: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CertSetStoreProperty(hcertstore : HCERTSTORE, dwpropid : u32, dwflags : u32, pvdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CertSetStoreProperty(hcertstore.param().abi(), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), core::mem::transmute(pvdata.unwrap_or(core::ptr::null())))
+    CertSetStoreProperty(core::mem::transmute(hcertstore), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), core::mem::transmute(pvdata.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CertStrToNameA<P1>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszx500: P1, dwstrtype: CERT_STRING_TYPE, pvreserved: Option<*const core::ffi::c_void>, pbencoded: Option<*mut u8>, pcbencoded: *mut u32, ppszerror: Option<*mut windows_core::PCSTR>) -> windows_core::Result<()>
@@ -1172,7 +1036,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertStrToNameA(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pszx500 : windows_core::PCSTR, dwstrtype : CERT_STRING_TYPE, pvreserved : *const core::ffi::c_void, pbencoded : *mut u8, pcbencoded : *mut u32, ppszerror : *mut windows_core::PCSTR) -> super::super::Foundation:: BOOL);
-    CertStrToNameA(core::mem::transmute(dwcertencodingtype), pszx500.param().abi(), core::mem::transmute(dwstrtype), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pbencoded.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbencoded), core::mem::transmute(ppszerror.unwrap_or(core::ptr::null_mut()))).ok()
+    CertStrToNameA(core::mem::transmute(dwcertencodingtype), pszx500.param().abi(), core::mem::transmute(dwstrtype), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbencoded.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbencoded), core::mem::transmute(ppszerror.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CertStrToNameW<P1>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszx500: P1, dwstrtype: CERT_STRING_TYPE, pvreserved: Option<*const core::ffi::c_void>, pbencoded: Option<*mut u8>, pcbencoded: *mut u32, ppszerror: Option<*mut windows_core::PCWSTR>) -> windows_core::Result<()>
@@ -1180,7 +1044,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertStrToNameW(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pszx500 : windows_core::PCWSTR, dwstrtype : CERT_STRING_TYPE, pvreserved : *const core::ffi::c_void, pbencoded : *mut u8, pcbencoded : *mut u32, ppszerror : *mut windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    CertStrToNameW(core::mem::transmute(dwcertencodingtype), pszx500.param().abi(), core::mem::transmute(dwstrtype), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pbencoded.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbencoded), core::mem::transmute(ppszerror.unwrap_or(core::ptr::null_mut()))).ok()
+    CertStrToNameW(core::mem::transmute(dwcertencodingtype), pszx500.param().abi(), core::mem::transmute(dwstrtype), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbencoded.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbencoded), core::mem::transmute(ppszerror.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CertUnregisterPhysicalStore<P2>(pvsystemstore: *const core::ffi::c_void, dwflags: u32, pwszstorename: P2) -> super::super::Foundation::BOOL
@@ -1203,12 +1067,12 @@ pub unsafe fn CertVerifyCRLRevocation(dwcertencodingtype: CERT_QUERY_ENCODING_TY
 #[inline]
 pub unsafe fn CertVerifyCRLTimeValidity(ptimetoverify: Option<*const super::super::Foundation::FILETIME>, pcrlinfo: *const CRL_INFO) -> i32 {
     windows_targets::link!("crypt32.dll" "system" fn CertVerifyCRLTimeValidity(ptimetoverify : *const super::super::Foundation:: FILETIME, pcrlinfo : *const CRL_INFO) -> i32);
-    CertVerifyCRLTimeValidity(core::mem::transmute(ptimetoverify.unwrap_or(core::ptr::null())), core::mem::transmute(pcrlinfo))
+    CertVerifyCRLTimeValidity(core::mem::transmute(ptimetoverify.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcrlinfo))
 }
 #[inline]
 pub unsafe fn CertVerifyCTLUsage(dwencodingtype: u32, dwsubjecttype: u32, pvsubject: *const core::ffi::c_void, psubjectusage: *const CTL_USAGE, dwflags: u32, pverifyusagepara: Option<*const CTL_VERIFY_USAGE_PARA>, pverifyusagestatus: *mut CTL_VERIFY_USAGE_STATUS) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertVerifyCTLUsage(dwencodingtype : u32, dwsubjecttype : u32, pvsubject : *const core::ffi::c_void, psubjectusage : *const CTL_USAGE, dwflags : u32, pverifyusagepara : *const CTL_VERIFY_USAGE_PARA, pverifyusagestatus : *mut CTL_VERIFY_USAGE_STATUS) -> super::super::Foundation:: BOOL);
-    CertVerifyCTLUsage(core::mem::transmute(dwencodingtype), core::mem::transmute(dwsubjecttype), core::mem::transmute(pvsubject), core::mem::transmute(psubjectusage), core::mem::transmute(dwflags), core::mem::transmute(pverifyusagepara.unwrap_or(core::ptr::null())), core::mem::transmute(pverifyusagestatus)).ok()
+    CertVerifyCTLUsage(core::mem::transmute(dwencodingtype), core::mem::transmute(dwsubjecttype), core::mem::transmute(pvsubject), core::mem::transmute(psubjectusage), core::mem::transmute(dwflags), core::mem::transmute(pverifyusagepara.unwrap_or(core::mem::zeroed())), core::mem::transmute(pverifyusagestatus)).ok()
 }
 #[inline]
 pub unsafe fn CertVerifyCertificateChainPolicy<P0>(pszpolicyoid: P0, pchaincontext: *const CERT_CHAIN_CONTEXT, ppolicypara: *const CERT_CHAIN_POLICY_PARA, ppolicystatus: *mut CERT_CHAIN_POLICY_STATUS) -> super::super::Foundation::BOOL
@@ -1221,17 +1085,17 @@ where
 #[inline]
 pub unsafe fn CertVerifyRevocation(dwencodingtype: u32, dwrevtype: u32, rgpvcontext: &[*const core::ffi::c_void], dwflags: u32, prevpara: Option<*const CERT_REVOCATION_PARA>, prevstatus: *mut CERT_REVOCATION_STATUS) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertVerifyRevocation(dwencodingtype : u32, dwrevtype : u32, ccontext : u32, rgpvcontext : *const *const core::ffi::c_void, dwflags : u32, prevpara : *const CERT_REVOCATION_PARA, prevstatus : *mut CERT_REVOCATION_STATUS) -> super::super::Foundation:: BOOL);
-    CertVerifyRevocation(core::mem::transmute(dwencodingtype), core::mem::transmute(dwrevtype), rgpvcontext.len().try_into().unwrap(), core::mem::transmute(rgpvcontext.as_ptr()), core::mem::transmute(dwflags), core::mem::transmute(prevpara.unwrap_or(core::ptr::null())), core::mem::transmute(prevstatus)).ok()
+    CertVerifyRevocation(core::mem::transmute(dwencodingtype), core::mem::transmute(dwrevtype), rgpvcontext.len().try_into().unwrap(), core::mem::transmute(rgpvcontext.as_ptr()), core::mem::transmute(dwflags), core::mem::transmute(prevpara.unwrap_or(core::mem::zeroed())), core::mem::transmute(prevstatus)).ok()
 }
 #[inline]
 pub unsafe fn CertVerifySubjectCertificateContext(psubject: *const CERT_CONTEXT, pissuer: Option<*const CERT_CONTEXT>, pdwflags: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CertVerifySubjectCertificateContext(psubject : *const CERT_CONTEXT, pissuer : *const CERT_CONTEXT, pdwflags : *mut u32) -> super::super::Foundation:: BOOL);
-    CertVerifySubjectCertificateContext(core::mem::transmute(psubject), core::mem::transmute(pissuer.unwrap_or(core::ptr::null())), core::mem::transmute(pdwflags)).ok()
+    CertVerifySubjectCertificateContext(core::mem::transmute(psubject), core::mem::transmute(pissuer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwflags)).ok()
 }
 #[inline]
 pub unsafe fn CertVerifyTimeValidity(ptimetoverify: Option<*const super::super::Foundation::FILETIME>, pcertinfo: *const CERT_INFO) -> i32 {
     windows_targets::link!("crypt32.dll" "system" fn CertVerifyTimeValidity(ptimetoverify : *const super::super::Foundation:: FILETIME, pcertinfo : *const CERT_INFO) -> i32);
-    CertVerifyTimeValidity(core::mem::transmute(ptimetoverify.unwrap_or(core::ptr::null())), core::mem::transmute(pcertinfo))
+    CertVerifyTimeValidity(core::mem::transmute(ptimetoverify.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcertinfo))
 }
 #[inline]
 pub unsafe fn CertVerifyValidityNesting(psubjectinfo: *const CERT_INFO, pissuerinfo: *const CERT_INFO) -> super::super::Foundation::BOOL {
@@ -1246,7 +1110,7 @@ pub unsafe fn CloseCryptoHandle(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE) -
 #[inline]
 pub unsafe fn CryptAcquireCertificatePrivateKey(pcert: *const CERT_CONTEXT, dwflags: CRYPT_ACQUIRE_FLAGS, pvparameters: Option<*const core::ffi::c_void>, phcryptprovorncryptkey: *mut HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, pdwkeyspec: Option<*mut CERT_KEY_SPEC>, pfcallerfreeprovorncryptkey: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptAcquireCertificatePrivateKey(pcert : *const CERT_CONTEXT, dwflags : CRYPT_ACQUIRE_FLAGS, pvparameters : *const core::ffi::c_void, phcryptprovorncryptkey : *mut HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, pdwkeyspec : *mut CERT_KEY_SPEC, pfcallerfreeprovorncryptkey : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    CryptAcquireCertificatePrivateKey(core::mem::transmute(pcert), core::mem::transmute(dwflags), core::mem::transmute(pvparameters.unwrap_or(core::ptr::null())), core::mem::transmute(phcryptprovorncryptkey), core::mem::transmute(pdwkeyspec.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfcallerfreeprovorncryptkey.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptAcquireCertificatePrivateKey(core::mem::transmute(pcert), core::mem::transmute(dwflags), core::mem::transmute(pvparameters.unwrap_or(core::mem::zeroed())), core::mem::transmute(phcryptprovorncryptkey), core::mem::transmute(pdwkeyspec.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfcallerfreeprovorncryptkey.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptAcquireContextA<P1, P2>(phprov: *mut usize, szcontainer: P1, szprovider: P2, dwprovtype: u32, dwflags: u32) -> windows_core::Result<()>
@@ -1267,27 +1131,24 @@ where
     CryptAcquireContextW(core::mem::transmute(phprov), szcontainer.param().abi(), szprovider.param().abi(), core::mem::transmute(dwprovtype), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn CryptBinaryToStringA(pbbinary: &[u8], dwflags: CRYPT_STRING, pszstring: windows_core::PSTR, pcchstring: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CryptBinaryToStringA(pbbinary: &[u8], dwflags: CRYPT_STRING, pszstring: Option<windows_core::PSTR>, pcchstring: *mut u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CryptBinaryToStringA(pbbinary : *const u8, cbbinary : u32, dwflags : CRYPT_STRING, pszstring : windows_core::PSTR, pcchstring : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptBinaryToStringA(core::mem::transmute(pbbinary.as_ptr()), pbbinary.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pszstring), core::mem::transmute(pcchstring))
+    CryptBinaryToStringA(core::mem::transmute(pbbinary.as_ptr()), pbbinary.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pszstring.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchstring))
 }
 #[inline]
-pub unsafe fn CryptBinaryToStringW(pbbinary: &[u8], dwflags: CRYPT_STRING, pszstring: windows_core::PWSTR, pcchstring: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CryptBinaryToStringW(pbbinary: &[u8], dwflags: CRYPT_STRING, pszstring: Option<windows_core::PWSTR>, pcchstring: *mut u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CryptBinaryToStringW(pbbinary : *const u8, cbbinary : u32, dwflags : CRYPT_STRING, pszstring : windows_core::PWSTR, pcchstring : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptBinaryToStringW(core::mem::transmute(pbbinary.as_ptr()), pbbinary.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pszstring), core::mem::transmute(pcchstring))
+    CryptBinaryToStringW(core::mem::transmute(pbbinary.as_ptr()), pbbinary.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pszstring.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchstring))
 }
 #[inline]
-pub unsafe fn CryptCloseAsyncHandle<P0>(hasync: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HCRYPTASYNC>,
-{
+pub unsafe fn CryptCloseAsyncHandle(hasync: Option<HCRYPTASYNC>) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CryptCloseAsyncHandle(hasync : HCRYPTASYNC) -> super::super::Foundation:: BOOL);
-    CryptCloseAsyncHandle(hasync.param().abi())
+    CryptCloseAsyncHandle(core::mem::transmute(hasync.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CryptContextAddRef(hprov: usize, pdwreserved: Option<*const u32>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptContextAddRef(hprov : usize, pdwreserved : *const u32, dwflags : u32) -> super::super::Foundation:: BOOL);
-    CryptContextAddRef(core::mem::transmute(hprov), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+    CryptContextAddRef(core::mem::transmute(hprov), core::mem::transmute(pdwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn CryptCreateAsyncHandle(dwflags: u32, phasync: *mut HCRYPTASYNC) -> super::super::Foundation::BOOL {
@@ -1305,25 +1166,25 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptCreateKeyIdentifierFromCSP(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pszpubkeyoid : windows_core::PCSTR, ppubkeystruc : *const PUBLICKEYSTRUC, cbpubkeystruc : u32, dwflags : u32, pvreserved : *const core::ffi::c_void, pbhash : *mut u8, pcbhash : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptCreateKeyIdentifierFromCSP(core::mem::transmute(dwcertencodingtype), pszpubkeyoid.param().abi(), core::mem::transmute(ppubkeystruc), core::mem::transmute(cbpubkeystruc), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pbhash.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbhash)).ok()
+    CryptCreateKeyIdentifierFromCSP(core::mem::transmute(dwcertencodingtype), pszpubkeyoid.param().abi(), core::mem::transmute(ppubkeystruc), core::mem::transmute(cbpubkeystruc), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbhash.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbhash)).ok()
 }
 #[inline]
 pub unsafe fn CryptDecodeMessage(dwmsgtypeflags: u32, pdecryptpara: Option<*const CRYPT_DECRYPT_MESSAGE_PARA>, pverifypara: Option<*const CRYPT_VERIFY_MESSAGE_PARA>, dwsignerindex: u32, pbencodedblob: &[u8], dwprevinnercontenttype: u32, pdwmsgtype: Option<*mut u32>, pdwinnercontenttype: Option<*mut u32>, pbdecoded: Option<*mut u8>, pcbdecoded: Option<*mut u32>, ppxchgcert: Option<*mut *mut CERT_CONTEXT>, ppsignercert: Option<*mut *mut CERT_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptDecodeMessage(dwmsgtypeflags : u32, pdecryptpara : *const CRYPT_DECRYPT_MESSAGE_PARA, pverifypara : *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex : u32, pbencodedblob : *const u8, cbencodedblob : u32, dwprevinnercontenttype : u32, pdwmsgtype : *mut u32, pdwinnercontenttype : *mut u32, pbdecoded : *mut u8, pcbdecoded : *mut u32, ppxchgcert : *mut *mut CERT_CONTEXT, ppsignercert : *mut *mut CERT_CONTEXT) -> super::super::Foundation:: BOOL);
     CryptDecodeMessage(
         core::mem::transmute(dwmsgtypeflags),
-        core::mem::transmute(pdecryptpara.unwrap_or(core::ptr::null())),
-        core::mem::transmute(pverifypara.unwrap_or(core::ptr::null())),
+        core::mem::transmute(pdecryptpara.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pverifypara.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(dwsignerindex),
         core::mem::transmute(pbencodedblob.as_ptr()),
         pbencodedblob.len().try_into().unwrap(),
         core::mem::transmute(dwprevinnercontenttype),
-        core::mem::transmute(pdwmsgtype.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pdwinnercontenttype.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pbdecoded.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pcbdecoded.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(ppxchgcert.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(ppsignercert.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(pdwmsgtype.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pdwinnercontenttype.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pbdecoded.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pcbdecoded.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(ppxchgcert.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(ppsignercert.unwrap_or(core::mem::zeroed())),
     )
     .ok()
 }
@@ -1333,7 +1194,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptDecodeObject(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, lpszstructtype : windows_core::PCSTR, pbencoded : *const u8, cbencoded : u32, dwflags : u32, pvstructinfo : *mut core::ffi::c_void, pcbstructinfo : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptDecodeObject(core::mem::transmute(dwcertencodingtype), lpszstructtype.param().abi(), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pvstructinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbstructinfo)).ok()
+    CryptDecodeObject(core::mem::transmute(dwcertencodingtype), lpszstructtype.param().abi(), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pvstructinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbstructinfo)).ok()
 }
 #[inline]
 pub unsafe fn CryptDecodeObjectEx<P1>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P1, pbencoded: &[u8], dwflags: u32, pdecodepara: Option<*const CRYPT_DECODE_PARA>, pvstructinfo: Option<*mut core::ffi::c_void>, pcbstructinfo: *mut u32) -> windows_core::Result<()>
@@ -1341,7 +1202,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptDecodeObjectEx(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, lpszstructtype : windows_core::PCSTR, pbencoded : *const u8, cbencoded : u32, dwflags : u32, pdecodepara : *const CRYPT_DECODE_PARA, pvstructinfo : *mut core::ffi::c_void, pcbstructinfo : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptDecodeObjectEx(core::mem::transmute(dwcertencodingtype), lpszstructtype.param().abi(), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pdecodepara.unwrap_or(core::ptr::null())), core::mem::transmute(pvstructinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbstructinfo)).ok()
+    CryptDecodeObjectEx(core::mem::transmute(dwcertencodingtype), lpszstructtype.param().abi(), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pdecodepara.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvstructinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbstructinfo)).ok()
 }
 #[inline]
 pub unsafe fn CryptDecrypt<P2>(hkey: usize, hhash: usize, r#final: P2, dwflags: u32, pbdata: *mut u8, pdwdatalen: *mut u32) -> windows_core::Result<()>
@@ -1354,12 +1215,12 @@ where
 #[inline]
 pub unsafe fn CryptDecryptAndVerifyMessageSignature(pdecryptpara: *const CRYPT_DECRYPT_MESSAGE_PARA, pverifypara: *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: u32, pbencryptedblob: &[u8], pbdecrypted: Option<*mut u8>, pcbdecrypted: Option<*mut u32>, ppxchgcert: Option<*mut *mut CERT_CONTEXT>, ppsignercert: Option<*mut *mut CERT_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptDecryptAndVerifyMessageSignature(pdecryptpara : *const CRYPT_DECRYPT_MESSAGE_PARA, pverifypara : *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex : u32, pbencryptedblob : *const u8, cbencryptedblob : u32, pbdecrypted : *mut u8, pcbdecrypted : *mut u32, ppxchgcert : *mut *mut CERT_CONTEXT, ppsignercert : *mut *mut CERT_CONTEXT) -> super::super::Foundation:: BOOL);
-    CryptDecryptAndVerifyMessageSignature(core::mem::transmute(pdecryptpara), core::mem::transmute(pverifypara), core::mem::transmute(dwsignerindex), core::mem::transmute(pbencryptedblob.as_ptr()), pbencryptedblob.len().try_into().unwrap(), core::mem::transmute(pbdecrypted.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdecrypted.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppxchgcert.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppsignercert.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptDecryptAndVerifyMessageSignature(core::mem::transmute(pdecryptpara), core::mem::transmute(pverifypara), core::mem::transmute(dwsignerindex), core::mem::transmute(pbencryptedblob.as_ptr()), pbencryptedblob.len().try_into().unwrap(), core::mem::transmute(pbdecrypted.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdecrypted.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppxchgcert.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppsignercert.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptDecryptMessage(pdecryptpara: *const CRYPT_DECRYPT_MESSAGE_PARA, pbencryptedblob: &[u8], pbdecrypted: Option<*mut u8>, pcbdecrypted: Option<*mut u32>, ppxchgcert: Option<*mut *mut CERT_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptDecryptMessage(pdecryptpara : *const CRYPT_DECRYPT_MESSAGE_PARA, pbencryptedblob : *const u8, cbencryptedblob : u32, pbdecrypted : *mut u8, pcbdecrypted : *mut u32, ppxchgcert : *mut *mut CERT_CONTEXT) -> super::super::Foundation:: BOOL);
-    CryptDecryptMessage(core::mem::transmute(pdecryptpara), core::mem::transmute(pbencryptedblob.as_ptr()), pbencryptedblob.len().try_into().unwrap(), core::mem::transmute(pbdecrypted.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdecrypted.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppxchgcert.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptDecryptMessage(core::mem::transmute(pdecryptpara), core::mem::transmute(pbencryptedblob.as_ptr()), pbencryptedblob.len().try_into().unwrap(), core::mem::transmute(pbdecrypted.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdecrypted.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppxchgcert.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptDeriveKey(hprov: usize, algid: ALG_ID, hbasedata: usize, dwflags: u32, phkey: *mut usize) -> windows_core::Result<()> {
@@ -1379,12 +1240,12 @@ pub unsafe fn CryptDestroyKey(hkey: usize) -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn CryptDuplicateHash(hhash: usize, pdwreserved: Option<*const u32>, dwflags: u32, phhash: *mut usize) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptDuplicateHash(hhash : usize, pdwreserved : *const u32, dwflags : u32, phhash : *mut usize) -> super::super::Foundation:: BOOL);
-    CryptDuplicateHash(core::mem::transmute(hhash), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(phhash)).ok()
+    CryptDuplicateHash(core::mem::transmute(hhash), core::mem::transmute(pdwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(phhash)).ok()
 }
 #[inline]
 pub unsafe fn CryptDuplicateKey(hkey: usize, pdwreserved: Option<*const u32>, dwflags: u32, phkey: *mut usize) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptDuplicateKey(hkey : usize, pdwreserved : *const u32, dwflags : u32, phkey : *mut usize) -> super::super::Foundation:: BOOL);
-    CryptDuplicateKey(core::mem::transmute(hkey), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(phkey)).ok()
+    CryptDuplicateKey(core::mem::transmute(hkey), core::mem::transmute(pdwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(phkey)).ok()
 }
 #[inline]
 pub unsafe fn CryptEncodeObject<P1>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P1, pvstructinfo: *const core::ffi::c_void, pbencoded: Option<*mut u8>, pcbencoded: *mut u32) -> windows_core::Result<()>
@@ -1392,7 +1253,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptEncodeObject(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, lpszstructtype : windows_core::PCSTR, pvstructinfo : *const core::ffi::c_void, pbencoded : *mut u8, pcbencoded : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptEncodeObject(core::mem::transmute(dwcertencodingtype), lpszstructtype.param().abi(), core::mem::transmute(pvstructinfo), core::mem::transmute(pbencoded.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbencoded)).ok()
+    CryptEncodeObject(core::mem::transmute(dwcertencodingtype), lpszstructtype.param().abi(), core::mem::transmute(pvstructinfo), core::mem::transmute(pbencoded.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbencoded)).ok()
 }
 #[inline]
 pub unsafe fn CryptEncodeObjectEx<P1>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P1, pvstructinfo: *const core::ffi::c_void, dwflags: CRYPT_ENCODE_OBJECT_FLAGS, pencodepara: Option<*const CRYPT_ENCODE_PARA>, pvencoded: Option<*mut core::ffi::c_void>, pcbencoded: *mut u32) -> windows_core::Result<()>
@@ -1400,7 +1261,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptEncodeObjectEx(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, lpszstructtype : windows_core::PCSTR, pvstructinfo : *const core::ffi::c_void, dwflags : CRYPT_ENCODE_OBJECT_FLAGS, pencodepara : *const CRYPT_ENCODE_PARA, pvencoded : *mut core::ffi::c_void, pcbencoded : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptEncodeObjectEx(core::mem::transmute(dwcertencodingtype), lpszstructtype.param().abi(), core::mem::transmute(pvstructinfo), core::mem::transmute(dwflags), core::mem::transmute(pencodepara.unwrap_or(core::ptr::null())), core::mem::transmute(pvencoded.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbencoded)).ok()
+    CryptEncodeObjectEx(core::mem::transmute(dwcertencodingtype), lpszstructtype.param().abi(), core::mem::transmute(pvstructinfo), core::mem::transmute(dwflags), core::mem::transmute(pencodepara.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvencoded.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbencoded)).ok()
 }
 #[inline]
 pub unsafe fn CryptEncrypt<P2>(hkey: usize, hhash: usize, r#final: P2, dwflags: u32, pbdata: Option<&mut [u8]>, pdwdatalen: *mut u32) -> windows_core::Result<()>
@@ -1413,7 +1274,7 @@ where
 #[inline]
 pub unsafe fn CryptEncryptMessage(pencryptpara: *const CRYPT_ENCRYPT_MESSAGE_PARA, rgprecipientcert: &[*const CERT_CONTEXT], pbtobeencrypted: Option<&[u8]>, pbencryptedblob: Option<*mut u8>, pcbencryptedblob: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptEncryptMessage(pencryptpara : *const CRYPT_ENCRYPT_MESSAGE_PARA, crecipientcert : u32, rgprecipientcert : *const *const CERT_CONTEXT, pbtobeencrypted : *const u8, cbtobeencrypted : u32, pbencryptedblob : *mut u8, pcbencryptedblob : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptEncryptMessage(core::mem::transmute(pencryptpara), rgprecipientcert.len().try_into().unwrap(), core::mem::transmute(rgprecipientcert.as_ptr()), core::mem::transmute(pbtobeencrypted.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbtobeencrypted.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbencryptedblob.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbencryptedblob)).ok()
+    CryptEncryptMessage(core::mem::transmute(pencryptpara), rgprecipientcert.len().try_into().unwrap(), core::mem::transmute(rgprecipientcert.as_ptr()), core::mem::transmute(pbtobeencrypted.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbtobeencrypted.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbencryptedblob.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbencryptedblob)).ok()
 }
 #[inline]
 pub unsafe fn CryptEnumKeyIdentifierProperties<P3>(pkeyidentifier: Option<*const CRYPT_INTEGER_BLOB>, dwpropid: u32, dwflags: u32, pwszcomputername: P3, pvreserved: Option<*const core::ffi::c_void>, pvarg: Option<*mut core::ffi::c_void>, pfnenum: PFN_CRYPT_ENUM_KEYID_PROP) -> windows_core::Result<()>
@@ -1421,7 +1282,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptEnumKeyIdentifierProperties(pkeyidentifier : *const CRYPT_INTEGER_BLOB, dwpropid : u32, dwflags : u32, pwszcomputername : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void, pvarg : *mut core::ffi::c_void, pfnenum : PFN_CRYPT_ENUM_KEYID_PROP) -> super::super::Foundation:: BOOL);
-    CryptEnumKeyIdentifierProperties(core::mem::transmute(pkeyidentifier.unwrap_or(core::ptr::null())), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), pwszcomputername.param().abi(), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pvarg.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfnenum)).ok()
+    CryptEnumKeyIdentifierProperties(core::mem::transmute(pkeyidentifier.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), pwszcomputername.param().abi(), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvarg.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfnenum)).ok()
 }
 #[inline]
 pub unsafe fn CryptEnumOIDFunction<P1, P2>(dwencodingtype: u32, pszfuncname: P1, pszoid: P2, dwflags: u32, pvarg: Option<*mut core::ffi::c_void>, pfnenumoidfunc: PFN_CRYPT_ENUM_OID_FUNC) -> windows_core::Result<()>
@@ -1430,37 +1291,37 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptEnumOIDFunction(dwencodingtype : u32, pszfuncname : windows_core::PCSTR, pszoid : windows_core::PCSTR, dwflags : u32, pvarg : *mut core::ffi::c_void, pfnenumoidfunc : PFN_CRYPT_ENUM_OID_FUNC) -> super::super::Foundation:: BOOL);
-    CryptEnumOIDFunction(core::mem::transmute(dwencodingtype), pszfuncname.param().abi(), pszoid.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvarg.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfnenumoidfunc)).ok()
+    CryptEnumOIDFunction(core::mem::transmute(dwencodingtype), pszfuncname.param().abi(), pszoid.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvarg.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfnenumoidfunc)).ok()
 }
 #[inline]
 pub unsafe fn CryptEnumOIDInfo(dwgroupid: u32, dwflags: u32, pvarg: Option<*mut core::ffi::c_void>, pfnenumoidinfo: PFN_CRYPT_ENUM_OID_INFO) -> super::super::Foundation::BOOL {
     windows_targets::link!("crypt32.dll" "system" fn CryptEnumOIDInfo(dwgroupid : u32, dwflags : u32, pvarg : *mut core::ffi::c_void, pfnenumoidinfo : PFN_CRYPT_ENUM_OID_INFO) -> super::super::Foundation:: BOOL);
-    CryptEnumOIDInfo(core::mem::transmute(dwgroupid), core::mem::transmute(dwflags), core::mem::transmute(pvarg.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfnenumoidinfo))
+    CryptEnumOIDInfo(core::mem::transmute(dwgroupid), core::mem::transmute(dwflags), core::mem::transmute(pvarg.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfnenumoidinfo))
 }
 #[inline]
-pub unsafe fn CryptEnumProviderTypesA(dwindex: u32, pdwreserved: Option<*const u32>, dwflags: u32, pdwprovtype: *mut u32, sztypename: windows_core::PSTR, pcbtypename: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CryptEnumProviderTypesA(dwindex: u32, pdwreserved: Option<*const u32>, dwflags: u32, pdwprovtype: *mut u32, sztypename: Option<windows_core::PSTR>, pcbtypename: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptEnumProviderTypesA(dwindex : u32, pdwreserved : *const u32, dwflags : u32, pdwprovtype : *mut u32, sztypename : windows_core::PSTR, pcbtypename : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptEnumProviderTypesA(core::mem::transmute(dwindex), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pdwprovtype), core::mem::transmute(sztypename), core::mem::transmute(pcbtypename)).ok()
+    CryptEnumProviderTypesA(core::mem::transmute(dwindex), core::mem::transmute(pdwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pdwprovtype), core::mem::transmute(sztypename.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbtypename)).ok()
 }
 #[inline]
-pub unsafe fn CryptEnumProviderTypesW(dwindex: u32, pdwreserved: Option<*const u32>, dwflags: u32, pdwprovtype: *mut u32, sztypename: windows_core::PWSTR, pcbtypename: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CryptEnumProviderTypesW(dwindex: u32, pdwreserved: Option<*const u32>, dwflags: u32, pdwprovtype: *mut u32, sztypename: Option<windows_core::PWSTR>, pcbtypename: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptEnumProviderTypesW(dwindex : u32, pdwreserved : *const u32, dwflags : u32, pdwprovtype : *mut u32, sztypename : windows_core::PWSTR, pcbtypename : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptEnumProviderTypesW(core::mem::transmute(dwindex), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pdwprovtype), core::mem::transmute(sztypename), core::mem::transmute(pcbtypename)).ok()
+    CryptEnumProviderTypesW(core::mem::transmute(dwindex), core::mem::transmute(pdwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pdwprovtype), core::mem::transmute(sztypename.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbtypename)).ok()
 }
 #[inline]
-pub unsafe fn CryptEnumProvidersA(dwindex: u32, pdwreserved: Option<*const u32>, dwflags: u32, pdwprovtype: *mut u32, szprovname: windows_core::PSTR, pcbprovname: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CryptEnumProvidersA(dwindex: u32, pdwreserved: Option<*const u32>, dwflags: u32, pdwprovtype: *mut u32, szprovname: Option<windows_core::PSTR>, pcbprovname: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptEnumProvidersA(dwindex : u32, pdwreserved : *const u32, dwflags : u32, pdwprovtype : *mut u32, szprovname : windows_core::PSTR, pcbprovname : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptEnumProvidersA(core::mem::transmute(dwindex), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pdwprovtype), core::mem::transmute(szprovname), core::mem::transmute(pcbprovname)).ok()
+    CryptEnumProvidersA(core::mem::transmute(dwindex), core::mem::transmute(pdwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pdwprovtype), core::mem::transmute(szprovname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbprovname)).ok()
 }
 #[inline]
-pub unsafe fn CryptEnumProvidersW(dwindex: u32, pdwreserved: Option<*const u32>, dwflags: u32, pdwprovtype: *mut u32, szprovname: windows_core::PWSTR, pcbprovname: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CryptEnumProvidersW(dwindex: u32, pdwreserved: Option<*const u32>, dwflags: u32, pdwprovtype: *mut u32, szprovname: Option<windows_core::PWSTR>, pcbprovname: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptEnumProvidersW(dwindex : u32, pdwreserved : *const u32, dwflags : u32, pdwprovtype : *mut u32, szprovname : windows_core::PWSTR, pcbprovname : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptEnumProvidersW(core::mem::transmute(dwindex), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pdwprovtype), core::mem::transmute(szprovname), core::mem::transmute(pcbprovname)).ok()
+    CryptEnumProvidersW(core::mem::transmute(dwindex), core::mem::transmute(pdwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pdwprovtype), core::mem::transmute(szprovname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbprovname)).ok()
 }
 #[inline]
 pub unsafe fn CryptExportKey(hkey: usize, hexpkey: usize, dwblobtype: u32, dwflags: CRYPT_KEY_FLAGS, pbdata: Option<*mut u8>, pdwdatalen: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptExportKey(hkey : usize, hexpkey : usize, dwblobtype : u32, dwflags : CRYPT_KEY_FLAGS, pbdata : *mut u8, pdwdatalen : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptExportKey(core::mem::transmute(hkey), core::mem::transmute(hexpkey), core::mem::transmute(dwblobtype), core::mem::transmute(dwflags), core::mem::transmute(pbdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwdatalen)).ok()
+    CryptExportKey(core::mem::transmute(hkey), core::mem::transmute(hexpkey), core::mem::transmute(dwblobtype), core::mem::transmute(dwflags), core::mem::transmute(pbdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwdatalen)).ok()
 }
 #[inline]
 pub unsafe fn CryptExportPKCS8<P2>(hcryptprov: usize, dwkeyspec: u32, pszprivatekeyobjid: P2, dwflags: u32, pvauxinfo: Option<*const core::ffi::c_void>, pbprivatekeyblob: Option<*mut u8>, pcbprivatekeyblob: *mut u32) -> windows_core::Result<()>
@@ -1468,38 +1329,33 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptExportPKCS8(hcryptprov : usize, dwkeyspec : u32, pszprivatekeyobjid : windows_core::PCSTR, dwflags : u32, pvauxinfo : *const core::ffi::c_void, pbprivatekeyblob : *mut u8, pcbprivatekeyblob : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptExportPKCS8(core::mem::transmute(hcryptprov), core::mem::transmute(dwkeyspec), pszprivatekeyobjid.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvauxinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbprivatekeyblob.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbprivatekeyblob)).ok()
+    CryptExportPKCS8(core::mem::transmute(hcryptprov), core::mem::transmute(dwkeyspec), pszprivatekeyobjid.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvauxinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbprivatekeyblob.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbprivatekeyblob)).ok()
 }
 #[inline]
-pub unsafe fn CryptExportPublicKeyInfo<P0>(hcryptprovorncryptkey: P0, dwkeyspec: u32, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Option<*mut CERT_PUBLIC_KEY_INFO>, pcbinfo: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn CryptExportPublicKeyInfo(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: Option<u32>, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Option<*mut CERT_PUBLIC_KEY_INFO>, pcbinfo: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptExportPublicKeyInfo(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : u32, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pinfo : *mut CERT_PUBLIC_KEY_INFO, pcbinfo : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptExportPublicKeyInfo(hcryptprovorncryptkey.param().abi(), core::mem::transmute(dwkeyspec), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbinfo)).ok()
+    CryptExportPublicKeyInfo(core::mem::transmute(hcryptprovorncryptkey), core::mem::transmute(dwkeyspec.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbinfo)).ok()
 }
 #[inline]
-pub unsafe fn CryptExportPublicKeyInfoEx<P0, P3>(hcryptprovorncryptkey: P0, dwkeyspec: u32, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid: P3, dwflags: u32, pvauxinfo: Option<*const core::ffi::c_void>, pinfo: Option<*mut CERT_PUBLIC_KEY_INFO>, pcbinfo: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptExportPublicKeyInfoEx<P3>(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: Option<u32>, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid: P3, dwflags: u32, pvauxinfo: Option<*const core::ffi::c_void>, pinfo: Option<*mut CERT_PUBLIC_KEY_INFO>, pcbinfo: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptExportPublicKeyInfoEx(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : u32, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid : windows_core::PCSTR, dwflags : u32, pvauxinfo : *const core::ffi::c_void, pinfo : *mut CERT_PUBLIC_KEY_INFO, pcbinfo : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptExportPublicKeyInfoEx(hcryptprovorncryptkey.param().abi(), core::mem::transmute(dwkeyspec), core::mem::transmute(dwcertencodingtype), pszpublickeyobjid.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvauxinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbinfo)).ok()
+    CryptExportPublicKeyInfoEx(core::mem::transmute(hcryptprovorncryptkey), core::mem::transmute(dwkeyspec.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwcertencodingtype), pszpublickeyobjid.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvauxinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbinfo)).ok()
 }
 #[inline]
-pub unsafe fn CryptExportPublicKeyInfoFromBCryptKeyHandle<P0, P2>(hbcryptkey: P0, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid: P2, dwflags: u32, pvauxinfo: Option<*const core::ffi::c_void>, pinfo: Option<*mut CERT_PUBLIC_KEY_INFO>, pcbinfo: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn CryptExportPublicKeyInfoFromBCryptKeyHandle<P2>(hbcryptkey: BCRYPT_KEY_HANDLE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid: P2, dwflags: u32, pvauxinfo: Option<*const core::ffi::c_void>, pinfo: Option<*mut CERT_PUBLIC_KEY_INFO>, pcbinfo: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<BCRYPT_KEY_HANDLE>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey : BCRYPT_KEY_HANDLE, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid : windows_core::PCSTR, dwflags : u32, pvauxinfo : *const core::ffi::c_void, pinfo : *mut CERT_PUBLIC_KEY_INFO, pcbinfo : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey.param().abi(), core::mem::transmute(dwcertencodingtype), pszpublickeyobjid.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvauxinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbinfo))
+    CryptExportPublicKeyInfoFromBCryptKeyHandle(core::mem::transmute(hbcryptkey), core::mem::transmute(dwcertencodingtype), pszpublickeyobjid.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvauxinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbinfo))
 }
 #[inline]
 pub unsafe fn CryptFindCertificateKeyProvInfo(pcert: *const CERT_CONTEXT, dwflags: CRYPT_FIND_FLAGS, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptFindCertificateKeyProvInfo(pcert : *const CERT_CONTEXT, dwflags : CRYPT_FIND_FLAGS, pvreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CryptFindCertificateKeyProvInfo(core::mem::transmute(pcert), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null()))).ok()
+    CryptFindCertificateKeyProvInfo(core::mem::transmute(pcert), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptFindLocalizedName<P0>(pwszcryptname: P0) -> windows_core::PCWSTR
@@ -1520,7 +1376,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptFormatObject(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, dwformattype : u32, dwformatstrtype : u32, pformatstruct : *const core::ffi::c_void, lpszstructtype : windows_core::PCSTR, pbencoded : *const u8, cbencoded : u32, pbformat : *mut core::ffi::c_void, pcbformat : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptFormatObject(core::mem::transmute(dwcertencodingtype), core::mem::transmute(dwformattype), core::mem::transmute(dwformatstrtype), core::mem::transmute(pformatstruct.unwrap_or(core::ptr::null())), lpszstructtype.param().abi(), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(pbformat.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbformat)).ok()
+    CryptFormatObject(core::mem::transmute(dwcertencodingtype), core::mem::transmute(dwformattype), core::mem::transmute(dwformatstrtype), core::mem::transmute(pformatstruct.unwrap_or(core::mem::zeroed())), lpszstructtype.param().abi(), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(pbformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbformat)).ok()
 }
 #[inline]
 pub unsafe fn CryptFreeOIDFunctionAddress(hfuncaddr: *const core::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL {
@@ -1538,18 +1394,17 @@ pub unsafe fn CryptGenRandom(hprov: usize, pbbuffer: &mut [u8]) -> windows_core:
     CryptGenRandom(core::mem::transmute(hprov), pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr())).ok()
 }
 #[inline]
-pub unsafe fn CryptGetAsyncParam<P0, P1>(hasync: P0, pszparamoid: P1, ppvparam: Option<*mut *mut core::ffi::c_void>, ppfnfree: Option<*mut PFN_CRYPT_ASYNC_PARAM_FREE_FUNC>) -> super::super::Foundation::BOOL
+pub unsafe fn CryptGetAsyncParam<P1>(hasync: HCRYPTASYNC, pszparamoid: P1, ppvparam: Option<*mut *mut core::ffi::c_void>, ppfnfree: Option<*mut PFN_CRYPT_ASYNC_PARAM_FREE_FUNC>) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<HCRYPTASYNC>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptGetAsyncParam(hasync : HCRYPTASYNC, pszparamoid : windows_core::PCSTR, ppvparam : *mut *mut core::ffi::c_void, ppfnfree : *mut PFN_CRYPT_ASYNC_PARAM_FREE_FUNC) -> super::super::Foundation:: BOOL);
-    CryptGetAsyncParam(hasync.param().abi(), pszparamoid.param().abi(), core::mem::transmute(ppvparam.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppfnfree.unwrap_or(core::ptr::null_mut())))
+    CryptGetAsyncParam(core::mem::transmute(hasync), pszparamoid.param().abi(), core::mem::transmute(ppvparam.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppfnfree.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn CryptGetDefaultOIDDllList(hfuncset: *const core::ffi::c_void, dwencodingtype: u32, pwszdlllist: windows_core::PWSTR, pcchdlllist: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CryptGetDefaultOIDDllList(hfuncset: *const core::ffi::c_void, dwencodingtype: u32, pwszdlllist: Option<windows_core::PWSTR>, pcchdlllist: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptGetDefaultOIDDllList(hfuncset : *const core::ffi::c_void, dwencodingtype : u32, pwszdlllist : windows_core::PWSTR, pcchdlllist : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptGetDefaultOIDDllList(core::mem::transmute(hfuncset), core::mem::transmute(dwencodingtype), core::mem::transmute(pwszdlllist), core::mem::transmute(pcchdlllist)).ok()
+    CryptGetDefaultOIDDllList(core::mem::transmute(hfuncset), core::mem::transmute(dwencodingtype), core::mem::transmute(pwszdlllist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchdlllist)).ok()
 }
 #[inline]
 pub unsafe fn CryptGetDefaultOIDFunctionAddress<P2>(hfuncset: *const core::ffi::c_void, dwencodingtype: u32, pwszdll: P2, dwflags: u32, ppvfuncaddr: *mut *mut core::ffi::c_void, phfuncaddr: *mut *mut core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -1560,19 +1415,19 @@ where
     CryptGetDefaultOIDFunctionAddress(core::mem::transmute(hfuncset), core::mem::transmute(dwencodingtype), pwszdll.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(ppvfuncaddr), core::mem::transmute(phfuncaddr))
 }
 #[inline]
-pub unsafe fn CryptGetDefaultProviderA(dwprovtype: u32, pdwreserved: Option<*const u32>, dwflags: u32, pszprovname: windows_core::PSTR, pcbprovname: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CryptGetDefaultProviderA(dwprovtype: u32, pdwreserved: Option<*const u32>, dwflags: u32, pszprovname: Option<windows_core::PSTR>, pcbprovname: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptGetDefaultProviderA(dwprovtype : u32, pdwreserved : *const u32, dwflags : u32, pszprovname : windows_core::PSTR, pcbprovname : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptGetDefaultProviderA(core::mem::transmute(dwprovtype), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pszprovname), core::mem::transmute(pcbprovname)).ok()
+    CryptGetDefaultProviderA(core::mem::transmute(dwprovtype), core::mem::transmute(pdwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pszprovname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbprovname)).ok()
 }
 #[inline]
-pub unsafe fn CryptGetDefaultProviderW(dwprovtype: u32, pdwreserved: Option<*const u32>, dwflags: u32, pszprovname: windows_core::PWSTR, pcbprovname: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CryptGetDefaultProviderW(dwprovtype: u32, pdwreserved: Option<*const u32>, dwflags: u32, pszprovname: Option<windows_core::PWSTR>, pcbprovname: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptGetDefaultProviderW(dwprovtype : u32, pdwreserved : *const u32, dwflags : u32, pszprovname : windows_core::PWSTR, pcbprovname : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptGetDefaultProviderW(core::mem::transmute(dwprovtype), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pszprovname), core::mem::transmute(pcbprovname)).ok()
+    CryptGetDefaultProviderW(core::mem::transmute(dwprovtype), core::mem::transmute(pdwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pszprovname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbprovname)).ok()
 }
 #[inline]
 pub unsafe fn CryptGetHashParam(hhash: usize, dwparam: u32, pbdata: Option<*mut u8>, pdwdatalen: *mut u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptGetHashParam(hhash : usize, dwparam : u32, pbdata : *mut u8, pdwdatalen : *mut u32, dwflags : u32) -> super::super::Foundation:: BOOL);
-    CryptGetHashParam(core::mem::transmute(hhash), core::mem::transmute(dwparam), core::mem::transmute(pbdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwdatalen), core::mem::transmute(dwflags)).ok()
+    CryptGetHashParam(core::mem::transmute(hhash), core::mem::transmute(dwparam), core::mem::transmute(pbdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwdatalen), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn CryptGetKeyIdentifierProperty<P3>(pkeyidentifier: *const CRYPT_INTEGER_BLOB, dwpropid: u32, dwflags: u32, pwszcomputername: P3, pvreserved: Option<*const core::ffi::c_void>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: *mut u32) -> windows_core::Result<()>
@@ -1580,20 +1435,17 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptGetKeyIdentifierProperty(pkeyidentifier : *const CRYPT_INTEGER_BLOB, dwpropid : u32, dwflags : u32, pwszcomputername : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptGetKeyIdentifierProperty(core::mem::transmute(pkeyidentifier), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), pwszcomputername.param().abi(), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata)).ok()
+    CryptGetKeyIdentifierProperty(core::mem::transmute(pkeyidentifier), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), pwszcomputername.param().abi(), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdata)).ok()
 }
 #[inline]
 pub unsafe fn CryptGetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata: Option<*mut u8>, pdwdatalen: *mut u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptGetKeyParam(hkey : usize, dwparam : CRYPT_KEY_PARAM_ID, pbdata : *mut u8, pdwdatalen : *mut u32, dwflags : u32) -> super::super::Foundation:: BOOL);
-    CryptGetKeyParam(core::mem::transmute(hkey), core::mem::transmute(dwparam), core::mem::transmute(pbdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwdatalen), core::mem::transmute(dwflags)).ok()
+    CryptGetKeyParam(core::mem::transmute(hkey), core::mem::transmute(dwparam), core::mem::transmute(pbdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwdatalen), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn CryptGetMessageCertificates<P1>(dwmsgandcertencodingtype: u32, hcryptprov: P1, dwflags: u32, pbsignedblob: &[u8]) -> windows_core::Result<HCERTSTORE>
-where
-    P1: windows_core::Param<HCRYPTPROV_LEGACY>,
-{
+pub unsafe fn CryptGetMessageCertificates(dwmsgandcertencodingtype: u32, hcryptprov: Option<HCRYPTPROV_LEGACY>, dwflags: u32, pbsignedblob: &[u8]) -> windows_core::Result<HCERTSTORE> {
     windows_targets::link!("crypt32.dll" "system" fn CryptGetMessageCertificates(dwmsgandcertencodingtype : u32, hcryptprov : HCRYPTPROV_LEGACY, dwflags : u32, pbsignedblob : *const u8, cbsignedblob : u32) -> HCERTSTORE);
-    let result__ = CryptGetMessageCertificates(core::mem::transmute(dwmsgandcertencodingtype), hcryptprov.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap());
+    let result__ = CryptGetMessageCertificates(core::mem::transmute(dwmsgandcertencodingtype), core::mem::transmute(hcryptprov.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1617,7 +1469,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptGetOIDFunctionValue(dwencodingtype : u32, pszfuncname : windows_core::PCSTR, pszoid : windows_core::PCSTR, pwszvaluename : windows_core::PCWSTR, pdwvaluetype : *mut u32, pbvaluedata : *mut u8, pcbvaluedata : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptGetOIDFunctionValue(core::mem::transmute(dwencodingtype), pszfuncname.param().abi(), pszoid.param().abi(), pwszvaluename.param().abi(), core::mem::transmute(pdwvaluetype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbvaluedata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbvaluedata.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptGetOIDFunctionValue(core::mem::transmute(dwencodingtype), pszfuncname.param().abi(), pszoid.param().abi(), pwszvaluename.param().abi(), core::mem::transmute(pdwvaluetype.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbvaluedata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbvaluedata.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptGetObjectUrl<P0>(pszurloid: P0, pvpara: *const core::ffi::c_void, dwflags: CRYPT_GET_URL_FLAGS, purlarray: Option<*mut CRYPT_URL_ARRAY>, pcburlarray: *mut u32, purlinfo: Option<*mut CRYPT_URL_INFO>, pcburlinfo: Option<*mut u32>, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1625,12 +1477,12 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cryptnet.dll" "system" fn CryptGetObjectUrl(pszurloid : windows_core::PCSTR, pvpara : *const core::ffi::c_void, dwflags : CRYPT_GET_URL_FLAGS, purlarray : *mut CRYPT_URL_ARRAY, pcburlarray : *mut u32, purlinfo : *mut CRYPT_URL_INFO, pcburlinfo : *mut u32, pvreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CryptGetObjectUrl(pszurloid.param().abi(), core::mem::transmute(pvpara), core::mem::transmute(dwflags), core::mem::transmute(purlarray.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcburlarray), core::mem::transmute(purlinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcburlinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null()))).ok()
+    CryptGetObjectUrl(pszurloid.param().abi(), core::mem::transmute(pvpara), core::mem::transmute(dwflags), core::mem::transmute(purlarray.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcburlarray), core::mem::transmute(purlinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcburlinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptGetProvParam(hprov: usize, dwparam: u32, pbdata: Option<*mut u8>, pdwdatalen: *mut u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn CryptGetProvParam(hprov : usize, dwparam : u32, pbdata : *mut u8, pdwdatalen : *mut u32, dwflags : u32) -> super::super::Foundation:: BOOL);
-    CryptGetProvParam(core::mem::transmute(hprov), core::mem::transmute(dwparam), core::mem::transmute(pbdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwdatalen), core::mem::transmute(dwflags)).ok()
+    CryptGetProvParam(core::mem::transmute(hprov), core::mem::transmute(dwparam), core::mem::transmute(pbdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwdatalen), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn CryptGetUserKey(hprov: usize, dwkeyspec: u32, phuserkey: *mut usize) -> windows_core::Result<()> {
@@ -1638,12 +1490,9 @@ pub unsafe fn CryptGetUserKey(hprov: usize, dwkeyspec: u32, phuserkey: *mut usiz
     CryptGetUserKey(core::mem::transmute(hprov), core::mem::transmute(dwkeyspec), core::mem::transmute(phuserkey)).ok()
 }
 #[inline]
-pub unsafe fn CryptHashCertificate<P0>(hcryptprov: P0, algid: ALG_ID, dwflags: u32, pbencoded: &[u8], pbcomputedhash: Option<*mut u8>, pcbcomputedhash: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCRYPTPROV_LEGACY>,
-{
+pub unsafe fn CryptHashCertificate(hcryptprov: Option<HCRYPTPROV_LEGACY>, algid: ALG_ID, dwflags: u32, pbencoded: &[u8], pbcomputedhash: Option<*mut u8>, pcbcomputedhash: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptHashCertificate(hcryptprov : HCRYPTPROV_LEGACY, algid : ALG_ID, dwflags : u32, pbencoded : *const u8, cbencoded : u32, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptHashCertificate(hcryptprov.param().abi(), core::mem::transmute(algid), core::mem::transmute(dwflags), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(pbcomputedhash.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbcomputedhash)).ok()
+    CryptHashCertificate(core::mem::transmute(hcryptprov.unwrap_or(core::mem::zeroed())), core::mem::transmute(algid), core::mem::transmute(dwflags), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(pbcomputedhash.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbcomputedhash)).ok()
 }
 #[inline]
 pub unsafe fn CryptHashCertificate2<P0>(pwszcnghashalgid: P0, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, pbencoded: Option<&[u8]>, pbcomputedhash: Option<*mut u8>, pcbcomputedhash: *mut u32) -> windows_core::Result<()>
@@ -1651,7 +1500,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptHashCertificate2(pwszcnghashalgid : windows_core::PCWSTR, dwflags : u32, pvreserved : *const core::ffi::c_void, pbencoded : *const u8, cbencoded : u32, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptHashCertificate2(pwszcnghashalgid.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pbencoded.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbencoded.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbcomputedhash.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbcomputedhash)).ok()
+    CryptHashCertificate2(pwszcnghashalgid.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbencoded.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbencoded.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbcomputedhash.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbcomputedhash)).ok()
 }
 #[inline]
 pub unsafe fn CryptHashData(hhash: usize, pbdata: &[u8], dwflags: u32) -> windows_core::Result<()> {
@@ -1664,15 +1513,12 @@ where
     P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptHashMessage(phashpara : *const CRYPT_HASH_MESSAGE_PARA, fdetachedhash : super::super::Foundation:: BOOL, ctobehashed : u32, rgpbtobehashed : *const *const u8, rgcbtobehashed : *const u32, pbhashedblob : *mut u8, pcbhashedblob : *mut u32, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptHashMessage(core::mem::transmute(phashpara), fdetachedhash.param().abi(), core::mem::transmute(ctobehashed), core::mem::transmute(rgpbtobehashed), core::mem::transmute(rgcbtobehashed), core::mem::transmute(pbhashedblob.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbhashedblob.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbcomputedhash.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbcomputedhash.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptHashMessage(core::mem::transmute(phashpara), fdetachedhash.param().abi(), core::mem::transmute(ctobehashed), core::mem::transmute(rgpbtobehashed), core::mem::transmute(rgcbtobehashed), core::mem::transmute(pbhashedblob.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbhashedblob.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbcomputedhash.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbcomputedhash.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CryptHashPublicKeyInfo<P0>(hcryptprov: P0, algid: ALG_ID, dwflags: u32, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: *const CERT_PUBLIC_KEY_INFO, pbcomputedhash: Option<*mut u8>, pcbcomputedhash: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCRYPTPROV_LEGACY>,
-{
+pub unsafe fn CryptHashPublicKeyInfo(hcryptprov: Option<HCRYPTPROV_LEGACY>, algid: ALG_ID, dwflags: u32, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: *const CERT_PUBLIC_KEY_INFO, pbcomputedhash: Option<*mut u8>, pcbcomputedhash: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptHashPublicKeyInfo(hcryptprov : HCRYPTPROV_LEGACY, algid : ALG_ID, dwflags : u32, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pinfo : *const CERT_PUBLIC_KEY_INFO, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptHashPublicKeyInfo(hcryptprov.param().abi(), core::mem::transmute(algid), core::mem::transmute(dwflags), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pinfo), core::mem::transmute(pbcomputedhash.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbcomputedhash)).ok()
+    CryptHashPublicKeyInfo(core::mem::transmute(hcryptprov.unwrap_or(core::mem::zeroed())), core::mem::transmute(algid), core::mem::transmute(dwflags), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pinfo), core::mem::transmute(pbcomputedhash.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbcomputedhash)).ok()
 }
 #[inline]
 pub unsafe fn CryptHashSessionKey(hhash: usize, hkey: usize, dwflags: u32) -> windows_core::Result<()> {
@@ -1680,12 +1526,9 @@ pub unsafe fn CryptHashSessionKey(hhash: usize, hkey: usize, dwflags: u32) -> wi
     CryptHashSessionKey(core::mem::transmute(hhash), core::mem::transmute(hkey), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn CryptHashToBeSigned<P0>(hcryptprov: P0, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbencoded: &[u8], pbcomputedhash: Option<*mut u8>, pcbcomputedhash: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCRYPTPROV_LEGACY>,
-{
+pub unsafe fn CryptHashToBeSigned(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbencoded: &[u8], pbcomputedhash: Option<*mut u8>, pcbcomputedhash: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptHashToBeSigned(hcryptprov : HCRYPTPROV_LEGACY, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pbencoded : *const u8, cbencoded : u32, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptHashToBeSigned(hcryptprov.param().abi(), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(pbcomputedhash.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbcomputedhash)).ok()
+    CryptHashToBeSigned(core::mem::transmute(hcryptprov.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(pbcomputedhash.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbcomputedhash)).ok()
 }
 #[inline]
 pub unsafe fn CryptImportKey(hprov: usize, pbdata: &[u8], hpubkey: usize, dwflags: CRYPT_KEY_FLAGS, phkey: *mut usize) -> windows_core::Result<()> {
@@ -1695,7 +1538,7 @@ pub unsafe fn CryptImportKey(hprov: usize, pbdata: &[u8], hpubkey: usize, dwflag
 #[inline]
 pub unsafe fn CryptImportPKCS8(sprivatekeyandparams: CRYPT_PKCS8_IMPORT_PARAMS, dwflags: CRYPT_KEY_FLAGS, phcryptprov: Option<*mut usize>, pvauxinfo: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptImportPKCS8(sprivatekeyandparams : CRYPT_PKCS8_IMPORT_PARAMS, dwflags : CRYPT_KEY_FLAGS, phcryptprov : *mut usize, pvauxinfo : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CryptImportPKCS8(core::mem::transmute(sprivatekeyandparams), core::mem::transmute(dwflags), core::mem::transmute(phcryptprov.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvauxinfo.unwrap_or(core::ptr::null()))).ok()
+    CryptImportPKCS8(core::mem::transmute(sprivatekeyandparams), core::mem::transmute(dwflags), core::mem::transmute(phcryptprov.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvauxinfo.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptImportPublicKeyInfo(hcryptprov: usize, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: *const CERT_PUBLIC_KEY_INFO, phkey: *mut usize) -> windows_core::Result<()> {
@@ -1705,12 +1548,12 @@ pub unsafe fn CryptImportPublicKeyInfo(hcryptprov: usize, dwcertencodingtype: CE
 #[inline]
 pub unsafe fn CryptImportPublicKeyInfoEx(hcryptprov: usize, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: *const CERT_PUBLIC_KEY_INFO, aikeyalg: ALG_ID, dwflags: u32, pvauxinfo: Option<*const core::ffi::c_void>, phkey: *mut usize) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptImportPublicKeyInfoEx(hcryptprov : usize, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pinfo : *const CERT_PUBLIC_KEY_INFO, aikeyalg : ALG_ID, dwflags : u32, pvauxinfo : *const core::ffi::c_void, phkey : *mut usize) -> super::super::Foundation:: BOOL);
-    CryptImportPublicKeyInfoEx(core::mem::transmute(hcryptprov), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pinfo), core::mem::transmute(aikeyalg), core::mem::transmute(dwflags), core::mem::transmute(pvauxinfo.unwrap_or(core::ptr::null())), core::mem::transmute(phkey)).ok()
+    CryptImportPublicKeyInfoEx(core::mem::transmute(hcryptprov), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pinfo), core::mem::transmute(aikeyalg), core::mem::transmute(dwflags), core::mem::transmute(pvauxinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(phkey)).ok()
 }
 #[inline]
 pub unsafe fn CryptImportPublicKeyInfoEx2(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: *const CERT_PUBLIC_KEY_INFO, dwflags: CRYPT_IMPORT_PUBLIC_KEY_FLAGS, pvauxinfo: Option<*const core::ffi::c_void>, phkey: *mut BCRYPT_KEY_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptImportPublicKeyInfoEx2(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pinfo : *const CERT_PUBLIC_KEY_INFO, dwflags : CRYPT_IMPORT_PUBLIC_KEY_FLAGS, pvauxinfo : *const core::ffi::c_void, phkey : *mut BCRYPT_KEY_HANDLE) -> super::super::Foundation:: BOOL);
-    CryptImportPublicKeyInfoEx2(core::mem::transmute(dwcertencodingtype), core::mem::transmute(pinfo), core::mem::transmute(dwflags), core::mem::transmute(pvauxinfo.unwrap_or(core::ptr::null())), core::mem::transmute(phkey)).ok()
+    CryptImportPublicKeyInfoEx2(core::mem::transmute(dwcertencodingtype), core::mem::transmute(pinfo), core::mem::transmute(dwflags), core::mem::transmute(pvauxinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(phkey)).ok()
 }
 #[inline]
 pub unsafe fn CryptInitOIDFunctionSet<P0>(pszfuncname: P0, dwflags: u32) -> *mut core::ffi::c_void
@@ -1723,21 +1566,20 @@ where
 #[inline]
 pub unsafe fn CryptInstallCancelRetrieval(pfncancel: PFN_CRYPT_CANCEL_RETRIEVAL, pvarg: Option<*const core::ffi::c_void>, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL {
     windows_targets::link!("cryptnet.dll" "system" fn CryptInstallCancelRetrieval(pfncancel : PFN_CRYPT_CANCEL_RETRIEVAL, pvarg : *const core::ffi::c_void, dwflags : u32, pvreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CryptInstallCancelRetrieval(core::mem::transmute(pfncancel), core::mem::transmute(pvarg.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())))
+    CryptInstallCancelRetrieval(core::mem::transmute(pfncancel), core::mem::transmute(pvarg.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CryptInstallDefaultContext(hcryptprov: usize, dwdefaulttype: CRYPT_DEFAULT_CONTEXT_TYPE, pvdefaultpara: Option<*const core::ffi::c_void>, dwflags: CRYPT_DEFAULT_CONTEXT_FLAGS, pvreserved: Option<*const core::ffi::c_void>, phdefaultcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptInstallDefaultContext(hcryptprov : usize, dwdefaulttype : CRYPT_DEFAULT_CONTEXT_TYPE, pvdefaultpara : *const core::ffi::c_void, dwflags : CRYPT_DEFAULT_CONTEXT_FLAGS, pvreserved : *const core::ffi::c_void, phdefaultcontext : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CryptInstallDefaultContext(core::mem::transmute(hcryptprov), core::mem::transmute(dwdefaulttype), core::mem::transmute(pvdefaultpara.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(phdefaultcontext)).ok()
+    CryptInstallDefaultContext(core::mem::transmute(hcryptprov), core::mem::transmute(dwdefaulttype), core::mem::transmute(pvdefaultpara.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(phdefaultcontext)).ok()
 }
 #[inline]
-pub unsafe fn CryptInstallOIDFunctionAddress<P0, P2>(hmodule: P0, dwencodingtype: u32, pszfuncname: P2, rgfuncentry: &[CRYPT_OID_FUNC_ENTRY], dwflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn CryptInstallOIDFunctionAddress<P2>(hmodule: Option<super::super::Foundation::HMODULE>, dwencodingtype: u32, pszfuncname: P2, rgfuncentry: &[CRYPT_OID_FUNC_ENTRY], dwflags: u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HMODULE>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptInstallOIDFunctionAddress(hmodule : super::super::Foundation:: HMODULE, dwencodingtype : u32, pszfuncname : windows_core::PCSTR, cfuncentry : u32, rgfuncentry : *const CRYPT_OID_FUNC_ENTRY, dwflags : u32) -> super::super::Foundation:: BOOL);
-    CryptInstallOIDFunctionAddress(hmodule.param().abi(), core::mem::transmute(dwencodingtype), pszfuncname.param().abi(), rgfuncentry.len().try_into().unwrap(), core::mem::transmute(rgfuncentry.as_ptr()), core::mem::transmute(dwflags))
+    CryptInstallOIDFunctionAddress(core::mem::transmute(hmodule.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwencodingtype), pszfuncname.param().abi(), rgfuncentry.len().try_into().unwrap(), core::mem::transmute(rgfuncentry.as_ptr()), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn CryptMemAlloc(cbsize: u32) -> *mut core::ffi::c_void {
@@ -1747,12 +1589,12 @@ pub unsafe fn CryptMemAlloc(cbsize: u32) -> *mut core::ffi::c_void {
 #[inline]
 pub unsafe fn CryptMemFree(pv: Option<*const core::ffi::c_void>) {
     windows_targets::link!("crypt32.dll" "system" fn CryptMemFree(pv : *const core::ffi::c_void));
-    CryptMemFree(core::mem::transmute(pv.unwrap_or(core::ptr::null())))
+    CryptMemFree(core::mem::transmute(pv.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CryptMemRealloc(pv: Option<*const core::ffi::c_void>, cbsize: u32) -> *mut core::ffi::c_void {
     windows_targets::link!("crypt32.dll" "system" fn CryptMemRealloc(pv : *const core::ffi::c_void, cbsize : u32) -> *mut core::ffi::c_void);
-    CryptMemRealloc(core::mem::transmute(pv.unwrap_or(core::ptr::null())), core::mem::transmute(cbsize))
+    CryptMemRealloc(core::mem::transmute(pv.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbsize))
 }
 #[inline]
 pub unsafe fn CryptMsgCalculateEncodedLength<P4>(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: u32, pvmsgencodeinfo: *const core::ffi::c_void, pszinnercontentobjid: P4, cbdata: u32) -> u32
@@ -1765,12 +1607,12 @@ where
 #[inline]
 pub unsafe fn CryptMsgClose(hcryptmsg: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgClose(hcryptmsg : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CryptMsgClose(core::mem::transmute(hcryptmsg.unwrap_or(core::ptr::null()))).ok()
+    CryptMsgClose(core::mem::transmute(hcryptmsg.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptMsgControl(hcryptmsg: *const core::ffi::c_void, dwflags: u32, dwctrltype: u32, pvctrlpara: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgControl(hcryptmsg : *const core::ffi::c_void, dwflags : u32, dwctrltype : u32, pvctrlpara : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CryptMsgControl(core::mem::transmute(hcryptmsg), core::mem::transmute(dwflags), core::mem::transmute(dwctrltype), core::mem::transmute(pvctrlpara.unwrap_or(core::ptr::null()))).ok()
+    CryptMsgControl(core::mem::transmute(hcryptmsg), core::mem::transmute(dwflags), core::mem::transmute(dwctrltype), core::mem::transmute(pvctrlpara.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptMsgCountersign(hcryptmsg: *const core::ffi::c_void, dwindex: u32, rgcountersigners: &[CMSG_SIGNER_ENCODE_INFO]) -> windows_core::Result<()> {
@@ -1780,35 +1622,32 @@ pub unsafe fn CryptMsgCountersign(hcryptmsg: *const core::ffi::c_void, dwindex: 
 #[inline]
 pub unsafe fn CryptMsgCountersignEncoded(dwencodingtype: u32, pbsignerinfo: &[u8], rgcountersigners: &[CMSG_SIGNER_ENCODE_INFO], pbcountersignature: Option<*mut u8>, pcbcountersignature: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgCountersignEncoded(dwencodingtype : u32, pbsignerinfo : *const u8, cbsignerinfo : u32, ccountersigners : u32, rgcountersigners : *const CMSG_SIGNER_ENCODE_INFO, pbcountersignature : *mut u8, pcbcountersignature : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptMsgCountersignEncoded(core::mem::transmute(dwencodingtype), core::mem::transmute(pbsignerinfo.as_ptr()), pbsignerinfo.len().try_into().unwrap(), rgcountersigners.len().try_into().unwrap(), core::mem::transmute(rgcountersigners.as_ptr()), core::mem::transmute(pbcountersignature.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbcountersignature)).ok()
+    CryptMsgCountersignEncoded(core::mem::transmute(dwencodingtype), core::mem::transmute(pbsignerinfo.as_ptr()), pbsignerinfo.len().try_into().unwrap(), rgcountersigners.len().try_into().unwrap(), core::mem::transmute(rgcountersigners.as_ptr()), core::mem::transmute(pbcountersignature.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbcountersignature)).ok()
 }
 #[inline]
 pub unsafe fn CryptMsgDuplicate(hcryptmsg: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgDuplicate(hcryptmsg : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-    CryptMsgDuplicate(core::mem::transmute(hcryptmsg.unwrap_or(core::ptr::null())))
+    CryptMsgDuplicate(core::mem::transmute(hcryptmsg.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CryptMsgEncodeAndSignCTL(dwmsgencodingtype: u32, pctlinfo: *const CTL_INFO, psigninfo: *const CMSG_SIGNED_ENCODE_INFO, dwflags: u32, pbencoded: Option<*mut u8>, pcbencoded: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgEncodeAndSignCTL(dwmsgencodingtype : u32, pctlinfo : *const CTL_INFO, psigninfo : *const CMSG_SIGNED_ENCODE_INFO, dwflags : u32, pbencoded : *mut u8, pcbencoded : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptMsgEncodeAndSignCTL(core::mem::transmute(dwmsgencodingtype), core::mem::transmute(pctlinfo), core::mem::transmute(psigninfo), core::mem::transmute(dwflags), core::mem::transmute(pbencoded.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbencoded)).ok()
+    CryptMsgEncodeAndSignCTL(core::mem::transmute(dwmsgencodingtype), core::mem::transmute(pctlinfo), core::mem::transmute(psigninfo), core::mem::transmute(dwflags), core::mem::transmute(pbencoded.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbencoded)).ok()
 }
 #[inline]
 pub unsafe fn CryptMsgGetAndVerifySigner(hcryptmsg: *const core::ffi::c_void, rghsignerstore: Option<&[HCERTSTORE]>, dwflags: u32, ppsigner: Option<*mut *mut CERT_CONTEXT>, pdwsignerindex: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgGetAndVerifySigner(hcryptmsg : *const core::ffi::c_void, csignerstore : u32, rghsignerstore : *const HCERTSTORE, dwflags : u32, ppsigner : *mut *mut CERT_CONTEXT, pdwsignerindex : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptMsgGetAndVerifySigner(core::mem::transmute(hcryptmsg), rghsignerstore.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rghsignerstore.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(dwflags), core::mem::transmute(ppsigner.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwsignerindex.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptMsgGetAndVerifySigner(core::mem::transmute(hcryptmsg), rghsignerstore.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rghsignerstore.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(dwflags), core::mem::transmute(ppsigner.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwsignerindex.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptMsgGetParam(hcryptmsg: *const core::ffi::c_void, dwparamtype: u32, dwindex: u32, pvdata: Option<*mut core::ffi::c_void>, pcbdata: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgGetParam(hcryptmsg : *const core::ffi::c_void, dwparamtype : u32, dwindex : u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptMsgGetParam(core::mem::transmute(hcryptmsg), core::mem::transmute(dwparamtype), core::mem::transmute(dwindex), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata)).ok()
+    CryptMsgGetParam(core::mem::transmute(hcryptmsg), core::mem::transmute(dwparamtype), core::mem::transmute(dwindex), core::mem::transmute(pvdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdata)).ok()
 }
 #[inline]
-pub unsafe fn CryptMsgOpenToDecode<P3>(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: u32, hcryptprov: P3, precipientinfo: Option<*const CERT_INFO>, pstreaminfo: Option<*const CMSG_STREAM_INFO>) -> *mut core::ffi::c_void
-where
-    P3: windows_core::Param<HCRYPTPROV_LEGACY>,
-{
+pub unsafe fn CryptMsgOpenToDecode(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: u32, hcryptprov: Option<HCRYPTPROV_LEGACY>, precipientinfo: Option<*const CERT_INFO>, pstreaminfo: Option<*const CMSG_STREAM_INFO>) -> *mut core::ffi::c_void {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgOpenToDecode(dwmsgencodingtype : u32, dwflags : u32, dwmsgtype : u32, hcryptprov : HCRYPTPROV_LEGACY, precipientinfo : *const CERT_INFO, pstreaminfo : *const CMSG_STREAM_INFO) -> *mut core::ffi::c_void);
-    CryptMsgOpenToDecode(core::mem::transmute(dwmsgencodingtype), core::mem::transmute(dwflags), core::mem::transmute(dwmsgtype), hcryptprov.param().abi(), core::mem::transmute(precipientinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pstreaminfo.unwrap_or(core::ptr::null())))
+    CryptMsgOpenToDecode(core::mem::transmute(dwmsgencodingtype), core::mem::transmute(dwflags), core::mem::transmute(dwmsgtype), core::mem::transmute(hcryptprov.unwrap_or(core::mem::zeroed())), core::mem::transmute(precipientinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pstreaminfo.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CryptMsgOpenToEncode<P4>(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: CRYPT_MSG_TYPE, pvmsgencodeinfo: *const core::ffi::c_void, pszinnercontentobjid: P4, pstreaminfo: Option<*const CMSG_STREAM_INFO>) -> *mut core::ffi::c_void
@@ -1816,12 +1655,12 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgOpenToEncode(dwmsgencodingtype : u32, dwflags : u32, dwmsgtype : CRYPT_MSG_TYPE, pvmsgencodeinfo : *const core::ffi::c_void, pszinnercontentobjid : windows_core::PCSTR, pstreaminfo : *const CMSG_STREAM_INFO) -> *mut core::ffi::c_void);
-    CryptMsgOpenToEncode(core::mem::transmute(dwmsgencodingtype), core::mem::transmute(dwflags), core::mem::transmute(dwmsgtype), core::mem::transmute(pvmsgencodeinfo), pszinnercontentobjid.param().abi(), core::mem::transmute(pstreaminfo.unwrap_or(core::ptr::null())))
+    CryptMsgOpenToEncode(core::mem::transmute(dwmsgencodingtype), core::mem::transmute(dwflags), core::mem::transmute(dwmsgtype), core::mem::transmute(pvmsgencodeinfo), pszinnercontentobjid.param().abi(), core::mem::transmute(pstreaminfo.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CryptMsgSignCTL(dwmsgencodingtype: u32, pbctlcontent: &[u8], psigninfo: *const CMSG_SIGNED_ENCODE_INFO, dwflags: u32, pbencoded: Option<*mut u8>, pcbencoded: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgSignCTL(dwmsgencodingtype : u32, pbctlcontent : *const u8, cbctlcontent : u32, psigninfo : *const CMSG_SIGNED_ENCODE_INFO, dwflags : u32, pbencoded : *mut u8, pcbencoded : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptMsgSignCTL(core::mem::transmute(dwmsgencodingtype), core::mem::transmute(pbctlcontent.as_ptr()), pbctlcontent.len().try_into().unwrap(), core::mem::transmute(psigninfo), core::mem::transmute(dwflags), core::mem::transmute(pbencoded.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbencoded)).ok()
+    CryptMsgSignCTL(core::mem::transmute(dwmsgencodingtype), core::mem::transmute(pbctlcontent.as_ptr()), pbctlcontent.len().try_into().unwrap(), core::mem::transmute(psigninfo), core::mem::transmute(dwflags), core::mem::transmute(pbencoded.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbencoded)).ok()
 }
 #[inline]
 pub unsafe fn CryptMsgUpdate<P3>(hcryptmsg: *const core::ffi::c_void, pbdata: Option<&[u8]>, ffinal: P3) -> windows_core::Result<()>
@@ -1832,20 +1671,14 @@ where
     CryptMsgUpdate(core::mem::transmute(hcryptmsg), core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ffinal.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn CryptMsgVerifyCountersignatureEncoded<P0>(hcryptprov: P0, dwencodingtype: u32, pbsignerinfo: &[u8], pbsignerinfocountersignature: &[u8], pcicountersigner: *const CERT_INFO) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCRYPTPROV_LEGACY>,
-{
+pub unsafe fn CryptMsgVerifyCountersignatureEncoded(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwencodingtype: u32, pbsignerinfo: &[u8], pbsignerinfocountersignature: &[u8], pcicountersigner: *const CERT_INFO) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgVerifyCountersignatureEncoded(hcryptprov : HCRYPTPROV_LEGACY, dwencodingtype : u32, pbsignerinfo : *const u8, cbsignerinfo : u32, pbsignerinfocountersignature : *const u8, cbsignerinfocountersignature : u32, pcicountersigner : *const CERT_INFO) -> super::super::Foundation:: BOOL);
-    CryptMsgVerifyCountersignatureEncoded(hcryptprov.param().abi(), core::mem::transmute(dwencodingtype), core::mem::transmute(pbsignerinfo.as_ptr()), pbsignerinfo.len().try_into().unwrap(), core::mem::transmute(pbsignerinfocountersignature.as_ptr()), pbsignerinfocountersignature.len().try_into().unwrap(), core::mem::transmute(pcicountersigner)).ok()
+    CryptMsgVerifyCountersignatureEncoded(core::mem::transmute(hcryptprov.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwencodingtype), core::mem::transmute(pbsignerinfo.as_ptr()), pbsignerinfo.len().try_into().unwrap(), core::mem::transmute(pbsignerinfocountersignature.as_ptr()), pbsignerinfocountersignature.len().try_into().unwrap(), core::mem::transmute(pcicountersigner)).ok()
 }
 #[inline]
-pub unsafe fn CryptMsgVerifyCountersignatureEncodedEx<P0>(hcryptprov: P0, dwencodingtype: u32, pbsignerinfo: &[u8], pbsignerinfocountersignature: &[u8], dwsignertype: u32, pvsigner: *const core::ffi::c_void, dwflags: u32, pvextra: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCRYPTPROV_LEGACY>,
-{
+pub unsafe fn CryptMsgVerifyCountersignatureEncodedEx(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwencodingtype: u32, pbsignerinfo: &[u8], pbsignerinfocountersignature: &[u8], dwsignertype: u32, pvsigner: *const core::ffi::c_void, dwflags: u32, pvextra: Option<*mut core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgVerifyCountersignatureEncodedEx(hcryptprov : HCRYPTPROV_LEGACY, dwencodingtype : u32, pbsignerinfo : *const u8, cbsignerinfo : u32, pbsignerinfocountersignature : *const u8, cbsignerinfocountersignature : u32, dwsignertype : u32, pvsigner : *const core::ffi::c_void, dwflags : u32, pvextra : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CryptMsgVerifyCountersignatureEncodedEx(hcryptprov.param().abi(), core::mem::transmute(dwencodingtype), core::mem::transmute(pbsignerinfo.as_ptr()), pbsignerinfo.len().try_into().unwrap(), core::mem::transmute(pbsignerinfocountersignature.as_ptr()), pbsignerinfocountersignature.len().try_into().unwrap(), core::mem::transmute(dwsignertype), core::mem::transmute(pvsigner), core::mem::transmute(dwflags), core::mem::transmute(pvextra.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptMsgVerifyCountersignatureEncodedEx(core::mem::transmute(hcryptprov.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwencodingtype), core::mem::transmute(pbsignerinfo.as_ptr()), pbsignerinfo.len().try_into().unwrap(), core::mem::transmute(pbsignerinfocountersignature.as_ptr()), pbsignerinfocountersignature.len().try_into().unwrap(), core::mem::transmute(dwsignertype), core::mem::transmute(pvsigner), core::mem::transmute(dwflags), core::mem::transmute(pvextra.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptProtectData<P1>(pdatain: *const CRYPT_INTEGER_BLOB, szdatadescr: P1, poptionalentropy: Option<*const CRYPT_INTEGER_BLOB>, pvreserved: Option<*const core::ffi::c_void>, ppromptstruct: Option<*const CRYPTPROTECT_PROMPTSTRUCT>, dwflags: u32, pdataout: *mut CRYPT_INTEGER_BLOB) -> windows_core::Result<()>
@@ -1853,7 +1686,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptProtectData(pdatain : *const CRYPT_INTEGER_BLOB, szdatadescr : windows_core::PCWSTR, poptionalentropy : *const CRYPT_INTEGER_BLOB, pvreserved : *const core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut CRYPT_INTEGER_BLOB) -> super::super::Foundation:: BOOL);
-    CryptProtectData(core::mem::transmute(pdatain), szdatadescr.param().abi(), core::mem::transmute(poptionalentropy.unwrap_or(core::ptr::null())), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(ppromptstruct.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pdataout)).ok()
+    CryptProtectData(core::mem::transmute(pdatain), szdatadescr.param().abi(), core::mem::transmute(poptionalentropy.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppromptstruct.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pdataout)).ok()
 }
 #[inline]
 pub unsafe fn CryptProtectMemory(pdatain: *mut core::ffi::c_void, cbdatain: u32, dwflags: u32) -> windows_core::Result<()> {
@@ -1869,12 +1702,12 @@ pub unsafe fn CryptQueryObject(dwobjecttype: CERT_QUERY_OBJECT_TYPE, pvobject: *
         core::mem::transmute(dwexpectedcontenttypeflags),
         core::mem::transmute(dwexpectedformattypeflags),
         core::mem::transmute(dwflags),
-        core::mem::transmute(pdwmsgandcertencodingtype.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pdwcontenttype.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pdwformattype.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(phcertstore.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(phmsg.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(ppvcontext.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(pdwmsgandcertencodingtype.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pdwcontenttype.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pdwformattype.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(phcertstore.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(phmsg.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(ppvcontext.unwrap_or(core::mem::zeroed())),
     )
     .ok()
 }
@@ -1909,24 +1742,22 @@ pub unsafe fn CryptReleaseContext(hprov: usize, dwflags: u32) -> windows_core::R
     CryptReleaseContext(core::mem::transmute(hprov), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn CryptRetrieveObjectByUrlA<P0, P1, P5>(pszurl: P0, pszobjectoid: P1, dwretrievalflags: u32, dwtimeout: u32, ppvobject: *mut *mut core::ffi::c_void, hasyncretrieve: P5, pcredentials: Option<*const CRYPT_CREDENTIALS>, pvverify: Option<*const core::ffi::c_void>, pauxinfo: Option<*mut CRYPT_RETRIEVE_AUX_INFO>) -> super::super::Foundation::BOOL
+pub unsafe fn CryptRetrieveObjectByUrlA<P0, P1>(pszurl: P0, pszobjectoid: P1, dwretrievalflags: u32, dwtimeout: u32, ppvobject: *mut *mut core::ffi::c_void, hasyncretrieve: Option<HCRYPTASYNC>, pcredentials: Option<*const CRYPT_CREDENTIALS>, pvverify: Option<*const core::ffi::c_void>, pauxinfo: Option<*mut CRYPT_RETRIEVE_AUX_INFO>) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<HCRYPTASYNC>,
 {
     windows_targets::link!("cryptnet.dll" "system" fn CryptRetrieveObjectByUrlA(pszurl : windows_core::PCSTR, pszobjectoid : windows_core::PCSTR, dwretrievalflags : u32, dwtimeout : u32, ppvobject : *mut *mut core::ffi::c_void, hasyncretrieve : HCRYPTASYNC, pcredentials : *const CRYPT_CREDENTIALS, pvverify : *const core::ffi::c_void, pauxinfo : *mut CRYPT_RETRIEVE_AUX_INFO) -> super::super::Foundation:: BOOL);
-    CryptRetrieveObjectByUrlA(pszurl.param().abi(), pszobjectoid.param().abi(), core::mem::transmute(dwretrievalflags), core::mem::transmute(dwtimeout), core::mem::transmute(ppvobject), hasyncretrieve.param().abi(), core::mem::transmute(pcredentials.unwrap_or(core::ptr::null())), core::mem::transmute(pvverify.unwrap_or(core::ptr::null())), core::mem::transmute(pauxinfo.unwrap_or(core::ptr::null_mut())))
+    CryptRetrieveObjectByUrlA(pszurl.param().abi(), pszobjectoid.param().abi(), core::mem::transmute(dwretrievalflags), core::mem::transmute(dwtimeout), core::mem::transmute(ppvobject), core::mem::transmute(hasyncretrieve.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcredentials.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvverify.unwrap_or(core::mem::zeroed())), core::mem::transmute(pauxinfo.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn CryptRetrieveObjectByUrlW<P0, P1, P5>(pszurl: P0, pszobjectoid: P1, dwretrievalflags: u32, dwtimeout: u32, ppvobject: *mut *mut core::ffi::c_void, hasyncretrieve: P5, pcredentials: Option<*const CRYPT_CREDENTIALS>, pvverify: Option<*const core::ffi::c_void>, pauxinfo: Option<*mut CRYPT_RETRIEVE_AUX_INFO>) -> super::super::Foundation::BOOL
+pub unsafe fn CryptRetrieveObjectByUrlW<P0, P1>(pszurl: P0, pszobjectoid: P1, dwretrievalflags: u32, dwtimeout: u32, ppvobject: *mut *mut core::ffi::c_void, hasyncretrieve: Option<HCRYPTASYNC>, pcredentials: Option<*const CRYPT_CREDENTIALS>, pvverify: Option<*const core::ffi::c_void>, pauxinfo: Option<*mut CRYPT_RETRIEVE_AUX_INFO>) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<HCRYPTASYNC>,
 {
     windows_targets::link!("cryptnet.dll" "system" fn CryptRetrieveObjectByUrlW(pszurl : windows_core::PCWSTR, pszobjectoid : windows_core::PCSTR, dwretrievalflags : u32, dwtimeout : u32, ppvobject : *mut *mut core::ffi::c_void, hasyncretrieve : HCRYPTASYNC, pcredentials : *const CRYPT_CREDENTIALS, pvverify : *const core::ffi::c_void, pauxinfo : *mut CRYPT_RETRIEVE_AUX_INFO) -> super::super::Foundation:: BOOL);
-    CryptRetrieveObjectByUrlW(pszurl.param().abi(), pszobjectoid.param().abi(), core::mem::transmute(dwretrievalflags), core::mem::transmute(dwtimeout), core::mem::transmute(ppvobject), hasyncretrieve.param().abi(), core::mem::transmute(pcredentials.unwrap_or(core::ptr::null())), core::mem::transmute(pvverify.unwrap_or(core::ptr::null())), core::mem::transmute(pauxinfo.unwrap_or(core::ptr::null_mut())))
+    CryptRetrieveObjectByUrlW(pszurl.param().abi(), pszobjectoid.param().abi(), core::mem::transmute(dwretrievalflags), core::mem::transmute(dwtimeout), core::mem::transmute(ppvobject), core::mem::transmute(hasyncretrieve.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcredentials.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvverify.unwrap_or(core::mem::zeroed())), core::mem::transmute(pauxinfo.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CryptRetrieveTimeStamp<P0, P3>(wszurl: P0, dwretrievalflags: u32, dwtimeout: u32, pszhashid: P3, ppara: Option<*const CRYPT_TIMESTAMP_PARA>, pbdata: &[u8], pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: Option<*mut HCERTSTORE>) -> windows_core::Result<()>
@@ -1935,16 +1766,15 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptRetrieveTimeStamp(wszurl : windows_core::PCWSTR, dwretrievalflags : u32, dwtimeout : u32, pszhashid : windows_core::PCSTR, ppara : *const CRYPT_TIMESTAMP_PARA, pbdata : *const u8, cbdata : u32, pptscontext : *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner : *mut *mut CERT_CONTEXT, phstore : *mut HCERTSTORE) -> super::super::Foundation:: BOOL);
-    CryptRetrieveTimeStamp(wszurl.param().abi(), core::mem::transmute(dwretrievalflags), core::mem::transmute(dwtimeout), pszhashid.param().abi(), core::mem::transmute(ppara.unwrap_or(core::ptr::null())), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), core::mem::transmute(pptscontext), core::mem::transmute(pptssigner), core::mem::transmute(phstore.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptRetrieveTimeStamp(wszurl.param().abi(), core::mem::transmute(dwretrievalflags), core::mem::transmute(dwtimeout), pszhashid.param().abi(), core::mem::transmute(ppara.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), core::mem::transmute(pptscontext), core::mem::transmute(pptssigner), core::mem::transmute(phstore.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CryptSetAsyncParam<P0, P1>(hasync: P0, pszparamoid: P1, pvparam: Option<*const core::ffi::c_void>, pfnfree: PFN_CRYPT_ASYNC_PARAM_FREE_FUNC) -> super::super::Foundation::BOOL
+pub unsafe fn CryptSetAsyncParam<P1>(hasync: HCRYPTASYNC, pszparamoid: P1, pvparam: Option<*const core::ffi::c_void>, pfnfree: PFN_CRYPT_ASYNC_PARAM_FREE_FUNC) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<HCRYPTASYNC>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSetAsyncParam(hasync : HCRYPTASYNC, pszparamoid : windows_core::PCSTR, pvparam : *const core::ffi::c_void, pfnfree : PFN_CRYPT_ASYNC_PARAM_FREE_FUNC) -> super::super::Foundation:: BOOL);
-    CryptSetAsyncParam(hasync.param().abi(), pszparamoid.param().abi(), core::mem::transmute(pvparam.unwrap_or(core::ptr::null())), core::mem::transmute(pfnfree))
+    CryptSetAsyncParam(core::mem::transmute(hasync), pszparamoid.param().abi(), core::mem::transmute(pvparam.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfnfree))
 }
 #[inline]
 pub unsafe fn CryptSetHashParam(hhash: usize, dwparam: CRYPT_SET_HASH_PARAM, pbdata: *const u8, dwflags: u32) -> windows_core::Result<()> {
@@ -1957,7 +1787,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSetKeyIdentifierProperty(pkeyidentifier : *const CRYPT_INTEGER_BLOB, dwpropid : u32, dwflags : u32, pwszcomputername : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void, pvdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CryptSetKeyIdentifierProperty(core::mem::transmute(pkeyidentifier), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), pwszcomputername.param().abi(), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null()))).ok()
+    CryptSetKeyIdentifierProperty(core::mem::transmute(pkeyidentifier), core::mem::transmute(dwpropid), core::mem::transmute(dwflags), pwszcomputername.param().abi(), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvdata.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptSetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata: *const u8, dwflags: u32) -> windows_core::Result<()> {
@@ -1994,7 +1824,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CryptSetProviderExA(pszprovname : windows_core::PCSTR, dwprovtype : u32, pdwreserved : *const u32, dwflags : u32) -> super::super::Foundation:: BOOL);
-    CryptSetProviderExA(pszprovname.param().abi(), core::mem::transmute(dwprovtype), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+    CryptSetProviderExA(pszprovname.param().abi(), core::mem::transmute(dwprovtype), core::mem::transmute(pdwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn CryptSetProviderExW<P0>(pszprovname: P0, dwprovtype: u32, pdwreserved: Option<*const u32>, dwflags: u32) -> windows_core::Result<()>
@@ -2002,7 +1832,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CryptSetProviderExW(pszprovname : windows_core::PCWSTR, dwprovtype : u32, pdwreserved : *const u32, dwflags : u32) -> super::super::Foundation:: BOOL);
-    CryptSetProviderExW(pszprovname.param().abi(), core::mem::transmute(dwprovtype), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+    CryptSetProviderExW(pszprovname.param().abi(), core::mem::transmute(dwprovtype), core::mem::transmute(pdwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn CryptSetProviderW<P0>(pszprovname: P0, dwprovtype: u32) -> windows_core::Result<()>
@@ -2013,26 +1843,33 @@ where
     CryptSetProviderW(pszprovname.param().abi(), core::mem::transmute(dwprovtype)).ok()
 }
 #[inline]
-pub unsafe fn CryptSignAndEncodeCertificate<P0, P3>(hcryptprovorncryptkey: P0, dwkeyspec: CERT_KEY_SPEC, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P3, pvstructinfo: *const core::ffi::c_void, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo: Option<*const core::ffi::c_void>, pbencoded: Option<*mut u8>, pcbencoded: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptSignAndEncodeCertificate<P3>(hcryptprovorncryptkey: Option<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>, dwkeyspec: Option<CERT_KEY_SPEC>, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P3, pvstructinfo: *const core::ffi::c_void, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo: Option<*const core::ffi::c_void>, pbencoded: Option<*mut u8>, pcbencoded: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSignAndEncodeCertificate(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : CERT_KEY_SPEC, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, lpszstructtype : windows_core::PCSTR, pvstructinfo : *const core::ffi::c_void, psignaturealgorithm : *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo : *const core::ffi::c_void, pbencoded : *mut u8, pcbencoded : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptSignAndEncodeCertificate(hcryptprovorncryptkey.param().abi(), core::mem::transmute(dwkeyspec), core::mem::transmute(dwcertencodingtype), lpszstructtype.param().abi(), core::mem::transmute(pvstructinfo), core::mem::transmute(psignaturealgorithm), core::mem::transmute(pvhashauxinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbencoded.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbencoded)).ok()
+    CryptSignAndEncodeCertificate(core::mem::transmute(hcryptprovorncryptkey.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwkeyspec.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwcertencodingtype), lpszstructtype.param().abi(), core::mem::transmute(pvstructinfo), core::mem::transmute(psignaturealgorithm), core::mem::transmute(pvhashauxinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbencoded.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbencoded)).ok()
 }
 #[inline]
 pub unsafe fn CryptSignAndEncryptMessage(psignpara: *const CRYPT_SIGN_MESSAGE_PARA, pencryptpara: *const CRYPT_ENCRYPT_MESSAGE_PARA, rgprecipientcert: &[*const CERT_CONTEXT], pbtobesignedandencrypted: &[u8], pbsignedandencryptedblob: Option<*mut u8>, pcbsignedandencryptedblob: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptSignAndEncryptMessage(psignpara : *const CRYPT_SIGN_MESSAGE_PARA, pencryptpara : *const CRYPT_ENCRYPT_MESSAGE_PARA, crecipientcert : u32, rgprecipientcert : *const *const CERT_CONTEXT, pbtobesignedandencrypted : *const u8, cbtobesignedandencrypted : u32, pbsignedandencryptedblob : *mut u8, pcbsignedandencryptedblob : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptSignAndEncryptMessage(core::mem::transmute(psignpara), core::mem::transmute(pencryptpara), rgprecipientcert.len().try_into().unwrap(), core::mem::transmute(rgprecipientcert.as_ptr()), core::mem::transmute(pbtobesignedandencrypted.as_ptr()), pbtobesignedandencrypted.len().try_into().unwrap(), core::mem::transmute(pbsignedandencryptedblob.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbsignedandencryptedblob)).ok()
+    CryptSignAndEncryptMessage(core::mem::transmute(psignpara), core::mem::transmute(pencryptpara), rgprecipientcert.len().try_into().unwrap(), core::mem::transmute(rgprecipientcert.as_ptr()), core::mem::transmute(pbtobesignedandencrypted.as_ptr()), pbtobesignedandencrypted.len().try_into().unwrap(), core::mem::transmute(pbsignedandencryptedblob.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbsignedandencryptedblob)).ok()
 }
 #[inline]
-pub unsafe fn CryptSignCertificate<P0>(hcryptprovorncryptkey: P0, dwkeyspec: u32, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbencodedtobesigned: &[u8], psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo: Option<*const core::ffi::c_void>, pbsignature: Option<*mut u8>, pcbsignature: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn CryptSignCertificate(hcryptprovorncryptkey: Option<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>, dwkeyspec: Option<u32>, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbencodedtobesigned: &[u8], psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo: Option<*const core::ffi::c_void>, pbsignature: Option<*mut u8>, pcbsignature: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptSignCertificate(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : u32, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pbencodedtobesigned : *const u8, cbencodedtobesigned : u32, psignaturealgorithm : *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo : *const core::ffi::c_void, pbsignature : *mut u8, pcbsignature : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptSignCertificate(hcryptprovorncryptkey.param().abi(), core::mem::transmute(dwkeyspec), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pbencodedtobesigned.as_ptr()), pbencodedtobesigned.len().try_into().unwrap(), core::mem::transmute(psignaturealgorithm), core::mem::transmute(pvhashauxinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbsignature.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbsignature)).ok()
+    CryptSignCertificate(
+        core::mem::transmute(hcryptprovorncryptkey.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(dwkeyspec.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(dwcertencodingtype),
+        core::mem::transmute(pbencodedtobesigned.as_ptr()),
+        pbencodedtobesigned.len().try_into().unwrap(),
+        core::mem::transmute(psignaturealgorithm),
+        core::mem::transmute(pvhashauxinfo.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pbsignature.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pcbsignature),
+    )
+    .ok()
 }
 #[inline]
 pub unsafe fn CryptSignHashA<P2>(hhash: usize, dwkeyspec: u32, szdescription: P2, dwflags: u32, pbsignature: Option<*mut u8>, pdwsiglen: *mut u32) -> windows_core::Result<()>
@@ -2040,7 +1877,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CryptSignHashA(hhash : usize, dwkeyspec : u32, szdescription : windows_core::PCSTR, dwflags : u32, pbsignature : *mut u8, pdwsiglen : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptSignHashA(core::mem::transmute(hhash), core::mem::transmute(dwkeyspec), szdescription.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pbsignature.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwsiglen)).ok()
+    CryptSignHashA(core::mem::transmute(hhash), core::mem::transmute(dwkeyspec), szdescription.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pbsignature.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwsiglen)).ok()
 }
 #[inline]
 pub unsafe fn CryptSignHashW<P2>(hhash: usize, dwkeyspec: u32, szdescription: P2, dwflags: u32, pbsignature: Option<*mut u8>, pdwsiglen: *mut u32) -> windows_core::Result<()>
@@ -2048,7 +1885,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CryptSignHashW(hhash : usize, dwkeyspec : u32, szdescription : windows_core::PCWSTR, dwflags : u32, pbsignature : *mut u8, pdwsiglen : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptSignHashW(core::mem::transmute(hhash), core::mem::transmute(dwkeyspec), szdescription.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pbsignature.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwsiglen)).ok()
+    CryptSignHashW(core::mem::transmute(hhash), core::mem::transmute(dwkeyspec), szdescription.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pbsignature.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwsiglen)).ok()
 }
 #[inline]
 pub unsafe fn CryptSignMessage<P1>(psignpara: *const CRYPT_SIGN_MESSAGE_PARA, fdetachedsignature: P1, ctobesigned: u32, rgpbtobesigned: Option<*const *const u8>, rgcbtobesigned: *const u32, pbsignedblob: Option<*mut u8>, pcbsignedblob: *mut u32) -> windows_core::Result<()>
@@ -2056,37 +1893,37 @@ where
     P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSignMessage(psignpara : *const CRYPT_SIGN_MESSAGE_PARA, fdetachedsignature : super::super::Foundation:: BOOL, ctobesigned : u32, rgpbtobesigned : *const *const u8, rgcbtobesigned : *const u32, pbsignedblob : *mut u8, pcbsignedblob : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptSignMessage(core::mem::transmute(psignpara), fdetachedsignature.param().abi(), core::mem::transmute(ctobesigned), core::mem::transmute(rgpbtobesigned.unwrap_or(core::ptr::null())), core::mem::transmute(rgcbtobesigned), core::mem::transmute(pbsignedblob.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbsignedblob)).ok()
+    CryptSignMessage(core::mem::transmute(psignpara), fdetachedsignature.param().abi(), core::mem::transmute(ctobesigned), core::mem::transmute(rgpbtobesigned.unwrap_or(core::mem::zeroed())), core::mem::transmute(rgcbtobesigned), core::mem::transmute(pbsignedblob.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbsignedblob)).ok()
 }
 #[inline]
 pub unsafe fn CryptSignMessageWithKey(psignpara: *const CRYPT_KEY_SIGN_MESSAGE_PARA, pbtobesigned: &[u8], pbsignedblob: Option<*mut u8>, pcbsignedblob: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptSignMessageWithKey(psignpara : *const CRYPT_KEY_SIGN_MESSAGE_PARA, pbtobesigned : *const u8, cbtobesigned : u32, pbsignedblob : *mut u8, pcbsignedblob : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptSignMessageWithKey(core::mem::transmute(psignpara), core::mem::transmute(pbtobesigned.as_ptr()), pbtobesigned.len().try_into().unwrap(), core::mem::transmute(pbsignedblob.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbsignedblob)).ok()
+    CryptSignMessageWithKey(core::mem::transmute(psignpara), core::mem::transmute(pbtobesigned.as_ptr()), pbtobesigned.len().try_into().unwrap(), core::mem::transmute(pbsignedblob.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbsignedblob)).ok()
 }
 #[inline]
 pub unsafe fn CryptStringToBinaryA(pszstring: &[u8], dwflags: CRYPT_STRING, pbbinary: Option<*mut u8>, pcbbinary: *mut u32, pdwskip: Option<*mut u32>, pdwflags: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptStringToBinaryA(pszstring : windows_core::PCSTR, cchstring : u32, dwflags : CRYPT_STRING, pbbinary : *mut u8, pcbbinary : *mut u32, pdwskip : *mut u32, pdwflags : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptStringToBinaryA(core::mem::transmute(pszstring.as_ptr()), pszstring.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pbbinary.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbbinary), core::mem::transmute(pdwskip.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwflags.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptStringToBinaryA(core::mem::transmute(pszstring.as_ptr()), pszstring.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pbbinary.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbbinary), core::mem::transmute(pdwskip.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwflags.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptStringToBinaryW(pszstring: &[u16], dwflags: CRYPT_STRING, pbbinary: Option<*mut u8>, pcbbinary: *mut u32, pdwskip: Option<*mut u32>, pdwflags: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptStringToBinaryW(pszstring : windows_core::PCWSTR, cchstring : u32, dwflags : CRYPT_STRING, pbbinary : *mut u8, pcbbinary : *mut u32, pdwskip : *mut u32, pdwflags : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptStringToBinaryW(core::mem::transmute(pszstring.as_ptr()), pszstring.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pbbinary.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbbinary), core::mem::transmute(pdwskip.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwflags.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptStringToBinaryW(core::mem::transmute(pszstring.as_ptr()), pszstring.len().try_into().unwrap(), core::mem::transmute(dwflags), core::mem::transmute(pbbinary.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbbinary), core::mem::transmute(pdwskip.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwflags.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptUninstallCancelRetrieval(dwflags: u32, pvreserved: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL {
     windows_targets::link!("cryptnet.dll" "system" fn CryptUninstallCancelRetrieval(dwflags : u32, pvreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CryptUninstallCancelRetrieval(core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())))
+    CryptUninstallCancelRetrieval(core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CryptUninstallDefaultContext(hdefaultcontext: Option<*const core::ffi::c_void>, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptUninstallDefaultContext(hdefaultcontext : *const core::ffi::c_void, dwflags : u32, pvreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CryptUninstallDefaultContext(core::mem::transmute(hdefaultcontext.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null()))).ok()
+    CryptUninstallDefaultContext(core::mem::transmute(hdefaultcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptUnprotectData(pdatain: *const CRYPT_INTEGER_BLOB, ppszdatadescr: Option<*mut windows_core::PWSTR>, poptionalentropy: Option<*const CRYPT_INTEGER_BLOB>, pvreserved: Option<*const core::ffi::c_void>, ppromptstruct: Option<*const CRYPTPROTECT_PROMPTSTRUCT>, dwflags: u32, pdataout: *mut CRYPT_INTEGER_BLOB) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptUnprotectData(pdatain : *const CRYPT_INTEGER_BLOB, ppszdatadescr : *mut windows_core::PWSTR, poptionalentropy : *const CRYPT_INTEGER_BLOB, pvreserved : *const core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut CRYPT_INTEGER_BLOB) -> super::super::Foundation:: BOOL);
-    CryptUnprotectData(core::mem::transmute(pdatain), core::mem::transmute(ppszdatadescr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(poptionalentropy.unwrap_or(core::ptr::null())), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(ppromptstruct.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pdataout)).ok()
+    CryptUnprotectData(core::mem::transmute(pdatain), core::mem::transmute(ppszdatadescr.unwrap_or(core::mem::zeroed())), core::mem::transmute(poptionalentropy.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppromptstruct.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pdataout)).ok()
 }
 #[inline]
 pub unsafe fn CryptUnprotectMemory(pdatain: *mut core::ffi::c_void, cbdatain: u32, dwflags: u32) -> windows_core::Result<()> {
@@ -2117,54 +1954,47 @@ pub unsafe fn CryptUnregisterOIDInfo(pinfo: *const CRYPT_OID_INFO) -> super::sup
     CryptUnregisterOIDInfo(core::mem::transmute(pinfo))
 }
 #[inline]
-pub unsafe fn CryptUpdateProtectedState<P0, P1>(poldsid: P0, pwszoldpassword: P1, dwflags: u32, pdwsuccesscount: Option<*mut u32>, pdwfailurecount: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn CryptUpdateProtectedState<P1>(poldsid: Option<super::PSID>, pwszoldpassword: P1, dwflags: u32, pdwsuccesscount: Option<*mut u32>, pdwfailurecount: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::PSID>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptUpdateProtectedState(poldsid : super:: PSID, pwszoldpassword : windows_core::PCWSTR, dwflags : u32, pdwsuccesscount : *mut u32, pdwfailurecount : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptUpdateProtectedState(poldsid.param().abi(), pwszoldpassword.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pdwsuccesscount.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwfailurecount.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptUpdateProtectedState(core::mem::transmute(poldsid.unwrap_or(core::mem::zeroed())), pwszoldpassword.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pdwsuccesscount.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwfailurecount.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CryptVerifyCertificateSignature<P0>(hcryptprov: P0, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbencoded: &[u8], ppublickey: *const CERT_PUBLIC_KEY_INFO) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCRYPTPROV_LEGACY>,
-{
+pub unsafe fn CryptVerifyCertificateSignature(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbencoded: &[u8], ppublickey: *const CERT_PUBLIC_KEY_INFO) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptVerifyCertificateSignature(hcryptprov : HCRYPTPROV_LEGACY, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pbencoded : *const u8, cbencoded : u32, ppublickey : *const CERT_PUBLIC_KEY_INFO) -> super::super::Foundation:: BOOL);
-    CryptVerifyCertificateSignature(hcryptprov.param().abi(), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(ppublickey)).ok()
+    CryptVerifyCertificateSignature(core::mem::transmute(hcryptprov.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwcertencodingtype), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(ppublickey)).ok()
 }
 #[inline]
-pub unsafe fn CryptVerifyCertificateSignatureEx<P0>(hcryptprov: P0, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwsubjecttype: u32, pvsubject: *const core::ffi::c_void, dwissuertype: u32, pvissuer: Option<*const core::ffi::c_void>, dwflags: CRYPT_VERIFY_CERT_FLAGS, pvextra: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HCRYPTPROV_LEGACY>,
-{
+pub unsafe fn CryptVerifyCertificateSignatureEx(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwsubjecttype: u32, pvsubject: *const core::ffi::c_void, dwissuertype: u32, pvissuer: Option<*const core::ffi::c_void>, dwflags: CRYPT_VERIFY_CERT_FLAGS, pvextra: Option<*mut core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptVerifyCertificateSignatureEx(hcryptprov : HCRYPTPROV_LEGACY, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, dwsubjecttype : u32, pvsubject : *const core::ffi::c_void, dwissuertype : u32, pvissuer : *const core::ffi::c_void, dwflags : CRYPT_VERIFY_CERT_FLAGS, pvextra : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CryptVerifyCertificateSignatureEx(hcryptprov.param().abi(), core::mem::transmute(dwcertencodingtype), core::mem::transmute(dwsubjecttype), core::mem::transmute(pvsubject), core::mem::transmute(dwissuertype), core::mem::transmute(pvissuer.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(pvextra.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptVerifyCertificateSignatureEx(core::mem::transmute(hcryptprov.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwcertencodingtype), core::mem::transmute(dwsubjecttype), core::mem::transmute(pvsubject), core::mem::transmute(dwissuertype), core::mem::transmute(pvissuer.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pvextra.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptVerifyDetachedMessageHash(phashpara: *const CRYPT_HASH_MESSAGE_PARA, pbdetachedhashblob: &[u8], ctobehashed: u32, rgpbtobehashed: *const *const u8, rgcbtobehashed: *const u32, pbcomputedhash: Option<*mut u8>, pcbcomputedhash: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptVerifyDetachedMessageHash(phashpara : *const CRYPT_HASH_MESSAGE_PARA, pbdetachedhashblob : *const u8, cbdetachedhashblob : u32, ctobehashed : u32, rgpbtobehashed : *const *const u8, rgcbtobehashed : *const u32, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptVerifyDetachedMessageHash(core::mem::transmute(phashpara), core::mem::transmute(pbdetachedhashblob.as_ptr()), pbdetachedhashblob.len().try_into().unwrap(), core::mem::transmute(ctobehashed), core::mem::transmute(rgpbtobehashed), core::mem::transmute(rgcbtobehashed), core::mem::transmute(pbcomputedhash.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbcomputedhash.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptVerifyDetachedMessageHash(core::mem::transmute(phashpara), core::mem::transmute(pbdetachedhashblob.as_ptr()), pbdetachedhashblob.len().try_into().unwrap(), core::mem::transmute(ctobehashed), core::mem::transmute(rgpbtobehashed), core::mem::transmute(rgcbtobehashed), core::mem::transmute(pbcomputedhash.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbcomputedhash.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptVerifyDetachedMessageSignature(pverifypara: *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: u32, pbdetachedsignblob: &[u8], ctobesigned: u32, rgpbtobesigned: *const *const u8, rgcbtobesigned: *const u32, ppsignercert: Option<*mut *mut CERT_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptVerifyDetachedMessageSignature(pverifypara : *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex : u32, pbdetachedsignblob : *const u8, cbdetachedsignblob : u32, ctobesigned : u32, rgpbtobesigned : *const *const u8, rgcbtobesigned : *const u32, ppsignercert : *mut *mut CERT_CONTEXT) -> super::super::Foundation:: BOOL);
-    CryptVerifyDetachedMessageSignature(core::mem::transmute(pverifypara), core::mem::transmute(dwsignerindex), core::mem::transmute(pbdetachedsignblob.as_ptr()), pbdetachedsignblob.len().try_into().unwrap(), core::mem::transmute(ctobesigned), core::mem::transmute(rgpbtobesigned), core::mem::transmute(rgcbtobesigned), core::mem::transmute(ppsignercert.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptVerifyDetachedMessageSignature(core::mem::transmute(pverifypara), core::mem::transmute(dwsignerindex), core::mem::transmute(pbdetachedsignblob.as_ptr()), pbdetachedsignblob.len().try_into().unwrap(), core::mem::transmute(ctobesigned), core::mem::transmute(rgpbtobesigned), core::mem::transmute(rgcbtobesigned), core::mem::transmute(ppsignercert.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptVerifyMessageHash(phashpara: *const CRYPT_HASH_MESSAGE_PARA, pbhashedblob: &[u8], pbtobehashed: Option<*mut u8>, pcbtobehashed: Option<*mut u32>, pbcomputedhash: Option<*mut u8>, pcbcomputedhash: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptVerifyMessageHash(phashpara : *const CRYPT_HASH_MESSAGE_PARA, pbhashedblob : *const u8, cbhashedblob : u32, pbtobehashed : *mut u8, pcbtobehashed : *mut u32, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptVerifyMessageHash(core::mem::transmute(phashpara), core::mem::transmute(pbhashedblob.as_ptr()), pbhashedblob.len().try_into().unwrap(), core::mem::transmute(pbtobehashed.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbtobehashed.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbcomputedhash.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbcomputedhash.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptVerifyMessageHash(core::mem::transmute(phashpara), core::mem::transmute(pbhashedblob.as_ptr()), pbhashedblob.len().try_into().unwrap(), core::mem::transmute(pbtobehashed.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbtobehashed.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbcomputedhash.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbcomputedhash.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptVerifyMessageSignature(pverifypara: *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: u32, pbsignedblob: &[u8], pbdecoded: Option<*mut u8>, pcbdecoded: Option<*mut u32>, ppsignercert: Option<*mut *mut CERT_CONTEXT>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptVerifyMessageSignature(pverifypara : *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex : u32, pbsignedblob : *const u8, cbsignedblob : u32, pbdecoded : *mut u8, pcbdecoded : *mut u32, ppsignercert : *mut *mut CERT_CONTEXT) -> super::super::Foundation:: BOOL);
-    CryptVerifyMessageSignature(core::mem::transmute(pverifypara), core::mem::transmute(dwsignerindex), core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap(), core::mem::transmute(pbdecoded.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdecoded.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppsignercert.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptVerifyMessageSignature(core::mem::transmute(pverifypara), core::mem::transmute(dwsignerindex), core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap(), core::mem::transmute(pbdecoded.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdecoded.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppsignercert.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptVerifyMessageSignatureWithKey(pverifypara: *const CRYPT_KEY_VERIFY_MESSAGE_PARA, ppublickeyinfo: Option<*const CERT_PUBLIC_KEY_INFO>, pbsignedblob: &[u8], pbdecoded: Option<*mut u8>, pcbdecoded: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptVerifyMessageSignatureWithKey(pverifypara : *const CRYPT_KEY_VERIFY_MESSAGE_PARA, ppublickeyinfo : *const CERT_PUBLIC_KEY_INFO, pbsignedblob : *const u8, cbsignedblob : u32, pbdecoded : *mut u8, pcbdecoded : *mut u32) -> super::super::Foundation:: BOOL);
-    CryptVerifyMessageSignatureWithKey(core::mem::transmute(pverifypara), core::mem::transmute(ppublickeyinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap(), core::mem::transmute(pbdecoded.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdecoded.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptVerifyMessageSignatureWithKey(core::mem::transmute(pverifypara), core::mem::transmute(ppublickeyinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap(), core::mem::transmute(pbdecoded.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdecoded.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptVerifySignatureA<P4>(hhash: usize, pbsignature: &[u8], hpubkey: usize, szdescription: P4, dwflags: u32) -> windows_core::Result<()>
@@ -2183,12 +2013,9 @@ where
     CryptVerifySignatureW(core::mem::transmute(hhash), core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), core::mem::transmute(hpubkey), szdescription.param().abi(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn CryptVerifyTimeStampSignature<P4>(pbtscontentinfo: &[u8], pbdata: Option<&[u8]>, hadditionalstore: P4, pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: Option<*mut HCERTSTORE>) -> windows_core::Result<()>
-where
-    P4: windows_core::Param<HCERTSTORE>,
-{
+pub unsafe fn CryptVerifyTimeStampSignature(pbtscontentinfo: &[u8], pbdata: Option<&[u8]>, hadditionalstore: Option<HCERTSTORE>, pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: Option<*mut HCERTSTORE>) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptVerifyTimeStampSignature(pbtscontentinfo : *const u8, cbtscontentinfo : u32, pbdata : *const u8, cbdata : u32, hadditionalstore : HCERTSTORE, pptscontext : *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner : *mut *mut CERT_CONTEXT, phstore : *mut HCERTSTORE) -> super::super::Foundation:: BOOL);
-    CryptVerifyTimeStampSignature(core::mem::transmute(pbtscontentinfo.as_ptr()), pbtscontentinfo.len().try_into().unwrap(), core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hadditionalstore.param().abi(), core::mem::transmute(pptscontext), core::mem::transmute(pptssigner), core::mem::transmute(phstore.unwrap_or(core::ptr::null_mut()))).ok()
+    CryptVerifyTimeStampSignature(core::mem::transmute(pbtscontentinfo.as_ptr()), pbtscontentinfo.len().try_into().unwrap(), core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(hadditionalstore.unwrap_or(core::mem::zeroed())), core::mem::transmute(pptscontext), core::mem::transmute(pptssigner), core::mem::transmute(phstore.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CryptXmlAddObject(hsignatureorobject: *const core::ffi::c_void, dwflags: u32, rgproperty: Option<&[CRYPT_XML_PROPERTY]>, pencoded: *const CRYPT_XML_BLOB) -> windows_core::Result<*mut CRYPT_XML_OBJECT> {
@@ -2224,7 +2051,7 @@ pub unsafe fn CryptXmlEncode(hcryptxml: *const core::ffi::c_void, dwcharset: CRY
 #[inline]
 pub unsafe fn CryptXmlEnumAlgorithmInfo(dwgroupid: u32, dwflags: u32, pvarg: Option<*mut core::ffi::c_void>, pfnenumalginfo: PFN_CRYPT_XML_ENUM_ALG_INFO) -> windows_core::Result<()> {
     windows_targets::link!("cryptxml.dll" "system" fn CryptXmlEnumAlgorithmInfo(dwgroupid : u32, dwflags : u32, pvarg : *mut core::ffi::c_void, pfnenumalginfo : PFN_CRYPT_XML_ENUM_ALG_INFO) -> windows_core::HRESULT);
-    CryptXmlEnumAlgorithmInfo(core::mem::transmute(dwgroupid), core::mem::transmute(dwflags), core::mem::transmute(pvarg.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfnenumalginfo)).ok()
+    CryptXmlEnumAlgorithmInfo(core::mem::transmute(dwgroupid), core::mem::transmute(dwflags), core::mem::transmute(pvarg.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfnenumalginfo)).ok()
 }
 #[inline]
 pub unsafe fn CryptXmlFindAlgorithmInfo(dwfindbytype: u32, pvfindby: *const core::ffi::c_void, dwgroupid: u32, dwflags: u32) -> *mut CRYPT_XML_ALGORITHM_INFO {
@@ -2276,7 +2103,7 @@ pub unsafe fn CryptXmlImportPublicKey(dwflags: CRYPT_XML_FLAGS, pkeyvalue: *cons
 #[inline]
 pub unsafe fn CryptXmlOpenToDecode(pconfig: Option<*const CRYPT_XML_TRANSFORM_CHAIN_CONFIG>, dwflags: CRYPT_XML_FLAGS, rgproperty: Option<&[CRYPT_XML_PROPERTY]>, pencoded: *const CRYPT_XML_BLOB, phcryptxml: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("cryptxml.dll" "system" fn CryptXmlOpenToDecode(pconfig : *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwflags : CRYPT_XML_FLAGS, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, phcryptxml : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    CryptXmlOpenToDecode(core::mem::transmute(pconfig.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), core::mem::transmute(rgproperty.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pencoded), core::mem::transmute(phcryptxml)).ok()
+    CryptXmlOpenToDecode(core::mem::transmute(pconfig.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(rgproperty.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pencoded), core::mem::transmute(phcryptxml)).ok()
 }
 #[inline]
 pub unsafe fn CryptXmlOpenToEncode<P2>(pconfig: Option<*const CRYPT_XML_TRANSFORM_CHAIN_CONFIG>, dwflags: CRYPT_XML_FLAGS, wszid: P2, rgproperty: Option<&[CRYPT_XML_PROPERTY]>, pencoded: Option<*const CRYPT_XML_BLOB>, phsignature: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -2284,7 +2111,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cryptxml.dll" "system" fn CryptXmlOpenToEncode(pconfig : *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwflags : CRYPT_XML_FLAGS, wszid : windows_core::PCWSTR, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, phsignature : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    CryptXmlOpenToEncode(core::mem::transmute(pconfig.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), wszid.param().abi(), core::mem::transmute(rgproperty.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pencoded.unwrap_or(core::ptr::null())), core::mem::transmute(phsignature)).ok()
+    CryptXmlOpenToEncode(core::mem::transmute(pconfig.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), wszid.param().abi(), core::mem::transmute(rgproperty.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pencoded.unwrap_or(core::mem::zeroed())), core::mem::transmute(phsignature)).ok()
 }
 #[inline]
 pub unsafe fn CryptXmlSetHMACSecret(hsignature: *const core::ffi::c_void, pbsecret: &[u8]) -> windows_core::Result<()> {
@@ -2292,20 +2119,14 @@ pub unsafe fn CryptXmlSetHMACSecret(hsignature: *const core::ffi::c_void, pbsecr
     CryptXmlSetHMACSecret(core::mem::transmute(hsignature), core::mem::transmute(pbsecret.as_ptr()), pbsecret.len().try_into().unwrap()).ok()
 }
 #[inline]
-pub unsafe fn CryptXmlSign<P1>(hsignature: *const core::ffi::c_void, hkey: P1, dwkeyspec: CERT_KEY_SPEC, dwflags: CRYPT_XML_FLAGS, dwkeyinfospec: CRYPT_XML_KEYINFO_SPEC, pvkeyinfospec: Option<*const core::ffi::c_void>, psignaturemethod: *const CRYPT_XML_ALGORITHM, pcanonicalization: *const CRYPT_XML_ALGORITHM) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn CryptXmlSign(hsignature: *const core::ffi::c_void, hkey: Option<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>, dwkeyspec: CERT_KEY_SPEC, dwflags: CRYPT_XML_FLAGS, dwkeyinfospec: CRYPT_XML_KEYINFO_SPEC, pvkeyinfospec: Option<*const core::ffi::c_void>, psignaturemethod: *const CRYPT_XML_ALGORITHM, pcanonicalization: *const CRYPT_XML_ALGORITHM) -> windows_core::Result<()> {
     windows_targets::link!("cryptxml.dll" "system" fn CryptXmlSign(hsignature : *const core::ffi::c_void, hkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : CERT_KEY_SPEC, dwflags : CRYPT_XML_FLAGS, dwkeyinfospec : CRYPT_XML_KEYINFO_SPEC, pvkeyinfospec : *const core::ffi::c_void, psignaturemethod : *const CRYPT_XML_ALGORITHM, pcanonicalization : *const CRYPT_XML_ALGORITHM) -> windows_core::HRESULT);
-    CryptXmlSign(core::mem::transmute(hsignature), hkey.param().abi(), core::mem::transmute(dwkeyspec), core::mem::transmute(dwflags), core::mem::transmute(dwkeyinfospec), core::mem::transmute(pvkeyinfospec.unwrap_or(core::ptr::null())), core::mem::transmute(psignaturemethod), core::mem::transmute(pcanonicalization)).ok()
+    CryptXmlSign(core::mem::transmute(hsignature), core::mem::transmute(hkey.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwkeyspec), core::mem::transmute(dwflags), core::mem::transmute(dwkeyinfospec), core::mem::transmute(pvkeyinfospec.unwrap_or(core::mem::zeroed())), core::mem::transmute(psignaturemethod), core::mem::transmute(pcanonicalization)).ok()
 }
 #[inline]
-pub unsafe fn CryptXmlVerifySignature<P1>(hsignature: *const core::ffi::c_void, hkey: P1, dwflags: CRYPT_XML_FLAGS) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<BCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn CryptXmlVerifySignature(hsignature: *const core::ffi::c_void, hkey: Option<BCRYPT_KEY_HANDLE>, dwflags: CRYPT_XML_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("cryptxml.dll" "system" fn CryptXmlVerifySignature(hsignature : *const core::ffi::c_void, hkey : BCRYPT_KEY_HANDLE, dwflags : CRYPT_XML_FLAGS) -> windows_core::HRESULT);
-    CryptXmlVerifySignature(core::mem::transmute(hsignature), hkey.param().abi(), core::mem::transmute(dwflags)).ok()
+    CryptXmlVerifySignature(core::mem::transmute(hsignature), core::mem::transmute(hkey.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn Decrypt<P1>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, foaep: P1, pindata: &[u8], pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> windows_core::Result<()>
@@ -2329,7 +2150,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wintrust.dll" "system" fn FindCertsByIssuer(pcertchains : *mut CERT_CHAIN, pcbcertchains : *mut u32, pccertchains : *mut u32, pbencodedissuername : *const u8, cbencodedissuername : u32, pwszpurpose : windows_core::PCWSTR, dwkeyspec : u32) -> windows_core::HRESULT);
-    FindCertsByIssuer(core::mem::transmute(pcertchains.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbcertchains), core::mem::transmute(pccertchains), core::mem::transmute(pbencodedissuername.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbencodedissuername.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pwszpurpose.param().abi(), core::mem::transmute(dwkeyspec)).ok()
+    FindCertsByIssuer(core::mem::transmute(pcertchains.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbcertchains), core::mem::transmute(pccertchains), core::mem::transmute(pbencodedissuername.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbencodedissuername.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pwszpurpose.param().abi(), core::mem::transmute(dwkeyspec)).ok()
 }
 #[inline]
 pub unsafe fn FreeToken(pallocmemory: *const GENERIC_XML_TOKEN) -> super::super::Foundation::BOOL {
@@ -2356,7 +2177,7 @@ where
 #[inline]
 pub unsafe fn GetBrowserToken(dwparamtype: u32, pparam: *const core::ffi::c_void, pcbtoken: Option<*mut u32>, pptoken: Option<*mut *mut u8>) -> windows_core::Result<()> {
     windows_targets::link!("infocardapi.dll" "system" fn GetBrowserToken(dwparamtype : u32, pparam : *const core::ffi::c_void, pcbtoken : *mut u32, pptoken : *mut *mut u8) -> windows_core::HRESULT);
-    GetBrowserToken(core::mem::transmute(dwparamtype), core::mem::transmute(pparam), core::mem::transmute(pcbtoken.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pptoken.unwrap_or(core::ptr::null_mut()))).ok()
+    GetBrowserToken(core::mem::transmute(dwparamtype), core::mem::transmute(pparam), core::mem::transmute(pcbtoken.unwrap_or(core::mem::zeroed())), core::mem::transmute(pptoken.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn GetCipherInterface<P0, P1>(pszprovidername: P0, pszalgid: P1, ppfunctiontable: *mut *mut BCRYPT_CIPHER_FUNCTION_TABLE, dwflags: u32) -> super::super::Foundation::NTSTATUS
@@ -2468,31 +2289,23 @@ pub unsafe fn ManageCardSpace() -> windows_core::Result<()> {
     ManageCardSpace().ok()
 }
 #[inline]
-pub unsafe fn NCryptCloseProtectionDescriptor<P0>(hdescriptor: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::NCRYPT_DESCRIPTOR_HANDLE>,
-{
+pub unsafe fn NCryptCloseProtectionDescriptor(hdescriptor: super::NCRYPT_DESCRIPTOR_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptCloseProtectionDescriptor(hdescriptor : super:: NCRYPT_DESCRIPTOR_HANDLE) -> windows_core::HRESULT);
-    NCryptCloseProtectionDescriptor(hdescriptor.param().abi()).ok()
+    NCryptCloseProtectionDescriptor(core::mem::transmute(hdescriptor)).ok()
 }
 #[inline]
-pub unsafe fn NCryptCreateClaim<P0, P1>(hsubjectkey: P0, hauthoritykey: P1, dwclaimtype: u32, pparameterlist: Option<*const BCryptBufferDesc>, pbclaimblob: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn NCryptCreateClaim(hsubjectkey: Option<NCRYPT_KEY_HANDLE>, hauthoritykey: Option<NCRYPT_KEY_HANDLE>, dwclaimtype: u32, pparameterlist: Option<*const BCryptBufferDesc>, pbclaimblob: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptCreateClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : u32, pparameterlist : *const BCryptBufferDesc, pbclaimblob : *mut u8, cbclaimblob : u32, pcbresult : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    NCryptCreateClaim(hsubjectkey.param().abi(), hauthoritykey.param().abi(), core::mem::transmute(dwclaimtype), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(pbclaimblob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbclaimblob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    NCryptCreateClaim(core::mem::transmute(hsubjectkey.unwrap_or(core::mem::zeroed())), core::mem::transmute(hauthoritykey.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwclaimtype), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbclaimblob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbclaimblob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptCreatePersistedKey<P0, P2, P3>(hprovider: P0, phkey: *mut NCRYPT_KEY_HANDLE, pszalgid: P2, pszkeyname: P3, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
+pub unsafe fn NCryptCreatePersistedKey<P2, P3>(hprovider: NCRYPT_PROV_HANDLE, phkey: *mut NCRYPT_KEY_HANDLE, pszalgid: P2, pszkeyname: P3, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptCreatePersistedKey(hprovider : NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, pszalgid : windows_core::PCWSTR, pszkeyname : windows_core::PCWSTR, dwlegacykeyspec : CERT_KEY_SPEC, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptCreatePersistedKey(hprovider.param().abi(), core::mem::transmute(phkey), pszalgid.param().abi(), pszkeyname.param().abi(), core::mem::transmute(dwlegacykeyspec), core::mem::transmute(dwflags)).ok()
+    NCryptCreatePersistedKey(core::mem::transmute(hprovider), core::mem::transmute(phkey), pszalgid.param().abi(), pszkeyname.param().abi(), core::mem::transmute(dwlegacykeyspec), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn NCryptCreateProtectionDescriptor<P0>(pwszdescriptorstring: P0, dwflags: u32) -> windows_core::Result<super::NCRYPT_DESCRIPTOR_HANDLE>
@@ -2504,54 +2317,60 @@ where
     NCryptCreateProtectionDescriptor(pwszdescriptorstring.param().abi(), core::mem::transmute(dwflags), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn NCryptDecrypt<P0>(hkey: P0, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn NCryptDecrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptDecrypt(hkey : NCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptDecrypt(hkey.param().abi(), core::mem::transmute(pbinput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppaddinginfo.unwrap_or(core::ptr::null())), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    NCryptDecrypt(
+        core::mem::transmute(hkey),
+        core::mem::transmute(pbinput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+        pbinput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        core::mem::transmute(ppaddinginfo.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+        pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        core::mem::transmute(pcbresult),
+        core::mem::transmute(dwflags),
+    )
+    .ok()
 }
 #[inline]
-pub unsafe fn NCryptDeleteKey<P0>(hkey: P0, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn NCryptDeleteKey(hkey: NCRYPT_KEY_HANDLE, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptDeleteKey(hkey : NCRYPT_KEY_HANDLE, dwflags : u32) -> windows_core::HRESULT);
-    NCryptDeleteKey(hkey.param().abi(), core::mem::transmute(dwflags)).ok()
+    NCryptDeleteKey(core::mem::transmute(hkey), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptDeriveKey<P0, P1>(hsharedsecret: P0, pwszkdf: P1, pparameterlist: Option<*const BCryptBufferDesc>, pbderivedkey: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn NCryptDeriveKey<P1>(hsharedsecret: NCRYPT_SECRET_HANDLE, pwszkdf: P1, pparameterlist: Option<*const BCryptBufferDesc>, pbderivedkey: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_SECRET_HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptDeriveKey(hsharedsecret : NCRYPT_SECRET_HANDLE, pwszkdf : windows_core::PCWSTR, pparameterlist : *const BCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    NCryptDeriveKey(hsharedsecret.param().abi(), pwszkdf.param().abi(), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(pbderivedkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbderivedkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    NCryptDeriveKey(core::mem::transmute(hsharedsecret), pwszkdf.param().abi(), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbderivedkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbderivedkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptEncrypt<P0>(hkey: P0, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn NCryptEncrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptEncrypt(hkey : NCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptEncrypt(hkey.param().abi(), core::mem::transmute(pbinput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppaddinginfo.unwrap_or(core::ptr::null())), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    NCryptEncrypt(
+        core::mem::transmute(hkey),
+        core::mem::transmute(pbinput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+        pbinput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        core::mem::transmute(ppaddinginfo.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+        pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        core::mem::transmute(pcbresult),
+        core::mem::transmute(dwflags),
+    )
+    .ok()
 }
 #[inline]
-pub unsafe fn NCryptEnumAlgorithms<P0>(hprovider: P0, dwalgoperations: NCRYPT_OPERATION, pdwalgcount: *mut u32, ppalglist: *mut *mut NCryptAlgorithmName, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-{
+pub unsafe fn NCryptEnumAlgorithms(hprovider: NCRYPT_PROV_HANDLE, dwalgoperations: NCRYPT_OPERATION, pdwalgcount: *mut u32, ppalglist: *mut *mut NCryptAlgorithmName, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptEnumAlgorithms(hprovider : NCRYPT_PROV_HANDLE, dwalgoperations : NCRYPT_OPERATION, pdwalgcount : *mut u32, ppalglist : *mut *mut NCryptAlgorithmName, dwflags : u32) -> windows_core::HRESULT);
-    NCryptEnumAlgorithms(hprovider.param().abi(), core::mem::transmute(dwalgoperations), core::mem::transmute(pdwalgcount), core::mem::transmute(ppalglist), core::mem::transmute(dwflags)).ok()
+    NCryptEnumAlgorithms(core::mem::transmute(hprovider), core::mem::transmute(dwalgoperations), core::mem::transmute(pdwalgcount), core::mem::transmute(ppalglist), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptEnumKeys<P0, P1>(hprovider: P0, pszscope: P1, ppkeyname: *mut *mut NCryptKeyName, ppenumstate: *mut *mut core::ffi::c_void, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
+pub unsafe fn NCryptEnumKeys<P1>(hprovider: NCRYPT_PROV_HANDLE, pszscope: P1, ppkeyname: *mut *mut NCryptKeyName, ppenumstate: *mut *mut core::ffi::c_void, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptEnumKeys(hprovider : NCRYPT_PROV_HANDLE, pszscope : windows_core::PCWSTR, ppkeyname : *mut *mut NCryptKeyName, ppenumstate : *mut *mut core::ffi::c_void, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptEnumKeys(hprovider.param().abi(), pszscope.param().abi(), core::mem::transmute(ppkeyname), core::mem::transmute(ppenumstate), core::mem::transmute(dwflags)).ok()
+    NCryptEnumKeys(core::mem::transmute(hprovider), pszscope.param().abi(), core::mem::transmute(ppkeyname), core::mem::transmute(ppenumstate), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn NCryptEnumStorageProviders(pdwprovidercount: *mut u32, ppproviderlist: *mut *mut NCryptProviderName, dwflags: u32) -> windows_core::Result<()> {
@@ -2559,22 +2378,17 @@ pub unsafe fn NCryptEnumStorageProviders(pdwprovidercount: *mut u32, ppproviderl
     NCryptEnumStorageProviders(core::mem::transmute(pdwprovidercount), core::mem::transmute(ppproviderlist), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptExportKey<P0, P1, P2>(hkey: P0, hexportkey: P1, pszblobtype: P2, pparameterlist: Option<*const BCryptBufferDesc>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
+pub unsafe fn NCryptExportKey<P2>(hkey: NCRYPT_KEY_HANDLE, hexportkey: Option<NCRYPT_KEY_HANDLE>, pszblobtype: P2, pparameterlist: Option<*const BCryptBufferDesc>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptExportKey(hkey : NCRYPT_KEY_HANDLE, hexportkey : NCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, pparameterlist : *const BCryptBufferDesc, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptExportKey(hkey.param().abi(), hexportkey.param().abi(), pszblobtype.param().abi(), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    NCryptExportKey(core::mem::transmute(hkey), core::mem::transmute(hexportkey.unwrap_or(core::mem::zeroed())), pszblobtype.param().abi(), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptFinalizeKey<P0>(hkey: P0, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn NCryptFinalizeKey(hkey: NCRYPT_KEY_HANDLE, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptFinalizeKey(hkey : NCRYPT_KEY_HANDLE, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptFinalizeKey(hkey.param().abi(), core::mem::transmute(dwflags)).ok()
+    NCryptFinalizeKey(core::mem::transmute(hkey), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn NCryptFreeBuffer(pvinput: *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -2582,81 +2396,61 @@ pub unsafe fn NCryptFreeBuffer(pvinput: *mut core::ffi::c_void) -> windows_core:
     NCryptFreeBuffer(core::mem::transmute(pvinput)).ok()
 }
 #[inline]
-pub unsafe fn NCryptFreeObject<P0>(hobject: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_HANDLE>,
-{
+pub unsafe fn NCryptFreeObject(hobject: NCRYPT_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptFreeObject(hobject : NCRYPT_HANDLE) -> windows_core::HRESULT);
-    NCryptFreeObject(hobject.param().abi()).ok()
+    NCryptFreeObject(core::mem::transmute(hobject)).ok()
 }
 #[inline]
-pub unsafe fn NCryptGetProperty<P0, P1>(hobject: P0, pszproperty: P1, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: super::OBJECT_SECURITY_INFORMATION) -> windows_core::Result<()>
+pub unsafe fn NCryptGetProperty<P1>(hobject: NCRYPT_HANDLE, pszproperty: P1, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: super::OBJECT_SECURITY_INFORMATION) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptGetProperty(hobject : NCRYPT_HANDLE, pszproperty : windows_core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : super:: OBJECT_SECURITY_INFORMATION) -> windows_core::HRESULT);
-    NCryptGetProperty(hobject.param().abi(), pszproperty.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    NCryptGetProperty(core::mem::transmute(hobject), pszproperty.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptGetProtectionDescriptorInfo<P0>(hdescriptor: P0, pmempara: Option<*const NCRYPT_ALLOC_PARA>, dwinfotype: u32, ppvinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::NCRYPT_DESCRIPTOR_HANDLE>,
-{
+pub unsafe fn NCryptGetProtectionDescriptorInfo(hdescriptor: super::NCRYPT_DESCRIPTOR_HANDLE, pmempara: Option<*const NCRYPT_ALLOC_PARA>, dwinfotype: u32, ppvinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptGetProtectionDescriptorInfo(hdescriptor : super:: NCRYPT_DESCRIPTOR_HANDLE, pmempara : *const NCRYPT_ALLOC_PARA, dwinfotype : u32, ppvinfo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NCryptGetProtectionDescriptorInfo(hdescriptor.param().abi(), core::mem::transmute(pmempara.unwrap_or(core::ptr::null())), core::mem::transmute(dwinfotype), core::mem::transmute(ppvinfo)).ok()
+    NCryptGetProtectionDescriptorInfo(core::mem::transmute(hdescriptor), core::mem::transmute(pmempara.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwinfotype), core::mem::transmute(ppvinfo)).ok()
 }
 #[inline]
-pub unsafe fn NCryptImportKey<P0, P1, P2>(hprovider: P0, himportkey: P1, pszblobtype: P2, pparameterlist: Option<*const BCryptBufferDesc>, phkey: *mut NCRYPT_KEY_HANDLE, pbdata: &[u8], dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
+pub unsafe fn NCryptImportKey<P2>(hprovider: NCRYPT_PROV_HANDLE, himportkey: Option<NCRYPT_KEY_HANDLE>, pszblobtype: P2, pparameterlist: Option<*const BCryptBufferDesc>, phkey: *mut NCRYPT_KEY_HANDLE, pbdata: &[u8], dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptImportKey(hprovider : NCRYPT_PROV_HANDLE, himportkey : NCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, pparameterlist : *const BCryptBufferDesc, phkey : *mut NCRYPT_KEY_HANDLE, pbdata : *const u8, cbdata : u32, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptImportKey(hprovider.param().abi(), himportkey.param().abi(), pszblobtype.param().abi(), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(phkey), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
+    NCryptImportKey(core::mem::transmute(hprovider), core::mem::transmute(himportkey.unwrap_or(core::mem::zeroed())), pszblobtype.param().abi(), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(phkey), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptIsAlgSupported<P0, P1>(hprovider: P0, pszalgid: P1, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn NCryptIsAlgSupported<P1>(hprovider: NCRYPT_PROV_HANDLE, pszalgid: P1, dwflags: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptIsAlgSupported(hprovider : NCRYPT_PROV_HANDLE, pszalgid : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
-    NCryptIsAlgSupported(hprovider.param().abi(), pszalgid.param().abi(), core::mem::transmute(dwflags)).ok()
+    NCryptIsAlgSupported(core::mem::transmute(hprovider), pszalgid.param().abi(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptIsKeyHandle<P0>(hkey: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn NCryptIsKeyHandle(hkey: NCRYPT_KEY_HANDLE) -> super::super::Foundation::BOOL {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptIsKeyHandle(hkey : NCRYPT_KEY_HANDLE) -> super::super::Foundation:: BOOL);
-    NCryptIsKeyHandle(hkey.param().abi())
+    NCryptIsKeyHandle(core::mem::transmute(hkey))
 }
 #[inline]
-pub unsafe fn NCryptKeyDerivation<P0>(hkey: P0, pparameterlist: Option<*const BCryptBufferDesc>, pbderivedkey: &mut [u8], pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn NCryptKeyDerivation(hkey: NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, pbderivedkey: &mut [u8], pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptKeyDerivation(hkey : NCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    NCryptKeyDerivation(hkey.param().abi(), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(pbderivedkey.as_ptr()), pbderivedkey.len().try_into().unwrap(), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    NCryptKeyDerivation(core::mem::transmute(hkey), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbderivedkey.as_ptr()), pbderivedkey.len().try_into().unwrap(), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptNotifyChangeKey<P0>(hprovider: P0, phevent: *mut super::super::Foundation::HANDLE, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-{
+pub unsafe fn NCryptNotifyChangeKey(hprovider: NCRYPT_PROV_HANDLE, phevent: *mut super::super::Foundation::HANDLE, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptNotifyChangeKey(hprovider : NCRYPT_PROV_HANDLE, phevent : *mut super::super::Foundation:: HANDLE, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptNotifyChangeKey(hprovider.param().abi(), core::mem::transmute(phevent), core::mem::transmute(dwflags)).ok()
+    NCryptNotifyChangeKey(core::mem::transmute(hprovider), core::mem::transmute(phevent), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptOpenKey<P0, P2>(hprovider: P0, phkey: *mut NCRYPT_KEY_HANDLE, pszkeyname: P2, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
+pub unsafe fn NCryptOpenKey<P2>(hprovider: NCRYPT_PROV_HANDLE, phkey: *mut NCRYPT_KEY_HANDLE, pszkeyname: P2, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptOpenKey(hprovider : NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, pszkeyname : windows_core::PCWSTR, dwlegacykeyspec : CERT_KEY_SPEC, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptOpenKey(hprovider.param().abi(), core::mem::transmute(phkey), pszkeyname.param().abi(), core::mem::transmute(dwlegacykeyspec), core::mem::transmute(dwflags)).ok()
+    NCryptOpenKey(core::mem::transmute(hprovider), core::mem::transmute(phkey), pszkeyname.param().abi(), core::mem::transmute(dwlegacykeyspec), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn NCryptOpenStorageProvider<P1>(phprovider: *mut NCRYPT_PROV_HANDLE, pszprovidername: P1, dwflags: u32) -> windows_core::Result<()>
@@ -2667,21 +2461,17 @@ where
     NCryptOpenStorageProvider(core::mem::transmute(phprovider), pszprovidername.param().abi(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptProtectSecret<P0, P5>(hdescriptor: P0, dwflags: u32, pbdata: &[u8], pmempara: Option<*const NCRYPT_ALLOC_PARA>, hwnd: P5, ppbprotectedblob: *mut *mut u8, pcbprotectedblob: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::NCRYPT_DESCRIPTOR_HANDLE>,
-    P5: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn NCryptProtectSecret(hdescriptor: super::NCRYPT_DESCRIPTOR_HANDLE, dwflags: u32, pbdata: &[u8], pmempara: Option<*const NCRYPT_ALLOC_PARA>, hwnd: Option<super::super::Foundation::HWND>, ppbprotectedblob: *mut *mut u8, pcbprotectedblob: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptProtectSecret(hdescriptor : super:: NCRYPT_DESCRIPTOR_HANDLE, dwflags : u32, pbdata : *const u8, cbdata : u32, pmempara : *const NCRYPT_ALLOC_PARA, hwnd : super::super::Foundation:: HWND, ppbprotectedblob : *mut *mut u8, pcbprotectedblob : *mut u32) -> windows_core::HRESULT);
-    NCryptProtectSecret(hdescriptor.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), core::mem::transmute(pmempara.unwrap_or(core::ptr::null())), hwnd.param().abi(), core::mem::transmute(ppbprotectedblob), core::mem::transmute(pcbprotectedblob)).ok()
+    NCryptProtectSecret(core::mem::transmute(hdescriptor), core::mem::transmute(dwflags), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), core::mem::transmute(pmempara.unwrap_or(core::mem::zeroed())), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppbprotectedblob), core::mem::transmute(pcbprotectedblob)).ok()
 }
 #[inline]
-pub unsafe fn NCryptQueryProtectionDescriptorName<P0>(pwszname: P0, pwszdescriptorstring: windows_core::PWSTR, pcdescriptorstring: *mut usize, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn NCryptQueryProtectionDescriptorName<P0>(pwszname: P0, pwszdescriptorstring: Option<windows_core::PWSTR>, pcdescriptorstring: *mut usize, dwflags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptQueryProtectionDescriptorName(pwszname : windows_core::PCWSTR, pwszdescriptorstring : windows_core::PWSTR, pcdescriptorstring : *mut usize, dwflags : u32) -> windows_core::HRESULT);
-    NCryptQueryProtectionDescriptorName(pwszname.param().abi(), core::mem::transmute(pwszdescriptorstring), core::mem::transmute(pcdescriptorstring), core::mem::transmute(dwflags)).ok()
+    NCryptQueryProtectionDescriptorName(pwszname.param().abi(), core::mem::transmute(pwszdescriptorstring.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdescriptorstring), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn NCryptRegisterProtectionDescriptorName<P0, P1>(pwszname: P0, pwszdescriptorstring: P1, dwflags: u32) -> windows_core::Result<()>
@@ -2693,123 +2483,89 @@ where
     NCryptRegisterProtectionDescriptorName(pwszname.param().abi(), pwszdescriptorstring.param().abi(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptSecretAgreement<P0, P1>(hprivkey: P0, hpubkey: P1, phagreedsecret: *mut NCRYPT_SECRET_HANDLE, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn NCryptSecretAgreement(hprivkey: NCRYPT_KEY_HANDLE, hpubkey: NCRYPT_KEY_HANDLE, phagreedsecret: *mut NCRYPT_SECRET_HANDLE, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptSecretAgreement(hprivkey : NCRYPT_KEY_HANDLE, hpubkey : NCRYPT_KEY_HANDLE, phagreedsecret : *mut NCRYPT_SECRET_HANDLE, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptSecretAgreement(hprivkey.param().abi(), hpubkey.param().abi(), core::mem::transmute(phagreedsecret), core::mem::transmute(dwflags)).ok()
+    NCryptSecretAgreement(core::mem::transmute(hprivkey), core::mem::transmute(hpubkey), core::mem::transmute(phagreedsecret), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptSetProperty<P0, P1>(hobject: P0, pszproperty: P1, pbinput: &[u8], dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
+pub unsafe fn NCryptSetProperty<P1>(hobject: NCRYPT_HANDLE, pszproperty: P1, pbinput: &[u8], dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptSetProperty(hobject : NCRYPT_HANDLE, pszproperty : windows_core::PCWSTR, pbinput : *const u8, cbinput : u32, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptSetProperty(hobject.param().abi(), pszproperty.param().abi(), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
+    NCryptSetProperty(core::mem::transmute(hobject), pszproperty.param().abi(), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptSignHash<P0>(hkey: P0, ppaddinginfo: Option<*const core::ffi::c_void>, pbhashvalue: &[u8], pbsignature: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn NCryptSignHash(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Option<*const core::ffi::c_void>, pbhashvalue: &[u8], pbsignature: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptSignHash(hkey : NCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhashvalue : *const u8, cbhashvalue : u32, pbsignature : *mut u8, cbsignature : u32, pcbresult : *mut u32, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptSignHash(hkey.param().abi(), core::mem::transmute(ppaddinginfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsignature.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    NCryptSignHash(core::mem::transmute(hkey), core::mem::transmute(ppaddinginfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsignature.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptStreamClose<P0>(hstream: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::NCRYPT_STREAM_HANDLE>,
-{
+pub unsafe fn NCryptStreamClose(hstream: super::NCRYPT_STREAM_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamClose(hstream : super:: NCRYPT_STREAM_HANDLE) -> windows_core::HRESULT);
-    NCryptStreamClose(hstream.param().abi()).ok()
+    NCryptStreamClose(core::mem::transmute(hstream)).ok()
 }
 #[inline]
-pub unsafe fn NCryptStreamOpenToProtect<P0, P2>(hdescriptor: P0, dwflags: u32, hwnd: P2, pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO) -> windows_core::Result<super::NCRYPT_STREAM_HANDLE>
-where
-    P0: windows_core::Param<super::NCRYPT_DESCRIPTOR_HANDLE>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn NCryptStreamOpenToProtect(hdescriptor: super::NCRYPT_DESCRIPTOR_HANDLE, dwflags: u32, hwnd: Option<super::super::Foundation::HWND>, pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO) -> windows_core::Result<super::NCRYPT_STREAM_HANDLE> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamOpenToProtect(hdescriptor : super:: NCRYPT_DESCRIPTOR_HANDLE, dwflags : u32, hwnd : super::super::Foundation:: HWND, pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    NCryptStreamOpenToProtect(hdescriptor.param().abi(), core::mem::transmute(dwflags), hwnd.param().abi(), core::mem::transmute(pstreaminfo), &mut result__).map(|| core::mem::transmute(result__))
+    NCryptStreamOpenToProtect(core::mem::transmute(hdescriptor), core::mem::transmute(dwflags), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(pstreaminfo), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn NCryptStreamOpenToUnprotect<P2>(pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO, dwflags: u32, hwnd: P2) -> windows_core::Result<super::NCRYPT_STREAM_HANDLE>
-where
-    P2: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn NCryptStreamOpenToUnprotect(pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO, dwflags: u32, hwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<super::NCRYPT_STREAM_HANDLE> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotect(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, dwflags : u32, hwnd : super::super::Foundation:: HWND, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    NCryptStreamOpenToUnprotect(core::mem::transmute(pstreaminfo), core::mem::transmute(dwflags), hwnd.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    NCryptStreamOpenToUnprotect(core::mem::transmute(pstreaminfo), core::mem::transmute(dwflags), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn NCryptStreamOpenToUnprotectEx<P2>(pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags: u32, hwnd: P2) -> windows_core::Result<super::NCRYPT_STREAM_HANDLE>
-where
-    P2: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn NCryptStreamOpenToUnprotectEx(pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags: u32, hwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<super::NCRYPT_STREAM_HANDLE> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotectEx(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags : u32, hwnd : super::super::Foundation:: HWND, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    NCryptStreamOpenToUnprotectEx(core::mem::transmute(pstreaminfo), core::mem::transmute(dwflags), hwnd.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    NCryptStreamOpenToUnprotectEx(core::mem::transmute(pstreaminfo), core::mem::transmute(dwflags), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn NCryptStreamUpdate<P0, P3>(hstream: P0, pbdata: &[u8], ffinal: P3) -> windows_core::Result<()>
+pub unsafe fn NCryptStreamUpdate<P3>(hstream: super::NCRYPT_STREAM_HANDLE, pbdata: &[u8], ffinal: P3) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::NCRYPT_STREAM_HANDLE>,
     P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamUpdate(hstream : super:: NCRYPT_STREAM_HANDLE, pbdata : *const u8, cbdata : usize, ffinal : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    NCryptStreamUpdate(hstream.param().abi(), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), ffinal.param().abi()).ok()
+    NCryptStreamUpdate(core::mem::transmute(hstream), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), ffinal.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn NCryptTranslateHandle(phprovider: Option<*mut NCRYPT_PROV_HANDLE>, phkey: *mut NCRYPT_KEY_HANDLE, hlegacyprov: usize, hlegacykey: usize, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: u32) -> windows_core::Result<()> {
+pub unsafe fn NCryptTranslateHandle(phprovider: Option<*mut NCRYPT_PROV_HANDLE>, phkey: *mut NCRYPT_KEY_HANDLE, hlegacyprov: usize, hlegacykey: Option<usize>, dwlegacykeyspec: Option<CERT_KEY_SPEC>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptTranslateHandle(phprovider : *mut NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, hlegacyprov : usize, hlegacykey : usize, dwlegacykeyspec : CERT_KEY_SPEC, dwflags : u32) -> windows_core::HRESULT);
-    NCryptTranslateHandle(core::mem::transmute(phprovider.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phkey), core::mem::transmute(hlegacyprov), core::mem::transmute(hlegacykey), core::mem::transmute(dwlegacykeyspec), core::mem::transmute(dwflags)).ok()
+    NCryptTranslateHandle(core::mem::transmute(phprovider.unwrap_or(core::mem::zeroed())), core::mem::transmute(phkey), core::mem::transmute(hlegacyprov), core::mem::transmute(hlegacykey.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwlegacykeyspec.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptUnprotectSecret<P5>(phdescriptor: Option<*mut super::NCRYPT_DESCRIPTOR_HANDLE>, dwflags: NCRYPT_FLAGS, pbprotectedblob: &[u8], pmempara: Option<*const NCRYPT_ALLOC_PARA>, hwnd: P5, ppbdata: *mut *mut u8, pcbdata: *mut u32) -> windows_core::Result<()>
-where
-    P5: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn NCryptUnprotectSecret(phdescriptor: Option<*mut super::NCRYPT_DESCRIPTOR_HANDLE>, dwflags: NCRYPT_FLAGS, pbprotectedblob: &[u8], pmempara: Option<*const NCRYPT_ALLOC_PARA>, hwnd: Option<super::super::Foundation::HWND>, ppbdata: *mut *mut u8, pcbdata: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptUnprotectSecret(phdescriptor : *mut super:: NCRYPT_DESCRIPTOR_HANDLE, dwflags : NCRYPT_FLAGS, pbprotectedblob : *const u8, cbprotectedblob : u32, pmempara : *const NCRYPT_ALLOC_PARA, hwnd : super::super::Foundation:: HWND, ppbdata : *mut *mut u8, pcbdata : *mut u32) -> windows_core::HRESULT);
-    NCryptUnprotectSecret(core::mem::transmute(phdescriptor.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwflags), core::mem::transmute(pbprotectedblob.as_ptr()), pbprotectedblob.len().try_into().unwrap(), core::mem::transmute(pmempara.unwrap_or(core::ptr::null())), hwnd.param().abi(), core::mem::transmute(ppbdata), core::mem::transmute(pcbdata)).ok()
+    NCryptUnprotectSecret(core::mem::transmute(phdescriptor.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pbprotectedblob.as_ptr()), pbprotectedblob.len().try_into().unwrap(), core::mem::transmute(pmempara.unwrap_or(core::mem::zeroed())), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppbdata), core::mem::transmute(pcbdata)).ok()
 }
 #[inline]
-pub unsafe fn NCryptVerifyClaim<P0, P1>(hsubjectkey: P0, hauthoritykey: P1, dwclaimtype: u32, pparameterlist: Option<*const BCryptBufferDesc>, pbclaimblob: &[u8], poutput: *mut BCryptBufferDesc, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn NCryptVerifyClaim(hsubjectkey: NCRYPT_KEY_HANDLE, hauthoritykey: Option<NCRYPT_KEY_HANDLE>, dwclaimtype: u32, pparameterlist: Option<*const BCryptBufferDesc>, pbclaimblob: &[u8], poutput: *mut BCryptBufferDesc, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptVerifyClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : u32, pparameterlist : *const BCryptBufferDesc, pbclaimblob : *const u8, cbclaimblob : u32, poutput : *mut BCryptBufferDesc, dwflags : u32) -> windows_core::HRESULT);
-    NCryptVerifyClaim(hsubjectkey.param().abi(), hauthoritykey.param().abi(), core::mem::transmute(dwclaimtype), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(pbclaimblob.as_ptr()), pbclaimblob.len().try_into().unwrap(), core::mem::transmute(poutput), core::mem::transmute(dwflags)).ok()
+    NCryptVerifyClaim(core::mem::transmute(hsubjectkey), core::mem::transmute(hauthoritykey.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwclaimtype), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbclaimblob.as_ptr()), pbclaimblob.len().try_into().unwrap(), core::mem::transmute(poutput), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn NCryptVerifySignature<P0>(hkey: P0, ppaddinginfo: Option<*const core::ffi::c_void>, pbhashvalue: &[u8], pbsignature: &[u8], dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn NCryptVerifySignature(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Option<*const core::ffi::c_void>, pbhashvalue: &[u8], pbsignature: &[u8], dwflags: NCRYPT_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptVerifySignature(hkey : NCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhashvalue : *const u8, cbhashvalue : u32, pbsignature : *const u8, cbsignature : u32, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
-    NCryptVerifySignature(hkey.param().abi(), core::mem::transmute(ppaddinginfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
+    NCryptVerifySignature(core::mem::transmute(hkey), core::mem::transmute(ppaddinginfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn PFXExportCertStore<P0, P2>(hstore: P0, ppfx: *mut CRYPT_INTEGER_BLOB, szpassword: P2, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn PFXExportCertStore<P2>(hstore: HCERTSTORE, ppfx: *mut CRYPT_INTEGER_BLOB, szpassword: P2, dwflags: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HCERTSTORE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn PFXExportCertStore(hstore : HCERTSTORE, ppfx : *mut CRYPT_INTEGER_BLOB, szpassword : windows_core::PCWSTR, dwflags : u32) -> super::super::Foundation:: BOOL);
-    PFXExportCertStore(hstore.param().abi(), core::mem::transmute(ppfx), szpassword.param().abi(), core::mem::transmute(dwflags)).ok()
+    PFXExportCertStore(core::mem::transmute(hstore), core::mem::transmute(ppfx), szpassword.param().abi(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn PFXExportCertStoreEx<P0, P2>(hstore: P0, ppfx: *mut CRYPT_INTEGER_BLOB, szpassword: P2, pvpara: *const core::ffi::c_void, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn PFXExportCertStoreEx<P2>(hstore: HCERTSTORE, ppfx: *mut CRYPT_INTEGER_BLOB, szpassword: P2, pvpara: *const core::ffi::c_void, dwflags: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HCERTSTORE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn PFXExportCertStoreEx(hstore : HCERTSTORE, ppfx : *mut CRYPT_INTEGER_BLOB, szpassword : windows_core::PCWSTR, pvpara : *const core::ffi::c_void, dwflags : u32) -> super::super::Foundation:: BOOL);
-    PFXExportCertStoreEx(hstore.param().abi(), core::mem::transmute(ppfx), szpassword.param().abi(), core::mem::transmute(pvpara), core::mem::transmute(dwflags)).ok()
+    PFXExportCertStoreEx(core::mem::transmute(hstore), core::mem::transmute(ppfx), szpassword.param().abi(), core::mem::transmute(pvpara), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn PFXImportCertStore<P1>(ppfx: *const CRYPT_INTEGER_BLOB, szpassword: P1, dwflags: CRYPT_KEY_FLAGS) -> windows_core::Result<HCERTSTORE>
@@ -2862,7 +2618,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerSign(psubjectinfo : *const SIGNER_SUBJECT_INFO, psignercert : *const SIGNER_CERT, psignatureinfo : *const SIGNER_SIGNATURE_INFO, pproviderinfo : *const SIGNER_PROVIDER_INFO, pwszhttptimestamp : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    SignerSign(core::mem::transmute(psubjectinfo), core::mem::transmute(psignercert), core::mem::transmute(psignatureinfo), core::mem::transmute(pproviderinfo.unwrap_or(core::ptr::null())), pwszhttptimestamp.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::ptr::null())), core::mem::transmute(psipdata.unwrap_or(core::ptr::null()))).ok()
+    SignerSign(core::mem::transmute(psubjectinfo), core::mem::transmute(psignercert), core::mem::transmute(psignatureinfo), core::mem::transmute(pproviderinfo.unwrap_or(core::mem::zeroed())), pwszhttptimestamp.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::mem::zeroed())), core::mem::transmute(psipdata.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn SignerSignEx<P5>(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, pwszhttptimestamp: P5, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>) -> windows_core::Result<*mut SIGNER_CONTEXT>
@@ -2871,10 +2627,10 @@ where
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerSignEx(dwflags : SIGNER_SIGN_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, psignercert : *const SIGNER_CERT, psignatureinfo : *const SIGNER_SIGNATURE_INFO, pproviderinfo : *const SIGNER_PROVIDER_INFO, pwszhttptimestamp : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    SignerSignEx(core::mem::transmute(dwflags), core::mem::transmute(psubjectinfo), core::mem::transmute(psignercert), core::mem::transmute(psignatureinfo), core::mem::transmute(pproviderinfo.unwrap_or(core::ptr::null())), pwszhttptimestamp.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::ptr::null())), core::mem::transmute(psipdata.unwrap_or(core::ptr::null())), &mut result__).map(|| core::mem::transmute(result__))
+    SignerSignEx(core::mem::transmute(dwflags), core::mem::transmute(psubjectinfo), core::mem::transmute(psignercert), core::mem::transmute(psignatureinfo), core::mem::transmute(pproviderinfo.unwrap_or(core::mem::zeroed())), pwszhttptimestamp.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::mem::zeroed())), core::mem::transmute(psipdata.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn SignerSignEx2<P6, P7>(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, dwtimestampflags: SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid: P6, pwszhttptimestamp: P7, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: Option<*const CERT_STRONG_SIGN_PARA>, preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SignerSignEx2<P6, P7>(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, dwtimestampflags: Option<SIGNER_TIMESTAMP_FLAGS>, psztimestampalgorithmoid: P6, pwszhttptimestamp: P7, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: Option<*const CERT_STRONG_SIGN_PARA>, preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P6: windows_core::Param<windows_core::PCSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
@@ -2885,20 +2641,20 @@ where
         core::mem::transmute(psubjectinfo),
         core::mem::transmute(psignercert),
         core::mem::transmute(psignatureinfo),
-        core::mem::transmute(pproviderinfo.unwrap_or(core::ptr::null())),
-        core::mem::transmute(dwtimestampflags),
+        core::mem::transmute(pproviderinfo.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(dwtimestampflags.unwrap_or(core::mem::zeroed())),
         psztimestampalgorithmoid.param().abi(),
         pwszhttptimestamp.param().abi(),
-        core::mem::transmute(psrequest.unwrap_or(core::ptr::null())),
-        core::mem::transmute(psipdata.unwrap_or(core::ptr::null())),
+        core::mem::transmute(psrequest.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(psipdata.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(ppsignercontext),
-        core::mem::transmute(pcryptopolicy.unwrap_or(core::ptr::null())),
-        core::mem::transmute(preserved.unwrap_or(core::ptr::null())),
+        core::mem::transmute(pcryptopolicy.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(preserved.unwrap_or(core::mem::zeroed())),
     )
     .ok()
 }
 #[inline]
-pub unsafe fn SignerSignEx3<P6, P7>(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, dwtimestampflags: SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid: P6, pwszhttptimestamp: P7, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: Option<*const CERT_STRONG_SIGN_PARA>, pdigestsigninfo: Option<*const SIGNER_DIGEST_SIGN_INFO>, preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SignerSignEx3<P6, P7>(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, dwtimestampflags: Option<SIGNER_TIMESTAMP_FLAGS>, psztimestampalgorithmoid: P6, pwszhttptimestamp: P7, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: Option<*const CERT_STRONG_SIGN_PARA>, pdigestsigninfo: Option<*const SIGNER_DIGEST_SIGN_INFO>, preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P6: windows_core::Param<windows_core::PCSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
@@ -2909,16 +2665,16 @@ where
         core::mem::transmute(psubjectinfo),
         core::mem::transmute(psignercert),
         core::mem::transmute(psignatureinfo),
-        core::mem::transmute(pproviderinfo.unwrap_or(core::ptr::null())),
-        core::mem::transmute(dwtimestampflags),
+        core::mem::transmute(pproviderinfo.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(dwtimestampflags.unwrap_or(core::mem::zeroed())),
         psztimestampalgorithmoid.param().abi(),
         pwszhttptimestamp.param().abi(),
-        core::mem::transmute(psrequest.unwrap_or(core::ptr::null())),
-        core::mem::transmute(psipdata.unwrap_or(core::ptr::null())),
+        core::mem::transmute(psrequest.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(psipdata.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(ppsignercontext),
-        core::mem::transmute(pcryptopolicy.unwrap_or(core::ptr::null())),
-        core::mem::transmute(pdigestsigninfo.unwrap_or(core::ptr::null())),
-        core::mem::transmute(preserved.unwrap_or(core::ptr::null())),
+        core::mem::transmute(pcryptopolicy.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pdigestsigninfo.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(preserved.unwrap_or(core::mem::zeroed())),
     )
     .ok()
 }
@@ -2928,25 +2684,25 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerTimeStamp(psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    SignerTimeStamp(core::mem::transmute(psubjectinfo), pwszhttptimestamp.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::ptr::null())), core::mem::transmute(psipdata.unwrap_or(core::ptr::null()))).ok()
+    SignerTimeStamp(core::mem::transmute(psubjectinfo), pwszhttptimestamp.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::mem::zeroed())), core::mem::transmute(psipdata.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn SignerTimeStampEx<P2>(dwflags: u32, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P2, psrequest: *const CRYPT_ATTRIBUTES, psipdata: *const core::ffi::c_void) -> windows_core::Result<*mut SIGNER_CONTEXT>
+pub unsafe fn SignerTimeStampEx<P2>(dwflags: Option<u32>, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P2, psrequest: *const CRYPT_ATTRIBUTES, psipdata: *const core::ffi::c_void) -> windows_core::Result<*mut SIGNER_CONTEXT>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerTimeStampEx(dwflags : u32, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    SignerTimeStampEx(core::mem::transmute(dwflags), core::mem::transmute(psubjectinfo), pwszhttptimestamp.param().abi(), core::mem::transmute(psrequest), core::mem::transmute(psipdata), &mut result__).map(|| core::mem::transmute(result__))
+    SignerTimeStampEx(core::mem::transmute(dwflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(psubjectinfo), pwszhttptimestamp.param().abi(), core::mem::transmute(psrequest), core::mem::transmute(psipdata), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn SignerTimeStampEx2<P2>(dwflags: SIGNER_TIMESTAMP_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P2, dwalgid: ALG_ID, psrequest: *const CRYPT_ATTRIBUTES, psipdata: *const core::ffi::c_void) -> windows_core::Result<*mut SIGNER_CONTEXT>
+pub unsafe fn SignerTimeStampEx2<P2>(dwflags: Option<SIGNER_TIMESTAMP_FLAGS>, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P2, dwalgid: ALG_ID, psrequest: *const CRYPT_ATTRIBUTES, psipdata: *const core::ffi::c_void) -> windows_core::Result<*mut SIGNER_CONTEXT>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerTimeStampEx2(dwflags : SIGNER_TIMESTAMP_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : windows_core::PCWSTR, dwalgid : ALG_ID, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    SignerTimeStampEx2(core::mem::transmute(dwflags), core::mem::transmute(psubjectinfo), pwszhttptimestamp.param().abi(), core::mem::transmute(dwalgid), core::mem::transmute(psrequest), core::mem::transmute(psipdata), &mut result__).map(|| core::mem::transmute(result__))
+    SignerTimeStampEx2(core::mem::transmute(dwflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(psubjectinfo), pwszhttptimestamp.param().abi(), core::mem::transmute(dwalgid), core::mem::transmute(psrequest), core::mem::transmute(psipdata), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn SignerTimeStampEx3<P3, P4>(dwflags: SIGNER_TIMESTAMP_FLAGS, dwindex: u32, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P3, pszalgorithmoid: P4, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: Option<*const CERT_STRONG_SIGN_PARA>, preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -2955,140 +2711,88 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerTimeStampEx3(dwflags : SIGNER_TIMESTAMP_FLAGS, dwindex : u32, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : windows_core::PCWSTR, pszalgorithmoid : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT, pcryptopolicy : *const CERT_STRONG_SIGN_PARA, preserved : *const core::ffi::c_void) -> windows_core::HRESULT);
-    SignerTimeStampEx3(core::mem::transmute(dwflags), core::mem::transmute(dwindex), core::mem::transmute(psubjectinfo), pwszhttptimestamp.param().abi(), pszalgorithmoid.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::ptr::null())), core::mem::transmute(psipdata.unwrap_or(core::ptr::null())), core::mem::transmute(ppsignercontext), core::mem::transmute(pcryptopolicy.unwrap_or(core::ptr::null())), core::mem::transmute(preserved.unwrap_or(core::ptr::null()))).ok()
+    SignerTimeStampEx3(core::mem::transmute(dwflags), core::mem::transmute(dwindex), core::mem::transmute(psubjectinfo), pwszhttptimestamp.param().abi(), pszalgorithmoid.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::mem::zeroed())), core::mem::transmute(psipdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppsignercontext), core::mem::transmute(pcryptopolicy.unwrap_or(core::mem::zeroed())), core::mem::transmute(preserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn SslChangeNotify<P0>(hevent: P0, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SslChangeNotify(hevent: super::super::Foundation::HANDLE, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslChangeNotify(hevent : super::super::Foundation:: HANDLE, dwflags : u32) -> windows_core::HRESULT);
-    SslChangeNotify(hevent.param().abi(), core::mem::transmute(dwflags)).ok()
+    SslChangeNotify(core::mem::transmute(hevent), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslComputeClientAuthHash<P0, P1, P2, P3>(hsslprovider: P0, hmasterkey: P1, hhandshakehash: P2, pszalgid: P3, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn SslComputeClientAuthHash<P3>(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, pszalgid: P3, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-    P2: windows_core::Param<NCRYPT_HASH_HANDLE>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn SslComputeClientAuthHash(hsslprovider : NCRYPT_PROV_HANDLE, hmasterkey : NCRYPT_KEY_HANDLE, hhandshakehash : NCRYPT_HASH_HANDLE, pszalgid : windows_core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    SslComputeClientAuthHash(hsslprovider.param().abi(), hmasterkey.param().abi(), hhandshakehash.param().abi(), pszalgid.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    SslComputeClientAuthHash(core::mem::transmute(hsslprovider), core::mem::transmute(hmasterkey), core::mem::transmute(hhandshakehash), pszalgid.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslComputeEapKeyBlock<P0, P1>(hsslprovider: P0, hmasterkey: P1, pbrandoms: &[u8], pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslComputeEapKeyBlock(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, pbrandoms: &[u8], pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslComputeEapKeyBlock(hsslprovider : NCRYPT_PROV_HANDLE, hmasterkey : NCRYPT_KEY_HANDLE, pbrandoms : *const u8, cbrandoms : u32, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    SslComputeEapKeyBlock(hsslprovider.param().abi(), hmasterkey.param().abi(), core::mem::transmute(pbrandoms.as_ptr()), pbrandoms.len().try_into().unwrap(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    SslComputeEapKeyBlock(core::mem::transmute(hsslprovider), core::mem::transmute(hmasterkey), core::mem::transmute(pbrandoms.as_ptr()), pbrandoms.len().try_into().unwrap(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslComputeFinishedHash<P0, P1, P2>(hsslprovider: P0, hmasterkey: P1, hhandshakehash: P2, pboutput: &mut [u8], dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-    P2: windows_core::Param<NCRYPT_HASH_HANDLE>,
-{
+pub unsafe fn SslComputeFinishedHash(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, pboutput: &mut [u8], dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslComputeFinishedHash(hsslprovider : NCRYPT_PROV_HANDLE, hmasterkey : NCRYPT_KEY_HANDLE, hhandshakehash : NCRYPT_HASH_HANDLE, pboutput : *mut u8, cboutput : u32, dwflags : u32) -> windows_core::HRESULT);
-    SslComputeFinishedHash(hsslprovider.param().abi(), hmasterkey.param().abi(), hhandshakehash.param().abi(), core::mem::transmute(pboutput.as_ptr()), pboutput.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
+    SslComputeFinishedHash(core::mem::transmute(hsslprovider), core::mem::transmute(hmasterkey), core::mem::transmute(hhandshakehash), core::mem::transmute(pboutput.as_ptr()), pboutput.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslComputeSessionHash<P0, P1>(hsslprovider: P0, hhandshakehash: P1, dwprotocol: u32, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_HASH_HANDLE>,
-{
+pub unsafe fn SslComputeSessionHash(hsslprovider: NCRYPT_PROV_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, dwprotocol: u32, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslComputeSessionHash(hsslprovider : NCRYPT_PROV_HANDLE, hhandshakehash : NCRYPT_HASH_HANDLE, dwprotocol : u32, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    SslComputeSessionHash(hsslprovider.param().abi(), hhandshakehash.param().abi(), core::mem::transmute(dwprotocol), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    SslComputeSessionHash(core::mem::transmute(hsslprovider), core::mem::transmute(hhandshakehash), core::mem::transmute(dwprotocol), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslCreateClientAuthHash<P0, P4>(hsslprovider: P0, phhandshakehash: *mut NCRYPT_HASH_HANDLE, dwprotocol: u32, dwciphersuite: u32, pszhashalgid: P4, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn SslCreateClientAuthHash<P4>(hsslprovider: NCRYPT_PROV_HANDLE, phhandshakehash: *mut NCRYPT_HASH_HANDLE, dwprotocol: u32, dwciphersuite: u32, pszhashalgid: P4, dwflags: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn SslCreateClientAuthHash(hsslprovider : NCRYPT_PROV_HANDLE, phhandshakehash : *mut NCRYPT_HASH_HANDLE, dwprotocol : u32, dwciphersuite : u32, pszhashalgid : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
-    SslCreateClientAuthHash(hsslprovider.param().abi(), core::mem::transmute(phhandshakehash), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), pszhashalgid.param().abi(), core::mem::transmute(dwflags)).ok()
+    SslCreateClientAuthHash(core::mem::transmute(hsslprovider), core::mem::transmute(phhandshakehash), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), pszhashalgid.param().abi(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslCreateEphemeralKey<P0>(hsslprovider: P0, phephemeralkey: *mut NCRYPT_KEY_HANDLE, dwprotocol: u32, dwciphersuite: u32, dwkeytype: u32, dwkeybitlen: u32, pbparams: Option<&[u8]>, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-{
+pub unsafe fn SslCreateEphemeralKey(hsslprovider: NCRYPT_PROV_HANDLE, phephemeralkey: *mut NCRYPT_KEY_HANDLE, dwprotocol: u32, dwciphersuite: u32, dwkeytype: u32, dwkeybitlen: u32, pbparams: Option<&[u8]>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslCreateEphemeralKey(hsslprovider : NCRYPT_PROV_HANDLE, phephemeralkey : *mut NCRYPT_KEY_HANDLE, dwprotocol : u32, dwciphersuite : u32, dwkeytype : u32, dwkeybitlen : u32, pbparams : *const u8, cbparams : u32, dwflags : u32) -> windows_core::HRESULT);
-    SslCreateEphemeralKey(hsslprovider.param().abi(), core::mem::transmute(phephemeralkey), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(dwkeytype), core::mem::transmute(dwkeybitlen), core::mem::transmute(pbparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(dwflags)).ok()
+    SslCreateEphemeralKey(core::mem::transmute(hsslprovider), core::mem::transmute(phephemeralkey), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(dwkeytype), core::mem::transmute(dwkeybitlen), core::mem::transmute(pbparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslCreateHandshakeHash<P0>(hsslprovider: P0, phhandshakehash: *mut NCRYPT_HASH_HANDLE, dwprotocol: u32, dwciphersuite: u32, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-{
+pub unsafe fn SslCreateHandshakeHash(hsslprovider: NCRYPT_PROV_HANDLE, phhandshakehash: *mut NCRYPT_HASH_HANDLE, dwprotocol: u32, dwciphersuite: u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslCreateHandshakeHash(hsslprovider : NCRYPT_PROV_HANDLE, phhandshakehash : *mut NCRYPT_HASH_HANDLE, dwprotocol : u32, dwciphersuite : u32, dwflags : u32) -> windows_core::HRESULT);
-    SslCreateHandshakeHash(hsslprovider.param().abi(), core::mem::transmute(phhandshakehash), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(dwflags)).ok()
+    SslCreateHandshakeHash(core::mem::transmute(hsslprovider), core::mem::transmute(phhandshakehash), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslDecrementProviderReferenceCount<P0>(hsslprovider: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-{
+pub unsafe fn SslDecrementProviderReferenceCount(hsslprovider: NCRYPT_PROV_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslDecrementProviderReferenceCount(hsslprovider : NCRYPT_PROV_HANDLE) -> windows_core::HRESULT);
-    SslDecrementProviderReferenceCount(hsslprovider.param().abi()).ok()
+    SslDecrementProviderReferenceCount(core::mem::transmute(hsslprovider)).ok()
 }
 #[inline]
-pub unsafe fn SslDecryptPacket<P0, P1>(hsslprovider: P0, hkey: P1, pbinput: &[u8], pboutput: Option<&mut [u8]>, pcbresult: *mut u32, sequencenumber: u64, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslDecryptPacket(hsslprovider: NCRYPT_PROV_HANDLE, hkey: NCRYPT_KEY_HANDLE, pbinput: &[u8], pboutput: Option<&mut [u8]>, pcbresult: *mut u32, sequencenumber: u64, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslDecryptPacket(hsslprovider : NCRYPT_PROV_HANDLE, hkey : NCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, sequencenumber : u64, dwflags : u32) -> windows_core::HRESULT);
-    SslDecryptPacket(hsslprovider.param().abi(), hkey.param().abi(), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(sequencenumber), core::mem::transmute(dwflags)).ok()
+    SslDecryptPacket(core::mem::transmute(hsslprovider), core::mem::transmute(hkey), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(sequencenumber), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslDuplicateTranscriptHash<P0, P1>(hsslprovider: P0, htranscripthash: P1, phtranscripthash: *mut NCRYPT_HASH_HANDLE, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_HASH_HANDLE>,
-{
+pub unsafe fn SslDuplicateTranscriptHash(hsslprovider: NCRYPT_PROV_HANDLE, htranscripthash: NCRYPT_HASH_HANDLE, phtranscripthash: *mut NCRYPT_HASH_HANDLE, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslDuplicateTranscriptHash(hsslprovider : NCRYPT_PROV_HANDLE, htranscripthash : NCRYPT_HASH_HANDLE, phtranscripthash : *mut NCRYPT_HASH_HANDLE, dwflags : u32) -> windows_core::HRESULT);
-    SslDuplicateTranscriptHash(hsslprovider.param().abi(), htranscripthash.param().abi(), core::mem::transmute(phtranscripthash), core::mem::transmute(dwflags)).ok()
+    SslDuplicateTranscriptHash(core::mem::transmute(hsslprovider), core::mem::transmute(htranscripthash), core::mem::transmute(phtranscripthash), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslEncryptPacket<P0, P1>(hsslprovider: P0, hkey: P1, pbinput: &[u8], pboutput: Option<&mut [u8]>, pcbresult: *mut u32, sequencenumber: u64, dwcontenttype: u32, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslEncryptPacket(hsslprovider: NCRYPT_PROV_HANDLE, hkey: NCRYPT_KEY_HANDLE, pbinput: &[u8], pboutput: Option<&mut [u8]>, pcbresult: *mut u32, sequencenumber: u64, dwcontenttype: u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslEncryptPacket(hsslprovider : NCRYPT_PROV_HANDLE, hkey : NCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, sequencenumber : u64, dwcontenttype : u32, dwflags : u32) -> windows_core::HRESULT);
-    SslEncryptPacket(hsslprovider.param().abi(), hkey.param().abi(), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(sequencenumber), core::mem::transmute(dwcontenttype), core::mem::transmute(dwflags)).ok()
+    SslEncryptPacket(core::mem::transmute(hsslprovider), core::mem::transmute(hkey), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(sequencenumber), core::mem::transmute(dwcontenttype), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslEnumCipherSuites<P0, P1>(hsslprovider: P0, hprivatekey: P1, ppciphersuite: *mut *mut NCRYPT_SSL_CIPHER_SUITE, ppenumstate: *mut *mut core::ffi::c_void, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslEnumCipherSuites(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: Option<NCRYPT_KEY_HANDLE>, ppciphersuite: *mut *mut NCRYPT_SSL_CIPHER_SUITE, ppenumstate: *mut *mut core::ffi::c_void, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslEnumCipherSuites(hsslprovider : NCRYPT_PROV_HANDLE, hprivatekey : NCRYPT_KEY_HANDLE, ppciphersuite : *mut *mut NCRYPT_SSL_CIPHER_SUITE, ppenumstate : *mut *mut core::ffi::c_void, dwflags : u32) -> windows_core::HRESULT);
-    SslEnumCipherSuites(hsslprovider.param().abi(), hprivatekey.param().abi(), core::mem::transmute(ppciphersuite), core::mem::transmute(ppenumstate), core::mem::transmute(dwflags)).ok()
+    SslEnumCipherSuites(core::mem::transmute(hsslprovider), core::mem::transmute(hprivatekey.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppciphersuite), core::mem::transmute(ppenumstate), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslEnumCipherSuitesEx<P0, P1>(hsslprovider: P0, hprivatekey: P1, ppciphersuite: *mut *mut NCRYPT_SSL_CIPHER_SUITE_EX, ppenumstate: *mut *mut core::ffi::c_void, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslEnumCipherSuitesEx(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: Option<NCRYPT_KEY_HANDLE>, ppciphersuite: *mut *mut NCRYPT_SSL_CIPHER_SUITE_EX, ppenumstate: *mut *mut core::ffi::c_void, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslEnumCipherSuitesEx(hsslprovider : NCRYPT_PROV_HANDLE, hprivatekey : NCRYPT_KEY_HANDLE, ppciphersuite : *mut *mut NCRYPT_SSL_CIPHER_SUITE_EX, ppenumstate : *mut *mut core::ffi::c_void, dwflags : u32) -> windows_core::HRESULT);
-    SslEnumCipherSuitesEx(hsslprovider.param().abi(), hprivatekey.param().abi(), core::mem::transmute(ppciphersuite), core::mem::transmute(ppenumstate), core::mem::transmute(dwflags)).ok()
+    SslEnumCipherSuitesEx(core::mem::transmute(hsslprovider), core::mem::transmute(hprivatekey.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppciphersuite), core::mem::transmute(ppenumstate), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslEnumEccCurves<P0>(hsslprovider: P0, pecccurvecount: *mut u32, ppecccurve: *mut *mut NCRYPT_SSL_ECC_CURVE, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-{
+pub unsafe fn SslEnumEccCurves(hsslprovider: NCRYPT_PROV_HANDLE, pecccurvecount: *mut u32, ppecccurve: *mut *mut NCRYPT_SSL_ECC_CURVE, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslEnumEccCurves(hsslprovider : NCRYPT_PROV_HANDLE, pecccurvecount : *mut u32, ppecccurve : *mut *mut NCRYPT_SSL_ECC_CURVE, dwflags : u32) -> windows_core::HRESULT);
-    SslEnumEccCurves(hsslprovider.param().abi(), core::mem::transmute(pecccurvecount), core::mem::transmute(ppecccurve), core::mem::transmute(dwflags)).ok()
+    SslEnumEccCurves(core::mem::transmute(hsslprovider), core::mem::transmute(pecccurvecount), core::mem::transmute(ppecccurve), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn SslEnumProtocolProviders(pdwprovidercount: *mut u32, ppproviderlist: *mut *mut NCryptProviderName, dwflags: u32) -> windows_core::Result<()> {
@@ -3096,83 +2800,52 @@ pub unsafe fn SslEnumProtocolProviders(pdwprovidercount: *mut u32, ppproviderlis
     SslEnumProtocolProviders(core::mem::transmute(pdwprovidercount), core::mem::transmute(ppproviderlist), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslExpandBinderKey<P0, P1>(hsslprovider: P0, hearlykey: P1, phbinderkey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslExpandBinderKey(hsslprovider: NCRYPT_PROV_HANDLE, hearlykey: NCRYPT_KEY_HANDLE, phbinderkey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslExpandBinderKey(hsslprovider : NCRYPT_PROV_HANDLE, hearlykey : NCRYPT_KEY_HANDLE, phbinderkey : *mut NCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, dwflags : u32) -> windows_core::HRESULT);
-    SslExpandBinderKey(hsslprovider.param().abi(), hearlykey.param().abi(), core::mem::transmute(phbinderkey), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+    SslExpandBinderKey(core::mem::transmute(hsslprovider), core::mem::transmute(hearlykey), core::mem::transmute(phbinderkey), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslExpandExporterMasterKey<P0, P1, P2>(hsslprovider: P0, hbasekey: P1, hhashvalue: P2, phexportermasterkey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-    P2: windows_core::Param<NCRYPT_HASH_HANDLE>,
-{
+pub unsafe fn SslExpandExporterMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hbasekey: NCRYPT_KEY_HANDLE, hhashvalue: NCRYPT_HASH_HANDLE, phexportermasterkey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslExpandExporterMasterKey(hsslprovider : NCRYPT_PROV_HANDLE, hbasekey : NCRYPT_KEY_HANDLE, hhashvalue : NCRYPT_HASH_HANDLE, phexportermasterkey : *mut NCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, dwflags : u32) -> windows_core::HRESULT);
-    SslExpandExporterMasterKey(hsslprovider.param().abi(), hbasekey.param().abi(), hhashvalue.param().abi(), core::mem::transmute(phexportermasterkey), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+    SslExpandExporterMasterKey(core::mem::transmute(hsslprovider), core::mem::transmute(hbasekey), core::mem::transmute(hhashvalue), core::mem::transmute(phexportermasterkey), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslExpandPreSharedKey<P0, P1>(hsslprovider: P0, hresumptionmasterkey: P1, pbticketnonce: Option<&[u8]>, phpresharedkey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslExpandPreSharedKey(hsslprovider: NCRYPT_PROV_HANDLE, hresumptionmasterkey: NCRYPT_KEY_HANDLE, pbticketnonce: Option<&[u8]>, phpresharedkey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslExpandPreSharedKey(hsslprovider : NCRYPT_PROV_HANDLE, hresumptionmasterkey : NCRYPT_KEY_HANDLE, pbticketnonce : *const u8, cbticketnonce : u32, phpresharedkey : *mut NCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, dwflags : u32) -> windows_core::HRESULT);
-    SslExpandPreSharedKey(hsslprovider.param().abi(), hresumptionmasterkey.param().abi(), core::mem::transmute(pbticketnonce.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbticketnonce.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(phpresharedkey), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+    SslExpandPreSharedKey(core::mem::transmute(hsslprovider), core::mem::transmute(hresumptionmasterkey), core::mem::transmute(pbticketnonce.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbticketnonce.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(phpresharedkey), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslExpandResumptionMasterKey<P0, P1, P2>(hsslprovider: P0, hmasterkey: P1, hhashvalue: P2, phresumptionmasterkey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-    P2: windows_core::Param<NCRYPT_HASH_HANDLE>,
-{
+pub unsafe fn SslExpandResumptionMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, hhashvalue: NCRYPT_HASH_HANDLE, phresumptionmasterkey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslExpandResumptionMasterKey(hsslprovider : NCRYPT_PROV_HANDLE, hmasterkey : NCRYPT_KEY_HANDLE, hhashvalue : NCRYPT_HASH_HANDLE, phresumptionmasterkey : *mut NCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, dwflags : u32) -> windows_core::HRESULT);
-    SslExpandResumptionMasterKey(hsslprovider.param().abi(), hmasterkey.param().abi(), hhashvalue.param().abi(), core::mem::transmute(phresumptionmasterkey), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+    SslExpandResumptionMasterKey(core::mem::transmute(hsslprovider), core::mem::transmute(hmasterkey), core::mem::transmute(hhashvalue), core::mem::transmute(phresumptionmasterkey), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslExpandTrafficKeys<P0, P1, P2>(hsslprovider: P0, hbasekey: P1, hhashvalue: P2, phclienttraffickey: Option<*mut NCRYPT_KEY_HANDLE>, phservertraffickey: Option<*mut NCRYPT_KEY_HANDLE>, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-    P2: windows_core::Param<NCRYPT_HASH_HANDLE>,
-{
+pub unsafe fn SslExpandTrafficKeys(hsslprovider: NCRYPT_PROV_HANDLE, hbasekey: NCRYPT_KEY_HANDLE, hhashvalue: NCRYPT_HASH_HANDLE, phclienttraffickey: Option<*mut NCRYPT_KEY_HANDLE>, phservertraffickey: Option<*mut NCRYPT_KEY_HANDLE>, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslExpandTrafficKeys(hsslprovider : NCRYPT_PROV_HANDLE, hbasekey : NCRYPT_KEY_HANDLE, hhashvalue : NCRYPT_HASH_HANDLE, phclienttraffickey : *mut NCRYPT_KEY_HANDLE, phservertraffickey : *mut NCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, dwflags : u32) -> windows_core::HRESULT);
-    SslExpandTrafficKeys(hsslprovider.param().abi(), hbasekey.param().abi(), hhashvalue.param().abi(), core::mem::transmute(phclienttraffickey.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phservertraffickey.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+    SslExpandTrafficKeys(core::mem::transmute(hsslprovider), core::mem::transmute(hbasekey), core::mem::transmute(hhashvalue), core::mem::transmute(phclienttraffickey.unwrap_or(core::mem::zeroed())), core::mem::transmute(phservertraffickey.unwrap_or(core::mem::zeroed())), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslExpandWriteKey<P0, P1>(hsslprovider: P0, hbasetraffickey: P1, phwritekey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslExpandWriteKey(hsslprovider: NCRYPT_PROV_HANDLE, hbasetraffickey: NCRYPT_KEY_HANDLE, phwritekey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslExpandWriteKey(hsslprovider : NCRYPT_PROV_HANDLE, hbasetraffickey : NCRYPT_KEY_HANDLE, phwritekey : *mut NCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, dwflags : u32) -> windows_core::HRESULT);
-    SslExpandWriteKey(hsslprovider.param().abi(), hbasetraffickey.param().abi(), core::mem::transmute(phwritekey), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+    SslExpandWriteKey(core::mem::transmute(hsslprovider), core::mem::transmute(hbasetraffickey), core::mem::transmute(phwritekey), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslExportKey<P0, P1, P2>(hsslprovider: P0, hkey: P1, pszblobtype: P2, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn SslExportKey<P2>(hsslprovider: NCRYPT_PROV_HANDLE, hkey: NCRYPT_KEY_HANDLE, pszblobtype: P2, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn SslExportKey(hsslprovider : NCRYPT_PROV_HANDLE, hkey : NCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    SslExportKey(hsslprovider.param().abi(), hkey.param().abi(), pszblobtype.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    SslExportKey(core::mem::transmute(hsslprovider), core::mem::transmute(hkey), pszblobtype.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslExportKeyingMaterial<P0, P1, P2>(hsslprovider: P0, hmasterkey: P1, slabel: P2, pbrandoms: Option<&[u8]>, pbcontextvalue: Option<&[u8]>, pboutput: &mut [u8], dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn SslExportKeyingMaterial<P2>(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, slabel: P2, pbrandoms: Option<&[u8]>, pbcontextvalue: Option<&[u8]>, pboutput: &mut [u8], dwflags: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn SslExportKeyingMaterial(hsslprovider : NCRYPT_PROV_HANDLE, hmasterkey : NCRYPT_KEY_HANDLE, slabel : windows_core::PCSTR, pbrandoms : *const u8, cbrandoms : u32, pbcontextvalue : *const u8, cbcontextvalue : u16, pboutput : *mut u8, cboutput : u32, dwflags : u32) -> windows_core::HRESULT);
     SslExportKeyingMaterial(
-        hsslprovider.param().abi(),
-        hmasterkey.param().abi(),
+        core::mem::transmute(hsslprovider),
+        core::mem::transmute(hmasterkey),
         slabel.param().abi(),
         core::mem::transmute(pbrandoms.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pbrandoms.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -3185,33 +2858,19 @@ where
     .ok()
 }
 #[inline]
-pub unsafe fn SslExtractEarlyKey<P0, P1>(hsslprovider: P0, hpresharedkey: P1, phearlykey: *mut NCRYPT_KEY_HANDLE, dwprotocol: u32, dwciphersuite: u32, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslExtractEarlyKey(hsslprovider: NCRYPT_PROV_HANDLE, hpresharedkey: Option<NCRYPT_KEY_HANDLE>, phearlykey: *mut NCRYPT_KEY_HANDLE, dwprotocol: u32, dwciphersuite: u32, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslExtractEarlyKey(hsslprovider : NCRYPT_PROV_HANDLE, hpresharedkey : NCRYPT_KEY_HANDLE, phearlykey : *mut NCRYPT_KEY_HANDLE, dwprotocol : u32, dwciphersuite : u32, pparameterlist : *const BCryptBufferDesc, dwflags : u32) -> windows_core::HRESULT);
-    SslExtractEarlyKey(hsslprovider.param().abi(), hpresharedkey.param().abi(), core::mem::transmute(phearlykey), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+    SslExtractEarlyKey(core::mem::transmute(hsslprovider), core::mem::transmute(hpresharedkey.unwrap_or(core::mem::zeroed())), core::mem::transmute(phearlykey), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslExtractHandshakeKey<P0, P1, P2, P3>(hsslprovider: P0, hprivatekey: P1, hpublickey: P2, hearlykey: P3, phhandshakekey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-    P2: windows_core::Param<NCRYPT_KEY_HANDLE>,
-    P3: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslExtractHandshakeKey(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, hpublickey: NCRYPT_KEY_HANDLE, hearlykey: NCRYPT_KEY_HANDLE, phhandshakekey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslExtractHandshakeKey(hsslprovider : NCRYPT_PROV_HANDLE, hprivatekey : NCRYPT_KEY_HANDLE, hpublickey : NCRYPT_KEY_HANDLE, hearlykey : NCRYPT_KEY_HANDLE, phhandshakekey : *mut NCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, dwflags : u32) -> windows_core::HRESULT);
-    SslExtractHandshakeKey(hsslprovider.param().abi(), hprivatekey.param().abi(), hpublickey.param().abi(), hearlykey.param().abi(), core::mem::transmute(phhandshakekey), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+    SslExtractHandshakeKey(core::mem::transmute(hsslprovider), core::mem::transmute(hprivatekey), core::mem::transmute(hpublickey), core::mem::transmute(hearlykey), core::mem::transmute(phhandshakekey), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslExtractMasterKey<P0, P1>(hsslprovider: P0, hhandshakekey: P1, phmasterkey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslExtractMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hhandshakekey: NCRYPT_KEY_HANDLE, phmasterkey: *mut NCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslExtractMasterKey(hsslprovider : NCRYPT_PROV_HANDLE, hhandshakekey : NCRYPT_KEY_HANDLE, phmasterkey : *mut NCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, dwflags : u32) -> windows_core::HRESULT);
-    SslExtractMasterKey(hsslprovider.param().abi(), hhandshakekey.param().abi(), core::mem::transmute(phmasterkey), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+    SslExtractMasterKey(core::mem::transmute(hsslprovider), core::mem::transmute(hhandshakekey), core::mem::transmute(phmasterkey), core::mem::transmute(pparameterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn SslFreeBuffer(pvinput: *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -3219,125 +2878,96 @@ pub unsafe fn SslFreeBuffer(pvinput: *mut core::ffi::c_void) -> windows_core::Re
     SslFreeBuffer(core::mem::transmute(pvinput)).ok()
 }
 #[inline]
-pub unsafe fn SslFreeObject<P0>(hobject: P0, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_HANDLE>,
-{
+pub unsafe fn SslFreeObject(hobject: NCRYPT_HANDLE, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslFreeObject(hobject : NCRYPT_HANDLE, dwflags : u32) -> windows_core::HRESULT);
-    SslFreeObject(hobject.param().abi(), core::mem::transmute(dwflags)).ok()
+    SslFreeObject(core::mem::transmute(hobject), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslGenerateMasterKey<P0, P1, P2>(hsslprovider: P0, hprivatekey: P1, hpublickey: P2, phmasterkey: *mut NCRYPT_KEY_HANDLE, dwprotocol: u32, dwciphersuite: u32, pparameterlist: *const BCryptBufferDesc, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-    P2: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslGenerateMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: Option<NCRYPT_KEY_HANDLE>, hpublickey: NCRYPT_KEY_HANDLE, phmasterkey: *mut NCRYPT_KEY_HANDLE, dwprotocol: u32, dwciphersuite: u32, pparameterlist: *const BCryptBufferDesc, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslGenerateMasterKey(hsslprovider : NCRYPT_PROV_HANDLE, hprivatekey : NCRYPT_KEY_HANDLE, hpublickey : NCRYPT_KEY_HANDLE, phmasterkey : *mut NCRYPT_KEY_HANDLE, dwprotocol : u32, dwciphersuite : u32, pparameterlist : *const BCryptBufferDesc, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    SslGenerateMasterKey(hsslprovider.param().abi(), hprivatekey.param().abi(), hpublickey.param().abi(), core::mem::transmute(phmasterkey), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(pparameterlist), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    SslGenerateMasterKey(
+        core::mem::transmute(hsslprovider),
+        core::mem::transmute(hprivatekey.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(hpublickey),
+        core::mem::transmute(phmasterkey),
+        core::mem::transmute(dwprotocol),
+        core::mem::transmute(dwciphersuite),
+        core::mem::transmute(pparameterlist),
+        core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+        pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        core::mem::transmute(pcbresult),
+        core::mem::transmute(dwflags),
+    )
+    .ok()
 }
 #[inline]
-pub unsafe fn SslGeneratePreMasterKey<P0, P1>(hsslprovider: P0, hpublickey: P1, phpremasterkey: *mut NCRYPT_KEY_HANDLE, dwprotocol: u32, dwciphersuite: u32, pparameterlist: *const BCryptBufferDesc, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslGeneratePreMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hpublickey: NCRYPT_KEY_HANDLE, phpremasterkey: *mut NCRYPT_KEY_HANDLE, dwprotocol: u32, dwciphersuite: u32, pparameterlist: *const BCryptBufferDesc, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslGeneratePreMasterKey(hsslprovider : NCRYPT_PROV_HANDLE, hpublickey : NCRYPT_KEY_HANDLE, phpremasterkey : *mut NCRYPT_KEY_HANDLE, dwprotocol : u32, dwciphersuite : u32, pparameterlist : *const BCryptBufferDesc, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    SslGeneratePreMasterKey(hsslprovider.param().abi(), hpublickey.param().abi(), core::mem::transmute(phpremasterkey), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(pparameterlist), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    SslGeneratePreMasterKey(core::mem::transmute(hsslprovider), core::mem::transmute(hpublickey), core::mem::transmute(phpremasterkey), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(pparameterlist), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslGenerateSessionKeys<P0, P1>(hsslprovider: P0, hmasterkey: P1, phreadkey: *mut NCRYPT_KEY_HANDLE, phwritekey: *mut NCRYPT_KEY_HANDLE, pparameterlist: *const BCryptBufferDesc, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslGenerateSessionKeys(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, phreadkey: *mut NCRYPT_KEY_HANDLE, phwritekey: *mut NCRYPT_KEY_HANDLE, pparameterlist: *const BCryptBufferDesc, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslGenerateSessionKeys(hsslprovider : NCRYPT_PROV_HANDLE, hmasterkey : NCRYPT_KEY_HANDLE, phreadkey : *mut NCRYPT_KEY_HANDLE, phwritekey : *mut NCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, dwflags : u32) -> windows_core::HRESULT);
-    SslGenerateSessionKeys(hsslprovider.param().abi(), hmasterkey.param().abi(), core::mem::transmute(phreadkey), core::mem::transmute(phwritekey), core::mem::transmute(pparameterlist), core::mem::transmute(dwflags)).ok()
+    SslGenerateSessionKeys(core::mem::transmute(hsslprovider), core::mem::transmute(hmasterkey), core::mem::transmute(phreadkey), core::mem::transmute(phwritekey), core::mem::transmute(pparameterlist), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslGetCipherSuitePRFHashAlgorithm<P0>(hsslprovider: P0, dwprotocol: u32, dwciphersuite: u32, dwkeytype: u32, szprfhash: &mut [u16; 64], dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-{
+pub unsafe fn SslGetCipherSuitePRFHashAlgorithm(hsslprovider: NCRYPT_PROV_HANDLE, dwprotocol: u32, dwciphersuite: u32, dwkeytype: u32, szprfhash: &mut [u16; 64], dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslGetCipherSuitePRFHashAlgorithm(hsslprovider : NCRYPT_PROV_HANDLE, dwprotocol : u32, dwciphersuite : u32, dwkeytype : u32, szprfhash : windows_core::PWSTR, dwflags : u32) -> windows_core::HRESULT);
-    SslGetCipherSuitePRFHashAlgorithm(hsslprovider.param().abi(), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(dwkeytype), core::mem::transmute(szprfhash.as_ptr()), core::mem::transmute(dwflags)).ok()
+    SslGetCipherSuitePRFHashAlgorithm(core::mem::transmute(hsslprovider), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(dwkeytype), core::mem::transmute(szprfhash.as_ptr()), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslGetKeyProperty<P0, P1>(hkey: P0, pszproperty: P1, ppboutput: *mut *mut u8, pcboutput: *mut u32, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn SslGetKeyProperty<P1>(hkey: NCRYPT_KEY_HANDLE, pszproperty: P1, ppboutput: *mut *mut u8, pcboutput: *mut u32, dwflags: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_KEY_HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn SslGetKeyProperty(hkey : NCRYPT_KEY_HANDLE, pszproperty : windows_core::PCWSTR, ppboutput : *mut *mut u8, pcboutput : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    SslGetKeyProperty(hkey.param().abi(), pszproperty.param().abi(), core::mem::transmute(ppboutput), core::mem::transmute(pcboutput), core::mem::transmute(dwflags)).ok()
+    SslGetKeyProperty(core::mem::transmute(hkey), pszproperty.param().abi(), core::mem::transmute(ppboutput), core::mem::transmute(pcboutput), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslGetProviderProperty<P0, P1>(hsslprovider: P0, pszproperty: P1, ppboutput: *mut *mut u8, pcboutput: *mut u32, ppenumstate: Option<*mut *mut core::ffi::c_void>, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn SslGetProviderProperty<P1>(hsslprovider: NCRYPT_PROV_HANDLE, pszproperty: P1, ppboutput: *mut *mut u8, pcboutput: *mut u32, ppenumstate: Option<*mut *mut core::ffi::c_void>, dwflags: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn SslGetProviderProperty(hsslprovider : NCRYPT_PROV_HANDLE, pszproperty : windows_core::PCWSTR, ppboutput : *mut *mut u8, pcboutput : *mut u32, ppenumstate : *mut *mut core::ffi::c_void, dwflags : u32) -> windows_core::HRESULT);
-    SslGetProviderProperty(hsslprovider.param().abi(), pszproperty.param().abi(), core::mem::transmute(ppboutput), core::mem::transmute(pcboutput), core::mem::transmute(ppenumstate.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwflags)).ok()
+    SslGetProviderProperty(core::mem::transmute(hsslprovider), pszproperty.param().abi(), core::mem::transmute(ppboutput), core::mem::transmute(pcboutput), core::mem::transmute(ppenumstate.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslHashHandshake<P0, P1>(hsslprovider: P0, hhandshakehash: P1, pbinput: &[u8], dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_HASH_HANDLE>,
-{
+pub unsafe fn SslHashHandshake(hsslprovider: NCRYPT_PROV_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, pbinput: &[u8], dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslHashHandshake(hsslprovider : NCRYPT_PROV_HANDLE, hhandshakehash : NCRYPT_HASH_HANDLE, pbinput : *const u8, cbinput : u32, dwflags : u32) -> windows_core::HRESULT);
-    SslHashHandshake(hsslprovider.param().abi(), hhandshakehash.param().abi(), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
+    SslHashHandshake(core::mem::transmute(hsslprovider), core::mem::transmute(hhandshakehash), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslImportKey<P0, P2>(hsslprovider: P0, phkey: *mut NCRYPT_KEY_HANDLE, pszblobtype: P2, pbkeyblob: &[u8], dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn SslImportKey<P2>(hsslprovider: NCRYPT_PROV_HANDLE, phkey: *mut NCRYPT_KEY_HANDLE, pszblobtype: P2, pbkeyblob: &[u8], dwflags: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn SslImportKey(hsslprovider : NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, pbkeyblob : *const u8, cbkeyblob : u32, dwflags : u32) -> windows_core::HRESULT);
-    SslImportKey(hsslprovider.param().abi(), core::mem::transmute(phkey), pszblobtype.param().abi(), core::mem::transmute(pbkeyblob.as_ptr()), pbkeyblob.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
+    SslImportKey(core::mem::transmute(hsslprovider), core::mem::transmute(phkey), pszblobtype.param().abi(), core::mem::transmute(pbkeyblob.as_ptr()), pbkeyblob.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslImportMasterKey<P0, P1>(hsslprovider: P0, hprivatekey: P1, phmasterkey: *mut NCRYPT_KEY_HANDLE, dwprotocol: u32, dwciphersuite: u32, pparameterlist: *const BCryptBufferDesc, pbencryptedkey: &[u8], dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslImportMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, phmasterkey: *mut NCRYPT_KEY_HANDLE, dwprotocol: u32, dwciphersuite: u32, pparameterlist: *const BCryptBufferDesc, pbencryptedkey: &[u8], dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslImportMasterKey(hsslprovider : NCRYPT_PROV_HANDLE, hprivatekey : NCRYPT_KEY_HANDLE, phmasterkey : *mut NCRYPT_KEY_HANDLE, dwprotocol : u32, dwciphersuite : u32, pparameterlist : *const BCryptBufferDesc, pbencryptedkey : *const u8, cbencryptedkey : u32, dwflags : u32) -> windows_core::HRESULT);
-    SslImportMasterKey(hsslprovider.param().abi(), hprivatekey.param().abi(), core::mem::transmute(phmasterkey), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(pparameterlist), core::mem::transmute(pbencryptedkey.as_ptr()), pbencryptedkey.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
+    SslImportMasterKey(core::mem::transmute(hsslprovider), core::mem::transmute(hprivatekey), core::mem::transmute(phmasterkey), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(pparameterlist), core::mem::transmute(pbencryptedkey.as_ptr()), pbencryptedkey.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslIncrementProviderReferenceCount<P0>(hsslprovider: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-{
+pub unsafe fn SslIncrementProviderReferenceCount(hsslprovider: NCRYPT_PROV_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslIncrementProviderReferenceCount(hsslprovider : NCRYPT_PROV_HANDLE) -> windows_core::HRESULT);
-    SslIncrementProviderReferenceCount(hsslprovider.param().abi()).ok()
+    SslIncrementProviderReferenceCount(core::mem::transmute(hsslprovider)).ok()
 }
 #[inline]
-pub unsafe fn SslLookupCipherLengths<P0>(hsslprovider: P0, dwprotocol: u32, dwciphersuite: u32, dwkeytype: u32, pcipherlengths: *mut NCRYPT_SSL_CIPHER_LENGTHS, cbcipherlengths: u32, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-{
+pub unsafe fn SslLookupCipherLengths(hsslprovider: NCRYPT_PROV_HANDLE, dwprotocol: u32, dwciphersuite: u32, dwkeytype: u32, pcipherlengths: *mut NCRYPT_SSL_CIPHER_LENGTHS, cbcipherlengths: u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslLookupCipherLengths(hsslprovider : NCRYPT_PROV_HANDLE, dwprotocol : u32, dwciphersuite : u32, dwkeytype : u32, pcipherlengths : *mut NCRYPT_SSL_CIPHER_LENGTHS, cbcipherlengths : u32, dwflags : u32) -> windows_core::HRESULT);
-    SslLookupCipherLengths(hsslprovider.param().abi(), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(dwkeytype), core::mem::transmute(pcipherlengths), core::mem::transmute(cbcipherlengths), core::mem::transmute(dwflags)).ok()
+    SslLookupCipherLengths(core::mem::transmute(hsslprovider), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(dwkeytype), core::mem::transmute(pcipherlengths), core::mem::transmute(cbcipherlengths), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslLookupCipherSuiteInfo<P0>(hsslprovider: P0, dwprotocol: u32, dwciphersuite: u32, dwkeytype: u32, pciphersuite: *mut NCRYPT_SSL_CIPHER_SUITE, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-{
+pub unsafe fn SslLookupCipherSuiteInfo(hsslprovider: NCRYPT_PROV_HANDLE, dwprotocol: u32, dwciphersuite: u32, dwkeytype: u32, pciphersuite: *mut NCRYPT_SSL_CIPHER_SUITE, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslLookupCipherSuiteInfo(hsslprovider : NCRYPT_PROV_HANDLE, dwprotocol : u32, dwciphersuite : u32, dwkeytype : u32, pciphersuite : *mut NCRYPT_SSL_CIPHER_SUITE, dwflags : u32) -> windows_core::HRESULT);
-    SslLookupCipherSuiteInfo(hsslprovider.param().abi(), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(dwkeytype), core::mem::transmute(pciphersuite), core::mem::transmute(dwflags)).ok()
+    SslLookupCipherSuiteInfo(core::mem::transmute(hsslprovider), core::mem::transmute(dwprotocol), core::mem::transmute(dwciphersuite), core::mem::transmute(dwkeytype), core::mem::transmute(pciphersuite), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslOpenPrivateKey<P0>(hsslprovider: P0, phprivatekey: *mut NCRYPT_KEY_HANDLE, pcertcontext: *const CERT_CONTEXT, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-{
+pub unsafe fn SslOpenPrivateKey(hsslprovider: NCRYPT_PROV_HANDLE, phprivatekey: *mut NCRYPT_KEY_HANDLE, pcertcontext: *const CERT_CONTEXT, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslOpenPrivateKey(hsslprovider : NCRYPT_PROV_HANDLE, phprivatekey : *mut NCRYPT_KEY_HANDLE, pcertcontext : *const CERT_CONTEXT, dwflags : u32) -> windows_core::HRESULT);
-    SslOpenPrivateKey(hsslprovider.param().abi(), core::mem::transmute(phprivatekey), core::mem::transmute(pcertcontext), core::mem::transmute(dwflags)).ok()
+    SslOpenPrivateKey(core::mem::transmute(hsslprovider), core::mem::transmute(phprivatekey), core::mem::transmute(pcertcontext), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn SslOpenProvider<P1>(phsslprovider: *mut NCRYPT_PROV_HANDLE, pszprovidername: P1, dwflags: u32) -> windows_core::Result<()>
@@ -3348,22 +2978,14 @@ where
     SslOpenProvider(core::mem::transmute(phsslprovider), pszprovidername.param().abi(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslSignHash<P0, P1>(hsslprovider: P0, hprivatekey: P1, pbhashvalue: &[u8], pbsignature: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslSignHash(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, pbhashvalue: &[u8], pbsignature: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslSignHash(hsslprovider : NCRYPT_PROV_HANDLE, hprivatekey : NCRYPT_KEY_HANDLE, pbhashvalue : *const u8, cbhashvalue : u32, pbsignature : *mut u8, cbsignature : u32, pcbresult : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    SslSignHash(hsslprovider.param().abi(), hprivatekey.param().abi(), core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsignature.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
+    SslSignHash(core::mem::transmute(hsslprovider), core::mem::transmute(hprivatekey), core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsignature.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SslVerifySignature<P0, P1>(hsslprovider: P0, hpublickey: P1, pbhashvalue: &[u8], pbsignature: &[u8], dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P1: windows_core::Param<NCRYPT_KEY_HANDLE>,
-{
+pub unsafe fn SslVerifySignature(hsslprovider: NCRYPT_PROV_HANDLE, hpublickey: NCRYPT_KEY_HANDLE, pbhashvalue: &[u8], pbsignature: &[u8], dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ncrypt.dll" "system" fn SslVerifySignature(hsslprovider : NCRYPT_PROV_HANDLE, hpublickey : NCRYPT_KEY_HANDLE, pbhashvalue : *const u8, cbhashvalue : u32, pbsignature : *const u8, cbsignature : u32, dwflags : u32) -> windows_core::HRESULT);
-    SslVerifySignature(hsslprovider.param().abi(), hpublickey.param().abi(), core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
+    SslVerifySignature(core::mem::transmute(hsslprovider), core::mem::transmute(hpublickey), core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn SystemPrng(pbrandomdata: &mut [u8]) -> super::super::Foundation::BOOL {
@@ -13074,12 +12696,8 @@ impl ICertSrvSetup {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CAErrorString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn InitializeDefaults<P0, P1>(&self, bserver: P0, bclient: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).InitializeDefaults)(windows_core::Interface::as_raw(self), bserver.param().abi(), bclient.param().abi()).ok()
+    pub unsafe fn InitializeDefaults(&self, bserver: super::super::Foundation::VARIANT_BOOL, bclient: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).InitializeDefaults)(windows_core::Interface::as_raw(self), core::mem::transmute(bserver), core::mem::transmute(bclient)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCASetupProperty(&self, propertyid: CASetupProperty) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -13123,26 +12741,15 @@ impl ICertSrvSetup {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExistingCACertificates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CAImportPFX<P2>(&self, bstrfilename: &windows_core::BSTR, bstrpasswd: &windows_core::BSTR, boverwriteexistingkey: P2) -> windows_core::Result<ICertSrvSetupKeyInformation>
-    where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn CAImportPFX(&self, bstrfilename: &windows_core::BSTR, bstrpasswd: &windows_core::BSTR, boverwriteexistingkey: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<ICertSrvSetupKeyInformation> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CAImportPFX)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfilename), core::mem::transmute_copy(bstrpasswd), boverwriteexistingkey.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CAImportPFX)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfilename), core::mem::transmute_copy(bstrpasswd), core::mem::transmute(boverwriteexistingkey), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetCADistinguishedName<P1, P2, P3>(&self, bstrcadn: &windows_core::BSTR, bignoreunicode: P1, boverwriteexistingkey: P2, boverwriteexistingcainds: P3) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetCADistinguishedName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcadn), bignoreunicode.param().abi(), boverwriteexistingkey.param().abi(), boverwriteexistingcainds.param().abi()).ok()
+    pub unsafe fn SetCADistinguishedName(&self, bstrcadn: &windows_core::BSTR, bignoreunicode: super::super::Foundation::VARIANT_BOOL, boverwriteexistingkey: super::super::Foundation::VARIANT_BOOL, boverwriteexistingcainds: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCADistinguishedName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcadn), core::mem::transmute(bignoreunicode), core::mem::transmute(boverwriteexistingkey), core::mem::transmute(boverwriteexistingcainds)).ok()
     }
-    pub unsafe fn SetDatabaseInformation<P3>(&self, bstrdbdirectory: &windows_core::BSTR, bstrlogdirectory: &windows_core::BSTR, bstrsharedfolder: &windows_core::BSTR, bforceoverwrite: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDatabaseInformation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdbdirectory), core::mem::transmute_copy(bstrlogdirectory), core::mem::transmute_copy(bstrsharedfolder), bforceoverwrite.param().abi()).ok()
+    pub unsafe fn SetDatabaseInformation(&self, bstrdbdirectory: &windows_core::BSTR, bstrlogdirectory: &windows_core::BSTR, bstrsharedfolder: &windows_core::BSTR, bforceoverwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDatabaseInformation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdbdirectory), core::mem::transmute_copy(bstrlogdirectory), core::mem::transmute_copy(bstrsharedfolder), core::mem::transmute(bforceoverwrite)).ok()
     }
     pub unsafe fn SetParentCAInformation(&self, bstrcaconfiguration: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetParentCAInformation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcaconfiguration)).ok()
@@ -13153,11 +12760,8 @@ impl ICertSrvSetup {
     pub unsafe fn Install(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Install)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn PreUnInstall<P0>(&self, bclientonly: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).PreUnInstall)(windows_core::Interface::as_raw(self), bclientonly.param().abi()).ok()
+    pub unsafe fn PreUnInstall(&self, bclientonly: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).PreUnInstall)(windows_core::Interface::as_raw(self), core::mem::transmute(bclientonly)).ok()
     }
     pub unsafe fn PostUnInstall(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PostUnInstall)(windows_core::Interface::as_raw(self)).ok()
@@ -13442,11 +13046,8 @@ impl ICertSrvSetupKeyInformation {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Existing)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetExisting<P0>(&self, bval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetExisting)(windows_core::Interface::as_raw(self), bval.param().abi()).ok()
+    pub unsafe fn SetExisting(&self, bval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetExisting)(windows_core::Interface::as_raw(self), core::mem::transmute(bval)).ok()
     }
     pub unsafe fn ContainerName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -14018,20 +13619,14 @@ impl IMSCEPSetup {
         (windows_core::Interface::vtable(self).IsMSCEPStoreEmpty)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProviderNameList<P0>(&self, bexchange: P0) -> windows_core::Result<super::super::System::Variant::VARIANT>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn GetProviderNameList(&self, bexchange: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProviderNameList)(windows_core::Interface::as_raw(self), bexchange.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetProviderNameList)(windows_core::Interface::as_raw(self), core::mem::transmute(bexchange), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetKeyLengthList<P0>(&self, bexchange: P0, bstrprovidername: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn GetKeyLengthList(&self, bexchange: super::super::Foundation::VARIANT_BOOL, bstrprovidername: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetKeyLengthList)(windows_core::Interface::as_raw(self), bexchange.param().abi(), core::mem::transmute_copy(bstrprovidername), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetKeyLengthList)(windows_core::Interface::as_raw(self), core::mem::transmute(bexchange), core::mem::transmute_copy(bstrprovidername), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Install(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Install)(windows_core::Interface::as_raw(self)).ok()

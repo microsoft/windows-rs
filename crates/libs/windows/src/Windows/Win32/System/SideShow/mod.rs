@@ -527,18 +527,15 @@ impl ISideShowNotification {
         (windows_core::Interface::vtable(self).Image)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetImage<P0>(&self, in_hicon: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::UI::WindowsAndMessaging::HICON>,
-    {
-        (windows_core::Interface::vtable(self).SetImage)(windows_core::Interface::as_raw(self), in_hicon.param().abi()).ok()
+    pub unsafe fn SetImage(&self, in_hicon: super::super::UI::WindowsAndMessaging::HICON) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetImage)(windows_core::Interface::as_raw(self), core::mem::transmute(in_hicon)).ok()
     }
     pub unsafe fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetExpirationTime(&self, in_ptime: Option<*const super::super::Foundation::SYSTEMTIME>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), core::mem::transmute(in_ptime.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), core::mem::transmute(in_ptime.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]

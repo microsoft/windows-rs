@@ -28,13 +28,13 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
-pub unsafe fn DXVAHD_CreateDevice<P0>(pd3ddevice: P0, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin) -> windows_core::Result<IDXVAHD_Device>
+pub unsafe fn DXVAHD_CreateDevice<P0>(pd3ddevice: P0, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: Option<PDXVAHDSW_Plugin>) -> windows_core::Result<IDXVAHD_Device>
 where
     P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>,
 {
     windows_targets::link!("dxva2.dll" "system" fn DXVAHD_CreateDevice(pd3ddevice : * mut core::ffi::c_void, pcontentdesc : *const DXVAHD_CONTENT_DESC, usage : DXVAHD_DEVICE_USAGE, pplugin : PDXVAHDSW_Plugin, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    DXVAHD_CreateDevice(pd3ddevice.param().abi(), core::mem::transmute(pcontentdesc), core::mem::transmute(usage), core::mem::transmute(pplugin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    DXVAHD_CreateDevice(pd3ddevice.param().abi(), core::mem::transmute(pcontentdesc), core::mem::transmute(usage), core::mem::transmute(pplugin.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn MFAddPeriodicCallback<P1>(callback: MFPERIODICCALLBACK, pcontext: P1, pdwkey: Option<*mut u32>) -> windows_core::Result<()>
@@ -42,7 +42,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("mfplat.dll" "system" fn MFAddPeriodicCallback(callback : MFPERIODICCALLBACK, pcontext : * mut core::ffi::c_void, pdwkey : *mut u32) -> windows_core::HRESULT);
-    MFAddPeriodicCallback(core::mem::transmute(callback), pcontext.param().abi(), core::mem::transmute(pdwkey.unwrap_or(core::ptr::null_mut()))).ok()
+    MFAddPeriodicCallback(core::mem::transmute(callback), pcontext.param().abi(), core::mem::transmute(pdwkey.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn MFAllocateSerialWorkQueue(dwworkqueue: u32) -> windows_core::Result<u32> {
@@ -111,7 +111,7 @@ where
 #[inline]
 pub unsafe fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
     windows_targets::link!("mfplat.dll" "system" fn MFCalculateBitmapImageSize(pbmih : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, cbbufsize : u32, pcbimagesize : *mut u32, pbknown : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    MFCalculateBitmapImageSize(core::mem::transmute(pbmih), core::mem::transmute(cbbufsize), core::mem::transmute(pcbimagesize), core::mem::transmute(pbknown.unwrap_or(core::ptr::null_mut()))).ok()
+    MFCalculateBitmapImageSize(core::mem::transmute(pbmih), core::mem::transmute(cbbufsize), core::mem::transmute(pcbimagesize), core::mem::transmute(pbknown.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn MFCalculateImageSize(guidsubtype: *const windows_core::GUID, unwidth: u32, unheight: u32) -> windows_core::Result<u32> {
@@ -578,7 +578,7 @@ where
     P0: windows_core::Param<IMFMediaType>,
 {
     windows_targets::link!("mfplat.dll" "system" fn MFCreateMFVideoFormatFromMFMediaType(pmftype : * mut core::ffi::c_void, ppmfvf : *mut *mut MFVIDEOFORMAT, pcbsize : *mut u32) -> windows_core::HRESULT);
-    MFCreateMFVideoFormatFromMFMediaType(pmftype.param().abi(), core::mem::transmute(ppmfvf), core::mem::transmute(pcbsize.unwrap_or(core::ptr::null_mut()))).ok()
+    MFCreateMFVideoFormatFromMFMediaType(pmftype.param().abi(), core::mem::transmute(ppmfvf), core::mem::transmute(pcbsize.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn MFCreateMP3MediaSink<P0>(ptargetbytestream: P0) -> windows_core::Result<IMFMediaSink>
@@ -623,7 +623,7 @@ where
 pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<IMFMediaEvent> {
     windows_targets::link!("mfplat.dll" "system" fn MFCreateMediaEvent(met : u32, guidextendedtype : *const windows_core::GUID, hrstatus : windows_core::HRESULT, pvvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, ppevent : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    MFCreateMediaEvent(core::mem::transmute(met), core::mem::transmute(guidextendedtype), core::mem::transmute(hrstatus), core::mem::transmute(pvvalue.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    MFCreateMediaEvent(core::mem::transmute(met), core::mem::transmute(guidextendedtype), core::mem::transmute(hrstatus), core::mem::transmute(pvvalue.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn MFCreateMediaExtensionActivate<P0, P1>(szactivatableclassid: P0, pconfiguration: P1, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -718,7 +718,7 @@ where
     P1: windows_core::Param<IMFAttributes>,
 {
     windows_targets::link!("mf.dll" "system" fn MFCreatePMPMediaSession(dwcreationflags : u32, pconfiguration : * mut core::ffi::c_void, ppmediasession : *mut * mut core::ffi::c_void, ppenableractivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    MFCreatePMPMediaSession(core::mem::transmute(dwcreationflags), pconfiguration.param().abi(), core::mem::transmute(ppmediasession), core::mem::transmute(ppenableractivate.unwrap_or(core::ptr::null_mut()))).ok()
+    MFCreatePMPMediaSession(core::mem::transmute(dwcreationflags), pconfiguration.param().abi(), core::mem::transmute(ppmediasession), core::mem::transmute(ppenableractivate.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn MFCreatePMPServer(dwcreationflags: u32) -> windows_core::Result<IMFPMPServer> {
@@ -1095,13 +1095,10 @@ pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const windows_core::GUID, ppv
     MFCreateVideoRenderer(core::mem::transmute(riidrenderer), core::mem::transmute(ppvideorenderer)).ok()
 }
 #[inline]
-pub unsafe fn MFCreateVideoRendererActivate<P0>(hwndvideo: P0) -> windows_core::Result<IMFActivate>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn MFCreateVideoRendererActivate(hwndvideo: super::super::Foundation::HWND) -> windows_core::Result<IMFActivate> {
     windows_targets::link!("mf.dll" "system" fn MFCreateVideoRendererActivate(hwndvideo : super::super::Foundation:: HWND, ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    MFCreateVideoRendererActivate(hwndvideo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    MFCreateVideoRendererActivate(core::mem::transmute(hwndvideo), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn MFCreateVideoSampleAllocator(riid: *const windows_core::GUID, ppsampleallocator: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -1180,7 +1177,7 @@ where
     P0: windows_core::Param<IMFMediaType>,
 {
     windows_targets::link!("mfplat.dll" "system" fn MFCreateWaveFormatExFromMFMediaType(pmftype : * mut core::ffi::c_void, ppwf : *mut *mut super::Audio:: WAVEFORMATEX, pcbsize : *mut u32, flags : u32) -> windows_core::HRESULT);
-    MFCreateWaveFormatExFromMFMediaType(pmftype.param().abi(), core::mem::transmute(ppwf), core::mem::transmute(pcbsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(flags)).ok()
+    MFCreateWaveFormatExFromMFMediaType(pmftype.param().abi(), core::mem::transmute(ppwf), core::mem::transmute(pcbsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags)).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -1349,9 +1346,9 @@ pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -
     MFGetUncompressedVideoFormat(core::mem::transmute(pvideoformat))
 }
 #[inline]
-pub unsafe fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: windows_core::PWSTR, pcchclass: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: Option<windows_core::PWSTR>, pcchclass: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSClass(dwworkqueueid : u32, pwszclass : windows_core::PWSTR, pcchclass : *mut u32) -> windows_core::HRESULT);
-    MFGetWorkQueueMMCSSClass(core::mem::transmute(dwworkqueueid), core::mem::transmute(pwszclass), core::mem::transmute(pcchclass)).ok()
+    MFGetWorkQueueMMCSSClass(core::mem::transmute(dwworkqueueid), core::mem::transmute(pwszclass.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchclass)).ok()
 }
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32) -> windows_core::Result<i32> {
@@ -1417,7 +1414,7 @@ where
     P0: windows_core::Param<IMFMediaType>,
 {
     windows_targets::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype : * mut core::ffi::c_void, pmp1vi : *const MPEG1VIDEOINFO, cbbufsize : u32, psubtype : *const windows_core::GUID) -> windows_core::HRESULT);
-    MFInitMediaTypeFromMPEG1VideoInfo(pmftype.param().abi(), core::mem::transmute(pmp1vi), core::mem::transmute(cbbufsize), core::mem::transmute(psubtype.unwrap_or(core::ptr::null()))).ok()
+    MFInitMediaTypeFromMPEG1VideoInfo(pmftype.param().abi(), core::mem::transmute(pmp1vi), core::mem::transmute(cbbufsize), core::mem::transmute(psubtype.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1426,7 +1423,7 @@ where
     P0: windows_core::Param<IMFMediaType>,
 {
     windows_targets::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype : * mut core::ffi::c_void, pmp2vi : *const MPEG2VIDEOINFO, cbbufsize : u32, psubtype : *const windows_core::GUID) -> windows_core::HRESULT);
-    MFInitMediaTypeFromMPEG2VideoInfo(pmftype.param().abi(), core::mem::transmute(pmp2vi), core::mem::transmute(cbbufsize), core::mem::transmute(psubtype.unwrap_or(core::ptr::null()))).ok()
+    MFInitMediaTypeFromMPEG2VideoInfo(pmftype.param().abi(), core::mem::transmute(pmp2vi), core::mem::transmute(cbbufsize), core::mem::transmute(psubtype.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1435,7 +1432,7 @@ where
     P0: windows_core::Param<IMFMediaType>,
 {
     windows_targets::link!("mfplat.dll" "system" fn MFInitMediaTypeFromVideoInfoHeader(pmftype : * mut core::ffi::c_void, pvih : *const VIDEOINFOHEADER, cbbufsize : u32, psubtype : *const windows_core::GUID) -> windows_core::HRESULT);
-    MFInitMediaTypeFromVideoInfoHeader(pmftype.param().abi(), core::mem::transmute(pvih), core::mem::transmute(cbbufsize), core::mem::transmute(psubtype.unwrap_or(core::ptr::null()))).ok()
+    MFInitMediaTypeFromVideoInfoHeader(pmftype.param().abi(), core::mem::transmute(pvih), core::mem::transmute(cbbufsize), core::mem::transmute(psubtype.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1444,7 +1441,7 @@ where
     P0: windows_core::Param<IMFMediaType>,
 {
     windows_targets::link!("mfplat.dll" "system" fn MFInitMediaTypeFromVideoInfoHeader2(pmftype : * mut core::ffi::c_void, pvih2 : *const VIDEOINFOHEADER2, cbbufsize : u32, psubtype : *const windows_core::GUID) -> windows_core::HRESULT);
-    MFInitMediaTypeFromVideoInfoHeader2(pmftype.param().abi(), core::mem::transmute(pvih2), core::mem::transmute(cbbufsize), core::mem::transmute(psubtype.unwrap_or(core::ptr::null()))).ok()
+    MFInitMediaTypeFromVideoInfoHeader2(pmftype.param().abi(), core::mem::transmute(pvih2), core::mem::transmute(cbbufsize), core::mem::transmute(psubtype.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_Media_Audio")]
 #[inline]
@@ -1502,7 +1499,7 @@ where
 #[inline]
 pub unsafe fn MFLockDXGIDeviceManager(presettoken: Option<*mut u32>, ppmanager: *mut Option<IMFDXGIDeviceManager>) -> windows_core::Result<()> {
     windows_targets::link!("mfplat.dll" "system" fn MFLockDXGIDeviceManager(presettoken : *mut u32, ppmanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    MFLockDXGIDeviceManager(core::mem::transmute(presettoken.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppmanager)).ok()
+    MFLockDXGIDeviceManager(core::mem::transmute(presettoken.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppmanager)).ok()
 }
 #[inline]
 pub unsafe fn MFLockPlatform() -> windows_core::Result<()> {
@@ -1535,24 +1532,22 @@ pub unsafe fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Com
     MFMapDXGIFormatToDX9Format(core::mem::transmute(dx11))
 }
 #[inline]
-pub unsafe fn MFPCreateMediaPlayer<P0, P1, P3, P4>(pwszurl: P0, fstartplayback: P1, creationoptions: MFP_CREATION_OPTIONS, pcallback: P3, hwnd: P4, ppmediaplayer: Option<*mut Option<IMFPMediaPlayer>>) -> windows_core::Result<()>
+pub unsafe fn MFPCreateMediaPlayer<P0, P1, P3>(pwszurl: P0, fstartplayback: P1, creationoptions: MFP_CREATION_OPTIONS, pcallback: P3, hwnd: Option<super::super::Foundation::HWND>, ppmediaplayer: Option<*mut Option<IMFPMediaPlayer>>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<super::super::Foundation::BOOL>,
     P3: windows_core::Param<IMFPMediaPlayerCallback>,
-    P4: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("mfplay.dll" "system" fn MFPCreateMediaPlayer(pwszurl : windows_core::PCWSTR, fstartplayback : super::super::Foundation:: BOOL, creationoptions : MFP_CREATION_OPTIONS, pcallback : * mut core::ffi::c_void, hwnd : super::super::Foundation:: HWND, ppmediaplayer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    MFPCreateMediaPlayer(pwszurl.param().abi(), fstartplayback.param().abi(), core::mem::transmute(creationoptions), pcallback.param().abi(), hwnd.param().abi(), core::mem::transmute(ppmediaplayer.unwrap_or(core::ptr::null_mut()))).ok()
+    MFPCreateMediaPlayer(pwszurl.param().abi(), fstartplayback.param().abi(), core::mem::transmute(creationoptions), pcallback.param().abi(), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppmediaplayer.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn MFPutWaitingWorkItem<P0, P2>(hevent: P0, priority: i32, presult: P2, pkey: Option<*mut u64>) -> windows_core::Result<()>
+pub unsafe fn MFPutWaitingWorkItem<P2>(hevent: super::super::Foundation::HANDLE, priority: i32, presult: P2, pkey: Option<*mut u64>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P2: windows_core::Param<IMFAsyncResult>,
 {
     windows_targets::link!("mfplat.dll" "system" fn MFPutWaitingWorkItem(hevent : super::super::Foundation:: HANDLE, priority : i32, presult : * mut core::ffi::c_void, pkey : *mut u64) -> windows_core::HRESULT);
-    MFPutWaitingWorkItem(hevent.param().abi(), core::mem::transmute(priority), presult.param().abi(), core::mem::transmute(pkey.unwrap_or(core::ptr::null_mut()))).ok()
+    MFPutWaitingWorkItem(core::mem::transmute(hevent), core::mem::transmute(priority), presult.param().abi(), core::mem::transmute(pkey.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn MFPutWorkItem<P1, P2>(dwqueue: u32, pcallback: P1, pstate: P2) -> windows_core::Result<()>
@@ -1635,7 +1630,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("mfplat.dll" "system" fn MFScheduleWorkItem(pcallback : * mut core::ffi::c_void, pstate : * mut core::ffi::c_void, timeout : i64, pkey : *mut u64) -> windows_core::HRESULT);
-    MFScheduleWorkItem(pcallback.param().abi(), pstate.param().abi(), core::mem::transmute(timeout), core::mem::transmute(pkey.unwrap_or(core::ptr::null_mut()))).ok()
+    MFScheduleWorkItem(pcallback.param().abi(), pstate.param().abi(), core::mem::transmute(timeout), core::mem::transmute(pkey.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn MFScheduleWorkItemEx<P0>(presult: P0, timeout: i64, pkey: Option<*mut u64>) -> windows_core::Result<()>
@@ -1643,7 +1638,7 @@ where
     P0: windows_core::Param<IMFAsyncResult>,
 {
     windows_targets::link!("mfplat.dll" "system" fn MFScheduleWorkItemEx(presult : * mut core::ffi::c_void, timeout : i64, pkey : *mut u64) -> windows_core::HRESULT);
-    MFScheduleWorkItemEx(presult.param().abi(), core::mem::transmute(timeout), core::mem::transmute(pkey.unwrap_or(core::ptr::null_mut()))).ok()
+    MFScheduleWorkItemEx(presult.param().abi(), core::mem::transmute(timeout), core::mem::transmute(pkey.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -1695,7 +1690,7 @@ where
     P4: windows_core::Param<IMFAttributes>,
 {
     windows_targets::link!("mfplat.dll" "system" fn MFTEnum(guidcategory : windows_core::GUID, flags : u32, pinputtype : *const MFT_REGISTER_TYPE_INFO, poutputtype : *const MFT_REGISTER_TYPE_INFO, pattributes : * mut core::ffi::c_void, ppclsidmft : *mut *mut windows_core::GUID, pcmfts : *mut u32) -> windows_core::HRESULT);
-    MFTEnum(core::mem::transmute(guidcategory), core::mem::transmute(flags), core::mem::transmute(pinputtype.unwrap_or(core::ptr::null())), core::mem::transmute(poutputtype.unwrap_or(core::ptr::null())), pattributes.param().abi(), core::mem::transmute(ppclsidmft), core::mem::transmute(pcmfts)).ok()
+    MFTEnum(core::mem::transmute(guidcategory), core::mem::transmute(flags), core::mem::transmute(pinputtype.unwrap_or(core::mem::zeroed())), core::mem::transmute(poutputtype.unwrap_or(core::mem::zeroed())), pattributes.param().abi(), core::mem::transmute(ppclsidmft), core::mem::transmute(pcmfts)).ok()
 }
 #[inline]
 pub unsafe fn MFTEnum2<P4>(guidcategory: windows_core::GUID, flags: MFT_ENUM_FLAG, pinputtype: Option<*const MFT_REGISTER_TYPE_INFO>, poutputtype: Option<*const MFT_REGISTER_TYPE_INFO>, pattributes: P4, pppmftactivate: *mut *mut Option<IMFActivate>, pnummftactivate: *mut u32) -> windows_core::Result<()>
@@ -1703,17 +1698,17 @@ where
     P4: windows_core::Param<IMFAttributes>,
 {
     windows_targets::link!("mfplat.dll" "system" fn MFTEnum2(guidcategory : windows_core::GUID, flags : u32, pinputtype : *const MFT_REGISTER_TYPE_INFO, poutputtype : *const MFT_REGISTER_TYPE_INFO, pattributes : * mut core::ffi::c_void, pppmftactivate : *mut *mut * mut core::ffi::c_void, pnummftactivate : *mut u32) -> windows_core::HRESULT);
-    MFTEnum2(core::mem::transmute(guidcategory), flags.0 as _, core::mem::transmute(pinputtype.unwrap_or(core::ptr::null())), core::mem::transmute(poutputtype.unwrap_or(core::ptr::null())), pattributes.param().abi(), core::mem::transmute(pppmftactivate), core::mem::transmute(pnummftactivate)).ok()
+    MFTEnum2(core::mem::transmute(guidcategory), flags.0 as _, core::mem::transmute(pinputtype.unwrap_or(core::mem::zeroed())), core::mem::transmute(poutputtype.unwrap_or(core::mem::zeroed())), pattributes.param().abi(), core::mem::transmute(pppmftactivate), core::mem::transmute(pnummftactivate)).ok()
 }
 #[inline]
 pub unsafe fn MFTEnumEx(guidcategory: windows_core::GUID, flags: MFT_ENUM_FLAG, pinputtype: Option<*const MFT_REGISTER_TYPE_INFO>, poutputtype: Option<*const MFT_REGISTER_TYPE_INFO>, pppmftactivate: *mut *mut Option<IMFActivate>, pnummftactivate: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("mfplat.dll" "system" fn MFTEnumEx(guidcategory : windows_core::GUID, flags : u32, pinputtype : *const MFT_REGISTER_TYPE_INFO, poutputtype : *const MFT_REGISTER_TYPE_INFO, pppmftactivate : *mut *mut * mut core::ffi::c_void, pnummftactivate : *mut u32) -> windows_core::HRESULT);
-    MFTEnumEx(core::mem::transmute(guidcategory), flags.0 as _, core::mem::transmute(pinputtype.unwrap_or(core::ptr::null())), core::mem::transmute(poutputtype.unwrap_or(core::ptr::null())), core::mem::transmute(pppmftactivate), core::mem::transmute(pnummftactivate)).ok()
+    MFTEnumEx(core::mem::transmute(guidcategory), flags.0 as _, core::mem::transmute(pinputtype.unwrap_or(core::mem::zeroed())), core::mem::transmute(poutputtype.unwrap_or(core::mem::zeroed())), core::mem::transmute(pppmftactivate), core::mem::transmute(pnummftactivate)).ok()
 }
 #[inline]
 pub unsafe fn MFTGetInfo(clsidmft: windows_core::GUID, pszname: Option<*mut windows_core::PWSTR>, ppinputtypes: Option<*mut *mut MFT_REGISTER_TYPE_INFO>, pcinputtypes: Option<*mut u32>, ppoutputtypes: Option<*mut *mut MFT_REGISTER_TYPE_INFO>, pcoutputtypes: Option<*mut u32>, ppattributes: Option<*mut Option<IMFAttributes>>) -> windows_core::Result<()> {
     windows_targets::link!("mfplat.dll" "system" fn MFTGetInfo(clsidmft : windows_core::GUID, pszname : *mut windows_core::PWSTR, ppinputtypes : *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes : *mut u32, ppoutputtypes : *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes : *mut u32, ppattributes : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    MFTGetInfo(core::mem::transmute(clsidmft), core::mem::transmute(pszname.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppinputtypes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcinputtypes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppoutputtypes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcoutputtypes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppattributes.unwrap_or(core::ptr::null_mut()))).ok()
+    MFTGetInfo(core::mem::transmute(clsidmft), core::mem::transmute(pszname.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppinputtypes.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcinputtypes.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppoutputtypes.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcoutputtypes.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppattributes.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn MFTRegister<P2, P8>(clsidmft: windows_core::GUID, guidcategory: windows_core::GUID, pszname: P2, flags: u32, pinputtypes: Option<&[MFT_REGISTER_TYPE_INFO]>, poutputtypes: Option<&[MFT_REGISTER_TYPE_INFO]>, pattributes: P8) -> windows_core::Result<()>
@@ -1837,12 +1832,9 @@ pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foun
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn OPMGetVideoOutputsFromHMONITOR<P0>(hmonitor: P0, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut Option<IOPMVideoOutput>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HMONITOR>,
-{
+pub unsafe fn OPMGetVideoOutputsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut Option<IOPMVideoOutput>) -> windows_core::Result<()> {
     windows_targets::link!("dxva2.dll" "system" fn OPMGetVideoOutputsFromHMONITOR(hmonitor : super::super::Graphics::Gdi:: HMONITOR, vos : OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs : *mut u32, pppopmvideooutputarray : *mut *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    OPMGetVideoOutputsFromHMONITOR(hmonitor.param().abi(), core::mem::transmute(vos), core::mem::transmute(pulnumvideooutputs), core::mem::transmute(pppopmvideooutputarray)).ok()
+    OPMGetVideoOutputsFromHMONITOR(core::mem::transmute(hmonitor), core::mem::transmute(vos), core::mem::transmute(pulnumvideooutputs), core::mem::transmute(pppopmvideooutputarray)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
@@ -10346,7 +10338,7 @@ windows_core::imp::define_interface!(IAudioSourceProvider, IAudioSourceProvider_
 windows_core::imp::interface_hierarchy!(IAudioSourceProvider, windows_core::IUnknown);
 impl IAudioSourceProvider {
     pub unsafe fn ProvideInput(&self, dwsamplecount: u32, pdwchannelcount: *mut u32, pinterleavedaudiodata: Option<*mut f32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProvideInput)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsamplecount), core::mem::transmute(pdwchannelcount), core::mem::transmute(pinterleavedaudiodata.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ProvideInput)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsamplecount), core::mem::transmute(pdwchannelcount), core::mem::transmute(pinterleavedaudiodata.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -10685,7 +10677,7 @@ impl ID3D12VideoDecodeCommandList {
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), core::mem::transmute(pregion.unwrap_or(core::ptr::null())))
+        (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), core::mem::transmute(pregion.unwrap_or(core::mem::zeroed())))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
@@ -10717,10 +10709,10 @@ impl ID3D12VideoDecodeCommandList {
         (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), pbuffer.param().abi(), core::mem::transmute(alignedbufferoffset), core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
-        (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), core::mem::transmute(metadata), core::mem::transmute(pdata.unwrap_or(core::ptr::null())), core::mem::transmute(size))
+        (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), core::mem::transmute(metadata), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
-        (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(metadata), core::mem::transmute(pdata.unwrap_or(core::ptr::null())), core::mem::transmute(size))
+        (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(metadata), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
         (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self))
@@ -10734,7 +10726,7 @@ impl ID3D12VideoDecodeCommandList {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), core::mem::transmute(count), core::mem::transmute(pparams), core::mem::transmute(pmodes.unwrap_or(core::ptr::null())))
+        (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), core::mem::transmute(count), core::mem::transmute(pparams), core::mem::transmute(pmodes.unwrap_or(core::mem::zeroed())))
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -11666,7 +11658,7 @@ impl ID3D12VideoEncodeCommandList {
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), core::mem::transmute(pregion.unwrap_or(core::ptr::null())))
+        (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), core::mem::transmute(pregion.unwrap_or(core::mem::zeroed())))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
@@ -11698,10 +11690,10 @@ impl ID3D12VideoEncodeCommandList {
         (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), pbuffer.param().abi(), core::mem::transmute(alignedbufferoffset), core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
-        (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), core::mem::transmute(metadata), core::mem::transmute(pdata.unwrap_or(core::ptr::null())), core::mem::transmute(size))
+        (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), core::mem::transmute(metadata), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
-        (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(metadata), core::mem::transmute(pdata.unwrap_or(core::ptr::null())), core::mem::transmute(size))
+        (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(metadata), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
         (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self))
@@ -11719,7 +11711,7 @@ impl ID3D12VideoEncodeCommandList {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), core::mem::transmute(count), core::mem::transmute(pparams), core::mem::transmute(pmodes.unwrap_or(core::ptr::null())))
+        (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), core::mem::transmute(count), core::mem::transmute(pparams), core::mem::transmute(pmodes.unwrap_or(core::mem::zeroed())))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
@@ -12550,7 +12542,7 @@ impl ID3D12VideoProcessCommandList {
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), core::mem::transmute(pregion.unwrap_or(core::ptr::null())))
+        (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), core::mem::transmute(pregion.unwrap_or(core::mem::zeroed())))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
@@ -12582,10 +12574,10 @@ impl ID3D12VideoProcessCommandList {
         (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), pbuffer.param().abi(), core::mem::transmute(alignedbufferoffset), core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
-        (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), core::mem::transmute(metadata), core::mem::transmute(pdata.unwrap_or(core::ptr::null())), core::mem::transmute(size))
+        (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), core::mem::transmute(metadata), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
-        (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(metadata), core::mem::transmute(pdata.unwrap_or(core::ptr::null())), core::mem::transmute(size))
+        (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(metadata), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
         (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self))
@@ -12599,7 +12591,7 @@ impl ID3D12VideoProcessCommandList {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), core::mem::transmute(count), core::mem::transmute(pparams), core::mem::transmute(pmodes.unwrap_or(core::ptr::null())))
+        (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), core::mem::transmute(count), core::mem::transmute(pparams), core::mem::transmute(pmodes.unwrap_or(core::mem::zeroed())))
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -13088,7 +13080,7 @@ windows_core::imp::interface_hierarchy!(IDXVAHD_Device, windows_core::IUnknown);
 impl IDXVAHD_Device {
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn CreateVideoSurface(&self, width: u32, height: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, r#type: DXVAHD_SURFACE_TYPE, ppsurfaces: &mut [Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>], psharedhandle: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CreateVideoSurface)(windows_core::Interface::as_raw(self), core::mem::transmute(width), core::mem::transmute(height), core::mem::transmute(format), core::mem::transmute(pool), core::mem::transmute(usage), core::mem::transmute(r#type), ppsurfaces.len().try_into().unwrap(), core::mem::transmute(ppsurfaces.as_ptr()), core::mem::transmute(psharedhandle.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).CreateVideoSurface)(windows_core::Interface::as_raw(self), core::mem::transmute(width), core::mem::transmute(height), core::mem::transmute(format), core::mem::transmute(pool), core::mem::transmute(usage), core::mem::transmute(r#type), ppsurfaces.len().try_into().unwrap(), core::mem::transmute(ppsurfaces.as_ptr()), core::mem::transmute(psharedhandle.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorDeviceCaps(&self, pcaps: *mut DXVAHD_VPDEVCAPS) -> windows_core::Result<()> {
@@ -13620,38 +13612,27 @@ impl IDirect3DDeviceManager9 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OpenDeviceHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn CloseDeviceHandle<P0>(&self, hdevice: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).CloseDeviceHandle)(windows_core::Interface::as_raw(self), hdevice.param().abi()).ok()
+    pub unsafe fn CloseDeviceHandle(&self, hdevice: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CloseDeviceHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(hdevice)).ok()
     }
-    pub unsafe fn TestDevice<P0>(&self, hdevice: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).TestDevice)(windows_core::Interface::as_raw(self), hdevice.param().abi()).ok()
+    pub unsafe fn TestDevice(&self, hdevice: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).TestDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(hdevice)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn LockDevice<P0, P2>(&self, hdevice: P0, ppdevice: *mut Option<super::super::Graphics::Direct3D9::IDirect3DDevice9>, fblock: P2) -> windows_core::Result<()>
+    pub unsafe fn LockDevice<P2>(&self, hdevice: super::super::Foundation::HANDLE, ppdevice: *mut Option<super::super::Graphics::Direct3D9::IDirect3DDevice9>, fblock: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
         P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).LockDevice)(windows_core::Interface::as_raw(self), hdevice.param().abi(), core::mem::transmute(ppdevice), fblock.param().abi()).ok()
+        (windows_core::Interface::vtable(self).LockDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(hdevice), core::mem::transmute(ppdevice), fblock.param().abi()).ok()
     }
-    pub unsafe fn UnlockDevice<P0, P1>(&self, hdevice: P0, fsavestate: P1) -> windows_core::Result<()>
+    pub unsafe fn UnlockDevice<P1>(&self, hdevice: super::super::Foundation::HANDLE, fsavestate: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).UnlockDevice)(windows_core::Interface::as_raw(self), hdevice.param().abi(), fsavestate.param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnlockDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(hdevice), fsavestate.param().abi()).ok()
     }
-    pub unsafe fn GetVideoService<P0>(&self, hdevice: P0, riid: *const windows_core::GUID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), hdevice.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppservice)).ok()
+    pub unsafe fn GetVideoService(&self, hdevice: super::super::Foundation::HANDLE, riid: *const windows_core::GUID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), core::mem::transmute(hdevice), core::mem::transmute(riid), core::mem::transmute(ppservice)).ok()
     }
 }
 #[repr(C)]
@@ -13740,7 +13721,7 @@ windows_core::imp::interface_hierarchy!(IDirectXVideoAccelerationService, window
 impl IDirectXVideoAccelerationService {
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), core::mem::transmute(width), core::mem::transmute(height), core::mem::transmute(backbuffers), core::mem::transmute(format), core::mem::transmute(pool), core::mem::transmute(usage), dxvatype.0 as _, core::mem::transmute(ppsurface), core::mem::transmute(psharedhandle.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), core::mem::transmute(width), core::mem::transmute(height), core::mem::transmute(backbuffers), core::mem::transmute(format), core::mem::transmute(pool), core::mem::transmute(usage), dxvatype.0 as _, core::mem::transmute(ppsurface), core::mem::transmute(psharedhandle.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -13779,7 +13760,7 @@ impl IDirectXVideoDecoder {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetCreationParameters(&self, pdeviceguid: Option<*mut windows_core::GUID>, pvideodesc: Option<*mut DXVA2_VideoDesc>, pconfig: Option<*mut DXVA2_ConfigPictureDecode>, pdecoderrendertargets: *mut *mut Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pnumsurfaces: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCreationParameters)(windows_core::Interface::as_raw(self), core::mem::transmute(pdeviceguid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvideodesc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pconfig.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdecoderrendertargets), core::mem::transmute(pnumsurfaces.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetCreationParameters)(windows_core::Interface::as_raw(self), core::mem::transmute(pdeviceguid.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvideodesc.unwrap_or(core::mem::zeroed())), core::mem::transmute(pconfig.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdecoderrendertargets), core::mem::transmute(pnumsurfaces.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetBuffer(&self, buffertype: DXVA2_BufferfType, ppbuffer: *mut *mut core::ffi::c_void, pbuffersize: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), buffertype.0 as _, core::mem::transmute(ppbuffer), core::mem::transmute(pbuffersize)).ok()
@@ -13792,10 +13773,10 @@ impl IDirectXVideoDecoder {
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).BeginFrame)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), core::mem::transmute(pvpvpdata.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).BeginFrame)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), core::mem::transmute(pvpvpdata.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn EndFrame(&self, phandlecomplete: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EndFrame)(windows_core::Interface::as_raw(self), core::mem::transmute(phandlecomplete.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).EndFrame)(windows_core::Interface::as_raw(self), core::mem::transmute(phandlecomplete.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Execute(&self, pexecuteparams: *const DXVA2_DecodeExecuteParams) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), core::mem::transmute(pexecuteparams)).ok()
@@ -13900,7 +13881,7 @@ impl IDirectXVideoDecoderService {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetDecoderConfigurations(&self, guid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: Option<*const core::ffi::c_void>, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDecoderConfigurations)(windows_core::Interface::as_raw(self), core::mem::transmute(guid), core::mem::transmute(pvideodesc), core::mem::transmute(preserved.unwrap_or(core::ptr::null())), core::mem::transmute(pcount), core::mem::transmute(ppconfigs)).ok()
+        (windows_core::Interface::vtable(self).GetDecoderConfigurations)(windows_core::Interface::as_raw(self), core::mem::transmute(guid), core::mem::transmute(pvideodesc), core::mem::transmute(preserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcount), core::mem::transmute(ppconfigs)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn CreateVideoDecoder(&self, guid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: &[Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>]) -> windows_core::Result<IDirectXVideoDecoder> {
@@ -14028,7 +14009,7 @@ impl IDirectXVideoProcessor {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetCreationParameters(&self, pdeviceguid: Option<*mut windows_core::GUID>, pvideodesc: Option<*mut DXVA2_VideoDesc>, prendertargetformat: Option<*mut super::super::Graphics::Direct3D9::D3DFORMAT>, pmaxnumsubstreams: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCreationParameters)(windows_core::Interface::as_raw(self), core::mem::transmute(pdeviceguid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvideodesc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(prendertargetformat.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pmaxnumsubstreams.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetCreationParameters)(windows_core::Interface::as_raw(self), core::mem::transmute(pdeviceguid.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvideodesc.unwrap_or(core::mem::zeroed())), core::mem::transmute(prendertargetformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(pmaxnumsubstreams.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorCaps(&self, pcaps: *mut DXVA2_VideoProcessorCaps) -> windows_core::Result<()> {
@@ -14047,7 +14028,7 @@ impl IDirectXVideoProcessor {
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).VideoProcessBlt)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), core::mem::transmute(pbltparams), core::mem::transmute(psamples.as_ptr()), psamples.len().try_into().unwrap(), core::mem::transmute(phandlecomplete.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).VideoProcessBlt)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), core::mem::transmute(pbltparams), core::mem::transmute(psamples.as_ptr()), psamples.len().try_into().unwrap(), core::mem::transmute(phandlecomplete.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -16601,7 +16582,7 @@ windows_core::imp::interface_hierarchy!(IMFAttributes, windows_core::IUnknown);
 impl IMFAttributes {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const windows_core::GUID, pvalue: Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), core::mem::transmute(guidkey), core::mem::transmute(pvalue.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), core::mem::transmute(guidkey), core::mem::transmute(pvalue.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const windows_core::GUID) -> windows_core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = core::mem::zeroed();
@@ -16640,7 +16621,7 @@ impl IMFAttributes {
         (windows_core::Interface::vtable(self).GetStringLength)(windows_core::Interface::as_raw(self), core::mem::transmute(guidkey), &mut result__).map(|| result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const windows_core::GUID, pwszvalue: &mut [u16], pcchlength: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), core::mem::transmute(guidkey), core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len().try_into().unwrap(), core::mem::transmute(pcchlength.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), core::mem::transmute(guidkey), core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len().try_into().unwrap(), core::mem::transmute(pcchlength.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const windows_core::GUID, ppwszvalue: *mut windows_core::PWSTR, pcchlength: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAllocatedString)(windows_core::Interface::as_raw(self), core::mem::transmute(guidkey), core::mem::transmute(ppwszvalue), core::mem::transmute(pcchlength)).ok()
@@ -16650,7 +16631,7 @@ impl IMFAttributes {
         (windows_core::Interface::vtable(self).GetBlobSize)(windows_core::Interface::as_raw(self), core::mem::transmute(guidkey), &mut result__).map(|| result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const windows_core::GUID, pbuf: &mut [u8], pcbblobsize: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetBlob)(windows_core::Interface::as_raw(self), core::mem::transmute(guidkey), core::mem::transmute(pbuf.as_ptr()), pbuf.len().try_into().unwrap(), core::mem::transmute(pcbblobsize.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetBlob)(windows_core::Interface::as_raw(self), core::mem::transmute(guidkey), core::mem::transmute(pbuf.as_ptr()), pbuf.len().try_into().unwrap(), core::mem::transmute(pcbblobsize.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const windows_core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAllocatedBlob)(windows_core::Interface::as_raw(self), core::mem::transmute(guidkey), core::mem::transmute(ppbuf), core::mem::transmute(pcbsize)).ok()
@@ -16711,7 +16692,7 @@ impl IMFAttributes {
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut windows_core::GUID, pvalue: Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetItemByIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(unindex), core::mem::transmute(pguidkey), core::mem::transmute(pvalue.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetItemByIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(unindex), core::mem::transmute(pguidkey), core::mem::transmute(pvalue.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn CopyAllItems<P0>(&self, pdest: P0) -> windows_core::Result<()>
     where
@@ -17696,7 +17677,7 @@ impl IMFByteStreamHandler {
         P5: windows_core::Param<IMFAsyncCallback>,
         P6: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).BeginCreateObject)(windows_core::Interface::as_raw(self), pbytestream.param().abi(), pwszurl.param().abi(), core::mem::transmute(dwflags), pprops.param().abi(), core::mem::transmute(ppiunknowncancelcookie.unwrap_or(core::ptr::null_mut())), pcallback.param().abi(), punkstate.param().abi()).ok()
+        (windows_core::Interface::vtable(self).BeginCreateObject)(windows_core::Interface::as_raw(self), pbytestream.param().abi(), pwszurl.param().abi(), core::mem::transmute(dwflags), pprops.param().abi(), core::mem::transmute(ppiunknowncancelcookie.unwrap_or(core::mem::zeroed())), pcallback.param().abi(), punkstate.param().abi()).ok()
     }
     pub unsafe fn EndCreateObject<P0>(&self, presult: P0, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
@@ -17939,7 +17920,7 @@ impl IMFCameraControlDefaults {
         (windows_core::Interface::vtable(self).GetRangeInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn LockControlData(&self, control: *mut *mut core::ffi::c_void, controlsize: *mut u32, data: Option<*mut *mut core::ffi::c_void>, datasize: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LockControlData)(windows_core::Interface::as_raw(self), core::mem::transmute(control), core::mem::transmute(controlsize), core::mem::transmute(data.unwrap_or(core::ptr::null_mut())), core::mem::transmute(datasize.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).LockControlData)(windows_core::Interface::as_raw(self), core::mem::transmute(control), core::mem::transmute(controlsize), core::mem::transmute(data.unwrap_or(core::mem::zeroed())), core::mem::transmute(datasize.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn UnlockControlData(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnlockControlData)(windows_core::Interface::as_raw(self)).ok()
@@ -18765,11 +18746,8 @@ impl core::ops::Deref for IMFCapturePreviewSink {
 }
 windows_core::imp::interface_hierarchy!(IMFCapturePreviewSink, windows_core::IUnknown, IMFCaptureSink);
 impl IMFCapturePreviewSink {
-    pub unsafe fn SetRenderHandle<P0>(&self, handle: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).SetRenderHandle)(windows_core::Interface::as_raw(self), handle.param().abi()).ok()
+    pub unsafe fn SetRenderHandle(&self, handle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetRenderHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(handle)).ok()
     }
     pub unsafe fn SetRenderSurface<P0>(&self, psurface: P0) -> windows_core::Result<()>
     where
@@ -18778,7 +18756,7 @@ impl IMFCapturePreviewSink {
         (windows_core::Interface::vtable(self).SetRenderSurface)(windows_core::Interface::as_raw(self), psurface.param().abi()).ok()
     }
     pub unsafe fn UpdateVideo(&self, psrc: Option<*const MFVideoNormalizedRect>, pdst: Option<*const super::super::Foundation::RECT>, pborderclr: Option<*const super::super::Foundation::COLORREF>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UpdateVideo)(windows_core::Interface::as_raw(self), core::mem::transmute(psrc.unwrap_or(core::ptr::null())), core::mem::transmute(pdst.unwrap_or(core::ptr::null())), core::mem::transmute(pborderclr.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).UpdateVideo)(windows_core::Interface::as_raw(self), core::mem::transmute(psrc.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdst.unwrap_or(core::mem::zeroed())), core::mem::transmute(pborderclr.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetSampleCallback<P1>(&self, dwstreamsinkindex: u32, pcallback: P1) -> windows_core::Result<()>
     where
@@ -19012,17 +18990,17 @@ windows_core::imp::define_interface!(IMFCaptureSink, IMFCaptureSink_Vtbl, 0x72d6
 windows_core::imp::interface_hierarchy!(IMFCaptureSink, windows_core::IUnknown);
 impl IMFCaptureSink {
     pub unsafe fn GetOutputMediaType(&self, dwsinkstreamindex: u32, ppmediatype: Option<*mut Option<IMFMediaType>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetOutputMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsinkstreamindex), core::mem::transmute(ppmediatype.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetOutputMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsinkstreamindex), core::mem::transmute(ppmediatype.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppunknown: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsinkstreamindex), core::mem::transmute(rguidservice), core::mem::transmute(riid), core::mem::transmute(ppunknown.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsinkstreamindex), core::mem::transmute(rguidservice), core::mem::transmute(riid), core::mem::transmute(ppunknown.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn AddStream<P1, P2>(&self, dwsourcestreamindex: u32, pmediatype: P1, pattributes: P2, pdwsinkstreamindex: Option<*mut u32>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IMFMediaType>,
         P2: windows_core::Param<IMFAttributes>,
     {
-        (windows_core::Interface::vtable(self).AddStream)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsourcestreamindex), pmediatype.param().abi(), pattributes.param().abi(), core::mem::transmute(pdwsinkstreamindex.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AddStream)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsourcestreamindex), pmediatype.param().abi(), pattributes.param().abi(), core::mem::transmute(pdwsinkstreamindex.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Prepare(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Prepare)(windows_core::Interface::as_raw(self)).ok()
@@ -19125,13 +19103,13 @@ windows_core::imp::define_interface!(IMFCaptureSource, IMFCaptureSource_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IMFCaptureSource, windows_core::IUnknown);
 impl IMFCaptureSource {
     pub unsafe fn GetCaptureDeviceSource(&self, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppmediasource: Option<*mut Option<IMFMediaSource>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCaptureDeviceSource)(windows_core::Interface::as_raw(self), core::mem::transmute(mfcaptureenginedevicetype), core::mem::transmute(ppmediasource.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetCaptureDeviceSource)(windows_core::Interface::as_raw(self), core::mem::transmute(mfcaptureenginedevicetype), core::mem::transmute(ppmediasource.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetCaptureDeviceActivate(&self, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppactivate: Option<*mut Option<IMFActivate>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCaptureDeviceActivate)(windows_core::Interface::as_raw(self), core::mem::transmute(mfcaptureenginedevicetype), core::mem::transmute(ppactivate.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetCaptureDeviceActivate)(windows_core::Interface::as_raw(self), core::mem::transmute(mfcaptureenginedevicetype), core::mem::transmute(ppactivate.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetService(&self, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppunknown: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), core::mem::transmute(rguidservice), core::mem::transmute(riid), core::mem::transmute(ppunknown.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), core::mem::transmute(rguidservice), core::mem::transmute(riid), core::mem::transmute(ppunknown.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn AddEffect<P1>(&self, dwsourcestreamindex: u32, punknown: P1) -> windows_core::Result<()>
     where
@@ -19149,7 +19127,7 @@ impl IMFCaptureSource {
         (windows_core::Interface::vtable(self).RemoveAllEffects)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsourcestreamindex)).ok()
     }
     pub unsafe fn GetAvailableDeviceMediaType(&self, dwsourcestreamindex: u32, dwmediatypeindex: u32, ppmediatype: Option<*mut Option<IMFMediaType>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAvailableDeviceMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsourcestreamindex), core::mem::transmute(dwmediatypeindex), core::mem::transmute(ppmediatype.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetAvailableDeviceMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsourcestreamindex), core::mem::transmute(dwmediatypeindex), core::mem::transmute(ppmediatype.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetCurrentDeviceMediaType<P1>(&self, dwsourcestreamindex: u32, pmediatype: P1) -> windows_core::Result<()>
     where
@@ -20364,11 +20342,8 @@ impl windows_core::RuntimeName for IMFContentProtectionManager {}
 windows_core::imp::define_interface!(IMFD3D12SynchronizationObject, IMFD3D12SynchronizationObject_Vtbl, 0x802302b0_82de_45e1_b421_f19ee5bdaf23);
 windows_core::imp::interface_hierarchy!(IMFD3D12SynchronizationObject, windows_core::IUnknown);
 impl IMFD3D12SynchronizationObject {
-    pub unsafe fn SignalEventOnFinalResourceRelease<P0>(&self, hevent: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).SignalEventOnFinalResourceRelease)(windows_core::Interface::as_raw(self), hevent.param().abi()).ok()
+    pub unsafe fn SignalEventOnFinalResourceRelease(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SignalEventOnFinalResourceRelease)(windows_core::Interface::as_raw(self), core::mem::transmute(hevent)).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -20422,11 +20397,8 @@ impl IMFD3D12SynchronizationObjectCommands {
     {
         (windows_core::Interface::vtable(self).EnqueueResourceReadyWait)(windows_core::Interface::as_raw(self), pconsumercommandqueue.param().abi()).ok()
     }
-    pub unsafe fn SignalEventOnResourceReady<P0>(&self, hevent: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).SignalEventOnResourceReady)(windows_core::Interface::as_raw(self), hevent.param().abi()).ok()
+    pub unsafe fn SignalEventOnResourceReady(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SignalEventOnResourceReady)(windows_core::Interface::as_raw(self), core::mem::transmute(hevent)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EnqueueResourceRelease<P0>(&self, pconsumercommandqueue: P0) -> windows_core::Result<()>
@@ -20640,24 +20612,17 @@ impl windows_core::RuntimeName for IMFDXGIBuffer {}
 windows_core::imp::define_interface!(IMFDXGIDeviceManager, IMFDXGIDeviceManager_Vtbl, 0xeb533d5d_2db6_40f8_97a9_494692014f07);
 windows_core::imp::interface_hierarchy!(IMFDXGIDeviceManager, windows_core::IUnknown);
 impl IMFDXGIDeviceManager {
-    pub unsafe fn CloseDeviceHandle<P0>(&self, hdevice: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).CloseDeviceHandle)(windows_core::Interface::as_raw(self), hdevice.param().abi()).ok()
+    pub unsafe fn CloseDeviceHandle(&self, hdevice: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CloseDeviceHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(hdevice)).ok()
     }
-    pub unsafe fn GetVideoService<P0>(&self, hdevice: P0, riid: *const windows_core::GUID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), hdevice.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppservice)).ok()
+    pub unsafe fn GetVideoService(&self, hdevice: super::super::Foundation::HANDLE, riid: *const windows_core::GUID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), core::mem::transmute(hdevice), core::mem::transmute(riid), core::mem::transmute(ppservice)).ok()
     }
-    pub unsafe fn LockDevice<P0, P3>(&self, hdevice: P0, riid: *const windows_core::GUID, ppunkdevice: *mut *mut core::ffi::c_void, fblock: P3) -> windows_core::Result<()>
+    pub unsafe fn LockDevice<P3>(&self, hdevice: super::super::Foundation::HANDLE, riid: *const windows_core::GUID, ppunkdevice: *mut *mut core::ffi::c_void, fblock: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
         P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).LockDevice)(windows_core::Interface::as_raw(self), hdevice.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppunkdevice), fblock.param().abi()).ok()
+        (windows_core::Interface::vtable(self).LockDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(hdevice), core::mem::transmute(riid), core::mem::transmute(ppunkdevice), fblock.param().abi()).ok()
     }
     pub unsafe fn OpenDeviceHandle(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = core::mem::zeroed();
@@ -20669,18 +20634,14 @@ impl IMFDXGIDeviceManager {
     {
         (windows_core::Interface::vtable(self).ResetDevice)(windows_core::Interface::as_raw(self), punkdevice.param().abi(), core::mem::transmute(resettoken)).ok()
     }
-    pub unsafe fn TestDevice<P0>(&self, hdevice: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).TestDevice)(windows_core::Interface::as_raw(self), hdevice.param().abi()).ok()
+    pub unsafe fn TestDevice(&self, hdevice: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).TestDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(hdevice)).ok()
     }
-    pub unsafe fn UnlockDevice<P0, P1>(&self, hdevice: P0, fsavestate: P1) -> windows_core::Result<()>
+    pub unsafe fn UnlockDevice<P1>(&self, hdevice: super::super::Foundation::HANDLE, fsavestate: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).UnlockDevice)(windows_core::Interface::as_raw(self), hdevice.param().abi(), fsavestate.param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnlockDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(hdevice), fsavestate.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -22293,7 +22254,7 @@ windows_core::imp::define_interface!(IMFMediaBuffer, IMFMediaBuffer_Vtbl, 0x045f
 windows_core::imp::interface_hierarchy!(IMFMediaBuffer, windows_core::IUnknown);
 impl IMFMediaBuffer {
     pub unsafe fn Lock(&self, ppbbuffer: *mut *mut u8, pcbmaxlength: Option<*mut u32>, pcbcurrentlength: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbbuffer), core::mem::transmute(pcbmaxlength.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbcurrentlength.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbbuffer), core::mem::transmute(pcbmaxlength.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbcurrentlength.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Unlock(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self)).ok()
@@ -22507,10 +22468,10 @@ impl IMFMediaEngine {
         (windows_core::Interface::vtable(self).HasAudio)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn GetNativeVideoSize(&self, cx: Option<*mut u32>, cy: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetNativeVideoSize)(windows_core::Interface::as_raw(self), core::mem::transmute(cx.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cy.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetNativeVideoSize)(windows_core::Interface::as_raw(self), core::mem::transmute(cx.unwrap_or(core::mem::zeroed())), core::mem::transmute(cy.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetVideoAspectRatio(&self, cx: Option<*mut u32>, cy: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetVideoAspectRatio)(windows_core::Interface::as_raw(self), core::mem::transmute(cx.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cy.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetVideoAspectRatio)(windows_core::Interface::as_raw(self), core::mem::transmute(cx.unwrap_or(core::mem::zeroed())), core::mem::transmute(cy.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -22519,7 +22480,7 @@ impl IMFMediaEngine {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).TransferVideoFrame)(windows_core::Interface::as_raw(self), pdstsurf.param().abi(), core::mem::transmute(psrc.unwrap_or(core::ptr::null())), core::mem::transmute(pdst), core::mem::transmute(pborderclr.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).TransferVideoFrame)(windows_core::Interface::as_raw(self), pdstsurf.param().abi(), core::mem::transmute(psrc.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdst), core::mem::transmute(pborderclr.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn OnVideoStreamTick(&self) -> windows_core::Result<i64> {
         let mut result__ = core::mem::zeroed();
@@ -23306,7 +23267,7 @@ impl IMFMediaEngineEx {
         (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), core::mem::transmute(statisticid), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn UpdateVideoStream(&self, psrc: Option<*const MFVideoNormalizedRect>, pdst: Option<*const super::super::Foundation::RECT>, pborderclr: Option<*const MFARGB>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UpdateVideoStream)(windows_core::Interface::as_raw(self), core::mem::transmute(psrc.unwrap_or(core::ptr::null())), core::mem::transmute(pdst.unwrap_or(core::ptr::null())), core::mem::transmute(pborderclr.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).UpdateVideoStream)(windows_core::Interface::as_raw(self), core::mem::transmute(psrc.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdst.unwrap_or(core::mem::zeroed())), core::mem::transmute(pborderclr.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetBalance(&self) -> f64 {
         (windows_core::Interface::vtable(self).GetBalance)(windows_core::Interface::as_raw(self))
@@ -24010,18 +23971,15 @@ impl IMFMediaEngineProtectedContent {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRequiredProtections)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetOPMWindow<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetOPMWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
+    pub unsafe fn SetOPMWindow(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetOPMWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd)).ok()
     }
     pub unsafe fn TransferVideoFrame<P0>(&self, pdstsurf: P0, psrc: Option<*const MFVideoNormalizedRect>, pdst: *const super::super::Foundation::RECT, pborderclr: Option<*const MFARGB>) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).TransferVideoFrame)(windows_core::Interface::as_raw(self), pdstsurf.param().abi(), core::mem::transmute(psrc.unwrap_or(core::ptr::null())), core::mem::transmute(pdst), core::mem::transmute(pborderclr.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).TransferVideoFrame)(windows_core::Interface::as_raw(self), pdstsurf.param().abi(), core::mem::transmute(psrc.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdst), core::mem::transmute(pborderclr.unwrap_or(core::mem::zeroed())), &mut result__).map(|| result__)
     }
     pub unsafe fn SetContentProtectionManager<P0>(&self, pcpm: P0) -> windows_core::Result<()>
     where
@@ -26629,7 +26587,7 @@ impl IMFMediaTypeHandler {
     where
         P0: windows_core::Param<IMFMediaType>,
     {
-        (windows_core::Interface::vtable(self).IsMediaTypeSupported)(windows_core::Interface::as_raw(self), pmediatype.param().abi(), core::mem::transmute(ppmediatype.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).IsMediaTypeSupported)(windows_core::Interface::as_raw(self), pmediatype.param().abi(), core::mem::transmute(ppmediatype.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetMediaTypeCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -27173,13 +27131,13 @@ impl IMFNetCredential {
     where
         P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetUser)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata), fencryptdata.param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetUser)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdata), fencryptdata.param().abi()).ok()
     }
     pub unsafe fn GetPassword<P2>(&self, pbdata: Option<*mut u8>, pcbdata: *mut u32, fencryptdata: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetPassword)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata), fencryptdata.param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetPassword)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdata), fencryptdata.param().abi()).ok()
     }
     pub unsafe fn LoggedOnUser(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -27467,8 +27425,8 @@ impl IMFNetProxyLocator {
     pub unsafe fn RegisterProxyResult(&self, hrop: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RegisterProxyResult)(windows_core::Interface::as_raw(self), core::mem::transmute(hrop)).ok()
     }
-    pub unsafe fn GetCurrentProxy(&self, pszstr: windows_core::PWSTR, pcchstr: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCurrentProxy)(windows_core::Interface::as_raw(self), core::mem::transmute(pszstr), core::mem::transmute(pcchstr)).ok()
+    pub unsafe fn GetCurrentProxy(&self, pszstr: Option<windows_core::PWSTR>, pcchstr: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetCurrentProxy)(windows_core::Interface::as_raw(self), core::mem::transmute(pszstr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchstr)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IMFNetProxyLocator> {
         let mut result__ = core::mem::zeroed();
@@ -27904,7 +27862,7 @@ impl IMFOutputTrustAuthority {
         (windows_core::Interface::vtable(self).GetAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPolicy(&self, pppolicy: Option<&[Option<IMFOutputPolicy>]>, ppbticket: Option<*mut *mut u8>, pcbticket: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPolicy)(windows_core::Interface::as_raw(self), core::mem::transmute(pppolicy.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pppolicy.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppbticket.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbticket.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).SetPolicy)(windows_core::Interface::as_raw(self), core::mem::transmute(pppolicy.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pppolicy.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppbticket.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbticket.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -28212,17 +28170,17 @@ impl IMFPMediaItem {
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetStartStopPosition(&self, pguidstartpositiontype: Option<*mut windows_core::GUID>, pvstartvalue: Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>, pguidstoppositiontype: Option<*mut windows_core::GUID>, pvstopvalue: Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStartStopPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidstartpositiontype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvstartvalue.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pguidstoppositiontype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvstopvalue.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetStartStopPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidstartpositiontype.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvstartvalue.unwrap_or(core::mem::zeroed())), core::mem::transmute(pguidstoppositiontype.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvstopvalue.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetStartStopPosition(&self, pguidstartpositiontype: Option<*const windows_core::GUID>, pvstartvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, pguidstoppositiontype: Option<*const windows_core::GUID>, pvstopvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStartStopPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidstartpositiontype.unwrap_or(core::ptr::null())), core::mem::transmute(pvstartvalue.unwrap_or(core::ptr::null())), core::mem::transmute(pguidstoppositiontype.unwrap_or(core::ptr::null())), core::mem::transmute(pvstopvalue.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetStartStopPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidstartpositiontype.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvstartvalue.unwrap_or(core::mem::zeroed())), core::mem::transmute(pguidstoppositiontype.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvstopvalue.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn HasVideo(&self, pfhasvideo: Option<*mut super::super::Foundation::BOOL>, pfselected: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).HasVideo)(windows_core::Interface::as_raw(self), core::mem::transmute(pfhasvideo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfselected.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).HasVideo)(windows_core::Interface::as_raw(self), core::mem::transmute(pfhasvideo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfselected.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn HasAudio(&self, pfhasaudio: Option<*mut super::super::Foundation::BOOL>, pfselected: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).HasAudio)(windows_core::Interface::as_raw(self), core::mem::transmute(pfhasaudio.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfselected.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).HasAudio)(windows_core::Interface::as_raw(self), core::mem::transmute(pfhasaudio.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfselected.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn IsProtected(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -28567,14 +28525,14 @@ impl IMFPMediaPlayer {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateMediaItemFromURL)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), fsync.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(ppmediaitem.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).CreateMediaItemFromURL)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), fsync.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(ppmediaitem.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn CreateMediaItemFromObject<P0, P1>(&self, piunknownobj: P0, fsync: P1, dwuserdata: usize, ppmediaitem: Option<*mut Option<IMFPMediaItem>>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateMediaItemFromObject)(windows_core::Interface::as_raw(self), piunknownobj.param().abi(), fsync.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(ppmediaitem.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).CreateMediaItemFromObject)(windows_core::Interface::as_raw(self), piunknownobj.param().abi(), fsync.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(ppmediaitem.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetMediaItem<P0>(&self, pimfpmediaitem: P0) -> windows_core::Result<()>
     where
@@ -28614,10 +28572,10 @@ impl IMFPMediaPlayer {
         (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), fmute.param().abi()).ok()
     }
     pub unsafe fn GetNativeVideoSize(&self, pszvideo: Option<*mut super::super::Foundation::SIZE>, pszarvideo: Option<*mut super::super::Foundation::SIZE>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetNativeVideoSize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszvideo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pszarvideo.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetNativeVideoSize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszvideo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pszarvideo.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetIdealVideoSize(&self, pszmin: Option<*mut super::super::Foundation::SIZE>, pszmax: Option<*mut super::super::Foundation::SIZE>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetIdealVideoSize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszmin.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pszmax.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetIdealVideoSize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszmin.unwrap_or(core::mem::zeroed())), core::mem::transmute(pszmax.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetVideoSourceRect(&self, pnrcsource: *const MFVideoNormalizedRect) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetVideoSourceRect)(windows_core::Interface::as_raw(self), core::mem::transmute(pnrcsource)).ok()
@@ -28640,11 +28598,8 @@ impl IMFPMediaPlayer {
     pub unsafe fn UpdateVideo(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UpdateVideo)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetBorderColor<P0>(&self, clr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
-        (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), clr.param().abi()).ok()
+    pub unsafe fn SetBorderColor(&self, clr: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), core::mem::transmute(clr)).ok()
     }
     pub unsafe fn GetBorderColor(&self) -> windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = core::mem::zeroed();
@@ -29075,7 +29030,7 @@ impl IMFPluginControl {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPreferredClsid)(windows_core::Interface::as_raw(self), core::mem::transmute(plugintype), selector.param().abi(), core::mem::transmute(clsid.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetPreferredClsid)(windows_core::Interface::as_raw(self), core::mem::transmute(plugintype), selector.param().abi(), core::mem::transmute(clsid.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn IsDisabled(&self, plugintype: u32, clsid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).IsDisabled)(windows_core::Interface::as_raw(self), core::mem::transmute(plugintype), core::mem::transmute(clsid)).ok()
@@ -31056,7 +31011,7 @@ impl IMFSchemeHandler {
         P4: windows_core::Param<IMFAsyncCallback>,
         P5: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).BeginCreateObject)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), core::mem::transmute(dwflags), pprops.param().abi(), core::mem::transmute(ppiunknowncancelcookie.unwrap_or(core::ptr::null_mut())), pcallback.param().abi(), punkstate.param().abi()).ok()
+        (windows_core::Interface::vtable(self).BeginCreateObject)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), core::mem::transmute(dwflags), pprops.param().abi(), core::mem::transmute(ppiunknowncancelcookie.unwrap_or(core::mem::zeroed())), pcallback.param().abi(), punkstate.param().abi()).ok()
     }
     pub unsafe fn EndCreateObject<P0>(&self, presult: P0, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
@@ -32208,7 +32163,7 @@ impl IMFSequencerSource {
     where
         P0: windows_core::Param<IMFPresentationDescriptor>,
     {
-        (windows_core::Interface::vtable(self).GetPresentationContext)(windows_core::Interface::as_raw(self), ppd.param().abi(), core::mem::transmute(pid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pptopology.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetPresentationContext)(windows_core::Interface::as_raw(self), ppd.param().abi(), core::mem::transmute(pid.unwrap_or(core::mem::zeroed())), core::mem::transmute(pptopology.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn UpdateTopology<P1>(&self, dwid: u32, ptopology: P1) -> windows_core::Result<()>
     where
@@ -32767,7 +32722,7 @@ impl core::ops::Deref for IMFSinkWriterEx {
 windows_core::imp::interface_hierarchy!(IMFSinkWriterEx, windows_core::IUnknown, IMFSinkWriter);
 impl IMFSinkWriterEx {
     pub unsafe fn GetTransformForStream(&self, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: Option<*mut windows_core::GUID>, pptransform: *mut Option<IMFTransform>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTransformForStream)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamindex), core::mem::transmute(dwtransformindex), core::mem::transmute(pguidcategory.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pptransform)).ok()
+        (windows_core::Interface::vtable(self).GetTransformForStream)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamindex), core::mem::transmute(dwtransformindex), core::mem::transmute(pguidcategory.unwrap_or(core::mem::zeroed())), core::mem::transmute(pptransform)).ok()
     }
 }
 #[repr(C)]
@@ -32826,7 +32781,7 @@ impl IMFSourceBuffer {
     where
         P0: windows_core::Param<IMFByteStream>,
     {
-        (windows_core::Interface::vtable(self).AppendByteStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), core::mem::transmute(pmaxlen.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).AppendByteStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), core::mem::transmute(pmaxlen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Abort(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok()
@@ -33151,14 +33106,14 @@ impl IMFSourceReader {
     where
         P2: windows_core::Param<IMFMediaType>,
     {
-        (windows_core::Interface::vtable(self).SetCurrentMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamindex), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), pmediatype.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCurrentMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamindex), core::mem::transmute(pdwreserved.unwrap_or(core::mem::zeroed())), pmediatype.param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetCurrentPosition(&self, guidtimeformat: *const windows_core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCurrentPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(guidtimeformat), core::mem::transmute(varposition)).ok()
     }
     pub unsafe fn ReadSample(&self, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: Option<*mut u32>, pdwstreamflags: Option<*mut u32>, plltimestamp: Option<*mut i64>, ppsample: Option<*mut Option<IMFSample>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReadSample)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamindex), core::mem::transmute(dwcontrolflags), core::mem::transmute(pdwactualstreamindex.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwstreamflags.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plltimestamp.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppsample.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ReadSample)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamindex), core::mem::transmute(dwcontrolflags), core::mem::transmute(pdwactualstreamindex.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwstreamflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(plltimestamp.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppsample.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Flush(&self, dwstreamindex: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamindex)).ok()
@@ -33422,7 +33377,7 @@ impl IMFSourceReaderEx {
         (windows_core::Interface::vtable(self).RemoveAllTransformsForStream)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamindex)).ok()
     }
     pub unsafe fn GetTransformForStream(&self, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: Option<*mut windows_core::GUID>, pptransform: *mut Option<IMFTransform>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTransformForStream)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamindex), core::mem::transmute(dwtransformindex), core::mem::transmute(pguidcategory.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pptransform)).ok()
+        (windows_core::Interface::vtable(self).GetTransformForStream)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamindex), core::mem::transmute(dwtransformindex), core::mem::transmute(pguidcategory.unwrap_or(core::mem::zeroed())), core::mem::transmute(pptransform)).ok()
     }
 }
 #[repr(C)]
@@ -33507,7 +33462,7 @@ impl IMFSourceResolver {
         P4: windows_core::Param<IMFAsyncCallback>,
         P5: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).BeginCreateObjectFromURL)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), core::mem::transmute(dwflags), pprops.param().abi(), core::mem::transmute(ppiunknowncancelcookie.unwrap_or(core::ptr::null_mut())), pcallback.param().abi(), punkstate.param().abi()).ok()
+        (windows_core::Interface::vtable(self).BeginCreateObjectFromURL)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), core::mem::transmute(dwflags), pprops.param().abi(), core::mem::transmute(ppiunknowncancelcookie.unwrap_or(core::mem::zeroed())), pcallback.param().abi(), punkstate.param().abi()).ok()
     }
     pub unsafe fn EndCreateObjectFromURL<P0>(&self, presult: P0, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
@@ -33524,7 +33479,7 @@ impl IMFSourceResolver {
         P5: windows_core::Param<IMFAsyncCallback>,
         P6: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).BeginCreateObjectFromByteStream)(windows_core::Interface::as_raw(self), pbytestream.param().abi(), pwszurl.param().abi(), core::mem::transmute(dwflags), pprops.param().abi(), core::mem::transmute(ppiunknowncancelcookie.unwrap_or(core::ptr::null_mut())), pcallback.param().abi(), punkstate.param().abi()).ok()
+        (windows_core::Interface::vtable(self).BeginCreateObjectFromByteStream)(windows_core::Interface::as_raw(self), pbytestream.param().abi(), pwszurl.param().abi(), core::mem::transmute(dwflags), pprops.param().abi(), core::mem::transmute(ppiunknowncancelcookie.unwrap_or(core::mem::zeroed())), pcallback.param().abi(), punkstate.param().abi()).ok()
     }
     pub unsafe fn EndCreateObjectFromByteStream<P0>(&self, presult: P0, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
@@ -34696,10 +34651,10 @@ impl IMFTimedTextCueList {
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddTextCue)(windows_core::Interface::as_raw(self), core::mem::transmute(start), core::mem::transmute(duration), text.param().abi(), core::mem::transmute(cue.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AddTextCue)(windows_core::Interface::as_raw(self), core::mem::transmute(start), core::mem::transmute(duration), text.param().abi(), core::mem::transmute(cue.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn AddDataCue(&self, start: f64, duration: f64, data: &[u8], cue: Option<*mut Option<IMFTimedTextCue>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddDataCue)(windows_core::Interface::as_raw(self), core::mem::transmute(start), core::mem::transmute(duration), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), core::mem::transmute(cue.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AddDataCue)(windows_core::Interface::as_raw(self), core::mem::transmute(start), core::mem::transmute(duration), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), core::mem::transmute(cue.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn RemoveCue<P0>(&self, cue: P0) -> windows_core::Result<()>
     where
@@ -37177,11 +37132,8 @@ impl IMFVideoDisplayControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAspectRatioMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetVideoWindow<P0>(&self, hwndvideo: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetVideoWindow)(windows_core::Interface::as_raw(self), hwndvideo.param().abi()).ok()
+    pub unsafe fn SetVideoWindow(&self, hwndvideo: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetVideoWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndvideo)).ok()
     }
     pub unsafe fn GetVideoWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = core::mem::zeroed();
@@ -37194,11 +37146,8 @@ impl IMFVideoDisplayControl {
     pub unsafe fn GetCurrentImage(&self, pbih: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, pdib: *mut *mut u8, pcbdib: *mut u32, ptimestamp: *mut i64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetCurrentImage)(windows_core::Interface::as_raw(self), core::mem::transmute(pbih), core::mem::transmute(pdib), core::mem::transmute(pcbdib), core::mem::transmute(ptimestamp)).ok()
     }
-    pub unsafe fn SetBorderColor<P0>(&self, clr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
-        (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), clr.param().abi()).ok()
+    pub unsafe fn SetBorderColor(&self, clr: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), core::mem::transmute(clr)).ok()
     }
     pub unsafe fn GetBorderColor(&self) -> windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = core::mem::zeroed();
@@ -37762,11 +37711,8 @@ impl IMFVideoProcessor {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetBackgroundColor<P0>(&self, clrbkg: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
-        (windows_core::Interface::vtable(self).SetBackgroundColor)(windows_core::Interface::as_raw(self), clrbkg.param().abi()).ok()
+    pub unsafe fn SetBackgroundColor(&self, clrbkg: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBackgroundColor)(windows_core::Interface::as_raw(self), core::mem::transmute(clrbkg)).ok()
     }
 }
 #[repr(C)]
@@ -37916,13 +37862,13 @@ windows_core::imp::define_interface!(IMFVideoProcessorControl, IMFVideoProcessor
 windows_core::imp::interface_hierarchy!(IMFVideoProcessorControl, windows_core::IUnknown);
 impl IMFVideoProcessorControl {
     pub unsafe fn SetBorderColor(&self, pbordercolor: Option<*const MFARGB>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), core::mem::transmute(pbordercolor.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), core::mem::transmute(pbordercolor.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetSourceRectangle(&self, psrcrect: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSourceRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(psrcrect.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetSourceRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(psrcrect.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetDestinationRectangle(&self, pdstrect: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDestinationRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(pdstrect.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetDestinationRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(pdstrect.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetMirror(&self, emirror: MF_VIDEO_PROCESSOR_MIRROR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMirror)(windows_core::Interface::as_raw(self), core::mem::transmute(emirror)).ok()
@@ -37931,7 +37877,7 @@ impl IMFVideoProcessorControl {
         (windows_core::Interface::vtable(self).SetRotation)(windows_core::Interface::as_raw(self), core::mem::transmute(erotation)).ok()
     }
     pub unsafe fn SetConstrictionSize(&self, pconstrictionsize: Option<*const super::super::Foundation::SIZE>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetConstrictionSize)(windows_core::Interface::as_raw(self), core::mem::transmute(pconstrictionsize.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetConstrictionSize)(windows_core::Interface::as_raw(self), core::mem::transmute(pconstrictionsize.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -38477,21 +38423,15 @@ impl IMFVirtualCamera {
         (windows_core::Interface::vtable(self).GetMediaSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SendCameraProperty(&self, propertyset: *const windows_core::GUID, propertyid: u32, propertyflags: u32, propertypayload: Option<*mut core::ffi::c_void>, propertypayloadlength: u32, data: Option<*mut core::ffi::c_void>, datalength: u32, datawritten: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SendCameraProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyset), core::mem::transmute(propertyid), core::mem::transmute(propertyflags), core::mem::transmute(propertypayload.unwrap_or(core::ptr::null_mut())), core::mem::transmute(propertypayloadlength), core::mem::transmute(data.unwrap_or(core::ptr::null_mut())), core::mem::transmute(datalength), core::mem::transmute(datawritten)).ok()
+        (windows_core::Interface::vtable(self).SendCameraProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyset), core::mem::transmute(propertyid), core::mem::transmute(propertyflags), core::mem::transmute(propertypayload.unwrap_or(core::mem::zeroed())), core::mem::transmute(propertypayloadlength), core::mem::transmute(data.unwrap_or(core::mem::zeroed())), core::mem::transmute(datalength), core::mem::transmute(datawritten)).ok()
     }
-    pub unsafe fn CreateSyncEvent<P3>(&self, kseventset: *const windows_core::GUID, kseventid: u32, kseventflags: u32, eventhandle: P3) -> windows_core::Result<IMFCameraSyncObject>
-    where
-        P3: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
+    pub unsafe fn CreateSyncEvent(&self, kseventset: *const windows_core::GUID, kseventid: u32, kseventflags: u32, eventhandle: super::super::Foundation::HANDLE) -> windows_core::Result<IMFCameraSyncObject> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSyncEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(kseventset), core::mem::transmute(kseventid), core::mem::transmute(kseventflags), eventhandle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSyncEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(kseventset), core::mem::transmute(kseventid), core::mem::transmute(kseventflags), core::mem::transmute(eventhandle), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateSyncSemaphore<P3>(&self, kseventset: *const windows_core::GUID, kseventid: u32, kseventflags: u32, semaphorehandle: P3, semaphoreadjustment: i32) -> windows_core::Result<IMFCameraSyncObject>
-    where
-        P3: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
+    pub unsafe fn CreateSyncSemaphore(&self, kseventset: *const windows_core::GUID, kseventid: u32, kseventflags: u32, semaphorehandle: super::super::Foundation::HANDLE, semaphoreadjustment: i32) -> windows_core::Result<IMFCameraSyncObject> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSyncSemaphore)(windows_core::Interface::as_raw(self), core::mem::transmute(kseventset), core::mem::transmute(kseventid), core::mem::transmute(kseventflags), semaphorehandle.param().abi(), core::mem::transmute(semaphoreadjustment), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSyncSemaphore)(windows_core::Interface::as_raw(self), core::mem::transmute(kseventset), core::mem::transmute(kseventid), core::mem::transmute(kseventflags), core::mem::transmute(semaphorehandle), core::mem::transmute(semaphoreadjustment), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -39087,8 +39027,8 @@ impl IToc {
     {
         (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), pwszdescription.param().abi()).ok()
     }
-    pub unsafe fn GetDescription(&self, pwdescriptionsize: *mut u16, pwszdescription: windows_core::PWSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pwdescriptionsize), core::mem::transmute(pwszdescription)).ok()
+    pub unsafe fn GetDescription(&self, pwdescriptionsize: *mut u16, pwszdescription: Option<windows_core::PWSTR>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pwdescriptionsize), core::mem::transmute(pwszdescription.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetContext(&self, dwcontextsize: u32, pbtcontext: *mut u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetContext)(windows_core::Interface::as_raw(self), core::mem::transmute(dwcontextsize), core::mem::transmute(pbtcontext)).ok()
@@ -39312,8 +39252,8 @@ impl ITocEntry {
     {
         (windows_core::Interface::vtable(self).SetTitle)(windows_core::Interface::as_raw(self), pwsztitle.param().abi()).ok()
     }
-    pub unsafe fn GetTitle(&self, pwtitlesize: *mut u16, pwsztitle: windows_core::PWSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), core::mem::transmute(pwtitlesize), core::mem::transmute(pwsztitle)).ok()
+    pub unsafe fn GetTitle(&self, pwtitlesize: *mut u16, pwsztitle: Option<windows_core::PWSTR>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), core::mem::transmute(pwtitlesize), core::mem::transmute(pwsztitle.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetDescriptor(&self, pdescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDescriptor)(windows_core::Interface::as_raw(self), core::mem::transmute(pdescriptor)).ok()

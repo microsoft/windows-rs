@@ -31,70 +31,50 @@ where
     BuildCommDCBW(lpdef.param().abi(), core::mem::transmute(lpdcb)).ok()
 }
 #[inline]
-pub unsafe fn ClearCommBreak<P0>(hfile: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn ClearCommBreak(hfile: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn ClearCommBreak(hfile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    ClearCommBreak(hfile.param().abi()).ok()
+    ClearCommBreak(core::mem::transmute(hfile)).ok()
 }
 #[inline]
-pub unsafe fn ClearCommError<P0>(hfile: P0, lperrors: Option<*mut CLEAR_COMM_ERROR_FLAGS>, lpstat: Option<*mut COMSTAT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn ClearCommError(hfile: super::super::Foundation::HANDLE, lperrors: Option<*mut CLEAR_COMM_ERROR_FLAGS>, lpstat: Option<*mut COMSTAT>) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn ClearCommError(hfile : super::super::Foundation:: HANDLE, lperrors : *mut CLEAR_COMM_ERROR_FLAGS, lpstat : *mut COMSTAT) -> super::super::Foundation:: BOOL);
-    ClearCommError(hfile.param().abi(), core::mem::transmute(lperrors.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpstat.unwrap_or(core::ptr::null_mut()))).ok()
+    ClearCommError(core::mem::transmute(hfile), core::mem::transmute(lperrors.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpstat.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CommConfigDialogA<P0, P1>(lpszname: P0, hwnd: P1, lpcc: *mut COMMCONFIG) -> windows_core::Result<()>
+pub unsafe fn CommConfigDialogA<P0>(lpszname: P0, hwnd: Option<super::super::Foundation::HWND>, lpcc: *mut COMMCONFIG) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CommConfigDialogA(lpszname : windows_core::PCSTR, hwnd : super::super::Foundation:: HWND, lpcc : *mut COMMCONFIG) -> super::super::Foundation:: BOOL);
-    CommConfigDialogA(lpszname.param().abi(), hwnd.param().abi(), core::mem::transmute(lpcc)).ok()
+    CommConfigDialogA(lpszname.param().abi(), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcc)).ok()
 }
 #[inline]
-pub unsafe fn CommConfigDialogW<P0, P1>(lpszname: P0, hwnd: P1, lpcc: *mut COMMCONFIG) -> windows_core::Result<()>
+pub unsafe fn CommConfigDialogW<P0>(lpszname: P0, hwnd: Option<super::super::Foundation::HWND>, lpcc: *mut COMMCONFIG) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CommConfigDialogW(lpszname : windows_core::PCWSTR, hwnd : super::super::Foundation:: HWND, lpcc : *mut COMMCONFIG) -> super::super::Foundation:: BOOL);
-    CommConfigDialogW(lpszname.param().abi(), hwnd.param().abi(), core::mem::transmute(lpcc)).ok()
+    CommConfigDialogW(lpszname.param().abi(), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcc)).ok()
 }
 #[inline]
-pub unsafe fn EscapeCommFunction<P0>(hfile: P0, dwfunc: ESCAPE_COMM_FUNCTION) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn EscapeCommFunction(hfile: super::super::Foundation::HANDLE, dwfunc: ESCAPE_COMM_FUNCTION) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EscapeCommFunction(hfile : super::super::Foundation:: HANDLE, dwfunc : ESCAPE_COMM_FUNCTION) -> super::super::Foundation:: BOOL);
-    EscapeCommFunction(hfile.param().abi(), core::mem::transmute(dwfunc)).ok()
+    EscapeCommFunction(core::mem::transmute(hfile), core::mem::transmute(dwfunc)).ok()
 }
 #[inline]
-pub unsafe fn GetCommConfig<P0>(hcommdev: P0, lpcc: Option<*mut COMMCONFIG>, lpdwsize: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn GetCommConfig(hcommdev: super::super::Foundation::HANDLE, lpcc: Option<*mut COMMCONFIG>, lpdwsize: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetCommConfig(hcommdev : super::super::Foundation:: HANDLE, lpcc : *mut COMMCONFIG, lpdwsize : *mut u32) -> super::super::Foundation:: BOOL);
-    GetCommConfig(hcommdev.param().abi(), core::mem::transmute(lpcc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpdwsize)).ok()
+    GetCommConfig(core::mem::transmute(hcommdev), core::mem::transmute(lpcc.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpdwsize)).ok()
 }
 #[inline]
-pub unsafe fn GetCommMask<P0>(hfile: P0, lpevtmask: *mut COMM_EVENT_MASK) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn GetCommMask(hfile: super::super::Foundation::HANDLE, lpevtmask: *mut COMM_EVENT_MASK) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetCommMask(hfile : super::super::Foundation:: HANDLE, lpevtmask : *mut COMM_EVENT_MASK) -> super::super::Foundation:: BOOL);
-    GetCommMask(hfile.param().abi(), core::mem::transmute(lpevtmask)).ok()
+    GetCommMask(core::mem::transmute(hfile), core::mem::transmute(lpevtmask)).ok()
 }
 #[inline]
-pub unsafe fn GetCommModemStatus<P0>(hfile: P0, lpmodemstat: *mut MODEM_STATUS_FLAGS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn GetCommModemStatus(hfile: super::super::Foundation::HANDLE, lpmodemstat: *mut MODEM_STATUS_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetCommModemStatus(hfile : super::super::Foundation:: HANDLE, lpmodemstat : *mut MODEM_STATUS_FLAGS) -> super::super::Foundation:: BOOL);
-    GetCommModemStatus(hfile.param().abi(), core::mem::transmute(lpmodemstat)).ok()
+    GetCommModemStatus(core::mem::transmute(hfile), core::mem::transmute(lpmodemstat)).ok()
 }
 #[inline]
 pub unsafe fn GetCommPorts(lpportnumbers: &mut [u32], puportnumbersfound: *mut u32) -> u32 {
@@ -102,28 +82,19 @@ pub unsafe fn GetCommPorts(lpportnumbers: &mut [u32], puportnumbersfound: *mut u
     GetCommPorts(core::mem::transmute(lpportnumbers.as_ptr()), lpportnumbers.len().try_into().unwrap(), core::mem::transmute(puportnumbersfound))
 }
 #[inline]
-pub unsafe fn GetCommProperties<P0>(hfile: P0, lpcommprop: *mut COMMPROP) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn GetCommProperties(hfile: super::super::Foundation::HANDLE, lpcommprop: *mut COMMPROP) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetCommProperties(hfile : super::super::Foundation:: HANDLE, lpcommprop : *mut COMMPROP) -> super::super::Foundation:: BOOL);
-    GetCommProperties(hfile.param().abi(), core::mem::transmute(lpcommprop)).ok()
+    GetCommProperties(core::mem::transmute(hfile), core::mem::transmute(lpcommprop)).ok()
 }
 #[inline]
-pub unsafe fn GetCommState<P0>(hfile: P0, lpdcb: *mut DCB) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn GetCommState(hfile: super::super::Foundation::HANDLE, lpdcb: *mut DCB) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetCommState(hfile : super::super::Foundation:: HANDLE, lpdcb : *mut DCB) -> super::super::Foundation:: BOOL);
-    GetCommState(hfile.param().abi(), core::mem::transmute(lpdcb)).ok()
+    GetCommState(core::mem::transmute(hfile), core::mem::transmute(lpdcb)).ok()
 }
 #[inline]
-pub unsafe fn GetCommTimeouts<P0>(hfile: P0, lpcommtimeouts: *mut COMMTIMEOUTS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn GetCommTimeouts(hfile: super::super::Foundation::HANDLE, lpcommtimeouts: *mut COMMTIMEOUTS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetCommTimeouts(hfile : super::super::Foundation:: HANDLE, lpcommtimeouts : *mut COMMTIMEOUTS) -> super::super::Foundation:: BOOL);
-    GetCommTimeouts(hfile.param().abi(), core::mem::transmute(lpcommtimeouts)).ok()
+    GetCommTimeouts(core::mem::transmute(hfile), core::mem::transmute(lpcommtimeouts)).ok()
 }
 #[inline]
 pub unsafe fn GetDefaultCommConfigA<P0>(lpszname: P0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> windows_core::Result<()>
@@ -147,52 +118,34 @@ pub unsafe fn OpenCommPort(uportnumber: u32, dwdesiredaccess: u32, dwflagsandatt
     OpenCommPort(core::mem::transmute(uportnumber), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwflagsandattributes))
 }
 #[inline]
-pub unsafe fn PurgeComm<P0>(hfile: P0, dwflags: PURGE_COMM_FLAGS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PurgeComm(hfile: super::super::Foundation::HANDLE, dwflags: PURGE_COMM_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn PurgeComm(hfile : super::super::Foundation:: HANDLE, dwflags : PURGE_COMM_FLAGS) -> super::super::Foundation:: BOOL);
-    PurgeComm(hfile.param().abi(), core::mem::transmute(dwflags)).ok()
+    PurgeComm(core::mem::transmute(hfile), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn SetCommBreak<P0>(hfile: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SetCommBreak(hfile: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetCommBreak(hfile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    SetCommBreak(hfile.param().abi()).ok()
+    SetCommBreak(core::mem::transmute(hfile)).ok()
 }
 #[inline]
-pub unsafe fn SetCommConfig<P0>(hcommdev: P0, lpcc: *const COMMCONFIG, dwsize: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SetCommConfig(hcommdev: super::super::Foundation::HANDLE, lpcc: *const COMMCONFIG, dwsize: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetCommConfig(hcommdev : super::super::Foundation:: HANDLE, lpcc : *const COMMCONFIG, dwsize : u32) -> super::super::Foundation:: BOOL);
-    SetCommConfig(hcommdev.param().abi(), core::mem::transmute(lpcc), core::mem::transmute(dwsize)).ok()
+    SetCommConfig(core::mem::transmute(hcommdev), core::mem::transmute(lpcc), core::mem::transmute(dwsize)).ok()
 }
 #[inline]
-pub unsafe fn SetCommMask<P0>(hfile: P0, dwevtmask: COMM_EVENT_MASK) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SetCommMask(hfile: super::super::Foundation::HANDLE, dwevtmask: COMM_EVENT_MASK) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetCommMask(hfile : super::super::Foundation:: HANDLE, dwevtmask : COMM_EVENT_MASK) -> super::super::Foundation:: BOOL);
-    SetCommMask(hfile.param().abi(), core::mem::transmute(dwevtmask)).ok()
+    SetCommMask(core::mem::transmute(hfile), core::mem::transmute(dwevtmask)).ok()
 }
 #[inline]
-pub unsafe fn SetCommState<P0>(hfile: P0, lpdcb: *const DCB) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SetCommState(hfile: super::super::Foundation::HANDLE, lpdcb: *const DCB) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetCommState(hfile : super::super::Foundation:: HANDLE, lpdcb : *const DCB) -> super::super::Foundation:: BOOL);
-    SetCommState(hfile.param().abi(), core::mem::transmute(lpdcb)).ok()
+    SetCommState(core::mem::transmute(hfile), core::mem::transmute(lpdcb)).ok()
 }
 #[inline]
-pub unsafe fn SetCommTimeouts<P0>(hfile: P0, lpcommtimeouts: *const COMMTIMEOUTS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SetCommTimeouts(hfile: super::super::Foundation::HANDLE, lpcommtimeouts: *const COMMTIMEOUTS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetCommTimeouts(hfile : super::super::Foundation:: HANDLE, lpcommtimeouts : *const COMMTIMEOUTS) -> super::super::Foundation:: BOOL);
-    SetCommTimeouts(hfile.param().abi(), core::mem::transmute(lpcommtimeouts)).ok()
+    SetCommTimeouts(core::mem::transmute(hfile), core::mem::transmute(lpcommtimeouts)).ok()
 }
 #[inline]
 pub unsafe fn SetDefaultCommConfigA<P0>(lpszname: P0, lpcc: *const COMMCONFIG, dwsize: u32) -> windows_core::Result<()>
@@ -211,29 +164,20 @@ where
     SetDefaultCommConfigW(lpszname.param().abi(), core::mem::transmute(lpcc), core::mem::transmute(dwsize)).ok()
 }
 #[inline]
-pub unsafe fn SetupComm<P0>(hfile: P0, dwinqueue: u32, dwoutqueue: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SetupComm(hfile: super::super::Foundation::HANDLE, dwinqueue: u32, dwoutqueue: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetupComm(hfile : super::super::Foundation:: HANDLE, dwinqueue : u32, dwoutqueue : u32) -> super::super::Foundation:: BOOL);
-    SetupComm(hfile.param().abi(), core::mem::transmute(dwinqueue), core::mem::transmute(dwoutqueue)).ok()
+    SetupComm(core::mem::transmute(hfile), core::mem::transmute(dwinqueue), core::mem::transmute(dwoutqueue)).ok()
 }
 #[inline]
-pub unsafe fn TransmitCommChar<P0>(hfile: P0, cchar: i8) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn TransmitCommChar(hfile: super::super::Foundation::HANDLE, cchar: i8) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn TransmitCommChar(hfile : super::super::Foundation:: HANDLE, cchar : i8) -> super::super::Foundation:: BOOL);
-    TransmitCommChar(hfile.param().abi(), core::mem::transmute(cchar)).ok()
+    TransmitCommChar(core::mem::transmute(hfile), core::mem::transmute(cchar)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn WaitCommEvent<P0>(hfile: P0, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WaitCommEvent(hfile: super::super::Foundation::HANDLE, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn WaitCommEvent(hfile : super::super::Foundation:: HANDLE, lpevtmask : *mut COMM_EVENT_MASK, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WaitCommEvent(hfile.param().abi(), core::mem::transmute(lpevtmask), core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null_mut()))).ok()
+    WaitCommEvent(core::mem::transmute(hfile), core::mem::transmute(lpevtmask), core::mem::transmute(lpoverlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(16u32);
 pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(8u32);

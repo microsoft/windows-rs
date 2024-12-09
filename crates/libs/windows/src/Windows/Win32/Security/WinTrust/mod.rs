@@ -1,18 +1,12 @@
 #[inline]
-pub unsafe fn OpenPersonalTrustDBDialog<P0>(hwndparent: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn OpenPersonalTrustDBDialog(hwndparent: Option<super::super::Foundation::HWND>) -> super::super::Foundation::BOOL {
     windows_targets::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialog(hwndparent : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-    OpenPersonalTrustDBDialog(hwndparent.param().abi())
+    OpenPersonalTrustDBDialog(core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn OpenPersonalTrustDBDialogEx<P0>(hwndparent: P0, dwflags: u32, pvreserved: Option<*mut *mut core::ffi::c_void>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn OpenPersonalTrustDBDialogEx(hwndparent: Option<super::super::Foundation::HWND>, dwflags: u32, pvreserved: Option<*mut *mut core::ffi::c_void>) -> super::super::Foundation::BOOL {
     windows_targets::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialogEx(hwndparent : super::super::Foundation:: HWND, dwflags : u32, pvreserved : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    OpenPersonalTrustDBDialogEx(hwndparent.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null_mut())))
+    OpenPersonalTrustDBDialogEx(core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
@@ -49,29 +43,20 @@ where
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
-pub unsafe fn WTHelperProvDataFromStateData<P0>(hstatedata: P0) -> *mut CRYPT_PROVIDER_DATA
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTHelperProvDataFromStateData(hstatedata: super::super::Foundation::HANDLE) -> *mut CRYPT_PROVIDER_DATA {
     windows_targets::link!("wintrust.dll" "system" fn WTHelperProvDataFromStateData(hstatedata : super::super::Foundation:: HANDLE) -> *mut CRYPT_PROVIDER_DATA);
-    WTHelperProvDataFromStateData(hstatedata.param().abi())
+    WTHelperProvDataFromStateData(core::mem::transmute(hstatedata))
 }
 #[inline]
-pub unsafe fn WinVerifyTrust<P0>(hwnd: P0, pgactionid: *mut windows_core::GUID, pwvtdata: *mut core::ffi::c_void) -> i32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn WinVerifyTrust(hwnd: super::super::Foundation::HWND, pgactionid: *mut windows_core::GUID, pwvtdata: *mut core::ffi::c_void) -> i32 {
     windows_targets::link!("wintrust.dll" "system" fn WinVerifyTrust(hwnd : super::super::Foundation:: HWND, pgactionid : *mut windows_core::GUID, pwvtdata : *mut core::ffi::c_void) -> i32);
-    WinVerifyTrust(hwnd.param().abi(), core::mem::transmute(pgactionid), core::mem::transmute(pwvtdata))
+    WinVerifyTrust(core::mem::transmute(hwnd), core::mem::transmute(pgactionid), core::mem::transmute(pwvtdata))
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
-pub unsafe fn WinVerifyTrustEx<P0>(hwnd: P0, pgactionid: *mut windows_core::GUID, pwintrustdata: *mut WINTRUST_DATA) -> i32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn WinVerifyTrustEx(hwnd: super::super::Foundation::HWND, pgactionid: *mut windows_core::GUID, pwintrustdata: *mut WINTRUST_DATA) -> i32 {
     windows_targets::link!("wintrust.dll" "system" fn WinVerifyTrustEx(hwnd : super::super::Foundation:: HWND, pgactionid : *mut windows_core::GUID, pwintrustdata : *mut WINTRUST_DATA) -> i32);
-    WinVerifyTrustEx(hwnd.param().abi(), core::mem::transmute(pgactionid), core::mem::transmute(pwintrustdata))
+    WinVerifyTrustEx(core::mem::transmute(hwnd), core::mem::transmute(pgactionid), core::mem::transmute(pwintrustdata))
 }
 #[inline]
 pub unsafe fn WintrustAddActionID(pgactionid: *const windows_core::GUID, fdwflags: u32, psprovinfo: *const CRYPT_REGISTER_ACTIONID) -> windows_core::Result<()> {

@@ -423,12 +423,9 @@ impl IPresentationManager {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddBufferFromResource)(windows_core::Interface::as_raw(self), resource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreatePresentationSurface<P0>(&self, compositionsurfacehandle: P0) -> windows_core::Result<IPresentationSurface>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
+    pub unsafe fn CreatePresentationSurface(&self, compositionsurfacehandle: super::super::Foundation::HANDLE) -> windows_core::Result<IPresentationSurface> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePresentationSurface)(windows_core::Interface::as_raw(self), compositionsurfacehandle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePresentationSurface)(windows_core::Interface::as_raw(self), core::mem::transmute(compositionsurfacehandle), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNextPresentId(&self) -> u64 {
         (windows_core::Interface::vtable(self).GetNextPresentId)(windows_core::Interface::as_raw(self))

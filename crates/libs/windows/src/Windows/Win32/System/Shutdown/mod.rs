@@ -95,29 +95,22 @@ pub unsafe fn LockWorkStation() -> windows_core::Result<()> {
     LockWorkStation().ok()
 }
 #[inline]
-pub unsafe fn ShutdownBlockReasonCreate<P0, P1>(hwnd: P0, pwszreason: P1) -> windows_core::Result<()>
+pub unsafe fn ShutdownBlockReasonCreate<P1>(hwnd: super::super::Foundation::HWND, pwszreason: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn ShutdownBlockReasonCreate(hwnd : super::super::Foundation:: HWND, pwszreason : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    ShutdownBlockReasonCreate(hwnd.param().abi(), pwszreason.param().abi()).ok()
+    ShutdownBlockReasonCreate(core::mem::transmute(hwnd), pwszreason.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn ShutdownBlockReasonDestroy<P0>(hwnd: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn ShutdownBlockReasonDestroy(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn ShutdownBlockReasonDestroy(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-    ShutdownBlockReasonDestroy(hwnd.param().abi()).ok()
+    ShutdownBlockReasonDestroy(core::mem::transmute(hwnd)).ok()
 }
 #[inline]
-pub unsafe fn ShutdownBlockReasonQuery<P0>(hwnd: P0, pwszbuff: windows_core::PWSTR, pcchbuff: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn ShutdownBlockReasonQuery(hwnd: super::super::Foundation::HWND, pwszbuff: Option<windows_core::PWSTR>, pcchbuff: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::super::Foundation:: HWND, pwszbuff : windows_core::PWSTR, pcchbuff : *mut u32) -> super::super::Foundation:: BOOL);
-    ShutdownBlockReasonQuery(hwnd.param().abi(), core::mem::transmute(pwszbuff), core::mem::transmute(pcchbuff)).ok()
+    ShutdownBlockReasonQuery(core::mem::transmute(hwnd), core::mem::transmute(pwszbuff.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuff)).ok()
 }
 pub const EWX_ARSO: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(67108864u32);
 pub const EWX_BOOTOPTIONS: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(16777216u32);

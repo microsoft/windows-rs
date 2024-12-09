@@ -1,46 +1,30 @@
 #[inline]
-pub unsafe fn CloseHandle<P0>(hobject: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HANDLE>,
-{
+pub unsafe fn CloseHandle(hobject: HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
-    CloseHandle(hobject.param().abi()).ok()
+    CloseHandle(core::mem::transmute(hobject)).ok()
 }
 #[inline]
-pub unsafe fn CompareObjectHandles<P0, P1>(hfirstobjecthandle: P0, hsecondobjecthandle: P1) -> BOOL
-where
-    P0: windows_core::Param<HANDLE>,
-    P1: windows_core::Param<HANDLE>,
-{
+pub unsafe fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL {
     windows_targets::link!("api-ms-win-core-handle-l1-1-0.dll" "system" fn CompareObjectHandles(hfirstobjecthandle : HANDLE, hsecondobjecthandle : HANDLE) -> BOOL);
-    CompareObjectHandles(hfirstobjecthandle.param().abi(), hsecondobjecthandle.param().abi())
+    CompareObjectHandles(core::mem::transmute(hfirstobjecthandle), core::mem::transmute(hsecondobjecthandle))
 }
 #[inline]
-pub unsafe fn DuplicateHandle<P0, P1, P2, P5>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P5, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::Result<()>
+pub unsafe fn DuplicateHandle<P5>(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P5, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HANDLE>,
-    P1: windows_core::Param<HANDLE>,
-    P2: windows_core::Param<HANDLE>,
     P5: windows_core::Param<BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> BOOL);
-    DuplicateHandle(hsourceprocesshandle.param().abi(), hsourcehandle.param().abi(), htargetprocesshandle.param().abi(), core::mem::transmute(lptargethandle), core::mem::transmute(dwdesiredaccess), binherithandle.param().abi(), core::mem::transmute(dwoptions)).ok()
+    DuplicateHandle(core::mem::transmute(hsourceprocesshandle), core::mem::transmute(hsourcehandle), core::mem::transmute(htargetprocesshandle), core::mem::transmute(lptargethandle), core::mem::transmute(dwdesiredaccess), binherithandle.param().abi(), core::mem::transmute(dwoptions)).ok()
 }
 #[inline]
-pub unsafe fn FreeLibrary<P0>(hlibmodule: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HMODULE>,
-{
+pub unsafe fn FreeLibrary(hlibmodule: HMODULE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> BOOL);
-    FreeLibrary(hlibmodule.param().abi()).ok()
+    FreeLibrary(core::mem::transmute(hlibmodule)).ok()
 }
 #[inline]
-pub unsafe fn GetHandleInformation<P0>(hobject: P0, lpdwflags: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HANDLE>,
-{
+pub unsafe fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> BOOL);
-    GetHandleInformation(hobject.param().abi(), core::mem::transmute(lpdwflags)).ok()
+    GetHandleInformation(core::mem::transmute(hobject), core::mem::transmute(lpdwflags)).ok()
 }
 #[inline]
 pub unsafe fn GetLastError() -> WIN32_ERROR {
@@ -48,37 +32,25 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
     GetLastError()
 }
 #[inline]
-pub unsafe fn GlobalFree<P0>(hmem: P0) -> windows_core::Result<HGLOBAL>
-where
-    P0: windows_core::Param<HGLOBAL>,
-{
+pub unsafe fn GlobalFree(hmem: Option<HGLOBAL>) -> windows_core::Result<HGLOBAL> {
     windows_targets::link!("kernel32.dll" "system" fn GlobalFree(hmem : HGLOBAL) -> HGLOBAL);
-    let result__ = GlobalFree(hmem.param().abi());
+    let result__ = GlobalFree(core::mem::transmute(hmem.unwrap_or(core::mem::zeroed())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn LocalFree<P0>(hmem: P0) -> HLOCAL
-where
-    P0: windows_core::Param<HLOCAL>,
-{
+pub unsafe fn LocalFree(hmem: Option<HLOCAL>) -> HLOCAL {
     windows_targets::link!("kernel32.dll" "system" fn LocalFree(hmem : HLOCAL) -> HLOCAL);
-    LocalFree(hmem.param().abi())
+    LocalFree(core::mem::transmute(hmem.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn RtlNtStatusToDosError<P0>(status: P0) -> u32
-where
-    P0: windows_core::Param<NTSTATUS>,
-{
+pub unsafe fn RtlNtStatusToDosError(status: NTSTATUS) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlNtStatusToDosError(status : NTSTATUS) -> u32);
-    RtlNtStatusToDosError(status.param().abi())
+    RtlNtStatusToDosError(core::mem::transmute(status))
 }
 #[inline]
-pub unsafe fn SetHandleInformation<P0>(hobject: P0, dwmask: u32, dwflags: HANDLE_FLAGS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HANDLE>,
-{
+pub unsafe fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> BOOL);
-    SetHandleInformation(hobject.param().abi(), core::mem::transmute(dwmask), core::mem::transmute(dwflags)).ok()
+    SetHandleInformation(core::mem::transmute(hobject), core::mem::transmute(dwmask), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {

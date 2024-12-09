@@ -17,7 +17,7 @@ impl IEnumNetworkConnections {
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Next(&self, rgelt: &mut [Option<INetworkConnection>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
@@ -120,7 +120,7 @@ impl IEnumNetworks {
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Next(&self, rgelt: &mut [Option<INetwork>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
@@ -823,11 +823,8 @@ impl INetworkCostManager {
     pub unsafe fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDataPlanStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(pdataplanstatus), core::mem::transmute(pdestipaddr)).ok()
     }
-    pub unsafe fn SetDestinationAddresses<P2>(&self, pdestipaddrlist: &[NLM_SOCKADDR], bappend: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDestinationAddresses)(windows_core::Interface::as_raw(self), pdestipaddrlist.len().try_into().unwrap(), core::mem::transmute(pdestipaddrlist.as_ptr()), bappend.param().abi()).ok()
+    pub unsafe fn SetDestinationAddresses(&self, pdestipaddrlist: &[NLM_SOCKADDR], bappend: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDestinationAddresses)(windows_core::Interface::as_raw(self), pdestipaddrlist.len().try_into().unwrap(), core::mem::transmute(pdestipaddrlist.as_ptr()), core::mem::transmute(bappend)).ok()
     }
 }
 #[repr(C)]

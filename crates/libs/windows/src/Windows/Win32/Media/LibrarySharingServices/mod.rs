@@ -358,11 +358,8 @@ impl IWindowsMediaLibrarySharingServices {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).userHomeMediaSharingState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetuserHomeMediaSharingState<P0>(&self, sharingenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetuserHomeMediaSharingState)(windows_core::Interface::as_raw(self), sharingenabled.param().abi()).ok()
+    pub unsafe fn SetuserHomeMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetuserHomeMediaSharingState)(windows_core::Interface::as_raw(self), core::mem::transmute(sharingenabled)).ok()
     }
     pub unsafe fn userHomeMediaSharingLibraryName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -375,31 +372,22 @@ impl IWindowsMediaLibrarySharingServices {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).computerHomeMediaSharingAllowedState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetcomputerHomeMediaSharingAllowedState<P0>(&self, sharingallowed: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetcomputerHomeMediaSharingAllowedState)(windows_core::Interface::as_raw(self), sharingallowed.param().abi()).ok()
+    pub unsafe fn SetcomputerHomeMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetcomputerHomeMediaSharingAllowedState)(windows_core::Interface::as_raw(self), core::mem::transmute(sharingallowed)).ok()
     }
     pub unsafe fn userInternetMediaSharingState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).userInternetMediaSharingState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetuserInternetMediaSharingState<P0>(&self, sharingenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetuserInternetMediaSharingState)(windows_core::Interface::as_raw(self), sharingenabled.param().abi()).ok()
+    pub unsafe fn SetuserInternetMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetuserInternetMediaSharingState)(windows_core::Interface::as_raw(self), core::mem::transmute(sharingenabled)).ok()
     }
     pub unsafe fn computerInternetMediaSharingAllowedState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).computerInternetMediaSharingAllowedState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetcomputerInternetMediaSharingAllowedState<P0>(&self, sharingallowed: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetcomputerInternetMediaSharingAllowedState)(windows_core::Interface::as_raw(self), sharingallowed.param().abi()).ok()
+    pub unsafe fn SetcomputerInternetMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetcomputerInternetMediaSharingAllowedState)(windows_core::Interface::as_raw(self), core::mem::transmute(sharingallowed)).ok()
     }
     pub unsafe fn internetMediaSharingSecurityGroup(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -412,23 +400,14 @@ impl IWindowsMediaLibrarySharingServices {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).allowSharingToAllDevices)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetallowSharingToAllDevices<P0>(&self, sharingenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetallowSharingToAllDevices)(windows_core::Interface::as_raw(self), sharingenabled.param().abi()).ok()
+    pub unsafe fn SetallowSharingToAllDevices(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetallowSharingToAllDevices)(windows_core::Interface::as_raw(self), core::mem::transmute(sharingenabled)).ok()
     }
-    pub unsafe fn setDefaultAuthorization<P2>(&self, macaddresses: &windows_core::BSTR, friendlyname: &windows_core::BSTR, authorization: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).setDefaultAuthorization)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(macaddresses), core::mem::transmute_copy(friendlyname), authorization.param().abi()).ok()
+    pub unsafe fn setDefaultAuthorization(&self, macaddresses: &windows_core::BSTR, friendlyname: &windows_core::BSTR, authorization: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).setDefaultAuthorization)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(macaddresses), core::mem::transmute_copy(friendlyname), core::mem::transmute(authorization)).ok()
     }
-    pub unsafe fn setAuthorizationState<P1>(&self, macaddress: &windows_core::BSTR, authorizationstate: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).setAuthorizationState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(macaddress), authorizationstate.param().abi()).ok()
+    pub unsafe fn setAuthorizationState(&self, macaddress: &windows_core::BSTR, authorizationstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).setAuthorizationState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(macaddress), core::mem::transmute(authorizationstate)).ok()
     }
     pub unsafe fn getAllDevices(&self) -> windows_core::Result<IWindowsMediaLibrarySharingDevices> {
         let mut result__ = core::mem::zeroed();

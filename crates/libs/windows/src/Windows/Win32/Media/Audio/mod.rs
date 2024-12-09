@@ -17,7 +17,7 @@ where
 {
     windows_targets::link!("mmdevapi.dll" "system" fn ActivateAudioInterfaceAsync(deviceinterfacepath : windows_core::PCWSTR, riid : *const windows_core::GUID, activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, completionhandler : * mut core::ffi::c_void, activationoperation : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    ActivateAudioInterfaceAsync(deviceinterfacepath.param().abi(), core::mem::transmute(riid), core::mem::transmute(activationparams.unwrap_or(core::ptr::null())), completionhandler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    ActivateAudioInterfaceAsync(deviceinterfacepath.param().abi(), core::mem::transmute(riid), core::mem::transmute(activationparams.unwrap_or(core::mem::zeroed())), completionhandler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn CoRegisterMessageFilter<P0>(lpmessagefilter: P0, lplpmessagefilter: Option<*mut Option<IMessageFilter>>) -> windows_core::Result<()>
@@ -25,7 +25,7 @@ where
     P0: windows_core::Param<IMessageFilter>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoRegisterMessageFilter(lpmessagefilter : * mut core::ffi::c_void, lplpmessagefilter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    CoRegisterMessageFilter(lpmessagefilter.param().abi(), core::mem::transmute(lplpmessagefilter.unwrap_or(core::ptr::null_mut()))).ok()
+    CoRegisterMessageFilter(lpmessagefilter.param().abi(), core::mem::transmute(lplpmessagefilter.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitor() -> windows_core::Result<IAudioStateMonitor> {
@@ -82,66 +82,47 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AU
     CreateRenderAudioStateMonitorForCategoryAndDeviceRole(core::mem::transmute(category), core::mem::transmute(role), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
-pub unsafe fn PlaySoundA<P0, P1>(pszsound: P0, hmod: P1, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL
+pub unsafe fn PlaySoundA<P0>(pszsound: P0, hmod: Option<super::super::Foundation::HMODULE>, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HMODULE>,
 {
     windows_targets::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_core::PCSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
-    PlaySoundA(pszsound.param().abi(), hmod.param().abi(), core::mem::transmute(fdwsound))
+    PlaySoundA(pszsound.param().abi(), core::mem::transmute(hmod.unwrap_or(core::mem::zeroed())), core::mem::transmute(fdwsound))
 }
 #[inline]
-pub unsafe fn PlaySoundW<P0, P1>(pszsound: P0, hmod: P1, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL
+pub unsafe fn PlaySoundW<P0>(pszsound: P0, hmod: Option<super::super::Foundation::HMODULE>, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HMODULE>,
 {
     windows_targets::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_core::PCWSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
-    PlaySoundW(pszsound.param().abi(), hmod.param().abi(), core::mem::transmute(fdwsound))
+    PlaySoundW(pszsound.param().abi(), core::mem::transmute(hmod.unwrap_or(core::mem::zeroed())), core::mem::transmute(fdwsound))
 }
 #[inline]
-pub unsafe fn acmDriverAddA<P1, P2>(phadid: *mut HACMDRIVERID, hinstmodule: P1, lparam: P2, dwpriority: u32, fdwadd: u32) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
-{
+pub unsafe fn acmDriverAddA(phadid: *mut HACMDRIVERID, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmDriverAddA(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
-    acmDriverAddA(core::mem::transmute(phadid), hinstmodule.param().abi(), lparam.param().abi(), core::mem::transmute(dwpriority), core::mem::transmute(fdwadd))
+    acmDriverAddA(core::mem::transmute(phadid), core::mem::transmute(hinstmodule), core::mem::transmute(lparam), core::mem::transmute(dwpriority), core::mem::transmute(fdwadd))
 }
 #[inline]
-pub unsafe fn acmDriverAddW<P1, P2>(phadid: *mut HACMDRIVERID, hinstmodule: P1, lparam: P2, dwpriority: u32, fdwadd: u32) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
-{
+pub unsafe fn acmDriverAddW(phadid: *mut HACMDRIVERID, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmDriverAddW(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
-    acmDriverAddW(core::mem::transmute(phadid), hinstmodule.param().abi(), lparam.param().abi(), core::mem::transmute(dwpriority), core::mem::transmute(fdwadd))
+    acmDriverAddW(core::mem::transmute(phadid), core::mem::transmute(hinstmodule), core::mem::transmute(lparam), core::mem::transmute(dwpriority), core::mem::transmute(fdwadd))
 }
 #[inline]
-pub unsafe fn acmDriverClose<P0>(had: P0, fdwclose: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmDriverClose(had: HACMDRIVER, fdwclose: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmDriverClose(had : HACMDRIVER, fdwclose : u32) -> u32);
-    acmDriverClose(had.param().abi(), core::mem::transmute(fdwclose))
+    acmDriverClose(core::mem::transmute(had), core::mem::transmute(fdwclose))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn acmDriverDetailsA<P0>(hadid: P0, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVERID>,
-{
+pub unsafe fn acmDriverDetailsA(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmDriverDetailsA(hadid : HACMDRIVERID, padd : *mut ACMDRIVERDETAILSA, fdwdetails : u32) -> u32);
-    acmDriverDetailsA(hadid.param().abi(), core::mem::transmute(padd), core::mem::transmute(fdwdetails))
+    acmDriverDetailsA(core::mem::transmute(hadid), core::mem::transmute(padd), core::mem::transmute(fdwdetails))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn acmDriverDetailsW<P0>(hadid: P0, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVERID>,
-{
+pub unsafe fn acmDriverDetailsW(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmDriverDetailsW(hadid : HACMDRIVERID, padd : *mut ACMDRIVERDETAILSW, fdwdetails : u32) -> u32);
-    acmDriverDetailsW(hadid.param().abi(), core::mem::transmute(padd), core::mem::transmute(fdwdetails))
+    acmDriverDetailsW(core::mem::transmute(hadid), core::mem::transmute(padd), core::mem::transmute(fdwdetails))
 }
 #[inline]
 pub unsafe fn acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: usize, fdwenum: u32) -> u32 {
@@ -149,46 +130,29 @@ pub unsafe fn acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: usize, fdwe
     acmDriverEnum(core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
 }
 #[inline]
-pub unsafe fn acmDriverID<P0>(hao: P0, phadid: *mut HACMDRIVERID, fdwdriverid: u32) -> u32
-where
-    P0: windows_core::Param<HACMOBJ>,
-{
+pub unsafe fn acmDriverID(hao: HACMOBJ, phadid: *mut HACMDRIVERID, fdwdriverid: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmDriverID(hao : HACMOBJ, phadid : *mut HACMDRIVERID, fdwdriverid : u32) -> u32);
-    acmDriverID(hao.param().abi(), core::mem::transmute(phadid), core::mem::transmute(fdwdriverid))
+    acmDriverID(core::mem::transmute(hao), core::mem::transmute(phadid), core::mem::transmute(fdwdriverid))
 }
 #[inline]
-pub unsafe fn acmDriverMessage<P0, P2, P3>(had: P0, umsg: u32, lparam1: P2, lparam2: P3) -> super::super::Foundation::LRESULT
-where
-    P0: windows_core::Param<HACMDRIVER>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    P3: windows_core::Param<super::super::Foundation::LPARAM>,
-{
+pub unsafe fn acmDriverMessage(had: HACMDRIVER, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT {
     windows_targets::link!("msacm32.dll" "system" fn acmDriverMessage(had : HACMDRIVER, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
-    acmDriverMessage(had.param().abi(), core::mem::transmute(umsg), lparam1.param().abi(), lparam2.param().abi())
+    acmDriverMessage(core::mem::transmute(had), core::mem::transmute(umsg), core::mem::transmute(lparam1), core::mem::transmute(lparam2))
 }
 #[inline]
-pub unsafe fn acmDriverOpen<P1>(phad: *mut HACMDRIVER, hadid: P1, fdwopen: u32) -> u32
-where
-    P1: windows_core::Param<HACMDRIVERID>,
-{
+pub unsafe fn acmDriverOpen(phad: *mut HACMDRIVER, hadid: HACMDRIVERID, fdwopen: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmDriverOpen(phad : *mut HACMDRIVER, hadid : HACMDRIVERID, fdwopen : u32) -> u32);
-    acmDriverOpen(core::mem::transmute(phad), hadid.param().abi(), core::mem::transmute(fdwopen))
+    acmDriverOpen(core::mem::transmute(phad), core::mem::transmute(hadid), core::mem::transmute(fdwopen))
 }
 #[inline]
-pub unsafe fn acmDriverPriority<P0>(hadid: P0, dwpriority: u32, fdwpriority: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVERID>,
-{
+pub unsafe fn acmDriverPriority(hadid: HACMDRIVERID, dwpriority: u32, fdwpriority: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmDriverPriority(hadid : HACMDRIVERID, dwpriority : u32, fdwpriority : u32) -> u32);
-    acmDriverPriority(hadid.param().abi(), core::mem::transmute(dwpriority), core::mem::transmute(fdwpriority))
+    acmDriverPriority(core::mem::transmute(hadid), core::mem::transmute(dwpriority), core::mem::transmute(fdwpriority))
 }
 #[inline]
-pub unsafe fn acmDriverRemove<P0>(hadid: P0, fdwremove: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVERID>,
-{
+pub unsafe fn acmDriverRemove(hadid: HACMDRIVERID, fdwremove: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmDriverRemove(hadid : HACMDRIVERID, fdwremove : u32) -> u32);
-    acmDriverRemove(hadid.param().abi(), core::mem::transmute(fdwremove))
+    acmDriverRemove(core::mem::transmute(hadid), core::mem::transmute(fdwremove))
 }
 #[inline]
 pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
@@ -201,68 +165,44 @@ pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
     acmFilterChooseW(core::mem::transmute(pafltrc))
 }
 #[inline]
-pub unsafe fn acmFilterDetailsA<P0>(had: P0, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFilterDetailsA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFilterDetailsA(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSA, fdwdetails : u32) -> u32);
-    acmFilterDetailsA(had.param().abi(), core::mem::transmute(pafd), core::mem::transmute(fdwdetails))
+    acmFilterDetailsA(core::mem::transmute(had), core::mem::transmute(pafd), core::mem::transmute(fdwdetails))
 }
 #[inline]
-pub unsafe fn acmFilterDetailsW<P0>(had: P0, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFilterDetailsW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFilterDetailsW(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSW, fdwdetails : u32) -> u32);
-    acmFilterDetailsW(had.param().abi(), core::mem::transmute(pafd), core::mem::transmute(fdwdetails))
+    acmFilterDetailsW(core::mem::transmute(had), core::mem::transmute(pafd), core::mem::transmute(fdwdetails))
 }
 #[inline]
-pub unsafe fn acmFilterEnumA<P0>(had: P0, pafd: *mut ACMFILTERDETAILSA, fncallback: ACMFILTERENUMCBA, dwinstance: usize, fdwenum: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFilterEnumA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fncallback: ACMFILTERENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFilterEnumA(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSA, fncallback : ACMFILTERENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
-    acmFilterEnumA(had.param().abi(), core::mem::transmute(pafd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
+    acmFilterEnumA(core::mem::transmute(had), core::mem::transmute(pafd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
 }
 #[inline]
-pub unsafe fn acmFilterEnumW<P0>(had: P0, pafd: *mut ACMFILTERDETAILSW, fncallback: ACMFILTERENUMCBW, dwinstance: usize, fdwenum: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFilterEnumW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fncallback: ACMFILTERENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFilterEnumW(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSW, fncallback : ACMFILTERENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
-    acmFilterEnumW(had.param().abi(), core::mem::transmute(pafd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
+    acmFilterEnumW(core::mem::transmute(had), core::mem::transmute(pafd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
 }
 #[inline]
-pub unsafe fn acmFilterTagDetailsA<P0>(had: P0, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFilterTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFilterTagDetailsA(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSA, fdwdetails : u32) -> u32);
-    acmFilterTagDetailsA(had.param().abi(), core::mem::transmute(paftd), core::mem::transmute(fdwdetails))
+    acmFilterTagDetailsA(core::mem::transmute(had), core::mem::transmute(paftd), core::mem::transmute(fdwdetails))
 }
 #[inline]
-pub unsafe fn acmFilterTagDetailsW<P0>(had: P0, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFilterTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFilterTagDetailsW(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSW, fdwdetails : u32) -> u32);
-    acmFilterTagDetailsW(had.param().abi(), core::mem::transmute(paftd), core::mem::transmute(fdwdetails))
+    acmFilterTagDetailsW(core::mem::transmute(had), core::mem::transmute(paftd), core::mem::transmute(fdwdetails))
 }
 #[inline]
-pub unsafe fn acmFilterTagEnumA<P0>(had: P0, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ACMFILTERTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFilterTagEnumA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ACMFILTERTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFilterTagEnumA(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSA, fncallback : ACMFILTERTAGENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
-    acmFilterTagEnumA(had.param().abi(), core::mem::transmute(paftd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
+    acmFilterTagEnumA(core::mem::transmute(had), core::mem::transmute(paftd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
 }
 #[inline]
-pub unsafe fn acmFilterTagEnumW<P0>(had: P0, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ACMFILTERTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFilterTagEnumW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ACMFILTERTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFilterTagEnumW(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSW, fncallback : ACMFILTERTAGENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
-    acmFilterTagEnumW(had.param().abi(), core::mem::transmute(paftd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
+    acmFilterTagEnumW(core::mem::transmute(had), core::mem::transmute(paftd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
 }
 #[inline]
 pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
@@ -275,76 +215,49 @@ pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
     acmFormatChooseW(core::mem::transmute(pafmtc))
 }
 #[inline]
-pub unsafe fn acmFormatDetailsA<P0>(had: P0, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFormatDetailsA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFormatDetailsA(had : HACMDRIVER, pafd : *mut ACMFORMATDETAILSA, fdwdetails : u32) -> u32);
-    acmFormatDetailsA(had.param().abi(), core::mem::transmute(pafd), core::mem::transmute(fdwdetails))
+    acmFormatDetailsA(core::mem::transmute(had), core::mem::transmute(pafd), core::mem::transmute(fdwdetails))
 }
 #[inline]
-pub unsafe fn acmFormatDetailsW<P0>(had: P0, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFormatDetailsW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFormatDetailsW(had : HACMDRIVER, pafd : *mut tACMFORMATDETAILSW, fdwdetails : u32) -> u32);
-    acmFormatDetailsW(had.param().abi(), core::mem::transmute(pafd), core::mem::transmute(fdwdetails))
+    acmFormatDetailsW(core::mem::transmute(had), core::mem::transmute(pafd), core::mem::transmute(fdwdetails))
 }
 #[inline]
-pub unsafe fn acmFormatEnumA<P0>(had: P0, pafd: *mut ACMFORMATDETAILSA, fncallback: ACMFORMATENUMCBA, dwinstance: usize, fdwenum: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFormatEnumA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fncallback: ACMFORMATENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFormatEnumA(had : HACMDRIVER, pafd : *mut ACMFORMATDETAILSA, fncallback : ACMFORMATENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
-    acmFormatEnumA(had.param().abi(), core::mem::transmute(pafd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
+    acmFormatEnumA(core::mem::transmute(had), core::mem::transmute(pafd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
 }
 #[inline]
-pub unsafe fn acmFormatEnumW<P0>(had: P0, pafd: *mut tACMFORMATDETAILSW, fncallback: ACMFORMATENUMCBW, dwinstance: usize, fdwenum: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFormatEnumW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fncallback: ACMFORMATENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFormatEnumW(had : HACMDRIVER, pafd : *mut tACMFORMATDETAILSW, fncallback : ACMFORMATENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
-    acmFormatEnumW(had.param().abi(), core::mem::transmute(pafd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
+    acmFormatEnumW(core::mem::transmute(had), core::mem::transmute(pafd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
 }
 #[inline]
-pub unsafe fn acmFormatSuggest<P0>(had: P0, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFormatSuggest(had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFormatSuggest(had : HACMDRIVER, pwfxsrc : *mut WAVEFORMATEX, pwfxdst : *mut WAVEFORMATEX, cbwfxdst : u32, fdwsuggest : u32) -> u32);
-    acmFormatSuggest(had.param().abi(), core::mem::transmute(pwfxsrc), core::mem::transmute(pwfxdst), core::mem::transmute(cbwfxdst), core::mem::transmute(fdwsuggest))
+    acmFormatSuggest(core::mem::transmute(had), core::mem::transmute(pwfxsrc), core::mem::transmute(pwfxdst), core::mem::transmute(cbwfxdst), core::mem::transmute(fdwsuggest))
 }
 #[inline]
-pub unsafe fn acmFormatTagDetailsA<P0>(had: P0, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFormatTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFormatTagDetailsA(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSA, fdwdetails : u32) -> u32);
-    acmFormatTagDetailsA(had.param().abi(), core::mem::transmute(paftd), core::mem::transmute(fdwdetails))
+    acmFormatTagDetailsA(core::mem::transmute(had), core::mem::transmute(paftd), core::mem::transmute(fdwdetails))
 }
 #[inline]
-pub unsafe fn acmFormatTagDetailsW<P0>(had: P0, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFormatTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFormatTagDetailsW(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSW, fdwdetails : u32) -> u32);
-    acmFormatTagDetailsW(had.param().abi(), core::mem::transmute(paftd), core::mem::transmute(fdwdetails))
+    acmFormatTagDetailsW(core::mem::transmute(had), core::mem::transmute(paftd), core::mem::transmute(fdwdetails))
 }
 #[inline]
-pub unsafe fn acmFormatTagEnumA<P0>(had: P0, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ACMFORMATTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFormatTagEnumA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ACMFORMATTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFormatTagEnumA(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSA, fncallback : ACMFORMATTAGENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
-    acmFormatTagEnumA(had.param().abi(), core::mem::transmute(paftd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
+    acmFormatTagEnumA(core::mem::transmute(had), core::mem::transmute(paftd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
 }
 #[inline]
-pub unsafe fn acmFormatTagEnumW<P0>(had: P0, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ACMFORMATTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32
-where
-    P0: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmFormatTagEnumW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ACMFORMATTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmFormatTagEnumW(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSW, fncallback : ACMFORMATTAGENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
-    acmFormatTagEnumW(had.param().abi(), core::mem::transmute(paftd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
+    acmFormatTagEnumW(core::mem::transmute(had), core::mem::transmute(paftd), core::mem::transmute(fncallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwenum))
 }
 #[inline]
 pub unsafe fn acmGetVersion() -> u32 {
@@ -352,78 +265,49 @@ pub unsafe fn acmGetVersion() -> u32 {
     acmGetVersion()
 }
 #[inline]
-pub unsafe fn acmMetrics<P0>(hao: P0, umetric: u32, pmetric: *mut core::ffi::c_void) -> u32
-where
-    P0: windows_core::Param<HACMOBJ>,
-{
+pub unsafe fn acmMetrics(hao: HACMOBJ, umetric: u32, pmetric: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmMetrics(hao : HACMOBJ, umetric : u32, pmetric : *mut core::ffi::c_void) -> u32);
-    acmMetrics(hao.param().abi(), core::mem::transmute(umetric), core::mem::transmute(pmetric))
+    acmMetrics(core::mem::transmute(hao), core::mem::transmute(umetric), core::mem::transmute(pmetric))
 }
 #[inline]
-pub unsafe fn acmStreamClose<P0>(has: P0, fdwclose: u32) -> u32
-where
-    P0: windows_core::Param<HACMSTREAM>,
-{
+pub unsafe fn acmStreamClose(has: HACMSTREAM, fdwclose: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmStreamClose(has : HACMSTREAM, fdwclose : u32) -> u32);
-    acmStreamClose(has.param().abi(), core::mem::transmute(fdwclose))
+    acmStreamClose(core::mem::transmute(has), core::mem::transmute(fdwclose))
 }
 #[inline]
-pub unsafe fn acmStreamConvert<P0>(has: P0, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32
-where
-    P0: windows_core::Param<HACMSTREAM>,
-{
+pub unsafe fn acmStreamConvert(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmStreamConvert(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwconvert : u32) -> u32);
-    acmStreamConvert(has.param().abi(), core::mem::transmute(pash), core::mem::transmute(fdwconvert))
+    acmStreamConvert(core::mem::transmute(has), core::mem::transmute(pash), core::mem::transmute(fdwconvert))
 }
 #[inline]
-pub unsafe fn acmStreamMessage<P0, P2, P3>(has: P0, umsg: u32, lparam1: P2, lparam2: P3) -> u32
-where
-    P0: windows_core::Param<HACMSTREAM>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    P3: windows_core::Param<super::super::Foundation::LPARAM>,
-{
+pub unsafe fn acmStreamMessage(has: HACMSTREAM, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmStreamMessage(has : HACMSTREAM, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> u32);
-    acmStreamMessage(has.param().abi(), core::mem::transmute(umsg), lparam1.param().abi(), lparam2.param().abi())
+    acmStreamMessage(core::mem::transmute(has), core::mem::transmute(umsg), core::mem::transmute(lparam1), core::mem::transmute(lparam2))
 }
 #[inline]
-pub unsafe fn acmStreamOpen<P1>(phas: *mut HACMSTREAM, had: P1, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32
-where
-    P1: windows_core::Param<HACMDRIVER>,
-{
+pub unsafe fn acmStreamOpen(phas: *mut HACMSTREAM, had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmStreamOpen(phas : *mut HACMSTREAM, had : HACMDRIVER, pwfxsrc : *mut WAVEFORMATEX, pwfxdst : *mut WAVEFORMATEX, pwfltr : *mut WAVEFILTER, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
-    acmStreamOpen(core::mem::transmute(phas), had.param().abi(), core::mem::transmute(pwfxsrc), core::mem::transmute(pwfxdst), core::mem::transmute(pwfltr), core::mem::transmute(dwcallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwopen))
+    acmStreamOpen(core::mem::transmute(phas), core::mem::transmute(had), core::mem::transmute(pwfxsrc), core::mem::transmute(pwfxdst), core::mem::transmute(pwfltr), core::mem::transmute(dwcallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwopen))
 }
 #[inline]
-pub unsafe fn acmStreamPrepareHeader<P0>(has: P0, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32
-where
-    P0: windows_core::Param<HACMSTREAM>,
-{
+pub unsafe fn acmStreamPrepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmStreamPrepareHeader(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwprepare : u32) -> u32);
-    acmStreamPrepareHeader(has.param().abi(), core::mem::transmute(pash), core::mem::transmute(fdwprepare))
+    acmStreamPrepareHeader(core::mem::transmute(has), core::mem::transmute(pash), core::mem::transmute(fdwprepare))
 }
 #[inline]
-pub unsafe fn acmStreamReset<P0>(has: P0, fdwreset: u32) -> u32
-where
-    P0: windows_core::Param<HACMSTREAM>,
-{
+pub unsafe fn acmStreamReset(has: HACMSTREAM, fdwreset: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmStreamReset(has : HACMSTREAM, fdwreset : u32) -> u32);
-    acmStreamReset(has.param().abi(), core::mem::transmute(fdwreset))
+    acmStreamReset(core::mem::transmute(has), core::mem::transmute(fdwreset))
 }
 #[inline]
-pub unsafe fn acmStreamSize<P0>(has: P0, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32
-where
-    P0: windows_core::Param<HACMSTREAM>,
-{
+pub unsafe fn acmStreamSize(has: HACMSTREAM, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmStreamSize(has : HACMSTREAM, cbinput : u32, pdwoutputbytes : *mut u32, fdwsize : u32) -> u32);
-    acmStreamSize(has.param().abi(), core::mem::transmute(cbinput), core::mem::transmute(pdwoutputbytes), core::mem::transmute(fdwsize))
+    acmStreamSize(core::mem::transmute(has), core::mem::transmute(cbinput), core::mem::transmute(pdwoutputbytes), core::mem::transmute(fdwsize))
 }
 #[inline]
-pub unsafe fn acmStreamUnprepareHeader<P0>(has: P0, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32
-where
-    P0: windows_core::Param<HACMSTREAM>,
-{
+pub unsafe fn acmStreamUnprepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32 {
     windows_targets::link!("msacm32.dll" "system" fn acmStreamUnprepareHeader(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwunprepare : u32) -> u32);
-    acmStreamUnprepareHeader(has.param().abi(), core::mem::transmute(pash), core::mem::transmute(fdwunprepare))
+    acmStreamUnprepareHeader(core::mem::transmute(has), core::mem::transmute(pash), core::mem::transmute(fdwunprepare))
 }
 #[inline]
 pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32 {
@@ -446,9 +330,9 @@ pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
     auxGetVolume(core::mem::transmute(udeviceid), core::mem::transmute(pdwvolume))
 }
 #[inline]
-pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -> u32 {
+pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: Option<usize>, dw2: Option<usize>) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn auxOutMessage(udeviceid : u32, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
-    auxOutMessage(core::mem::transmute(udeviceid), core::mem::transmute(umsg), core::mem::transmute(dw1), core::mem::transmute(dw2))
+    auxOutMessage(core::mem::transmute(udeviceid), core::mem::transmute(umsg), core::mem::transmute(dw1.unwrap_or(core::mem::zeroed())), core::mem::transmute(dw2.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
@@ -456,38 +340,24 @@ pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
     auxSetVolume(core::mem::transmute(udeviceid), core::mem::transmute(dwvolume))
 }
 #[inline]
-pub unsafe fn midiConnect<P0, P1>(hmi: P0, hmo: P1, preserved: Option<*const core::ffi::c_void>) -> u32
-where
-    P0: windows_core::Param<HMIDI>,
-    P1: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiConnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> u32);
-    midiConnect(hmi.param().abi(), hmo.param().abi(), core::mem::transmute(preserved.unwrap_or(core::ptr::null())))
+    midiConnect(core::mem::transmute(hmi), core::mem::transmute(hmo), core::mem::transmute(preserved.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn midiDisconnect<P0, P1>(hmi: P0, hmo: P1, preserved: Option<*const core::ffi::c_void>) -> u32
-where
-    P0: windows_core::Param<HMIDI>,
-    P1: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiDisconnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> u32);
-    midiDisconnect(hmi.param().abi(), hmo.param().abi(), core::mem::transmute(preserved.unwrap_or(core::ptr::null())))
+    midiDisconnect(core::mem::transmute(hmi), core::mem::transmute(hmo), core::mem::transmute(preserved.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn midiInAddBuffer<P0>(hmi: P0, pmh: *mut MIDIHDR, cbmh: u32) -> u32
-where
-    P0: windows_core::Param<HMIDIIN>,
-{
+pub unsafe fn midiInAddBuffer(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiInAddBuffer(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
-    midiInAddBuffer(hmi.param().abi(), core::mem::transmute(pmh), core::mem::transmute(cbmh))
+    midiInAddBuffer(core::mem::transmute(hmi), core::mem::transmute(pmh), core::mem::transmute(cbmh))
 }
 #[inline]
-pub unsafe fn midiInClose<P0>(hmi: P0) -> u32
-where
-    P0: windows_core::Param<HMIDIIN>,
-{
+pub unsafe fn midiInClose(hmi: HMIDIIN) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiInClose(hmi : HMIDIIN) -> u32);
-    midiInClose(hmi.param().abi())
+    midiInClose(core::mem::transmute(hmi))
 }
 #[inline]
 pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32 {
@@ -510,12 +380,9 @@ pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
     midiInGetErrorTextW(core::mem::transmute(mmrerror), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn midiInGetID<P0>(hmi: P0, pudeviceid: *mut u32) -> u32
-where
-    P0: windows_core::Param<HMIDIIN>,
-{
+pub unsafe fn midiInGetID(hmi: HMIDIIN, pudeviceid: *mut u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiInGetID(hmi : HMIDIIN, pudeviceid : *mut u32) -> u32);
-    midiInGetID(hmi.param().abi(), core::mem::transmute(pudeviceid))
+    midiInGetID(core::mem::transmute(hmi), core::mem::transmute(pudeviceid))
 }
 #[inline]
 pub unsafe fn midiInGetNumDevs() -> u32 {
@@ -523,81 +390,54 @@ pub unsafe fn midiInGetNumDevs() -> u32 {
     midiInGetNumDevs()
 }
 #[inline]
-pub unsafe fn midiInMessage<P0>(hmi: P0, umsg: u32, dw1: usize, dw2: usize) -> u32
-where
-    P0: windows_core::Param<HMIDIIN>,
-{
+pub unsafe fn midiInMessage(hmi: Option<HMIDIIN>, umsg: u32, dw1: Option<usize>, dw2: Option<usize>) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiInMessage(hmi : HMIDIIN, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
-    midiInMessage(hmi.param().abi(), core::mem::transmute(umsg), core::mem::transmute(dw1), core::mem::transmute(dw2))
+    midiInMessage(core::mem::transmute(hmi.unwrap_or(core::mem::zeroed())), core::mem::transmute(umsg), core::mem::transmute(dw1.unwrap_or(core::mem::zeroed())), core::mem::transmute(dw2.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
+pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiInOpen(phmi : *mut HMIDIIN, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
-    midiInOpen(core::mem::transmute(phmi), core::mem::transmute(udeviceid), core::mem::transmute(dwcallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwopen))
+    midiInOpen(core::mem::transmute(phmi), core::mem::transmute(udeviceid), core::mem::transmute(dwcallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwinstance.unwrap_or(core::mem::zeroed())), core::mem::transmute(fdwopen))
 }
 #[inline]
-pub unsafe fn midiInPrepareHeader<P0>(hmi: P0, pmh: *mut MIDIHDR, cbmh: u32) -> u32
-where
-    P0: windows_core::Param<HMIDIIN>,
-{
+pub unsafe fn midiInPrepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiInPrepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
-    midiInPrepareHeader(hmi.param().abi(), core::mem::transmute(pmh), core::mem::transmute(cbmh))
+    midiInPrepareHeader(core::mem::transmute(hmi), core::mem::transmute(pmh), core::mem::transmute(cbmh))
 }
 #[inline]
-pub unsafe fn midiInReset<P0>(hmi: P0) -> u32
-where
-    P0: windows_core::Param<HMIDIIN>,
-{
+pub unsafe fn midiInReset(hmi: HMIDIIN) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiInReset(hmi : HMIDIIN) -> u32);
-    midiInReset(hmi.param().abi())
+    midiInReset(core::mem::transmute(hmi))
 }
 #[inline]
-pub unsafe fn midiInStart<P0>(hmi: P0) -> u32
-where
-    P0: windows_core::Param<HMIDIIN>,
-{
+pub unsafe fn midiInStart(hmi: HMIDIIN) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiInStart(hmi : HMIDIIN) -> u32);
-    midiInStart(hmi.param().abi())
+    midiInStart(core::mem::transmute(hmi))
 }
 #[inline]
-pub unsafe fn midiInStop<P0>(hmi: P0) -> u32
-where
-    P0: windows_core::Param<HMIDIIN>,
-{
+pub unsafe fn midiInStop(hmi: HMIDIIN) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiInStop(hmi : HMIDIIN) -> u32);
-    midiInStop(hmi.param().abi())
+    midiInStop(core::mem::transmute(hmi))
 }
 #[inline]
-pub unsafe fn midiInUnprepareHeader<P0>(hmi: P0, pmh: *mut MIDIHDR, cbmh: u32) -> u32
-where
-    P0: windows_core::Param<HMIDIIN>,
-{
+pub unsafe fn midiInUnprepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiInUnprepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
-    midiInUnprepareHeader(hmi.param().abi(), core::mem::transmute(pmh), core::mem::transmute(cbmh))
+    midiInUnprepareHeader(core::mem::transmute(hmi), core::mem::transmute(pmh), core::mem::transmute(cbmh))
 }
 #[inline]
-pub unsafe fn midiOutCacheDrumPatches<P0>(hmo: P0, upatch: u32, pwkya: &[u16; 128], fucache: u32) -> u32
-where
-    P0: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: u32, pwkya: &[u16; 128], fucache: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutCacheDrumPatches(hmo : HMIDIOUT, upatch : u32, pwkya : *const u16, fucache : u32) -> u32);
-    midiOutCacheDrumPatches(hmo.param().abi(), core::mem::transmute(upatch), core::mem::transmute(pwkya.as_ptr()), core::mem::transmute(fucache))
+    midiOutCacheDrumPatches(core::mem::transmute(hmo), core::mem::transmute(upatch), core::mem::transmute(pwkya.as_ptr()), core::mem::transmute(fucache))
 }
 #[inline]
-pub unsafe fn midiOutCachePatches<P0>(hmo: P0, ubank: u32, pwpa: &[u16; 128], fucache: u32) -> u32
-where
-    P0: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiOutCachePatches(hmo: HMIDIOUT, ubank: u32, pwpa: &[u16; 128], fucache: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutCachePatches(hmo : HMIDIOUT, ubank : u32, pwpa : *const u16, fucache : u32) -> u32);
-    midiOutCachePatches(hmo.param().abi(), core::mem::transmute(ubank), core::mem::transmute(pwpa.as_ptr()), core::mem::transmute(fucache))
+    midiOutCachePatches(core::mem::transmute(hmo), core::mem::transmute(ubank), core::mem::transmute(pwpa.as_ptr()), core::mem::transmute(fucache))
 }
 #[inline]
-pub unsafe fn midiOutClose<P0>(hmo: P0) -> u32
-where
-    P0: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiOutClose(hmo: HMIDIOUT) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutClose(hmo : HMIDIOUT) -> u32);
-    midiOutClose(hmo.param().abi())
+    midiOutClose(core::mem::transmute(hmo))
 }
 #[inline]
 pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32 {
@@ -620,12 +460,9 @@ pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
     midiOutGetErrorTextW(core::mem::transmute(mmrerror), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn midiOutGetID<P0>(hmo: P0, pudeviceid: *mut u32) -> u32
-where
-    P0: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiOutGetID(hmo: HMIDIOUT, pudeviceid: *mut u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutGetID(hmo : HMIDIOUT, pudeviceid : *mut u32) -> u32);
-    midiOutGetID(hmo.param().abi(), core::mem::transmute(pudeviceid))
+    midiOutGetID(core::mem::transmute(hmo), core::mem::transmute(pudeviceid))
 }
 #[inline]
 pub unsafe fn midiOutGetNumDevs() -> u32 {
@@ -633,158 +470,104 @@ pub unsafe fn midiOutGetNumDevs() -> u32 {
     midiOutGetNumDevs()
 }
 #[inline]
-pub unsafe fn midiOutGetVolume<P0>(hmo: P0, pdwvolume: *mut u32) -> u32
-where
-    P0: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiOutGetVolume(hmo: Option<HMIDIOUT>, pdwvolume: *mut u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutGetVolume(hmo : HMIDIOUT, pdwvolume : *mut u32) -> u32);
-    midiOutGetVolume(hmo.param().abi(), core::mem::transmute(pdwvolume))
+    midiOutGetVolume(core::mem::transmute(hmo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwvolume))
 }
 #[inline]
-pub unsafe fn midiOutLongMsg<P0>(hmo: P0, pmh: *const MIDIHDR, cbmh: u32) -> u32
-where
-    P0: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiOutLongMsg(hmo: HMIDIOUT, pmh: *const MIDIHDR, cbmh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutLongMsg(hmo : HMIDIOUT, pmh : *const MIDIHDR, cbmh : u32) -> u32);
-    midiOutLongMsg(hmo.param().abi(), core::mem::transmute(pmh), core::mem::transmute(cbmh))
+    midiOutLongMsg(core::mem::transmute(hmo), core::mem::transmute(pmh), core::mem::transmute(cbmh))
 }
 #[inline]
-pub unsafe fn midiOutMessage<P0>(hmo: P0, umsg: u32, dw1: usize, dw2: usize) -> u32
-where
-    P0: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiOutMessage(hmo: Option<HMIDIOUT>, umsg: u32, dw1: Option<usize>, dw2: Option<usize>) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutMessage(hmo : HMIDIOUT, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
-    midiOutMessage(hmo.param().abi(), core::mem::transmute(umsg), core::mem::transmute(dw1), core::mem::transmute(dw2))
+    midiOutMessage(core::mem::transmute(hmo.unwrap_or(core::mem::zeroed())), core::mem::transmute(umsg), core::mem::transmute(dw1.unwrap_or(core::mem::zeroed())), core::mem::transmute(dw2.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
+pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutOpen(phmo : *mut HMIDIOUT, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
-    midiOutOpen(core::mem::transmute(phmo), core::mem::transmute(udeviceid), core::mem::transmute(dwcallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwopen))
+    midiOutOpen(core::mem::transmute(phmo), core::mem::transmute(udeviceid), core::mem::transmute(dwcallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwinstance.unwrap_or(core::mem::zeroed())), core::mem::transmute(fdwopen))
 }
 #[inline]
-pub unsafe fn midiOutPrepareHeader<P0>(hmo: P0, pmh: *mut MIDIHDR, cbmh: u32) -> u32
-where
-    P0: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiOutPrepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutPrepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
-    midiOutPrepareHeader(hmo.param().abi(), core::mem::transmute(pmh), core::mem::transmute(cbmh))
+    midiOutPrepareHeader(core::mem::transmute(hmo), core::mem::transmute(pmh), core::mem::transmute(cbmh))
 }
 #[inline]
-pub unsafe fn midiOutReset<P0>(hmo: P0) -> u32
-where
-    P0: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiOutReset(hmo: HMIDIOUT) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutReset(hmo : HMIDIOUT) -> u32);
-    midiOutReset(hmo.param().abi())
+    midiOutReset(core::mem::transmute(hmo))
 }
 #[inline]
-pub unsafe fn midiOutSetVolume<P0>(hmo: P0, dwvolume: u32) -> u32
-where
-    P0: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiOutSetVolume(hmo: Option<HMIDIOUT>, dwvolume: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutSetVolume(hmo : HMIDIOUT, dwvolume : u32) -> u32);
-    midiOutSetVolume(hmo.param().abi(), core::mem::transmute(dwvolume))
+    midiOutSetVolume(core::mem::transmute(hmo.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwvolume))
 }
 #[inline]
-pub unsafe fn midiOutShortMsg<P0>(hmo: P0, dwmsg: u32) -> u32
-where
-    P0: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiOutShortMsg(hmo: HMIDIOUT, dwmsg: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutShortMsg(hmo : HMIDIOUT, dwmsg : u32) -> u32);
-    midiOutShortMsg(hmo.param().abi(), core::mem::transmute(dwmsg))
+    midiOutShortMsg(core::mem::transmute(hmo), core::mem::transmute(dwmsg))
 }
 #[inline]
-pub unsafe fn midiOutUnprepareHeader<P0>(hmo: P0, pmh: *mut MIDIHDR, cbmh: u32) -> u32
-where
-    P0: windows_core::Param<HMIDIOUT>,
-{
+pub unsafe fn midiOutUnprepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiOutUnprepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
-    midiOutUnprepareHeader(hmo.param().abi(), core::mem::transmute(pmh), core::mem::transmute(cbmh))
+    midiOutUnprepareHeader(core::mem::transmute(hmo), core::mem::transmute(pmh), core::mem::transmute(cbmh))
 }
 #[inline]
-pub unsafe fn midiStreamClose<P0>(hms: P0) -> u32
-where
-    P0: windows_core::Param<HMIDISTRM>,
-{
+pub unsafe fn midiStreamClose(hms: HMIDISTRM) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiStreamClose(hms : HMIDISTRM) -> u32);
-    midiStreamClose(hms.param().abi())
+    midiStreamClose(core::mem::transmute(hms))
 }
 #[inline]
-pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: &mut [u32], dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
+pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: &mut [u32], dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiStreamOpen(phms : *mut HMIDISTRM, pudeviceid : *mut u32, cmidi : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
-    midiStreamOpen(core::mem::transmute(phms), core::mem::transmute(pudeviceid.as_ptr()), pudeviceid.len().try_into().unwrap(), core::mem::transmute(dwcallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwopen))
+    midiStreamOpen(core::mem::transmute(phms), core::mem::transmute(pudeviceid.as_ptr()), pudeviceid.len().try_into().unwrap(), core::mem::transmute(dwcallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwinstance.unwrap_or(core::mem::zeroed())), core::mem::transmute(fdwopen))
 }
 #[inline]
-pub unsafe fn midiStreamOut<P0>(hms: P0, pmh: *mut MIDIHDR, cbmh: u32) -> u32
-where
-    P0: windows_core::Param<HMIDISTRM>,
-{
+pub unsafe fn midiStreamOut(hms: HMIDISTRM, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiStreamOut(hms : HMIDISTRM, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
-    midiStreamOut(hms.param().abi(), core::mem::transmute(pmh), core::mem::transmute(cbmh))
+    midiStreamOut(core::mem::transmute(hms), core::mem::transmute(pmh), core::mem::transmute(cbmh))
 }
 #[inline]
-pub unsafe fn midiStreamPause<P0>(hms: P0) -> u32
-where
-    P0: windows_core::Param<HMIDISTRM>,
-{
+pub unsafe fn midiStreamPause(hms: HMIDISTRM) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiStreamPause(hms : HMIDISTRM) -> u32);
-    midiStreamPause(hms.param().abi())
+    midiStreamPause(core::mem::transmute(hms))
 }
 #[inline]
-pub unsafe fn midiStreamPosition<P0>(hms: P0, lpmmt: *mut super::MMTIME, cbmmt: u32) -> u32
-where
-    P0: windows_core::Param<HMIDISTRM>,
-{
+pub unsafe fn midiStreamPosition(hms: HMIDISTRM, lpmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiStreamPosition(hms : HMIDISTRM, lpmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
-    midiStreamPosition(hms.param().abi(), core::mem::transmute(lpmmt), core::mem::transmute(cbmmt))
+    midiStreamPosition(core::mem::transmute(hms), core::mem::transmute(lpmmt), core::mem::transmute(cbmmt))
 }
 #[inline]
-pub unsafe fn midiStreamProperty<P0>(hms: P0, lppropdata: *mut u8, dwproperty: u32) -> u32
-where
-    P0: windows_core::Param<HMIDISTRM>,
-{
+pub unsafe fn midiStreamProperty(hms: HMIDISTRM, lppropdata: *mut u8, dwproperty: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiStreamProperty(hms : HMIDISTRM, lppropdata : *mut u8, dwproperty : u32) -> u32);
-    midiStreamProperty(hms.param().abi(), core::mem::transmute(lppropdata), core::mem::transmute(dwproperty))
+    midiStreamProperty(core::mem::transmute(hms), core::mem::transmute(lppropdata), core::mem::transmute(dwproperty))
 }
 #[inline]
-pub unsafe fn midiStreamRestart<P0>(hms: P0) -> u32
-where
-    P0: windows_core::Param<HMIDISTRM>,
-{
+pub unsafe fn midiStreamRestart(hms: HMIDISTRM) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiStreamRestart(hms : HMIDISTRM) -> u32);
-    midiStreamRestart(hms.param().abi())
+    midiStreamRestart(core::mem::transmute(hms))
 }
 #[inline]
-pub unsafe fn midiStreamStop<P0>(hms: P0) -> u32
-where
-    P0: windows_core::Param<HMIDISTRM>,
-{
+pub unsafe fn midiStreamStop(hms: HMIDISTRM) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn midiStreamStop(hms : HMIDISTRM) -> u32);
-    midiStreamStop(hms.param().abi())
+    midiStreamStop(core::mem::transmute(hms))
 }
 #[inline]
-pub unsafe fn mixerClose<P0>(hmx: P0) -> u32
-where
-    P0: windows_core::Param<HMIXER>,
-{
+pub unsafe fn mixerClose(hmx: HMIXER) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mixerClose(hmx : HMIXER) -> u32);
-    mixerClose(hmx.param().abi())
+    mixerClose(core::mem::transmute(hmx))
 }
 #[inline]
-pub unsafe fn mixerGetControlDetailsA<P0>(hmxobj: P0, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HMIXEROBJ>,
-{
+pub unsafe fn mixerGetControlDetailsA(hmxobj: Option<HMIXEROBJ>, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mixerGetControlDetailsA(hmxobj : HMIXEROBJ, pmxcd : *mut MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
-    mixerGetControlDetailsA(hmxobj.param().abi(), core::mem::transmute(pmxcd), core::mem::transmute(fdwdetails))
+    mixerGetControlDetailsA(core::mem::transmute(hmxobj.unwrap_or(core::mem::zeroed())), core::mem::transmute(pmxcd), core::mem::transmute(fdwdetails))
 }
 #[inline]
-pub unsafe fn mixerGetControlDetailsW<P0>(hmxobj: P0, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HMIXEROBJ>,
-{
+pub unsafe fn mixerGetControlDetailsW(hmxobj: Option<HMIXEROBJ>, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mixerGetControlDetailsW(hmxobj : HMIXEROBJ, pmxcd : *mut MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
-    mixerGetControlDetailsW(hmxobj.param().abi(), core::mem::transmute(pmxcd), core::mem::transmute(fdwdetails))
+    mixerGetControlDetailsW(core::mem::transmute(hmxobj.unwrap_or(core::mem::zeroed())), core::mem::transmute(pmxcd), core::mem::transmute(fdwdetails))
 }
 #[inline]
 pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32 {
@@ -797,44 +580,29 @@ pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps:
     mixerGetDevCapsW(core::mem::transmute(umxid), core::mem::transmute(pmxcaps), core::mem::transmute(cbmxcaps))
 }
 #[inline]
-pub unsafe fn mixerGetID<P0>(hmxobj: P0, pumxid: *mut u32, fdwid: u32) -> u32
-where
-    P0: windows_core::Param<HMIXEROBJ>,
-{
+pub unsafe fn mixerGetID(hmxobj: Option<HMIXEROBJ>, pumxid: *mut u32, fdwid: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mixerGetID(hmxobj : HMIXEROBJ, pumxid : *mut u32, fdwid : u32) -> u32);
-    mixerGetID(hmxobj.param().abi(), core::mem::transmute(pumxid), core::mem::transmute(fdwid))
+    mixerGetID(core::mem::transmute(hmxobj.unwrap_or(core::mem::zeroed())), core::mem::transmute(pumxid), core::mem::transmute(fdwid))
 }
 #[inline]
-pub unsafe fn mixerGetLineControlsA<P0>(hmxobj: P0, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32
-where
-    P0: windows_core::Param<HMIXEROBJ>,
-{
+pub unsafe fn mixerGetLineControlsA(hmxobj: Option<HMIXEROBJ>, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mixerGetLineControlsA(hmxobj : HMIXEROBJ, pmxlc : *mut MIXERLINECONTROLSA, fdwcontrols : u32) -> u32);
-    mixerGetLineControlsA(hmxobj.param().abi(), core::mem::transmute(pmxlc), core::mem::transmute(fdwcontrols))
+    mixerGetLineControlsA(core::mem::transmute(hmxobj.unwrap_or(core::mem::zeroed())), core::mem::transmute(pmxlc), core::mem::transmute(fdwcontrols))
 }
 #[inline]
-pub unsafe fn mixerGetLineControlsW<P0>(hmxobj: P0, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32
-where
-    P0: windows_core::Param<HMIXEROBJ>,
-{
+pub unsafe fn mixerGetLineControlsW(hmxobj: Option<HMIXEROBJ>, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mixerGetLineControlsW(hmxobj : HMIXEROBJ, pmxlc : *mut MIXERLINECONTROLSW, fdwcontrols : u32) -> u32);
-    mixerGetLineControlsW(hmxobj.param().abi(), core::mem::transmute(pmxlc), core::mem::transmute(fdwcontrols))
+    mixerGetLineControlsW(core::mem::transmute(hmxobj.unwrap_or(core::mem::zeroed())), core::mem::transmute(pmxlc), core::mem::transmute(fdwcontrols))
 }
 #[inline]
-pub unsafe fn mixerGetLineInfoA<P0>(hmxobj: P0, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32
-where
-    P0: windows_core::Param<HMIXEROBJ>,
-{
+pub unsafe fn mixerGetLineInfoA(hmxobj: Option<HMIXEROBJ>, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mixerGetLineInfoA(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEA, fdwinfo : u32) -> u32);
-    mixerGetLineInfoA(hmxobj.param().abi(), core::mem::transmute(pmxl), core::mem::transmute(fdwinfo))
+    mixerGetLineInfoA(core::mem::transmute(hmxobj.unwrap_or(core::mem::zeroed())), core::mem::transmute(pmxl), core::mem::transmute(fdwinfo))
 }
 #[inline]
-pub unsafe fn mixerGetLineInfoW<P0>(hmxobj: P0, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32
-where
-    P0: windows_core::Param<HMIXEROBJ>,
-{
+pub unsafe fn mixerGetLineInfoW(hmxobj: Option<HMIXEROBJ>, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mixerGetLineInfoW(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEW, fdwinfo : u32) -> u32);
-    mixerGetLineInfoW(hmxobj.param().abi(), core::mem::transmute(pmxl), core::mem::transmute(fdwinfo))
+    mixerGetLineInfoW(core::mem::transmute(hmxobj.unwrap_or(core::mem::zeroed())), core::mem::transmute(pmxl), core::mem::transmute(fdwinfo))
 }
 #[inline]
 pub unsafe fn mixerGetNumDevs() -> u32 {
@@ -842,25 +610,19 @@ pub unsafe fn mixerGetNumDevs() -> u32 {
     mixerGetNumDevs()
 }
 #[inline]
-pub unsafe fn mixerMessage<P0>(hmx: P0, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32
-where
-    P0: windows_core::Param<HMIXER>,
-{
+pub unsafe fn mixerMessage(hmx: Option<HMIXER>, umsg: u32, dwparam1: Option<usize>, dwparam2: Option<usize>) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mixerMessage(hmx : HMIXER, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
-    mixerMessage(hmx.param().abi(), core::mem::transmute(umsg), core::mem::transmute(dwparam1), core::mem::transmute(dwparam2))
+    mixerMessage(core::mem::transmute(hmx.unwrap_or(core::mem::zeroed())), core::mem::transmute(umsg), core::mem::transmute(dwparam1.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwparam2.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn mixerOpen(phmx: Option<*mut HMIXER>, umxid: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
+pub unsafe fn mixerOpen(phmx: Option<*mut HMIXER>, umxid: u32, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mixerOpen(phmx : *mut HMIXER, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
-    mixerOpen(core::mem::transmute(phmx.unwrap_or(core::ptr::null_mut())), core::mem::transmute(umxid), core::mem::transmute(dwcallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwopen))
+    mixerOpen(core::mem::transmute(phmx.unwrap_or(core::mem::zeroed())), core::mem::transmute(umxid), core::mem::transmute(dwcallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwinstance.unwrap_or(core::mem::zeroed())), core::mem::transmute(fdwopen))
 }
 #[inline]
-pub unsafe fn mixerSetControlDetails<P0>(hmxobj: P0, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32
-where
-    P0: windows_core::Param<HMIXEROBJ>,
-{
+pub unsafe fn mixerSetControlDetails(hmxobj: Option<HMIXEROBJ>, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mixerSetControlDetails(hmxobj : HMIXEROBJ, pmxcd : *const MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
-    mixerSetControlDetails(hmxobj.param().abi(), core::mem::transmute(pmxcd), core::mem::transmute(fdwdetails))
+    mixerSetControlDetails(core::mem::transmute(hmxobj.unwrap_or(core::mem::zeroed())), core::mem::transmute(pmxcd), core::mem::transmute(fdwdetails))
 }
 #[inline]
 pub unsafe fn sndPlaySoundA<P0>(pszsound: P0, fusound: u32) -> super::super::Foundation::BOOL
@@ -879,20 +641,14 @@ where
     sndPlaySoundW(pszsound.param().abi(), core::mem::transmute(fusound))
 }
 #[inline]
-pub unsafe fn waveInAddBuffer<P0>(hwi: P0, pwh: *mut WAVEHDR, cbwh: u32) -> u32
-where
-    P0: windows_core::Param<HWAVEIN>,
-{
+pub unsafe fn waveInAddBuffer(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveInAddBuffer(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
-    waveInAddBuffer(hwi.param().abi(), core::mem::transmute(pwh), core::mem::transmute(cbwh))
+    waveInAddBuffer(core::mem::transmute(hwi), core::mem::transmute(pwh), core::mem::transmute(cbwh))
 }
 #[inline]
-pub unsafe fn waveInClose<P0>(hwi: P0) -> u32
-where
-    P0: windows_core::Param<HWAVEIN>,
-{
+pub unsafe fn waveInClose(hwi: HWAVEIN) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveInClose(hwi : HWAVEIN) -> u32);
-    waveInClose(hwi.param().abi())
+    waveInClose(core::mem::transmute(hwi))
 }
 #[inline]
 pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32 {
@@ -915,12 +671,9 @@ pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
     waveInGetErrorTextW(core::mem::transmute(mmrerror), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn waveInGetID<P0>(hwi: P0, pudeviceid: *const u32) -> u32
-where
-    P0: windows_core::Param<HWAVEIN>,
-{
+pub unsafe fn waveInGetID(hwi: HWAVEIN, pudeviceid: *const u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveInGetID(hwi : HWAVEIN, pudeviceid : *const u32) -> u32);
-    waveInGetID(hwi.param().abi(), core::mem::transmute(pudeviceid))
+    waveInGetID(core::mem::transmute(hwi), core::mem::transmute(pudeviceid))
 }
 #[inline]
 pub unsafe fn waveInGetNumDevs() -> u32 {
@@ -928,81 +681,54 @@ pub unsafe fn waveInGetNumDevs() -> u32 {
     waveInGetNumDevs()
 }
 #[inline]
-pub unsafe fn waveInGetPosition<P0>(hwi: P0, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32
-where
-    P0: windows_core::Param<HWAVEIN>,
-{
+pub unsafe fn waveInGetPosition(hwi: HWAVEIN, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveInGetPosition(hwi : HWAVEIN, pmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
-    waveInGetPosition(hwi.param().abi(), core::mem::transmute(pmmt), core::mem::transmute(cbmmt))
+    waveInGetPosition(core::mem::transmute(hwi), core::mem::transmute(pmmt), core::mem::transmute(cbmmt))
 }
 #[inline]
-pub unsafe fn waveInMessage<P0>(hwi: P0, umsg: u32, dw1: usize, dw2: usize) -> u32
-where
-    P0: windows_core::Param<HWAVEIN>,
-{
+pub unsafe fn waveInMessage(hwi: Option<HWAVEIN>, umsg: u32, dw1: Option<usize>, dw2: Option<usize>) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveInMessage(hwi : HWAVEIN, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
-    waveInMessage(hwi.param().abi(), core::mem::transmute(umsg), core::mem::transmute(dw1), core::mem::transmute(dw2))
+    waveInMessage(core::mem::transmute(hwi.unwrap_or(core::mem::zeroed())), core::mem::transmute(umsg), core::mem::transmute(dw1.unwrap_or(core::mem::zeroed())), core::mem::transmute(dw2.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn waveInOpen(phwi: Option<*mut HWAVEIN>, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
+pub unsafe fn waveInOpen(phwi: Option<*mut HWAVEIN>, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveInOpen(phwi : *mut HWAVEIN, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
-    waveInOpen(core::mem::transmute(phwi.unwrap_or(core::ptr::null_mut())), core::mem::transmute(udeviceid), core::mem::transmute(pwfx), core::mem::transmute(dwcallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwopen))
+    waveInOpen(core::mem::transmute(phwi.unwrap_or(core::mem::zeroed())), core::mem::transmute(udeviceid), core::mem::transmute(pwfx), core::mem::transmute(dwcallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwinstance.unwrap_or(core::mem::zeroed())), core::mem::transmute(fdwopen))
 }
 #[inline]
-pub unsafe fn waveInPrepareHeader<P0>(hwi: P0, pwh: *mut WAVEHDR, cbwh: u32) -> u32
-where
-    P0: windows_core::Param<HWAVEIN>,
-{
+pub unsafe fn waveInPrepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveInPrepareHeader(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
-    waveInPrepareHeader(hwi.param().abi(), core::mem::transmute(pwh), core::mem::transmute(cbwh))
+    waveInPrepareHeader(core::mem::transmute(hwi), core::mem::transmute(pwh), core::mem::transmute(cbwh))
 }
 #[inline]
-pub unsafe fn waveInReset<P0>(hwi: P0) -> u32
-where
-    P0: windows_core::Param<HWAVEIN>,
-{
+pub unsafe fn waveInReset(hwi: HWAVEIN) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveInReset(hwi : HWAVEIN) -> u32);
-    waveInReset(hwi.param().abi())
+    waveInReset(core::mem::transmute(hwi))
 }
 #[inline]
-pub unsafe fn waveInStart<P0>(hwi: P0) -> u32
-where
-    P0: windows_core::Param<HWAVEIN>,
-{
+pub unsafe fn waveInStart(hwi: HWAVEIN) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveInStart(hwi : HWAVEIN) -> u32);
-    waveInStart(hwi.param().abi())
+    waveInStart(core::mem::transmute(hwi))
 }
 #[inline]
-pub unsafe fn waveInStop<P0>(hwi: P0) -> u32
-where
-    P0: windows_core::Param<HWAVEIN>,
-{
+pub unsafe fn waveInStop(hwi: HWAVEIN) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveInStop(hwi : HWAVEIN) -> u32);
-    waveInStop(hwi.param().abi())
+    waveInStop(core::mem::transmute(hwi))
 }
 #[inline]
-pub unsafe fn waveInUnprepareHeader<P0>(hwi: P0, pwh: *mut WAVEHDR, cbwh: u32) -> u32
-where
-    P0: windows_core::Param<HWAVEIN>,
-{
+pub unsafe fn waveInUnprepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveInUnprepareHeader(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
-    waveInUnprepareHeader(hwi.param().abi(), core::mem::transmute(pwh), core::mem::transmute(cbwh))
+    waveInUnprepareHeader(core::mem::transmute(hwi), core::mem::transmute(pwh), core::mem::transmute(cbwh))
 }
 #[inline]
-pub unsafe fn waveOutBreakLoop<P0>(hwo: P0) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutBreakLoop(hwo: HWAVEOUT) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutBreakLoop(hwo : HWAVEOUT) -> u32);
-    waveOutBreakLoop(hwo.param().abi())
+    waveOutBreakLoop(core::mem::transmute(hwo))
 }
 #[inline]
-pub unsafe fn waveOutClose<P0>(hwo: P0) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutClose(hwo: HWAVEOUT) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutClose(hwo : HWAVEOUT) -> u32);
-    waveOutClose(hwo.param().abi())
+    waveOutClose(core::mem::transmute(hwo))
 }
 #[inline]
 pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32 {
@@ -1025,12 +751,9 @@ pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
     waveOutGetErrorTextW(core::mem::transmute(mmrerror), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn waveOutGetID<P0>(hwo: P0, pudeviceid: *mut u32) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutGetID(hwo: HWAVEOUT, pudeviceid: *mut u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutGetID(hwo : HWAVEOUT, pudeviceid : *mut u32) -> u32);
-    waveOutGetID(hwo.param().abi(), core::mem::transmute(pudeviceid))
+    waveOutGetID(core::mem::transmute(hwo), core::mem::transmute(pudeviceid))
 }
 #[inline]
 pub unsafe fn waveOutGetNumDevs() -> u32 {
@@ -1038,121 +761,79 @@ pub unsafe fn waveOutGetNumDevs() -> u32 {
     waveOutGetNumDevs()
 }
 #[inline]
-pub unsafe fn waveOutGetPitch<P0>(hwo: P0, pdwpitch: *mut u32) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutGetPitch(hwo: HWAVEOUT, pdwpitch: *mut u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutGetPitch(hwo : HWAVEOUT, pdwpitch : *mut u32) -> u32);
-    waveOutGetPitch(hwo.param().abi(), core::mem::transmute(pdwpitch))
+    waveOutGetPitch(core::mem::transmute(hwo), core::mem::transmute(pdwpitch))
 }
 #[inline]
-pub unsafe fn waveOutGetPlaybackRate<P0>(hwo: P0, pdwrate: *mut u32) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutGetPlaybackRate(hwo: HWAVEOUT, pdwrate: *mut u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutGetPlaybackRate(hwo : HWAVEOUT, pdwrate : *mut u32) -> u32);
-    waveOutGetPlaybackRate(hwo.param().abi(), core::mem::transmute(pdwrate))
+    waveOutGetPlaybackRate(core::mem::transmute(hwo), core::mem::transmute(pdwrate))
 }
 #[inline]
-pub unsafe fn waveOutGetPosition<P0>(hwo: P0, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutGetPosition(hwo: HWAVEOUT, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutGetPosition(hwo : HWAVEOUT, pmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
-    waveOutGetPosition(hwo.param().abi(), core::mem::transmute(pmmt), core::mem::transmute(cbmmt))
+    waveOutGetPosition(core::mem::transmute(hwo), core::mem::transmute(pmmt), core::mem::transmute(cbmmt))
 }
 #[inline]
-pub unsafe fn waveOutGetVolume<P0>(hwo: P0, pdwvolume: *mut u32) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutGetVolume(hwo: Option<HWAVEOUT>, pdwvolume: *mut u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutGetVolume(hwo : HWAVEOUT, pdwvolume : *mut u32) -> u32);
-    waveOutGetVolume(hwo.param().abi(), core::mem::transmute(pdwvolume))
+    waveOutGetVolume(core::mem::transmute(hwo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwvolume))
 }
 #[inline]
-pub unsafe fn waveOutMessage<P0>(hwo: P0, umsg: u32, dw1: usize, dw2: usize) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutMessage(hwo: Option<HWAVEOUT>, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutMessage(hwo : HWAVEOUT, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
-    waveOutMessage(hwo.param().abi(), core::mem::transmute(umsg), core::mem::transmute(dw1), core::mem::transmute(dw2))
+    waveOutMessage(core::mem::transmute(hwo.unwrap_or(core::mem::zeroed())), core::mem::transmute(umsg), core::mem::transmute(dw1), core::mem::transmute(dw2))
 }
 #[inline]
-pub unsafe fn waveOutOpen(phwo: Option<*mut HWAVEOUT>, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
+pub unsafe fn waveOutOpen(phwo: Option<*mut HWAVEOUT>, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutOpen(phwo : *mut HWAVEOUT, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
-    waveOutOpen(core::mem::transmute(phwo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(udeviceid), core::mem::transmute(pwfx), core::mem::transmute(dwcallback), core::mem::transmute(dwinstance), core::mem::transmute(fdwopen))
+    waveOutOpen(core::mem::transmute(phwo.unwrap_or(core::mem::zeroed())), core::mem::transmute(udeviceid), core::mem::transmute(pwfx), core::mem::transmute(dwcallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwinstance.unwrap_or(core::mem::zeroed())), core::mem::transmute(fdwopen))
 }
 #[inline]
-pub unsafe fn waveOutPause<P0>(hwo: P0) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutPause(hwo: HWAVEOUT) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutPause(hwo : HWAVEOUT) -> u32);
-    waveOutPause(hwo.param().abi())
+    waveOutPause(core::mem::transmute(hwo))
 }
 #[inline]
-pub unsafe fn waveOutPrepareHeader<P0>(hwo: P0, pwh: *mut WAVEHDR, cbwh: u32) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutPrepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutPrepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
-    waveOutPrepareHeader(hwo.param().abi(), core::mem::transmute(pwh), core::mem::transmute(cbwh))
+    waveOutPrepareHeader(core::mem::transmute(hwo), core::mem::transmute(pwh), core::mem::transmute(cbwh))
 }
 #[inline]
-pub unsafe fn waveOutReset<P0>(hwo: P0) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutReset(hwo: HWAVEOUT) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutReset(hwo : HWAVEOUT) -> u32);
-    waveOutReset(hwo.param().abi())
+    waveOutReset(core::mem::transmute(hwo))
 }
 #[inline]
-pub unsafe fn waveOutRestart<P0>(hwo: P0) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutRestart(hwo: HWAVEOUT) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutRestart(hwo : HWAVEOUT) -> u32);
-    waveOutRestart(hwo.param().abi())
+    waveOutRestart(core::mem::transmute(hwo))
 }
 #[inline]
-pub unsafe fn waveOutSetPitch<P0>(hwo: P0, dwpitch: u32) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutSetPitch(hwo: HWAVEOUT, dwpitch: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutSetPitch(hwo : HWAVEOUT, dwpitch : u32) -> u32);
-    waveOutSetPitch(hwo.param().abi(), core::mem::transmute(dwpitch))
+    waveOutSetPitch(core::mem::transmute(hwo), core::mem::transmute(dwpitch))
 }
 #[inline]
-pub unsafe fn waveOutSetPlaybackRate<P0>(hwo: P0, dwrate: u32) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutSetPlaybackRate(hwo: HWAVEOUT, dwrate: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutSetPlaybackRate(hwo : HWAVEOUT, dwrate : u32) -> u32);
-    waveOutSetPlaybackRate(hwo.param().abi(), core::mem::transmute(dwrate))
+    waveOutSetPlaybackRate(core::mem::transmute(hwo), core::mem::transmute(dwrate))
 }
 #[inline]
-pub unsafe fn waveOutSetVolume<P0>(hwo: P0, dwvolume: u32) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutSetVolume(hwo: Option<HWAVEOUT>, dwvolume: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutSetVolume(hwo : HWAVEOUT, dwvolume : u32) -> u32);
-    waveOutSetVolume(hwo.param().abi(), core::mem::transmute(dwvolume))
+    waveOutSetVolume(core::mem::transmute(hwo.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwvolume))
 }
 #[inline]
-pub unsafe fn waveOutUnprepareHeader<P0>(hwo: P0, pwh: *mut WAVEHDR, cbwh: u32) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutUnprepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutUnprepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
-    waveOutUnprepareHeader(hwo.param().abi(), core::mem::transmute(pwh), core::mem::transmute(cbwh))
+    waveOutUnprepareHeader(core::mem::transmute(hwo), core::mem::transmute(pwh), core::mem::transmute(cbwh))
 }
 #[inline]
-pub unsafe fn waveOutWrite<P0>(hwo: P0, pwh: *mut WAVEHDR, cbwh: u32) -> u32
-where
-    P0: windows_core::Param<HWAVEOUT>,
-{
+pub unsafe fn waveOutWrite(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn waveOutWrite(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
-    waveOutWrite(hwo.param().abi(), core::mem::transmute(pwh), core::mem::transmute(cbwh))
+    waveOutWrite(core::mem::transmute(hwo), core::mem::transmute(pwh), core::mem::transmute(cbwh))
 }
 pub const ACMDM_DRIVER_ABOUT: u32 = 24587u32;
 pub const ACMDM_DRIVER_DETAILS: u32 = 24586u32;
@@ -2833,7 +2514,7 @@ impl IAudioAutoGainControl {
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.param().abi(), core::mem::transmute(pguideventcontext.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.param().abi(), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -2899,7 +2580,7 @@ windows_core::imp::define_interface!(IAudioCaptureClient, IAudioCaptureClient_Vt
 windows_core::imp::interface_hierarchy!(IAudioCaptureClient, windows_core::IUnknown);
 impl IAudioCaptureClient {
     pub unsafe fn GetBuffer(&self, ppdata: *mut *mut u8, pnumframestoread: *mut u32, pdwflags: *mut u32, pu64deviceposition: Option<*mut u64>, pu64qpcposition: Option<*mut u64>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(ppdata), core::mem::transmute(pnumframestoread), core::mem::transmute(pdwflags), core::mem::transmute(pu64deviceposition.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pu64qpcposition.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(ppdata), core::mem::transmute(pnumframestoread), core::mem::transmute(pdwflags), core::mem::transmute(pu64deviceposition.unwrap_or(core::mem::zeroed())), core::mem::transmute(pu64qpcposition.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn ReleaseBuffer(&self, numframesread: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ReleaseBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(numframesread)).ok()
@@ -2957,7 +2638,7 @@ windows_core::imp::define_interface!(IAudioChannelConfig, IAudioChannelConfig_Vt
 windows_core::imp::interface_hierarchy!(IAudioChannelConfig, windows_core::IUnknown);
 impl IAudioChannelConfig {
     pub unsafe fn SetChannelConfig(&self, dwconfig: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetChannelConfig)(windows_core::Interface::as_raw(self), core::mem::transmute(dwconfig), core::mem::transmute(pguideventcontext.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetChannelConfig)(windows_core::Interface::as_raw(self), core::mem::transmute(dwconfig), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetChannelConfig(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -3005,7 +2686,7 @@ windows_core::imp::define_interface!(IAudioClient, IAudioClient_Vtbl, 0x1cb9ad4c
 windows_core::imp::interface_hierarchy!(IAudioClient, windows_core::IUnknown);
 impl IAudioClient {
     pub unsafe fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(sharemode), core::mem::transmute(streamflags), core::mem::transmute(hnsbufferduration), core::mem::transmute(hnsperiodicity), core::mem::transmute(pformat), core::mem::transmute(audiosessionguid.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(sharemode), core::mem::transmute(streamflags), core::mem::transmute(hnsbufferduration), core::mem::transmute(hnsperiodicity), core::mem::transmute(pformat), core::mem::transmute(audiosessionguid.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetBufferSize(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -3020,14 +2701,14 @@ impl IAudioClient {
         (windows_core::Interface::vtable(self).GetCurrentPadding)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsFormatSupported(&self, sharemode: AUDCLNT_SHAREMODE, pformat: *const WAVEFORMATEX, ppclosestmatch: Option<*mut *mut WAVEFORMATEX>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).IsFormatSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(sharemode), core::mem::transmute(pformat), core::mem::transmute(ppclosestmatch.unwrap_or(core::ptr::null_mut())))
+        (windows_core::Interface::vtable(self).IsFormatSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(sharemode), core::mem::transmute(pformat), core::mem::transmute(ppclosestmatch.unwrap_or(core::mem::zeroed())))
     }
     pub unsafe fn GetMixFormat(&self) -> windows_core::Result<*mut WAVEFORMATEX> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMixFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDevicePeriod(&self, phnsdefaultdeviceperiod: Option<*mut i64>, phnsminimumdeviceperiod: Option<*mut i64>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDevicePeriod)(windows_core::Interface::as_raw(self), core::mem::transmute(phnsdefaultdeviceperiod.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phnsminimumdeviceperiod.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetDevicePeriod)(windows_core::Interface::as_raw(self), core::mem::transmute(phnsdefaultdeviceperiod.unwrap_or(core::mem::zeroed())), core::mem::transmute(phnsminimumdeviceperiod.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Start(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)).ok()
@@ -3038,11 +2719,8 @@ impl IAudioClient {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetEventHandle<P0>(&self, eventhandle: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).SetEventHandle)(windows_core::Interface::as_raw(self), eventhandle.param().abi()).ok()
+    pub unsafe fn SetEventHandle(&self, eventhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEventHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(eventhandle)).ok()
     }
     pub unsafe fn GetService<T>(&self) -> windows_core::Result<T>
     where
@@ -3260,7 +2938,7 @@ impl IAudioClient3 {
         (windows_core::Interface::vtable(self).GetCurrentSharedModeEnginePeriod)(windows_core::Interface::as_raw(self), core::mem::transmute(ppformat), core::mem::transmute(pcurrentperiodinframes)).ok()
     }
     pub unsafe fn InitializeSharedAudioStream(&self, streamflags: u32, periodinframes: u32, pformat: *const WAVEFORMATEX, audiosessionguid: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InitializeSharedAudioStream)(windows_core::Interface::as_raw(self), core::mem::transmute(streamflags), core::mem::transmute(periodinframes), core::mem::transmute(pformat), core::mem::transmute(audiosessionguid.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).InitializeSharedAudioStream)(windows_core::Interface::as_raw(self), core::mem::transmute(streamflags), core::mem::transmute(periodinframes), core::mem::transmute(pformat), core::mem::transmute(audiosessionguid.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -3340,7 +3018,7 @@ impl IAudioClock {
         (windows_core::Interface::vtable(self).GetFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPosition(&self, pu64position: *mut u64, pu64qpcposition: Option<*mut u64>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pu64position), core::mem::transmute(pu64qpcposition.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pu64position), core::mem::transmute(pu64qpcposition.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetCharacteristics(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -3401,7 +3079,7 @@ windows_core::imp::define_interface!(IAudioClock2, IAudioClock2_Vtbl, 0x6f49ff73
 windows_core::imp::interface_hierarchy!(IAudioClock2, windows_core::IUnknown);
 impl IAudioClock2 {
     pub unsafe fn GetDevicePosition(&self, deviceposition: *mut u64, qpcposition: Option<*mut u64>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDevicePosition)(windows_core::Interface::as_raw(self), core::mem::transmute(deviceposition), core::mem::transmute(qpcposition.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetDevicePosition)(windows_core::Interface::as_raw(self), core::mem::transmute(deviceposition), core::mem::transmute(qpcposition.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -3607,7 +3285,7 @@ impl IAudioInputSelector {
         (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSelection(&self, nidselect: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), core::mem::transmute(nidselect), core::mem::transmute(pguideventcontext.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), core::mem::transmute(nidselect), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -3658,7 +3336,7 @@ impl IAudioLoudness {
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.param().abi(), core::mem::transmute(pguideventcontext.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.param().abi(), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -3727,7 +3405,7 @@ impl IAudioMute {
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmuted.param().abi(), core::mem::transmute(pguideventcontext.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmuted.param().abi(), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetMute(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -3775,7 +3453,7 @@ impl IAudioOutputSelector {
         (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSelection(&self, nidselect: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), core::mem::transmute(nidselect), core::mem::transmute(pguideventcontext.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), core::mem::transmute(nidselect), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -4330,11 +4008,11 @@ windows_core::imp::interface_hierarchy!(IAudioSessionManager, windows_core::IUnk
 impl IAudioSessionManager {
     pub unsafe fn GetAudioSessionControl(&self, audiosessionguid: Option<*const windows_core::GUID>, streamflags: u32) -> windows_core::Result<IAudioSessionControl> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAudioSessionControl)(windows_core::Interface::as_raw(self), core::mem::transmute(audiosessionguid.unwrap_or(core::ptr::null())), core::mem::transmute(streamflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAudioSessionControl)(windows_core::Interface::as_raw(self), core::mem::transmute(audiosessionguid.unwrap_or(core::mem::zeroed())), core::mem::transmute(streamflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSimpleAudioVolume(&self, audiosessionguid: Option<*const windows_core::GUID>, streamflags: u32) -> windows_core::Result<ISimpleAudioVolume> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSimpleAudioVolume)(windows_core::Interface::as_raw(self), core::mem::transmute(audiosessionguid.unwrap_or(core::ptr::null())), core::mem::transmute(streamflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSimpleAudioVolume)(windows_core::Interface::as_raw(self), core::mem::transmute(audiosessionguid.unwrap_or(core::mem::zeroed())), core::mem::transmute(streamflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -4513,7 +4191,7 @@ windows_core::imp::interface_hierarchy!(IAudioStateMonitor, windows_core::IUnkno
 impl IAudioStateMonitor {
     pub unsafe fn RegisterCallback(&self, callback: PAudioStateMonitorCallback, context: Option<*const core::ffi::c_void>) -> windows_core::Result<i64> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(callback), core::mem::transmute(context.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).RegisterCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(callback), core::mem::transmute(context.unwrap_or(core::mem::zeroed())), &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterCallback(&self, registration: i64) {
         (windows_core::Interface::vtable(self).UnregisterCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(registration))
@@ -4837,11 +4515,8 @@ impl windows_core::RuntimeName for IAudioTreble {}
 windows_core::imp::define_interface!(IAudioViewManagerService, IAudioViewManagerService_Vtbl, 0xa7a7ef10_1f49_45e0_ad35_612057cc8f74);
 windows_core::imp::interface_hierarchy!(IAudioViewManagerService, windows_core::IUnknown);
 impl IAudioViewManagerService {
-    pub unsafe fn SetAudioStreamWindow<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetAudioStreamWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
+    pub unsafe fn SetAudioStreamWindow(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAudioStreamWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd)).ok()
     }
 }
 #[repr(C)]
@@ -5169,7 +4844,7 @@ windows_core::imp::define_interface!(IControlChangeNotify, IControlChangeNotify_
 windows_core::imp::interface_hierarchy!(IControlChangeNotify, windows_core::IUnknown);
 impl IControlChangeNotify {
     pub unsafe fn OnNotify(&self, dwsenderprocessid: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnNotify)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsenderprocessid), core::mem::transmute(pguideventcontext.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).OnNotify)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsenderprocessid), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -5255,7 +4930,7 @@ impl IDeviceSpecificProperty {
         (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pvvalue), core::mem::transmute(pcbvalue)).ok()
     }
     pub unsafe fn SetValue(&self, pvvalue: *const core::ffi::c_void, cbvalue: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pvvalue), core::mem::transmute(cbvalue), core::mem::transmute(pguideventcontext.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pvvalue), core::mem::transmute(cbvalue), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Get4BRange(&self, plmin: *mut i32, plmax: *mut i32, plstepping: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Get4BRange)(windows_core::Interface::as_raw(self), core::mem::transmute(plmin), core::mem::transmute(plmax), core::mem::transmute(plstepping)).ok()
@@ -5466,7 +5141,7 @@ impl IMMDevice {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), &T::IID, core::mem::transmute(dwclsctx), core::mem::transmute(pactivationparams.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), &T::IID, core::mem::transmute(dwclsctx), core::mem::transmute(pactivationparams.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn OpenPropertyStore(&self, stgmaccess: super::super::System::Com::STGM) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
@@ -5562,7 +5237,7 @@ impl IMMDeviceActivator {
     where
         P1: windows_core::Param<IMMDevice>,
     {
-        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), core::mem::transmute(iid), pdevice.param().abi(), core::mem::transmute(pactivationparams.unwrap_or(core::ptr::null())), core::mem::transmute(ppinterface)).ok()
+        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), core::mem::transmute(iid), pdevice.param().abi(), core::mem::transmute(pactivationparams.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppinterface)).ok()
     }
 }
 #[repr(C)]
@@ -5869,23 +5544,14 @@ windows_core::imp::define_interface!(IMessageFilter, IMessageFilter_Vtbl, 0x0000
 windows_core::imp::interface_hierarchy!(IMessageFilter, windows_core::IUnknown);
 impl IMessageFilter {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn HandleInComingCall<P1>(&self, dwcalltype: u32, htaskcaller: P1, dwtickcount: u32, lpinterfaceinfo: Option<*const super::super::System::Com::INTERFACEINFO>) -> u32
-    where
-        P1: windows_core::Param<super::HTASK>,
-    {
-        (windows_core::Interface::vtable(self).HandleInComingCall)(windows_core::Interface::as_raw(self), core::mem::transmute(dwcalltype), htaskcaller.param().abi(), core::mem::transmute(dwtickcount), core::mem::transmute(lpinterfaceinfo.unwrap_or(core::ptr::null())))
+    pub unsafe fn HandleInComingCall(&self, dwcalltype: u32, htaskcaller: super::HTASK, dwtickcount: u32, lpinterfaceinfo: Option<*const super::super::System::Com::INTERFACEINFO>) -> u32 {
+        (windows_core::Interface::vtable(self).HandleInComingCall)(windows_core::Interface::as_raw(self), core::mem::transmute(dwcalltype), core::mem::transmute(htaskcaller), core::mem::transmute(dwtickcount), core::mem::transmute(lpinterfaceinfo.unwrap_or(core::mem::zeroed())))
     }
-    pub unsafe fn RetryRejectedCall<P0>(&self, htaskcallee: P0, dwtickcount: u32, dwrejecttype: u32) -> u32
-    where
-        P0: windows_core::Param<super::HTASK>,
-    {
-        (windows_core::Interface::vtable(self).RetryRejectedCall)(windows_core::Interface::as_raw(self), htaskcallee.param().abi(), core::mem::transmute(dwtickcount), core::mem::transmute(dwrejecttype))
+    pub unsafe fn RetryRejectedCall(&self, htaskcallee: super::HTASK, dwtickcount: u32, dwrejecttype: u32) -> u32 {
+        (windows_core::Interface::vtable(self).RetryRejectedCall)(windows_core::Interface::as_raw(self), core::mem::transmute(htaskcallee), core::mem::transmute(dwtickcount), core::mem::transmute(dwrejecttype))
     }
-    pub unsafe fn MessagePending<P0>(&self, htaskcallee: P0, dwtickcount: u32, dwpendingtype: u32) -> u32
-    where
-        P0: windows_core::Param<super::HTASK>,
-    {
-        (windows_core::Interface::vtable(self).MessagePending)(windows_core::Interface::as_raw(self), htaskcallee.param().abi(), core::mem::transmute(dwtickcount), core::mem::transmute(dwpendingtype))
+    pub unsafe fn MessagePending(&self, htaskcallee: super::HTASK, dwtickcount: u32, dwpendingtype: u32) -> u32 {
+        (windows_core::Interface::vtable(self).MessagePending)(windows_core::Interface::as_raw(self), core::mem::transmute(htaskcallee), core::mem::transmute(dwtickcount), core::mem::transmute(dwpendingtype))
     }
 }
 #[repr(C)]
@@ -5976,7 +5642,7 @@ impl IPart {
         (windows_core::Interface::vtable(self).GetTopologyObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Activate(&self, dwclscontext: u32, refiid: *const windows_core::GUID, ppvobject: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), core::mem::transmute(dwclscontext), core::mem::transmute(refiid), core::mem::transmute(ppvobject.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), core::mem::transmute(dwclscontext), core::mem::transmute(refiid), core::mem::transmute(ppvobject.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn RegisterControlChangeCallback<P1>(&self, riid: *const windows_core::GUID, pnotify: P1) -> windows_core::Result<()>
     where
@@ -6225,13 +5891,13 @@ impl IPerChannelDbLevel {
         (windows_core::Interface::vtable(self).GetLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(nchannel), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(nchannel), core::mem::transmute(fleveldb), core::mem::transmute(pguideventcontext.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(nchannel), core::mem::transmute(fleveldb), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLevelUniform)(windows_core::Interface::as_raw(self), core::mem::transmute(fleveldb), core::mem::transmute(pguideventcontext.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetLevelUniform)(windows_core::Interface::as_raw(self), core::mem::transmute(fleveldb), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLevelAllChannels)(windows_core::Interface::as_raw(self), core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len().try_into().unwrap(), core::mem::transmute(pguideventcontext.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetLevelAllChannels)(windows_core::Interface::as_raw(self), core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len().try_into().unwrap(), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -6410,7 +6076,7 @@ impl ISpatialAudioClient {
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn IsSpatialAudioStreamAvailable(&self, streamuuid: *const windows_core::GUID, auxiliaryinfo: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).IsSpatialAudioStreamAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute(streamuuid), core::mem::transmute(auxiliaryinfo.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).IsSpatialAudioStreamAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute(streamuuid), core::mem::transmute(auxiliaryinfo.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn ActivateSpatialAudioStream<T>(&self, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<T>
@@ -6598,7 +6264,7 @@ windows_core::imp::define_interface!(ISpatialAudioMetadataClient, ISpatialAudioM
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataClient, windows_core::IUnknown);
 impl ISpatialAudioMetadataClient {
     pub unsafe fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: u16, framecount: u16, metadataitemsbuffer: Option<*mut Option<ISpatialAudioMetadataItemsBuffer>>, metadataitems: *mut Option<ISpatialAudioMetadataItems>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ActivateSpatialAudioMetadataItems)(windows_core::Interface::as_raw(self), core::mem::transmute(maxitemcount), core::mem::transmute(framecount), core::mem::transmute(metadataitemsbuffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(metadataitems)).ok()
+        (windows_core::Interface::vtable(self).ActivateSpatialAudioMetadataItems)(windows_core::Interface::as_raw(self), core::mem::transmute(maxitemcount), core::mem::transmute(framecount), core::mem::transmute(metadataitemsbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(metadataitems)).ok()
     }
     pub unsafe fn GetSpatialAudioMetadataItemsBufferLength(&self, maxitemcount: u16) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -6991,7 +6657,7 @@ impl ISpatialAudioMetadataWriter {
         (windows_core::Interface::vtable(self).WriteNextItem)(windows_core::Interface::as_raw(self), core::mem::transmute(frameoffset)).ok()
     }
     pub unsafe fn WriteNextItemCommand(&self, commandid: u8, valuebuffer: Option<*const core::ffi::c_void>, valuebufferlength: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WriteNextItemCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(commandid), core::mem::transmute(valuebuffer.unwrap_or(core::ptr::null())), core::mem::transmute(valuebufferlength)).ok()
+        (windows_core::Interface::vtable(self).WriteNextItemCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(commandid), core::mem::transmute(valuebuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(valuebufferlength)).ok()
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
@@ -7261,7 +6927,7 @@ impl core::ops::Deref for ISpatialAudioObjectForMetadataCommands {
 windows_core::imp::interface_hierarchy!(ISpatialAudioObjectForMetadataCommands, windows_core::IUnknown, ISpatialAudioObjectBase);
 impl ISpatialAudioObjectForMetadataCommands {
     pub unsafe fn WriteNextMetadataCommand(&self, commandid: u8, valuebuffer: Option<*const core::ffi::c_void>, valuebufferlength: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WriteNextMetadataCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(commandid), core::mem::transmute(valuebuffer.unwrap_or(core::ptr::null())), core::mem::transmute(valuebufferlength)).ok()
+        (windows_core::Interface::vtable(self).WriteNextMetadataCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(commandid), core::mem::transmute(valuebuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(valuebufferlength)).ok()
     }
 }
 #[repr(C)]

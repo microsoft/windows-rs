@@ -301,7 +301,7 @@ impl IUIAnimationManager {
         (windows_core::Interface::vtable(self).AbandonAllStoryboards)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Update(&self, timenow: f64, updateresult: Option<*mut UI_ANIMATION_UPDATE_RESULT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), core::mem::transmute(timenow), core::mem::transmute(updateresult.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), core::mem::transmute(timenow), core::mem::transmute(updateresult.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetVariableFromTag<P0>(&self, object: P0, id: u32) -> windows_core::Result<IUIAnimationVariable>
     where
@@ -576,7 +576,7 @@ impl IUIAnimationManager2 {
         (windows_core::Interface::vtable(self).AbandonAllStoryboards)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Update(&self, timenow: f64, updateresult: Option<*mut UI_ANIMATION_UPDATE_RESULT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), core::mem::transmute(timenow), core::mem::transmute(updateresult.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), core::mem::transmute(timenow), core::mem::transmute(updateresult.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetVariableFromTag<P0>(&self, object: P0, id: u32) -> windows_core::Result<IUIAnimationVariable2>
     where
@@ -1024,12 +1024,9 @@ impl IUIAnimationStoryboard {
     {
         (windows_core::Interface::vtable(self).AddTransition)(windows_core::Interface::as_raw(self), variable.param().abi(), transition.param().abi()).ok()
     }
-    pub unsafe fn AddKeyframeAtOffset<P0>(&self, existingkeyframe: P0, offset: f64) -> windows_core::Result<UI_ANIMATION_KEYFRAME>
-    where
-        P0: windows_core::Param<UI_ANIMATION_KEYFRAME>,
-    {
+    pub unsafe fn AddKeyframeAtOffset(&self, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64) -> windows_core::Result<UI_ANIMATION_KEYFRAME> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddKeyframeAtOffset)(windows_core::Interface::as_raw(self), existingkeyframe.param().abi(), core::mem::transmute(offset), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddKeyframeAtOffset)(windows_core::Interface::as_raw(self), core::mem::transmute(existingkeyframe), core::mem::transmute(offset), &mut result__).map(|| result__)
     }
     pub unsafe fn AddKeyframeAfterTransition<P0>(&self, transition: P0) -> windows_core::Result<UI_ANIMATION_KEYFRAME>
     where
@@ -1038,29 +1035,22 @@ impl IUIAnimationStoryboard {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddKeyframeAfterTransition)(windows_core::Interface::as_raw(self), transition.param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn AddTransitionAtKeyframe<P0, P1, P2>(&self, variable: P0, transition: P1, startkeyframe: P2) -> windows_core::Result<()>
+    pub unsafe fn AddTransitionAtKeyframe<P0, P1>(&self, variable: P0, transition: P1, startkeyframe: UI_ANIMATION_KEYFRAME) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAnimationVariable>,
         P1: windows_core::Param<IUIAnimationTransition>,
-        P2: windows_core::Param<UI_ANIMATION_KEYFRAME>,
     {
-        (windows_core::Interface::vtable(self).AddTransitionAtKeyframe)(windows_core::Interface::as_raw(self), variable.param().abi(), transition.param().abi(), startkeyframe.param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddTransitionAtKeyframe)(windows_core::Interface::as_raw(self), variable.param().abi(), transition.param().abi(), core::mem::transmute(startkeyframe)).ok()
     }
-    pub unsafe fn AddTransitionBetweenKeyframes<P0, P1, P2, P3>(&self, variable: P0, transition: P1, startkeyframe: P2, endkeyframe: P3) -> windows_core::Result<()>
+    pub unsafe fn AddTransitionBetweenKeyframes<P0, P1>(&self, variable: P0, transition: P1, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAnimationVariable>,
         P1: windows_core::Param<IUIAnimationTransition>,
-        P2: windows_core::Param<UI_ANIMATION_KEYFRAME>,
-        P3: windows_core::Param<UI_ANIMATION_KEYFRAME>,
     {
-        (windows_core::Interface::vtable(self).AddTransitionBetweenKeyframes)(windows_core::Interface::as_raw(self), variable.param().abi(), transition.param().abi(), startkeyframe.param().abi(), endkeyframe.param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddTransitionBetweenKeyframes)(windows_core::Interface::as_raw(self), variable.param().abi(), transition.param().abi(), core::mem::transmute(startkeyframe), core::mem::transmute(endkeyframe)).ok()
     }
-    pub unsafe fn RepeatBetweenKeyframes<P0, P1>(&self, startkeyframe: P0, endkeyframe: P1, repetitioncount: i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<UI_ANIMATION_KEYFRAME>,
-        P1: windows_core::Param<UI_ANIMATION_KEYFRAME>,
-    {
-        (windows_core::Interface::vtable(self).RepeatBetweenKeyframes)(windows_core::Interface::as_raw(self), startkeyframe.param().abi(), endkeyframe.param().abi(), core::mem::transmute(repetitioncount)).ok()
+    pub unsafe fn RepeatBetweenKeyframes(&self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, repetitioncount: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RepeatBetweenKeyframes)(windows_core::Interface::as_raw(self), core::mem::transmute(startkeyframe), core::mem::transmute(endkeyframe), core::mem::transmute(repetitioncount)).ok()
     }
     pub unsafe fn HoldVariable<P0>(&self, variable: P0) -> windows_core::Result<()>
     where
@@ -1072,7 +1062,7 @@ impl IUIAnimationStoryboard {
         (windows_core::Interface::vtable(self).SetLongestAcceptableDelay)(windows_core::Interface::as_raw(self), core::mem::transmute(delay)).ok()
     }
     pub unsafe fn Schedule(&self, timenow: f64, schedulingresult: Option<*mut UI_ANIMATION_SCHEDULING_RESULT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Schedule)(windows_core::Interface::as_raw(self), core::mem::transmute(timenow), core::mem::transmute(schedulingresult.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Schedule)(windows_core::Interface::as_raw(self), core::mem::transmute(timenow), core::mem::transmute(schedulingresult.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Conclude(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Conclude)(windows_core::Interface::as_raw(self)).ok()
@@ -1090,7 +1080,7 @@ impl IUIAnimationStoryboard {
         (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), core::mem::transmute(id)).ok()
     }
     pub unsafe fn GetTag(&self, object: Option<*mut Option<windows_core::IUnknown>>, id: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object.unwrap_or(core::ptr::null_mut())), core::mem::transmute(id.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object.unwrap_or(core::mem::zeroed())), core::mem::transmute(id.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetStatus(&self) -> windows_core::Result<UI_ANIMATION_STORYBOARD_STATUS> {
         let mut result__ = core::mem::zeroed();
@@ -1277,12 +1267,9 @@ impl IUIAnimationStoryboard2 {
     {
         (windows_core::Interface::vtable(self).AddTransition)(windows_core::Interface::as_raw(self), variable.param().abi(), transition.param().abi()).ok()
     }
-    pub unsafe fn AddKeyframeAtOffset<P0>(&self, existingkeyframe: P0, offset: f64) -> windows_core::Result<UI_ANIMATION_KEYFRAME>
-    where
-        P0: windows_core::Param<UI_ANIMATION_KEYFRAME>,
-    {
+    pub unsafe fn AddKeyframeAtOffset(&self, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64) -> windows_core::Result<UI_ANIMATION_KEYFRAME> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddKeyframeAtOffset)(windows_core::Interface::as_raw(self), existingkeyframe.param().abi(), core::mem::transmute(offset), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddKeyframeAtOffset)(windows_core::Interface::as_raw(self), core::mem::transmute(existingkeyframe), core::mem::transmute(offset), &mut result__).map(|| result__)
     }
     pub unsafe fn AddKeyframeAfterTransition<P0>(&self, transition: P0) -> windows_core::Result<UI_ANIMATION_KEYFRAME>
     where
@@ -1291,31 +1278,26 @@ impl IUIAnimationStoryboard2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddKeyframeAfterTransition)(windows_core::Interface::as_raw(self), transition.param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn AddTransitionAtKeyframe<P0, P1, P2>(&self, variable: P0, transition: P1, startkeyframe: P2) -> windows_core::Result<()>
+    pub unsafe fn AddTransitionAtKeyframe<P0, P1>(&self, variable: P0, transition: P1, startkeyframe: UI_ANIMATION_KEYFRAME) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAnimationVariable2>,
         P1: windows_core::Param<IUIAnimationTransition2>,
-        P2: windows_core::Param<UI_ANIMATION_KEYFRAME>,
     {
-        (windows_core::Interface::vtable(self).AddTransitionAtKeyframe)(windows_core::Interface::as_raw(self), variable.param().abi(), transition.param().abi(), startkeyframe.param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddTransitionAtKeyframe)(windows_core::Interface::as_raw(self), variable.param().abi(), transition.param().abi(), core::mem::transmute(startkeyframe)).ok()
     }
-    pub unsafe fn AddTransitionBetweenKeyframes<P0, P1, P2, P3>(&self, variable: P0, transition: P1, startkeyframe: P2, endkeyframe: P3) -> windows_core::Result<()>
+    pub unsafe fn AddTransitionBetweenKeyframes<P0, P1>(&self, variable: P0, transition: P1, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAnimationVariable2>,
         P1: windows_core::Param<IUIAnimationTransition2>,
-        P2: windows_core::Param<UI_ANIMATION_KEYFRAME>,
-        P3: windows_core::Param<UI_ANIMATION_KEYFRAME>,
     {
-        (windows_core::Interface::vtable(self).AddTransitionBetweenKeyframes)(windows_core::Interface::as_raw(self), variable.param().abi(), transition.param().abi(), startkeyframe.param().abi(), endkeyframe.param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddTransitionBetweenKeyframes)(windows_core::Interface::as_raw(self), variable.param().abi(), transition.param().abi(), core::mem::transmute(startkeyframe), core::mem::transmute(endkeyframe)).ok()
     }
-    pub unsafe fn RepeatBetweenKeyframes<P0, P1, P4, P6>(&self, startkeyframe: P0, endkeyframe: P1, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: P4, id: usize, fregisterfornextanimationevent: P6) -> windows_core::Result<()>
+    pub unsafe fn RepeatBetweenKeyframes<P4, P6>(&self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: P4, id: usize, fregisterfornextanimationevent: P6) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<UI_ANIMATION_KEYFRAME>,
-        P1: windows_core::Param<UI_ANIMATION_KEYFRAME>,
         P4: windows_core::Param<IUIAnimationLoopIterationChangeHandler2>,
         P6: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RepeatBetweenKeyframes)(windows_core::Interface::as_raw(self), startkeyframe.param().abi(), endkeyframe.param().abi(), core::mem::transmute(crepetition), core::mem::transmute(repeatmode), piterationchangehandler.param().abi(), core::mem::transmute(id), fregisterfornextanimationevent.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RepeatBetweenKeyframes)(windows_core::Interface::as_raw(self), core::mem::transmute(startkeyframe), core::mem::transmute(endkeyframe), core::mem::transmute(crepetition), core::mem::transmute(repeatmode), piterationchangehandler.param().abi(), core::mem::transmute(id), fregisterfornextanimationevent.param().abi()).ok()
     }
     pub unsafe fn HoldVariable<P0>(&self, variable: P0) -> windows_core::Result<()>
     where
@@ -1330,7 +1312,7 @@ impl IUIAnimationStoryboard2 {
         (windows_core::Interface::vtable(self).SetSkipDuration)(windows_core::Interface::as_raw(self), core::mem::transmute(secondsduration)).ok()
     }
     pub unsafe fn Schedule(&self, timenow: f64, schedulingresult: Option<*mut UI_ANIMATION_SCHEDULING_RESULT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Schedule)(windows_core::Interface::as_raw(self), core::mem::transmute(timenow), core::mem::transmute(schedulingresult.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Schedule)(windows_core::Interface::as_raw(self), core::mem::transmute(timenow), core::mem::transmute(schedulingresult.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Conclude(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Conclude)(windows_core::Interface::as_raw(self)).ok()
@@ -1348,7 +1330,7 @@ impl IUIAnimationStoryboard2 {
         (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), core::mem::transmute(id)).ok()
     }
     pub unsafe fn GetTag(&self, object: Option<*mut Option<windows_core::IUnknown>>, id: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object.unwrap_or(core::ptr::null_mut())), core::mem::transmute(id.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object.unwrap_or(core::mem::zeroed())), core::mem::transmute(id.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetStatus(&self) -> windows_core::Result<UI_ANIMATION_STORYBOARD_STATUS> {
         let mut result__ = core::mem::zeroed();
@@ -2737,7 +2719,7 @@ impl IUIAnimationVariable {
         (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), core::mem::transmute(id)).ok()
     }
     pub unsafe fn GetTag(&self, object: Option<*mut Option<windows_core::IUnknown>>, id: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object.unwrap_or(core::ptr::null_mut())), core::mem::transmute(id.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object.unwrap_or(core::mem::zeroed())), core::mem::transmute(id.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetVariableChangeHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
@@ -2995,7 +2977,7 @@ impl IUIAnimationVariable2 {
         (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), core::mem::transmute(id)).ok()
     }
     pub unsafe fn GetTag(&self, object: Option<*mut Option<windows_core::IUnknown>>, id: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object.unwrap_or(core::ptr::null_mut())), core::mem::transmute(id.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object.unwrap_or(core::mem::zeroed())), core::mem::transmute(id.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetVariableChangeHandler<P0, P1>(&self, handler: P0, fregisterfornextanimationevent: P1) -> windows_core::Result<()>
     where

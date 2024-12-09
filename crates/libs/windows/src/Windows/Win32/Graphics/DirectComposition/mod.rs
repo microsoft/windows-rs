@@ -1,22 +1,20 @@
 #[inline]
-pub unsafe fn DCompositionAttachMouseDragToHwnd<P0, P1, P2>(visual: P0, hwnd: P1, enable: P2) -> windows_core::Result<()>
+pub unsafe fn DCompositionAttachMouseDragToHwnd<P0, P2>(visual: P0, hwnd: super::super::Foundation::HWND, enable: P2) -> windows_core::Result<()>
 where
     P0: windows_core::Param<IDCompositionVisual>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionAttachMouseDragToHwnd(visual : * mut core::ffi::c_void, hwnd : super::super::Foundation:: HWND, enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    DCompositionAttachMouseDragToHwnd(visual.param().abi(), hwnd.param().abi(), enable.param().abi()).ok()
+    DCompositionAttachMouseDragToHwnd(visual.param().abi(), core::mem::transmute(hwnd), enable.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn DCompositionAttachMouseWheelToHwnd<P0, P1, P2>(visual: P0, hwnd: P1, enable: P2) -> windows_core::Result<()>
+pub unsafe fn DCompositionAttachMouseWheelToHwnd<P0, P2>(visual: P0, hwnd: super::super::Foundation::HWND, enable: P2) -> windows_core::Result<()>
 where
     P0: windows_core::Param<IDCompositionVisual>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionAttachMouseWheelToHwnd(visual : * mut core::ffi::c_void, hwnd : super::super::Foundation:: HWND, enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    DCompositionAttachMouseWheelToHwnd(visual.param().abi(), hwnd.param().abi(), enable.param().abi()).ok()
+    DCompositionAttachMouseWheelToHwnd(visual.param().abi(), core::mem::transmute(hwnd), enable.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn DCompositionBoostCompositorClock<P0>(enable: P0) -> windows_core::Result<()>
@@ -62,7 +60,7 @@ where
 pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateSurfaceHandle(desiredaccess : u32, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, surfacehandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    DCompositionCreateSurfaceHandle(core::mem::transmute(desiredaccess), core::mem::transmute(securityattributes.unwrap_or(core::ptr::null())), &mut result__).map(|| core::mem::transmute(result__))
+    DCompositionCreateSurfaceHandle(core::mem::transmute(desiredaccess), core::mem::transmute(securityattributes.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> windows_core::Result<u64> {
@@ -73,7 +71,7 @@ pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> 
 #[inline]
 pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: Option<*mut COMPOSITION_TARGET_ID>, actualtargetidcount: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionGetStatistics(frameid : u64, framestats : *mut COMPOSITION_FRAME_STATS, targetidcount : u32, targetids : *mut COMPOSITION_TARGET_ID, actualtargetidcount : *mut u32) -> windows_core::HRESULT);
-    DCompositionGetStatistics(core::mem::transmute(frameid), core::mem::transmute(framestats), core::mem::transmute(targetidcount), core::mem::transmute(targetids.unwrap_or(core::ptr::null_mut())), core::mem::transmute(actualtargetidcount.unwrap_or(core::ptr::null_mut()))).ok()
+    DCompositionGetStatistics(core::mem::transmute(frameid), core::mem::transmute(framestats), core::mem::transmute(targetidcount), core::mem::transmute(targetids.unwrap_or(core::mem::zeroed())), core::mem::transmute(actualtargetidcount.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID) -> windows_core::Result<COMPOSITION_TARGET_STATS> {
@@ -1015,27 +1013,20 @@ impl core::ops::Deref for IDCompositionDesktopDevice {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionDesktopDevice, windows_core::IUnknown, IDCompositionDevice2);
 impl IDCompositionDesktopDevice {
-    pub unsafe fn CreateTargetForHwnd<P0, P1>(&self, hwnd: P0, topmost: P1) -> windows_core::Result<IDCompositionTarget>
+    pub unsafe fn CreateTargetForHwnd<P1>(&self, hwnd: super::super::Foundation::HWND, topmost: P1) -> windows_core::Result<IDCompositionTarget>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), hwnd.param().abi(), topmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), topmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateSurfaceFromHandle<P0>(&self, handle: P0) -> windows_core::Result<windows_core::IUnknown>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
+    pub unsafe fn CreateSurfaceFromHandle(&self, handle: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSurfaceFromHandle)(windows_core::Interface::as_raw(self), handle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSurfaceFromHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(handle), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateSurfaceFromHwnd<P0>(&self, hwnd: P0) -> windows_core::Result<windows_core::IUnknown>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
+    pub unsafe fn CreateSurfaceFromHwnd(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSurfaceFromHwnd)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSurfaceFromHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1111,13 +1102,12 @@ impl IDCompositionDevice {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFrameStatistics)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn CreateTargetForHwnd<P0, P1>(&self, hwnd: P0, topmost: P1) -> windows_core::Result<IDCompositionTarget>
+    pub unsafe fn CreateTargetForHwnd<P1>(&self, hwnd: super::super::Foundation::HWND, topmost: P1) -> windows_core::Result<IDCompositionTarget>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), hwnd.param().abi(), topmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), topmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateVisual(&self) -> windows_core::Result<IDCompositionVisual> {
         let mut result__ = core::mem::zeroed();
@@ -1133,19 +1123,13 @@ impl IDCompositionDevice {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), core::mem::transmute(initialwidth), core::mem::transmute(initialheight), core::mem::transmute(pixelformat), core::mem::transmute(alphamode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateSurfaceFromHandle<P0>(&self, handle: P0) -> windows_core::Result<windows_core::IUnknown>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
+    pub unsafe fn CreateSurfaceFromHandle(&self, handle: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSurfaceFromHandle)(windows_core::Interface::as_raw(self), handle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSurfaceFromHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(handle), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateSurfaceFromHwnd<P0>(&self, hwnd: P0) -> windows_core::Result<windows_core::IUnknown>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
+    pub unsafe fn CreateSurfaceFromHwnd(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSurfaceFromHwnd)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSurfaceFromHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTranslateTransform(&self) -> windows_core::Result<IDCompositionTranslateTransform> {
         let mut result__ = core::mem::zeroed();
@@ -4189,7 +4173,7 @@ impl IDCompositionSurface {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), core::mem::transmute(updaterect.unwrap_or(core::ptr::null())), &T::IID, &mut result__, core::mem::transmute(updateoffset)).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), core::mem::transmute(updaterect.unwrap_or(core::mem::zeroed())), &T::IID, &mut result__, core::mem::transmute(updateoffset)).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)).ok()
@@ -4201,7 +4185,7 @@ impl IDCompositionSurface {
         (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Scroll(&self, scrollrect: Option<*const super::super::Foundation::RECT>, cliprect: Option<*const super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), core::mem::transmute(scrollrect.unwrap_or(core::ptr::null())), core::mem::transmute(cliprect.unwrap_or(core::ptr::null())), core::mem::transmute(offsetx), core::mem::transmute(offsety)).ok()
+        (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), core::mem::transmute(scrollrect.unwrap_or(core::mem::zeroed())), core::mem::transmute(cliprect.unwrap_or(core::mem::zeroed())), core::mem::transmute(offsetx), core::mem::transmute(offsety)).ok()
     }
 }
 #[repr(C)]

@@ -4,12 +4,9 @@ pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> wi
     ProcessIdToSessionId(core::mem::transmute(dwprocessid), core::mem::transmute(psessionid)).ok()
 }
 #[inline]
-pub unsafe fn WTSCloseServer<P0>(hserver: P0)
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSCloseServer(hserver: super::super::Foundation::HANDLE) {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSCloseServer(hserver : super::super::Foundation:: HANDLE));
-    WTSCloseServer(hserver.param().abi())
+    WTSCloseServer(core::mem::transmute(hserver))
 }
 #[inline]
 pub unsafe fn WTSConnectSessionA<P2, P3>(logonid: u32, targetlogonid: u32, ppassword: P2, bwait: P3) -> windows_core::Result<()>
@@ -30,31 +27,28 @@ where
     WTSConnectSessionW(core::mem::transmute(logonid), core::mem::transmute(targetlogonid), ppassword.param().abi(), bwait.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn WTSCreateListenerA<P0, P3>(hserver: P0, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, pbuffer: *const WTSLISTENERCONFIGA, flag: u32) -> windows_core::Result<()>
+pub unsafe fn WTSCreateListenerA<P3>(hserver: Option<super::super::Foundation::HANDLE>, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, pbuffer: *const WTSLISTENERCONFIGA, flag: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSCreateListenerA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_core::PCSTR, pbuffer : *const WTSLISTENERCONFIGA, flag : u32) -> super::super::Foundation:: BOOL);
-    WTSCreateListenerA(hserver.param().abi(), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(pbuffer), core::mem::transmute(flag)).ok()
+    WTSCreateListenerA(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(pbuffer), core::mem::transmute(flag)).ok()
 }
 #[inline]
-pub unsafe fn WTSCreateListenerW<P0, P3>(hserver: P0, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, pbuffer: *const WTSLISTENERCONFIGW, flag: u32) -> windows_core::Result<()>
+pub unsafe fn WTSCreateListenerW<P3>(hserver: Option<super::super::Foundation::HANDLE>, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, pbuffer: *const WTSLISTENERCONFIGW, flag: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSCreateListenerW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_core::PCWSTR, pbuffer : *const WTSLISTENERCONFIGW, flag : u32) -> super::super::Foundation:: BOOL);
-    WTSCreateListenerW(hserver.param().abi(), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(pbuffer), core::mem::transmute(flag)).ok()
+    WTSCreateListenerW(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(pbuffer), core::mem::transmute(flag)).ok()
 }
 #[inline]
-pub unsafe fn WTSDisconnectSession<P0, P2>(hserver: P0, sessionid: u32, bwait: P2) -> windows_core::Result<()>
+pub unsafe fn WTSDisconnectSession<P2>(hserver: Option<super::super::Foundation::HANDLE>, sessionid: u32, bwait: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSDisconnectSession(hserver : super::super::Foundation:: HANDLE, sessionid : u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    WTSDisconnectSession(hserver.param().abi(), core::mem::transmute(sessionid), bwait.param().abi()).ok()
+    WTSDisconnectSession(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(sessionid), bwait.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn WTSEnableChildSessions<P0>(benable: P0) -> super::super::Foundation::BOOL
@@ -65,54 +59,36 @@ where
     WTSEnableChildSessions(benable.param().abi())
 }
 #[inline]
-pub unsafe fn WTSEnumerateListenersA<P0>(hserver: P0, preserved: *const core::ffi::c_void, reserved: u32, plisteners: Option<*mut *mut i8>, pcount: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSEnumerateListenersA(hserver: Option<super::super::Foundation::HANDLE>, preserved: *const core::ffi::c_void, reserved: u32, plisteners: Option<*mut *mut i8>, pcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut *mut i8, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateListenersA(hserver.param().abi(), core::mem::transmute(preserved), core::mem::transmute(reserved), core::mem::transmute(plisteners.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcount)).ok()
+    WTSEnumerateListenersA(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(preserved), core::mem::transmute(reserved), core::mem::transmute(plisteners.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcount)).ok()
 }
 #[inline]
-pub unsafe fn WTSEnumerateListenersW<P0>(hserver: P0, preserved: *const core::ffi::c_void, reserved: u32, plisteners: Option<*mut *mut u16>, pcount: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSEnumerateListenersW(hserver: Option<super::super::Foundation::HANDLE>, preserved: *const core::ffi::c_void, reserved: u32, plisteners: Option<*mut *mut u16>, pcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut *mut u16, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateListenersW(hserver.param().abi(), core::mem::transmute(preserved), core::mem::transmute(reserved), core::mem::transmute(plisteners.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcount)).ok()
+    WTSEnumerateListenersW(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(preserved), core::mem::transmute(reserved), core::mem::transmute(plisteners.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcount)).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn WTSEnumerateProcessesA<P0>(hserver: P0, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOA, pcount: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSEnumerateProcessesA(hserver: Option<super::super::Foundation::HANDLE>, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOA, pcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesA(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppprocessinfo : *mut *mut WTS_PROCESS_INFOA, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateProcessesA(hserver.param().abi(), core::mem::transmute(reserved), core::mem::transmute(version), core::mem::transmute(ppprocessinfo), core::mem::transmute(pcount)).ok()
+    WTSEnumerateProcessesA(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved), core::mem::transmute(version), core::mem::transmute(ppprocessinfo), core::mem::transmute(pcount)).ok()
 }
 #[inline]
-pub unsafe fn WTSEnumerateProcessesExA<P0>(hserver: P0, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut windows_core::PSTR, pcount: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSEnumerateProcessesExA(hserver: Option<super::super::Foundation::HANDLE>, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut windows_core::PSTR, pcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesExA(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut windows_core::PSTR, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateProcessesExA(hserver.param().abi(), core::mem::transmute(plevel), core::mem::transmute(sessionid), core::mem::transmute(ppprocessinfo), core::mem::transmute(pcount)).ok()
+    WTSEnumerateProcessesExA(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(plevel), core::mem::transmute(sessionid), core::mem::transmute(ppprocessinfo), core::mem::transmute(pcount)).ok()
 }
 #[inline]
-pub unsafe fn WTSEnumerateProcessesExW<P0>(hserver: P0, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut windows_core::PWSTR, pcount: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSEnumerateProcessesExW(hserver: Option<super::super::Foundation::HANDLE>, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut windows_core::PWSTR, pcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesExW(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut windows_core::PWSTR, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateProcessesExW(hserver.param().abi(), core::mem::transmute(plevel), core::mem::transmute(sessionid), core::mem::transmute(ppprocessinfo), core::mem::transmute(pcount)).ok()
+    WTSEnumerateProcessesExW(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(plevel), core::mem::transmute(sessionid), core::mem::transmute(ppprocessinfo), core::mem::transmute(pcount)).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn WTSEnumerateProcessesW<P0>(hserver: P0, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOW, pcount: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSEnumerateProcessesW(hserver: Option<super::super::Foundation::HANDLE>, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOW, pcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesW(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppprocessinfo : *mut *mut WTS_PROCESS_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateProcessesW(hserver.param().abi(), core::mem::transmute(reserved), core::mem::transmute(version), core::mem::transmute(ppprocessinfo), core::mem::transmute(pcount)).ok()
+    WTSEnumerateProcessesW(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved), core::mem::transmute(version), core::mem::transmute(ppprocessinfo), core::mem::transmute(pcount)).ok()
 }
 #[inline]
 pub unsafe fn WTSEnumerateServersA<P0>(pdomainname: P0, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOA, pcount: *mut u32) -> windows_core::Result<()>
@@ -131,36 +107,24 @@ where
     WTSEnumerateServersW(pdomainname.param().abi(), core::mem::transmute(reserved), core::mem::transmute(version), core::mem::transmute(ppserverinfo), core::mem::transmute(pcount)).ok()
 }
 #[inline]
-pub unsafe fn WTSEnumerateSessionsA<P0>(hserver: P0, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOA, pcount: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSEnumerateSessionsA(hserver: Option<super::super::Foundation::HANDLE>, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOA, pcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsA(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFOA, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateSessionsA(hserver.param().abi(), core::mem::transmute(reserved), core::mem::transmute(version), core::mem::transmute(ppsessioninfo), core::mem::transmute(pcount)).ok()
+    WTSEnumerateSessionsA(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved), core::mem::transmute(version), core::mem::transmute(ppsessioninfo), core::mem::transmute(pcount)).ok()
 }
 #[inline]
-pub unsafe fn WTSEnumerateSessionsExA<P0>(hserver: P0, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1A, pcount: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSEnumerateSessionsExA(hserver: Option<super::super::Foundation::HANDLE>, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1A, pcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsExA(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, filter : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFO_1A, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateSessionsExA(hserver.param().abi(), core::mem::transmute(plevel), core::mem::transmute(filter), core::mem::transmute(ppsessioninfo), core::mem::transmute(pcount)).ok()
+    WTSEnumerateSessionsExA(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(plevel), core::mem::transmute(filter), core::mem::transmute(ppsessioninfo), core::mem::transmute(pcount)).ok()
 }
 #[inline]
-pub unsafe fn WTSEnumerateSessionsExW<P0>(hserver: P0, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1W, pcount: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSEnumerateSessionsExW(hserver: Option<super::super::Foundation::HANDLE>, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1W, pcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsExW(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, filter : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFO_1W, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateSessionsExW(hserver.param().abi(), core::mem::transmute(plevel), core::mem::transmute(filter), core::mem::transmute(ppsessioninfo), core::mem::transmute(pcount)).ok()
+    WTSEnumerateSessionsExW(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(plevel), core::mem::transmute(filter), core::mem::transmute(ppsessioninfo), core::mem::transmute(pcount)).ok()
 }
 #[inline]
-pub unsafe fn WTSEnumerateSessionsW<P0>(hserver: P0, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOW, pcount: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSEnumerateSessionsW(hserver: Option<super::super::Foundation::HANDLE>, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOW, pcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsW(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateSessionsW(hserver.param().abi(), core::mem::transmute(reserved), core::mem::transmute(version), core::mem::transmute(ppsessioninfo), core::mem::transmute(pcount)).ok()
+    WTSEnumerateSessionsW(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved), core::mem::transmute(version), core::mem::transmute(ppsessioninfo), core::mem::transmute(pcount)).ok()
 }
 #[inline]
 pub unsafe fn WTSFreeMemory(pmemory: *mut core::ffi::c_void) {
@@ -189,23 +153,21 @@ pub unsafe fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Founda
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn WTSGetListenerSecurityA<P0, P3>(hserver: P0, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> windows_core::Result<()>
+pub unsafe fn WTSGetListenerSecurityA<P3>(hserver: Option<super::super::Foundation::HANDLE>, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: Option<super::super::Security::PSECURITY_DESCRIPTOR>, nlength: u32, lpnlengthneeded: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_core::PCSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSGetListenerSecurityA(hserver.param().abi(), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(securityinformation), core::mem::transmute(psecuritydescriptor), core::mem::transmute(nlength), core::mem::transmute(lpnlengthneeded)).ok()
+    WTSGetListenerSecurityA(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(securityinformation), core::mem::transmute(psecuritydescriptor.unwrap_or(core::mem::zeroed())), core::mem::transmute(nlength), core::mem::transmute(lpnlengthneeded)).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn WTSGetListenerSecurityW<P0, P3>(hserver: P0, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> windows_core::Result<()>
+pub unsafe fn WTSGetListenerSecurityW<P3>(hserver: Option<super::super::Foundation::HANDLE>, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: Option<super::super::Security::PSECURITY_DESCRIPTOR>, nlength: u32, lpnlengthneeded: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSGetListenerSecurityW(hserver.param().abi(), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(securityinformation), core::mem::transmute(psecuritydescriptor), core::mem::transmute(nlength), core::mem::transmute(lpnlengthneeded)).ok()
+    WTSGetListenerSecurityW(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(securityinformation), core::mem::transmute(psecuritydescriptor.unwrap_or(core::mem::zeroed())), core::mem::transmute(nlength), core::mem::transmute(lpnlengthneeded)).ok()
 }
 #[inline]
 pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
@@ -213,13 +175,12 @@ pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation
     WTSIsChildSessionsEnabled(core::mem::transmute(pbenabled))
 }
 #[inline]
-pub unsafe fn WTSLogoffSession<P0, P2>(hserver: P0, sessionid: u32, bwait: P2) -> windows_core::Result<()>
+pub unsafe fn WTSLogoffSession<P2>(hserver: Option<super::super::Foundation::HANDLE>, sessionid: u32, bwait: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSLogoffSession(hserver : super::super::Foundation:: HANDLE, sessionid : u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    WTSLogoffSession(hserver.param().abi(), core::mem::transmute(sessionid), bwait.param().abi()).ok()
+    WTSLogoffSession(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(sessionid), bwait.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn WTSOpenServerA<P0>(pservername: P0) -> super::super::Foundation::HANDLE
@@ -254,38 +215,30 @@ where
     WTSOpenServerW(pservername.param().abi())
 }
 #[inline]
-pub unsafe fn WTSQueryListenerConfigA<P0, P3>(hserver: P0, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, pbuffer: *mut WTSLISTENERCONFIGA) -> windows_core::Result<()>
+pub unsafe fn WTSQueryListenerConfigA<P3>(hserver: Option<super::super::Foundation::HANDLE>, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, pbuffer: *mut WTSLISTENERCONFIGA) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSQueryListenerConfigA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_core::PCSTR, pbuffer : *mut WTSLISTENERCONFIGA) -> super::super::Foundation:: BOOL);
-    WTSQueryListenerConfigA(hserver.param().abi(), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(pbuffer)).ok()
+    WTSQueryListenerConfigA(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(pbuffer)).ok()
 }
 #[inline]
-pub unsafe fn WTSQueryListenerConfigW<P0, P3>(hserver: P0, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, pbuffer: *mut WTSLISTENERCONFIGW) -> windows_core::Result<()>
+pub unsafe fn WTSQueryListenerConfigW<P3>(hserver: Option<super::super::Foundation::HANDLE>, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, pbuffer: *mut WTSLISTENERCONFIGW) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSQueryListenerConfigW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_core::PCWSTR, pbuffer : *mut WTSLISTENERCONFIGW) -> super::super::Foundation:: BOOL);
-    WTSQueryListenerConfigW(hserver.param().abi(), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(pbuffer)).ok()
+    WTSQueryListenerConfigW(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(pbuffer)).ok()
 }
 #[inline]
-pub unsafe fn WTSQuerySessionInformationA<P0>(hserver: P0, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut windows_core::PSTR, pbytesreturned: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSQuerySessionInformationA(hserver: Option<super::super::Foundation::HANDLE>, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut windows_core::PSTR, pbytesreturned: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSQuerySessionInformationA(hserver : super::super::Foundation:: HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut windows_core::PSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSQuerySessionInformationA(hserver.param().abi(), core::mem::transmute(sessionid), core::mem::transmute(wtsinfoclass), core::mem::transmute(ppbuffer), core::mem::transmute(pbytesreturned)).ok()
+    WTSQuerySessionInformationA(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(sessionid), core::mem::transmute(wtsinfoclass), core::mem::transmute(ppbuffer), core::mem::transmute(pbytesreturned)).ok()
 }
 #[inline]
-pub unsafe fn WTSQuerySessionInformationW<P0>(hserver: P0, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut windows_core::PWSTR, pbytesreturned: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSQuerySessionInformationW(hserver: Option<super::super::Foundation::HANDLE>, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut windows_core::PWSTR, pbytesreturned: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSQuerySessionInformationW(hserver : super::super::Foundation:: HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut windows_core::PWSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSQuerySessionInformationW(hserver.param().abi(), core::mem::transmute(sessionid), core::mem::transmute(wtsinfoclass), core::mem::transmute(ppbuffer), core::mem::transmute(pbytesreturned)).ok()
+    WTSQuerySessionInformationW(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(sessionid), core::mem::transmute(wtsinfoclass), core::mem::transmute(ppbuffer), core::mem::transmute(pbytesreturned)).ok()
 }
 #[inline]
 pub unsafe fn WTSQueryUserConfigA<P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut windows_core::PSTR, pbytesreturned: *mut u32) -> windows_core::Result<()>
@@ -311,73 +264,57 @@ pub unsafe fn WTSQueryUserToken(sessionid: u32, phtoken: *mut super::super::Foun
     WTSQueryUserToken(core::mem::transmute(sessionid), core::mem::transmute(phtoken)).ok()
 }
 #[inline]
-pub unsafe fn WTSRegisterSessionNotification<P0>(hwnd: P0, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn WTSRegisterSessionNotification(hwnd: super::super::Foundation::HWND, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSRegisterSessionNotification(hwnd : super::super::Foundation:: HWND, dwflags : u32) -> super::super::Foundation:: BOOL);
-    WTSRegisterSessionNotification(hwnd.param().abi(), core::mem::transmute(dwflags)).ok()
+    WTSRegisterSessionNotification(core::mem::transmute(hwnd), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn WTSRegisterSessionNotificationEx<P0, P1>(hserver: P0, hwnd: P1, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn WTSRegisterSessionNotificationEx(hserver: Option<super::super::Foundation::HANDLE>, hwnd: super::super::Foundation::HWND, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSRegisterSessionNotificationEx(hserver : super::super::Foundation:: HANDLE, hwnd : super::super::Foundation:: HWND, dwflags : u32) -> super::super::Foundation:: BOOL);
-    WTSRegisterSessionNotificationEx(hserver.param().abi(), hwnd.param().abi(), core::mem::transmute(dwflags)).ok()
+    WTSRegisterSessionNotificationEx(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(hwnd), core::mem::transmute(dwflags)).ok()
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn WTSSendMessageA<P0, P9>(hserver: P0, sessionid: u32, ptitle: &[u8], pmessage: &[u8], style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: P9) -> windows_core::Result<()>
+pub unsafe fn WTSSendMessageA<P9>(hserver: Option<super::super::Foundation::HANDLE>, sessionid: u32, ptitle: &[u8], pmessage: &[u8], style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: P9) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P9: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSSendMessageA(hserver : super::super::Foundation:: HANDLE, sessionid : u32, ptitle : windows_core::PCSTR, titlelength : u32, pmessage : windows_core::PCSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    WTSSendMessageA(hserver.param().abi(), core::mem::transmute(sessionid), core::mem::transmute(ptitle.as_ptr()), ptitle.len().try_into().unwrap(), core::mem::transmute(pmessage.as_ptr()), pmessage.len().try_into().unwrap(), core::mem::transmute(style), core::mem::transmute(timeout), core::mem::transmute(presponse), bwait.param().abi()).ok()
+    WTSSendMessageA(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(sessionid), core::mem::transmute(ptitle.as_ptr()), ptitle.len().try_into().unwrap(), core::mem::transmute(pmessage.as_ptr()), pmessage.len().try_into().unwrap(), core::mem::transmute(style), core::mem::transmute(timeout), core::mem::transmute(presponse), bwait.param().abi()).ok()
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn WTSSendMessageW<P0, P2, P4, P9>(hserver: P0, sessionid: u32, ptitle: P2, titlelength: u32, pmessage: P4, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: P9) -> windows_core::Result<()>
+pub unsafe fn WTSSendMessageW<P2, P4, P9>(hserver: Option<super::super::Foundation::HANDLE>, sessionid: u32, ptitle: P2, titlelength: u32, pmessage: P4, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: P9) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
     P9: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSSendMessageW(hserver : super::super::Foundation:: HANDLE, sessionid : u32, ptitle : windows_core::PCWSTR, titlelength : u32, pmessage : windows_core::PCWSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    WTSSendMessageW(hserver.param().abi(), core::mem::transmute(sessionid), ptitle.param().abi(), core::mem::transmute(titlelength), pmessage.param().abi(), core::mem::transmute(messagelength), core::mem::transmute(style), core::mem::transmute(timeout), core::mem::transmute(presponse), bwait.param().abi()).ok()
+    WTSSendMessageW(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(sessionid), ptitle.param().abi(), core::mem::transmute(titlelength), pmessage.param().abi(), core::mem::transmute(messagelength), core::mem::transmute(style), core::mem::transmute(timeout), core::mem::transmute(presponse), bwait.param().abi()).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn WTSSetListenerSecurityA<P0, P3, P5>(hserver: P0, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P5) -> windows_core::Result<()>
+pub unsafe fn WTSSetListenerSecurityA<P3>(hserver: Option<super::super::Foundation::HANDLE>, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P3: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSSetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_core::PCSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
-    WTSSetListenerSecurityA(hserver.param().abi(), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(securityinformation), psecuritydescriptor.param().abi()).ok()
+    WTSSetListenerSecurityA(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(securityinformation), core::mem::transmute(psecuritydescriptor)).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn WTSSetListenerSecurityW<P0, P3, P5>(hserver: P0, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P5) -> windows_core::Result<()>
+pub unsafe fn WTSSetListenerSecurityW<P3>(hserver: Option<super::super::Foundation::HANDLE>, preserved: *const core::ffi::c_void, reserved: u32, plistenername: P3, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P3: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSSetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
-    WTSSetListenerSecurityW(hserver.param().abi(), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(securityinformation), psecuritydescriptor.param().abi()).ok()
+    WTSSetListenerSecurityW(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(preserved), core::mem::transmute(reserved), plistenername.param().abi(), core::mem::transmute(securityinformation), core::mem::transmute(psecuritydescriptor)).ok()
 }
 #[inline]
-pub unsafe fn WTSSetRenderHint<P1>(prenderhintid: *mut u64, hwndowner: P1, renderhinttype: u32, phintdata: Option<&[u8]>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn WTSSetRenderHint(prenderhintid: *mut u64, hwndowner: super::super::Foundation::HWND, renderhinttype: u32, phintdata: Option<&[u8]>) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSSetRenderHint(prenderhintid : *mut u64, hwndowner : super::super::Foundation:: HWND, renderhinttype : u32, cbhintdatalength : u32, phintdata : *const u8) -> windows_core::HRESULT);
-    WTSSetRenderHint(core::mem::transmute(prenderhintid), hwndowner.param().abi(), core::mem::transmute(renderhinttype), phintdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(phintdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    WTSSetRenderHint(core::mem::transmute(prenderhintid), core::mem::transmute(hwndowner), core::mem::transmute(renderhinttype), phintdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(phintdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[inline]
 pub unsafe fn WTSSetUserConfigA<P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: &[u8]) -> windows_core::Result<()>
@@ -399,12 +336,9 @@ where
     WTSSetUserConfigW(pservername.param().abi(), pusername.param().abi(), core::mem::transmute(wtsconfigclass), pbuffer.param().abi(), core::mem::transmute(datalength)).ok()
 }
 #[inline]
-pub unsafe fn WTSShutdownSystem<P0>(hserver: P0, shutdownflag: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSShutdownSystem(hserver: Option<super::super::Foundation::HANDLE>, shutdownflag: u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSShutdownSystem(hserver : super::super::Foundation:: HANDLE, shutdownflag : u32) -> super::super::Foundation:: BOOL);
-    WTSShutdownSystem(hserver.param().abi(), core::mem::transmute(shutdownflag)).ok()
+    WTSShutdownSystem(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(shutdownflag)).ok()
 }
 #[inline]
 pub unsafe fn WTSStartRemoteControlSessionA<P0>(ptargetservername: P0, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> windows_core::Result<()>
@@ -428,46 +362,32 @@ pub unsafe fn WTSStopRemoteControlSession(logonid: u32) -> windows_core::Result<
     WTSStopRemoteControlSession(core::mem::transmute(logonid)).ok()
 }
 #[inline]
-pub unsafe fn WTSTerminateProcess<P0>(hserver: P0, processid: u32, exitcode: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSTerminateProcess(hserver: Option<super::super::Foundation::HANDLE>, processid: u32, exitcode: u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSTerminateProcess(hserver : super::super::Foundation:: HANDLE, processid : u32, exitcode : u32) -> super::super::Foundation:: BOOL);
-    WTSTerminateProcess(hserver.param().abi(), core::mem::transmute(processid), core::mem::transmute(exitcode)).ok()
+    WTSTerminateProcess(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(processid), core::mem::transmute(exitcode)).ok()
 }
 #[inline]
-pub unsafe fn WTSUnRegisterSessionNotification<P0>(hwnd: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn WTSUnRegisterSessionNotification(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSUnRegisterSessionNotification(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-    WTSUnRegisterSessionNotification(hwnd.param().abi()).ok()
+    WTSUnRegisterSessionNotification(core::mem::transmute(hwnd)).ok()
 }
 #[inline]
-pub unsafe fn WTSUnRegisterSessionNotificationEx<P0, P1>(hserver: P0, hwnd: P1) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn WTSUnRegisterSessionNotificationEx(hserver: Option<super::super::Foundation::HANDLE>, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSUnRegisterSessionNotificationEx(hserver : super::super::Foundation:: HANDLE, hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-    WTSUnRegisterSessionNotificationEx(hserver.param().abi(), hwnd.param().abi()).ok()
+    WTSUnRegisterSessionNotificationEx(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(hwnd)).ok()
 }
 #[inline]
-pub unsafe fn WTSVirtualChannelClose<P0>(hchannelhandle: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSVirtualChannelClose(hchannelhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelClose(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    WTSVirtualChannelClose(hchannelhandle.param().abi()).ok()
+    WTSVirtualChannelClose(core::mem::transmute(hchannelhandle)).ok()
 }
 #[inline]
-pub unsafe fn WTSVirtualChannelOpen<P0, P2>(hserver: P0, sessionid: u32, pvirtualname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WTSVirtualChannelOpen<P2>(hserver: Option<super::super::Foundation::HANDLE>, sessionid: u32, pvirtualname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelOpen(hserver : super::super::Foundation:: HANDLE, sessionid : u32, pvirtualname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = WTSVirtualChannelOpen(hserver.param().abi(), core::mem::transmute(sessionid), pvirtualname.param().abi());
+    let result__ = WTSVirtualChannelOpen(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(sessionid), pvirtualname.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -480,52 +400,34 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn WTSVirtualChannelPurgeInput<P0>(hchannelhandle: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSVirtualChannelPurgeInput(hchannelhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelPurgeInput(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    WTSVirtualChannelPurgeInput(hchannelhandle.param().abi()).ok()
+    WTSVirtualChannelPurgeInput(core::mem::transmute(hchannelhandle)).ok()
 }
 #[inline]
-pub unsafe fn WTSVirtualChannelPurgeOutput<P0>(hchannelhandle: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSVirtualChannelPurgeOutput(hchannelhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelPurgeOutput(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    WTSVirtualChannelPurgeOutput(hchannelhandle.param().abi()).ok()
+    WTSVirtualChannelPurgeOutput(core::mem::transmute(hchannelhandle)).ok()
 }
 #[inline]
-pub unsafe fn WTSVirtualChannelQuery<P0>(hchannelhandle: P0, param1: WTS_VIRTUAL_CLASS, ppbuffer: *mut *mut core::ffi::c_void, pbytesreturned: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSVirtualChannelQuery(hchannelhandle: super::super::Foundation::HANDLE, param1: WTS_VIRTUAL_CLASS, ppbuffer: *mut *mut core::ffi::c_void, pbytesreturned: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelQuery(hchannelhandle : super::super::Foundation:: HANDLE, param1 : WTS_VIRTUAL_CLASS, ppbuffer : *mut *mut core::ffi::c_void, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSVirtualChannelQuery(hchannelhandle.param().abi(), core::mem::transmute(param1), core::mem::transmute(ppbuffer), core::mem::transmute(pbytesreturned)).ok()
+    WTSVirtualChannelQuery(core::mem::transmute(hchannelhandle), core::mem::transmute(param1), core::mem::transmute(ppbuffer), core::mem::transmute(pbytesreturned)).ok()
 }
 #[inline]
-pub unsafe fn WTSVirtualChannelRead<P0>(hchannelhandle: P0, timeout: u32, buffer: &mut [u8], pbytesread: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSVirtualChannelRead(hchannelhandle: super::super::Foundation::HANDLE, timeout: u32, buffer: &mut [u8], pbytesread: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelRead(hchannelhandle : super::super::Foundation:: HANDLE, timeout : u32, buffer : windows_core::PSTR, buffersize : u32, pbytesread : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSVirtualChannelRead(hchannelhandle.param().abi(), core::mem::transmute(timeout), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(pbytesread)).ok()
+    WTSVirtualChannelRead(core::mem::transmute(hchannelhandle), core::mem::transmute(timeout), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(pbytesread)).ok()
 }
 #[inline]
-pub unsafe fn WTSVirtualChannelWrite<P0>(hchannelhandle: P0, buffer: &[u8], pbyteswritten: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSVirtualChannelWrite(hchannelhandle: super::super::Foundation::HANDLE, buffer: &[u8], pbyteswritten: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelWrite(hchannelhandle : super::super::Foundation:: HANDLE, buffer : windows_core::PCSTR, length : u32, pbyteswritten : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSVirtualChannelWrite(hchannelhandle.param().abi(), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(pbyteswritten)).ok()
+    WTSVirtualChannelWrite(core::mem::transmute(hchannelhandle), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(pbyteswritten)).ok()
 }
 #[inline]
-pub unsafe fn WTSWaitSystemEvent<P0>(hserver: P0, eventmask: u32, peventflags: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WTSWaitSystemEvent(hserver: Option<super::super::Foundation::HANDLE>, eventmask: u32, peventflags: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSWaitSystemEvent(hserver : super::super::Foundation:: HANDLE, eventmask : u32, peventflags : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSWaitSystemEvent(hserver.param().abi(), core::mem::transmute(eventmask), core::mem::transmute(peventflags)).ok()
+    WTSWaitSystemEvent(core::mem::transmute(hserver.unwrap_or(core::mem::zeroed())), core::mem::transmute(eventmask), core::mem::transmute(peventflags)).ok()
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -1325,11 +1227,8 @@ impl IAudioEndpoint {
     pub unsafe fn SetStreamFlags(&self, streamflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetStreamFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(streamflags)).ok()
     }
-    pub unsafe fn SetEventHandle<P0>(&self, eventhandle: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).SetEventHandle)(windows_core::Interface::as_raw(self), eventhandle.param().abi()).ok()
+    pub unsafe fn SetEventHandle(&self, eventhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEventHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(eventhandle)).ok()
     }
 }
 #[repr(C)]
@@ -1990,21 +1889,15 @@ impl core::ops::Deref for IRemoteDesktopClientTouchPointer {
 windows_core::imp::interface_hierarchy!(IRemoteDesktopClientTouchPointer, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRemoteDesktopClientTouchPointer {
-    pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(enabled)).ok()
     }
     pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEventsEnabled<P0>(&self, eventsenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEventsEnabled)(windows_core::Interface::as_raw(self), eventsenabled.param().abi()).ok()
+    pub unsafe fn SetEventsEnabled(&self, eventsenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEventsEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(eventsenabled)).ok()
     }
     pub unsafe fn EventsEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -2162,11 +2055,8 @@ impl windows_core::RuntimeName for ITSGAccountingEngine {}
 windows_core::imp::define_interface!(ITSGAuthenticateUserSink, ITSGAuthenticateUserSink_Vtbl, 0x2c3e2e73_a782_47f9_8dfb_77ee1ed27a03);
 windows_core::imp::interface_hierarchy!(ITSGAuthenticateUserSink, windows_core::IUnknown);
 impl ITSGAuthenticateUserSink {
-    pub unsafe fn OnUserAuthenticated<P3>(&self, username: &windows_core::BSTR, userdomain: &windows_core::BSTR, context: usize, usertoken: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
-    {
-        (windows_core::Interface::vtable(self).OnUserAuthenticated)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(username), core::mem::transmute_copy(userdomain), core::mem::transmute(context), usertoken.param().abi()).ok()
+    pub unsafe fn OnUserAuthenticated(&self, username: &windows_core::BSTR, userdomain: &windows_core::BSTR, context: usize, usertoken: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).OnUserAuthenticated)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(username), core::mem::transmute_copy(userdomain), core::mem::transmute(context), core::mem::transmute(usertoken)).ok()
     }
     pub unsafe fn OnUserAuthenticationFailed(&self, context: usize, genericerrorcode: windows_core::HRESULT, specificerrorcode: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnUserAuthenticationFailed)(windows_core::Interface::as_raw(self), core::mem::transmute(context), core::mem::transmute(genericerrorcode), core::mem::transmute(specificerrorcode)).ok()
@@ -2326,12 +2216,11 @@ impl windows_core::RuntimeName for ITSGAuthorizeResourceSink {}
 windows_core::imp::define_interface!(ITSGPolicyEngine, ITSGPolicyEngine_Vtbl, 0x8bc24f08_6223_42f4_a5b4_8e37cd135bbd);
 windows_core::imp::interface_hierarchy!(ITSGPolicyEngine, windows_core::IUnknown);
 impl ITSGPolicyEngine {
-    pub unsafe fn AuthorizeConnection<P9, P10>(&self, mainsessionid: windows_core::GUID, username: &windows_core::BSTR, authtype: AAAuthSchemes, clientmachineip: &windows_core::BSTR, clientmachinename: &windows_core::BSTR, sohdata: &[u8], cookiedata: &[u8], usertoken: P9, psink: P10) -> windows_core::Result<()>
+    pub unsafe fn AuthorizeConnection<P10>(&self, mainsessionid: windows_core::GUID, username: &windows_core::BSTR, authtype: AAAuthSchemes, clientmachineip: &windows_core::BSTR, clientmachinename: &windows_core::BSTR, sohdata: &[u8], cookiedata: &[u8], usertoken: super::super::Foundation::HANDLE_PTR, psink: P10) -> windows_core::Result<()>
     where
-        P9: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
         P10: windows_core::Param<ITSGAuthorizeConnectionSink>,
     {
-        (windows_core::Interface::vtable(self).AuthorizeConnection)(windows_core::Interface::as_raw(self), core::mem::transmute(mainsessionid), core::mem::transmute_copy(username), core::mem::transmute(authtype), core::mem::transmute_copy(clientmachineip), core::mem::transmute_copy(clientmachinename), core::mem::transmute(sohdata.as_ptr()), sohdata.len().try_into().unwrap(), core::mem::transmute(cookiedata.as_ptr()), cookiedata.len().try_into().unwrap(), usertoken.param().abi(), psink.param().abi()).ok()
+        (windows_core::Interface::vtable(self).AuthorizeConnection)(windows_core::Interface::as_raw(self), core::mem::transmute(mainsessionid), core::mem::transmute_copy(username), core::mem::transmute(authtype), core::mem::transmute_copy(clientmachineip), core::mem::transmute_copy(clientmachinename), core::mem::transmute(sohdata.as_ptr()), sohdata.len().try_into().unwrap(), core::mem::transmute(cookiedata.as_ptr()), cookiedata.len().try_into().unwrap(), core::mem::transmute(usertoken), psink.param().abi()).ok()
     }
     pub unsafe fn AuthorizeResource<P11>(&self, mainsessionid: windows_core::GUID, subsessionid: i32, username: &windows_core::BSTR, resourcenames: &[windows_core::BSTR], alternateresourcenames: &[windows_core::BSTR], portnumber: u32, operation: &windows_core::BSTR, cookie: &[u8], psink: P11) -> windows_core::Result<()>
     where
@@ -2494,7 +2383,7 @@ impl ITsSbClientConnection {
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutContext(&self, contextid: &windows_core::BSTR, context: &super::Variant::VARIANT, existingcontext: Option<*mut super::Variant::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).PutContext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(contextid), core::mem::transmute_copy(context), core::mem::transmute(existingcontext.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).PutContext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(contextid), core::mem::transmute_copy(context), core::mem::transmute(existingcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetContext(&self, contextid: &windows_core::BSTR) -> windows_core::Result<super::Variant::VARIANT> {
@@ -5670,11 +5559,8 @@ impl IWRdsProtocolConnection {
     pub unsafe fn AuthenticateClientToSession(&self, sessionid: *mut WTS_SESSION_ID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AuthenticateClientToSession)(windows_core::Interface::as_raw(self), core::mem::transmute(sessionid)).ok()
     }
-    pub unsafe fn NotifySessionId<P1>(&self, sessionid: *const WTS_SESSION_ID, sessionhandle: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
-    {
-        (windows_core::Interface::vtable(self).NotifySessionId)(windows_core::Interface::as_raw(self), core::mem::transmute(sessionid), sessionhandle.param().abi()).ok()
+    pub unsafe fn NotifySessionId(&self, sessionid: *const WTS_SESSION_ID, sessionhandle: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).NotifySessionId)(windows_core::Interface::as_raw(self), core::mem::transmute(sessionid), core::mem::transmute(sessionhandle)).ok()
     }
     pub unsafe fn GetInputHandles(&self, pkeyboardhandle: *mut super::super::Foundation::HANDLE_PTR, pmousehandle: *mut super::super::Foundation::HANDLE_PTR, pbeephandle: *mut super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetInputHandles)(windows_core::Interface::as_raw(self), core::mem::transmute(pkeyboardhandle), core::mem::transmute(pmousehandle), core::mem::transmute(pbeephandle)).ok()
@@ -5686,28 +5572,25 @@ impl IWRdsProtocolConnection {
     pub unsafe fn ConnectNotify(&self, sessionid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConnectNotify)(windows_core::Interface::as_raw(self), core::mem::transmute(sessionid)).ok()
     }
-    pub unsafe fn IsUserAllowedToLogon<P1, P2, P3>(&self, sessionid: u32, usertoken: P1, pdomainname: P2, pusername: P3) -> windows_core::Result<()>
+    pub unsafe fn IsUserAllowedToLogon<P2, P3>(&self, sessionid: u32, usertoken: super::super::Foundation::HANDLE_PTR, pdomainname: P2, pusername: P3) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).IsUserAllowedToLogon)(windows_core::Interface::as_raw(self), core::mem::transmute(sessionid), usertoken.param().abi(), pdomainname.param().abi(), pusername.param().abi()).ok()
+        (windows_core::Interface::vtable(self).IsUserAllowedToLogon)(windows_core::Interface::as_raw(self), core::mem::transmute(sessionid), core::mem::transmute(usertoken), pdomainname.param().abi(), pusername.param().abi()).ok()
     }
-    pub unsafe fn SessionArbitrationEnumeration<P0, P1>(&self, husertoken: P0, bsinglesessionperuserenabled: P1, psessionidarray: *mut u32, pdwsessionidentifiercount: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn SessionArbitrationEnumeration<P1>(&self, husertoken: super::super::Foundation::HANDLE_PTR, bsinglesessionperuserenabled: P1, psessionidarray: *mut u32, pdwsessionidentifiercount: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SessionArbitrationEnumeration)(windows_core::Interface::as_raw(self), husertoken.param().abi(), bsinglesessionperuserenabled.param().abi(), core::mem::transmute(psessionidarray), core::mem::transmute(pdwsessionidentifiercount)).ok()
+        (windows_core::Interface::vtable(self).SessionArbitrationEnumeration)(windows_core::Interface::as_raw(self), core::mem::transmute(husertoken), bsinglesessionperuserenabled.param().abi(), core::mem::transmute(psessionidarray), core::mem::transmute(pdwsessionidentifiercount)).ok()
     }
-    pub unsafe fn LogonNotify<P0, P1, P2>(&self, hclienttoken: P0, wszusername: P1, wszdomainname: P2, sessionid: *const WTS_SESSION_ID, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> windows_core::Result<()>
+    pub unsafe fn LogonNotify<P1, P2>(&self, hclienttoken: super::super::Foundation::HANDLE_PTR, wszusername: P1, wszdomainname: P2, sessionid: *const WTS_SESSION_ID, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LogonNotify)(windows_core::Interface::as_raw(self), hclienttoken.param().abi(), wszusername.param().abi(), wszdomainname.param().abi(), core::mem::transmute(sessionid), core::mem::transmute(pwrdsconnectionsettings)).ok()
+        (windows_core::Interface::vtable(self).LogonNotify)(windows_core::Interface::as_raw(self), core::mem::transmute(hclienttoken), wszusername.param().abi(), wszdomainname.param().abi(), core::mem::transmute(sessionid), core::mem::transmute(pwrdsconnectionsettings)).ok()
     }
     pub unsafe fn PreDisconnect(&self, disconnectreason: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PreDisconnect)(windows_core::Interface::as_raw(self), core::mem::transmute(disconnectreason)).ok()
@@ -6604,11 +6487,8 @@ impl IWRdsWddmIddProps {
     pub unsafe fn GetHardwareId(&self, pdisplaydriverhardwareid: &[u16]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetHardwareId)(windows_core::Interface::as_raw(self), core::mem::transmute(pdisplaydriverhardwareid.as_ptr()), pdisplaydriverhardwareid.len().try_into().unwrap()).ok()
     }
-    pub unsafe fn OnDriverLoad<P1>(&self, sessionid: u32, driverhandle: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
-    {
-        (windows_core::Interface::vtable(self).OnDriverLoad)(windows_core::Interface::as_raw(self), core::mem::transmute(sessionid), driverhandle.param().abi()).ok()
+    pub unsafe fn OnDriverLoad(&self, sessionid: u32, driverhandle: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).OnDriverLoad)(windows_core::Interface::as_raw(self), core::mem::transmute(sessionid), core::mem::transmute(driverhandle)).ok()
     }
     pub unsafe fn OnDriverUnload(&self, sessionid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnDriverUnload)(windows_core::Interface::as_raw(self), core::mem::transmute(sessionid)).ok()
@@ -7050,28 +6930,25 @@ impl IWTSProtocolConnection {
     pub unsafe fn ConnectNotify(&self, sessionid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConnectNotify)(windows_core::Interface::as_raw(self), core::mem::transmute(sessionid)).ok()
     }
-    pub unsafe fn IsUserAllowedToLogon<P1, P2, P3>(&self, sessionid: u32, usertoken: P1, pdomainname: P2, pusername: P3) -> windows_core::Result<()>
+    pub unsafe fn IsUserAllowedToLogon<P2, P3>(&self, sessionid: u32, usertoken: super::super::Foundation::HANDLE_PTR, pdomainname: P2, pusername: P3) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).IsUserAllowedToLogon)(windows_core::Interface::as_raw(self), core::mem::transmute(sessionid), usertoken.param().abi(), pdomainname.param().abi(), pusername.param().abi()).ok()
+        (windows_core::Interface::vtable(self).IsUserAllowedToLogon)(windows_core::Interface::as_raw(self), core::mem::transmute(sessionid), core::mem::transmute(usertoken), pdomainname.param().abi(), pusername.param().abi()).ok()
     }
-    pub unsafe fn SessionArbitrationEnumeration<P0, P1>(&self, husertoken: P0, bsinglesessionperuserenabled: P1, psessionidarray: *mut u32, pdwsessionidentifiercount: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn SessionArbitrationEnumeration<P1>(&self, husertoken: super::super::Foundation::HANDLE_PTR, bsinglesessionperuserenabled: P1, psessionidarray: *mut u32, pdwsessionidentifiercount: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SessionArbitrationEnumeration)(windows_core::Interface::as_raw(self), husertoken.param().abi(), bsinglesessionperuserenabled.param().abi(), core::mem::transmute(psessionidarray), core::mem::transmute(pdwsessionidentifiercount)).ok()
+        (windows_core::Interface::vtable(self).SessionArbitrationEnumeration)(windows_core::Interface::as_raw(self), core::mem::transmute(husertoken), bsinglesessionperuserenabled.param().abi(), core::mem::transmute(psessionidarray), core::mem::transmute(pdwsessionidentifiercount)).ok()
     }
-    pub unsafe fn LogonNotify<P0, P1, P2>(&self, hclienttoken: P0, wszusername: P1, wszdomainname: P2, sessionid: *const WTS_SESSION_ID) -> windows_core::Result<()>
+    pub unsafe fn LogonNotify<P1, P2>(&self, hclienttoken: super::super::Foundation::HANDLE_PTR, wszusername: P1, wszdomainname: P2, sessionid: *const WTS_SESSION_ID) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HANDLE_PTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LogonNotify)(windows_core::Interface::as_raw(self), hclienttoken.param().abi(), wszusername.param().abi(), wszdomainname.param().abi(), core::mem::transmute(sessionid)).ok()
+        (windows_core::Interface::vtable(self).LogonNotify)(windows_core::Interface::as_raw(self), core::mem::transmute(hclienttoken), wszusername.param().abi(), wszdomainname.param().abi(), core::mem::transmute(sessionid)).ok()
     }
     pub unsafe fn GetUserData(&self, ppolicydata: *const WTS_POLICY_DATA, pclientdata: *mut WTS_USER_DATA) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetUserData)(windows_core::Interface::as_raw(self), core::mem::transmute(ppolicydata), core::mem::transmute(pclientdata)).ok()
@@ -8115,11 +7992,8 @@ impl core::ops::Deref for IWorkspace2 {
 windows_core::imp::interface_hierarchy!(IWorkspace2, windows_core::IUnknown, IWorkspace);
 impl IWorkspace2 {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn StartRemoteApplicationEx<P3>(&self, bstrworkspaceid: &windows_core::BSTR, bstrrequestingappid: &windows_core::BSTR, bstrrequestingappfamilyname: &windows_core::BSTR, blaunchintoimmersiveclient: P3, bstrimmersiveclientactivationcontext: &windows_core::BSTR, psaparams: *const super::Com::SAFEARRAY) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).StartRemoteApplicationEx)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrworkspaceid), core::mem::transmute_copy(bstrrequestingappid), core::mem::transmute_copy(bstrrequestingappfamilyname), blaunchintoimmersiveclient.param().abi(), core::mem::transmute_copy(bstrimmersiveclientactivationcontext), core::mem::transmute(psaparams)).ok()
+    pub unsafe fn StartRemoteApplicationEx(&self, bstrworkspaceid: &windows_core::BSTR, bstrrequestingappid: &windows_core::BSTR, bstrrequestingappfamilyname: &windows_core::BSTR, blaunchintoimmersiveclient: super::super::Foundation::VARIANT_BOOL, bstrimmersiveclientactivationcontext: &windows_core::BSTR, psaparams: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).StartRemoteApplicationEx)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrworkspaceid), core::mem::transmute_copy(bstrrequestingappid), core::mem::transmute_copy(bstrrequestingappfamilyname), core::mem::transmute(blaunchintoimmersiveclient), core::mem::transmute_copy(bstrimmersiveclientactivationcontext), core::mem::transmute(psaparams)).ok()
     }
 }
 #[repr(C)]
@@ -8443,38 +8317,23 @@ impl core::ops::Deref for IWorkspaceResTypeRegistry {
 windows_core::imp::interface_hierarchy!(IWorkspaceResTypeRegistry, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWorkspaceResTypeRegistry {
-    pub unsafe fn AddResourceType<P0>(&self, fmachinewide: P0, bstrfileextension: &windows_core::BSTR, bstrlauncher: &windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).AddResourceType)(windows_core::Interface::as_raw(self), fmachinewide.param().abi(), core::mem::transmute_copy(bstrfileextension), core::mem::transmute_copy(bstrlauncher)).ok()
+    pub unsafe fn AddResourceType(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &windows_core::BSTR, bstrlauncher: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).AddResourceType)(windows_core::Interface::as_raw(self), core::mem::transmute(fmachinewide), core::mem::transmute_copy(bstrfileextension), core::mem::transmute_copy(bstrlauncher)).ok()
     }
-    pub unsafe fn DeleteResourceType<P0>(&self, fmachinewide: P0, bstrfileextension: &windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).DeleteResourceType)(windows_core::Interface::as_raw(self), fmachinewide.param().abi(), core::mem::transmute_copy(bstrfileextension)).ok()
+    pub unsafe fn DeleteResourceType(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DeleteResourceType)(windows_core::Interface::as_raw(self), core::mem::transmute(fmachinewide), core::mem::transmute_copy(bstrfileextension)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRegisteredFileExtensions<P0>(&self, fmachinewide: P0) -> windows_core::Result<*mut super::Com::SAFEARRAY>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn GetRegisteredFileExtensions(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRegisteredFileExtensions)(windows_core::Interface::as_raw(self), fmachinewide.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRegisteredFileExtensions)(windows_core::Interface::as_raw(self), core::mem::transmute(fmachinewide), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetResourceTypeInfo<P0>(&self, fmachinewide: P0, bstrfileextension: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn GetResourceTypeInfo(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetResourceTypeInfo)(windows_core::Interface::as_raw(self), fmachinewide.param().abi(), core::mem::transmute_copy(bstrfileextension), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetResourceTypeInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(fmachinewide), core::mem::transmute_copy(bstrfileextension), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn ModifyResourceType<P0>(&self, fmachinewide: P0, bstrfileextension: &windows_core::BSTR, bstrlauncher: &windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ModifyResourceType)(windows_core::Interface::as_raw(self), fmachinewide.param().abi(), core::mem::transmute_copy(bstrfileextension), core::mem::transmute_copy(bstrlauncher)).ok()
+    pub unsafe fn ModifyResourceType(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &windows_core::BSTR, bstrlauncher: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ModifyResourceType)(windows_core::Interface::as_raw(self), core::mem::transmute(fmachinewide), core::mem::transmute_copy(bstrfileextension), core::mem::transmute_copy(bstrlauncher)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8567,12 +8426,9 @@ impl IWorkspaceScriptable {
     pub unsafe fn StartWorkspace(&self, bstrworkspaceid: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bstrworkspaceparams: &windows_core::BSTR, ltimeout: i32, lflags: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).StartWorkspace)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrworkspaceid), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrpassword), core::mem::transmute_copy(bstrworkspaceparams), core::mem::transmute(ltimeout), core::mem::transmute(lflags)).ok()
     }
-    pub unsafe fn IsWorkspaceCredentialSpecified<P1>(&self, bstrworkspaceid: &windows_core::BSTR, bcountunauthenticatedcredentials: P1) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn IsWorkspaceCredentialSpecified(&self, bstrworkspaceid: &windows_core::BSTR, bcountunauthenticatedcredentials: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsWorkspaceCredentialSpecified)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrworkspaceid), bcountunauthenticatedcredentials.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsWorkspaceCredentialSpecified)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrworkspaceid), core::mem::transmute(bcountunauthenticatedcredentials), &mut result__).map(|| result__)
     }
     pub unsafe fn IsWorkspaceSSOEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();

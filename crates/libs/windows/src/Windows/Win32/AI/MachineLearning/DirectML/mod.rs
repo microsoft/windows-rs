@@ -3270,14 +3270,14 @@ impl IDMLBindingTable {
         (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn BindTemporaryResource(&self, binding: Option<*const DML_BINDING_DESC>) {
-        (windows_core::Interface::vtable(self).BindTemporaryResource)(windows_core::Interface::as_raw(self), core::mem::transmute(binding.unwrap_or(core::ptr::null())))
+        (windows_core::Interface::vtable(self).BindTemporaryResource)(windows_core::Interface::as_raw(self), core::mem::transmute(binding.unwrap_or(core::mem::zeroed())))
     }
     pub unsafe fn BindPersistentResource(&self, binding: Option<*const DML_BINDING_DESC>) {
-        (windows_core::Interface::vtable(self).BindPersistentResource)(windows_core::Interface::as_raw(self), core::mem::transmute(binding.unwrap_or(core::ptr::null())))
+        (windows_core::Interface::vtable(self).BindPersistentResource)(windows_core::Interface::as_raw(self), core::mem::transmute(binding.unwrap_or(core::mem::zeroed())))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset(&self, desc: Option<*const DML_BINDING_TABLE_DESC>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), core::mem::transmute(desc.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), core::mem::transmute(desc.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -3447,7 +3447,7 @@ impl core::ops::Deref for IDMLDevice {
 windows_core::imp::interface_hierarchy!(IDMLDevice, windows_core::IUnknown, IDMLObject);
 impl IDMLDevice {
     pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: Option<*const core::ffi::c_void>, featuresupportdatasize: u32, featuresupportdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CheckFeatureSupport)(windows_core::Interface::as_raw(self), core::mem::transmute(feature), core::mem::transmute(featurequerydatasize), core::mem::transmute(featurequerydata.unwrap_or(core::ptr::null())), core::mem::transmute(featuresupportdatasize), core::mem::transmute(featuresupportdata)).ok()
+        (windows_core::Interface::vtable(self).CheckFeatureSupport)(windows_core::Interface::as_raw(self), core::mem::transmute(feature), core::mem::transmute(featurequerydatasize), core::mem::transmute(featurequerydata.unwrap_or(core::mem::zeroed())), core::mem::transmute(featuresupportdatasize), core::mem::transmute(featuresupportdata)).ok()
     }
     pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut Option<T>) -> windows_core::Result<()>
     where
@@ -3482,7 +3482,7 @@ impl IDMLDevice {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateBindingTable)(windows_core::Interface::as_raw(self), core::mem::transmute(desc.unwrap_or(core::ptr::null())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateBindingTable)(windows_core::Interface::as_raw(self), core::mem::transmute(desc.unwrap_or(core::mem::zeroed())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Evict(&self, ppobjects: &[Option<IDMLPageable>]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())).ok()
@@ -3712,10 +3712,10 @@ windows_core::imp::define_interface!(IDMLObject, IDMLObject_Vtbl, 0xc8263aac_9e0
 windows_core::imp::interface_hierarchy!(IDMLObject, windows_core::IUnknown);
 impl IDMLObject {
     pub unsafe fn GetPrivateData(&self, guid: *const windows_core::GUID, datasize: *mut u32, data: Option<*mut core::ffi::c_void>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), core::mem::transmute(guid), core::mem::transmute(datasize), core::mem::transmute(data.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), core::mem::transmute(guid), core::mem::transmute(datasize), core::mem::transmute(data.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: u32, data: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPrivateData)(windows_core::Interface::as_raw(self), core::mem::transmute(guid), core::mem::transmute(datasize), core::mem::transmute(data.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetPrivateData)(windows_core::Interface::as_raw(self), core::mem::transmute(guid), core::mem::transmute(datasize), core::mem::transmute(data.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<P1>(&self, guid: *const windows_core::GUID, data: P1) -> windows_core::Result<()>
     where

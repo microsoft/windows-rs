@@ -2,12 +2,9 @@ windows_core::imp::define_interface!(ICompositionCapabilitiesInteropFactory, ICo
 windows_core::imp::interface_hierarchy!(ICompositionCapabilitiesInteropFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl ICompositionCapabilitiesInteropFactory {
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn GetForWindow<P0>(&self, hwnd: P0) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionCapabilities>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::HWND>,
-    {
+    pub unsafe fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionCapabilities> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -54,7 +51,7 @@ impl ICompositionDrawingSurfaceInterop {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), core::mem::transmute(updaterect.unwrap_or(core::ptr::null())), &T::IID, &mut result__, core::mem::transmute(updateoffset)).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), core::mem::transmute(updaterect.unwrap_or(core::mem::zeroed())), &T::IID, &mut result__, core::mem::transmute(updateoffset)).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)).ok()
@@ -63,7 +60,7 @@ impl ICompositionDrawingSurfaceInterop {
         (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), core::mem::transmute(sizepixels)).ok()
     }
     pub unsafe fn Scroll(&self, scrollrect: Option<*const super::super::super::Foundation::RECT>, cliprect: Option<*const super::super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), core::mem::transmute(scrollrect.unwrap_or(core::ptr::null())), core::mem::transmute(cliprect.unwrap_or(core::ptr::null())), core::mem::transmute(offsetx), core::mem::transmute(offsety)).ok()
+        (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), core::mem::transmute(scrollrect.unwrap_or(core::mem::zeroed())), core::mem::transmute(cliprect.unwrap_or(core::mem::zeroed())), core::mem::transmute(offsetx), core::mem::transmute(offsety)).ok()
     }
     pub unsafe fn ResumeDraw(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(self)).ok()
@@ -144,7 +141,7 @@ impl ICompositionDrawingSurfaceInterop2 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).CopySurface)(windows_core::Interface::as_raw(self), destinationresource.param().abi(), core::mem::transmute(destinationoffsetx), core::mem::transmute(destinationoffsety), core::mem::transmute(sourcerectangle.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).CopySurface)(windows_core::Interface::as_raw(self), destinationresource.param().abi(), core::mem::transmute(destinationoffsetx), core::mem::transmute(destinationoffsety), core::mem::transmute(sourcerectangle.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -251,13 +248,12 @@ windows_core::imp::define_interface!(ICompositorDesktopInterop, ICompositorDeskt
 windows_core::imp::interface_hierarchy!(ICompositorDesktopInterop, windows_core::IUnknown);
 impl ICompositorDesktopInterop {
     #[cfg(feature = "UI_Composition_Desktop")]
-    pub unsafe fn CreateDesktopWindowTarget<P0, P1>(&self, hwndtarget: P0, istopmost: P1) -> windows_core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>
+    pub unsafe fn CreateDesktopWindowTarget<P1>(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: P1) -> windows_core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>
     where
-        P0: windows_core::Param<super::super::super::Foundation::HWND>,
         P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(windows_core::Interface::as_raw(self), hwndtarget.param().abi(), istopmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndtarget), istopmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnsureOnThread(&self, threadid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnsureOnThread)(windows_core::Interface::as_raw(self), core::mem::transmute(threadid)).ok()
@@ -310,12 +306,9 @@ windows_core::imp::define_interface!(ICompositorInterop, ICompositorInterop_Vtbl
 windows_core::imp::interface_hierarchy!(ICompositorInterop, windows_core::IUnknown);
 impl ICompositorInterop {
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateCompositionSurfaceForHandle<P0>(&self, swapchain: P0) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    {
+    pub unsafe fn CreateCompositionSurfaceForHandle(&self, swapchain: super::super::super::Foundation::HANDLE) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(windows_core::Interface::as_raw(self), swapchain.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(swapchain), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn CreateCompositionSurfaceForSwapChain<P0>(&self, swapchain: P0) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>

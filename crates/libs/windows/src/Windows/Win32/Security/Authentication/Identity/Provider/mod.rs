@@ -4,33 +4,28 @@ pub struct ACCOUNT_STATE(pub i32);
 windows_core::imp::define_interface!(AsyncIAssociatedIdentityProvider, AsyncIAssociatedIdentityProvider_Vtbl, 0x2834d6ed_297e_4e72_8a51_961e86f05152);
 windows_core::imp::interface_hierarchy!(AsyncIAssociatedIdentityProvider, windows_core::IUnknown);
 impl AsyncIAssociatedIdentityProvider {
-    pub unsafe fn Begin_AssociateIdentity<P0>(&self, hwndparent: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).Begin_AssociateIdentity)(windows_core::Interface::as_raw(self), hwndparent.param().abi()).ok()
+    pub unsafe fn Begin_AssociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Begin_AssociateIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent)).ok()
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Finish_AssociateIdentity(&self) -> windows_core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Finish_AssociateIdentity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Begin_DisassociateIdentity<P0, P1>(&self, hwndparent: P0, lpszuniqueid: P1) -> windows_core::Result<()>
+    pub unsafe fn Begin_DisassociateIdentity<P1>(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Begin_DisassociateIdentity)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), lpszuniqueid.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Begin_DisassociateIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), lpszuniqueid.param().abi()).ok()
     }
     pub unsafe fn Finish_DisassociateIdentity(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Finish_DisassociateIdentity)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Begin_ChangeCredential<P0, P1>(&self, hwndparent: P0, lpszuniqueid: P1) -> windows_core::Result<()>
+    pub unsafe fn Begin_ChangeCredential<P1>(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Begin_ChangeCredential)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), lpszuniqueid.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Begin_ChangeCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), lpszuniqueid.param().abi()).ok()
     }
     pub unsafe fn Finish_ChangeCredential(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Finish_ChangeCredential)(windows_core::Interface::as_raw(self)).ok()
@@ -311,11 +306,11 @@ impl AsyncIIdentityAuthentication {
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Begin_ValidateIdentityCredential(&self, credbuffer: &[u8], ppidentityproperties: Option<*mut Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Begin_ValidateIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(credbuffer.as_ptr()), credbuffer.len().try_into().unwrap(), core::mem::transmute(ppidentityproperties.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Begin_ValidateIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(credbuffer.as_ptr()), credbuffer.len().try_into().unwrap(), core::mem::transmute(ppidentityproperties.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Finish_ValidateIdentityCredential(&self, ppidentityproperties: Option<*mut Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Finish_ValidateIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(ppidentityproperties.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Finish_ValidateIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(ppidentityproperties.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -377,7 +372,7 @@ windows_core::imp::interface_hierarchy!(AsyncIIdentityProvider, windows_core::IU
 impl AsyncIIdentityProvider {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn Begin_GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: Option<*const super::super::super::super::Foundation::PROPERTYKEY>, pfilterpropvarvalue: Option<*const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Begin_GetIdentityEnum)(windows_core::Interface::as_raw(self), core::mem::transmute(eidentitytype), core::mem::transmute(pfilterkey.unwrap_or(core::ptr::null())), core::mem::transmute(pfilterpropvarvalue.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Begin_GetIdentityEnum)(windows_core::Interface::as_raw(self), core::mem::transmute(eidentitytype), core::mem::transmute(pfilterkey.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfilterpropvarvalue.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Finish_GetIdentityEnum(&self) -> windows_core::Result<super::super::super::super::System::Com::IEnumUnknown> {
@@ -649,10 +644,10 @@ impl AsyncIIdentityStore {
         (windows_core::Interface::vtable(self).Finish_GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Begin_GetAt(&self, dwprovider: u32, pprovguid: Option<*mut windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Begin_GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(dwprovider), core::mem::transmute(pprovguid.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Begin_GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(dwprovider), core::mem::transmute(pprovguid.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Finish_GetAt(&self, pprovguid: Option<*mut windows_core::GUID>, ppidentityprovider: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Finish_GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(pprovguid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppidentityprovider)).ok()
+        (windows_core::Interface::vtable(self).Finish_GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(pprovguid.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppidentityprovider)).ok()
     }
     pub unsafe fn Begin_AddToCache<P0>(&self, lpszuniqueid: P0, providerguid: *const windows_core::GUID) -> windows_core::Result<()>
     where
@@ -667,14 +662,14 @@ impl AsyncIIdentityStore {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Begin_ConvertToSid)(windows_core::Interface::as_raw(self), lpszuniqueid.param().abi(), core::mem::transmute(providerguid), core::mem::transmute(cbsid), core::mem::transmute(psid.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Begin_ConvertToSid)(windows_core::Interface::as_raw(self), lpszuniqueid.param().abi(), core::mem::transmute(providerguid), core::mem::transmute(cbsid), core::mem::transmute(psid.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Finish_ConvertToSid(&self, psid: Option<*mut u8>, pcbrequiredsid: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Finish_ConvertToSid)(windows_core::Interface::as_raw(self), core::mem::transmute(psid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbrequiredsid)).ok()
+        (windows_core::Interface::vtable(self).Finish_ConvertToSid)(windows_core::Interface::as_raw(self), core::mem::transmute(psid.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbrequiredsid)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn Begin_EnumerateIdentities(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: Option<*const super::super::super::super::Foundation::PROPERTYKEY>, pfilterpropvarvalue: Option<*const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Begin_EnumerateIdentities)(windows_core::Interface::as_raw(self), core::mem::transmute(eidentitytype), core::mem::transmute(pfilterkey.unwrap_or(core::ptr::null())), core::mem::transmute(pfilterpropvarvalue.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Begin_EnumerateIdentities)(windows_core::Interface::as_raw(self), core::mem::transmute(eidentitytype), core::mem::transmute(pfilterkey.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfilterpropvarvalue.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Finish_EnumerateIdentities(&self) -> windows_core::Result<super::super::super::super::System::Com::IEnumUnknown> {
@@ -886,26 +881,21 @@ windows_core::imp::define_interface!(IAssociatedIdentityProvider, IAssociatedIde
 windows_core::imp::interface_hierarchy!(IAssociatedIdentityProvider, windows_core::IUnknown);
 impl IAssociatedIdentityProvider {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn AssociateIdentity<P0>(&self, hwndparent: P0) -> windows_core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>
-    where
-        P0: windows_core::Param<super::super::super::super::Foundation::HWND>,
-    {
+    pub unsafe fn AssociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AssociateIdentity)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AssociateIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn DisassociateIdentity<P0, P1>(&self, hwndparent: P0, lpszuniqueid: P1) -> windows_core::Result<()>
+    pub unsafe fn DisassociateIdentity<P1>(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DisassociateIdentity)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), lpszuniqueid.param().abi()).ok()
+        (windows_core::Interface::vtable(self).DisassociateIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), lpszuniqueid.param().abi()).ok()
     }
-    pub unsafe fn ChangeCredential<P0, P1>(&self, hwndparent: P0, lpszuniqueid: P1) -> windows_core::Result<()>
+    pub unsafe fn ChangeCredential<P1>(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ChangeCredential)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), lpszuniqueid.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ChangeCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), lpszuniqueid.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1119,7 +1109,7 @@ impl IIdentityAuthentication {
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn ValidateIdentityCredential(&self, credbuffer: &[u8], ppidentityproperties: Option<*mut Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ValidateIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(credbuffer.as_ptr()), credbuffer.len().try_into().unwrap(), core::mem::transmute(ppidentityproperties.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ValidateIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(credbuffer.as_ptr()), credbuffer.len().try_into().unwrap(), core::mem::transmute(ppidentityproperties.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -1165,7 +1155,7 @@ impl IIdentityProvider {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: Option<*const super::super::super::super::Foundation::PROPERTYKEY>, pfilterpropvarvalue: Option<*const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<super::super::super::super::System::Com::IEnumUnknown> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIdentityEnum)(windows_core::Interface::as_raw(self), core::mem::transmute(eidentitytype), core::mem::transmute(pfilterkey.unwrap_or(core::ptr::null())), core::mem::transmute(pfilterpropvarvalue.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetIdentityEnum)(windows_core::Interface::as_raw(self), core::mem::transmute(eidentitytype), core::mem::transmute(pfilterkey.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfilterpropvarvalue.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn Create<P0>(&self, lpszusername: P0, pppropertystore: *mut Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>
@@ -1338,7 +1328,7 @@ impl IIdentityStore {
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAt(&self, dwprovider: u32, pprovguid: Option<*mut windows_core::GUID>, ppidentityprovider: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(dwprovider), core::mem::transmute(pprovguid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppidentityprovider)).ok()
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(dwprovider), core::mem::transmute(pprovguid.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppidentityprovider)).ok()
     }
     pub unsafe fn AddToCache<P0>(&self, lpszuniqueid: P0, providerguid: *const windows_core::GUID) -> windows_core::Result<()>
     where
@@ -1355,7 +1345,7 @@ impl IIdentityStore {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn EnumerateIdentities(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: Option<*const super::super::super::super::Foundation::PROPERTYKEY>, pfilterpropvarvalue: Option<*const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<super::super::super::super::System::Com::IEnumUnknown> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumerateIdentities)(windows_core::Interface::as_raw(self), core::mem::transmute(eidentitytype), core::mem::transmute(pfilterkey.unwrap_or(core::ptr::null())), core::mem::transmute(pfilterpropvarvalue.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumerateIdentities)(windows_core::Interface::as_raw(self), core::mem::transmute(eidentitytype), core::mem::transmute(pfilterkey.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfilterpropvarvalue.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()

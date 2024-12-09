@@ -1,51 +1,35 @@
 #[inline]
-pub unsafe fn DirectInput8Create<P0, P4>(hinst: P0, dwversion: u32, riidltf: *const windows_core::GUID, ppvout: *mut *mut core::ffi::c_void, punkouter: P4) -> windows_core::Result<()>
+pub unsafe fn DirectInput8Create<P4>(hinst: super::super::Foundation::HINSTANCE, dwversion: u32, riidltf: *const windows_core::GUID, ppvout: *mut *mut core::ffi::c_void, punkouter: P4) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P4: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("dinput8.dll" "system" fn DirectInput8Create(hinst : super::super::Foundation:: HINSTANCE, dwversion : u32, riidltf : *const windows_core::GUID, ppvout : *mut *mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    DirectInput8Create(hinst.param().abi(), core::mem::transmute(dwversion), core::mem::transmute(riidltf), core::mem::transmute(ppvout), punkouter.param().abi()).ok()
+    DirectInput8Create(core::mem::transmute(hinst), core::mem::transmute(dwversion), core::mem::transmute(riidltf), core::mem::transmute(ppvout), punkouter.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn HidD_FlushQueue<P0>(hiddeviceobject: P0) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_FlushQueue(hiddeviceobject: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_FlushQueue(hiddeviceobject : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
-    HidD_FlushQueue(hiddeviceobject.param().abi())
+    HidD_FlushQueue(core::mem::transmute(hiddeviceobject))
 }
 #[inline]
-pub unsafe fn HidD_FreePreparsedData<P0>(preparseddata: P0) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidD_FreePreparsedData(preparseddata: PHIDP_PREPARSED_DATA) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_FreePreparsedData(preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: BOOLEAN);
-    HidD_FreePreparsedData(preparseddata.param().abi())
+    HidD_FreePreparsedData(core::mem::transmute(preparseddata))
 }
 #[inline]
-pub unsafe fn HidD_GetAttributes<P0>(hiddeviceobject: P0, attributes: *mut HIDD_ATTRIBUTES) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_GetAttributes(hiddeviceobject: super::super::Foundation::HANDLE, attributes: *mut HIDD_ATTRIBUTES) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_GetAttributes(hiddeviceobject : super::super::Foundation:: HANDLE, attributes : *mut HIDD_ATTRIBUTES) -> super::super::Foundation:: BOOLEAN);
-    HidD_GetAttributes(hiddeviceobject.param().abi(), core::mem::transmute(attributes))
+    HidD_GetAttributes(core::mem::transmute(hiddeviceobject), core::mem::transmute(attributes))
 }
 #[inline]
-pub unsafe fn HidD_GetConfiguration<P0>(hiddeviceobject: P0, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_GetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_GetConfiguration(hiddeviceobject : super::super::Foundation:: HANDLE, configuration : *mut HIDD_CONFIGURATION, configurationlength : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_GetConfiguration(hiddeviceobject.param().abi(), core::mem::transmute(configuration), core::mem::transmute(configurationlength))
+    HidD_GetConfiguration(core::mem::transmute(hiddeviceobject), core::mem::transmute(configuration), core::mem::transmute(configurationlength))
 }
 #[inline]
-pub unsafe fn HidD_GetFeature<P0>(hiddeviceobject: P0, reportbuffer: *mut core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_GetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_GetFeature(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *mut core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_GetFeature(hiddeviceobject.param().abi(), core::mem::transmute(reportbuffer), core::mem::transmute(reportbufferlength))
+    HidD_GetFeature(core::mem::transmute(hiddeviceobject), core::mem::transmute(reportbuffer), core::mem::transmute(reportbufferlength))
 }
 #[inline]
 pub unsafe fn HidD_GetHidGuid() -> windows_core::GUID {
@@ -55,305 +39,194 @@ pub unsafe fn HidD_GetHidGuid() -> windows_core::GUID {
     result__
 }
 #[inline]
-pub unsafe fn HidD_GetIndexedString<P0>(hiddeviceobject: P0, stringindex: u32, buffer: *mut core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_GetIndexedString(hiddeviceobject: super::super::Foundation::HANDLE, stringindex: u32, buffer: *mut core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_GetIndexedString(hiddeviceobject : super::super::Foundation:: HANDLE, stringindex : u32, buffer : *mut core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_GetIndexedString(hiddeviceobject.param().abi(), core::mem::transmute(stringindex), core::mem::transmute(buffer), core::mem::transmute(bufferlength))
+    HidD_GetIndexedString(core::mem::transmute(hiddeviceobject), core::mem::transmute(stringindex), core::mem::transmute(buffer), core::mem::transmute(bufferlength))
 }
 #[inline]
-pub unsafe fn HidD_GetInputReport<P0>(hiddeviceobject: P0, reportbuffer: *mut core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_GetInputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_GetInputReport(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *mut core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_GetInputReport(hiddeviceobject.param().abi(), core::mem::transmute(reportbuffer), core::mem::transmute(reportbufferlength))
+    HidD_GetInputReport(core::mem::transmute(hiddeviceobject), core::mem::transmute(reportbuffer), core::mem::transmute(reportbufferlength))
 }
 #[inline]
-pub unsafe fn HidD_GetManufacturerString<P0>(hiddeviceobject: P0, buffer: *mut core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_GetManufacturerString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_GetManufacturerString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_GetManufacturerString(hiddeviceobject.param().abi(), core::mem::transmute(buffer), core::mem::transmute(bufferlength))
+    HidD_GetManufacturerString(core::mem::transmute(hiddeviceobject), core::mem::transmute(buffer), core::mem::transmute(bufferlength))
 }
 #[inline]
-pub unsafe fn HidD_GetMsGenreDescriptor<P0>(hiddeviceobject: P0, buffer: *mut core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_GetMsGenreDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_GetMsGenreDescriptor(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_GetMsGenreDescriptor(hiddeviceobject.param().abi(), core::mem::transmute(buffer), core::mem::transmute(bufferlength))
+    HidD_GetMsGenreDescriptor(core::mem::transmute(hiddeviceobject), core::mem::transmute(buffer), core::mem::transmute(bufferlength))
 }
 #[inline]
-pub unsafe fn HidD_GetNumInputBuffers<P0>(hiddeviceobject: P0, numberbuffers: *mut u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_GetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: *mut u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_GetNumInputBuffers(hiddeviceobject : super::super::Foundation:: HANDLE, numberbuffers : *mut u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_GetNumInputBuffers(hiddeviceobject.param().abi(), core::mem::transmute(numberbuffers))
+    HidD_GetNumInputBuffers(core::mem::transmute(hiddeviceobject), core::mem::transmute(numberbuffers))
 }
 #[inline]
-pub unsafe fn HidD_GetPhysicalDescriptor<P0>(hiddeviceobject: P0, buffer: *mut core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_GetPhysicalDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_GetPhysicalDescriptor(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_GetPhysicalDescriptor(hiddeviceobject.param().abi(), core::mem::transmute(buffer), core::mem::transmute(bufferlength))
+    HidD_GetPhysicalDescriptor(core::mem::transmute(hiddeviceobject), core::mem::transmute(buffer), core::mem::transmute(bufferlength))
 }
 #[inline]
-pub unsafe fn HidD_GetPreparsedData<P0>(hiddeviceobject: P0, preparseddata: *mut PHIDP_PREPARSED_DATA) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_GetPreparsedData(hiddeviceobject: super::super::Foundation::HANDLE, preparseddata: *mut PHIDP_PREPARSED_DATA) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_GetPreparsedData(hiddeviceobject : super::super::Foundation:: HANDLE, preparseddata : *mut PHIDP_PREPARSED_DATA) -> super::super::Foundation:: BOOLEAN);
-    HidD_GetPreparsedData(hiddeviceobject.param().abi(), core::mem::transmute(preparseddata))
+    HidD_GetPreparsedData(core::mem::transmute(hiddeviceobject), core::mem::transmute(preparseddata))
 }
 #[inline]
-pub unsafe fn HidD_GetProductString<P0>(hiddeviceobject: P0, buffer: *mut core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_GetProductString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_GetProductString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_GetProductString(hiddeviceobject.param().abi(), core::mem::transmute(buffer), core::mem::transmute(bufferlength))
+    HidD_GetProductString(core::mem::transmute(hiddeviceobject), core::mem::transmute(buffer), core::mem::transmute(bufferlength))
 }
 #[inline]
-pub unsafe fn HidD_GetSerialNumberString<P0>(hiddeviceobject: P0, buffer: *mut core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_GetSerialNumberString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_GetSerialNumberString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_GetSerialNumberString(hiddeviceobject.param().abi(), core::mem::transmute(buffer), core::mem::transmute(bufferlength))
+    HidD_GetSerialNumberString(core::mem::transmute(hiddeviceobject), core::mem::transmute(buffer), core::mem::transmute(bufferlength))
 }
 #[inline]
-pub unsafe fn HidD_SetConfiguration<P0>(hiddeviceobject: P0, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_SetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_SetConfiguration(hiddeviceobject : super::super::Foundation:: HANDLE, configuration : *const HIDD_CONFIGURATION, configurationlength : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_SetConfiguration(hiddeviceobject.param().abi(), core::mem::transmute(configuration), core::mem::transmute(configurationlength))
+    HidD_SetConfiguration(core::mem::transmute(hiddeviceobject), core::mem::transmute(configuration), core::mem::transmute(configurationlength))
 }
 #[inline]
-pub unsafe fn HidD_SetFeature<P0>(hiddeviceobject: P0, reportbuffer: *const core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_SetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_SetFeature(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *const core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_SetFeature(hiddeviceobject.param().abi(), core::mem::transmute(reportbuffer), core::mem::transmute(reportbufferlength))
+    HidD_SetFeature(core::mem::transmute(hiddeviceobject), core::mem::transmute(reportbuffer), core::mem::transmute(reportbufferlength))
 }
 #[inline]
-pub unsafe fn HidD_SetNumInputBuffers<P0>(hiddeviceobject: P0, numberbuffers: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_SetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_SetNumInputBuffers(hiddeviceobject : super::super::Foundation:: HANDLE, numberbuffers : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_SetNumInputBuffers(hiddeviceobject.param().abi(), core::mem::transmute(numberbuffers))
+    HidD_SetNumInputBuffers(core::mem::transmute(hiddeviceobject), core::mem::transmute(numberbuffers))
 }
 #[inline]
-pub unsafe fn HidD_SetOutputReport<P0>(hiddeviceobject: P0, reportbuffer: *const core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HidD_SetOutputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("hid.dll" "system" fn HidD_SetOutputReport(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *const core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-    HidD_SetOutputReport(hiddeviceobject.param().abi(), core::mem::transmute(reportbuffer), core::mem::transmute(reportbufferlength))
+    HidD_SetOutputReport(core::mem::transmute(hiddeviceobject), core::mem::transmute(reportbuffer), core::mem::transmute(reportbufferlength))
 }
 #[inline]
-pub unsafe fn HidP_GetButtonArray<P6>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: P6, report: &[u8]) -> super::super::Foundation::NTSTATUS
-where
-    P6: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: Option<u16>, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetButtonArray(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usage), core::mem::transmute(buttondata), core::mem::transmute(buttondatalength), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_GetButtonArray(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usage), core::mem::transmute(buttondata), core::mem::transmute(buttondatalength), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_GetButtonCaps<P3>(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: P3) -> super::super::Foundation::NTSTATUS
-where
-    P3: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: PHIDP_PREPARSED_DATA) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetButtonCaps(reporttype : HIDP_REPORT_TYPE, buttoncaps : *mut HIDP_BUTTON_CAPS, buttoncapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetButtonCaps(core::mem::transmute(reporttype), core::mem::transmute(buttoncaps), core::mem::transmute(buttoncapslength), preparseddata.param().abi())
+    HidP_GetButtonCaps(core::mem::transmute(reporttype), core::mem::transmute(buttoncaps), core::mem::transmute(buttoncapslength), core::mem::transmute(preparseddata))
 }
 #[inline]
-pub unsafe fn HidP_GetCaps<P0>(preparseddata: P0, capabilities: *mut HIDP_CAPS) -> super::super::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetCaps(preparseddata: PHIDP_PREPARSED_DATA, capabilities: *mut HIDP_CAPS) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetCaps(preparseddata : PHIDP_PREPARSED_DATA, capabilities : *mut HIDP_CAPS) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetCaps(preparseddata.param().abi(), core::mem::transmute(capabilities))
+    HidP_GetCaps(core::mem::transmute(preparseddata), core::mem::transmute(capabilities))
 }
 #[inline]
-pub unsafe fn HidP_GetData<P3>(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: P3, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
-where
-    P3: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: PHIDP_PREPARSED_DATA, report: &mut [u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetData(core::mem::transmute(reporttype), core::mem::transmute(datalist), core::mem::transmute(datalength), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_GetData(core::mem::transmute(reporttype), core::mem::transmute(datalist), core::mem::transmute(datalength), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_GetExtendedAttributes<P2>(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: P2, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> super::super::Foundation::NTSTATUS
-where
-    P2: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: PHIDP_PREPARSED_DATA, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetExtendedAttributes(reporttype : HIDP_REPORT_TYPE, dataindex : u16, preparseddata : PHIDP_PREPARSED_DATA, attributes : *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes : *mut u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetExtendedAttributes(core::mem::transmute(reporttype), core::mem::transmute(dataindex), preparseddata.param().abi(), core::mem::transmute(attributes), core::mem::transmute(lengthattributes))
+    HidP_GetExtendedAttributes(core::mem::transmute(reporttype), core::mem::transmute(dataindex), core::mem::transmute(preparseddata), core::mem::transmute(attributes), core::mem::transmute(lengthattributes))
 }
 #[inline]
-pub unsafe fn HidP_GetLinkCollectionNodes<P2>(linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength: *mut u32, preparseddata: P2) -> super::super::Foundation::NTSTATUS
-where
-    P2: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetLinkCollectionNodes(linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength: *mut u32, preparseddata: PHIDP_PREPARSED_DATA) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetLinkCollectionNodes(linkcollectionnodes : *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetLinkCollectionNodes(core::mem::transmute(linkcollectionnodes), core::mem::transmute(linkcollectionnodeslength), preparseddata.param().abi())
+    HidP_GetLinkCollectionNodes(core::mem::transmute(linkcollectionnodes), core::mem::transmute(linkcollectionnodeslength), core::mem::transmute(preparseddata))
 }
 #[inline]
-pub unsafe fn HidP_GetScaledUsageValue<P5>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: P5, report: &[u8]) -> super::super::Foundation::NTSTATUS
-where
-    P5: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: Option<u16>, usage: u16, usagevalue: *mut i32, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : *mut i32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetScaledUsageValue(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usage), core::mem::transmute(usagevalue), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_GetScaledUsageValue(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usage), core::mem::transmute(usagevalue), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_GetSpecificButtonCaps<P6>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: P6) -> super::super::Foundation::NTSTATUS
-where
-    P6: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage: Option<u16>, linkcollection: Option<u16>, usage: Option<u16>, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: PHIDP_PREPARSED_DATA) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetSpecificButtonCaps(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttoncaps : *mut HIDP_BUTTON_CAPS, buttoncapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetSpecificButtonCaps(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usage), core::mem::transmute(buttoncaps), core::mem::transmute(buttoncapslength), preparseddata.param().abi())
+    HidP_GetSpecificButtonCaps(core::mem::transmute(reporttype), core::mem::transmute(usagepage.unwrap_or(core::mem::zeroed())), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usage.unwrap_or(core::mem::zeroed())), core::mem::transmute(buttoncaps), core::mem::transmute(buttoncapslength), core::mem::transmute(preparseddata))
 }
 #[inline]
-pub unsafe fn HidP_GetSpecificValueCaps<P6>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: P6) -> super::super::Foundation::NTSTATUS
-where
-    P6: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage: Option<u16>, linkcollection: Option<u16>, usage: Option<u16>, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: PHIDP_PREPARSED_DATA) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetSpecificValueCaps(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, valuecaps : *mut HIDP_VALUE_CAPS, valuecapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetSpecificValueCaps(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usage), core::mem::transmute(valuecaps), core::mem::transmute(valuecapslength), preparseddata.param().abi())
+    HidP_GetSpecificValueCaps(core::mem::transmute(reporttype), core::mem::transmute(usagepage.unwrap_or(core::mem::zeroed())), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usage.unwrap_or(core::mem::zeroed())), core::mem::transmute(valuecaps), core::mem::transmute(valuecapslength), core::mem::transmute(preparseddata))
 }
 #[inline]
-pub unsafe fn HidP_GetUsageValue<P5>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: P5, report: &[u8]) -> super::super::Foundation::NTSTATUS
-where
-    P5: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: Option<u16>, usage: u16, usagevalue: *mut u32, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetUsageValue(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usage), core::mem::transmute(usagevalue), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_GetUsageValue(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usage), core::mem::transmute(usagevalue), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_GetUsageValueArray<P6>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: &mut [u8], preparseddata: P6, report: &[u8]) -> super::super::Foundation::NTSTATUS
-where
-    P6: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: Option<u16>, usage: u16, usagevalue: &mut [u8], preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : windows_core::PSTR, usagevaluebytelength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetUsageValueArray(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usage), core::mem::transmute(usagevalue.as_ptr()), usagevalue.len().try_into().unwrap(), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_GetUsageValueArray(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usage), core::mem::transmute(usagevalue.as_ptr()), usagevalue.len().try_into().unwrap(), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_GetUsages<P5>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: P5, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
-where
-    P5: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: Option<u16>, usagelist: *mut u16, usagelength: *mut u32, preparseddata: PHIDP_PREPARSED_DATA, report: &mut [u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetUsages(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usagelist), core::mem::transmute(usagelength), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_GetUsages(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usagelist), core::mem::transmute(usagelength), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_GetUsagesEx<P4>(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: P4, report: &[u8]) -> super::super::Foundation::NTSTATUS
-where
-    P4: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetUsagesEx(reporttype: HIDP_REPORT_TYPE, linkcollection: Option<u16>, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetUsagesEx(reporttype : HIDP_REPORT_TYPE, linkcollection : u16, buttonlist : *mut USAGE_AND_PAGE, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetUsagesEx(core::mem::transmute(reporttype), core::mem::transmute(linkcollection), core::mem::transmute(buttonlist), core::mem::transmute(usagelength), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_GetUsagesEx(core::mem::transmute(reporttype), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(buttonlist), core::mem::transmute(usagelength), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_GetValueCaps<P3>(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: P3) -> super::super::Foundation::NTSTATUS
-where
-    P3: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: PHIDP_PREPARSED_DATA) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_GetValueCaps(reporttype : HIDP_REPORT_TYPE, valuecaps : *mut HIDP_VALUE_CAPS, valuecapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetValueCaps(core::mem::transmute(reporttype), core::mem::transmute(valuecaps), core::mem::transmute(valuecapslength), preparseddata.param().abi())
+    HidP_GetValueCaps(core::mem::transmute(reporttype), core::mem::transmute(valuecaps), core::mem::transmute(valuecapslength), core::mem::transmute(preparseddata))
 }
 #[inline]
-pub unsafe fn HidP_InitializeReportForID<P2>(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: P2, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
-where
-    P2: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: PHIDP_PREPARSED_DATA, report: &mut [u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_InitializeReportForID(reporttype : HIDP_REPORT_TYPE, reportid : u8, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_InitializeReportForID(core::mem::transmute(reporttype), core::mem::transmute(reportid), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_InitializeReportForID(core::mem::transmute(reporttype), core::mem::transmute(reportid), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_MaxDataListLength<P1>(reporttype: HIDP_REPORT_TYPE, preparseddata: P1) -> u32
-where
-    P1: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: PHIDP_PREPARSED_DATA) -> u32 {
     windows_targets::link!("hid.dll" "system" fn HidP_MaxDataListLength(reporttype : HIDP_REPORT_TYPE, preparseddata : PHIDP_PREPARSED_DATA) -> u32);
-    HidP_MaxDataListLength(core::mem::transmute(reporttype), preparseddata.param().abi())
+    HidP_MaxDataListLength(core::mem::transmute(reporttype), core::mem::transmute(preparseddata))
 }
 #[inline]
-pub unsafe fn HidP_MaxUsageListLength<P2>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, preparseddata: P2) -> u32
-where
-    P2: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: Option<u16>, preparseddata: PHIDP_PREPARSED_DATA) -> u32 {
     windows_targets::link!("hid.dll" "system" fn HidP_MaxUsageListLength(reporttype : HIDP_REPORT_TYPE, usagepage : u16, preparseddata : PHIDP_PREPARSED_DATA) -> u32);
-    HidP_MaxUsageListLength(core::mem::transmute(reporttype), core::mem::transmute(usagepage), preparseddata.param().abi())
+    HidP_MaxUsageListLength(core::mem::transmute(reporttype), core::mem::transmute(usagepage.unwrap_or(core::mem::zeroed())), core::mem::transmute(preparseddata))
 }
 #[inline]
-pub unsafe fn HidP_SetButtonArray<P6>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: &[HIDP_BUTTON_ARRAY_DATA], preparseddata: P6, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
-where
-    P6: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: Option<u16>, usage: u16, buttondata: &[HIDP_BUTTON_ARRAY_DATA], preparseddata: PHIDP_PREPARSED_DATA, report: &mut [u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_SetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *const HIDP_BUTTON_ARRAY_DATA, buttondatalength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_SetButtonArray(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usage), core::mem::transmute(buttondata.as_ptr()), buttondata.len().try_into().unwrap(), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_SetButtonArray(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usage), core::mem::transmute(buttondata.as_ptr()), buttondata.len().try_into().unwrap(), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_SetData<P3>(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: P3, report: &[u8]) -> super::super::Foundation::NTSTATUS
-where
-    P3: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_SetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_SetData(core::mem::transmute(reporttype), core::mem::transmute(datalist), core::mem::transmute(datalength), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_SetData(core::mem::transmute(reporttype), core::mem::transmute(datalist), core::mem::transmute(datalength), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_SetScaledUsageValue<P5>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: P5, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
-where
-    P5: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: Option<u16>, usage: u16, usagevalue: i32, preparseddata: PHIDP_PREPARSED_DATA, report: &mut [u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_SetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : i32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_SetScaledUsageValue(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usage), core::mem::transmute(usagevalue), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_SetScaledUsageValue(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usage), core::mem::transmute(usagevalue), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_SetUsageValue<P5>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: P5, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
-where
-    P5: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: Option<u16>, usage: u16, usagevalue: u32, preparseddata: PHIDP_PREPARSED_DATA, report: &mut [u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_SetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_SetUsageValue(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usage), core::mem::transmute(usagevalue), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_SetUsageValue(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usage), core::mem::transmute(usagevalue), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_SetUsageValueArray<P6>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: &[u8], preparseddata: P6, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
-where
-    P6: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: Option<u16>, usage: u16, usagevalue: &[u8], preparseddata: PHIDP_PREPARSED_DATA, report: &mut [u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_SetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : windows_core::PCSTR, usagevaluebytelength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_SetUsageValueArray(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usage), core::mem::transmute(usagevalue.as_ptr()), usagevalue.len().try_into().unwrap(), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_SetUsageValueArray(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usage), core::mem::transmute(usagevalue.as_ptr()), usagevalue.len().try_into().unwrap(), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn HidP_SetUsages<P5>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: P5, report: &[u8]) -> super::super::Foundation::NTSTATUS
-where
-    P5: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: Option<u16>, usagelist: *mut u16, usagelength: *mut u32, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_SetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_SetUsages(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usagelist), core::mem::transmute(usagelength), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_SetUsages(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usagelist), core::mem::transmute(usagelength), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: Option<*const core::ffi::c_void>) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist : *const u16, usagelistlength : u32, keyaction : HIDP_KEYBOARD_DIRECTION, modifierstate : *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure : PHIDP_INSERT_SCANCODES, insertcodescontext : *const core::ffi::c_void) -> super::super::Foundation:: NTSTATUS);
-    HidP_TranslateUsagesToI8042ScanCodes(core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len().try_into().unwrap(), core::mem::transmute(keyaction), core::mem::transmute(modifierstate), core::mem::transmute(insertcodesprocedure), core::mem::transmute(insertcodescontext.unwrap_or(core::ptr::null())))
+    HidP_TranslateUsagesToI8042ScanCodes(core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len().try_into().unwrap(), core::mem::transmute(keyaction), core::mem::transmute(modifierstate), core::mem::transmute(insertcodesprocedure), core::mem::transmute(insertcodescontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn HidP_UnsetUsages<P5>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: P5, report: &[u8]) -> super::super::Foundation::NTSTATUS
-where
-    P5: windows_core::Param<PHIDP_PREPARSED_DATA>,
-{
+pub unsafe fn HidP_UnsetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: Option<u16>, usagelist: *mut u16, usagelength: *mut u32, preparseddata: PHIDP_PREPARSED_DATA, report: &[u8]) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_UnsetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_UnsetUsages(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection), core::mem::transmute(usagelist), core::mem::transmute(usagelength), preparseddata.param().abi(), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
+    HidP_UnsetUsages(core::mem::transmute(reporttype), core::mem::transmute(usagepage), core::mem::transmute(linkcollection.unwrap_or(core::mem::zeroed())), core::mem::transmute(usagelist), core::mem::transmute(usagelength), core::mem::transmute(preparseddata), core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> super::super::Foundation::NTSTATUS {
@@ -4549,17 +4422,11 @@ impl IDirectInput8A {
     pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn RunControlPanel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn FindDevice<P1>(&self, param0: *const windows_core::GUID, param1: P1, param2: *mut windows_core::GUID) -> windows_core::Result<()>
     where
@@ -4665,17 +4532,11 @@ impl IDirectInput8W {
     pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn RunControlPanel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn FindDevice<P1>(&self, param0: *const windows_core::GUID, param1: P1, param2: *mut windows_core::GUID) -> windows_core::Result<()>
     where
@@ -4781,17 +4642,11 @@ impl IDirectInputA {
     pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn RunControlPanel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
 }
 #[repr(C)]
@@ -5222,17 +5077,11 @@ impl IDirectInputDevice8A {
     pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn SetEventNotification<P0>(&self, param0: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0.param().abi()).ok()
+    pub unsafe fn SetEventNotification(&self, param0: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetObjectInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
@@ -5240,17 +5089,11 @@ impl IDirectInputDevice8A {
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn RunControlPanel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
     }
     pub unsafe fn CreateEffect<P3>(&self, param0: *const windows_core::GUID, param1: *mut DIEFFECT, param2: *mut Option<IDirectInputEffect>, param3: P3) -> windows_core::Result<()>
     where
@@ -5560,17 +5403,11 @@ impl IDirectInputDevice8W {
     pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn SetEventNotification<P0>(&self, param0: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0.param().abi()).ok()
+    pub unsafe fn SetEventNotification(&self, param0: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetObjectInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
@@ -5578,17 +5415,11 @@ impl IDirectInputDevice8W {
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn RunControlPanel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
     }
     pub unsafe fn CreateEffect<P3>(&self, param0: *const windows_core::GUID, param1: *mut DIEFFECT, param2: *mut Option<IDirectInputEffect>, param3: P3) -> windows_core::Result<()>
     where
@@ -5898,17 +5729,11 @@ impl IDirectInputDeviceA {
     pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn SetEventNotification<P0>(&self, param0: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0.param().abi()).ok()
+    pub unsafe fn SetEventNotification(&self, param0: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetObjectInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
@@ -5916,17 +5741,11 @@ impl IDirectInputDeviceA {
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn RunControlPanel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
     }
 }
 #[repr(C)]
@@ -6081,17 +5900,11 @@ impl IDirectInputDeviceW {
     pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn SetEventNotification<P0>(&self, param0: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0.param().abi()).ok()
+    pub unsafe fn SetEventNotification(&self, param0: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetObjectInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
@@ -6099,17 +5912,11 @@ impl IDirectInputDeviceW {
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn RunControlPanel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
     }
 }
 #[repr(C)]
@@ -6237,11 +6044,8 @@ impl windows_core::RuntimeName for IDirectInputDeviceW {}
 windows_core::imp::define_interface!(IDirectInputEffect, IDirectInputEffect_Vtbl, 0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
 windows_core::imp::interface_hierarchy!(IDirectInputEffect, windows_core::IUnknown);
 impl IDirectInputEffect {
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetEffectGuid(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEffectGuid)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
@@ -6498,11 +6302,8 @@ impl IDirectInputJoyConfig {
     pub unsafe fn Unacquire(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Unacquire)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn SendNotify(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SendNotify)(windows_core::Interface::as_raw(self)).ok()
@@ -6543,11 +6344,8 @@ impl IDirectInputJoyConfig {
     pub unsafe fn SetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetUserValues)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn AddNewHardware<P0>(&self, param0: P0, param1: *const windows_core::GUID) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).AddNewHardware)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn AddNewHardware(&self, param0: super::super::Foundation::HWND, param1: *const windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).AddNewHardware)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn OpenTypeKey<P0>(&self, param0: P0, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> windows_core::Result<()>
@@ -6708,11 +6506,8 @@ impl IDirectInputJoyConfig8 {
     pub unsafe fn Unacquire(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Unacquire)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     pub unsafe fn SendNotify(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SendNotify)(windows_core::Interface::as_raw(self)).ok()
@@ -6754,11 +6549,8 @@ impl IDirectInputJoyConfig8 {
     pub unsafe fn SetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetUserValues)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn AddNewHardware<P0>(&self, param0: P0, param1: *const windows_core::GUID) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).AddNewHardware)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn AddNewHardware(&self, param0: super::super::Foundation::HWND, param1: *const windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).AddNewHardware)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn OpenTypeKey<P0>(&self, param0: P0, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> windows_core::Result<()>
@@ -6925,17 +6717,11 @@ impl IDirectInputW {
     pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn RunControlPanel<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), core::mem::transmute(param1)).ok()
+    pub unsafe fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
     }
 }
 #[repr(C)]

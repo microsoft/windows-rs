@@ -1,7 +1,7 @@
 #[inline]
 pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: Option<*const u16>, extendederror: Option<*mut *mut MI_Instance>, application: *mut MI_Application) -> MI_Result {
     windows_targets::link!("mi.dll" "cdecl" fn MI_Application_InitializeV1(flags : u32, applicationid : *const u16, extendederror : *mut *mut MI_Instance, application : *mut MI_Application) -> MI_Result);
-    MI_Application_InitializeV1(core::mem::transmute(flags), core::mem::transmute(applicationid.unwrap_or(core::ptr::null())), core::mem::transmute(extendederror.unwrap_or(core::ptr::null_mut())), core::mem::transmute(application))
+    MI_Application_InitializeV1(core::mem::transmute(flags), core::mem::transmute(applicationid.unwrap_or(core::mem::zeroed())), core::mem::transmute(extendederror.unwrap_or(core::mem::zeroed())), core::mem::transmute(application))
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -206,11 +206,8 @@ impl ISWbemDateTime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).YearSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetYearSpecified<P0>(&self, byearspecified: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetYearSpecified)(windows_core::Interface::as_raw(self), byearspecified.param().abi()).ok()
+    pub unsafe fn SetYearSpecified(&self, byearspecified: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetYearSpecified)(windows_core::Interface::as_raw(self), core::mem::transmute(byearspecified)).ok()
     }
     pub unsafe fn Month(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -223,11 +220,8 @@ impl ISWbemDateTime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MonthSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetMonthSpecified<P0>(&self, bmonthspecified: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMonthSpecified)(windows_core::Interface::as_raw(self), bmonthspecified.param().abi()).ok()
+    pub unsafe fn SetMonthSpecified(&self, bmonthspecified: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMonthSpecified)(windows_core::Interface::as_raw(self), core::mem::transmute(bmonthspecified)).ok()
     }
     pub unsafe fn Day(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -240,11 +234,8 @@ impl ISWbemDateTime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DaySpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetDaySpecified<P0>(&self, bdayspecified: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDaySpecified)(windows_core::Interface::as_raw(self), bdayspecified.param().abi()).ok()
+    pub unsafe fn SetDaySpecified(&self, bdayspecified: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDaySpecified)(windows_core::Interface::as_raw(self), core::mem::transmute(bdayspecified)).ok()
     }
     pub unsafe fn Hours(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -257,11 +248,8 @@ impl ISWbemDateTime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).HoursSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetHoursSpecified<P0>(&self, bhoursspecified: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetHoursSpecified)(windows_core::Interface::as_raw(self), bhoursspecified.param().abi()).ok()
+    pub unsafe fn SetHoursSpecified(&self, bhoursspecified: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetHoursSpecified)(windows_core::Interface::as_raw(self), core::mem::transmute(bhoursspecified)).ok()
     }
     pub unsafe fn Minutes(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -274,11 +262,8 @@ impl ISWbemDateTime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MinutesSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetMinutesSpecified<P0>(&self, bminutesspecified: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMinutesSpecified)(windows_core::Interface::as_raw(self), bminutesspecified.param().abi()).ok()
+    pub unsafe fn SetMinutesSpecified(&self, bminutesspecified: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMinutesSpecified)(windows_core::Interface::as_raw(self), core::mem::transmute(bminutesspecified)).ok()
     }
     pub unsafe fn Seconds(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -291,11 +276,8 @@ impl ISWbemDateTime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SecondsSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetSecondsSpecified<P0>(&self, bsecondsspecified: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSecondsSpecified)(windows_core::Interface::as_raw(self), bsecondsspecified.param().abi()).ok()
+    pub unsafe fn SetSecondsSpecified(&self, bsecondsspecified: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSecondsSpecified)(windows_core::Interface::as_raw(self), core::mem::transmute(bsecondsspecified)).ok()
     }
     pub unsafe fn Microseconds(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -308,11 +290,8 @@ impl ISWbemDateTime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MicrosecondsSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetMicrosecondsSpecified<P0>(&self, bmicrosecondsspecified: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMicrosecondsSpecified)(windows_core::Interface::as_raw(self), bmicrosecondsspecified.param().abi()).ok()
+    pub unsafe fn SetMicrosecondsSpecified(&self, bmicrosecondsspecified: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMicrosecondsSpecified)(windows_core::Interface::as_raw(self), core::mem::transmute(bmicrosecondsspecified)).ok()
     }
     pub unsafe fn UTC(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -325,47 +304,29 @@ impl ISWbemDateTime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UTCSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetUTCSpecified<P0>(&self, butcspecified: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetUTCSpecified)(windows_core::Interface::as_raw(self), butcspecified.param().abi()).ok()
+    pub unsafe fn SetUTCSpecified(&self, butcspecified: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetUTCSpecified)(windows_core::Interface::as_raw(self), core::mem::transmute(butcspecified)).ok()
     }
     pub unsafe fn IsInterval(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIsInterval<P0>(&self, bisinterval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIsInterval)(windows_core::Interface::as_raw(self), bisinterval.param().abi()).ok()
+    pub unsafe fn SetIsInterval(&self, bisinterval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIsInterval)(windows_core::Interface::as_raw(self), core::mem::transmute(bisinterval)).ok()
     }
-    pub unsafe fn GetVarDate<P0>(&self, bislocal: P0) -> windows_core::Result<f64>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn GetVarDate(&self, bislocal: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<f64> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetVarDate)(windows_core::Interface::as_raw(self), bislocal.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetVarDate)(windows_core::Interface::as_raw(self), core::mem::transmute(bislocal), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetVarDate<P1>(&self, dvardate: f64, bislocal: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetVarDate)(windows_core::Interface::as_raw(self), core::mem::transmute(dvardate), bislocal.param().abi()).ok()
+    pub unsafe fn SetVarDate(&self, dvardate: f64, bislocal: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetVarDate)(windows_core::Interface::as_raw(self), core::mem::transmute(dvardate), core::mem::transmute(bislocal)).ok()
     }
-    pub unsafe fn GetFileTime<P0>(&self, bislocal: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn GetFileTime(&self, bislocal: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFileTime)(windows_core::Interface::as_raw(self), bislocal.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetFileTime)(windows_core::Interface::as_raw(self), core::mem::transmute(bislocal), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn SetFileTime<P1>(&self, strfiletime: &windows_core::BSTR, bislocal: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetFileTime)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfiletime), bislocal.param().abi()).ok()
+    pub unsafe fn SetFileTime(&self, strfiletime: &windows_core::BSTR, bislocal: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetFileTime)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfiletime), core::mem::transmute(bislocal)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1468,20 +1429,16 @@ impl ISWbemObject {
     {
         (windows_core::Interface::vtable(self).SubclassesAsync_)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), core::mem::transmute(iflags), objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()).ok()
     }
-    pub unsafe fn Associators_<P4, P5, P9>(&self, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: P4, bschemaonly: P5, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P9) -> windows_core::Result<ISWbemObjectSet>
+    pub unsafe fn Associators_<P9>(&self, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P9) -> windows_core::Result<ISWbemObjectSet>
     where
-        P4: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P5: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
         P9: windows_core::Param<super::Com::IDispatch>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Associators_)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strassocclass), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strresultrole), core::mem::transmute_copy(strrole), bclassesonly.param().abi(), bschemaonly.param().abi(), core::mem::transmute_copy(strrequiredassocqualifier), core::mem::transmute_copy(strrequiredqualifier), core::mem::transmute(iflags), objwbemnamedvalueset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Associators_)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strassocclass), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strresultrole), core::mem::transmute_copy(strrole), core::mem::transmute(bclassesonly), core::mem::transmute(bschemaonly), core::mem::transmute_copy(strrequiredassocqualifier), core::mem::transmute_copy(strrequiredqualifier), core::mem::transmute(iflags), objwbemnamedvalueset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn AssociatorsAsync_<P0, P5, P6, P10, P11>(&self, objwbemsink: P0, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: P5, bschemaonly: P6, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P10, objwbemasynccontext: P11) -> windows_core::Result<()>
+    pub unsafe fn AssociatorsAsync_<P0, P10, P11>(&self, objwbemsink: P0, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P10, objwbemasynccontext: P11) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Com::IDispatch>,
-        P5: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P6: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
         P10: windows_core::Param<super::Com::IDispatch>,
         P11: windows_core::Param<super::Com::IDispatch>,
     {
@@ -1492,8 +1449,8 @@ impl ISWbemObject {
             core::mem::transmute_copy(strresultclass),
             core::mem::transmute_copy(strresultrole),
             core::mem::transmute_copy(strrole),
-            bclassesonly.param().abi(),
-            bschemaonly.param().abi(),
+            core::mem::transmute(bclassesonly),
+            core::mem::transmute(bschemaonly),
             core::mem::transmute_copy(strrequiredassocqualifier),
             core::mem::transmute_copy(strrequiredqualifier),
             core::mem::transmute(iflags),
@@ -1502,24 +1459,20 @@ impl ISWbemObject {
         )
         .ok()
     }
-    pub unsafe fn References_<P2, P3, P6>(&self, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: P2, bschemaonly: P3, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P6) -> windows_core::Result<ISWbemObjectSet>
+    pub unsafe fn References_<P6>(&self, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P6) -> windows_core::Result<ISWbemObjectSet>
     where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
         P6: windows_core::Param<super::Com::IDispatch>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).References_)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strrole), bclassesonly.param().abi(), bschemaonly.param().abi(), core::mem::transmute_copy(strrequiredqualifier), core::mem::transmute(iflags), objwbemnamedvalueset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).References_)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strrole), core::mem::transmute(bclassesonly), core::mem::transmute(bschemaonly), core::mem::transmute_copy(strrequiredqualifier), core::mem::transmute(iflags), objwbemnamedvalueset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn ReferencesAsync_<P0, P3, P4, P7, P8>(&self, objwbemsink: P0, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: P3, bschemaonly: P4, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P7, objwbemasynccontext: P8) -> windows_core::Result<()>
+    pub unsafe fn ReferencesAsync_<P0, P7, P8>(&self, objwbemsink: P0, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P7, objwbemasynccontext: P8) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Com::IDispatch>,
-        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P4: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
         P7: windows_core::Param<super::Com::IDispatch>,
         P8: windows_core::Param<super::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).ReferencesAsync_)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strrole), bclassesonly.param().abi(), bschemaonly.param().abi(), core::mem::transmute_copy(strrequiredqualifier), core::mem::transmute(iflags), objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReferencesAsync_)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strrole), core::mem::transmute(bclassesonly), core::mem::transmute(bschemaonly), core::mem::transmute_copy(strrequiredqualifier), core::mem::transmute(iflags), objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()).ok()
     }
     pub unsafe fn ExecMethod_<P1, P3>(&self, strmethodname: &windows_core::BSTR, objwbeminparameters: P1, iflags: i32, objwbemnamedvalueset: P3) -> windows_core::Result<ISWbemObject>
     where
@@ -2494,11 +2447,8 @@ impl ISWbemPrivilege {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIsEnabled<P0>(&self, bisenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIsEnabled)(windows_core::Interface::as_raw(self), bisenabled.param().abi()).ok()
+    pub unsafe fn SetIsEnabled(&self, bisenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIsEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(bisenabled)).ok()
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -2618,12 +2568,9 @@ impl ISWbemPrivilegeSet {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Add<P1>(&self, iprivilege: WbemPrivilegeEnum, bisenabled: P1) -> windows_core::Result<ISWbemPrivilege>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn Add(&self, iprivilege: WbemPrivilegeEnum, bisenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<ISWbemPrivilege> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(iprivilege), bisenabled.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(iprivilege), core::mem::transmute(bisenabled), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Remove(&self, iprivilege: WbemPrivilegeEnum) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute(iprivilege)).ok()
@@ -2631,12 +2578,9 @@ impl ISWbemPrivilegeSet {
     pub unsafe fn DeleteAll(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DeleteAll)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn AddAsString<P1>(&self, strprivilege: &windows_core::BSTR, bisenabled: P1) -> windows_core::Result<ISWbemPrivilege>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn AddAsString(&self, strprivilege: &windows_core::BSTR, bisenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<ISWbemPrivilege> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddAsString)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strprivilege), bisenabled.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AddAsString)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strprivilege), core::mem::transmute(bisenabled), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2936,12 +2880,9 @@ impl ISWbemPropertySet {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Add<P2>(&self, strname: &windows_core::BSTR, icimtype: WbemCimtypeEnum, bisarray: P2, iflags: i32) -> windows_core::Result<ISWbemProperty>
-    where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn Add(&self, strname: &windows_core::BSTR, icimtype: WbemCimtypeEnum, bisarray: super::super::Foundation::VARIANT_BOOL, iflags: i32) -> windows_core::Result<ISWbemProperty> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute(icimtype), bisarray.param().abi(), core::mem::transmute(iflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute(icimtype), core::mem::transmute(bisarray), core::mem::transmute(iflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Remove(&self, strname: &windows_core::BSTR, iflags: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute(iflags)).ok()
@@ -3061,31 +3002,22 @@ impl ISWbemQualifier {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PropagatesToSubclass)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetPropagatesToSubclass<P0>(&self, bpropagatestosubclass: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetPropagatesToSubclass)(windows_core::Interface::as_raw(self), bpropagatestosubclass.param().abi()).ok()
+    pub unsafe fn SetPropagatesToSubclass(&self, bpropagatestosubclass: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetPropagatesToSubclass)(windows_core::Interface::as_raw(self), core::mem::transmute(bpropagatestosubclass)).ok()
     }
     pub unsafe fn PropagatesToInstance(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PropagatesToInstance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetPropagatesToInstance<P0>(&self, bpropagatestoinstance: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetPropagatesToInstance)(windows_core::Interface::as_raw(self), bpropagatestoinstance.param().abi()).ok()
+    pub unsafe fn SetPropagatesToInstance(&self, bpropagatestoinstance: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetPropagatesToInstance)(windows_core::Interface::as_raw(self), core::mem::transmute(bpropagatestoinstance)).ok()
     }
     pub unsafe fn IsOverridable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsOverridable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIsOverridable<P0>(&self, bisoverridable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIsOverridable)(windows_core::Interface::as_raw(self), bisoverridable.param().abi()).ok()
+    pub unsafe fn SetIsOverridable(&self, bisoverridable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIsOverridable)(windows_core::Interface::as_raw(self), core::mem::transmute(bisoverridable)).ok()
     }
     pub unsafe fn IsAmended(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -3264,14 +3196,9 @@ impl ISWbemQualifierSet {
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Add<P2, P3, P4>(&self, strname: &windows_core::BSTR, varval: *const super::Variant::VARIANT, bpropagatestosubclass: P2, bpropagatestoinstance: P3, bisoverridable: P4, iflags: i32) -> windows_core::Result<ISWbemQualifier>
-    where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P4: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn Add(&self, strname: &windows_core::BSTR, varval: *const super::Variant::VARIANT, bpropagatestosubclass: super::super::Foundation::VARIANT_BOOL, bpropagatestoinstance: super::super::Foundation::VARIANT_BOOL, bisoverridable: super::super::Foundation::VARIANT_BOOL, iflags: i32) -> windows_core::Result<ISWbemQualifier> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute(varval), bpropagatestosubclass.param().abi(), bpropagatestoinstance.param().abi(), bisoverridable.param().abi(), core::mem::transmute(iflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute(varval), core::mem::transmute(bpropagatestosubclass), core::mem::transmute(bpropagatestoinstance), core::mem::transmute(bisoverridable), core::mem::transmute(iflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Remove(&self, strname: &windows_core::BSTR, iflags: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute(iflags)).ok()
@@ -3541,11 +3468,8 @@ impl ISWbemRefresher {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoReconnect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAutoReconnect<P0>(&self, bcount: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAutoReconnect)(windows_core::Interface::as_raw(self), bcount.param().abi()).ok()
+    pub unsafe fn SetAutoReconnect(&self, bcount: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAutoReconnect)(windows_core::Interface::as_raw(self), core::mem::transmute(bcount)).ok()
     }
     pub unsafe fn DeleteAll(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DeleteAll)(windows_core::Interface::as_raw(self)).ok()
@@ -3871,10 +3795,8 @@ impl ISWbemServices {
     {
         (windows_core::Interface::vtable(self).ExecQueryAsync)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), core::mem::transmute_copy(strquery), core::mem::transmute_copy(strquerylanguage), core::mem::transmute(lflags), objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()).ok()
     }
-    pub unsafe fn AssociatorsOf<P5, P6, P10>(&self, strobjectpath: &windows_core::BSTR, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: P5, bschemaonly: P6, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P10) -> windows_core::Result<ISWbemObjectSet>
+    pub unsafe fn AssociatorsOf<P10>(&self, strobjectpath: &windows_core::BSTR, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P10) -> windows_core::Result<ISWbemObjectSet>
     where
-        P5: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P6: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
         P10: windows_core::Param<super::Com::IDispatch>,
     {
         let mut result__ = core::mem::zeroed();
@@ -3885,8 +3807,8 @@ impl ISWbemServices {
             core::mem::transmute_copy(strresultclass),
             core::mem::transmute_copy(strresultrole),
             core::mem::transmute_copy(strrole),
-            bclassesonly.param().abi(),
-            bschemaonly.param().abi(),
+            core::mem::transmute(bclassesonly),
+            core::mem::transmute(bschemaonly),
             core::mem::transmute_copy(strrequiredassocqualifier),
             core::mem::transmute_copy(strrequiredqualifier),
             core::mem::transmute(iflags),
@@ -3895,11 +3817,9 @@ impl ISWbemServices {
         )
         .and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn AssociatorsOfAsync<P0, P6, P7, P11, P12>(&self, objwbemsink: P0, strobjectpath: &windows_core::BSTR, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: P6, bschemaonly: P7, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P11, objwbemasynccontext: P12) -> windows_core::Result<()>
+    pub unsafe fn AssociatorsOfAsync<P0, P11, P12>(&self, objwbemsink: P0, strobjectpath: &windows_core::BSTR, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P11, objwbemasynccontext: P12) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Com::IDispatch>,
-        P6: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P7: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
         P11: windows_core::Param<super::Com::IDispatch>,
         P12: windows_core::Param<super::Com::IDispatch>,
     {
@@ -3911,8 +3831,8 @@ impl ISWbemServices {
             core::mem::transmute_copy(strresultclass),
             core::mem::transmute_copy(strresultrole),
             core::mem::transmute_copy(strrole),
-            bclassesonly.param().abi(),
-            bschemaonly.param().abi(),
+            core::mem::transmute(bclassesonly),
+            core::mem::transmute(bschemaonly),
             core::mem::transmute_copy(strrequiredassocqualifier),
             core::mem::transmute_copy(strrequiredqualifier),
             core::mem::transmute(iflags),
@@ -3921,24 +3841,20 @@ impl ISWbemServices {
         )
         .ok()
     }
-    pub unsafe fn ReferencesTo<P3, P4, P7>(&self, strobjectpath: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: P3, bschemaonly: P4, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P7) -> windows_core::Result<ISWbemObjectSet>
+    pub unsafe fn ReferencesTo<P7>(&self, strobjectpath: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P7) -> windows_core::Result<ISWbemObjectSet>
     where
-        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P4: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
         P7: windows_core::Param<super::Com::IDispatch>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReferencesTo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strrole), bclassesonly.param().abi(), bschemaonly.param().abi(), core::mem::transmute_copy(strrequiredqualifier), core::mem::transmute(iflags), objwbemnamedvalueset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ReferencesTo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strrole), core::mem::transmute(bclassesonly), core::mem::transmute(bschemaonly), core::mem::transmute_copy(strrequiredqualifier), core::mem::transmute(iflags), objwbemnamedvalueset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn ReferencesToAsync<P0, P4, P5, P8, P9>(&self, objwbemsink: P0, strobjectpath: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: P4, bschemaonly: P5, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P8, objwbemasynccontext: P9) -> windows_core::Result<()>
+    pub unsafe fn ReferencesToAsync<P0, P8, P9>(&self, objwbemsink: P0, strobjectpath: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P8, objwbemasynccontext: P9) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Com::IDispatch>,
-        P4: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P5: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
         P8: windows_core::Param<super::Com::IDispatch>,
         P9: windows_core::Param<super::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).ReferencesToAsync)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), core::mem::transmute_copy(strobjectpath), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strrole), bclassesonly.param().abi(), bschemaonly.param().abi(), core::mem::transmute_copy(strrequiredqualifier), core::mem::transmute(iflags), objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReferencesToAsync)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), core::mem::transmute_copy(strobjectpath), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strrole), core::mem::transmute(bclassesonly), core::mem::transmute(bschemaonly), core::mem::transmute_copy(strrequiredqualifier), core::mem::transmute(iflags), objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()).ok()
     }
     pub unsafe fn ExecNotificationQuery<P3>(&self, strquery: &windows_core::BSTR, strquerylanguage: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P3) -> windows_core::Result<ISWbemEventSource>
     where
@@ -4682,7 +4598,7 @@ impl IWbemClassObject {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), wszname.param().abi(), core::mem::transmute(lflags), core::mem::transmute(pval), core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plflavor.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), wszname.param().abi(), core::mem::transmute(lflags), core::mem::transmute(pval), core::mem::transmute(ptype.unwrap_or(core::mem::zeroed())), core::mem::transmute(plflavor.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, wszname: P0, lflags: i32, pval: *const super::Variant::VARIANT, r#type: i32) -> windows_core::Result<()>
@@ -6604,8 +6520,8 @@ impl IWbemPath {
     {
         (windows_core::Interface::vtable(self).SetClassName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
-    pub unsafe fn GetClassName(&self, pubufflength: *mut u32, pszname: windows_core::PWSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetClassName)(windows_core::Interface::as_raw(self), core::mem::transmute(pubufflength), core::mem::transmute(pszname)).ok()
+    pub unsafe fn GetClassName(&self, pubufflength: *mut u32, pszname: Option<windows_core::PWSTR>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetClassName)(windows_core::Interface::as_raw(self), core::mem::transmute(pubufflength), core::mem::transmute(pszname.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetKeyList(&self) -> windows_core::Result<IWbemPathKeyList> {
         let mut result__ = core::mem::zeroed();
@@ -6890,12 +6806,12 @@ impl IWbemPathKeyList {
     {
         (windows_core::Interface::vtable(self).SetKey2)(windows_core::Interface::as_raw(self), wszname.param().abi(), core::mem::transmute(uflags), core::mem::transmute(ucimtype), core::mem::transmute(pkeyval)).ok()
     }
-    pub unsafe fn GetKey(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: windows_core::PWSTR, pukeyvalbufsize: *mut u32, pkeyval: *mut core::ffi::c_void, puapparentcimtype: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), core::mem::transmute(ukeyix), core::mem::transmute(uflags), core::mem::transmute(punamebufsize), core::mem::transmute(pszkeyname), core::mem::transmute(pukeyvalbufsize), core::mem::transmute(pkeyval), core::mem::transmute(puapparentcimtype)).ok()
+    pub unsafe fn GetKey(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: Option<windows_core::PWSTR>, pukeyvalbufsize: *mut u32, pkeyval: *mut core::ffi::c_void, puapparentcimtype: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), core::mem::transmute(ukeyix), core::mem::transmute(uflags), core::mem::transmute(punamebufsize), core::mem::transmute(pszkeyname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pukeyvalbufsize), core::mem::transmute(pkeyval), core::mem::transmute(puapparentcimtype)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetKey2(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: windows_core::PWSTR, pkeyvalue: *mut super::Variant::VARIANT, puapparentcimtype: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetKey2)(windows_core::Interface::as_raw(self), core::mem::transmute(ukeyix), core::mem::transmute(uflags), core::mem::transmute(punamebufsize), core::mem::transmute(pszkeyname), core::mem::transmute(pkeyvalue), core::mem::transmute(puapparentcimtype)).ok()
+    pub unsafe fn GetKey2(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: Option<windows_core::PWSTR>, pkeyvalue: *mut super::Variant::VARIANT, puapparentcimtype: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetKey2)(windows_core::Interface::as_raw(self), core::mem::transmute(ukeyix), core::mem::transmute(uflags), core::mem::transmute(punamebufsize), core::mem::transmute(pszkeyname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pkeyvalue), core::mem::transmute(puapparentcimtype)).ok()
     }
     pub unsafe fn RemoveKey<P0>(&self, wszname: P0, uflags: u32) -> windows_core::Result<()>
     where
@@ -7435,7 +7351,7 @@ impl IWbemServices {
     where
         P2: windows_core::Param<IWbemContext>,
     {
-        (windows_core::Interface::vtable(self).OpenNamespace)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strnamespace), core::mem::transmute(lflags), pctx.param().abi(), core::mem::transmute(ppworkingnamespace.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppresult.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).OpenNamespace)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strnamespace), core::mem::transmute(lflags), pctx.param().abi(), core::mem::transmute(ppworkingnamespace.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppresult.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn CancelAsyncCall<P0>(&self, psink: P0) -> windows_core::Result<()>
     where
@@ -7451,7 +7367,7 @@ impl IWbemServices {
     where
         P2: windows_core::Param<IWbemContext>,
     {
-        (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), core::mem::transmute(lflags), pctx.param().abi(), core::mem::transmute(ppobject.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppcallresult.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), core::mem::transmute(lflags), pctx.param().abi(), core::mem::transmute(ppobject.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppcallresult.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetObjectAsync<P2, P3>(&self, strobjectpath: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, presponsehandler: P3) -> windows_core::Result<()>
     where
@@ -7465,7 +7381,7 @@ impl IWbemServices {
         P0: windows_core::Param<IWbemClassObject>,
         P2: windows_core::Param<IWbemContext>,
     {
-        (windows_core::Interface::vtable(self).PutClass)(windows_core::Interface::as_raw(self), pobject.param().abi(), core::mem::transmute(lflags), pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).PutClass)(windows_core::Interface::as_raw(self), pobject.param().abi(), core::mem::transmute(lflags), pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn PutClassAsync<P0, P2, P3>(&self, pobject: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, presponsehandler: P3) -> windows_core::Result<()>
     where
@@ -7479,7 +7395,7 @@ impl IWbemServices {
     where
         P2: windows_core::Param<IWbemContext>,
     {
-        (windows_core::Interface::vtable(self).DeleteClass)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strclass), core::mem::transmute(lflags), pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).DeleteClass)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strclass), core::mem::transmute(lflags), pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn DeleteClassAsync<P2, P3>(&self, strclass: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, presponsehandler: P3) -> windows_core::Result<()>
     where
@@ -7507,7 +7423,7 @@ impl IWbemServices {
         P0: windows_core::Param<IWbemClassObject>,
         P2: windows_core::Param<IWbemContext>,
     {
-        (windows_core::Interface::vtable(self).PutInstance)(windows_core::Interface::as_raw(self), pinst.param().abi(), core::mem::transmute(lflags), pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).PutInstance)(windows_core::Interface::as_raw(self), pinst.param().abi(), core::mem::transmute(lflags), pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn PutInstanceAsync<P0, P2, P3>(&self, pinst: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, presponsehandler: P3) -> windows_core::Result<()>
     where
@@ -7521,7 +7437,7 @@ impl IWbemServices {
     where
         P2: windows_core::Param<IWbemContext>,
     {
-        (windows_core::Interface::vtable(self).DeleteInstance)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), core::mem::transmute(lflags), pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).DeleteInstance)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), core::mem::transmute(lflags), pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn DeleteInstanceAsync<P2, P3>(&self, strobjectpath: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, presponsehandler: P3) -> windows_core::Result<()>
     where
@@ -7577,7 +7493,7 @@ impl IWbemServices {
         P3: windows_core::Param<IWbemContext>,
         P4: windows_core::Param<IWbemClassObject>,
     {
-        (windows_core::Interface::vtable(self).ExecMethod)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), core::mem::transmute_copy(strmethodname), core::mem::transmute(lflags), pctx.param().abi(), pinparams.param().abi(), core::mem::transmute(ppoutparams.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppcallresult.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ExecMethod)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), core::mem::transmute_copy(strmethodname), core::mem::transmute(lflags), pctx.param().abi(), pinparams.param().abi(), core::mem::transmute(ppoutparams.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppcallresult.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn ExecMethodAsync<P3, P4, P5>(&self, strobjectpath: &windows_core::BSTR, strmethodname: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P3, pinparams: P4, presponsehandler: P5) -> windows_core::Result<()>
     where

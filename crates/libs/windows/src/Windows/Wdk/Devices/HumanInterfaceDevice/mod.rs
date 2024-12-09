@@ -1,10 +1,7 @@
 #[inline]
-pub unsafe fn VhfAsyncOperationComplete<P1>(vhfoperationhandle: *const core::ffi::c_void, completionstatus: P1) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
-{
+pub unsafe fn VhfAsyncOperationComplete(vhfoperationhandle: *const core::ffi::c_void, completionstatus: super::super::super::Win32::Foundation::NTSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("vhfum.dll" "system" fn VhfAsyncOperationComplete(vhfoperationhandle : *const core::ffi::c_void, completionstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    VhfAsyncOperationComplete(core::mem::transmute(vhfoperationhandle), completionstatus.param().abi())
+    VhfAsyncOperationComplete(core::mem::transmute(vhfoperationhandle), core::mem::transmute(completionstatus))
 }
 #[inline]
 pub unsafe fn VhfCreate(vhfconfig: *const VHF_CONFIG, vhfhandle: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
