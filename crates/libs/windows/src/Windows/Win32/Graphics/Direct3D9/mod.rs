@@ -4425,11 +4425,8 @@ impl IDirect3D9 {
     pub unsafe fn GetAdapterMonitor(&self, adapter: u32) -> super::Gdi::HMONITOR {
         (windows_core::Interface::vtable(self).GetAdapterMonitor)(windows_core::Interface::as_raw(self), core::mem::transmute(adapter))
     }
-    pub unsafe fn CreateDevice<P2>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: P2, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9>) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(adapter), core::mem::transmute(devicetype), hfocuswindow.param().abi(), core::mem::transmute(behaviorflags), core::mem::transmute(ppresentationparameters), core::mem::transmute(ppreturneddeviceinterface)).ok()
+    pub unsafe fn CreateDevice(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::super::Foundation::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(adapter), core::mem::transmute(devicetype), core::mem::transmute(hfocuswindow), core::mem::transmute(behaviorflags), core::mem::transmute(ppresentationparameters), core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
 }
 #[repr(C)]
@@ -4571,11 +4568,8 @@ impl IDirect3D9Ex {
     pub unsafe fn GetAdapterDisplayModeEx(&self, adapter: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAdapterDisplayModeEx)(windows_core::Interface::as_raw(self), core::mem::transmute(adapter), core::mem::transmute(pmode), core::mem::transmute(protation)).ok()
     }
-    pub unsafe fn CreateDeviceEx<P2>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: P2, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9Ex>) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).CreateDeviceEx)(windows_core::Interface::as_raw(self), core::mem::transmute(adapter), core::mem::transmute(devicetype), hfocuswindow.param().abi(), core::mem::transmute(behaviorflags), core::mem::transmute(ppresentationparameters), core::mem::transmute(pfullscreendisplaymode), core::mem::transmute(ppreturneddeviceinterface)).ok()
+    pub unsafe fn CreateDeviceEx(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::super::Foundation::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9Ex>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CreateDeviceEx)(windows_core::Interface::as_raw(self), core::mem::transmute(adapter), core::mem::transmute(devicetype), core::mem::transmute(hfocuswindow), core::mem::transmute(behaviorflags), core::mem::transmute(ppresentationparameters), core::mem::transmute(pfullscreendisplaymode), core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
     pub unsafe fn GetAdapterLUID(&self, adapter: u32, pluid: *mut super::super::Foundation::LUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAdapterLUID)(windows_core::Interface::as_raw(self), core::mem::transmute(adapter), core::mem::transmute(pluid)).ok()
@@ -4861,11 +4855,8 @@ impl IDirect3DDevice9 {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresentationparameters)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Present<P2>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P2, pdirtyregion: *const super::Gdi::RGNDATA) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), core::mem::transmute(psourcerect), core::mem::transmute(pdestrect), hdestwindowoverride.param().abi(), core::mem::transmute(pdirtyregion)).ok()
+    pub unsafe fn Present(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: super::super::Foundation::HWND, pdirtyregion: *const super::Gdi::RGNDATA) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), core::mem::transmute(psourcerect), core::mem::transmute(pdestrect), core::mem::transmute(hdestwindowoverride), core::mem::transmute(pdirtyregion)).ok()
     }
     pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
         let mut result__ = core::mem::zeroed();
@@ -6231,11 +6222,8 @@ impl IDirect3DDevice9Ex {
         (windows_core::Interface::vtable(self).ComposeRects)(windows_core::Interface::as_raw(self), psrc.param().abi(), pdst.param().abi(), psrcrectdescs.param().abi(), core::mem::transmute(numrects), pdstrectdescs.param().abi(), core::mem::transmute(operation), core::mem::transmute(xoffset), core::mem::transmute(yoffset)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn PresentEx<P2>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P2, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).PresentEx)(windows_core::Interface::as_raw(self), core::mem::transmute(psourcerect), core::mem::transmute(pdestrect), hdestwindowoverride.param().abi(), core::mem::transmute(pdirtyregion), core::mem::transmute(dwflags)).ok()
+    pub unsafe fn PresentEx(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: super::super::Foundation::HWND, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).PresentEx)(windows_core::Interface::as_raw(self), core::mem::transmute(psourcerect), core::mem::transmute(pdestrect), core::mem::transmute(hdestwindowoverride), core::mem::transmute(pdirtyregion), core::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn GetGPUThreadPriority(&self, ppriority: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetGPUThreadPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(ppriority)).ok()
@@ -6255,11 +6243,8 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetMaximumFrameLatency(&self, pmaxlatency: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetMaximumFrameLatency)(windows_core::Interface::as_raw(self), core::mem::transmute(pmaxlatency)).ok()
     }
-    pub unsafe fn CheckDeviceState<P0>(&self, hdestinationwindow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).CheckDeviceState)(windows_core::Interface::as_raw(self), hdestinationwindow.param().abi()).ok()
+    pub unsafe fn CheckDeviceState(&self, hdestinationwindow: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CheckDeviceState)(windows_core::Interface::as_raw(self), core::mem::transmute(hdestinationwindow)).ok()
     }
     pub unsafe fn CreateRenderTargetEx<P5>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: P5, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> windows_core::Result<()>
     where
@@ -6786,11 +6771,8 @@ impl IDirect3DSurface9 {
         (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), core::mem::transmute(phdc)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<P0>(&self, hdc: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Gdi::HDC>,
-    {
-        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), hdc.param().abi()).ok()
+    pub unsafe fn ReleaseDC(&self, hdc: super::Gdi::HDC) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), core::mem::transmute(hdc)).ok()
     }
 }
 #[repr(C)]
@@ -6865,11 +6847,8 @@ windows_core::imp::define_interface!(IDirect3DSwapChain9, IDirect3DSwapChain9_Vt
 windows_core::imp::interface_hierarchy!(IDirect3DSwapChain9, windows_core::IUnknown);
 impl IDirect3DSwapChain9 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Present<P2>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P2, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), core::mem::transmute(psourcerect), core::mem::transmute(pdestrect), hdestwindowoverride.param().abi(), core::mem::transmute(pdirtyregion), core::mem::transmute(dwflags)).ok()
+    pub unsafe fn Present(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: super::super::Foundation::HWND, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), core::mem::transmute(psourcerect), core::mem::transmute(pdestrect), core::mem::transmute(hdestwindowoverride), core::mem::transmute(pdirtyregion), core::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn GetFrontBufferData<P0>(&self, pdestsurface: P0) -> windows_core::Result<()>
     where

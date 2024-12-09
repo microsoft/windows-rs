@@ -1712,7 +1712,7 @@ impl IMSAdminBase3W {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetChildPaths)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), pszbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pcchmdrequiredbuffersize.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetChildPaths)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), pszbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pcchmdrequiredbuffersize.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]

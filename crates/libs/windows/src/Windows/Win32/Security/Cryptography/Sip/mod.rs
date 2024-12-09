@@ -19,7 +19,7 @@ pub unsafe fn CryptSIPGetCaps(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP
 #[inline]
 pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: Option<&[u8]>, pbdigest: Option<*mut u8>, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("wintrust.dll" "system" fn CryptSIPGetSealedDigest(psubjectinfo : *const SIP_SUBJECTINFO, psig : *const u8, dwsig : u32, pbdigest : *mut u8, pcbdigest : *mut u32) -> super::super::super::Foundation:: BOOL);
-    CryptSIPGetSealedDigest(core::mem::transmute(psubjectinfo), core::mem::transmute(psig.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psig.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbdigest.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdigest))
+    CryptSIPGetSealedDigest(core::mem::transmute(psubjectinfo), core::mem::transmute(psig.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psig.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbdigest.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdigest))
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
@@ -51,22 +51,20 @@ pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dw
     CryptSIPRemoveSignedDataMsg(core::mem::transmute(psubjectinfo), core::mem::transmute(dwindex)).ok()
 }
 #[inline]
-pub unsafe fn CryptSIPRetrieveSubjectGuid<P0, P1>(filename: P0, hfilein: P1, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()>
+pub unsafe fn CryptSIPRetrieveSubjectGuid<P0>(filename: P0, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuid(filename : windows_core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_core::GUID) -> super::super::super::Foundation:: BOOL);
-    CryptSIPRetrieveSubjectGuid(filename.param().abi(), hfilein.param().abi(), core::mem::transmute(pgsubject)).ok()
+    CryptSIPRetrieveSubjectGuid(filename.param().abi(), core::mem::transmute(hfilein), core::mem::transmute(pgsubject)).ok()
 }
 #[inline]
-pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<P0, P1>(filename: P0, hfilein: P1, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()>
+pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<P0>(filename: P0, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename : windows_core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_core::GUID) -> super::super::super::Foundation:: BOOL);
-    CryptSIPRetrieveSubjectGuidForCatalogFile(filename.param().abi(), hfilein.param().abi(), core::mem::transmute(pgsubject)).ok()
+    CryptSIPRetrieveSubjectGuidForCatalogFile(filename.param().abi(), core::mem::transmute(hfilein), core::mem::transmute(pgsubject)).ok()
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]

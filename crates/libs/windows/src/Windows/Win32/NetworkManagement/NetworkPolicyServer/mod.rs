@@ -822,11 +822,8 @@ impl ISdoMachine2 {
     pub unsafe fn EnableTemplates(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnableTemplates)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SyncConfigAgainstTemplates<P3>(&self, bstrservicename: &windows_core::BSTR, ppconfigroot: *mut Option<windows_core::IUnknown>, pptemplatesroot: *mut Option<windows_core::IUnknown>, bforcedsync: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SyncConfigAgainstTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrservicename), core::mem::transmute(ppconfigroot), core::mem::transmute(pptemplatesroot), bforcedsync.param().abi()).ok()
+    pub unsafe fn SyncConfigAgainstTemplates(&self, bstrservicename: &windows_core::BSTR, ppconfigroot: *mut Option<windows_core::IUnknown>, pptemplatesroot: *mut Option<windows_core::IUnknown>, bforcedsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SyncConfigAgainstTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrservicename), core::mem::transmute(ppconfigroot), core::mem::transmute(pptemplatesroot), core::mem::transmute(bforcedsync)).ok()
     }
     pub unsafe fn ImportRemoteTemplates<P0>(&self, plocaltemplatesroot: P0, bstrremotemachinename: &windows_core::BSTR) -> windows_core::Result<()>
     where

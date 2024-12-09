@@ -210,7 +210,7 @@ where
 #[inline]
 pub unsafe fn PropVariantGetInformation(propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: Option<*mut u32>, propvariantsize: Option<*mut u32>, propvariantpointer: Option<*mut *mut core::ffi::c_void>, remappedtype: Option<*mut super::Properties::DEVPROPTYPE>) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("sensorsutilsv2.dll" "system" fn PropVariantGetInformation(propvariantvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, propvariantoffset : *mut u32, propvariantsize : *mut u32, propvariantpointer : *mut *mut core::ffi::c_void, remappedtype : *mut super::Properties:: DEVPROPTYPE) -> super::super::Foundation:: NTSTATUS);
-    PropVariantGetInformation(core::mem::transmute(propvariantvalue), core::mem::transmute(propvariantoffset.unwrap_or(core::ptr::null_mut())), core::mem::transmute(propvariantsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(propvariantpointer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(remappedtype.unwrap_or(core::ptr::null_mut())))
+    PropVariantGetInformation(core::mem::transmute(propvariantvalue), core::mem::transmute(propvariantoffset.unwrap_or(core::mem::zeroed())), core::mem::transmute(propvariantsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(propvariantpointer.unwrap_or(core::mem::zeroed())), core::mem::transmute(remappedtype.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn PropertiesListCopy(target: *mut SENSOR_PROPERTY_LIST, source: *const SENSOR_PROPERTY_LIST) -> super::super::Foundation::NTSTATUS {
@@ -226,7 +226,7 @@ pub unsafe fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32 {
 #[inline]
 pub unsafe fn SensorCollectionGetAt(index: u32, psensorslist: *const SENSOR_COLLECTION_LIST, pkey: Option<*mut super::super::Foundation::PROPERTYKEY>, pvalue: Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("sensorsutilsv2.dll" "system" fn SensorCollectionGetAt(index : u32, psensorslist : *const SENSOR_COLLECTION_LIST, pkey : *mut super::super::Foundation:: PROPERTYKEY, pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> super::super::Foundation:: NTSTATUS);
-    SensorCollectionGetAt(core::mem::transmute(index), core::mem::transmute(psensorslist), core::mem::transmute(pkey.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvalue.unwrap_or(core::ptr::null_mut())))
+    SensorCollectionGetAt(core::mem::transmute(index), core::mem::transmute(psensorslist), core::mem::transmute(pkey.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvalue.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS {
@@ -236,7 +236,7 @@ pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u
 #[inline]
 pub unsafe fn SerializationBufferFree(buffer: Option<*const u8>) {
     windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferFree(buffer : *const u8));
-    SerializationBufferFree(core::mem::transmute(buffer.unwrap_or(core::ptr::null())))
+    SerializationBufferFree(core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -935,13 +935,12 @@ impl ISensorManager {
     {
         (windows_core::Interface::vtable(self).SetEventSink)(windows_core::Interface::as_raw(self), pevents.param().abi()).ok()
     }
-    pub unsafe fn RequestPermissions<P0, P1, P2>(&self, hparent: P0, psensors: P1, fmodal: P2) -> windows_core::Result<()>
+    pub unsafe fn RequestPermissions<P1, P2>(&self, hparent: super::super::Foundation::HWND, psensors: P1, fmodal: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<ISensorCollection>,
         P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hparent.param().abi(), psensors.param().abi(), fmodal.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), core::mem::transmute(hparent), psensors.param().abi(), fmodal.param().abi()).ok()
     }
 }
 #[repr(C)]

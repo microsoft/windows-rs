@@ -34,12 +34,9 @@ pub unsafe fn SnmpCreatePdu(session: isize, pdu_type: SNMP_PDU_TYPE, request_id:
     SnmpCreatePdu(core::mem::transmute(session), core::mem::transmute(pdu_type), core::mem::transmute(request_id), core::mem::transmute(error_status), core::mem::transmute(error_index), core::mem::transmute(varbindlist))
 }
 #[inline]
-pub unsafe fn SnmpCreateSession<P0>(hwnd: P0, wmsg: u32, fcallback: SNMPAPI_CALLBACK, lpclientdata: *mut core::ffi::c_void) -> isize
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn SnmpCreateSession(hwnd: super::super::Foundation::HWND, wmsg: u32, fcallback: SNMPAPI_CALLBACK, lpclientdata: *mut core::ffi::c_void) -> isize {
     windows_targets::link!("wsnmp32.dll" "system" fn SnmpCreateSession(hwnd : super::super::Foundation:: HWND, wmsg : u32, fcallback : SNMPAPI_CALLBACK, lpclientdata : *mut core::ffi::c_void) -> isize);
-    SnmpCreateSession(hwnd.param().abi(), core::mem::transmute(wmsg), core::mem::transmute(fcallback), core::mem::transmute(lpclientdata))
+    SnmpCreateSession(core::mem::transmute(hwnd), core::mem::transmute(wmsg), core::mem::transmute(fcallback), core::mem::transmute(lpclientdata))
 }
 #[inline]
 pub unsafe fn SnmpCreateVbl(session: isize, name: *mut smiOID, value: *mut smiVALUE) -> isize {
@@ -174,7 +171,7 @@ pub unsafe fn SnmpMgrGetTrapEx(enterprise: *mut AsnObjectIdentifier, agentaddres
 #[inline]
 pub unsafe fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: Option<*mut windows_core::PSTR>) -> super::super::Foundation::BOOL {
     windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrOidToStr(oid : *mut AsnObjectIdentifier, string : *mut windows_core::PSTR) -> super::super::Foundation:: BOOL);
-    SnmpMgrOidToStr(core::mem::transmute(oid), core::mem::transmute(string.unwrap_or(core::ptr::null_mut())))
+    SnmpMgrOidToStr(core::mem::transmute(oid), core::mem::transmute(string.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SnmpMgrOpen<P0, P1>(lpagentaddress: P0, lpagentcommunity: P1, ntimeout: i32, nretries: i32) -> *mut core::ffi::c_void
@@ -219,12 +216,9 @@ pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, string: &mut [u8]) -> u32 {
     SnmpOidToStr(core::mem::transmute(srcoid), string.len().try_into().unwrap(), core::mem::transmute(string.as_ptr()))
 }
 #[inline]
-pub unsafe fn SnmpOpen<P0>(hwnd: P0, wmsg: u32) -> isize
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn SnmpOpen(hwnd: super::super::Foundation::HWND, wmsg: u32) -> isize {
     windows_targets::link!("wsnmp32.dll" "system" fn SnmpOpen(hwnd : super::super::Foundation:: HWND, wmsg : u32) -> isize);
-    SnmpOpen(hwnd.param().abi(), core::mem::transmute(wmsg))
+    SnmpOpen(core::mem::transmute(hwnd), core::mem::transmute(wmsg))
 }
 #[inline]
 pub unsafe fn SnmpRecvMsg(session: isize, srcentity: *mut isize, dstentity: *mut isize, context: *mut isize, pdu: *mut isize) -> u32 {

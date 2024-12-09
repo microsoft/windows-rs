@@ -26,12 +26,9 @@ pub unsafe fn WscRegisterForUserNotifications() -> windows_core::Result<()> {
     WscRegisterForUserNotifications().ok()
 }
 #[inline]
-pub unsafe fn WscUnRegisterChanges<P0>(hregistrationhandle: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    WscUnRegisterChanges(hregistrationhandle.param().abi()).ok()
+    WscUnRegisterChanges(core::mem::transmute(hregistrationhandle)).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSCDefaultProduct, IWSCDefaultProduct_Vtbl, 0x0476d69c_f21a_11e5_9ce9_5e5517507c66);

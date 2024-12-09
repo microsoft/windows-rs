@@ -18,52 +18,43 @@ where
     DavCancelConnectionsToServer(lpname.param().abi(), fforce.param().abi())
 }
 #[inline]
-pub unsafe fn DavDeleteConnection<P0>(connectionhandle: P0) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn DavDeleteConnection(connectionhandle: super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("netapi32.dll" "system" fn DavDeleteConnection(connectionhandle : super::super::Foundation:: HANDLE) -> u32);
-    DavDeleteConnection(connectionhandle.param().abi())
+    DavDeleteConnection(core::mem::transmute(connectionhandle))
 }
 #[inline]
-pub unsafe fn DavFlushFile<P0>(hfile: P0) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn DavFlushFile(hfile: super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("netapi32.dll" "system" fn DavFlushFile(hfile : super::super::Foundation:: HANDLE) -> u32);
-    DavFlushFile(hfile.param().abi())
+    DavFlushFile(core::mem::transmute(hfile))
 }
 #[inline]
-pub unsafe fn DavGetExtendedError<P0>(hfile: P0, exterror: *mut u32, exterrorstring: windows_core::PWSTR, cchsize: *mut u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn DavGetExtendedError(hfile: super::super::Foundation::HANDLE, exterror: *mut u32, exterrorstring: windows_core::PWSTR, cchsize: *mut u32) -> u32 {
     windows_targets::link!("netapi32.dll" "system" fn DavGetExtendedError(hfile : super::super::Foundation:: HANDLE, exterror : *mut u32, exterrorstring : windows_core::PWSTR, cchsize : *mut u32) -> u32);
-    DavGetExtendedError(hfile.param().abi(), core::mem::transmute(exterror), core::mem::transmute(exterrorstring), core::mem::transmute(cchsize))
+    DavGetExtendedError(core::mem::transmute(hfile), core::mem::transmute(exterror), core::mem::transmute(exterrorstring), core::mem::transmute(cchsize))
 }
 #[inline]
-pub unsafe fn DavGetHTTPFromUNCPath<P0>(uncpath: P0, url: windows_core::PWSTR, lpsize: *mut u32) -> u32
+pub unsafe fn DavGetHTTPFromUNCPath<P0>(uncpath: P0, url: Option<windows_core::PWSTR>, lpsize: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn DavGetHTTPFromUNCPath(uncpath : windows_core::PCWSTR, url : windows_core::PWSTR, lpsize : *mut u32) -> u32);
-    DavGetHTTPFromUNCPath(uncpath.param().abi(), core::mem::transmute(url), core::mem::transmute(lpsize))
+    DavGetHTTPFromUNCPath(uncpath.param().abi(), core::mem::transmute(url.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpsize))
 }
 #[inline]
-pub unsafe fn DavGetTheLockOwnerOfTheFile<P0>(filename: P0, lockownername: windows_core::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32
+pub unsafe fn DavGetTheLockOwnerOfTheFile<P0>(filename: P0, lockownername: Option<windows_core::PWSTR>, lockownernamelengthinbytes: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("davclnt.dll" "system" fn DavGetTheLockOwnerOfTheFile(filename : windows_core::PCWSTR, lockownername : windows_core::PWSTR, lockownernamelengthinbytes : *mut u32) -> u32);
-    DavGetTheLockOwnerOfTheFile(filename.param().abi(), core::mem::transmute(lockownername), core::mem::transmute(lockownernamelengthinbytes))
+    DavGetTheLockOwnerOfTheFile(filename.param().abi(), core::mem::transmute(lockownername.unwrap_or(core::mem::zeroed())), core::mem::transmute(lockownernamelengthinbytes))
 }
 #[inline]
-pub unsafe fn DavGetUNCFromHTTPPath<P0>(url: P0, uncpath: windows_core::PWSTR, lpsize: *mut u32) -> u32
+pub unsafe fn DavGetUNCFromHTTPPath<P0>(url: P0, uncpath: Option<windows_core::PWSTR>, lpsize: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn DavGetUNCFromHTTPPath(url : windows_core::PCWSTR, uncpath : windows_core::PWSTR, lpsize : *mut u32) -> u32);
-    DavGetUNCFromHTTPPath(url.param().abi(), core::mem::transmute(uncpath), core::mem::transmute(lpsize))
+    DavGetUNCFromHTTPPath(url.param().abi(), core::mem::transmute(uncpath.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpsize))
 }
 #[inline]
 pub unsafe fn DavInvalidateCache<P0>(urlname: P0) -> u32

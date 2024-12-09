@@ -135,7 +135,7 @@ impl IDeviceIoControl {
             core::mem::transmute(outputbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             outputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
             requestcompletioncallback.param().abi(),
-            core::mem::transmute(cancelcontext.unwrap_or(core::ptr::null_mut())),
+            core::mem::transmute(cancelcontext.unwrap_or(core::mem::zeroed())),
         )
         .ok()
     }

@@ -23,18 +23,15 @@ where
     WslIsDistributionRegistered(distributionname.param().abi())
 }
 #[inline]
-pub unsafe fn WslLaunch<P0, P1, P2, P3, P4, P5>(distributionname: P0, command: P1, usecurrentworkingdirectory: P2, stdin: P3, stdout: P4, stderr: P5) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WslLaunch<P0, P1, P2>(distributionname: P0, command: P1, usecurrentworkingdirectory: P2, stdin: super::super::Foundation::HANDLE, stdout: super::super::Foundation::HANDLE, stderr: super::super::Foundation::HANDLE) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
-    P3: windows_core::Param<super::super::Foundation::HANDLE>,
-    P4: windows_core::Param<super::super::Foundation::HANDLE>,
-    P5: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslLaunch(distributionname : windows_core::PCWSTR, command : windows_core::PCWSTR, usecurrentworkingdirectory : super::super::Foundation:: BOOL, stdin : super::super::Foundation:: HANDLE, stdout : super::super::Foundation:: HANDLE, stderr : super::super::Foundation:: HANDLE, process : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WslLaunch(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.param().abi(), stdin.param().abi(), stdout.param().abi(), stderr.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    WslLaunch(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.param().abi(), core::mem::transmute(stdin), core::mem::transmute(stdout), core::mem::transmute(stderr), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WslLaunchInteractive<P0, P1, P2>(distributionname: P0, command: P1, usecurrentworkingdirectory: P2) -> windows_core::Result<u32>

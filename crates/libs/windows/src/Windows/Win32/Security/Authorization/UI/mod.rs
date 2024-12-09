@@ -9,22 +9,20 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn EditSecurity<P0, P1>(hwndowner: P0, psi: P1) -> windows_core::Result<()>
+pub unsafe fn EditSecurity<P1>(hwndowner: super::super::super::Foundation::HWND, psi: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::super::Foundation::HWND>,
     P1: windows_core::Param<ISecurityInformation>,
 {
     windows_targets::link!("aclui.dll" "system" fn EditSecurity(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EditSecurity(hwndowner.param().abi(), psi.param().abi()).ok()
+    EditSecurity(core::mem::transmute(hwndowner), psi.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn EditSecurityAdvanced<P0, P1>(hwndowner: P0, psi: P1, usipage: SI_PAGE_TYPE) -> windows_core::Result<()>
+pub unsafe fn EditSecurityAdvanced<P1>(hwndowner: super::super::super::Foundation::HWND, psi: P1, usipage: SI_PAGE_TYPE) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::super::Foundation::HWND>,
     P1: windows_core::Param<ISecurityInformation>,
 {
     windows_targets::link!("aclui.dll" "system" fn EditSecurityAdvanced(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void, usipage : SI_PAGE_TYPE) -> windows_core::HRESULT);
-    EditSecurityAdvanced(hwndowner.param().abi(), psi.param().abi(), core::mem::transmute(usipage)).ok()
+    EditSecurityAdvanced(core::mem::transmute(hwndowner), psi.param().abi(), core::mem::transmute(usipage)).ok()
 }
 pub const CFSTR_ACLUI_SID_INFO_LIST: windows_core::PCWSTR = windows_core::w!("CFSTR_ACLUI_SID_INFO_LIST");
 pub const DOBJ_COND_NTACLS: i32 = 8i32;
@@ -51,13 +49,11 @@ impl windows_core::TypeKind for EFFPERM_RESULT_LIST {
 windows_core::imp::define_interface!(IEffectivePermission, IEffectivePermission_Vtbl, 0x3853dc76_9f35_407c_88a1_d19344365fbc);
 windows_core::imp::interface_hierarchy!(IEffectivePermission, windows_core::IUnknown);
 impl IEffectivePermission {
-    pub unsafe fn GetEffectivePermission<P1, P2, P3>(&self, pguidobjecttype: *const windows_core::GUID, pusersid: P1, pszservername: P2, psd: P3, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetEffectivePermission<P2>(&self, pguidobjecttype: *const windows_core::GUID, pusersid: super::super::PSID, pszservername: P2, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::PSID>,
         P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::PSECURITY_DESCRIPTOR>,
     {
-        (windows_core::Interface::vtable(self).GetEffectivePermission)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidobjecttype), pusersid.param().abi(), pszservername.param().abi(), psd.param().abi(), core::mem::transmute(ppobjecttypelist), core::mem::transmute(pcobjecttypelistlength), core::mem::transmute(ppgrantedaccesslist), core::mem::transmute(pcgrantedaccesslistlength)).ok()
+        (windows_core::Interface::vtable(self).GetEffectivePermission)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidobjecttype), core::mem::transmute(pusersid), pszservername.param().abi(), core::mem::transmute(psd), core::mem::transmute(ppobjecttypelist), core::mem::transmute(pcobjecttypelistlength), core::mem::transmute(ppgrantedaccesslist), core::mem::transmute(pcgrantedaccesslistlength)).ok()
     }
 }
 #[repr(C)]
@@ -84,10 +80,10 @@ impl windows_core::RuntimeName for IEffectivePermission {}
 windows_core::imp::define_interface!(IEffectivePermission2, IEffectivePermission2_Vtbl, 0x941fabca_dd47_4fca_90bb_b0e10255f20d);
 windows_core::imp::interface_hierarchy!(IEffectivePermission2, windows_core::IUnknown);
 impl IEffectivePermission2 {
-    pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<P0, P1, P2>(
+    pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<P2>(
         &self,
-        psid: P0,
-        pdevicesid: P1,
+        psid: super::super::PSID,
+        pdevicesid: Option<super::super::PSID>,
         pszservername: P2,
         psecurityobjects: *mut SECURITY_OBJECT,
         dwsecurityobjectcount: u32,
@@ -102,25 +98,23 @@ impl IEffectivePermission2 {
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
     ) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::PSID>,
-        P1: windows_core::Param<super::super::PSID>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
             windows_core::Interface::as_raw(self),
-            psid.param().abi(),
-            pdevicesid.param().abi(),
+            core::mem::transmute(psid),
+            core::mem::transmute(pdevicesid.unwrap_or(core::mem::zeroed())),
             pszservername.param().abi(),
             core::mem::transmute(psecurityobjects),
             core::mem::transmute(dwsecurityobjectcount),
-            core::mem::transmute(pusergroups.unwrap_or(core::ptr::null())),
-            core::mem::transmute(pauthzusergroupsoperations.unwrap_or(core::ptr::null())),
-            core::mem::transmute(pdevicegroups.unwrap_or(core::ptr::null())),
-            core::mem::transmute(pauthzdevicegroupsoperations.unwrap_or(core::ptr::null())),
-            core::mem::transmute(pauthzuserclaims.unwrap_or(core::ptr::null())),
-            core::mem::transmute(pauthzuserclaimsoperations.unwrap_or(core::ptr::null())),
-            core::mem::transmute(pauthzdeviceclaims.unwrap_or(core::ptr::null())),
-            core::mem::transmute(pauthzdeviceclaimsoperations.unwrap_or(core::ptr::null())),
+            core::mem::transmute(pusergroups.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pauthzusergroupsoperations.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pdevicegroups.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pauthzdevicegroupsoperations.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pauthzuserclaims.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pauthzuserclaimsoperations.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pauthzdeviceclaims.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pauthzdeviceclaimsoperations.unwrap_or(core::mem::zeroed())),
             core::mem::transmute(peffpermresultlists),
         )
         .ok()
@@ -211,11 +205,8 @@ impl ISecurityInformation {
     {
         (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(requestedinformation), core::mem::transmute(ppsecuritydescriptor), fdefault.param().abi()).ok()
     }
-    pub unsafe fn SetSecurity<P1>(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::PSECURITY_DESCRIPTOR>,
-    {
-        (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(securityinformation), psecuritydescriptor.param().abi()).ok()
+    pub unsafe fn SetSecurity(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(securityinformation), core::mem::transmute(psecuritydescriptor)).ok()
     }
     pub unsafe fn GetAccessRights(&self, pguidobjecttype: *const windows_core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAccessRights)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidobjecttype), core::mem::transmute(dwflags), core::mem::transmute(ppaccess), core::mem::transmute(pcaccesses), core::mem::transmute(pidefaultaccess)).ok()
@@ -227,11 +218,8 @@ impl ISecurityInformation {
         (windows_core::Interface::vtable(self).GetInheritTypes)(windows_core::Interface::as_raw(self), core::mem::transmute(ppinherittypes), core::mem::transmute(pcinherittypes)).ok()
     }
     #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn PropertySheetPageCallback<P0>(&self, hwnd: P0, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).PropertySheetPageCallback)(windows_core::Interface::as_raw(self), hwnd.param().abi(), core::mem::transmute(umsg), core::mem::transmute(upage)).ok()
+    pub unsafe fn PropertySheetPageCallback(&self, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).PropertySheetPageCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), core::mem::transmute(umsg), core::mem::transmute(upage)).ok()
     }
 }
 #[repr(C)]
@@ -368,11 +356,8 @@ impl ISecurityInformation3 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFullResourceName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn OpenElevatedEditor<P0>(&self, hwnd: P0, upage: SI_PAGE_TYPE) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).OpenElevatedEditor)(windows_core::Interface::as_raw(self), hwnd.param().abi(), core::mem::transmute(upage)).ok()
+    pub unsafe fn OpenElevatedEditor(&self, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).OpenElevatedEditor)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), core::mem::transmute(upage)).ok()
     }
 }
 #[repr(C)]

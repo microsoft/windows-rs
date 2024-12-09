@@ -41,7 +41,7 @@ fn sys_interop() -> Result<()> {
 
 #[test]
 fn windows_interop() -> Result<()> {
-    use windows::{core::*, Win32::System::Registry::*};
+    use windows::Win32::System::Registry::*;
 
     let test_key = "software\\windows-rs\\tests\\windows_interop";
     _ = CURRENT_USER.remove_tree(test_key);
@@ -60,7 +60,7 @@ fn windows_interop() -> Result<()> {
     unsafe {
         RegQueryInfoKeyW(
             HKEY(owned.as_raw()),
-            PWSTR::null(),
+            None,
             None,
             None,
             None,

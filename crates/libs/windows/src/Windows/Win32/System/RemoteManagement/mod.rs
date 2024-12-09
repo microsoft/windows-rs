@@ -1,130 +1,100 @@
 #[inline]
-pub unsafe fn WSManCloseCommand<P0>(commandhandle: P0, flags: u32, r#async: *const WSMAN_SHELL_ASYNC)
-where
-    P0: windows_core::Param<WSMAN_COMMAND_HANDLE>,
-{
+pub unsafe fn WSManCloseCommand(commandhandle: Option<WSMAN_COMMAND_HANDLE>, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseCommand(commandhandle : WSMAN_COMMAND_HANDLE, flags : u32, r#async : *const WSMAN_SHELL_ASYNC));
-    WSManCloseCommand(commandhandle.param().abi(), core::mem::transmute(flags), core::mem::transmute(r#async))
+    WSManCloseCommand(core::mem::transmute(commandhandle.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags), core::mem::transmute(r#async))
 }
 #[inline]
-pub unsafe fn WSManCloseOperation<P0>(operationhandle: P0, flags: u32) -> u32
-where
-    P0: windows_core::Param<WSMAN_OPERATION_HANDLE>,
-{
+pub unsafe fn WSManCloseOperation(operationhandle: Option<WSMAN_OPERATION_HANDLE>, flags: u32) -> u32 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseOperation(operationhandle : WSMAN_OPERATION_HANDLE, flags : u32) -> u32);
-    WSManCloseOperation(operationhandle.param().abi(), core::mem::transmute(flags))
+    WSManCloseOperation(core::mem::transmute(operationhandle.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags))
 }
 #[inline]
-pub unsafe fn WSManCloseSession<P0>(session: P0, flags: u32) -> u32
-where
-    P0: windows_core::Param<WSMAN_SESSION_HANDLE>,
-{
+pub unsafe fn WSManCloseSession(session: Option<WSMAN_SESSION_HANDLE>, flags: u32) -> u32 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseSession(session : WSMAN_SESSION_HANDLE, flags : u32) -> u32);
-    WSManCloseSession(session.param().abi(), core::mem::transmute(flags))
+    WSManCloseSession(core::mem::transmute(session.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags))
 }
 #[inline]
-pub unsafe fn WSManCloseShell<P0>(shellhandle: P0, flags: u32, r#async: *const WSMAN_SHELL_ASYNC)
-where
-    P0: windows_core::Param<WSMAN_SHELL_HANDLE>,
-{
+pub unsafe fn WSManCloseShell(shellhandle: Option<WSMAN_SHELL_HANDLE>, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseShell(shellhandle : WSMAN_SHELL_HANDLE, flags : u32, r#async : *const WSMAN_SHELL_ASYNC));
-    WSManCloseShell(shellhandle.param().abi(), core::mem::transmute(flags), core::mem::transmute(r#async))
+    WSManCloseShell(core::mem::transmute(shellhandle.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags), core::mem::transmute(r#async))
 }
 #[inline]
-pub unsafe fn WSManConnectShell<P0, P2, P3>(session: P0, flags: u32, resourceuri: P2, shellid: P3, options: Option<*const WSMAN_OPTION_SET>, connectxml: Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_SHELL_HANDLE
+pub unsafe fn WSManConnectShell<P2, P3>(session: WSMAN_SESSION_HANDLE, flags: u32, resourceuri: P2, shellid: P3, options: Option<*const WSMAN_OPTION_SET>, connectxml: Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_SHELL_HANDLE
 where
-    P0: windows_core::Param<WSMAN_SESSION_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManConnectShell(session : WSMAN_SESSION_HANDLE, flags : u32, resourceuri : windows_core::PCWSTR, shellid : windows_core::PCWSTR, options : *const WSMAN_OPTION_SET, connectxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut WSMAN_SHELL_HANDLE));
     let mut result__ = core::mem::zeroed();
-    WSManConnectShell(session.param().abi(), core::mem::transmute(flags), resourceuri.param().abi(), shellid.param().abi(), core::mem::transmute(options.unwrap_or(core::ptr::null())), core::mem::transmute(connectxml.unwrap_or(core::ptr::null())), core::mem::transmute(r#async), &mut result__);
+    WSManConnectShell(core::mem::transmute(session), core::mem::transmute(flags), resourceuri.param().abi(), shellid.param().abi(), core::mem::transmute(options.unwrap_or(core::mem::zeroed())), core::mem::transmute(connectxml.unwrap_or(core::mem::zeroed())), core::mem::transmute(r#async), &mut result__);
     result__
 }
 #[inline]
-pub unsafe fn WSManConnectShellCommand<P0, P2>(shell: P0, flags: u32, commandid: P2, options: Option<*const WSMAN_OPTION_SET>, connectxml: Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_COMMAND_HANDLE
+pub unsafe fn WSManConnectShellCommand<P2>(shell: WSMAN_SHELL_HANDLE, flags: u32, commandid: P2, options: Option<*const WSMAN_OPTION_SET>, connectxml: Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_COMMAND_HANDLE
 where
-    P0: windows_core::Param<WSMAN_SHELL_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManConnectShellCommand(shell : WSMAN_SHELL_HANDLE, flags : u32, commandid : windows_core::PCWSTR, options : *const WSMAN_OPTION_SET, connectxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE));
     let mut result__ = core::mem::zeroed();
-    WSManConnectShellCommand(shell.param().abi(), core::mem::transmute(flags), commandid.param().abi(), core::mem::transmute(options.unwrap_or(core::ptr::null())), core::mem::transmute(connectxml.unwrap_or(core::ptr::null())), core::mem::transmute(r#async), &mut result__);
+    WSManConnectShellCommand(core::mem::transmute(shell), core::mem::transmute(flags), commandid.param().abi(), core::mem::transmute(options.unwrap_or(core::mem::zeroed())), core::mem::transmute(connectxml.unwrap_or(core::mem::zeroed())), core::mem::transmute(r#async), &mut result__);
     result__
 }
 #[inline]
-pub unsafe fn WSManCreateSession<P0, P1>(apihandle: P0, connection: P1, flags: u32, serverauthenticationcredentials: Option<*const WSMAN_AUTHENTICATION_CREDENTIALS>, proxyinfo: Option<*const WSMAN_PROXY_INFO>, session: *mut WSMAN_SESSION_HANDLE) -> u32
+pub unsafe fn WSManCreateSession<P1>(apihandle: WSMAN_API_HANDLE, connection: P1, flags: u32, serverauthenticationcredentials: Option<*const WSMAN_AUTHENTICATION_CREDENTIALS>, proxyinfo: Option<*const WSMAN_PROXY_INFO>, session: *mut WSMAN_SESSION_HANDLE) -> u32
 where
-    P0: windows_core::Param<WSMAN_API_HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManCreateSession(apihandle : WSMAN_API_HANDLE, connection : windows_core::PCWSTR, flags : u32, serverauthenticationcredentials : *const WSMAN_AUTHENTICATION_CREDENTIALS, proxyinfo : *const WSMAN_PROXY_INFO, session : *mut WSMAN_SESSION_HANDLE) -> u32);
-    WSManCreateSession(apihandle.param().abi(), connection.param().abi(), core::mem::transmute(flags), core::mem::transmute(serverauthenticationcredentials.unwrap_or(core::ptr::null())), core::mem::transmute(proxyinfo.unwrap_or(core::ptr::null())), core::mem::transmute(session))
+    WSManCreateSession(core::mem::transmute(apihandle), connection.param().abi(), core::mem::transmute(flags), core::mem::transmute(serverauthenticationcredentials.unwrap_or(core::mem::zeroed())), core::mem::transmute(proxyinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(session))
 }
 #[inline]
-pub unsafe fn WSManCreateShell<P0, P2>(session: P0, flags: u32, resourceuri: P2, startupinfo: Option<*const WSMAN_SHELL_STARTUP_INFO_V11>, options: Option<*const WSMAN_OPTION_SET>, createxml: Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_SHELL_HANDLE
+pub unsafe fn WSManCreateShell<P2>(session: WSMAN_SESSION_HANDLE, flags: u32, resourceuri: P2, startupinfo: Option<*const WSMAN_SHELL_STARTUP_INFO_V11>, options: Option<*const WSMAN_OPTION_SET>, createxml: Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_SHELL_HANDLE
 where
-    P0: windows_core::Param<WSMAN_SESSION_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManCreateShell(session : WSMAN_SESSION_HANDLE, flags : u32, resourceuri : windows_core::PCWSTR, startupinfo : *const WSMAN_SHELL_STARTUP_INFO_V11, options : *const WSMAN_OPTION_SET, createxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut WSMAN_SHELL_HANDLE));
     let mut result__ = core::mem::zeroed();
-    WSManCreateShell(session.param().abi(), core::mem::transmute(flags), resourceuri.param().abi(), core::mem::transmute(startupinfo.unwrap_or(core::ptr::null())), core::mem::transmute(options.unwrap_or(core::ptr::null())), core::mem::transmute(createxml.unwrap_or(core::ptr::null())), core::mem::transmute(r#async), &mut result__);
+    WSManCreateShell(core::mem::transmute(session), core::mem::transmute(flags), resourceuri.param().abi(), core::mem::transmute(startupinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(options.unwrap_or(core::mem::zeroed())), core::mem::transmute(createxml.unwrap_or(core::mem::zeroed())), core::mem::transmute(r#async), &mut result__);
     result__
 }
 #[inline]
-pub unsafe fn WSManCreateShellEx<P0, P2, P3>(session: P0, flags: u32, resourceuri: P2, shellid: P3, startupinfo: Option<*const WSMAN_SHELL_STARTUP_INFO_V11>, options: Option<*const WSMAN_OPTION_SET>, createxml: Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_SHELL_HANDLE
+pub unsafe fn WSManCreateShellEx<P2, P3>(session: WSMAN_SESSION_HANDLE, flags: u32, resourceuri: P2, shellid: P3, startupinfo: Option<*const WSMAN_SHELL_STARTUP_INFO_V11>, options: Option<*const WSMAN_OPTION_SET>, createxml: Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_SHELL_HANDLE
 where
-    P0: windows_core::Param<WSMAN_SESSION_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManCreateShellEx(session : WSMAN_SESSION_HANDLE, flags : u32, resourceuri : windows_core::PCWSTR, shellid : windows_core::PCWSTR, startupinfo : *const WSMAN_SHELL_STARTUP_INFO_V11, options : *const WSMAN_OPTION_SET, createxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut WSMAN_SHELL_HANDLE));
     let mut result__ = core::mem::zeroed();
-    WSManCreateShellEx(session.param().abi(), core::mem::transmute(flags), resourceuri.param().abi(), shellid.param().abi(), core::mem::transmute(startupinfo.unwrap_or(core::ptr::null())), core::mem::transmute(options.unwrap_or(core::ptr::null())), core::mem::transmute(createxml.unwrap_or(core::ptr::null())), core::mem::transmute(r#async), &mut result__);
+    WSManCreateShellEx(core::mem::transmute(session), core::mem::transmute(flags), resourceuri.param().abi(), shellid.param().abi(), core::mem::transmute(startupinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(options.unwrap_or(core::mem::zeroed())), core::mem::transmute(createxml.unwrap_or(core::mem::zeroed())), core::mem::transmute(r#async), &mut result__);
     result__
 }
 #[inline]
-pub unsafe fn WSManDeinitialize<P0>(apihandle: P0, flags: u32) -> u32
-where
-    P0: windows_core::Param<WSMAN_API_HANDLE>,
-{
+pub unsafe fn WSManDeinitialize(apihandle: Option<WSMAN_API_HANDLE>, flags: u32) -> u32 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManDeinitialize(apihandle : WSMAN_API_HANDLE, flags : u32) -> u32);
-    WSManDeinitialize(apihandle.param().abi(), core::mem::transmute(flags))
+    WSManDeinitialize(core::mem::transmute(apihandle.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags))
 }
 #[inline]
-pub unsafe fn WSManDisconnectShell<P0>(shell: P0, flags: u32, disconnectinfo: *const WSMAN_SHELL_DISCONNECT_INFO, r#async: *const WSMAN_SHELL_ASYNC)
-where
-    P0: windows_core::Param<WSMAN_SHELL_HANDLE>,
-{
+pub unsafe fn WSManDisconnectShell(shell: WSMAN_SHELL_HANDLE, flags: u32, disconnectinfo: *const WSMAN_SHELL_DISCONNECT_INFO, r#async: *const WSMAN_SHELL_ASYNC) {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManDisconnectShell(shell : WSMAN_SHELL_HANDLE, flags : u32, disconnectinfo : *const WSMAN_SHELL_DISCONNECT_INFO, r#async : *const WSMAN_SHELL_ASYNC));
-    WSManDisconnectShell(shell.param().abi(), core::mem::transmute(flags), core::mem::transmute(disconnectinfo), core::mem::transmute(r#async))
+    WSManDisconnectShell(core::mem::transmute(shell), core::mem::transmute(flags), core::mem::transmute(disconnectinfo), core::mem::transmute(r#async))
 }
 #[inline]
-pub unsafe fn WSManGetErrorMessage<P0, P2>(apihandle: P0, flags: u32, languagecode: P2, errorcode: u32, message: Option<&mut [u16]>, messagelengthused: *mut u32) -> u32
+pub unsafe fn WSManGetErrorMessage<P2>(apihandle: WSMAN_API_HANDLE, flags: Option<u32>, languagecode: P2, errorcode: u32, message: Option<&mut [u16]>, messagelengthused: *mut u32) -> u32
 where
-    P0: windows_core::Param<WSMAN_API_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManGetErrorMessage(apihandle : WSMAN_API_HANDLE, flags : u32, languagecode : windows_core::PCWSTR, errorcode : u32, messagelength : u32, message : windows_core::PWSTR, messagelengthused : *mut u32) -> u32);
-    WSManGetErrorMessage(apihandle.param().abi(), core::mem::transmute(flags), languagecode.param().abi(), core::mem::transmute(errorcode), message.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(message.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(messagelengthused))
+    WSManGetErrorMessage(core::mem::transmute(apihandle), core::mem::transmute(flags.unwrap_or(core::mem::zeroed())), languagecode.param().abi(), core::mem::transmute(errorcode), message.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(message.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(messagelengthused))
 }
 #[inline]
-pub unsafe fn WSManGetSessionOptionAsDword<P0>(session: P0, option: WSManSessionOption, value: *mut u32) -> u32
-where
-    P0: windows_core::Param<WSMAN_SESSION_HANDLE>,
-{
+pub unsafe fn WSManGetSessionOptionAsDword(session: WSMAN_SESSION_HANDLE, option: WSManSessionOption, value: *mut u32) -> u32 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManGetSessionOptionAsDword(session : WSMAN_SESSION_HANDLE, option : WSManSessionOption, value : *mut u32) -> u32);
-    WSManGetSessionOptionAsDword(session.param().abi(), core::mem::transmute(option), core::mem::transmute(value))
+    WSManGetSessionOptionAsDword(core::mem::transmute(session), core::mem::transmute(option), core::mem::transmute(value))
 }
 #[inline]
-pub unsafe fn WSManGetSessionOptionAsString<P0>(session: P0, option: WSManSessionOption, string: Option<&mut [u16]>, stringlengthused: *mut u32) -> u32
-where
-    P0: windows_core::Param<WSMAN_SESSION_HANDLE>,
-{
+pub unsafe fn WSManGetSessionOptionAsString(session: WSMAN_SESSION_HANDLE, option: WSManSessionOption, string: Option<&mut [u16]>, stringlengthused: *mut u32) -> u32 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManGetSessionOptionAsString(session : WSMAN_SESSION_HANDLE, option : WSManSessionOption, stringlength : u32, string : windows_core::PWSTR, stringlengthused : *mut u32) -> u32);
-    WSManGetSessionOptionAsString(session.param().abi(), core::mem::transmute(option), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(string.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(stringlengthused))
+    WSManGetSessionOptionAsString(core::mem::transmute(session), core::mem::transmute(option), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(string.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(stringlengthused))
 }
 #[inline]
 pub unsafe fn WSManInitialize(flags: u32, apihandle: *mut WSMAN_API_HANDLE) -> u32 {
@@ -137,7 +107,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginAuthzOperationComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const core::ffi::c_void, errorcode : u32, extendederrorinformation : windows_core::PCWSTR) -> u32);
-    WSManPluginAuthzOperationComplete(core::mem::transmute(senderdetails), core::mem::transmute(flags), core::mem::transmute(userauthorizationcontext.unwrap_or(core::ptr::null())), core::mem::transmute(errorcode), extendederrorinformation.param().abi())
+    WSManPluginAuthzOperationComplete(core::mem::transmute(senderdetails), core::mem::transmute(flags), core::mem::transmute(userauthorizationcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(errorcode), extendederrorinformation.param().abi())
 }
 #[inline]
 pub unsafe fn WSManPluginAuthzQueryQuotaComplete<P4>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, quota: Option<*const WSMAN_AUTHZ_QUOTA>, errorcode: u32, extendederrorinformation: P4) -> u32
@@ -145,17 +115,16 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginAuthzQueryQuotaComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, quota : *const WSMAN_AUTHZ_QUOTA, errorcode : u32, extendederrorinformation : windows_core::PCWSTR) -> u32);
-    WSManPluginAuthzQueryQuotaComplete(core::mem::transmute(senderdetails), core::mem::transmute(flags), core::mem::transmute(quota.unwrap_or(core::ptr::null())), core::mem::transmute(errorcode), extendederrorinformation.param().abi())
+    WSManPluginAuthzQueryQuotaComplete(core::mem::transmute(senderdetails), core::mem::transmute(flags), core::mem::transmute(quota.unwrap_or(core::mem::zeroed())), core::mem::transmute(errorcode), extendederrorinformation.param().abi())
 }
 #[inline]
-pub unsafe fn WSManPluginAuthzUserComplete<P3, P4, P6>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: Option<*const core::ffi::c_void>, impersonationtoken: P3, userisadministrator: P4, errorcode: u32, extendederrorinformation: P6) -> u32
+pub unsafe fn WSManPluginAuthzUserComplete<P4, P6>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: Option<*const core::ffi::c_void>, impersonationtoken: Option<super::super::Foundation::HANDLE>, userisadministrator: P4, errorcode: u32, extendederrorinformation: P6) -> u32
 where
-    P3: windows_core::Param<super::super::Foundation::HANDLE>,
     P4: windows_core::Param<super::super::Foundation::BOOL>,
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginAuthzUserComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const core::ffi::c_void, impersonationtoken : super::super::Foundation:: HANDLE, userisadministrator : super::super::Foundation:: BOOL, errorcode : u32, extendederrorinformation : windows_core::PCWSTR) -> u32);
-    WSManPluginAuthzUserComplete(core::mem::transmute(senderdetails), core::mem::transmute(flags), core::mem::transmute(userauthorizationcontext.unwrap_or(core::ptr::null())), impersonationtoken.param().abi(), userisadministrator.param().abi(), core::mem::transmute(errorcode), extendederrorinformation.param().abi())
+    WSManPluginAuthzUserComplete(core::mem::transmute(senderdetails), core::mem::transmute(flags), core::mem::transmute(userauthorizationcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(impersonationtoken.unwrap_or(core::mem::zeroed())), userisadministrator.param().abi(), core::mem::transmute(errorcode), extendederrorinformation.param().abi())
 }
 #[inline]
 pub unsafe fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_REQUEST) -> u32 {
@@ -187,7 +156,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginReceiveResult(requestdetails : *const WSMAN_PLUGIN_REQUEST, flags : u32, stream : windows_core::PCWSTR, streamresult : *const WSMAN_DATA, commandstate : windows_core::PCWSTR, exitcode : u32) -> u32);
-    WSManPluginReceiveResult(core::mem::transmute(requestdetails), core::mem::transmute(flags), stream.param().abi(), core::mem::transmute(streamresult.unwrap_or(core::ptr::null())), commandstate.param().abi(), core::mem::transmute(exitcode))
+    WSManPluginReceiveResult(core::mem::transmute(requestdetails), core::mem::transmute(flags), stream.param().abi(), core::mem::transmute(streamresult.unwrap_or(core::mem::zeroed())), commandstate.param().abi(), core::mem::transmute(exitcode))
 }
 #[inline]
 pub unsafe fn WSManPluginReportCompletion(plugincontext: *const core::ffi::c_void, flags: u32) -> u32 {
@@ -200,86 +169,67 @@ pub unsafe fn WSManPluginReportContext(requestdetails: *const WSMAN_PLUGIN_REQUE
     WSManPluginReportContext(core::mem::transmute(requestdetails), core::mem::transmute(flags), core::mem::transmute(context))
 }
 #[inline]
-pub unsafe fn WSManReceiveShellOutput<P0, P1>(shell: P0, command: P1, flags: u32, desiredstreamset: Option<*const WSMAN_STREAM_ID_SET>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_OPERATION_HANDLE
-where
-    P0: windows_core::Param<WSMAN_SHELL_HANDLE>,
-    P1: windows_core::Param<WSMAN_COMMAND_HANDLE>,
-{
+pub unsafe fn WSManReceiveShellOutput(shell: WSMAN_SHELL_HANDLE, command: Option<WSMAN_COMMAND_HANDLE>, flags: u32, desiredstreamset: Option<*const WSMAN_STREAM_ID_SET>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_OPERATION_HANDLE {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManReceiveShellOutput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, desiredstreamset : *const WSMAN_STREAM_ID_SET, r#async : *const WSMAN_SHELL_ASYNC, receiveoperation : *mut WSMAN_OPERATION_HANDLE));
     let mut result__ = core::mem::zeroed();
-    WSManReceiveShellOutput(shell.param().abi(), command.param().abi(), core::mem::transmute(flags), core::mem::transmute(desiredstreamset.unwrap_or(core::ptr::null())), core::mem::transmute(r#async), &mut result__);
+    WSManReceiveShellOutput(core::mem::transmute(shell), core::mem::transmute(command.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags), core::mem::transmute(desiredstreamset.unwrap_or(core::mem::zeroed())), core::mem::transmute(r#async), &mut result__);
     result__
 }
 #[inline]
-pub unsafe fn WSManReconnectShell<P0>(shell: P0, flags: u32, r#async: *const WSMAN_SHELL_ASYNC)
-where
-    P0: windows_core::Param<WSMAN_SHELL_HANDLE>,
-{
+pub unsafe fn WSManReconnectShell(shell: WSMAN_SHELL_HANDLE, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManReconnectShell(shell : WSMAN_SHELL_HANDLE, flags : u32, r#async : *const WSMAN_SHELL_ASYNC));
-    WSManReconnectShell(shell.param().abi(), core::mem::transmute(flags), core::mem::transmute(r#async))
+    WSManReconnectShell(core::mem::transmute(shell), core::mem::transmute(flags), core::mem::transmute(r#async))
 }
 #[inline]
-pub unsafe fn WSManReconnectShellCommand<P0>(commandhandle: P0, flags: u32, r#async: *const WSMAN_SHELL_ASYNC)
-where
-    P0: windows_core::Param<WSMAN_COMMAND_HANDLE>,
-{
+pub unsafe fn WSManReconnectShellCommand(commandhandle: WSMAN_COMMAND_HANDLE, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManReconnectShellCommand(commandhandle : WSMAN_COMMAND_HANDLE, flags : u32, r#async : *const WSMAN_SHELL_ASYNC));
-    WSManReconnectShellCommand(commandhandle.param().abi(), core::mem::transmute(flags), core::mem::transmute(r#async))
+    WSManReconnectShellCommand(core::mem::transmute(commandhandle), core::mem::transmute(flags), core::mem::transmute(r#async))
 }
 #[inline]
-pub unsafe fn WSManRunShellCommand<P0, P2>(shell: P0, flags: u32, commandline: P2, args: Option<*const WSMAN_COMMAND_ARG_SET>, options: Option<*const WSMAN_OPTION_SET>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_COMMAND_HANDLE
+pub unsafe fn WSManRunShellCommand<P2>(shell: WSMAN_SHELL_HANDLE, flags: u32, commandline: P2, args: Option<*const WSMAN_COMMAND_ARG_SET>, options: Option<*const WSMAN_OPTION_SET>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_COMMAND_HANDLE
 where
-    P0: windows_core::Param<WSMAN_SHELL_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManRunShellCommand(shell : WSMAN_SHELL_HANDLE, flags : u32, commandline : windows_core::PCWSTR, args : *const WSMAN_COMMAND_ARG_SET, options : *const WSMAN_OPTION_SET, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE));
     let mut result__ = core::mem::zeroed();
-    WSManRunShellCommand(shell.param().abi(), core::mem::transmute(flags), commandline.param().abi(), core::mem::transmute(args.unwrap_or(core::ptr::null())), core::mem::transmute(options.unwrap_or(core::ptr::null())), core::mem::transmute(r#async), &mut result__);
+    WSManRunShellCommand(core::mem::transmute(shell), core::mem::transmute(flags), commandline.param().abi(), core::mem::transmute(args.unwrap_or(core::mem::zeroed())), core::mem::transmute(options.unwrap_or(core::mem::zeroed())), core::mem::transmute(r#async), &mut result__);
     result__
 }
 #[inline]
-pub unsafe fn WSManRunShellCommandEx<P0, P2, P3>(shell: P0, flags: u32, commandid: P2, commandline: P3, args: Option<*const WSMAN_COMMAND_ARG_SET>, options: Option<*const WSMAN_OPTION_SET>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_COMMAND_HANDLE
+pub unsafe fn WSManRunShellCommandEx<P2, P3>(shell: WSMAN_SHELL_HANDLE, flags: u32, commandid: P2, commandline: P3, args: Option<*const WSMAN_COMMAND_ARG_SET>, options: Option<*const WSMAN_OPTION_SET>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_COMMAND_HANDLE
 where
-    P0: windows_core::Param<WSMAN_SHELL_HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManRunShellCommandEx(shell : WSMAN_SHELL_HANDLE, flags : u32, commandid : windows_core::PCWSTR, commandline : windows_core::PCWSTR, args : *const WSMAN_COMMAND_ARG_SET, options : *const WSMAN_OPTION_SET, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE));
     let mut result__ = core::mem::zeroed();
-    WSManRunShellCommandEx(shell.param().abi(), core::mem::transmute(flags), commandid.param().abi(), commandline.param().abi(), core::mem::transmute(args.unwrap_or(core::ptr::null())), core::mem::transmute(options.unwrap_or(core::ptr::null())), core::mem::transmute(r#async), &mut result__);
+    WSManRunShellCommandEx(core::mem::transmute(shell), core::mem::transmute(flags), commandid.param().abi(), commandline.param().abi(), core::mem::transmute(args.unwrap_or(core::mem::zeroed())), core::mem::transmute(options.unwrap_or(core::mem::zeroed())), core::mem::transmute(r#async), &mut result__);
     result__
 }
 #[inline]
-pub unsafe fn WSManSendShellInput<P0, P1, P3, P5>(shell: P0, command: P1, flags: u32, streamid: P3, streamdata: *const WSMAN_DATA, endofstream: P5, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_OPERATION_HANDLE
+pub unsafe fn WSManSendShellInput<P3, P5>(shell: WSMAN_SHELL_HANDLE, command: Option<WSMAN_COMMAND_HANDLE>, flags: u32, streamid: P3, streamdata: *const WSMAN_DATA, endofstream: P5, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_OPERATION_HANDLE
 where
-    P0: windows_core::Param<WSMAN_SHELL_HANDLE>,
-    P1: windows_core::Param<WSMAN_COMMAND_HANDLE>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManSendShellInput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, streamid : windows_core::PCWSTR, streamdata : *const WSMAN_DATA, endofstream : super::super::Foundation:: BOOL, r#async : *const WSMAN_SHELL_ASYNC, sendoperation : *mut WSMAN_OPERATION_HANDLE));
     let mut result__ = core::mem::zeroed();
-    WSManSendShellInput(shell.param().abi(), command.param().abi(), core::mem::transmute(flags), streamid.param().abi(), core::mem::transmute(streamdata), endofstream.param().abi(), core::mem::transmute(r#async), &mut result__);
+    WSManSendShellInput(core::mem::transmute(shell), core::mem::transmute(command.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags), streamid.param().abi(), core::mem::transmute(streamdata), endofstream.param().abi(), core::mem::transmute(r#async), &mut result__);
     result__
 }
 #[inline]
-pub unsafe fn WSManSetSessionOption<P0>(session: P0, option: WSManSessionOption, data: *const WSMAN_DATA) -> u32
-where
-    P0: windows_core::Param<WSMAN_SESSION_HANDLE>,
-{
+pub unsafe fn WSManSetSessionOption(session: WSMAN_SESSION_HANDLE, option: WSManSessionOption, data: *const WSMAN_DATA) -> u32 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManSetSessionOption(session : WSMAN_SESSION_HANDLE, option : WSManSessionOption, data : *const WSMAN_DATA) -> u32);
-    WSManSetSessionOption(session.param().abi(), core::mem::transmute(option), core::mem::transmute(data))
+    WSManSetSessionOption(core::mem::transmute(session), core::mem::transmute(option), core::mem::transmute(data))
 }
 #[inline]
-pub unsafe fn WSManSignalShell<P0, P1, P3>(shell: P0, command: P1, flags: u32, code: P3, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_OPERATION_HANDLE
+pub unsafe fn WSManSignalShell<P3>(shell: WSMAN_SHELL_HANDLE, command: Option<WSMAN_COMMAND_HANDLE>, flags: u32, code: P3, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_OPERATION_HANDLE
 where
-    P0: windows_core::Param<WSMAN_SHELL_HANDLE>,
-    P1: windows_core::Param<WSMAN_COMMAND_HANDLE>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManSignalShell(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, code : windows_core::PCWSTR, r#async : *const WSMAN_SHELL_ASYNC, signaloperation : *mut WSMAN_OPERATION_HANDLE));
     let mut result__ = core::mem::zeroed();
-    WSManSignalShell(shell.param().abi(), command.param().abi(), core::mem::transmute(flags), code.param().abi(), core::mem::transmute(r#async), &mut result__);
+    WSManSignalShell(core::mem::transmute(shell), core::mem::transmute(command.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags), code.param().abi(), core::mem::transmute(r#async), &mut result__);
     result__
 }
 pub const ERROR_REDIRECT_LOCATION_INVALID: u32 = 2150859191u32;

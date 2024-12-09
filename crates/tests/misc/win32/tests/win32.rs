@@ -141,7 +141,7 @@ fn bool_as_error() {
 #[test]
 fn com() -> windows::core::Result<()> {
     unsafe {
-        let stream = CreateStreamOnHGlobal(None, true)?;
+        let stream = CreateStreamOnHGlobal(Default::default(), true)?;
         let values = [1u8, 2u8, 3u8, 4u8];
 
         let mut copied = 0;
@@ -177,7 +177,7 @@ fn com_inheritance() {
 
         // IDXGIFactory
         assert!(factory
-            .MakeWindowAssociation(None, DXGI_MWA_FLAGS::default())
+            .MakeWindowAssociation(HWND::default(), DXGI_MWA_FLAGS::default())
             .is_ok());
 
         // IDXGIFactory1
@@ -192,7 +192,7 @@ fn com_inheritance() {
         // IDXGIFactory7 (default)
         assert!(
             factory
-                .RegisterAdaptersChangedEvent(None)
+                .RegisterAdaptersChangedEvent(HANDLE::default())
                 .unwrap_err()
                 .code()
                 == DXGI_ERROR_INVALID_CALL
@@ -206,12 +206,21 @@ fn onecore_imports() -> windows::core::Result<()> {
     unsafe {
         _ = HasExpandedResources()?;
 
-        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), 0)?;
+        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
 
         let port = uri.GetPort()?;
         assert!(port == 80);
 
-        MiniDumpWriteDump(None, 0, None, MiniDumpNormal, None, None, None).unwrap_err();
+        MiniDumpWriteDump(
+            Default::default(),
+            0,
+            Default::default(),
+            MiniDumpNormal,
+            None,
+            None,
+            None,
+        )
+        .unwrap_err();
 
         assert!(D3DDisassemble11Trace(std::ptr::null(), 0, None, 0, 0, 0).is_err());
 
@@ -222,7 +231,7 @@ fn onecore_imports() -> windows::core::Result<()> {
 #[test]
 fn interface() -> windows::core::Result<()> {
     unsafe {
-        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), 0)?;
+        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
 
         let domain = uri.GetDomain()?;
         assert!(domain == "kennykerr.ca");

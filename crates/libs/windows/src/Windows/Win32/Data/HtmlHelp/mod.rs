@@ -1,20 +1,18 @@
 #[inline]
-pub unsafe fn HtmlHelpA<P0, P1>(hwndcaller: P0, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
+pub unsafe fn HtmlHelpA<P1>(hwndcaller: Option<super::super::Foundation::HWND>, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("hhctrl.ocx" "system" fn HtmlHelpA(hwndcaller : super::super::Foundation:: HWND, pszfile : windows_core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
-    HtmlHelpA(hwndcaller.param().abi(), pszfile.param().abi(), ucommand.0 as _, core::mem::transmute(dwdata))
+    HtmlHelpA(core::mem::transmute(hwndcaller.unwrap_or(core::mem::zeroed())), pszfile.param().abi(), ucommand.0 as _, core::mem::transmute(dwdata))
 }
 #[inline]
-pub unsafe fn HtmlHelpW<P0, P1>(hwndcaller: P0, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
+pub unsafe fn HtmlHelpW<P1>(hwndcaller: Option<super::super::Foundation::HWND>, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("hhctrl.ocx" "system" fn HtmlHelpW(hwndcaller : super::super::Foundation:: HWND, pszfile : windows_core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
-    HtmlHelpW(hwndcaller.param().abi(), pszfile.param().abi(), ucommand.0 as _, core::mem::transmute(dwdata))
+    HtmlHelpW(core::mem::transmute(hwndcaller.unwrap_or(core::mem::zeroed())), pszfile.param().abi(), ucommand.0 as _, core::mem::transmute(dwdata))
 }
 pub const CLSID_IITCmdInt: windows_core::GUID = windows_core::GUID::from_u128(0x4662daa2_d393_11d0_9a56_00c04fb68bf7);
 pub const CLSID_IITDatabase: windows_core::GUID = windows_core::GUID::from_u128(0x66673452_8c23_11d0_a84e_00aa006c7d01);

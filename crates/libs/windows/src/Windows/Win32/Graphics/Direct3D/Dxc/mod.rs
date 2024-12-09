@@ -463,8 +463,8 @@ impl IDxcCompiler2 {
             pdefines.len().try_into().unwrap(),
             pincludehandler.param().abi(),
             core::mem::transmute(ppresult),
-            core::mem::transmute(ppdebugblobname.unwrap_or(core::ptr::null_mut())),
-            core::mem::transmute(ppdebugblob.unwrap_or(core::ptr::null_mut())),
+            core::mem::transmute(ppdebugblobname.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(ppdebugblob.unwrap_or(core::mem::zeroed())),
         )
         .ok()
     }
@@ -822,7 +822,7 @@ impl IDxcExtraOutputs {
     where
         T: windows_core::Interface,
     {
-        (windows_core::Interface::vtable(self).GetOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(uindex), &T::IID, result__ as *mut _ as *mut _, core::mem::transmute(ppoutputtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppoutputname.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(uindex), &T::IID, result__ as *mut _ as *mut _, core::mem::transmute(ppoutputtype.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppoutputname.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -916,7 +916,7 @@ impl IDxcLibrary {
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateBlobFromFile)(windows_core::Interface::as_raw(self), pfilename.param().abi(), core::mem::transmute(codepage.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateBlobFromFile)(windows_core::Interface::as_raw(self), pfilename.param().abi(), core::mem::transmute(codepage.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateBlobWithEncodingFromPinned(&self, ptext: *const core::ffi::c_void, size: u32, codepage: DXC_CP) -> windows_core::Result<IDxcBlobEncoding> {
         let mut result__ = core::mem::zeroed();
@@ -1257,7 +1257,7 @@ impl IDxcOptimizer {
     where
         P0: windows_core::Param<IDxcBlob>,
     {
-        (windows_core::Interface::vtable(self).RunOptimizer)(windows_core::Interface::as_raw(self), pblob.param().abi(), core::mem::transmute(ppoptions.as_ptr()), ppoptions.len().try_into().unwrap(), core::mem::transmute(poutputmodule), core::mem::transmute(ppoutputtext.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).RunOptimizer)(windows_core::Interface::as_raw(self), pblob.param().abi(), core::mem::transmute(ppoptions.as_ptr()), ppoptions.len().try_into().unwrap(), core::mem::transmute(poutputmodule), core::mem::transmute(ppoutputtext.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -1923,7 +1923,7 @@ impl IDxcUtils {
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).LoadFile)(windows_core::Interface::as_raw(self), pfilename.param().abi(), core::mem::transmute(pcodepage.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).LoadFile)(windows_core::Interface::as_raw(self), pfilename.param().abi(), core::mem::transmute(pcodepage.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateReadOnlyStreamFromBlob<P0>(&self, pblob: P0) -> windows_core::Result<super::super::super::System::Com::IStream>
@@ -2202,7 +2202,7 @@ impl IDxcValidator2 {
         P0: windows_core::Param<IDxcBlob>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ValidateWithDebug)(windows_core::Interface::as_raw(self), pshader.param().abi(), core::mem::transmute(flags), core::mem::transmute(poptdebugbitcode.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ValidateWithDebug)(windows_core::Interface::as_raw(self), pshader.param().abi(), core::mem::transmute(flags), core::mem::transmute(poptdebugbitcode.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

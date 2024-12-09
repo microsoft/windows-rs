@@ -52,7 +52,7 @@ impl ISoftwareBitmapNativeFactory {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateFromMF2DBuffer2)(windows_core::Interface::as_raw(self), data.param().abi(), core::mem::transmute(subtype), core::mem::transmute(width), core::mem::transmute(height), forcereadonly.param().abi(), core::mem::transmute(mindisplayaperture.unwrap_or(core::ptr::null())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateFromMF2DBuffer2)(windows_core::Interface::as_raw(self), data.param().abi(), core::mem::transmute(subtype), core::mem::transmute(width), core::mem::transmute(height), forcereadonly.param().abi(), core::mem::transmute(mindisplayaperture.unwrap_or(core::mem::zeroed())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

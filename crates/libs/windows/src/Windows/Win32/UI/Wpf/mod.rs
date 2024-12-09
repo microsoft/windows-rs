@@ -1030,19 +1030,17 @@ impl IMILBitmapEffectPrimitive {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(uiindex), pcontext.param().abi(), core::mem::transmute(pfmodifyinplace), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn TransformPoint<P2, P3>(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: P2, pcontext: P3, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
+    pub unsafe fn TransformPoint<P3>(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: P3, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
         P3: windows_core::Param<IMILBitmapEffectRenderContext>,
     {
-        (windows_core::Interface::vtable(self).TransformPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(uiindex), core::mem::transmute(p), fforwardtransform.param().abi(), pcontext.param().abi(), core::mem::transmute(pfpointtransformed)).ok()
+        (windows_core::Interface::vtable(self).TransformPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(uiindex), core::mem::transmute(p), core::mem::transmute(fforwardtransform), pcontext.param().abi(), core::mem::transmute(pfpointtransformed)).ok()
     }
-    pub unsafe fn TransformRect<P2, P3>(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: P2, pcontext: P3) -> windows_core::Result<()>
+    pub unsafe fn TransformRect<P3>(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: P3) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
         P3: windows_core::Param<IMILBitmapEffectRenderContext>,
     {
-        (windows_core::Interface::vtable(self).TransformRect)(windows_core::Interface::as_raw(self), core::mem::transmute(uiindex), core::mem::transmute(p), fforwardtransform.param().abi(), pcontext.param().abi()).ok()
+        (windows_core::Interface::vtable(self).TransformRect)(windows_core::Interface::as_raw(self), core::mem::transmute(uiindex), core::mem::transmute(p), core::mem::transmute(fforwardtransform), pcontext.param().abi()).ok()
     }
     pub unsafe fn HasAffineTransform(&self, uiindex: u32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -1197,11 +1195,8 @@ impl IMILBitmapEffectRenderContext {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOutputPixelFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetUseSoftwareRenderer<P0>(&self, fsoftware: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetUseSoftwareRenderer)(windows_core::Interface::as_raw(self), fsoftware.param().abi()).ok()
+    pub unsafe fn SetUseSoftwareRenderer(&self, fsoftware: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetUseSoftwareRenderer)(windows_core::Interface::as_raw(self), core::mem::transmute(fsoftware)).ok()
     }
     pub unsafe fn SetInitialTransform(&self, pmatrix: *const MILMatrixF) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetInitialTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(pmatrix)).ok()

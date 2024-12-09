@@ -1,12 +1,9 @@
 windows_core::imp::define_interface!(IIsolatedEnvironmentInterop, IIsolatedEnvironmentInterop_Vtbl, 0x85713c2e_8e62_46c5_8de2_c647e1d54636);
 windows_core::imp::interface_hierarchy!(IIsolatedEnvironmentInterop, windows_core::IUnknown);
 impl IIsolatedEnvironmentInterop {
-    pub unsafe fn GetHostHwndInterop<P0>(&self, containerhwnd: P0) -> windows_core::Result<super::super::super::Foundation::HWND>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::HWND>,
-    {
+    pub unsafe fn GetHostHwndInterop(&self, containerhwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetHostHwndInterop)(windows_core::Interface::as_raw(self), containerhwnd.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetHostHwndInterop)(windows_core::Interface::as_raw(self), core::mem::transmute(containerhwnd), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

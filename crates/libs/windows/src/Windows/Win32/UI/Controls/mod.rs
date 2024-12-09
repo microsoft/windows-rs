@@ -4,35 +4,25 @@ pub mod Dialogs;
 pub mod RichEdit;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn BeginBufferedAnimation<P0, P1>(hwnd: P0, hdctarget: P1, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: Option<*const BP_PAINTPARAMS>, panimationparams: *const BP_ANIMATIONPARAMS, phdcfrom: *mut super::super::Graphics::Gdi::HDC, phdcto: *mut super::super::Graphics::Gdi::HDC) -> isize
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn BeginBufferedAnimation(hwnd: super::super::Foundation::HWND, hdctarget: super::super::Graphics::Gdi::HDC, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: Option<*const BP_PAINTPARAMS>, panimationparams: *const BP_ANIMATIONPARAMS, phdcfrom: *mut super::super::Graphics::Gdi::HDC, phdcto: *mut super::super::Graphics::Gdi::HDC) -> isize {
     windows_targets::link!("uxtheme.dll" "system" fn BeginBufferedAnimation(hwnd : super::super::Foundation:: HWND, hdctarget : super::super::Graphics::Gdi:: HDC, prctarget : *const super::super::Foundation:: RECT, dwformat : BP_BUFFERFORMAT, ppaintparams : *const BP_PAINTPARAMS, panimationparams : *const BP_ANIMATIONPARAMS, phdcfrom : *mut super::super::Graphics::Gdi:: HDC, phdcto : *mut super::super::Graphics::Gdi:: HDC) -> isize);
-    BeginBufferedAnimation(hwnd.param().abi(), hdctarget.param().abi(), core::mem::transmute(prctarget), core::mem::transmute(dwformat), core::mem::transmute(ppaintparams.unwrap_or(core::ptr::null())), core::mem::transmute(panimationparams), core::mem::transmute(phdcfrom), core::mem::transmute(phdcto))
+    BeginBufferedAnimation(core::mem::transmute(hwnd), core::mem::transmute(hdctarget), core::mem::transmute(prctarget), core::mem::transmute(dwformat), core::mem::transmute(ppaintparams.unwrap_or(core::mem::zeroed())), core::mem::transmute(panimationparams), core::mem::transmute(phdcfrom), core::mem::transmute(phdcto))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn BeginBufferedPaint<P0>(hdctarget: P0, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: Option<*const BP_PAINTPARAMS>, phdc: *mut super::super::Graphics::Gdi::HDC) -> isize
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn BeginBufferedPaint(hdctarget: super::super::Graphics::Gdi::HDC, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: Option<*const BP_PAINTPARAMS>, phdc: *mut super::super::Graphics::Gdi::HDC) -> isize {
     windows_targets::link!("uxtheme.dll" "system" fn BeginBufferedPaint(hdctarget : super::super::Graphics::Gdi:: HDC, prctarget : *const super::super::Foundation:: RECT, dwformat : BP_BUFFERFORMAT, ppaintparams : *const BP_PAINTPARAMS, phdc : *mut super::super::Graphics::Gdi:: HDC) -> isize);
-    BeginBufferedPaint(hdctarget.param().abi(), core::mem::transmute(prctarget), core::mem::transmute(dwformat), core::mem::transmute(ppaintparams.unwrap_or(core::ptr::null())), core::mem::transmute(phdc))
+    BeginBufferedPaint(core::mem::transmute(hdctarget), core::mem::transmute(prctarget), core::mem::transmute(dwformat), core::mem::transmute(ppaintparams.unwrap_or(core::mem::zeroed())), core::mem::transmute(phdc))
 }
 #[inline]
-pub unsafe fn BeginPanningFeedback<P0>(hwnd: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn BeginPanningFeedback(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
     windows_targets::link!("uxtheme.dll" "system" fn BeginPanningFeedback(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-    BeginPanningFeedback(hwnd.param().abi())
+    BeginPanningFeedback(core::mem::transmute(hwnd))
 }
 #[inline]
 pub unsafe fn BufferedPaintClear(hbufferedpaint: isize, prc: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintClear(hbufferedpaint : isize, prc : *const super::super::Foundation:: RECT) -> windows_core::HRESULT);
-    BufferedPaintClear(core::mem::transmute(hbufferedpaint), core::mem::transmute(prc.unwrap_or(core::ptr::null()))).ok()
+    BufferedPaintClear(core::mem::transmute(hbufferedpaint), core::mem::transmute(prc.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn BufferedPaintInit() -> windows_core::Result<()> {
@@ -41,26 +31,19 @@ pub unsafe fn BufferedPaintInit() -> windows_core::Result<()> {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn BufferedPaintRenderAnimation<P0, P1>(hwnd: P0, hdctarget: P1) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn BufferedPaintRenderAnimation(hwnd: super::super::Foundation::HWND, hdctarget: super::super::Graphics::Gdi::HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintRenderAnimation(hwnd : super::super::Foundation:: HWND, hdctarget : super::super::Graphics::Gdi:: HDC) -> super::super::Foundation:: BOOL);
-    BufferedPaintRenderAnimation(hwnd.param().abi(), hdctarget.param().abi())
+    BufferedPaintRenderAnimation(core::mem::transmute(hwnd), core::mem::transmute(hdctarget))
 }
 #[inline]
 pub unsafe fn BufferedPaintSetAlpha(hbufferedpaint: isize, prc: Option<*const super::super::Foundation::RECT>, alpha: u8) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintSetAlpha(hbufferedpaint : isize, prc : *const super::super::Foundation:: RECT, alpha : u8) -> windows_core::HRESULT);
-    BufferedPaintSetAlpha(core::mem::transmute(hbufferedpaint), core::mem::transmute(prc.unwrap_or(core::ptr::null())), core::mem::transmute(alpha)).ok()
+    BufferedPaintSetAlpha(core::mem::transmute(hbufferedpaint), core::mem::transmute(prc.unwrap_or(core::mem::zeroed())), core::mem::transmute(alpha)).ok()
 }
 #[inline]
-pub unsafe fn BufferedPaintStopAllAnimations<P0>(hwnd: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn BufferedPaintStopAllAnimations(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintStopAllAnimations(hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
-    BufferedPaintStopAllAnimations(hwnd.param().abi()).ok()
+    BufferedPaintStopAllAnimations(core::mem::transmute(hwnd)).ok()
 }
 #[inline]
 pub unsafe fn BufferedPaintUnInit() -> windows_core::Result<()> {
@@ -68,37 +51,25 @@ pub unsafe fn BufferedPaintUnInit() -> windows_core::Result<()> {
     BufferedPaintUnInit().ok()
 }
 #[inline]
-pub unsafe fn CheckDlgButton<P0>(hdlg: P0, nidbutton: i32, ucheck: DLG_BUTTON_CHECK_STATE) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn CheckDlgButton(hdlg: super::super::Foundation::HWND, nidbutton: i32, ucheck: DLG_BUTTON_CHECK_STATE) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn CheckDlgButton(hdlg : super::super::Foundation:: HWND, nidbutton : i32, ucheck : DLG_BUTTON_CHECK_STATE) -> super::super::Foundation:: BOOL);
-    CheckDlgButton(hdlg.param().abi(), core::mem::transmute(nidbutton), core::mem::transmute(ucheck)).ok()
+    CheckDlgButton(core::mem::transmute(hdlg), core::mem::transmute(nidbutton), core::mem::transmute(ucheck)).ok()
 }
 #[inline]
-pub unsafe fn CheckRadioButton<P0>(hdlg: P0, nidfirstbutton: i32, nidlastbutton: i32, nidcheckbutton: i32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn CheckRadioButton(hdlg: super::super::Foundation::HWND, nidfirstbutton: i32, nidlastbutton: i32, nidcheckbutton: i32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn CheckRadioButton(hdlg : super::super::Foundation:: HWND, nidfirstbutton : i32, nidlastbutton : i32, nidcheckbutton : i32) -> super::super::Foundation:: BOOL);
-    CheckRadioButton(hdlg.param().abi(), core::mem::transmute(nidfirstbutton), core::mem::transmute(nidlastbutton), core::mem::transmute(nidcheckbutton)).ok()
+    CheckRadioButton(core::mem::transmute(hdlg), core::mem::transmute(nidfirstbutton), core::mem::transmute(nidlastbutton), core::mem::transmute(nidcheckbutton)).ok()
 }
 #[inline]
-pub unsafe fn CloseThemeData<P0>(htheme: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn CloseThemeData(htheme: HTHEME) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn CloseThemeData(htheme : HTHEME) -> windows_core::HRESULT);
-    CloseThemeData(htheme.param().abi()).ok()
+    CloseThemeData(core::mem::transmute(htheme)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CreateMappedBitmap<P0>(hinstance: P0, idbitmap: isize, wflags: u32, lpcolormap: Option<*const COLORMAP>, inummaps: i32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP>
-where
-    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
-{
+pub unsafe fn CreateMappedBitmap(hinstance: super::super::Foundation::HINSTANCE, idbitmap: isize, wflags: u32, lpcolormap: Option<*const COLORMAP>, inummaps: i32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
     windows_targets::link!("comctl32.dll" "system" fn CreateMappedBitmap(hinstance : super::super::Foundation:: HINSTANCE, idbitmap : isize, wflags : u32, lpcolormap : *const COLORMAP, inummaps : i32) -> super::super::Graphics::Gdi:: HBITMAP);
-    let result__ = CreateMappedBitmap(hinstance.param().abi(), core::mem::transmute(idbitmap), core::mem::transmute(wflags), core::mem::transmute(lpcolormap.unwrap_or(core::ptr::null())), core::mem::transmute(inummaps));
+    let result__ = CreateMappedBitmap(core::mem::transmute(hinstance), core::mem::transmute(idbitmap), core::mem::transmute(wflags), core::mem::transmute(lpcolormap.unwrap_or(core::mem::zeroed())), core::mem::transmute(inummaps));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -114,23 +85,21 @@ pub unsafe fn CreatePropertySheetPageW(constpropsheetpagepointer: *mut PROPSHEET
     CreatePropertySheetPageW(core::mem::transmute(constpropsheetpagepointer))
 }
 #[inline]
-pub unsafe fn CreateStatusWindowA<P1, P2>(style: i32, lpsztext: P1, hwndparent: P2, wid: u32) -> windows_core::Result<super::super::Foundation::HWND>
+pub unsafe fn CreateStatusWindowA<P1>(style: i32, lpsztext: P1, hwndparent: super::super::Foundation::HWND, wid: u32) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowA(style : i32, lpsztext : windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
-    let result__ = CreateStatusWindowA(core::mem::transmute(style), lpsztext.param().abi(), hwndparent.param().abi(), core::mem::transmute(wid));
+    let result__ = CreateStatusWindowA(core::mem::transmute(style), lpsztext.param().abi(), core::mem::transmute(hwndparent), core::mem::transmute(wid));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateStatusWindowW<P1, P2>(style: i32, lpsztext: P1, hwndparent: P2, wid: u32) -> windows_core::Result<super::super::Foundation::HWND>
+pub unsafe fn CreateStatusWindowW<P1>(style: i32, lpsztext: P1, hwndparent: super::super::Foundation::HWND, wid: u32) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowW(style : i32, lpsztext : windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
-    let result__ = CreateStatusWindowW(core::mem::transmute(style), lpsztext.param().abi(), hwndparent.param().abi(), core::mem::transmute(wid));
+    let result__ = CreateStatusWindowW(core::mem::transmute(style), lpsztext.param().abi(), core::mem::transmute(hwndparent), core::mem::transmute(wid));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -141,33 +110,20 @@ pub unsafe fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessagi
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateToolbarEx<P0, P4>(hwnd: P0, ws: u32, wid: u32, nbitmaps: i32, hbminst: P4, wbmid: usize, lpbuttons: *mut TBBUTTON, inumbuttons: i32, dxbutton: i32, dybutton: i32, dxbitmap: i32, dybitmap: i32, ustructsize: u32) -> windows_core::Result<super::super::Foundation::HWND>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P4: windows_core::Param<super::super::Foundation::HINSTANCE>,
-{
+pub unsafe fn CreateToolbarEx(hwnd: super::super::Foundation::HWND, ws: u32, wid: u32, nbitmaps: i32, hbminst: super::super::Foundation::HINSTANCE, wbmid: usize, lpbuttons: *mut TBBUTTON, inumbuttons: i32, dxbutton: i32, dybutton: i32, dxbitmap: i32, dybitmap: i32, ustructsize: u32) -> windows_core::Result<super::super::Foundation::HWND> {
     windows_targets::link!("comctl32.dll" "system" fn CreateToolbarEx(hwnd : super::super::Foundation:: HWND, ws : u32, wid : u32, nbitmaps : i32, hbminst : super::super::Foundation:: HINSTANCE, wbmid : usize, lpbuttons : *mut TBBUTTON, inumbuttons : i32, dxbutton : i32, dybutton : i32, dxbitmap : i32, dybitmap : i32, ustructsize : u32) -> super::super::Foundation:: HWND);
-    let result__ = CreateToolbarEx(hwnd.param().abi(), core::mem::transmute(ws), core::mem::transmute(wid), core::mem::transmute(nbitmaps), hbminst.param().abi(), core::mem::transmute(wbmid), core::mem::transmute(lpbuttons), core::mem::transmute(inumbuttons), core::mem::transmute(dxbutton), core::mem::transmute(dybutton), core::mem::transmute(dxbitmap), core::mem::transmute(dybitmap), core::mem::transmute(ustructsize));
+    let result__ = CreateToolbarEx(core::mem::transmute(hwnd), core::mem::transmute(ws), core::mem::transmute(wid), core::mem::transmute(nbitmaps), core::mem::transmute(hbminst), core::mem::transmute(wbmid), core::mem::transmute(lpbuttons), core::mem::transmute(inumbuttons), core::mem::transmute(dxbutton), core::mem::transmute(dybutton), core::mem::transmute(dxbitmap), core::mem::transmute(dybitmap), core::mem::transmute(ustructsize));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateUpDownControl<P5, P7, P8>(dwstyle: u32, x: i32, y: i32, cx: i32, cy: i32, hparent: P5, nid: i32, hinst: P7, hbuddy: P8, nupper: i32, nlower: i32, npos: i32) -> super::super::Foundation::HWND
-where
-    P5: windows_core::Param<super::super::Foundation::HWND>,
-    P7: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    P8: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn CreateUpDownControl(dwstyle: u32, x: i32, y: i32, cx: i32, cy: i32, hparent: super::super::Foundation::HWND, nid: i32, hinst: super::super::Foundation::HINSTANCE, hbuddy: super::super::Foundation::HWND, nupper: i32, nlower: i32, npos: i32) -> super::super::Foundation::HWND {
     windows_targets::link!("comctl32.dll" "system" fn CreateUpDownControl(dwstyle : u32, x : i32, y : i32, cx : i32, cy : i32, hparent : super::super::Foundation:: HWND, nid : i32, hinst : super::super::Foundation:: HINSTANCE, hbuddy : super::super::Foundation:: HWND, nupper : i32, nlower : i32, npos : i32) -> super::super::Foundation:: HWND);
-    CreateUpDownControl(core::mem::transmute(dwstyle), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(cx), core::mem::transmute(cy), hparent.param().abi(), core::mem::transmute(nid), hinst.param().abi(), hbuddy.param().abi(), core::mem::transmute(nupper), core::mem::transmute(nlower), core::mem::transmute(npos))
+    CreateUpDownControl(core::mem::transmute(dwstyle), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(cx), core::mem::transmute(cy), core::mem::transmute(hparent), core::mem::transmute(nid), core::mem::transmute(hinst), core::mem::transmute(hbuddy), core::mem::transmute(nupper), core::mem::transmute(nlower), core::mem::transmute(npos))
 }
 #[inline]
-pub unsafe fn DPA_Clone<P0, P1>(hdpa: P0, hdpanew: P1) -> HDPA
-where
-    P0: windows_core::Param<HDPA>,
-    P1: windows_core::Param<HDPA>,
-{
+pub unsafe fn DPA_Clone(hdpa: HDPA, hdpanew: Option<HDPA>) -> HDPA {
     windows_targets::link!("comctl32.dll" "system" fn DPA_Clone(hdpa : HDPA, hdpanew : HDPA) -> HDPA);
-    DPA_Clone(hdpa.param().abi(), hdpanew.param().abi())
+    DPA_Clone(core::mem::transmute(hdpa), core::mem::transmute(hdpanew.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn DPA_Create(citemgrow: i32) -> HDPA {
@@ -175,92 +131,59 @@ pub unsafe fn DPA_Create(citemgrow: i32) -> HDPA {
     DPA_Create(core::mem::transmute(citemgrow))
 }
 #[inline]
-pub unsafe fn DPA_CreateEx<P1>(cpgrow: i32, hheap: P1) -> HDPA
-where
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn DPA_CreateEx(cpgrow: i32, hheap: Option<super::super::Foundation::HANDLE>) -> HDPA {
     windows_targets::link!("comctl32.dll" "system" fn DPA_CreateEx(cpgrow : i32, hheap : super::super::Foundation:: HANDLE) -> HDPA);
-    DPA_CreateEx(core::mem::transmute(cpgrow), hheap.param().abi())
+    DPA_CreateEx(core::mem::transmute(cpgrow), core::mem::transmute(hheap.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn DPA_DeleteAllPtrs<P0>(hdpa: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HDPA>,
-{
+pub unsafe fn DPA_DeleteAllPtrs(hdpa: HDPA) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DPA_DeleteAllPtrs(hdpa : HDPA) -> super::super::Foundation:: BOOL);
-    DPA_DeleteAllPtrs(hdpa.param().abi())
+    DPA_DeleteAllPtrs(core::mem::transmute(hdpa))
 }
 #[inline]
-pub unsafe fn DPA_DeletePtr<P0>(hdpa: P0, i: i32) -> *mut core::ffi::c_void
-where
-    P0: windows_core::Param<HDPA>,
-{
+pub unsafe fn DPA_DeletePtr(hdpa: HDPA, i: i32) -> *mut core::ffi::c_void {
     windows_targets::link!("comctl32.dll" "system" fn DPA_DeletePtr(hdpa : HDPA, i : i32) -> *mut core::ffi::c_void);
-    DPA_DeletePtr(hdpa.param().abi(), core::mem::transmute(i))
+    DPA_DeletePtr(core::mem::transmute(hdpa), core::mem::transmute(i))
 }
 #[inline]
-pub unsafe fn DPA_Destroy<P0>(hdpa: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HDPA>,
-{
+pub unsafe fn DPA_Destroy(hdpa: Option<HDPA>) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DPA_Destroy(hdpa : HDPA) -> super::super::Foundation:: BOOL);
-    DPA_Destroy(hdpa.param().abi())
+    DPA_Destroy(core::mem::transmute(hdpa.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn DPA_DestroyCallback<P0>(hdpa: P0, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>)
-where
-    P0: windows_core::Param<HDPA>,
-{
+pub unsafe fn DPA_DestroyCallback(hdpa: Option<HDPA>, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>) {
     windows_targets::link!("comctl32.dll" "system" fn DPA_DestroyCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
-    DPA_DestroyCallback(hdpa.param().abi(), core::mem::transmute(pfncb), core::mem::transmute(pdata.unwrap_or(core::ptr::null())))
+    DPA_DestroyCallback(core::mem::transmute(hdpa.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfncb), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn DPA_EnumCallback<P0>(hdpa: P0, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>)
-where
-    P0: windows_core::Param<HDPA>,
-{
+pub unsafe fn DPA_EnumCallback(hdpa: Option<HDPA>, pfncb: Option<PFNDAENUMCALLBACK>, pdata: Option<*const core::ffi::c_void>) {
     windows_targets::link!("comctl32.dll" "system" fn DPA_EnumCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
-    DPA_EnumCallback(hdpa.param().abi(), core::mem::transmute(pfncb), core::mem::transmute(pdata.unwrap_or(core::ptr::null())))
+    DPA_EnumCallback(core::mem::transmute(hdpa.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfncb.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn DPA_GetPtr<P0>(hdpa: P0, i: isize) -> *mut core::ffi::c_void
-where
-    P0: windows_core::Param<HDPA>,
-{
+pub unsafe fn DPA_GetPtr(hdpa: HDPA, i: isize) -> *mut core::ffi::c_void {
     windows_targets::link!("comctl32.dll" "system" fn DPA_GetPtr(hdpa : HDPA, i : isize) -> *mut core::ffi::c_void);
-    DPA_GetPtr(hdpa.param().abi(), core::mem::transmute(i))
+    DPA_GetPtr(core::mem::transmute(hdpa), core::mem::transmute(i))
 }
 #[inline]
-pub unsafe fn DPA_GetPtrIndex<P0>(hdpa: P0, p: Option<*const core::ffi::c_void>) -> i32
-where
-    P0: windows_core::Param<HDPA>,
-{
+pub unsafe fn DPA_GetPtrIndex(hdpa: HDPA, p: Option<*const core::ffi::c_void>) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_GetPtrIndex(hdpa : HDPA, p : *const core::ffi::c_void) -> i32);
-    DPA_GetPtrIndex(hdpa.param().abi(), core::mem::transmute(p.unwrap_or(core::ptr::null())))
+    DPA_GetPtrIndex(core::mem::transmute(hdpa), core::mem::transmute(p.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn DPA_GetSize<P0>(hdpa: P0) -> u64
-where
-    P0: windows_core::Param<HDPA>,
-{
+pub unsafe fn DPA_GetSize(hdpa: Option<HDPA>) -> u64 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_GetSize(hdpa : HDPA) -> u64);
-    DPA_GetSize(hdpa.param().abi())
+    DPA_GetSize(core::mem::transmute(hdpa.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn DPA_Grow<P0>(pdpa: P0, cp: i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HDPA>,
-{
+pub unsafe fn DPA_Grow(pdpa: HDPA, cp: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DPA_Grow(pdpa : HDPA, cp : i32) -> super::super::Foundation:: BOOL);
-    DPA_Grow(pdpa.param().abi(), core::mem::transmute(cp))
+    DPA_Grow(core::mem::transmute(pdpa), core::mem::transmute(cp))
 }
 #[inline]
-pub unsafe fn DPA_InsertPtr<P0>(hdpa: P0, i: i32, p: Option<*const core::ffi::c_void>) -> i32
-where
-    P0: windows_core::Param<HDPA>,
-{
+pub unsafe fn DPA_InsertPtr(hdpa: HDPA, i: i32, p: Option<*const core::ffi::c_void>) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_InsertPtr(hdpa : HDPA, i : i32, p : *const core::ffi::c_void) -> i32);
-    DPA_InsertPtr(hdpa.param().abi(), core::mem::transmute(i), core::mem::transmute(p.unwrap_or(core::ptr::null())))
+    DPA_InsertPtr(core::mem::transmute(hdpa), core::mem::transmute(i), core::mem::transmute(p.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -269,61 +192,41 @@ where
     P2: windows_core::Param<super::super::System::Com::IStream>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_LoadStream(phdpa : *mut HDPA, pfn : PFNDPASTREAM, pstream : * mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    DPA_LoadStream(core::mem::transmute(phdpa), core::mem::transmute(pfn), pstream.param().abi(), core::mem::transmute(pvinstdata.unwrap_or(core::ptr::null()))).ok()
+    DPA_LoadStream(core::mem::transmute(phdpa), core::mem::transmute(pfn), pstream.param().abi(), core::mem::transmute(pvinstdata.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn DPA_Merge<P0, P1, P5>(hdpadest: P0, hdpasrc: P1, dwflags: u32, pfncompare: PFNDACOMPARE, pfnmerge: PFNDPAMERGE, lparam: P5) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HDPA>,
-    P1: windows_core::Param<HDPA>,
-    P5: windows_core::Param<super::super::Foundation::LPARAM>,
-{
+pub unsafe fn DPA_Merge(hdpadest: HDPA, hdpasrc: HDPA, dwflags: u32, pfncompare: PFNDACOMPARE, pfnmerge: PFNDPAMERGE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : HDPA, hdpasrc : HDPA, dwflags : u32, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-    DPA_Merge(hdpadest.param().abi(), hdpasrc.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pfncompare), core::mem::transmute(pfnmerge), lparam.param().abi())
+    DPA_Merge(core::mem::transmute(hdpadest), core::mem::transmute(hdpasrc), core::mem::transmute(dwflags), core::mem::transmute(pfncompare), core::mem::transmute(pfnmerge), core::mem::transmute(lparam))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DPA_SaveStream<P0, P2>(hdpa: P0, pfn: PFNDPASTREAM, pstream: P2, pvinstdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn DPA_SaveStream<P2>(hdpa: HDPA, pfn: PFNDPASTREAM, pstream: P2, pvinstdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HDPA>,
     P2: windows_core::Param<super::super::System::Com::IStream>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : HDPA, pfn : PFNDPASTREAM, pstream : * mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    DPA_SaveStream(hdpa.param().abi(), core::mem::transmute(pfn), pstream.param().abi(), core::mem::transmute(pvinstdata.unwrap_or(core::ptr::null()))).ok()
+    DPA_SaveStream(core::mem::transmute(hdpa), core::mem::transmute(pfn), pstream.param().abi(), core::mem::transmute(pvinstdata.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn DPA_Search<P0, P4>(hdpa: P0, pfind: Option<*const core::ffi::c_void>, istart: i32, pfncompare: PFNDACOMPARE, lparam: P4, options: u32) -> i32
-where
-    P0: windows_core::Param<HDPA>,
-    P4: windows_core::Param<super::super::Foundation::LPARAM>,
-{
+pub unsafe fn DPA_Search(hdpa: HDPA, pfind: Option<*const core::ffi::c_void>, istart: i32, pfncompare: PFNDACOMPARE, lparam: super::super::Foundation::LPARAM, options: u32) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_Search(hdpa : HDPA, pfind : *const core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM, options : u32) -> i32);
-    DPA_Search(hdpa.param().abi(), core::mem::transmute(pfind.unwrap_or(core::ptr::null())), core::mem::transmute(istart), core::mem::transmute(pfncompare), lparam.param().abi(), core::mem::transmute(options))
+    DPA_Search(core::mem::transmute(hdpa), core::mem::transmute(pfind.unwrap_or(core::mem::zeroed())), core::mem::transmute(istart), core::mem::transmute(pfncompare), core::mem::transmute(lparam), core::mem::transmute(options))
 }
 #[inline]
-pub unsafe fn DPA_SetPtr<P0>(hdpa: P0, i: i32, p: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HDPA>,
-{
+pub unsafe fn DPA_SetPtr(hdpa: HDPA, i: i32, p: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DPA_SetPtr(hdpa : HDPA, i : i32, p : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    DPA_SetPtr(hdpa.param().abi(), core::mem::transmute(i), core::mem::transmute(p.unwrap_or(core::ptr::null())))
+    DPA_SetPtr(core::mem::transmute(hdpa), core::mem::transmute(i), core::mem::transmute(p.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn DPA_Sort<P0, P2>(hdpa: P0, pfncompare: PFNDACOMPARE, lparam: P2) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HDPA>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
-{
+pub unsafe fn DPA_Sort(hdpa: HDPA, pfncompare: PFNDACOMPARE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DPA_Sort(hdpa : HDPA, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-    DPA_Sort(hdpa.param().abi(), core::mem::transmute(pfncompare), lparam.param().abi())
+    DPA_Sort(core::mem::transmute(hdpa), core::mem::transmute(pfncompare), core::mem::transmute(lparam))
 }
 #[inline]
-pub unsafe fn DSA_Clone<P0>(hdsa: P0) -> HDSA
-where
-    P0: windows_core::Param<HDSA>,
-{
+pub unsafe fn DSA_Clone(hdsa: HDSA) -> HDSA {
     windows_targets::link!("comctl32.dll" "system" fn DSA_Clone(hdsa : HDSA) -> HDSA);
-    DSA_Clone(hdsa.param().abi())
+    DSA_Clone(core::mem::transmute(hdsa))
 }
 #[inline]
 pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA {
@@ -331,310 +234,196 @@ pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA {
     DSA_Create(core::mem::transmute(cbitem), core::mem::transmute(citemgrow))
 }
 #[inline]
-pub unsafe fn DSA_DeleteAllItems<P0>(hdsa: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HDSA>,
-{
+pub unsafe fn DSA_DeleteAllItems(hdsa: HDSA) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DSA_DeleteAllItems(hdsa : HDSA) -> super::super::Foundation:: BOOL);
-    DSA_DeleteAllItems(hdsa.param().abi())
+    DSA_DeleteAllItems(core::mem::transmute(hdsa))
 }
 #[inline]
-pub unsafe fn DSA_DeleteItem<P0>(hdsa: P0, i: i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HDSA>,
-{
+pub unsafe fn DSA_DeleteItem(hdsa: HDSA, i: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DSA_DeleteItem(hdsa : HDSA, i : i32) -> super::super::Foundation:: BOOL);
-    DSA_DeleteItem(hdsa.param().abi(), core::mem::transmute(i))
+    DSA_DeleteItem(core::mem::transmute(hdsa), core::mem::transmute(i))
 }
 #[inline]
-pub unsafe fn DSA_Destroy<P0>(hdsa: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HDSA>,
-{
+pub unsafe fn DSA_Destroy(hdsa: Option<HDSA>) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DSA_Destroy(hdsa : HDSA) -> super::super::Foundation:: BOOL);
-    DSA_Destroy(hdsa.param().abi())
+    DSA_Destroy(core::mem::transmute(hdsa.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn DSA_DestroyCallback<P0>(hdsa: P0, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>)
-where
-    P0: windows_core::Param<HDSA>,
-{
+pub unsafe fn DSA_DestroyCallback(hdsa: Option<HDSA>, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>) {
     windows_targets::link!("comctl32.dll" "system" fn DSA_DestroyCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
-    DSA_DestroyCallback(hdsa.param().abi(), core::mem::transmute(pfncb), core::mem::transmute(pdata.unwrap_or(core::ptr::null())))
+    DSA_DestroyCallback(core::mem::transmute(hdsa.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfncb), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn DSA_EnumCallback<P0>(hdsa: P0, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>)
-where
-    P0: windows_core::Param<HDSA>,
-{
+pub unsafe fn DSA_EnumCallback(hdsa: HDSA, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>) {
     windows_targets::link!("comctl32.dll" "system" fn DSA_EnumCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
-    DSA_EnumCallback(hdsa.param().abi(), core::mem::transmute(pfncb), core::mem::transmute(pdata.unwrap_or(core::ptr::null())))
+    DSA_EnumCallback(core::mem::transmute(hdsa), core::mem::transmute(pfncb), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn DSA_GetItem<P0>(hdsa: P0, i: i32, pitem: *mut core::ffi::c_void) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HDSA>,
-{
+pub unsafe fn DSA_GetItem(hdsa: HDSA, i: i32, pitem: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DSA_GetItem(hdsa : HDSA, i : i32, pitem : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    DSA_GetItem(hdsa.param().abi(), core::mem::transmute(i), core::mem::transmute(pitem))
+    DSA_GetItem(core::mem::transmute(hdsa), core::mem::transmute(i), core::mem::transmute(pitem))
 }
 #[inline]
-pub unsafe fn DSA_GetItemPtr<P0>(hdsa: P0, i: i32) -> *mut core::ffi::c_void
-where
-    P0: windows_core::Param<HDSA>,
-{
+pub unsafe fn DSA_GetItemPtr(hdsa: HDSA, i: i32) -> *mut core::ffi::c_void {
     windows_targets::link!("comctl32.dll" "system" fn DSA_GetItemPtr(hdsa : HDSA, i : i32) -> *mut core::ffi::c_void);
-    DSA_GetItemPtr(hdsa.param().abi(), core::mem::transmute(i))
+    DSA_GetItemPtr(core::mem::transmute(hdsa), core::mem::transmute(i))
 }
 #[inline]
-pub unsafe fn DSA_GetSize<P0>(hdsa: P0) -> u64
-where
-    P0: windows_core::Param<HDSA>,
-{
+pub unsafe fn DSA_GetSize(hdsa: Option<HDSA>) -> u64 {
     windows_targets::link!("comctl32.dll" "system" fn DSA_GetSize(hdsa : HDSA) -> u64);
-    DSA_GetSize(hdsa.param().abi())
+    DSA_GetSize(core::mem::transmute(hdsa.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn DSA_InsertItem<P0>(hdsa: P0, i: i32, pitem: *const core::ffi::c_void) -> i32
-where
-    P0: windows_core::Param<HDSA>,
-{
+pub unsafe fn DSA_InsertItem(hdsa: HDSA, i: i32, pitem: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn DSA_InsertItem(hdsa : HDSA, i : i32, pitem : *const core::ffi::c_void) -> i32);
-    DSA_InsertItem(hdsa.param().abi(), core::mem::transmute(i), core::mem::transmute(pitem))
+    DSA_InsertItem(core::mem::transmute(hdsa), core::mem::transmute(i), core::mem::transmute(pitem))
 }
 #[inline]
-pub unsafe fn DSA_SetItem<P0>(hdsa: P0, i: i32, pitem: *const core::ffi::c_void) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HDSA>,
-{
+pub unsafe fn DSA_SetItem(hdsa: HDSA, i: i32, pitem: *const core::ffi::c_void) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DSA_SetItem(hdsa : HDSA, i : i32, pitem : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    DSA_SetItem(hdsa.param().abi(), core::mem::transmute(i), core::mem::transmute(pitem))
+    DSA_SetItem(core::mem::transmute(hdsa), core::mem::transmute(i), core::mem::transmute(pitem))
 }
 #[inline]
-pub unsafe fn DSA_Sort<P0, P2>(pdsa: P0, pfncompare: PFNDACOMPARE, lparam: P2) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HDSA>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
-{
+pub unsafe fn DSA_Sort(pdsa: HDSA, pfncompare: PFNDACOMPARE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DSA_Sort(pdsa : HDSA, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-    DSA_Sort(pdsa.param().abi(), core::mem::transmute(pfncompare), lparam.param().abi())
+    DSA_Sort(core::mem::transmute(pdsa), core::mem::transmute(pfncompare), core::mem::transmute(lparam))
 }
 #[inline]
-pub unsafe fn DestroyPropertySheetPage<P0>(param0: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HPROPSHEETPAGE>,
-{
+pub unsafe fn DestroyPropertySheetPage(param0: HPROPSHEETPAGE) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn DestroyPropertySheetPage(param0 : HPROPSHEETPAGE) -> super::super::Foundation:: BOOL);
-    DestroyPropertySheetPage(param0.param().abi())
+    DestroyPropertySheetPage(core::mem::transmute(param0))
 }
 #[inline]
-pub unsafe fn DestroySyntheticPointerDevice<P0>(device: P0)
-where
-    P0: windows_core::Param<HSYNTHETICPOINTERDEVICE>,
-{
+pub unsafe fn DestroySyntheticPointerDevice(device: HSYNTHETICPOINTERDEVICE) {
     windows_targets::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(device : HSYNTHETICPOINTERDEVICE));
-    DestroySyntheticPointerDevice(device.param().abi())
+    DestroySyntheticPointerDevice(core::mem::transmute(device))
 }
 #[inline]
-pub unsafe fn DlgDirListA<P0>(hdlg: P0, lppathspec: windows_core::PSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn DlgDirListA(hdlg: super::super::Foundation::HWND, lppathspec: windows_core::PSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32 {
     windows_targets::link!("user32.dll" "system" fn DlgDirListA(hdlg : super::super::Foundation:: HWND, lppathspec : windows_core::PSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
-    DlgDirListA(hdlg.param().abi(), core::mem::transmute(lppathspec), core::mem::transmute(nidlistbox), core::mem::transmute(nidstaticpath), core::mem::transmute(ufiletype))
+    DlgDirListA(core::mem::transmute(hdlg), core::mem::transmute(lppathspec), core::mem::transmute(nidlistbox), core::mem::transmute(nidstaticpath), core::mem::transmute(ufiletype))
 }
 #[inline]
-pub unsafe fn DlgDirListComboBoxA<P0>(hdlg: P0, lppathspec: windows_core::PSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn DlgDirListComboBoxA(hdlg: super::super::Foundation::HWND, lppathspec: windows_core::PSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32 {
     windows_targets::link!("user32.dll" "system" fn DlgDirListComboBoxA(hdlg : super::super::Foundation:: HWND, lppathspec : windows_core::PSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
-    DlgDirListComboBoxA(hdlg.param().abi(), core::mem::transmute(lppathspec), core::mem::transmute(nidcombobox), core::mem::transmute(nidstaticpath), core::mem::transmute(ufiletype))
+    DlgDirListComboBoxA(core::mem::transmute(hdlg), core::mem::transmute(lppathspec), core::mem::transmute(nidcombobox), core::mem::transmute(nidstaticpath), core::mem::transmute(ufiletype))
 }
 #[inline]
-pub unsafe fn DlgDirListComboBoxW<P0>(hdlg: P0, lppathspec: windows_core::PWSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn DlgDirListComboBoxW(hdlg: super::super::Foundation::HWND, lppathspec: windows_core::PWSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32 {
     windows_targets::link!("user32.dll" "system" fn DlgDirListComboBoxW(hdlg : super::super::Foundation:: HWND, lppathspec : windows_core::PWSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
-    DlgDirListComboBoxW(hdlg.param().abi(), core::mem::transmute(lppathspec), core::mem::transmute(nidcombobox), core::mem::transmute(nidstaticpath), core::mem::transmute(ufiletype))
+    DlgDirListComboBoxW(core::mem::transmute(hdlg), core::mem::transmute(lppathspec), core::mem::transmute(nidcombobox), core::mem::transmute(nidstaticpath), core::mem::transmute(ufiletype))
 }
 #[inline]
-pub unsafe fn DlgDirListW<P0>(hdlg: P0, lppathspec: windows_core::PWSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn DlgDirListW(hdlg: super::super::Foundation::HWND, lppathspec: windows_core::PWSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32 {
     windows_targets::link!("user32.dll" "system" fn DlgDirListW(hdlg : super::super::Foundation:: HWND, lppathspec : windows_core::PWSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
-    DlgDirListW(hdlg.param().abi(), core::mem::transmute(lppathspec), core::mem::transmute(nidlistbox), core::mem::transmute(nidstaticpath), core::mem::transmute(ufiletype))
+    DlgDirListW(core::mem::transmute(hdlg), core::mem::transmute(lppathspec), core::mem::transmute(nidlistbox), core::mem::transmute(nidstaticpath), core::mem::transmute(ufiletype))
 }
 #[inline]
-pub unsafe fn DlgDirSelectComboBoxExA<P0>(hwnddlg: P0, lpstring: &mut [u8], idcombobox: i32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn DlgDirSelectComboBoxExA(hwnddlg: super::super::Foundation::HWND, lpstring: &mut [u8], idcombobox: i32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn DlgDirSelectComboBoxExA(hwnddlg : super::super::Foundation:: HWND, lpstring : windows_core::PSTR, cchout : i32, idcombobox : i32) -> super::super::Foundation:: BOOL);
-    DlgDirSelectComboBoxExA(hwnddlg.param().abi(), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(idcombobox)).ok()
+    DlgDirSelectComboBoxExA(core::mem::transmute(hwnddlg), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(idcombobox)).ok()
 }
 #[inline]
-pub unsafe fn DlgDirSelectComboBoxExW<P0>(hwnddlg: P0, lpstring: &mut [u16], idcombobox: i32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn DlgDirSelectComboBoxExW(hwnddlg: super::super::Foundation::HWND, lpstring: &mut [u16], idcombobox: i32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn DlgDirSelectComboBoxExW(hwnddlg : super::super::Foundation:: HWND, lpstring : windows_core::PWSTR, cchout : i32, idcombobox : i32) -> super::super::Foundation:: BOOL);
-    DlgDirSelectComboBoxExW(hwnddlg.param().abi(), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(idcombobox)).ok()
+    DlgDirSelectComboBoxExW(core::mem::transmute(hwnddlg), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(idcombobox)).ok()
 }
 #[inline]
-pub unsafe fn DlgDirSelectExA<P0>(hwnddlg: P0, lpstring: &mut [u8], idlistbox: i32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn DlgDirSelectExA(hwnddlg: super::super::Foundation::HWND, lpstring: &mut [u8], idlistbox: i32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn DlgDirSelectExA(hwnddlg : super::super::Foundation:: HWND, lpstring : windows_core::PSTR, chcount : i32, idlistbox : i32) -> super::super::Foundation:: BOOL);
-    DlgDirSelectExA(hwnddlg.param().abi(), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(idlistbox)).ok()
+    DlgDirSelectExA(core::mem::transmute(hwnddlg), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(idlistbox)).ok()
 }
 #[inline]
-pub unsafe fn DlgDirSelectExW<P0>(hwnddlg: P0, lpstring: &mut [u16], idlistbox: i32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn DlgDirSelectExW(hwnddlg: super::super::Foundation::HWND, lpstring: &mut [u16], idlistbox: i32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn DlgDirSelectExW(hwnddlg : super::super::Foundation:: HWND, lpstring : windows_core::PWSTR, chcount : i32, idlistbox : i32) -> super::super::Foundation:: BOOL);
-    DlgDirSelectExW(hwnddlg.param().abi(), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(idlistbox)).ok()
+    DlgDirSelectExW(core::mem::transmute(hwnddlg), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(idlistbox)).ok()
 }
 #[inline]
-pub unsafe fn DrawInsert<P0, P1>(handparent: P0, hlb: P1, nitem: i32)
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn DrawInsert(handparent: super::super::Foundation::HWND, hlb: super::super::Foundation::HWND, nitem: i32) {
     windows_targets::link!("comctl32.dll" "system" fn DrawInsert(handparent : super::super::Foundation:: HWND, hlb : super::super::Foundation:: HWND, nitem : i32));
-    DrawInsert(handparent.param().abi(), hlb.param().abi(), core::mem::transmute(nitem))
+    DrawInsert(core::mem::transmute(handparent), core::mem::transmute(hlb), core::mem::transmute(nitem))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawShadowText<P0, P5, P6>(hdc: P0, psztext: &[u16], prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: P5, crshadow: P6, ixoffset: i32, iyoffset: i32) -> i32
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    P5: windows_core::Param<super::super::Foundation::COLORREF>,
-    P6: windows_core::Param<super::super::Foundation::COLORREF>,
-{
+pub unsafe fn DrawShadowText(hdc: super::super::Graphics::Gdi::HDC, psztext: &[u16], prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: super::super::Foundation::COLORREF, crshadow: super::super::Foundation::COLORREF, ixoffset: i32, iyoffset: i32) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn DrawShadowText(hdc : super::super::Graphics::Gdi:: HDC, psztext : windows_core::PCWSTR, cch : u32, prc : *const super::super::Foundation:: RECT, dwflags : u32, crtext : super::super::Foundation:: COLORREF, crshadow : super::super::Foundation:: COLORREF, ixoffset : i32, iyoffset : i32) -> i32);
-    DrawShadowText(hdc.param().abi(), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(prc), core::mem::transmute(dwflags), crtext.param().abi(), crshadow.param().abi(), core::mem::transmute(ixoffset), core::mem::transmute(iyoffset))
+    DrawShadowText(core::mem::transmute(hdc), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(prc), core::mem::transmute(dwflags), core::mem::transmute(crtext), core::mem::transmute(crshadow), core::mem::transmute(ixoffset), core::mem::transmute(iyoffset))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawStatusTextA<P0, P2>(hdc: P0, lprc: *mut super::super::Foundation::RECT, psztext: P2, uflags: u32)
+pub unsafe fn DrawStatusTextA<P2>(hdc: super::super::Graphics::Gdi::HDC, lprc: *mut super::super::Foundation::RECT, psztext: P2, uflags: u32)
 where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : windows_core::PCSTR, uflags : u32));
-    DrawStatusTextA(hdc.param().abi(), core::mem::transmute(lprc), psztext.param().abi(), core::mem::transmute(uflags))
+    DrawStatusTextA(core::mem::transmute(hdc), core::mem::transmute(lprc), psztext.param().abi(), core::mem::transmute(uflags))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawStatusTextW<P0, P2>(hdc: P0, lprc: *mut super::super::Foundation::RECT, psztext: P2, uflags: u32)
+pub unsafe fn DrawStatusTextW<P2>(hdc: super::super::Graphics::Gdi::HDC, lprc: *mut super::super::Foundation::RECT, psztext: P2, uflags: u32)
 where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : windows_core::PCWSTR, uflags : u32));
-    DrawStatusTextW(hdc.param().abi(), core::mem::transmute(lprc), psztext.param().abi(), core::mem::transmute(uflags))
+    DrawStatusTextW(core::mem::transmute(hdc), core::mem::transmute(lprc), psztext.param().abi(), core::mem::transmute(uflags))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawThemeBackground<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, pcliprect: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn DrawThemeBackground(htheme: HTHEME, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, pcliprect: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pcliprect : *const super::super::Foundation:: RECT) -> windows_core::HRESULT);
-    DrawThemeBackground(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prect), core::mem::transmute(pcliprect.unwrap_or(core::ptr::null()))).ok()
+    DrawThemeBackground(core::mem::transmute(htheme), core::mem::transmute(hdc), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prect), core::mem::transmute(pcliprect.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawThemeBackgroundEx<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, poptions: Option<*const DTBGOPTS>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn DrawThemeBackgroundEx(htheme: HTHEME, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, poptions: Option<*const DTBGOPTS>) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackgroundEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, poptions : *const DTBGOPTS) -> windows_core::HRESULT);
-    DrawThemeBackgroundEx(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prect), core::mem::transmute(poptions.unwrap_or(core::ptr::null()))).ok()
+    DrawThemeBackgroundEx(core::mem::transmute(htheme), core::mem::transmute(hdc), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prect), core::mem::transmute(poptions.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawThemeEdge<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: super::super::Graphics::Gdi::DRAWEDGE_FLAGS, uflags: super::super::Graphics::Gdi::DRAW_EDGE_FLAGS, pcontentrect: Option<*mut super::super::Foundation::RECT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn DrawThemeEdge(htheme: HTHEME, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: super::super::Graphics::Gdi::DRAWEDGE_FLAGS, uflags: super::super::Graphics::Gdi::DRAW_EDGE_FLAGS, pcontentrect: Option<*mut super::super::Foundation::RECT>) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeEdge(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pdestrect : *const super::super::Foundation:: RECT, uedge : super::super::Graphics::Gdi:: DRAWEDGE_FLAGS, uflags : super::super::Graphics::Gdi:: DRAW_EDGE_FLAGS, pcontentrect : *mut super::super::Foundation:: RECT) -> windows_core::HRESULT);
-    DrawThemeEdge(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(pdestrect), core::mem::transmute(uedge), core::mem::transmute(uflags), core::mem::transmute(pcontentrect.unwrap_or(core::ptr::null_mut()))).ok()
+    DrawThemeEdge(core::mem::transmute(htheme), core::mem::transmute(hdc), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(pdestrect), core::mem::transmute(uedge), core::mem::transmute(uflags), core::mem::transmute(pcontentrect.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawThemeIcon<P0, P1, P5>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, himl: P5, iimageindex: i32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    P5: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn DrawThemeIcon(htheme: HTHEME, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, himl: HIMAGELIST, iimageindex: i32) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeIcon(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, himl : HIMAGELIST, iimageindex : i32) -> windows_core::HRESULT);
-    DrawThemeIcon(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prect), himl.param().abi(), core::mem::transmute(iimageindex)).ok()
+    DrawThemeIcon(core::mem::transmute(htheme), core::mem::transmute(hdc), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prect), core::mem::transmute(himl), core::mem::transmute(iimageindex)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawThemeParentBackground<P0, P1>(hwnd: P0, hdc: P1, prc: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn DrawThemeParentBackground(hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, prc: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackground(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, prc : *const super::super::Foundation:: RECT) -> windows_core::HRESULT);
-    DrawThemeParentBackground(hwnd.param().abi(), hdc.param().abi(), core::mem::transmute(prc.unwrap_or(core::ptr::null()))).ok()
+    DrawThemeParentBackground(core::mem::transmute(hwnd), core::mem::transmute(hdc), core::mem::transmute(prc.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawThemeParentBackgroundEx<P0, P1>(hwnd: P0, hdc: P1, dwflags: DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn DrawThemeParentBackgroundEx(hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, dwflags: DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackgroundEx(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, dwflags : DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc : *const super::super::Foundation:: RECT) -> windows_core::HRESULT);
-    DrawThemeParentBackgroundEx(hwnd.param().abi(), hdc.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(prc.unwrap_or(core::ptr::null()))).ok()
+    DrawThemeParentBackgroundEx(core::mem::transmute(hwnd), core::mem::transmute(hdc), core::mem::transmute(dwflags), core::mem::transmute(prc.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawThemeText<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn DrawThemeText(htheme: HTHEME, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeText(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, dwtextflags2 : u32, prect : *const super::super::Foundation:: RECT) -> windows_core::HRESULT);
-    DrawThemeText(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(dwtextflags), core::mem::transmute(dwtextflags2), core::mem::transmute(prect)).ok()
+    DrawThemeText(core::mem::transmute(htheme), core::mem::transmute(hdc), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(dwtextflags), core::mem::transmute(dwtextflags2), core::mem::transmute(prect)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawThemeTextEx<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, prect: *mut super::super::Foundation::RECT, poptions: Option<*const DTTOPTS>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn DrawThemeTextEx(htheme: HTHEME, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, prect: *mut super::super::Foundation::RECT, poptions: Option<*const DTTOPTS>) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeTextEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, prect : *mut super::super::Foundation:: RECT, poptions : *const DTTOPTS) -> windows_core::HRESULT);
-    DrawThemeTextEx(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(dwtextflags), core::mem::transmute(prect), core::mem::transmute(poptions.unwrap_or(core::ptr::null()))).ok()
+    DrawThemeTextEx(core::mem::transmute(htheme), core::mem::transmute(hdc), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(dwtextflags), core::mem::transmute(prect), core::mem::transmute(poptions.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn EnableScrollBar<P0>(hwnd: P0, wsbflags: u32, warrows: ENABLE_SCROLL_BAR_ARROWS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn EnableScrollBar(hwnd: super::super::Foundation::HWND, wsbflags: u32, warrows: ENABLE_SCROLL_BAR_ARROWS) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn EnableScrollBar(hwnd : super::super::Foundation:: HWND, wsbflags : u32, warrows : ENABLE_SCROLL_BAR_ARROWS) -> super::super::Foundation:: BOOL);
-    EnableScrollBar(hwnd.param().abi(), core::mem::transmute(wsbflags), core::mem::transmute(warrows)).ok()
+    EnableScrollBar(core::mem::transmute(hwnd), core::mem::transmute(wsbflags), core::mem::transmute(warrows)).ok()
 }
 #[inline]
-pub unsafe fn EnableThemeDialogTexture<P0>(hwnd: P0, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn EnableThemeDialogTexture(hwnd: super::super::Foundation::HWND, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn EnableThemeDialogTexture(hwnd : super::super::Foundation:: HWND, dwflags : u32) -> windows_core::HRESULT);
-    EnableThemeDialogTexture(hwnd.param().abi(), core::mem::transmute(dwflags)).ok()
+    EnableThemeDialogTexture(core::mem::transmute(hwnd), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn EnableTheming<P0>(fenable: P0) -> windows_core::Result<()>
@@ -661,13 +450,12 @@ where
     EndBufferedPaint(core::mem::transmute(hbufferedpaint), fupdatetarget.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn EndPanningFeedback<P0, P1>(hwnd: P0, fanimateback: P1) -> super::super::Foundation::BOOL
+pub unsafe fn EndPanningFeedback<P1>(hwnd: super::super::Foundation::HWND, fanimateback: P1) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn EndPanningFeedback(hwnd : super::super::Foundation:: HWND, fanimateback : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    EndPanningFeedback(hwnd.param().abi(), fanimateback.param().abi())
+    EndPanningFeedback(core::mem::transmute(hwnd), fanimateback.param().abi())
 }
 #[inline]
 pub unsafe fn EvaluateProximityToPolygon(controlpolygon: &[super::super::Foundation::POINT], phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> windows_core::Result<()> {
@@ -680,96 +468,76 @@ pub unsafe fn EvaluateProximityToRect(controlboundingbox: *const super::super::F
     EvaluateProximityToRect(core::mem::transmute(controlboundingbox), core::mem::transmute(phittestinginput), core::mem::transmute(pproximityeval)).ok()
 }
 #[inline]
-pub unsafe fn FlatSB_EnableScrollBar<P0>(param0: P0, param1: i32, param2: u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn FlatSB_EnableScrollBar(param0: super::super::Foundation::HWND, param1: i32, param2: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_EnableScrollBar(param0 : super::super::Foundation:: HWND, param1 : i32, param2 : u32) -> super::super::Foundation:: BOOL);
-    FlatSB_EnableScrollBar(param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(param2))
+    FlatSB_EnableScrollBar(core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_GetScrollInfo<P0>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut super::WindowsAndMessaging::SCROLLINFO) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn FlatSB_GetScrollInfo(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut super::WindowsAndMessaging::SCROLLINFO) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollInfo(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : *mut super::WindowsAndMessaging:: SCROLLINFO) -> super::super::Foundation:: BOOL);
-    FlatSB_GetScrollInfo(param0.param().abi(), core::mem::transmute(code), core::mem::transmute(param2))
+    FlatSB_GetScrollInfo(core::mem::transmute(param0), core::mem::transmute(code), core::mem::transmute(param2))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_GetScrollPos<P0>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS) -> i32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn FlatSB_GetScrollPos(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollPos(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS) -> i32);
-    FlatSB_GetScrollPos(param0.param().abi(), core::mem::transmute(code))
+    FlatSB_GetScrollPos(core::mem::transmute(param0), core::mem::transmute(code))
 }
 #[inline]
-pub unsafe fn FlatSB_GetScrollProp<P0>(param0: P0, propindex: WSB_PROP, param2: *mut i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn FlatSB_GetScrollProp(param0: super::super::Foundation::HWND, propindex: WSB_PROP, param2: *mut i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollProp(param0 : super::super::Foundation:: HWND, propindex : WSB_PROP, param2 : *mut i32) -> super::super::Foundation:: BOOL);
-    FlatSB_GetScrollProp(param0.param().abi(), core::mem::transmute(propindex), core::mem::transmute(param2))
+    FlatSB_GetScrollProp(core::mem::transmute(param0), core::mem::transmute(propindex), core::mem::transmute(param2))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_GetScrollRange<P0>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut i32, param3: *mut i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn FlatSB_GetScrollRange(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut i32, param3: *mut i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollRange(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : *mut i32, param3 : *mut i32) -> super::super::Foundation:: BOOL);
-    FlatSB_GetScrollRange(param0.param().abi(), core::mem::transmute(code), core::mem::transmute(param2), core::mem::transmute(param3))
+    FlatSB_GetScrollRange(core::mem::transmute(param0), core::mem::transmute(code), core::mem::transmute(param2), core::mem::transmute(param3))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_SetScrollInfo<P0, P3>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, psi: *mut super::WindowsAndMessaging::SCROLLINFO, fredraw: P3) -> i32
+pub unsafe fn FlatSB_SetScrollInfo<P3>(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, psi: *mut super::WindowsAndMessaging::SCROLLINFO, fredraw: P3) -> i32
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollInfo(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, psi : *mut super::WindowsAndMessaging:: SCROLLINFO, fredraw : super::super::Foundation:: BOOL) -> i32);
-    FlatSB_SetScrollInfo(param0.param().abi(), core::mem::transmute(code), core::mem::transmute(psi), fredraw.param().abi())
+    FlatSB_SetScrollInfo(core::mem::transmute(param0), core::mem::transmute(code), core::mem::transmute(psi), fredraw.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_SetScrollPos<P0, P3>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, pos: i32, fredraw: P3) -> i32
+pub unsafe fn FlatSB_SetScrollPos<P3>(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, pos: i32, fredraw: P3) -> i32
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollPos(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, pos : i32, fredraw : super::super::Foundation:: BOOL) -> i32);
-    FlatSB_SetScrollPos(param0.param().abi(), core::mem::transmute(code), core::mem::transmute(pos), fredraw.param().abi())
+    FlatSB_SetScrollPos(core::mem::transmute(param0), core::mem::transmute(code), core::mem::transmute(pos), fredraw.param().abi())
 }
 #[inline]
-pub unsafe fn FlatSB_SetScrollProp<P0, P3>(param0: P0, index: WSB_PROP, newvalue: isize, param3: P3) -> super::super::Foundation::BOOL
+pub unsafe fn FlatSB_SetScrollProp<P3>(param0: super::super::Foundation::HWND, index: WSB_PROP, newvalue: isize, param3: P3) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollProp(param0 : super::super::Foundation:: HWND, index : u32, newvalue : isize, param3 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    FlatSB_SetScrollProp(param0.param().abi(), index.0 as _, core::mem::transmute(newvalue), param3.param().abi())
+    FlatSB_SetScrollProp(core::mem::transmute(param0), index.0 as _, core::mem::transmute(newvalue), param3.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_SetScrollRange<P0, P4>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, min: i32, max: i32, fredraw: P4) -> i32
+pub unsafe fn FlatSB_SetScrollRange<P4>(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, min: i32, max: i32, fredraw: P4) -> i32
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P4: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollRange(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, min : i32, max : i32, fredraw : super::super::Foundation:: BOOL) -> i32);
-    FlatSB_SetScrollRange(param0.param().abi(), core::mem::transmute(code), core::mem::transmute(min), core::mem::transmute(max), fredraw.param().abi())
+    FlatSB_SetScrollRange(core::mem::transmute(param0), core::mem::transmute(code), core::mem::transmute(min), core::mem::transmute(max), fredraw.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_ShowScrollBar<P0, P2>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: P2) -> super::super::Foundation::BOOL
+pub unsafe fn FlatSB_ShowScrollBar<P2>(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: P2) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_ShowScrollBar(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    FlatSB_ShowScrollBar(param0.param().abi(), core::mem::transmute(code), param2.param().abi())
+    FlatSB_ShowScrollBar(core::mem::transmute(param0), core::mem::transmute(code), param2.param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -796,12 +564,9 @@ pub unsafe fn GetBufferedPaintTargetRect(hbufferedpaint: isize) -> windows_core:
     GetBufferedPaintTargetRect(core::mem::transmute(hbufferedpaint), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetComboBoxInfo<P0>(hwndcombo: P0, pcbi: *mut COMBOBOXINFO) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn GetComboBoxInfo(hwndcombo: super::super::Foundation::HWND, pcbi: *mut COMBOBOXINFO) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn GetComboBoxInfo(hwndcombo : super::super::Foundation:: HWND, pcbi : *mut COMBOBOXINFO) -> super::super::Foundation:: BOOL);
-    GetComboBoxInfo(hwndcombo.param().abi(), core::mem::transmute(pcbi)).ok()
+    GetComboBoxInfo(core::mem::transmute(hwndcombo), core::mem::transmute(pcbi)).ok()
 }
 #[inline]
 pub unsafe fn GetCurrentThemeName(pszthemefilename: &mut [u16], pszcolorbuff: Option<&mut [u16]>, pszsizebuff: Option<&mut [u16]>) -> windows_core::Result<()> {
@@ -809,20 +574,14 @@ pub unsafe fn GetCurrentThemeName(pszthemefilename: &mut [u16], pszcolorbuff: Op
     GetCurrentThemeName(core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len().try_into().unwrap(), core::mem::transmute(pszcolorbuff.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszcolorbuff.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszsizebuff.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszsizebuff.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[inline]
-pub unsafe fn GetEffectiveClientRect<P0>(hwnd: P0, lprc: *mut super::super::Foundation::RECT, lpinfo: *const i32)
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn GetEffectiveClientRect(hwnd: super::super::Foundation::HWND, lprc: *mut super::super::Foundation::RECT, lpinfo: *const i32) {
     windows_targets::link!("comctl32.dll" "system" fn GetEffectiveClientRect(hwnd : super::super::Foundation:: HWND, lprc : *mut super::super::Foundation:: RECT, lpinfo : *const i32));
-    GetEffectiveClientRect(hwnd.param().abi(), core::mem::transmute(lprc), core::mem::transmute(lpinfo))
+    GetEffectiveClientRect(core::mem::transmute(hwnd), core::mem::transmute(lprc), core::mem::transmute(lpinfo))
 }
 #[inline]
-pub unsafe fn GetListBoxInfo<P0>(hwnd: P0) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn GetListBoxInfo(hwnd: super::super::Foundation::HWND) -> u32 {
     windows_targets::link!("user32.dll" "system" fn GetListBoxInfo(hwnd : super::super::Foundation:: HWND) -> u32);
-    GetListBoxInfo(hwnd.param().abi())
+    GetListBoxInfo(core::mem::transmute(hwnd))
 }
 #[inline]
 pub unsafe fn GetMUILanguage() -> u16 {
@@ -830,20 +589,14 @@ pub unsafe fn GetMUILanguage() -> u16 {
     GetMUILanguage()
 }
 #[inline]
-pub unsafe fn GetThemeAnimationProperty<P0>(htheme: P0, istoryboardid: i32, itargetid: i32, eproperty: TA_PROPERTY, pvproperty: Option<*mut core::ffi::c_void>, cbsize: u32, pcbsizeout: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeAnimationProperty(htheme: HTHEME, istoryboardid: i32, itargetid: i32, eproperty: TA_PROPERTY, pvproperty: Option<*mut core::ffi::c_void>, cbsize: u32, pcbsizeout: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeAnimationProperty(htheme : HTHEME, istoryboardid : i32, itargetid : i32, eproperty : TA_PROPERTY, pvproperty : *mut core::ffi::c_void, cbsize : u32, pcbsizeout : *mut u32) -> windows_core::HRESULT);
-    GetThemeAnimationProperty(htheme.param().abi(), core::mem::transmute(istoryboardid), core::mem::transmute(itargetid), core::mem::transmute(eproperty), core::mem::transmute(pvproperty.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbsize), core::mem::transmute(pcbsizeout)).ok()
+    GetThemeAnimationProperty(core::mem::transmute(htheme), core::mem::transmute(istoryboardid), core::mem::transmute(itargetid), core::mem::transmute(eproperty), core::mem::transmute(pvproperty.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbsize), core::mem::transmute(pcbsizeout)).ok()
 }
 #[inline]
-pub unsafe fn GetThemeAnimationTransform<P0>(htheme: P0, istoryboardid: i32, itargetid: i32, dwtransformindex: u32, ptransform: Option<*mut TA_TRANSFORM>, cbsize: u32, pcbsizeout: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeAnimationTransform(htheme: HTHEME, istoryboardid: i32, itargetid: i32, dwtransformindex: u32, ptransform: Option<*mut TA_TRANSFORM>, cbsize: u32, pcbsizeout: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeAnimationTransform(htheme : HTHEME, istoryboardid : i32, itargetid : i32, dwtransformindex : u32, ptransform : *mut TA_TRANSFORM, cbsize : u32, pcbsizeout : *mut u32) -> windows_core::HRESULT);
-    GetThemeAnimationTransform(htheme.param().abi(), core::mem::transmute(istoryboardid), core::mem::transmute(itargetid), core::mem::transmute(dwtransformindex), core::mem::transmute(ptransform.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbsize), core::mem::transmute(pcbsizeout)).ok()
+    GetThemeAnimationTransform(core::mem::transmute(htheme), core::mem::transmute(istoryboardid), core::mem::transmute(itargetid), core::mem::transmute(dwtransformindex), core::mem::transmute(ptransform.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbsize), core::mem::transmute(pcbsizeout)).ok()
 }
 #[inline]
 pub unsafe fn GetThemeAppProperties() -> SET_THEME_APP_PROPERTIES_FLAGS {
@@ -852,64 +605,43 @@ pub unsafe fn GetThemeAppProperties() -> SET_THEME_APP_PROPERTIES_FLAGS {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeBackgroundContentRect<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pboundingrect: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::RECT>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn GetThemeBackgroundContentRect(htheme: HTHEME, hdc: Option<super::super::Graphics::Gdi::HDC>, ipartid: i32, istateid: i32, pboundingrect: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::RECT> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundContentRect(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pboundingrect : *const super::super::Foundation:: RECT, pcontentrect : *mut super::super::Foundation:: RECT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeBackgroundContentRect(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(pboundingrect), &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeBackgroundContentRect(core::mem::transmute(htheme), core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(pboundingrect), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeBackgroundExtent<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pcontentrect: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::RECT>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn GetThemeBackgroundExtent(htheme: HTHEME, hdc: Option<super::super::Graphics::Gdi::HDC>, ipartid: i32, istateid: i32, pcontentrect: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::RECT> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pcontentrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeBackgroundExtent(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(pcontentrect), &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeBackgroundExtent(core::mem::transmute(htheme), core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(pcontentrect), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeBackgroundRegion<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Graphics::Gdi::HRGN>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn GetThemeBackgroundRegion(htheme: HTHEME, hdc: Option<super::super::Graphics::Gdi::HDC>, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Graphics::Gdi::HRGN> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundRegion(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pregion : *mut super::super::Graphics::Gdi:: HRGN) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeBackgroundRegion(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prect), &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeBackgroundRegion(core::mem::transmute(htheme), core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prect), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeBitmap<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, dwflags: GET_THEME_BITMAP_FLAGS) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeBitmap(htheme: HTHEME, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, dwflags: GET_THEME_BITMAP_FLAGS) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeBitmap(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, dwflags : GET_THEME_BITMAP_FLAGS, phbitmap : *mut super::super::Graphics::Gdi:: HBITMAP) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeBitmap(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, core::mem::transmute(dwflags), &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeBitmap(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, core::mem::transmute(dwflags), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetThemeBool<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<super::super::Foundation::BOOL>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeBool(htheme: HTHEME, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<super::super::Foundation::BOOL> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeBool(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pfval : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeBool(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeBool(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetThemeColor<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<super::super::Foundation::COLORREF>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeColor(htheme: HTHEME, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<super::super::Foundation::COLORREF> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeColor(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pcolor : *mut super::super::Foundation:: COLORREF) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeColor(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeColor(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetThemeDocumentationProperty<P0, P1>(pszthemename: P0, pszpropertyname: P1, pszvaluebuff: &mut [u16]) -> windows_core::Result<()>
@@ -921,288 +653,182 @@ where
     GetThemeDocumentationProperty(pszthemename.param().abi(), pszpropertyname.param().abi(), core::mem::transmute(pszvaluebuff.as_ptr()), pszvaluebuff.len().try_into().unwrap()).ok()
 }
 #[inline]
-pub unsafe fn GetThemeEnumValue<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<i32>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeEnumValue(htheme: HTHEME, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<i32> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeEnumValue(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeEnumValue(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeEnumValue(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetThemeFilename<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pszthemefilename: &mut [u16]) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeFilename(htheme: HTHEME, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pszthemefilename: &mut [u16]) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeFilename(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszthemefilename : windows_core::PWSTR, cchmaxbuffchars : i32) -> windows_core::HRESULT);
-    GetThemeFilename(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len().try_into().unwrap()).ok()
+    GetThemeFilename(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len().try_into().unwrap()).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeFont<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ipropid: i32, pfont: *mut super::super::Graphics::Gdi::LOGFONTW) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn GetThemeFont(htheme: HTHEME, hdc: Option<super::super::Graphics::Gdi::HDC>, ipartid: i32, istateid: i32, ipropid: i32, pfont: *mut super::super::Graphics::Gdi::LOGFONTW) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeFont(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, pfont : *mut super::super::Graphics::Gdi:: LOGFONTW) -> windows_core::HRESULT);
-    GetThemeFont(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), core::mem::transmute(pfont)).ok()
+    GetThemeFont(core::mem::transmute(htheme), core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), core::mem::transmute(pfont)).ok()
 }
 #[inline]
-pub unsafe fn GetThemeInt<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<i32>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeInt(htheme: HTHEME, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<i32> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeInt(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeInt(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeInt(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetThemeIntList<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pintlist: *mut INTLIST) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeIntList(htheme: HTHEME, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pintlist: *mut INTLIST) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeIntList(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pintlist : *mut INTLIST) -> windows_core::HRESULT);
-    GetThemeIntList(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, core::mem::transmute(pintlist)).ok()
+    GetThemeIntList(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, core::mem::transmute(pintlist)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeMargins<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, prc: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<MARGINS>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn GetThemeMargins(htheme: HTHEME, hdc: Option<super::super::Graphics::Gdi::HDC>, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, prc: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<MARGINS> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeMargins(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, prc : *const super::super::Foundation:: RECT, pmargins : *mut MARGINS) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeMargins(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, core::mem::transmute(prc.unwrap_or(core::ptr::null())), &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeMargins(core::mem::transmute(htheme), core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, core::mem::transmute(prc.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeMetric<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<i32>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn GetThemeMetric(htheme: HTHEME, hdc: Option<super::super::Graphics::Gdi::HDC>, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<i32> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeMetric(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeMetric(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeMetric(core::mem::transmute(htheme), core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemePartSize<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prc: Option<*const super::super::Foundation::RECT>, esize: THEMESIZE) -> windows_core::Result<super::super::Foundation::SIZE>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn GetThemePartSize(htheme: HTHEME, hdc: Option<super::super::Graphics::Gdi::HDC>, ipartid: i32, istateid: i32, prc: Option<*const super::super::Foundation::RECT>, esize: THEMESIZE) -> windows_core::Result<super::super::Foundation::SIZE> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemePartSize(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prc : *const super::super::Foundation:: RECT, esize : THEMESIZE, psz : *mut super::super::Foundation:: SIZE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemePartSize(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prc.unwrap_or(core::ptr::null())), core::mem::transmute(esize), &mut result__).map(|| core::mem::transmute(result__))
+    GetThemePartSize(core::mem::transmute(htheme), core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prc.unwrap_or(core::mem::zeroed())), core::mem::transmute(esize), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetThemePosition<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<super::super::Foundation::POINT>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemePosition(htheme: HTHEME, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<super::super::Foundation::POINT> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemePosition(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppoint : *mut super::super::Foundation:: POINT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemePosition(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
+    GetThemePosition(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetThemePropertyOrigin<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<PROPERTYORIGIN>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemePropertyOrigin(htheme: HTHEME, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<PROPERTYORIGIN> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemePropertyOrigin(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, porigin : *mut PROPERTYORIGIN) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemePropertyOrigin(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), &mut result__).map(|| core::mem::transmute(result__))
+    GetThemePropertyOrigin(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetThemeRect<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<super::super::Foundation::RECT>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeRect(htheme: HTHEME, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<super::super::Foundation::RECT> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeRect(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, prect : *mut super::super::Foundation:: RECT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeRect(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeRect(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetThemeStream<P0, P6>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32, ppvstream: *mut *mut core::ffi::c_void, pcbstream: Option<*mut u32>, hinst: P6) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-    P6: windows_core::Param<super::super::Foundation::HINSTANCE>,
-{
+pub unsafe fn GetThemeStream(htheme: HTHEME, ipartid: i32, istateid: i32, ipropid: i32, ppvstream: *mut *mut core::ffi::c_void, pcbstream: Option<*mut u32>, hinst: Option<super::super::Foundation::HINSTANCE>) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeStream(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppvstream : *mut *mut core::ffi::c_void, pcbstream : *mut u32, hinst : super::super::Foundation:: HINSTANCE) -> windows_core::HRESULT);
-    GetThemeStream(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), core::mem::transmute(ppvstream), core::mem::transmute(pcbstream.unwrap_or(core::ptr::null_mut())), hinst.param().abi()).ok()
+    GetThemeStream(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), core::mem::transmute(ppvstream), core::mem::transmute(pcbstream.unwrap_or(core::mem::zeroed())), core::mem::transmute(hinst.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn GetThemeString<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: &mut [u16]) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeString(htheme: HTHEME, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: &mut [u16]) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeString(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszbuff : windows_core::PWSTR, cchmaxbuffchars : i32) -> windows_core::HRESULT);
-    GetThemeString(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), core::mem::transmute(pszbuff.as_ptr()), pszbuff.len().try_into().unwrap()).ok()
+    GetThemeString(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), core::mem::transmute(pszbuff.as_ptr()), pszbuff.len().try_into().unwrap()).ok()
 }
 #[inline]
-pub unsafe fn GetThemeSysBool<P0>(htheme: P0, iboolid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeSysBool(htheme: Option<HTHEME>, iboolid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Foundation::BOOL {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysBool(htheme : HTHEME, iboolid : i32) -> super::super::Foundation:: BOOL);
-    GetThemeSysBool(htheme.param().abi(), iboolid.0 as _)
+    GetThemeSysBool(core::mem::transmute(htheme.unwrap_or(core::mem::zeroed())), iboolid.0 as _)
 }
 #[inline]
-pub unsafe fn GetThemeSysColor<P0>(htheme: P0, icolorid: i32) -> super::super::Foundation::COLORREF
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeSysColor(htheme: Option<HTHEME>, icolorid: i32) -> super::super::Foundation::COLORREF {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysColor(htheme : HTHEME, icolorid : i32) -> super::super::Foundation:: COLORREF);
-    GetThemeSysColor(htheme.param().abi(), core::mem::transmute(icolorid))
+    GetThemeSysColor(core::mem::transmute(htheme.unwrap_or(core::mem::zeroed())), core::mem::transmute(icolorid))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeSysColorBrush<P0>(htheme: P0, icolorid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Graphics::Gdi::HBRUSH
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeSysColorBrush(htheme: Option<HTHEME>, icolorid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Graphics::Gdi::HBRUSH {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysColorBrush(htheme : HTHEME, icolorid : i32) -> super::super::Graphics::Gdi:: HBRUSH);
-    GetThemeSysColorBrush(htheme.param().abi(), icolorid.0 as _)
+    GetThemeSysColorBrush(core::mem::transmute(htheme.unwrap_or(core::mem::zeroed())), icolorid.0 as _)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeSysFont<P0>(htheme: P0, ifontid: THEME_PROPERTY_SYMBOL_ID, plf: *mut super::super::Graphics::Gdi::LOGFONTW) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeSysFont(htheme: Option<HTHEME>, ifontid: THEME_PROPERTY_SYMBOL_ID, plf: *mut super::super::Graphics::Gdi::LOGFONTW) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysFont(htheme : HTHEME, ifontid : i32, plf : *mut super::super::Graphics::Gdi:: LOGFONTW) -> windows_core::HRESULT);
-    GetThemeSysFont(htheme.param().abi(), ifontid.0 as _, core::mem::transmute(plf)).ok()
+    GetThemeSysFont(core::mem::transmute(htheme.unwrap_or(core::mem::zeroed())), ifontid.0 as _, core::mem::transmute(plf)).ok()
 }
 #[inline]
-pub unsafe fn GetThemeSysInt<P0>(htheme: P0, iintid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<i32>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeSysInt(htheme: HTHEME, iintid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<i32> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysInt(htheme : HTHEME, iintid : i32, pivalue : *mut i32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeSysInt(htheme.param().abi(), iintid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeSysInt(core::mem::transmute(htheme), iintid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetThemeSysSize<P0>(htheme: P0, isizeid: i32) -> i32
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeSysSize(htheme: Option<HTHEME>, isizeid: i32) -> i32 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysSize(htheme : HTHEME, isizeid : i32) -> i32);
-    GetThemeSysSize(htheme.param().abi(), core::mem::transmute(isizeid))
+    GetThemeSysSize(core::mem::transmute(htheme.unwrap_or(core::mem::zeroed())), core::mem::transmute(isizeid))
 }
 #[inline]
-pub unsafe fn GetThemeSysString<P0>(htheme: P0, istringid: THEME_PROPERTY_SYMBOL_ID, pszstringbuff: &mut [u16]) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeSysString(htheme: HTHEME, istringid: THEME_PROPERTY_SYMBOL_ID, pszstringbuff: &mut [u16]) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysString(htheme : HTHEME, istringid : i32, pszstringbuff : windows_core::PWSTR, cchmaxstringchars : i32) -> windows_core::HRESULT);
-    GetThemeSysString(htheme.param().abi(), istringid.0 as _, core::mem::transmute(pszstringbuff.as_ptr()), pszstringbuff.len().try_into().unwrap()).ok()
+    GetThemeSysString(core::mem::transmute(htheme), istringid.0 as _, core::mem::transmute(pszstringbuff.as_ptr()), pszstringbuff.len().try_into().unwrap()).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeTextExtent<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, pboundingrect: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<super::super::Foundation::RECT>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn GetThemeTextExtent(htheme: HTHEME, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, pboundingrect: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<super::super::Foundation::RECT> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchcharcount : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, pboundingrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeTextExtent(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(dwtextflags), core::mem::transmute(pboundingrect.unwrap_or(core::ptr::null())), &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeTextExtent(core::mem::transmute(htheme), core::mem::transmute(hdc), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(dwtextflags), core::mem::transmute(pboundingrect.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeTextMetrics<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn GetThemeTextMetrics(htheme: HTHEME, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextMetrics(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ptm : *mut super::super::Graphics::Gdi:: TEXTMETRICW) -> windows_core::HRESULT);
-    GetThemeTextMetrics(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ptm)).ok()
+    GetThemeTextMetrics(core::mem::transmute(htheme), core::mem::transmute(hdc), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ptm)).ok()
 }
 #[inline]
-pub unsafe fn GetThemeTimingFunction<P0>(htheme: P0, itimingfunctionid: i32, ptimingfunction: Option<*mut TA_TIMINGFUNCTION>, cbsize: u32, pcbsizeout: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeTimingFunction(htheme: HTHEME, itimingfunctionid: i32, ptimingfunction: Option<*mut TA_TIMINGFUNCTION>, cbsize: u32, pcbsizeout: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeTimingFunction(htheme : HTHEME, itimingfunctionid : i32, ptimingfunction : *mut TA_TIMINGFUNCTION, cbsize : u32, pcbsizeout : *mut u32) -> windows_core::HRESULT);
-    GetThemeTimingFunction(htheme.param().abi(), core::mem::transmute(itimingfunctionid), core::mem::transmute(ptimingfunction.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbsize), core::mem::transmute(pcbsizeout)).ok()
+    GetThemeTimingFunction(core::mem::transmute(htheme), core::mem::transmute(itimingfunctionid), core::mem::transmute(ptimingfunction.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbsize), core::mem::transmute(pcbsizeout)).ok()
 }
 #[inline]
-pub unsafe fn GetThemeTransitionDuration<P0>(htheme: P0, ipartid: i32, istateidfrom: i32, istateidto: i32, ipropid: i32) -> windows_core::Result<u32>
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn GetThemeTransitionDuration(htheme: HTHEME, ipartid: i32, istateidfrom: i32, istateidto: i32, ipropid: i32) -> windows_core::Result<u32> {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeTransitionDuration(htheme : HTHEME, ipartid : i32, istateidfrom : i32, istateidto : i32, ipropid : i32, pdwduration : *mut u32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeTransitionDuration(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateidfrom), core::mem::transmute(istateidto), core::mem::transmute(ipropid), &mut result__).map(|| core::mem::transmute(result__))
+    GetThemeTransitionDuration(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateidfrom), core::mem::transmute(istateidto), core::mem::transmute(ipropid), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetWindowFeedbackSetting<P0>(hwnd: P0, feedback: FEEDBACK_TYPE, dwflags: u32, psize: *mut u32, config: Option<*mut core::ffi::c_void>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn GetWindowFeedbackSetting(hwnd: super::super::Foundation::HWND, feedback: FEEDBACK_TYPE, dwflags: u32, psize: *mut u32, config: Option<*mut core::ffi::c_void>) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn GetWindowFeedbackSetting(hwnd : super::super::Foundation:: HWND, feedback : FEEDBACK_TYPE, dwflags : u32, psize : *mut u32, config : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    GetWindowFeedbackSetting(hwnd.param().abi(), core::mem::transmute(feedback), core::mem::transmute(dwflags), core::mem::transmute(psize), core::mem::transmute(config.unwrap_or(core::ptr::null_mut())))
+    GetWindowFeedbackSetting(core::mem::transmute(hwnd), core::mem::transmute(feedback), core::mem::transmute(dwflags), core::mem::transmute(psize), core::mem::transmute(config.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn GetWindowTheme<P0>(hwnd: P0) -> HTHEME
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn GetWindowTheme(hwnd: super::super::Foundation::HWND) -> HTHEME {
     windows_targets::link!("uxtheme.dll" "system" fn GetWindowTheme(hwnd : super::super::Foundation:: HWND) -> HTHEME);
-    GetWindowTheme(hwnd.param().abi())
+    GetWindowTheme(core::mem::transmute(hwnd))
 }
 #[inline]
-pub unsafe fn HIMAGELIST_QueryInterface<P0>(himl: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn HIMAGELIST_QueryInterface(himl: HIMAGELIST, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("comctl32.dll" "system" fn HIMAGELIST_QueryInterface(himl : HIMAGELIST, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    HIMAGELIST_QueryInterface(himl.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
+    HIMAGELIST_QueryInterface(core::mem::transmute(himl), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn HitTestThemeBackground<P0, P1, P6>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, dwoptions: HIT_TEST_BACKGROUND_OPTIONS, prect: *const super::super::Foundation::RECT, hrgn: P6, pttest: super::super::Foundation::POINT) -> windows_core::Result<u16>
-where
-    P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    P6: windows_core::Param<super::super::Graphics::Gdi::HRGN>,
-{
+pub unsafe fn HitTestThemeBackground(htheme: HTHEME, hdc: Option<super::super::Graphics::Gdi::HDC>, ipartid: i32, istateid: i32, dwoptions: HIT_TEST_BACKGROUND_OPTIONS, prect: *const super::super::Foundation::RECT, hrgn: Option<super::super::Graphics::Gdi::HRGN>, pttest: super::super::Foundation::POINT) -> windows_core::Result<u16> {
     windows_targets::link!("uxtheme.dll" "system" fn HitTestThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, dwoptions : HIT_TEST_BACKGROUND_OPTIONS, prect : *const super::super::Foundation:: RECT, hrgn : super::super::Graphics::Gdi:: HRGN, pttest : super::super::Foundation:: POINT, pwhittestcode : *mut u16) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    HitTestThemeBackground(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(dwoptions), core::mem::transmute(prect), hrgn.param().abi(), core::mem::transmute(pttest), &mut result__).map(|| core::mem::transmute(result__))
+    HitTestThemeBackground(core::mem::transmute(htheme), core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(dwoptions), core::mem::transmute(prect), core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())), core::mem::transmute(pttest), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImageList_Add<P0, P1, P2>(himl: P0, hbmimage: P1, hbmmask: P2) -> i32
-where
-    P0: windows_core::Param<HIMAGELIST>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-    P2: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-{
+pub unsafe fn ImageList_Add(himl: HIMAGELIST, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: Option<super::super::Graphics::Gdi::HBITMAP>) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Add(himl : HIMAGELIST, hbmimage : super::super::Graphics::Gdi:: HBITMAP, hbmmask : super::super::Graphics::Gdi:: HBITMAP) -> i32);
-    ImageList_Add(himl.param().abi(), hbmimage.param().abi(), hbmmask.param().abi())
+    ImageList_Add(core::mem::transmute(himl), core::mem::transmute(hbmimage), core::mem::transmute(hbmmask.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImageList_AddMasked<P0, P1, P2>(himl: P0, hbmimage: P1, crmask: P2) -> i32
-where
-    P0: windows_core::Param<HIMAGELIST>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-    P2: windows_core::Param<super::super::Foundation::COLORREF>,
-{
+pub unsafe fn ImageList_AddMasked(himl: HIMAGELIST, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: super::super::Foundation::COLORREF) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_AddMasked(himl : HIMAGELIST, hbmimage : super::super::Graphics::Gdi:: HBITMAP, crmask : super::super::Foundation:: COLORREF) -> i32);
-    ImageList_AddMasked(himl.param().abi(), hbmimage.param().abi(), crmask.param().abi())
+    ImageList_AddMasked(core::mem::transmute(himl), core::mem::transmute(hbmimage), core::mem::transmute(crmask))
 }
 #[inline]
-pub unsafe fn ImageList_BeginDrag<P0>(himltrack: P0, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_BeginDrag(himltrack: HIMAGELIST, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_BeginDrag(himltrack : HIMAGELIST, itrack : i32, dxhotspot : i32, dyhotspot : i32) -> super::super::Foundation:: BOOL);
-    ImageList_BeginDrag(himltrack.param().abi(), core::mem::transmute(itrack), core::mem::transmute(dxhotspot), core::mem::transmute(dyhotspot))
+    ImageList_BeginDrag(core::mem::transmute(himltrack), core::mem::transmute(itrack), core::mem::transmute(dxhotspot), core::mem::transmute(dyhotspot))
 }
 #[inline]
 pub unsafe fn ImageList_CoCreateInstance<P1, T>(rclsid: *const windows_core::GUID, punkouter: P1) -> windows_core::Result<T>
@@ -1215,13 +841,9 @@ where
     ImageList_CoCreateInstance(core::mem::transmute(rclsid), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
-pub unsafe fn ImageList_Copy<P0, P2>(himldst: P0, idst: i32, himlsrc: P2, isrc: i32, uflags: IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-    P2: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_Copy(himldst: HIMAGELIST, idst: i32, himlsrc: HIMAGELIST, isrc: i32, uflags: IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Copy(himldst : HIMAGELIST, idst : i32, himlsrc : HIMAGELIST, isrc : i32, uflags : IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation:: BOOL);
-    ImageList_Copy(himldst.param().abi(), core::mem::transmute(idst), himlsrc.param().abi(), core::mem::transmute(isrc), core::mem::transmute(uflags))
+    ImageList_Copy(core::mem::transmute(himldst), core::mem::transmute(idst), core::mem::transmute(himlsrc), core::mem::transmute(isrc), core::mem::transmute(uflags))
 }
 #[inline]
 pub unsafe fn ImageList_Create(cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> HIMAGELIST {
@@ -1229,28 +851,19 @@ pub unsafe fn ImageList_Create(cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS
     ImageList_Create(core::mem::transmute(cx), core::mem::transmute(cy), core::mem::transmute(flags), core::mem::transmute(cinitial), core::mem::transmute(cgrow))
 }
 #[inline]
-pub unsafe fn ImageList_Destroy<P0>(himl: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_Destroy(himl: Option<HIMAGELIST>) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Destroy(himl : HIMAGELIST) -> super::super::Foundation:: BOOL);
-    ImageList_Destroy(himl.param().abi())
+    ImageList_Destroy(core::mem::transmute(himl.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn ImageList_DragEnter<P0>(hwndlock: P0, x: i32, y: i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn ImageList_DragEnter(hwndlock: super::super::Foundation::HWND, x: i32, y: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_DragEnter(hwndlock : super::super::Foundation:: HWND, x : i32, y : i32) -> super::super::Foundation:: BOOL);
-    ImageList_DragEnter(hwndlock.param().abi(), core::mem::transmute(x), core::mem::transmute(y))
+    ImageList_DragEnter(core::mem::transmute(hwndlock), core::mem::transmute(x), core::mem::transmute(y))
 }
 #[inline]
-pub unsafe fn ImageList_DragLeave<P0>(hwndlock: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn ImageList_DragLeave(hwndlock: super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_DragLeave(hwndlock : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-    ImageList_DragLeave(hwndlock.param().abi())
+    ImageList_DragLeave(core::mem::transmute(hwndlock))
 }
 #[inline]
 pub unsafe fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BOOL {
@@ -1267,25 +880,15 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImageList_Draw<P0, P2>(himl: P0, i: i32, hdcdst: P2, x: i32, y: i32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-    P2: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn ImageList_Draw(himl: HIMAGELIST, i: i32, hdcdst: super::super::Graphics::Gdi::HDC, x: i32, y: i32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Draw(himl : HIMAGELIST, i : i32, hdcdst : super::super::Graphics::Gdi:: HDC, x : i32, y : i32, fstyle : IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation:: BOOL);
-    ImageList_Draw(himl.param().abi(), core::mem::transmute(i), hdcdst.param().abi(), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(fstyle))
+    ImageList_Draw(core::mem::transmute(himl), core::mem::transmute(i), core::mem::transmute(hdcdst), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(fstyle))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImageList_DrawEx<P0, P2, P7, P8>(himl: P0, i: i32, hdcdst: P2, x: i32, y: i32, dx: i32, dy: i32, rgbbk: P7, rgbfg: P8, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-    P2: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    P7: windows_core::Param<super::super::Foundation::COLORREF>,
-    P8: windows_core::Param<super::super::Foundation::COLORREF>,
-{
+pub unsafe fn ImageList_DrawEx(himl: HIMAGELIST, i: i32, hdcdst: super::super::Graphics::Gdi::HDC, x: i32, y: i32, dx: i32, dy: i32, rgbbk: super::super::Foundation::COLORREF, rgbfg: super::super::Foundation::COLORREF, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_DrawEx(himl : HIMAGELIST, i : i32, hdcdst : super::super::Graphics::Gdi:: HDC, x : i32, y : i32, dx : i32, dy : i32, rgbbk : super::super::Foundation:: COLORREF, rgbfg : super::super::Foundation:: COLORREF, fstyle : IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation:: BOOL);
-    ImageList_DrawEx(himl.param().abi(), core::mem::transmute(i), hdcdst.param().abi(), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(dx), core::mem::transmute(dy), rgbbk.param().abi(), rgbfg.param().abi(), core::mem::transmute(fstyle))
+    ImageList_DrawEx(core::mem::transmute(himl), core::mem::transmute(i), core::mem::transmute(hdcdst), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(dx), core::mem::transmute(dy), core::mem::transmute(rgbbk), core::mem::transmute(rgbfg), core::mem::transmute(fstyle))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1294,12 +897,9 @@ pub unsafe fn ImageList_DrawIndirect(pimldp: *const IMAGELISTDRAWPARAMS) -> supe
     ImageList_DrawIndirect(core::mem::transmute(pimldp))
 }
 #[inline]
-pub unsafe fn ImageList_Duplicate<P0>(himl: P0) -> HIMAGELIST
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_Duplicate(himl: HIMAGELIST) -> HIMAGELIST {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Duplicate(himl : HIMAGELIST) -> HIMAGELIST);
-    ImageList_Duplicate(himl.param().abi())
+    ImageList_Duplicate(core::mem::transmute(himl))
 }
 #[inline]
 pub unsafe fn ImageList_EndDrag() {
@@ -1307,82 +907,59 @@ pub unsafe fn ImageList_EndDrag() {
     ImageList_EndDrag()
 }
 #[inline]
-pub unsafe fn ImageList_GetBkColor<P0>(himl: P0) -> super::super::Foundation::COLORREF
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_GetBkColor(himl: HIMAGELIST) -> super::super::Foundation::COLORREF {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_GetBkColor(himl : HIMAGELIST) -> super::super::Foundation:: COLORREF);
-    ImageList_GetBkColor(himl.param().abi())
+    ImageList_GetBkColor(core::mem::transmute(himl))
 }
 #[inline]
 pub unsafe fn ImageList_GetDragImage(ppt: Option<*mut super::super::Foundation::POINT>, ppthotspot: Option<*mut super::super::Foundation::POINT>) -> HIMAGELIST {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_GetDragImage(ppt : *mut super::super::Foundation:: POINT, ppthotspot : *mut super::super::Foundation:: POINT) -> HIMAGELIST);
-    ImageList_GetDragImage(core::mem::transmute(ppt.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppthotspot.unwrap_or(core::ptr::null_mut())))
+    ImageList_GetDragImage(core::mem::transmute(ppt.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppthotspot.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn ImageList_GetIcon<P0>(himl: P0, i: i32, flags: IMAGE_LIST_DRAW_STYLE) -> super::WindowsAndMessaging::HICON
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_GetIcon(himl: HIMAGELIST, i: i32, flags: IMAGE_LIST_DRAW_STYLE) -> super::WindowsAndMessaging::HICON {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_GetIcon(himl : HIMAGELIST, i : i32, flags : IMAGE_LIST_DRAW_STYLE) -> super::WindowsAndMessaging:: HICON);
-    ImageList_GetIcon(himl.param().abi(), core::mem::transmute(i), core::mem::transmute(flags))
+    ImageList_GetIcon(core::mem::transmute(himl), core::mem::transmute(i), core::mem::transmute(flags))
 }
 #[inline]
-pub unsafe fn ImageList_GetIconSize<P0>(himl: P0, cx: Option<*mut i32>, cy: Option<*mut i32>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_GetIconSize(himl: HIMAGELIST, cx: Option<*mut i32>, cy: Option<*mut i32>) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_GetIconSize(himl : HIMAGELIST, cx : *mut i32, cy : *mut i32) -> super::super::Foundation:: BOOL);
-    ImageList_GetIconSize(himl.param().abi(), core::mem::transmute(cx.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cy.unwrap_or(core::ptr::null_mut())))
+    ImageList_GetIconSize(core::mem::transmute(himl), core::mem::transmute(cx.unwrap_or(core::mem::zeroed())), core::mem::transmute(cy.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn ImageList_GetImageCount<P0>(himl: P0) -> i32
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_GetImageCount(himl: HIMAGELIST) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_GetImageCount(himl : HIMAGELIST) -> i32);
-    ImageList_GetImageCount(himl.param().abi())
+    ImageList_GetImageCount(core::mem::transmute(himl))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImageList_GetImageInfo<P0>(himl: P0, i: i32, pimageinfo: *mut IMAGEINFO) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_GetImageInfo(himl: HIMAGELIST, i: i32, pimageinfo: *mut IMAGEINFO) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_GetImageInfo(himl : HIMAGELIST, i : i32, pimageinfo : *mut IMAGEINFO) -> super::super::Foundation:: BOOL);
-    ImageList_GetImageInfo(himl.param().abi(), core::mem::transmute(i), core::mem::transmute(pimageinfo))
+    ImageList_GetImageInfo(core::mem::transmute(himl), core::mem::transmute(i), core::mem::transmute(pimageinfo))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn ImageList_LoadImageA<P0, P1, P4>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P4, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
+pub unsafe fn ImageList_LoadImageA<P1>(hi: super::super::Foundation::HINSTANCE, lpbmp: P1, cx: i32, cgrow: i32, crmask: super::super::Foundation::COLORREF, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
 where
-    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<super::super::Foundation::COLORREF>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageA(hi : super::super::Foundation:: HINSTANCE, lpbmp : windows_core::PCSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
-    ImageList_LoadImageA(hi.param().abi(), lpbmp.param().abi(), core::mem::transmute(cx), core::mem::transmute(cgrow), crmask.param().abi(), core::mem::transmute(utype), core::mem::transmute(uflags))
+    ImageList_LoadImageA(core::mem::transmute(hi), lpbmp.param().abi(), core::mem::transmute(cx), core::mem::transmute(cgrow), core::mem::transmute(crmask), core::mem::transmute(utype), core::mem::transmute(uflags))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn ImageList_LoadImageW<P0, P1, P4>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P4, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
+pub unsafe fn ImageList_LoadImageW<P1>(hi: super::super::Foundation::HINSTANCE, lpbmp: P1, cx: i32, cgrow: i32, crmask: super::super::Foundation::COLORREF, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
 where
-    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<super::super::Foundation::COLORREF>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageW(hi : super::super::Foundation:: HINSTANCE, lpbmp : windows_core::PCWSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
-    ImageList_LoadImageW(hi.param().abi(), lpbmp.param().abi(), core::mem::transmute(cx), core::mem::transmute(cgrow), crmask.param().abi(), core::mem::transmute(utype), core::mem::transmute(uflags))
+    ImageList_LoadImageW(core::mem::transmute(hi), lpbmp.param().abi(), core::mem::transmute(cx), core::mem::transmute(cgrow), core::mem::transmute(crmask), core::mem::transmute(utype), core::mem::transmute(uflags))
 }
 #[inline]
-pub unsafe fn ImageList_Merge<P0, P2>(himl1: P0, i1: i32, himl2: P2, i2: i32, dx: i32, dy: i32) -> HIMAGELIST
-where
-    P0: windows_core::Param<HIMAGELIST>,
-    P2: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_Merge(himl1: HIMAGELIST, i1: i32, himl2: HIMAGELIST, i2: i32, dx: i32, dy: i32) -> HIMAGELIST {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Merge(himl1 : HIMAGELIST, i1 : i32, himl2 : HIMAGELIST, i2 : i32, dx : i32, dy : i32) -> HIMAGELIST);
-    ImageList_Merge(himl1.param().abi(), core::mem::transmute(i1), himl2.param().abi(), core::mem::transmute(i2), core::mem::transmute(dx), core::mem::transmute(dy))
+    ImageList_Merge(core::mem::transmute(himl1), core::mem::transmute(i1), core::mem::transmute(himl2), core::mem::transmute(i2), core::mem::transmute(dx), core::mem::transmute(dy))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -1403,94 +980,64 @@ where
     ImageList_ReadEx(core::mem::transmute(dwflags), pstm.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
 }
 #[inline]
-pub unsafe fn ImageList_Remove<P0>(himl: P0, i: i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_Remove(himl: HIMAGELIST, i: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Remove(himl : HIMAGELIST, i : i32) -> super::super::Foundation:: BOOL);
-    ImageList_Remove(himl.param().abi(), core::mem::transmute(i))
+    ImageList_Remove(core::mem::transmute(himl), core::mem::transmute(i))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImageList_Replace<P0, P2, P3>(himl: P0, i: i32, hbmimage: P2, hbmmask: P3) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-    P2: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-    P3: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-{
+pub unsafe fn ImageList_Replace(himl: HIMAGELIST, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: Option<super::super::Graphics::Gdi::HBITMAP>) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Replace(himl : HIMAGELIST, i : i32, hbmimage : super::super::Graphics::Gdi:: HBITMAP, hbmmask : super::super::Graphics::Gdi:: HBITMAP) -> super::super::Foundation:: BOOL);
-    ImageList_Replace(himl.param().abi(), core::mem::transmute(i), hbmimage.param().abi(), hbmmask.param().abi())
+    ImageList_Replace(core::mem::transmute(himl), core::mem::transmute(i), core::mem::transmute(hbmimage), core::mem::transmute(hbmmask.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn ImageList_ReplaceIcon<P0, P2>(himl: P0, i: i32, hicon: P2) -> i32
-where
-    P0: windows_core::Param<HIMAGELIST>,
-    P2: windows_core::Param<super::WindowsAndMessaging::HICON>,
-{
+pub unsafe fn ImageList_ReplaceIcon(himl: HIMAGELIST, i: i32, hicon: super::WindowsAndMessaging::HICON) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_ReplaceIcon(himl : HIMAGELIST, i : i32, hicon : super::WindowsAndMessaging:: HICON) -> i32);
-    ImageList_ReplaceIcon(himl.param().abi(), core::mem::transmute(i), hicon.param().abi())
+    ImageList_ReplaceIcon(core::mem::transmute(himl), core::mem::transmute(i), core::mem::transmute(hicon))
 }
 #[inline]
-pub unsafe fn ImageList_SetBkColor<P0, P1>(himl: P0, clrbk: P1) -> super::super::Foundation::COLORREF
-where
-    P0: windows_core::Param<HIMAGELIST>,
-    P1: windows_core::Param<super::super::Foundation::COLORREF>,
-{
+pub unsafe fn ImageList_SetBkColor(himl: HIMAGELIST, clrbk: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_SetBkColor(himl : HIMAGELIST, clrbk : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
-    ImageList_SetBkColor(himl.param().abi(), clrbk.param().abi())
+    ImageList_SetBkColor(core::mem::transmute(himl), core::mem::transmute(clrbk))
 }
 #[inline]
-pub unsafe fn ImageList_SetDragCursorImage<P0>(himldrag: P0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_SetDragCursorImage(himldrag: HIMAGELIST, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_SetDragCursorImage(himldrag : HIMAGELIST, idrag : i32, dxhotspot : i32, dyhotspot : i32) -> super::super::Foundation:: BOOL);
-    ImageList_SetDragCursorImage(himldrag.param().abi(), core::mem::transmute(idrag), core::mem::transmute(dxhotspot), core::mem::transmute(dyhotspot))
+    ImageList_SetDragCursorImage(core::mem::transmute(himldrag), core::mem::transmute(idrag), core::mem::transmute(dxhotspot), core::mem::transmute(dyhotspot))
 }
 #[inline]
-pub unsafe fn ImageList_SetIconSize<P0>(himl: P0, cx: i32, cy: i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_SetIconSize(himl: HIMAGELIST, cx: i32, cy: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_SetIconSize(himl : HIMAGELIST, cx : i32, cy : i32) -> super::super::Foundation:: BOOL);
-    ImageList_SetIconSize(himl.param().abi(), core::mem::transmute(cx), core::mem::transmute(cy))
+    ImageList_SetIconSize(core::mem::transmute(himl), core::mem::transmute(cx), core::mem::transmute(cy))
 }
 #[inline]
-pub unsafe fn ImageList_SetImageCount<P0>(himl: P0, unewcount: u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_SetImageCount(himl: HIMAGELIST, unewcount: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_SetImageCount(himl : HIMAGELIST, unewcount : u32) -> super::super::Foundation:: BOOL);
-    ImageList_SetImageCount(himl.param().abi(), core::mem::transmute(unewcount))
+    ImageList_SetImageCount(core::mem::transmute(himl), core::mem::transmute(unewcount))
 }
 #[inline]
-pub unsafe fn ImageList_SetOverlayImage<P0>(himl: P0, iimage: i32, ioverlay: i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HIMAGELIST>,
-{
+pub unsafe fn ImageList_SetOverlayImage(himl: HIMAGELIST, iimage: i32, ioverlay: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_SetOverlayImage(himl : HIMAGELIST, iimage : i32, ioverlay : i32) -> super::super::Foundation:: BOOL);
-    ImageList_SetOverlayImage(himl.param().abi(), core::mem::transmute(iimage), core::mem::transmute(ioverlay))
+    ImageList_SetOverlayImage(core::mem::transmute(himl), core::mem::transmute(iimage), core::mem::transmute(ioverlay))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn ImageList_Write<P0, P1>(himl: P0, pstm: P1) -> super::super::Foundation::BOOL
+pub unsafe fn ImageList_Write<P1>(himl: HIMAGELIST, pstm: P1) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<HIMAGELIST>,
     P1: windows_core::Param<super::super::System::Com::IStream>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Write(himl : HIMAGELIST, pstm : * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    ImageList_Write(himl.param().abi(), pstm.param().abi())
+    ImageList_Write(core::mem::transmute(himl), pstm.param().abi())
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn ImageList_WriteEx<P0, P2>(himl: P0, dwflags: IMAGE_LIST_WRITE_STREAM_FLAGS, pstm: P2) -> windows_core::Result<()>
+pub unsafe fn ImageList_WriteEx<P2>(himl: HIMAGELIST, dwflags: IMAGE_LIST_WRITE_STREAM_FLAGS, pstm: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HIMAGELIST>,
     P2: windows_core::Param<super::super::System::Com::IStream>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_WriteEx(himl : HIMAGELIST, dwflags : IMAGE_LIST_WRITE_STREAM_FLAGS, pstm : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    ImageList_WriteEx(himl.param().abi(), core::mem::transmute(dwflags), pstm.param().abi()).ok()
+    ImageList_WriteEx(core::mem::transmute(himl), core::mem::transmute(dwflags), pstm.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn InitCommonControls() {
@@ -1508,12 +1055,9 @@ pub unsafe fn InitMUILanguage(uilang: u16) {
     InitMUILanguage(core::mem::transmute(uilang))
 }
 #[inline]
-pub unsafe fn InitializeFlatSB<P0>(param0: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn InitializeFlatSB(param0: super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn InitializeFlatSB(param0 : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-    InitializeFlatSB(param0.param().abi())
+    InitializeFlatSB(core::mem::transmute(param0))
 }
 #[inline]
 pub unsafe fn IsAppThemed() -> super::super::Foundation::BOOL {
@@ -1531,12 +1075,9 @@ pub unsafe fn IsCompositionActive() -> super::super::Foundation::BOOL {
     IsCompositionActive()
 }
 #[inline]
-pub unsafe fn IsDlgButtonChecked<P0>(hdlg: P0, nidbutton: i32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn IsDlgButtonChecked(hdlg: super::super::Foundation::HWND, nidbutton: i32) -> u32 {
     windows_targets::link!("user32.dll" "system" fn IsDlgButtonChecked(hdlg : super::super::Foundation:: HWND, nidbutton : i32) -> u32);
-    IsDlgButtonChecked(hdlg.param().abi(), core::mem::transmute(nidbutton))
+    IsDlgButtonChecked(core::mem::transmute(hdlg), core::mem::transmute(nidbutton))
 }
 #[inline]
 pub unsafe fn IsThemeActive() -> super::super::Foundation::BOOL {
@@ -1544,98 +1085,74 @@ pub unsafe fn IsThemeActive() -> super::super::Foundation::BOOL {
     IsThemeActive()
 }
 #[inline]
-pub unsafe fn IsThemeBackgroundPartiallyTransparent<P0>(htheme: P0, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn IsThemeBackgroundPartiallyTransparent(htheme: HTHEME, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("uxtheme.dll" "system" fn IsThemeBackgroundPartiallyTransparent(htheme : HTHEME, ipartid : i32, istateid : i32) -> super::super::Foundation:: BOOL);
-    IsThemeBackgroundPartiallyTransparent(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid))
+    IsThemeBackgroundPartiallyTransparent(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid))
 }
 #[inline]
-pub unsafe fn IsThemeDialogTextureEnabled<P0>(hwnd: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn IsThemeDialogTextureEnabled(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
     windows_targets::link!("uxtheme.dll" "system" fn IsThemeDialogTextureEnabled(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-    IsThemeDialogTextureEnabled(hwnd.param().abi())
+    IsThemeDialogTextureEnabled(core::mem::transmute(hwnd))
 }
 #[inline]
-pub unsafe fn IsThemePartDefined<P0>(htheme: P0, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<HTHEME>,
-{
+pub unsafe fn IsThemePartDefined(htheme: HTHEME, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("uxtheme.dll" "system" fn IsThemePartDefined(htheme : HTHEME, ipartid : i32, istateid : i32) -> super::super::Foundation:: BOOL);
-    IsThemePartDefined(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid))
+    IsThemePartDefined(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid))
 }
 #[inline]
-pub unsafe fn LBItemFromPt<P0, P2>(hlb: P0, pt: super::super::Foundation::POINT, bautoscroll: P2) -> i32
+pub unsafe fn LBItemFromPt<P2>(hlb: super::super::Foundation::HWND, pt: super::super::Foundation::POINT, bautoscroll: P2) -> i32
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("comctl32.dll" "system" fn LBItemFromPt(hlb : super::super::Foundation:: HWND, pt : super::super::Foundation:: POINT, bautoscroll : super::super::Foundation:: BOOL) -> i32);
-    LBItemFromPt(hlb.param().abi(), core::mem::transmute(pt), bautoscroll.param().abi())
+    LBItemFromPt(core::mem::transmute(hlb), core::mem::transmute(pt), bautoscroll.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn LoadIconMetric<P0, P1>(hinst: P0, pszname: P1, lims: _LI_METRIC) -> windows_core::Result<super::WindowsAndMessaging::HICON>
+pub unsafe fn LoadIconMetric<P1>(hinst: Option<super::super::Foundation::HINSTANCE>, pszname: P1, lims: _LI_METRIC) -> windows_core::Result<super::WindowsAndMessaging::HICON>
 where
-    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("comctl32.dll" "system" fn LoadIconMetric(hinst : super::super::Foundation:: HINSTANCE, pszname : windows_core::PCWSTR, lims : _LI_METRIC, phico : *mut super::WindowsAndMessaging:: HICON) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    LoadIconMetric(hinst.param().abi(), pszname.param().abi(), core::mem::transmute(lims), &mut result__).map(|| core::mem::transmute(result__))
+    LoadIconMetric(core::mem::transmute(hinst.unwrap_or(core::mem::zeroed())), pszname.param().abi(), core::mem::transmute(lims), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn LoadIconWithScaleDown<P0, P1>(hinst: P0, pszname: P1, cx: i32, cy: i32) -> windows_core::Result<super::WindowsAndMessaging::HICON>
+pub unsafe fn LoadIconWithScaleDown<P1>(hinst: Option<super::super::Foundation::HINSTANCE>, pszname: P1, cx: i32, cy: i32) -> windows_core::Result<super::WindowsAndMessaging::HICON>
 where
-    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("comctl32.dll" "system" fn LoadIconWithScaleDown(hinst : super::super::Foundation:: HINSTANCE, pszname : windows_core::PCWSTR, cx : i32, cy : i32, phico : *mut super::WindowsAndMessaging:: HICON) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    LoadIconWithScaleDown(hinst.param().abi(), pszname.param().abi(), core::mem::transmute(cx), core::mem::transmute(cy), &mut result__).map(|| core::mem::transmute(result__))
+    LoadIconWithScaleDown(core::mem::transmute(hinst.unwrap_or(core::mem::zeroed())), pszname.param().abi(), core::mem::transmute(cx), core::mem::transmute(cy), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn MakeDragList<P0>(hlb: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn MakeDragList(hlb: super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn MakeDragList(hlb : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-    MakeDragList(hlb.param().abi())
+    MakeDragList(core::mem::transmute(hlb))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn MenuHelp<P1, P2, P3, P4, P5>(umsg: u32, wparam: P1, lparam: P2, hmainmenu: P3, hinst: P4, hwndstatus: P5, lpwids: *const u32)
-where
-    P1: windows_core::Param<super::super::Foundation::WPARAM>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    P3: windows_core::Param<super::WindowsAndMessaging::HMENU>,
-    P4: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    P5: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn MenuHelp(umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, hmainmenu: super::WindowsAndMessaging::HMENU, hinst: super::super::Foundation::HINSTANCE, hwndstatus: super::super::Foundation::HWND, lpwids: *const u32) {
     windows_targets::link!("comctl32.dll" "system" fn MenuHelp(umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, hmainmenu : super::WindowsAndMessaging:: HMENU, hinst : super::super::Foundation:: HINSTANCE, hwndstatus : super::super::Foundation:: HWND, lpwids : *const u32));
-    MenuHelp(core::mem::transmute(umsg), wparam.param().abi(), lparam.param().abi(), hmainmenu.param().abi(), hinst.param().abi(), hwndstatus.param().abi(), core::mem::transmute(lpwids))
+    MenuHelp(core::mem::transmute(umsg), core::mem::transmute(wparam), core::mem::transmute(lparam), core::mem::transmute(hmainmenu), core::mem::transmute(hinst), core::mem::transmute(hwndstatus), core::mem::transmute(lpwids))
 }
 #[inline]
-pub unsafe fn OpenThemeData<P0, P1>(hwnd: P0, pszclasslist: P1) -> HTHEME
+pub unsafe fn OpenThemeData<P1>(hwnd: Option<super::super::Foundation::HWND>, pszclasslist: P1) -> HTHEME
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn OpenThemeData(hwnd : super::super::Foundation:: HWND, pszclasslist : windows_core::PCWSTR) -> HTHEME);
-    OpenThemeData(hwnd.param().abi(), pszclasslist.param().abi())
+    OpenThemeData(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), pszclasslist.param().abi())
 }
 #[inline]
-pub unsafe fn OpenThemeDataEx<P0, P1>(hwnd: P0, pszclasslist: P1, dwflags: OPEN_THEME_DATA_FLAGS) -> HTHEME
+pub unsafe fn OpenThemeDataEx<P1>(hwnd: Option<super::super::Foundation::HWND>, pszclasslist: P1, dwflags: OPEN_THEME_DATA_FLAGS) -> HTHEME
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn OpenThemeDataEx(hwnd : super::super::Foundation:: HWND, pszclasslist : windows_core::PCWSTR, dwflags : OPEN_THEME_DATA_FLAGS) -> HTHEME);
-    OpenThemeDataEx(hwnd.param().abi(), pszclasslist.param().abi(), core::mem::transmute(dwflags))
+    OpenThemeDataEx(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), pszclasslist.param().abi(), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn PackTouchHitTestingProximityEvaluation(phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::LRESULT {
@@ -1655,51 +1172,44 @@ pub unsafe fn PropertySheetW(param0: *mut PROPSHEETHEADERW_V2) -> isize {
     PropertySheetW(core::mem::transmute(param0))
 }
 #[inline]
-pub unsafe fn RegisterPointerDeviceNotifications<P0, P1>(window: P0, notifyrange: P1) -> windows_core::Result<()>
+pub unsafe fn RegisterPointerDeviceNotifications<P1>(window: super::super::Foundation::HWND, notifyrange: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn RegisterPointerDeviceNotifications(window : super::super::Foundation:: HWND, notifyrange : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    RegisterPointerDeviceNotifications(window.param().abi(), notifyrange.param().abi()).ok()
+    RegisterPointerDeviceNotifications(core::mem::transmute(window), notifyrange.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn RegisterTouchHitTestingWindow<P0>(hwnd: P0, value: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn RegisterTouchHitTestingWindow(hwnd: super::super::Foundation::HWND, value: u32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn RegisterTouchHitTestingWindow(hwnd : super::super::Foundation:: HWND, value : u32) -> super::super::Foundation:: BOOL);
-    RegisterTouchHitTestingWindow(hwnd.param().abi(), core::mem::transmute(value)).ok()
+    RegisterTouchHitTestingWindow(core::mem::transmute(hwnd), core::mem::transmute(value)).ok()
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn SetScrollInfo<P0, P3>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, lpsi: *const super::WindowsAndMessaging::SCROLLINFO, redraw: P3) -> i32
+pub unsafe fn SetScrollInfo<P3>(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, lpsi: *const super::WindowsAndMessaging::SCROLLINFO, redraw: P3) -> i32
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn SetScrollInfo(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, lpsi : *const super::WindowsAndMessaging:: SCROLLINFO, redraw : super::super::Foundation:: BOOL) -> i32);
-    SetScrollInfo(hwnd.param().abi(), core::mem::transmute(nbar), core::mem::transmute(lpsi), redraw.param().abi())
+    SetScrollInfo(core::mem::transmute(hwnd), core::mem::transmute(nbar), core::mem::transmute(lpsi), redraw.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn SetScrollPos<P0, P3>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, npos: i32, bredraw: P3) -> i32
+pub unsafe fn SetScrollPos<P3>(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, npos: i32, bredraw: P3) -> i32
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn SetScrollPos(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, npos : i32, bredraw : super::super::Foundation:: BOOL) -> i32);
-    SetScrollPos(hwnd.param().abi(), core::mem::transmute(nbar), core::mem::transmute(npos), bredraw.param().abi())
+    SetScrollPos(core::mem::transmute(hwnd), core::mem::transmute(nbar), core::mem::transmute(npos), bredraw.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn SetScrollRange<P0, P4>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, nminpos: i32, nmaxpos: i32, bredraw: P4) -> windows_core::Result<()>
+pub unsafe fn SetScrollRange<P4>(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, nminpos: i32, nmaxpos: i32, bredraw: P4) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P4: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn SetScrollRange(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, nminpos : i32, nmaxpos : i32, bredraw : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetScrollRange(hwnd.param().abi(), core::mem::transmute(nbar), core::mem::transmute(nminpos), core::mem::transmute(nmaxpos), bredraw.param().abi()).ok()
+    SetScrollRange(core::mem::transmute(hwnd), core::mem::transmute(nbar), core::mem::transmute(nminpos), core::mem::transmute(nmaxpos), bredraw.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetThemeAppProperties(dwflags: SET_THEME_APP_PROPERTIES_FLAGS) {
@@ -1707,48 +1217,37 @@ pub unsafe fn SetThemeAppProperties(dwflags: SET_THEME_APP_PROPERTIES_FLAGS) {
     SetThemeAppProperties(core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn SetWindowFeedbackSetting<P0>(hwnd: P0, feedback: FEEDBACK_TYPE, dwflags: u32, size: u32, configuration: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn SetWindowFeedbackSetting(hwnd: super::super::Foundation::HWND, feedback: FEEDBACK_TYPE, dwflags: u32, size: u32, configuration: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn SetWindowFeedbackSetting(hwnd : super::super::Foundation:: HWND, feedback : FEEDBACK_TYPE, dwflags : u32, size : u32, configuration : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    SetWindowFeedbackSetting(hwnd.param().abi(), core::mem::transmute(feedback), core::mem::transmute(dwflags), core::mem::transmute(size), core::mem::transmute(configuration.unwrap_or(core::ptr::null())))
+    SetWindowFeedbackSetting(core::mem::transmute(hwnd), core::mem::transmute(feedback), core::mem::transmute(dwflags), core::mem::transmute(size), core::mem::transmute(configuration.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn SetWindowTheme<P0, P1, P2>(hwnd: P0, pszsubappname: P1, pszsubidlist: P2) -> windows_core::Result<()>
+pub unsafe fn SetWindowTheme<P1, P2>(hwnd: super::super::Foundation::HWND, pszsubappname: P1, pszsubidlist: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn SetWindowTheme(hwnd : super::super::Foundation:: HWND, pszsubappname : windows_core::PCWSTR, pszsubidlist : windows_core::PCWSTR) -> windows_core::HRESULT);
-    SetWindowTheme(hwnd.param().abi(), pszsubappname.param().abi(), pszsubidlist.param().abi()).ok()
+    SetWindowTheme(core::mem::transmute(hwnd), pszsubappname.param().abi(), pszsubidlist.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetWindowThemeAttribute<P0>(hwnd: P0, eattribute: WINDOWTHEMEATTRIBUTETYPE, pvattribute: *const core::ffi::c_void, cbattribute: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn SetWindowThemeAttribute(hwnd: super::super::Foundation::HWND, eattribute: WINDOWTHEMEATTRIBUTETYPE, pvattribute: *const core::ffi::c_void, cbattribute: u32) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn SetWindowThemeAttribute(hwnd : super::super::Foundation:: HWND, eattribute : WINDOWTHEMEATTRIBUTETYPE, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_core::HRESULT);
-    SetWindowThemeAttribute(hwnd.param().abi(), core::mem::transmute(eattribute), core::mem::transmute(pvattribute), core::mem::transmute(cbattribute)).ok()
+    SetWindowThemeAttribute(core::mem::transmute(hwnd), core::mem::transmute(eattribute), core::mem::transmute(pvattribute), core::mem::transmute(cbattribute)).ok()
 }
 #[inline]
-pub unsafe fn ShowHideMenuCtl<P0>(hwnd: P0, uflags: usize, lpinfo: *const i32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn ShowHideMenuCtl(hwnd: super::super::Foundation::HWND, uflags: usize, lpinfo: *const i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ShowHideMenuCtl(hwnd : super::super::Foundation:: HWND, uflags : usize, lpinfo : *const i32) -> super::super::Foundation:: BOOL);
-    ShowHideMenuCtl(hwnd.param().abi(), core::mem::transmute(uflags), core::mem::transmute(lpinfo))
+    ShowHideMenuCtl(core::mem::transmute(hwnd), core::mem::transmute(uflags), core::mem::transmute(lpinfo))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn ShowScrollBar<P0, P2>(hwnd: P0, wbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, bshow: P2) -> windows_core::Result<()>
+pub unsafe fn ShowScrollBar<P2>(hwnd: super::super::Foundation::HWND, wbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, bshow: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn ShowScrollBar(hwnd : super::super::Foundation:: HWND, wbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, bshow : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    ShowScrollBar(hwnd.param().abi(), core::mem::transmute(wbar), bshow.param().abi()).ok()
+    ShowScrollBar(core::mem::transmute(hwnd), core::mem::transmute(wbar), bshow.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn Str_SetPtrW<P1>(ppsz: *mut windows_core::PWSTR, psz: P1) -> super::super::Foundation::BOOL
@@ -1759,40 +1258,34 @@ where
     Str_SetPtrW(core::mem::transmute(ppsz), psz.param().abi())
 }
 #[inline]
-pub unsafe fn TaskDialog<P0, P1, P2, P3, P4, P6>(hwndowner: P0, hinstance: P1, pszwindowtitle: P2, pszmaininstruction: P3, pszcontent: P4, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: P6, pnbutton: Option<*mut i32>) -> windows_core::Result<()>
+pub unsafe fn TaskDialog<P2, P3, P4, P6>(hwndowner: Option<super::super::Foundation::HWND>, hinstance: Option<super::super::Foundation::HINSTANCE>, pszwindowtitle: P2, pszmaininstruction: P3, pszcontent: P4, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: P6, pnbutton: Option<*mut i32>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("comctl32.dll" "system" fn TaskDialog(hwndowner : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszwindowtitle : windows_core::PCWSTR, pszmaininstruction : windows_core::PCWSTR, pszcontent : windows_core::PCWSTR, dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon : windows_core::PCWSTR, pnbutton : *mut i32) -> windows_core::HRESULT);
-    TaskDialog(hwndowner.param().abi(), hinstance.param().abi(), pszwindowtitle.param().abi(), pszmaininstruction.param().abi(), pszcontent.param().abi(), core::mem::transmute(dwcommonbuttons), pszicon.param().abi(), core::mem::transmute(pnbutton.unwrap_or(core::ptr::null_mut()))).ok()
+    TaskDialog(core::mem::transmute(hwndowner.unwrap_or(core::mem::zeroed())), core::mem::transmute(hinstance.unwrap_or(core::mem::zeroed())), pszwindowtitle.param().abi(), pszmaininstruction.param().abi(), pszcontent.param().abi(), core::mem::transmute(dwcommonbuttons), pszicon.param().abi(), core::mem::transmute(pnbutton.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn TaskDialogIndirect(ptaskconfig: *const TASKDIALOGCONFIG, pnbutton: Option<*mut i32>, pnradiobutton: Option<*mut i32>, pfverificationflagchecked: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
     windows_targets::link!("comctl32.dll" "system" fn TaskDialogIndirect(ptaskconfig : *const TASKDIALOGCONFIG, pnbutton : *mut i32, pnradiobutton : *mut i32, pfverificationflagchecked : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    TaskDialogIndirect(core::mem::transmute(ptaskconfig), core::mem::transmute(pnbutton.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pnradiobutton.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfverificationflagchecked.unwrap_or(core::ptr::null_mut()))).ok()
+    TaskDialogIndirect(core::mem::transmute(ptaskconfig), core::mem::transmute(pnbutton.unwrap_or(core::mem::zeroed())), core::mem::transmute(pnradiobutton.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfverificationflagchecked.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn UninitializeFlatSB<P0>(param0: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn UninitializeFlatSB(param0: super::super::Foundation::HWND) -> windows_core::Result<()> {
     windows_targets::link!("comctl32.dll" "system" fn UninitializeFlatSB(param0 : super::super::Foundation:: HWND) -> windows_core::HRESULT);
-    UninitializeFlatSB(param0.param().abi()).ok()
+    UninitializeFlatSB(core::mem::transmute(param0)).ok()
 }
 #[inline]
-pub unsafe fn UpdatePanningFeedback<P0, P3>(hwnd: P0, ltotaloverpanoffsetx: i32, ltotaloverpanoffsety: i32, fininertia: P3) -> super::super::Foundation::BOOL
+pub unsafe fn UpdatePanningFeedback<P3>(hwnd: super::super::Foundation::HWND, ltotaloverpanoffsetx: i32, ltotaloverpanoffsety: i32, fininertia: P3) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn UpdatePanningFeedback(hwnd : super::super::Foundation:: HWND, ltotaloverpanoffsetx : i32, ltotaloverpanoffsety : i32, fininertia : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    UpdatePanningFeedback(hwnd.param().abi(), core::mem::transmute(ltotaloverpanoffsetx), core::mem::transmute(ltotaloverpanoffsety), fininertia.param().abi())
+    UpdatePanningFeedback(core::mem::transmute(hwnd), core::mem::transmute(ltotaloverpanoffsetx), core::mem::transmute(ltotaloverpanoffsety), fininertia.param().abi())
 }
 pub const ABS_DOWNDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(8i32);
 pub const ABS_DOWNHOT: ARROWBTNSTATES = ARROWBTNSTATES(6i32);
@@ -4144,41 +3637,26 @@ windows_core::imp::define_interface!(IImageList, IImageList_Vtbl, 0x46eb5926_582
 windows_core::imp::interface_hierarchy!(IImageList, windows_core::IUnknown);
 impl IImageList {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Add<P0, P1>(&self, hbmimage: P0, hbmmask: P1) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-        P1: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-    {
+    pub unsafe fn Add(&self, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: Option<super::super::Graphics::Gdi::HBITMAP>) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), hbmimage.param().abi(), hbmmask.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(hbmimage), core::mem::transmute(hbmmask.unwrap_or(core::mem::zeroed())), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn ReplaceIcon<P1>(&self, i: i32, hicon: P1) -> windows_core::Result<i32>
-    where
-        P1: windows_core::Param<super::WindowsAndMessaging::HICON>,
-    {
+    pub unsafe fn ReplaceIcon(&self, i: i32, hicon: super::WindowsAndMessaging::HICON) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReplaceIcon)(windows_core::Interface::as_raw(self), core::mem::transmute(i), hicon.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ReplaceIcon)(windows_core::Interface::as_raw(self), core::mem::transmute(i), core::mem::transmute(hicon), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOverlayImage)(windows_core::Interface::as_raw(self), core::mem::transmute(iimage), core::mem::transmute(ioverlay)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Replace<P1, P2>(&self, i: i32, hbmimage: P1, hbmmask: P2) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-        P2: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-    {
-        (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), core::mem::transmute(i), hbmimage.param().abi(), hbmmask.param().abi()).ok()
+    pub unsafe fn Replace(&self, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: Option<super::super::Graphics::Gdi::HBITMAP>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), core::mem::transmute(i), core::mem::transmute(hbmimage), core::mem::transmute(hbmmask.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn AddMasked<P0, P1>(&self, hbmimage: P0, crmask: P1) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-        P1: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
+    pub unsafe fn AddMasked(&self, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: super::super::Foundation::COLORREF) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddMasked)(windows_core::Interface::as_raw(self), hbmimage.param().abi(), crmask.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddMasked)(windows_core::Interface::as_raw(self), core::mem::transmute(hbmimage), core::mem::transmute(crmask), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> windows_core::Result<()> {
@@ -4228,12 +3706,9 @@ impl IImageList {
     pub unsafe fn SetImageCount(&self, unewcount: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetImageCount)(windows_core::Interface::as_raw(self), core::mem::transmute(unewcount)).ok()
     }
-    pub unsafe fn SetBkColor<P0>(&self, clrbk: P0) -> windows_core::Result<super::super::Foundation::COLORREF>
-    where
-        P0: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
+    pub unsafe fn SetBkColor(&self, clrbk: super::super::Foundation::COLORREF) -> windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SetBkColor)(windows_core::Interface::as_raw(self), clrbk.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).SetBkColor)(windows_core::Interface::as_raw(self), core::mem::transmute(clrbk), &mut result__).map(|| result__)
     }
     pub unsafe fn GetBkColor(&self) -> windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = core::mem::zeroed();
@@ -4245,17 +3720,11 @@ impl IImageList {
     pub unsafe fn EndDrag(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndDrag)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn DragEnter<P0>(&self, hwndlock: P0, x: i32, y: i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).DragEnter)(windows_core::Interface::as_raw(self), hwndlock.param().abi(), core::mem::transmute(x), core::mem::transmute(y)).ok()
+    pub unsafe fn DragEnter(&self, hwndlock: Option<super::super::Foundation::HWND>, x: i32, y: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DragEnter)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndlock.unwrap_or(core::mem::zeroed())), core::mem::transmute(x), core::mem::transmute(y)).ok()
     }
-    pub unsafe fn DragLeave<P0>(&self, hwndlock: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).DragLeave)(windows_core::Interface::as_raw(self), hwndlock.param().abi()).ok()
+    pub unsafe fn DragLeave(&self, hwndlock: Option<super::super::Foundation::HWND>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DragLeave)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndlock.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn DragMove(&self, x: i32, y: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DragMove)(windows_core::Interface::as_raw(self), core::mem::transmute(x), core::mem::transmute(y)).ok()
@@ -4273,7 +3742,7 @@ impl IImageList {
         (windows_core::Interface::vtable(self).DragShowNolock)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
     }
     pub unsafe fn GetDragImage(&self, ppt: Option<*mut super::super::Foundation::POINT>, ppthotspot: Option<*mut super::super::Foundation::POINT>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDragImage)(windows_core::Interface::as_raw(self), core::mem::transmute(ppt.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppthotspot.unwrap_or(core::ptr::null_mut())), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
+        (windows_core::Interface::vtable(self).GetDragImage)(windows_core::Interface::as_raw(self), core::mem::transmute(ppt.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppthotspot.unwrap_or(core::mem::zeroed())), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
     }
     pub unsafe fn GetItemFlags(&self, i: i32) -> windows_core::Result<IMAGE_LIST_ITEM_FLAGS> {
         let mut result__ = core::mem::zeroed();
@@ -4632,13 +4101,11 @@ impl IImageList2 {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(cx), core::mem::transmute(cy), core::mem::transmute(flags), core::mem::transmute(cinitial), core::mem::transmute(cgrow)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Replace2<P1, P2, P3>(&self, i: i32, hbmimage: P1, hbmmask: P2, punk: P3, dwflags: u32) -> windows_core::Result<()>
+    pub unsafe fn Replace2<P3>(&self, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: Option<super::super::Graphics::Gdi::HBITMAP>, punk: P3, dwflags: u32) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-        P2: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Replace2)(windows_core::Interface::as_raw(self), core::mem::transmute(i), hbmimage.param().abi(), hbmmask.param().abi(), punk.param().abi(), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).Replace2)(windows_core::Interface::as_raw(self), core::mem::transmute(i), core::mem::transmute(hbmimage), core::mem::transmute(hbmmask.unwrap_or(core::mem::zeroed())), punk.param().abi(), core::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn ReplaceFromImageList<P1, P3>(&self, i: i32, pil: P1, isrc: i32, punk: P3, dwflags: u32) -> windows_core::Result<()>
     where

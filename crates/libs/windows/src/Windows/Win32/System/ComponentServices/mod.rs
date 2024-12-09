@@ -1499,11 +1499,8 @@ impl ICOMAdminCatalog2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsApplicationInstanceDumpSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn CreateServiceForApplication<P7>(&self, bstrapplicationidorname: &windows_core::BSTR, bstrservicename: &windows_core::BSTR, bstrstarttype: &windows_core::BSTR, bstrerrorcontrol: &windows_core::BSTR, bstrdependencies: &windows_core::BSTR, bstrrunas: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bdesktopok: P7) -> windows_core::Result<()>
-    where
-        P7: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).CreateServiceForApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), core::mem::transmute_copy(bstrservicename), core::mem::transmute_copy(bstrstarttype), core::mem::transmute_copy(bstrerrorcontrol), core::mem::transmute_copy(bstrdependencies), core::mem::transmute_copy(bstrrunas), core::mem::transmute_copy(bstrpassword), bdesktopok.param().abi()).ok()
+    pub unsafe fn CreateServiceForApplication(&self, bstrapplicationidorname: &windows_core::BSTR, bstrservicename: &windows_core::BSTR, bstrstarttype: &windows_core::BSTR, bstrerrorcontrol: &windows_core::BSTR, bstrdependencies: &windows_core::BSTR, bstrrunas: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bdesktopok: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CreateServiceForApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), core::mem::transmute_copy(bstrservicename), core::mem::transmute_copy(bstrstarttype), core::mem::transmute_copy(bstrerrorcontrol), core::mem::transmute_copy(bstrdependencies), core::mem::transmute_copy(bstrrunas), core::mem::transmute_copy(bstrpassword), core::mem::transmute(bdesktopok)).ok()
     }
     pub unsafe fn DeleteServiceForApplication(&self, bstrapplicationidorname: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DeleteServiceForApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname)).ok()
@@ -4819,11 +4816,8 @@ impl windows_core::RuntimeName for IContextSecurityPerimeter {}
 windows_core::imp::define_interface!(IContextState, IContextState_Vtbl, 0x3c05e54b_a42a_11d2_afc4_00c04f8ee1c4);
 windows_core::imp::interface_hierarchy!(IContextState, windows_core::IUnknown);
 impl IContextState {
-    pub unsafe fn SetDeactivateOnReturn<P0>(&self, bdeactivate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDeactivateOnReturn)(windows_core::Interface::as_raw(self), bdeactivate.param().abi()).ok()
+    pub unsafe fn SetDeactivateOnReturn(&self, bdeactivate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDeactivateOnReturn)(windows_core::Interface::as_raw(self), core::mem::transmute(bdeactivate)).ok()
     }
     pub unsafe fn GetDeactivateOnReturn(&self, pbdeactivate: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDeactivateOnReturn)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdeactivate)).ok()
@@ -5177,11 +5171,8 @@ impl ICrmCompensatorVariants {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EndPrepareVariants)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn BeginCommitVariants<P0>(&self, brecovery: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).BeginCommitVariants)(windows_core::Interface::as_raw(self), brecovery.param().abi()).ok()
+    pub unsafe fn BeginCommitVariants(&self, brecovery: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).BeginCommitVariants)(windows_core::Interface::as_raw(self), core::mem::transmute(brecovery)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CommitRecordVariants(&self, plogrecord: *const super::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -5191,11 +5182,8 @@ impl ICrmCompensatorVariants {
     pub unsafe fn EndCommitVariants(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndCommitVariants)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn BeginAbortVariants<P0>(&self, brecovery: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).BeginAbortVariants)(windows_core::Interface::as_raw(self), brecovery.param().abi()).ok()
+    pub unsafe fn BeginAbortVariants(&self, brecovery: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).BeginAbortVariants)(windows_core::Interface::as_raw(self), core::mem::transmute(brecovery)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AbortRecordVariants(&self, plogrecord: *const super::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -6172,7 +6160,7 @@ impl IGetAppTrackerData {
         (windows_core::Interface::vtable(self).GetApplicationProcesses)(windows_core::Interface::as_raw(self), core::mem::transmute(partitionid), core::mem::transmute(applicationid), core::mem::transmute(flags), core::mem::transmute(numapplicationprocesses), core::mem::transmute(applicationprocesses)).ok()
     }
     pub unsafe fn GetApplicationProcessDetails(&self, applicationinstanceid: *const windows_core::GUID, processid: u32, flags: u32, summary: Option<*mut ApplicationProcessSummary>, statistics: Option<*mut ApplicationProcessStatistics>, recycleinfo: Option<*mut ApplicationProcessRecycleInfo>, anycomponentshangmonitored: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetApplicationProcessDetails)(windows_core::Interface::as_raw(self), core::mem::transmute(applicationinstanceid), core::mem::transmute(processid), core::mem::transmute(flags), core::mem::transmute(summary.unwrap_or(core::ptr::null_mut())), core::mem::transmute(statistics.unwrap_or(core::ptr::null_mut())), core::mem::transmute(recycleinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(anycomponentshangmonitored.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetApplicationProcessDetails)(windows_core::Interface::as_raw(self), core::mem::transmute(applicationinstanceid), core::mem::transmute(processid), core::mem::transmute(flags), core::mem::transmute(summary.unwrap_or(core::mem::zeroed())), core::mem::transmute(statistics.unwrap_or(core::mem::zeroed())), core::mem::transmute(recycleinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(anycomponentshangmonitored.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetApplicationsInProcess(&self, applicationinstanceid: *const windows_core::GUID, processid: u32, partitionid: *const windows_core::GUID, flags: u32, numapplicationsinprocess: *mut u32, applications: *mut *mut ApplicationSummary) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetApplicationsInProcess)(windows_core::Interface::as_raw(self), core::mem::transmute(applicationinstanceid), core::mem::transmute(processid), core::mem::transmute(partitionid), core::mem::transmute(flags), core::mem::transmute(numapplicationsinprocess), core::mem::transmute(applications)).ok()
@@ -6181,7 +6169,7 @@ impl IGetAppTrackerData {
         (windows_core::Interface::vtable(self).GetComponentsInProcess)(windows_core::Interface::as_raw(self), core::mem::transmute(applicationinstanceid), core::mem::transmute(processid), core::mem::transmute(partitionid), core::mem::transmute(applicationid), core::mem::transmute(flags), core::mem::transmute(numcomponentsinprocess), core::mem::transmute(components)).ok()
     }
     pub unsafe fn GetComponentDetails(&self, applicationinstanceid: *const windows_core::GUID, processid: u32, clsid: *const windows_core::GUID, flags: u32, summary: Option<*mut ComponentSummary>, statistics: Option<*mut ComponentStatistics>, hangmonitorinfo: Option<*mut ComponentHangMonitorInfo>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetComponentDetails)(windows_core::Interface::as_raw(self), core::mem::transmute(applicationinstanceid), core::mem::transmute(processid), core::mem::transmute(clsid), core::mem::transmute(flags), core::mem::transmute(summary.unwrap_or(core::ptr::null_mut())), core::mem::transmute(statistics.unwrap_or(core::ptr::null_mut())), core::mem::transmute(hangmonitorinfo.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetComponentDetails)(windows_core::Interface::as_raw(self), core::mem::transmute(applicationinstanceid), core::mem::transmute(processid), core::mem::transmute(clsid), core::mem::transmute(flags), core::mem::transmute(summary.unwrap_or(core::mem::zeroed())), core::mem::transmute(statistics.unwrap_or(core::mem::zeroed())), core::mem::transmute(hangmonitorinfo.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetTrackerDataAsCollectionObject(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
@@ -8326,11 +8314,8 @@ impl ISecurityProperty {
         (windows_core::Interface::vtable(self).GetOriginalCallerSID)(windows_core::Interface::as_raw(self), core::mem::transmute(psid)).ok()
     }
     #[cfg(feature = "Win32_Security")]
-    pub unsafe fn ReleaseSID<P0>(&self, psid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Security::PSID>,
-    {
-        (windows_core::Interface::vtable(self).ReleaseSID)(windows_core::Interface::as_raw(self), psid.param().abi()).ok()
+    pub unsafe fn ReleaseSID(&self, psid: super::super::Security::PSID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ReleaseSID)(windows_core::Interface::as_raw(self), core::mem::transmute(psid)).ok()
     }
 }
 #[repr(C)]

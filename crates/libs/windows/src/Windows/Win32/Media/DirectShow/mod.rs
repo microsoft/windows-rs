@@ -5944,12 +5944,11 @@ impl IAMDirectSound {
     {
         (windows_core::Interface::vtable(self).ReleaseSecondaryBufferInterface)(windows_core::Interface::as_raw(self), lpdsb.param().abi()).ok()
     }
-    pub unsafe fn SetFocusWindow<P0, P1>(&self, param0: P0, param1: P1) -> windows_core::Result<()>
+    pub unsafe fn SetFocusWindow<P1>(&self, param0: super::super::Foundation::HWND, param1: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetFocusWindow)(windows_core::Interface::as_raw(self), param0.param().abi(), param1.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFocusWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1.param().abi()).ok()
     }
     pub unsafe fn GetFocusWindow(&self, param0: *mut super::super::Foundation::HWND, param1: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFocusWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), core::mem::transmute(param1)).ok()
@@ -8036,11 +8035,8 @@ impl IAMNetShowConfig {
     pub unsafe fn UseFixedUDPPort(&self, pusefixedudpport: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UseFixedUDPPort)(windows_core::Interface::as_raw(self), core::mem::transmute(pusefixedudpport)).ok()
     }
-    pub unsafe fn SetUseFixedUDPPort<P0>(&self, usefixedudpport: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetUseFixedUDPPort)(windows_core::Interface::as_raw(self), usefixedudpport.param().abi()).ok()
+    pub unsafe fn SetUseFixedUDPPort(&self, usefixedudpport: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetUseFixedUDPPort)(windows_core::Interface::as_raw(self), core::mem::transmute(usefixedudpport)).ok()
     }
     pub unsafe fn FixedUDPPort(&self, pfixedudpport: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FixedUDPPort)(windows_core::Interface::as_raw(self), core::mem::transmute(pfixedudpport)).ok()
@@ -8051,20 +8047,14 @@ impl IAMNetShowConfig {
     pub unsafe fn UseHTTPProxy(&self, pusehttpproxy: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UseHTTPProxy)(windows_core::Interface::as_raw(self), core::mem::transmute(pusehttpproxy)).ok()
     }
-    pub unsafe fn SetUseHTTPProxy<P0>(&self, usehttpproxy: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetUseHTTPProxy)(windows_core::Interface::as_raw(self), usehttpproxy.param().abi()).ok()
+    pub unsafe fn SetUseHTTPProxy(&self, usehttpproxy: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetUseHTTPProxy)(windows_core::Interface::as_raw(self), core::mem::transmute(usehttpproxy)).ok()
     }
     pub unsafe fn EnableAutoProxy(&self, penableautoproxy: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnableAutoProxy)(windows_core::Interface::as_raw(self), core::mem::transmute(penableautoproxy)).ok()
     }
-    pub unsafe fn SetEnableAutoProxy<P0>(&self, enableautoproxy: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableAutoProxy)(windows_core::Interface::as_raw(self), enableautoproxy.param().abi()).ok()
+    pub unsafe fn SetEnableAutoProxy(&self, enableautoproxy: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnableAutoProxy)(windows_core::Interface::as_raw(self), core::mem::transmute(enableautoproxy)).ok()
     }
     pub unsafe fn HTTPProxyHost(&self, pbstrhttpproxyhost: *mut windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).HTTPProxyHost)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrhttpproxyhost)).ok()
@@ -8081,38 +8071,26 @@ impl IAMNetShowConfig {
     pub unsafe fn EnableMulticast(&self, penablemulticast: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnableMulticast)(windows_core::Interface::as_raw(self), core::mem::transmute(penablemulticast)).ok()
     }
-    pub unsafe fn SetEnableMulticast<P0>(&self, enablemulticast: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableMulticast)(windows_core::Interface::as_raw(self), enablemulticast.param().abi()).ok()
+    pub unsafe fn SetEnableMulticast(&self, enablemulticast: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnableMulticast)(windows_core::Interface::as_raw(self), core::mem::transmute(enablemulticast)).ok()
     }
     pub unsafe fn EnableUDP(&self, penableudp: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnableUDP)(windows_core::Interface::as_raw(self), core::mem::transmute(penableudp)).ok()
     }
-    pub unsafe fn SetEnableUDP<P0>(&self, enableudp: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableUDP)(windows_core::Interface::as_raw(self), enableudp.param().abi()).ok()
+    pub unsafe fn SetEnableUDP(&self, enableudp: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnableUDP)(windows_core::Interface::as_raw(self), core::mem::transmute(enableudp)).ok()
     }
     pub unsafe fn EnableTCP(&self, penabletcp: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnableTCP)(windows_core::Interface::as_raw(self), core::mem::transmute(penabletcp)).ok()
     }
-    pub unsafe fn SetEnableTCP<P0>(&self, enabletcp: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableTCP)(windows_core::Interface::as_raw(self), enabletcp.param().abi()).ok()
+    pub unsafe fn SetEnableTCP(&self, enabletcp: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnableTCP)(windows_core::Interface::as_raw(self), core::mem::transmute(enabletcp)).ok()
     }
     pub unsafe fn EnableHTTP(&self, penablehttp: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnableHTTP)(windows_core::Interface::as_raw(self), core::mem::transmute(penablehttp)).ok()
     }
-    pub unsafe fn SetEnableHTTP<P0>(&self, enablehttp: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableHTTP)(windows_core::Interface::as_raw(self), enablehttp.param().abi()).ok()
+    pub unsafe fn SetEnableHTTP(&self, enablehttp: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnableHTTP)(windows_core::Interface::as_raw(self), core::mem::transmute(enablehttp)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8428,11 +8406,8 @@ impl core::ops::Deref for IAMNetShowPreroll {
 windows_core::imp::interface_hierarchy!(IAMNetShowPreroll, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAMNetShowPreroll {
-    pub unsafe fn SetPreroll<P0>(&self, fpreroll: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetPreroll)(windows_core::Interface::as_raw(self), fpreroll.param().abi()).ok()
+    pub unsafe fn SetPreroll(&self, fpreroll: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetPreroll)(windows_core::Interface::as_raw(self), core::mem::transmute(fpreroll)).ok()
     }
     pub unsafe fn Preroll(&self, pfpreroll: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Preroll)(windows_core::Interface::as_raw(self), core::mem::transmute(pfpreroll)).ok()
@@ -9084,7 +9059,7 @@ impl IAMPluginControl {
         (windows_core::Interface::vtable(self).GetPreferredClsidByIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(subtype), core::mem::transmute(clsid)).ok()
     }
     pub unsafe fn SetPreferredClsid(&self, subtype: *const windows_core::GUID, clsid: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPreferredClsid)(windows_core::Interface::as_raw(self), core::mem::transmute(subtype), core::mem::transmute(clsid.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetPreferredClsid)(windows_core::Interface::as_raw(self), core::mem::transmute(subtype), core::mem::transmute(clsid.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn IsDisabled(&self, clsid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).IsDisabled)(windows_core::Interface::as_raw(self), core::mem::transmute(clsid)).ok()
@@ -9324,7 +9299,7 @@ windows_core::imp::define_interface!(IAMResourceControl, IAMResourceControl_Vtbl
 windows_core::imp::interface_hierarchy!(IAMResourceControl, windows_core::IUnknown);
 impl IAMResourceControl {
     pub unsafe fn Reserve(&self, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reserve)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Reserve)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -9544,13 +9519,13 @@ windows_core::imp::define_interface!(IAMStreamControl, IAMStreamControl_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IAMStreamControl, windows_core::IUnknown);
 impl IAMStreamControl {
     pub unsafe fn StartAt(&self, ptstart: Option<*const i64>, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).StartAt)(windows_core::Interface::as_raw(self), core::mem::transmute(ptstart.unwrap_or(core::ptr::null())), core::mem::transmute(dwcookie)).ok()
+        (windows_core::Interface::vtable(self).StartAt)(windows_core::Interface::as_raw(self), core::mem::transmute(ptstart.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwcookie)).ok()
     }
     pub unsafe fn StopAt<P1>(&self, ptstop: Option<*const i64>, bsendextra: P1, dwcookie: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).StopAt)(windows_core::Interface::as_raw(self), core::mem::transmute(ptstop.unwrap_or(core::ptr::null())), bsendextra.param().abi(), core::mem::transmute(dwcookie)).ok()
+        (windows_core::Interface::vtable(self).StopAt)(windows_core::Interface::as_raw(self), core::mem::transmute(ptstop.unwrap_or(core::mem::zeroed())), bsendextra.param().abi(), core::mem::transmute(dwcookie)).ok()
     }
     pub unsafe fn GetInfo(&self, pinfo: *mut AM_STREAM_INFO) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pinfo)).ok()
@@ -9606,13 +9581,13 @@ impl IAMStreamSelect {
         (windows_core::Interface::vtable(self).Info)(
             windows_core::Interface::as_raw(self),
             core::mem::transmute(lindex),
-            core::mem::transmute(ppmt.unwrap_or(core::ptr::null_mut())),
-            core::mem::transmute(pdwflags.unwrap_or(core::ptr::null_mut())),
-            core::mem::transmute(plcid.unwrap_or(core::ptr::null_mut())),
-            core::mem::transmute(pdwgroup.unwrap_or(core::ptr::null_mut())),
-            core::mem::transmute(ppszname.unwrap_or(core::ptr::null_mut())),
-            core::mem::transmute(ppobject.unwrap_or(core::ptr::null_mut())),
-            core::mem::transmute(ppunk.unwrap_or(core::ptr::null_mut())),
+            core::mem::transmute(ppmt.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pdwflags.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(plcid.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pdwgroup.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(ppszname.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(ppobject.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(ppunk.unwrap_or(core::mem::zeroed())),
         )
         .ok()
     }
@@ -10280,11 +10255,8 @@ impl IAMTuner {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TuningSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Logon<P0>(&self, hcurrentuser: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).Logon)(windows_core::Interface::as_raw(self), hcurrentuser.param().abi()).ok()
+    pub unsafe fn Logon(&self, hcurrentuser: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Logon)(windows_core::Interface::as_raw(self), core::mem::transmute(hcurrentuser)).ok()
     }
     pub unsafe fn Logout(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Logout)(windows_core::Interface::as_raw(self)).ok()
@@ -10503,11 +10475,8 @@ impl IAMVfwCaptureDialogs {
     pub unsafe fn HasDialog(&self, idialog: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).HasDialog)(windows_core::Interface::as_raw(self), core::mem::transmute(idialog)).ok()
     }
-    pub unsafe fn ShowDialog<P1>(&self, idialog: i32, hwnd: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).ShowDialog)(windows_core::Interface::as_raw(self), core::mem::transmute(idialog), hwnd.param().abi()).ok()
+    pub unsafe fn ShowDialog(&self, idialog: i32, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ShowDialog)(windows_core::Interface::as_raw(self), core::mem::transmute(idialog), core::mem::transmute(hwnd)).ok()
     }
     pub unsafe fn SendDriverMessage(&self, idialog: i32, umsg: i32, dw1: i32, dw2: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SendDriverMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(idialog), core::mem::transmute(umsg), core::mem::transmute(dw1), core::mem::transmute(dw2)).ok()
@@ -10554,11 +10523,8 @@ impl windows_core::RuntimeName for IAMVfwCaptureDialogs {}
 windows_core::imp::define_interface!(IAMVfwCompressDialogs, IAMVfwCompressDialogs_Vtbl, 0xd8d715a3_6e5e_11d0_b3f0_00aa003761c5);
 windows_core::imp::interface_hierarchy!(IAMVfwCompressDialogs, windows_core::IUnknown);
 impl IAMVfwCompressDialogs {
-    pub unsafe fn ShowDialog<P1>(&self, idialog: i32, hwnd: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).ShowDialog)(windows_core::Interface::as_raw(self), core::mem::transmute(idialog), hwnd.param().abi()).ok()
+    pub unsafe fn ShowDialog(&self, idialog: i32, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ShowDialog)(windows_core::Interface::as_raw(self), core::mem::transmute(idialog), core::mem::transmute(hwnd)).ok()
     }
     pub unsafe fn GetState(&self, pstate: *mut core::ffi::c_void, pcbstate: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), core::mem::transmute(pstate), core::mem::transmute(pcbstate)).ok()
@@ -10619,11 +10585,11 @@ windows_core::imp::define_interface!(IAMVideoAccelerator, IAMVideoAccelerator_Vt
 windows_core::imp::interface_hierarchy!(IAMVideoAccelerator, windows_core::IUnknown);
 impl IAMVideoAccelerator {
     pub unsafe fn GetVideoAcceleratorGUIDs(&self, pdwnumguidssupported: *mut u32, pguidssupported: Option<*mut windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetVideoAcceleratorGUIDs)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwnumguidssupported), core::mem::transmute(pguidssupported.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetVideoAcceleratorGUIDs)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwnumguidssupported), core::mem::transmute(pguidssupported.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetUncompFormatsSupported(&self, pguid: *const windows_core::GUID, pdwnumformatssupported: *mut u32, pformatssupported: Option<*mut super::super::Graphics::DirectDraw::DDPIXELFORMAT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetUncompFormatsSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(pguid), core::mem::transmute(pdwnumformatssupported), core::mem::transmute(pformatssupported.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetUncompFormatsSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(pguid), core::mem::transmute(pdwnumformatssupported), core::mem::transmute(pformatssupported.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetInternalMemInfo(&self, pguid: *const windows_core::GUID, pamvauncompdatainfo: *const AMVAUncompDataInfo, pamvainternalmeminfo: *mut AMVAInternalMemInfo) -> windows_core::Result<()> {
@@ -10631,11 +10597,11 @@ impl IAMVideoAccelerator {
     }
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetCompBufferInfo(&self, pguid: *const windows_core::GUID, pamvauncompdatainfo: *const AMVAUncompDataInfo, pdwnumtypescompbuffers: *mut u32, pamvacompbufferinfo: Option<*mut AMVACompBufferInfo>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCompBufferInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pguid), core::mem::transmute(pamvauncompdatainfo), core::mem::transmute(pdwnumtypescompbuffers), core::mem::transmute(pamvacompbufferinfo.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetCompBufferInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pguid), core::mem::transmute(pamvauncompdatainfo), core::mem::transmute(pdwnumtypescompbuffers), core::mem::transmute(pamvacompbufferinfo.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetInternalCompBufferInfo(&self, pdwnumtypescompbuffers: *mut u32, pamvacompbufferinfo: Option<*mut AMVACompBufferInfo>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetInternalCompBufferInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwnumtypescompbuffers), core::mem::transmute(pamvacompbufferinfo.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetInternalCompBufferInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwnumtypescompbuffers), core::mem::transmute(pamvacompbufferinfo.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn BeginFrame(&self, amvabeginframeinfo: *const AMVABeginFrameInfo) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).BeginFrame)(windows_core::Interface::as_raw(self), core::mem::transmute(amvabeginframeinfo)).ok()
@@ -10870,17 +10836,17 @@ impl IAMVideoCompression {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).WindowSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetInfo(&self, pszversion: windows_core::PWSTR, pcbversion: Option<*mut i32>, pszdescription: windows_core::PWSTR, pcbdescription: Option<*mut i32>, pdefaultkeyframerate: Option<*mut i32>, pdefaultpframesperkey: Option<*mut i32>, pdefaultquality: Option<*mut f64>, pcapabilities: Option<*mut i32>) -> windows_core::Result<()> {
+    pub unsafe fn GetInfo(&self, pszversion: Option<windows_core::PWSTR>, pcbversion: Option<*mut i32>, pszdescription: Option<windows_core::PWSTR>, pcbdescription: Option<*mut i32>, pdefaultkeyframerate: Option<*mut i32>, pdefaultpframesperkey: Option<*mut i32>, pdefaultquality: Option<*mut f64>, pcapabilities: Option<*mut i32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetInfo)(
             windows_core::Interface::as_raw(self),
-            core::mem::transmute(pszversion),
-            core::mem::transmute(pcbversion.unwrap_or(core::ptr::null_mut())),
-            core::mem::transmute(pszdescription),
-            core::mem::transmute(pcbdescription.unwrap_or(core::ptr::null_mut())),
-            core::mem::transmute(pdefaultkeyframerate.unwrap_or(core::ptr::null_mut())),
-            core::mem::transmute(pdefaultpframesperkey.unwrap_or(core::ptr::null_mut())),
-            core::mem::transmute(pdefaultquality.unwrap_or(core::ptr::null_mut())),
-            core::mem::transmute(pcapabilities.unwrap_or(core::ptr::null_mut())),
+            core::mem::transmute(pszversion.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pcbversion.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pszdescription.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pcbdescription.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pdefaultkeyframerate.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pdefaultpframesperkey.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pdefaultquality.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pcapabilities.unwrap_or(core::mem::zeroed())),
         )
         .ok()
     }
@@ -11584,7 +11550,7 @@ impl IAsyncReader {
         (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), psample.param().abi(), core::mem::transmute(dwuser)).ok()
     }
     pub unsafe fn WaitForNext(&self, dwtimeout: u32, ppsample: Option<*mut Option<IMediaSample>>, pdwuser: *mut usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WaitForNext)(windows_core::Interface::as_raw(self), core::mem::transmute(dwtimeout), core::mem::transmute(ppsample.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwuser)).ok()
+        (windows_core::Interface::vtable(self).WaitForNext)(windows_core::Interface::as_raw(self), core::mem::transmute(dwtimeout), core::mem::transmute(ppsample.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwuser)).ok()
     }
     pub unsafe fn SyncReadAligned<P0>(&self, psample: P0) -> windows_core::Result<()>
     where
@@ -16491,7 +16457,7 @@ impl ICaptureGraphBuilder {
     where
         P1: windows_core::Param<IBaseFilter>,
     {
-        (windows_core::Interface::vtable(self).FindInterface)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategory.unwrap_or(core::ptr::null())), pf.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppint)).ok()
+        (windows_core::Interface::vtable(self).FindInterface)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategory.unwrap_or(core::mem::zeroed())), pf.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppint)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RenderStream<P1, P2, P3>(&self, pcategory: Option<*const windows_core::GUID>, psource: P1, pfcompressor: P2, pfrenderer: P3) -> windows_core::Result<()>
@@ -16500,14 +16466,14 @@ impl ICaptureGraphBuilder {
         P2: windows_core::Param<IBaseFilter>,
         P3: windows_core::Param<IBaseFilter>,
     {
-        (windows_core::Interface::vtable(self).RenderStream)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategory.unwrap_or(core::ptr::null())), psource.param().abi(), pfcompressor.param().abi(), pfrenderer.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RenderStream)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategory.unwrap_or(core::mem::zeroed())), psource.param().abi(), pfcompressor.param().abi(), pfrenderer.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ControlStream<P1>(&self, pcategory: Option<*const windows_core::GUID>, pfilter: P1, pstart: *const i64, pstop: *const i64, wstartcookie: u16, wstopcookie: u16) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IBaseFilter>,
     {
-        (windows_core::Interface::vtable(self).ControlStream)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategory.unwrap_or(core::ptr::null())), pfilter.param().abi(), core::mem::transmute(pstart), core::mem::transmute(pstop), core::mem::transmute(wstartcookie), core::mem::transmute(wstopcookie)).ok()
+        (windows_core::Interface::vtable(self).ControlStream)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategory.unwrap_or(core::mem::zeroed())), pfilter.param().abi(), core::mem::transmute(pstart), core::mem::transmute(pstop), core::mem::transmute(wstartcookie), core::mem::transmute(wstopcookie)).ok()
     }
     pub unsafe fn AllocCapFile<P0>(&self, lpstr: P0, dwlsize: u64) -> windows_core::Result<()>
     where
@@ -16636,14 +16602,14 @@ impl ICaptureGraphBuilder2 {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputFileName)(windows_core::Interface::as_raw(self), core::mem::transmute(ptype), lpstrfile.param().abi(), core::mem::transmute(ppf), core::mem::transmute(ppsink.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).SetOutputFileName)(windows_core::Interface::as_raw(self), core::mem::transmute(ptype), lpstrfile.param().abi(), core::mem::transmute(ppf), core::mem::transmute(ppsink.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindInterface<P2>(&self, pcategory: Option<*const windows_core::GUID>, ptype: Option<*const windows_core::GUID>, pf: P2, riid: *const windows_core::GUID, ppint: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
     where
         P2: windows_core::Param<IBaseFilter>,
     {
-        (windows_core::Interface::vtable(self).FindInterface)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategory.unwrap_or(core::ptr::null())), core::mem::transmute(ptype.unwrap_or(core::ptr::null())), pf.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppint)).ok()
+        (windows_core::Interface::vtable(self).FindInterface)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategory.unwrap_or(core::mem::zeroed())), core::mem::transmute(ptype.unwrap_or(core::mem::zeroed())), pf.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppint)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RenderStream<P2, P3, P4>(&self, pcategory: Option<*const windows_core::GUID>, ptype: *const windows_core::GUID, psource: P2, pfcompressor: P3, pfrenderer: P4) -> windows_core::Result<()>
@@ -16652,14 +16618,14 @@ impl ICaptureGraphBuilder2 {
         P3: windows_core::Param<IBaseFilter>,
         P4: windows_core::Param<IBaseFilter>,
     {
-        (windows_core::Interface::vtable(self).RenderStream)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategory.unwrap_or(core::ptr::null())), core::mem::transmute(ptype), psource.param().abi(), pfcompressor.param().abi(), pfrenderer.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RenderStream)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategory.unwrap_or(core::mem::zeroed())), core::mem::transmute(ptype), psource.param().abi(), pfcompressor.param().abi(), pfrenderer.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ControlStream<P2>(&self, pcategory: *const windows_core::GUID, ptype: *const windows_core::GUID, pfilter: P2, pstart: Option<*const i64>, pstop: Option<*const i64>, wstartcookie: u16, wstopcookie: u16) -> windows_core::Result<()>
     where
         P2: windows_core::Param<IBaseFilter>,
     {
-        (windows_core::Interface::vtable(self).ControlStream)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategory), core::mem::transmute(ptype), pfilter.param().abi(), core::mem::transmute(pstart.unwrap_or(core::ptr::null())), core::mem::transmute(pstop.unwrap_or(core::ptr::null())), core::mem::transmute(wstartcookie), core::mem::transmute(wstopcookie)).ok()
+        (windows_core::Interface::vtable(self).ControlStream)(windows_core::Interface::as_raw(self), core::mem::transmute(pcategory), core::mem::transmute(ptype), pfilter.param().abi(), core::mem::transmute(pstart.unwrap_or(core::mem::zeroed())), core::mem::transmute(pstop.unwrap_or(core::mem::zeroed())), core::mem::transmute(wstartcookie), core::mem::transmute(wstopcookie)).ok()
     }
     pub unsafe fn AllocCapFile<P0>(&self, lpstr: P0, dwlsize: u64) -> windows_core::Result<()>
     where
@@ -16681,7 +16647,7 @@ impl ICaptureGraphBuilder2 {
         P4: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindPin)(windows_core::Interface::as_raw(self), psource.param().abi(), core::mem::transmute(pindir), core::mem::transmute(pcategory.unwrap_or(core::ptr::null())), core::mem::transmute(ptype.unwrap_or(core::ptr::null())), funconnected.param().abi(), core::mem::transmute(num), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindPin)(windows_core::Interface::as_raw(self), psource.param().abi(), core::mem::transmute(pindir), core::mem::transmute(pcategory.unwrap_or(core::mem::zeroed())), core::mem::transmute(ptype.unwrap_or(core::mem::zeroed())), funconnected.param().abi(), core::mem::transmute(num), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -18267,11 +18233,8 @@ impl IDrawVideoImage {
         (windows_core::Interface::vtable(self).DrawVideoImageEnd)(windows_core::Interface::as_raw(self)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn DrawVideoImageDraw<P0>(&self, hdc: P0, lprcsrc: *const super::super::Foundation::RECT, lprcdst: *const super::super::Foundation::RECT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    {
-        (windows_core::Interface::vtable(self).DrawVideoImageDraw)(windows_core::Interface::as_raw(self), hdc.param().abi(), core::mem::transmute(lprcsrc), core::mem::transmute(lprcdst)).ok()
+    pub unsafe fn DrawVideoImageDraw(&self, hdc: super::super::Graphics::Gdi::HDC, lprcsrc: *const super::super::Foundation::RECT, lprcdst: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DrawVideoImageDraw)(windows_core::Interface::as_raw(self), core::mem::transmute(hdc), core::mem::transmute(lprcsrc), core::mem::transmute(lprcdst)).ok()
     }
 }
 #[repr(C)]
@@ -20597,7 +20560,7 @@ windows_core::imp::interface_hierarchy!(IEnumFilters, windows_core::IUnknown);
 impl IEnumFilters {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppfilter: &mut [Option<IBaseFilter>], pcfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppfilter.len().try_into().unwrap(), core::mem::transmute(ppfilter.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::ptr::null_mut())))
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppfilter.len().try_into().unwrap(), core::mem::transmute(ppfilter.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::mem::zeroed())))
     }
     pub unsafe fn Skip(&self, cfilters: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(cfilters)).ok()
@@ -20672,7 +20635,7 @@ windows_core::imp::interface_hierarchy!(IEnumMediaTypes, windows_core::IUnknown)
 impl IEnumMediaTypes {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn Next(&self, ppmediatypes: &mut [*mut super::MediaFoundation::AM_MEDIA_TYPE], pcfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppmediatypes.len().try_into().unwrap(), core::mem::transmute(ppmediatypes.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::ptr::null_mut())))
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppmediatypes.len().try_into().unwrap(), core::mem::transmute(ppmediatypes.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::mem::zeroed())))
     }
     pub unsafe fn Skip(&self, cmediatypes: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(cmediatypes)).ok()
@@ -20814,7 +20777,7 @@ windows_core::imp::define_interface!(IEnumPins, IEnumPins_Vtbl, 0x56a86892_0ad4_
 windows_core::imp::interface_hierarchy!(IEnumPins, windows_core::IUnknown);
 impl IEnumPins {
     pub unsafe fn Next(&self, pppins: &mut [Option<IPin>], pcfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pppins.len().try_into().unwrap(), core::mem::transmute(pppins.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::ptr::null_mut())))
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pppins.len().try_into().unwrap(), core::mem::transmute(pppins.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::mem::zeroed())))
     }
     pub unsafe fn Skip(&self, cpins: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(cpins)).ok()
@@ -20882,7 +20845,7 @@ windows_core::imp::define_interface!(IEnumRegFilters, IEnumRegFilters_Vtbl, 0x56
 windows_core::imp::interface_hierarchy!(IEnumRegFilters, windows_core::IUnknown);
 impl IEnumRegFilters {
     pub unsafe fn Next(&self, apregfilter: &mut [*mut REGFILTER], pcfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), apregfilter.len().try_into().unwrap(), core::mem::transmute(apregfilter.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::ptr::null_mut())))
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), apregfilter.len().try_into().unwrap(), core::mem::transmute(apregfilter.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::mem::zeroed())))
     }
     pub unsafe fn Skip(&self, cfilters: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(cfilters)).ok()
@@ -20950,7 +20913,7 @@ windows_core::imp::define_interface!(IEnumStreamIdMap, IEnumStreamIdMap_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IEnumStreamIdMap, windows_core::IUnknown);
 impl IEnumStreamIdMap {
     pub unsafe fn Next(&self, pstreamidmap: &mut [STREAM_ID_MAP], pcreceived: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pstreamidmap.len().try_into().unwrap(), core::mem::transmute(pstreamidmap.as_ptr()), core::mem::transmute(pcreceived.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pstreamidmap.len().try_into().unwrap(), core::mem::transmute(pstreamidmap.as_ptr()), core::mem::transmute(pcreceived.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Skip(&self, crecords: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(crecords)).ok()
@@ -21025,7 +20988,7 @@ impl IFileSinkFilter {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFileName)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), core::mem::transmute(pmt.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetFileName)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), core::mem::transmute(pmt.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn GetCurFile(&self, ppszfilename: *mut windows_core::PWSTR, pmt: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()> {
@@ -21133,11 +21096,11 @@ impl IFileSourceFilter {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), core::mem::transmute(pmt.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), core::mem::transmute(pmt.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn GetCurFile(&self, ppszfilename: *mut windows_core::PWSTR, pmt: Option<*mut super::MediaFoundation::AM_MEDIA_TYPE>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCurFile)(windows_core::Interface::as_raw(self), core::mem::transmute(ppszfilename), core::mem::transmute(pmt.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetCurFile)(windows_core::Interface::as_raw(self), core::mem::transmute(ppszfilename), core::mem::transmute(pmt.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -21308,7 +21271,7 @@ impl IFilterGraph {
         P0: windows_core::Param<IPin>,
         P1: windows_core::Param<IPin>,
     {
-        (windows_core::Interface::vtable(self).ConnectDirect)(windows_core::Interface::as_raw(self), ppinout.param().abi(), ppinin.param().abi(), core::mem::transmute(pmt.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).ConnectDirect)(windows_core::Interface::as_raw(self), ppinout.param().abi(), ppinin.param().abi(), core::mem::transmute(pmt.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reconnect<P0>(&self, ppin: P0) -> windows_core::Result<()>
     where
@@ -21450,13 +21413,13 @@ impl IFilterGraph2 {
     where
         P0: windows_core::Param<IPin>,
     {
-        (windows_core::Interface::vtable(self).ReconnectEx)(windows_core::Interface::as_raw(self), ppin.param().abi(), core::mem::transmute(pmt.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).ReconnectEx)(windows_core::Interface::as_raw(self), ppin.param().abi(), core::mem::transmute(pmt.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn RenderEx<P0>(&self, ppinout: P0, dwflags: u32, pvcontext: Option<*const u32>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IPin>,
     {
-        (windows_core::Interface::vtable(self).RenderEx)(windows_core::Interface::as_raw(self), ppinout.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvcontext.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).RenderEx)(windows_core::Interface::as_raw(self), ppinout.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pvcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -21876,7 +21839,7 @@ impl IFilterMapper2 {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(clsidfilter), name.param().abi(), core::mem::transmute(ppmoniker.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pclsidcategory), szinstance.param().abi(), core::mem::transmute(prf2)).ok()
+        (windows_core::Interface::vtable(self).RegisterFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(clsidfilter), name.param().abi(), core::mem::transmute(ppmoniker.unwrap_or(core::mem::zeroed())), core::mem::transmute(pclsidcategory), szinstance.param().abi(), core::mem::transmute(prf2)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumMatchingFilters<P2, P4, P9, P10>(&self, ppenum: *mut Option<super::super::System::Com::IEnumMoniker>, dwflags: u32, bexactmatch: P2, dwmerit: u32, binputneeded: P4, cinputtypes: u32, pinputtypes: Option<*const windows_core::GUID>, pmedin: Option<*const REGPINMEDIUM>, ppincategoryin: Option<*const windows_core::GUID>, brender: P9, boutputneeded: P10, coutputtypes: u32, poutputtypes: Option<*const windows_core::GUID>, pmedout: Option<*const REGPINMEDIUM>, ppincategoryout: Option<*const windows_core::GUID>) -> windows_core::Result<()>
@@ -21894,15 +21857,15 @@ impl IFilterMapper2 {
             core::mem::transmute(dwmerit),
             binputneeded.param().abi(),
             core::mem::transmute(cinputtypes),
-            core::mem::transmute(pinputtypes.unwrap_or(core::ptr::null())),
-            core::mem::transmute(pmedin.unwrap_or(core::ptr::null())),
-            core::mem::transmute(ppincategoryin.unwrap_or(core::ptr::null())),
+            core::mem::transmute(pinputtypes.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pmedin.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(ppincategoryin.unwrap_or(core::mem::zeroed())),
             brender.param().abi(),
             boutputneeded.param().abi(),
             core::mem::transmute(coutputtypes),
-            core::mem::transmute(poutputtypes.unwrap_or(core::ptr::null())),
-            core::mem::transmute(pmedout.unwrap_or(core::ptr::null())),
-            core::mem::transmute(ppincategoryout.unwrap_or(core::ptr::null())),
+            core::mem::transmute(poutputtypes.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(pmedout.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(ppincategoryout.unwrap_or(core::mem::zeroed())),
         )
         .ok()
     }
@@ -22141,11 +22104,8 @@ impl IFullScreenVideo {
     pub unsafe fn SetClipFactor(&self, clipfactor: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetClipFactor)(windows_core::Interface::as_raw(self), core::mem::transmute(clipfactor)).ok()
     }
-    pub unsafe fn SetMessageDrain<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetMessageDrain)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
+    pub unsafe fn SetMessageDrain(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMessageDrain)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd)).ok()
     }
     pub unsafe fn GetMessageDrain(&self) -> windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = core::mem::zeroed();
@@ -22357,12 +22317,8 @@ impl core::ops::Deref for IFullScreenVideoEx {
 windows_core::imp::interface_hierarchy!(IFullScreenVideoEx, windows_core::IUnknown, IFullScreenVideo);
 impl IFullScreenVideoEx {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetAcceleratorTable<P0, P1>(&self, hwnd: P0, haccel: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::UI::WindowsAndMessaging::HACCEL>,
-    {
-        (windows_core::Interface::vtable(self).SetAcceleratorTable)(windows_core::Interface::as_raw(self), hwnd.param().abi(), haccel.param().abi()).ok()
+    pub unsafe fn SetAcceleratorTable(&self, hwnd: super::super::Foundation::HWND, haccel: super::super::UI::WindowsAndMessaging::HACCEL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAcceleratorTable)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), core::mem::transmute(haccel)).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetAcceleratorTable(&self, phwnd: *mut super::super::Foundation::HWND, phaccel: *mut super::super::UI::WindowsAndMessaging::HACCEL) -> windows_core::Result<()> {
@@ -22608,21 +22564,19 @@ windows_core::imp::define_interface!(IGraphConfig, IGraphConfig_Vtbl, 0x03a1eb8e
 windows_core::imp::interface_hierarchy!(IGraphConfig, windows_core::IUnknown);
 impl IGraphConfig {
     #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Reconnect<P0, P1, P3, P4>(&self, poutputpin: P0, pinputpin: P1, pmtfirstconnection: *const super::MediaFoundation::AM_MEDIA_TYPE, pusingfilter: P3, habortevent: P4, dwflags: u32) -> windows_core::Result<()>
+    pub unsafe fn Reconnect<P0, P1, P3>(&self, poutputpin: P0, pinputpin: P1, pmtfirstconnection: *const super::MediaFoundation::AM_MEDIA_TYPE, pusingfilter: P3, habortevent: super::super::Foundation::HANDLE, dwflags: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IPin>,
         P1: windows_core::Param<IPin>,
         P3: windows_core::Param<IBaseFilter>,
-        P4: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        (windows_core::Interface::vtable(self).Reconnect)(windows_core::Interface::as_raw(self), poutputpin.param().abi(), pinputpin.param().abi(), core::mem::transmute(pmtfirstconnection), pusingfilter.param().abi(), habortevent.param().abi(), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).Reconnect)(windows_core::Interface::as_raw(self), poutputpin.param().abi(), pinputpin.param().abi(), core::mem::transmute(pmtfirstconnection), pusingfilter.param().abi(), core::mem::transmute(habortevent), core::mem::transmute(dwflags)).ok()
     }
-    pub unsafe fn Reconfigure<P0, P3>(&self, pcallback: P0, pvcontext: *const core::ffi::c_void, dwflags: u32, habortevent: P3) -> windows_core::Result<()>
+    pub unsafe fn Reconfigure<P0>(&self, pcallback: P0, pvcontext: *const core::ffi::c_void, dwflags: u32, habortevent: super::super::Foundation::HANDLE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IGraphConfigCallback>,
-        P3: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        (windows_core::Interface::vtable(self).Reconfigure)(windows_core::Interface::as_raw(self), pcallback.param().abi(), core::mem::transmute(pvcontext), core::mem::transmute(dwflags), habortevent.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Reconfigure)(windows_core::Interface::as_raw(self), pcallback.param().abi(), core::mem::transmute(pvcontext), core::mem::transmute(dwflags), core::mem::transmute(habortevent)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddFilterToCache<P0>(&self, pfilter: P0) -> windows_core::Result<()>
@@ -22646,13 +22600,12 @@ impl IGraphConfig {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn PushThroughData<P0, P1, P2>(&self, poutputpin: P0, pconnection: P1, heventabort: P2) -> windows_core::Result<()>
+    pub unsafe fn PushThroughData<P0, P1>(&self, poutputpin: P0, pconnection: P1, heventabort: super::super::Foundation::HANDLE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IPin>,
         P1: windows_core::Param<IPinConnection>,
-        P2: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        (windows_core::Interface::vtable(self).PushThroughData)(windows_core::Interface::as_raw(self), poutputpin.param().abi(), pconnection.param().abi(), heventabort.param().abi()).ok()
+        (windows_core::Interface::vtable(self).PushThroughData)(windows_core::Interface::as_raw(self), poutputpin.param().abi(), pconnection.param().abi(), core::mem::transmute(heventabort)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFilterFlags<P0>(&self, pfilter: P0, dwflags: u32) -> windows_core::Result<()>
@@ -23948,7 +23901,7 @@ impl IMediaSample {
         (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), core::mem::transmute(ptimestart), core::mem::transmute(ptimeend)).ok()
     }
     pub unsafe fn SetTime(&self, ptimestart: Option<*const i64>, ptimeend: Option<*const i64>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetTime)(windows_core::Interface::as_raw(self), core::mem::transmute(ptimestart.unwrap_or(core::ptr::null())), core::mem::transmute(ptimeend.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetTime)(windows_core::Interface::as_raw(self), core::mem::transmute(ptimestart.unwrap_or(core::mem::zeroed())), core::mem::transmute(ptimeend.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn IsSyncPoint(&self) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).IsSyncPoint)(windows_core::Interface::as_raw(self))
@@ -23996,7 +23949,7 @@ impl IMediaSample {
         (windows_core::Interface::vtable(self).GetMediaTime)(windows_core::Interface::as_raw(self), core::mem::transmute(ptimestart), core::mem::transmute(ptimeend)).ok()
     }
     pub unsafe fn SetMediaTime(&self, ptimestart: Option<*const i64>, ptimeend: Option<*const i64>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMediaTime)(windows_core::Interface::as_raw(self), core::mem::transmute(ptimestart.unwrap_or(core::ptr::null())), core::mem::transmute(ptimeend.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetMediaTime)(windows_core::Interface::as_raw(self), core::mem::transmute(ptimestart.unwrap_or(core::mem::zeroed())), core::mem::transmute(ptimeend.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -24274,16 +24227,16 @@ impl IMediaSeeking {
         (windows_core::Interface::vtable(self).GetCurrentPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ConvertTimeFormat(&self, ptarget: *mut i64, ptargetformat: Option<*const windows_core::GUID>, source: i64, psourceformat: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConvertTimeFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(ptarget), core::mem::transmute(ptargetformat.unwrap_or(core::ptr::null())), core::mem::transmute(source), core::mem::transmute(psourceformat.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).ConvertTimeFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(ptarget), core::mem::transmute(ptargetformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(source), core::mem::transmute(psourceformat.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetPositions(&self, pcurrent: Option<*mut i64>, dwcurrentflags: u32, pstop: Option<*mut i64>, dwstopflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPositions)(windows_core::Interface::as_raw(self), core::mem::transmute(pcurrent.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwcurrentflags), core::mem::transmute(pstop.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwstopflags)).ok()
+        (windows_core::Interface::vtable(self).SetPositions)(windows_core::Interface::as_raw(self), core::mem::transmute(pcurrent.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwcurrentflags), core::mem::transmute(pstop.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwstopflags)).ok()
     }
     pub unsafe fn GetPositions(&self, pcurrent: Option<*mut i64>, pstop: Option<*mut i64>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPositions)(windows_core::Interface::as_raw(self), core::mem::transmute(pcurrent.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pstop.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetPositions)(windows_core::Interface::as_raw(self), core::mem::transmute(pcurrent.unwrap_or(core::mem::zeroed())), core::mem::transmute(pstop.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetAvailable(&self, pearliest: Option<*mut i64>, platest: Option<*mut i64>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute(pearliest.unwrap_or(core::ptr::null_mut())), core::mem::transmute(platest.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute(pearliest.unwrap_or(core::mem::zeroed())), core::mem::transmute(platest.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetRate(&self, drate: f64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetRate)(windows_core::Interface::as_raw(self), core::mem::transmute(drate)).ok()
@@ -24831,7 +24784,7 @@ impl IMemAllocator {
         (windows_core::Interface::vtable(self).Decommit)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetBuffer(&self, ppbuffer: *mut Option<IMediaSample>, pstarttime: Option<*const i64>, pendtime: Option<*const i64>, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbuffer), core::mem::transmute(pstarttime.unwrap_or(core::ptr::null())), core::mem::transmute(pendtime.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbuffer), core::mem::transmute(pstarttime.unwrap_or(core::mem::zeroed())), core::mem::transmute(pendtime.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn ReleaseBuffer<P0>(&self, pbuffer: P0) -> windows_core::Result<()>
     where
@@ -25169,11 +25122,8 @@ impl IMixerOCX {
         (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn OnDraw<P0>(&self, hdcdraw: P0, prcdraw: *const super::super::Foundation::RECT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    {
-        (windows_core::Interface::vtable(self).OnDraw)(windows_core::Interface::as_raw(self), hdcdraw.param().abi(), core::mem::transmute(prcdraw)).ok()
+    pub unsafe fn OnDraw(&self, hdcdraw: super::super::Graphics::Gdi::HDC, prcdraw: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).OnDraw)(windows_core::Interface::as_raw(self), core::mem::transmute(hdcdraw), core::mem::transmute(prcdraw)).ok()
     }
     pub unsafe fn SetDrawRegion(&self, lppttopleftsc: *const super::super::Foundation::POINT, prcdrawcc: *const super::super::Foundation::RECT, lprcclip: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDrawRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(lppttopleftsc), core::mem::transmute(prcdrawcc), core::mem::transmute(lprcclip)).ok()
@@ -26196,11 +26146,8 @@ impl core::ops::Deref for IOverlayNotify2 {
 windows_core::imp::interface_hierarchy!(IOverlayNotify2, windows_core::IUnknown, IOverlayNotify);
 impl IOverlayNotify2 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn OnDisplayChange<P0>(&self, hmonitor: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Graphics::Gdi::HMONITOR>,
-    {
-        (windows_core::Interface::vtable(self).OnDisplayChange)(windows_core::Interface::as_raw(self), hmonitor.param().abi()).ok()
+    pub unsafe fn OnDisplayChange(&self, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).OnDisplayChange)(windows_core::Interface::as_raw(self), core::mem::transmute(hmonitor)).ok()
     }
 }
 #[repr(C)]
@@ -26320,7 +26267,7 @@ impl IPin {
     where
         P0: windows_core::Param<IPin>,
     {
-        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), preceivepin.param().abi(), core::mem::transmute(pmt.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), preceivepin.param().abi(), core::mem::transmute(pmt.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn ReceiveConnection<P0>(&self, pconnector: P0, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()>
@@ -26361,7 +26308,7 @@ impl IPin {
         (windows_core::Interface::vtable(self).EnumMediaTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn QueryInternalConnections(&self, appin: Option<*mut Option<IPin>>, npin: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).QueryInternalConnections)(windows_core::Interface::as_raw(self), core::mem::transmute(appin.unwrap_or(core::ptr::null_mut())), core::mem::transmute(npin)).ok()
+        (windows_core::Interface::vtable(self).QueryInternalConnections)(windows_core::Interface::as_raw(self), core::mem::transmute(appin.unwrap_or(core::mem::zeroed())), core::mem::transmute(npin)).ok()
     }
     pub unsafe fn EndOfStream(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndOfStream)(windows_core::Interface::as_raw(self)).ok()
@@ -26547,11 +26494,8 @@ impl IPinConnection {
     pub unsafe fn DynamicQueryAccept(&self, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DynamicQueryAccept)(windows_core::Interface::as_raw(self), core::mem::transmute(pmt)).ok()
     }
-    pub unsafe fn NotifyEndOfStream<P0>(&self, hnotifyevent: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).NotifyEndOfStream)(windows_core::Interface::as_raw(self), hnotifyevent.param().abi()).ok()
+    pub unsafe fn NotifyEndOfStream(&self, hnotifyevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).NotifyEndOfStream)(windows_core::Interface::as_raw(self), core::mem::transmute(hnotifyevent)).ok()
     }
     pub unsafe fn IsEndPin(&self) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).IsEndPin)(windows_core::Interface::as_raw(self))
@@ -26614,11 +26558,8 @@ impl windows_core::RuntimeName for IPinConnection {}
 windows_core::imp::define_interface!(IPinFlowControl, IPinFlowControl_Vtbl, 0xc56e9858_dbf3_4f6b_8119_384af2060deb);
 windows_core::imp::interface_hierarchy!(IPinFlowControl, windows_core::IUnknown);
 impl IPinFlowControl {
-    pub unsafe fn Block<P1>(&self, dwblockflags: u32, hevent: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).Block)(windows_core::Interface::as_raw(self), core::mem::transmute(dwblockflags), hevent.param().abi()).ok()
+    pub unsafe fn Block(&self, dwblockflags: u32, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Block)(windows_core::Interface::as_raw(self), core::mem::transmute(dwblockflags), core::mem::transmute(hevent)).ok()
     }
 }
 #[repr(C)]
@@ -27600,11 +27541,8 @@ impl IStreamSample {
     pub unsafe fn SetSampleTimes(&self, pstarttime: *const i64, pendtime: *const i64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetSampleTimes)(windows_core::Interface::as_raw(self), core::mem::transmute(pstarttime), core::mem::transmute(pendtime)).ok()
     }
-    pub unsafe fn Update<P1>(&self, dwflags: u32, hevent: P1, pfnapc: super::super::Foundation::PAPCFUNC, dwapcdata: usize) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), hevent.param().abi(), core::mem::transmute(pfnapc), core::mem::transmute(dwapcdata)).ok()
+    pub unsafe fn Update(&self, dwflags: u32, hevent: super::super::Foundation::HANDLE, pfnapc: super::super::Foundation::PAPCFUNC, dwapcdata: usize) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), core::mem::transmute(hevent), core::mem::transmute(pfnapc), core::mem::transmute(dwapcdata)).ok()
     }
     pub unsafe fn CompletionStatus(&self, dwflags: u32, dwmilliseconds: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CompletionStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), core::mem::transmute(dwmilliseconds)).ok()
@@ -28824,11 +28762,8 @@ impl IVMRMixerControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOutputRect)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamid), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetBackgroundClr<P0>(&self, clrbkg: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
-        (windows_core::Interface::vtable(self).SetBackgroundClr)(windows_core::Interface::as_raw(self), clrbkg.param().abi()).ok()
+    pub unsafe fn SetBackgroundClr(&self, clrbkg: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBackgroundClr)(windows_core::Interface::as_raw(self), core::mem::transmute(clrbkg)).ok()
     }
     pub unsafe fn GetBackgroundClr(&self, lpclrbkg: *const super::super::Foundation::COLORREF) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetBackgroundClr)(windows_core::Interface::as_raw(self), core::mem::transmute(lpclrbkg)).ok()
@@ -28976,11 +28911,8 @@ impl IVMRMixerControl9 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOutputRect)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamid), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetBackgroundClr<P0>(&self, clrbkg: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
-        (windows_core::Interface::vtable(self).SetBackgroundClr)(windows_core::Interface::as_raw(self), clrbkg.param().abi()).ok()
+    pub unsafe fn SetBackgroundClr(&self, clrbkg: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBackgroundClr)(windows_core::Interface::as_raw(self), core::mem::transmute(clrbkg)).ok()
     }
     pub unsafe fn GetBackgroundClr(&self, lpclrbkg: *const super::super::Foundation::COLORREF) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetBackgroundClr)(windows_core::Interface::as_raw(self), core::mem::transmute(lpclrbkg)).ok()
@@ -29679,20 +29611,18 @@ impl IVMRSurfaceAllocatorNotify {
         (windows_core::Interface::vtable(self).AdviseSurfaceAllocator)(windows_core::Interface::as_raw(self), core::mem::transmute(dwuserid), lpivrmsurfaceallocator.param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn SetDDrawDevice<P0, P1>(&self, lpddrawdevice: P0, hmonitor: P1) -> windows_core::Result<()>
+    pub unsafe fn SetDDrawDevice<P0>(&self, lpddrawdevice: P0, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Graphics::DirectDraw::IDirectDraw7>,
-        P1: windows_core::Param<super::super::Graphics::Gdi::HMONITOR>,
     {
-        (windows_core::Interface::vtable(self).SetDDrawDevice)(windows_core::Interface::as_raw(self), lpddrawdevice.param().abi(), hmonitor.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDDrawDevice)(windows_core::Interface::as_raw(self), lpddrawdevice.param().abi(), core::mem::transmute(hmonitor)).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn ChangeDDrawDevice<P0, P1>(&self, lpddrawdevice: P0, hmonitor: P1) -> windows_core::Result<()>
+    pub unsafe fn ChangeDDrawDevice<P0>(&self, lpddrawdevice: P0, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Graphics::DirectDraw::IDirectDraw7>,
-        P1: windows_core::Param<super::super::Graphics::Gdi::HMONITOR>,
     {
-        (windows_core::Interface::vtable(self).ChangeDDrawDevice)(windows_core::Interface::as_raw(self), lpddrawdevice.param().abi(), hmonitor.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ChangeDDrawDevice)(windows_core::Interface::as_raw(self), lpddrawdevice.param().abi(), core::mem::transmute(hmonitor)).ok()
     }
     pub unsafe fn RestoreDDrawSurfaces(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RestoreDDrawSurfaces)(windows_core::Interface::as_raw(self)).ok()
@@ -29700,11 +29630,8 @@ impl IVMRSurfaceAllocatorNotify {
     pub unsafe fn NotifyEvent(&self, eventcode: i32, param1: isize, param2: isize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).NotifyEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(eventcode), core::mem::transmute(param1), core::mem::transmute(param2)).ok()
     }
-    pub unsafe fn SetBorderColor<P0>(&self, clrborder: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
-        (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), clrborder.param().abi()).ok()
+    pub unsafe fn SetBorderColor(&self, clrborder: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), core::mem::transmute(clrborder)).ok()
     }
 }
 #[repr(C)]
@@ -29785,20 +29712,18 @@ impl IVMRSurfaceAllocatorNotify9 {
         (windows_core::Interface::vtable(self).AdviseSurfaceAllocator)(windows_core::Interface::as_raw(self), core::mem::transmute(dwuserid), lpivrmsurfaceallocator.param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn SetD3DDevice<P0, P1>(&self, lpd3ddevice: P0, hmonitor: P1) -> windows_core::Result<()>
+    pub unsafe fn SetD3DDevice<P0>(&self, lpd3ddevice: P0, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
-        P1: windows_core::Param<super::super::Graphics::Gdi::HMONITOR>,
     {
-        (windows_core::Interface::vtable(self).SetD3DDevice)(windows_core::Interface::as_raw(self), lpd3ddevice.param().abi(), hmonitor.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetD3DDevice)(windows_core::Interface::as_raw(self), lpd3ddevice.param().abi(), core::mem::transmute(hmonitor)).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn ChangeD3DDevice<P0, P1>(&self, lpd3ddevice: P0, hmonitor: P1) -> windows_core::Result<()>
+    pub unsafe fn ChangeD3DDevice<P0>(&self, lpd3ddevice: P0, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
-        P1: windows_core::Param<super::super::Graphics::Gdi::HMONITOR>,
     {
-        (windows_core::Interface::vtable(self).ChangeD3DDevice)(windows_core::Interface::as_raw(self), lpd3ddevice.param().abi(), hmonitor.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ChangeD3DDevice)(windows_core::Interface::as_raw(self), lpd3ddevice.param().abi(), core::mem::transmute(hmonitor)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn AllocateSurfaceHelper(&self, lpallocinfo: *const VMR9AllocationInfo, lpnumbuffers: *mut u32, lplpsurface: *mut Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>) -> windows_core::Result<()> {
@@ -30037,19 +29962,12 @@ impl IVMRWindowlessControl {
     pub unsafe fn SetAspectRatioMode(&self, aspectratiomode: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetAspectRatioMode)(windows_core::Interface::as_raw(self), core::mem::transmute(aspectratiomode)).ok()
     }
-    pub unsafe fn SetVideoClippingWindow<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetVideoClippingWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
+    pub unsafe fn SetVideoClippingWindow(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetVideoClippingWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn RepaintVideo<P0, P1>(&self, hwnd: P0, hdc: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    {
-        (windows_core::Interface::vtable(self).RepaintVideo)(windows_core::Interface::as_raw(self), hwnd.param().abi(), hdc.param().abi()).ok()
+    pub unsafe fn RepaintVideo(&self, hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RepaintVideo)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), core::mem::transmute(hdc)).ok()
     }
     pub unsafe fn DisplayModeChanged(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisplayModeChanged)(windows_core::Interface::as_raw(self)).ok()
@@ -30058,21 +29976,15 @@ impl IVMRWindowlessControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrentImage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetBorderColor<P0>(&self, clr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
-        (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), clr.param().abi()).ok()
+    pub unsafe fn SetBorderColor(&self, clr: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), core::mem::transmute(clr)).ok()
     }
     pub unsafe fn GetBorderColor(&self) -> windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBorderColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetColorKey<P0>(&self, clr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
-        (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), clr.param().abi()).ok()
+    pub unsafe fn SetColorKey(&self, clr: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), core::mem::transmute(clr)).ok()
     }
     pub unsafe fn GetColorKey(&self) -> windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = core::mem::zeroed();
@@ -30256,19 +30168,12 @@ impl IVMRWindowlessControl9 {
     pub unsafe fn SetAspectRatioMode(&self, aspectratiomode: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetAspectRatioMode)(windows_core::Interface::as_raw(self), core::mem::transmute(aspectratiomode)).ok()
     }
-    pub unsafe fn SetVideoClippingWindow<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).SetVideoClippingWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
+    pub unsafe fn SetVideoClippingWindow(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetVideoClippingWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn RepaintVideo<P0, P1>(&self, hwnd: P0, hdc: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    {
-        (windows_core::Interface::vtable(self).RepaintVideo)(windows_core::Interface::as_raw(self), hwnd.param().abi(), hdc.param().abi()).ok()
+    pub unsafe fn RepaintVideo(&self, hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RepaintVideo)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), core::mem::transmute(hdc)).ok()
     }
     pub unsafe fn DisplayModeChanged(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisplayModeChanged)(windows_core::Interface::as_raw(self)).ok()
@@ -30277,11 +30182,8 @@ impl IVMRWindowlessControl9 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurrentImage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetBorderColor<P0>(&self, clr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
-        (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), clr.param().abi()).ok()
+    pub unsafe fn SetBorderColor(&self, clr: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), core::mem::transmute(clr)).ok()
     }
     pub unsafe fn GetBorderColor(&self) -> windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = core::mem::zeroed();
@@ -30425,7 +30327,7 @@ windows_core::imp::interface_hierarchy!(IVPBaseConfig, windows_core::IUnknown);
 impl IVPBaseConfig {
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetConnectInfo(&self, pdwnumconnectinfo: *mut u32, pddvpconnectinfo: Option<*mut super::super::Graphics::DirectDraw::DDVIDEOPORTCONNECT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetConnectInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwnumconnectinfo), core::mem::transmute(pddvpconnectinfo.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetConnectInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwnumconnectinfo), core::mem::transmute(pddvpconnectinfo.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetConnectInfo(&self, dwchosenentry: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetConnectInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(dwchosenentry)).ok()
@@ -30442,7 +30344,7 @@ impl IVPBaseConfig {
     }
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetVideoFormats(&self, pdwnumformats: *mut u32, pddpixelformats: Option<*mut super::super::Graphics::DirectDraw::DDPIXELFORMAT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetVideoFormats)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwnumformats), core::mem::transmute(pddpixelformats.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetVideoFormats)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwnumformats), core::mem::transmute(pddpixelformats.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetVideoFormat(&self, dwchosenentry: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetVideoFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(dwchosenentry)).ok()

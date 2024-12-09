@@ -27,14 +27,13 @@ where
     DeriveAppContainerSidFromAppContainerName(pszappcontainername.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName<P0, P1>(psidappcontainersid: P0, pszrestrictedappcontainername: P1) -> windows_core::Result<super::PSID>
+pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName<P1>(psidappcontainersid: super::PSID, pszrestrictedappcontainername: P1) -> windows_core::Result<super::PSID>
 where
-    P0: windows_core::Param<super::PSID>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("userenv.dll" "system" fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid : super:: PSID, pszrestrictedappcontainername : windows_core::PCWSTR, ppsidrestrictedappcontainersid : *mut super:: PSID) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid.param().abi(), pszrestrictedappcontainername.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(core::mem::transmute(psidappcontainersid), pszrestrictedappcontainername.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetAppContainerFolderPath<P0>(pszappcontainersid: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -46,13 +45,9 @@ where
     GetAppContainerFolderPath(pszappcontainersid.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetAppContainerNamedObjectPath<P0, P1>(token: P0, appcontainersid: P1, objectpath: Option<&mut [u16]>, returnlength: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::PSID>,
-{
+pub unsafe fn GetAppContainerNamedObjectPath(token: Option<super::super::Foundation::HANDLE>, appcontainersid: Option<super::PSID>, objectpath: Option<&mut [u16]>, returnlength: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetAppContainerNamedObjectPath(token : super::super::Foundation:: HANDLE, appcontainersid : super:: PSID, objectpathlength : u32, objectpath : windows_core::PWSTR, returnlength : *mut u32) -> super::super::Foundation:: BOOL);
-    GetAppContainerNamedObjectPath(token.param().abi(), appcontainersid.param().abi(), objectpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(objectpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(returnlength)).ok()
+    GetAppContainerNamedObjectPath(core::mem::transmute(token.unwrap_or(core::mem::zeroed())), core::mem::transmute(appcontainersid.unwrap_or(core::mem::zeroed())), objectpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(objectpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(returnlength)).ok()
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]

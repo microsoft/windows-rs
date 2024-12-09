@@ -801,13 +801,8 @@ impl IPrintDialogCallback {
     pub unsafe fn SelectionChange(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SelectionChange)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn HandleMessage<P0, P2, P3>(&self, hdlg: P0, umsg: u32, wparam: P2, lparam: P3, presult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).HandleMessage)(windows_core::Interface::as_raw(self), hdlg.param().abi(), core::mem::transmute(umsg), wparam.param().abi(), lparam.param().abi(), core::mem::transmute(presult)).ok()
+    pub unsafe fn HandleMessage(&self, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).HandleMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(hdlg), core::mem::transmute(umsg), core::mem::transmute(wparam), core::mem::transmute(lparam), core::mem::transmute(presult)).ok()
     }
 }
 #[repr(C)]
@@ -855,11 +850,11 @@ impl IPrintDialogServices {
     pub unsafe fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetCurrentDevMode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdevmode), core::mem::transmute(pcbsize)).ok()
     }
-    pub unsafe fn GetCurrentPrinterName(&self, pprintername: windows_core::PWSTR, pcchsize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCurrentPrinterName)(windows_core::Interface::as_raw(self), core::mem::transmute(pprintername), core::mem::transmute(pcchsize)).ok()
+    pub unsafe fn GetCurrentPrinterName(&self, pprintername: Option<windows_core::PWSTR>, pcchsize: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetCurrentPrinterName)(windows_core::Interface::as_raw(self), core::mem::transmute(pprintername.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchsize)).ok()
     }
-    pub unsafe fn GetCurrentPortName(&self, pportname: windows_core::PWSTR, pcchsize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCurrentPortName)(windows_core::Interface::as_raw(self), core::mem::transmute(pportname), core::mem::transmute(pcchsize)).ok()
+    pub unsafe fn GetCurrentPortName(&self, pportname: Option<windows_core::PWSTR>, pcchsize: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetCurrentPortName)(windows_core::Interface::as_raw(self), core::mem::transmute(pportname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchsize)).ok()
     }
 }
 #[repr(C)]

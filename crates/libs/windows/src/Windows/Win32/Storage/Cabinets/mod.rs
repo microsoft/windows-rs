@@ -11,7 +11,7 @@ where
 #[inline]
 pub unsafe fn FCICreate(perf: *const ERF, pfnfcifp: PFNFCIFILEPLACED, pfna: PFNFCIALLOC, pfnf: PFNFCIFREE, pfnopen: PFNFCIOPEN, pfnread: PFNFCIREAD, pfnwrite: PFNFCIWRITE, pfnclose: PFNFCICLOSE, pfnseek: PFNFCISEEK, pfndelete: PFNFCIDELETE, pfnfcigtf: PFNFCIGETTEMPFILE, pccab: *const CCAB, pv: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
     windows_targets::link!("cabinet.dll" "cdecl" fn FCICreate(perf : *const ERF, pfnfcifp : PFNFCIFILEPLACED, pfna : PFNFCIALLOC, pfnf : PFNFCIFREE, pfnopen : PFNFCIOPEN, pfnread : PFNFCIREAD, pfnwrite : PFNFCIWRITE, pfnclose : PFNFCICLOSE, pfnseek : PFNFCISEEK, pfndelete : PFNFCIDELETE, pfnfcigtf : PFNFCIGETTEMPFILE, pccab : *const CCAB, pv : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-    FCICreate(core::mem::transmute(perf), core::mem::transmute(pfnfcifp), core::mem::transmute(pfna), core::mem::transmute(pfnf), core::mem::transmute(pfnopen), core::mem::transmute(pfnread), core::mem::transmute(pfnwrite), core::mem::transmute(pfnclose), core::mem::transmute(pfnseek), core::mem::transmute(pfndelete), core::mem::transmute(pfnfcigtf), core::mem::transmute(pccab), core::mem::transmute(pv.unwrap_or(core::ptr::null())))
+    FCICreate(core::mem::transmute(perf), core::mem::transmute(pfnfcifp), core::mem::transmute(pfna), core::mem::transmute(pfnf), core::mem::transmute(pfnopen), core::mem::transmute(pfnread), core::mem::transmute(pfnwrite), core::mem::transmute(pfnclose), core::mem::transmute(pfnseek), core::mem::transmute(pfndelete), core::mem::transmute(pfnfcigtf), core::mem::transmute(pccab), core::mem::transmute(pv.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn FCIDestroy(hfci: *const core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -38,7 +38,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cabinet.dll" "cdecl" fn FDICopy(hfdi : *const core::ffi::c_void, pszcabinet : windows_core::PCSTR, pszcabpath : windows_core::PCSTR, flags : i32, pfnfdin : PFNFDINOTIFY, pfnfdid : PFNFDIDECRYPT, pvuser : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    FDICopy(core::mem::transmute(hfdi), pszcabinet.param().abi(), pszcabpath.param().abi(), core::mem::transmute(flags), core::mem::transmute(pfnfdin), core::mem::transmute(pfnfdid), core::mem::transmute(pvuser.unwrap_or(core::ptr::null())))
+    FDICopy(core::mem::transmute(hfdi), pszcabinet.param().abi(), pszcabpath.param().abi(), core::mem::transmute(flags), core::mem::transmute(pfnfdin), core::mem::transmute(pfnfdid), core::mem::transmute(pvuser.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn FDICreate(pfnalloc: PFNALLOC, pfnfree: PFNFREE, pfnopen: PFNOPEN, pfnread: PFNREAD, pfnwrite: PFNWRITE, pfnclose: PFNCLOSE, pfnseek: PFNSEEK, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut core::ffi::c_void {
@@ -53,7 +53,7 @@ pub unsafe fn FDIDestroy(hfdi: *const core::ffi::c_void) -> super::super::Founda
 #[inline]
 pub unsafe fn FDIIsCabinet(hfdi: *const core::ffi::c_void, hf: isize, pfdici: Option<*mut FDICABINETINFO>) -> super::super::Foundation::BOOL {
     windows_targets::link!("cabinet.dll" "cdecl" fn FDIIsCabinet(hfdi : *const core::ffi::c_void, hf : isize, pfdici : *mut FDICABINETINFO) -> super::super::Foundation:: BOOL);
-    FDIIsCabinet(core::mem::transmute(hfdi), core::mem::transmute(hf), core::mem::transmute(pfdici.unwrap_or(core::ptr::null_mut())))
+    FDIIsCabinet(core::mem::transmute(hfdi), core::mem::transmute(hf), core::mem::transmute(pfdici.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn FDITruncateCabinet<P1>(hfdi: *const core::ffi::c_void, pszcabinetname: P1, ifoldertodelete: u16) -> super::super::Foundation::BOOL

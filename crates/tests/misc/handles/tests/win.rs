@@ -47,7 +47,7 @@ fn hfont() {
         let font: HFONT = HFONT(underlying as _);
         let object: HGDIOBJ = HGDIOBJ(font.0);
 
-        assert!(!DeleteObject(font).as_bool());
+        assert!(!DeleteObject(font.into()).as_bool());
         assert!(!DeleteObject(object).as_bool());
     }
 }

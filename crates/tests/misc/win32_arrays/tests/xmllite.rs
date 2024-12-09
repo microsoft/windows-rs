@@ -6,7 +6,7 @@ use windows::{
 #[test]
 fn test() -> Result<()> {
     unsafe {
-        let stream = CreateStreamOnHGlobal(None, true)?;
+        let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
         let mut writer: Option<IXmlWriter> = None;
         CreateXmlWriter(&IXmlWriter::IID, &mut writer as *mut _ as _, None)?;
@@ -110,7 +110,7 @@ fn test() -> Result<()> {
 #[test]
 fn lite() -> Result<()> {
     unsafe {
-        let stream = CreateStreamOnHGlobal(None, true)?;
+        let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
         let mut writer: Option<IXmlWriterLite> = None;
         CreateXmlWriter(&IXmlWriterLite::IID, &mut writer as *mut _ as _, None)?;

@@ -1,14 +1,11 @@
 #[inline]
-pub unsafe fn EapHostPeerBeginSession<P3>(dwflags: u32, eaptype: EAP_METHOD_TYPE, pattributearray: *const EAP_ATTRIBUTES, htokenimpersonateuser: P3, dwsizeofconnectiondata: u32, pconnectiondata: *const u8, dwsizeofuserdata: u32, puserdata: *const u8, dwmaxsendpacketsize: u32, pconnectionid: *const windows_core::GUID, func: NotificationHandler, pcontextdata: *mut core::ffi::c_void, psessionid: *mut u32, ppeaperror: *mut *mut EAP_ERROR) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn EapHostPeerBeginSession(dwflags: u32, eaptype: EAP_METHOD_TYPE, pattributearray: *const EAP_ATTRIBUTES, htokenimpersonateuser: super::super::Foundation::HANDLE, dwsizeofconnectiondata: u32, pconnectiondata: *const u8, dwsizeofuserdata: u32, puserdata: *const u8, dwmaxsendpacketsize: u32, pconnectionid: *const windows_core::GUID, func: NotificationHandler, pcontextdata: *mut core::ffi::c_void, psessionid: *mut u32, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerBeginSession(dwflags : u32, eaptype : EAP_METHOD_TYPE, pattributearray : *const EAP_ATTRIBUTES, htokenimpersonateuser : super::super::Foundation:: HANDLE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, dwmaxsendpacketsize : u32, pconnectionid : *const windows_core::GUID, func : NotificationHandler, pcontextdata : *mut core::ffi::c_void, psessionid : *mut u32, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     EapHostPeerBeginSession(
         core::mem::transmute(dwflags),
         core::mem::transmute(eaptype),
         core::mem::transmute(pattributearray),
-        htokenimpersonateuser.param().abi(),
+        core::mem::transmute(htokenimpersonateuser),
         core::mem::transmute(dwsizeofconnectiondata),
         core::mem::transmute(pconnectiondata),
         core::mem::transmute(dwsizeofuserdata),
@@ -94,10 +91,7 @@ where
     EapHostPeerGetEncryptedPassword(core::mem::transmute(dwsizeofpassword), szpassword.param().abi(), core::mem::transmute(ppszencpassword))
 }
 #[inline]
-pub unsafe fn EapHostPeerGetIdentity<P7>(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconnectiondata: &[u8], puserdata: Option<&[u8]>, htokenimpersonateuser: P7, pfinvokeui: *mut super::super::Foundation::BOOL, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut u8) -> u32
-where
-    P7: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn EapHostPeerGetIdentity(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconnectiondata: &[u8], puserdata: Option<&[u8]>, htokenimpersonateuser: super::super::Foundation::HANDLE, pfinvokeui: *mut super::super::Foundation::BOOL, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut u8) -> u32 {
     windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetIdentity(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, htokenimpersonateuser : super::super::Foundation:: HANDLE, pfinvokeui : *mut super::super::Foundation:: BOOL, pdwsizeofuserdataout : *mut u32, ppuserdataout : *mut *mut u8, ppwszidentity : *mut windows_core::PWSTR, ppeaperror : *mut *mut EAP_ERROR, ppvreserved : *mut *mut u8) -> u32);
     EapHostPeerGetIdentity(
         core::mem::transmute(dwversion),
@@ -107,7 +101,7 @@ where
         core::mem::transmute(pconnectiondata.as_ptr()),
         puserdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(puserdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        htokenimpersonateuser.param().abi(),
+        core::mem::transmute(htokenimpersonateuser),
         core::mem::transmute(pfinvokeui),
         core::mem::transmute(pdwsizeofuserdataout),
         core::mem::transmute(ppuserdataout),
@@ -117,12 +111,9 @@ where
     )
 }
 #[inline]
-pub unsafe fn EapHostPeerGetMethodProperties<P3>(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, huserimpersonationtoken: P3, pbeapconndata: &[u8], pbuserdata: &[u8], pmethodpropertyarray: *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn EapHostPeerGetMethodProperties(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, huserimpersonationtoken: super::super::Foundation::HANDLE, pbeapconndata: &[u8], pbuserdata: &[u8], pmethodpropertyarray: *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerGetMethodProperties(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, huserimpersonationtoken : super::super::Foundation:: HANDLE, dweapconndatasize : u32, pbeapconndata : *const u8, dwuserdatasize : u32, pbuserdata : *const u8, pmethodpropertyarray : *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-    EapHostPeerGetMethodProperties(core::mem::transmute(dwversion), core::mem::transmute(dwflags), core::mem::transmute(eapmethodtype), huserimpersonationtoken.param().abi(), pbeapconndata.len().try_into().unwrap(), core::mem::transmute(pbeapconndata.as_ptr()), pbuserdata.len().try_into().unwrap(), core::mem::transmute(pbuserdata.as_ptr()), core::mem::transmute(pmethodpropertyarray), core::mem::transmute(ppeaperror))
+    EapHostPeerGetMethodProperties(core::mem::transmute(dwversion), core::mem::transmute(dwflags), core::mem::transmute(eapmethodtype), core::mem::transmute(huserimpersonationtoken), pbeapconndata.len().try_into().unwrap(), core::mem::transmute(pbeapconndata.as_ptr()), pbuserdata.len().try_into().unwrap(), core::mem::transmute(pbuserdata.as_ptr()), core::mem::transmute(pmethodpropertyarray), core::mem::transmute(ppeaperror))
 }
 #[inline]
 pub unsafe fn EapHostPeerGetMethods(peapmethodinfoarray: *mut EAP_METHOD_INFO_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -155,24 +146,18 @@ pub unsafe fn EapHostPeerInitialize() -> u32 {
     EapHostPeerInitialize()
 }
 #[inline]
-pub unsafe fn EapHostPeerInvokeConfigUI<P0>(hwndparent: P0, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconfigin: Option<&[u8]>, pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn EapHostPeerInvokeConfigUI(hwndparent: super::super::Foundation::HWND, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconfigin: Option<&[u8]>, pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerInvokeConfigUI(hwndparent : super::super::Foundation:: HWND, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconfigin : u32, pconfigin : *const u8, pdwsizeofconfigout : *mut u32, ppconfigout : *mut *mut u8, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-    EapHostPeerInvokeConfigUI(hwndparent.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(eapmethodtype), pconfigin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pconfigin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pdwsizeofconfigout), core::mem::transmute(ppconfigout), core::mem::transmute(ppeaperror))
+    EapHostPeerInvokeConfigUI(core::mem::transmute(hwndparent), core::mem::transmute(dwflags), core::mem::transmute(eapmethodtype), pconfigin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pconfigin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pdwsizeofconfigout), core::mem::transmute(ppconfigout), core::mem::transmute(ppeaperror))
 }
 #[inline]
-pub unsafe fn EapHostPeerInvokeIdentityUI<P3>(dwversion: u32, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, hwndparent: P3, pconnectiondata: &[u8], puserdata: Option<&[u8]>, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut core::ffi::c_void) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn EapHostPeerInvokeIdentityUI(dwversion: u32, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, hwndparent: super::super::Foundation::HWND, pconnectiondata: &[u8], puserdata: Option<&[u8]>, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerInvokeIdentityUI(dwversion : u32, eapmethodtype : EAP_METHOD_TYPE, dwflags : u32, hwndparent : super::super::Foundation:: HWND, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, pdwsizeofuserdataout : *mut u32, ppuserdataout : *mut *mut u8, ppwszidentity : *mut windows_core::PWSTR, ppeaperror : *mut *mut EAP_ERROR, ppvreserved : *mut *mut core::ffi::c_void) -> u32);
     EapHostPeerInvokeIdentityUI(
         core::mem::transmute(dwversion),
         core::mem::transmute(eapmethodtype),
         core::mem::transmute(dwflags),
-        hwndparent.param().abi(),
+        core::mem::transmute(hwndparent),
         pconnectiondata.len().try_into().unwrap(),
         core::mem::transmute(pconnectiondata.as_ptr()),
         puserdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -185,12 +170,9 @@ where
     )
 }
 #[inline]
-pub unsafe fn EapHostPeerInvokeInteractiveUI<P0>(hwndparent: P0, puicontextdata: Option<&[u8]>, pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn EapHostPeerInvokeInteractiveUI(hwndparent: super::super::Foundation::HWND, puicontextdata: Option<&[u8]>, pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerInvokeInteractiveUI(hwndparent : super::super::Foundation:: HWND, dwsizeofuicontextdata : u32, puicontextdata : *const u8, pdwsizeofdatafrominteractiveui : *mut u32, ppdatafrominteractiveui : *mut *mut u8, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-    EapHostPeerInvokeInteractiveUI(hwndparent.param().abi(), puicontextdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puicontextdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pdwsizeofdatafrominteractiveui), core::mem::transmute(ppdatafrominteractiveui), core::mem::transmute(ppeaperror))
+    EapHostPeerInvokeInteractiveUI(core::mem::transmute(hwndparent), puicontextdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puicontextdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pdwsizeofdatafrominteractiveui), core::mem::transmute(ppdatafrominteractiveui), core::mem::transmute(ppeaperror))
 }
 #[inline]
 pub unsafe fn EapHostPeerProcessReceivedPacket(sessionhandle: u32, cbreceivepacket: u32, preceivepacket: *const u8, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -198,12 +180,9 @@ pub unsafe fn EapHostPeerProcessReceivedPacket(sessionhandle: u32, cbreceivepack
     EapHostPeerProcessReceivedPacket(core::mem::transmute(sessionhandle), core::mem::transmute(cbreceivepacket), core::mem::transmute(preceivepacket), core::mem::transmute(peapoutput), core::mem::transmute(ppeaperror))
 }
 #[inline]
-pub unsafe fn EapHostPeerQueryCredentialInputFields<P0>(huserimpersonationtoken: P0, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, pbeapconndata: &[u8], peapconfiginputfieldarray: *mut EAP_CONFIG_INPUT_FIELD_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn EapHostPeerQueryCredentialInputFields(huserimpersonationtoken: super::super::Foundation::HANDLE, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, pbeapconndata: &[u8], peapconfiginputfieldarray: *mut EAP_CONFIG_INPUT_FIELD_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerQueryCredentialInputFields(huserimpersonationtoken : super::super::Foundation:: HANDLE, eapmethodtype : EAP_METHOD_TYPE, dwflags : u32, dweapconndatasize : u32, pbeapconndata : *const u8, peapconfiginputfieldarray : *mut EAP_CONFIG_INPUT_FIELD_ARRAY, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-    EapHostPeerQueryCredentialInputFields(huserimpersonationtoken.param().abi(), core::mem::transmute(eapmethodtype), core::mem::transmute(dwflags), pbeapconndata.len().try_into().unwrap(), core::mem::transmute(pbeapconndata.as_ptr()), core::mem::transmute(peapconfiginputfieldarray), core::mem::transmute(ppeaperror))
+    EapHostPeerQueryCredentialInputFields(core::mem::transmute(huserimpersonationtoken), core::mem::transmute(eapmethodtype), core::mem::transmute(dwflags), pbeapconndata.len().try_into().unwrap(), core::mem::transmute(pbeapconndata.as_ptr()), core::mem::transmute(peapconfiginputfieldarray), core::mem::transmute(ppeaperror))
 }
 #[inline]
 pub unsafe fn EapHostPeerQueryInteractiveUIInputFields(dwversion: u32, dwflags: u32, puicontextdata: &[u8], peapinteractiveuidata: *mut EAP_INTERACTIVE_UI_DATA, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut core::ffi::c_void) -> u32 {
@@ -216,12 +195,9 @@ pub unsafe fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: u32,
     EapHostPeerQueryUIBlobFromInteractiveUIInputFields(core::mem::transmute(dwversion), core::mem::transmute(dwflags), puicontextdata.len().try_into().unwrap(), core::mem::transmute(puicontextdata.as_ptr()), core::mem::transmute(peapinteractiveuidata), core::mem::transmute(pdwsizeofdatafrominteractiveui), core::mem::transmute(ppdatafrominteractiveui), core::mem::transmute(ppeaperror), core::mem::transmute(ppvreserved))
 }
 #[inline]
-pub unsafe fn EapHostPeerQueryUserBlobFromCredentialInputFields<P0>(huserimpersonationtoken: P0, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, pbeapconndata: &[u8], peapconfiginputfieldarray: *const EAP_CONFIG_INPUT_FIELD_ARRAY, pdwuserblobsize: *mut u32, ppbuserblob: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn EapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken: super::super::Foundation::HANDLE, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, pbeapconndata: &[u8], peapconfiginputfieldarray: *const EAP_CONFIG_INPUT_FIELD_ARRAY, pdwuserblobsize: *mut u32, ppbuserblob: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken : super::super::Foundation:: HANDLE, eapmethodtype : EAP_METHOD_TYPE, dwflags : u32, dweapconndatasize : u32, pbeapconndata : *const u8, peapconfiginputfieldarray : *const EAP_CONFIG_INPUT_FIELD_ARRAY, pdwuserblobsize : *mut u32, ppbuserblob : *mut *mut u8, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-    EapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken.param().abi(), core::mem::transmute(eapmethodtype), core::mem::transmute(dwflags), pbeapconndata.len().try_into().unwrap(), core::mem::transmute(pbeapconndata.as_ptr()), core::mem::transmute(peapconfiginputfieldarray), core::mem::transmute(pdwuserblobsize), core::mem::transmute(ppbuserblob), core::mem::transmute(ppeaperror))
+    EapHostPeerQueryUserBlobFromCredentialInputFields(core::mem::transmute(huserimpersonationtoken), core::mem::transmute(eapmethodtype), core::mem::transmute(dwflags), pbeapconndata.len().try_into().unwrap(), core::mem::transmute(pbeapconndata.as_ptr()), core::mem::transmute(peapconfiginputfieldarray), core::mem::transmute(pdwuserblobsize), core::mem::transmute(ppbuserblob), core::mem::transmute(ppeaperror))
 }
 #[inline]
 pub unsafe fn EapHostPeerSetResponseAttributes(sessionhandle: u32, pattribs: *const EAP_ATTRIBUTES, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1113,11 +1089,8 @@ impl IAccountingProviderConfig {
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Uninitialize)(windows_core::Interface::as_raw(self), core::mem::transmute(uconnectionparam)).ok()
     }
-    pub unsafe fn Configure<P1>(&self, uconnectionparam: usize, hwnd: P1, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), core::mem::transmute(uconnectionparam), hwnd.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(ureserved1), core::mem::transmute(ureserved2)).ok()
+    pub unsafe fn Configure(&self, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), core::mem::transmute(uconnectionparam), core::mem::transmute(hwnd), core::mem::transmute(dwflags), core::mem::transmute(ureserved1), core::mem::transmute(ureserved2)).ok()
     }
     pub unsafe fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), core::mem::transmute(uconnectionparam), core::mem::transmute(ureserved1), core::mem::transmute(ureserved2)).ok()
@@ -1197,11 +1170,8 @@ impl IAuthenticationProviderConfig {
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Uninitialize)(windows_core::Interface::as_raw(self), core::mem::transmute(uconnectionparam)).ok()
     }
-    pub unsafe fn Configure<P1>(&self, uconnectionparam: usize, hwnd: P1, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), core::mem::transmute(uconnectionparam), hwnd.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(ureserved1), core::mem::transmute(ureserved2)).ok()
+    pub unsafe fn Configure(&self, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), core::mem::transmute(uconnectionparam), core::mem::transmute(hwnd), core::mem::transmute(dwflags), core::mem::transmute(ureserved1), core::mem::transmute(ureserved2)).ok()
     }
     pub unsafe fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), core::mem::transmute(uconnectionparam), core::mem::transmute(ureserved1), core::mem::transmute(ureserved2)).ok()
@@ -1281,23 +1251,14 @@ impl IEAPProviderConfig {
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Uninitialize)(windows_core::Interface::as_raw(self), core::mem::transmute(dweaptypeid), core::mem::transmute(uconnectionparam)).ok()
     }
-    pub unsafe fn ServerInvokeConfigUI<P2>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P2, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).ServerInvokeConfigUI)(windows_core::Interface::as_raw(self), core::mem::transmute(dweaptypeid), core::mem::transmute(uconnectionparam), hwnd.param().abi(), core::mem::transmute(ureserved1), core::mem::transmute(ureserved2)).ok()
+    pub unsafe fn ServerInvokeConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ServerInvokeConfigUI)(windows_core::Interface::as_raw(self), core::mem::transmute(dweaptypeid), core::mem::transmute(uconnectionparam), core::mem::transmute(hwnd), core::mem::transmute(ureserved1), core::mem::transmute(ureserved2)).ok()
     }
-    pub unsafe fn RouterInvokeConfigUI<P2>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P2, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).RouterInvokeConfigUI)(windows_core::Interface::as_raw(self), core::mem::transmute(dweaptypeid), core::mem::transmute(uconnectionparam), hwndparent.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len().try_into().unwrap(), core::mem::transmute(ppconnectiondataout), core::mem::transmute(pdwsizeofconnectiondataout)).ok()
+    pub unsafe fn RouterInvokeConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RouterInvokeConfigUI)(windows_core::Interface::as_raw(self), core::mem::transmute(dweaptypeid), core::mem::transmute(uconnectionparam), core::mem::transmute(hwndparent), core::mem::transmute(dwflags), core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len().try_into().unwrap(), core::mem::transmute(ppconnectiondataout), core::mem::transmute(pdwsizeofconnectiondataout)).ok()
     }
-    pub unsafe fn RouterInvokeCredentialsUI<P2>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P2, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).RouterInvokeCredentialsUI)(windows_core::Interface::as_raw(self), core::mem::transmute(dweaptypeid), core::mem::transmute(uconnectionparam), hwndparent.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len().try_into().unwrap(), core::mem::transmute(puserdatain.as_ptr()), puserdatain.len().try_into().unwrap(), core::mem::transmute(ppuserdataout), core::mem::transmute(pdwsizeofuserdataout)).ok()
+    pub unsafe fn RouterInvokeCredentialsUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RouterInvokeCredentialsUI)(windows_core::Interface::as_raw(self), core::mem::transmute(dweaptypeid), core::mem::transmute(uconnectionparam), core::mem::transmute(hwndparent), core::mem::transmute(dwflags), core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len().try_into().unwrap(), core::mem::transmute(puserdatain.as_ptr()), puserdatain.len().try_into().unwrap(), core::mem::transmute(ppuserdataout), core::mem::transmute(pdwsizeofuserdataout)).ok()
     }
 }
 #[repr(C)]
@@ -1367,11 +1328,8 @@ impl core::ops::Deref for IEAPProviderConfig2 {
 }
 windows_core::imp::interface_hierarchy!(IEAPProviderConfig2, windows_core::IUnknown, IEAPProviderConfig);
 impl IEAPProviderConfig2 {
-    pub unsafe fn ServerInvokeConfigUI2<P2>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P2, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).ServerInvokeConfigUI2)(windows_core::Interface::as_raw(self), core::mem::transmute(dweaptypeid), core::mem::transmute(uconnectionparam), hwnd.param().abi(), core::mem::transmute(pconfigdatain), core::mem::transmute(dwsizeofconfigdatain), core::mem::transmute(ppconfigdataout), core::mem::transmute(pdwsizeofconfigdataout)).ok()
+    pub unsafe fn ServerInvokeConfigUI2(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ServerInvokeConfigUI2)(windows_core::Interface::as_raw(self), core::mem::transmute(dweaptypeid), core::mem::transmute(uconnectionparam), core::mem::transmute(hwnd), core::mem::transmute(pconfigdatain), core::mem::transmute(dwsizeofconfigdatain), core::mem::transmute(ppconfigdataout), core::mem::transmute(pdwsizeofconfigdataout)).ok()
     }
     pub unsafe fn GetGlobalConfig(&self, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetGlobalConfig)(windows_core::Interface::as_raw(self), core::mem::transmute(dweaptypeid), core::mem::transmute(ppconfigdataout), core::mem::transmute(pdwsizeofconfigdataout)).ok()
@@ -1417,11 +1375,8 @@ impl core::ops::Deref for IEAPProviderConfig3 {
 }
 windows_core::imp::interface_hierarchy!(IEAPProviderConfig3, windows_core::IUnknown, IEAPProviderConfig, IEAPProviderConfig2);
 impl IEAPProviderConfig3 {
-    pub unsafe fn ServerInvokeCertificateConfigUI<P2>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P2, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).ServerInvokeCertificateConfigUI)(windows_core::Interface::as_raw(self), core::mem::transmute(dweaptypeid), core::mem::transmute(uconnectionparam), hwnd.param().abi(), core::mem::transmute(pconfigdatain), core::mem::transmute(dwsizeofconfigdatain), core::mem::transmute(ppconfigdataout), core::mem::transmute(pdwsizeofconfigdataout), core::mem::transmute(ureserved)).ok()
+    pub unsafe fn ServerInvokeCertificateConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ServerInvokeCertificateConfigUI)(windows_core::Interface::as_raw(self), core::mem::transmute(dweaptypeid), core::mem::transmute(uconnectionparam), core::mem::transmute(hwnd), core::mem::transmute(pconfigdatain), core::mem::transmute(dwsizeofconfigdatain), core::mem::transmute(ppconfigdataout), core::mem::transmute(pdwsizeofconfigdataout), core::mem::transmute(ureserved)).ok()
     }
 }
 #[repr(C)]
@@ -1451,21 +1406,19 @@ impl windows_core::RuntimeName for IEAPProviderConfig3 {}
 windows_core::imp::define_interface!(IRouterProtocolConfig, IRouterProtocolConfig_Vtbl, 0x66a2db16_d706_11d0_a37b_00c04fc9da04);
 windows_core::imp::interface_hierarchy!(IRouterProtocolConfig, windows_core::IUnknown);
 impl IRouterProtocolConfig {
-    pub unsafe fn AddProtocol<P0, P3, P5>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: P3, dwflags: u32, prouter: P5, ureserved1: usize) -> windows_core::Result<()>
+    pub unsafe fn AddProtocol<P0, P5>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: P5, ureserved1: usize) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::Foundation::HWND>,
         P5: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).AddProtocol)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), core::mem::transmute(dwtransportid), core::mem::transmute(dwprotocolid), hwnd.param().abi(), core::mem::transmute(dwflags), prouter.param().abi(), core::mem::transmute(ureserved1)).ok()
+        (windows_core::Interface::vtable(self).AddProtocol)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), core::mem::transmute(dwtransportid), core::mem::transmute(dwprotocolid), core::mem::transmute(hwnd), core::mem::transmute(dwflags), prouter.param().abi(), core::mem::transmute(ureserved1)).ok()
     }
-    pub unsafe fn RemoveProtocol<P0, P3, P5>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: P3, dwflags: u32, prouter: P5, ureserved1: usize) -> windows_core::Result<()>
+    pub unsafe fn RemoveProtocol<P0, P5>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: P5, ureserved1: usize) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::Foundation::HWND>,
         P5: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).RemoveProtocol)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), core::mem::transmute(dwtransportid), core::mem::transmute(dwprotocolid), hwnd.param().abi(), core::mem::transmute(dwflags), prouter.param().abi(), core::mem::transmute(ureserved1)).ok()
+        (windows_core::Interface::vtable(self).RemoveProtocol)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), core::mem::transmute(dwtransportid), core::mem::transmute(dwprotocolid), core::mem::transmute(hwnd), core::mem::transmute(dwflags), prouter.param().abi(), core::mem::transmute(ureserved1)).ok()
     }
 }
 #[repr(C)]

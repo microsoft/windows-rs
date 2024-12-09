@@ -24,18 +24,16 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetyp
     WinBioAsyncMonitorFrameworkChanges(core::mem::transmute(frameworkhandle), core::mem::transmute(changetypes)).ok()
 }
 #[inline]
-pub unsafe fn WinBioAsyncOpenFramework<P1, P5>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P1, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Option<*const core::ffi::c_void>, asynchronousopen: P5, frameworkhandle: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn WinBioAsyncOpenFramework<P5>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Option<super::super::Foundation::HWND>, messagecode: Option<u32>, callbackroutine: Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>, userdata: Option<*const core::ffi::c_void>, asynchronousopen: P5, frameworkhandle: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
     P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winbio.dll" "system" fn WinBioAsyncOpenFramework(notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation:: HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : super::super::Foundation:: BOOL, frameworkhandle : *mut u32) -> windows_core::HRESULT);
-    WinBioAsyncOpenFramework(core::mem::transmute(notificationmethod), targetwindow.param().abi(), core::mem::transmute(messagecode), core::mem::transmute(callbackroutine), core::mem::transmute(userdata.unwrap_or(core::ptr::null())), asynchronousopen.param().abi(), core::mem::transmute(frameworkhandle.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioAsyncOpenFramework(core::mem::transmute(notificationmethod), core::mem::transmute(targetwindow.unwrap_or(core::mem::zeroed())), core::mem::transmute(messagecode.unwrap_or(core::mem::zeroed())), core::mem::transmute(callbackroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(userdata.unwrap_or(core::mem::zeroed())), asynchronousopen.param().abi(), core::mem::transmute(frameworkhandle.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn WinBioAsyncOpenSession<P7, P11>(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: Option<&[u32]>, databaseid: Option<*const windows_core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P7, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Option<*const core::ffi::c_void>, asynchronousopen: P11, sessionhandle: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn WinBioAsyncOpenSession<P11>(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: Option<&[u32]>, databaseid: Option<*const windows_core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Option<super::super::Foundation::HWND>, messagecode: Option<u32>, callbackroutine: Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>, userdata: Option<*const core::ffi::c_void>, asynchronousopen: P11, sessionhandle: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P7: windows_core::Param<super::super::Foundation::HWND>,
     P11: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winbio.dll" "system" fn WinBioAsyncOpenSession(factor : u32, pooltype : WINBIO_POOL, flags : u32, unitarray : *const u32, unitcount : usize, databaseid : *const windows_core::GUID, notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation:: HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : super::super::Foundation:: BOOL, sessionhandle : *mut u32) -> windows_core::HRESULT);
@@ -45,14 +43,14 @@ where
         core::mem::transmute(flags),
         core::mem::transmute(unitarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         unitarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        core::mem::transmute(databaseid.unwrap_or(core::ptr::null())),
+        core::mem::transmute(databaseid.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(notificationmethod),
-        targetwindow.param().abi(),
-        core::mem::transmute(messagecode),
-        core::mem::transmute(callbackroutine),
-        core::mem::transmute(userdata.unwrap_or(core::ptr::null())),
+        core::mem::transmute(targetwindow.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(messagecode.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(callbackroutine.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(userdata.unwrap_or(core::mem::zeroed())),
         asynchronousopen.param().abi(),
-        core::mem::transmute(sessionhandle.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(sessionhandle.unwrap_or(core::mem::zeroed())),
     )
     .ok()
 }
@@ -64,12 +62,12 @@ pub unsafe fn WinBioCancel(sessionhandle: u32) -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, unitid: Option<*mut u32>, sample: *mut *mut WINBIO_BIR, samplesize: Option<*mut usize>, rejectdetail: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioCaptureSample(sessionhandle : u32, purpose : u8, flags : u8, unitid : *mut u32, sample : *mut *mut WINBIO_BIR, samplesize : *mut usize, rejectdetail : *mut u32) -> windows_core::HRESULT);
-    WinBioCaptureSample(core::mem::transmute(sessionhandle), core::mem::transmute(purpose), core::mem::transmute(flags), core::mem::transmute(unitid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(sample), core::mem::transmute(samplesize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rejectdetail.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioCaptureSample(core::mem::transmute(sessionhandle), core::mem::transmute(purpose), core::mem::transmute(flags), core::mem::transmute(unitid.unwrap_or(core::mem::zeroed())), core::mem::transmute(sample), core::mem::transmute(samplesize.unwrap_or(core::mem::zeroed())), core::mem::transmute(rejectdetail.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioCaptureSampleWithCallback(sessionhandle : u32, purpose : u8, flags : u8, capturecallback : PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioCaptureSampleWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(purpose), core::mem::transmute(flags), core::mem::transmute(capturecallback), core::mem::transmute(capturecallbackcontext.unwrap_or(core::ptr::null()))).ok()
+    WinBioCaptureSampleWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(purpose), core::mem::transmute(flags), core::mem::transmute(capturecallback), core::mem::transmute(capturecallbackcontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioCloseFramework(frameworkhandle: u32) -> windows_core::Result<()> {
@@ -84,12 +82,12 @@ pub unsafe fn WinBioCloseSession(sessionhandle: u32) -> windows_core::Result<()>
 #[inline]
 pub unsafe fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: &[u8], receivebuffer: &mut [u8], receivedatasize: *mut usize, operationstatus: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioControlUnit(sessionhandle : u32, unitid : u32, component : WINBIO_COMPONENT, controlcode : u32, sendbuffer : *const u8, sendbuffersize : usize, receivebuffer : *mut u8, receivebuffersize : usize, receivedatasize : *mut usize, operationstatus : *mut u32) -> windows_core::HRESULT);
-    WinBioControlUnit(core::mem::transmute(sessionhandle), core::mem::transmute(unitid), core::mem::transmute(component), core::mem::transmute(controlcode), core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len().try_into().unwrap(), core::mem::transmute(receivebuffer.as_ptr()), receivebuffer.len().try_into().unwrap(), core::mem::transmute(receivedatasize), core::mem::transmute(operationstatus.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioControlUnit(core::mem::transmute(sessionhandle), core::mem::transmute(unitid), core::mem::transmute(component), core::mem::transmute(controlcode), core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len().try_into().unwrap(), core::mem::transmute(receivebuffer.as_ptr()), receivebuffer.len().try_into().unwrap(), core::mem::transmute(receivedatasize), core::mem::transmute(operationstatus.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: &[u8], receivebuffer: &mut [u8], receivedatasize: *mut usize, operationstatus: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioControlUnitPrivileged(sessionhandle : u32, unitid : u32, component : WINBIO_COMPONENT, controlcode : u32, sendbuffer : *const u8, sendbuffersize : usize, receivebuffer : *mut u8, receivebuffersize : usize, receivedatasize : *mut usize, operationstatus : *mut u32) -> windows_core::HRESULT);
-    WinBioControlUnitPrivileged(core::mem::transmute(sessionhandle), core::mem::transmute(unitid), core::mem::transmute(component), core::mem::transmute(controlcode), core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len().try_into().unwrap(), core::mem::transmute(receivebuffer.as_ptr()), receivebuffer.len().try_into().unwrap(), core::mem::transmute(receivedatasize), core::mem::transmute(operationstatus.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioControlUnitPrivileged(core::mem::transmute(sessionhandle), core::mem::transmute(unitid), core::mem::transmute(component), core::mem::transmute(controlcode), core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len().try_into().unwrap(), core::mem::transmute(receivebuffer.as_ptr()), receivebuffer.len().try_into().unwrap(), core::mem::transmute(receivedatasize), core::mem::transmute(operationstatus.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8) -> windows_core::Result<()> {
@@ -104,17 +102,17 @@ pub unsafe fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) 
 #[inline]
 pub unsafe fn WinBioEnrollCapture(sessionhandle: u32, rejectdetail: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnrollCapture(sessionhandle : u32, rejectdetail : *mut u32) -> windows_core::HRESULT);
-    WinBioEnrollCapture(core::mem::transmute(sessionhandle), core::mem::transmute(rejectdetail.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioEnrollCapture(core::mem::transmute(sessionhandle), core::mem::transmute(rejectdetail.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnrollCaptureWithCallback(sessionhandle : u32, enrollcallback : PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioEnrollCaptureWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(enrollcallback), core::mem::transmute(enrollcallbackcontext.unwrap_or(core::ptr::null()))).ok()
+    WinBioEnrollCaptureWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(enrollcallback), core::mem::transmute(enrollcallbackcontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnrollCommit(sessionhandle: u32, identity: Option<*mut WINBIO_IDENTITY>, isnewtemplate: Option<*mut u8>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnrollCommit(sessionhandle : u32, identity : *mut WINBIO_IDENTITY, isnewtemplate : *mut u8) -> windows_core::HRESULT);
-    WinBioEnrollCommit(core::mem::transmute(sessionhandle), core::mem::transmute(identity.unwrap_or(core::ptr::null_mut())), core::mem::transmute(isnewtemplate.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioEnrollCommit(core::mem::transmute(sessionhandle), core::mem::transmute(identity.unwrap_or(core::mem::zeroed())), core::mem::transmute(isnewtemplate.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnrollDiscard(sessionhandle: u32) -> windows_core::Result<()> {
@@ -139,7 +137,7 @@ pub unsafe fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WIN
 #[inline]
 pub unsafe fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactorarray: *mut *mut u8, subfactorcount: Option<*mut usize>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnumEnrollments(sessionhandle : u32, unitid : u32, identity : *const WINBIO_IDENTITY, subfactorarray : *mut *mut u8, subfactorcount : *mut usize) -> windows_core::HRESULT);
-    WinBioEnumEnrollments(core::mem::transmute(sessionhandle), core::mem::transmute(unitid), core::mem::transmute(identity), core::mem::transmute(subfactorarray), core::mem::transmute(subfactorcount.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioEnumEnrollments(core::mem::transmute(sessionhandle), core::mem::transmute(unitid), core::mem::transmute(identity), core::mem::transmute(subfactorarray), core::mem::transmute(subfactorcount.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnumServiceProviders(factor: u32, bspschemaarray: *mut *mut WINBIO_BSP_SCHEMA, bspcount: *mut usize) -> windows_core::Result<()> {
@@ -179,19 +177,19 @@ pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_
     WinBioGetLogonSetting(core::mem::transmute(value), core::mem::transmute(source))
 }
 #[inline]
-pub unsafe fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: Option<*const WINBIO_IDENTITY>, subfactor: u8, propertybuffer: *mut *mut core::ffi::c_void, propertybuffersize: Option<*mut usize>) -> windows_core::Result<()> {
+pub unsafe fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: Option<u32>, identity: Option<*const WINBIO_IDENTITY>, subfactor: Option<u8>, propertybuffer: *mut *mut core::ffi::c_void, propertybuffersize: Option<*mut usize>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioGetProperty(sessionhandle : u32, propertytype : u32, propertyid : u32, unitid : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, propertybuffer : *mut *mut core::ffi::c_void, propertybuffersize : *mut usize) -> windows_core::HRESULT);
-    WinBioGetProperty(core::mem::transmute(sessionhandle), core::mem::transmute(propertytype), core::mem::transmute(propertyid), core::mem::transmute(unitid), core::mem::transmute(identity.unwrap_or(core::ptr::null())), core::mem::transmute(subfactor), core::mem::transmute(propertybuffer), core::mem::transmute(propertybuffersize.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioGetProperty(core::mem::transmute(sessionhandle), core::mem::transmute(propertytype), core::mem::transmute(propertyid), core::mem::transmute(unitid.unwrap_or(core::mem::zeroed())), core::mem::transmute(identity.unwrap_or(core::mem::zeroed())), core::mem::transmute(subfactor.unwrap_or(core::mem::zeroed())), core::mem::transmute(propertybuffer), core::mem::transmute(propertybuffersize.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioIdentify(sessionhandle: u32, unitid: Option<*mut u32>, identity: Option<*mut WINBIO_IDENTITY>, subfactor: Option<*mut u8>, rejectdetail: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioIdentify(sessionhandle : u32, unitid : *mut u32, identity : *mut WINBIO_IDENTITY, subfactor : *mut u8, rejectdetail : *mut u32) -> windows_core::HRESULT);
-    WinBioIdentify(core::mem::transmute(sessionhandle), core::mem::transmute(unitid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(identity.unwrap_or(core::ptr::null_mut())), core::mem::transmute(subfactor.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rejectdetail.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioIdentify(core::mem::transmute(sessionhandle), core::mem::transmute(unitid.unwrap_or(core::mem::zeroed())), core::mem::transmute(identity.unwrap_or(core::mem::zeroed())), core::mem::transmute(subfactor.unwrap_or(core::mem::zeroed())), core::mem::transmute(rejectdetail.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioIdentifyWithCallback(sessionhandle : u32, identifycallback : PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioIdentifyWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(identifycallback), core::mem::transmute(identifycallbackcontext.unwrap_or(core::ptr::null()))).ok()
+    WinBioIdentifyWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(identifycallback), core::mem::transmute(identifycallbackcontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> windows_core::Result<()> {
@@ -206,12 +204,12 @@ pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn WinBioLocateSensor(sessionhandle: u32, unitid: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioLocateSensor(sessionhandle : u32, unitid : *mut u32) -> windows_core::HRESULT);
-    WinBioLocateSensor(core::mem::transmute(sessionhandle), core::mem::transmute(unitid.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioLocateSensor(core::mem::transmute(sessionhandle), core::mem::transmute(unitid.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioLocateSensorWithCallback(sessionhandle : u32, locatecallback : PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioLocateSensorWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(locatecallback), core::mem::transmute(locatecallbackcontext.unwrap_or(core::ptr::null()))).ok()
+    WinBioLocateSensorWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(locatecallback), core::mem::transmute(locatecallbackcontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> windows_core::Result<()> {
@@ -232,12 +230,12 @@ pub unsafe fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> windows_
 pub unsafe fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: Option<&[u32]>, databaseid: Option<*const windows_core::GUID>) -> windows_core::Result<u32> {
     windows_targets::link!("winbio.dll" "system" fn WinBioOpenSession(factor : u32, pooltype : WINBIO_POOL, flags : u32, unitarray : *const u32, unitcount : usize, databaseid : *const windows_core::GUID, sessionhandle : *mut u32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WinBioOpenSession(core::mem::transmute(factor), core::mem::transmute(pooltype), core::mem::transmute(flags), core::mem::transmute(unitarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), unitarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(databaseid.unwrap_or(core::ptr::null())), &mut result__).map(|| core::mem::transmute(result__))
+    WinBioOpenSession(core::mem::transmute(factor), core::mem::transmute(pooltype), core::mem::transmute(flags), core::mem::transmute(unitarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), unitarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(databaseid.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: PWINBIO_EVENT_CALLBACK, eventcallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioRegisterEventMonitor(sessionhandle : u32, eventmask : u32, eventcallback : PWINBIO_EVENT_CALLBACK, eventcallbackcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioRegisterEventMonitor(core::mem::transmute(sessionhandle), core::mem::transmute(eventmask), core::mem::transmute(eventcallback), core::mem::transmute(eventcallbackcontext.unwrap_or(core::ptr::null()))).ok()
+    WinBioRegisterEventMonitor(core::mem::transmute(sessionhandle), core::mem::transmute(eventmask), core::mem::transmute(eventcallback), core::mem::transmute(eventcallbackcontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioReleaseFocus() -> windows_core::Result<()> {
@@ -265,9 +263,9 @@ pub unsafe fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: &[
     WinBioSetCredential(core::mem::transmute(r#type), core::mem::transmute(credential.as_ptr()), credential.len().try_into().unwrap(), core::mem::transmute(format)).ok()
 }
 #[inline]
-pub unsafe fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: Option<*const WINBIO_IDENTITY>, subfactor: u8, propertybuffer: *const core::ffi::c_void, propertybuffersize: usize) -> windows_core::Result<()> {
+pub unsafe fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: Option<u32>, identity: Option<*const WINBIO_IDENTITY>, subfactor: Option<u8>, propertybuffer: *const core::ffi::c_void, propertybuffersize: usize) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioSetProperty(sessionhandle : u32, propertytype : u32, propertyid : u32, unitid : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, propertybuffer : *const core::ffi::c_void, propertybuffersize : usize) -> windows_core::HRESULT);
-    WinBioSetProperty(core::mem::transmute(sessionhandle), core::mem::transmute(propertytype), core::mem::transmute(propertyid), core::mem::transmute(unitid), core::mem::transmute(identity.unwrap_or(core::ptr::null())), core::mem::transmute(subfactor), core::mem::transmute(propertybuffer), core::mem::transmute(propertybuffersize)).ok()
+    WinBioSetProperty(core::mem::transmute(sessionhandle), core::mem::transmute(propertytype), core::mem::transmute(propertyid), core::mem::transmute(unitid.unwrap_or(core::mem::zeroed())), core::mem::transmute(identity.unwrap_or(core::mem::zeroed())), core::mem::transmute(subfactor.unwrap_or(core::mem::zeroed())), core::mem::transmute(propertybuffer), core::mem::transmute(propertybuffersize)).ok()
 }
 #[inline]
 pub unsafe fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> windows_core::Result<()> {
@@ -282,12 +280,12 @@ pub unsafe fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> windows_core::
 #[inline]
 pub unsafe fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, unitid: Option<*mut u32>, r#match: Option<*mut u8>, rejectdetail: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioVerify(sessionhandle : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, unitid : *mut u32, r#match : *mut u8, rejectdetail : *mut u32) -> windows_core::HRESULT);
-    WinBioVerify(core::mem::transmute(sessionhandle), core::mem::transmute(identity), core::mem::transmute(subfactor), core::mem::transmute(unitid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(r#match.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rejectdetail.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioVerify(core::mem::transmute(sessionhandle), core::mem::transmute(identity), core::mem::transmute(subfactor), core::mem::transmute(unitid.unwrap_or(core::mem::zeroed())), core::mem::transmute(r#match.unwrap_or(core::mem::zeroed())), core::mem::transmute(rejectdetail.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: PWINBIO_VERIFY_CALLBACK, verifycallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioVerifyWithCallback(sessionhandle : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, verifycallback : PWINBIO_VERIFY_CALLBACK, verifycallbackcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioVerifyWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(identity), core::mem::transmute(subfactor), core::mem::transmute(verifycallback), core::mem::transmute(verifycallbackcontext.unwrap_or(core::ptr::null()))).ok()
+    WinBioVerifyWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(identity), core::mem::transmute(subfactor), core::mem::transmute(verifycallback), core::mem::transmute(verifycallbackcontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioWait(sessionhandle: u32) -> windows_core::Result<()> {

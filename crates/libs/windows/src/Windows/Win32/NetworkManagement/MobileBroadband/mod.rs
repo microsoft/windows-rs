@@ -3241,12 +3241,11 @@ impl IMbnSmsEvents {
         (windows_core::Interface::vtable(self).OnSmsSendComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), core::mem::transmute(requestid), core::mem::transmute(status)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSmsReadComplete<P0, P3>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: P3, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnSmsReadComplete<P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: super::super::Foundation::VARIANT_BOOL, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnSms>,
-        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).OnSmsReadComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), core::mem::transmute(smsformat), core::mem::transmute(readmsgs), moremsgs.param().abi(), core::mem::transmute(requestid), core::mem::transmute(status)).ok()
+        (windows_core::Interface::vtable(self).OnSmsReadComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), core::mem::transmute(smsformat), core::mem::transmute(readmsgs), core::mem::transmute(moremsgs), core::mem::transmute(requestid), core::mem::transmute(status)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSmsNewClass0Message<P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>

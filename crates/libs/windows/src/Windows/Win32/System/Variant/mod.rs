@@ -74,13 +74,10 @@ pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> windows_core::Result<VA
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromResource<P0>(hinst: P0, id: u32) -> windows_core::Result<VARIANT>
-where
-    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
-{
+pub unsafe fn InitVariantFromResource(hinst: super::super::Foundation::HINSTANCE, id: u32) -> windows_core::Result<VARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitVariantFromResource(hinst : super::super::Foundation:: HINSTANCE, id : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    InitVariantFromResource(hinst.param().abi(), core::mem::transmute(id), &mut result__).map(|| core::mem::transmute(result__))
+    InitVariantFromResource(core::mem::transmute(hinst), core::mem::transmute(id), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]

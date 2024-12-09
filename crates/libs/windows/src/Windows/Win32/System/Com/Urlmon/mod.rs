@@ -6,34 +6,34 @@ where
     P5: windows_core::Param<super::IBindCtx>,
 {
     windows_targets::link!("urlmon.dll" "system" fn CoGetClassObjectFromURL(rclassid : *const windows_core::GUID, szcode : windows_core::PCWSTR, dwfileversionms : u32, dwfileversionls : u32, sztype : windows_core::PCWSTR, pbindctx : * mut core::ffi::c_void, dwclscontext : super:: CLSCTX, pvreserved : *const core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    CoGetClassObjectFromURL(core::mem::transmute(rclassid), szcode.param().abi(), core::mem::transmute(dwfileversionms), core::mem::transmute(dwfileversionls), sztype.param().abi(), pbindctx.param().abi(), core::mem::transmute(dwclscontext), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
+    CoGetClassObjectFromURL(core::mem::transmute(rclassid), szcode.param().abi(), core::mem::transmute(dwfileversionms), core::mem::transmute(dwfileversionls), sztype.param().abi(), pbindctx.param().abi(), core::mem::transmute(dwclscontext), core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
 }
 #[inline]
-pub unsafe fn CoInternetCombineIUri<P0, P1>(pbaseuri: P0, prelativeuri: P1, dwcombineflags: u32, ppcombineduri: *mut Option<super::IUri>, dwreserved: usize) -> windows_core::Result<()>
+pub unsafe fn CoInternetCombineIUri<P0, P1>(pbaseuri: P0, prelativeuri: P1, dwcombineflags: u32, ppcombineduri: *mut Option<super::IUri>, dwreserved: Option<usize>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::IUri>,
     P1: windows_core::Param<super::IUri>,
 {
     windows_targets::link!("urlmon.dll" "system" fn CoInternetCombineIUri(pbaseuri : * mut core::ffi::c_void, prelativeuri : * mut core::ffi::c_void, dwcombineflags : u32, ppcombineduri : *mut * mut core::ffi::c_void, dwreserved : usize) -> windows_core::HRESULT);
-    CoInternetCombineIUri(pbaseuri.param().abi(), prelativeuri.param().abi(), core::mem::transmute(dwcombineflags), core::mem::transmute(ppcombineduri), core::mem::transmute(dwreserved)).ok()
+    CoInternetCombineIUri(pbaseuri.param().abi(), prelativeuri.param().abi(), core::mem::transmute(dwcombineflags), core::mem::transmute(ppcombineduri), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CoInternetCombineUrl<P0, P1>(pwzbaseurl: P0, pwzrelativeurl: P1, dwcombineflags: u32, pszresult: &mut [u16], pcchresult: Option<*mut u32>, dwreserved: u32) -> windows_core::Result<()>
+pub unsafe fn CoInternetCombineUrl<P0, P1>(pwzbaseurl: P0, pwzrelativeurl: P1, dwcombineflags: u32, pszresult: &mut [u16], pcchresult: Option<*mut u32>, dwreserved: Option<u32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("urlmon.dll" "system" fn CoInternetCombineUrl(pwzbaseurl : windows_core::PCWSTR, pwzrelativeurl : windows_core::PCWSTR, dwcombineflags : u32, pszresult : windows_core::PWSTR, cchresult : u32, pcchresult : *mut u32, dwreserved : u32) -> windows_core::HRESULT);
-    CoInternetCombineUrl(pwzbaseurl.param().abi(), pwzrelativeurl.param().abi(), core::mem::transmute(dwcombineflags), core::mem::transmute(pszresult.as_ptr()), pszresult.len().try_into().unwrap(), core::mem::transmute(pcchresult.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwreserved)).ok()
+    CoInternetCombineUrl(pwzbaseurl.param().abi(), pwzrelativeurl.param().abi(), core::mem::transmute(dwcombineflags), core::mem::transmute(pszresult.as_ptr()), pszresult.len().try_into().unwrap(), core::mem::transmute(pcchresult.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CoInternetCombineUrlEx<P0, P1>(pbaseuri: P0, pwzrelativeurl: P1, dwcombineflags: u32, ppcombineduri: *mut Option<super::IUri>, dwreserved: usize) -> windows_core::Result<()>
+pub unsafe fn CoInternetCombineUrlEx<P0, P1>(pbaseuri: P0, pwzrelativeurl: P1, dwcombineflags: u32, ppcombineduri: *mut Option<super::IUri>, dwreserved: Option<usize>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::IUri>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("urlmon.dll" "system" fn CoInternetCombineUrlEx(pbaseuri : * mut core::ffi::c_void, pwzrelativeurl : windows_core::PCWSTR, dwcombineflags : u32, ppcombineduri : *mut * mut core::ffi::c_void, dwreserved : usize) -> windows_core::HRESULT);
-    CoInternetCombineUrlEx(pbaseuri.param().abi(), pwzrelativeurl.param().abi(), core::mem::transmute(dwcombineflags), core::mem::transmute(ppcombineduri), core::mem::transmute(dwreserved)).ok()
+    CoInternetCombineUrlEx(pbaseuri.param().abi(), pwzrelativeurl.param().abi(), core::mem::transmute(dwcombineflags), core::mem::transmute(ppcombineduri), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CoInternetCompareUrl<P0, P1>(pwzurl1: P0, pwzurl2: P1, dwflags: u32) -> windows_core::Result<()>
@@ -69,20 +69,20 @@ where
     CoInternetGetProtocolFlags(pwzurl.param().abi(), core::mem::transmute(pdwflags), core::mem::transmute(dwreserved)).ok()
 }
 #[inline]
-pub unsafe fn CoInternetGetSecurityUrl<P0>(pwszurl: P0, ppwszsecurl: *mut windows_core::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> windows_core::Result<()>
+pub unsafe fn CoInternetGetSecurityUrl<P0>(pwszurl: P0, ppwszsecurl: *mut windows_core::PWSTR, psuaction: PSUACTION, dwreserved: Option<u32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("urlmon.dll" "system" fn CoInternetGetSecurityUrl(pwszurl : windows_core::PCWSTR, ppwszsecurl : *mut windows_core::PWSTR, psuaction : PSUACTION, dwreserved : u32) -> windows_core::HRESULT);
-    CoInternetGetSecurityUrl(pwszurl.param().abi(), core::mem::transmute(ppwszsecurl), core::mem::transmute(psuaction), core::mem::transmute(dwreserved)).ok()
+    CoInternetGetSecurityUrl(pwszurl.param().abi(), core::mem::transmute(ppwszsecurl), core::mem::transmute(psuaction), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CoInternetGetSecurityUrlEx<P0>(puri: P0, ppsecuri: *mut Option<super::IUri>, psuaction: PSUACTION, dwreserved: usize) -> windows_core::Result<()>
+pub unsafe fn CoInternetGetSecurityUrlEx<P0>(puri: P0, ppsecuri: *mut Option<super::IUri>, psuaction: PSUACTION, dwreserved: Option<usize>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::IUri>,
 {
     windows_targets::link!("urlmon.dll" "system" fn CoInternetGetSecurityUrlEx(puri : * mut core::ffi::c_void, ppsecuri : *mut * mut core::ffi::c_void, psuaction : PSUACTION, dwreserved : usize) -> windows_core::HRESULT);
-    CoInternetGetSecurityUrlEx(puri.param().abi(), core::mem::transmute(ppsecuri), core::mem::transmute(psuaction), core::mem::transmute(dwreserved)).ok()
+    CoInternetGetSecurityUrlEx(puri.param().abi(), core::mem::transmute(ppsecuri), core::mem::transmute(psuaction), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut Option<IInternetSession>, dwreserved: u32) -> windows_core::Result<()> {
@@ -123,12 +123,12 @@ where
     CoInternetIsFeatureZoneElevationEnabled(szfromurl.param().abi(), sztourl.param().abi(), psecmgr.param().abi(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn CoInternetParseIUri<P0>(piuri: P0, parseaction: PARSEACTION, dwflags: u32, pwzresult: &mut [u16], pcchresult: *mut u32, dwreserved: usize) -> windows_core::Result<()>
+pub unsafe fn CoInternetParseIUri<P0>(piuri: P0, parseaction: PARSEACTION, dwflags: u32, pwzresult: &mut [u16], pcchresult: *mut u32, dwreserved: Option<usize>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::IUri>,
 {
     windows_targets::link!("urlmon.dll" "system" fn CoInternetParseIUri(piuri : * mut core::ffi::c_void, parseaction : PARSEACTION, dwflags : u32, pwzresult : windows_core::PWSTR, cchresult : u32, pcchresult : *mut u32, dwreserved : usize) -> windows_core::HRESULT);
-    CoInternetParseIUri(piuri.param().abi(), core::mem::transmute(parseaction), core::mem::transmute(dwflags), core::mem::transmute(pwzresult.as_ptr()), pwzresult.len().try_into().unwrap(), core::mem::transmute(pcchresult), core::mem::transmute(dwreserved)).ok()
+    CoInternetParseIUri(piuri.param().abi(), core::mem::transmute(parseaction), core::mem::transmute(dwflags), core::mem::transmute(pwzresult.as_ptr()), pwzresult.len().try_into().unwrap(), core::mem::transmute(pcchresult), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CoInternetParseUrl<P0>(pwzurl: P0, parseaction: PARSEACTION, dwflags: u32, pszresult: &mut [u16], pcchresult: *mut u32, dwreserved: u32) -> windows_core::Result<()>
@@ -144,7 +144,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("urlmon.dll" "system" fn CoInternetQueryInfo(pwzurl : windows_core::PCWSTR, queryoptions : QUERYOPTION, dwqueryflags : u32, pvbuffer : *mut core::ffi::c_void, cbbuffer : u32, pcbbuffer : *mut u32, dwreserved : u32) -> windows_core::HRESULT);
-    CoInternetQueryInfo(pwzurl.param().abi(), core::mem::transmute(queryoptions), core::mem::transmute(dwqueryflags), core::mem::transmute(pvbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(pcbbuffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwreserved)).ok()
+    CoInternetQueryInfo(pwzurl.param().abi(), core::mem::transmute(queryoptions), core::mem::transmute(dwqueryflags), core::mem::transmute(pvbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(pcbbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwreserved)).ok()
 }
 #[inline]
 pub unsafe fn CoInternetSetFeatureEnabled<P2>(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: P2) -> windows_core::Result<()>
@@ -232,12 +232,9 @@ where
     CreateURLMonikerEx2(pmkctx.param().abi(), puri.param().abi(), core::mem::transmute(ppmk), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn FaultInIEFeature<P0>(hwnd: P0, pclassspec: *const super::uCLSSPEC, pquery: Option<*mut super::QUERYCONTEXT>, dwflags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::HWND>,
-{
+pub unsafe fn FaultInIEFeature(hwnd: super::super::super::Foundation::HWND, pclassspec: *const super::uCLSSPEC, pquery: Option<*mut super::QUERYCONTEXT>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("urlmon.dll" "system" fn FaultInIEFeature(hwnd : super::super::super::Foundation:: HWND, pclassspec : *const super:: uCLSSPEC, pquery : *mut super:: QUERYCONTEXT, dwflags : u32) -> windows_core::HRESULT);
-    FaultInIEFeature(hwnd.param().abi(), core::mem::transmute(pclassspec), core::mem::transmute(pquery.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwflags)).ok()
+    FaultInIEFeature(core::mem::transmute(hwnd), core::mem::transmute(pclassspec), core::mem::transmute(pquery.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn FindMediaType<P0>(rgsztypes: P0) -> windows_core::Result<u16>
@@ -258,14 +255,14 @@ where
     FindMediaTypeClass(pbc.param().abi(), sztype.param().abi(), core::mem::transmute(pclsid), core::mem::transmute(reserved)).ok()
 }
 #[inline]
-pub unsafe fn FindMimeFromData<P0, P1, P4>(pbc: P0, pwzurl: P1, pbuffer: Option<*const core::ffi::c_void>, cbsize: u32, pwzmimeproposed: P4, dwmimeflags: u32, ppwzmimeout: *mut windows_core::PWSTR, dwreserved: u32) -> windows_core::Result<()>
+pub unsafe fn FindMimeFromData<P0, P1, P4>(pbc: P0, pwzurl: P1, pbuffer: Option<*const core::ffi::c_void>, cbsize: u32, pwzmimeproposed: P4, dwmimeflags: u32, ppwzmimeout: *mut windows_core::PWSTR, dwreserved: Option<u32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::IBindCtx>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("urlmon.dll" "system" fn FindMimeFromData(pbc : * mut core::ffi::c_void, pwzurl : windows_core::PCWSTR, pbuffer : *const core::ffi::c_void, cbsize : u32, pwzmimeproposed : windows_core::PCWSTR, dwmimeflags : u32, ppwzmimeout : *mut windows_core::PWSTR, dwreserved : u32) -> windows_core::HRESULT);
-    FindMimeFromData(pbc.param().abi(), pwzurl.param().abi(), core::mem::transmute(pbuffer.unwrap_or(core::ptr::null())), core::mem::transmute(cbsize), pwzmimeproposed.param().abi(), core::mem::transmute(dwmimeflags), core::mem::transmute(ppwzmimeout), core::mem::transmute(dwreserved)).ok()
+    FindMimeFromData(pbc.param().abi(), pwzurl.param().abi(), core::mem::transmute(pbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbsize), pwzmimeproposed.param().abi(), core::mem::transmute(dwmimeflags), core::mem::transmute(ppwzmimeout), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn GetClassFileOrMime<P0, P1, P4>(pbc: P0, szfilename: P1, pbuffer: Option<*const core::ffi::c_void>, cbsize: u32, szmime: P4, dwreserved: u32) -> windows_core::Result<windows_core::GUID>
@@ -276,7 +273,7 @@ where
 {
     windows_targets::link!("urlmon.dll" "system" fn GetClassFileOrMime(pbc : * mut core::ffi::c_void, szfilename : windows_core::PCWSTR, pbuffer : *const core::ffi::c_void, cbsize : u32, szmime : windows_core::PCWSTR, dwreserved : u32, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetClassFileOrMime(pbc.param().abi(), szfilename.param().abi(), core::mem::transmute(pbuffer.unwrap_or(core::ptr::null())), core::mem::transmute(cbsize), szmime.param().abi(), core::mem::transmute(dwreserved), &mut result__).map(|| core::mem::transmute(result__))
+    GetClassFileOrMime(pbc.param().abi(), szfilename.param().abi(), core::mem::transmute(pbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbsize), szmime.param().abi(), core::mem::transmute(dwreserved), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetClassURL<P0>(szurl: P0) -> windows_core::Result<windows_core::GUID>
@@ -476,12 +473,9 @@ where
     RevokeFormatEnumerator(pbc.param().abi(), pefetc.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetAccessForIEAppContainer<P0>(hobject: P0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SetAccessForIEAppContainer(hobject: super::super::super::Foundation::HANDLE, ieobjecttype: IEObjectType, dwaccessmask: u32) -> windows_core::Result<()> {
     windows_targets::link!("urlmon.dll" "system" fn SetAccessForIEAppContainer(hobject : super::super::super::Foundation:: HANDLE, ieobjecttype : IEObjectType, dwaccessmask : u32) -> windows_core::HRESULT);
-    SetAccessForIEAppContainer(hobject.param().abi(), core::mem::transmute(ieobjecttype), core::mem::transmute(dwaccessmask)).ok()
+    SetAccessForIEAppContainer(core::mem::transmute(hobject), core::mem::transmute(ieobjecttype), core::mem::transmute(dwaccessmask)).ok()
 }
 #[inline]
 pub unsafe fn SetSoftwareUpdateAdvertisementState<P0>(szdistunit: P0, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> windows_core::Result<()>
@@ -594,14 +588,14 @@ where
     URLOpenStreamW(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2), param3.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn UrlMkGetSessionOption(dwoption: u32, pbuffer: Option<*mut core::ffi::c_void>, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> windows_core::Result<()> {
+pub unsafe fn UrlMkGetSessionOption(dwoption: u32, pbuffer: Option<*mut core::ffi::c_void>, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: Option<u32>) -> windows_core::Result<()> {
     windows_targets::link!("urlmon.dll" "system" fn UrlMkGetSessionOption(dwoption : u32, pbuffer : *mut core::ffi::c_void, dwbufferlength : u32, pdwbufferlengthout : *mut u32, dwreserved : u32) -> windows_core::HRESULT);
-    UrlMkGetSessionOption(core::mem::transmute(dwoption), core::mem::transmute(pbuffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwbufferlength), core::mem::transmute(pdwbufferlengthout), core::mem::transmute(dwreserved)).ok()
+    UrlMkGetSessionOption(core::mem::transmute(dwoption), core::mem::transmute(pbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwbufferlength), core::mem::transmute(pdwbufferlengthout), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: Option<*const core::ffi::c_void>, dwbufferlength: u32, dwreserved: u32) -> windows_core::Result<()> {
+pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: Option<*const core::ffi::c_void>, dwbufferlength: u32, dwreserved: Option<u32>) -> windows_core::Result<()> {
     windows_targets::link!("urlmon.dll" "system" fn UrlMkSetSessionOption(dwoption : u32, pbuffer : *const core::ffi::c_void, dwbufferlength : u32, dwreserved : u32) -> windows_core::HRESULT);
-    UrlMkSetSessionOption(core::mem::transmute(dwoption), core::mem::transmute(pbuffer.unwrap_or(core::ptr::null())), core::mem::transmute(dwbufferlength), core::mem::transmute(dwreserved)).ok()
+    UrlMkSetSessionOption(core::mem::transmute(dwoption), core::mem::transmute(pbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwbufferlength), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL {
@@ -1778,14 +1772,13 @@ impl core::ops::Deref for IInternetProtocolEx {
 }
 windows_core::imp::interface_hierarchy!(IInternetProtocolEx, windows_core::IUnknown, IInternetProtocolRoot, IInternetProtocol);
 impl IInternetProtocolEx {
-    pub unsafe fn StartEx<P0, P1, P2, P4>(&self, puri: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P4) -> windows_core::Result<()>
+    pub unsafe fn StartEx<P0, P1, P2>(&self, puri: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::IUri>,
         P1: windows_core::Param<IInternetProtocolSink>,
         P2: windows_core::Param<IInternetBindInfo>,
-        P4: windows_core::Param<super::super::super::Foundation::HANDLE_PTR>,
     {
-        (windows_core::Interface::vtable(self).StartEx)(windows_core::Interface::as_raw(self), puri.param().abi(), poiprotsink.param().abi(), poibindinfo.param().abi(), core::mem::transmute(grfpi), dwreserved.param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartEx)(windows_core::Interface::as_raw(self), puri.param().abi(), poiprotsink.param().abi(), poibindinfo.param().abi(), core::mem::transmute(grfpi), core::mem::transmute(dwreserved)).ok()
     }
 }
 #[repr(C)]
@@ -1888,14 +1881,13 @@ impl windows_core::RuntimeName for IInternetProtocolInfo {}
 windows_core::imp::define_interface!(IInternetProtocolRoot, IInternetProtocolRoot_Vtbl, 0x79eac9e3_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IInternetProtocolRoot, windows_core::IUnknown);
 impl IInternetProtocolRoot {
-    pub unsafe fn Start<P0, P1, P2, P4>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P4) -> windows_core::Result<()>
+    pub unsafe fn Start<P0, P1, P2>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IInternetProtocolSink>,
         P2: windows_core::Param<IInternetBindInfo>,
-        P4: windows_core::Param<super::super::super::Foundation::HANDLE_PTR>,
     {
-        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), szurl.param().abi(), poiprotsink.param().abi(), poibindinfo.param().abi(), core::mem::transmute(grfpi), dwreserved.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), szurl.param().abi(), poiprotsink.param().abi(), poibindinfo.param().abi(), core::mem::transmute(grfpi), core::mem::transmute(dwreserved)).ok()
     }
     pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Continue)(windows_core::Interface::as_raw(self), core::mem::transmute(pprotocoldata)).ok()
@@ -2269,7 +2261,7 @@ impl IInternetSecurityManagerEx2 {
     where
         P0: windows_core::Param<super::IUri>,
     {
-        (windows_core::Interface::vtable(self).MapUrlToZoneEx2)(windows_core::Interface::as_raw(self), puri.param().abi(), core::mem::transmute(pdwzone), core::mem::transmute(dwflags), core::mem::transmute(ppwszmappedurl.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwoutflags.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).MapUrlToZoneEx2)(windows_core::Interface::as_raw(self), puri.param().abi(), core::mem::transmute(pdwzone), core::mem::transmute(dwflags), core::mem::transmute(ppwszmappedurl.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwoutflags.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn ProcessUrlActionEx2<P0>(&self, puri: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> windows_core::Result<()>
     where
@@ -2556,13 +2548,12 @@ impl IInternetZoneManager {
     pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetZoneActionPolicy)(windows_core::Interface::as_raw(self), core::mem::transmute(dwzone), core::mem::transmute(dwaction), core::mem::transmute(ppolicy.as_ptr()), ppolicy.len().try_into().unwrap(), core::mem::transmute(urlzonereg)).ok()
     }
-    pub unsafe fn PromptAction<P1, P2, P3>(&self, dwaction: u32, hwndparent: P1, pwszurl: P2, pwsztext: P3, dwpromptflags: u32) -> windows_core::Result<()>
+    pub unsafe fn PromptAction<P2, P3>(&self, dwaction: u32, hwndparent: super::super::super::Foundation::HWND, pwszurl: P2, pwsztext: P3, dwpromptflags: u32) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::super::Foundation::HWND>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PromptAction)(windows_core::Interface::as_raw(self), core::mem::transmute(dwaction), hwndparent.param().abi(), pwszurl.param().abi(), pwsztext.param().abi(), core::mem::transmute(dwpromptflags)).ok()
+        (windows_core::Interface::vtable(self).PromptAction)(windows_core::Interface::as_raw(self), core::mem::transmute(dwaction), core::mem::transmute(hwndparent), pwszurl.param().abi(), pwsztext.param().abi(), core::mem::transmute(dwpromptflags)).ok()
     }
     pub unsafe fn LogAction<P1, P2>(&self, dwaction: u32, pwszurl: P1, pwsztext: P2, dwlogflags: u32) -> windows_core::Result<()>
     where

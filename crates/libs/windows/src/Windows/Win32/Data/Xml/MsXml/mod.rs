@@ -712,11 +712,8 @@ impl windows_core::RuntimeName for IMXAttributes {}
 windows_core::imp::define_interface!(IMXNamespaceManager, IMXNamespaceManager_Vtbl, 0xc90352f6_643c_4fbc_bb23_e996eb2d51fd);
 windows_core::imp::interface_hierarchy!(IMXNamespaceManager, windows_core::IUnknown);
 impl IMXNamespaceManager {
-    pub unsafe fn putAllowOverride<P0>(&self, foverride: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).putAllowOverride)(windows_core::Interface::as_raw(self), foverride.param().abi()).ok()
+    pub unsafe fn putAllowOverride(&self, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).putAllowOverride)(windows_core::Interface::as_raw(self), core::mem::transmute(foverride)).ok()
     }
     pub unsafe fn getAllowOverride(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -729,12 +726,11 @@ impl IMXNamespaceManager {
         (windows_core::Interface::vtable(self).pushContext)(windows_core::Interface::as_raw(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn pushNodeContext<P0, P1>(&self, contextnode: P0, fdeep: P1) -> windows_core::Result<()>
+    pub unsafe fn pushNodeContext<P0>(&self, contextnode: P0, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLDOMNode>,
-        P1: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).pushNodeContext)(windows_core::Interface::as_raw(self), contextnode.param().abi(), fdeep.param().abi()).ok()
+        (windows_core::Interface::vtable(self).pushNodeContext)(windows_core::Interface::as_raw(self), contextnode.param().abi(), core::mem::transmute(fdeep)).ok()
     }
     pub unsafe fn popContext(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).popContext)(windows_core::Interface::as_raw(self)).ok()
@@ -1091,41 +1087,29 @@ impl IMXWriter {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).encoding)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn SetbyteOrderMark<P0>(&self, fwritebyteordermark: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetbyteOrderMark)(windows_core::Interface::as_raw(self), fwritebyteordermark.param().abi()).ok()
+    pub unsafe fn SetbyteOrderMark(&self, fwritebyteordermark: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetbyteOrderMark)(windows_core::Interface::as_raw(self), core::mem::transmute(fwritebyteordermark)).ok()
     }
     pub unsafe fn byteOrderMark(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).byteOrderMark)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Setindent<P0>(&self, findentmode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Setindent)(windows_core::Interface::as_raw(self), findentmode.param().abi()).ok()
+    pub unsafe fn Setindent(&self, findentmode: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Setindent)(windows_core::Interface::as_raw(self), core::mem::transmute(findentmode)).ok()
     }
     pub unsafe fn indent(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).indent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Setstandalone<P0>(&self, fvalue: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Setstandalone)(windows_core::Interface::as_raw(self), fvalue.param().abi()).ok()
+    pub unsafe fn Setstandalone(&self, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Setstandalone)(windows_core::Interface::as_raw(self), core::mem::transmute(fvalue)).ok()
     }
     pub unsafe fn standalone(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).standalone)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetomitXMLDeclaration<P0>(&self, fvalue: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetomitXMLDeclaration)(windows_core::Interface::as_raw(self), fvalue.param().abi()).ok()
+    pub unsafe fn SetomitXMLDeclaration(&self, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetomitXMLDeclaration)(windows_core::Interface::as_raw(self), core::mem::transmute(fvalue)).ok()
     }
     pub unsafe fn omitXMLDeclaration(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -1138,11 +1122,8 @@ impl IMXWriter {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).version)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn SetdisableOutputEscaping<P0>(&self, fvalue: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetdisableOutputEscaping)(windows_core::Interface::as_raw(self), fvalue.param().abi()).ok()
+    pub unsafe fn SetdisableOutputEscaping(&self, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetdisableOutputEscaping)(windows_core::Interface::as_raw(self), core::mem::transmute(fvalue)).ok()
     }
     pub unsafe fn disableOutputEscaping(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -1363,11 +1344,8 @@ impl IMXXMLFilter {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).getFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), &mut result__).map(|| result__)
     }
-    pub unsafe fn putFeature<P1>(&self, strname: &windows_core::BSTR, fvalue: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).putFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), fvalue.param().abi()).ok()
+    pub unsafe fn putFeature(&self, strname: &windows_core::BSTR, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).putFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute(fvalue)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getProperty(&self, strname: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
@@ -2426,12 +2404,11 @@ impl ISAXXMLReader {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).getFeature)(windows_core::Interface::as_raw(self), pwchname.param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn putFeature<P0, P1>(&self, pwchname: P0, vfvalue: P1) -> windows_core::Result<()>
+    pub unsafe fn putFeature<P0>(&self, pwchname: P0, vfvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).putFeature)(windows_core::Interface::as_raw(self), pwchname.param().abi(), vfvalue.param().abi()).ok()
+        (windows_core::Interface::vtable(self).putFeature)(windows_core::Interface::as_raw(self), pwchname.param().abi(), core::mem::transmute(vfvalue)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getProperty<P0>(&self, pwchname: P0) -> windows_core::Result<super::super::super::System::Variant::VARIANT>
@@ -4697,11 +4674,8 @@ impl core::ops::Deref for IVBMXNamespaceManager {
 windows_core::imp::interface_hierarchy!(IVBMXNamespaceManager, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBMXNamespaceManager {
-    pub unsafe fn SetallowOverride<P0>(&self, foverride: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetallowOverride)(windows_core::Interface::as_raw(self), foverride.param().abi()).ok()
+    pub unsafe fn SetallowOverride(&self, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetallowOverride)(windows_core::Interface::as_raw(self), core::mem::transmute(foverride)).ok()
     }
     pub unsafe fn allowOverride(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -4713,12 +4687,11 @@ impl IVBMXNamespaceManager {
     pub unsafe fn pushContext(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).pushContext)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn pushNodeContext<P0, P1>(&self, contextnode: P0, fdeep: P1) -> windows_core::Result<()>
+    pub unsafe fn pushNodeContext<P0>(&self, contextnode: P0, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLDOMNode>,
-        P1: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).pushNodeContext)(windows_core::Interface::as_raw(self), contextnode.param().abi(), fdeep.param().abi()).ok()
+        (windows_core::Interface::vtable(self).pushNodeContext)(windows_core::Interface::as_raw(self), contextnode.param().abi(), core::mem::transmute(fdeep)).ok()
     }
     pub unsafe fn popContext(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).popContext)(windows_core::Interface::as_raw(self)).ok()
@@ -5819,11 +5792,8 @@ impl IVBSAXXMLReader {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).getFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), &mut result__).map(|| result__)
     }
-    pub unsafe fn putFeature<P1>(&self, strname: &windows_core::BSTR, fvalue: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).putFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), fvalue.param().abi()).ok()
+    pub unsafe fn putFeature(&self, strname: &windows_core::BSTR, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).putFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute(fvalue)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getProperty(&self, strname: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
@@ -6547,11 +6517,8 @@ impl IXMLDOMDocument {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).r#async)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Setasync<P0>(&self, isasync: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Setasync)(windows_core::Interface::as_raw(self), isasync.param().abi()).ok()
+    pub unsafe fn Setasync(&self, isasync: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Setasync)(windows_core::Interface::as_raw(self), core::mem::transmute(isasync)).ok()
     }
     pub unsafe fn abort(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).abort)(windows_core::Interface::as_raw(self)).ok()
@@ -6568,31 +6535,22 @@ impl IXMLDOMDocument {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).validateOnParse)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetvalidateOnParse<P0>(&self, isvalidating: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetvalidateOnParse)(windows_core::Interface::as_raw(self), isvalidating.param().abi()).ok()
+    pub unsafe fn SetvalidateOnParse(&self, isvalidating: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetvalidateOnParse)(windows_core::Interface::as_raw(self), core::mem::transmute(isvalidating)).ok()
     }
     pub unsafe fn resolveExternals(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).resolveExternals)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetresolveExternals<P0>(&self, isresolving: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetresolveExternals)(windows_core::Interface::as_raw(self), isresolving.param().abi()).ok()
+    pub unsafe fn SetresolveExternals(&self, isresolving: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetresolveExternals)(windows_core::Interface::as_raw(self), core::mem::transmute(isresolving)).ok()
     }
     pub unsafe fn preserveWhiteSpace(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).preserveWhiteSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetpreserveWhiteSpace<P0>(&self, ispreserving: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetpreserveWhiteSpace)(windows_core::Interface::as_raw(self), ispreserving.param().abi()).ok()
+    pub unsafe fn SetpreserveWhiteSpace(&self, ispreserving: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetpreserveWhiteSpace)(windows_core::Interface::as_raw(self), core::mem::transmute(ispreserving)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Setonreadystatechange(&self, readystatechangesink: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
@@ -7174,13 +7132,12 @@ impl IXMLDOMDocument3 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).validateNode)(windows_core::Interface::as_raw(self), node.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn importNode<P0, P1>(&self, node: P0, deep: P1) -> windows_core::Result<IXMLDOMNode>
+    pub unsafe fn importNode<P0>(&self, node: P0, deep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<IXMLDOMNode>,
-        P1: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).importNode)(windows_core::Interface::as_raw(self), node.param().abi(), deep.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).importNode)(windows_core::Interface::as_raw(self), node.param().abi(), core::mem::transmute(deep), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7995,12 +7952,9 @@ impl IXMLDOMNode {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ownerDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn cloneNode<P0>(&self, deep: P0) -> windows_core::Result<IXMLDOMNode>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn cloneNode(&self, deep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).cloneNode)(windows_core::Interface::as_raw(self), deep.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).cloneNode)(windows_core::Interface::as_raw(self), core::mem::transmute(deep), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn nodeTypeString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -9352,11 +9306,8 @@ impl IXMLDOMSchemaCollection2 {
     pub unsafe fn validate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).validate)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetvalidateOnLoad<P0>(&self, validateonload: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetvalidateOnLoad)(windows_core::Interface::as_raw(self), validateonload.param().abi()).ok()
+    pub unsafe fn SetvalidateOnLoad(&self, validateonload: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetvalidateOnLoad)(windows_core::Interface::as_raw(self), core::mem::transmute(validateonload)).ok()
     }
     pub unsafe fn validateOnLoad(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -10152,11 +10103,8 @@ impl IXMLDocument2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).r#async)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Setasync<P0>(&self, f: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Setasync)(windows_core::Interface::as_raw(self), f.param().abi()).ok()
+    pub unsafe fn Setasync(&self, f: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Setasync)(windows_core::Interface::as_raw(self), core::mem::transmute(f)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

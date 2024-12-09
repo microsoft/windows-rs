@@ -32,7 +32,7 @@ fn main() -> Result<()> {
             CW_USEDEFAULT,
             None,
             None,
-            instance,
+            None,
             None,
         )?;
 
@@ -51,7 +51,7 @@ extern "system" fn wndproc(window: HWND, message: u32, wparam: WPARAM, lparam: L
         match message {
             WM_PAINT => {
                 println!("WM_PAINT");
-                _ = ValidateRect(window, None);
+                _ = ValidateRect(Some(window), None);
                 LRESULT(0)
             }
             WM_DESTROY => {

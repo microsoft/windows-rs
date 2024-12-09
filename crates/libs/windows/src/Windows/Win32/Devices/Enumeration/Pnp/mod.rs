@@ -1,10 +1,7 @@
 #[inline]
-pub unsafe fn SwDeviceClose<P0>(hswdevice: P0)
-where
-    P0: windows_core::Param<HSWDEVICE>,
-{
+pub unsafe fn SwDeviceClose(hswdevice: HSWDEVICE) {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceClose(hswdevice : HSWDEVICE));
-    SwDeviceClose(hswdevice.param().abi())
+    SwDeviceClose(core::mem::transmute(hswdevice))
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Security"))]
 #[inline]
@@ -15,65 +12,53 @@ where
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceCreate(pszenumeratorname : windows_core::PCWSTR, pszparentdeviceinstance : windows_core::PCWSTR, pcreateinfo : *const SW_DEVICE_CREATE_INFO, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, pcallback : SW_DEVICE_CREATE_CALLBACK, pcontext : *const core::ffi::c_void, phswdevice : *mut HSWDEVICE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    SwDeviceCreate(pszenumeratorname.param().abi(), pszparentdeviceinstance.param().abi(), core::mem::transmute(pcreateinfo), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pcallback), core::mem::transmute(pcontext.unwrap_or(core::ptr::null())), &mut result__).map(|| core::mem::transmute(result__))
+    SwDeviceCreate(pszenumeratorname.param().abi(), pszparentdeviceinstance.param().abi(), core::mem::transmute(pcreateinfo), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pcallback), core::mem::transmute(pcontext.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn SwDeviceGetLifetime<P0>(hswdevice: P0) -> windows_core::Result<SW_DEVICE_LIFETIME>
-where
-    P0: windows_core::Param<HSWDEVICE>,
-{
+pub unsafe fn SwDeviceGetLifetime(hswdevice: HSWDEVICE) -> windows_core::Result<SW_DEVICE_LIFETIME> {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceGetLifetime(hswdevice : HSWDEVICE, plifetime : *mut SW_DEVICE_LIFETIME) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    SwDeviceGetLifetime(hswdevice.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    SwDeviceGetLifetime(core::mem::transmute(hswdevice), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn SwDeviceInterfacePropertySet<P0, P1>(hswdevice: P0, pszdeviceinterfaceid: P1, pproperties: &[super::super::Properties::DEVPROPERTY]) -> windows_core::Result<()>
+pub unsafe fn SwDeviceInterfacePropertySet<P1>(hswdevice: HSWDEVICE, pszdeviceinterfaceid: P1, pproperties: &[super::super::Properties::DEVPROPERTY]) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HSWDEVICE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfacePropertySet(hswdevice : HSWDEVICE, pszdeviceinterfaceid : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY) -> windows_core::HRESULT);
-    SwDeviceInterfacePropertySet(hswdevice.param().abi(), pszdeviceinterfaceid.param().abi(), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok()
+    SwDeviceInterfacePropertySet(core::mem::transmute(hswdevice), pszdeviceinterfaceid.param().abi(), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok()
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn SwDeviceInterfaceRegister<P0, P2, P5>(hswdevice: P0, pinterfaceclassguid: *const windows_core::GUID, pszreferencestring: P2, pproperties: Option<&[super::super::Properties::DEVPROPERTY]>, fenabled: P5) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn SwDeviceInterfaceRegister<P2, P5>(hswdevice: HSWDEVICE, pinterfaceclassguid: *const windows_core::GUID, pszreferencestring: P2, pproperties: Option<&[super::super::Properties::DEVPROPERTY]>, fenabled: P5) -> windows_core::Result<windows_core::PWSTR>
 where
-    P0: windows_core::Param<HSWDEVICE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceRegister(hswdevice : HSWDEVICE, pinterfaceclassguid : *const windows_core::GUID, pszreferencestring : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, fenabled : super::super::super::Foundation:: BOOL, ppszdeviceinterfaceid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    SwDeviceInterfaceRegister(hswdevice.param().abi(), core::mem::transmute(pinterfaceclassguid), pszreferencestring.param().abi(), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fenabled.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    SwDeviceInterfaceRegister(core::mem::transmute(hswdevice), core::mem::transmute(pinterfaceclassguid), pszreferencestring.param().abi(), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fenabled.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn SwDeviceInterfaceSetState<P0, P1, P2>(hswdevice: P0, pszdeviceinterfaceid: P1, fenabled: P2) -> windows_core::Result<()>
+pub unsafe fn SwDeviceInterfaceSetState<P1, P2>(hswdevice: HSWDEVICE, pszdeviceinterfaceid: P1, fenabled: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HSWDEVICE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceSetState(hswdevice : HSWDEVICE, pszdeviceinterfaceid : windows_core::PCWSTR, fenabled : super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    SwDeviceInterfaceSetState(hswdevice.param().abi(), pszdeviceinterfaceid.param().abi(), fenabled.param().abi()).ok()
+    SwDeviceInterfaceSetState(core::mem::transmute(hswdevice), pszdeviceinterfaceid.param().abi(), fenabled.param().abi()).ok()
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn SwDevicePropertySet<P0>(hswdevice: P0, pproperties: &[super::super::Properties::DEVPROPERTY]) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HSWDEVICE>,
-{
+pub unsafe fn SwDevicePropertySet(hswdevice: HSWDEVICE, pproperties: &[super::super::Properties::DEVPROPERTY]) -> windows_core::Result<()> {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDevicePropertySet(hswdevice : HSWDEVICE, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY) -> windows_core::HRESULT);
-    SwDevicePropertySet(hswdevice.param().abi(), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok()
+    SwDevicePropertySet(core::mem::transmute(hswdevice), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok()
 }
 #[inline]
-pub unsafe fn SwDeviceSetLifetime<P0>(hswdevice: P0, lifetime: SW_DEVICE_LIFETIME) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HSWDEVICE>,
-{
+pub unsafe fn SwDeviceSetLifetime(hswdevice: HSWDEVICE, lifetime: SW_DEVICE_LIFETIME) -> windows_core::Result<()> {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceSetLifetime(hswdevice : HSWDEVICE, lifetime : SW_DEVICE_LIFETIME) -> windows_core::HRESULT);
-    SwDeviceSetLifetime(hswdevice.param().abi(), core::mem::transmute(lifetime)).ok()
+    SwDeviceSetLifetime(core::mem::transmute(hswdevice), core::mem::transmute(lifetime)).ok()
 }
 #[inline]
 pub unsafe fn SwMemFree(pmem: *const core::ffi::c_void) {

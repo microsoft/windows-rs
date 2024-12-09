@@ -2,114 +2,83 @@
 pub mod Printing;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn AbortDoc<P0>(hdc: P0) -> i32
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn AbortDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn AbortDoc(hdc : super::super::Graphics::Gdi:: HDC) -> i32);
-    AbortDoc(hdc.param().abi())
+    AbortDoc(core::mem::transmute(hdc))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DeviceCapabilitiesA<P0, P1>(pdevice: P0, pport: P1, fwcapability: PRINTER_DEVICE_CAPABILITIES, poutput: windows_core::PSTR, pdevmode: Option<*const super::super::Graphics::Gdi::DEVMODEA>) -> i32
+pub unsafe fn DeviceCapabilitiesA<P0, P1>(pdevice: P0, pport: P1, fwcapability: PRINTER_DEVICE_CAPABILITIES, poutput: Option<windows_core::PSTR>, pdevmode: Option<*const super::super::Graphics::Gdi::DEVMODEA>) -> i32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winspool.drv" "system" fn DeviceCapabilitiesA(pdevice : windows_core::PCSTR, pport : windows_core::PCSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : windows_core::PSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA) -> i32);
-    DeviceCapabilitiesA(pdevice.param().abi(), pport.param().abi(), core::mem::transmute(fwcapability), core::mem::transmute(poutput), core::mem::transmute(pdevmode.unwrap_or(core::ptr::null())))
+    DeviceCapabilitiesA(pdevice.param().abi(), pport.param().abi(), core::mem::transmute(fwcapability), core::mem::transmute(poutput.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdevmode.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DeviceCapabilitiesW<P0, P1>(pdevice: P0, pport: P1, fwcapability: PRINTER_DEVICE_CAPABILITIES, poutput: windows_core::PWSTR, pdevmode: Option<*const super::super::Graphics::Gdi::DEVMODEW>) -> i32
+pub unsafe fn DeviceCapabilitiesW<P0, P1>(pdevice: P0, pport: P1, fwcapability: PRINTER_DEVICE_CAPABILITIES, poutput: Option<windows_core::PWSTR>, pdevmode: Option<*const super::super::Graphics::Gdi::DEVMODEW>) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winspool.drv" "system" fn DeviceCapabilitiesW(pdevice : windows_core::PCWSTR, pport : windows_core::PCWSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : windows_core::PWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW) -> i32);
-    DeviceCapabilitiesW(pdevice.param().abi(), pport.param().abi(), core::mem::transmute(fwcapability), core::mem::transmute(poutput), core::mem::transmute(pdevmode.unwrap_or(core::ptr::null())))
+    DeviceCapabilitiesW(pdevice.param().abi(), pport.param().abi(), core::mem::transmute(fwcapability), core::mem::transmute(poutput.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdevmode.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn EndDoc<P0>(hdc: P0) -> i32
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn EndDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn EndDoc(hdc : super::super::Graphics::Gdi:: HDC) -> i32);
-    EndDoc(hdc.param().abi())
+    EndDoc(core::mem::transmute(hdc))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn EndPage<P0>(hdc: P0) -> i32
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn EndPage(hdc: super::super::Graphics::Gdi::HDC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn EndPage(hdc : super::super::Graphics::Gdi:: HDC) -> i32);
-    EndPage(hdc.param().abi())
+    EndPage(core::mem::transmute(hdc))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn Escape<P0>(hdc: P0, iescape: i32, pvin: Option<&[u8]>, pvout: Option<*mut core::ffi::c_void>) -> i32
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn Escape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, pvin: Option<&[u8]>, pvout: Option<*mut core::ffi::c_void>) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn Escape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjin : i32, pvin : windows_core::PCSTR, pvout : *mut core::ffi::c_void) -> i32);
-    Escape(hdc.param().abi(), core::mem::transmute(iescape), pvin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pvin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pvout.unwrap_or(core::ptr::null_mut())))
+    Escape(core::mem::transmute(hdc), core::mem::transmute(iescape), pvin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pvin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pvout.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ExtEscape<P0>(hdc: P0, iescape: i32, lpindata: Option<&[u8]>, lpoutdata: Option<&mut [u8]>) -> i32
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, lpindata: Option<&[u8]>, lpoutdata: Option<&mut [u8]>) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn ExtEscape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjinput : i32, lpindata : windows_core::PCSTR, cjoutput : i32, lpoutdata : windows_core::PSTR) -> i32);
-    ExtEscape(hdc.param().abi(), core::mem::transmute(iescape), lpindata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpindata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpoutdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    ExtEscape(core::mem::transmute(hdc), core::mem::transmute(iescape), lpindata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpindata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpoutdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn PrintWindow<P0, P1>(hwnd: P0, hdcblt: P1, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn PrintWindow(hwnd: super::super::Foundation::HWND, hdcblt: super::super::Graphics::Gdi::HDC, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn PrintWindow(hwnd : super::super::Foundation:: HWND, hdcblt : super::super::Graphics::Gdi:: HDC, nflags : PRINT_WINDOW_FLAGS) -> super::super::Foundation:: BOOL);
-    PrintWindow(hwnd.param().abi(), hdcblt.param().abi(), core::mem::transmute(nflags))
+    PrintWindow(core::mem::transmute(hwnd), core::mem::transmute(hdcblt), core::mem::transmute(nflags))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetAbortProc<P0>(hdc: P0, proc: ABORTPROC) -> i32
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn SetAbortProc(hdc: super::super::Graphics::Gdi::HDC, proc: ABORTPROC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SetAbortProc(hdc : super::super::Graphics::Gdi:: HDC, proc : ABORTPROC) -> i32);
-    SetAbortProc(hdc.param().abi(), core::mem::transmute(proc))
+    SetAbortProc(core::mem::transmute(hdc), core::mem::transmute(proc))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn StartDocA<P0>(hdc: P0, lpdi: *const DOCINFOA) -> i32
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn StartDocA(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOA) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn StartDocA(hdc : super::super::Graphics::Gdi:: HDC, lpdi : *const DOCINFOA) -> i32);
-    StartDocA(hdc.param().abi(), core::mem::transmute(lpdi))
+    StartDocA(core::mem::transmute(hdc), core::mem::transmute(lpdi))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn StartDocW<P0>(hdc: P0, lpdi: *const DOCINFOW) -> i32
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn StartDocW(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOW) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn StartDocW(hdc : super::super::Graphics::Gdi:: HDC, lpdi : *const DOCINFOW) -> i32);
-    StartDocW(hdc.param().abi(), core::mem::transmute(lpdi))
+    StartDocW(core::mem::transmute(hdc), core::mem::transmute(lpdi))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn StartPage<P0>(hdc: P0) -> i32
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn StartPage(hdc: super::super::Graphics::Gdi::HDC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn StartPage(hdc : super::super::Graphics::Gdi:: HDC) -> i32);
-    StartPage(hdc.param().abi())
+    StartPage(core::mem::transmute(hdc))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type ABORTPROC = Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;
