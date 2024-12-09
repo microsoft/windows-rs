@@ -101,7 +101,7 @@ impl Delegate {
                         invoke,
                     };
                     unsafe {
-                        core::mem::transmute(Box::new(com))
+                        core::mem::transmute(windows_core::imp::Box::new(com))
                     }
                 }
                 #invoke
@@ -158,7 +158,7 @@ impl Delegate {
                     let remaining = (*this).count.release();
 
                     if remaining == 0 {
-                        let _ = Box::from_raw(this);
+                        let _ = windows_core::imp::Box::from_raw(this);
                     }
 
                     remaining

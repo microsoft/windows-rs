@@ -37,6 +37,10 @@ default-features = false
 [dependencies.windows]
 path = "../../../libs/windows"
 default-features = false
+features = [
+    "Foundation_Collections",
+    "Win32_Graphics_Direct3D",
+]
 
 [lints]
 workspace = true
