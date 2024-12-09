@@ -106,14 +106,18 @@ pub fn factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
     // can ultimately return this error information if all else fails.
     let original: crate::Error = code.into();
 
-    // Now attempt to find the factory's implementation heuristically.
-    if let Some(i) = search_path(C::NAME, |library| unsafe {
-        get_activation_factory(library, &name)
-    }) {
-        i.cast()
-    } else {
-        Err(original)
+    // Reg-free activation should only be attempted if the class is not registered.
+    // It should not be attempted if the class is registered but fails to activate.
+    if code == REGDB_E_CLASSNOTREG {
+        // Now attempt to find the factory's implementation heuristically.
+        if let Some(i) = search_path(C::NAME, |library| unsafe {
+            get_activation_factory(library, &name)
+        }) {
+            return i.cast();
+        }
     }
+
+    Err(original)
 }
 
 // Remove the suffix until a match is found appending `.dll\0` at the end

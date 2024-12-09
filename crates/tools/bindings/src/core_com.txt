@@ -6,6 +6,7 @@
 
 --filter
     Windows.Win32.Foundation.CO_E_NOTINITIALIZED
+    Windows.Win32.Foundation.REGDB_E_CLASSNOTREG
     Windows.Win32.Foundation.E_BOUNDS
     Windows.Win32.Foundation.E_INVALIDARG
     Windows.Win32.Foundation.E_NOINTERFACE
