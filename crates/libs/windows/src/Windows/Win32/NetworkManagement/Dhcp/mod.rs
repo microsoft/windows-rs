@@ -814,7 +814,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpRegisterParamChange(flags : u32, reserved : *const core::ffi::c_void, adaptername : windows_core::PCWSTR, classid : *mut DHCPCAPI_CLASSID, params : DHCPCAPI_PARAMS_ARRAY, handle : *mut core::ffi::c_void) -> u32);
-    DhcpRegisterParamChange(core::mem::transmute(flags), core::mem::transmute(reserved.unwrap_or(core::ptr::null())), adaptername.param().abi(), core::mem::transmute(classid), core::mem::transmute(params), core::mem::transmute(handle))
+    DhcpRegisterParamChange(core::mem::transmute(flags), core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), adaptername.param().abi(), core::mem::transmute(classid), core::mem::transmute(params), core::mem::transmute(handle))
 }
 #[inline]
 pub unsafe fn DhcpRemoveDNSRegistrations() -> u32 {
@@ -1250,13 +1250,13 @@ pub unsafe fn DhcpSetThreadOptions(flags: u32, reserved: *mut core::ffi::c_void)
     DhcpSetThreadOptions(core::mem::transmute(flags), core::mem::transmute(reserved))
 }
 #[inline]
-pub unsafe fn DhcpUndoRequestParams<P2, P3>(flags: u32, reserved: Option<*const core::ffi::c_void>, adaptername: P2, requestidstr: P3) -> u32
+pub unsafe fn DhcpUndoRequestParams<P2, P3>(flags: Option<u32>, reserved: Option<*const core::ffi::c_void>, adaptername: P2, requestidstr: P3) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpUndoRequestParams(flags : u32, reserved : *const core::ffi::c_void, adaptername : windows_core::PCWSTR, requestidstr : windows_core::PCWSTR) -> u32);
-    DhcpUndoRequestParams(core::mem::transmute(flags), core::mem::transmute(reserved.unwrap_or(core::ptr::null())), adaptername.param().abi(), requestidstr.param().abi())
+    DhcpUndoRequestParams(core::mem::transmute(flags.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), adaptername.param().abi(), requestidstr.param().abi())
 }
 #[inline]
 pub unsafe fn DhcpV4AddPolicyRange<P0, P2>(serveripaddress: P0, subnetaddress: u32, policyname: P2, range: *const DHCP_IP_RANGE) -> u32

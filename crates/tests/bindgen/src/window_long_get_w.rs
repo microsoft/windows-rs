@@ -12,22 +12,16 @@
     target_arch = "x86_64"
 ))]
 #[inline]
-pub unsafe fn GetWindowLongPtrW<P0>(hwnd: P0, nindex: WINDOW_LONG_PTR_INDEX) -> isize
-where
-    P0: windows_core::Param<HWND>,
-{
+pub unsafe fn GetWindowLongPtrW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX) -> isize {
     windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
-    GetWindowLongPtrW(hwnd.param().abi(), core::mem::transmute(nindex))
+    GetWindowLongPtrW(core::mem::transmute(hwnd), core::mem::transmute(nindex))
 }
 #[cfg(target_pointer_width = "32")]
 pub use GetWindowLongW as GetWindowLongPtrW;
 #[inline]
-pub unsafe fn GetWindowLongW<P0>(hwnd: P0, nindex: WINDOW_LONG_PTR_INDEX) -> i32
-where
-    P0: windows_core::Param<HWND>,
-{
+pub unsafe fn GetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX) -> i32 {
     windows_targets::link!("user32.dll" "system" fn GetWindowLongW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> i32);
-    GetWindowLongW(hwnd.param().abi(), core::mem::transmute(nindex))
+    GetWindowLongW(core::mem::transmute(hwnd), core::mem::transmute(nindex))
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

@@ -1187,11 +1187,8 @@ impl core::ops::Deref for IAudioSystemEffects2 {
 }
 windows_core::imp::interface_hierarchy!(IAudioSystemEffects2, windows_core::IUnknown, IAudioSystemEffects);
 impl IAudioSystemEffects2 {
-    pub unsafe fn GetEffectsList<P2>(&self, ppeffectsids: *mut *mut windows_core::GUID, pceffects: *mut u32, event: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).GetEffectsList)(windows_core::Interface::as_raw(self), core::mem::transmute(ppeffectsids), core::mem::transmute(pceffects), event.param().abi()).ok()
+    pub unsafe fn GetEffectsList(&self, ppeffectsids: *mut *mut windows_core::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetEffectsList)(windows_core::Interface::as_raw(self), core::mem::transmute(ppeffectsids), core::mem::transmute(pceffects), core::mem::transmute(event)).ok()
     }
 }
 #[repr(C)]
@@ -1224,11 +1221,8 @@ impl core::ops::Deref for IAudioSystemEffects3 {
 }
 windows_core::imp::interface_hierarchy!(IAudioSystemEffects3, windows_core::IUnknown, IAudioSystemEffects, IAudioSystemEffects2);
 impl IAudioSystemEffects3 {
-    pub unsafe fn GetControllableSystemEffectsList<P2>(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).GetControllableSystemEffectsList)(windows_core::Interface::as_raw(self), core::mem::transmute(effects), core::mem::transmute(numeffects), event.param().abi()).ok()
+    pub unsafe fn GetControllableSystemEffectsList(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: Option<super::super::super::Foundation::HANDLE>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetControllableSystemEffectsList)(windows_core::Interface::as_raw(self), core::mem::transmute(effects), core::mem::transmute(numeffects), core::mem::transmute(event.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetAudioSystemEffectState(&self, effectid: windows_core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetAudioSystemEffectState)(windows_core::Interface::as_raw(self), core::mem::transmute(effectid), core::mem::transmute(state)).ok()

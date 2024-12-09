@@ -48,17 +48,11 @@ impl IWPCProviderConfig {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUserSummary)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsid), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn Configure<P0>(&self, hwnd: P0, bstrsid: &windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), hwnd.param().abi(), core::mem::transmute_copy(bstrsid)).ok()
+    pub unsafe fn Configure(&self, hwnd: Option<super::super::Foundation::HWND>, bstrsid: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute_copy(bstrsid)).ok()
     }
-    pub unsafe fn RequestOverride<P0>(&self, hwnd: P0, bstrpath: &windows_core::BSTR, dwflags: WPCFLAG_RESTRICTION) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).RequestOverride)(windows_core::Interface::as_raw(self), hwnd.param().abi(), core::mem::transmute_copy(bstrpath), dwflags.0 as _).ok()
+    pub unsafe fn RequestOverride(&self, hwnd: Option<super::super::Foundation::HWND>, bstrpath: &windows_core::BSTR, dwflags: WPCFLAG_RESTRICTION) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RequestOverride)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute_copy(bstrpath), dwflags.0 as _).ok()
     }
 }
 #[repr(C)]
@@ -262,13 +256,12 @@ impl IWPCWebSettings {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSettings)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn RequestURLOverride<P0, P1>(&self, hwnd: P0, pcszurl: P1, ppcszsuburls: Option<&[windows_core::PCWSTR]>) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn RequestURLOverride<P1>(&self, hwnd: Option<super::super::Foundation::HWND>, pcszurl: P1, ppcszsuburls: Option<&[windows_core::PCWSTR]>) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RequestURLOverride)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pcszurl.param().abi(), ppcszsuburls.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppcszsuburls.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).RequestURLOverride)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), pcszurl.param().abi(), ppcszsuburls.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppcszsuburls.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -380,7 +373,7 @@ impl IWindowsParentalControlsCore {
         (windows_core::Interface::vtable(self).GetWebSettings)(windows_core::Interface::as_raw(self), pcszsid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut windows_core::GUID, ppszname: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetWebFilterInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidid), core::mem::transmute(ppszname.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetWebFilterInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidid), core::mem::transmute(ppszname.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]

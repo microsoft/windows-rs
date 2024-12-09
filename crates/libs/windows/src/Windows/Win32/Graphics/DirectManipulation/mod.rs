@@ -596,7 +596,7 @@ impl IDirectManipulationContent {
     where
         T: windows_core::Interface,
     {
-        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _, core::mem::transmute(id.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _, core::mem::transmute(id.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> windows_core::Result<()>
     where
@@ -885,24 +885,14 @@ impl windows_core::RuntimeName for IDirectManipulationInteractionEventHandler {}
 windows_core::imp::define_interface!(IDirectManipulationManager, IDirectManipulationManager_Vtbl, 0xfbf5d3b4_70c7_4163_9322_5a6f660d6fbc);
 windows_core::imp::interface_hierarchy!(IDirectManipulationManager, windows_core::IUnknown);
 impl IDirectManipulationManager {
-    pub unsafe fn Activate<P0>(&self, window: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), window.param().abi()).ok()
+    pub unsafe fn Activate(&self, window: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), core::mem::transmute(window)).ok()
     }
-    pub unsafe fn Deactivate<P0>(&self, window: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self), window.param().abi()).ok()
+    pub unsafe fn Deactivate(&self, window: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self), core::mem::transmute(window)).ok()
     }
-    pub unsafe fn RegisterHitTestTarget<P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).RegisterHitTestTarget)(windows_core::Interface::as_raw(self), window.param().abi(), hittestwindow.param().abi(), core::mem::transmute(r#type)).ok()
+    pub unsafe fn RegisterHitTestTarget(&self, window: super::super::Foundation::HWND, hittestwindow: Option<super::super::Foundation::HWND>, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RegisterHitTestTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(window), core::mem::transmute(hittestwindow.unwrap_or(core::mem::zeroed())), core::mem::transmute(r#type)).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -916,14 +906,13 @@ impl IDirectManipulationManager {
         let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetUpdateManager)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateViewport<P0, P1, T>(&self, frameinfo: P0, window: P1) -> windows_core::Result<T>
+    pub unsafe fn CreateViewport<P0, T>(&self, frameinfo: P0, window: super::super::Foundation::HWND) -> windows_core::Result<T>
     where
         P0: windows_core::Param<IDirectManipulationFrameInfoProvider>,
-        P1: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateViewport)(windows_core::Interface::as_raw(self), frameinfo.param().abi(), window.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateViewport)(windows_core::Interface::as_raw(self), frameinfo.param().abi(), core::mem::transmute(window), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateContent<P0, T>(&self, frameinfo: P0, clsid: *const windows_core::GUID) -> windows_core::Result<T>
     where
@@ -1236,13 +1225,12 @@ impl windows_core::RuntimeName for IDirectManipulationUpdateHandler {}
 windows_core::imp::define_interface!(IDirectManipulationUpdateManager, IDirectManipulationUpdateManager_Vtbl, 0xb0ae62fd_be34_46e7_9caa_d361facbb9cc);
 windows_core::imp::interface_hierarchy!(IDirectManipulationUpdateManager, windows_core::IUnknown);
 impl IDirectManipulationUpdateManager {
-    pub unsafe fn RegisterWaitHandleCallback<P0, P1>(&self, handle: P0, eventhandler: P1) -> windows_core::Result<u32>
+    pub unsafe fn RegisterWaitHandleCallback<P1>(&self, handle: super::super::Foundation::HANDLE, eventhandler: P1) -> windows_core::Result<u32>
     where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
         P1: windows_core::Param<IDirectManipulationUpdateHandler>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterWaitHandleCallback)(windows_core::Interface::as_raw(self), handle.param().abi(), eventhandler.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).RegisterWaitHandleCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(handle), eventhandler.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterWaitHandleCallback(&self, cookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnregisterWaitHandleCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(cookie)).ok()
@@ -1324,7 +1312,7 @@ impl IDirectManipulationViewport {
     where
         T: windows_core::Interface,
     {
-        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _, core::mem::transmute(id.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _, core::mem::transmute(id.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> windows_core::Result<()>
     where
@@ -1388,13 +1376,12 @@ impl IDirectManipulationViewport {
     pub unsafe fn SetChaining(&self, enabledtypes: DIRECTMANIPULATION_MOTION_TYPES) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetChaining)(windows_core::Interface::as_raw(self), core::mem::transmute(enabledtypes)).ok()
     }
-    pub unsafe fn AddEventHandler<P0, P1>(&self, window: P0, eventhandler: P1) -> windows_core::Result<u32>
+    pub unsafe fn AddEventHandler<P1>(&self, window: Option<super::super::Foundation::HWND>, eventhandler: P1) -> windows_core::Result<u32>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<IDirectManipulationViewportEventHandler>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddEventHandler)(windows_core::Interface::as_raw(self), window.param().abi(), eventhandler.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute(window.unwrap_or(core::mem::zeroed())), eventhandler.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveEventHandler(&self, cookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute(cookie)).ok()

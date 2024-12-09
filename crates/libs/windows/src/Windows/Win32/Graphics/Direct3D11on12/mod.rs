@@ -13,9 +13,9 @@ where
         core::mem::transmute(ppcommandqueues.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         ppcommandqueues.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(nodemask),
-        core::mem::transmute(ppdevice.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(ppimmediatecontext.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pchosenfeaturelevel.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(ppdevice.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(ppimmediatecontext.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pchosenfeaturelevel.unwrap_or(core::mem::zeroed())),
     )
     .ok()
 }

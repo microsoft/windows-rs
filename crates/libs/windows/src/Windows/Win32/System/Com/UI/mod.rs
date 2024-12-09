@@ -2,12 +2,8 @@ windows_core::imp::define_interface!(IDummyHICONIncluder, IDummyHICONIncluder_Vt
 windows_core::imp::interface_hierarchy!(IDummyHICONIncluder, windows_core::IUnknown);
 impl IDummyHICONIncluder {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn Dummy<P0, P1>(&self, h1: P0, h2: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::UI::WindowsAndMessaging::HICON>,
-        P1: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
-    {
-        (windows_core::Interface::vtable(self).Dummy)(windows_core::Interface::as_raw(self), h1.param().abi(), h2.param().abi()).ok()
+    pub unsafe fn Dummy(&self, h1: super::super::super::UI::WindowsAndMessaging::HICON, h2: super::super::super::Graphics::Gdi::HDC) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Dummy)(windows_core::Interface::as_raw(self), core::mem::transmute(h1), core::mem::transmute(h2)).ok()
     }
 }
 #[repr(C)]

@@ -192,11 +192,8 @@ impl IRDPSRAPIApplication {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Shared)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShared<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShared)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
+    pub unsafe fn SetShared(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShared)(windows_core::Interface::as_raw(self), core::mem::transmute(newval)).ok()
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -325,11 +322,8 @@ impl IRDPSRAPIApplicationFilter {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(newval)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1086,11 +1080,8 @@ impl IRDPSRAPIInvitation {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Revoked)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetRevoked<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetRevoked)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
+    pub unsafe fn SetRevoked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetRevoked)(windows_core::Interface::as_raw(self), core::mem::transmute(newval)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2206,11 +2197,8 @@ impl IRDPSRAPIViewer {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).VirtualChannelManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetSmartSizing<P0>(&self, vbsmartsizing: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSmartSizing)(windows_core::Interface::as_raw(self), vbsmartsizing.param().abi()).ok()
+    pub unsafe fn SetSmartSizing(&self, vbsmartsizing: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSmartSizing)(windows_core::Interface::as_raw(self), core::mem::transmute(vbsmartsizing)).ok()
     }
     pub unsafe fn SmartSizing(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -2626,11 +2614,8 @@ impl IRDPSRAPIWindow {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Shared)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShared<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShared)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
+    pub unsafe fn SetShared(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShared)(windows_core::Interface::as_raw(self), core::mem::transmute(newval)).ok()
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -2812,11 +2797,8 @@ impl windows_core::RuntimeName for IRDPSRAPIWindowList {}
 windows_core::imp::define_interface!(IRDPViewerInputSink, IRDPViewerInputSink_Vtbl, 0xbb590853_a6c5_4a7b_8dd4_76b69eea12d5);
 windows_core::imp::interface_hierarchy!(IRDPViewerInputSink, windows_core::IUnknown);
 impl IRDPViewerInputSink {
-    pub unsafe fn SendMouseButtonEvent<P1>(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: P1, xpos: u32, ypos: u32) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SendMouseButtonEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(buttontype), vbbuttondown.param().abi(), core::mem::transmute(xpos), core::mem::transmute(ypos)).ok()
+    pub unsafe fn SendMouseButtonEvent(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: super::super::Foundation::VARIANT_BOOL, xpos: u32, ypos: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SendMouseButtonEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(buttontype), core::mem::transmute(vbbuttondown), core::mem::transmute(xpos), core::mem::transmute(ypos)).ok()
     }
     pub unsafe fn SendMouseMoveEvent(&self, xpos: u32, ypos: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SendMouseMoveEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(xpos), core::mem::transmute(ypos)).ok()
@@ -2824,13 +2806,8 @@ impl IRDPViewerInputSink {
     pub unsafe fn SendMouseWheelEvent(&self, wheelrotation: u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SendMouseWheelEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(wheelrotation)).ok()
     }
-    pub unsafe fn SendKeyboardEvent<P2, P3, P4>(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: P2, vbrepeat: P3, vbextended: P4) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P4: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SendKeyboardEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(codetype), core::mem::transmute(keycode), vbkeyup.param().abi(), vbrepeat.param().abi(), vbextended.param().abi()).ok()
+    pub unsafe fn SendKeyboardEvent(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: super::super::Foundation::VARIANT_BOOL, vbrepeat: super::super::Foundation::VARIANT_BOOL, vbextended: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SendKeyboardEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(codetype), core::mem::transmute(keycode), core::mem::transmute(vbkeyup), core::mem::transmute(vbrepeat), core::mem::transmute(vbextended)).ok()
     }
     pub unsafe fn SendSyncEvent(&self, syncflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SendSyncEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(syncflags)).ok()

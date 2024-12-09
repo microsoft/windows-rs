@@ -13,7 +13,7 @@ pub unsafe fn CoInitializeEx(
 ) -> windows_core::HRESULT {
     windows_targets::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_core::HRESULT);
     CoInitializeEx(
-        core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())),
+        core::mem::transmute(pvreserved.unwrap_or(core::mem::zeroed())),
         dwcoinit.0 as _,
     )
 }

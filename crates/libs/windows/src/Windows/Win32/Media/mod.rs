@@ -85,19 +85,13 @@ impl IReferenceClock {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn AdviseTime<P2>(&self, basetime: i64, streamtime: i64, hevent: P2) -> windows_core::Result<usize>
-    where
-        P2: windows_core::Param<super::Foundation::HANDLE>,
-    {
+    pub unsafe fn AdviseTime(&self, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE) -> windows_core::Result<usize> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AdviseTime)(windows_core::Interface::as_raw(self), core::mem::transmute(basetime), core::mem::transmute(streamtime), hevent.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AdviseTime)(windows_core::Interface::as_raw(self), core::mem::transmute(basetime), core::mem::transmute(streamtime), core::mem::transmute(hevent), &mut result__).map(|| result__)
     }
-    pub unsafe fn AdvisePeriodic<P2>(&self, starttime: i64, periodtime: i64, hsemaphore: P2) -> windows_core::Result<usize>
-    where
-        P2: windows_core::Param<super::Foundation::HANDLE>,
-    {
+    pub unsafe fn AdvisePeriodic(&self, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE) -> windows_core::Result<usize> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AdvisePeriodic)(windows_core::Interface::as_raw(self), core::mem::transmute(starttime), core::mem::transmute(periodtime), hsemaphore.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AdvisePeriodic)(windows_core::Interface::as_raw(self), core::mem::transmute(starttime), core::mem::transmute(periodtime), core::mem::transmute(hsemaphore), &mut result__).map(|| result__)
     }
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), core::mem::transmute(dwadvisecookie)).ok()

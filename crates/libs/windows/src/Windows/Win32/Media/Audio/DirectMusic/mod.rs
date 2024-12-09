@@ -1001,12 +1001,11 @@ impl IDirectMusic {
         (windows_core::Interface::vtable(self).GetDefaultPort)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidport)).ok()
     }
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-    pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, hwnd: P1) -> windows_core::Result<()>
+    pub unsafe fn SetDirectSound<P0>(&self, pdirectsound: P0, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::DirectSound::IDirectSound>,
-        P1: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).SetDirectSound)(windows_core::Interface::as_raw(self), pdirectsound.param().abi(), hwnd.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDirectSound)(windows_core::Interface::as_raw(self), pdirectsound.param().abi(), core::mem::transmute(hwnd)).ok()
     }
 }
 #[repr(C)]
@@ -1427,11 +1426,8 @@ impl IDirectMusicPort {
     {
         (windows_core::Interface::vtable(self).PlayBuffer)(windows_core::Interface::as_raw(self), pbuffer.param().abi()).ok()
     }
-    pub unsafe fn SetReadNotificationHandle<P0>(&self, hevent: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).SetReadNotificationHandle)(windows_core::Interface::as_raw(self), hevent.param().abi()).ok()
+    pub unsafe fn SetReadNotificationHandle(&self, hevent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetReadNotificationHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(hevent)).ok()
     }
     pub unsafe fn Read<P0>(&self, pbuffer: P0) -> windows_core::Result<()>
     where
@@ -1765,12 +1761,8 @@ impl IDirectMusicSynth {
     pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut core::ffi::c_void, pbfree: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), core::mem::transmute(phdownload), core::mem::transmute(pvdata), core::mem::transmute(pbfree)).ok()
     }
-    pub unsafe fn Unload<P0, P2>(&self, hdownload: P0, lpfreehandle: isize, huserdata: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-        P2: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).Unload)(windows_core::Interface::as_raw(self), hdownload.param().abi(), core::mem::transmute(lpfreehandle), huserdata.param().abi()).ok()
+    pub unsafe fn Unload(&self, hdownload: super::super::super::Foundation::HANDLE, lpfreehandle: isize, huserdata: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Unload)(windows_core::Interface::as_raw(self), core::mem::transmute(hdownload), core::mem::transmute(lpfreehandle), core::mem::transmute(huserdata)).ok()
     }
     pub unsafe fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PlayBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(rt), core::mem::transmute(pbbuffer), core::mem::transmute(cbbuffer)).ok()

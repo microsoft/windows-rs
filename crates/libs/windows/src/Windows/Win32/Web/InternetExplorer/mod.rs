@@ -6,13 +6,10 @@ pub unsafe fn ComputeInvCMAP(prgbcolors: *const super::super::Graphics::Gdi::RGB
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn CreateDDrawSurfaceOnDIB<P0>(hbmdib: P0) -> windows_core::Result<super::super::Graphics::DirectDraw::IDirectDrawSurface>
-where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-{
+pub unsafe fn CreateDDrawSurfaceOnDIB(hbmdib: super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<super::super::Graphics::DirectDraw::IDirectDrawSurface> {
     windows_targets::link!("imgutil.dll" "system" fn CreateDDrawSurfaceOnDIB(hbmdib : super::super::Graphics::Gdi:: HBITMAP, ppsurface : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    CreateDDrawSurfaceOnDIB(hbmdib.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    CreateDDrawSurfaceOnDIB(core::mem::transmute(hbmdib), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn CreateMIMEMap() -> windows_core::Result<IMapMIMEToCLSID> {
@@ -60,12 +57,9 @@ pub unsafe fn IEAssociateThreadWithTab(dwtabthreadid: u32, dwassociatedthreadid:
     IEAssociateThreadWithTab(core::mem::transmute(dwtabthreadid), core::mem::transmute(dwassociatedthreadid)).ok()
 }
 #[inline]
-pub unsafe fn IECancelSaveFile<P0>(hstate: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn IECancelSaveFile(hstate: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("ieframe.dll" "system" fn IECancelSaveFile(hstate : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    IECancelSaveFile(hstate.param().abi()).ok()
+    IECancelSaveFile(core::mem::transmute(hstate)).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -78,13 +72,12 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IECreateFile<P0, P6>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: P6) -> super::super::Foundation::HANDLE
+pub unsafe fn IECreateFile<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: Option<super::super::Foundation::HANDLE>) -> super::super::Foundation::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P6: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IECreateFile(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    IECreateFile(lpfilename.param().abi(), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwsharemode), core::mem::transmute(lpsecurityattributes), core::mem::transmute(dwcreationdisposition), core::mem::transmute(dwflagsandattributes), htemplatefile.param().abi())
+    IECreateFile(lpfilename.param().abi(), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwsharemode), core::mem::transmute(lpsecurityattributes), core::mem::transmute(dwcreationdisposition), core::mem::transmute(dwflagsandattributes), core::mem::transmute(htemplatefile.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn IEDeleteFile<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
@@ -170,7 +163,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IELaunchURL(lpwstrurl : windows_core::PCWSTR, lpprocinfo : *mut super::super::System::Threading:: PROCESS_INFORMATION, lpinfo : *const core::ffi::c_void) -> windows_core::HRESULT);
-    IELaunchURL(lpwstrurl.param().abi(), core::mem::transmute(lpprocinfo), core::mem::transmute(lpinfo.unwrap_or(core::ptr::null()))).ok()
+    IELaunchURL(lpwstrurl.param().abi(), core::mem::transmute(lpprocinfo), core::mem::transmute(lpinfo.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn IEMoveFileEx<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: u32) -> super::super::Foundation::BOOL
@@ -194,7 +187,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IERegCreateKeyEx(lpsubkey : windows_core::PCWSTR, reserved : u32, lpclass : windows_core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32) -> windows_core::HRESULT);
-    IERegCreateKeyEx(lpsubkey.param().abi(), core::mem::transmute(reserved), lpclass.param().abi(), core::mem::transmute(dwoptions), core::mem::transmute(samdesired), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), core::mem::transmute(phkresult), core::mem::transmute(lpdwdisposition)).ok()
+    IERegCreateKeyEx(lpsubkey.param().abi(), core::mem::transmute(reserved), lpclass.param().abi(), core::mem::transmute(dwoptions), core::mem::transmute(samdesired), core::mem::transmute(lpsecurityattributes.unwrap_or(core::mem::zeroed())), core::mem::transmute(phkresult), core::mem::transmute(lpdwdisposition)).ok()
 }
 #[inline]
 pub unsafe fn IERegSetValueEx<P0, P1>(lpsubkey: P0, lpvaluename: P1, reserved: u32, dwtype: u32, lpdata: &[u8]) -> windows_core::Result<()>
@@ -232,13 +225,12 @@ where
     IERemoveDirectory(lppathname.param().abi())
 }
 #[inline]
-pub unsafe fn IESaveFile<P0, P1>(hstate: P0, lpwstrsourcefile: P1) -> windows_core::Result<()>
+pub unsafe fn IESaveFile<P1>(hstate: super::super::Foundation::HANDLE, lpwstrsourcefile: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IESaveFile(hstate : super::super::Foundation:: HANDLE, lpwstrsourcefile : windows_core::PCWSTR) -> windows_core::HRESULT);
-    IESaveFile(hstate.param().abi(), lpwstrsourcefile.param().abi()).ok()
+    IESaveFile(core::mem::transmute(hstate), lpwstrsourcefile.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn IESetProtectedModeCookie<P0, P1, P2>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: P2, dwflags: u32) -> windows_core::Result<()>
@@ -251,27 +243,25 @@ where
     IESetProtectedModeCookie(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.param().abi(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn IEShowOpenFileDialog<P0, P3, P4, P5>(hwnd: P0, lpwstrfilename: &mut [u16], lpwstrinitialdir: P3, lpwstrfilter: P4, lpwstrdefext: P5, dwfilterindex: u32, dwflags: u32, phfile: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
+pub unsafe fn IEShowOpenFileDialog<P3, P4, P5>(hwnd: super::super::Foundation::HWND, lpwstrfilename: &mut [u16], lpwstrinitialdir: P3, lpwstrfilter: P4, lpwstrdefext: P5, dwfilterindex: u32, dwflags: u32, phfile: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEShowOpenFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrfilename : windows_core::PWSTR, cchmaxfilename : u32, lpwstrinitialdir : windows_core::PCWSTR, lpwstrfilter : windows_core::PCWSTR, lpwstrdefext : windows_core::PCWSTR, dwfilterindex : u32, dwflags : u32, phfile : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    IEShowOpenFileDialog(hwnd.param().abi(), core::mem::transmute(lpwstrfilename.as_ptr()), lpwstrfilename.len().try_into().unwrap(), lpwstrinitialdir.param().abi(), lpwstrfilter.param().abi(), lpwstrdefext.param().abi(), core::mem::transmute(dwfilterindex), core::mem::transmute(dwflags), core::mem::transmute(phfile)).ok()
+    IEShowOpenFileDialog(core::mem::transmute(hwnd), core::mem::transmute(lpwstrfilename.as_ptr()), lpwstrfilename.len().try_into().unwrap(), lpwstrinitialdir.param().abi(), lpwstrfilter.param().abi(), lpwstrdefext.param().abi(), core::mem::transmute(dwfilterindex), core::mem::transmute(dwflags), core::mem::transmute(phfile)).ok()
 }
 #[inline]
-pub unsafe fn IEShowSaveFileDialog<P0, P1, P2, P3, P4>(hwnd: P0, lpwstrinitialfilename: P1, lpwstrinitialdir: P2, lpwstrfilter: P3, lpwstrdefext: P4, dwfilterindex: u32, dwflags: u32, lppwstrdestinationfilepath: *mut windows_core::PWSTR, phstate: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
+pub unsafe fn IEShowSaveFileDialog<P1, P2, P3, P4>(hwnd: super::super::Foundation::HWND, lpwstrinitialfilename: P1, lpwstrinitialdir: P2, lpwstrfilter: P3, lpwstrdefext: P4, dwfilterindex: u32, dwflags: u32, lppwstrdestinationfilepath: *mut windows_core::PWSTR, phstate: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEShowSaveFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrinitialfilename : windows_core::PCWSTR, lpwstrinitialdir : windows_core::PCWSTR, lpwstrfilter : windows_core::PCWSTR, lpwstrdefext : windows_core::PCWSTR, dwfilterindex : u32, dwflags : u32, lppwstrdestinationfilepath : *mut windows_core::PWSTR, phstate : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    IEShowSaveFileDialog(hwnd.param().abi(), lpwstrinitialfilename.param().abi(), lpwstrinitialdir.param().abi(), lpwstrfilter.param().abi(), lpwstrdefext.param().abi(), core::mem::transmute(dwfilterindex), core::mem::transmute(dwflags), core::mem::transmute(lppwstrdestinationfilepath), core::mem::transmute(phstate)).ok()
+    IEShowSaveFileDialog(core::mem::transmute(hwnd), lpwstrinitialfilename.param().abi(), lpwstrinitialdir.param().abi(), lpwstrfilter.param().abi(), lpwstrdefext.param().abi(), core::mem::transmute(dwfilterindex), core::mem::transmute(dwflags), core::mem::transmute(lppwstrdestinationfilepath), core::mem::transmute(phstate)).ok()
 }
 #[inline]
 pub unsafe fn IETrackingProtectionEnabled() -> super::super::Foundation::BOOL {
@@ -289,54 +279,49 @@ pub unsafe fn IdentifyMIMEType(pbbytes: *const u8, nbytes: u32, pnformat: *mut u
     IdentifyMIMEType(core::mem::transmute(pbbytes), core::mem::transmute(nbytes), core::mem::transmute(pnformat)).ok()
 }
 #[inline]
-pub unsafe fn RatingAccessDeniedDialog<P0, P1, P2>(hdlg: P0, pszusername: P1, pszcontentdescription: P2, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn RatingAccessDeniedDialog<P1, P2>(hdlg: super::super::Foundation::HWND, pszusername: P1, pszcontentdescription: P2, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, pszcontentdescription : windows_core::PCSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingAccessDeniedDialog(hdlg.param().abi(), pszusername.param().abi(), pszcontentdescription.param().abi(), core::mem::transmute(pratingdetails)).ok()
+    RatingAccessDeniedDialog(core::mem::transmute(hdlg), pszusername.param().abi(), pszcontentdescription.param().abi(), core::mem::transmute(pratingdetails)).ok()
 }
 #[inline]
-pub unsafe fn RatingAccessDeniedDialog2<P0, P1>(hdlg: P0, pszusername: P1, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn RatingAccessDeniedDialog2<P1>(hdlg: super::super::Foundation::HWND, pszusername: P1, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingAccessDeniedDialog2(hdlg.param().abi(), pszusername.param().abi(), core::mem::transmute(pratingdetails)).ok()
+    RatingAccessDeniedDialog2(core::mem::transmute(hdlg), pszusername.param().abi(), core::mem::transmute(pratingdetails)).ok()
 }
 #[inline]
-pub unsafe fn RatingAccessDeniedDialog2W<P0, P1>(hdlg: P0, pszusername: P1, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn RatingAccessDeniedDialog2W<P1>(hdlg: super::super::Foundation::HWND, pszusername: P1, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2W(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingAccessDeniedDialog2W(hdlg.param().abi(), pszusername.param().abi(), core::mem::transmute(pratingdetails)).ok()
+    RatingAccessDeniedDialog2W(core::mem::transmute(hdlg), pszusername.param().abi(), core::mem::transmute(pratingdetails)).ok()
 }
 #[inline]
-pub unsafe fn RatingAccessDeniedDialogW<P0, P1, P2>(hdlg: P0, pszusername: P1, pszcontentdescription: P2, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn RatingAccessDeniedDialogW<P1, P2>(hdlg: super::super::Foundation::HWND, pszusername: P1, pszcontentdescription: P2, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialogW(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, pszcontentdescription : windows_core::PCWSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingAccessDeniedDialogW(hdlg.param().abi(), pszusername.param().abi(), pszcontentdescription.param().abi(), core::mem::transmute(pratingdetails)).ok()
+    RatingAccessDeniedDialogW(core::mem::transmute(hdlg), pszusername.param().abi(), pszcontentdescription.param().abi(), core::mem::transmute(pratingdetails)).ok()
 }
 #[inline]
-pub unsafe fn RatingAddToApprovedSites<P0, P3, P4, P5, P6>(hdlg: P0, pbpasswordblob: &mut [u8], lpszurl: P3, falwaysnever: P4, fsitepage: P5, fapprovedsitesenforced: P6) -> windows_core::Result<()>
+pub unsafe fn RatingAddToApprovedSites<P3, P4, P5, P6>(hdlg: super::super::Foundation::HWND, pbpasswordblob: &mut [u8], lpszurl: P3, falwaysnever: P4, fsitepage: P5, fapprovedsitesenforced: P6) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<super::super::Foundation::BOOL>,
     P5: windows_core::Param<super::super::Foundation::BOOL>,
     P6: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAddToApprovedSites(hdlg : super::super::Foundation:: HWND, cbpasswordblob : u32, pbpasswordblob : *mut u8, lpszurl : windows_core::PCWSTR, falwaysnever : super::super::Foundation:: BOOL, fsitepage : super::super::Foundation:: BOOL, fapprovedsitesenforced : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    RatingAddToApprovedSites(hdlg.param().abi(), pbpasswordblob.len().try_into().unwrap(), core::mem::transmute(pbpasswordblob.as_ptr()), lpszurl.param().abi(), falwaysnever.param().abi(), fsitepage.param().abi(), fapprovedsitesenforced.param().abi()).ok()
+    RatingAddToApprovedSites(core::mem::transmute(hdlg), pbpasswordblob.len().try_into().unwrap(), core::mem::transmute(pbpasswordblob.as_ptr()), lpszurl.param().abi(), falwaysnever.param().abi(), fsitepage.param().abi(), fapprovedsitesenforced.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn RatingCheckUserAccess<P0, P1, P2>(pszusername: P0, pszurl: P1, pszratinginfo: P2, pdata: Option<&[u8]>, ppratingdetails: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
@@ -346,7 +331,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccess(pszusername : windows_core::PCSTR, pszurl : windows_core::PCSTR, pszratinginfo : windows_core::PCSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingCheckUserAccess(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(core::ptr::null_mut()))).ok()
+    RatingCheckUserAccess(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn RatingCheckUserAccessW<P0, P1, P2>(pszusername: P0, pszurl: P1, pszratinginfo: P2, pdata: Option<&[u8]>, ppratingdetails: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
@@ -356,47 +341,41 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccessW(pszusername : windows_core::PCWSTR, pszurl : windows_core::PCWSTR, pszratinginfo : windows_core::PCWSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingCheckUserAccessW(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(core::ptr::null_mut()))).ok()
+    RatingCheckUserAccessW(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn RatingClickedOnPRFInternal<P0, P1, P2>(hwndowner: P0, param1: P1, lpszfilename: P2, nshow: i32) -> windows_core::Result<()>
+pub unsafe fn RatingClickedOnPRFInternal<P2>(hwndowner: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, lpszfilename: P2, nshow: i32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingClickedOnPRFInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : windows_core::PCSTR, nshow : i32) -> windows_core::HRESULT);
-    RatingClickedOnPRFInternal(hwndowner.param().abi(), param1.param().abi(), lpszfilename.param().abi(), core::mem::transmute(nshow)).ok()
+    RatingClickedOnPRFInternal(core::mem::transmute(hwndowner), core::mem::transmute(param1), lpszfilename.param().abi(), core::mem::transmute(nshow)).ok()
 }
 #[inline]
-pub unsafe fn RatingClickedOnRATInternal<P0, P1, P2>(hwndowner: P0, param1: P1, lpszfilename: P2, nshow: i32) -> windows_core::Result<()>
+pub unsafe fn RatingClickedOnRATInternal<P2>(hwndowner: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, lpszfilename: P2, nshow: i32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingClickedOnRATInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : windows_core::PCSTR, nshow : i32) -> windows_core::HRESULT);
-    RatingClickedOnRATInternal(hwndowner.param().abi(), param1.param().abi(), lpszfilename.param().abi(), core::mem::transmute(nshow)).ok()
+    RatingClickedOnRATInternal(core::mem::transmute(hwndowner), core::mem::transmute(param1), lpszfilename.param().abi(), core::mem::transmute(nshow)).ok()
 }
 #[inline]
-pub unsafe fn RatingEnable<P0, P1, P2>(hwndparent: P0, pszusername: P1, fenable: P2) -> windows_core::Result<()>
+pub unsafe fn RatingEnable<P1, P2>(hwndparent: super::super::Foundation::HWND, pszusername: P1, fenable: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingEnable(hwndparent : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, fenable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    RatingEnable(hwndparent.param().abi(), pszusername.param().abi(), fenable.param().abi()).ok()
+    RatingEnable(core::mem::transmute(hwndparent), pszusername.param().abi(), fenable.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn RatingEnableW<P0, P1, P2>(hwndparent: P0, pszusername: P1, fenable: P2) -> windows_core::Result<()>
+pub unsafe fn RatingEnableW<P1, P2>(hwndparent: super::super::Foundation::HWND, pszusername: P1, fenable: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingEnableW(hwndparent : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, fenable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    RatingEnableW(hwndparent.param().abi(), pszusername.param().abi(), fenable.param().abi()).ok()
+    RatingEnableW(core::mem::transmute(hwndparent), pszusername.param().abi(), fenable.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn RatingEnabledQuery() -> windows_core::Result<()> {
@@ -406,7 +385,7 @@ pub unsafe fn RatingEnabledQuery() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn RatingFreeDetails(pratingdetails: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("msrating.dll" "system" fn RatingFreeDetails(pratingdetails : *const core::ffi::c_void) -> windows_core::HRESULT);
-    RatingFreeDetails(core::mem::transmute(pratingdetails.unwrap_or(core::ptr::null()))).ok()
+    RatingFreeDetails(core::mem::transmute(pratingdetails.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn RatingInit() -> windows_core::Result<()> {
@@ -414,12 +393,9 @@ pub unsafe fn RatingInit() -> windows_core::Result<()> {
     RatingInit().ok()
 }
 #[inline]
-pub unsafe fn RatingObtainCancel<P0>(hratingobtainquery: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn RatingObtainCancel(hratingobtainquery: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("msrating.dll" "system" fn RatingObtainCancel(hratingobtainquery : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    RatingObtainCancel(hratingobtainquery.param().abi()).ok()
+    RatingObtainCancel(core::mem::transmute(hratingobtainquery)).ok()
 }
 #[inline]
 pub unsafe fn RatingObtainQuery<P0>(psztargeturl: P0, dwuserdata: u32, fcallback: isize, phratingobtainquery: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()>
@@ -427,7 +403,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingObtainQuery(psztargeturl : windows_core::PCSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    RatingObtainQuery(psztargeturl.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(fcallback), core::mem::transmute(phratingobtainquery.unwrap_or(core::ptr::null_mut()))).ok()
+    RatingObtainQuery(psztargeturl.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(fcallback), core::mem::transmute(phratingobtainquery.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn RatingObtainQueryW<P0>(psztargeturl: P0, dwuserdata: u32, fcallback: isize, phratingobtainquery: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()>
@@ -435,25 +411,23 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingObtainQueryW(psztargeturl : windows_core::PCWSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    RatingObtainQueryW(psztargeturl.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(fcallback), core::mem::transmute(phratingobtainquery.unwrap_or(core::ptr::null_mut()))).ok()
+    RatingObtainQueryW(psztargeturl.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(fcallback), core::mem::transmute(phratingobtainquery.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn RatingSetupUI<P0, P1>(hdlg: P0, pszusername: P1) -> windows_core::Result<()>
+pub unsafe fn RatingSetupUI<P1>(hdlg: super::super::Foundation::HWND, pszusername: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingSetupUI(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR) -> windows_core::HRESULT);
-    RatingSetupUI(hdlg.param().abi(), pszusername.param().abi()).ok()
+    RatingSetupUI(core::mem::transmute(hdlg), pszusername.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn RatingSetupUIW<P0, P1>(hdlg: P0, pszusername: P1) -> windows_core::Result<()>
+pub unsafe fn RatingSetupUIW<P1>(hdlg: super::super::Foundation::HWND, pszusername: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingSetupUIW(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR) -> windows_core::HRESULT);
-    RatingSetupUIW(hdlg.param().abi(), pszusername.param().abi()).ok()
+    RatingSetupUIW(core::mem::transmute(hdlg), pszusername.param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -845,14 +819,13 @@ impl windows_core::RuntimeName for IActiveXUIHandlerSite2 {}
 windows_core::imp::define_interface!(IActiveXUIHandlerSite3, IActiveXUIHandlerSite3_Vtbl, 0x7904009a_1238_47f4_901c_871375c34608);
 windows_core::imp::interface_hierarchy!(IActiveXUIHandlerSite3, windows_core::IUnknown);
 impl IActiveXUIHandlerSite3 {
-    pub unsafe fn MessageBoxW<P0, P1, P2>(&self, hwnd: P0, text: P1, caption: P2, r#type: u32) -> windows_core::Result<i32>
+    pub unsafe fn MessageBoxW<P1, P2>(&self, hwnd: Option<super::super::Foundation::HWND>, text: P1, caption: P2, r#type: u32) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MessageBoxW)(windows_core::Interface::as_raw(self), hwnd.param().abi(), text.param().abi(), caption.param().abi(), core::mem::transmute(r#type), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MessageBoxW)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), text.param().abi(), caption.param().abi(), core::mem::transmute(r#type), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -2489,13 +2462,12 @@ impl windows_core::RuntimeName for IHomePage {}
 windows_core::imp::define_interface!(IHomePageSetting, IHomePageSetting_Vtbl, 0xfdfc244f_18fa_4ff2_b08e_1d618f3ffbe4);
 windows_core::imp::interface_hierarchy!(IHomePageSetting, windows_core::IUnknown);
 impl IHomePageSetting {
-    pub unsafe fn SetHomePage<P0, P1, P2>(&self, hwnd: P0, homepageuri: P1, brandingmessage: P2) -> windows_core::Result<()>
+    pub unsafe fn SetHomePage<P1, P2>(&self, hwnd: super::super::Foundation::HWND, homepageuri: P1, brandingmessage: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetHomePage)(windows_core::Interface::as_raw(self), hwnd.param().abi(), homepageuri.param().abi(), brandingmessage.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetHomePage)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), homepageuri.param().abi(), brandingmessage.param().abi()).ok()
     }
     pub unsafe fn IsHomePage<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -2900,11 +2872,8 @@ impl IIntelliForms {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Setenabled<P0>(&self, bval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Setenabled)(windows_core::Interface::as_raw(self), bval.param().abi()).ok()
+    pub unsafe fn Setenabled(&self, bval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Setenabled)(windows_core::Interface::as_raw(self), core::mem::transmute(bval)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3045,21 +3014,15 @@ impl ILayoutRect {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).contentSrc)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn SethonorPageBreaks<P0>(&self, v: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SethonorPageBreaks)(windows_core::Interface::as_raw(self), v.param().abi()).ok()
+    pub unsafe fn SethonorPageBreaks(&self, v: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SethonorPageBreaks)(windows_core::Interface::as_raw(self), core::mem::transmute(v)).ok()
     }
     pub unsafe fn honorPageBreaks(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).honorPageBreaks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SethonorPageRules<P0>(&self, v: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SethonorPageRules)(windows_core::Interface::as_raw(self), v.param().abi()).ok()
+    pub unsafe fn SethonorPageRules(&self, v: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SethonorPageRules)(windows_core::Interface::as_raw(self), core::mem::transmute(v)).ok()
     }
     pub unsafe fn honorPageRules(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -3342,12 +3305,11 @@ impl IOpenService {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsDefault)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetDefault<P0, P1>(&self, fdefault: P0, hwnd: P1) -> windows_core::Result<()>
+    pub unsafe fn SetDefault<P0>(&self, fdefault: P0, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).SetDefault)(windows_core::Interface::as_raw(self), fdefault.param().abi(), hwnd.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDefault)(windows_core::Interface::as_raw(self), fdefault.param().abi(), core::mem::transmute(hwnd)).ok()
     }
     pub unsafe fn GetID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -3759,12 +3721,11 @@ impl IOpenServiceActivityCategory {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDefaultActivity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetDefaultActivity<P0, P1>(&self, pactivity: P0, hwnd: P1) -> windows_core::Result<()>
+    pub unsafe fn SetDefaultActivity<P0>(&self, pactivity: P0, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IOpenServiceActivity>,
-        P1: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).SetDefaultActivity)(windows_core::Interface::as_raw(self), pactivity.param().abi(), hwnd.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDefaultActivity)(windows_core::Interface::as_raw(self), pactivity.param().abi(), core::mem::transmute(hwnd)).ok()
     }
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -5625,13 +5586,9 @@ impl windows_core::RuntimeName for ITimerSink {}
 windows_core::imp::define_interface!(ITridentTouchInput, ITridentTouchInput_Vtbl, 0x30510850_98b5_11cf_bb82_00aa00bdce0b);
 windows_core::imp::interface_hierarchy!(ITridentTouchInput, windows_core::IUnknown);
 impl ITridentTouchInput {
-    pub unsafe fn OnPointerMessage<P1, P2>(&self, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<super::super::Foundation::BOOL>
-    where
-        P1: windows_core::Param<super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
+    pub unsafe fn OnPointerMessage(&self, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnPointerMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(msg), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnPointerMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(msg), core::mem::transmute(wparam), core::mem::transmute(lparam), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

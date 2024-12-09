@@ -4923,22 +4923,20 @@ impl ISyncProviderConfigUI {
         (windows_core::Interface::vtable(self).GetRegisteredProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn CreateAndRegisterNewSyncProvider<P0, P1>(&self, hwndparent: P0, punkcontext: P1) -> windows_core::Result<ISyncProviderInfo>
+    pub unsafe fn CreateAndRegisterNewSyncProvider<P1>(&self, hwndparent: Option<super::super::Foundation::HWND>, punkcontext: P1) -> windows_core::Result<ISyncProviderInfo>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateAndRegisterNewSyncProvider)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), punkcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateAndRegisterNewSyncProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), punkcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn ModifySyncProvider<P0, P1, P2>(&self, hwndparent: P0, punkcontext: P1, pproviderinfo: P2) -> windows_core::Result<()>
+    pub unsafe fn ModifySyncProvider<P1, P2>(&self, hwndparent: Option<super::super::Foundation::HWND>, punkcontext: P1, pproviderinfo: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::IUnknown>,
         P2: windows_core::Param<ISyncProviderInfo>,
     {
-        (windows_core::Interface::vtable(self).ModifySyncProvider)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), punkcontext.param().abi(), pproviderinfo.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ModifySyncProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), punkcontext.param().abi(), pproviderinfo.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -5130,7 +5128,7 @@ impl ISyncProviderRegistration {
     }
     pub unsafe fn EnumerateSyncProviderConfigUIs(&self, pguidcontenttype: Option<*const windows_core::GUID>, dwsupportedarchitecture: u32) -> windows_core::Result<IEnumSyncProviderConfigUIInfos> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumerateSyncProviderConfigUIs)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidcontenttype.unwrap_or(core::ptr::null())), core::mem::transmute(dwsupportedarchitecture), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumerateSyncProviderConfigUIs)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidcontenttype.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwsupportedarchitecture), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn CreateSyncProviderRegistrationInstance(&self, pproviderconfiguration: *const SyncProviderConfiguration) -> windows_core::Result<ISyncProviderInfo> {
@@ -5147,7 +5145,7 @@ impl ISyncProviderRegistration {
     }
     pub unsafe fn EnumerateSyncProviders(&self, pguidcontenttype: Option<*const windows_core::GUID>, dwstateflagstofiltermask: u32, dwstateflagstofilter: u32, refproviderclsid: *const windows_core::GUID, dwsupportedarchitecture: u32) -> windows_core::Result<IEnumSyncProviderInfos> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumerateSyncProviders)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidcontenttype.unwrap_or(core::ptr::null())), core::mem::transmute(dwstateflagstofiltermask), core::mem::transmute(dwstateflagstofilter), core::mem::transmute(refproviderclsid), core::mem::transmute(dwsupportedarchitecture), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumerateSyncProviders)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidcontenttype.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwstateflagstofiltermask), core::mem::transmute(dwstateflagstofilter), core::mem::transmute(refproviderclsid), core::mem::transmute(dwsupportedarchitecture), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetSyncProviderInfo(&self, pguidinstanceid: *const windows_core::GUID) -> windows_core::Result<ISyncProviderInfo> {
@@ -5177,18 +5175,12 @@ impl ISyncProviderRegistration {
     pub unsafe fn RegisterForEvent(&self, phevent: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RegisterForEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(phevent)).ok()
     }
-    pub unsafe fn RevokeEvent<P0>(&self, hevent: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).RevokeEvent)(windows_core::Interface::as_raw(self), hevent.param().abi()).ok()
+    pub unsafe fn RevokeEvent(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RevokeEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(hevent)).ok()
     }
-    pub unsafe fn GetChange<P0>(&self, hevent: P0) -> windows_core::Result<ISyncRegistrationChange>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
+    pub unsafe fn GetChange(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<ISyncRegistrationChange> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetChange)(windows_core::Interface::as_raw(self), hevent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetChange)(windows_core::Interface::as_raw(self), core::mem::transmute(hevent), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

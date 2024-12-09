@@ -1,76 +1,67 @@
 #[inline]
-pub unsafe fn PTCloseProvider<P0>(hprovider: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<HPTPROVIDER>,
-{
+pub unsafe fn PTCloseProvider(hprovider: HPTPROVIDER) -> windows_core::Result<()> {
     windows_targets::link!("prntvpt.dll" "system" fn PTCloseProvider(hprovider : HPTPROVIDER) -> windows_core::HRESULT);
-    PTCloseProvider(hprovider.param().abi()).ok()
+    PTCloseProvider(core::mem::transmute(hprovider)).ok()
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PTConvertDevModeToPrintTicket<P0, P4>(hprovider: P0, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: EPrintTicketScope, pprintticket: P4) -> windows_core::Result<()>
+pub unsafe fn PTConvertDevModeToPrintTicket<P4>(hprovider: HPTPROVIDER, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: EPrintTicketScope, pprintticket: P4) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HPTPROVIDER>,
     P4: windows_core::Param<super::super::super::System::Com::IStream>,
 {
     windows_targets::link!("prntvpt.dll" "system" fn PTConvertDevModeToPrintTicket(hprovider : HPTPROVIDER, cbdevmode : u32, pdevmode : *const super::super::Gdi:: DEVMODEA, scope : EPrintTicketScope, pprintticket : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    PTConvertDevModeToPrintTicket(hprovider.param().abi(), core::mem::transmute(cbdevmode), core::mem::transmute(pdevmode), core::mem::transmute(scope), pprintticket.param().abi()).ok()
+    PTConvertDevModeToPrintTicket(core::mem::transmute(hprovider), core::mem::transmute(cbdevmode), core::mem::transmute(pdevmode), core::mem::transmute(scope), pprintticket.param().abi()).ok()
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PTConvertPrintTicketToDevMode<P0, P1>(hprovider: P0, pprintticket: P1, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut u32, ppdevmode: *mut *mut super::super::Gdi::DEVMODEA, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
+pub unsafe fn PTConvertPrintTicketToDevMode<P1>(hprovider: HPTPROVIDER, pprintticket: P1, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut u32, ppdevmode: *mut *mut super::super::Gdi::DEVMODEA, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HPTPROVIDER>,
     P1: windows_core::Param<super::super::super::System::Com::IStream>,
 {
     windows_targets::link!("prntvpt.dll" "system" fn PTConvertPrintTicketToDevMode(hprovider : HPTPROVIDER, pprintticket : * mut core::ffi::c_void, basedevmodetype : EDefaultDevmodeType, scope : EPrintTicketScope, pcbdevmode : *mut u32, ppdevmode : *mut *mut super::super::Gdi:: DEVMODEA, pbstrerrormessage : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    PTConvertPrintTicketToDevMode(hprovider.param().abi(), pprintticket.param().abi(), core::mem::transmute(basedevmodetype), core::mem::transmute(scope), core::mem::transmute(pcbdevmode), core::mem::transmute(ppdevmode), core::mem::transmute(pbstrerrormessage.unwrap_or(core::ptr::null_mut()))).ok()
+    PTConvertPrintTicketToDevMode(core::mem::transmute(hprovider), pprintticket.param().abi(), core::mem::transmute(basedevmodetype), core::mem::transmute(scope), core::mem::transmute(pcbdevmode), core::mem::transmute(ppdevmode), core::mem::transmute(pbstrerrormessage.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn PTGetPrintCapabilities<P0, P1, P2>(hprovider: P0, pprintticket: P1, pcapabilities: P2, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
+pub unsafe fn PTGetPrintCapabilities<P1, P2>(hprovider: HPTPROVIDER, pprintticket: P1, pcapabilities: P2, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HPTPROVIDER>,
     P1: windows_core::Param<super::super::super::System::Com::IStream>,
     P2: windows_core::Param<super::super::super::System::Com::IStream>,
 {
     windows_targets::link!("prntvpt.dll" "system" fn PTGetPrintCapabilities(hprovider : HPTPROVIDER, pprintticket : * mut core::ffi::c_void, pcapabilities : * mut core::ffi::c_void, pbstrerrormessage : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    PTGetPrintCapabilities(hprovider.param().abi(), pprintticket.param().abi(), pcapabilities.param().abi(), core::mem::transmute(pbstrerrormessage.unwrap_or(core::ptr::null_mut()))).ok()
+    PTGetPrintCapabilities(core::mem::transmute(hprovider), pprintticket.param().abi(), pcapabilities.param().abi(), core::mem::transmute(pbstrerrormessage.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn PTGetPrintDeviceCapabilities<P0, P1, P2>(hprovider: P0, pprintticket: P1, pdevicecapabilities: P2, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
+pub unsafe fn PTGetPrintDeviceCapabilities<P1, P2>(hprovider: HPTPROVIDER, pprintticket: P1, pdevicecapabilities: P2, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HPTPROVIDER>,
     P1: windows_core::Param<super::super::super::System::Com::IStream>,
     P2: windows_core::Param<super::super::super::System::Com::IStream>,
 {
     windows_targets::link!("prntvpt.dll" "system" fn PTGetPrintDeviceCapabilities(hprovider : HPTPROVIDER, pprintticket : * mut core::ffi::c_void, pdevicecapabilities : * mut core::ffi::c_void, pbstrerrormessage : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    PTGetPrintDeviceCapabilities(hprovider.param().abi(), pprintticket.param().abi(), pdevicecapabilities.param().abi(), core::mem::transmute(pbstrerrormessage.unwrap_or(core::ptr::null_mut()))).ok()
+    PTGetPrintDeviceCapabilities(core::mem::transmute(hprovider), pprintticket.param().abi(), pdevicecapabilities.param().abi(), core::mem::transmute(pbstrerrormessage.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn PTGetPrintDeviceResources<P0, P1, P2, P3>(hprovider: P0, pszlocalename: P1, pprintticket: P2, pdeviceresources: P3, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
+pub unsafe fn PTGetPrintDeviceResources<P1, P2, P3>(hprovider: HPTPROVIDER, pszlocalename: P1, pprintticket: P2, pdeviceresources: P3, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HPTPROVIDER>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<super::super::super::System::Com::IStream>,
     P3: windows_core::Param<super::super::super::System::Com::IStream>,
 {
     windows_targets::link!("prntvpt.dll" "system" fn PTGetPrintDeviceResources(hprovider : HPTPROVIDER, pszlocalename : windows_core::PCWSTR, pprintticket : * mut core::ffi::c_void, pdeviceresources : * mut core::ffi::c_void, pbstrerrormessage : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    PTGetPrintDeviceResources(hprovider.param().abi(), pszlocalename.param().abi(), pprintticket.param().abi(), pdeviceresources.param().abi(), core::mem::transmute(pbstrerrormessage.unwrap_or(core::ptr::null_mut()))).ok()
+    PTGetPrintDeviceResources(core::mem::transmute(hprovider), pszlocalename.param().abi(), pprintticket.param().abi(), pdeviceresources.param().abi(), core::mem::transmute(pbstrerrormessage.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn PTMergeAndValidatePrintTicket<P0, P1, P2, P4>(hprovider: P0, pbaseticket: P1, pdeltaticket: P2, scope: EPrintTicketScope, presultticket: P4, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
+pub unsafe fn PTMergeAndValidatePrintTicket<P1, P2, P4>(hprovider: HPTPROVIDER, pbaseticket: P1, pdeltaticket: P2, scope: EPrintTicketScope, presultticket: P4, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<HPTPROVIDER>,
     P1: windows_core::Param<super::super::super::System::Com::IStream>,
     P2: windows_core::Param<super::super::super::System::Com::IStream>,
     P4: windows_core::Param<super::super::super::System::Com::IStream>,
 {
     windows_targets::link!("prntvpt.dll" "system" fn PTMergeAndValidatePrintTicket(hprovider : HPTPROVIDER, pbaseticket : * mut core::ffi::c_void, pdeltaticket : * mut core::ffi::c_void, scope : EPrintTicketScope, presultticket : * mut core::ffi::c_void, pbstrerrormessage : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    PTMergeAndValidatePrintTicket(hprovider.param().abi(), pbaseticket.param().abi(), pdeltaticket.param().abi(), core::mem::transmute(scope), presultticket.param().abi(), core::mem::transmute(pbstrerrormessage.unwrap_or(core::ptr::null_mut()))).ok()
+    PTMergeAndValidatePrintTicket(core::mem::transmute(hprovider), pbaseticket.param().abi(), pdeltaticket.param().abi(), core::mem::transmute(scope), presultticket.param().abi(), core::mem::transmute(pbstrerrormessage.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn PTOpenProvider<P0>(pszprintername: P0, dwversion: u32) -> windows_core::Result<HPTPROVIDER>

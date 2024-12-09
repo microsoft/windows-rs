@@ -1231,13 +1231,11 @@ impl IComponent {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), lpconsole.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Notify<P0, P2, P3>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P2, param3: P3) -> windows_core::Result<()>
+    pub unsafe fn Notify<P0>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Com::IDataObject>,
-        P2: windows_core::Param<super::super::Foundation::LPARAM>,
-        P3: windows_core::Param<super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), core::mem::transmute(event), arg.param().abi(), param3.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), core::mem::transmute(event), core::mem::transmute(arg), core::mem::transmute(param3)).ok()
     }
     pub unsafe fn Destroy(&self, cookie: isize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self), core::mem::transmute(cookie)).ok()
@@ -1431,13 +1429,11 @@ impl IComponentData {
         (windows_core::Interface::vtable(self).CreateComponent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Notify<P0, P2, P3>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P2, param3: P3) -> windows_core::Result<()>
+    pub unsafe fn Notify<P0>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Com::IDataObject>,
-        P2: windows_core::Param<super::super::Foundation::LPARAM>,
-        P3: windows_core::Param<super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), core::mem::transmute(event), arg.param().abi(), param3.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), core::mem::transmute(event), core::mem::transmute(arg), core::mem::transmute(param3)).ok()
     }
     pub unsafe fn Destroy(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self)).ok()
@@ -1625,12 +1621,11 @@ impl IConsole {
         (windows_core::Interface::vtable(self).QueryResultImageList)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UpdateAllViews<P0, P1>(&self, lpdataobject: P0, data: P1, hint: isize) -> windows_core::Result<()>
+    pub unsafe fn UpdateAllViews<P0>(&self, lpdataobject: P0, data: super::super::Foundation::LPARAM, hint: isize) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Com::IDataObject>,
-        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).UpdateAllViews)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), data.param().abi(), core::mem::transmute(hint)).ok()
+        (windows_core::Interface::vtable(self).UpdateAllViews)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), core::mem::transmute(data), core::mem::transmute(hint)).ok()
     }
     pub unsafe fn MessageBox<P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> windows_core::Result<i32>
     where
@@ -2072,12 +2067,9 @@ impl windows_core::RuntimeName for IConsolePower {}
 windows_core::imp::define_interface!(IConsolePowerSink, IConsolePowerSink_Vtbl, 0x3333759f_fe4f_4975_b143_fec0a5dd6d65);
 windows_core::imp::interface_hierarchy!(IConsolePowerSink, windows_core::IUnknown);
 impl IConsolePowerSink {
-    pub unsafe fn OnPowerBroadcast<P1>(&self, nevent: u32, lparam: P1) -> windows_core::Result<super::super::Foundation::LRESULT>
-    where
-        P1: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
+    pub unsafe fn OnPowerBroadcast(&self, nevent: u32, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::LRESULT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnPowerBroadcast)(windows_core::Interface::as_raw(self), core::mem::transmute(nevent), lparam.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnPowerBroadcast)(windows_core::Interface::as_raw(self), core::mem::transmute(nevent), core::mem::transmute(lparam), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -2268,12 +2260,9 @@ impl IContextMenuProvider {
     {
         (windows_core::Interface::vtable(self).AddThirdPartyExtensionItems)(windows_core::Interface::as_raw(self), pidataobject.param().abi()).ok()
     }
-    pub unsafe fn ShowContextMenu<P0>(&self, hwndparent: P0, xpos: i32, ypos: i32) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
+    pub unsafe fn ShowContextMenu(&self, hwndparent: super::super::Foundation::HWND, xpos: i32, ypos: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ShowContextMenu)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(xpos), core::mem::transmute(ypos), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ShowContextMenu)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(xpos), core::mem::transmute(ypos), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -2570,12 +2559,8 @@ impl IExtendControlbar {
     {
         (windows_core::Interface::vtable(self).SetControlbar)(windows_core::Interface::as_raw(self), pcontrolbar.param().abi()).ok()
     }
-    pub unsafe fn ControlbarNotify<P1, P2>(&self, event: MMC_NOTIFY_TYPE, arg: P1, param2: P2) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::LPARAM>,
-        P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).ControlbarNotify)(windows_core::Interface::as_raw(self), core::mem::transmute(event), arg.param().abi(), param2.param().abi()).ok()
+    pub unsafe fn ControlbarNotify(&self, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ControlbarNotify)(windows_core::Interface::as_raw(self), core::mem::transmute(event), core::mem::transmute(arg), core::mem::transmute(param2)).ok()
     }
 }
 #[repr(C)]
@@ -3061,11 +3046,8 @@ impl IImageList {
     pub unsafe fn ImageListSetIcon(&self, picon: *const isize, nloc: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ImageListSetIcon)(windows_core::Interface::as_raw(self), core::mem::transmute(picon), core::mem::transmute(nloc)).ok()
     }
-    pub unsafe fn ImageListSetStrip<P3>(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
-        (windows_core::Interface::vtable(self).ImageListSetStrip)(windows_core::Interface::as_raw(self), core::mem::transmute(pbmapsm), core::mem::transmute(pbmaplg), core::mem::transmute(nstartloc), cmask.param().abi()).ok()
+    pub unsafe fn ImageListSetStrip(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ImageListSetStrip)(windows_core::Interface::as_raw(self), core::mem::transmute(pbmapsm), core::mem::transmute(pbmaplg), core::mem::transmute(nstartloc), core::mem::transmute(cmask)).ok()
     }
 }
 #[repr(C)]
@@ -3308,18 +3290,12 @@ windows_core::imp::define_interface!(IPropertySheetCallback, IPropertySheetCallb
 windows_core::imp::interface_hierarchy!(IPropertySheetCallback, windows_core::IUnknown);
 impl IPropertySheetCallback {
     #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn AddPage<P0>(&self, hpage: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::UI::Controls::HPROPSHEETPAGE>,
-    {
-        (windows_core::Interface::vtable(self).AddPage)(windows_core::Interface::as_raw(self), hpage.param().abi()).ok()
+    pub unsafe fn AddPage(&self, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).AddPage)(windows_core::Interface::as_raw(self), core::mem::transmute(hpage)).ok()
     }
     #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn RemovePage<P0>(&self, hpage: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::UI::Controls::HPROPSHEETPAGE>,
-    {
-        (windows_core::Interface::vtable(self).RemovePage)(windows_core::Interface::as_raw(self), hpage.param().abi()).ok()
+    pub unsafe fn RemovePage(&self, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RemovePage)(windows_core::Interface::as_raw(self), core::mem::transmute(hpage)).ok()
     }
 }
 #[repr(C)]
@@ -3377,14 +3353,13 @@ impl IPropertySheetProvider {
     {
         (windows_core::Interface::vtable(self).FindPropertySheet)(windows_core::Interface::as_raw(self), core::mem::transmute(hitem), lpcomponent.param().abi(), lpdataobject.param().abi()).ok()
     }
-    pub unsafe fn AddPrimaryPages<P0, P1, P2, P3>(&self, lpunknown: P0, bcreatehandle: P1, hnotifywindow: P2, bscopepane: P3) -> windows_core::Result<()>
+    pub unsafe fn AddPrimaryPages<P0, P1, P3>(&self, lpunknown: P0, bcreatehandle: P1, hnotifywindow: super::super::Foundation::HWND, bscopepane: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::super::Foundation::HWND>,
         P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).AddPrimaryPages)(windows_core::Interface::as_raw(self), lpunknown.param().abi(), bcreatehandle.param().abi(), hnotifywindow.param().abi(), bscopepane.param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPrimaryPages)(windows_core::Interface::as_raw(self), lpunknown.param().abi(), bcreatehandle.param().abi(), core::mem::transmute(hnotifywindow), bscopepane.param().abi()).ok()
     }
     pub unsafe fn AddExtensionPages(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddExtensionPages)(windows_core::Interface::as_raw(self)).ok()
@@ -3528,12 +3503,9 @@ impl IResultData {
     pub unsafe fn DeleteItem(&self, itemid: isize, ncol: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute(itemid), core::mem::transmute(ncol)).ok()
     }
-    pub unsafe fn FindItemByLParam<P0>(&self, lparam: P0) -> windows_core::Result<isize>
-    where
-        P0: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
+    pub unsafe fn FindItemByLParam(&self, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<isize> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItemByLParam)(windows_core::Interface::as_raw(self), lparam.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).FindItemByLParam)(windows_core::Interface::as_raw(self), core::mem::transmute(lparam), &mut result__).map(|| result__)
     }
     pub unsafe fn DeleteAllRsltItems(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DeleteAllRsltItems)(windows_core::Interface::as_raw(self)).ok()
@@ -3563,11 +3535,8 @@ impl IResultData {
     pub unsafe fn UpdateItem(&self, itemid: isize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UpdateItem)(windows_core::Interface::as_raw(self), core::mem::transmute(itemid)).ok()
     }
-    pub unsafe fn Sort<P2>(&self, ncolumn: i32, dwsortoptions: u32, luserparam: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), core::mem::transmute(ncolumn), core::mem::transmute(dwsortoptions), luserparam.param().abi()).ok()
+    pub unsafe fn Sort(&self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), core::mem::transmute(ncolumn), core::mem::transmute(dwsortoptions), core::mem::transmute(luserparam)).ok()
     }
     pub unsafe fn SetDescBarText<P0>(&self, desctext: P0) -> windows_core::Result<()>
     where
@@ -3750,11 +3719,8 @@ impl windows_core::RuntimeName for IResultData2 {}
 windows_core::imp::define_interface!(IResultDataCompare, IResultDataCompare_Vtbl, 0xe8315a52_7a1a_11d0_a2d2_00c04fd909dd);
 windows_core::imp::interface_hierarchy!(IResultDataCompare, windows_core::IUnknown);
 impl IResultDataCompare {
-    pub unsafe fn Compare<P0>(&self, luserparam: P0, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), luserparam.param().abi(), core::mem::transmute(cookiea), core::mem::transmute(cookieb), core::mem::transmute(pnresult)).ok()
+    pub unsafe fn Compare(&self, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), core::mem::transmute(luserparam), core::mem::transmute(cookiea), core::mem::transmute(cookieb), core::mem::transmute(pnresult)).ok()
     }
 }
 #[repr(C)]
@@ -3823,11 +3789,8 @@ impl IResultOwnerData {
     pub unsafe fn CacheHint(&self, nstartindex: i32, nendindex: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CacheHint)(windows_core::Interface::as_raw(self), core::mem::transmute(nstartindex), core::mem::transmute(nendindex)).ok()
     }
-    pub unsafe fn SortItems<P2>(&self, ncolumn: i32, dwsortoptions: u32, luserparam: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).SortItems)(windows_core::Interface::as_raw(self), core::mem::transmute(ncolumn), core::mem::transmute(dwsortoptions), luserparam.param().abi()).ok()
+    pub unsafe fn SortItems(&self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SortItems)(windows_core::Interface::as_raw(self), core::mem::transmute(ncolumn), core::mem::transmute(dwsortoptions), core::mem::transmute(luserparam)).ok()
     }
 }
 #[repr(C)]
@@ -4295,12 +4258,8 @@ windows_core::imp::define_interface!(IToolbar, IToolbar_Vtbl, 0x43136eb9_d36c_11
 windows_core::imp::interface_hierarchy!(IToolbar, windows_core::IUnknown);
 impl IToolbar {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn AddBitmap<P1, P4>(&self, nimages: i32, hbmp: P1, cxsize: i32, cysize: i32, crmask: P4) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-        P4: windows_core::Param<super::super::Foundation::COLORREF>,
-    {
-        (windows_core::Interface::vtable(self).AddBitmap)(windows_core::Interface::as_raw(self), core::mem::transmute(nimages), hbmp.param().abi(), core::mem::transmute(cxsize), core::mem::transmute(cysize), crmask.param().abi()).ok()
+    pub unsafe fn AddBitmap(&self, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).AddBitmap)(windows_core::Interface::as_raw(self), core::mem::transmute(nimages), core::mem::transmute(hbmp), core::mem::transmute(cxsize), core::mem::transmute(cysize), core::mem::transmute(crmask)).ok()
     }
     pub unsafe fn AddButtons(&self, nbuttons: i32, lpbuttons: *const MMCBUTTON) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddButtons)(windows_core::Interface::as_raw(self), core::mem::transmute(nbuttons), core::mem::transmute(lpbuttons)).ok()

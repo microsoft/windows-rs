@@ -46,40 +46,36 @@ where
     LoadPerfCounterTextStringsW(lpcommandline.param().abi(), bquietmodearg.param().abi())
 }
 #[inline]
-pub unsafe fn PdhAddCounterA<P0, P1>(hquery: P0, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
+pub unsafe fn PdhAddCounterA<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
 where
-    P0: windows_core::Param<PDH_HQUERY>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhAddCounterA(hquery : PDH_HQUERY, szfullcounterpath : windows_core::PCSTR, dwuserdata : usize, phcounter : *mut PDH_HCOUNTER) -> u32);
-    PdhAddCounterA(hquery.param().abi(), szfullcounterpath.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(phcounter))
+    PdhAddCounterA(core::mem::transmute(hquery), szfullcounterpath.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(phcounter))
 }
 #[inline]
-pub unsafe fn PdhAddCounterW<P0, P1>(hquery: P0, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
+pub unsafe fn PdhAddCounterW<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
 where
-    P0: windows_core::Param<PDH_HQUERY>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhAddCounterW(hquery : PDH_HQUERY, szfullcounterpath : windows_core::PCWSTR, dwuserdata : usize, phcounter : *mut PDH_HCOUNTER) -> u32);
-    PdhAddCounterW(hquery.param().abi(), szfullcounterpath.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(phcounter))
+    PdhAddCounterW(core::mem::transmute(hquery), szfullcounterpath.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(phcounter))
 }
 #[inline]
-pub unsafe fn PdhAddEnglishCounterA<P0, P1>(hquery: P0, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
+pub unsafe fn PdhAddEnglishCounterA<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
 where
-    P0: windows_core::Param<PDH_HQUERY>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhAddEnglishCounterA(hquery : PDH_HQUERY, szfullcounterpath : windows_core::PCSTR, dwuserdata : usize, phcounter : *mut PDH_HCOUNTER) -> u32);
-    PdhAddEnglishCounterA(hquery.param().abi(), szfullcounterpath.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(phcounter))
+    PdhAddEnglishCounterA(core::mem::transmute(hquery), szfullcounterpath.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(phcounter))
 }
 #[inline]
-pub unsafe fn PdhAddEnglishCounterW<P0, P1>(hquery: P0, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
+pub unsafe fn PdhAddEnglishCounterW<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
 where
-    P0: windows_core::Param<PDH_HQUERY>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhAddEnglishCounterW(hquery : PDH_HQUERY, szfullcounterpath : windows_core::PCWSTR, dwuserdata : usize, phcounter : *mut PDH_HCOUNTER) -> u32);
-    PdhAddEnglishCounterW(hquery.param().abi(), szfullcounterpath.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(phcounter))
+    PdhAddEnglishCounterW(core::mem::transmute(hquery), szfullcounterpath.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(phcounter))
 }
 #[inline]
 pub unsafe fn PdhBindInputDataSourceA<P1>(phdatasource: *mut PDH_HLOG, logfilenamelist: P1) -> u32
@@ -118,20 +114,14 @@ pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W)
     PdhBrowseCountersW(core::mem::transmute(pbrowsedlgdata))
 }
 #[inline]
-pub unsafe fn PdhCalculateCounterFromRawValue<P0>(hcounter: P0, dwformat: PDH_FMT, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> u32
-where
-    P0: windows_core::Param<PDH_HCOUNTER>,
-{
+pub unsafe fn PdhCalculateCounterFromRawValue(hcounter: PDH_HCOUNTER, dwformat: PDH_FMT, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhCalculateCounterFromRawValue(hcounter : PDH_HCOUNTER, dwformat : PDH_FMT, rawvalue1 : *const PDH_RAW_COUNTER, rawvalue2 : *const PDH_RAW_COUNTER, fmtvalue : *mut PDH_FMT_COUNTERVALUE) -> u32);
-    PdhCalculateCounterFromRawValue(hcounter.param().abi(), core::mem::transmute(dwformat), core::mem::transmute(rawvalue1), core::mem::transmute(rawvalue2), core::mem::transmute(fmtvalue))
+    PdhCalculateCounterFromRawValue(core::mem::transmute(hcounter), core::mem::transmute(dwformat), core::mem::transmute(rawvalue1), core::mem::transmute(rawvalue2), core::mem::transmute(fmtvalue))
 }
 #[inline]
-pub unsafe fn PdhCloseLog<P0>(hlog: P0, dwflags: u32) -> u32
-where
-    P0: windows_core::Param<PDH_HLOG>,
-{
+pub unsafe fn PdhCloseLog(hlog: PDH_HLOG, dwflags: u32) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhCloseLog(hlog : PDH_HLOG, dwflags : u32) -> u32);
-    PdhCloseLog(hlog.param().abi(), core::mem::transmute(dwflags))
+    PdhCloseLog(core::mem::transmute(hlog), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn PdhCloseQuery(hquery: PDH_HQUERY) -> u32 {
@@ -144,13 +134,9 @@ pub unsafe fn PdhCollectQueryData(hquery: PDH_HQUERY) -> u32 {
     PdhCollectQueryData(core::mem::transmute(hquery))
 }
 #[inline]
-pub unsafe fn PdhCollectQueryDataEx<P0, P2>(hquery: P0, dwintervaltime: u32, hnewdataevent: P2) -> u32
-where
-    P0: windows_core::Param<PDH_HQUERY>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PdhCollectQueryDataEx(hquery: PDH_HQUERY, dwintervaltime: u32, hnewdataevent: super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhCollectQueryDataEx(hquery : PDH_HQUERY, dwintervaltime : u32, hnewdataevent : super::super::Foundation:: HANDLE) -> u32);
-    PdhCollectQueryDataEx(hquery.param().abi(), core::mem::transmute(dwintervaltime), hnewdataevent.param().abi())
+    PdhCollectQueryDataEx(core::mem::transmute(hquery), core::mem::transmute(dwintervaltime), core::mem::transmute(hnewdataevent))
 }
 #[inline]
 pub unsafe fn PdhCollectQueryDataWithTime(hquery: PDH_HQUERY, plltimestamp: *mut i64) -> u32 {
@@ -158,12 +144,9 @@ pub unsafe fn PdhCollectQueryDataWithTime(hquery: PDH_HQUERY, plltimestamp: *mut
     PdhCollectQueryDataWithTime(core::mem::transmute(hquery), core::mem::transmute(plltimestamp))
 }
 #[inline]
-pub unsafe fn PdhComputeCounterStatistics<P0>(hcounter: P0, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> u32
-where
-    P0: windows_core::Param<PDH_HCOUNTER>,
-{
+pub unsafe fn PdhComputeCounterStatistics(hcounter: PDH_HCOUNTER, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhComputeCounterStatistics(hcounter : PDH_HCOUNTER, dwformat : PDH_FMT, dwfirstentry : u32, dwnumentries : u32, lprawvaluearray : *const PDH_RAW_COUNTER, data : *mut PDH_STATISTICS) -> u32);
-    PdhComputeCounterStatistics(hcounter.param().abi(), core::mem::transmute(dwformat), core::mem::transmute(dwfirstentry), core::mem::transmute(dwnumentries), core::mem::transmute(lprawvaluearray), core::mem::transmute(data))
+    PdhComputeCounterStatistics(core::mem::transmute(hcounter), core::mem::transmute(dwformat), core::mem::transmute(dwfirstentry), core::mem::transmute(dwnumentries), core::mem::transmute(lprawvaluearray), core::mem::transmute(data))
 }
 #[inline]
 pub unsafe fn PdhConnectMachineA<P0>(szmachinename: P0) -> u32
@@ -198,215 +181,198 @@ where
     PdhCreateSQLTablesW(szdatasource.param().abi())
 }
 #[inline]
-pub unsafe fn PdhEnumLogSetNamesA<P0>(szdatasource: P0, mszdatasetnamelist: windows_core::PSTR, pcchbufferlength: *mut u32) -> u32
+pub unsafe fn PdhEnumLogSetNamesA<P0>(szdatasource: P0, mszdatasetnamelist: Option<windows_core::PSTR>, pcchbufferlength: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumLogSetNamesA(szdatasource : windows_core::PCSTR, mszdatasetnamelist : windows_core::PSTR, pcchbufferlength : *mut u32) -> u32);
-    PdhEnumLogSetNamesA(szdatasource.param().abi(), core::mem::transmute(mszdatasetnamelist), core::mem::transmute(pcchbufferlength))
+    PdhEnumLogSetNamesA(szdatasource.param().abi(), core::mem::transmute(mszdatasetnamelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbufferlength))
 }
 #[inline]
-pub unsafe fn PdhEnumLogSetNamesW<P0>(szdatasource: P0, mszdatasetnamelist: windows_core::PWSTR, pcchbufferlength: *mut u32) -> u32
+pub unsafe fn PdhEnumLogSetNamesW<P0>(szdatasource: P0, mszdatasetnamelist: Option<windows_core::PWSTR>, pcchbufferlength: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumLogSetNamesW(szdatasource : windows_core::PCWSTR, mszdatasetnamelist : windows_core::PWSTR, pcchbufferlength : *mut u32) -> u32);
-    PdhEnumLogSetNamesW(szdatasource.param().abi(), core::mem::transmute(mszdatasetnamelist), core::mem::transmute(pcchbufferlength))
+    PdhEnumLogSetNamesW(szdatasource.param().abi(), core::mem::transmute(mszdatasetnamelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbufferlength))
 }
 #[inline]
-pub unsafe fn PdhEnumMachinesA<P0>(szdatasource: P0, mszmachinelist: windows_core::PSTR, pcchbuffersize: *mut u32) -> u32
+pub unsafe fn PdhEnumMachinesA<P0>(szdatasource: P0, mszmachinelist: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumMachinesA(szdatasource : windows_core::PCSTR, mszmachinelist : windows_core::PSTR, pcchbuffersize : *mut u32) -> u32);
-    PdhEnumMachinesA(szdatasource.param().abi(), core::mem::transmute(mszmachinelist), core::mem::transmute(pcchbuffersize))
+    PdhEnumMachinesA(szdatasource.param().abi(), core::mem::transmute(mszmachinelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize))
 }
 #[inline]
-pub unsafe fn PdhEnumMachinesHA<P0>(hdatasource: P0, mszmachinelist: windows_core::PSTR, pcchbuffersize: *mut u32) -> u32
-where
-    P0: windows_core::Param<PDH_HLOG>,
-{
+pub unsafe fn PdhEnumMachinesHA(hdatasource: Option<PDH_HLOG>, mszmachinelist: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumMachinesHA(hdatasource : PDH_HLOG, mszmachinelist : windows_core::PSTR, pcchbuffersize : *mut u32) -> u32);
-    PdhEnumMachinesHA(hdatasource.param().abi(), core::mem::transmute(mszmachinelist), core::mem::transmute(pcchbuffersize))
+    PdhEnumMachinesHA(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), core::mem::transmute(mszmachinelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize))
 }
 #[inline]
-pub unsafe fn PdhEnumMachinesHW<P0>(hdatasource: P0, mszmachinelist: windows_core::PWSTR, pcchbuffersize: *mut u32) -> u32
-where
-    P0: windows_core::Param<PDH_HLOG>,
-{
+pub unsafe fn PdhEnumMachinesHW(hdatasource: Option<PDH_HLOG>, mszmachinelist: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumMachinesHW(hdatasource : PDH_HLOG, mszmachinelist : windows_core::PWSTR, pcchbuffersize : *mut u32) -> u32);
-    PdhEnumMachinesHW(hdatasource.param().abi(), core::mem::transmute(mszmachinelist), core::mem::transmute(pcchbuffersize))
+    PdhEnumMachinesHW(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), core::mem::transmute(mszmachinelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize))
 }
 #[inline]
-pub unsafe fn PdhEnumMachinesW<P0>(szdatasource: P0, mszmachinelist: windows_core::PWSTR, pcchbuffersize: *mut u32) -> u32
+pub unsafe fn PdhEnumMachinesW<P0>(szdatasource: P0, mszmachinelist: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumMachinesW(szdatasource : windows_core::PCWSTR, mszmachinelist : windows_core::PWSTR, pcchbuffersize : *mut u32) -> u32);
-    PdhEnumMachinesW(szdatasource.param().abi(), core::mem::transmute(mszmachinelist), core::mem::transmute(pcchbuffersize))
+    PdhEnumMachinesW(szdatasource.param().abi(), core::mem::transmute(mszmachinelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize))
 }
 #[inline]
-pub unsafe fn PdhEnumObjectItemsA<P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: windows_core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: windows_core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32
+pub unsafe fn PdhEnumObjectItemsA<P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: Option<windows_core::PSTR>, pcchcounterlistlength: *mut u32, mszinstancelist: Option<windows_core::PSTR>, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectItemsA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, szobjectname : windows_core::PCSTR, mszcounterlist : windows_core::PSTR, pcchcounterlistlength : *mut u32, mszinstancelist : windows_core::PSTR, pcchinstancelistlength : *mut u32, dwdetaillevel : PERF_DETAIL, dwflags : u32) -> u32);
-    PdhEnumObjectItemsA(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(mszcounterlist), core::mem::transmute(pcchcounterlistlength), core::mem::transmute(mszinstancelist), core::mem::transmute(pcchinstancelistlength), core::mem::transmute(dwdetaillevel), core::mem::transmute(dwflags))
+    PdhEnumObjectItemsA(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(mszcounterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchcounterlistlength), core::mem::transmute(mszinstancelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchinstancelistlength), core::mem::transmute(dwdetaillevel), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn PdhEnumObjectItemsHA<P0, P1, P2>(hdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: windows_core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: windows_core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32
+pub unsafe fn PdhEnumObjectItemsHA<P1, P2>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szobjectname: P2, mszcounterlist: Option<windows_core::PSTR>, pcchcounterlistlength: *mut u32, mszinstancelist: Option<windows_core::PSTR>, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectItemsHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, szobjectname : windows_core::PCSTR, mszcounterlist : windows_core::PSTR, pcchcounterlistlength : *mut u32, mszinstancelist : windows_core::PSTR, pcchinstancelistlength : *mut u32, dwdetaillevel : PERF_DETAIL, dwflags : u32) -> u32);
-    PdhEnumObjectItemsHA(hdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(mszcounterlist), core::mem::transmute(pcchcounterlistlength), core::mem::transmute(mszinstancelist), core::mem::transmute(pcchinstancelistlength), core::mem::transmute(dwdetaillevel), core::mem::transmute(dwflags))
+    PdhEnumObjectItemsHA(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(mszcounterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchcounterlistlength), core::mem::transmute(mszinstancelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchinstancelistlength), core::mem::transmute(dwdetaillevel), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn PdhEnumObjectItemsHW<P0, P1, P2>(hdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: windows_core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: windows_core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32
+pub unsafe fn PdhEnumObjectItemsHW<P1, P2>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szobjectname: P2, mszcounterlist: Option<windows_core::PWSTR>, pcchcounterlistlength: *mut u32, mszinstancelist: Option<windows_core::PWSTR>, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectItemsHW(hdatasource : PDH_HLOG, szmachinename : windows_core::PCWSTR, szobjectname : windows_core::PCWSTR, mszcounterlist : windows_core::PWSTR, pcchcounterlistlength : *mut u32, mszinstancelist : windows_core::PWSTR, pcchinstancelistlength : *mut u32, dwdetaillevel : PERF_DETAIL, dwflags : u32) -> u32);
-    PdhEnumObjectItemsHW(hdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(mszcounterlist), core::mem::transmute(pcchcounterlistlength), core::mem::transmute(mszinstancelist), core::mem::transmute(pcchinstancelistlength), core::mem::transmute(dwdetaillevel), core::mem::transmute(dwflags))
+    PdhEnumObjectItemsHW(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(mszcounterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchcounterlistlength), core::mem::transmute(mszinstancelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchinstancelistlength), core::mem::transmute(dwdetaillevel), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn PdhEnumObjectItemsW<P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: windows_core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: windows_core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32
+pub unsafe fn PdhEnumObjectItemsW<P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: Option<windows_core::PWSTR>, pcchcounterlistlength: *mut u32, mszinstancelist: Option<windows_core::PWSTR>, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectItemsW(szdatasource : windows_core::PCWSTR, szmachinename : windows_core::PCWSTR, szobjectname : windows_core::PCWSTR, mszcounterlist : windows_core::PWSTR, pcchcounterlistlength : *mut u32, mszinstancelist : windows_core::PWSTR, pcchinstancelistlength : *mut u32, dwdetaillevel : PERF_DETAIL, dwflags : u32) -> u32);
-    PdhEnumObjectItemsW(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(mszcounterlist), core::mem::transmute(pcchcounterlistlength), core::mem::transmute(mszinstancelist), core::mem::transmute(pcchinstancelistlength), core::mem::transmute(dwdetaillevel), core::mem::transmute(dwflags))
+    PdhEnumObjectItemsW(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(mszcounterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchcounterlistlength), core::mem::transmute(mszinstancelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchinstancelistlength), core::mem::transmute(dwdetaillevel), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn PdhEnumObjectsA<P0, P1, P5>(szdatasource: P0, szmachinename: P1, mszobjectlist: windows_core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P5) -> u32
+pub unsafe fn PdhEnumObjectsA<P0, P1, P5>(szdatasource: P0, szmachinename: P1, mszobjectlist: Option<windows_core::PSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P5) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectsA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, mszobjectlist : windows_core::PSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : super::super::Foundation:: BOOL) -> u32);
-    PdhEnumObjectsA(szdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(mszobjectlist), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.param().abi())
+    PdhEnumObjectsA(szdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(mszobjectlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.param().abi())
 }
 #[inline]
-pub unsafe fn PdhEnumObjectsHA<P0, P1, P5>(hdatasource: P0, szmachinename: P1, mszobjectlist: windows_core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P5) -> u32
+pub unsafe fn PdhEnumObjectsHA<P1, P5>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, mszobjectlist: Option<windows_core::PSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P5) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectsHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, mszobjectlist : windows_core::PSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : super::super::Foundation:: BOOL) -> u32);
-    PdhEnumObjectsHA(hdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(mszobjectlist), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.param().abi())
+    PdhEnumObjectsHA(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szmachinename.param().abi(), core::mem::transmute(mszobjectlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.param().abi())
 }
 #[inline]
-pub unsafe fn PdhEnumObjectsHW<P0, P1, P5>(hdatasource: P0, szmachinename: P1, mszobjectlist: windows_core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P5) -> u32
+pub unsafe fn PdhEnumObjectsHW<P1, P5>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, mszobjectlist: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P5) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectsHW(hdatasource : PDH_HLOG, szmachinename : windows_core::PCWSTR, mszobjectlist : windows_core::PWSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : super::super::Foundation:: BOOL) -> u32);
-    PdhEnumObjectsHW(hdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(mszobjectlist), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.param().abi())
+    PdhEnumObjectsHW(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szmachinename.param().abi(), core::mem::transmute(mszobjectlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.param().abi())
 }
 #[inline]
-pub unsafe fn PdhEnumObjectsW<P0, P1, P5>(szdatasource: P0, szmachinename: P1, mszobjectlist: windows_core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P5) -> u32
+pub unsafe fn PdhEnumObjectsW<P0, P1, P5>(szdatasource: P0, szmachinename: P1, mszobjectlist: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P5) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectsW(szdatasource : windows_core::PCWSTR, szmachinename : windows_core::PCWSTR, mszobjectlist : windows_core::PWSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : super::super::Foundation:: BOOL) -> u32);
-    PdhEnumObjectsW(szdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(mszobjectlist), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.param().abi())
+    PdhEnumObjectsW(szdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(mszobjectlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.param().abi())
 }
 #[inline]
-pub unsafe fn PdhExpandCounterPathA<P0>(szwildcardpath: P0, mszexpandedpathlist: windows_core::PSTR, pcchpathlistlength: *mut u32) -> u32
+pub unsafe fn PdhExpandCounterPathA<P0>(szwildcardpath: P0, mszexpandedpathlist: Option<windows_core::PSTR>, pcchpathlistlength: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhExpandCounterPathA(szwildcardpath : windows_core::PCSTR, mszexpandedpathlist : windows_core::PSTR, pcchpathlistlength : *mut u32) -> u32);
-    PdhExpandCounterPathA(szwildcardpath.param().abi(), core::mem::transmute(mszexpandedpathlist), core::mem::transmute(pcchpathlistlength))
+    PdhExpandCounterPathA(szwildcardpath.param().abi(), core::mem::transmute(mszexpandedpathlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchpathlistlength))
 }
 #[inline]
-pub unsafe fn PdhExpandCounterPathW<P0>(szwildcardpath: P0, mszexpandedpathlist: windows_core::PWSTR, pcchpathlistlength: *mut u32) -> u32
+pub unsafe fn PdhExpandCounterPathW<P0>(szwildcardpath: P0, mszexpandedpathlist: Option<windows_core::PWSTR>, pcchpathlistlength: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhExpandCounterPathW(szwildcardpath : windows_core::PCWSTR, mszexpandedpathlist : windows_core::PWSTR, pcchpathlistlength : *mut u32) -> u32);
-    PdhExpandCounterPathW(szwildcardpath.param().abi(), core::mem::transmute(mszexpandedpathlist), core::mem::transmute(pcchpathlistlength))
+    PdhExpandCounterPathW(szwildcardpath.param().abi(), core::mem::transmute(mszexpandedpathlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchpathlistlength))
 }
 #[inline]
-pub unsafe fn PdhExpandWildCardPathA<P0, P1>(szdatasource: P0, szwildcardpath: P1, mszexpandedpathlist: windows_core::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> u32
+pub unsafe fn PdhExpandWildCardPathA<P0, P1>(szdatasource: P0, szwildcardpath: P1, mszexpandedpathlist: Option<windows_core::PSTR>, pcchpathlistlength: *mut u32, dwflags: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhExpandWildCardPathA(szdatasource : windows_core::PCSTR, szwildcardpath : windows_core::PCSTR, mszexpandedpathlist : windows_core::PSTR, pcchpathlistlength : *mut u32, dwflags : u32) -> u32);
-    PdhExpandWildCardPathA(szdatasource.param().abi(), szwildcardpath.param().abi(), core::mem::transmute(mszexpandedpathlist), core::mem::transmute(pcchpathlistlength), core::mem::transmute(dwflags))
+    PdhExpandWildCardPathA(szdatasource.param().abi(), szwildcardpath.param().abi(), core::mem::transmute(mszexpandedpathlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchpathlistlength), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn PdhExpandWildCardPathHA<P0, P1>(hdatasource: P0, szwildcardpath: P1, mszexpandedpathlist: windows_core::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> u32
+pub unsafe fn PdhExpandWildCardPathHA<P1>(hdatasource: Option<PDH_HLOG>, szwildcardpath: P1, mszexpandedpathlist: Option<windows_core::PSTR>, pcchpathlistlength: *mut u32, dwflags: u32) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhExpandWildCardPathHA(hdatasource : PDH_HLOG, szwildcardpath : windows_core::PCSTR, mszexpandedpathlist : windows_core::PSTR, pcchpathlistlength : *mut u32, dwflags : u32) -> u32);
-    PdhExpandWildCardPathHA(hdatasource.param().abi(), szwildcardpath.param().abi(), core::mem::transmute(mszexpandedpathlist), core::mem::transmute(pcchpathlistlength), core::mem::transmute(dwflags))
+    PdhExpandWildCardPathHA(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szwildcardpath.param().abi(), core::mem::transmute(mszexpandedpathlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchpathlistlength), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn PdhExpandWildCardPathHW<P0, P1>(hdatasource: P0, szwildcardpath: P1, mszexpandedpathlist: windows_core::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> u32
+pub unsafe fn PdhExpandWildCardPathHW<P1>(hdatasource: Option<PDH_HLOG>, szwildcardpath: P1, mszexpandedpathlist: Option<windows_core::PWSTR>, pcchpathlistlength: *mut u32, dwflags: u32) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhExpandWildCardPathHW(hdatasource : PDH_HLOG, szwildcardpath : windows_core::PCWSTR, mszexpandedpathlist : windows_core::PWSTR, pcchpathlistlength : *mut u32, dwflags : u32) -> u32);
-    PdhExpandWildCardPathHW(hdatasource.param().abi(), szwildcardpath.param().abi(), core::mem::transmute(mszexpandedpathlist), core::mem::transmute(pcchpathlistlength), core::mem::transmute(dwflags))
+    PdhExpandWildCardPathHW(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szwildcardpath.param().abi(), core::mem::transmute(mszexpandedpathlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchpathlistlength), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn PdhExpandWildCardPathW<P0, P1>(szdatasource: P0, szwildcardpath: P1, mszexpandedpathlist: windows_core::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> u32
+pub unsafe fn PdhExpandWildCardPathW<P0, P1>(szdatasource: P0, szwildcardpath: P1, mszexpandedpathlist: Option<windows_core::PWSTR>, pcchpathlistlength: *mut u32, dwflags: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhExpandWildCardPathW(szdatasource : windows_core::PCWSTR, szwildcardpath : windows_core::PCWSTR, mszexpandedpathlist : windows_core::PWSTR, pcchpathlistlength : *mut u32, dwflags : u32) -> u32);
-    PdhExpandWildCardPathW(szdatasource.param().abi(), szwildcardpath.param().abi(), core::mem::transmute(mszexpandedpathlist), core::mem::transmute(pcchpathlistlength), core::mem::transmute(dwflags))
+    PdhExpandWildCardPathW(szdatasource.param().abi(), szwildcardpath.param().abi(), core::mem::transmute(mszexpandedpathlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchpathlistlength), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: Option<*const i64>, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhFormatFromRawValue(dwcountertype : u32, dwformat : PDH_FMT, ptimebase : *const i64, prawvalue1 : *const PDH_RAW_COUNTER, prawvalue2 : *const PDH_RAW_COUNTER, pfmtvalue : *mut PDH_FMT_COUNTERVALUE) -> u32);
-    PdhFormatFromRawValue(core::mem::transmute(dwcountertype), core::mem::transmute(dwformat), core::mem::transmute(ptimebase.unwrap_or(core::ptr::null())), core::mem::transmute(prawvalue1), core::mem::transmute(prawvalue2), core::mem::transmute(pfmtvalue))
+    PdhFormatFromRawValue(core::mem::transmute(dwcountertype), core::mem::transmute(dwformat), core::mem::transmute(ptimebase.unwrap_or(core::mem::zeroed())), core::mem::transmute(prawvalue1), core::mem::transmute(prawvalue2), core::mem::transmute(pfmtvalue))
 }
 #[inline]
-pub unsafe fn PdhGetCounterInfoA<P0, P1>(hcounter: P0, bretrieveexplaintext: P1, pdwbuffersize: *mut u32, lpbuffer: Option<*mut PDH_COUNTER_INFO_A>) -> u32
+pub unsafe fn PdhGetCounterInfoA<P1>(hcounter: PDH_HCOUNTER, bretrieveexplaintext: P1, pdwbuffersize: *mut u32, lpbuffer: Option<*mut PDH_COUNTER_INFO_A>) -> u32
 where
-    P0: windows_core::Param<PDH_HCOUNTER>,
     P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetCounterInfoA(hcounter : PDH_HCOUNTER, bretrieveexplaintext : super::super::Foundation:: BOOLEAN, pdwbuffersize : *mut u32, lpbuffer : *mut PDH_COUNTER_INFO_A) -> u32);
-    PdhGetCounterInfoA(hcounter.param().abi(), bretrieveexplaintext.param().abi(), core::mem::transmute(pdwbuffersize), core::mem::transmute(lpbuffer.unwrap_or(core::ptr::null_mut())))
+    PdhGetCounterInfoA(core::mem::transmute(hcounter), bretrieveexplaintext.param().abi(), core::mem::transmute(pdwbuffersize), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn PdhGetCounterInfoW<P0, P1>(hcounter: P0, bretrieveexplaintext: P1, pdwbuffersize: *mut u32, lpbuffer: Option<*mut PDH_COUNTER_INFO_W>) -> u32
+pub unsafe fn PdhGetCounterInfoW<P1>(hcounter: PDH_HCOUNTER, bretrieveexplaintext: P1, pdwbuffersize: *mut u32, lpbuffer: Option<*mut PDH_COUNTER_INFO_W>) -> u32
 where
-    P0: windows_core::Param<PDH_HCOUNTER>,
     P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetCounterInfoW(hcounter : PDH_HCOUNTER, bretrieveexplaintext : super::super::Foundation:: BOOLEAN, pdwbuffersize : *mut u32, lpbuffer : *mut PDH_COUNTER_INFO_W) -> u32);
-    PdhGetCounterInfoW(hcounter.param().abi(), bretrieveexplaintext.param().abi(), core::mem::transmute(pdwbuffersize), core::mem::transmute(lpbuffer.unwrap_or(core::ptr::null_mut())))
+    PdhGetCounterInfoW(core::mem::transmute(hcounter), bretrieveexplaintext.param().abi(), core::mem::transmute(pdwbuffersize), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn PdhGetCounterTimeBase<P0>(hcounter: P0, ptimebase: *mut i64) -> u32
-where
-    P0: windows_core::Param<PDH_HCOUNTER>,
-{
+pub unsafe fn PdhGetCounterTimeBase(hcounter: PDH_HCOUNTER, ptimebase: *mut i64) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetCounterTimeBase(hcounter : PDH_HCOUNTER, ptimebase : *mut i64) -> u32);
-    PdhGetCounterTimeBase(hcounter.param().abi(), core::mem::transmute(ptimebase))
+    PdhGetCounterTimeBase(core::mem::transmute(hcounter), core::mem::transmute(ptimebase))
 }
 #[inline]
 pub unsafe fn PdhGetDataSourceTimeRangeA<P0>(szdatasource: P0, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> u32
@@ -417,9 +383,9 @@ where
     PdhGetDataSourceTimeRangeA(szdatasource.param().abi(), core::mem::transmute(pdwnumentries), core::mem::transmute(pinfo), core::mem::transmute(pdwbuffersize))
 }
 #[inline]
-pub unsafe fn PdhGetDataSourceTimeRangeH(hdatasource: PDH_HLOG, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> u32 {
+pub unsafe fn PdhGetDataSourceTimeRangeH(hdatasource: Option<PDH_HLOG>, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetDataSourceTimeRangeH(hdatasource : PDH_HLOG, pdwnumentries : *mut u32, pinfo : *mut PDH_TIME_INFO, pdwbuffersize : *mut u32) -> u32);
-    PdhGetDataSourceTimeRangeH(core::mem::transmute(hdatasource), core::mem::transmute(pdwnumentries), core::mem::transmute(pinfo), core::mem::transmute(pdwbuffersize))
+    PdhGetDataSourceTimeRangeH(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwnumentries), core::mem::transmute(pinfo), core::mem::transmute(pdwbuffersize))
 }
 #[inline]
 pub unsafe fn PdhGetDataSourceTimeRangeW<P0>(szdatasource: P0, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> u32
@@ -430,157 +396,126 @@ where
     PdhGetDataSourceTimeRangeW(szdatasource.param().abi(), core::mem::transmute(pdwnumentries), core::mem::transmute(pinfo), core::mem::transmute(pdwbuffersize))
 }
 #[inline]
-pub unsafe fn PdhGetDefaultPerfCounterA<P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, szdefaultcountername: windows_core::PSTR, pcchbuffersize: *mut u32) -> u32
+pub unsafe fn PdhGetDefaultPerfCounterA<P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, szdefaultcountername: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetDefaultPerfCounterA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, szobjectname : windows_core::PCSTR, szdefaultcountername : windows_core::PSTR, pcchbuffersize : *mut u32) -> u32);
-    PdhGetDefaultPerfCounterA(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(szdefaultcountername), core::mem::transmute(pcchbuffersize))
+    PdhGetDefaultPerfCounterA(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(szdefaultcountername.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize))
 }
 #[inline]
-pub unsafe fn PdhGetDefaultPerfCounterHA<P0, P1, P2>(hdatasource: P0, szmachinename: P1, szobjectname: P2, szdefaultcountername: windows_core::PSTR, pcchbuffersize: *mut u32) -> u32
+pub unsafe fn PdhGetDefaultPerfCounterHA<P1, P2>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szobjectname: P2, szdefaultcountername: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetDefaultPerfCounterHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, szobjectname : windows_core::PCSTR, szdefaultcountername : windows_core::PSTR, pcchbuffersize : *mut u32) -> u32);
-    PdhGetDefaultPerfCounterHA(hdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(szdefaultcountername), core::mem::transmute(pcchbuffersize))
+    PdhGetDefaultPerfCounterHA(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(szdefaultcountername.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize))
 }
 #[inline]
-pub unsafe fn PdhGetDefaultPerfCounterHW<P0, P1, P2>(hdatasource: P0, szmachinename: P1, szobjectname: P2, szdefaultcountername: windows_core::PWSTR, pcchbuffersize: *mut u32) -> u32
+pub unsafe fn PdhGetDefaultPerfCounterHW<P1, P2>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szobjectname: P2, szdefaultcountername: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetDefaultPerfCounterHW(hdatasource : PDH_HLOG, szmachinename : windows_core::PCWSTR, szobjectname : windows_core::PCWSTR, szdefaultcountername : windows_core::PWSTR, pcchbuffersize : *mut u32) -> u32);
-    PdhGetDefaultPerfCounterHW(hdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(szdefaultcountername), core::mem::transmute(pcchbuffersize))
+    PdhGetDefaultPerfCounterHW(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(szdefaultcountername.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize))
 }
 #[inline]
-pub unsafe fn PdhGetDefaultPerfCounterW<P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, szdefaultcountername: windows_core::PWSTR, pcchbuffersize: *mut u32) -> u32
+pub unsafe fn PdhGetDefaultPerfCounterW<P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, szdefaultcountername: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetDefaultPerfCounterW(szdatasource : windows_core::PCWSTR, szmachinename : windows_core::PCWSTR, szobjectname : windows_core::PCWSTR, szdefaultcountername : windows_core::PWSTR, pcchbuffersize : *mut u32) -> u32);
-    PdhGetDefaultPerfCounterW(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(szdefaultcountername), core::mem::transmute(pcchbuffersize))
+    PdhGetDefaultPerfCounterW(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(szdefaultcountername.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize))
 }
 #[inline]
-pub unsafe fn PdhGetDefaultPerfObjectA<P0, P1>(szdatasource: P0, szmachinename: P1, szdefaultobjectname: windows_core::PSTR, pcchbuffersize: *mut u32) -> u32
+pub unsafe fn PdhGetDefaultPerfObjectA<P0, P1>(szdatasource: P0, szmachinename: P1, szdefaultobjectname: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetDefaultPerfObjectA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, szdefaultobjectname : windows_core::PSTR, pcchbuffersize : *mut u32) -> u32);
-    PdhGetDefaultPerfObjectA(szdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(szdefaultobjectname), core::mem::transmute(pcchbuffersize))
+    PdhGetDefaultPerfObjectA(szdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(szdefaultobjectname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize))
 }
 #[inline]
-pub unsafe fn PdhGetDefaultPerfObjectHA<P0, P1>(hdatasource: P0, szmachinename: P1, szdefaultobjectname: windows_core::PSTR, pcchbuffersize: *mut u32) -> u32
+pub unsafe fn PdhGetDefaultPerfObjectHA<P1>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szdefaultobjectname: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetDefaultPerfObjectHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, szdefaultobjectname : windows_core::PSTR, pcchbuffersize : *mut u32) -> u32);
-    PdhGetDefaultPerfObjectHA(hdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(szdefaultobjectname), core::mem::transmute(pcchbuffersize))
+    PdhGetDefaultPerfObjectHA(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szmachinename.param().abi(), core::mem::transmute(szdefaultobjectname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize))
 }
 #[inline]
-pub unsafe fn PdhGetDefaultPerfObjectHW<P0, P1>(hdatasource: P0, szmachinename: P1, szdefaultobjectname: windows_core::PWSTR, pcchbuffersize: *mut u32) -> u32
+pub unsafe fn PdhGetDefaultPerfObjectHW<P1>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szdefaultobjectname: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetDefaultPerfObjectHW(hdatasource : PDH_HLOG, szmachinename : windows_core::PCWSTR, szdefaultobjectname : windows_core::PWSTR, pcchbuffersize : *mut u32) -> u32);
-    PdhGetDefaultPerfObjectHW(hdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(szdefaultobjectname), core::mem::transmute(pcchbuffersize))
+    PdhGetDefaultPerfObjectHW(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szmachinename.param().abi(), core::mem::transmute(szdefaultobjectname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize))
 }
 #[inline]
-pub unsafe fn PdhGetDefaultPerfObjectW<P0, P1>(szdatasource: P0, szmachinename: P1, szdefaultobjectname: windows_core::PWSTR, pcchbuffersize: *mut u32) -> u32
+pub unsafe fn PdhGetDefaultPerfObjectW<P0, P1>(szdatasource: P0, szmachinename: P1, szdefaultobjectname: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetDefaultPerfObjectW(szdatasource : windows_core::PCWSTR, szmachinename : windows_core::PCWSTR, szdefaultobjectname : windows_core::PWSTR, pcchbuffersize : *mut u32) -> u32);
-    PdhGetDefaultPerfObjectW(szdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(szdefaultobjectname), core::mem::transmute(pcchbuffersize))
+    PdhGetDefaultPerfObjectW(szdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(szdefaultobjectname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize))
 }
 #[inline]
 pub unsafe fn PdhGetDllVersion(lpdwversion: Option<*mut PDH_DLL_VERSION>) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetDllVersion(lpdwversion : *mut PDH_DLL_VERSION) -> u32);
-    PdhGetDllVersion(core::mem::transmute(lpdwversion.unwrap_or(core::ptr::null_mut())))
+    PdhGetDllVersion(core::mem::transmute(lpdwversion.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn PdhGetFormattedCounterArrayA<P0>(hcounter: P0, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: Option<*mut PDH_FMT_COUNTERVALUE_ITEM_A>) -> u32
-where
-    P0: windows_core::Param<PDH_HCOUNTER>,
-{
+pub unsafe fn PdhGetFormattedCounterArrayA(hcounter: PDH_HCOUNTER, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: Option<*mut PDH_FMT_COUNTERVALUE_ITEM_A>) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetFormattedCounterArrayA(hcounter : PDH_HCOUNTER, dwformat : PDH_FMT, lpdwbuffersize : *mut u32, lpdwitemcount : *mut u32, itembuffer : *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> u32);
-    PdhGetFormattedCounterArrayA(hcounter.param().abi(), core::mem::transmute(dwformat), core::mem::transmute(lpdwbuffersize), core::mem::transmute(lpdwitemcount), core::mem::transmute(itembuffer.unwrap_or(core::ptr::null_mut())))
+    PdhGetFormattedCounterArrayA(core::mem::transmute(hcounter), core::mem::transmute(dwformat), core::mem::transmute(lpdwbuffersize), core::mem::transmute(lpdwitemcount), core::mem::transmute(itembuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn PdhGetFormattedCounterArrayW<P0>(hcounter: P0, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: Option<*mut PDH_FMT_COUNTERVALUE_ITEM_W>) -> u32
-where
-    P0: windows_core::Param<PDH_HCOUNTER>,
-{
+pub unsafe fn PdhGetFormattedCounterArrayW(hcounter: PDH_HCOUNTER, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: Option<*mut PDH_FMT_COUNTERVALUE_ITEM_W>) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetFormattedCounterArrayW(hcounter : PDH_HCOUNTER, dwformat : PDH_FMT, lpdwbuffersize : *mut u32, lpdwitemcount : *mut u32, itembuffer : *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> u32);
-    PdhGetFormattedCounterArrayW(hcounter.param().abi(), core::mem::transmute(dwformat), core::mem::transmute(lpdwbuffersize), core::mem::transmute(lpdwitemcount), core::mem::transmute(itembuffer.unwrap_or(core::ptr::null_mut())))
+    PdhGetFormattedCounterArrayW(core::mem::transmute(hcounter), core::mem::transmute(dwformat), core::mem::transmute(lpdwbuffersize), core::mem::transmute(lpdwitemcount), core::mem::transmute(itembuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn PdhGetFormattedCounterValue<P0>(hcounter: P0, dwformat: PDH_FMT, lpdwtype: Option<*mut u32>, pvalue: *mut PDH_FMT_COUNTERVALUE) -> u32
-where
-    P0: windows_core::Param<PDH_HCOUNTER>,
-{
+pub unsafe fn PdhGetFormattedCounterValue(hcounter: PDH_HCOUNTER, dwformat: PDH_FMT, lpdwtype: Option<*mut u32>, pvalue: *mut PDH_FMT_COUNTERVALUE) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetFormattedCounterValue(hcounter : PDH_HCOUNTER, dwformat : PDH_FMT, lpdwtype : *mut u32, pvalue : *mut PDH_FMT_COUNTERVALUE) -> u32);
-    PdhGetFormattedCounterValue(hcounter.param().abi(), core::mem::transmute(dwformat), core::mem::transmute(lpdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvalue))
+    PdhGetFormattedCounterValue(core::mem::transmute(hcounter), core::mem::transmute(dwformat), core::mem::transmute(lpdwtype.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvalue))
 }
 #[inline]
-pub unsafe fn PdhGetLogFileSize<P0>(hlog: P0, llsize: *mut i64) -> u32
-where
-    P0: windows_core::Param<PDH_HLOG>,
-{
+pub unsafe fn PdhGetLogFileSize(hlog: PDH_HLOG, llsize: *mut i64) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetLogFileSize(hlog : PDH_HLOG, llsize : *mut i64) -> u32);
-    PdhGetLogFileSize(hlog.param().abi(), core::mem::transmute(llsize))
+    PdhGetLogFileSize(core::mem::transmute(hlog), core::mem::transmute(llsize))
 }
 #[inline]
-pub unsafe fn PdhGetLogSetGUID<P0>(hlog: P0, pguid: Option<*mut windows_core::GUID>, prunid: Option<*mut i32>) -> u32
-where
-    P0: windows_core::Param<PDH_HLOG>,
-{
+pub unsafe fn PdhGetLogSetGUID(hlog: PDH_HLOG, pguid: Option<*mut windows_core::GUID>, prunid: Option<*mut i32>) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetLogSetGUID(hlog : PDH_HLOG, pguid : *mut windows_core::GUID, prunid : *mut i32) -> u32);
-    PdhGetLogSetGUID(hlog.param().abi(), core::mem::transmute(pguid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(prunid.unwrap_or(core::ptr::null_mut())))
+    PdhGetLogSetGUID(core::mem::transmute(hlog), core::mem::transmute(pguid.unwrap_or(core::mem::zeroed())), core::mem::transmute(prunid.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn PdhGetRawCounterArrayA<P0>(hcounter: P0, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: Option<*mut PDH_RAW_COUNTER_ITEM_A>) -> u32
-where
-    P0: windows_core::Param<PDH_HCOUNTER>,
-{
+pub unsafe fn PdhGetRawCounterArrayA(hcounter: PDH_HCOUNTER, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: Option<*mut PDH_RAW_COUNTER_ITEM_A>) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetRawCounterArrayA(hcounter : PDH_HCOUNTER, lpdwbuffersize : *mut u32, lpdwitemcount : *mut u32, itembuffer : *mut PDH_RAW_COUNTER_ITEM_A) -> u32);
-    PdhGetRawCounterArrayA(hcounter.param().abi(), core::mem::transmute(lpdwbuffersize), core::mem::transmute(lpdwitemcount), core::mem::transmute(itembuffer.unwrap_or(core::ptr::null_mut())))
+    PdhGetRawCounterArrayA(core::mem::transmute(hcounter), core::mem::transmute(lpdwbuffersize), core::mem::transmute(lpdwitemcount), core::mem::transmute(itembuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn PdhGetRawCounterArrayW<P0>(hcounter: P0, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: Option<*mut PDH_RAW_COUNTER_ITEM_W>) -> u32
-where
-    P0: windows_core::Param<PDH_HCOUNTER>,
-{
+pub unsafe fn PdhGetRawCounterArrayW(hcounter: PDH_HCOUNTER, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: Option<*mut PDH_RAW_COUNTER_ITEM_W>) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetRawCounterArrayW(hcounter : PDH_HCOUNTER, lpdwbuffersize : *mut u32, lpdwitemcount : *mut u32, itembuffer : *mut PDH_RAW_COUNTER_ITEM_W) -> u32);
-    PdhGetRawCounterArrayW(hcounter.param().abi(), core::mem::transmute(lpdwbuffersize), core::mem::transmute(lpdwitemcount), core::mem::transmute(itembuffer.unwrap_or(core::ptr::null_mut())))
+    PdhGetRawCounterArrayW(core::mem::transmute(hcounter), core::mem::transmute(lpdwbuffersize), core::mem::transmute(lpdwitemcount), core::mem::transmute(itembuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn PdhGetRawCounterValue<P0>(hcounter: P0, lpdwtype: Option<*mut u32>, pvalue: *mut PDH_RAW_COUNTER) -> u32
-where
-    P0: windows_core::Param<PDH_HCOUNTER>,
-{
+pub unsafe fn PdhGetRawCounterValue(hcounter: PDH_HCOUNTER, lpdwtype: Option<*mut u32>, pvalue: *mut PDH_RAW_COUNTER) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetRawCounterValue(hcounter : PDH_HCOUNTER, lpdwtype : *mut u32, pvalue : *mut PDH_RAW_COUNTER) -> u32);
-    PdhGetRawCounterValue(hcounter.param().abi(), core::mem::transmute(lpdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvalue))
+    PdhGetRawCounterValue(core::mem::transmute(hcounter), core::mem::transmute(lpdwtype.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvalue))
 }
 #[inline]
-pub unsafe fn PdhIsRealTimeQuery<P0>(hquery: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<PDH_HQUERY>,
-{
+pub unsafe fn PdhIsRealTimeQuery(hquery: PDH_HQUERY) -> super::super::Foundation::BOOL {
     windows_targets::link!("pdh.dll" "system" fn PdhIsRealTimeQuery(hquery : PDH_HQUERY) -> super::super::Foundation:: BOOL);
-    PdhIsRealTimeQuery(hquery.param().abi())
+    PdhIsRealTimeQuery(core::mem::transmute(hquery))
 }
 #[inline]
 pub unsafe fn PdhLookupPerfIndexByNameA<P0, P1>(szmachinename: P0, sznamebuffer: P1, pdwindex: *mut u32) -> u32
@@ -601,50 +536,48 @@ where
     PdhLookupPerfIndexByNameW(szmachinename.param().abi(), sznamebuffer.param().abi(), core::mem::transmute(pdwindex))
 }
 #[inline]
-pub unsafe fn PdhLookupPerfNameByIndexA<P0>(szmachinename: P0, dwnameindex: u32, sznamebuffer: windows_core::PSTR, pcchnamebuffersize: *mut u32) -> u32
+pub unsafe fn PdhLookupPerfNameByIndexA<P0>(szmachinename: P0, dwnameindex: u32, sznamebuffer: Option<windows_core::PSTR>, pcchnamebuffersize: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhLookupPerfNameByIndexA(szmachinename : windows_core::PCSTR, dwnameindex : u32, sznamebuffer : windows_core::PSTR, pcchnamebuffersize : *mut u32) -> u32);
-    PdhLookupPerfNameByIndexA(szmachinename.param().abi(), core::mem::transmute(dwnameindex), core::mem::transmute(sznamebuffer), core::mem::transmute(pcchnamebuffersize))
+    PdhLookupPerfNameByIndexA(szmachinename.param().abi(), core::mem::transmute(dwnameindex), core::mem::transmute(sznamebuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchnamebuffersize))
 }
 #[inline]
-pub unsafe fn PdhLookupPerfNameByIndexW<P0>(szmachinename: P0, dwnameindex: u32, sznamebuffer: windows_core::PWSTR, pcchnamebuffersize: *mut u32) -> u32
+pub unsafe fn PdhLookupPerfNameByIndexW<P0>(szmachinename: P0, dwnameindex: u32, sznamebuffer: Option<windows_core::PWSTR>, pcchnamebuffersize: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhLookupPerfNameByIndexW(szmachinename : windows_core::PCWSTR, dwnameindex : u32, sznamebuffer : windows_core::PWSTR, pcchnamebuffersize : *mut u32) -> u32);
-    PdhLookupPerfNameByIndexW(szmachinename.param().abi(), core::mem::transmute(dwnameindex), core::mem::transmute(sznamebuffer), core::mem::transmute(pcchnamebuffersize))
+    PdhLookupPerfNameByIndexW(szmachinename.param().abi(), core::mem::transmute(dwnameindex), core::mem::transmute(sznamebuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchnamebuffersize))
 }
 #[inline]
-pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: windows_core::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> u32 {
+pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: Option<windows_core::PSTR>, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhMakeCounterPathA(pcounterpathelements : *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer : windows_core::PSTR, pcchbuffersize : *mut u32, dwflags : PDH_PATH_FLAGS) -> u32);
-    PdhMakeCounterPathA(core::mem::transmute(pcounterpathelements), core::mem::transmute(szfullpathbuffer), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwflags))
+    PdhMakeCounterPathA(core::mem::transmute(pcounterpathelements), core::mem::transmute(szfullpathbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> u32 {
+pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhMakeCounterPathW(pcounterpathelements : *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer : windows_core::PWSTR, pcchbuffersize : *mut u32, dwflags : PDH_PATH_FLAGS) -> u32);
-    PdhMakeCounterPathW(core::mem::transmute(pcounterpathelements), core::mem::transmute(szfullpathbuffer), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwflags))
+    PdhMakeCounterPathW(core::mem::transmute(pcounterpathelements), core::mem::transmute(szfullpathbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn PdhOpenLogA<P0, P3, P5>(szlogfilename: P0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: P3, dwmaxsize: u32, szusercaption: P5, phlog: *mut PDH_HLOG) -> u32
+pub unsafe fn PdhOpenLogA<P0, P5>(szlogfilename: P0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: Option<PDH_HQUERY>, dwmaxsize: u32, szusercaption: P5, phlog: *mut PDH_HLOG) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<PDH_HQUERY>,
     P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhOpenLogA(szlogfilename : windows_core::PCSTR, dwaccessflags : PDH_LOG, lpdwlogtype : *mut PDH_LOG_TYPE, hquery : PDH_HQUERY, dwmaxsize : u32, szusercaption : windows_core::PCSTR, phlog : *mut PDH_HLOG) -> u32);
-    PdhOpenLogA(szlogfilename.param().abi(), core::mem::transmute(dwaccessflags), core::mem::transmute(lpdwlogtype), hquery.param().abi(), core::mem::transmute(dwmaxsize), szusercaption.param().abi(), core::mem::transmute(phlog))
+    PdhOpenLogA(szlogfilename.param().abi(), core::mem::transmute(dwaccessflags), core::mem::transmute(lpdwlogtype), core::mem::transmute(hquery.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwmaxsize), szusercaption.param().abi(), core::mem::transmute(phlog))
 }
 #[inline]
-pub unsafe fn PdhOpenLogW<P0, P3, P5>(szlogfilename: P0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: P3, dwmaxsize: u32, szusercaption: P5, phlog: *mut PDH_HLOG) -> u32
+pub unsafe fn PdhOpenLogW<P0, P5>(szlogfilename: P0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: Option<PDH_HQUERY>, dwmaxsize: u32, szusercaption: P5, phlog: *mut PDH_HLOG) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<PDH_HQUERY>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhOpenLogW(szlogfilename : windows_core::PCWSTR, dwaccessflags : PDH_LOG, lpdwlogtype : *mut PDH_LOG_TYPE, hquery : PDH_HQUERY, dwmaxsize : u32, szusercaption : windows_core::PCWSTR, phlog : *mut PDH_HLOG) -> u32);
-    PdhOpenLogW(szlogfilename.param().abi(), core::mem::transmute(dwaccessflags), core::mem::transmute(lpdwlogtype), hquery.param().abi(), core::mem::transmute(dwmaxsize), szusercaption.param().abi(), core::mem::transmute(phlog))
+    PdhOpenLogW(szlogfilename.param().abi(), core::mem::transmute(dwaccessflags), core::mem::transmute(lpdwlogtype), core::mem::transmute(hquery.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwmaxsize), szusercaption.param().abi(), core::mem::transmute(phlog))
 }
 #[inline]
 pub unsafe fn PdhOpenQueryA<P0>(szdatasource: P0, dwuserdata: usize, phquery: *mut PDH_HQUERY) -> u32
@@ -655,12 +588,9 @@ where
     PdhOpenQueryA(szdatasource.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(phquery))
 }
 #[inline]
-pub unsafe fn PdhOpenQueryH<P0>(hdatasource: P0, dwuserdata: usize, phquery: *mut PDH_HQUERY) -> u32
-where
-    P0: windows_core::Param<PDH_HLOG>,
-{
+pub unsafe fn PdhOpenQueryH(hdatasource: Option<PDH_HLOG>, dwuserdata: usize, phquery: *mut PDH_HQUERY) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhOpenQueryH(hdatasource : PDH_HLOG, dwuserdata : usize, phquery : *mut PDH_HQUERY) -> u32);
-    PdhOpenQueryH(hdatasource.param().abi(), core::mem::transmute(dwuserdata), core::mem::transmute(phquery))
+    PdhOpenQueryH(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwuserdata), core::mem::transmute(phquery))
 }
 #[inline]
 pub unsafe fn PdhOpenQueryW<P0>(szdatasource: P0, dwuserdata: usize, phquery: *mut PDH_HQUERY) -> u32
@@ -676,7 +606,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhParseCounterPathA(szfullpathbuffer : windows_core::PCSTR, pcounterpathelements : *mut PDH_COUNTER_PATH_ELEMENTS_A, pdwbuffersize : *mut u32, dwflags : u32) -> u32);
-    PdhParseCounterPathA(szfullpathbuffer.param().abi(), core::mem::transmute(pcounterpathelements.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwbuffersize), core::mem::transmute(dwflags))
+    PdhParseCounterPathA(szfullpathbuffer.param().abi(), core::mem::transmute(pcounterpathelements.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwbuffersize), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn PdhParseCounterPathW<P0>(szfullpathbuffer: P0, pcounterpathelements: Option<*mut PDH_COUNTER_PATH_ELEMENTS_W>, pdwbuffersize: *mut u32, dwflags: u32) -> u32
@@ -684,55 +614,43 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhParseCounterPathW(szfullpathbuffer : windows_core::PCWSTR, pcounterpathelements : *mut PDH_COUNTER_PATH_ELEMENTS_W, pdwbuffersize : *mut u32, dwflags : u32) -> u32);
-    PdhParseCounterPathW(szfullpathbuffer.param().abi(), core::mem::transmute(pcounterpathelements.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwbuffersize), core::mem::transmute(dwflags))
+    PdhParseCounterPathW(szfullpathbuffer.param().abi(), core::mem::transmute(pcounterpathelements.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwbuffersize), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn PdhParseInstanceNameA<P0>(szinstancestring: P0, szinstancename: windows_core::PSTR, pcchinstancenamelength: *mut u32, szparentname: windows_core::PSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> u32
+pub unsafe fn PdhParseInstanceNameA<P0>(szinstancestring: P0, szinstancename: Option<windows_core::PSTR>, pcchinstancenamelength: *mut u32, szparentname: Option<windows_core::PSTR>, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhParseInstanceNameA(szinstancestring : windows_core::PCSTR, szinstancename : windows_core::PSTR, pcchinstancenamelength : *mut u32, szparentname : windows_core::PSTR, pcchparentnamelength : *mut u32, lpindex : *mut u32) -> u32);
-    PdhParseInstanceNameA(szinstancestring.param().abi(), core::mem::transmute(szinstancename), core::mem::transmute(pcchinstancenamelength), core::mem::transmute(szparentname), core::mem::transmute(pcchparentnamelength), core::mem::transmute(lpindex))
+    PdhParseInstanceNameA(szinstancestring.param().abi(), core::mem::transmute(szinstancename.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchinstancenamelength), core::mem::transmute(szparentname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchparentnamelength), core::mem::transmute(lpindex))
 }
 #[inline]
-pub unsafe fn PdhParseInstanceNameW<P0>(szinstancestring: P0, szinstancename: windows_core::PWSTR, pcchinstancenamelength: *mut u32, szparentname: windows_core::PWSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> u32
+pub unsafe fn PdhParseInstanceNameW<P0>(szinstancestring: P0, szinstancename: Option<windows_core::PWSTR>, pcchinstancenamelength: *mut u32, szparentname: Option<windows_core::PWSTR>, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhParseInstanceNameW(szinstancestring : windows_core::PCWSTR, szinstancename : windows_core::PWSTR, pcchinstancenamelength : *mut u32, szparentname : windows_core::PWSTR, pcchparentnamelength : *mut u32, lpindex : *mut u32) -> u32);
-    PdhParseInstanceNameW(szinstancestring.param().abi(), core::mem::transmute(szinstancename), core::mem::transmute(pcchinstancenamelength), core::mem::transmute(szparentname), core::mem::transmute(pcchparentnamelength), core::mem::transmute(lpindex))
+    PdhParseInstanceNameW(szinstancestring.param().abi(), core::mem::transmute(szinstancename.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchinstancenamelength), core::mem::transmute(szparentname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchparentnamelength), core::mem::transmute(lpindex))
 }
 #[inline]
-pub unsafe fn PdhReadRawLogRecord<P0>(hlog: P0, ftrecord: super::super::Foundation::FILETIME, prawlogrecord: Option<*mut PDH_RAW_LOG_RECORD>, pdwbufferlength: *mut u32) -> u32
-where
-    P0: windows_core::Param<PDH_HLOG>,
-{
+pub unsafe fn PdhReadRawLogRecord(hlog: PDH_HLOG, ftrecord: super::super::Foundation::FILETIME, prawlogrecord: Option<*mut PDH_RAW_LOG_RECORD>, pdwbufferlength: *mut u32) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhReadRawLogRecord(hlog : PDH_HLOG, ftrecord : super::super::Foundation:: FILETIME, prawlogrecord : *mut PDH_RAW_LOG_RECORD, pdwbufferlength : *mut u32) -> u32);
-    PdhReadRawLogRecord(hlog.param().abi(), core::mem::transmute(ftrecord), core::mem::transmute(prawlogrecord.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwbufferlength))
+    PdhReadRawLogRecord(core::mem::transmute(hlog), core::mem::transmute(ftrecord), core::mem::transmute(prawlogrecord.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwbufferlength))
 }
 #[inline]
-pub unsafe fn PdhRemoveCounter<P0>(hcounter: P0) -> u32
-where
-    P0: windows_core::Param<PDH_HCOUNTER>,
-{
+pub unsafe fn PdhRemoveCounter(hcounter: PDH_HCOUNTER) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhRemoveCounter(hcounter : PDH_HCOUNTER) -> u32);
-    PdhRemoveCounter(hcounter.param().abi())
+    PdhRemoveCounter(core::mem::transmute(hcounter))
 }
 #[inline]
-pub unsafe fn PdhSelectDataSourceA<P0>(hwndowner: P0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: windows_core::PSTR, pcchbufferlength: *mut u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn PdhSelectDataSourceA(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: windows_core::PSTR, pcchbufferlength: *mut u32) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhSelectDataSourceA(hwndowner : super::super::Foundation:: HWND, dwflags : PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource : windows_core::PSTR, pcchbufferlength : *mut u32) -> u32);
-    PdhSelectDataSourceA(hwndowner.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(szdatasource), core::mem::transmute(pcchbufferlength))
+    PdhSelectDataSourceA(core::mem::transmute(hwndowner), core::mem::transmute(dwflags), core::mem::transmute(szdatasource), core::mem::transmute(pcchbufferlength))
 }
 #[inline]
-pub unsafe fn PdhSelectDataSourceW<P0>(hwndowner: P0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: windows_core::PWSTR, pcchbufferlength: *mut u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn PdhSelectDataSourceW(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: windows_core::PWSTR, pcchbufferlength: *mut u32) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhSelectDataSourceW(hwndowner : super::super::Foundation:: HWND, dwflags : PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource : windows_core::PWSTR, pcchbufferlength : *mut u32) -> u32);
-    PdhSelectDataSourceW(hwndowner.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(szdatasource), core::mem::transmute(pcchbufferlength))
+    PdhSelectDataSourceW(core::mem::transmute(hwndowner), core::mem::transmute(dwflags), core::mem::transmute(szdatasource), core::mem::transmute(pcchbufferlength))
 }
 #[inline]
 pub unsafe fn PdhSetCounterScaleFactor(hcounter: PDH_HCOUNTER, lfactor: i32) -> u32 {
@@ -750,38 +668,30 @@ pub unsafe fn PdhSetLogSetRunID(hlog: PDH_HLOG, runid: i32) -> u32 {
     PdhSetLogSetRunID(core::mem::transmute(hlog), core::mem::transmute(runid))
 }
 #[inline]
-pub unsafe fn PdhSetQueryTimeRange<P0>(hquery: P0, pinfo: *const PDH_TIME_INFO) -> u32
-where
-    P0: windows_core::Param<PDH_HQUERY>,
-{
+pub unsafe fn PdhSetQueryTimeRange(hquery: PDH_HQUERY, pinfo: *const PDH_TIME_INFO) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhSetQueryTimeRange(hquery : PDH_HQUERY, pinfo : *const PDH_TIME_INFO) -> u32);
-    PdhSetQueryTimeRange(hquery.param().abi(), core::mem::transmute(pinfo))
+    PdhSetQueryTimeRange(core::mem::transmute(hquery), core::mem::transmute(pinfo))
 }
 #[inline]
-pub unsafe fn PdhUpdateLogA<P0, P1>(hlog: P0, szuserstring: P1) -> u32
+pub unsafe fn PdhUpdateLogA<P1>(hlog: PDH_HLOG, szuserstring: P1) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhUpdateLogA(hlog : PDH_HLOG, szuserstring : windows_core::PCSTR) -> u32);
-    PdhUpdateLogA(hlog.param().abi(), szuserstring.param().abi())
+    PdhUpdateLogA(core::mem::transmute(hlog), szuserstring.param().abi())
 }
 #[inline]
-pub unsafe fn PdhUpdateLogFileCatalog<P0>(hlog: P0) -> u32
-where
-    P0: windows_core::Param<PDH_HLOG>,
-{
+pub unsafe fn PdhUpdateLogFileCatalog(hlog: PDH_HLOG) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhUpdateLogFileCatalog(hlog : PDH_HLOG) -> u32);
-    PdhUpdateLogFileCatalog(hlog.param().abi())
+    PdhUpdateLogFileCatalog(core::mem::transmute(hlog))
 }
 #[inline]
-pub unsafe fn PdhUpdateLogW<P0, P1>(hlog: P0, szuserstring: P1) -> u32
+pub unsafe fn PdhUpdateLogW<P1>(hlog: PDH_HLOG, szuserstring: P1) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhUpdateLogW(hlog : PDH_HLOG, szuserstring : windows_core::PCWSTR) -> u32);
-    PdhUpdateLogW(hlog.param().abi(), szuserstring.param().abi())
+    PdhUpdateLogW(core::mem::transmute(hlog), szuserstring.param().abi())
 }
 #[inline]
 pub unsafe fn PdhValidatePathA<P0>(szfullpathbuffer: P0) -> u32
@@ -792,22 +702,20 @@ where
     PdhValidatePathA(szfullpathbuffer.param().abi())
 }
 #[inline]
-pub unsafe fn PdhValidatePathExA<P0, P1>(hdatasource: P0, szfullpathbuffer: P1) -> u32
+pub unsafe fn PdhValidatePathExA<P1>(hdatasource: Option<PDH_HLOG>, szfullpathbuffer: P1) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhValidatePathExA(hdatasource : PDH_HLOG, szfullpathbuffer : windows_core::PCSTR) -> u32);
-    PdhValidatePathExA(hdatasource.param().abi(), szfullpathbuffer.param().abi())
+    PdhValidatePathExA(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szfullpathbuffer.param().abi())
 }
 #[inline]
-pub unsafe fn PdhValidatePathExW<P0, P1>(hdatasource: P0, szfullpathbuffer: P1) -> u32
+pub unsafe fn PdhValidatePathExW<P1>(hdatasource: Option<PDH_HLOG>, szfullpathbuffer: P1) -> u32
 where
-    P0: windows_core::Param<PDH_HLOG>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhValidatePathExW(hdatasource : PDH_HLOG, szfullpathbuffer : windows_core::PCWSTR) -> u32);
-    PdhValidatePathExW(hdatasource.param().abi(), szfullpathbuffer.param().abi())
+    PdhValidatePathExW(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szfullpathbuffer.param().abi())
 }
 #[inline]
 pub unsafe fn PdhValidatePathW<P0>(szfullpathbuffer: P0) -> u32
@@ -834,61 +742,42 @@ where
     PdhVerifySQLDBW(szdatasource.param().abi())
 }
 #[inline]
-pub unsafe fn PerfAddCounters<P0>(hquery: P0, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfAddCounters(hquery: super::super::Foundation::HANDLE, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfAddCounters(hquery : super::super::Foundation:: HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
-    PerfAddCounters(hquery.param().abi(), core::mem::transmute(pcounters), core::mem::transmute(cbcounters))
+    PerfAddCounters(core::mem::transmute(hquery), core::mem::transmute(pcounters), core::mem::transmute(cbcounters))
 }
 #[inline]
-pub unsafe fn PerfCloseQueryHandle<P0>(hquery: P0) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfCloseQueryHandle(hquery: super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfCloseQueryHandle(hquery : super::super::Foundation:: HANDLE) -> u32);
-    PerfCloseQueryHandle(hquery.param().abi())
+    PerfCloseQueryHandle(core::mem::transmute(hquery))
 }
 #[inline]
-pub unsafe fn PerfCreateInstance<P0, P2>(providerhandle: P0, countersetguid: *const windows_core::GUID, name: P2, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
+pub unsafe fn PerfCreateInstance<P2>(providerhandle: super::super::Foundation::HANDLE, countersetguid: *const windows_core::GUID, name: P2, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn PerfCreateInstance(providerhandle : super::super::Foundation:: HANDLE, countersetguid : *const windows_core::GUID, name : windows_core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
-    PerfCreateInstance(providerhandle.param().abi(), core::mem::transmute(countersetguid), name.param().abi(), core::mem::transmute(id))
+    PerfCreateInstance(core::mem::transmute(providerhandle), core::mem::transmute(countersetguid), name.param().abi(), core::mem::transmute(id))
 }
 #[inline]
-pub unsafe fn PerfDecrementULongCounterValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfDecrementULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfDecrementULongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
-    PerfDecrementULongCounterValue(provider.param().abi(), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(value))
+    PerfDecrementULongCounterValue(core::mem::transmute(provider), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(value))
 }
 #[inline]
-pub unsafe fn PerfDecrementULongLongCounterValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfDecrementULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfDecrementULongLongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
-    PerfDecrementULongLongCounterValue(provider.param().abi(), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(value))
+    PerfDecrementULongLongCounterValue(core::mem::transmute(provider), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(value))
 }
 #[inline]
-pub unsafe fn PerfDeleteCounters<P0>(hquery: P0, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfDeleteCounters(hquery: super::super::Foundation::HANDLE, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfDeleteCounters(hquery : super::super::Foundation:: HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
-    PerfDeleteCounters(hquery.param().abi(), core::mem::transmute(pcounters), core::mem::transmute(cbcounters))
+    PerfDeleteCounters(core::mem::transmute(hquery), core::mem::transmute(pcounters), core::mem::transmute(cbcounters))
 }
 #[inline]
-pub unsafe fn PerfDeleteInstance<P0>(provider: P0, instanceblock: *const PERF_COUNTERSET_INSTANCE) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfDeleteInstance(provider: super::super::Foundation::HANDLE, instanceblock: *const PERF_COUNTERSET_INSTANCE) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfDeleteInstance(provider : super::super::Foundation:: HANDLE, instanceblock : *const PERF_COUNTERSET_INSTANCE) -> u32);
-    PerfDeleteInstance(provider.param().abi(), core::mem::transmute(instanceblock))
+    PerfDeleteInstance(core::mem::transmute(provider), core::mem::transmute(instanceblock))
 }
 #[inline]
 pub unsafe fn PerfEnumerateCounterSet<P0>(szmachine: P0, pcountersetids: Option<&mut [windows_core::GUID]>, pccountersetidsactual: *mut u32) -> u32
@@ -904,23 +793,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn PerfEnumerateCounterSetInstances(szmachine : windows_core::PCWSTR, pcountersetid : *const windows_core::GUID, pinstances : *mut PERF_INSTANCE_HEADER, cbinstances : u32, pcbinstancesactual : *mut u32) -> u32);
-    PerfEnumerateCounterSetInstances(szmachine.param().abi(), core::mem::transmute(pcountersetid), core::mem::transmute(pinstances.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbinstances), core::mem::transmute(pcbinstancesactual))
+    PerfEnumerateCounterSetInstances(szmachine.param().abi(), core::mem::transmute(pcountersetid), core::mem::transmute(pinstances.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbinstances), core::mem::transmute(pcbinstancesactual))
 }
 #[inline]
-pub unsafe fn PerfIncrementULongCounterValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfIncrementULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfIncrementULongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
-    PerfIncrementULongCounterValue(provider.param().abi(), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(value))
+    PerfIncrementULongCounterValue(core::mem::transmute(provider), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(value))
 }
 #[inline]
-pub unsafe fn PerfIncrementULongLongCounterValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfIncrementULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfIncrementULongLongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
-    PerfIncrementULongLongCounterValue(provider.param().abi(), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(value))
+    PerfIncrementULongLongCounterValue(core::mem::transmute(provider), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(value))
 }
 #[inline]
 pub unsafe fn PerfOpenQueryHandle<P0>(szmachine: P0, phquery: *mut super::super::Foundation::HANDLE) -> u32
@@ -931,20 +814,14 @@ where
     PerfOpenQueryHandle(szmachine.param().abi(), core::mem::transmute(phquery))
 }
 #[inline]
-pub unsafe fn PerfQueryCounterData<P0>(hquery: P0, pcounterblock: Option<*mut PERF_DATA_HEADER>, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfQueryCounterData(hquery: super::super::Foundation::HANDLE, pcounterblock: Option<*mut PERF_DATA_HEADER>, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfQueryCounterData(hquery : super::super::Foundation:: HANDLE, pcounterblock : *mut PERF_DATA_HEADER, cbcounterblock : u32, pcbcounterblockactual : *mut u32) -> u32);
-    PerfQueryCounterData(hquery.param().abi(), core::mem::transmute(pcounterblock.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbcounterblock), core::mem::transmute(pcbcounterblockactual))
+    PerfQueryCounterData(core::mem::transmute(hquery), core::mem::transmute(pcounterblock.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbcounterblock), core::mem::transmute(pcbcounterblockactual))
 }
 #[inline]
-pub unsafe fn PerfQueryCounterInfo<P0>(hquery: P0, pcounters: Option<*mut PERF_COUNTER_IDENTIFIER>, cbcounters: u32, pcbcountersactual: *mut u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfQueryCounterInfo(hquery: super::super::Foundation::HANDLE, pcounters: Option<*mut PERF_COUNTER_IDENTIFIER>, cbcounters: u32, pcbcountersactual: *mut u32) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfQueryCounterInfo(hquery : super::super::Foundation:: HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32, pcbcountersactual : *mut u32) -> u32);
-    PerfQueryCounterInfo(hquery.param().abi(), core::mem::transmute(pcounters.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbcounters), core::mem::transmute(pcbcountersactual))
+    PerfQueryCounterInfo(core::mem::transmute(hquery), core::mem::transmute(pcounters.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbcounters), core::mem::transmute(pcbcountersactual))
 }
 #[inline]
 pub unsafe fn PerfQueryCounterSetRegistrationInfo<P0>(szmachine: P0, pcountersetid: *const windows_core::GUID, requestcode: PerfRegInfoType, requestlangid: u32, pbreginfo: Option<&mut [u8]>, pcbreginfoactual: *mut u32) -> u32
@@ -955,63 +832,47 @@ where
     PerfQueryCounterSetRegistrationInfo(szmachine.param().abi(), core::mem::transmute(pcountersetid), core::mem::transmute(requestcode), core::mem::transmute(requestlangid), core::mem::transmute(pbreginfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbreginfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbreginfoactual))
 }
 #[inline]
-pub unsafe fn PerfQueryInstance<P0, P2>(providerhandle: P0, countersetguid: *const windows_core::GUID, name: P2, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
+pub unsafe fn PerfQueryInstance<P2>(providerhandle: super::super::Foundation::HANDLE, countersetguid: *const windows_core::GUID, name: P2, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn PerfQueryInstance(providerhandle : super::super::Foundation:: HANDLE, countersetguid : *const windows_core::GUID, name : windows_core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
-    PerfQueryInstance(providerhandle.param().abi(), core::mem::transmute(countersetguid), name.param().abi(), core::mem::transmute(id))
+    PerfQueryInstance(core::mem::transmute(providerhandle), core::mem::transmute(countersetguid), name.param().abi(), core::mem::transmute(id))
 }
 #[inline]
-pub unsafe fn PerfSetCounterRefValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, address: *const core::ffi::c_void) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfSetCounterRefValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, address: *const core::ffi::c_void) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfSetCounterRefValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, address : *const core::ffi::c_void) -> u32);
-    PerfSetCounterRefValue(provider.param().abi(), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(address))
+    PerfSetCounterRefValue(core::mem::transmute(provider), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(address))
 }
 #[inline]
-pub unsafe fn PerfSetCounterSetInfo<P0>(providerhandle: P0, template: *mut PERF_COUNTERSET_INFO, templatesize: u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfSetCounterSetInfo(providerhandle: super::super::Foundation::HANDLE, template: *mut PERF_COUNTERSET_INFO, templatesize: u32) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfSetCounterSetInfo(providerhandle : super::super::Foundation:: HANDLE, template : *mut PERF_COUNTERSET_INFO, templatesize : u32) -> u32);
-    PerfSetCounterSetInfo(providerhandle.param().abi(), core::mem::transmute(template), core::mem::transmute(templatesize))
+    PerfSetCounterSetInfo(core::mem::transmute(providerhandle), core::mem::transmute(template), core::mem::transmute(templatesize))
 }
 #[inline]
-pub unsafe fn PerfSetULongCounterValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfSetULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfSetULongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
-    PerfSetULongCounterValue(provider.param().abi(), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(value))
+    PerfSetULongCounterValue(core::mem::transmute(provider), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(value))
 }
 #[inline]
-pub unsafe fn PerfSetULongLongCounterValue<P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfSetULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfSetULongLongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
-    PerfSetULongLongCounterValue(provider.param().abi(), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(value))
+    PerfSetULongLongCounterValue(core::mem::transmute(provider), core::mem::transmute(instance), core::mem::transmute(counterid), core::mem::transmute(value))
 }
 #[inline]
-pub unsafe fn PerfStartProvider(providerguid: *const windows_core::GUID, controlcallback: PERFLIBREQUEST, phprovider: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn PerfStartProvider(providerguid: *const windows_core::GUID, controlcallback: Option<PERFLIBREQUEST>, phprovider: *mut super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfStartProvider(providerguid : *const windows_core::GUID, controlcallback : PERFLIBREQUEST, phprovider : *mut super::super::Foundation:: HANDLE) -> u32);
-    PerfStartProvider(core::mem::transmute(providerguid), core::mem::transmute(controlcallback), core::mem::transmute(phprovider))
+    PerfStartProvider(core::mem::transmute(providerguid), core::mem::transmute(controlcallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(phprovider))
 }
 #[inline]
 pub unsafe fn PerfStartProviderEx(providerguid: *const windows_core::GUID, providercontext: Option<*const PERF_PROVIDER_CONTEXT>, provider: *mut super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfStartProviderEx(providerguid : *const windows_core::GUID, providercontext : *const PERF_PROVIDER_CONTEXT, provider : *mut super::super::Foundation:: HANDLE) -> u32);
-    PerfStartProviderEx(core::mem::transmute(providerguid), core::mem::transmute(providercontext.unwrap_or(core::ptr::null())), core::mem::transmute(provider))
+    PerfStartProviderEx(core::mem::transmute(providerguid), core::mem::transmute(providercontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(provider))
 }
 #[inline]
-pub unsafe fn PerfStopProvider<P0>(providerhandle: P0) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn PerfStopProvider(providerhandle: super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn PerfStopProvider(providerhandle : super::super::Foundation:: HANDLE) -> u32);
-    PerfStopProvider(providerhandle.param().abi())
+    PerfStopProvider(core::mem::transmute(providerhandle))
 }
 #[inline]
 pub unsafe fn QueryPerformanceCounter(lpperformancecount: *mut i64) -> windows_core::Result<()> {
@@ -1309,11 +1170,8 @@ impl IAlertDataCollector {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EventLog)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEventLog<P0>(&self, log: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEventLog)(windows_core::Interface::as_raw(self), log.param().abi()).ok()
+    pub unsafe fn SetEventLog(&self, log: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEventLog)(windows_core::Interface::as_raw(self), core::mem::transmute(log)).ok()
     }
     pub unsafe fn SampleInterval(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -1333,11 +1191,8 @@ impl IAlertDataCollector {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TaskRunAsSelf)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetTaskRunAsSelf<P0>(&self, runasself: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetTaskRunAsSelf)(windows_core::Interface::as_raw(self), runasself.param().abi()).ok()
+    pub unsafe fn SetTaskRunAsSelf(&self, runasself: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetTaskRunAsSelf)(windows_core::Interface::as_raw(self), core::mem::transmute(runasself)).ok()
     }
     pub unsafe fn TaskArguments(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -1565,21 +1420,15 @@ impl IApiTracingDataCollector {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LogApiNamesOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetLogApiNamesOnly<P0>(&self, logapinames: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetLogApiNamesOnly)(windows_core::Interface::as_raw(self), logapinames.param().abi()).ok()
+    pub unsafe fn SetLogApiNamesOnly(&self, logapinames: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetLogApiNamesOnly)(windows_core::Interface::as_raw(self), core::mem::transmute(logapinames)).ok()
     }
     pub unsafe fn LogApisRecursively(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LogApisRecursively)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetLogApisRecursively<P0>(&self, logrecursively: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetLogApisRecursively)(windows_core::Interface::as_raw(self), logrecursively.param().abi()).ok()
+    pub unsafe fn SetLogApisRecursively(&self, logrecursively: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetLogApisRecursively)(windows_core::Interface::as_raw(self), core::mem::transmute(logrecursively)).ok()
     }
     pub unsafe fn ExePath(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -1858,11 +1707,8 @@ impl IConfigurationDataCollector {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).QueryNetworkAdapters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetQueryNetworkAdapters<P0>(&self, network: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetQueryNetworkAdapters)(windows_core::Interface::as_raw(self), network.param().abi()).ok()
+    pub unsafe fn SetQueryNetworkAdapters(&self, network: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetQueryNetworkAdapters)(windows_core::Interface::as_raw(self), core::mem::transmute(network)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegistryKeys(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
@@ -2299,21 +2145,15 @@ impl core::ops::Deref for ICounterItem2 {
 }
 windows_core::imp::interface_hierarchy!(ICounterItem2, windows_core::IUnknown, ICounterItem);
 impl ICounterItem2 {
-    pub unsafe fn SetSelected<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSelected)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSelected)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn Selected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Selected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetVisible<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn Visible(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -2581,31 +2421,22 @@ impl IDataCollector {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LogAppend)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetLogAppend)(windows_core::Interface::as_raw(self), append.param().abi()).ok()
+    pub unsafe fn SetLogAppend(&self, append: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetLogAppend)(windows_core::Interface::as_raw(self), core::mem::transmute(append)).ok()
     }
     pub unsafe fn LogCircular(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LogCircular)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetLogCircular)(windows_core::Interface::as_raw(self), circular.param().abi()).ok()
+    pub unsafe fn SetLogCircular(&self, circular: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetLogCircular)(windows_core::Interface::as_raw(self), core::mem::transmute(circular)).ok()
     }
     pub unsafe fn LogOverwrite(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LogOverwrite)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetLogOverwrite)(windows_core::Interface::as_raw(self), overwrite.param().abi()).ok()
+    pub unsafe fn SetLogOverwrite(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetLogOverwrite)(windows_core::Interface::as_raw(self), core::mem::transmute(overwrite)).ok()
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -2633,12 +2464,9 @@ impl IDataCollector {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SetXml)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(xml), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn CreateOutputLocation(&self, latest: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateOutputLocation)(windows_core::Interface::as_raw(self), latest.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).CreateOutputLocation)(windows_core::Interface::as_raw(self), core::mem::transmute(latest), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3175,11 +3003,8 @@ impl IDataCollectorSet {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Segment)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetSegment<P0>(&self, segment: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSegment)(windows_core::Interface::as_raw(self), segment.param().abi()).ok()
+    pub unsafe fn SetSegment(&self, segment: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSegment)(windows_core::Interface::as_raw(self), core::mem::transmute(segment)).ok()
     }
     pub unsafe fn SegmentMaxDuration(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -3242,11 +3067,8 @@ impl IDataCollectorSet {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TaskRunAsSelf)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetTaskRunAsSelf<P0>(&self, runasself: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetTaskRunAsSelf)(windows_core::Interface::as_raw(self), runasself.param().abi()).ok()
+    pub unsafe fn SetTaskRunAsSelf(&self, runasself: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetTaskRunAsSelf)(windows_core::Interface::as_raw(self), core::mem::transmute(runasself)).ok()
     }
     pub unsafe fn TaskArguments(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -3270,11 +3092,8 @@ impl IDataCollectorSet {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SchedulesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetSchedulesEnabled<P0>(&self, enabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSchedulesEnabled)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
+    pub unsafe fn SetSchedulesEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSchedulesEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(enabled)).ok()
     }
     pub unsafe fn UserAccount(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -3295,11 +3114,8 @@ impl IDataCollectorSet {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).StopOnCompletion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetStopOnCompletion<P0>(&self, stop: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetStopOnCompletion)(windows_core::Interface::as_raw(self), stop.param().abi()).ok()
+    pub unsafe fn SetStopOnCompletion(&self, stop: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetStopOnCompletion)(windows_core::Interface::as_raw(self), core::mem::transmute(stop)).ok()
     }
     pub unsafe fn DataManager(&self) -> windows_core::Result<IDataManager> {
         let mut result__ = core::mem::zeroed();
@@ -3318,17 +3134,11 @@ impl IDataCollectorSet {
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Start<P0>(&self, synchronous: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), synchronous.param().abi()).ok()
+    pub unsafe fn Start(&self, synchronous: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), core::mem::transmute(synchronous)).ok()
     }
-    pub unsafe fn Stop<P0>(&self, synchronous: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), synchronous.param().abi()).ok()
+    pub unsafe fn Stop(&self, synchronous: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), core::mem::transmute(synchronous)).ok()
     }
     pub unsafe fn SetXml(&self, xml: &windows_core::BSTR) -> windows_core::Result<IValueMap> {
         let mut result__ = core::mem::zeroed();
@@ -4160,21 +3970,15 @@ impl IDataManager {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, fenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(fenabled)).ok()
     }
     pub unsafe fn CheckBeforeRunning(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CheckBeforeRunning)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetCheckBeforeRunning<P0>(&self, fcheck: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetCheckBeforeRunning)(windows_core::Interface::as_raw(self), fcheck.param().abi()).ok()
+    pub unsafe fn SetCheckBeforeRunning(&self, fcheck: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCheckBeforeRunning)(windows_core::Interface::as_raw(self), core::mem::transmute(fcheck)).ok()
     }
     pub unsafe fn MinFreeDisk(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -5531,51 +5335,36 @@ impl ISystemMonitor {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Counters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetShowVerticalGrid<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowVerticalGrid)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowVerticalGrid)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowVerticalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowVerticalGrid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShowHorizontalGrid<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowHorizontalGrid)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowHorizontalGrid)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowHorizontalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowHorizontalGrid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShowLegend<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowLegend)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowLegend)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowLegend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowLegend)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShowScaleLabels<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowScaleLabels)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowScaleLabels)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowScaleLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowScaleLabels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShowValueBar<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowValueBar)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowValueBar)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowValueBar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -5609,11 +5398,8 @@ impl ISystemMonitor {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DisplayType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetManualUpdate<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetManualUpdate)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetManualUpdate)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ManualUpdate(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -5705,21 +5491,15 @@ impl ISystemMonitor {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Highlight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetHighlight<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetHighlight)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetHighlight)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowToolbar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowToolbar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShowToolbar<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowToolbar)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowToolbar)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn Paste(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self)).ok()
@@ -5730,11 +5510,8 @@ impl ISystemMonitor {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetReadOnly<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetReadOnly)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetReadOnly)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -5747,11 +5524,8 @@ impl ISystemMonitor {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ReportValueType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetMonitorDuplicateInstances<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMonitorDuplicateInstances)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMonitorDuplicateInstances)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn MonitorDuplicateInstances(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -6580,41 +6354,29 @@ impl core::ops::Deref for ISystemMonitor2 {
 }
 windows_core::imp::interface_hierarchy!(ISystemMonitor2, windows_core::IUnknown, ISystemMonitor);
 impl ISystemMonitor2 {
-    pub unsafe fn SetEnableDigitGrouping<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableDigitGrouping)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnableDigitGrouping)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn EnableDigitGrouping(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnableDigitGrouping)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnableToolTips<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableToolTips)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetEnableToolTips(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnableToolTips)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn EnableToolTips(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnableToolTips)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShowTimeAxisLabels<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowTimeAxisLabels)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowTimeAxisLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowTimeAxisLabels)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowTimeAxisLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowTimeAxisLabels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetChartScroll<P0>(&self, bscroll: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetChartScroll)(windows_core::Interface::as_raw(self), bscroll.param().abi()).ok()
+    pub unsafe fn SetChartScroll(&self, bscroll: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetChartScroll)(windows_core::Interface::as_raw(self), core::mem::transmute(bscroll)).ok()
     }
     pub unsafe fn ChartScroll(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -6627,11 +6389,8 @@ impl ISystemMonitor2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DataPointCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn ScaleToFit<P0>(&self, bselectedcountersonly: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ScaleToFit)(windows_core::Interface::as_raw(self), bselectedcountersonly.param().abi()).ok()
+    pub unsafe fn ScaleToFit(&self, bselectedcountersonly: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ScaleToFit)(windows_core::Interface::as_raw(self), core::mem::transmute(bselectedcountersonly)).ok()
     }
     pub unsafe fn SaveAs(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SaveAs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfilename), core::mem::transmute(esysmonfiletype)).ok()
@@ -6656,11 +6415,8 @@ impl ISystemMonitor2 {
     pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogViewRange)(windows_core::Interface::as_raw(self), core::mem::transmute(starttime), core::mem::transmute(stoptime)).ok()
     }
-    pub unsafe fn BatchingLock<P0>(&self, flock: P0, ebatchreason: SysmonBatchReason) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).BatchingLock)(windows_core::Interface::as_raw(self), flock.param().abi(), core::mem::transmute(ebatchreason)).ok()
+    pub unsafe fn BatchingLock(&self, flock: super::super::Foundation::VARIANT_BOOL, ebatchreason: SysmonBatchReason) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).BatchingLock)(windows_core::Interface::as_raw(self), core::mem::transmute(flock), core::mem::transmute(ebatchreason)).ok()
     }
     pub unsafe fn LoadSettings(&self, bstrsettingfilename: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).LoadSettings)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsettingfilename)).ok()
@@ -7044,21 +6800,15 @@ impl ITraceDataCollector {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PreallocateFile)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetPreallocateFile<P0>(&self, allocate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetPreallocateFile)(windows_core::Interface::as_raw(self), allocate.param().abi()).ok()
+    pub unsafe fn SetPreallocateFile(&self, allocate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetPreallocateFile)(windows_core::Interface::as_raw(self), core::mem::transmute(allocate)).ok()
     }
     pub unsafe fn ProcessMode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ProcessMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetProcessMode<P0>(&self, process: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetProcessMode)(windows_core::Interface::as_raw(self), process.param().abi()).ok()
+    pub unsafe fn SetProcessMode(&self, process: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetProcessMode)(windows_core::Interface::as_raw(self), core::mem::transmute(process)).ok()
     }
     pub unsafe fn RealTimeBuffersLost(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -7574,11 +7324,8 @@ impl ITraceDataProvider {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FilterEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetFilterEnabled<P0>(&self, filterenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetFilterEnabled)(windows_core::Interface::as_raw(self), filterenabled.param().abi()).ok()
+    pub unsafe fn SetFilterEnabled(&self, filterenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetFilterEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(filterenabled)).ok()
     }
     pub unsafe fn FilterType(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -8291,11 +8038,8 @@ impl IValueMapItem {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(enabled)).ok()
     }
     pub unsafe fn Key(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -9876,21 +9620,15 @@ impl _ICounterItemUnion {
     pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), core::mem::transmute(max), core::mem::transmute(min), core::mem::transmute(avg), core::mem::transmute(status)).ok()
     }
-    pub unsafe fn SetSelected<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSelected)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSelected)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn Selected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Selected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetVisible<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn Visible(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -10146,51 +9884,36 @@ impl _ISystemMonitorUnion {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Counters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetShowVerticalGrid<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowVerticalGrid)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowVerticalGrid)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowVerticalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowVerticalGrid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShowHorizontalGrid<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowHorizontalGrid)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowHorizontalGrid)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowHorizontalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowHorizontalGrid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShowLegend<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowLegend)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowLegend)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowLegend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowLegend)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShowScaleLabels<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowScaleLabels)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowScaleLabels)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowScaleLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowScaleLabels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShowValueBar<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowValueBar)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowValueBar)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowValueBar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -10224,11 +9947,8 @@ impl _ISystemMonitorUnion {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DisplayType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetManualUpdate<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetManualUpdate)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetManualUpdate)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ManualUpdate(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -10320,21 +10040,15 @@ impl _ISystemMonitorUnion {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Highlight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetHighlight<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetHighlight)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetHighlight)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowToolbar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowToolbar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShowToolbar<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowToolbar)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowToolbar)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn Paste(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self)).ok()
@@ -10345,11 +10059,8 @@ impl _ISystemMonitorUnion {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetReadOnly<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetReadOnly)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetReadOnly)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -10362,11 +10073,8 @@ impl _ISystemMonitorUnion {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ReportValueType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetMonitorDuplicateInstances<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMonitorDuplicateInstances)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMonitorDuplicateInstances)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn MonitorDuplicateInstances(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -10405,41 +10113,29 @@ impl _ISystemMonitorUnion {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SqlLogSetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn SetEnableDigitGrouping<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableDigitGrouping)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnableDigitGrouping)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn EnableDigitGrouping(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnableDigitGrouping)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnableToolTips<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableToolTips)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetEnableToolTips(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnableToolTips)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn EnableToolTips(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnableToolTips)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetShowTimeAxisLabels<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetShowTimeAxisLabels)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
+    pub unsafe fn SetShowTimeAxisLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetShowTimeAxisLabels)(windows_core::Interface::as_raw(self), core::mem::transmute(bstate)).ok()
     }
     pub unsafe fn ShowTimeAxisLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowTimeAxisLabels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetChartScroll<P0>(&self, bscroll: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetChartScroll)(windows_core::Interface::as_raw(self), bscroll.param().abi()).ok()
+    pub unsafe fn SetChartScroll(&self, bscroll: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetChartScroll)(windows_core::Interface::as_raw(self), core::mem::transmute(bscroll)).ok()
     }
     pub unsafe fn ChartScroll(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -10452,11 +10148,8 @@ impl _ISystemMonitorUnion {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DataPointCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn ScaleToFit<P0>(&self, bselectedcountersonly: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ScaleToFit)(windows_core::Interface::as_raw(self), bselectedcountersonly.param().abi()).ok()
+    pub unsafe fn ScaleToFit(&self, bselectedcountersonly: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ScaleToFit)(windows_core::Interface::as_raw(self), core::mem::transmute(bselectedcountersonly)).ok()
     }
     pub unsafe fn SaveAs(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SaveAs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfilename), core::mem::transmute(esysmonfiletype)).ok()
@@ -10481,11 +10174,8 @@ impl _ISystemMonitorUnion {
     pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogViewRange)(windows_core::Interface::as_raw(self), core::mem::transmute(starttime), core::mem::transmute(stoptime)).ok()
     }
-    pub unsafe fn BatchingLock<P0>(&self, flock: P0, ebatchreason: SysmonBatchReason) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).BatchingLock)(windows_core::Interface::as_raw(self), flock.param().abi(), core::mem::transmute(ebatchreason)).ok()
+    pub unsafe fn BatchingLock(&self, flock: super::super::Foundation::VARIANT_BOOL, ebatchreason: SysmonBatchReason) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).BatchingLock)(windows_core::Interface::as_raw(self), core::mem::transmute(flock), core::mem::transmute(ebatchreason)).ok()
     }
     pub unsafe fn LoadSettings(&self, bstrsettingfilename: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).LoadSettings)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsettingfilename)).ok()

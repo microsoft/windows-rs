@@ -5,7 +5,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmAddFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR, filteraction : RM_FILTER_ACTION) -> super::super::Foundation:: WIN32_ERROR);
-    RmAddFilter(core::mem::transmute(dwsessionhandle), strmodulename.param().abi(), core::mem::transmute(pprocess.unwrap_or(core::ptr::null())), strserviceshortname.param().abi(), core::mem::transmute(filteraction))
+    RmAddFilter(core::mem::transmute(dwsessionhandle), strmodulename.param().abi(), core::mem::transmute(pprocess.unwrap_or(core::mem::zeroed())), strserviceshortname.param().abi(), core::mem::transmute(filteraction))
 }
 #[inline]
 pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> super::super::Foundation::WIN32_ERROR {
@@ -25,7 +25,7 @@ pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: Option<&mut [u8
 #[inline]
 pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnprocinfo: *mut u32, rgaffectedapps: Option<*mut RM_PROCESS_INFO>, lpdwrebootreasons: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmGetList(dwsessionhandle : u32, pnprocinfoneeded : *mut u32, pnprocinfo : *mut u32, rgaffectedapps : *mut RM_PROCESS_INFO, lpdwrebootreasons : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    RmGetList(core::mem::transmute(dwsessionhandle), core::mem::transmute(pnprocinfoneeded), core::mem::transmute(pnprocinfo), core::mem::transmute(rgaffectedapps.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpdwrebootreasons))
+    RmGetList(core::mem::transmute(dwsessionhandle), core::mem::transmute(pnprocinfoneeded), core::mem::transmute(pnprocinfo), core::mem::transmute(rgaffectedapps.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpdwrebootreasons))
 }
 #[inline]
 pub unsafe fn RmJoinSession<P1>(psessionhandle: *mut u32, strsessionkey: P1) -> super::super::Foundation::WIN32_ERROR
@@ -55,22 +55,22 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmRemoveFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
-    RmRemoveFilter(core::mem::transmute(dwsessionhandle), strmodulename.param().abi(), core::mem::transmute(pprocess.unwrap_or(core::ptr::null())), strserviceshortname.param().abi())
+    RmRemoveFilter(core::mem::transmute(dwsessionhandle), strmodulename.param().abi(), core::mem::transmute(pprocess.unwrap_or(core::mem::zeroed())), strserviceshortname.param().abi())
 }
 #[inline]
-pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: Option<u32>, fnstatus: Option<RM_WRITE_STATUS_CALLBACK>) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmRestart(dwsessionhandle : u32, dwrestartflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation:: WIN32_ERROR);
-    RmRestart(core::mem::transmute(dwsessionhandle), core::mem::transmute(dwrestartflags), core::mem::transmute(fnstatus))
+    RmRestart(core::mem::transmute(dwsessionhandle), core::mem::transmute(dwrestartflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(fnstatus.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: Option<RM_WRITE_STATUS_CALLBACK>) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmShutdown(dwsessionhandle : u32, lactionflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation:: WIN32_ERROR);
-    RmShutdown(core::mem::transmute(dwsessionhandle), core::mem::transmute(lactionflags), core::mem::transmute(fnstatus))
+    RmShutdown(core::mem::transmute(dwsessionhandle), core::mem::transmute(lactionflags), core::mem::transmute(fnstatus.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: u32, strsessionkey: windows_core::PWSTR) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: Option<u32>, strsessionkey: windows_core::PWSTR) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmStartSession(psessionhandle : *mut u32, dwsessionflags : u32, strsessionkey : windows_core::PWSTR) -> super::super::Foundation:: WIN32_ERROR);
-    RmStartSession(core::mem::transmute(psessionhandle), core::mem::transmute(dwsessionflags), core::mem::transmute(strsessionkey))
+    RmStartSession(core::mem::transmute(psessionhandle), core::mem::transmute(dwsessionflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(strsessionkey))
 }
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;

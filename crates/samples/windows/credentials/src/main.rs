@@ -8,7 +8,7 @@ fn main() -> windows::core::Result<()> {
     unsafe {
         CredEnumerateW(
             None,
-            CRED_ENUMERATE_ALL_CREDENTIALS,
+            Some(CRED_ENUMERATE_ALL_CREDENTIALS),
             &mut count,
             &mut credentials_ptr,
         )?;

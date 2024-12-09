@@ -1,7 +1,7 @@
 #[inline]
 pub unsafe fn JsAddRef(r#ref: *const core::ffi::c_void, count: Option<*mut u32>) -> JsErrorCode {
     windows_targets::link!("chakra.dll" "system" fn JsAddRef(r#ref : *const core::ffi::c_void, count : *mut u32) -> JsErrorCode);
-    JsAddRef(core::mem::transmute(r#ref), core::mem::transmute(count.unwrap_or(core::ptr::null_mut())))
+    JsAddRef(core::mem::transmute(r#ref), core::mem::transmute(count.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut core::ffi::c_void) -> JsErrorCode {
@@ -16,7 +16,7 @@ pub unsafe fn JsBooleanToBool(value: *const core::ffi::c_void, boolvalue: *mut b
 #[inline]
 pub unsafe fn JsCallFunction(function: *const core::ffi::c_void, arguments: &[*const core::ffi::c_void], result: Option<*mut *mut core::ffi::c_void>) -> JsErrorCode {
     windows_targets::link!("chakra.dll" "system" fn JsCallFunction(function : *const core::ffi::c_void, arguments : *const *const core::ffi::c_void, argumentcount : u16, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    JsCallFunction(core::mem::transmute(function), core::mem::transmute(arguments.as_ptr()), arguments.len().try_into().unwrap(), core::mem::transmute(result.unwrap_or(core::ptr::null_mut())))
+    JsCallFunction(core::mem::transmute(function), core::mem::transmute(arguments.as_ptr()), arguments.len().try_into().unwrap(), core::mem::transmute(result.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn JsCollectGarbage(runtime: *const core::ffi::c_void) -> JsErrorCode {
@@ -79,14 +79,14 @@ pub unsafe fn JsCreateError(message: *const core::ffi::c_void, error: *mut *mut 
     JsCreateError(core::mem::transmute(message), core::mem::transmute(error))
 }
 #[inline]
-pub unsafe fn JsCreateExternalObject(data: Option<*const core::ffi::c_void>, finalizecallback: JsFinalizeCallback, object: *mut *mut core::ffi::c_void) -> JsErrorCode {
+pub unsafe fn JsCreateExternalObject(data: Option<*const core::ffi::c_void>, finalizecallback: Option<JsFinalizeCallback>, object: *mut *mut core::ffi::c_void) -> JsErrorCode {
     windows_targets::link!("chakra.dll" "system" fn JsCreateExternalObject(data : *const core::ffi::c_void, finalizecallback : JsFinalizeCallback, object : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    JsCreateExternalObject(core::mem::transmute(data.unwrap_or(core::ptr::null())), core::mem::transmute(finalizecallback), core::mem::transmute(object))
+    JsCreateExternalObject(core::mem::transmute(data.unwrap_or(core::mem::zeroed())), core::mem::transmute(finalizecallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(object))
 }
 #[inline]
 pub unsafe fn JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: Option<*const core::ffi::c_void>, function: *mut *mut core::ffi::c_void) -> JsErrorCode {
     windows_targets::link!("chakra.dll" "system" fn JsCreateFunction(nativefunction : JsNativeFunction, callbackstate : *const core::ffi::c_void, function : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    JsCreateFunction(core::mem::transmute(nativefunction), core::mem::transmute(callbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(function))
+    JsCreateFunction(core::mem::transmute(nativefunction), core::mem::transmute(callbackstate.unwrap_or(core::mem::zeroed())), core::mem::transmute(function))
 }
 #[inline]
 pub unsafe fn JsCreateObject(object: *mut *mut core::ffi::c_void) -> JsErrorCode {
@@ -104,9 +104,9 @@ pub unsafe fn JsCreateReferenceError(message: *const core::ffi::c_void, error: *
     JsCreateReferenceError(core::mem::transmute(message), core::mem::transmute(error))
 }
 #[inline]
-pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: *mut *mut core::ffi::c_void) -> JsErrorCode {
+pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: Option<JsThreadServiceCallback>, runtime: *mut *mut core::ffi::c_void) -> JsErrorCode {
     windows_targets::link!("chakra.dll" "system" fn JsCreateRuntime(attributes : JsRuntimeAttributes, runtimeversion : JsRuntimeVersion, threadservice : JsThreadServiceCallback, runtime : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    JsCreateRuntime(core::mem::transmute(attributes), core::mem::transmute(runtimeversion), core::mem::transmute(threadservice), core::mem::transmute(runtime))
+    JsCreateRuntime(core::mem::transmute(attributes), core::mem::transmute(runtimeversion), core::mem::transmute(threadservice.unwrap_or(core::mem::zeroed())), core::mem::transmute(runtime))
 }
 #[inline]
 pub unsafe fn JsCreateSyntaxError(message: *const core::ffi::c_void, error: *mut *mut core::ffi::c_void) -> JsErrorCode {
@@ -300,7 +300,7 @@ pub unsafe fn JsHasProperty(object: *const core::ffi::c_void, propertyid: *const
 #[inline]
 pub unsafe fn JsIdle(nextidletick: Option<*mut u32>) -> JsErrorCode {
     windows_targets::link!("chakra.dll" "system" fn JsIdle(nextidletick : *mut u32) -> JsErrorCode);
-    JsIdle(core::mem::transmute(nextidletick.unwrap_or(core::ptr::null_mut())))
+    JsIdle(core::mem::transmute(nextidletick.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut core::ffi::c_void) -> JsErrorCode {
@@ -353,7 +353,7 @@ pub unsafe fn JsPreventExtension(object: *const core::ffi::c_void) -> JsErrorCod
 #[inline]
 pub unsafe fn JsRelease(r#ref: *const core::ffi::c_void, count: Option<*mut u32>) -> JsErrorCode {
     windows_targets::link!("chakra.dll" "system" fn JsRelease(r#ref : *const core::ffi::c_void, count : *mut u32) -> JsErrorCode);
-    JsRelease(core::mem::transmute(r#ref), core::mem::transmute(count.unwrap_or(core::ptr::null_mut())))
+    JsRelease(core::mem::transmute(r#ref), core::mem::transmute(count.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn JsRunScript<P0, P2>(script: P0, sourcecontext: usize, sourceurl: P2, result: *mut *mut core::ffi::c_void) -> JsErrorCode
@@ -379,7 +379,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("chakra.dll" "system" fn JsSerializeScript(script : windows_core::PCWSTR, buffer : *mut u8, buffersize : *mut u32) -> JsErrorCode);
-    JsSerializeScript(script.param().abi(), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(buffersize))
+    JsSerializeScript(script.param().abi(), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(buffersize))
 }
 #[inline]
 pub unsafe fn JsSetCurrentContext(context: *const core::ffi::c_void) -> JsErrorCode {
@@ -394,7 +394,7 @@ pub unsafe fn JsSetException(exception: *const core::ffi::c_void) -> JsErrorCode
 #[inline]
 pub unsafe fn JsSetExternalData(object: *const core::ffi::c_void, externaldata: Option<*const core::ffi::c_void>) -> JsErrorCode {
     windows_targets::link!("chakra.dll" "system" fn JsSetExternalData(object : *const core::ffi::c_void, externaldata : *const core::ffi::c_void) -> JsErrorCode);
-    JsSetExternalData(core::mem::transmute(object), core::mem::transmute(externaldata.unwrap_or(core::ptr::null())))
+    JsSetExternalData(core::mem::transmute(object), core::mem::transmute(externaldata.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn JsSetIndexedProperty(object: *const core::ffi::c_void, index: *const core::ffi::c_void, value: *const core::ffi::c_void) -> JsErrorCode {
@@ -414,12 +414,12 @@ pub unsafe fn JsSetPrototype(object: *const core::ffi::c_void, prototypeobject: 
 #[inline]
 pub unsafe fn JsSetRuntimeBeforeCollectCallback(runtime: *const core::ffi::c_void, callbackstate: Option<*const core::ffi::c_void>, beforecollectcallback: JsBeforeCollectCallback) -> JsErrorCode {
     windows_targets::link!("chakra.dll" "system" fn JsSetRuntimeBeforeCollectCallback(runtime : *const core::ffi::c_void, callbackstate : *const core::ffi::c_void, beforecollectcallback : JsBeforeCollectCallback) -> JsErrorCode);
-    JsSetRuntimeBeforeCollectCallback(core::mem::transmute(runtime), core::mem::transmute(callbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(beforecollectcallback))
+    JsSetRuntimeBeforeCollectCallback(core::mem::transmute(runtime), core::mem::transmute(callbackstate.unwrap_or(core::mem::zeroed())), core::mem::transmute(beforecollectcallback))
 }
 #[inline]
 pub unsafe fn JsSetRuntimeMemoryAllocationCallback(runtime: *const core::ffi::c_void, callbackstate: Option<*const core::ffi::c_void>, allocationcallback: JsMemoryAllocationCallback) -> JsErrorCode {
     windows_targets::link!("chakra.dll" "system" fn JsSetRuntimeMemoryAllocationCallback(runtime : *const core::ffi::c_void, callbackstate : *const core::ffi::c_void, allocationcallback : JsMemoryAllocationCallback) -> JsErrorCode);
-    JsSetRuntimeMemoryAllocationCallback(core::mem::transmute(runtime), core::mem::transmute(callbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(allocationcallback))
+    JsSetRuntimeMemoryAllocationCallback(core::mem::transmute(runtime), core::mem::transmute(callbackstate.unwrap_or(core::mem::zeroed())), core::mem::transmute(allocationcallback))
 }
 #[inline]
 pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const core::ffi::c_void, memorylimit: usize) -> JsErrorCode {

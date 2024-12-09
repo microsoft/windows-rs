@@ -1,10 +1,7 @@
 #[inline]
-pub unsafe fn CfCloseHandle<P0>(filehandle: P0)
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfCloseHandle(filehandle: super::super::Foundation::HANDLE) {
     windows_targets::link!("cldapi.dll" "system" fn CfCloseHandle(filehandle : super::super::Foundation:: HANDLE));
-    CfCloseHandle(filehandle.param().abi())
+    CfCloseHandle(core::mem::transmute(filehandle))
 }
 #[cfg(feature = "Win32_System_CorrelationVector")]
 #[inline]
@@ -14,16 +11,13 @@ where
 {
     windows_targets::link!("cldapi.dll" "system" fn CfConnectSyncRoot(syncrootpath : windows_core::PCWSTR, callbacktable : *const CF_CALLBACK_REGISTRATION, callbackcontext : *const core::ffi::c_void, connectflags : CF_CONNECT_FLAGS, connectionkey : *mut CF_CONNECTION_KEY) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    CfConnectSyncRoot(syncrootpath.param().abi(), core::mem::transmute(callbacktable), core::mem::transmute(callbackcontext.unwrap_or(core::ptr::null())), core::mem::transmute(connectflags), &mut result__).map(|| core::mem::transmute(result__))
+    CfConnectSyncRoot(syncrootpath.param().abi(), core::mem::transmute(callbacktable), core::mem::transmute(callbackcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(connectflags), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CfConvertToPlaceholder<P0>(filehandle: P0, fileidentity: Option<*const core::ffi::c_void>, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: Option<*mut i64>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDLE, fileidentity: Option<*const core::ffi::c_void>, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: Option<*mut i64>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfConvertToPlaceholder(filehandle : super::super::Foundation:: HANDLE, fileidentity : *const core::ffi::c_void, fileidentitylength : u32, convertflags : CF_CONVERT_FLAGS, convertusn : *mut i64, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    CfConvertToPlaceholder(filehandle.param().abi(), core::mem::transmute(fileidentity.unwrap_or(core::ptr::null())), core::mem::transmute(fileidentitylength), core::mem::transmute(convertflags), core::mem::transmute(convertusn.unwrap_or(core::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut()))).ok()
+    CfConvertToPlaceholder(core::mem::transmute(filehandle), core::mem::transmute(fileidentity.unwrap_or(core::mem::zeroed())), core::mem::transmute(fileidentitylength), core::mem::transmute(convertflags), core::mem::transmute(convertusn.unwrap_or(core::mem::zeroed())), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
@@ -32,24 +26,18 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cldapi.dll" "system" fn CfCreatePlaceholders(basedirectorypath : windows_core::PCWSTR, placeholderarray : *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount : u32, createflags : CF_CREATE_FLAGS, entriesprocessed : *mut u32) -> windows_core::HRESULT);
-    CfCreatePlaceholders(basedirectorypath.param().abi(), core::mem::transmute(placeholderarray.as_ptr()), placeholderarray.len().try_into().unwrap(), core::mem::transmute(createflags), core::mem::transmute(entriesprocessed.unwrap_or(core::ptr::null_mut()))).ok()
+    CfCreatePlaceholders(basedirectorypath.param().abi(), core::mem::transmute(placeholderarray.as_ptr()), placeholderarray.len().try_into().unwrap(), core::mem::transmute(createflags), core::mem::transmute(entriesprocessed.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CfDehydratePlaceholder<P0>(filehandle: P0, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfDehydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfDehydratePlaceholder(filehandle : super::super::Foundation:: HANDLE, startingoffset : i64, length : i64, dehydrateflags : CF_DEHYDRATE_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    CfDehydratePlaceholder(filehandle.param().abi(), core::mem::transmute(startingoffset), core::mem::transmute(length), core::mem::transmute(dehydrateflags), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut()))).ok()
+    CfDehydratePlaceholder(core::mem::transmute(filehandle), core::mem::transmute(startingoffset), core::mem::transmute(length), core::mem::transmute(dehydrateflags), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CfDisconnectSyncRoot<P0>(connectionkey: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<CF_CONNECTION_KEY>,
-{
+pub unsafe fn CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfDisconnectSyncRoot(connectionkey : CF_CONNECTION_KEY) -> windows_core::HRESULT);
-    CfDisconnectSyncRoot(connectionkey.param().abi()).ok()
+    CfDisconnectSyncRoot(core::mem::transmute(connectionkey)).ok()
 }
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_CorrelationVector"))]
 #[inline]
@@ -59,36 +47,24 @@ pub unsafe fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPER
 }
 #[cfg(feature = "Win32_System_CorrelationVector")]
 #[inline]
-pub unsafe fn CfGetCorrelationVector<P0>(filehandle: P0, correlationvector: *mut super::super::System::CorrelationVector::CORRELATION_VECTOR) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfGetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *mut super::super::System::CorrelationVector::CORRELATION_VECTOR) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfGetCorrelationVector(filehandle : super::super::Foundation:: HANDLE, correlationvector : *mut super::super::System::CorrelationVector:: CORRELATION_VECTOR) -> windows_core::HRESULT);
-    CfGetCorrelationVector(filehandle.param().abi(), core::mem::transmute(correlationvector)).ok()
+    CfGetCorrelationVector(core::mem::transmute(filehandle), core::mem::transmute(correlationvector)).ok()
 }
 #[inline]
-pub unsafe fn CfGetPlaceholderInfo<P0>(filehandle: P0, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfGetPlaceholderInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfGetPlaceholderInfo(filehandle : super::super::Foundation:: HANDLE, infoclass : CF_PLACEHOLDER_INFO_CLASS, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
-    CfGetPlaceholderInfo(filehandle.param().abi(), core::mem::transmute(infoclass), core::mem::transmute(infobuffer), core::mem::transmute(infobufferlength), core::mem::transmute(returnedlength.unwrap_or(core::ptr::null_mut()))).ok()
+    CfGetPlaceholderInfo(core::mem::transmute(filehandle), core::mem::transmute(infoclass), core::mem::transmute(infobuffer), core::mem::transmute(infobufferlength), core::mem::transmute(returnedlength.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CfGetPlaceholderRangeInfo<P0>(filehandle: P0, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfGetPlaceholderRangeInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfGetPlaceholderRangeInfo(filehandle : super::super::Foundation:: HANDLE, infoclass : CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset : i64, length : i64, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
-    CfGetPlaceholderRangeInfo(filehandle.param().abi(), core::mem::transmute(infoclass), core::mem::transmute(startingoffset), core::mem::transmute(length), core::mem::transmute(infobuffer), core::mem::transmute(infobufferlength), core::mem::transmute(returnedlength.unwrap_or(core::ptr::null_mut()))).ok()
+    CfGetPlaceholderRangeInfo(core::mem::transmute(filehandle), core::mem::transmute(infoclass), core::mem::transmute(startingoffset), core::mem::transmute(length), core::mem::transmute(infobuffer), core::mem::transmute(infobufferlength), core::mem::transmute(returnedlength.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CfGetPlaceholderRangeInfoForHydration<P0>(connectionkey: P0, transferkey: i64, fileid: i64, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, rangelength: i64, infobuffer: *mut core::ffi::c_void, infobuffersize: u32, infobufferwritten: Option<*mut u32>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<CF_CONNECTION_KEY>,
-{
+pub unsafe fn CfGetPlaceholderRangeInfoForHydration(connectionkey: CF_CONNECTION_KEY, transferkey: i64, fileid: i64, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, rangelength: i64, infobuffer: *mut core::ffi::c_void, infobuffersize: u32, infobufferwritten: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfGetPlaceholderRangeInfoForHydration(connectionkey : CF_CONNECTION_KEY, transferkey : i64, fileid : i64, infoclass : CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset : i64, rangelength : i64, infobuffer : *mut core::ffi::c_void, infobuffersize : u32, infobufferwritten : *mut u32) -> windows_core::HRESULT);
-    CfGetPlaceholderRangeInfoForHydration(connectionkey.param().abi(), core::mem::transmute(transferkey), core::mem::transmute(fileid), core::mem::transmute(infoclass), core::mem::transmute(startingoffset), core::mem::transmute(rangelength), core::mem::transmute(infobuffer), core::mem::transmute(infobuffersize), core::mem::transmute(infobufferwritten.unwrap_or(core::ptr::null_mut()))).ok()
+    CfGetPlaceholderRangeInfoForHydration(core::mem::transmute(connectionkey), core::mem::transmute(transferkey), core::mem::transmute(fileid), core::mem::transmute(infoclass), core::mem::transmute(startingoffset), core::mem::transmute(rangelength), core::mem::transmute(infobuffer), core::mem::transmute(infobuffersize), core::mem::transmute(infobufferwritten.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE {
@@ -114,12 +90,9 @@ pub unsafe fn CfGetPlatformInfo() -> windows_core::Result<CF_PLATFORM_INFO> {
     CfGetPlatformInfo(&mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn CfGetSyncRootInfoByHandle<P0>(filehandle: P0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfGetSyncRootInfoByHandle(filehandle: super::super::Foundation::HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfGetSyncRootInfoByHandle(filehandle : super::super::Foundation:: HANDLE, infoclass : CF_SYNC_ROOT_INFO_CLASS, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
-    CfGetSyncRootInfoByHandle(filehandle.param().abi(), core::mem::transmute(infoclass), core::mem::transmute(infobuffer), core::mem::transmute(infobufferlength), core::mem::transmute(returnedlength.unwrap_or(core::ptr::null_mut()))).ok()
+    CfGetSyncRootInfoByHandle(core::mem::transmute(filehandle), core::mem::transmute(infoclass), core::mem::transmute(infobuffer), core::mem::transmute(infobufferlength), core::mem::transmute(returnedlength.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CfGetSyncRootInfoByPath<P0>(filepath: P0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()>
@@ -127,33 +100,24 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cldapi.dll" "system" fn CfGetSyncRootInfoByPath(filepath : windows_core::PCWSTR, infoclass : CF_SYNC_ROOT_INFO_CLASS, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
-    CfGetSyncRootInfoByPath(filepath.param().abi(), core::mem::transmute(infoclass), core::mem::transmute(infobuffer), core::mem::transmute(infobufferlength), core::mem::transmute(returnedlength.unwrap_or(core::ptr::null_mut()))).ok()
+    CfGetSyncRootInfoByPath(filepath.param().abi(), core::mem::transmute(infoclass), core::mem::transmute(infobuffer), core::mem::transmute(infobufferlength), core::mem::transmute(returnedlength.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CfGetTransferKey<P0>(filehandle: P0) -> windows_core::Result<i64>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfGetTransferKey(filehandle: super::super::Foundation::HANDLE) -> windows_core::Result<i64> {
     windows_targets::link!("cldapi.dll" "system" fn CfGetTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *mut i64) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    CfGetTransferKey(filehandle.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    CfGetTransferKey(core::mem::transmute(filehandle), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn CfGetWin32HandleFromProtectedHandle<P0>(protectedhandle: P0) -> super::super::Foundation::HANDLE
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfGetWin32HandleFromProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE {
     windows_targets::link!("cldapi.dll" "system" fn CfGetWin32HandleFromProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    CfGetWin32HandleFromProtectedHandle(protectedhandle.param().abi())
+    CfGetWin32HandleFromProtectedHandle(core::mem::transmute(protectedhandle))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CfHydratePlaceholder<P0>(filehandle: P0, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfHydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfHydratePlaceholder(filehandle : super::super::Foundation:: HANDLE, startingoffset : i64, length : i64, hydrateflags : CF_HYDRATE_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    CfHydratePlaceholder(filehandle.param().abi(), core::mem::transmute(startingoffset), core::mem::transmute(length), core::mem::transmute(hydrateflags), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut()))).ok()
+    CfHydratePlaceholder(core::mem::transmute(filehandle), core::mem::transmute(startingoffset), core::mem::transmute(length), core::mem::transmute(hydrateflags), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CfOpenFileWithOplock<P0>(filepath: P0, flags: CF_OPEN_FILE_FLAGS) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -165,21 +129,15 @@ where
     CfOpenFileWithOplock(filepath.param().abi(), core::mem::transmute(flags), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn CfQuerySyncProviderStatus<P0>(connectionkey: P0) -> windows_core::Result<CF_SYNC_PROVIDER_STATUS>
-where
-    P0: windows_core::Param<CF_CONNECTION_KEY>,
-{
+pub unsafe fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY) -> windows_core::Result<CF_SYNC_PROVIDER_STATUS> {
     windows_targets::link!("cldapi.dll" "system" fn CfQuerySyncProviderStatus(connectionkey : CF_CONNECTION_KEY, providerstatus : *mut CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    CfQuerySyncProviderStatus(connectionkey.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    CfQuerySyncProviderStatus(core::mem::transmute(connectionkey), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn CfReferenceProtectedHandle<P0>(protectedhandle: P0) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfReferenceProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("cldapi.dll" "system" fn CfReferenceProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
-    CfReferenceProtectedHandle(protectedhandle.param().abi())
+    CfReferenceProtectedHandle(core::mem::transmute(protectedhandle))
 }
 #[inline]
 pub unsafe fn CfRegisterSyncRoot<P0>(syncrootpath: P0, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> windows_core::Result<()>
@@ -190,36 +148,24 @@ where
     CfRegisterSyncRoot(syncrootpath.param().abi(), core::mem::transmute(registration), core::mem::transmute(policies), core::mem::transmute(registerflags)).ok()
 }
 #[inline]
-pub unsafe fn CfReleaseProtectedHandle<P0>(protectedhandle: P0)
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfReleaseProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) {
     windows_targets::link!("cldapi.dll" "system" fn CfReleaseProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE));
-    CfReleaseProtectedHandle(protectedhandle.param().abi())
+    CfReleaseProtectedHandle(core::mem::transmute(protectedhandle))
 }
 #[inline]
-pub unsafe fn CfReleaseTransferKey<P0>(filehandle: P0, transferkey: *const i64)
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfReleaseTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *const i64) {
     windows_targets::link!("cldapi.dll" "system" fn CfReleaseTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *const i64));
-    CfReleaseTransferKey(filehandle.param().abi(), core::mem::transmute(transferkey))
+    CfReleaseTransferKey(core::mem::transmute(filehandle), core::mem::transmute(transferkey))
 }
 #[inline]
-pub unsafe fn CfReportProviderProgress<P0>(connectionkey: P0, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<CF_CONNECTION_KEY>,
-{
+pub unsafe fn CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfReportProviderProgress(connectionkey : CF_CONNECTION_KEY, transferkey : i64, providerprogresstotal : i64, providerprogresscompleted : i64) -> windows_core::HRESULT);
-    CfReportProviderProgress(connectionkey.param().abi(), core::mem::transmute(transferkey), core::mem::transmute(providerprogresstotal), core::mem::transmute(providerprogresscompleted)).ok()
+    CfReportProviderProgress(core::mem::transmute(connectionkey), core::mem::transmute(transferkey), core::mem::transmute(providerprogresstotal), core::mem::transmute(providerprogresscompleted)).ok()
 }
 #[inline]
-pub unsafe fn CfReportProviderProgress2<P0>(connectionkey: P0, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<CF_CONNECTION_KEY>,
-{
+pub unsafe fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfReportProviderProgress2(connectionkey : CF_CONNECTION_KEY, transferkey : i64, requestkey : i64, providerprogresstotal : i64, providerprogresscompleted : i64, targetsessionid : u32) -> windows_core::HRESULT);
-    CfReportProviderProgress2(connectionkey.param().abi(), core::mem::transmute(transferkey), core::mem::transmute(requestkey), core::mem::transmute(providerprogresstotal), core::mem::transmute(providerprogresscompleted), core::mem::transmute(targetsessionid)).ok()
+    CfReportProviderProgress2(core::mem::transmute(connectionkey), core::mem::transmute(transferkey), core::mem::transmute(requestkey), core::mem::transmute(providerprogresstotal), core::mem::transmute(providerprogresscompleted), core::mem::transmute(targetsessionid)).ok()
 }
 #[inline]
 pub unsafe fn CfReportSyncStatus<P0>(syncrootpath: P0, syncstatus: Option<*const CF_SYNC_STATUS>) -> windows_core::Result<()>
@@ -227,42 +173,30 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cldapi.dll" "system" fn CfReportSyncStatus(syncrootpath : windows_core::PCWSTR, syncstatus : *const CF_SYNC_STATUS) -> windows_core::HRESULT);
-    CfReportSyncStatus(syncrootpath.param().abi(), core::mem::transmute(syncstatus.unwrap_or(core::ptr::null()))).ok()
+    CfReportSyncStatus(syncrootpath.param().abi(), core::mem::transmute(syncstatus.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CfRevertPlaceholder<P0>(filehandle: P0, revertflags: CF_REVERT_FLAGS, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfRevertPlaceholder(filehandle: super::super::Foundation::HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfRevertPlaceholder(filehandle : super::super::Foundation:: HANDLE, revertflags : CF_REVERT_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    CfRevertPlaceholder(filehandle.param().abi(), core::mem::transmute(revertflags), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut()))).ok()
+    CfRevertPlaceholder(core::mem::transmute(filehandle), core::mem::transmute(revertflags), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_CorrelationVector")]
 #[inline]
-pub unsafe fn CfSetCorrelationVector<P0>(filehandle: P0, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfSetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfSetCorrelationVector(filehandle : super::super::Foundation:: HANDLE, correlationvector : *const super::super::System::CorrelationVector:: CORRELATION_VECTOR) -> windows_core::HRESULT);
-    CfSetCorrelationVector(filehandle.param().abi(), core::mem::transmute(correlationvector)).ok()
+    CfSetCorrelationVector(core::mem::transmute(filehandle), core::mem::transmute(correlationvector)).ok()
 }
 #[inline]
-pub unsafe fn CfSetInSyncState<P0>(filehandle: P0, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: Option<*mut i64>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfSetInSyncState(filehandle: super::super::Foundation::HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: Option<*mut i64>) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfSetInSyncState(filehandle : super::super::Foundation:: HANDLE, insyncstate : CF_IN_SYNC_STATE, insyncflags : CF_SET_IN_SYNC_FLAGS, insyncusn : *mut i64) -> windows_core::HRESULT);
-    CfSetInSyncState(filehandle.param().abi(), core::mem::transmute(insyncstate), core::mem::transmute(insyncflags), core::mem::transmute(insyncusn.unwrap_or(core::ptr::null_mut()))).ok()
+    CfSetInSyncState(core::mem::transmute(filehandle), core::mem::transmute(insyncstate), core::mem::transmute(insyncflags), core::mem::transmute(insyncusn.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CfSetPinState<P0>(filehandle: P0, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfSetPinState(filehandle: super::super::Foundation::HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfSetPinState(filehandle : super::super::Foundation:: HANDLE, pinstate : CF_PIN_STATE, pinflags : CF_SET_PIN_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    CfSetPinState(filehandle.param().abi(), core::mem::transmute(pinstate), core::mem::transmute(pinflags), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut()))).ok()
+    CfSetPinState(core::mem::transmute(filehandle), core::mem::transmute(pinstate), core::mem::transmute(pinflags), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn CfUnregisterSyncRoot<P0>(syncrootpath: P0) -> windows_core::Result<()>
@@ -274,31 +208,25 @@ where
 }
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfUpdatePlaceholder<P0>(filehandle: P0, fsmetadata: Option<*const CF_FS_METADATA>, fileidentity: Option<*const core::ffi::c_void>, fileidentitylength: u32, dehydraterangearray: Option<&[CF_FILE_RANGE]>, updateflags: CF_UPDATE_FLAGS, updateusn: Option<*mut i64>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: Option<*const CF_FS_METADATA>, fileidentity: Option<*const core::ffi::c_void>, fileidentitylength: u32, dehydraterangearray: Option<&[CF_FILE_RANGE]>, updateflags: CF_UPDATE_FLAGS, updateusn: Option<*mut i64>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfUpdatePlaceholder(filehandle : super::super::Foundation:: HANDLE, fsmetadata : *const CF_FS_METADATA, fileidentity : *const core::ffi::c_void, fileidentitylength : u32, dehydraterangearray : *const CF_FILE_RANGE, dehydraterangecount : u32, updateflags : CF_UPDATE_FLAGS, updateusn : *mut i64, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
     CfUpdatePlaceholder(
-        filehandle.param().abi(),
-        core::mem::transmute(fsmetadata.unwrap_or(core::ptr::null())),
-        core::mem::transmute(fileidentity.unwrap_or(core::ptr::null())),
+        core::mem::transmute(filehandle),
+        core::mem::transmute(fsmetadata.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(fileidentity.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(fileidentitylength),
         core::mem::transmute(dehydraterangearray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         dehydraterangearray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(updateflags),
-        core::mem::transmute(updateusn.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(updateusn.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed())),
     )
     .ok()
 }
 #[inline]
-pub unsafe fn CfUpdateSyncProviderStatus<P0>(connectionkey: P0, providerstatus: CF_SYNC_PROVIDER_STATUS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<CF_CONNECTION_KEY>,
-{
+pub unsafe fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> windows_core::Result<()> {
     windows_targets::link!("cldapi.dll" "system" fn CfUpdateSyncProviderStatus(connectionkey : CF_CONNECTION_KEY, providerstatus : CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT);
-    CfUpdateSyncProviderStatus(connectionkey.param().abi(), core::mem::transmute(providerstatus)).ok()
+    CfUpdateSyncProviderStatus(core::mem::transmute(connectionkey), core::mem::transmute(providerstatus)).ok()
 }
 #[cfg(feature = "Win32_System_CorrelationVector")]
 pub type CF_CALLBACK = Option<unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS)>;

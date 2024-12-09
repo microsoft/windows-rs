@@ -37,31 +37,28 @@ where
     lineAccept(core::mem::transmute(hcall), lpsuseruserinfo.param().abi(), core::mem::transmute(dwsize))
 }
 #[inline]
-pub unsafe fn lineAddProvider<P0, P1>(lpszproviderfilename: P0, hwndowner: P1, lpdwpermanentproviderid: *mut u32) -> i32
+pub unsafe fn lineAddProvider<P0>(lpszproviderfilename: P0, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineAddProvider(lpszproviderfilename : windows_core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
-    lineAddProvider(lpszproviderfilename.param().abi(), hwndowner.param().abi(), core::mem::transmute(lpdwpermanentproviderid))
+    lineAddProvider(lpszproviderfilename.param().abi(), core::mem::transmute(hwndowner), core::mem::transmute(lpdwpermanentproviderid))
 }
 #[inline]
-pub unsafe fn lineAddProviderA<P0, P1>(lpszproviderfilename: P0, hwndowner: P1, lpdwpermanentproviderid: *mut u32) -> i32
+pub unsafe fn lineAddProviderA<P0>(lpszproviderfilename: P0, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineAddProviderA(lpszproviderfilename : windows_core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
-    lineAddProviderA(lpszproviderfilename.param().abi(), hwndowner.param().abi(), core::mem::transmute(lpdwpermanentproviderid))
+    lineAddProviderA(lpszproviderfilename.param().abi(), core::mem::transmute(hwndowner), core::mem::transmute(lpdwpermanentproviderid))
 }
 #[inline]
-pub unsafe fn lineAddProviderW<P0, P1>(lpszproviderfilename: P0, hwndowner: P1, lpdwpermanentproviderid: *mut u32) -> i32
+pub unsafe fn lineAddProviderW<P0>(lpszproviderfilename: P0, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineAddProviderW(lpszproviderfilename : windows_core::PCWSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
-    lineAddProviderW(lpszproviderfilename.param().abi(), hwndowner.param().abi(), core::mem::transmute(lpdwpermanentproviderid))
+    lineAddProviderW(lpszproviderfilename.param().abi(), core::mem::transmute(hwndowner), core::mem::transmute(lpdwpermanentproviderid))
 }
 #[inline]
 pub unsafe fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32 {
@@ -121,66 +118,57 @@ pub unsafe fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *
     lineCompleteTransfer(core::mem::transmute(hcall), core::mem::transmute(hconsultcall), core::mem::transmute(lphconfcall), core::mem::transmute(dwtransfermode))
 }
 #[inline]
-pub unsafe fn lineConfigDialog<P1, P2>(dwdeviceid: u32, hwndowner: P1, lpszdeviceclass: P2) -> i32
+pub unsafe fn lineConfigDialog<P2>(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: P2) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigDialog(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    lineConfigDialog(core::mem::transmute(dwdeviceid), hwndowner.param().abi(), lpszdeviceclass.param().abi())
+    lineConfigDialog(core::mem::transmute(dwdeviceid), core::mem::transmute(hwndowner), lpszdeviceclass.param().abi())
 }
 #[inline]
-pub unsafe fn lineConfigDialogA<P1, P2>(dwdeviceid: u32, hwndowner: P1, lpszdeviceclass: P2) -> i32
+pub unsafe fn lineConfigDialogA<P2>(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: P2) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigDialogA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    lineConfigDialogA(core::mem::transmute(dwdeviceid), hwndowner.param().abi(), lpszdeviceclass.param().abi())
+    lineConfigDialogA(core::mem::transmute(dwdeviceid), core::mem::transmute(hwndowner), lpszdeviceclass.param().abi())
 }
 #[inline]
-pub unsafe fn lineConfigDialogEdit<P1, P2>(dwdeviceid: u32, hwndowner: P1, lpszdeviceclass: P2, lpdeviceconfigin: *const core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32
+pub unsafe fn lineConfigDialogEdit<P2>(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: P2, lpdeviceconfigin: *const core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigDialogEdit(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
-    lineConfigDialogEdit(core::mem::transmute(dwdeviceid), hwndowner.param().abi(), lpszdeviceclass.param().abi(), core::mem::transmute(lpdeviceconfigin), core::mem::transmute(dwsize), core::mem::transmute(lpdeviceconfigout))
+    lineConfigDialogEdit(core::mem::transmute(dwdeviceid), core::mem::transmute(hwndowner), lpszdeviceclass.param().abi(), core::mem::transmute(lpdeviceconfigin), core::mem::transmute(dwsize), core::mem::transmute(lpdeviceconfigout))
 }
 #[inline]
-pub unsafe fn lineConfigDialogEditA<P1, P2>(dwdeviceid: u32, hwndowner: P1, lpszdeviceclass: P2, lpdeviceconfigin: *const core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32
+pub unsafe fn lineConfigDialogEditA<P2>(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: P2, lpdeviceconfigin: *const core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigDialogEditA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
-    lineConfigDialogEditA(core::mem::transmute(dwdeviceid), hwndowner.param().abi(), lpszdeviceclass.param().abi(), core::mem::transmute(lpdeviceconfigin), core::mem::transmute(dwsize), core::mem::transmute(lpdeviceconfigout))
+    lineConfigDialogEditA(core::mem::transmute(dwdeviceid), core::mem::transmute(hwndowner), lpszdeviceclass.param().abi(), core::mem::transmute(lpdeviceconfigin), core::mem::transmute(dwsize), core::mem::transmute(lpdeviceconfigout))
 }
 #[inline]
-pub unsafe fn lineConfigDialogEditW<P1, P2>(dwdeviceid: u32, hwndowner: P1, lpszdeviceclass: P2, lpdeviceconfigin: *const core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32
+pub unsafe fn lineConfigDialogEditW<P2>(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: P2, lpdeviceconfigin: *const core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigDialogEditW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCWSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
-    lineConfigDialogEditW(core::mem::transmute(dwdeviceid), hwndowner.param().abi(), lpszdeviceclass.param().abi(), core::mem::transmute(lpdeviceconfigin), core::mem::transmute(dwsize), core::mem::transmute(lpdeviceconfigout))
+    lineConfigDialogEditW(core::mem::transmute(dwdeviceid), core::mem::transmute(hwndowner), lpszdeviceclass.param().abi(), core::mem::transmute(lpdeviceconfigin), core::mem::transmute(dwsize), core::mem::transmute(lpdeviceconfigout))
 }
 #[inline]
-pub unsafe fn lineConfigDialogW<P1, P2>(dwdeviceid: u32, hwndowner: P1, lpszdeviceclass: P2) -> i32
+pub unsafe fn lineConfigDialogW<P2>(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: P2) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigDialogW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCWSTR) -> i32);
-    lineConfigDialogW(core::mem::transmute(dwdeviceid), hwndowner.param().abi(), lpszdeviceclass.param().abi())
+    lineConfigDialogW(core::mem::transmute(dwdeviceid), core::mem::transmute(hwndowner), lpszdeviceclass.param().abi())
 }
 #[inline]
-pub unsafe fn lineConfigProvider<P0>(hwndowner: P0, dwpermanentproviderid: u32) -> i32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn lineConfigProvider(hwndowner: super::super::Foundation::HWND, dwpermanentproviderid: u32) -> i32 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigProvider(hwndowner : super::super::Foundation:: HWND, dwpermanentproviderid : u32) -> i32);
-    lineConfigProvider(hwndowner.param().abi(), core::mem::transmute(dwpermanentproviderid))
+    lineConfigProvider(core::mem::transmute(hwndowner), core::mem::transmute(dwpermanentproviderid))
 }
 #[inline]
 pub unsafe fn lineCreateAgentA<P1, P2>(hline: u32, lpszagentid: P1, lpszagentpin: P2, lphagent: *mut u32) -> i32
@@ -736,31 +724,28 @@ pub unsafe fn lineHold(hcall: u32) -> i32 {
     lineHold(core::mem::transmute(hcall))
 }
 #[inline]
-pub unsafe fn lineInitialize<P1, P3>(lphlineapp: *mut u32, hinstance: P1, lpfncallback: LINECALLBACK, lpszappname: P3, lpdwnumdevs: *mut u32) -> i32
+pub unsafe fn lineInitialize<P3>(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: LINECALLBACK, lpszappname: P3, lpdwnumdevs: *mut u32) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineInitialize(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszappname : windows_core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
-    lineInitialize(core::mem::transmute(lphlineapp), hinstance.param().abi(), core::mem::transmute(lpfncallback), lpszappname.param().abi(), core::mem::transmute(lpdwnumdevs))
+    lineInitialize(core::mem::transmute(lphlineapp), core::mem::transmute(hinstance), core::mem::transmute(lpfncallback), lpszappname.param().abi(), core::mem::transmute(lpdwnumdevs))
 }
 #[inline]
-pub unsafe fn lineInitializeExA<P1, P3>(lphlineapp: *mut u32, hinstance: P1, lpfncallback: LINECALLBACK, lpszfriendlyappname: P3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32
+pub unsafe fn lineInitializeExA<P3>(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: LINECALLBACK, lpszfriendlyappname: P3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineInitializeExA(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
-    lineInitializeExA(core::mem::transmute(lphlineapp), hinstance.param().abi(), core::mem::transmute(lpfncallback), lpszfriendlyappname.param().abi(), core::mem::transmute(lpdwnumdevs), core::mem::transmute(lpdwapiversion), core::mem::transmute(lplineinitializeexparams))
+    lineInitializeExA(core::mem::transmute(lphlineapp), core::mem::transmute(hinstance), core::mem::transmute(lpfncallback), lpszfriendlyappname.param().abi(), core::mem::transmute(lpdwnumdevs), core::mem::transmute(lpdwapiversion), core::mem::transmute(lplineinitializeexparams))
 }
 #[inline]
-pub unsafe fn lineInitializeExW<P1, P3>(lphlineapp: *mut u32, hinstance: P1, lpfncallback: LINECALLBACK, lpszfriendlyappname: P3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32
+pub unsafe fn lineInitializeExW<P3>(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: LINECALLBACK, lpszfriendlyappname: P3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineInitializeExW(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
-    lineInitializeExW(core::mem::transmute(lphlineapp), hinstance.param().abi(), core::mem::transmute(lpfncallback), lpszfriendlyappname.param().abi(), core::mem::transmute(lpdwnumdevs), core::mem::transmute(lpdwapiversion), core::mem::transmute(lplineinitializeexparams))
+    lineInitializeExW(core::mem::transmute(lphlineapp), core::mem::transmute(hinstance), core::mem::transmute(lpfncallback), lpszfriendlyappname.param().abi(), core::mem::transmute(lpdwnumdevs), core::mem::transmute(lpdwapiversion), core::mem::transmute(lplineinitializeexparams))
 }
 #[inline]
 pub unsafe fn lineMakeCall<P2>(hline: u32, lphcall: *mut u32, lpszdestaddress: P2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32
@@ -943,12 +928,9 @@ pub unsafe fn lineRemoveFromConference(hcall: u32) -> i32 {
     lineRemoveFromConference(core::mem::transmute(hcall))
 }
 #[inline]
-pub unsafe fn lineRemoveProvider<P1>(dwpermanentproviderid: u32, hwndowner: P1) -> i32
-where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn lineRemoveProvider(dwpermanentproviderid: u32, hwndowner: super::super::Foundation::HWND) -> i32 {
     windows_targets::link!("tapi32.dll" "system" fn lineRemoveProvider(dwpermanentproviderid : u32, hwndowner : super::super::Foundation:: HWND) -> i32);
-    lineRemoveProvider(core::mem::transmute(dwpermanentproviderid), hwndowner.param().abi())
+    lineRemoveProvider(core::mem::transmute(dwpermanentproviderid), core::mem::transmute(hwndowner))
 }
 #[inline]
 pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
@@ -1203,31 +1185,28 @@ where
     lineTranslateAddressW(core::mem::transmute(hlineapp), core::mem::transmute(dwdeviceid), core::mem::transmute(dwapiversion), lpszaddressin.param().abi(), core::mem::transmute(dwcard), core::mem::transmute(dwtranslateoptions), core::mem::transmute(lptranslateoutput))
 }
 #[inline]
-pub unsafe fn lineTranslateDialog<P3, P4>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: P3, lpszaddressin: P4) -> i32
+pub unsafe fn lineTranslateDialog<P4>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: P4) -> i32
 where
-    P3: windows_core::Param<super::super::Foundation::HWND>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineTranslateDialog(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_core::PCSTR) -> i32);
-    lineTranslateDialog(core::mem::transmute(hlineapp), core::mem::transmute(dwdeviceid), core::mem::transmute(dwapiversion), hwndowner.param().abi(), lpszaddressin.param().abi())
+    lineTranslateDialog(core::mem::transmute(hlineapp), core::mem::transmute(dwdeviceid), core::mem::transmute(dwapiversion), core::mem::transmute(hwndowner), lpszaddressin.param().abi())
 }
 #[inline]
-pub unsafe fn lineTranslateDialogA<P3, P4>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: P3, lpszaddressin: P4) -> i32
+pub unsafe fn lineTranslateDialogA<P4>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: P4) -> i32
 where
-    P3: windows_core::Param<super::super::Foundation::HWND>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineTranslateDialogA(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_core::PCSTR) -> i32);
-    lineTranslateDialogA(core::mem::transmute(hlineapp), core::mem::transmute(dwdeviceid), core::mem::transmute(dwapiversion), hwndowner.param().abi(), lpszaddressin.param().abi())
+    lineTranslateDialogA(core::mem::transmute(hlineapp), core::mem::transmute(dwdeviceid), core::mem::transmute(dwapiversion), core::mem::transmute(hwndowner), lpszaddressin.param().abi())
 }
 #[inline]
-pub unsafe fn lineTranslateDialogW<P3, P4>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: P3, lpszaddressin: P4) -> i32
+pub unsafe fn lineTranslateDialogW<P4>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: P4) -> i32
 where
-    P3: windows_core::Param<super::super::Foundation::HWND>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineTranslateDialogW(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_core::PCWSTR) -> i32);
-    lineTranslateDialogW(core::mem::transmute(hlineapp), core::mem::transmute(dwdeviceid), core::mem::transmute(dwapiversion), hwndowner.param().abi(), lpszaddressin.param().abi())
+    lineTranslateDialogW(core::mem::transmute(hlineapp), core::mem::transmute(dwdeviceid), core::mem::transmute(dwapiversion), core::mem::transmute(hwndowner), lpszaddressin.param().abi())
 }
 #[inline]
 pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
@@ -1269,31 +1248,28 @@ pub unsafe fn phoneClose(hphone: u32) -> i32 {
     phoneClose(core::mem::transmute(hphone))
 }
 #[inline]
-pub unsafe fn phoneConfigDialog<P1, P2>(dwdeviceid: u32, hwndowner: P1, lpszdeviceclass: P2) -> i32
+pub unsafe fn phoneConfigDialog<P2>(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: P2) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneConfigDialog(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    phoneConfigDialog(core::mem::transmute(dwdeviceid), hwndowner.param().abi(), lpszdeviceclass.param().abi())
+    phoneConfigDialog(core::mem::transmute(dwdeviceid), core::mem::transmute(hwndowner), lpszdeviceclass.param().abi())
 }
 #[inline]
-pub unsafe fn phoneConfigDialogA<P1, P2>(dwdeviceid: u32, hwndowner: P1, lpszdeviceclass: P2) -> i32
+pub unsafe fn phoneConfigDialogA<P2>(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: P2) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneConfigDialogA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    phoneConfigDialogA(core::mem::transmute(dwdeviceid), hwndowner.param().abi(), lpszdeviceclass.param().abi())
+    phoneConfigDialogA(core::mem::transmute(dwdeviceid), core::mem::transmute(hwndowner), lpszdeviceclass.param().abi())
 }
 #[inline]
-pub unsafe fn phoneConfigDialogW<P1, P2>(dwdeviceid: u32, hwndowner: P1, lpszdeviceclass: P2) -> i32
+pub unsafe fn phoneConfigDialogW<P2>(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: P2) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneConfigDialogW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCWSTR) -> i32);
-    phoneConfigDialogW(core::mem::transmute(dwdeviceid), hwndowner.param().abi(), lpszdeviceclass.param().abi())
+    phoneConfigDialogW(core::mem::transmute(dwdeviceid), core::mem::transmute(hwndowner), lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn phoneDevSpecific(hphone: u32, lpparams: *mut core::ffi::c_void, dwsize: u32) -> i32 {
@@ -1442,31 +1418,28 @@ pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut
     phoneGetVolume(core::mem::transmute(hphone), core::mem::transmute(dwhookswitchdev), core::mem::transmute(lpdwvolume))
 }
 #[inline]
-pub unsafe fn phoneInitialize<P1, P3>(lphphoneapp: *mut u32, hinstance: P1, lpfncallback: PHONECALLBACK, lpszappname: P3, lpdwnumdevs: *mut u32) -> i32
+pub unsafe fn phoneInitialize<P3>(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: PHONECALLBACK, lpszappname: P3, lpdwnumdevs: *mut u32) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneInitialize(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszappname : windows_core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
-    phoneInitialize(core::mem::transmute(lphphoneapp), hinstance.param().abi(), core::mem::transmute(lpfncallback), lpszappname.param().abi(), core::mem::transmute(lpdwnumdevs))
+    phoneInitialize(core::mem::transmute(lphphoneapp), core::mem::transmute(hinstance), core::mem::transmute(lpfncallback), lpszappname.param().abi(), core::mem::transmute(lpdwnumdevs))
 }
 #[inline]
-pub unsafe fn phoneInitializeExA<P1, P3>(lphphoneapp: *mut u32, hinstance: P1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: P3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32
+pub unsafe fn phoneInitializeExA<P3>(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: PHONECALLBACK, lpszfriendlyappname: P3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneInitializeExA(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszfriendlyappname : windows_core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS) -> i32);
-    phoneInitializeExA(core::mem::transmute(lphphoneapp), hinstance.param().abi(), core::mem::transmute(lpfncallback), lpszfriendlyappname.param().abi(), core::mem::transmute(lpdwnumdevs), core::mem::transmute(lpdwapiversion), core::mem::transmute(lpphoneinitializeexparams))
+    phoneInitializeExA(core::mem::transmute(lphphoneapp), core::mem::transmute(hinstance), core::mem::transmute(lpfncallback), lpszfriendlyappname.param().abi(), core::mem::transmute(lpdwnumdevs), core::mem::transmute(lpdwapiversion), core::mem::transmute(lpphoneinitializeexparams))
 }
 #[inline]
-pub unsafe fn phoneInitializeExW<P1, P3>(lphphoneapp: *mut u32, hinstance: P1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: P3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32
+pub unsafe fn phoneInitializeExW<P3>(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: PHONECALLBACK, lpszfriendlyappname: P3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneInitializeExW(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszfriendlyappname : windows_core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS) -> i32);
-    phoneInitializeExW(core::mem::transmute(lphphoneapp), hinstance.param().abi(), core::mem::transmute(lpfncallback), lpszfriendlyappname.param().abi(), core::mem::transmute(lpdwnumdevs), core::mem::transmute(lpdwapiversion), core::mem::transmute(lpphoneinitializeexparams))
+    phoneInitializeExW(core::mem::transmute(lphphoneapp), core::mem::transmute(hinstance), core::mem::transmute(lpfncallback), lpszfriendlyappname.param().abi(), core::mem::transmute(lpdwnumdevs), core::mem::transmute(lpdwapiversion), core::mem::transmute(lpphoneinitializeexparams))
 }
 #[inline]
 pub unsafe fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut PHONEEXTENSIONID) -> i32 {
@@ -1562,13 +1535,9 @@ pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: &mut [u16; 8], lpszcitycode
     tapiGetLocationInfoW(core::mem::transmute(lpszcountrycodew.as_ptr()), core::mem::transmute(lpszcitycodew.as_ptr()))
 }
 #[inline]
-pub unsafe fn tapiRequestDrop<P0, P1>(hwnd: P0, wrequestid: P1) -> i32
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::WPARAM>,
-{
+pub unsafe fn tapiRequestDrop(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM) -> i32 {
     windows_targets::link!("tapi32.dll" "system" fn tapiRequestDrop(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM) -> i32);
-    tapiRequestDrop(hwnd.param().abi(), wrequestid.param().abi())
+    tapiRequestDrop(core::mem::transmute(hwnd), core::mem::transmute(wrequestid))
 }
 #[inline]
 pub unsafe fn tapiRequestMakeCall<P0, P1, P2, P3>(lpszdestaddress: P0, lpszappname: P1, lpszcalledparty: P2, lpszcomment: P3) -> i32
@@ -1604,10 +1573,8 @@ where
     tapiRequestMakeCallW(lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
 }
 #[inline]
-pub unsafe fn tapiRequestMediaCall<P0, P1, P2, P3, P6, P7, P8, P9>(hwnd: P0, wrequestid: P1, lpszdeviceclass: P2, lpdeviceid: P3, dwsize: u32, dwsecure: u32, lpszdestaddress: P6, lpszappname: P7, lpszcalledparty: P8, lpszcomment: P9) -> i32
+pub unsafe fn tapiRequestMediaCall<P2, P3, P6, P7, P8, P9>(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: P2, lpdeviceid: P3, dwsize: u32, dwsecure: u32, lpszdestaddress: P6, lpszappname: P7, lpszcalledparty: P8, lpszcomment: P9) -> i32
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::WPARAM>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P6: windows_core::Param<windows_core::PCSTR>,
@@ -1616,13 +1583,11 @@ where
     P9: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCall(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCSTR, lpdeviceid : windows_core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
-    tapiRequestMediaCall(hwnd.param().abi(), wrequestid.param().abi(), lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), core::mem::transmute(dwsize), core::mem::transmute(dwsecure), lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
+    tapiRequestMediaCall(core::mem::transmute(hwnd), core::mem::transmute(wrequestid), lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), core::mem::transmute(dwsize), core::mem::transmute(dwsecure), lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
 }
 #[inline]
-pub unsafe fn tapiRequestMediaCallA<P0, P1, P2, P3, P6, P7, P8, P9>(hwnd: P0, wrequestid: P1, lpszdeviceclass: P2, lpdeviceid: P3, dwsize: u32, dwsecure: u32, lpszdestaddress: P6, lpszappname: P7, lpszcalledparty: P8, lpszcomment: P9) -> i32
+pub unsafe fn tapiRequestMediaCallA<P2, P3, P6, P7, P8, P9>(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: P2, lpdeviceid: P3, dwsize: u32, dwsecure: u32, lpszdestaddress: P6, lpszappname: P7, lpszcalledparty: P8, lpszcomment: P9) -> i32
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::WPARAM>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P6: windows_core::Param<windows_core::PCSTR>,
@@ -1631,13 +1596,11 @@ where
     P9: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCallA(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCSTR, lpdeviceid : windows_core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
-    tapiRequestMediaCallA(hwnd.param().abi(), wrequestid.param().abi(), lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), core::mem::transmute(dwsize), core::mem::transmute(dwsecure), lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
+    tapiRequestMediaCallA(core::mem::transmute(hwnd), core::mem::transmute(wrequestid), lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), core::mem::transmute(dwsize), core::mem::transmute(dwsecure), lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
 }
 #[inline]
-pub unsafe fn tapiRequestMediaCallW<P0, P1, P2, P3, P6, P7, P8, P9>(hwnd: P0, wrequestid: P1, lpszdeviceclass: P2, lpdeviceid: P3, dwsize: u32, dwsecure: u32, lpszdestaddress: P6, lpszappname: P7, lpszcalledparty: P8, lpszcomment: P9) -> i32
+pub unsafe fn tapiRequestMediaCallW<P2, P3, P6, P7, P8, P9>(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: P2, lpdeviceid: P3, dwsize: u32, dwsecure: u32, lpszdestaddress: P6, lpszappname: P7, lpszcalledparty: P8, lpszcomment: P9) -> i32
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::WPARAM>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P6: windows_core::Param<windows_core::PCWSTR>,
@@ -1646,7 +1609,7 @@ where
     P9: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCallW(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCWSTR, lpdeviceid : windows_core::PCWSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCWSTR, lpszappname : windows_core::PCWSTR, lpszcalledparty : windows_core::PCWSTR, lpszcomment : windows_core::PCWSTR) -> i32);
-    tapiRequestMediaCallW(hwnd.param().abi(), wrequestid.param().abi(), lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), core::mem::transmute(dwsize), core::mem::transmute(dwsecure), lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
+    tapiRequestMediaCallW(core::mem::transmute(hwnd), core::mem::transmute(wrequestid), lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), core::mem::transmute(dwsize), core::mem::transmute(dwsecure), lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
 }
 pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = ACDGROUP_EVENT(1i32);
 pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = ACDGROUP_EVENT(0i32);
@@ -2265,7 +2228,7 @@ windows_core::imp::interface_hierarchy!(IEnumAddress, windows_core::IUnknown);
 impl IEnumAddress {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppelements: &mut [Option<ITAddress>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2564,7 +2527,7 @@ windows_core::imp::define_interface!(IEnumBstr, IEnumBstr_Vtbl, 0x35372049_0bc6_
 windows_core::imp::interface_hierarchy!(IEnumBstr, windows_core::IUnknown);
 impl IEnumBstr {
     pub unsafe fn Next(&self, ppstrings: &mut [windows_core::BSTR], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppstrings.len().try_into().unwrap(), core::mem::transmute(ppstrings.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppstrings.len().try_into().unwrap(), core::mem::transmute(ppstrings.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2633,7 +2596,7 @@ windows_core::imp::interface_hierarchy!(IEnumCall, windows_core::IUnknown);
 impl IEnumCall {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITCallInfo>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2708,7 +2671,7 @@ windows_core::imp::interface_hierarchy!(IEnumCallHub, windows_core::IUnknown);
 impl IEnumCallHub {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppelements: &mut [Option<ITCallHub>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2783,7 +2746,7 @@ windows_core::imp::interface_hierarchy!(IEnumCallingCard, windows_core::IUnknown
 impl IEnumCallingCard {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITCallingCard>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2857,7 +2820,7 @@ windows_core::imp::define_interface!(IEnumDialableAddrs, IEnumDialableAddrs_Vtbl
 windows_core::imp::interface_hierarchy!(IEnumDialableAddrs, windows_core::IUnknown);
 impl IEnumDialableAddrs {
     pub unsafe fn Next(&self, ppelements: &mut [windows_core::BSTR], pcfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2926,7 +2889,7 @@ windows_core::imp::interface_hierarchy!(IEnumDirectory, windows_core::IUnknown);
 impl IEnumDirectory {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppelements: &mut [Option<ITDirectory>], pcfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3001,7 +2964,7 @@ windows_core::imp::interface_hierarchy!(IEnumDirectoryObject, windows_core::IUnk
 impl IEnumDirectoryObject {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, pval: &mut [Option<ITDirectoryObject>], pcfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pval.len().try_into().unwrap(), core::mem::transmute(pval.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pval.len().try_into().unwrap(), core::mem::transmute(pval.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3076,7 +3039,7 @@ windows_core::imp::interface_hierarchy!(IEnumLocation, windows_core::IUnknown);
 impl IEnumLocation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITLocationInfo>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3151,7 +3114,7 @@ windows_core::imp::interface_hierarchy!(IEnumMcastScope, windows_core::IUnknown)
 impl IEnumMcastScope {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppscopes: *mut Option<IMcastScope>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppscopes), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppscopes), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3226,7 +3189,7 @@ windows_core::imp::interface_hierarchy!(IEnumPhone, windows_core::IUnknown);
 impl IEnumPhone {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppelements: &mut [Option<ITPhone>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3301,7 +3264,7 @@ windows_core::imp::interface_hierarchy!(IEnumPluggableSuperclassInfo, windows_co
 impl IEnumPluggableSuperclassInfo {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppelements: &mut [Option<ITPluggableTerminalSuperclassInfo>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3376,7 +3339,7 @@ windows_core::imp::interface_hierarchy!(IEnumPluggableTerminalClassInfo, windows
 impl IEnumPluggableTerminalClassInfo {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppelements: &mut [Option<ITPluggableTerminalClassInfo>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3526,7 +3489,7 @@ windows_core::imp::interface_hierarchy!(IEnumStream, windows_core::IUnknown);
 impl IEnumStream {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITStream>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3601,7 +3564,7 @@ windows_core::imp::interface_hierarchy!(IEnumSubStream, windows_core::IUnknown);
 impl IEnumSubStream {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITSubStream>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3676,7 +3639,7 @@ windows_core::imp::interface_hierarchy!(IEnumTerminal, windows_core::IUnknown);
 impl IEnumTerminal {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITTerminal>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3750,7 +3713,7 @@ windows_core::imp::define_interface!(IEnumTerminalClass, IEnumTerminalClass_Vtbl
 windows_core::imp::interface_hierarchy!(IEnumTerminalClass, windows_core::IUnknown);
 impl IEnumTerminalClass {
     pub unsafe fn Next(&self, pelements: &mut [windows_core::GUID], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pelements.len().try_into().unwrap(), core::mem::transmute(pelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pelements.len().try_into().unwrap(), core::mem::transmute(pelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -4660,21 +4623,15 @@ impl ITAddress {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentForwardInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetMessageWaiting<P0>(&self, fmessagewaiting: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMessageWaiting)(windows_core::Interface::as_raw(self), fmessagewaiting.param().abi()).ok()
+    pub unsafe fn SetMessageWaiting(&self, fmessagewaiting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMessageWaiting)(windows_core::Interface::as_raw(self), core::mem::transmute(fmessagewaiting)).ok()
     }
     pub unsafe fn MessageWaiting(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MessageWaiting)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetDoNotDisturb<P0>(&self, fdonotdisturb: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDoNotDisturb)(windows_core::Interface::as_raw(self), fdonotdisturb.param().abi()).ok()
+    pub unsafe fn SetDoNotDisturb(&self, fdonotdisturb: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDoNotDisturb)(windows_core::Interface::as_raw(self), core::mem::transmute(fdonotdisturb)).ok()
     }
     pub unsafe fn DoNotDisturb(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -4924,11 +4881,8 @@ impl ITAddress2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_EventFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(tapievent), core::mem::transmute(lsubevent), &mut result__).map(|| result__)
     }
-    pub unsafe fn put_EventFilter<P2>(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).put_EventFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(tapievent), core::mem::transmute(lsubevent), benable.param().abi()).ok()
+    pub unsafe fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).put_EventFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(tapievent), core::mem::transmute(lsubevent), core::mem::transmute(benable)).ok()
     }
     pub unsafe fn DeviceSpecific<P0>(&self, pcall: P0, pparams: *const u8, dwsize: u32) -> windows_core::Result<()>
     where
@@ -6898,11 +6852,8 @@ impl ITAutomatedPhoneControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Ringer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetPhoneHandlingEnabled<P0>(&self, fenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetPhoneHandlingEnabled)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
+    pub unsafe fn SetPhoneHandlingEnabled(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetPhoneHandlingEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(fenabled)).ok()
     }
     pub unsafe fn PhoneHandlingEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -6915,41 +6866,29 @@ impl ITAutomatedPhoneControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoEndOfNumberTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAutoDialtone<P0>(&self, fenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAutoDialtone)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
+    pub unsafe fn SetAutoDialtone(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAutoDialtone)(windows_core::Interface::as_raw(self), core::mem::transmute(fenabled)).ok()
     }
     pub unsafe fn AutoDialtone(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoDialtone)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAutoStopTonesOnOnHook<P0>(&self, fenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAutoStopTonesOnOnHook)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
+    pub unsafe fn SetAutoStopTonesOnOnHook(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAutoStopTonesOnOnHook)(windows_core::Interface::as_raw(self), core::mem::transmute(fenabled)).ok()
     }
     pub unsafe fn AutoStopTonesOnOnHook(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoStopTonesOnOnHook)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAutoStopRingOnOffHook<P0>(&self, fenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAutoStopRingOnOffHook)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
+    pub unsafe fn SetAutoStopRingOnOffHook(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAutoStopRingOnOffHook)(windows_core::Interface::as_raw(self), core::mem::transmute(fenabled)).ok()
     }
     pub unsafe fn AutoStopRingOnOffHook(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoStopRingOnOffHook)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAutoKeypadTones<P0>(&self, fenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAutoKeypadTones)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
+    pub unsafe fn SetAutoKeypadTones(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAutoKeypadTones)(windows_core::Interface::as_raw(self), core::mem::transmute(fenabled)).ok()
     }
     pub unsafe fn AutoKeypadTones(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -6962,11 +6901,8 @@ impl ITAutomatedPhoneControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoKeypadTonesMinimumDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAutoVolumeControl<P0>(&self, fenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAutoVolumeControl)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
+    pub unsafe fn SetAutoVolumeControl(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAutoVolumeControl)(windows_core::Interface::as_raw(self), core::mem::transmute(fenabled)).ok()
     }
     pub unsafe fn AutoVolumeControl(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -6993,12 +6929,11 @@ impl ITAutomatedPhoneControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoVolumeControlRepeatPeriod)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SelectCall<P0, P1>(&self, pcall: P0, fselectdefaultterminals: P1) -> windows_core::Result<()>
+    pub unsafe fn SelectCall<P0>(&self, pcall: P0, fselectdefaultterminals: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITCallInfo>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SelectCall)(windows_core::Interface::as_raw(self), pcall.param().abi(), fselectdefaultterminals.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SelectCall)(windows_core::Interface::as_raw(self), pcall.param().abi(), core::mem::transmute(fselectdefaultterminals)).ok()
     }
     pub unsafe fn UnselectCall<P0>(&self, pcall: P0) -> windows_core::Result<()>
     where
@@ -7456,11 +7391,8 @@ impl core::ops::Deref for ITBasicCallControl {
 windows_core::imp::interface_hierarchy!(ITBasicCallControl, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITBasicCallControl {
-    pub unsafe fn Connect<P0>(&self, fsync: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), fsync.param().abi()).ok()
+    pub unsafe fn Connect(&self, fsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), core::mem::transmute(fsync)).ok()
     }
     pub unsafe fn Answer(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Answer)(windows_core::Interface::as_raw(self)).ok()
@@ -7468,11 +7400,8 @@ impl ITBasicCallControl {
     pub unsafe fn Disconnect(&self, code: DISCONNECT_CODE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self), core::mem::transmute(code)).ok()
     }
-    pub unsafe fn Hold<P0>(&self, fhold: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Hold)(windows_core::Interface::as_raw(self), fhold.param().abi()).ok()
+    pub unsafe fn Hold(&self, fhold: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Hold)(windows_core::Interface::as_raw(self), core::mem::transmute(fhold)).ok()
     }
     pub unsafe fn HandoffDirect(&self, papplicationname: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).HandoffDirect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(papplicationname)).ok()
@@ -7480,19 +7409,17 @@ impl ITBasicCallControl {
     pub unsafe fn HandoffIndirect(&self, lmediatype: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).HandoffIndirect)(windows_core::Interface::as_raw(self), core::mem::transmute(lmediatype)).ok()
     }
-    pub unsafe fn Conference<P0, P1>(&self, pcall: P0, fsync: P1) -> windows_core::Result<()>
+    pub unsafe fn Conference<P0>(&self, pcall: P0, fsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITBasicCallControl>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).Conference)(windows_core::Interface::as_raw(self), pcall.param().abi(), fsync.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Conference)(windows_core::Interface::as_raw(self), pcall.param().abi(), core::mem::transmute(fsync)).ok()
     }
-    pub unsafe fn Transfer<P0, P1>(&self, pcall: P0, fsync: P1) -> windows_core::Result<()>
+    pub unsafe fn Transfer<P0>(&self, pcall: P0, fsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITBasicCallControl>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).Transfer)(windows_core::Interface::as_raw(self), pcall.param().abi(), fsync.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Transfer)(windows_core::Interface::as_raw(self), pcall.param().abi(), core::mem::transmute(fsync)).ok()
     }
     pub unsafe fn BlindTransfer(&self, pdestaddress: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).BlindTransfer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pdestaddress)).ok()
@@ -8202,11 +8129,8 @@ impl ITCallInfo2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_EventFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(tapievent), core::mem::transmute(lsubevent), &mut result__).map(|| result__)
     }
-    pub unsafe fn put_EventFilter<P2>(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).put_EventFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(tapievent), core::mem::transmute(lsubevent), benable.param().abi()).ok()
+    pub unsafe fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).put_EventFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(tapievent), core::mem::transmute(lsubevent), core::mem::transmute(benable)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9595,17 +9519,11 @@ impl ITDirectory {
     pub unsafe fn SetDefaultObjectTTL(&self, ttl: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDefaultObjectTTL)(windows_core::Interface::as_raw(self), core::mem::transmute(ttl)).ok()
     }
-    pub unsafe fn EnableAutoRefresh<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).EnableAutoRefresh)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
+    pub unsafe fn EnableAutoRefresh(&self, fenable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).EnableAutoRefresh)(windows_core::Interface::as_raw(self), core::mem::transmute(fenable)).ok()
     }
-    pub unsafe fn Connect<P0>(&self, fsecure: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), fsecure.param().abi()).ok()
+    pub unsafe fn Connect(&self, fsecure: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), core::mem::transmute(fsecure)).ok()
     }
     pub unsafe fn Bind(&self, pdomainname: &windows_core::BSTR, pusername: &windows_core::BSTR, ppassword: &windows_core::BSTR, lflags: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pdomainname), core::mem::transmute_copy(pusername), core::mem::transmute_copy(ppassword), core::mem::transmute(lflags)).ok()
@@ -9998,11 +9916,8 @@ impl ITDirectoryObjectConference {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsEncrypted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIsEncrypted<P0>(&self, fencrypted: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIsEncrypted)(windows_core::Interface::as_raw(self), fencrypted.param().abi()).ok()
+    pub unsafe fn SetIsEncrypted(&self, fencrypted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIsEncrypted)(windows_core::Interface::as_raw(self), core::mem::transmute(fencrypted)).ok()
     }
     pub unsafe fn StartTime(&self) -> windows_core::Result<f64> {
         let mut result__ = core::mem::zeroed();
@@ -10915,17 +10830,11 @@ impl core::ops::Deref for ITLegacyAddressMediaControl2 {
 }
 windows_core::imp::interface_hierarchy!(ITLegacyAddressMediaControl2, windows_core::IUnknown, ITLegacyAddressMediaControl);
 impl ITLegacyAddressMediaControl2 {
-    pub unsafe fn ConfigDialog<P0>(&self, hwndowner: P0, pdeviceclass: &windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).ConfigDialog)(windows_core::Interface::as_raw(self), hwndowner.param().abi(), core::mem::transmute_copy(pdeviceclass)).ok()
+    pub unsafe fn ConfigDialog(&self, hwndowner: super::super::Foundation::HWND, pdeviceclass: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ConfigDialog)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndowner), core::mem::transmute_copy(pdeviceclass)).ok()
     }
-    pub unsafe fn ConfigDialogEdit<P0>(&self, hwndowner: P0, pdeviceclass: &windows_core::BSTR, pdeviceconfigin: &[u8], pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).ConfigDialogEdit)(windows_core::Interface::as_raw(self), hwndowner.param().abi(), core::mem::transmute_copy(pdeviceclass), pdeviceconfigin.len().try_into().unwrap(), core::mem::transmute(pdeviceconfigin.as_ptr()), core::mem::transmute(pdwsizeout), core::mem::transmute(ppdeviceconfigout)).ok()
+    pub unsafe fn ConfigDialogEdit(&self, hwndowner: super::super::Foundation::HWND, pdeviceclass: &windows_core::BSTR, pdeviceconfigin: &[u8], pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ConfigDialogEdit)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndowner), core::mem::transmute_copy(pdeviceclass), pdeviceconfigin.len().try_into().unwrap(), core::mem::transmute(pdeviceconfigin.as_ptr()), core::mem::transmute(pdwsizeout), core::mem::transmute(ppdeviceconfigout)).ok()
     }
 }
 #[repr(C)]
@@ -14713,14 +14622,12 @@ impl ITTAPI {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumerateAddresses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn RegisterCallNotifications<P0, P1, P2>(&self, paddress: P0, fmonitor: P1, fowner: P2, lmediatypes: i32, lcallbackinstance: i32) -> windows_core::Result<i32>
+    pub unsafe fn RegisterCallNotifications<P0>(&self, paddress: P0, fmonitor: super::super::Foundation::VARIANT_BOOL, fowner: super::super::Foundation::VARIANT_BOOL, lmediatypes: i32, lcallbackinstance: i32) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<ITAddress>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterCallNotifications)(windows_core::Interface::as_raw(self), paddress.param().abi(), fmonitor.param().abi(), fowner.param().abi(), core::mem::transmute(lmediatypes), core::mem::transmute(lcallbackinstance), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).RegisterCallNotifications)(windows_core::Interface::as_raw(self), paddress.param().abi(), core::mem::transmute(fmonitor), core::mem::transmute(fowner), core::mem::transmute(lmediatypes), core::mem::transmute(lcallbackinstance), &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterNotifications(&self, lregister: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnregisterNotifications)(windows_core::Interface::as_raw(self), core::mem::transmute(lregister)).ok()
@@ -14735,11 +14642,8 @@ impl ITTAPI {
         (windows_core::Interface::vtable(self).EnumerateCallHubs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetCallHubTracking<P1>(&self, paddresses: &super::super::System::Variant::VARIANT, btracking: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetCallHubTracking)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(paddresses), btracking.param().abi()).ok()
+    pub unsafe fn SetCallHubTracking(&self, paddresses: &super::super::System::Variant::VARIANT, btracking: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCallHubTracking)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(paddresses), core::mem::transmute(btracking)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumeratePrivateTAPIObjects(&self) -> windows_core::Result<super::super::System::Com::IEnumUnknown> {
@@ -14751,23 +14655,14 @@ impl ITTAPI {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateTAPIObjects)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn RegisterRequestRecipient<P2>(&self, lregistrationinstance: i32, lrequestmode: i32, fenable: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).RegisterRequestRecipient)(windows_core::Interface::as_raw(self), core::mem::transmute(lregistrationinstance), core::mem::transmute(lrequestmode), fenable.param().abi()).ok()
+    pub unsafe fn RegisterRequestRecipient(&self, lregistrationinstance: i32, lrequestmode: i32, fenable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RegisterRequestRecipient)(windows_core::Interface::as_raw(self), core::mem::transmute(lregistrationinstance), core::mem::transmute(lrequestmode), core::mem::transmute(fenable)).ok()
     }
-    pub unsafe fn SetAssistedTelephonyPriority<P1>(&self, pappfilename: &windows_core::BSTR, fpriority: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAssistedTelephonyPriority)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pappfilename), fpriority.param().abi()).ok()
+    pub unsafe fn SetAssistedTelephonyPriority(&self, pappfilename: &windows_core::BSTR, fpriority: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAssistedTelephonyPriority)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pappfilename), core::mem::transmute(fpriority)).ok()
     }
-    pub unsafe fn SetApplicationPriority<P2>(&self, pappfilename: &windows_core::BSTR, lmediatype: i32, fpriority: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetApplicationPriority)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pappfilename), core::mem::transmute(lmediatype), fpriority.param().abi()).ok()
+    pub unsafe fn SetApplicationPriority(&self, pappfilename: &windows_core::BSTR, lmediatype: i32, fpriority: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetApplicationPriority)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pappfilename), core::mem::transmute(lmediatype), core::mem::transmute(fpriority)).ok()
     }
     pub unsafe fn SetEventFilter(&self, lfiltermask: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetEventFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(lfiltermask)).ok()

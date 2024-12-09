@@ -77,45 +77,41 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn GetAppliedGPOListA<P1, P2>(dwflags: u32, pmachinename: P1, psiduser: P2, pguidextension: *const windows_core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32
+pub unsafe fn GetAppliedGPOListA<P1>(dwflags: u32, pmachinename: P1, psiduser: Option<super::super::Security::PSID>, pguidextension: *const windows_core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Security::PSID>,
 {
     windows_targets::link!("userenv.dll" "system" fn GetAppliedGPOListA(dwflags : u32, pmachinename : windows_core::PCSTR, psiduser : super::super::Security:: PSID, pguidextension : *const windows_core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> u32);
-    GetAppliedGPOListA(core::mem::transmute(dwflags), pmachinename.param().abi(), psiduser.param().abi(), core::mem::transmute(pguidextension), core::mem::transmute(ppgpolist))
+    GetAppliedGPOListA(core::mem::transmute(dwflags), pmachinename.param().abi(), core::mem::transmute(psiduser.unwrap_or(core::mem::zeroed())), core::mem::transmute(pguidextension), core::mem::transmute(ppgpolist))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn GetAppliedGPOListW<P1, P2>(dwflags: u32, pmachinename: P1, psiduser: P2, pguidextension: *const windows_core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32
+pub unsafe fn GetAppliedGPOListW<P1>(dwflags: u32, pmachinename: P1, psiduser: Option<super::super::Security::PSID>, pguidextension: *const windows_core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Security::PSID>,
 {
     windows_targets::link!("userenv.dll" "system" fn GetAppliedGPOListW(dwflags : u32, pmachinename : windows_core::PCWSTR, psiduser : super::super::Security:: PSID, pguidextension : *const windows_core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> u32);
-    GetAppliedGPOListW(core::mem::transmute(dwflags), pmachinename.param().abi(), psiduser.param().abi(), core::mem::transmute(pguidextension), core::mem::transmute(ppgpolist))
+    GetAppliedGPOListW(core::mem::transmute(dwflags), pmachinename.param().abi(), core::mem::transmute(psiduser.unwrap_or(core::mem::zeroed())), core::mem::transmute(pguidextension), core::mem::transmute(ppgpolist))
 }
 #[inline]
-pub unsafe fn GetGPOListA<P0, P1, P2, P3>(htoken: P0, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> windows_core::Result<()>
+pub unsafe fn GetGPOListA<P1, P2, P3>(htoken: Option<super::super::Foundation::HANDLE>, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("userenv.dll" "system" fn GetGPOListA(htoken : super::super::Foundation:: HANDLE, lpname : windows_core::PCSTR, lphostname : windows_core::PCSTR, lpcomputername : windows_core::PCSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation:: BOOL);
-    GetGPOListA(htoken.param().abi(), lpname.param().abi(), lphostname.param().abi(), lpcomputername.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pgpolist)).ok()
+    GetGPOListA(core::mem::transmute(htoken.unwrap_or(core::mem::zeroed())), lpname.param().abi(), lphostname.param().abi(), lpcomputername.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pgpolist)).ok()
 }
 #[inline]
-pub unsafe fn GetGPOListW<P0, P1, P2, P3>(htoken: P0, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> windows_core::Result<()>
+pub unsafe fn GetGPOListW<P1, P2, P3>(htoken: Option<super::super::Foundation::HANDLE>, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("userenv.dll" "system" fn GetGPOListW(htoken : super::super::Foundation:: HANDLE, lpname : windows_core::PCWSTR, lphostname : windows_core::PCWSTR, lpcomputername : windows_core::PCWSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation:: BOOL);
-    GetGPOListW(htoken.param().abi(), lpname.param().abi(), lphostname.param().abi(), lpcomputername.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pgpolist)).ok()
+    GetGPOListW(core::mem::transmute(htoken.unwrap_or(core::mem::zeroed())), lpname.param().abi(), lphostname.param().abi(), lpcomputername.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pgpolist)).ok()
 }
 #[inline]
 pub unsafe fn GetLocalManagedApplicationData<P0>(productcode: P0, displayname: *mut windows_core::PWSTR, supporturl: *mut windows_core::PWSTR)
@@ -135,9 +131,9 @@ where
 }
 #[cfg(feature = "Win32_UI_Shell")]
 #[inline]
-pub unsafe fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32 {
+pub unsafe fn GetManagedApplicationCategories(dwreserved: Option<u32>, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn GetManagedApplicationCategories(dwreserved : u32, pappcategory : *mut super::super::UI::Shell:: APPCATEGORYINFOLIST) -> u32);
-    GetManagedApplicationCategories(core::mem::transmute(dwreserved), core::mem::transmute(pappcategory))
+    GetManagedApplicationCategories(core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pappcategory))
 }
 #[inline]
 pub unsafe fn GetManagedApplications(pcategory: *const windows_core::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32 {
@@ -159,12 +155,9 @@ pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
     InstallApplication(core::mem::transmute(pinstallinfo))
 }
 #[inline]
-pub unsafe fn LeaveCriticalPolicySection<P0>(hsection: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn LeaveCriticalPolicySection(hsection: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("userenv.dll" "system" fn LeaveCriticalPolicySection(hsection : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    LeaveCriticalPolicySection(hsection.param().abi()).ok()
+    LeaveCriticalPolicySection(core::mem::transmute(hsection)).ok()
 }
 #[inline]
 pub unsafe fn ProcessGroupPolicyCompleted(extensionid: *const windows_core::GUID, pasynchandle: usize, dwstatus: u32) -> u32 {
@@ -193,32 +186,27 @@ where
     RefreshPolicyEx(bmachine.param().abi(), core::mem::transmute(dwoptions)).ok()
 }
 #[inline]
-pub unsafe fn RegisterGPNotification<P0, P1>(hevent: P0, bmachine: P1) -> windows_core::Result<()>
+pub unsafe fn RegisterGPNotification<P1>(hevent: super::super::Foundation::HANDLE, bmachine: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("userenv.dll" "system" fn RegisterGPNotification(hevent : super::super::Foundation:: HANDLE, bmachine : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    RegisterGPNotification(hevent.param().abi(), bmachine.param().abi()).ok()
+    RegisterGPNotification(core::mem::transmute(hevent), bmachine.param().abi()).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RsopAccessCheckByType<P0, P1>(psecuritydescriptor: P0, pprincipalselfsid: P1, prsoptoken: *const core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: Option<&[super::super::Security::OBJECT_TYPE_LIST]>, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: Option<*const super::super::Security::PRIVILEGE_SET>, pdwprivilegesetlength: Option<*const u32>, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
-    P1: windows_core::Param<super::super::Security::PSID>,
-{
+pub unsafe fn RsopAccessCheckByType(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, pprincipalselfsid: Option<super::super::Security::PSID>, prsoptoken: *const core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: Option<&[super::super::Security::OBJECT_TYPE_LIST]>, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: Option<*const super::super::Security::PRIVILEGE_SET>, pdwprivilegesetlength: Option<*const u32>, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
     windows_targets::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pprincipalselfsid : super::super::Security:: PSID, prsoptoken : *const core::ffi::c_void, dwdesiredaccessmask : u32, pobjecttypelist : *const super::super::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, pgenericmapping : *const super::super::Security:: GENERIC_MAPPING, pprivilegeset : *const super::super::Security:: PRIVILEGE_SET, pdwprivilegesetlength : *const u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     RsopAccessCheckByType(
-        psecuritydescriptor.param().abi(),
-        pprincipalselfsid.param().abi(),
+        core::mem::transmute(psecuritydescriptor),
+        core::mem::transmute(pprincipalselfsid.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(prsoptoken),
         core::mem::transmute(dwdesiredaccessmask),
         core::mem::transmute(pobjecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pobjecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pgenericmapping),
-        core::mem::transmute(pprivilegeset.unwrap_or(core::ptr::null())),
-        core::mem::transmute(pdwprivilegesetlength.unwrap_or(core::ptr::null())),
+        core::mem::transmute(pprivilegeset.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(pdwprivilegesetlength.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(pdwgrantedaccessmask),
         core::mem::transmute(pbaccessstatus),
     )
@@ -261,12 +249,9 @@ where
     UninstallApplication(productcode.param().abi(), core::mem::transmute(dwstatus))
 }
 #[inline]
-pub unsafe fn UnregisterGPNotification<P0>(hevent: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn UnregisterGPNotification(hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("userenv.dll" "system" fn UnregisterGPNotification(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    UnregisterGPNotification(hevent.param().abi()).ok()
+    UnregisterGPNotification(core::mem::transmute(hevent)).ok()
 }
 pub const ABSENT: APPSTATE = APPSTATE(0i32);
 pub const ADMXCOMMENTS_EXTENSION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x6c5a2a86_9eb3_42b9_aa83_a7371ba011b9);
@@ -698,12 +683,9 @@ impl IGPM {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRSOP)(windows_core::Interface::as_raw(self), core::mem::transmute(gpmrsopmode), core::mem::transmute_copy(bstrnamespace), core::mem::transmute(lflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreatePermission<P2>(&self, bstrtrustee: &windows_core::BSTR, perm: GPMPermissionType, binheritable: P2) -> windows_core::Result<IGPMPermission>
-    where
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn CreatePermission(&self, bstrtrustee: &windows_core::BSTR, perm: GPMPermissionType, binheritable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IGPMPermission> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePermission)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtrustee), core::mem::transmute(perm), binheritable.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePermission)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtrustee), core::mem::transmute(perm), core::mem::transmute(binheritable), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSearchCriteria(&self) -> windows_core::Result<IGPMSearchCriteria> {
         let mut result__ = core::mem::zeroed();
@@ -1902,15 +1884,9 @@ impl IGPMConstants {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SOMOU)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn get_SecurityFlags<P0, P1, P2, P3>(&self, vbowner: P0, vbgroup: P1, vbdacl: P2, vbsacl: P3) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn get_SecurityFlags(&self, vbowner: super::super::Foundation::VARIANT_BOOL, vbgroup: super::super::Foundation::VARIANT_BOOL, vbdacl: super::super::Foundation::VARIANT_BOOL, vbsacl: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_SecurityFlags)(windows_core::Interface::as_raw(self), vbowner.param().abi(), vbgroup.param().abi(), vbdacl.param().abi(), vbsacl.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).get_SecurityFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(vbowner), core::mem::transmute(vbgroup), core::mem::transmute(vbdacl), core::mem::transmute(vbsacl), &mut result__).map(|| result__)
     }
     pub unsafe fn DoNotValidateDC(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -2000,12 +1976,9 @@ impl IGPMConstants {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RsopPlanningAssumeSlowLink)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn get_RsopPlanningLoopbackOption<P0>(&self, vbmerge: P0) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn get_RsopPlanningLoopbackOption(&self, vbmerge: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_RsopPlanningLoopbackOption)(windows_core::Interface::as_raw(self), vbmerge.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).get_RsopPlanningLoopbackOption)(windows_core::Interface::as_raw(self), core::mem::transmute(vbmerge), &mut result__).map(|| result__)
     }
     pub unsafe fn RsopPlanningAssumeUserWQLFilterTrue(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -3364,12 +3337,9 @@ impl IGPMDomain2 {
         (windows_core::Interface::vtable(self).SearchStarterGPOs)(windows_core::Interface::as_raw(self), pigpmsearchcriteria.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn LoadStarterGPO<P1>(&self, bstrloadfile: &windows_core::BSTR, boverwrite: P1, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn LoadStarterGPO(&self, bstrloadfile: &windows_core::BSTR, boverwrite: super::super::Foundation::VARIANT_BOOL, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).LoadStarterGPO)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrloadfile), boverwrite.param().abi(), core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).LoadStarterGPO)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrloadfile), core::mem::transmute(boverwrite), core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RestoreStarterGPO<P0>(&self, pigpmtmplbackup: P0, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>
@@ -3644,17 +3614,11 @@ impl IGPMGPO {
     {
         (windows_core::Interface::vtable(self).SetWMIFilter)(windows_core::Interface::as_raw(self), pigpmwmifilter.param().abi()).ok()
     }
-    pub unsafe fn SetUserEnabled<P0>(&self, vbenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetUserEnabled)(windows_core::Interface::as_raw(self), vbenabled.param().abi()).ok()
+    pub unsafe fn SetUserEnabled(&self, vbenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetUserEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(vbenabled)).ok()
     }
-    pub unsafe fn SetComputerEnabled<P0>(&self, vbenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetComputerEnabled)(windows_core::Interface::as_raw(self), vbenabled.param().abi()).ok()
+    pub unsafe fn SetComputerEnabled(&self, vbenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetComputerEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(vbenabled)).ok()
     }
     pub unsafe fn IsUserEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -4340,21 +4304,15 @@ impl IGPMGPOLink {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(newval)).ok()
     }
     pub unsafe fn Enforced(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enforced)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnforced<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnforced)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
+    pub unsafe fn SetEnforced(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnforced)(windows_core::Interface::as_raw(self), core::mem::transmute(newval)).ok()
     }
     pub unsafe fn SOMLinkOrder(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -5719,11 +5677,8 @@ impl IGPMSOM {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GPOInheritanceBlocked)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetGPOInheritanceBlocked<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetGPOInheritanceBlocked)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
+    pub unsafe fn SetGPOInheritanceBlocked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetGPOInheritanceBlocked)(windows_core::Interface::as_raw(self), core::mem::transmute(newval)).ok()
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -6362,13 +6317,9 @@ impl IGPMStarterGPO {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Save<P1, P2>(&self, bstrsavefile: &windows_core::BSTR, boverwrite: P1, bsaveassystem: P2, bstrlanguage: *const super::Variant::VARIANT, bstrauthor: *const super::Variant::VARIANT, bstrproduct: *const super::Variant::VARIANT, bstruniqueid: *const super::Variant::VARIANT, bstrversion: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>
-    where
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
+    pub unsafe fn Save(&self, bstrsavefile: &windows_core::BSTR, boverwrite: super::super::Foundation::VARIANT_BOOL, bsaveassystem: super::super::Foundation::VARIANT_BOOL, bstrlanguage: *const super::Variant::VARIANT, bstrauthor: *const super::Variant::VARIANT, bstrproduct: *const super::Variant::VARIANT, bstruniqueid: *const super::Variant::VARIANT, bstrversion: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsavefile), boverwrite.param().abi(), bsaveassystem.param().abi(), core::mem::transmute(bstrlanguage), core::mem::transmute(bstrauthor), core::mem::transmute(bstrproduct), core::mem::transmute(bstruniqueid), core::mem::transmute(bstrversion), core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsavefile), core::mem::transmute(boverwrite), core::mem::transmute(bsaveassystem), core::mem::transmute(bstrlanguage), core::mem::transmute(bstrauthor), core::mem::transmute(bstrproduct), core::mem::transmute(bstruniqueid), core::mem::transmute(bstrversion), core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Backup(&self, bstrbackupdir: &windows_core::BSTR, bstrcomment: &windows_core::BSTR, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult> {

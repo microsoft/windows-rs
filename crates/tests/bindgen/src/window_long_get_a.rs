@@ -7,12 +7,9 @@
 )]
 
 #[inline]
-pub unsafe fn GetWindowLongA<P0>(hwnd: P0, nindex: WINDOW_LONG_PTR_INDEX) -> i32
-where
-    P0: windows_core::Param<HWND>,
-{
+pub unsafe fn GetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX) -> i32 {
     windows_targets::link!("user32.dll" "system" fn GetWindowLongA(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> i32);
-    GetWindowLongA(hwnd.param().abi(), core::mem::transmute(nindex))
+    GetWindowLongA(core::mem::transmute(hwnd), core::mem::transmute(nindex))
 }
 #[cfg(any(
     target_arch = "aarch64",
@@ -20,12 +17,9 @@ where
     target_arch = "x86_64"
 ))]
 #[inline]
-pub unsafe fn GetWindowLongPtrA<P0>(hwnd: P0, nindex: WINDOW_LONG_PTR_INDEX) -> isize
-where
-    P0: windows_core::Param<HWND>,
-{
+pub unsafe fn GetWindowLongPtrA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX) -> isize {
     windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrA(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
-    GetWindowLongPtrA(hwnd.param().abi(), core::mem::transmute(nindex))
+    GetWindowLongPtrA(core::mem::transmute(hwnd), core::mem::transmute(nindex))
 }
 #[cfg(target_pointer_width = "32")]
 pub use GetWindowLongA as GetWindowLongPtrA;

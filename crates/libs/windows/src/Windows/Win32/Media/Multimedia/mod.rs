@@ -91,7 +91,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileOpenA(ppfile : *mut * mut core::ffi::c_void, szfile : windows_core::PCSTR, umode : u32, lphandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIFileOpenA(core::mem::transmute(ppfile), szfile.param().abi(), core::mem::transmute(umode), core::mem::transmute(lphandler.unwrap_or(core::ptr::null()))).ok()
+    AVIFileOpenA(core::mem::transmute(ppfile), szfile.param().abi(), core::mem::transmute(umode), core::mem::transmute(lphandler.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn AVIFileOpenW<P1>(ppfile: *mut Option<IAVIFile>, szfile: P1, umode: u32, lphandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
@@ -99,7 +99,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileOpenW(ppfile : *mut * mut core::ffi::c_void, szfile : windows_core::PCWSTR, umode : u32, lphandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIFileOpenW(core::mem::transmute(ppfile), szfile.param().abi(), core::mem::transmute(umode), core::mem::transmute(lphandler.unwrap_or(core::ptr::null()))).ok()
+    AVIFileOpenW(core::mem::transmute(ppfile), szfile.param().abi(), core::mem::transmute(umode), core::mem::transmute(lphandler.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn AVIFileReadData<P0>(pfile: P0, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> windows_core::Result<()>
@@ -137,7 +137,7 @@ where
     P1: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIMakeCompressedStream(ppscompressed : *mut * mut core::ffi::c_void, ppssource : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIMakeCompressedStream(core::mem::transmute(ppscompressed), ppssource.param().abi(), core::mem::transmute(lpoptions), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
+    AVIMakeCompressedStream(core::mem::transmute(ppscompressed), ppssource.param().abi(), core::mem::transmute(lpoptions), core::mem::transmute(pclsidhandler.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<IAVIFile>, papstreams: &[Option<IAVIStream>]) -> windows_core::Result<()> {
@@ -145,13 +145,10 @@ pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<IAVIFile>, papstreams: 
     AVIMakeFileFromStreams(core::mem::transmute(ppfile), papstreams.len().try_into().unwrap(), core::mem::transmute(papstreams.as_ptr())).ok()
 }
 #[inline]
-pub unsafe fn AVIMakeStreamFromClipboard<P1>(cfformat: u32, hglobal: P1) -> windows_core::Result<IAVIStream>
-where
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE) -> windows_core::Result<IAVIStream> {
     windows_targets::link!("avifil32.dll" "system" fn AVIMakeStreamFromClipboard(cfformat : u32, hglobal : super::super::Foundation:: HANDLE, ppstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    AVIMakeStreamFromClipboard(core::mem::transmute(cfformat), hglobal.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    AVIMakeStreamFromClipboard(core::mem::transmute(cfformat), core::mem::transmute(hglobal), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn AVIPutFileOnClipboard<P0>(pf: P0) -> windows_core::Result<()>
@@ -168,15 +165,12 @@ where
     P4: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "cdecl" fn AVISaveA(szfile : windows_core::PCSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    AVISaveA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), core::mem::transmute(lpfncallback), core::mem::transmute(nstreams), pfile.param().abi(), core::mem::transmute(lpoptions)).ok()
+    AVISaveA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpfncallback), core::mem::transmute(nstreams), pfile.param().abi(), core::mem::transmute(lpoptions)).ok()
 }
 #[inline]
-pub unsafe fn AVISaveOptions<P0>(hwnd: P0, uiflags: u32, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-{
+pub unsafe fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize {
     windows_targets::link!("avifil32.dll" "system" fn AVISaveOptions(hwnd : super::super::Foundation:: HWND, uiflags : u32, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *mut *mut AVICOMPRESSOPTIONS) -> isize);
-    AVISaveOptions(hwnd.param().abi(), core::mem::transmute(uiflags), core::mem::transmute(nstreams), core::mem::transmute(ppavi), core::mem::transmute(plpoptions))
+    AVISaveOptions(core::mem::transmute(hwnd), core::mem::transmute(uiflags), core::mem::transmute(nstreams), core::mem::transmute(ppavi), core::mem::transmute(plpoptions))
 }
 #[inline]
 pub unsafe fn AVISaveOptionsFree(plpoptions: &[*const AVICOMPRESSOPTIONS]) -> windows_core::Result<()> {
@@ -189,7 +183,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVISaveVA(szfile : windows_core::PCSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    AVISaveVA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), core::mem::transmute(lpfncallback), core::mem::transmute(nstreams), core::mem::transmute(ppavi), core::mem::transmute(plpoptions)).ok()
+    AVISaveVA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpfncallback), core::mem::transmute(nstreams), core::mem::transmute(ppavi), core::mem::transmute(plpoptions)).ok()
 }
 #[inline]
 pub unsafe fn AVISaveVW<P0>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
@@ -197,7 +191,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVISaveVW(szfile : windows_core::PCWSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    AVISaveVW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), core::mem::transmute(lpfncallback), core::mem::transmute(nstreams), core::mem::transmute(ppavi), core::mem::transmute(plpoptions)).ok()
+    AVISaveVW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpfncallback), core::mem::transmute(nstreams), core::mem::transmute(ppavi), core::mem::transmute(plpoptions)).ok()
 }
 #[inline]
 pub unsafe fn AVISaveW<P0, P4>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P4, lpoptions: *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
@@ -206,7 +200,7 @@ where
     P4: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "cdecl" fn AVISaveW(szfile : windows_core::PCWSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    AVISaveW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), core::mem::transmute(lpfncallback), core::mem::transmute(nstreams), pfile.param().abi(), core::mem::transmute(lpoptions)).ok()
+    AVISaveW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpfncallback), core::mem::transmute(nstreams), pfile.param().abi(), core::mem::transmute(lpoptions)).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamAddRef<P0>(pavi: P0) -> u32
@@ -227,7 +221,7 @@ where
 #[inline]
 pub unsafe fn AVIStreamCreate(ppavi: *mut Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamCreate(ppavi : *mut * mut core::ffi::c_void, lparam1 : i32, lparam2 : i32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIStreamCreate(core::mem::transmute(ppavi), core::mem::transmute(lparam1), core::mem::transmute(lparam2), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
+    AVIStreamCreate(core::mem::transmute(ppavi), core::mem::transmute(lparam1), core::mem::transmute(lparam2), core::mem::transmute(pclsidhandler.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamEndStreaming<P0>(pavi: P0) -> windows_core::Result<()>
@@ -268,7 +262,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamGetFrameOpen(pavi : * mut core::ffi::c_void, lpbiwanted : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER) -> Option < IGetFrame >);
-    AVIStreamGetFrameOpen(pavi.param().abi(), core::mem::transmute(lpbiwanted.unwrap_or(core::ptr::null())))
+    AVIStreamGetFrameOpen(pavi.param().abi(), core::mem::transmute(lpbiwanted.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn AVIStreamInfoA<P0>(pavi: P0, psi: *mut AVISTREAMINFOA, lsize: i32) -> windows_core::Result<()>
@@ -300,7 +294,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileA(ppavi : *mut * mut core::ffi::c_void, szfile : windows_core::PCSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIStreamOpenFromFileA(core::mem::transmute(ppavi), szfile.param().abi(), core::mem::transmute(fcctype), core::mem::transmute(lparam), core::mem::transmute(mode), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
+    AVIStreamOpenFromFileA(core::mem::transmute(ppavi), szfile.param().abi(), core::mem::transmute(fcctype), core::mem::transmute(lparam), core::mem::transmute(mode), core::mem::transmute(pclsidhandler.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamOpenFromFileW<P1>(ppavi: *mut Option<IAVIStream>, szfile: P1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
@@ -308,7 +302,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileW(ppavi : *mut * mut core::ffi::c_void, szfile : windows_core::PCWSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIStreamOpenFromFileW(core::mem::transmute(ppavi), szfile.param().abi(), core::mem::transmute(fcctype), core::mem::transmute(lparam), core::mem::transmute(mode), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
+    AVIStreamOpenFromFileW(core::mem::transmute(ppavi), szfile.param().abi(), core::mem::transmute(fcctype), core::mem::transmute(lparam), core::mem::transmute(mode), core::mem::transmute(pclsidhandler.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamRead<P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: Option<*mut core::ffi::c_void>, cbbuffer: i32, plbytes: Option<*mut i32>, plsamples: Option<*mut i32>) -> windows_core::Result<()>
@@ -316,7 +310,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamRead(pavi : * mut core::ffi::c_void, lstart : i32, lsamples : i32, lpbuffer : *mut core::ffi::c_void, cbbuffer : i32, plbytes : *mut i32, plsamples : *mut i32) -> windows_core::HRESULT);
-    AVIStreamRead(pavi.param().abi(), core::mem::transmute(lstart), core::mem::transmute(lsamples), core::mem::transmute(lpbuffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbbuffer), core::mem::transmute(plbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plsamples.unwrap_or(core::ptr::null_mut()))).ok()
+    AVIStreamRead(pavi.param().abi(), core::mem::transmute(lstart), core::mem::transmute(lsamples), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbbuffer), core::mem::transmute(plbytes.unwrap_or(core::mem::zeroed())), core::mem::transmute(plsamples.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamReadData<P0>(pavi: P0, fcc: u32, lp: Option<*mut core::ffi::c_void>, lpcb: *mut i32) -> windows_core::Result<()>
@@ -324,7 +318,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamReadData(pavi : * mut core::ffi::c_void, fcc : u32, lp : *mut core::ffi::c_void, lpcb : *mut i32) -> windows_core::HRESULT);
-    AVIStreamReadData(pavi.param().abi(), core::mem::transmute(fcc), core::mem::transmute(lp.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcb)).ok()
+    AVIStreamReadData(pavi.param().abi(), core::mem::transmute(fcc), core::mem::transmute(lp.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcb)).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamReadFormat<P0>(pavi: P0, lpos: i32, lpformat: Option<*mut core::ffi::c_void>, lpcbformat: *mut i32) -> windows_core::Result<()>
@@ -332,7 +326,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamReadFormat(pavi : * mut core::ffi::c_void, lpos : i32, lpformat : *mut core::ffi::c_void, lpcbformat : *mut i32) -> windows_core::HRESULT);
-    AVIStreamReadFormat(pavi.param().abi(), core::mem::transmute(lpos), core::mem::transmute(lpformat.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcbformat)).ok()
+    AVIStreamReadFormat(pavi.param().abi(), core::mem::transmute(lpos), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcbformat)).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamRelease<P0>(pavi: P0) -> u32
@@ -380,7 +374,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamWrite(pavi : * mut core::ffi::c_void, lstart : i32, lsamples : i32, lpbuffer : *const core::ffi::c_void, cbbuffer : i32, dwflags : u32, plsampwritten : *mut i32, plbyteswritten : *mut i32) -> windows_core::HRESULT);
-    AVIStreamWrite(pavi.param().abi(), core::mem::transmute(lstart), core::mem::transmute(lsamples), core::mem::transmute(lpbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(dwflags), core::mem::transmute(plsampwritten.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
+    AVIStreamWrite(pavi.param().abi(), core::mem::transmute(lstart), core::mem::transmute(lsamples), core::mem::transmute(lpbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(dwflags), core::mem::transmute(plsampwritten.unwrap_or(core::mem::zeroed())), core::mem::transmute(plbyteswritten.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamWriteData<P0>(pavi: P0, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_core::Result<()>
@@ -391,14 +385,9 @@ where
     AVIStreamWriteData(pavi.param().abi(), core::mem::transmute(fcc), core::mem::transmute(lp), core::mem::transmute(cb)).ok()
 }
 #[inline]
-pub unsafe fn CloseDriver<P0, P1, P2>(hdriver: P0, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
-where
-    P0: windows_core::Param<HDRVR>,
-    P1: windows_core::Param<super::super::Foundation::LPARAM>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
-{
+pub unsafe fn CloseDriver(hdriver: HDRVR, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT {
     windows_targets::link!("winmm.dll" "system" fn CloseDriver(hdriver : HDRVR, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
-    CloseDriver(hdriver.param().abi(), lparam1.param().abi(), lparam2.param().abi())
+    CloseDriver(core::mem::transmute(hdriver), core::mem::transmute(lparam1), core::mem::transmute(lparam2))
 }
 #[inline]
 pub unsafe fn CreateEditableStream<P1>(ppseditable: *mut Option<IAVIStream>, pssource: P1) -> windows_core::Result<()>
@@ -409,23 +398,15 @@ where
     CreateEditableStream(core::mem::transmute(ppseditable), pssource.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn DefDriverProc<P1, P3, P4>(dwdriveridentifier: usize, hdrvr: P1, umsg: u32, lparam1: P3, lparam2: P4) -> super::super::Foundation::LRESULT
-where
-    P1: windows_core::Param<HDRVR>,
-    P3: windows_core::Param<super::super::Foundation::LPARAM>,
-    P4: windows_core::Param<super::super::Foundation::LPARAM>,
-{
+pub unsafe fn DefDriverProc(dwdriveridentifier: usize, hdrvr: HDRVR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT {
     windows_targets::link!("winmm.dll" "system" fn DefDriverProc(dwdriveridentifier : usize, hdrvr : HDRVR, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
-    DefDriverProc(core::mem::transmute(dwdriveridentifier), hdrvr.param().abi(), core::mem::transmute(umsg), lparam1.param().abi(), lparam2.param().abi())
+    DefDriverProc(core::mem::transmute(dwdriveridentifier), core::mem::transmute(hdrvr), core::mem::transmute(umsg), core::mem::transmute(lparam1), core::mem::transmute(lparam2))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibBegin<P1>(hdd: isize, hdc: P1, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn DrawDibBegin(hdd: isize, hdc: Option<super::super::Graphics::Gdi::HDC>, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibBegin(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
-    DrawDibBegin(core::mem::transmute(hdd), hdc.param().abi(), core::mem::transmute(dxdst), core::mem::transmute(dydst), core::mem::transmute(lpbi), core::mem::transmute(dxsrc), core::mem::transmute(dysrc), core::mem::transmute(wflags))
+    DrawDibBegin(core::mem::transmute(hdd), core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(dxdst), core::mem::transmute(dydst), core::mem::transmute(lpbi), core::mem::transmute(dxsrc), core::mem::transmute(dysrc), core::mem::transmute(wflags))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -440,12 +421,9 @@ pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibDraw<P1>(hdd: isize, hdc: P1, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpbits: Option<*const core::ffi::c_void>, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn DrawDibDraw(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpbits: Option<*const core::ffi::c_void>, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibDraw(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
-    DrawDibDraw(core::mem::transmute(hdd), hdc.param().abi(), core::mem::transmute(xdst), core::mem::transmute(ydst), core::mem::transmute(dxdst), core::mem::transmute(dydst), core::mem::transmute(lpbi.unwrap_or(core::ptr::null())), core::mem::transmute(lpbits.unwrap_or(core::ptr::null())), core::mem::transmute(xsrc), core::mem::transmute(ysrc), core::mem::transmute(dxsrc), core::mem::transmute(dysrc), core::mem::transmute(wflags))
+    DrawDibDraw(core::mem::transmute(hdd), core::mem::transmute(hdc), core::mem::transmute(xdst), core::mem::transmute(ydst), core::mem::transmute(dxdst), core::mem::transmute(dydst), core::mem::transmute(lpbi.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbits.unwrap_or(core::mem::zeroed())), core::mem::transmute(xsrc), core::mem::transmute(ysrc), core::mem::transmute(dxsrc), core::mem::transmute(dysrc), core::mem::transmute(wflags))
 }
 #[inline]
 pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
@@ -477,22 +455,18 @@ pub unsafe fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BI
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibRealize<P1, P2>(hdd: isize, hdc: P1, fbackground: P2) -> u32
+pub unsafe fn DrawDibRealize<P2>(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, fbackground: P2) -> u32
 where
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibRealize(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, fbackground : super::super::Foundation:: BOOL) -> u32);
-    DrawDibRealize(core::mem::transmute(hdd), hdc.param().abi(), fbackground.param().abi())
+    DrawDibRealize(core::mem::transmute(hdd), core::mem::transmute(hdc), fbackground.param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibSetPalette<P1>(hdd: isize, hpal: P1) -> super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::Graphics::Gdi::HPALETTE>,
-{
+pub unsafe fn DrawDibSetPalette(hdd: isize, hpal: Option<super::super::Graphics::Gdi::HPALETTE>) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibSetPalette(hdd : isize, hpal : super::super::Graphics::Gdi:: HPALETTE) -> super::super::Foundation:: BOOL);
-    DrawDibSetPalette(core::mem::transmute(hdd), hpal.param().abi())
+    DrawDibSetPalette(core::mem::transmute(hdd), core::mem::transmute(hpal.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL {
@@ -510,20 +484,14 @@ pub unsafe fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::supe
     DrawDibTime(core::mem::transmute(hdd), core::mem::transmute(lpddtime))
 }
 #[inline]
-pub unsafe fn DriverCallback<P2>(dwcallback: usize, dwflags: u32, hdevice: P2, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL
-where
-    P2: windows_core::Param<HDRVR>,
-{
+pub unsafe fn DriverCallback(dwcallback: usize, dwflags: u32, hdevice: HDRVR, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL {
     windows_targets::link!("winmm.dll" "system" fn DriverCallback(dwcallback : usize, dwflags : u32, hdevice : HDRVR, dwmsg : u32, dwuser : usize, dwparam1 : usize, dwparam2 : usize) -> super::super::Foundation:: BOOL);
-    DriverCallback(core::mem::transmute(dwcallback), core::mem::transmute(dwflags), hdevice.param().abi(), core::mem::transmute(dwmsg), core::mem::transmute(dwuser), core::mem::transmute(dwparam1), core::mem::transmute(dwparam2))
+    DriverCallback(core::mem::transmute(dwcallback), core::mem::transmute(dwflags), core::mem::transmute(hdevice), core::mem::transmute(dwmsg), core::mem::transmute(dwuser), core::mem::transmute(dwparam1), core::mem::transmute(dwparam2))
 }
 #[inline]
-pub unsafe fn DrvGetModuleHandle<P0>(hdriver: P0) -> super::super::Foundation::HMODULE
-where
-    P0: windows_core::Param<HDRVR>,
-{
+pub unsafe fn DrvGetModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HMODULE {
     windows_targets::link!("winmm.dll" "system" fn DrvGetModuleHandle(hdriver : HDRVR) -> super::super::Foundation:: HMODULE);
-    DrvGetModuleHandle(hdriver.param().abi())
+    DrvGetModuleHandle(core::mem::transmute(hdriver))
 }
 #[inline]
 pub unsafe fn EditStreamClone<P0>(pavi: P0) -> windows_core::Result<IAVIStream>
@@ -594,12 +562,9 @@ where
     EditStreamSetNameW(pavi.param().abi(), lpszname.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn GetDriverModuleHandle<P0>(hdriver: P0) -> super::super::Foundation::HMODULE
-where
-    P0: windows_core::Param<HDRVR>,
-{
+pub unsafe fn GetDriverModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HMODULE {
     windows_targets::link!("winmm.dll" "system" fn GetDriverModuleHandle(hdriver : HDRVR) -> super::super::Foundation:: HMODULE);
-    GetDriverModuleHandle(hdriver.param().abi())
+    GetDriverModuleHandle(core::mem::transmute(hdriver))
 }
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 #[inline]
@@ -626,45 +591,38 @@ pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Di
     GetSaveFileNamePreviewW(core::mem::transmute(lpofn))
 }
 #[inline]
-pub unsafe fn ICClose<P0>(hic: P0) -> super::super::Foundation::LRESULT
-where
-    P0: windows_core::Param<HIC>,
-{
+pub unsafe fn ICClose(hic: HIC) -> super::super::Foundation::LRESULT {
     windows_targets::link!("msvfw32.dll" "system" fn ICClose(hic : HIC) -> super::super::Foundation:: LRESULT);
-    ICClose(hic.param().abi())
+    ICClose(core::mem::transmute(hic))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICCompress<P0>(hic: P0, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const core::ffi::c_void, lpckid: Option<*mut u32>, lpdwflags: Option<*mut u32>, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpprev: Option<*const core::ffi::c_void>) -> u32
-where
-    P0: windows_core::Param<HIC>,
-{
+pub unsafe fn ICCompress(hic: HIC, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const core::ffi::c_void, lpckid: Option<*mut u32>, lpdwflags: Option<*mut u32>, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpprev: Option<*const core::ffi::c_void>) -> u32 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn ICCompress(hic : HIC, dwflags : u32, lpbioutput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *mut core::ffi::c_void, lpbiinput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, lpckid : *mut u32, lpdwflags : *mut u32, lframenum : i32, dwframesize : u32, dwquality : u32, lpbiprev : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpprev : *const core::ffi::c_void) -> u32);
     ICCompress(
-        hic.param().abi(),
+        core::mem::transmute(hic),
         core::mem::transmute(dwflags),
         core::mem::transmute(lpbioutput),
         core::mem::transmute(lpdata),
         core::mem::transmute(lpbiinput),
         core::mem::transmute(lpbits),
-        core::mem::transmute(lpckid.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(lpdwflags.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(lpckid.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(lpdwflags.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(lframenum),
         core::mem::transmute(dwframesize),
         core::mem::transmute(dwquality),
-        core::mem::transmute(lpbiprev.unwrap_or(core::ptr::null())),
-        core::mem::transmute(lpprev.unwrap_or(core::ptr::null())),
+        core::mem::transmute(lpbiprev.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(lpprev.unwrap_or(core::mem::zeroed())),
     )
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICCompressorChoose<P0, P5>(hwnd: P0, uiflags: u32, pvin: Option<*const core::ffi::c_void>, lpdata: Option<*const core::ffi::c_void>, pc: *mut COMPVARS, lpsztitle: P5) -> super::super::Foundation::BOOL
+pub unsafe fn ICCompressorChoose<P5>(hwnd: Option<super::super::Foundation::HWND>, uiflags: u32, pvin: Option<*const core::ffi::c_void>, lpdata: Option<*const core::ffi::c_void>, pc: *mut COMPVARS, lpsztitle: P5) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn ICCompressorChoose(hwnd : super::super::Foundation:: HWND, uiflags : u32, pvin : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
-    ICCompressorChoose(hwnd.param().abi(), core::mem::transmute(uiflags), core::mem::transmute(pvin.unwrap_or(core::ptr::null())), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(pc), lpsztitle.param().abi())
+    ICCompressorChoose(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(uiflags), core::mem::transmute(pvin.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pc), lpsztitle.param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -674,67 +632,60 @@ pub unsafe fn ICCompressorFree(pc: *const COMPVARS) {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICDecompress<P0>(hic: P0, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut core::ffi::c_void) -> u32
-where
-    P0: windows_core::Param<HIC>,
-{
+pub unsafe fn ICDecompress(hic: HIC, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn ICDecompress(hic : HIC, dwflags : u32, lpbiformat : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *const core::ffi::c_void, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *mut core::ffi::c_void) -> u32);
-    ICDecompress(hic.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(lpbiformat), core::mem::transmute(lpdata), core::mem::transmute(lpbi), core::mem::transmute(lpbits))
+    ICDecompress(core::mem::transmute(hic), core::mem::transmute(dwflags), core::mem::transmute(lpbiformat), core::mem::transmute(lpdata), core::mem::transmute(lpbi), core::mem::transmute(lpbits))
 }
 #[inline]
-pub unsafe fn ICDraw<P0>(hic: P0, dwflags: u32, lpformat: *const core::ffi::c_void, lpdata: Option<*const core::ffi::c_void>, cbdata: u32, ltime: i32) -> u32
-where
-    P0: windows_core::Param<HIC>,
-{
+pub unsafe fn ICDraw(hic: HIC, dwflags: u32, lpformat: *const core::ffi::c_void, lpdata: Option<*const core::ffi::c_void>, cbdata: u32, ltime: i32) -> u32 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn ICDraw(hic : HIC, dwflags : u32, lpformat : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, cbdata : u32, ltime : i32) -> u32);
-    ICDraw(hic.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(lpformat), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(cbdata), core::mem::transmute(ltime))
+    ICDraw(core::mem::transmute(hic), core::mem::transmute(dwflags), core::mem::transmute(lpformat), core::mem::transmute(lpdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbdata), core::mem::transmute(ltime))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICDrawBegin<P0, P2, P3, P4>(hic: P0, dwflags: u32, hpal: P2, hwnd: P3, hdc: P4, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32
-where
-    P0: windows_core::Param<HIC>,
-    P2: windows_core::Param<super::super::Graphics::Gdi::HPALETTE>,
-    P3: windows_core::Param<super::super::Foundation::HWND>,
-    P4: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-{
+pub unsafe fn ICDrawBegin(hic: HIC, dwflags: u32, hpal: Option<super::super::Graphics::Gdi::HPALETTE>, hwnd: Option<super::super::Foundation::HWND>, hdc: Option<super::super::Graphics::Gdi::HDC>, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn ICDrawBegin(hic : HIC, dwflags : u32, hpal : super::super::Graphics::Gdi:: HPALETTE, hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, dwrate : u32, dwscale : u32) -> u32);
-    ICDrawBegin(hic.param().abi(), core::mem::transmute(dwflags), hpal.param().abi(), hwnd.param().abi(), hdc.param().abi(), core::mem::transmute(xdst), core::mem::transmute(ydst), core::mem::transmute(dxdst), core::mem::transmute(dydst), core::mem::transmute(lpbi), core::mem::transmute(xsrc), core::mem::transmute(ysrc), core::mem::transmute(dxsrc), core::mem::transmute(dysrc), core::mem::transmute(dwrate), core::mem::transmute(dwscale))
+    ICDrawBegin(
+        core::mem::transmute(hic),
+        core::mem::transmute(dwflags),
+        core::mem::transmute(hpal.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())),
+        core::mem::transmute(xdst),
+        core::mem::transmute(ydst),
+        core::mem::transmute(dxdst),
+        core::mem::transmute(dydst),
+        core::mem::transmute(lpbi),
+        core::mem::transmute(xsrc),
+        core::mem::transmute(ysrc),
+        core::mem::transmute(dxsrc),
+        core::mem::transmute(dysrc),
+        core::mem::transmute(dwrate),
+        core::mem::transmute(dwscale),
+    )
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICGetDisplayFormat<P0>(hic: P0, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC
-where
-    P0: windows_core::Param<HIC>,
-{
+pub unsafe fn ICGetDisplayFormat(hic: Option<HIC>, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC {
     windows_targets::link!("msvfw32.dll" "system" fn ICGetDisplayFormat(hic : HIC, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *mut super::super::Graphics::Gdi:: BITMAPINFOHEADER, bitdepth : i32, dx : i32, dy : i32) -> HIC);
-    ICGetDisplayFormat(hic.param().abi(), core::mem::transmute(lpbiin), core::mem::transmute(lpbiout), core::mem::transmute(bitdepth), core::mem::transmute(dx), core::mem::transmute(dy))
+    ICGetDisplayFormat(core::mem::transmute(hic.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbiin), core::mem::transmute(lpbiout), core::mem::transmute(bitdepth), core::mem::transmute(dx), core::mem::transmute(dy))
 }
 #[inline]
-pub unsafe fn ICGetInfo<P0>(hic: P0, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT
-where
-    P0: windows_core::Param<HIC>,
-{
+pub unsafe fn ICGetInfo(hic: HIC, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT {
     windows_targets::link!("msvfw32.dll" "system" fn ICGetInfo(hic : HIC, picinfo : *mut ICINFO, cb : u32) -> super::super::Foundation:: LRESULT);
-    ICGetInfo(hic.param().abi(), core::mem::transmute(picinfo), core::mem::transmute(cb))
+    ICGetInfo(core::mem::transmute(hic), core::mem::transmute(picinfo), core::mem::transmute(cb))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICImageCompress<P0>(hic: P0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const core::ffi::c_void, lpbiout: Option<*const super::super::Graphics::Gdi::BITMAPINFO>, lquality: i32, plsize: Option<*mut i32>) -> super::super::Foundation::HANDLE
-where
-    P0: windows_core::Param<HIC>,
-{
+pub unsafe fn ICImageCompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const core::ffi::c_void, lpbiout: Option<*const super::super::Graphics::Gdi::BITMAPINFO>, lquality: i32, plsize: Option<*mut i32>) -> super::super::Foundation::HANDLE {
     windows_targets::link!("msvfw32.dll" "system" fn ICImageCompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO, lquality : i32, plsize : *mut i32) -> super::super::Foundation:: HANDLE);
-    ICImageCompress(hic.param().abi(), core::mem::transmute(uiflags), core::mem::transmute(lpbiin), core::mem::transmute(lpbits), core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())), core::mem::transmute(lquality), core::mem::transmute(plsize.unwrap_or(core::ptr::null_mut())))
+    ICImageCompress(core::mem::transmute(hic), core::mem::transmute(uiflags), core::mem::transmute(lpbiin), core::mem::transmute(lpbits), core::mem::transmute(lpbiout.unwrap_or(core::mem::zeroed())), core::mem::transmute(lquality), core::mem::transmute(plsize.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICImageDecompress<P0>(hic: P0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const core::ffi::c_void, lpbiout: Option<*const super::super::Graphics::Gdi::BITMAPINFO>) -> super::super::Foundation::HANDLE
-where
-    P0: windows_core::Param<HIC>,
-{
+pub unsafe fn ICImageDecompress(hic: Option<HIC>, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const core::ffi::c_void, lpbiout: Option<*const super::super::Graphics::Gdi::BITMAPINFO>) -> super::super::Foundation::HANDLE {
     windows_targets::link!("msvfw32.dll" "system" fn ICImageDecompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: HANDLE);
-    ICImageDecompress(hic.param().abi(), core::mem::transmute(uiflags), core::mem::transmute(lpbiin), core::mem::transmute(lpbits), core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())))
+    ICImageDecompress(core::mem::transmute(hic.unwrap_or(core::mem::zeroed())), core::mem::transmute(uiflags), core::mem::transmute(lpbiin), core::mem::transmute(lpbits), core::mem::transmute(lpbiout.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL {
@@ -742,19 +693,18 @@ pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> su
     ICInfo(core::mem::transmute(fcctype), core::mem::transmute(fcchandler), core::mem::transmute(lpicinfo))
 }
 #[inline]
-pub unsafe fn ICInstall<P2, P3>(fcctype: u32, fcchandler: u32, lparam: P2, szdesc: P3, wflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn ICInstall<P3>(fcctype: u32, fcchandler: u32, lparam: super::super::Foundation::LPARAM, szdesc: P3, wflags: u32) -> super::super::Foundation::BOOL
 where
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn ICInstall(fcctype : u32, fcchandler : u32, lparam : super::super::Foundation:: LPARAM, szdesc : windows_core::PCSTR, wflags : u32) -> super::super::Foundation:: BOOL);
-    ICInstall(core::mem::transmute(fcctype), core::mem::transmute(fcchandler), lparam.param().abi(), szdesc.param().abi(), core::mem::transmute(wflags))
+    ICInstall(core::mem::transmute(fcctype), core::mem::transmute(fcchandler), core::mem::transmute(lparam), szdesc.param().abi(), core::mem::transmute(wflags))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, wflags: u16) -> HIC {
     windows_targets::link!("msvfw32.dll" "system" fn ICLocate(fcctype : u32, fcchandler : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, wflags : u16) -> HIC);
-    ICLocate(core::mem::transmute(fcctype), core::mem::transmute(fcchandler), core::mem::transmute(lpbiin), core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())), core::mem::transmute(wflags))
+    ICLocate(core::mem::transmute(fcctype), core::mem::transmute(fcchandler), core::mem::transmute(lpbiin), core::mem::transmute(lpbiout.unwrap_or(core::mem::zeroed())), core::mem::transmute(wflags))
 }
 #[inline]
 pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
@@ -772,18 +722,15 @@ pub unsafe fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::sup
     ICRemove(core::mem::transmute(fcctype), core::mem::transmute(fcchandler), core::mem::transmute(wflags))
 }
 #[inline]
-pub unsafe fn ICSendMessage<P0>(hic: P0, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT
-where
-    P0: windows_core::Param<HIC>,
-{
+pub unsafe fn ICSendMessage(hic: HIC, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT {
     windows_targets::link!("msvfw32.dll" "system" fn ICSendMessage(hic : HIC, msg : u32, dw1 : usize, dw2 : usize) -> super::super::Foundation:: LRESULT);
-    ICSendMessage(hic.param().abi(), core::mem::transmute(msg), core::mem::transmute(dw1), core::mem::transmute(dw2))
+    ICSendMessage(core::mem::transmute(hic), core::mem::transmute(msg), core::mem::transmute(dw1), core::mem::transmute(dw2))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: Option<*mut i32>) -> *mut core::ffi::c_void {
+pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: Option<u32>, lpbits: *const core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: Option<*mut i32>) -> *mut core::ffi::c_void {
     windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const core::ffi::c_void, pfkey : *mut super::super::Foundation:: BOOL, plsize : *mut i32) -> *mut core::ffi::c_void);
-    ICSeqCompressFrame(core::mem::transmute(pc), core::mem::transmute(uiflags), core::mem::transmute(lpbits), core::mem::transmute(pfkey), core::mem::transmute(plsize.unwrap_or(core::ptr::null_mut())))
+    ICSeqCompressFrame(core::mem::transmute(pc), core::mem::transmute(uiflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbits), core::mem::transmute(pfkey), core::mem::transmute(plsize.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -798,24 +745,20 @@ pub unsafe fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super:
     ICSeqCompressFrameStart(core::mem::transmute(pc), core::mem::transmute(lpbiin))
 }
 #[inline]
-pub unsafe fn MCIWndCreateA<P0, P1, P3>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P3) -> super::super::Foundation::HWND
+pub unsafe fn MCIWndCreateA<P3>(hwndparent: Option<super::super::Foundation::HWND>, hinstance: Option<super::super::Foundation::HINSTANCE>, dwstyle: u32, szfile: P3) -> super::super::Foundation::HWND
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateA(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : windows_core::PCSTR) -> super::super::Foundation:: HWND);
-    MCIWndCreateA(hwndparent.param().abi(), hinstance.param().abi(), core::mem::transmute(dwstyle), szfile.param().abi())
+    MCIWndCreateA(core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(hinstance.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwstyle), szfile.param().abi())
 }
 #[inline]
-pub unsafe fn MCIWndCreateW<P0, P1, P3>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P3) -> super::super::Foundation::HWND
+pub unsafe fn MCIWndCreateW<P3>(hwndparent: Option<super::super::Foundation::HWND>, hinstance: Option<super::super::Foundation::HINSTANCE>, dwstyle: u32, szfile: P3) -> super::super::Foundation::HWND
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateW(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : windows_core::PCWSTR) -> super::super::Foundation:: HWND);
-    MCIWndCreateW(hwndparent.param().abi(), hinstance.param().abi(), core::mem::transmute(dwstyle), szfile.param().abi())
+    MCIWndCreateW(core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(hinstance.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwstyle), szfile.param().abi())
 }
 #[inline]
 pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
@@ -823,24 +766,18 @@ pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
     MCIWndRegisterClass()
 }
 #[inline]
-pub unsafe fn OpenDriver<P0, P1, P2>(szdrivername: P0, szsectionname: P1, lparam2: P2) -> HDRVR
+pub unsafe fn OpenDriver<P0, P1>(szdrivername: P0, szsectionname: P1, lparam2: super::super::Foundation::LPARAM) -> HDRVR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("winmm.dll" "system" fn OpenDriver(szdrivername : windows_core::PCWSTR, szsectionname : windows_core::PCWSTR, lparam2 : super::super::Foundation:: LPARAM) -> HDRVR);
-    OpenDriver(szdrivername.param().abi(), szsectionname.param().abi(), lparam2.param().abi())
+    OpenDriver(szdrivername.param().abi(), szsectionname.param().abi(), core::mem::transmute(lparam2))
 }
 #[inline]
-pub unsafe fn SendDriverMessage<P0, P2, P3>(hdriver: P0, message: u32, lparam1: P2, lparam2: P3) -> super::super::Foundation::LRESULT
-where
-    P0: windows_core::Param<HDRVR>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    P3: windows_core::Param<super::super::Foundation::LPARAM>,
-{
+pub unsafe fn SendDriverMessage(hdriver: HDRVR, message: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT {
     windows_targets::link!("winmm.dll" "system" fn SendDriverMessage(hdriver : HDRVR, message : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
-    SendDriverMessage(hdriver.param().abi(), core::mem::transmute(message), lparam1.param().abi(), lparam2.param().abi())
+    SendDriverMessage(core::mem::transmute(hdriver), core::mem::transmute(message), core::mem::transmute(lparam1), core::mem::transmute(lparam2))
 }
 #[inline]
 pub unsafe fn VideoForWindowsVersion() -> u32 {
@@ -848,22 +785,20 @@ pub unsafe fn VideoForWindowsVersion() -> u32 {
     VideoForWindowsVersion()
 }
 #[inline]
-pub unsafe fn capCreateCaptureWindowA<P0, P6>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P6, nid: i32) -> super::super::Foundation::HWND
+pub unsafe fn capCreateCaptureWindowA<P0>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Option<super::super::Foundation::HWND>, nid: i32) -> super::super::Foundation::HWND
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P6: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("avicap32.dll" "system" fn capCreateCaptureWindowA(lpszwindowname : windows_core::PCSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
-    capCreateCaptureWindowA(lpszwindowname.param().abi(), core::mem::transmute(dwstyle), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(nwidth), core::mem::transmute(nheight), hwndparent.param().abi(), core::mem::transmute(nid))
+    capCreateCaptureWindowA(lpszwindowname.param().abi(), core::mem::transmute(dwstyle), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(nwidth), core::mem::transmute(nheight), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(nid))
 }
 #[inline]
-pub unsafe fn capCreateCaptureWindowW<P0, P6>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P6, nid: i32) -> super::super::Foundation::HWND
+pub unsafe fn capCreateCaptureWindowW<P0>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Option<super::super::Foundation::HWND>, nid: i32) -> super::super::Foundation::HWND
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P6: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("avicap32.dll" "system" fn capCreateCaptureWindowW(lpszwindowname : windows_core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
-    capCreateCaptureWindowW(lpszwindowname.param().abi(), core::mem::transmute(dwstyle), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(nwidth), core::mem::transmute(nheight), hwndparent.param().abi(), core::mem::transmute(nid))
+    capCreateCaptureWindowW(lpszwindowname.param().abi(), core::mem::transmute(dwstyle), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(nwidth), core::mem::transmute(nheight), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(nid))
 }
 #[inline]
 pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> super::super::Foundation::BOOL {
@@ -911,13 +846,12 @@ pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
     joyReleaseCapture(core::mem::transmute(ujoyid))
 }
 #[inline]
-pub unsafe fn joySetCapture<P0, P3>(hwnd: P0, ujoyid: u32, uperiod: u32, fchanged: P3) -> u32
+pub unsafe fn joySetCapture<P3>(hwnd: super::super::Foundation::HWND, ujoyid: u32, uperiod: u32, fchanged: P3) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
     P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winmm.dll" "system" fn joySetCapture(hwnd : super::super::Foundation:: HWND, ujoyid : u32, uperiod : u32, fchanged : super::super::Foundation:: BOOL) -> u32);
-    joySetCapture(hwnd.param().abi(), core::mem::transmute(ujoyid), core::mem::transmute(uperiod), fchanged.param().abi())
+    joySetCapture(core::mem::transmute(hwnd), core::mem::transmute(ujoyid), core::mem::transmute(uperiod), fchanged.param().abi())
 }
 #[inline]
 pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
@@ -925,12 +859,9 @@ pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
     joySetThreshold(core::mem::transmute(ujoyid), core::mem::transmute(uthreshold))
 }
 #[inline]
-pub unsafe fn mciDriverNotify<P0>(hwndcallback: P0, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn mciDriverNotify(hwndcallback: super::super::Foundation::HANDLE, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("winmm.dll" "system" fn mciDriverNotify(hwndcallback : super::super::Foundation:: HANDLE, wdeviceid : u32, ustatus : u32) -> super::super::Foundation:: BOOL);
-    mciDriverNotify(hwndcallback.param().abi(), core::mem::transmute(wdeviceid), core::mem::transmute(ustatus))
+    mciDriverNotify(core::mem::transmute(hwndcallback), core::mem::transmute(wdeviceid), core::mem::transmute(ustatus))
 }
 #[inline]
 pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
@@ -1000,41 +931,38 @@ pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC
     mciGetYieldProc(core::mem::transmute(mciid), core::mem::transmute(pdwyielddata))
 }
 #[inline]
-pub unsafe fn mciLoadCommandResource<P0, P1>(hinstance: P0, lpresname: P1, wtype: u32) -> u32
+pub unsafe fn mciLoadCommandResource<P1>(hinstance: super::super::Foundation::HANDLE, lpresname: P1, wtype: u32) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mciLoadCommandResource(hinstance : super::super::Foundation:: HANDLE, lpresname : windows_core::PCWSTR, wtype : u32) -> u32);
-    mciLoadCommandResource(hinstance.param().abi(), lpresname.param().abi(), core::mem::transmute(wtype))
+    mciLoadCommandResource(core::mem::transmute(hinstance), lpresname.param().abi(), core::mem::transmute(wtype))
 }
 #[inline]
-pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
+pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: Option<usize>, dwparam2: Option<usize>) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mciSendCommandA(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
-    mciSendCommandA(core::mem::transmute(mciid), core::mem::transmute(umsg), core::mem::transmute(dwparam1), core::mem::transmute(dwparam2))
+    mciSendCommandA(core::mem::transmute(mciid), core::mem::transmute(umsg), core::mem::transmute(dwparam1.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwparam2.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
+pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: Option<usize>, dwparam2: Option<usize>) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mciSendCommandW(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
-    mciSendCommandW(core::mem::transmute(mciid), core::mem::transmute(umsg), core::mem::transmute(dwparam1), core::mem::transmute(dwparam2))
+    mciSendCommandW(core::mem::transmute(mciid), core::mem::transmute(umsg), core::mem::transmute(dwparam1.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwparam2.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn mciSendStringA<P0, P3>(lpstrcommand: P0, lpstrreturnstring: Option<&mut [u8]>, hwndcallback: P3) -> u32
+pub unsafe fn mciSendStringA<P0>(lpstrcommand: P0, lpstrreturnstring: Option<&mut [u8]>, hwndcallback: Option<super::super::Foundation::HWND>) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("winmm.dll" "system" fn mciSendStringA(lpstrcommand : windows_core::PCSTR, lpstrreturnstring : windows_core::PSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
-    mciSendStringA(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.param().abi())
+    mciSendStringA(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(hwndcallback.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn mciSendStringW<P0, P3>(lpstrcommand: P0, lpstrreturnstring: Option<&mut [u16]>, hwndcallback: P3) -> u32
+pub unsafe fn mciSendStringW<P0>(lpstrcommand: P0, lpstrreturnstring: Option<&mut [u16]>, hwndcallback: Option<super::super::Foundation::HWND>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("winmm.dll" "system" fn mciSendStringW(lpstrcommand : windows_core::PCWSTR, lpstrreturnstring : windows_core::PWSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
-    mciSendStringW(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.param().abi())
+    mciSendStringW(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(hwndcallback.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL {
@@ -1042,18 +970,17 @@ pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::F
     mciSetDriverData(core::mem::transmute(wdeviceid), core::mem::transmute(dwdata))
 }
 #[inline]
-pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: Option<YIELDPROC>, dwyielddata: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : u32, fpyieldproc : YIELDPROC, dwyielddata : u32) -> super::super::Foundation:: BOOL);
-    mciSetYieldProc(core::mem::transmute(mciid), core::mem::transmute(fpyieldproc), core::mem::transmute(dwyielddata))
+    mciSetYieldProc(core::mem::transmute(mciid), core::mem::transmute(fpyieldproc.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwyielddata))
 }
 #[inline]
-pub unsafe fn mmDrvInstall<P0, P1>(hdriver: P0, wszdrventry: P1, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32
+pub unsafe fn mmDrvInstall<P1>(hdriver: HDRVR, wszdrventry: P1, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32
 where
-    P0: windows_core::Param<HDRVR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmDrvInstall(hdriver : HDRVR, wszdrventry : windows_core::PCWSTR, drvmessage : DRIVERMSGPROC, wflags : u32) -> u32);
-    mmDrvInstall(hdriver.param().abi(), wszdrventry.param().abi(), core::mem::transmute(drvmessage), core::mem::transmute(wflags))
+    mmDrvInstall(core::mem::transmute(hdriver), wszdrventry.param().abi(), core::mem::transmute(drvmessage), core::mem::transmute(wflags))
 }
 #[inline]
 pub unsafe fn mmGetCurrentTask() -> u32 {
@@ -1081,88 +1008,64 @@ pub unsafe fn mmTaskYield() {
     mmTaskYield()
 }
 #[inline]
-pub unsafe fn mmioAdvance<P0>(hmmio: P0, pmmioinfo: Option<*const MMIOINFO>, fuadvance: u32) -> u32
-where
-    P0: windows_core::Param<HMMIO>,
-{
+pub unsafe fn mmioAdvance(hmmio: HMMIO, pmmioinfo: Option<*const MMIOINFO>, fuadvance: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mmioAdvance(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuadvance : u32) -> u32);
-    mmioAdvance(hmmio.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), core::mem::transmute(fuadvance))
+    mmioAdvance(core::mem::transmute(hmmio), core::mem::transmute(pmmioinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(fuadvance))
 }
 #[inline]
-pub unsafe fn mmioAscend<P0>(hmmio: P0, pmmcki: *const MMCKINFO, fuascend: u32) -> u32
-where
-    P0: windows_core::Param<HMMIO>,
-{
+pub unsafe fn mmioAscend(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuascend: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mmioAscend(hmmio : HMMIO, pmmcki : *const MMCKINFO, fuascend : u32) -> u32);
-    mmioAscend(hmmio.param().abi(), core::mem::transmute(pmmcki), core::mem::transmute(fuascend))
+    mmioAscend(core::mem::transmute(hmmio), core::mem::transmute(pmmcki), core::mem::transmute(fuascend))
 }
 #[inline]
-pub unsafe fn mmioClose<P0>(hmmio: P0, fuclose: u32) -> u32
-where
-    P0: windows_core::Param<HMMIO>,
-{
+pub unsafe fn mmioClose(hmmio: HMMIO, fuclose: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mmioClose(hmmio : HMMIO, fuclose : u32) -> u32);
-    mmioClose(hmmio.param().abi(), core::mem::transmute(fuclose))
+    mmioClose(core::mem::transmute(hmmio), core::mem::transmute(fuclose))
 }
 #[inline]
-pub unsafe fn mmioCreateChunk<P0>(hmmio: P0, pmmcki: *const MMCKINFO, fucreate: u32) -> u32
-where
-    P0: windows_core::Param<HMMIO>,
-{
+pub unsafe fn mmioCreateChunk(hmmio: HMMIO, pmmcki: *const MMCKINFO, fucreate: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mmioCreateChunk(hmmio : HMMIO, pmmcki : *const MMCKINFO, fucreate : u32) -> u32);
-    mmioCreateChunk(hmmio.param().abi(), core::mem::transmute(pmmcki), core::mem::transmute(fucreate))
+    mmioCreateChunk(core::mem::transmute(hmmio), core::mem::transmute(pmmcki), core::mem::transmute(fucreate))
 }
 #[inline]
-pub unsafe fn mmioDescend<P0>(hmmio: P0, pmmcki: *mut MMCKINFO, pmmckiparent: Option<*const MMCKINFO>, fudescend: u32) -> u32
-where
-    P0: windows_core::Param<HMMIO>,
-{
+pub unsafe fn mmioDescend(hmmio: HMMIO, pmmcki: *mut MMCKINFO, pmmckiparent: Option<*const MMCKINFO>, fudescend: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mmioDescend(hmmio : HMMIO, pmmcki : *mut MMCKINFO, pmmckiparent : *const MMCKINFO, fudescend : u32) -> u32);
-    mmioDescend(hmmio.param().abi(), core::mem::transmute(pmmcki), core::mem::transmute(pmmckiparent.unwrap_or(core::ptr::null())), core::mem::transmute(fudescend))
+    mmioDescend(core::mem::transmute(hmmio), core::mem::transmute(pmmcki), core::mem::transmute(pmmckiparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(fudescend))
 }
 #[inline]
-pub unsafe fn mmioFlush<P0>(hmmio: P0, fuflush: u32) -> u32
-where
-    P0: windows_core::Param<HMMIO>,
-{
+pub unsafe fn mmioFlush(hmmio: HMMIO, fuflush: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mmioFlush(hmmio : HMMIO, fuflush : u32) -> u32);
-    mmioFlush(hmmio.param().abi(), core::mem::transmute(fuflush))
+    mmioFlush(core::mem::transmute(hmmio), core::mem::transmute(fuflush))
 }
 #[inline]
-pub unsafe fn mmioGetInfo<P0>(hmmio: P0, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32
-where
-    P0: windows_core::Param<HMMIO>,
-{
+pub unsafe fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mmioGetInfo(hmmio : HMMIO, pmmioinfo : *mut MMIOINFO, fuinfo : u32) -> u32);
-    mmioGetInfo(hmmio.param().abi(), core::mem::transmute(pmmioinfo), core::mem::transmute(fuinfo))
+    mmioGetInfo(core::mem::transmute(hmmio), core::mem::transmute(pmmioinfo), core::mem::transmute(fuinfo))
 }
 #[inline]
-pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
+pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: Option<LPMMIOPROC>, dwflags: u32) -> LPMMIOPROC {
     windows_targets::link!("winmm.dll" "system" fn mmioInstallIOProcA(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
-    mmioInstallIOProcA(core::mem::transmute(fccioproc), core::mem::transmute(pioproc), core::mem::transmute(dwflags))
+    mmioInstallIOProcA(core::mem::transmute(fccioproc), core::mem::transmute(pioproc.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
+pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: Option<LPMMIOPROC>, dwflags: u32) -> LPMMIOPROC {
     windows_targets::link!("winmm.dll" "system" fn mmioInstallIOProcW(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
-    mmioInstallIOProcW(core::mem::transmute(fccioproc), core::mem::transmute(pioproc), core::mem::transmute(dwflags))
+    mmioInstallIOProcW(core::mem::transmute(fccioproc), core::mem::transmute(pioproc.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn mmioOpenA(pszfilename: Option<&mut [u8; 128]>, pmmioinfo: Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
     windows_targets::link!("winmm.dll" "system" fn mmioOpenA(pszfilename : windows_core::PSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
-    mmioOpenA(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(fdwopen))
+    mmioOpenA(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(fdwopen))
 }
 #[inline]
 pub unsafe fn mmioOpenW(pszfilename: Option<&mut [u16; 128]>, pmmioinfo: Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
     windows_targets::link!("winmm.dll" "system" fn mmioOpenW(pszfilename : windows_core::PWSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
-    mmioOpenW(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(fdwopen))
+    mmioOpenW(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(fdwopen))
 }
 #[inline]
-pub unsafe fn mmioRead<P0>(hmmio: P0, pch: &mut [u8]) -> i32
-where
-    P0: windows_core::Param<HMMIO>,
-{
+pub unsafe fn mmioRead(hmmio: HMMIO, pch: &mut [u8]) -> i32 {
     windows_targets::link!("winmm.dll" "system" fn mmioRead(hmmio : HMMIO, pch : *mut i8, cch : i32) -> i32);
-    mmioRead(hmmio.param().abi(), core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap())
+    mmioRead(core::mem::transmute(hmmio), core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn mmioRenameA<P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: Option<*const MMIOINFO>, fdwrename: u32) -> u32
@@ -1171,7 +1074,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioRenameA(pszfilename : windows_core::PCSTR, psznewfilename : windows_core::PCSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
-    mmioRenameA(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), core::mem::transmute(fdwrename))
+    mmioRenameA(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(fdwrename))
 }
 #[inline]
 pub unsafe fn mmioRenameW<P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: Option<*const MMIOINFO>, fdwrename: u32) -> u32
@@ -1180,41 +1083,27 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioRenameW(pszfilename : windows_core::PCWSTR, psznewfilename : windows_core::PCWSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
-    mmioRenameW(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), core::mem::transmute(fdwrename))
+    mmioRenameW(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(fdwrename))
 }
 #[inline]
-pub unsafe fn mmioSeek<P0>(hmmio: P0, loffset: i32, iorigin: i32) -> i32
-where
-    P0: windows_core::Param<HMMIO>,
-{
+pub unsafe fn mmioSeek(hmmio: HMMIO, loffset: i32, iorigin: i32) -> i32 {
     windows_targets::link!("winmm.dll" "system" fn mmioSeek(hmmio : HMMIO, loffset : i32, iorigin : i32) -> i32);
-    mmioSeek(hmmio.param().abi(), core::mem::transmute(loffset), core::mem::transmute(iorigin))
+    mmioSeek(core::mem::transmute(hmmio), core::mem::transmute(loffset), core::mem::transmute(iorigin))
 }
 #[inline]
-pub unsafe fn mmioSendMessage<P0, P2, P3>(hmmio: P0, umsg: u32, lparam1: P2, lparam2: P3) -> super::super::Foundation::LRESULT
-where
-    P0: windows_core::Param<HMMIO>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    P3: windows_core::Param<super::super::Foundation::LPARAM>,
-{
+pub unsafe fn mmioSendMessage(hmmio: HMMIO, umsg: u32, lparam1: Option<super::super::Foundation::LPARAM>, lparam2: Option<super::super::Foundation::LPARAM>) -> super::super::Foundation::LRESULT {
     windows_targets::link!("winmm.dll" "system" fn mmioSendMessage(hmmio : HMMIO, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
-    mmioSendMessage(hmmio.param().abi(), core::mem::transmute(umsg), lparam1.param().abi(), lparam2.param().abi())
+    mmioSendMessage(core::mem::transmute(hmmio), core::mem::transmute(umsg), core::mem::transmute(lparam1.unwrap_or(core::mem::zeroed())), core::mem::transmute(lparam2.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn mmioSetBuffer<P0>(hmmio: P0, pchbuffer: Option<&mut [u8]>, fubuffer: u32) -> u32
-where
-    P0: windows_core::Param<HMMIO>,
-{
+pub unsafe fn mmioSetBuffer(hmmio: HMMIO, pchbuffer: Option<&mut [u8]>, fubuffer: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mmioSetBuffer(hmmio : HMMIO, pchbuffer : windows_core::PSTR, cchbuffer : i32, fubuffer : u32) -> u32);
-    mmioSetBuffer(hmmio.param().abi(), core::mem::transmute(pchbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pchbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(fubuffer))
+    mmioSetBuffer(core::mem::transmute(hmmio), core::mem::transmute(pchbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pchbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(fubuffer))
 }
 #[inline]
-pub unsafe fn mmioSetInfo<P0>(hmmio: P0, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32
-where
-    P0: windows_core::Param<HMMIO>,
-{
+pub unsafe fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mmioSetInfo(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuinfo : u32) -> u32);
-    mmioSetInfo(hmmio.param().abi(), core::mem::transmute(pmmioinfo), core::mem::transmute(fuinfo))
+    mmioSetInfo(core::mem::transmute(hmmio), core::mem::transmute(pmmioinfo), core::mem::transmute(fuinfo))
 }
 #[inline]
 pub unsafe fn mmioStringToFOURCCA<P0>(sz: P0, uflags: u32) -> u32
@@ -1233,12 +1122,9 @@ where
     mmioStringToFOURCCW(sz.param().abi(), core::mem::transmute(uflags))
 }
 #[inline]
-pub unsafe fn mmioWrite<P0>(hmmio: P0, pch: &[u8]) -> i32
-where
-    P0: windows_core::Param<HMMIO>,
-{
+pub unsafe fn mmioWrite(hmmio: HMMIO, pch: &[u8]) -> i32 {
     windows_targets::link!("winmm.dll" "system" fn mmioWrite(hmmio : HMMIO, pch : windows_core::PCSTR, cch : i32) -> i32);
-    mmioWrite(hmmio.param().abi(), core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap())
+    mmioWrite(core::mem::transmute(hmmio), core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn sndOpenSound<P0, P1>(eventname: P0, appname: P1, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32
@@ -2527,12 +2413,8 @@ impl windows_core::RuntimeName for IAVIPersistFile {}
 windows_core::imp::define_interface!(IAVIStream, IAVIStream_Vtbl, 0x00020021_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IAVIStream, windows_core::IUnknown);
 impl IAVIStream {
-    pub unsafe fn Create<P0, P1>(&self, lparam1: P0, lparam2: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::LPARAM>,
-        P1: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), lparam1.param().abi(), lparam2.param().abi()).ok()
+    pub unsafe fn Create(&self, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), core::mem::transmute(lparam1), core::mem::transmute(lparam2)).ok()
     }
     pub unsafe fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), core::mem::transmute(psi), core::mem::transmute(lsize)).ok()
@@ -2541,22 +2423,22 @@ impl IAVIStream {
         (windows_core::Interface::vtable(self).FindSample)(windows_core::Interface::as_raw(self), core::mem::transmute(lpos), core::mem::transmute(lflags))
     }
     pub unsafe fn ReadFormat(&self, lpos: i32, lpformat: Option<*mut core::ffi::c_void>, lpcbformat: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReadFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(lpos), core::mem::transmute(lpformat.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcbformat)).ok()
+        (windows_core::Interface::vtable(self).ReadFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(lpos), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcbformat)).ok()
     }
     pub unsafe fn SetFormat(&self, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(lpos), core::mem::transmute(lpformat), core::mem::transmute(cbformat)).ok()
     }
     pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: Option<*mut core::ffi::c_void>, cbbuffer: i32, plbytes: Option<*mut i32>, plsamples: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), core::mem::transmute(lstart), core::mem::transmute(lsamples), core::mem::transmute(lpbuffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbbuffer), core::mem::transmute(plbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plsamples.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), core::mem::transmute(lstart), core::mem::transmute(lsamples), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbbuffer), core::mem::transmute(plbytes.unwrap_or(core::mem::zeroed())), core::mem::transmute(plsamples.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: Option<*mut i32>, plbyteswritten: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), core::mem::transmute(lstart), core::mem::transmute(lsamples), core::mem::transmute(lpbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(dwflags), core::mem::transmute(plsampwritten.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), core::mem::transmute(lstart), core::mem::transmute(lsamples), core::mem::transmute(lpbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(dwflags), core::mem::transmute(plsampwritten.unwrap_or(core::mem::zeroed())), core::mem::transmute(plbyteswritten.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Delete(&self, lstart: i32, lsamples: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), core::mem::transmute(lstart), core::mem::transmute(lsamples)).ok()
     }
     pub unsafe fn ReadData(&self, fcc: u32, lp: Option<*mut core::ffi::c_void>, lpcb: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReadData)(windows_core::Interface::as_raw(self), core::mem::transmute(fcc), core::mem::transmute(lp.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcb)).ok()
+        (windows_core::Interface::vtable(self).ReadData)(windows_core::Interface::as_raw(self), core::mem::transmute(fcc), core::mem::transmute(lp.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcb)).ok()
     }
     pub unsafe fn WriteData(&self, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WriteData)(windows_core::Interface::as_raw(self), core::mem::transmute(fcc), core::mem::transmute(lp), core::mem::transmute(cb)).ok()
@@ -3160,7 +3042,7 @@ impl IGetFrame {
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: Option<*const core::ffi::c_void>, x: i32, y: i32, dx: i32, dy: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(lpbi), core::mem::transmute(lpbits.unwrap_or(core::ptr::null())), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(dx), core::mem::transmute(dy)).ok()
+        (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(lpbi), core::mem::transmute(lpbits.unwrap_or(core::mem::zeroed())), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(dx), core::mem::transmute(dy)).ok()
     }
 }
 #[repr(C)]

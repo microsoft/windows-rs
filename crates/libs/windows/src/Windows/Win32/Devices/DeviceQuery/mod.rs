@@ -1,10 +1,7 @@
 #[inline]
-pub unsafe fn DevCloseObjectQuery<P0>(hdevquery: P0)
-where
-    P0: windows_core::Param<HDEVQUERY>,
-{
+pub unsafe fn DevCloseObjectQuery(hdevquery: HDEVQUERY) {
     windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevCloseObjectQuery(hdevquery : HDEVQUERY));
-    DevCloseObjectQuery(hdevquery.param().abi())
+    DevCloseObjectQuery(core::mem::transmute(hdevquery))
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
@@ -19,7 +16,7 @@ pub unsafe fn DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: u32,
         pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pfilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         core::mem::transmute(pcallback),
-        core::mem::transmute(pcontext.unwrap_or(core::ptr::null())),
+        core::mem::transmute(pcontext.unwrap_or(core::mem::zeroed())),
         &mut result__,
     )
     .map(|| core::mem::transmute(result__))
@@ -39,7 +36,7 @@ pub unsafe fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u3
         pextendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pextendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         core::mem::transmute(pcallback),
-        core::mem::transmute(pcontext.unwrap_or(core::ptr::null())),
+        core::mem::transmute(pcontext.unwrap_or(core::mem::zeroed())),
         &mut result__,
     )
     .map(|| core::mem::transmute(result__))
@@ -61,7 +58,7 @@ where
         pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pfilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         core::mem::transmute(pcallback),
-        core::mem::transmute(pcontext.unwrap_or(core::ptr::null())),
+        core::mem::transmute(pcontext.unwrap_or(core::mem::zeroed())),
         &mut result__,
     )
     .map(|| core::mem::transmute(result__))
@@ -85,7 +82,7 @@ where
         pextendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pextendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         core::mem::transmute(pcallback),
-        core::mem::transmute(pcontext.unwrap_or(core::ptr::null())),
+        core::mem::transmute(pcontext.unwrap_or(core::mem::zeroed())),
         &mut result__,
     )
     .map(|| core::mem::transmute(result__))
@@ -107,7 +104,7 @@ where
         pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pfilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         core::mem::transmute(pcallback),
-        core::mem::transmute(pcontext.unwrap_or(core::ptr::null())),
+        core::mem::transmute(pcontext.unwrap_or(core::mem::zeroed())),
         &mut result__,
     )
     .map(|| core::mem::transmute(result__))
@@ -131,7 +128,7 @@ where
         pextendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pextendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         core::mem::transmute(pcallback),
-        core::mem::transmute(pcontext.unwrap_or(core::ptr::null())),
+        core::mem::transmute(pcontext.unwrap_or(core::mem::zeroed())),
         &mut result__,
     )
     .map(|| core::mem::transmute(result__))

@@ -260,7 +260,7 @@ impl CppStruct {
     }
 
     pub fn is_convertible(&self) -> bool {
-        self.is_handle()
+        matches!(self.def.type_name(), TypeName::BOOL | TypeName::BOOLEAN)
     }
 
     pub fn is_copyable(&self) -> bool {

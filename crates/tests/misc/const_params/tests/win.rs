@@ -21,7 +21,7 @@ fn hstring() -> Result<()> {
 #[test]
 fn uri() -> Result<()> {
     unsafe {
-        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), 0)?;
+        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
         let builder = CreateIUriBuilder(&uri, 0, 0)?;
 
         let mut host_len = 0u32;

@@ -1,11 +1,7 @@
 #[inline]
-pub unsafe fn AssignProcessToJobObject<P0, P1>(hjob: P0, hprocess: P1) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn AssignProcessToJobObject(hjob: super::super::Foundation::HANDLE, hprocess: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn AssignProcessToJobObject(hjob : super::super::Foundation:: HANDLE, hprocess : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    AssignProcessToJobObject(hjob.param().abi(), hprocess.param().abi()).ok()
+    AssignProcessToJobObject(core::mem::transmute(hjob), core::mem::transmute(hprocess)).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -14,7 +10,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateJobObjectA(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateJobObjectA(core::mem::transmute(lpjobattributes.unwrap_or(core::ptr::null())), lpname.param().abi());
+    let result__ = CreateJobObjectA(core::mem::transmute(lpjobattributes.unwrap_or(core::mem::zeroed())), lpname.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
@@ -24,7 +20,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateJobObjectW(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateJobObjectW(core::mem::transmute(lpjobattributes.unwrap_or(core::ptr::null())), lpname.param().abi());
+    let result__ = CreateJobObjectW(core::mem::transmute(lpjobattributes.unwrap_or(core::mem::zeroed())), lpname.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -38,13 +34,9 @@ pub unsafe fn FreeMemoryJobObject(buffer: *const core::ffi::c_void) {
     FreeMemoryJobObject(core::mem::transmute(buffer))
 }
 #[inline]
-pub unsafe fn IsProcessInJob<P0, P1>(processhandle: P0, jobhandle: P1, result: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn IsProcessInJob(processhandle: super::super::Foundation::HANDLE, jobhandle: Option<super::super::Foundation::HANDLE>, result: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn IsProcessInJob(processhandle : super::super::Foundation:: HANDLE, jobhandle : super::super::Foundation:: HANDLE, result : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    IsProcessInJob(processhandle.param().abi(), jobhandle.param().abi(), core::mem::transmute(result)).ok()
+    IsProcessInJob(core::mem::transmute(processhandle), core::mem::transmute(jobhandle.unwrap_or(core::mem::zeroed())), core::mem::transmute(result)).ok()
 }
 #[inline]
 pub unsafe fn OpenJobObjectA<P1, P2>(dwdesiredaccess: u32, binherithandle: P1, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -67,55 +59,40 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn QueryInformationJobObject<P0>(hjob: P0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: Option<*mut u32>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn QueryInformationJobObject(hjob: Option<super::super::Foundation::HANDLE>, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn QueryInformationJobObject(hjob : super::super::Foundation:: HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *mut core::ffi::c_void, cbjobobjectinformationlength : u32, lpreturnlength : *mut u32) -> super::super::Foundation:: BOOL);
-    QueryInformationJobObject(hjob.param().abi(), core::mem::transmute(jobobjectinformationclass), core::mem::transmute(lpjobobjectinformation), core::mem::transmute(cbjobobjectinformationlength), core::mem::transmute(lpreturnlength.unwrap_or(core::ptr::null_mut()))).ok()
+    QueryInformationJobObject(core::mem::transmute(hjob.unwrap_or(core::mem::zeroed())), core::mem::transmute(jobobjectinformationclass), core::mem::transmute(lpjobobjectinformation), core::mem::transmute(cbjobobjectinformationlength), core::mem::transmute(lpreturnlength.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn QueryIoRateControlInformationJobObject<P0, P1>(hjob: P0, volumename: P1, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32
+pub unsafe fn QueryIoRateControlInformationJobObject<P1>(hjob: Option<super::super::Foundation::HANDLE>, volumename: P1, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn QueryIoRateControlInformationJobObject(hjob : super::super::Foundation:: HANDLE, volumename : windows_core::PCWSTR, infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount : *mut u32) -> u32);
-    QueryIoRateControlInformationJobObject(hjob.param().abi(), volumename.param().abi(), core::mem::transmute(infoblocks), core::mem::transmute(infoblockcount))
+    QueryIoRateControlInformationJobObject(core::mem::transmute(hjob.unwrap_or(core::mem::zeroed())), volumename.param().abi(), core::mem::transmute(infoblocks), core::mem::transmute(infoblockcount))
 }
 #[inline]
-pub unsafe fn SetInformationJobObject<P0>(hjob: P0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const core::ffi::c_void, cbjobobjectinformationlength: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SetInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const core::ffi::c_void, cbjobobjectinformationlength: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetInformationJobObject(hjob : super::super::Foundation:: HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *const core::ffi::c_void, cbjobobjectinformationlength : u32) -> super::super::Foundation:: BOOL);
-    SetInformationJobObject(hjob.param().abi(), core::mem::transmute(jobobjectinformationclass), core::mem::transmute(lpjobobjectinformation), core::mem::transmute(cbjobobjectinformationlength)).ok()
+    SetInformationJobObject(core::mem::transmute(hjob), core::mem::transmute(jobobjectinformationclass), core::mem::transmute(lpjobobjectinformation), core::mem::transmute(cbjobobjectinformationlength)).ok()
 }
 #[inline]
-pub unsafe fn SetIoRateControlInformationJobObject<P0>(hjob: P0, ioratecontrolinfo: *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn SetIoRateControlInformationJobObject(hjob: super::super::Foundation::HANDLE, ioratecontrolinfo: *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn SetIoRateControlInformationJobObject(hjob : super::super::Foundation:: HANDLE, ioratecontrolinfo : *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32);
-    SetIoRateControlInformationJobObject(hjob.param().abi(), core::mem::transmute(ioratecontrolinfo))
+    SetIoRateControlInformationJobObject(core::mem::transmute(hjob), core::mem::transmute(ioratecontrolinfo))
 }
 #[inline]
-pub unsafe fn TerminateJobObject<P0>(hjob: P0, uexitcode: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn TerminateJobObject(hjob: super::super::Foundation::HANDLE, uexitcode: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn TerminateJobObject(hjob : super::super::Foundation:: HANDLE, uexitcode : u32) -> super::super::Foundation:: BOOL);
-    TerminateJobObject(hjob.param().abi(), core::mem::transmute(uexitcode)).ok()
+    TerminateJobObject(core::mem::transmute(hjob), core::mem::transmute(uexitcode)).ok()
 }
 #[inline]
-pub unsafe fn UserHandleGrantAccess<P0, P1, P2>(huserhandle: P0, hjob: P1, bgrant: P2) -> windows_core::Result<()>
+pub unsafe fn UserHandleGrantAccess<P2>(huserhandle: super::super::Foundation::HANDLE, hjob: super::super::Foundation::HANDLE, bgrant: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn UserHandleGrantAccess(huserhandle : super::super::Foundation:: HANDLE, hjob : super::super::Foundation:: HANDLE, bgrant : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    UserHandleGrantAccess(huserhandle.param().abi(), hjob.param().abi(), bgrant.param().abi()).ok()
+    UserHandleGrantAccess(core::mem::transmute(huserhandle), core::mem::transmute(hjob), bgrant.param().abi()).ok()
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
