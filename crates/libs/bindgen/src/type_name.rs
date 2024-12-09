@@ -43,6 +43,7 @@ impl TypeName {
     pub const HRESULT: Self = Self("Windows.Win32.Foundation", "HRESULT");
     pub const CHAR: Self = Self("Windows.Win32.Foundation", "CHAR");
     pub const BOOL: Self = Self("Windows.Win32.Foundation", "BOOL");
+    pub const BOOLEAN: Self = Self("Windows.Win32.Foundation", "BOOLEAN");
     pub const NTSTATUS: Self = Self("Windows.Win32.Foundation", "NTSTATUS");
     pub const WIN32_ERROR: Self = Self("Windows.Win32.Foundation", "WIN32_ERROR");
     pub const RPC_STATUS: Self = Self("Windows.Win32.System.Rpc", "RPC_STATUS");

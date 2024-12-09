@@ -29,7 +29,7 @@ pub enum ParamHint {
     ArrayRelativeByteLen(usize),
     ArrayRelativePtr(usize),
     IntoParam,
-    OptionalPointer,
+    Optional,
     ValueType,
     Blittable,
 }
@@ -159,13 +159,13 @@ impl CppMethod {
                     *hint = ParamHint::IntoParam;
                 } else {
                     let flags = signature.params[position].1.flags();
-                    if signature.params[position].0.is_pointer()
+                    if signature.params[position].0.is_copyable()
                         && (flags.contains(ParamAttributes::Optional)
                             || signature.params[position]
                                 .1
                                 .has_attribute("ReservedAttribute"))
                     {
-                        *hint = ParamHint::OptionalPointer;
+                        *hint = ParamHint::Optional;
                     } else if signature.params[position].0.is_primitive()
                         && (!signature.params[position].0.is_pointer()
                             || signature.params[position].0.deref().is_copyable())
@@ -622,7 +622,7 @@ impl CppMethod {
                     let kind: TokenStream = format!("P{position}").into();
                     tokens.combine(&quote! { #name: #kind, });
                 }
-                ParamHint::OptionalPointer => {
+                ParamHint::Optional => {
                     let kind = ty.write_default(writer);
                     tokens.combine(&quote! { #name: Option<#kind>, });
                 }
@@ -688,12 +688,8 @@ impl CppMethod {
                         ParamHint::IntoParam => {
                             quote! { #name.param().abi(), }
                         }
-                        ParamHint::OptionalPointer => {
-                            if flags.contains(ParamAttributes::Out) {
-                                quote! { core::mem::transmute(#name.unwrap_or(core::ptr::null_mut())), }
-                            } else {
-                                quote! { core::mem::transmute(#name.unwrap_or(core::ptr::null())), }
-                            }
+                        ParamHint::Optional => {
+                            quote! { core::mem::transmute(#name.unwrap_or(core::mem::zeroed())), }
                         }
                         ParamHint::ValueType => {
                             quote! { core::mem::transmute(#name), }
@@ -784,9 +780,7 @@ fn write_invoke_arg(ty: &Type, param: Param, _hint: ParamHint) -> TokenStream {
 }
 
 fn is_convertible(ty: &Type, param: Param, hint: ParamHint) -> bool {
-    !param.flags().contains(ParamAttributes::Out)
-        && !hint.is_array()
-        && (ty.is_convertible() || ty.is_handle())
+    !param.flags().contains(ParamAttributes::Out) && !hint.is_array() && ty.is_convertible()
 }
 
 fn is_retval(signature: &Signature, param_hints: &[ParamHint]) -> bool {
