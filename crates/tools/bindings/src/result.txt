@@ -3,23 +3,23 @@
 --flat --sys --no-core --no-comment
 
 --filter
-    Windows.Win32.Foundation.E_UNEXPECTED
-    Windows.Win32.Foundation.ERROR_INVALID_DATA
-    Windows.Win32.Foundation.ERROR_NO_UNICODE_TRANSLATION
-    Windows.Win32.Foundation.GetLastError
-    Windows.Win32.Foundation.SysFreeString
-    Windows.Win32.Foundation.SysStringLen
-    Windows.Win32.System.Com.GetErrorInfo
-    Windows.Win32.System.Com.IErrorInfo
-    Windows.Win32.System.Com.SetErrorInfo
-    Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_ALLOCATE_BUFFER
-    Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_FROM_HMODULE
-    Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_FROM_SYSTEM
-    Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_IGNORE_INSERTS
-    Windows.Win32.System.Diagnostics.Debug.FormatMessageW
-    Windows.Win32.System.LibraryLoader.LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
-    Windows.Win32.System.LibraryLoader.LoadLibraryExA
-    Windows.Win32.System.Memory.GetProcessHeap
-    Windows.Win32.System.Memory.HeapFree
-    Windows.Win32.System.WinRT.IRestrictedErrorInfo
-    Windows.Win32.System.WinRT.RoOriginateErrorW
+    E_UNEXPECTED
+    ERROR_INVALID_DATA
+    ERROR_NO_UNICODE_TRANSLATION
+    FORMAT_MESSAGE_ALLOCATE_BUFFER
+    FORMAT_MESSAGE_FROM_HMODULE
+    FORMAT_MESSAGE_FROM_SYSTEM
+    FORMAT_MESSAGE_IGNORE_INSERTS
+    FormatMessageW
+    GetErrorInfo
+    GetLastError
+    GetProcessHeap
+    HeapFree
+    IErrorInfo
+    IRestrictedErrorInfo
+    LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+    LoadLibraryExA
+    RoOriginateErrorW
+    SetErrorInfo
+    SysFreeString
+    SysStringLen
