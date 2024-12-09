@@ -584,7 +584,7 @@ impl windows_core::RuntimeType for BackgroundTaskCanceledEventHandler {
 impl BackgroundTaskCanceledEventHandler {
     pub fn new<F: FnMut(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskCanceledEventHandlerBox { vtable: &BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0, reason: BackgroundTaskCancellationReason) -> windows_core::Result<()>
     where
@@ -628,7 +628,7 @@ impl<F: FnMut(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -696,7 +696,7 @@ impl windows_core::RuntimeType for BackgroundTaskCompletedEventHandler {
 impl BackgroundTaskCompletedEventHandler {
     pub fn new<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskCompletedEventHandlerBox { vtable: &BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where
@@ -741,7 +741,7 @@ impl<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskComplet
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -811,7 +811,7 @@ impl windows_core::RuntimeType for BackgroundTaskProgressEventHandler {
 impl BackgroundTaskProgressEventHandler {
     pub fn new<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskProgressEventHandlerBox { vtable: &BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where
@@ -856,7 +856,7 @@ impl<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgres
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }

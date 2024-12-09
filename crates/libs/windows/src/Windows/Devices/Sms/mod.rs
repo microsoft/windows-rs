@@ -2193,7 +2193,7 @@ impl windows_core::RuntimeType for SmsDeviceStatusChangedEventHandler {
 impl SmsDeviceStatusChangedEventHandler {
     pub fn new<F: FnMut(Option<&SmsDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SmsDeviceStatusChangedEventHandlerBox { vtable: &SmsDeviceStatusChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
@@ -2240,7 +2240,7 @@ impl<F: FnMut(Option<&SmsDevice>) -> windows_core::Result<()> + Send + 'static> 
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -2574,7 +2574,7 @@ impl windows_core::RuntimeType for SmsMessageReceivedEventHandler {
 impl SmsMessageReceivedEventHandler {
     pub fn new<F: FnMut(Option<&SmsDevice>, Option<&SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SmsMessageReceivedEventHandlerBox { vtable: &SmsMessageReceivedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -2622,7 +2622,7 @@ impl<F: FnMut(Option<&SmsDevice>, Option<&SmsMessageReceivedEventArgs>) -> windo
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }

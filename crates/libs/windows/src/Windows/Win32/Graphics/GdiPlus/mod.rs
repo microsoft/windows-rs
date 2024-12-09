@@ -4334,17 +4334,14 @@ impl GdiplusAbort_Vtbl {
         Self { Abort: Abort::<Identity> }
     }
 }
-#[cfg(feature = "std")]
 struct GdiplusAbort_ImplVtbl<T: GdiplusAbort_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: GdiplusAbort_Impl> GdiplusAbort_ImplVtbl<T> {
     const VTABLE: GdiplusAbort_Vtbl = GdiplusAbort_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl GdiplusAbort {
     pub fn new<'a, T: GdiplusAbort_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &GdiplusAbort_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }

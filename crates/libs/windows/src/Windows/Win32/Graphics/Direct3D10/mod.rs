@@ -4947,17 +4947,14 @@ impl ID3D10EffectBlendVariable_Vtbl {
         Self { base__: ID3D10EffectVariable_Vtbl::new::<Identity>(), GetBlendState: GetBlendState::<Identity>, GetBackingStore: GetBackingStore::<Identity> }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectBlendVariable_ImplVtbl<T: ID3D10EffectBlendVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectBlendVariable_Impl> ID3D10EffectBlendVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectBlendVariable_Vtbl = ID3D10EffectBlendVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectBlendVariable {
     pub fn new<'a, T: ID3D10EffectBlendVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectBlendVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -5050,17 +5047,14 @@ impl ID3D10EffectConstantBuffer_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectConstantBuffer_ImplVtbl<T: ID3D10EffectConstantBuffer_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectConstantBuffer_Impl> ID3D10EffectConstantBuffer_ImplVtbl<T> {
     const VTABLE: ID3D10EffectConstantBuffer_Vtbl = ID3D10EffectConstantBuffer_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectConstantBuffer {
     pub fn new<'a, T: ID3D10EffectConstantBuffer_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectConstantBuffer_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -5118,17 +5112,14 @@ impl ID3D10EffectDepthStencilVariable_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectDepthStencilVariable_ImplVtbl<T: ID3D10EffectDepthStencilVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectDepthStencilVariable_Impl> ID3D10EffectDepthStencilVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectDepthStencilVariable_Vtbl = ID3D10EffectDepthStencilVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectDepthStencilVariable {
     pub fn new<'a, T: ID3D10EffectDepthStencilVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectDepthStencilVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -5211,17 +5202,14 @@ impl ID3D10EffectDepthStencilViewVariable_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectDepthStencilViewVariable_ImplVtbl<T: ID3D10EffectDepthStencilViewVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectDepthStencilViewVariable_Impl> ID3D10EffectDepthStencilViewVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectDepthStencilViewVariable_Vtbl = ID3D10EffectDepthStencilViewVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectDepthStencilViewVariable {
     pub fn new<'a, T: ID3D10EffectDepthStencilViewVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectDepthStencilViewVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -5338,17 +5326,14 @@ impl ID3D10EffectMatrixVariable_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectMatrixVariable_ImplVtbl<T: ID3D10EffectMatrixVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectMatrixVariable_Impl> ID3D10EffectMatrixVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectMatrixVariable_Vtbl = ID3D10EffectMatrixVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectMatrixVariable {
     pub fn new<'a, T: ID3D10EffectMatrixVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectMatrixVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -5470,17 +5455,14 @@ impl ID3D10EffectPass_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectPass_ImplVtbl<T: ID3D10EffectPass_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectPass_Impl> ID3D10EffectPass_ImplVtbl<T> {
     const VTABLE: ID3D10EffectPass_Vtbl = ID3D10EffectPass_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectPass {
     pub fn new<'a, T: ID3D10EffectPass_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectPass_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -5568,17 +5550,14 @@ impl ID3D10EffectRasterizerVariable_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectRasterizerVariable_ImplVtbl<T: ID3D10EffectRasterizerVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectRasterizerVariable_Impl> ID3D10EffectRasterizerVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectRasterizerVariable_Vtbl = ID3D10EffectRasterizerVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectRasterizerVariable {
     pub fn new<'a, T: ID3D10EffectRasterizerVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectRasterizerVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -5661,17 +5640,14 @@ impl ID3D10EffectRenderTargetViewVariable_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectRenderTargetViewVariable_ImplVtbl<T: ID3D10EffectRenderTargetViewVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectRenderTargetViewVariable_Impl> ID3D10EffectRenderTargetViewVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectRenderTargetViewVariable_Vtbl = ID3D10EffectRenderTargetViewVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectRenderTargetViewVariable {
     pub fn new<'a, T: ID3D10EffectRenderTargetViewVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectRenderTargetViewVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -5725,17 +5701,14 @@ impl ID3D10EffectSamplerVariable_Vtbl {
         Self { base__: ID3D10EffectVariable_Vtbl::new::<Identity>(), GetSampler: GetSampler::<Identity>, GetBackingStore: GetBackingStore::<Identity> }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectSamplerVariable_ImplVtbl<T: ID3D10EffectSamplerVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectSamplerVariable_Impl> ID3D10EffectSamplerVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectSamplerVariable_Vtbl = ID3D10EffectSamplerVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectSamplerVariable {
     pub fn new<'a, T: ID3D10EffectSamplerVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectSamplerVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -5920,17 +5893,14 @@ impl ID3D10EffectScalarVariable_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectScalarVariable_ImplVtbl<T: ID3D10EffectScalarVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectScalarVariable_Impl> ID3D10EffectScalarVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectScalarVariable_Vtbl = ID3D10EffectScalarVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectScalarVariable {
     pub fn new<'a, T: ID3D10EffectScalarVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectScalarVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -6013,17 +5983,14 @@ impl ID3D10EffectShaderResourceVariable_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectShaderResourceVariable_ImplVtbl<T: ID3D10EffectShaderResourceVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectShaderResourceVariable_Impl> ID3D10EffectShaderResourceVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectShaderResourceVariable_Vtbl = ID3D10EffectShaderResourceVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectShaderResourceVariable {
     pub fn new<'a, T: ID3D10EffectShaderResourceVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectShaderResourceVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -6149,20 +6116,17 @@ impl ID3D10EffectShaderVariable_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 struct ID3D10EffectShaderVariable_ImplVtbl<T: ID3D10EffectShaderVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D10EffectShaderVariable_Impl> ID3D10EffectShaderVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectShaderVariable_Vtbl = ID3D10EffectShaderVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10EffectShaderVariable {
     pub fn new<'a, T: ID3D10EffectShaderVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectShaderVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -6218,17 +6182,14 @@ impl ID3D10EffectStringVariable_Vtbl {
         Self { base__: ID3D10EffectVariable_Vtbl::new::<Identity>(), GetString: GetString::<Identity>, GetStringArray: GetStringArray::<Identity> }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectStringVariable_ImplVtbl<T: ID3D10EffectStringVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectStringVariable_Impl> ID3D10EffectStringVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectStringVariable_Vtbl = ID3D10EffectStringVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectStringVariable {
     pub fn new<'a, T: ID3D10EffectStringVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectStringVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -6331,17 +6292,14 @@ impl ID3D10EffectTechnique_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectTechnique_ImplVtbl<T: ID3D10EffectTechnique_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectTechnique_Impl> ID3D10EffectTechnique_ImplVtbl<T> {
     const VTABLE: ID3D10EffectTechnique_Vtbl = ID3D10EffectTechnique_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectTechnique {
     pub fn new<'a, T: ID3D10EffectTechnique_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectTechnique_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -6450,20 +6408,17 @@ impl ID3D10EffectType_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 struct ID3D10EffectType_ImplVtbl<T: ID3D10EffectType_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D10EffectType_Impl> ID3D10EffectType_ImplVtbl<T> {
     const VTABLE: ID3D10EffectType_Vtbl = ID3D10EffectType_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10EffectType {
     pub fn new<'a, T: ID3D10EffectType_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectType_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -6769,17 +6724,14 @@ impl ID3D10EffectVariable_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectVariable_ImplVtbl<T: ID3D10EffectVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectVariable_Impl> ID3D10EffectVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectVariable_Vtbl = ID3D10EffectVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectVariable {
     pub fn new<'a, T: ID3D10EffectVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -6940,17 +6892,14 @@ impl ID3D10EffectVectorVariable_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10EffectVectorVariable_ImplVtbl<T: ID3D10EffectVectorVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10EffectVectorVariable_Impl> ID3D10EffectVectorVariable_ImplVtbl<T> {
     const VTABLE: ID3D10EffectVectorVariable_Vtbl = ID3D10EffectVectorVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10EffectVectorVariable {
     pub fn new<'a, T: ID3D10EffectVectorVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10EffectVectorVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -8144,20 +8093,17 @@ impl ID3D10ShaderReflectionConstantBuffer_Vtbl {
         Self { GetDesc: GetDesc::<Identity>, GetVariableByIndex: GetVariableByIndex::<Identity>, GetVariableByName: GetVariableByName::<Identity> }
     }
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 struct ID3D10ShaderReflectionConstantBuffer_ImplVtbl<T: ID3D10ShaderReflectionConstantBuffer_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D10ShaderReflectionConstantBuffer_Impl> ID3D10ShaderReflectionConstantBuffer_ImplVtbl<T> {
     const VTABLE: ID3D10ShaderReflectionConstantBuffer_Vtbl = ID3D10ShaderReflectionConstantBuffer_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10ShaderReflectionConstantBuffer {
     pub fn new<'a, T: ID3D10ShaderReflectionConstantBuffer_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10ShaderReflectionConstantBuffer_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -8232,20 +8178,17 @@ impl ID3D10ShaderReflectionType_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 struct ID3D10ShaderReflectionType_ImplVtbl<T: ID3D10ShaderReflectionType_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D10ShaderReflectionType_Impl> ID3D10ShaderReflectionType_ImplVtbl<T> {
     const VTABLE: ID3D10ShaderReflectionType_Vtbl = ID3D10ShaderReflectionType_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10ShaderReflectionType {
     pub fn new<'a, T: ID3D10ShaderReflectionType_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10ShaderReflectionType_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -8286,17 +8229,14 @@ impl ID3D10ShaderReflectionVariable_Vtbl {
         Self { GetDesc: GetDesc::<Identity>, GetType: GetType::<Identity> }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D10ShaderReflectionVariable_ImplVtbl<T: ID3D10ShaderReflectionVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D10ShaderReflectionVariable_Impl> ID3D10ShaderReflectionVariable_ImplVtbl<T> {
     const VTABLE: ID3D10ShaderReflectionVariable_Vtbl = ID3D10ShaderReflectionVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D10ShaderReflectionVariable {
     pub fn new<'a, T: ID3D10ShaderReflectionVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D10ShaderReflectionVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
