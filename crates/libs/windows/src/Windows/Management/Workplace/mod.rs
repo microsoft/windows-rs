@@ -72,6 +72,20 @@ impl MdmPolicy {
 impl windows_core::RuntimeName for MdmPolicy {
     const NAME: &'static str = "Windows.Management.Workplace.MdmPolicy";
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MessagingSyncPolicy(pub i32);
+impl MessagingSyncPolicy {
+    pub const Disallowed: Self = Self(0i32);
+    pub const Allowed: Self = Self(1i32);
+    pub const Required: Self = Self(2i32);
+}
+impl windows_core::TypeKind for MessagingSyncPolicy {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for MessagingSyncPolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Workplace.MessagingSyncPolicy;i4)");
+}
 pub struct WorkplaceSettings;
 impl WorkplaceSettings {
     pub fn IsMicrosoftAccountOptional() -> windows_core::Result<bool> {
@@ -87,23 +101,4 @@ impl WorkplaceSettings {
 }
 impl windows_core::RuntimeName for WorkplaceSettings {
     const NAME: &'static str = "Windows.Management.Workplace.WorkplaceSettings";
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct MessagingSyncPolicy(pub i32);
-impl MessagingSyncPolicy {
-    pub const Disallowed: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const Required: Self = Self(2i32);
-}
-impl windows_core::TypeKind for MessagingSyncPolicy {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for MessagingSyncPolicy {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MessagingSyncPolicy").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for MessagingSyncPolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Workplace.MessagingSyncPolicy;i4)");
 }

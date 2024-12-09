@@ -66,6 +66,17 @@ windows_targets::link!("ntdll.dll" "system" fn ZwSaveKey(keyhandle : super::supe
 windows_targets::link!("ntdll.dll" "system" fn ZwSaveKeyEx(keyhandle : super::super::super::Win32::Foundation:: HANDLE, filehandle : super::super::super::Win32::Foundation:: HANDLE, format : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntdll.dll" "system" fn ZwSetInformationKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, keysetinformationclass : KEY_SET_INFORMATION_CLASS, keysetinformation : *const core::ffi::c_void, keysetinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntdll.dll" "system" fn ZwSetValueKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, valuename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, titleindex : u32, r#type : u32, data : *const core::ffi::c_void, datasize : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+pub type KEY_INFORMATION_CLASS = i32;
+pub type KEY_SET_INFORMATION_CLASS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KEY_VALUE_ENTRY {
+    pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub DataLength: u32,
+    pub DataOffset: u32,
+    pub Type: u32,
+}
+pub type KEY_VALUE_INFORMATION_CLASS = i32;
 pub const KeyBasicInformation: KEY_INFORMATION_CLASS = 0i32;
 pub const KeyCachedInformation: KEY_INFORMATION_CLASS = 4i32;
 pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = 2i32;
@@ -92,17 +103,6 @@ pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = 0i32;
 pub const MaxKeyInfoClass: KEY_INFORMATION_CLASS = 10i32;
 pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = 7i32;
 pub const MaxKeyValueInfoClass: KEY_VALUE_INFORMATION_CLASS = 6i32;
-pub type KEY_INFORMATION_CLASS = i32;
-pub type KEY_SET_INFORMATION_CLASS = i32;
-pub type KEY_VALUE_INFORMATION_CLASS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KEY_VALUE_ENTRY {
-    pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub DataLength: u32,
-    pub DataOffset: u32,
-    pub Type: u32,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REG_ENUMERATE_KEY_INFORMATION {

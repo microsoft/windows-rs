@@ -2,17 +2,29 @@ windows_targets::link!("xolehlp.dll" "cdecl" fn DtcGetTransactionManager(i_pszho
 windows_targets::link!("xolehlp.dll" "cdecl" fn DtcGetTransactionManagerC(i_pszhost : windows_sys::core::PCSTR, i_psztmname : windows_sys::core::PCSTR, i_riid : *const windows_sys::core::GUID, i_dwreserved1 : u32, i_wcbreserved2 : u16, i_pvreserved2 : *const core::ffi::c_void, o_ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("xolehlp.dll" "cdecl" fn DtcGetTransactionManagerExA(i_pszhost : windows_sys::core::PCSTR, i_psztmname : windows_sys::core::PCSTR, i_riid : *const windows_sys::core::GUID, i_grfoptions : u32, i_pvconfigparams : *mut core::ffi::c_void, o_ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("xolehlp.dll" "cdecl" fn DtcGetTransactionManagerExW(i_pwszhost : windows_sys::core::PCWSTR, i_pwsztmname : windows_sys::core::PCWSTR, i_riid : *const windows_sys::core::GUID, i_grfoptions : u32, i_pvconfigparams : *mut core::ffi::c_void, o_ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub type APPLICATIONTYPE = i32;
+pub type AUTHENTICATION_LEVEL = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BOID {
+    pub rgb: [u8; 16],
+}
 pub const CLSID_MSDtcTransaction: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x39f8d76b_0928_11d1_97df_00c04fb9618a);
 pub const CLSID_MSDtcTransactionManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5b18ab61_091d_11d1_97df_00c04fb9618a);
 pub const CLUSTERRESOURCE_APPLICATIONTYPE: APPLICATIONTYPE = 1i32;
+pub type DTCINITIATEDRECOVERYWORK = i32;
 pub const DTCINITIATEDRECOVERYWORK_CHECKLUSTATUS: DTCINITIATEDRECOVERYWORK = 1i32;
 pub const DTCINITIATEDRECOVERYWORK_TMDOWN: DTCINITIATEDRECOVERYWORK = 3i32;
 pub const DTCINITIATEDRECOVERYWORK_TRANS: DTCINITIATEDRECOVERYWORK = 2i32;
 pub const DTCINSTALL_E_CLIENT_ALREADY_INSTALLED: i32 = 384i32;
 pub const DTCINSTALL_E_SERVER_ALREADY_INSTALLED: i32 = 385i32;
+pub type DTCLUCOMPARESTATE = i32;
+pub type DTCLUCOMPARESTATESCONFIRMATION = i32;
 pub const DTCLUCOMPARESTATESCONFIRMATION_CONFIRM: DTCLUCOMPARESTATESCONFIRMATION = 1i32;
 pub const DTCLUCOMPARESTATESCONFIRMATION_PROTOCOL: DTCLUCOMPARESTATESCONFIRMATION = 2i32;
+pub type DTCLUCOMPARESTATESERROR = i32;
 pub const DTCLUCOMPARESTATESERROR_PROTOCOL: DTCLUCOMPARESTATESERROR = 1i32;
+pub type DTCLUCOMPARESTATESRESPONSE = i32;
 pub const DTCLUCOMPARESTATESRESPONSE_OK: DTCLUCOMPARESTATESRESPONSE = 1i32;
 pub const DTCLUCOMPARESTATESRESPONSE_PROTOCOL: DTCLUCOMPARESTATESRESPONSE = 2i32;
 pub const DTCLUCOMPARESTATE_COMMITTED: DTCLUCOMPARESTATE = 1i32;
@@ -21,21 +33,30 @@ pub const DTCLUCOMPARESTATE_HEURISTICMIXED: DTCLUCOMPARESTATE = 3i32;
 pub const DTCLUCOMPARESTATE_HEURISTICRESET: DTCLUCOMPARESTATE = 4i32;
 pub const DTCLUCOMPARESTATE_INDOUBT: DTCLUCOMPARESTATE = 5i32;
 pub const DTCLUCOMPARESTATE_RESET: DTCLUCOMPARESTATE = 6i32;
+pub type DTCLUXLN = i32;
+pub type DTCLUXLNCONFIRMATION = i32;
 pub const DTCLUXLNCONFIRMATION_COLDWARMMISMATCH: DTCLUXLNCONFIRMATION = 3i32;
 pub const DTCLUXLNCONFIRMATION_CONFIRM: DTCLUXLNCONFIRMATION = 1i32;
 pub const DTCLUXLNCONFIRMATION_LOGNAMEMISMATCH: DTCLUXLNCONFIRMATION = 2i32;
 pub const DTCLUXLNCONFIRMATION_OBSOLETE: DTCLUXLNCONFIRMATION = 4i32;
+pub type DTCLUXLNERROR = i32;
 pub const DTCLUXLNERROR_COLDWARMMISMATCH: DTCLUXLNERROR = 3i32;
 pub const DTCLUXLNERROR_LOGNAMEMISMATCH: DTCLUXLNERROR = 2i32;
 pub const DTCLUXLNERROR_PROTOCOL: DTCLUXLNERROR = 1i32;
+pub type DTCLUXLNRESPONSE = i32;
 pub const DTCLUXLNRESPONSE_COLDWARMMISMATCH: DTCLUXLNRESPONSE = 4i32;
 pub const DTCLUXLNRESPONSE_LOGNAMEMISMATCH: DTCLUXLNRESPONSE = 3i32;
 pub const DTCLUXLNRESPONSE_OK_SENDCONFIRMATION: DTCLUXLNRESPONSE = 2i32;
 pub const DTCLUXLNRESPONSE_OK_SENDOURXLNBACK: DTCLUXLNRESPONSE = 1i32;
 pub const DTCLUXLN_COLD: DTCLUXLN = 1i32;
 pub const DTCLUXLN_WARM: DTCLUXLN = 2i32;
+pub type DTC_GET_TRANSACTION_MANAGER = Option<unsafe extern "system" fn(pszhost: windows_sys::core::PCSTR, psztmname: windows_sys::core::PCSTR, rid: *const windows_sys::core::GUID, dwreserved1: u32, wcbreserved2: u16, pvreserved2: *mut core::ffi::c_void, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type DTC_GET_TRANSACTION_MANAGER_EX_A = Option<unsafe extern "system" fn(i_pszhost: windows_sys::core::PCSTR, i_psztmname: windows_sys::core::PCSTR, i_riid: *const windows_sys::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut core::ffi::c_void, o_ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type DTC_GET_TRANSACTION_MANAGER_EX_W = Option<unsafe extern "system" fn(i_pwszhost: windows_sys::core::PCWSTR, i_pwsztmname: windows_sys::core::PCWSTR, i_riid: *const windows_sys::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut core::ffi::c_void, o_ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type DTC_INSTALL_CLIENT = Option<unsafe extern "system" fn(i_pszremotetmhostname: *mut i8, i_dwprotocol: u32, i_dwoverwrite: u32) -> windows_sys::core::HRESULT>;
 pub const DTC_INSTALL_OVERWRITE_CLIENT: u32 = 1u32;
 pub const DTC_INSTALL_OVERWRITE_SERVER: u32 = 2u32;
+pub type DTC_STATUS_ = i32;
 pub const DTC_STATUS_CONTINUING: DTC_STATUS_ = 5i32;
 pub const DTC_STATUS_E_CANTCONTROL: DTC_STATUS_ = 8i32;
 pub const DTC_STATUS_FAILED: DTC_STATUS_ = 9i32;
@@ -47,6 +68,7 @@ pub const DTC_STATUS_STOPPED: DTC_STATUS_ = 7i32;
 pub const DTC_STATUS_STOPPING: DTC_STATUS_ = 6i32;
 pub const DTC_STATUS_UNKNOWN: DTC_STATUS_ = 0i32;
 pub const INCOMING_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 1i32;
+pub type ISOFLAG = i32;
 pub const ISOFLAG_OPTIMISTIC: ISOFLAG = 16i32;
 pub const ISOFLAG_READONLY: ISOFLAG = 32i32;
 pub const ISOFLAG_RETAIN_ABORT: ISOFLAG = 8i32;
@@ -58,6 +80,7 @@ pub const ISOFLAG_RETAIN_COMMIT_DC: ISOFLAG = 1i32;
 pub const ISOFLAG_RETAIN_COMMIT_NO: ISOFLAG = 3i32;
 pub const ISOFLAG_RETAIN_DONTCARE: ISOFLAG = 5i32;
 pub const ISOFLAG_RETAIN_NONE: ISOFLAG = 15i32;
+pub type ISOLATIONLEVEL = i32;
 pub const ISOLATIONLEVEL_BROWSE: ISOLATIONLEVEL = 256i32;
 pub const ISOLATIONLEVEL_CHAOS: ISOLATIONLEVEL = 16i32;
 pub const ISOLATIONLEVEL_CURSORSTABILITY: ISOLATIONLEVEL = 4096i32;
@@ -74,6 +97,20 @@ pub const MAXINFOSIZE: u32 = 256u32;
 pub const MAX_TRAN_DESC: TX_MISC_CONSTANTS = 40i32;
 pub const MUTUAL_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 2i32;
 pub const NO_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OLE_TM_CONFIG_PARAMS_V1 {
+    pub dwVersion: u32,
+    pub dwcConcurrencyHint: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OLE_TM_CONFIG_PARAMS_V2 {
+    pub dwVersion: u32,
+    pub dwcConcurrencyHint: u32,
+    pub applicationType: APPLICATIONTYPE,
+    pub clusterResourceId: windows_sys::core::GUID,
+}
 pub const OLE_TM_CONFIG_VERSION_1: u32 = 1u32;
 pub const OLE_TM_CONFIG_VERSION_2: u32 = 2u32;
 pub const OLE_TM_FLAG_INTERNAL_TO_TM: u32 = 1073741824u32;
@@ -81,6 +118,11 @@ pub const OLE_TM_FLAG_NOAGILERECOVERY: u32 = 2u32;
 pub const OLE_TM_FLAG_NODEMANDSTART: u32 = 1u32;
 pub const OLE_TM_FLAG_NONE: u32 = 0u32;
 pub const OLE_TM_FLAG_QUERY_SERVICE_LOCKSTATUS: u32 = 2147483648u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROXY_CONFIG_PARAMS {
+    pub wcThreadsMax: u16,
+}
 pub const RMNAMESZ: u32 = 32u32;
 pub const TMASYNC: i32 = -2147483648i32;
 pub const TMENDRSCAN: i32 = 8388608i32;
@@ -104,13 +146,36 @@ pub const TMUSEASYNC: i32 = 4i32;
 pub const TM_JOIN: u32 = 2u32;
 pub const TM_OK: u32 = 0u32;
 pub const TM_RESUME: u32 = 1u32;
+pub type TX_MISC_CONSTANTS = i32;
+pub type XACTCONST = i32;
 pub const XACTCONST_TIMEOUTINFINITE: XACTCONST = 0i32;
+pub type XACTHEURISTIC = i32;
 pub const XACTHEURISTIC_ABORT: XACTHEURISTIC = 1i32;
 pub const XACTHEURISTIC_COMMIT: XACTHEURISTIC = 2i32;
 pub const XACTHEURISTIC_DAMAGE: XACTHEURISTIC = 3i32;
 pub const XACTHEURISTIC_DANGER: XACTHEURISTIC = 4i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XACTOPT {
+    pub ulTimeout: u32,
+    pub szDescription: [u8; 40],
+}
+pub type XACTRM = i32;
 pub const XACTRM_NOREADONLYPREPARES: XACTRM = 2i32;
 pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = 1i32;
+pub type XACTSTAT = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XACTSTATS {
+    pub cOpen: u32,
+    pub cCommitting: u32,
+    pub cCommitted: u32,
+    pub cAborting: u32,
+    pub cAborted: u32,
+    pub cInDoubt: u32,
+    pub cHeuristicDecision: u32,
+    pub timeTransactionsUp: super::super::Foundation::FILETIME,
+}
 pub const XACTSTAT_ABORTED: XACTSTAT = 512i32;
 pub const XACTSTAT_ABORTING: XACTSTAT = 256i32;
 pub const XACTSTAT_ALL: XACTSTAT = 524287i32;
@@ -134,12 +199,25 @@ pub const XACTSTAT_PREPARED: XACTSTAT = 8i32;
 pub const XACTSTAT_PREPARERETAINED: XACTSTAT = 32i32;
 pub const XACTSTAT_PREPARERETAINING: XACTSTAT = 16i32;
 pub const XACTSTAT_PREPARING: XACTSTAT = 4i32;
+pub type XACTTC = i32;
 pub const XACTTC_ASYNC: XACTTC = 4i32;
 pub const XACTTC_ASYNC_PHASEONE: XACTTC = 4i32;
 pub const XACTTC_NONE: XACTTC = 0i32;
 pub const XACTTC_SYNC: XACTTC = 2i32;
 pub const XACTTC_SYNC_PHASEONE: XACTTC = 1i32;
 pub const XACTTC_SYNC_PHASETWO: XACTTC = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XACTTRANSINFO {
+    pub uow: BOID,
+    pub isoLevel: i32,
+    pub isoFlags: u32,
+    pub grfTCSupported: u32,
+    pub grfRMSupported: u32,
+    pub grfTCSupportedRetaining: u32,
+    pub grfRMSupportedRetaining: u32,
+}
+pub type XACT_DTC_CONSTANTS = i32;
 pub const XACT_E_CONNECTION_REQUEST_DENIED: XACT_DTC_CONSTANTS = -2147168000i32;
 pub const XACT_E_DUPLICATE_GUID: XACT_DTC_CONSTANTS = -2147167998i32;
 pub const XACT_E_DUPLICATE_LU: XACT_DTC_CONSTANTS = -2147167991i32;
@@ -170,14 +248,21 @@ pub const XAER_OUTSIDE: i32 = -9i32;
 pub const XAER_PROTO: i32 = -6i32;
 pub const XAER_RMERR: i32 = -3i32;
 pub const XAER_RMFAIL: i32 = -7i32;
+pub type XA_CLOSE_EPT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: i32, param2: i32) -> i32>;
+pub type XA_COMMIT_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
+pub type XA_COMPLETE_EPT = Option<unsafe extern "system" fn(param0: *mut i32, param1: *mut i32, param2: i32, param3: i32) -> i32>;
+pub type XA_END_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
 pub const XA_FMTID_DTC: u32 = 4478019u32;
 pub const XA_FMTID_DTC_VER1: u32 = 21255235u32;
+pub type XA_FORGET_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
 pub const XA_HEURCOM: u32 = 7u32;
 pub const XA_HEURHAZ: u32 = 8u32;
 pub const XA_HEURMIX: u32 = 5u32;
 pub const XA_HEURRB: u32 = 6u32;
 pub const XA_NOMIGRATE: u32 = 9u32;
 pub const XA_OK: u32 = 0u32;
+pub type XA_OPEN_EPT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: i32, param2: i32) -> i32>;
+pub type XA_PREPARE_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
 pub const XA_RBBASE: u32 = 100u32;
 pub const XA_RBCOMMFAIL: u32 = 101u32;
 pub const XA_RBDEADLOCK: u32 = 102u32;
@@ -189,84 +274,11 @@ pub const XA_RBROLLBACK: u32 = 100u32;
 pub const XA_RBTIMEOUT: u32 = 106u32;
 pub const XA_RBTRANSIENT: u32 = 107u32;
 pub const XA_RDONLY: u32 = 3u32;
+pub type XA_RECOVER_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32, param3: i32) -> i32>;
 pub const XA_RETRY: u32 = 4u32;
+pub type XA_ROLLBACK_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
+pub type XA_START_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
 pub const XA_SWITCH_F_DTC: u32 = 1u32;
-pub const XIDDATASIZE: u32 = 128u32;
-pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = 65535i32;
-pub type APPLICATIONTYPE = i32;
-pub type AUTHENTICATION_LEVEL = i32;
-pub type DTCINITIATEDRECOVERYWORK = i32;
-pub type DTCLUCOMPARESTATE = i32;
-pub type DTCLUCOMPARESTATESCONFIRMATION = i32;
-pub type DTCLUCOMPARESTATESERROR = i32;
-pub type DTCLUCOMPARESTATESRESPONSE = i32;
-pub type DTCLUXLN = i32;
-pub type DTCLUXLNCONFIRMATION = i32;
-pub type DTCLUXLNERROR = i32;
-pub type DTCLUXLNRESPONSE = i32;
-pub type DTC_STATUS_ = i32;
-pub type ISOFLAG = i32;
-pub type ISOLATIONLEVEL = i32;
-pub type TX_MISC_CONSTANTS = i32;
-pub type XACTCONST = i32;
-pub type XACTHEURISTIC = i32;
-pub type XACTRM = i32;
-pub type XACTSTAT = i32;
-pub type XACTTC = i32;
-pub type XACT_DTC_CONSTANTS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BOID {
-    pub rgb: [u8; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OLE_TM_CONFIG_PARAMS_V1 {
-    pub dwVersion: u32,
-    pub dwcConcurrencyHint: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OLE_TM_CONFIG_PARAMS_V2 {
-    pub dwVersion: u32,
-    pub dwcConcurrencyHint: u32,
-    pub applicationType: APPLICATIONTYPE,
-    pub clusterResourceId: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROXY_CONFIG_PARAMS {
-    pub wcThreadsMax: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XACTOPT {
-    pub ulTimeout: u32,
-    pub szDescription: [u8; 40],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XACTSTATS {
-    pub cOpen: u32,
-    pub cCommitting: u32,
-    pub cCommitted: u32,
-    pub cAborting: u32,
-    pub cAborted: u32,
-    pub cInDoubt: u32,
-    pub cHeuristicDecision: u32,
-    pub timeTransactionsUp: super::super::Foundation::FILETIME,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XACTTRANSINFO {
-    pub uow: BOID,
-    pub isoLevel: i32,
-    pub isoFlags: u32,
-    pub grfTCSupported: u32,
-    pub grfRMSupported: u32,
-    pub grfTCSupportedRetaining: u32,
-    pub grfRMSupportedRetaining: u32,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct XID {
@@ -275,6 +287,8 @@ pub struct XID {
     pub bqual_length: i32,
     pub data: [i8; 128],
 }
+pub const XIDDATASIZE: u32 = 128u32;
+pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = 65535i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct xa_switch_t {
@@ -292,17 +306,3 @@ pub struct xa_switch_t {
     pub xa_forget_entry: isize,
     pub xa_complete_entry: isize,
 }
-pub type DTC_GET_TRANSACTION_MANAGER = Option<unsafe extern "system" fn(pszhost: windows_sys::core::PCSTR, psztmname: windows_sys::core::PCSTR, rid: *const windows_sys::core::GUID, dwreserved1: u32, wcbreserved2: u16, pvreserved2: *mut core::ffi::c_void, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type DTC_GET_TRANSACTION_MANAGER_EX_A = Option<unsafe extern "system" fn(i_pszhost: windows_sys::core::PCSTR, i_psztmname: windows_sys::core::PCSTR, i_riid: *const windows_sys::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut core::ffi::c_void, o_ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type DTC_GET_TRANSACTION_MANAGER_EX_W = Option<unsafe extern "system" fn(i_pwszhost: windows_sys::core::PCWSTR, i_pwsztmname: windows_sys::core::PCWSTR, i_riid: *const windows_sys::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut core::ffi::c_void, o_ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type DTC_INSTALL_CLIENT = Option<unsafe extern "system" fn(i_pszremotetmhostname: *mut i8, i_dwprotocol: u32, i_dwoverwrite: u32) -> windows_sys::core::HRESULT>;
-pub type XA_CLOSE_EPT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: i32, param2: i32) -> i32>;
-pub type XA_COMMIT_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
-pub type XA_COMPLETE_EPT = Option<unsafe extern "system" fn(param0: *mut i32, param1: *mut i32, param2: i32, param3: i32) -> i32>;
-pub type XA_END_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
-pub type XA_FORGET_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
-pub type XA_OPEN_EPT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: i32, param2: i32) -> i32>;
-pub type XA_PREPARE_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
-pub type XA_RECOVER_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32, param3: i32) -> i32>;
-pub type XA_ROLLBACK_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
-pub type XA_START_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;

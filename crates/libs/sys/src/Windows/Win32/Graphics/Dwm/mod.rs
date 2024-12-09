@@ -33,10 +33,12 @@ windows_targets::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u
 windows_targets::link!("dwmapi.dll" "system" fn DwmTransitionOwnedWindow(hwnd : super::super::Foundation:: HWND, target : DWMTRANSITION_OWNEDWINDOW_TARGET) -> windows_sys::core::HRESULT);
 windows_targets::link!("dwmapi.dll" "system" fn DwmUnregisterThumbnail(hthumbnailid : isize) -> windows_sys::core::HRESULT);
 windows_targets::link!("dwmapi.dll" "system" fn DwmUpdateThumbnailProperties(hthumbnailid : isize, ptnproperties : *const DWM_THUMBNAIL_PROPERTIES) -> windows_sys::core::HRESULT);
+pub type DWMFLIP3DWINDOWPOLICY = i32;
 pub const DWMFLIP3D_DEFAULT: DWMFLIP3DWINDOWPOLICY = 0i32;
 pub const DWMFLIP3D_EXCLUDEABOVE: DWMFLIP3DWINDOWPOLICY = 2i32;
 pub const DWMFLIP3D_EXCLUDEBELOW: DWMFLIP3DWINDOWPOLICY = 1i32;
 pub const DWMFLIP3D_LAST: DWMFLIP3DWINDOWPOLICY = 3i32;
+pub type DWMNCRENDERINGPOLICY = i32;
 pub const DWMNCRP_DISABLED: DWMNCRENDERINGPOLICY = 1i32;
 pub const DWMNCRP_ENABLED: DWMNCRENDERINGPOLICY = 2i32;
 pub const DWMNCRP_LAST: DWMNCRENDERINGPOLICY = 3i32;
@@ -55,6 +57,7 @@ pub const DWMSC_PENBARREL: DWM_SHOWCONTACT = 16u32;
 pub const DWMSC_UP: DWM_SHOWCONTACT = 2u32;
 pub const DWMTRANSITION_OWNEDWINDOW_NULL: DWMTRANSITION_OWNEDWINDOW_TARGET = -1i32;
 pub const DWMTRANSITION_OWNEDWINDOW_REPOSITION: DWMTRANSITION_OWNEDWINDOW_TARGET = 0i32;
+pub type DWMTRANSITION_OWNEDWINDOW_TARGET = i32;
 pub const DWMTWR_APP_COMPAT: DWM_TAB_WINDOW_REQUIREMENTS = 512i32;
 pub const DWMTWR_GROUP_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = 256i32;
 pub const DWMTWR_IMPLEMENTED_BY_SYSTEM: DWM_TAB_WINDOW_REQUIREMENTS = 1i32;
@@ -97,48 +100,10 @@ pub const DWMWCP_DEFAULT: DWM_WINDOW_CORNER_PREFERENCE = 0i32;
 pub const DWMWCP_DONOTROUND: DWM_WINDOW_CORNER_PREFERENCE = 1i32;
 pub const DWMWCP_ROUND: DWM_WINDOW_CORNER_PREFERENCE = 2i32;
 pub const DWMWCP_ROUNDSMALL: DWM_WINDOW_CORNER_PREFERENCE = 3i32;
+pub type DWMWINDOWATTRIBUTE = i32;
 pub const DWM_BB_BLURREGION: u32 = 2u32;
 pub const DWM_BB_ENABLE: u32 = 1u32;
 pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4u32;
-pub const DWM_CLOAKED_APP: u32 = 1u32;
-pub const DWM_CLOAKED_INHERITED: u32 = 4u32;
-pub const DWM_CLOAKED_SHELL: u32 = 2u32;
-pub const DWM_EC_DISABLECOMPOSITION: u32 = 0u32;
-pub const DWM_EC_ENABLECOMPOSITION: u32 = 1u32;
-pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
-pub const DWM_SIT_DISPLAYFRAME: u32 = 1u32;
-pub const DWM_SOURCE_FRAME_SAMPLING_COVERAGE: DWM_SOURCE_FRAME_SAMPLING = 1i32;
-pub const DWM_SOURCE_FRAME_SAMPLING_LAST: DWM_SOURCE_FRAME_SAMPLING = 2i32;
-pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = 0i32;
-pub const DWM_TNP_OPACITY: u32 = 4u32;
-pub const DWM_TNP_RECTDESTINATION: u32 = 1u32;
-pub const DWM_TNP_RECTSOURCE: u32 = 2u32;
-pub const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16u32;
-pub const DWM_TNP_VISIBLE: u32 = 8u32;
-pub const GT_PEN_DOUBLETAP: GESTURE_TYPE = 1i32;
-pub const GT_PEN_PRESSANDHOLD: GESTURE_TYPE = 3i32;
-pub const GT_PEN_PRESSANDHOLDABORT: GESTURE_TYPE = 4i32;
-pub const GT_PEN_RIGHTTAP: GESTURE_TYPE = 2i32;
-pub const GT_PEN_TAP: GESTURE_TYPE = 0i32;
-pub const GT_TOUCH_DOUBLETAP: GESTURE_TYPE = 6i32;
-pub const GT_TOUCH_PRESSANDHOLD: GESTURE_TYPE = 8i32;
-pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = 9i32;
-pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = 10i32;
-pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = 7i32;
-pub const GT_TOUCH_TAP: GESTURE_TYPE = 5i32;
-pub const c_DwmMaxAdapters: u32 = 16u32;
-pub const c_DwmMaxMonitors: u32 = 16u32;
-pub const c_DwmMaxQueuedBuffers: u32 = 8u32;
-pub type DWMFLIP3DWINDOWPOLICY = i32;
-pub type DWMNCRENDERINGPOLICY = i32;
-pub type DWMTRANSITION_OWNEDWINDOW_TARGET = i32;
-pub type DWMWINDOWATTRIBUTE = i32;
-pub type DWM_SHOWCONTACT = u32;
-pub type DWM_SOURCE_FRAME_SAMPLING = i32;
-pub type DWM_SYSTEMBACKDROP_TYPE = i32;
-pub type DWM_TAB_WINDOW_REQUIREMENTS = i32;
-pub type DWM_WINDOW_CORNER_PREFERENCE = i32;
-pub type GESTURE_TYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -148,6 +113,12 @@ pub struct DWM_BLURBEHIND {
     pub hRgnBlur: super::Gdi::HRGN,
     pub fTransitionOnMaximized: super::super::Foundation::BOOL,
 }
+pub const DWM_CLOAKED_APP: u32 = 1u32;
+pub const DWM_CLOAKED_INHERITED: u32 = 4u32;
+pub const DWM_CLOAKED_SHELL: u32 = 2u32;
+pub const DWM_EC_DISABLECOMPOSITION: u32 = 0u32;
+pub const DWM_EC_ENABLECOMPOSITION: u32 = 1u32;
+pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DWM_PRESENT_PARAMETERS {
@@ -160,6 +131,14 @@ pub struct DWM_PRESENT_PARAMETERS {
     pub cRefreshesPerFrame: u32,
     pub eSampling: DWM_SOURCE_FRAME_SAMPLING,
 }
+pub type DWM_SHOWCONTACT = u32;
+pub const DWM_SIT_DISPLAYFRAME: u32 = 1u32;
+pub type DWM_SOURCE_FRAME_SAMPLING = i32;
+pub const DWM_SOURCE_FRAME_SAMPLING_COVERAGE: DWM_SOURCE_FRAME_SAMPLING = 1i32;
+pub const DWM_SOURCE_FRAME_SAMPLING_LAST: DWM_SOURCE_FRAME_SAMPLING = 2i32;
+pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = 0i32;
+pub type DWM_SYSTEMBACKDROP_TYPE = i32;
+pub type DWM_TAB_WINDOW_REQUIREMENTS = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DWM_THUMBNAIL_PROPERTIES {
@@ -214,6 +193,24 @@ pub struct DWM_TIMING_INFO {
     pub cPixelsDrawn: u64,
     pub cBuffersEmpty: u64,
 }
+pub const DWM_TNP_OPACITY: u32 = 4u32;
+pub const DWM_TNP_RECTDESTINATION: u32 = 1u32;
+pub const DWM_TNP_RECTSOURCE: u32 = 2u32;
+pub const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16u32;
+pub const DWM_TNP_VISIBLE: u32 = 8u32;
+pub type DWM_WINDOW_CORNER_PREFERENCE = i32;
+pub type GESTURE_TYPE = i32;
+pub const GT_PEN_DOUBLETAP: GESTURE_TYPE = 1i32;
+pub const GT_PEN_PRESSANDHOLD: GESTURE_TYPE = 3i32;
+pub const GT_PEN_PRESSANDHOLDABORT: GESTURE_TYPE = 4i32;
+pub const GT_PEN_RIGHTTAP: GESTURE_TYPE = 2i32;
+pub const GT_PEN_TAP: GESTURE_TYPE = 0i32;
+pub const GT_TOUCH_DOUBLETAP: GESTURE_TYPE = 6i32;
+pub const GT_TOUCH_PRESSANDHOLD: GESTURE_TYPE = 8i32;
+pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = 9i32;
+pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = 10i32;
+pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = 7i32;
+pub const GT_TOUCH_TAP: GESTURE_TYPE = 5i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MilMatrix3x2D {
@@ -230,3 +227,6 @@ pub struct UNSIGNED_RATIO {
     pub uiNumerator: u32,
     pub uiDenominator: u32,
 }
+pub const c_DwmMaxAdapters: u32 = 16u32;
+pub const c_DwmMaxMonitors: u32 = 16u32;
+pub const c_DwmMaxQueuedBuffers: u32 = 8u32;

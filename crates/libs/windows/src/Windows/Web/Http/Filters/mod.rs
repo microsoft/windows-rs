@@ -1,205 +1,5 @@
-windows_core::imp::define_interface!(IHttpBaseProtocolFilter, IHttpBaseProtocolFilter_Vtbl, 0x71c89b09_e131_4b54_a53c_eb43ff37e9bb);
-impl windows_core::RuntimeType for IHttpBaseProtocolFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IHttpBaseProtocolFilter_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub AllowAutoRedirect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetAllowAutoRedirect: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub AllowUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetAllowUI: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub AutomaticDecompression: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetAutomaticDecompression: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub CacheControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CookieManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub ClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
-    ClientCertificate: usize,
-    #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub SetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
-    SetClientCertificate: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub IgnorableServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
-    IgnorableServerCertificateErrors: usize,
-    pub MaxConnectionsPerServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetMaxConnectionsPerServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Security_Credentials")]
-    pub ProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    ProxyCredential: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub SetProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    SetProxyCredential: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub ServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    ServerCredential: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub SetServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    SetServerCredential: usize,
-    pub UseProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetUseProxy: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IHttpBaseProtocolFilter2, IHttpBaseProtocolFilter2_Vtbl, 0x2ec30013_9427_4900_a017_fa7da3b5c9ae);
-impl windows_core::RuntimeType for IHttpBaseProtocolFilter2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IHttpBaseProtocolFilter2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub MaxVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::HttpVersion) -> windows_core::HRESULT,
-    pub SetMaxVersion: unsafe extern "system" fn(*mut core::ffi::c_void, super::HttpVersion) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IHttpBaseProtocolFilter3, IHttpBaseProtocolFilter3_Vtbl, 0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937);
-impl windows_core::RuntimeType for IHttpBaseProtocolFilter3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IHttpBaseProtocolFilter3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CookieUsageBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCookieUsageBehavior) -> windows_core::HRESULT,
-    pub SetCookieUsageBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCookieUsageBehavior) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IHttpBaseProtocolFilter4, IHttpBaseProtocolFilter4_Vtbl, 0x9fe36ccf_2983_4893_941f_eb518ca8cef9);
-impl windows_core::RuntimeType for IHttpBaseProtocolFilter4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IHttpBaseProtocolFilter4_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub ClearAuthenticationCache: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IHttpBaseProtocolFilter5, IHttpBaseProtocolFilter5_Vtbl, 0x416e4993_31e3_4816_bf09_e018ee8dc1f5);
-impl windows_core::RuntimeType for IHttpBaseProtocolFilter5 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IHttpBaseProtocolFilter5_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "System")]
-    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    User: usize,
-}
-windows_core::imp::define_interface!(IHttpBaseProtocolFilterStatics, IHttpBaseProtocolFilterStatics_Vtbl, 0x6d4dee0c_e908_494e_b5a3_1263c9b8242a);
-impl windows_core::RuntimeType for IHttpBaseProtocolFilterStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IHttpBaseProtocolFilterStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "System")]
-    pub CreateForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    CreateForUser: usize,
-}
-windows_core::imp::define_interface!(IHttpCacheControl, IHttpCacheControl_Vtbl, 0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
-impl windows_core::RuntimeType for IHttpCacheControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IHttpCacheControl_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ReadBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCacheReadBehavior) -> windows_core::HRESULT,
-    pub SetReadBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCacheReadBehavior) -> windows_core::HRESULT,
-    pub WriteBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCacheWriteBehavior) -> windows_core::HRESULT,
-    pub SetWriteBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCacheWriteBehavior) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IHttpFilter, IHttpFilter_Vtbl, 0xa4cb6dd5_0902_439e_bfd7_e12552b165ce);
-impl core::ops::Deref for IHttpFilter {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-windows_core::imp::interface_hierarchy!(IHttpFilter, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IHttpFilter, super::super::super::Foundation::IClosable);
-impl IHttpFilter {
-    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
-    where
-        P0: windows_core::Param<super::HttpRequestMessage>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-}
-impl windows_core::RuntimeType for IHttpFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IHttpFilter_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SendRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-pub trait IHttpFilter_Impl: Sized + windows_core::IUnknownImpl + super::super::super::Foundation::IClosable_Impl {
-    fn SendRequestAsync(&self, request: Option<&super::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
-}
-impl windows_core::RuntimeName for IHttpFilter {
-    const NAME: &'static str = "Windows.Web.Http.Filters.IHttpFilter";
-}
-impl IHttpFilter_Vtbl {
-    pub const fn new<Identity: IHttpFilter_Impl, const OFFSET: isize>() -> IHttpFilter_Vtbl {
-        unsafe extern "system" fn SendRequestAsync<Identity: IHttpFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHttpFilter_Impl::SendRequestAsync(this, windows_core::from_raw_borrowed(&request)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IHttpFilter, OFFSET>(), SendRequestAsync: SendRequestAsync::<Identity, OFFSET> }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IHttpFilter as windows_core::Interface>::IID
-    }
-}
-windows_core::imp::define_interface!(IHttpServerCustomValidationRequestedEventArgs, IHttpServerCustomValidationRequestedEventArgs_Vtbl, 0x3165fe32_e7dd_48b7_a361_939c750e63cc);
-impl windows_core::RuntimeType for IHttpServerCustomValidationRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IHttpServerCustomValidationRequestedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RequestMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub ServerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
-    ServerCertificate: usize,
-    #[cfg(feature = "Networking_Sockets")]
-    pub ServerCertificateErrorSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Networking::Sockets::SocketSslErrorSeverity) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Networking_Sockets"))]
-    ServerCertificateErrorSeverity: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub ServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
-    ServerCertificateErrors: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub ServerIntermediateCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
-    ServerIntermediateCertificates: usize,
-    pub Reject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpBaseProtocolFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpBaseProtocolFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpBaseProtocolFilter, super::super::super::Foundation::IClosable, IHttpFilter);
@@ -369,7 +169,7 @@ impl HttpBaseProtocolFilter {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveServerCustomValidationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -417,7 +217,7 @@ impl windows_core::RuntimeType for HttpBaseProtocolFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpBaseProtocolFilter>();
 }
 unsafe impl windows_core::Interface for HttpBaseProtocolFilter {
-    type Vtable = IHttpBaseProtocolFilter_Vtbl;
+    type Vtable = <IHttpBaseProtocolFilter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpBaseProtocolFilter as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HttpBaseProtocolFilter {
@@ -426,7 +226,7 @@ impl windows_core::RuntimeName for HttpBaseProtocolFilter {
 unsafe impl Send for HttpBaseProtocolFilter {}
 unsafe impl Sync for HttpBaseProtocolFilter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpCacheControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpCacheControl, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpCacheControl {
@@ -457,7 +257,7 @@ impl windows_core::RuntimeType for HttpCacheControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpCacheControl>();
 }
 unsafe impl windows_core::Interface for HttpCacheControl {
-    type Vtable = IHttpCacheControl_Vtbl;
+    type Vtable = <IHttpCacheControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpCacheControl as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HttpCacheControl {
@@ -466,7 +266,48 @@ impl windows_core::RuntimeName for HttpCacheControl {
 unsafe impl Send for HttpCacheControl {}
 unsafe impl Sync for HttpCacheControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HttpCacheReadBehavior(pub i32);
+impl HttpCacheReadBehavior {
+    pub const Default: Self = Self(0i32);
+    pub const MostRecent: Self = Self(1i32);
+    pub const OnlyFromCache: Self = Self(2i32);
+    pub const NoCache: Self = Self(3i32);
+}
+impl windows_core::TypeKind for HttpCacheReadBehavior {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpCacheReadBehavior {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheReadBehavior;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HttpCacheWriteBehavior(pub i32);
+impl HttpCacheWriteBehavior {
+    pub const Default: Self = Self(0i32);
+    pub const NoCache: Self = Self(1i32);
+}
+impl windows_core::TypeKind for HttpCacheWriteBehavior {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpCacheWriteBehavior {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheWriteBehavior;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HttpCookieUsageBehavior(pub i32);
+impl HttpCookieUsageBehavior {
+    pub const Default: Self = Self(0i32);
+    pub const NoCookies: Self = Self(1i32);
+}
+impl windows_core::TypeKind for HttpCookieUsageBehavior {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpCookieUsageBehavior {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCookieUsageBehavior;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpServerCustomValidationRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpServerCustomValidationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpServerCustomValidationRequestedEventArgs {
@@ -525,7 +366,7 @@ impl windows_core::RuntimeType for HttpServerCustomValidationRequestedEventArgs 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpServerCustomValidationRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for HttpServerCustomValidationRequestedEventArgs {
-    type Vtable = IHttpServerCustomValidationRequestedEventArgs_Vtbl;
+    type Vtable = <IHttpServerCustomValidationRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpServerCustomValidationRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HttpServerCustomValidationRequestedEventArgs {
@@ -533,59 +374,197 @@ impl windows_core::RuntimeName for HttpServerCustomValidationRequestedEventArgs 
 }
 unsafe impl Send for HttpServerCustomValidationRequestedEventArgs {}
 unsafe impl Sync for HttpServerCustomValidationRequestedEventArgs {}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct HttpCacheReadBehavior(pub i32);
-impl HttpCacheReadBehavior {
-    pub const Default: Self = Self(0i32);
-    pub const MostRecent: Self = Self(1i32);
-    pub const OnlyFromCache: Self = Self(2i32);
-    pub const NoCache: Self = Self(3i32);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter, IHttpBaseProtocolFilter_Vtbl, 0x71c89b09_e131_4b54_a53c_eb43ff37e9bb);
+impl windows_core::RuntimeType for IHttpBaseProtocolFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-impl windows_core::TypeKind for HttpCacheReadBehavior {
-    type TypeKind = windows_core::CopyType;
+#[repr(C)]
+pub struct IHttpBaseProtocolFilter_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AllowAutoRedirect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetAllowAutoRedirect: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub AllowUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetAllowUI: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub AutomaticDecompression: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetAutomaticDecompression: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub CacheControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CookieManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub ClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
+    ClientCertificate: usize,
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub SetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
+    SetClientCertificate: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    pub IgnorableServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    IgnorableServerCertificateErrors: usize,
+    pub MaxConnectionsPerServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetMaxConnectionsPerServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "Security_Credentials")]
+    pub ProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    ProxyCredential: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub SetProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    SetProxyCredential: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub ServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    ServerCredential: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub SetServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    SetServerCredential: usize,
+    pub UseProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetUseProxy: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-impl core::fmt::Debug for HttpCacheReadBehavior {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HttpCacheReadBehavior").field(&self.0).finish()
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter2, IHttpBaseProtocolFilter2_Vtbl, 0x2ec30013_9427_4900_a017_fa7da3b5c9ae);
+impl windows_core::RuntimeType for IHttpBaseProtocolFilter2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IHttpBaseProtocolFilter2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MaxVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::HttpVersion) -> windows_core::HRESULT,
+    pub SetMaxVersion: unsafe extern "system" fn(*mut core::ffi::c_void, super::HttpVersion) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter3, IHttpBaseProtocolFilter3_Vtbl, 0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937);
+impl windows_core::RuntimeType for IHttpBaseProtocolFilter3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IHttpBaseProtocolFilter3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CookieUsageBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCookieUsageBehavior) -> windows_core::HRESULT,
+    pub SetCookieUsageBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCookieUsageBehavior) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter4, IHttpBaseProtocolFilter4_Vtbl, 0x9fe36ccf_2983_4893_941f_eb518ca8cef9);
+impl windows_core::RuntimeType for IHttpBaseProtocolFilter4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IHttpBaseProtocolFilter4_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub ClearAuthenticationCache: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter5, IHttpBaseProtocolFilter5_Vtbl, 0x416e4993_31e3_4816_bf09_e018ee8dc1f5);
+impl windows_core::RuntimeType for IHttpBaseProtocolFilter5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IHttpBaseProtocolFilter5_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "System")]
+    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    User: usize,
+}
+windows_core::imp::define_interface!(IHttpBaseProtocolFilterStatics, IHttpBaseProtocolFilterStatics_Vtbl, 0x6d4dee0c_e908_494e_b5a3_1263c9b8242a);
+impl windows_core::RuntimeType for IHttpBaseProtocolFilterStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IHttpBaseProtocolFilterStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "System")]
+    pub CreateForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    CreateForUser: usize,
+}
+windows_core::imp::define_interface!(IHttpCacheControl, IHttpCacheControl_Vtbl, 0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
+impl windows_core::RuntimeType for IHttpCacheControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IHttpCacheControl_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ReadBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCacheReadBehavior) -> windows_core::HRESULT,
+    pub SetReadBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCacheReadBehavior) -> windows_core::HRESULT,
+    pub WriteBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCacheWriteBehavior) -> windows_core::HRESULT,
+    pub SetWriteBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCacheWriteBehavior) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IHttpFilter, IHttpFilter_Vtbl, 0xa4cb6dd5_0902_439e_bfd7_e12552b165ce);
+impl windows_core::RuntimeType for IHttpFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(IHttpFilter, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(IHttpFilter, super::super::super::Foundation::IClosable);
+impl IHttpFilter {
+    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
+    where
+        P0: windows_core::Param<super::HttpRequestMessage>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for HttpCacheReadBehavior {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheReadBehavior;i4)");
+impl windows_core::RuntimeName for IHttpFilter {
+    const NAME: &'static str = "Windows.Web.Http.Filters.IHttpFilter";
 }
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct HttpCacheWriteBehavior(pub i32);
-impl HttpCacheWriteBehavior {
-    pub const Default: Self = Self(0i32);
-    pub const NoCache: Self = Self(1i32);
+pub trait IHttpFilter_Impl: super::super::super::Foundation::IClosable_Impl {
+    fn SendRequestAsync(&self, request: Option<&super::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
 }
-impl windows_core::TypeKind for HttpCacheWriteBehavior {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for HttpCacheWriteBehavior {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HttpCacheWriteBehavior").field(&self.0).finish()
+impl IHttpFilter_Vtbl {
+    pub const fn new<Identity: IHttpFilter_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SendRequestAsync<Identity: IHttpFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IHttpFilter_Impl::SendRequestAsync(this, windows_core::from_raw_borrowed(&request)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IHttpFilter, OFFSET>(), SendRequestAsync: SendRequestAsync::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IHttpFilter as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeType for HttpCacheWriteBehavior {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheWriteBehavior;i4)");
+#[repr(C)]
+pub struct IHttpFilter_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SendRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct HttpCookieUsageBehavior(pub i32);
-impl HttpCookieUsageBehavior {
-    pub const Default: Self = Self(0i32);
-    pub const NoCookies: Self = Self(1i32);
+windows_core::imp::define_interface!(IHttpServerCustomValidationRequestedEventArgs, IHttpServerCustomValidationRequestedEventArgs_Vtbl, 0x3165fe32_e7dd_48b7_a361_939c750e63cc);
+impl windows_core::RuntimeType for IHttpServerCustomValidationRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-impl windows_core::TypeKind for HttpCookieUsageBehavior {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for HttpCookieUsageBehavior {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HttpCookieUsageBehavior").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for HttpCookieUsageBehavior {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCookieUsageBehavior;i4)");
+#[repr(C)]
+pub struct IHttpServerCustomValidationRequestedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RequestMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub ServerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
+    ServerCertificate: usize,
+    #[cfg(feature = "Networking_Sockets")]
+    pub ServerCertificateErrorSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Networking::Sockets::SocketSslErrorSeverity) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Networking_Sockets"))]
+    ServerCertificateErrorSeverity: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    pub ServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    ServerCertificateErrors: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    pub ServerIntermediateCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    ServerIntermediateCertificates: usize,
+    pub Reject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }

@@ -170,7 +170,7 @@ windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt64Vector(propv
 windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt64VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut u64, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt64WithDefault(propvarin : *const PROPVARIANT, ulldefault : u64) -> u64);
-#[cfg(feature = "Win32_System_Variant")]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("propsys.dll" "system" fn PropVariantToVariant(ppropvar : *const PROPVARIANT, pvar : *mut super::super::Variant:: VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 windows_targets::link!("propsys.dll" "system" fn PropVariantToWinRTPropertyValue(propvar : *const PROPVARIANT, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -205,127 +205,13 @@ windows_targets::link!("ole32.dll" "system" fn StgPropertyLengthAsVariant(pprop 
 #[cfg(feature = "Win32_System_Variant")]
 windows_targets::link!("propsys.dll" "system" fn StgSerializePropVariant(ppropvar : *const PROPVARIANT, ppprop : *mut *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn StgSetTimes(lpszname : windows_sys::core::PCWSTR, pctime : *const super::super::super::Foundation:: FILETIME, patime : *const super::super::super::Foundation:: FILETIME, pmtime : *const super::super::super::Foundation:: FILETIME) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Variant")]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("propsys.dll" "system" fn VariantToPropVariant(pvar : *const super::super::Variant:: VARIANT, ppropvar : *mut PROPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 windows_targets::link!("propsys.dll" "system" fn WinRTPropertyValueToPropVariant(punkpropertyvalue : * mut core::ffi::c_void, ppropvar : *mut PROPVARIANT) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn WriteClassStg(pstg : * mut core::ffi::c_void, rclsid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn WriteClassStm(pstm : * mut core::ffi::c_void, rclsid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn WriteFmtUserTypeStg(pstg : * mut core::ffi::c_void, cf : u16, lpszusertype : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
-pub const CWCSTORAGENAME: u32 = 32u32;
-pub const PIDDI_THUMBNAIL: i32 = 2i32;
-pub const PIDDSI_BYTECOUNT: u32 = 4u32;
-pub const PIDDSI_CATEGORY: u32 = 2u32;
-pub const PIDDSI_COMPANY: u32 = 15u32;
-pub const PIDDSI_DOCPARTS: u32 = 13u32;
-pub const PIDDSI_HEADINGPAIR: u32 = 12u32;
-pub const PIDDSI_HIDDENCOUNT: u32 = 9u32;
-pub const PIDDSI_LINECOUNT: u32 = 5u32;
-pub const PIDDSI_LINKSDIRTY: u32 = 16u32;
-pub const PIDDSI_MANAGER: u32 = 14u32;
-pub const PIDDSI_MMCLIPCOUNT: u32 = 10u32;
-pub const PIDDSI_NOTECOUNT: u32 = 8u32;
-pub const PIDDSI_PARCOUNT: u32 = 6u32;
-pub const PIDDSI_PRESFORMAT: u32 = 3u32;
-pub const PIDDSI_SCALE: u32 = 11u32;
-pub const PIDDSI_SLIDECOUNT: u32 = 7u32;
-pub const PIDMSI_COPYRIGHT: i32 = 11i32;
-pub const PIDMSI_EDITOR: i32 = 2i32;
-pub const PIDMSI_OWNER: i32 = 8i32;
-pub const PIDMSI_PRODUCTION: i32 = 10i32;
-pub const PIDMSI_PROJECT: i32 = 6i32;
-pub const PIDMSI_RATING: i32 = 9i32;
-pub const PIDMSI_SEQUENCE_NO: i32 = 5i32;
-pub const PIDMSI_SOURCE: i32 = 4i32;
-pub const PIDMSI_STATUS: i32 = 7i32;
-pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = 3i32;
-pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = 5i32;
-pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = 8i32;
-pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = 4i32;
-pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = 1i32;
-pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = 0i32;
-pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = 32767i32;
-pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = 2i32;
-pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = 7i32;
-pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = 6i32;
-pub const PIDMSI_SUPPLIER: i32 = 3i32;
-pub const PIDSI_APPNAME: i32 = 18i32;
-pub const PIDSI_AUTHOR: i32 = 4i32;
-pub const PIDSI_CHARCOUNT: i32 = 16i32;
-pub const PIDSI_COMMENTS: i32 = 6i32;
-pub const PIDSI_CREATE_DTM: i32 = 12i32;
-pub const PIDSI_DOC_SECURITY: i32 = 19i32;
-pub const PIDSI_EDITTIME: i32 = 10i32;
-pub const PIDSI_KEYWORDS: i32 = 5i32;
-pub const PIDSI_LASTAUTHOR: i32 = 8i32;
-pub const PIDSI_LASTPRINTED: i32 = 11i32;
-pub const PIDSI_LASTSAVE_DTM: i32 = 13i32;
-pub const PIDSI_PAGECOUNT: i32 = 14i32;
-pub const PIDSI_REVNUMBER: i32 = 9i32;
-pub const PIDSI_SUBJECT: i32 = 3i32;
-pub const PIDSI_TEMPLATE: i32 = 7i32;
-pub const PIDSI_THUMBNAIL: i32 = 17i32;
-pub const PIDSI_TITLE: i32 = 2i32;
-pub const PIDSI_WORDCOUNT: i32 = 15i32;
-pub const PID_BEHAVIOR: u32 = 2147483651u32;
-pub const PID_CODEPAGE: u32 = 1u32;
-pub const PID_DICTIONARY: u32 = 0u32;
-pub const PID_FIRST_NAME_DEFAULT: u32 = 4095u32;
-pub const PID_FIRST_USABLE: u32 = 2u32;
-pub const PID_ILLEGAL: u32 = 4294967295u32;
-pub const PID_LOCALE: u32 = 2147483648u32;
-pub const PID_MAX_READONLY: u32 = 3221225471u32;
-pub const PID_MIN_READONLY: u32 = 2147483648u32;
-pub const PID_MODIFY_TIME: u32 = 2147483649u32;
-pub const PID_SECURITY: u32 = 2147483650u32;
-pub const PROPSETFLAG_ANSI: u32 = 2u32;
-pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8u32;
-pub const PROPSETFLAG_DEFAULT: u32 = 0u32;
-pub const PROPSETFLAG_NONSIMPLE: u32 = 1u32;
-pub const PROPSETFLAG_UNBUFFERED: u32 = 4u32;
-pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295u32;
-pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1u32;
-pub const PRSPEC_INVALID: u32 = 4294967295u32;
-pub const PRSPEC_LPWSTR: PROPSPEC_KIND = 0u32;
-pub const PRSPEC_PROPID: PROPSPEC_KIND = 1u32;
-pub const PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = 0i32;
-pub const PVCF_DIGITSASNUMBERS_CASESENSITIVE: PROPVAR_COMPARE_FLAGS = 32i32;
-pub const PVCF_TREATEMPTYASGREATERTHAN: PROPVAR_COMPARE_FLAGS = 1i32;
-pub const PVCF_USESTRCMP: PROPVAR_COMPARE_FLAGS = 2i32;
-pub const PVCF_USESTRCMPC: PROPVAR_COMPARE_FLAGS = 4i32;
-pub const PVCF_USESTRCMPI: PROPVAR_COMPARE_FLAGS = 8i32;
-pub const PVCF_USESTRCMPIC: PROPVAR_COMPARE_FLAGS = 16i32;
-pub const PVCHF_ALPHABOOL: PROPVAR_CHANGE_FLAGS = 2i32;
-pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = 0i32;
-pub const PVCHF_LOCALBOOL: PROPVAR_CHANGE_FLAGS = 8i32;
-pub const PVCHF_NOHEXSTRING: PROPVAR_CHANGE_FLAGS = 16i32;
-pub const PVCHF_NOUSEROVERRIDE: PROPVAR_CHANGE_FLAGS = 4i32;
-pub const PVCHF_NOVALUEPROP: PROPVAR_CHANGE_FLAGS = 1i32;
-pub const PVCU_DAY: PROPVAR_COMPARE_UNIT = 4i32;
-pub const PVCU_DEFAULT: PROPVAR_COMPARE_UNIT = 0i32;
-pub const PVCU_HOUR: PROPVAR_COMPARE_UNIT = 3i32;
-pub const PVCU_MINUTE: PROPVAR_COMPARE_UNIT = 2i32;
-pub const PVCU_MONTH: PROPVAR_COMPARE_UNIT = 5i32;
-pub const PVCU_SECOND: PROPVAR_COMPARE_UNIT = 1i32;
-pub const PVCU_YEAR: PROPVAR_COMPARE_UNIT = 6i32;
-pub const STGFMT_ANY: STGFMT = 4u32;
-pub const STGFMT_DOCFILE: STGFMT = 5u32;
-pub const STGFMT_DOCUMENT: STGFMT = 0u32;
-pub const STGFMT_FILE: STGFMT = 3u32;
-pub const STGFMT_NATIVE: STGFMT = 1u32;
-pub const STGFMT_STORAGE: STGFMT = 0u32;
-pub const STGMOVE_COPY: STGMOVE = 1i32;
-pub const STGMOVE_MOVE: STGMOVE = 0i32;
-pub const STGMOVE_SHALLOWCOPY: STGMOVE = 2i32;
-pub const STGOPTIONS_VERSION: u32 = 1u32;
-pub type PIDMSI_STATUS_VALUE = i32;
-pub type PROPSPEC_KIND = u32;
-pub type PROPVAR_CHANGE_FLAGS = i32;
-pub type PROPVAR_COMPARE_FLAGS = i32;
-pub type PROPVAR_COMPARE_UNIT = i32;
-pub type STGFMT = u32;
-pub type STGMOVE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BSTRBLOB {
@@ -465,6 +351,7 @@ pub struct CAUL {
     pub cElems: u32,
     pub pElems: *mut u32,
 }
+pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLIPDATA {
@@ -472,6 +359,7 @@ pub struct CLIPDATA {
     pub ulClipFmt: i32,
     pub pClipData: *mut u8,
 }
+pub const CWCSTORAGENAME: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OLESTREAM {
@@ -483,6 +371,72 @@ pub struct OLESTREAMVTBL {
     pub Get: isize,
     pub Put: isize,
 }
+pub const PIDDI_THUMBNAIL: i32 = 2i32;
+pub const PIDDSI_BYTECOUNT: u32 = 4u32;
+pub const PIDDSI_CATEGORY: u32 = 2u32;
+pub const PIDDSI_COMPANY: u32 = 15u32;
+pub const PIDDSI_DOCPARTS: u32 = 13u32;
+pub const PIDDSI_HEADINGPAIR: u32 = 12u32;
+pub const PIDDSI_HIDDENCOUNT: u32 = 9u32;
+pub const PIDDSI_LINECOUNT: u32 = 5u32;
+pub const PIDDSI_LINKSDIRTY: u32 = 16u32;
+pub const PIDDSI_MANAGER: u32 = 14u32;
+pub const PIDDSI_MMCLIPCOUNT: u32 = 10u32;
+pub const PIDDSI_NOTECOUNT: u32 = 8u32;
+pub const PIDDSI_PARCOUNT: u32 = 6u32;
+pub const PIDDSI_PRESFORMAT: u32 = 3u32;
+pub const PIDDSI_SCALE: u32 = 11u32;
+pub const PIDDSI_SLIDECOUNT: u32 = 7u32;
+pub const PIDMSI_COPYRIGHT: i32 = 11i32;
+pub const PIDMSI_EDITOR: i32 = 2i32;
+pub const PIDMSI_OWNER: i32 = 8i32;
+pub const PIDMSI_PRODUCTION: i32 = 10i32;
+pub const PIDMSI_PROJECT: i32 = 6i32;
+pub const PIDMSI_RATING: i32 = 9i32;
+pub const PIDMSI_SEQUENCE_NO: i32 = 5i32;
+pub const PIDMSI_SOURCE: i32 = 4i32;
+pub const PIDMSI_STATUS: i32 = 7i32;
+pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = 3i32;
+pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = 5i32;
+pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = 8i32;
+pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = 4i32;
+pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = 1i32;
+pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = 0i32;
+pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = 32767i32;
+pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = 2i32;
+pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = 7i32;
+pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = 6i32;
+pub type PIDMSI_STATUS_VALUE = i32;
+pub const PIDMSI_SUPPLIER: i32 = 3i32;
+pub const PIDSI_APPNAME: i32 = 18i32;
+pub const PIDSI_AUTHOR: i32 = 4i32;
+pub const PIDSI_CHARCOUNT: i32 = 16i32;
+pub const PIDSI_COMMENTS: i32 = 6i32;
+pub const PIDSI_CREATE_DTM: i32 = 12i32;
+pub const PIDSI_DOC_SECURITY: i32 = 19i32;
+pub const PIDSI_EDITTIME: i32 = 10i32;
+pub const PIDSI_KEYWORDS: i32 = 5i32;
+pub const PIDSI_LASTAUTHOR: i32 = 8i32;
+pub const PIDSI_LASTPRINTED: i32 = 11i32;
+pub const PIDSI_LASTSAVE_DTM: i32 = 13i32;
+pub const PIDSI_PAGECOUNT: i32 = 14i32;
+pub const PIDSI_REVNUMBER: i32 = 9i32;
+pub const PIDSI_SUBJECT: i32 = 3i32;
+pub const PIDSI_TEMPLATE: i32 = 7i32;
+pub const PIDSI_THUMBNAIL: i32 = 17i32;
+pub const PIDSI_TITLE: i32 = 2i32;
+pub const PIDSI_WORDCOUNT: i32 = 15i32;
+pub const PID_BEHAVIOR: u32 = 2147483651u32;
+pub const PID_CODEPAGE: u32 = 1u32;
+pub const PID_DICTIONARY: u32 = 0u32;
+pub const PID_FIRST_NAME_DEFAULT: u32 = 4095u32;
+pub const PID_FIRST_USABLE: u32 = 2u32;
+pub const PID_ILLEGAL: u32 = 4294967295u32;
+pub const PID_LOCALE: u32 = 2147483648u32;
+pub const PID_MAX_READONLY: u32 = 3221225471u32;
+pub const PID_MIN_READONLY: u32 = 2147483648u32;
+pub const PID_MODIFY_TIME: u32 = 2147483649u32;
+pub const PID_SECURITY: u32 = 2147483650u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy)]
@@ -494,6 +448,13 @@ pub struct PROPBAG2 {
     pub pstrName: windows_sys::core::PWSTR,
     pub clsid: windows_sys::core::GUID,
 }
+pub const PROPSETFLAG_ANSI: u32 = 2u32;
+pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8u32;
+pub const PROPSETFLAG_DEFAULT: u32 = 0u32;
+pub const PROPSETFLAG_NONSIMPLE: u32 = 1u32;
+pub const PROPSETFLAG_UNBUFFERED: u32 = 4u32;
+pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295u32;
+pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROPSPEC {
@@ -506,6 +467,7 @@ pub union PROPSPEC_0 {
     pub propid: u32,
     pub lpwstr: windows_sys::core::PWSTR,
 }
+pub type PROPSPEC_KIND = u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy)]
@@ -607,6 +569,32 @@ pub union PROPVARIANT_0_0_0 {
     pub pparray: *mut *mut super::SAFEARRAY,
     pub pvarVal: *mut PROPVARIANT,
 }
+pub type PROPVAR_CHANGE_FLAGS = i32;
+pub type PROPVAR_COMPARE_FLAGS = i32;
+pub type PROPVAR_COMPARE_UNIT = i32;
+pub const PRSPEC_INVALID: u32 = 4294967295u32;
+pub const PRSPEC_LPWSTR: PROPSPEC_KIND = 0u32;
+pub const PRSPEC_PROPID: PROPSPEC_KIND = 1u32;
+pub const PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = 0i32;
+pub const PVCF_DIGITSASNUMBERS_CASESENSITIVE: PROPVAR_COMPARE_FLAGS = 32i32;
+pub const PVCF_TREATEMPTYASGREATERTHAN: PROPVAR_COMPARE_FLAGS = 1i32;
+pub const PVCF_USESTRCMP: PROPVAR_COMPARE_FLAGS = 2i32;
+pub const PVCF_USESTRCMPC: PROPVAR_COMPARE_FLAGS = 4i32;
+pub const PVCF_USESTRCMPI: PROPVAR_COMPARE_FLAGS = 8i32;
+pub const PVCF_USESTRCMPIC: PROPVAR_COMPARE_FLAGS = 16i32;
+pub const PVCHF_ALPHABOOL: PROPVAR_CHANGE_FLAGS = 2i32;
+pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = 0i32;
+pub const PVCHF_LOCALBOOL: PROPVAR_CHANGE_FLAGS = 8i32;
+pub const PVCHF_NOHEXSTRING: PROPVAR_CHANGE_FLAGS = 16i32;
+pub const PVCHF_NOUSEROVERRIDE: PROPVAR_CHANGE_FLAGS = 4i32;
+pub const PVCHF_NOVALUEPROP: PROPVAR_CHANGE_FLAGS = 1i32;
+pub const PVCU_DAY: PROPVAR_COMPARE_UNIT = 4i32;
+pub const PVCU_DEFAULT: PROPVAR_COMPARE_UNIT = 0i32;
+pub const PVCU_HOUR: PROPVAR_COMPARE_UNIT = 3i32;
+pub const PVCU_MINUTE: PROPVAR_COMPARE_UNIT = 2i32;
+pub const PVCU_MONTH: PROPVAR_COMPARE_UNIT = 5i32;
+pub const PVCU_SECOND: PROPVAR_COMPARE_UNIT = 1i32;
+pub const PVCU_YEAR: PROPVAR_COMPARE_UNIT = 6i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RemSNB {
@@ -639,6 +627,17 @@ pub struct STATPROPSTG {
     pub propid: u32,
     pub vt: super::super::Variant::VARENUM,
 }
+pub type STGFMT = u32;
+pub const STGFMT_ANY: STGFMT = 4u32;
+pub const STGFMT_DOCFILE: STGFMT = 5u32;
+pub const STGFMT_DOCUMENT: STGFMT = 0u32;
+pub const STGFMT_FILE: STGFMT = 3u32;
+pub const STGFMT_NATIVE: STGFMT = 1u32;
+pub const STGFMT_STORAGE: STGFMT = 0u32;
+pub type STGMOVE = i32;
+pub const STGMOVE_COPY: STGMOVE = 1i32;
+pub const STGMOVE_MOVE: STGMOVE = 0i32;
+pub const STGMOVE_SHALLOWCOPY: STGMOVE = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STGOPTIONS {
@@ -647,6 +646,7 @@ pub struct STGOPTIONS {
     pub ulSectorSize: u32,
     pub pwcsTemplateFile: windows_sys::core::PCWSTR,
 }
+pub const STGOPTIONS_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VERSIONEDSTREAM {

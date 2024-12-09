@@ -36,7 +36,7 @@ pub struct IRadialControllerIndependentInputSourceStatics_Vtbl {
     CreateForView: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerIndependentInputSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerIndependentInputSource, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerIndependentInputSource {
@@ -82,7 +82,7 @@ impl windows_core::RuntimeType for RadialControllerIndependentInputSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerIndependentInputSource>();
 }
 unsafe impl windows_core::Interface for RadialControllerIndependentInputSource {
-    type Vtable = IRadialControllerIndependentInputSource_Vtbl;
+    type Vtable = <IRadialControllerIndependentInputSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerIndependentInputSource as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerIndependentInputSource {

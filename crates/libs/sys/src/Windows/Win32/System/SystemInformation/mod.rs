@@ -62,6 +62,35 @@ windows_targets::link!("kernel32.dll" "system" fn VerSetConditionMask(conditionm
 windows_targets::link!("kernel32.dll" "system" fn VerifyVersionInfoA(lpversioninformation : *mut OSVERSIONINFOEXA, dwtypemask : VER_FLAGS, dwlconditionmask : u64) -> super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn VerifyVersionInfoW(lpversioninformation : *mut OSVERSIONINFOEXW, dwtypemask : VER_FLAGS, dwlconditionmask : u64) -> super::super::Foundation:: BOOL);
 pub const ACPI: FIRMWARE_TABLE_PROVIDER = 1094930505u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CACHE_DESCRIPTOR {
+    pub Level: u8,
+    pub Associativity: u8,
+    pub LineSize: u16,
+    pub Size: u32,
+    pub Type: PROCESSOR_CACHE_TYPE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CACHE_RELATIONSHIP {
+    pub Level: u8,
+    pub Associativity: u8,
+    pub LineSize: u16,
+    pub CacheSize: u32,
+    pub Type: PROCESSOR_CACHE_TYPE,
+    pub Reserved: [u8; 18],
+    pub GroupCount: u16,
+    pub Anonymous: CACHE_RELATIONSHIP_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CACHE_RELATIONSHIP_0 {
+    pub GroupMask: GROUP_AFFINITY,
+    pub GroupMasks: [GROUP_AFFINITY; 1],
+}
+pub type COMPUTER_NAME_FORMAT = i32;
+pub type CPU_SET_INFORMATION_TYPE = i32;
 pub const CacheData: PROCESSOR_CACHE_TYPE = 2i32;
 pub const CacheInstruction: PROCESSOR_CACHE_TYPE = 1i32;
 pub const CacheTrace: PROCESSOR_CACHE_TYPE = 3i32;
@@ -81,6 +110,9 @@ pub const DEPPolicyAlwaysOn: DEP_SYSTEM_POLICY_TYPE = 1i32;
 pub const DEPPolicyOptIn: DEP_SYSTEM_POLICY_TYPE = 2i32;
 pub const DEPPolicyOptOut: DEP_SYSTEM_POLICY_TYPE = 3i32;
 pub const DEPTotalPolicyCount: DEP_SYSTEM_POLICY_TYPE = 4i32;
+pub type DEP_SYSTEM_POLICY_TYPE = i32;
+pub type DEVELOPER_DRIVE_ENABLEMENT_STATE = i32;
+pub type DEVICEFAMILYDEVICEFORM = u32;
 pub const DEVICEFAMILYDEVICEFORM_ALLINONE: DEVICEFAMILYDEVICEFORM = 7u32;
 pub const DEVICEFAMILYDEVICEFORM_BANKING: DEVICEFAMILYDEVICEFORM = 14u32;
 pub const DEVICEFAMILYDEVICEFORM_BUILDING_AUTOMATION: DEVICEFAMILYDEVICEFORM = 15u32;
@@ -128,6 +160,7 @@ pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_09: DEVICEFAMILYDEVICEFORM = 45u3
 pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_S: DEVICEFAMILYDEVICEFORM = 36u32;
 pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X: DEVICEFAMILYDEVICEFORM = 34u32;
 pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X_DEVKIT: DEVICEFAMILYDEVICEFORM = 35u32;
+pub type DEVICEFAMILYINFOENUM = u32;
 pub const DEVICEFAMILYINFOENUM_7067329: DEVICEFAMILYINFOENUM = 15u32;
 pub const DEVICEFAMILYINFOENUM_8828080: DEVICEFAMILYINFOENUM = 14u32;
 pub const DEVICEFAMILYINFOENUM_DESKTOP: DEVICEFAMILYINFOENUM = 3u32;
@@ -152,10 +185,27 @@ pub const DeveloperDriveDisabledBySystemPolicy: DEVELOPER_DRIVE_ENABLEMENT_STATE
 pub const DeveloperDriveEnabled: DEVELOPER_DRIVE_ENABLEMENT_STATE = 1i32;
 pub const DeveloperDriveEnablementStateError: DEVELOPER_DRIVE_ENABLEMENT_STATE = 0i32;
 pub const FIRM: FIRMWARE_TABLE_PROVIDER = 1179210317u32;
+pub type FIRMWARE_TABLE_PROVIDER = u32;
+pub type FIRMWARE_TYPE = i32;
 pub const FirmwareTypeBios: FIRMWARE_TYPE = 1i32;
 pub const FirmwareTypeMax: FIRMWARE_TYPE = 3i32;
 pub const FirmwareTypeUefi: FIRMWARE_TYPE = 2i32;
 pub const FirmwareTypeUnknown: FIRMWARE_TYPE = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_AFFINITY {
+    pub Mask: usize,
+    pub Group: u16,
+    pub Reserved: [u16; 3],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_RELATIONSHIP {
+    pub MaximumGroupCount: u16,
+    pub ActiveGroupCount: u16,
+    pub Reserved: [u8; 20],
+    pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
+}
 pub const GlobalDataIdConsoleSharedDataFlags: RTL_SYSTEM_GLOBAL_DATA_ID = 14i32;
 pub const GlobalDataIdCyclesPerYield: RTL_SYSTEM_GLOBAL_DATA_ID = 11i32;
 pub const GlobalDataIdImageNumberHigh: RTL_SYSTEM_GLOBAL_DATA_ID = 5i32;
@@ -176,6 +226,7 @@ pub const GlobalDataIdSystemExpirationDate: RTL_SYSTEM_GLOBAL_DATA_ID = 9i32;
 pub const GlobalDataIdTimeZoneBias: RTL_SYSTEM_GLOBAL_DATA_ID = 3i32;
 pub const GlobalDataIdTimeZoneId: RTL_SYSTEM_GLOBAL_DATA_ID = 6i32;
 pub const GlobalDataIdUnknown: RTL_SYSTEM_GLOBAL_DATA_ID = 0i32;
+pub type IMAGE_FILE_MACHINE = u16;
 pub const IMAGE_FILE_MACHINE_ALPHA: IMAGE_FILE_MACHINE = 388u16;
 pub const IMAGE_FILE_MACHINE_ALPHA64: IMAGE_FILE_MACHINE = 644u16;
 pub const IMAGE_FILE_MACHINE_AM33: IMAGE_FILE_MACHINE = 467u16;
@@ -208,6 +259,32 @@ pub const IMAGE_FILE_MACHINE_THUMB: IMAGE_FILE_MACHINE = 450u16;
 pub const IMAGE_FILE_MACHINE_TRICORE: IMAGE_FILE_MACHINE = 1312u16;
 pub const IMAGE_FILE_MACHINE_UNKNOWN: IMAGE_FILE_MACHINE = 0u16;
 pub const IMAGE_FILE_MACHINE_WCEMIPSV2: IMAGE_FILE_MACHINE = 361u16;
+pub type LOGICAL_PROCESSOR_RELATIONSHIP = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MEMORYSTATUS {
+    pub dwLength: u32,
+    pub dwMemoryLoad: u32,
+    pub dwTotalPhys: usize,
+    pub dwAvailPhys: usize,
+    pub dwTotalPageFile: usize,
+    pub dwAvailPageFile: usize,
+    pub dwTotalVirtual: usize,
+    pub dwAvailVirtual: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MEMORYSTATUSEX {
+    pub dwLength: u32,
+    pub dwMemoryLoad: u32,
+    pub ullTotalPhys: u64,
+    pub ullAvailPhys: u64,
+    pub ullTotalPageFile: u64,
+    pub ullAvailPageFile: u64,
+    pub ullTotalVirtual: u64,
+    pub ullAvailVirtual: u64,
+    pub ullAvailExtendedVirtual: u64,
+}
 pub const NTDDI_LONGHORN: u32 = 100663296u32;
 pub const NTDDI_VERSION: u32 = 167772172u32;
 pub const NTDDI_VISTA: u32 = 100663296u32;
@@ -257,9 +334,78 @@ pub const NTDDI_WS08: u32 = 100663552u32;
 pub const NTDDI_WS08SP2: u32 = 100663808u32;
 pub const NTDDI_WS08SP3: u32 = 100664064u32;
 pub const NTDDI_WS08SP4: u32 = 100664320u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NUMA_NODE_RELATIONSHIP {
+    pub NodeNumber: u32,
+    pub Reserved: [u8; 18],
+    pub GroupCount: u16,
+    pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NUMA_NODE_RELATIONSHIP_0 {
+    pub GroupMask: GROUP_AFFINITY,
+    pub GroupMasks: [GROUP_AFFINITY; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OSVERSIONINFOA {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [i8; 128],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OSVERSIONINFOEXA {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [i8; 128],
+    pub wServicePackMajor: u16,
+    pub wServicePackMinor: u16,
+    pub wSuiteMask: u16,
+    pub wProductType: u8,
+    pub wReserved: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OSVERSIONINFOEXW {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [u16; 128],
+    pub wServicePackMajor: u16,
+    pub wServicePackMinor: u16,
+    pub wSuiteMask: u16,
+    pub wProductType: u8,
+    pub wReserved: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OSVERSIONINFOW {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [u16; 128],
+}
 pub const OSVERSION_MASK: u32 = 4294901760u32;
+pub type OS_DEPLOYEMENT_STATE_VALUES = i32;
 pub const OS_DEPLOYMENT_COMPACT: OS_DEPLOYEMENT_STATE_VALUES = 2i32;
 pub const OS_DEPLOYMENT_STANDARD: OS_DEPLOYEMENT_STATE_VALUES = 1i32;
+pub type OS_PRODUCT_TYPE = u32;
+pub type PGET_SYSTEM_WOW64_DIRECTORY_A = Option<unsafe extern "system" fn(lpbuffer: windows_sys::core::PSTR, usize: u32) -> u32>;
+pub type PGET_SYSTEM_WOW64_DIRECTORY_W = Option<unsafe extern "system" fn(lpbuffer: windows_sys::core::PWSTR, usize: u32) -> u32>;
+pub type PROCESSOR_ARCHITECTURE = u16;
 pub const PROCESSOR_ARCHITECTURE_ALPHA: PROCESSOR_ARCHITECTURE = 2u16;
 pub const PROCESSOR_ARCHITECTURE_ALPHA64: PROCESSOR_ARCHITECTURE = 7u16;
 pub const PROCESSOR_ARCHITECTURE_AMD64: PROCESSOR_ARCHITECTURE = 9u16;
@@ -276,6 +422,24 @@ pub const PROCESSOR_ARCHITECTURE_NEUTRAL: PROCESSOR_ARCHITECTURE = 11u16;
 pub const PROCESSOR_ARCHITECTURE_PPC: PROCESSOR_ARCHITECTURE = 3u16;
 pub const PROCESSOR_ARCHITECTURE_SHX: PROCESSOR_ARCHITECTURE = 4u16;
 pub const PROCESSOR_ARCHITECTURE_UNKNOWN: PROCESSOR_ARCHITECTURE = 65535u16;
+pub type PROCESSOR_CACHE_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESSOR_GROUP_INFO {
+    pub MaximumProcessorCount: u8,
+    pub ActiveProcessorCount: u8,
+    pub Reserved: [u8; 38],
+    pub ActiveProcessorMask: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESSOR_RELATIONSHIP {
+    pub Flags: u8,
+    pub EfficiencyClass: u8,
+    pub Reserved: [u8; 20],
+    pub GroupCount: u16,
+    pub GroupMask: [GROUP_AFFINITY; 1],
+}
 pub const PRODUCT_BUSINESS: OS_PRODUCT_TYPE = 6u32;
 pub const PRODUCT_BUSINESS_N: OS_PRODUCT_TYPE = 16u32;
 pub const PRODUCT_CLUSTER_SERVER: OS_PRODUCT_TYPE = 18u32;
@@ -373,6 +537,7 @@ pub const PRODUCT_UNDEFINED: OS_PRODUCT_TYPE = 0u32;
 pub const PRODUCT_WEB_SERVER: OS_PRODUCT_TYPE = 17u32;
 pub const PRODUCT_WEB_SERVER_CORE: OS_PRODUCT_TYPE = 29u32;
 pub const RSMB: FIRMWARE_TABLE_PROVIDER = 1381190978u32;
+pub type RTL_SYSTEM_GLOBAL_DATA_ID = i32;
 pub const RelationAll: LOGICAL_PROCESSOR_RELATIONSHIP = 65535i32;
 pub const RelationCache: LOGICAL_PROCESSOR_RELATIONSHIP = 2i32;
 pub const RelationGroup: LOGICAL_PROCESSOR_RELATIONSHIP = 4i32;
@@ -385,244 +550,6 @@ pub const RelationProcessorPackage: LOGICAL_PROCESSOR_RELATIONSHIP = 3i32;
 pub const SCEX2_ALT_NETBIOS_NAME: u32 = 1u32;
 pub const SPVERSION_MASK: u32 = 65280u32;
 pub const SUBVERSION_MASK: u32 = 255u32;
-pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: u32 = 2u32;
-pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4u32;
-pub const SYSTEM_CPU_SET_INFORMATION_PARKED: u32 = 1u32;
-pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: u32 = 8u32;
-pub const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: USER_CET_ENVIRONMENT = 2u32;
-pub const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: USER_CET_ENVIRONMENT = 17u32;
-pub const USER_CET_ENVIRONMENT_VBS_ENCLAVE: USER_CET_ENVIRONMENT = 16u32;
-pub const USER_CET_ENVIRONMENT_WIN32_PROCESS: USER_CET_ENVIRONMENT = 0u32;
-pub const VER_BUILDNUMBER: VER_FLAGS = 4u32;
-pub const VER_MAJORVERSION: VER_FLAGS = 2u32;
-pub const VER_MINORVERSION: VER_FLAGS = 1u32;
-pub const VER_PLATFORMID: VER_FLAGS = 8u32;
-pub const VER_PRODUCT_TYPE: VER_FLAGS = 128u32;
-pub const VER_SERVICEPACKMAJOR: VER_FLAGS = 32u32;
-pub const VER_SERVICEPACKMINOR: VER_FLAGS = 16u32;
-pub const VER_SUITENAME: VER_FLAGS = 64u32;
-pub const WDK_NTDDI_VERSION: u32 = 167772172u32;
-pub const _WIN32_IE_IE100: u32 = 2560u32;
-pub const _WIN32_IE_IE110: u32 = 2560u32;
-pub const _WIN32_IE_IE20: u32 = 512u32;
-pub const _WIN32_IE_IE30: u32 = 768u32;
-pub const _WIN32_IE_IE302: u32 = 770u32;
-pub const _WIN32_IE_IE40: u32 = 1024u32;
-pub const _WIN32_IE_IE401: u32 = 1025u32;
-pub const _WIN32_IE_IE50: u32 = 1280u32;
-pub const _WIN32_IE_IE501: u32 = 1281u32;
-pub const _WIN32_IE_IE55: u32 = 1360u32;
-pub const _WIN32_IE_IE60: u32 = 1536u32;
-pub const _WIN32_IE_IE60SP1: u32 = 1537u32;
-pub const _WIN32_IE_IE60SP2: u32 = 1539u32;
-pub const _WIN32_IE_IE70: u32 = 1792u32;
-pub const _WIN32_IE_IE80: u32 = 2048u32;
-pub const _WIN32_IE_IE90: u32 = 2304u32;
-pub const _WIN32_IE_LONGHORN: u32 = 1792u32;
-pub const _WIN32_IE_NT4: u32 = 512u32;
-pub const _WIN32_IE_NT4SP1: u32 = 512u32;
-pub const _WIN32_IE_NT4SP2: u32 = 512u32;
-pub const _WIN32_IE_NT4SP3: u32 = 770u32;
-pub const _WIN32_IE_NT4SP4: u32 = 1025u32;
-pub const _WIN32_IE_NT4SP5: u32 = 1025u32;
-pub const _WIN32_IE_NT4SP6: u32 = 1280u32;
-pub const _WIN32_IE_WIN10: u32 = 2560u32;
-pub const _WIN32_IE_WIN2K: u32 = 1281u32;
-pub const _WIN32_IE_WIN2KSP1: u32 = 1281u32;
-pub const _WIN32_IE_WIN2KSP2: u32 = 1281u32;
-pub const _WIN32_IE_WIN2KSP3: u32 = 1281u32;
-pub const _WIN32_IE_WIN2KSP4: u32 = 1281u32;
-pub const _WIN32_IE_WIN6: u32 = 1792u32;
-pub const _WIN32_IE_WIN7: u32 = 2048u32;
-pub const _WIN32_IE_WIN8: u32 = 2560u32;
-pub const _WIN32_IE_WIN98: u32 = 1025u32;
-pub const _WIN32_IE_WIN98SE: u32 = 1280u32;
-pub const _WIN32_IE_WINBLUE: u32 = 2560u32;
-pub const _WIN32_IE_WINME: u32 = 1360u32;
-pub const _WIN32_IE_WINTHRESHOLD: u32 = 2560u32;
-pub const _WIN32_IE_WS03: u32 = 1538u32;
-pub const _WIN32_IE_WS03SP1: u32 = 1539u32;
-pub const _WIN32_IE_XP: u32 = 1536u32;
-pub const _WIN32_IE_XPSP1: u32 = 1537u32;
-pub const _WIN32_IE_XPSP2: u32 = 1539u32;
-pub const _WIN32_WINNT_LONGHORN: u32 = 1536u32;
-pub const _WIN32_WINNT_NT4: u32 = 1024u32;
-pub const _WIN32_WINNT_VISTA: u32 = 1536u32;
-pub const _WIN32_WINNT_WIN10: u32 = 2560u32;
-pub const _WIN32_WINNT_WIN2K: u32 = 1280u32;
-pub const _WIN32_WINNT_WIN6: u32 = 1536u32;
-pub const _WIN32_WINNT_WIN7: u32 = 1537u32;
-pub const _WIN32_WINNT_WIN8: u32 = 1538u32;
-pub const _WIN32_WINNT_WINBLUE: u32 = 1539u32;
-pub const _WIN32_WINNT_WINTHRESHOLD: u32 = 2560u32;
-pub const _WIN32_WINNT_WINXP: u32 = 1281u32;
-pub const _WIN32_WINNT_WS03: u32 = 1282u32;
-pub const _WIN32_WINNT_WS08: u32 = 1536u32;
-pub type COMPUTER_NAME_FORMAT = i32;
-pub type CPU_SET_INFORMATION_TYPE = i32;
-pub type DEP_SYSTEM_POLICY_TYPE = i32;
-pub type DEVELOPER_DRIVE_ENABLEMENT_STATE = i32;
-pub type DEVICEFAMILYDEVICEFORM = u32;
-pub type DEVICEFAMILYINFOENUM = u32;
-pub type FIRMWARE_TABLE_PROVIDER = u32;
-pub type FIRMWARE_TYPE = i32;
-pub type IMAGE_FILE_MACHINE = u16;
-pub type LOGICAL_PROCESSOR_RELATIONSHIP = i32;
-pub type OS_DEPLOYEMENT_STATE_VALUES = i32;
-pub type OS_PRODUCT_TYPE = u32;
-pub type PROCESSOR_ARCHITECTURE = u16;
-pub type PROCESSOR_CACHE_TYPE = i32;
-pub type RTL_SYSTEM_GLOBAL_DATA_ID = i32;
-pub type USER_CET_ENVIRONMENT = u32;
-pub type VER_FLAGS = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CACHE_DESCRIPTOR {
-    pub Level: u8,
-    pub Associativity: u8,
-    pub LineSize: u16,
-    pub Size: u32,
-    pub Type: PROCESSOR_CACHE_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CACHE_RELATIONSHIP {
-    pub Level: u8,
-    pub Associativity: u8,
-    pub LineSize: u16,
-    pub CacheSize: u32,
-    pub Type: PROCESSOR_CACHE_TYPE,
-    pub Reserved: [u8; 18],
-    pub GroupCount: u16,
-    pub Anonymous: CACHE_RELATIONSHIP_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CACHE_RELATIONSHIP_0 {
-    pub GroupMask: GROUP_AFFINITY,
-    pub GroupMasks: [GROUP_AFFINITY; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_AFFINITY {
-    pub Mask: usize,
-    pub Group: u16,
-    pub Reserved: [u16; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_RELATIONSHIP {
-    pub MaximumGroupCount: u16,
-    pub ActiveGroupCount: u16,
-    pub Reserved: [u8; 20],
-    pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MEMORYSTATUS {
-    pub dwLength: u32,
-    pub dwMemoryLoad: u32,
-    pub dwTotalPhys: usize,
-    pub dwAvailPhys: usize,
-    pub dwTotalPageFile: usize,
-    pub dwAvailPageFile: usize,
-    pub dwTotalVirtual: usize,
-    pub dwAvailVirtual: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MEMORYSTATUSEX {
-    pub dwLength: u32,
-    pub dwMemoryLoad: u32,
-    pub ullTotalPhys: u64,
-    pub ullAvailPhys: u64,
-    pub ullTotalPageFile: u64,
-    pub ullAvailPageFile: u64,
-    pub ullTotalVirtual: u64,
-    pub ullAvailVirtual: u64,
-    pub ullAvailExtendedVirtual: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NUMA_NODE_RELATIONSHIP {
-    pub NodeNumber: u32,
-    pub Reserved: [u8; 18],
-    pub GroupCount: u16,
-    pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NUMA_NODE_RELATIONSHIP_0 {
-    pub GroupMask: GROUP_AFFINITY,
-    pub GroupMasks: [GROUP_AFFINITY; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OSVERSIONINFOA {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [i8; 128],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OSVERSIONINFOEXA {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [i8; 128],
-    pub wServicePackMajor: u16,
-    pub wServicePackMinor: u16,
-    pub wSuiteMask: u16,
-    pub wProductType: u8,
-    pub wReserved: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OSVERSIONINFOEXW {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [u16; 128],
-    pub wServicePackMajor: u16,
-    pub wServicePackMinor: u16,
-    pub wSuiteMask: u16,
-    pub wProductType: u8,
-    pub wReserved: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OSVERSIONINFOW {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [u16; 128],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESSOR_GROUP_INFO {
-    pub MaximumProcessorCount: u8,
-    pub ActiveProcessorCount: u8,
-    pub Reserved: [u8; 38],
-    pub ActiveProcessorMask: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESSOR_RELATIONSHIP {
-    pub Flags: u8,
-    pub EfficiencyClass: u8,
-    pub Reserved: [u8; 20],
-    pub GroupCount: u16,
-    pub GroupMask: [GROUP_AFFINITY; 1],
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_CPU_SET_INFORMATION {
@@ -666,6 +593,10 @@ pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     pub Reserved: u32,
     pub SchedulingClass: u8,
 }
+pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: u32 = 2u32;
+pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4u32;
+pub const SYSTEM_CPU_SET_INFORMATION_PARKED: u32 = 1u32;
+pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_INFO {
@@ -747,5 +678,74 @@ pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     pub _bitfield: u32,
 }
-pub type PGET_SYSTEM_WOW64_DIRECTORY_A = Option<unsafe extern "system" fn(lpbuffer: windows_sys::core::PSTR, usize: u32) -> u32>;
-pub type PGET_SYSTEM_WOW64_DIRECTORY_W = Option<unsafe extern "system" fn(lpbuffer: windows_sys::core::PWSTR, usize: u32) -> u32>;
+pub type USER_CET_ENVIRONMENT = u32;
+pub const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: USER_CET_ENVIRONMENT = 2u32;
+pub const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: USER_CET_ENVIRONMENT = 17u32;
+pub const USER_CET_ENVIRONMENT_VBS_ENCLAVE: USER_CET_ENVIRONMENT = 16u32;
+pub const USER_CET_ENVIRONMENT_WIN32_PROCESS: USER_CET_ENVIRONMENT = 0u32;
+pub const VER_BUILDNUMBER: VER_FLAGS = 4u32;
+pub type VER_FLAGS = u32;
+pub const VER_MAJORVERSION: VER_FLAGS = 2u32;
+pub const VER_MINORVERSION: VER_FLAGS = 1u32;
+pub const VER_PLATFORMID: VER_FLAGS = 8u32;
+pub const VER_PRODUCT_TYPE: VER_FLAGS = 128u32;
+pub const VER_SERVICEPACKMAJOR: VER_FLAGS = 32u32;
+pub const VER_SERVICEPACKMINOR: VER_FLAGS = 16u32;
+pub const VER_SUITENAME: VER_FLAGS = 64u32;
+pub const WDK_NTDDI_VERSION: u32 = 167772172u32;
+pub const _WIN32_IE_IE100: u32 = 2560u32;
+pub const _WIN32_IE_IE110: u32 = 2560u32;
+pub const _WIN32_IE_IE20: u32 = 512u32;
+pub const _WIN32_IE_IE30: u32 = 768u32;
+pub const _WIN32_IE_IE302: u32 = 770u32;
+pub const _WIN32_IE_IE40: u32 = 1024u32;
+pub const _WIN32_IE_IE401: u32 = 1025u32;
+pub const _WIN32_IE_IE50: u32 = 1280u32;
+pub const _WIN32_IE_IE501: u32 = 1281u32;
+pub const _WIN32_IE_IE55: u32 = 1360u32;
+pub const _WIN32_IE_IE60: u32 = 1536u32;
+pub const _WIN32_IE_IE60SP1: u32 = 1537u32;
+pub const _WIN32_IE_IE60SP2: u32 = 1539u32;
+pub const _WIN32_IE_IE70: u32 = 1792u32;
+pub const _WIN32_IE_IE80: u32 = 2048u32;
+pub const _WIN32_IE_IE90: u32 = 2304u32;
+pub const _WIN32_IE_LONGHORN: u32 = 1792u32;
+pub const _WIN32_IE_NT4: u32 = 512u32;
+pub const _WIN32_IE_NT4SP1: u32 = 512u32;
+pub const _WIN32_IE_NT4SP2: u32 = 512u32;
+pub const _WIN32_IE_NT4SP3: u32 = 770u32;
+pub const _WIN32_IE_NT4SP4: u32 = 1025u32;
+pub const _WIN32_IE_NT4SP5: u32 = 1025u32;
+pub const _WIN32_IE_NT4SP6: u32 = 1280u32;
+pub const _WIN32_IE_WIN10: u32 = 2560u32;
+pub const _WIN32_IE_WIN2K: u32 = 1281u32;
+pub const _WIN32_IE_WIN2KSP1: u32 = 1281u32;
+pub const _WIN32_IE_WIN2KSP2: u32 = 1281u32;
+pub const _WIN32_IE_WIN2KSP3: u32 = 1281u32;
+pub const _WIN32_IE_WIN2KSP4: u32 = 1281u32;
+pub const _WIN32_IE_WIN6: u32 = 1792u32;
+pub const _WIN32_IE_WIN7: u32 = 2048u32;
+pub const _WIN32_IE_WIN8: u32 = 2560u32;
+pub const _WIN32_IE_WIN98: u32 = 1025u32;
+pub const _WIN32_IE_WIN98SE: u32 = 1280u32;
+pub const _WIN32_IE_WINBLUE: u32 = 2560u32;
+pub const _WIN32_IE_WINME: u32 = 1360u32;
+pub const _WIN32_IE_WINTHRESHOLD: u32 = 2560u32;
+pub const _WIN32_IE_WS03: u32 = 1538u32;
+pub const _WIN32_IE_WS03SP1: u32 = 1539u32;
+pub const _WIN32_IE_XP: u32 = 1536u32;
+pub const _WIN32_IE_XPSP1: u32 = 1537u32;
+pub const _WIN32_IE_XPSP2: u32 = 1539u32;
+pub const _WIN32_WINNT_LONGHORN: u32 = 1536u32;
+pub const _WIN32_WINNT_NT4: u32 = 1024u32;
+pub const _WIN32_WINNT_VISTA: u32 = 1536u32;
+pub const _WIN32_WINNT_WIN10: u32 = 2560u32;
+pub const _WIN32_WINNT_WIN2K: u32 = 1280u32;
+pub const _WIN32_WINNT_WIN6: u32 = 1536u32;
+pub const _WIN32_WINNT_WIN7: u32 = 1537u32;
+pub const _WIN32_WINNT_WIN8: u32 = 1538u32;
+pub const _WIN32_WINNT_WINBLUE: u32 = 1539u32;
+pub const _WIN32_WINNT_WINTHRESHOLD: u32 = 2560u32;
+pub const _WIN32_WINNT_WINXP: u32 = 1281u32;
+pub const _WIN32_WINNT_WS03: u32 = 1282u32;
+pub const _WIN32_WINNT_WS08: u32 = 1536u32;

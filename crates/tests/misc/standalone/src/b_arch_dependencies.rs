@@ -5,6 +5,7 @@
     dead_code,
     clippy::all
 )]
+
 windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -22,64 +23,34 @@ pub struct ARM64_NT_NEON128_0 {
     pub High: i64,
 }
 #[repr(C)]
-#[cfg(target_arch = "aarch64")]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct CONTEXT {
     pub ContextFlags: CONTEXT_FLAGS,
-    pub Cpsr: u32,
-    pub Anonymous: CONTEXT_0,
-    pub Sp: u64,
-    pub Pc: u64,
-    pub V: [ARM64_NT_NEON128; 32],
-    pub Fpcr: u32,
-    pub Fpsr: u32,
-    pub Bcr: [u32; 8],
-    pub Bvr: [u64; 8],
-    pub Wcr: [u32; 2],
-    pub Wvr: [u64; 2],
-}
-#[repr(C)]
-#[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy)]
-pub union CONTEXT_0 {
-    pub Anonymous: CONTEXT_0_0,
-    pub X: [u64; 31],
-}
-#[repr(C)]
-#[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy)]
-pub struct CONTEXT_0_0 {
-    pub X0: u64,
-    pub X1: u64,
-    pub X2: u64,
-    pub X3: u64,
-    pub X4: u64,
-    pub X5: u64,
-    pub X6: u64,
-    pub X7: u64,
-    pub X8: u64,
-    pub X9: u64,
-    pub X10: u64,
-    pub X11: u64,
-    pub X12: u64,
-    pub X13: u64,
-    pub X14: u64,
-    pub X15: u64,
-    pub X16: u64,
-    pub X17: u64,
-    pub X18: u64,
-    pub X19: u64,
-    pub X20: u64,
-    pub X21: u64,
-    pub X22: u64,
-    pub X23: u64,
-    pub X24: u64,
-    pub X25: u64,
-    pub X26: u64,
-    pub X27: u64,
-    pub X28: u64,
-    pub Fp: u64,
-    pub Lr: u64,
+    pub Dr0: u32,
+    pub Dr1: u32,
+    pub Dr2: u32,
+    pub Dr3: u32,
+    pub Dr6: u32,
+    pub Dr7: u32,
+    pub FloatSave: FLOATING_SAVE_AREA,
+    pub SegGs: u32,
+    pub SegFs: u32,
+    pub SegEs: u32,
+    pub SegDs: u32,
+    pub Edi: u32,
+    pub Esi: u32,
+    pub Ebx: u32,
+    pub Edx: u32,
+    pub Ecx: u32,
+    pub Eax: u32,
+    pub Ebp: u32,
+    pub Eip: u32,
+    pub SegCs: u32,
+    pub EFlags: u32,
+    pub Esp: u32,
+    pub SegSs: u32,
+    pub ExtendedRegisters: [u8; 512],
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -163,36 +134,80 @@ pub struct CONTEXT_0_0 {
     pub Xmm15: M128A,
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
+#[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
 pub struct CONTEXT {
     pub ContextFlags: CONTEXT_FLAGS,
-    pub Dr0: u32,
-    pub Dr1: u32,
-    pub Dr2: u32,
-    pub Dr3: u32,
-    pub Dr6: u32,
-    pub Dr7: u32,
-    pub FloatSave: FLOATING_SAVE_AREA,
-    pub SegGs: u32,
-    pub SegFs: u32,
-    pub SegEs: u32,
-    pub SegDs: u32,
-    pub Edi: u32,
-    pub Esi: u32,
-    pub Ebx: u32,
-    pub Edx: u32,
-    pub Ecx: u32,
-    pub Eax: u32,
-    pub Ebp: u32,
-    pub Eip: u32,
-    pub SegCs: u32,
-    pub EFlags: u32,
-    pub Esp: u32,
-    pub SegSs: u32,
-    pub ExtendedRegisters: [u8; 512],
+    pub Cpsr: u32,
+    pub Anonymous: CONTEXT_0,
+    pub Sp: u64,
+    pub Pc: u64,
+    pub V: [ARM64_NT_NEON128; 32],
+    pub Fpcr: u32,
+    pub Fpsr: u32,
+    pub Bcr: [u32; 8],
+    pub Bvr: [u64; 8],
+    pub Wcr: [u32; 2],
+    pub Wvr: [u64; 2],
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy)]
+pub union CONTEXT_0 {
+    pub Anonymous: CONTEXT_0_0,
+    pub X: [u64; 31],
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy)]
+pub struct CONTEXT_0_0 {
+    pub X0: u64,
+    pub X1: u64,
+    pub X2: u64,
+    pub X3: u64,
+    pub X4: u64,
+    pub X5: u64,
+    pub X6: u64,
+    pub X7: u64,
+    pub X8: u64,
+    pub X9: u64,
+    pub X10: u64,
+    pub X11: u64,
+    pub X12: u64,
+    pub X13: u64,
+    pub X14: u64,
+    pub X15: u64,
+    pub X16: u64,
+    pub X17: u64,
+    pub X18: u64,
+    pub X19: u64,
+    pub X20: u64,
+    pub X21: u64,
+    pub X22: u64,
+    pub X23: u64,
+    pub X24: u64,
+    pub X25: u64,
+    pub X26: u64,
+    pub X27: u64,
+    pub X28: u64,
+    pub Fp: u64,
+    pub Lr: u64,
 }
 pub type CONTEXT_FLAGS = u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct FLOATING_SAVE_AREA {
+    pub ControlWord: u32,
+    pub StatusWord: u32,
+    pub TagWord: u32,
+    pub ErrorOffset: u32,
+    pub ErrorSelector: u32,
+    pub DataOffset: u32,
+    pub DataSelector: u32,
+    pub RegisterArea: [u8; 80],
+    pub Spare0: u32,
+}
 #[repr(C)]
 #[cfg(any(
     target_arch = "aarch64",
@@ -212,24 +227,31 @@ pub struct FLOATING_SAVE_AREA {
     pub Cr0NpxState: u32,
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct FLOATING_SAVE_AREA {
-    pub ControlWord: u32,
-    pub StatusWord: u32,
-    pub TagWord: u32,
-    pub ErrorOffset: u32,
-    pub ErrorSelector: u32,
-    pub DataOffset: u32,
-    pub DataSelector: u32,
-    pub RegisterArea: [u8; 80],
-    pub Spare0: u32,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct M128A {
     pub Low: u64,
     pub High: i64,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct XSAVE_FORMAT {
+    pub ControlWord: u16,
+    pub StatusWord: u16,
+    pub TagWord: u8,
+    pub Reserved1: u8,
+    pub ErrorOpcode: u16,
+    pub ErrorOffset: u32,
+    pub ErrorSelector: u16,
+    pub Reserved2: u16,
+    pub DataOffset: u32,
+    pub DataSelector: u16,
+    pub Reserved3: u16,
+    pub MxCsr: u32,
+    pub MxCsr_Mask: u32,
+    pub FloatRegisters: [M128A; 8],
+    pub XmmRegisters: [M128A; 8],
+    pub Reserved4: [u8; 224],
 }
 #[repr(C)]
 #[cfg(any(
@@ -255,25 +277,4 @@ pub struct XSAVE_FORMAT {
     pub FloatRegisters: [M128A; 8],
     pub XmmRegisters: [M128A; 16],
     pub Reserved4: [u8; 96],
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct XSAVE_FORMAT {
-    pub ControlWord: u16,
-    pub StatusWord: u16,
-    pub TagWord: u8,
-    pub Reserved1: u8,
-    pub ErrorOpcode: u16,
-    pub ErrorOffset: u32,
-    pub ErrorSelector: u16,
-    pub Reserved2: u16,
-    pub DataOffset: u32,
-    pub DataSelector: u16,
-    pub Reserved3: u16,
-    pub MxCsr: u32,
-    pub MxCsr_Mask: u32,
-    pub FloatRegisters: [M128A; 8],
-    pub XmmRegisters: [M128A; 8],
-    pub Reserved4: [u8; 224],
 }

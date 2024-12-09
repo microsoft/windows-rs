@@ -23,7 +23,7 @@ impl SoundLevelBroker {
     {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn RemoveSoundLevelChanged(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

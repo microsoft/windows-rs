@@ -34,7 +34,7 @@ pub struct ILockScreenBadge_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Glyph: usize,
     pub Number: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AutomationName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub AutomationName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LaunchApp: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockScreenInfo, ILockScreenInfo_Vtbl, 0xf59aa65c_9711_4dc9_a630_95b6cb8cdad0);
@@ -89,7 +89,7 @@ pub struct ILockScreenUnlockingEventArgs_Vtbl {
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LockApplicationHost(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockApplicationHost, windows_core::IUnknown, windows_core::IInspectable);
 impl LockApplicationHost {
@@ -104,7 +104,7 @@ impl LockApplicationHost {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Unlocking)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Unlocking)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveUnlocking(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -126,7 +126,7 @@ impl windows_core::RuntimeType for LockApplicationHost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockApplicationHost>();
 }
 unsafe impl windows_core::Interface for LockApplicationHost {
-    type Vtable = ILockApplicationHost_Vtbl;
+    type Vtable = <ILockApplicationHost as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockApplicationHost as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockApplicationHost {
@@ -135,7 +135,7 @@ impl windows_core::RuntimeName for LockApplicationHost {
 unsafe impl Send for LockApplicationHost {}
 unsafe impl Sync for LockApplicationHost {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LockScreenBadge(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenBadge, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenBadge {
@@ -166,7 +166,7 @@ impl LockScreenBadge {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AutomationName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AutomationName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn LaunchApp(&self) -> windows_core::Result<()> {
@@ -178,7 +178,7 @@ impl windows_core::RuntimeType for LockScreenBadge {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenBadge>();
 }
 unsafe impl windows_core::Interface for LockScreenBadge {
-    type Vtable = ILockScreenBadge_Vtbl;
+    type Vtable = <ILockScreenBadge as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenBadge as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockScreenBadge {
@@ -187,7 +187,7 @@ impl windows_core::RuntimeName for LockScreenBadge {
 unsafe impl Send for LockScreenBadge {}
 unsafe impl Sync for LockScreenBadge {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LockScreenInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenInfo {
@@ -198,7 +198,7 @@ impl LockScreenInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LockScreenImageChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).LockScreenImageChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveLockScreenImageChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -220,7 +220,7 @@ impl LockScreenInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BadgesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BadgesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveBadgesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -242,7 +242,7 @@ impl LockScreenInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DetailTextChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DetailTextChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveDetailTextChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -264,7 +264,7 @@ impl LockScreenInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlarmIconChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AlarmIconChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveAlarmIconChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -284,7 +284,7 @@ impl windows_core::RuntimeType for LockScreenInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenInfo>();
 }
 unsafe impl windows_core::Interface for LockScreenInfo {
-    type Vtable = ILockScreenInfo_Vtbl;
+    type Vtable = <ILockScreenInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockScreenInfo {
@@ -293,7 +293,7 @@ impl windows_core::RuntimeName for LockScreenInfo {
 unsafe impl Send for LockScreenInfo {}
 unsafe impl Sync for LockScreenInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LockScreenUnlockingDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenUnlockingDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenUnlockingDeferral {
@@ -306,7 +306,7 @@ impl windows_core::RuntimeType for LockScreenUnlockingDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenUnlockingDeferral>();
 }
 unsafe impl windows_core::Interface for LockScreenUnlockingDeferral {
-    type Vtable = ILockScreenUnlockingDeferral_Vtbl;
+    type Vtable = <ILockScreenUnlockingDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenUnlockingDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockScreenUnlockingDeferral {
@@ -315,7 +315,7 @@ impl windows_core::RuntimeName for LockScreenUnlockingDeferral {
 unsafe impl Send for LockScreenUnlockingDeferral {}
 unsafe impl Sync for LockScreenUnlockingDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LockScreenUnlockingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenUnlockingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenUnlockingEventArgs {
@@ -330,7 +330,7 @@ impl LockScreenUnlockingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -338,7 +338,7 @@ impl windows_core::RuntimeType for LockScreenUnlockingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenUnlockingEventArgs>();
 }
 unsafe impl windows_core::Interface for LockScreenUnlockingEventArgs {
-    type Vtable = ILockScreenUnlockingEventArgs_Vtbl;
+    type Vtable = <ILockScreenUnlockingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenUnlockingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockScreenUnlockingEventArgs {

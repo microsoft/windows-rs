@@ -5,6 +5,7 @@
     dead_code,
     clippy::all
 )]
+
 windows_targets::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
 windows_targets::link!("kernel32.dll" "system" fn HeapAlloc(hheap : HANDLE, dwflags : HEAP_FLAGS, dwbytes : usize) -> *mut core::ffi::c_void);
 windows_targets::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : HEAP_FLAGS, lpmem : *const core::ffi::c_void) -> BOOL);

@@ -19,6 +19,7 @@ pub const FAULT_INVALID_ACTION: u32 = 401u32;
 pub const FAULT_INVALID_ARG: u32 = 402u32;
 pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
 pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
+pub type HSWDEVICE = *mut core::ffi::c_void;
 pub const REMOTE_ADDRESS_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("RemoteAddress");
 pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = 8i32;
 pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = 4i32;
@@ -28,6 +29,23 @@ pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = 2i32;
 pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = 0i32;
 pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = 2i32;
 pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = 1i32;
+pub type SW_DEVICE_CAPABILITIES = i32;
+pub type SW_DEVICE_CREATE_CALLBACK = Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: windows_sys::core::HRESULT, pcontext: *const core::ffi::c_void, pszdeviceinstanceid: windows_sys::core::PCWSTR)>;
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct SW_DEVICE_CREATE_INFO {
+    pub cbSize: u32,
+    pub pszInstanceId: windows_sys::core::PCWSTR,
+    pub pszzHardwareIds: windows_sys::core::PCWSTR,
+    pub pszzCompatibleIds: windows_sys::core::PCWSTR,
+    pub pContainerId: *const windows_sys::core::GUID,
+    pub CapabilityFlags: u32,
+    pub pszDeviceDescription: windows_sys::core::PCWSTR,
+    pub pszDeviceLocation: windows_sys::core::PCWSTR,
+    pub pSecurityDescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR,
+}
+pub type SW_DEVICE_LIFETIME = i32;
 pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
 pub const UPNP_ADDRESSFAMILY_IPv4: u32 = 1u32;
 pub const UPNP_ADDRESSFAMILY_IPv6: u32 = 2u32;
@@ -66,23 +84,6 @@ pub const UPNP_E_URLBASE_PRESENT: windows_sys::core::HRESULT = 0x8004A029_u32 as
 pub const UPNP_E_VALUE_TOO_LONG: windows_sys::core::HRESULT = 0x8004A030_u32 as _;
 pub const UPNP_E_VARIABLE_VALUE_UNKNOWN: windows_sys::core::HRESULT = 0x80040212_u32 as _;
 pub const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1u32;
-pub type SW_DEVICE_CAPABILITIES = i32;
-pub type SW_DEVICE_LIFETIME = i32;
-pub type HSWDEVICE = *mut core::ffi::c_void;
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct SW_DEVICE_CREATE_INFO {
-    pub cbSize: u32,
-    pub pszInstanceId: windows_sys::core::PCWSTR,
-    pub pszzHardwareIds: windows_sys::core::PCWSTR,
-    pub pszzCompatibleIds: windows_sys::core::PCWSTR,
-    pub pContainerId: *const windows_sys::core::GUID,
-    pub CapabilityFlags: u32,
-    pub pszDeviceDescription: windows_sys::core::PCWSTR,
-    pub pszDeviceLocation: windows_sys::core::PCWSTR,
-    pub pSecurityDescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR,
-}
 pub const UPnPDescriptionDocument: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1d8a9b47_3a28_4ce2_8a4b_bd34e45bceeb);
 pub const UPnPDescriptionDocumentEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x33fd0563_d81a_4393_83cc_0195b1da2f91);
 pub const UPnPDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa32552c5_ba61_457a_b59a_a2561e125e33);
@@ -93,4 +94,3 @@ pub const UPnPRegistrar: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const UPnPRemoteEndpointInfo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2e5e84e9_4049_4244_b728_2d24227157c7);
 pub const UPnPService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc624ba95_fbcb_4409_8c03_8cceec533ef1);
 pub const UPnPServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc0bc4b4a_a406_4efc_932f_b8546b8100cc);
-pub type SW_DEVICE_CREATE_CALLBACK = Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: windows_sys::core::HRESULT, pcontext: *const core::ffi::c_void, pszdeviceinstanceid: windows_sys::core::PCWSTR)>;

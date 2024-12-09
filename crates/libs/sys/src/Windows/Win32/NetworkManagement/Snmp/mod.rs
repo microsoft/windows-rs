@@ -90,6 +90,58 @@ pub const ASN_PRIMATIVE: u32 = 0u32;
 pub const ASN_PRIMITIVE: u32 = 0u32;
 pub const ASN_PRIVATE: u32 = 192u32;
 pub const ASN_UNIVERSAL: u32 = 0u32;
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct AsnAny {
+    pub asnType: u8,
+    pub asnValue: AsnAny_0,
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub union AsnAny_0 {
+    pub number: i32,
+    pub unsigned32: u32,
+    pub counter64: u64,
+    pub string: AsnOctetString,
+    pub bits: AsnOctetString,
+    pub object: AsnObjectIdentifier,
+    pub sequence: AsnOctetString,
+    pub address: AsnOctetString,
+    pub counter: u32,
+    pub gauge: u32,
+    pub ticks: u32,
+    pub arbitrary: AsnOctetString,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct AsnObjectIdentifier {
+    pub idLength: u32,
+    pub ids: *mut u32,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct AsnObjectIdentifier {
+    pub idLength: u32,
+    pub ids: *mut u32,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct AsnOctetString {
+    pub stream: *mut u8,
+    pub length: u32,
+    pub dynamic: super::super::Foundation::BOOL,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct AsnOctetString {
+    pub stream: *mut u8,
+    pub length: u32,
+    pub dynamic: super::super::Foundation::BOOL,
+}
 pub const DEFAULT_SNMPTRAP_PORT_IPX: u32 = 36880u32;
 pub const DEFAULT_SNMPTRAP_PORT_UDP: u32 = 162u32;
 pub const DEFAULT_SNMP_PORT_IPX: u32 = 36879u32;
@@ -98,7 +150,17 @@ pub const MAXOBJIDSIZE: u32 = 128u32;
 pub const MAXOBJIDSTRSIZE: u32 = 1408u32;
 pub const MAXVENDORINFO: u32 = 32u32;
 pub const MGMCTL_SETAGENTPORT: u32 = 1u32;
+pub type PFNSNMPCLEANUPEX = Option<unsafe extern "system" fn() -> u32>;
+pub type PFNSNMPEXTENSIONCLOSE = Option<unsafe extern "system" fn()>;
+pub type PFNSNMPEXTENSIONINIT = Option<unsafe extern "system" fn(dwuptimereference: u32, phsubagenttrapevent: *mut super::super::Foundation::HANDLE, pfirstsupportedregion: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL>;
+pub type PFNSNMPEXTENSIONINITEX = Option<unsafe extern "system" fn(pnextsupportedregion: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL>;
+pub type PFNSNMPEXTENSIONMONITOR = Option<unsafe extern "system" fn(pagentmgmtdata: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFNSNMPEXTENSIONQUERY = Option<unsafe extern "system" fn(bpdutype: u8, pvarbindlist: *mut SnmpVarBindList, perrorstatus: *mut i32, perrorindex: *mut i32) -> super::super::Foundation::BOOL>;
+pub type PFNSNMPEXTENSIONQUERYEX = Option<unsafe extern "system" fn(nrequesttype: u32, ntransactionid: u32, pvarbindlist: *mut SnmpVarBindList, pcontextinfo: *mut AsnOctetString, perrorstatus: *mut i32, perrorindex: *mut i32) -> super::super::Foundation::BOOL>;
+pub type PFNSNMPEXTENSIONTRAP = Option<unsafe extern "system" fn(penterpriseoid: *mut AsnObjectIdentifier, pgenerictrapid: *mut i32, pspecifictrapid: *mut i32, ptimestamp: *mut u32, pvarbindlist: *mut SnmpVarBindList) -> super::super::Foundation::BOOL>;
+pub type PFNSNMPSTARTUPEX = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u32, param2: *mut u32, param3: *mut u32, param4: *mut u32) -> u32>;
 pub const SNMPAPI_ALLOC_ERROR: u32 = 2u32;
+pub type SNMPAPI_CALLBACK = Option<unsafe extern "system" fn(hsession: isize, hwnd: super::super::Foundation::HWND, wmsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpclientdata: *mut core::ffi::c_void) -> u32>;
 pub const SNMPAPI_CONTEXT_INVALID: u32 = 3u32;
 pub const SNMPAPI_CONTEXT_UNKNOWN: u32 = 4u32;
 pub const SNMPAPI_ENTITY_INVALID: u32 = 5u32;
@@ -149,6 +211,7 @@ pub const SNMP_ACCESS_NOTIFY: u32 = 1u32;
 pub const SNMP_ACCESS_READ_CREATE: u32 = 4u32;
 pub const SNMP_ACCESS_READ_ONLY: u32 = 2u32;
 pub const SNMP_ACCESS_READ_WRITE: u32 = 3u32;
+pub type SNMP_API_TRANSLATE_MODE = u32;
 pub const SNMP_AUTHAPI_INVALID_MSG_TYPE: u32 = 31u32;
 pub const SNMP_AUTHAPI_INVALID_VERSION: u32 = 30u32;
 pub const SNMP_AUTHAPI_TRIV_AUTH_FAILED: u32 = 32u32;
@@ -157,6 +220,7 @@ pub const SNMP_BERAPI_INVALID_OBJELEM: u32 = 14u32;
 pub const SNMP_BERAPI_INVALID_TAG: u32 = 11u32;
 pub const SNMP_BERAPI_OVERFLOW: u32 = 12u32;
 pub const SNMP_BERAPI_SHORT_BUFFER: u32 = 13u32;
+pub type SNMP_ERROR = u32;
 pub const SNMP_ERRORSTATUS_AUTHORIZATIONERROR: SNMP_ERROR_STATUS = 16u32;
 pub const SNMP_ERRORSTATUS_BADVALUE: SNMP_ERROR_STATUS = 3u32;
 pub const SNMP_ERRORSTATUS_COMMITFAILED: SNMP_ERROR_STATUS = 14u32;
@@ -189,6 +253,7 @@ pub const SNMP_ERROR_NOSUCHNAME: SNMP_ERROR = 2u32;
 pub const SNMP_ERROR_NOTWRITABLE: SNMP_ERROR = 17u32;
 pub const SNMP_ERROR_READONLY: SNMP_ERROR = 4u32;
 pub const SNMP_ERROR_RESOURCEUNAVAILABLE: SNMP_ERROR = 13u32;
+pub type SNMP_ERROR_STATUS = u32;
 pub const SNMP_ERROR_TOOBIG: SNMP_ERROR = 1u32;
 pub const SNMP_ERROR_UNDOFAILED: SNMP_ERROR = 15u32;
 pub const SNMP_ERROR_WRONGENCODING: SNMP_ERROR = 9u32;
@@ -197,10 +262,12 @@ pub const SNMP_ERROR_WRONGTYPE: SNMP_ERROR = 7u32;
 pub const SNMP_ERROR_WRONGVALUE: SNMP_ERROR = 10u32;
 pub const SNMP_EXTENSION_GET: SNMP_EXTENSION_REQUEST_TYPE = 160u32;
 pub const SNMP_EXTENSION_GET_NEXT: SNMP_EXTENSION_REQUEST_TYPE = 161u32;
+pub type SNMP_EXTENSION_REQUEST_TYPE = u32;
 pub const SNMP_EXTENSION_SET_CLEANUP: SNMP_EXTENSION_REQUEST_TYPE = 226u32;
 pub const SNMP_EXTENSION_SET_COMMIT: SNMP_EXTENSION_REQUEST_TYPE = 163u32;
 pub const SNMP_EXTENSION_SET_TEST: SNMP_EXTENSION_REQUEST_TYPE = 224u32;
 pub const SNMP_EXTENSION_SET_UNDO: SNMP_EXTENSION_REQUEST_TYPE = 225u32;
+pub type SNMP_GENERICTRAP = u32;
 pub const SNMP_GENERICTRAP_AUTHFAILURE: SNMP_GENERICTRAP = 4u32;
 pub const SNMP_GENERICTRAP_COLDSTART: SNMP_GENERICTRAP = 0u32;
 pub const SNMP_GENERICTRAP_EGPNEIGHLOSS: SNMP_GENERICTRAP = 5u32;
@@ -208,6 +275,7 @@ pub const SNMP_GENERICTRAP_ENTERSPECIFIC: SNMP_GENERICTRAP = 6u32;
 pub const SNMP_GENERICTRAP_LINKDOWN: SNMP_GENERICTRAP = 2u32;
 pub const SNMP_GENERICTRAP_LINKUP: SNMP_GENERICTRAP = 3u32;
 pub const SNMP_GENERICTRAP_WARMSTART: SNMP_GENERICTRAP = 1u32;
+pub type SNMP_LOG = i32;
 pub const SNMP_LOG_ERROR: SNMP_LOG = 2i32;
 pub const SNMP_LOG_FATAL: SNMP_LOG = 1i32;
 pub const SNMP_LOG_SILENT: SNMP_LOG = 0i32;
@@ -225,6 +293,7 @@ pub const SNMP_MGMTAPI_SELECT_FDERRORS: u32 = 41u32;
 pub const SNMP_MGMTAPI_TIMEOUT: u32 = 40u32;
 pub const SNMP_MGMTAPI_TRAP_DUPINIT: u32 = 43u32;
 pub const SNMP_MGMTAPI_TRAP_ERRORS: u32 = 42u32;
+pub type SNMP_OUTPUT_LOG_TYPE = u32;
 pub const SNMP_OUTPUT_TO_CONSOLE: SNMP_OUTPUT_LOG_TYPE = 1u32;
 pub const SNMP_OUTPUT_TO_DEBUGGER: SNMP_OUTPUT_LOG_TYPE = 8u32;
 pub const SNMP_OUTPUT_TO_EVENTLOG: u32 = 4u32;
@@ -238,6 +307,8 @@ pub const SNMP_PDU_GETNEXT: SNMP_PDU_TYPE = 161u32;
 pub const SNMP_PDU_RESPONSE: SNMP_PDU_TYPE = 162u32;
 pub const SNMP_PDU_SET: SNMP_PDU_TYPE = 163u32;
 pub const SNMP_PDU_TRAP: SNMP_PDU_TYPE = 167u32;
+pub type SNMP_PDU_TYPE = u32;
+pub type SNMP_STATUS = u32;
 pub const SNMP_TRAP_AUTHFAIL: u32 = 4u32;
 pub const SNMP_TRAP_COLDSTART: u32 = 0u32;
 pub const SNMP_TRAP_EGPNEIGHBORLOSS: u32 = 5u32;
@@ -245,82 +316,21 @@ pub const SNMP_TRAP_ENTERPRISESPECIFIC: u32 = 6u32;
 pub const SNMP_TRAP_LINKDOWN: u32 = 2u32;
 pub const SNMP_TRAP_LINKUP: u32 = 3u32;
 pub const SNMP_TRAP_WARMSTART: u32 = 1u32;
-pub type SNMP_API_TRANSLATE_MODE = u32;
-pub type SNMP_ERROR = u32;
-pub type SNMP_ERROR_STATUS = u32;
-pub type SNMP_EXTENSION_REQUEST_TYPE = u32;
-pub type SNMP_GENERICTRAP = u32;
-pub type SNMP_LOG = i32;
-pub type SNMP_OUTPUT_LOG_TYPE = u32;
-pub type SNMP_PDU_TYPE = u32;
-pub type SNMP_STATUS = u32;
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct AsnAny {
-    pub asnType: u8,
-    pub asnValue: AsnAny_0,
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub union AsnAny_0 {
-    pub number: i32,
-    pub unsigned32: u32,
-    pub counter64: u64,
-    pub string: AsnOctetString,
-    pub bits: AsnOctetString,
-    pub object: AsnObjectIdentifier,
-    pub sequence: AsnOctetString,
-    pub address: AsnOctetString,
-    pub counter: u32,
-    pub gauge: u32,
-    pub ticks: u32,
-    pub arbitrary: AsnOctetString,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct AsnObjectIdentifier {
-    pub idLength: u32,
-    pub ids: *mut u32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct AsnObjectIdentifier {
-    pub idLength: u32,
-    pub ids: *mut u32,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct AsnOctetString {
-    pub stream: *mut u8,
-    pub length: u32,
-    pub dynamic: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct AsnOctetString {
-    pub stream: *mut u8,
-    pub length: u32,
-    pub dynamic: super::super::Foundation::BOOL,
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct SnmpVarBind {
     pub name: AsnObjectIdentifier,
     pub value: AsnAny,
 }
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
@@ -369,13 +379,3 @@ pub struct smiVENDORINFO {
     pub vendorVersionDate: [i8; 32],
     pub vendorEnterprise: u32,
 }
-pub type PFNSNMPCLEANUPEX = Option<unsafe extern "system" fn() -> u32>;
-pub type PFNSNMPEXTENSIONCLOSE = Option<unsafe extern "system" fn()>;
-pub type PFNSNMPEXTENSIONINIT = Option<unsafe extern "system" fn(dwuptimereference: u32, phsubagenttrapevent: *mut super::super::Foundation::HANDLE, pfirstsupportedregion: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL>;
-pub type PFNSNMPEXTENSIONINITEX = Option<unsafe extern "system" fn(pnextsupportedregion: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL>;
-pub type PFNSNMPEXTENSIONMONITOR = Option<unsafe extern "system" fn(pagentmgmtdata: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFNSNMPEXTENSIONQUERY = Option<unsafe extern "system" fn(bpdutype: u8, pvarbindlist: *mut SnmpVarBindList, perrorstatus: *mut i32, perrorindex: *mut i32) -> super::super::Foundation::BOOL>;
-pub type PFNSNMPEXTENSIONQUERYEX = Option<unsafe extern "system" fn(nrequesttype: u32, ntransactionid: u32, pvarbindlist: *mut SnmpVarBindList, pcontextinfo: *mut AsnOctetString, perrorstatus: *mut i32, perrorindex: *mut i32) -> super::super::Foundation::BOOL>;
-pub type PFNSNMPEXTENSIONTRAP = Option<unsafe extern "system" fn(penterpriseoid: *mut AsnObjectIdentifier, pgenerictrapid: *mut i32, pspecifictrapid: *mut i32, ptimestamp: *mut u32, pvarbindlist: *mut SnmpVarBindList) -> super::super::Foundation::BOOL>;
-pub type PFNSNMPSTARTUPEX = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u32, param2: *mut u32, param3: *mut u32, param4: *mut u32) -> u32>;
-pub type SNMPAPI_CALLBACK = Option<unsafe extern "system" fn(hsession: isize, hwnd: super::super::Foundation::HWND, wmsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpclientdata: *mut core::ffi::c_void) -> u32>;

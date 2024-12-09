@@ -1,6 +1,11 @@
 windows_targets::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 windows_targets::link!("msctfmonitor.dll" "system" fn InitLocalMsCtfMonitor(dwflags : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("msctfmonitor.dll" "system" fn UninitLocalMsCtfMonitor() -> windows_sys::core::HRESULT);
+pub type ANCHOR_CHANGE_HISTORY_FLAGS = u32;
+pub const AccClientDocMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
+pub const AccDictionary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
+pub const AccServerDocMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
+pub const AccStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
 pub const CAND_CANCELED: TfCandidateResult = 2i32;
 pub const CAND_FINALIZED: TfCandidateResult = 0i32;
 pub const CAND_SELECTED: TfCandidateResult = 1i32;
@@ -16,12 +21,14 @@ pub const CLSID_TsfServices: windows_sys::core::GUID = windows_sys::core::GUID::
 pub const DCM_FLAGS_CTFMON: u32 = 2u32;
 pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
+pub const DocWrap: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
 pub const GETIF_DICTGRAM: TfSapiObject = 4i32;
 pub const GETIF_RECOCONTEXT: TfSapiObject = 1i32;
 pub const GETIF_RECOGNIZER: TfSapiObject = 2i32;
 pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = 5i32;
 pub const GETIF_RESMGR: TfSapiObject = 0i32;
 pub const GETIF_VOICE: TfSapiObject = 3i32;
+pub type GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = u32;
 pub const GUID_APP_FUNCTIONPROVIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4caef01e_12af_4b0e_9db1_a6ec5b881208);
 pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5497f516_ee91_436e_b946_aa2c05f1ac5b);
 pub const GUID_COMPARTMENT_EMPTYCONTEXT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7487dbf_804e_41c5_894d_ad96fd4eea13);
@@ -97,6 +104,7 @@ pub const GXFPF_NEAREST: u32 = 2u32;
 pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
 pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
 pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
+pub type INSERT_TEXT_AT_SELECTION_FLAGS = u32;
 pub const IS_ADDRESS_CITY: InputScope = 17i32;
 pub const IS_ADDRESS_COUNTRYNAME: InputScope = 18i32;
 pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = 19i32;
@@ -171,9 +179,15 @@ pub const IS_TIME_MINORSEC: InputScope = 38i32;
 pub const IS_URL: InputScope = 1i32;
 pub const IS_XML: InputScope = -4i32;
 pub const IS_YOMI: InputScope = 56i32;
+pub type InputScope = i32;
+pub type LANG_BAR_ITEM_ICON_MODE_FLAGS = u32;
 pub const LIBID_MSAATEXTLib: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x150e2d7a_dac1_4582_947d_2a8fd78b82cd);
+pub const MSAAControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = 0i32;
 pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = 1i32;
+pub type TEXT_STORE_CHANGE_FLAGS = u32;
+pub type TEXT_STORE_LOCK_FLAGS = u32;
+pub type TEXT_STORE_TEXT_CHANGE_FLAGS = u32;
 pub const TF_AE_END: TfActiveSelEnd = 2i32;
 pub const TF_AE_NONE: TfActiveSelEnd = 0i32;
 pub const TF_AE_START: TfActiveSelEnd = 1i32;
@@ -195,6 +209,7 @@ pub const TF_CLUIE_SELECTION: u32 = 4u32;
 pub const TF_CLUIE_STRING: u32 = 8u32;
 pub const TF_COMMANDING_ENABLED: u32 = 4u32;
 pub const TF_COMMANDING_ON: u32 = 8u32;
+pub type TF_CONTEXT_EDIT_CONTEXT_FLAGS = u32;
 pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
 pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32u32;
 pub const TF_CONVERSIONMODE_EUDC: u32 = 512u32;
@@ -209,6 +224,21 @@ pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
 pub const TF_CT_COLORREF: TF_DA_COLORTYPE = 2i32;
 pub const TF_CT_NONE: TF_DA_COLORTYPE = 0i32;
 pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = 1i32;
+pub type TF_DA_ATTR_INFO = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TF_DA_COLOR {
+    pub r#type: TF_DA_COLORTYPE,
+    pub Anonymous: TF_DA_COLOR_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union TF_DA_COLOR_0 {
+    pub nIndex: i32,
+    pub cr: super::super::Foundation::COLORREF,
+}
+pub type TF_DA_COLORTYPE = i32;
+pub type TF_DA_LINESTYLE = i32;
 pub const TF_DEFAULT_SELECTION: u32 = 4294967295u32;
 pub const TF_DICTATION_ENABLED: u32 = 2u32;
 pub const TF_DICTATION_ON: u32 = 1u32;
@@ -216,6 +246,16 @@ pub const TF_DISABLE_BALLOON: u32 = 2u32;
 pub const TF_DISABLE_COMMANDING: u32 = 4u32;
 pub const TF_DISABLE_DICTATION: u32 = 2u32;
 pub const TF_DISABLE_SPEECH: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TF_DISPLAYATTRIBUTE {
+    pub crText: TF_DA_COLOR,
+    pub crBk: TF_DA_COLOR,
+    pub lsStyle: TF_DA_LINESTYLE,
+    pub fBoldLine: super::super::Foundation::BOOL,
+    pub crLine: TF_DA_COLOR,
+    pub bAttr: TF_DA_ATTR_INFO,
+}
 pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = 0u32;
 pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = 1u32;
 pub const TF_ENABLE_PROCESS_ATOM: windows_sys::core::PCWSTR = windows_sys::core::w!("_CTF_ENABLE_PROCESS_ATOM_");
@@ -253,11 +293,32 @@ pub const TF_GRAVITY_BACKWARD: TfGravity = 0i32;
 pub const TF_GRAVITY_FORWARD: TfGravity = 1i32;
 pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = 1u32;
 pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TF_HALTCOND {
+    pub pHaltRange: *mut core::ffi::c_void,
+    pub aHaltPos: TfAnchor,
+    pub dwFlags: u32,
+}
 pub const TF_HF_OBJECT: u32 = 1u32;
 pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = 1u32;
 pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = 2147483648u32;
 pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = 2u32;
 pub const TF_IE_CORRECTION: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+#[derive(Clone, Copy)]
+pub struct TF_INPUTPROCESSORPROFILE {
+    pub dwProfileType: u32,
+    pub langid: u16,
+    pub clsid: windows_sys::core::GUID,
+    pub guidProfile: windows_sys::core::GUID,
+    pub catid: windows_sys::core::GUID,
+    pub hklSubstitute: super::Input::KeyboardAndMouse::HKL,
+    pub dwCaps: u32,
+    pub hkl: super::Input::KeyboardAndMouse::HKL,
+    pub dwFlags: u32,
+}
 pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
 pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
 pub const TF_IPPMF_DISABLEPROFILE: u32 = 2u32;
@@ -277,6 +338,30 @@ pub const TF_IPP_FLAG_ACTIVE: u32 = 1u32;
 pub const TF_IPP_FLAG_ENABLED: u32 = 2u32;
 pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4u32;
 pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TF_LANGBARITEMINFO {
+    pub clsidService: windows_sys::core::GUID,
+    pub guidItem: windows_sys::core::GUID,
+    pub dwStyle: u32,
+    pub ulSort: u32,
+    pub szDescription: [u16; 32],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TF_LANGUAGEPROFILE {
+    pub clsid: windows_sys::core::GUID,
+    pub langid: u16,
+    pub catid: windows_sys::core::GUID,
+    pub fActive: super::super::Foundation::BOOL,
+    pub guidProfile: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TF_LBBALLOONINFO {
+    pub style: TfLBBalloonStyle,
+    pub bstrText: windows_sys::core::BSTR,
+}
 pub const TF_LBI_BALLOON: u32 = 16u32;
 pub const TF_LBI_BITMAP: u32 = 8u32;
 pub const TF_LBI_BMPF_VERTICAL: u32 = 1u32;
@@ -311,6 +396,20 @@ pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = 1i32;
 pub const TF_LC_CHANGE: TfLayoutCode = 1i32;
 pub const TF_LC_CREATE: TfLayoutCode = 0i32;
 pub const TF_LC_DESTROY: TfLayoutCode = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TF_LMLATTELEMENT {
+    pub dwFrameStart: u32,
+    pub dwFrameLen: u32,
+    pub dwFlags: u32,
+    pub Anonymous: TF_LMLATTELEMENT_0,
+    pub bstrText: windows_sys::core::BSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union TF_LMLATTELEMENT_0 {
+    pub iCost: i32,
+}
 pub const TF_LS_DASH: TF_DA_LINESTYLE = 3i32;
 pub const TF_LS_DOT: TF_DA_LINESTYLE = 2i32;
 pub const TF_LS_NONE: TF_DA_LINESTYLE = 0i32;
@@ -328,7 +427,23 @@ pub const TF_MOD_RALT: u32 = 8u32;
 pub const TF_MOD_RCONTROL: u32 = 16u32;
 pub const TF_MOD_RSHIFT: u32 = 32u32;
 pub const TF_MOD_SHIFT: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    pub guidType: windows_sys::core::GUID,
+    pub ichStart: i32,
+    pub cch: i32,
+    pub cb: u32,
+    pub dwPrivate: u32,
+    pub clsidTIP: windows_sys::core::GUID,
+}
 pub const TF_POPF_ALL: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TF_PRESERVEDKEY {
+    pub uVKey: u32,
+    pub uModifiers: u32,
+}
 pub const TF_PROCESS_ATOM: windows_sys::core::PCWSTR = windows_sys::core::w!("_CTF_PROCESS_ATOM_");
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
 pub const TF_PROFILETYPE_KEYBOARDLAYOUT: u32 = 2u32;
@@ -346,6 +461,13 @@ pub const TF_PROFILE_SIMPLEFAST: windows_sys::core::GUID = windows_sys::core::GU
 pub const TF_PROFILE_TIGRINYA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3cab88b7_cc3e_46a6_9765_b772ad7761ff);
 pub const TF_PROFILE_WUBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x82590c13_f4dd_44f4_ba1d_8667246fdf8e);
 pub const TF_PROFILE_YI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x409c8376_007b_4357_ae8e_26316ee3fb0d);
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct TF_PROPERTYVAL {
+    pub guidId: windows_sys::core::GUID,
+    pub varValue: super::super::System::Variant::VARIANT,
+}
 pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
 pub const TF_RCM_COMLESS: u32 = 1u32;
 pub const TF_RCM_HINT_COLLISION: u32 = 8u32;
@@ -365,6 +487,18 @@ pub const TF_SD_BACKWARD: TfShiftDir = 0i32;
 pub const TF_SD_FORWARD: TfShiftDir = 1i32;
 pub const TF_SD_LOADING: u32 = 2u32;
 pub const TF_SD_READONLY: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TF_SELECTION {
+    pub range: *mut core::ffi::c_void,
+    pub style: TF_SELECTIONSTYLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TF_SELECTIONSTYLE {
+    pub ase: TfActiveSelEnd,
+    pub fInterimChar: super::super::Foundation::BOOL,
+}
 pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
 pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16u32;
 pub const TF_SENTENCEMODE_NONE: u32 = 0u32;
@@ -428,6 +562,7 @@ pub const TKBL_OPT_KOREAN_HANGUL_2_BULSIK: u32 = 1042u32;
 pub const TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN: u32 = 2052u32;
 pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
 pub const TKBL_UNDEFINED: u32 = 0u32;
+pub type TKBLayoutType = i32;
 pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
 pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2u32;
 pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3u32;
@@ -524,6 +659,14 @@ pub const TS_AS_LAYOUT_CHANGE: u32 = 4u32;
 pub const TS_AS_SEL_CHANGE: u32 = 2u32;
 pub const TS_AS_STATUS_CHANGE: u32 = 16u32;
 pub const TS_AS_TEXT_CHANGE: u32 = 1u32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct TS_ATTRVAL {
+    pub idAttr: windows_sys::core::GUID,
+    pub dwOverlapId: u32,
+    pub varValue: super::super::System::Variant::VARIANT,
+}
 pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
 pub const TS_ATTR_FIND_HIDDEN: u32 = 32u32;
 pub const TS_ATTR_FIND_UPDATESTART: u32 = 4u32;
@@ -564,6 +707,12 @@ pub const TS_LF_SYNC: u32 = 1u32;
 pub const TS_RT_HIDDEN: TsRunType = 1i32;
 pub const TS_RT_OPAQUE: TsRunType = 2i32;
 pub const TS_RT_PLAIN: TsRunType = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TS_RUNINFO {
+    pub uCount: u32,
+    pub r#type: TsRunType,
+}
 pub const TS_SD_BACKWARD: TsShiftDir = 0i32;
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256u32;
@@ -575,190 +724,6 @@ pub const TS_SD_RESERVED: u32 = 4u32;
 pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
-pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
-pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
-pub const TS_SHIFT_HALT_HIDDEN: u32 = 2u32;
-pub const TS_SHIFT_HALT_VISIBLE: u32 = 4u32;
-pub const TS_SS_DISJOINTSEL: u32 = 1u32;
-pub const TS_SS_NOHIDDENTEXT: u32 = 8u32;
-pub const TS_SS_REGIONS: u32 = 2u32;
-pub const TS_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
-pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
-pub const TS_SS_TRANSITORY: u32 = 4u32;
-pub const TS_SS_UWPCONTROL: u32 = 64u32;
-pub const TS_STRF_END: u32 = 2u32;
-pub const TS_STRF_MID: u32 = 1u32;
-pub const TS_STRF_START: u32 = 0u32;
-pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = 1u32;
-pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = 0u32;
-pub const TS_S_ASYNC: windows_sys::core::HRESULT = 0x40300_u32 as _;
-pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = 1u32;
-pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = 0u32;
-pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
-pub type ANCHOR_CHANGE_HISTORY_FLAGS = u32;
-pub type GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = u32;
-pub type INSERT_TEXT_AT_SELECTION_FLAGS = u32;
-pub type InputScope = i32;
-pub type LANG_BAR_ITEM_ICON_MODE_FLAGS = u32;
-pub type TEXT_STORE_CHANGE_FLAGS = u32;
-pub type TEXT_STORE_LOCK_FLAGS = u32;
-pub type TEXT_STORE_TEXT_CHANGE_FLAGS = u32;
-pub type TF_CONTEXT_EDIT_CONTEXT_FLAGS = u32;
-pub type TF_DA_ATTR_INFO = i32;
-pub type TF_DA_COLORTYPE = i32;
-pub type TF_DA_LINESTYLE = i32;
-pub type TKBLayoutType = i32;
-pub type TfActiveSelEnd = i32;
-pub type TfAnchor = i32;
-pub type TfCandidateResult = i32;
-pub type TfGravity = i32;
-pub type TfIntegratableCandidateListSelectionStyle = i32;
-pub type TfLBBalloonStyle = i32;
-pub type TfLBIClick = i32;
-pub type TfLayoutCode = i32;
-pub type TfSapiObject = i32;
-pub type TfShiftDir = i32;
-pub type TsActiveSelEnd = i32;
-pub type TsGravity = i32;
-pub type TsLayoutCode = i32;
-pub type TsRunType = i32;
-pub type TsShiftDir = i32;
-pub const AccClientDocMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
-pub const AccDictionary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
-pub const AccServerDocMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
-pub const AccStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
-pub const DocWrap: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
-pub const MSAAControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TF_DA_COLOR {
-    pub r#type: TF_DA_COLORTYPE,
-    pub Anonymous: TF_DA_COLOR_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TF_DA_COLOR_0 {
-    pub nIndex: i32,
-    pub cr: super::super::Foundation::COLORREF,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TF_DISPLAYATTRIBUTE {
-    pub crText: TF_DA_COLOR,
-    pub crBk: TF_DA_COLOR,
-    pub lsStyle: TF_DA_LINESTYLE,
-    pub fBoldLine: super::super::Foundation::BOOL,
-    pub crLine: TF_DA_COLOR,
-    pub bAttr: TF_DA_ATTR_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TF_HALTCOND {
-    pub pHaltRange: *mut core::ffi::c_void,
-    pub aHaltPos: TfAnchor,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-#[derive(Clone, Copy)]
-pub struct TF_INPUTPROCESSORPROFILE {
-    pub dwProfileType: u32,
-    pub langid: u16,
-    pub clsid: windows_sys::core::GUID,
-    pub guidProfile: windows_sys::core::GUID,
-    pub catid: windows_sys::core::GUID,
-    pub hklSubstitute: super::Input::KeyboardAndMouse::HKL,
-    pub dwCaps: u32,
-    pub hkl: super::Input::KeyboardAndMouse::HKL,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TF_LANGBARITEMINFO {
-    pub clsidService: windows_sys::core::GUID,
-    pub guidItem: windows_sys::core::GUID,
-    pub dwStyle: u32,
-    pub ulSort: u32,
-    pub szDescription: [u16; 32],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TF_LANGUAGEPROFILE {
-    pub clsid: windows_sys::core::GUID,
-    pub langid: u16,
-    pub catid: windows_sys::core::GUID,
-    pub fActive: super::super::Foundation::BOOL,
-    pub guidProfile: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TF_LBBALLOONINFO {
-    pub style: TfLBBalloonStyle,
-    pub bstrText: windows_sys::core::BSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TF_LMLATTELEMENT {
-    pub dwFrameStart: u32,
-    pub dwFrameLen: u32,
-    pub dwFlags: u32,
-    pub Anonymous: TF_LMLATTELEMENT_0,
-    pub bstrText: windows_sys::core::BSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TF_LMLATTELEMENT_0 {
-    pub iCost: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    pub guidType: windows_sys::core::GUID,
-    pub ichStart: i32,
-    pub cch: i32,
-    pub cb: u32,
-    pub dwPrivate: u32,
-    pub clsidTIP: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TF_PRESERVEDKEY {
-    pub uVKey: u32,
-    pub uModifiers: u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct TF_PROPERTYVAL {
-    pub guidId: windows_sys::core::GUID,
-    pub varValue: super::super::System::Variant::VARIANT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TF_SELECTION {
-    pub range: *mut core::ffi::c_void,
-    pub style: TF_SELECTIONSTYLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TF_SELECTIONSTYLE {
-    pub ase: TfActiveSelEnd,
-    pub fInterimChar: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct TS_ATTRVAL {
-    pub idAttr: windows_sys::core::GUID,
-    pub dwOverlapId: u32,
-    pub varValue: super::super::System::Variant::VARIANT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TS_RUNINFO {
-    pub uCount: u32,
-    pub r#type: TsRunType,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TS_SELECTIONSTYLE {
@@ -779,12 +744,31 @@ pub struct TS_SELECTION_ANCHOR {
     pub paEnd: *mut core::ffi::c_void,
     pub style: TS_SELECTIONSTYLE,
 }
+pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
+pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
+pub const TS_SHIFT_HALT_HIDDEN: u32 = 2u32;
+pub const TS_SHIFT_HALT_VISIBLE: u32 = 4u32;
+pub const TS_SS_DISJOINTSEL: u32 = 1u32;
+pub const TS_SS_NOHIDDENTEXT: u32 = 8u32;
+pub const TS_SS_REGIONS: u32 = 2u32;
+pub const TS_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
+pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
+pub const TS_SS_TRANSITORY: u32 = 4u32;
+pub const TS_SS_UWPCONTROL: u32 = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
 }
+pub const TS_STRF_END: u32 = 2u32;
+pub const TS_STRF_MID: u32 = 1u32;
+pub const TS_STRF_START: u32 = 0u32;
+pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = 1u32;
+pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = 0u32;
+pub const TS_S_ASYNC: windows_sys::core::HRESULT = 0x40300_u32 as _;
+pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = 1u32;
+pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TS_TEXTCHANGE {
@@ -792,3 +776,19 @@ pub struct TS_TEXTCHANGE {
     pub acpOldEnd: i32,
     pub acpNewEnd: i32,
 }
+pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
+pub type TfActiveSelEnd = i32;
+pub type TfAnchor = i32;
+pub type TfCandidateResult = i32;
+pub type TfGravity = i32;
+pub type TfIntegratableCandidateListSelectionStyle = i32;
+pub type TfLBBalloonStyle = i32;
+pub type TfLBIClick = i32;
+pub type TfLayoutCode = i32;
+pub type TfSapiObject = i32;
+pub type TfShiftDir = i32;
+pub type TsActiveSelEnd = i32;
+pub type TsGravity = i32;
+pub type TsLayoutCode = i32;
+pub type TsRunType = i32;
+pub type TsShiftDir = i32;

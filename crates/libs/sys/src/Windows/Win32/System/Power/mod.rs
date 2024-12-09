@@ -169,10 +169,50 @@ pub const ACCESS_POSSIBLE_VALUE_UNITS: POWER_DATA_ACCESSOR = 12i32;
 pub const ACCESS_PROFILE: POWER_DATA_ACCESSOR = 25i32;
 pub const ACCESS_SCHEME: POWER_DATA_ACCESSOR = 16i32;
 pub const ACCESS_SUBGROUP: POWER_DATA_ACCESSOR = 17i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACPI_REAL_TIME {
+    pub Year: u16,
+    pub Month: u8,
+    pub Day: u8,
+    pub Hour: u8,
+    pub Minute: u8,
+    pub Second: u8,
+    pub Valid: u8,
+    pub Milliseconds: u16,
+    pub TimeZone: i16,
+    pub DayLight: u8,
+    pub Reserved1: [u8; 3],
+}
 pub const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
+    pub AcWakeSupported: super::super::Foundation::BOOLEAN,
+    pub DcWakeSupported: super::super::Foundation::BOOLEAN,
+    pub S4AcWakeSupported: super::super::Foundation::BOOLEAN,
+    pub S4DcWakeSupported: super::super::Foundation::BOOLEAN,
+    pub S5AcWakeSupported: super::super::Foundation::BOOLEAN,
+    pub S5DcWakeSupported: super::super::Foundation::BOOLEAN,
+    pub S4S5WakeStatusSupported: super::super::Foundation::BOOLEAN,
+    pub DeepestWakeSystemState: u32,
+    pub RealTimeFeaturesSupported: super::super::Foundation::BOOLEAN,
+    pub RealTimeResolution: ACPI_TIME_RESOLUTION,
+}
 pub const ACPI_TIME_IN_DAYLIGHT: u32 = 2u32;
+pub type ACPI_TIME_RESOLUTION = i32;
 pub const ACPI_TIME_ZONE_UNKNOWN: u32 = 2047u32;
 pub const ACTIVE_COOLING: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ADMINISTRATOR_POWER_POLICY {
+    pub MinSleep: SYSTEM_POWER_STATE,
+    pub MaxSleep: SYSTEM_POWER_STATE,
+    pub MinVideoTimeout: u32,
+    pub MaxVideoTimeout: u32,
+    pub MinSpindownTimeout: u32,
+    pub MaxSpindownTimeout: u32,
+}
 pub const ALTITUDE_GROUP_POLICY: POWER_SETTING_ALTITUDE = 0i32;
 pub const ALTITUDE_INTERNAL_OVERRIDE: POWER_SETTING_ALTITUDE = 5i32;
 pub const ALTITUDE_OEM_CUSTOMIZATION: POWER_SETTING_ALTITUDE = 4i32;
@@ -185,7 +225,26 @@ pub const AcpiTimeResolutionMilliseconds: ACPI_TIME_RESOLUTION = 0i32;
 pub const AcpiTimeResolutionSeconds: ACPI_TIME_RESOLUTION = 1i32;
 pub const AdministratorPowerPolicy: POWER_INFORMATION_LEVEL = 9i32;
 pub const BATTERY_CAPACITY_RELATIVE: u32 = 1073741824u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BATTERY_CHARGER_STATUS {
+    pub Type: BATTERY_CHARGING_SOURCE_TYPE,
+    pub VaData: [u32; 1],
+}
 pub const BATTERY_CHARGING: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BATTERY_CHARGING_SOURCE {
+    pub Type: BATTERY_CHARGING_SOURCE_TYPE,
+    pub MaxCurrent: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
+    pub Type: BATTERY_CHARGING_SOURCE_TYPE,
+    pub SourceOnline: super::super::Foundation::BOOLEAN,
+}
+pub type BATTERY_CHARGING_SOURCE_TYPE = i32;
 pub const BATTERY_CLASS_MAJOR_VERSION: u32 = 1u32;
 pub const BATTERY_CLASS_MINOR_VERSION: u32 = 0u32;
 pub const BATTERY_CLASS_MINOR_VERSION_1: u32 = 1u32;
@@ -193,17 +252,68 @@ pub const BATTERY_CRITICAL: u32 = 8u32;
 pub const BATTERY_CYCLE_COUNT_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef98db24_0014_4c25_a50b_c724ae5cd371);
 pub const BATTERY_DISCHARGING: u32 = 2u32;
 pub const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x40b40565_96f7_4435_8694_97e0e4395905);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BATTERY_INFORMATION {
+    pub Capabilities: u32,
+    pub Technology: u8,
+    pub Reserved: [u8; 3],
+    pub Chemistry: [u8; 4],
+    pub DesignedCapacity: u32,
+    pub FullChargedCapacity: u32,
+    pub DefaultAlert1: u32,
+    pub DefaultAlert2: u32,
+    pub CriticalBias: u32,
+    pub CycleCount: u32,
+}
 pub const BATTERY_IS_SHORT_TERM: u32 = 536870912u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BATTERY_MANUFACTURE_DATE {
+    pub Day: u8,
+    pub Month: u8,
+    pub Year: u16,
+}
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_1: u32 = 1u32;
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_2: u32 = 2u32;
 pub const BATTERY_POWER_ON_LINE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BATTERY_QUERY_INFORMATION {
+    pub BatteryTag: u32,
+    pub InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
+    pub AtRate: u32,
+}
+pub type BATTERY_QUERY_INFORMATION_LEVEL = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BATTERY_REPORTING_SCALE {
+    pub Granularity: u32,
+    pub Capacity: u32,
+}
 pub const BATTERY_RUNTIME_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x535a3767_1ac2_49bc_a077_3f7a02e40aec);
 pub const BATTERY_SEALED: u32 = 268435456u32;
 pub const BATTERY_SET_CHARGER_ID_SUPPORTED: u32 = 8u32;
 pub const BATTERY_SET_CHARGE_SUPPORTED: u32 = 1u32;
 pub const BATTERY_SET_CHARGINGSOURCE_SUPPORTED: u32 = 4u32;
 pub const BATTERY_SET_DISCHARGE_SUPPORTED: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BATTERY_SET_INFORMATION {
+    pub BatteryTag: u32,
+    pub InformationLevel: BATTERY_SET_INFORMATION_LEVEL,
+    pub Buffer: [u8; 1],
+}
+pub type BATTERY_SET_INFORMATION_LEVEL = i32;
 pub const BATTERY_STATIC_DATA_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x05e1e463_e4e2_4ea9_80cb_9bd4b3ca0655);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BATTERY_STATUS {
+    pub PowerState: u32,
+    pub Capacity: u32,
+    pub Voltage: u32,
+    pub Rate: i32,
+}
 pub const BATTERY_STATUS_CHANGE_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcddfa0c3_7c5b_4e43_a034_059fa5b84364);
 pub const BATTERY_STATUS_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc4670d1_ebbf_416e_87ce_374a4ebc111a);
 pub const BATTERY_SYSTEM_BATTERY: u32 = 2147483648u32;
@@ -215,8 +325,30 @@ pub const BATTERY_UNKNOWN_CURRENT: u32 = 4294967295u32;
 pub const BATTERY_UNKNOWN_RATE: u32 = 2147483648u32;
 pub const BATTERY_UNKNOWN_TIME: u32 = 4294967295u32;
 pub const BATTERY_UNKNOWN_VOLTAGE: u32 = 4294967295u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BATTERY_USB_CHARGER_STATUS {
+    pub Type: BATTERY_CHARGING_SOURCE_TYPE,
+    pub Reserved: u32,
+    pub Flags: u32,
+    pub MaxCurrent: u32,
+    pub Voltage: u32,
+    pub PortType: USB_CHARGER_PORT,
+    pub PortId: u64,
+    pub PowerSourceInformation: *mut core::ffi::c_void,
+    pub OemCharger: windows_sys::core::GUID,
+}
 pub const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: u32 = 1u32;
 pub const BATTERY_USB_CHARGER_STATUS_UCM_PD: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BATTERY_WAIT_STATUS {
+    pub BatteryTag: u32,
+    pub Timeout: u32,
+    pub PowerState: u32,
+    pub LowCapacity: u32,
+    pub HighCapacity: u32,
+}
 pub const BatteryCharge: BATTERY_SET_INFORMATION_LEVEL = 1i32;
 pub const BatteryChargerId: BATTERY_SET_INFORMATION_LEVEL = 4i32;
 pub const BatteryChargerStatus: BATTERY_SET_INFORMATION_LEVEL = 5i32;
@@ -238,6 +370,18 @@ pub const BatterySerialNumber: BATTERY_QUERY_INFORMATION_LEVEL = 8i32;
 pub const BatteryTemperature: BATTERY_QUERY_INFORMATION_LEVEL = 2i32;
 pub const BatteryUniqueID: BATTERY_QUERY_INFORMATION_LEVEL = 7i32;
 pub const BlackBoxRecorderDirectAccessBuffer: POWER_INFORMATION_LEVEL = 97i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CM_POWER_DATA {
+    pub PD_Size: u32,
+    pub PD_MostRecentPowerState: DEVICE_POWER_STATE,
+    pub PD_Capabilities: u32,
+    pub PD_D1Latency: u32,
+    pub PD_D2Latency: u32,
+    pub PD_D3Latency: u32,
+    pub PD_PowerStateMapping: [DEVICE_POWER_STATE; 7],
+    pub PD_DeepestSystemWake: SYSTEM_POWER_STATE,
+}
 pub const CsDeviceNotification: POWER_INFORMATION_LEVEL = 74i32;
 pub const DEVICEPOWER_AND_OPERATION: u32 = 1073741824u32;
 pub const DEVICEPOWER_CLEAR_WAKEENABLED: u32 = 2u32;
@@ -248,10 +392,68 @@ pub const DEVICEPOWER_FILTER_WAKEENABLED: u32 = 134217728u32;
 pub const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: u32 = 67108864u32;
 pub const DEVICEPOWER_HARDWAREID: u32 = 2147483648u32;
 pub const DEVICEPOWER_SET_WAKEENABLED: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+    pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
+    pub Context: *mut core::ffi::c_void,
+}
+pub type DEVICE_POWER_CAPABILITIES = u32;
+pub type DEVICE_POWER_STATE = i32;
 pub const DisplayBurst: POWER_INFORMATION_LEVEL = 77i32;
+pub type EFFECTIVE_POWER_MODE = i32;
+pub type EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const core::ffi::c_void)>;
 pub const EFFECTIVE_POWER_MODE_V1: u32 = 1u32;
 pub const EFFECTIVE_POWER_MODE_V2: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EMI_CHANNEL_MEASUREMENT_DATA {
+    pub AbsoluteEnergy: u64,
+    pub AbsoluteTime: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EMI_CHANNEL_V2 {
+    pub MeasurementUnit: EMI_MEASUREMENT_UNIT,
+    pub ChannelNameSize: u16,
+    pub ChannelName: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EMI_MEASUREMENT_DATA_V2 {
+    pub ChannelData: [EMI_CHANNEL_MEASUREMENT_DATA; 1],
+}
+pub type EMI_MEASUREMENT_UNIT = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EMI_METADATA_SIZE {
+    pub MetadataSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EMI_METADATA_V1 {
+    pub MeasurementUnit: EMI_MEASUREMENT_UNIT,
+    pub HardwareOEM: [u16; 16],
+    pub HardwareModel: [u16; 16],
+    pub HardwareRevision: u16,
+    pub MeteredHardwareNameSize: u16,
+    pub MeteredHardwareName: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EMI_METADATA_V2 {
+    pub HardwareOEM: [u16; 16],
+    pub HardwareModel: [u16; 16],
+    pub HardwareRevision: u16,
+    pub ChannelCount: u16,
+    pub Channels: [EMI_CHANNEL_V2; 1],
+}
 pub const EMI_NAME_MAX: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EMI_VERSION {
+    pub EmiVersion: u16,
+}
 pub const EMI_VERSION_V1: u32 = 1u32;
 pub const EMI_VERSION_V2: u32 = 2u32;
 pub const ES_AWAYMODE_REQUIRED: EXECUTION_STATE = 64u32;
@@ -259,6 +461,7 @@ pub const ES_CONTINUOUS: EXECUTION_STATE = 2147483648u32;
 pub const ES_DISPLAY_REQUIRED: EXECUTION_STATE = 2u32;
 pub const ES_SYSTEM_REQUIRED: EXECUTION_STATE = 1u32;
 pub const ES_USER_PRESENT: EXECUTION_STATE = 4u32;
+pub type EXECUTION_STATE = u32;
 pub const EffectivePowerModeBalanced: EFFECTIVE_POWER_MODE = 2i32;
 pub const EffectivePowerModeBatterySaver: EFFECTIVE_POWER_MODE = 0i32;
 pub const EffectivePowerModeBetterBattery: EFFECTIVE_POWER_MODE = 1i32;
@@ -276,6 +479,33 @@ pub const EnergyTrackerCreate: POWER_INFORMATION_LEVEL = 92i32;
 pub const EnergyTrackerQuery: POWER_INFORMATION_LEVEL = 93i32;
 pub const ExitLatencySamplingPercentage: POWER_INFORMATION_LEVEL = 78i32;
 pub const FirmwareTableInformationRegistered: POWER_INFORMATION_LEVEL = 69i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GLOBAL_MACHINE_POWER_POLICY {
+    pub Revision: u32,
+    pub LidOpenWakeAc: SYSTEM_POWER_STATE,
+    pub LidOpenWakeDc: SYSTEM_POWER_STATE,
+    pub BroadcastCapacityResolution: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GLOBAL_POWER_POLICY {
+    pub user: GLOBAL_USER_POWER_POLICY,
+    pub mach: GLOBAL_MACHINE_POWER_POLICY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GLOBAL_USER_POWER_POLICY {
+    pub Revision: u32,
+    pub PowerButtonAc: POWER_ACTION_POLICY,
+    pub PowerButtonDc: POWER_ACTION_POLICY,
+    pub SleepButtonAc: POWER_ACTION_POLICY,
+    pub SleepButtonDc: POWER_ACTION_POLICY,
+    pub LidCloseAc: POWER_ACTION_POLICY,
+    pub LidCloseDc: POWER_ACTION_POLICY,
+    pub DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
+    pub GlobalFlags: u32,
+}
 pub const GUID_CLASS_INPUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030);
 pub const GUID_DEVICE_ACPI_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x97f99bf6_4497_4f18_bb22_4b9fb2fbef9c);
 pub const GUID_DEVICE_APPLICATIONLAUNCH_BUTTON: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x629758ee_986e_4d9e_8e47_de27f8ab054d);
@@ -293,6 +523,7 @@ pub const GUID_DEVINTERFACE_THERMAL_MANAGER: windows_sys::core::GUID = windows_s
 pub const GetPowerRequestList: POWER_INFORMATION_LEVEL = 45i32;
 pub const GetPowerSettingValue: POWER_INFORMATION_LEVEL = 59i32;
 pub const GroupPark: POWER_INFORMATION_LEVEL = 48i32;
+pub type HPOWERNOTIFY = isize;
 pub const IOCTL_ACPI_GET_REAL_TIME: u32 = 2703888u32;
 pub const IOCTL_ACPI_SET_REAL_TIME: u32 = 2720276u32;
 pub const IOCTL_BATTERY_CHARGING_SOURCE_CHANGE: u32 = 2703440u32;
@@ -323,12 +554,38 @@ pub const IOCTL_THERMAL_READ_TEMPERATURE: u32 = 2703504u32;
 pub const IOCTL_THERMAL_SET_COOLING_POLICY: u32 = 2719876u32;
 pub const IOCTL_THERMAL_SET_PASSIVE_LIMIT: u32 = 2719884u32;
 pub const IdleResiliency: POWER_INFORMATION_LEVEL = 60i32;
+pub type LATENCY_TIME = i32;
 pub const LT_DONT_CARE: LATENCY_TIME = 0i32;
 pub const LT_LOWEST_LATENCY: LATENCY_TIME = 1i32;
 pub const LastResumePerformance: POWER_INFORMATION_LEVEL = 76i32;
 pub const LastSleepTime: POWER_INFORMATION_LEVEL = 15i32;
 pub const LastWakeTime: POWER_INFORMATION_LEVEL = 14i32;
 pub const LogicalProcessorIdling: POWER_INFORMATION_LEVEL = 56i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MACHINE_POWER_POLICY {
+    pub Revision: u32,
+    pub MinSleepAc: SYSTEM_POWER_STATE,
+    pub MinSleepDc: SYSTEM_POWER_STATE,
+    pub ReducedLatencySleepAc: SYSTEM_POWER_STATE,
+    pub ReducedLatencySleepDc: SYSTEM_POWER_STATE,
+    pub DozeTimeoutAc: u32,
+    pub DozeTimeoutDc: u32,
+    pub DozeS4TimeoutAc: u32,
+    pub DozeS4TimeoutDc: u32,
+    pub MinThrottleAc: u8,
+    pub MinThrottleDc: u8,
+    pub pad1: [u8; 2],
+    pub OverThrottledAc: POWER_ACTION_POLICY,
+    pub OverThrottledDc: POWER_ACTION_POLICY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MACHINE_PROCESSOR_POWER_POLICY {
+    pub Revision: u32,
+    pub ProcessorPolicyAc: PROCESSOR_POWER_POLICY,
+    pub ProcessorPolicyDc: PROCESSOR_POWER_POLICY,
+}
 pub const MAX_ACTIVE_COOLING_LEVELS: u32 = 10u32;
 pub const MAX_BATTERY_STRING_SIZE: u32 = 128u32;
 pub const MonitorCapabilities: POWER_INFORMATION_LEVEL = 40i32;
@@ -414,482 +671,7 @@ pub const PDCAP_WAKE_FROM_S1_SUPPORTED: DEVICE_POWER_CAPABILITIES = 2097152u32;
 pub const PDCAP_WAKE_FROM_S2_SUPPORTED: DEVICE_POWER_CAPABILITIES = 4194304u32;
 pub const PDCAP_WAKE_FROM_S3_SUPPORTED: DEVICE_POWER_CAPABILITIES = 8388608u32;
 pub const PDCAP_WARM_EJECT_SUPPORTED: DEVICE_POWER_CAPABILITIES = 256u32;
-pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
-pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
-pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = 2147483648u32;
-pub const POWER_LEVEL_USER_NOTIFY_EXEC: POWER_ACTION_POLICY_EVENT_CODE = 4u32;
-pub const POWER_LEVEL_USER_NOTIFY_SOUND: POWER_ACTION_POLICY_EVENT_CODE = 2u32;
-pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = 1u32;
-pub const POWER_PLATFORM_ROLE_V1: POWER_PLATFORM_ROLE_VERSION = 1u32;
-pub const POWER_PLATFORM_ROLE_V2: POWER_PLATFORM_ROLE_VERSION = 2u32;
-pub const POWER_USER_NOTIFY_BUTTON: POWER_ACTION_POLICY_EVENT_CODE = 8u32;
-pub const POWER_USER_NOTIFY_SHUTDOWN: POWER_ACTION_POLICY_EVENT_CODE = 16u32;
-pub const PO_TZ_ACTIVE: POWER_COOLING_MODE = 0u16;
-pub const PO_TZ_INVALID_MODE: POWER_COOLING_MODE = 2u16;
-pub const PO_TZ_PASSIVE: POWER_COOLING_MODE = 1u16;
-pub const PPM_FIRMWARE_ACPI1C2: u32 = 1u32;
-pub const PPM_FIRMWARE_ACPI1C3: u32 = 2u32;
-pub const PPM_FIRMWARE_ACPI1TSTATES: u32 = 4u32;
-pub const PPM_FIRMWARE_CPC: u32 = 262144u32;
-pub const PPM_FIRMWARE_CSD: u32 = 16u32;
-pub const PPM_FIRMWARE_CST: u32 = 8u32;
-pub const PPM_FIRMWARE_LPI: u32 = 524288u32;
-pub const PPM_FIRMWARE_OSC: u32 = 65536u32;
-pub const PPM_FIRMWARE_PCCH: u32 = 16384u32;
-pub const PPM_FIRMWARE_PCCP: u32 = 32768u32;
-pub const PPM_FIRMWARE_PCT: u32 = 32u32;
-pub const PPM_FIRMWARE_PDC: u32 = 131072u32;
-pub const PPM_FIRMWARE_PPC: u32 = 256u32;
-pub const PPM_FIRMWARE_PSD: u32 = 512u32;
-pub const PPM_FIRMWARE_PSS: u32 = 64u32;
-pub const PPM_FIRMWARE_PTC: u32 = 1024u32;
-pub const PPM_FIRMWARE_TPC: u32 = 4096u32;
-pub const PPM_FIRMWARE_TSD: u32 = 8192u32;
-pub const PPM_FIRMWARE_TSS: u32 = 2048u32;
-pub const PPM_FIRMWARE_XPSS: u32 = 128u32;
-pub const PPM_IDLESTATES_DATA_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7);
-pub const PPM_IDLESTATE_CHANGE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c);
-pub const PPM_IDLE_ACCOUNTING_EX_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd67abd39_81f8_4a5e_8152_72e31ec912ee);
-pub const PPM_IDLE_ACCOUNTING_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2a26f78_ae07_4ee0_a30f_ce54f55a94cd);
-pub const PPM_IDLE_IMPLEMENTATION_CSTATES: u32 = 1u32;
-pub const PPM_IDLE_IMPLEMENTATION_LPISTATES: u32 = 4u32;
-pub const PPM_IDLE_IMPLEMENTATION_MICROPEP: u32 = 3u32;
-pub const PPM_IDLE_IMPLEMENTATION_NONE: u32 = 0u32;
-pub const PPM_IDLE_IMPLEMENTATION_PEP: u32 = 2u32;
-pub const PPM_PERFMON_PERFSTATE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7fd18652_0cfe_40d2_b0a1_0b066a87759e);
-pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3u32;
-pub const PPM_PERFORMANCE_IMPLEMENTATION_NONE: u32 = 0u32;
-pub const PPM_PERFORMANCE_IMPLEMENTATION_PCCV1: u32 = 2u32;
-pub const PPM_PERFORMANCE_IMPLEMENTATION_PEP: u32 = 4u32;
-pub const PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: u32 = 1u32;
-pub const PPM_PERFSTATES_DATA_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5708cc20_7d40_4bf4_b4aa_2b01338d0126);
-pub const PPM_PERFSTATE_CHANGE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb);
-pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01);
-pub const PPM_THERMALCONSTRAINT_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa852c2c8_1a4c_423b_8c2c_f30d82931a88);
-pub const PPM_THERMAL_POLICY_CHANGE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x48f377b8_6880_4c7b_8bdc_380176c6654d);
-pub const PROCESSOR_NUMBER_PKEY: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: 1 };
-pub const PdcInvocation: POWER_INFORMATION_LEVEL = 67i32;
-pub const PhysicalPowerButtonPress: POWER_INFORMATION_LEVEL = 90i32;
-pub const PlatformIdleStates: POWER_INFORMATION_LEVEL = 80i32;
-pub const PlatformIdleVeto: POWER_INFORMATION_LEVEL = 82i32;
-pub const PlatformInformation: POWER_INFORMATION_LEVEL = 66i32;
-pub const PlatformRole: POWER_INFORMATION_LEVEL = 75i32;
-pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = 6i32;
-pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = 1i32;
-pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = 4i32;
-pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = 9i32;
-pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = 2i32;
-pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = 7i32;
-pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = 5i32;
-pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = 8i32;
-pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = 0i32;
-pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = 3i32;
-pub const PlmPowerRequestCreate: POWER_INFORMATION_LEVEL = 72i32;
-pub const PoAc: SYSTEM_POWER_CONDITION = 0i32;
-pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = 3i32;
-pub const PoDc: SYSTEM_POWER_CONDITION = 1i32;
-pub const PoHot: SYSTEM_POWER_CONDITION = 2i32;
-pub const PowerActionDisplayOff: POWER_ACTION = 8i32;
-pub const PowerActionHibernate: POWER_ACTION = 3i32;
-pub const PowerActionNone: POWER_ACTION = 0i32;
-pub const PowerActionReserved: POWER_ACTION = 1i32;
-pub const PowerActionShutdown: POWER_ACTION = 4i32;
-pub const PowerActionShutdownOff: POWER_ACTION = 6i32;
-pub const PowerActionShutdownReset: POWER_ACTION = 5i32;
-pub const PowerActionSleep: POWER_ACTION = 2i32;
-pub const PowerActionWarmEject: POWER_ACTION = 7i32;
-pub const PowerDeviceD0: DEVICE_POWER_STATE = 1i32;
-pub const PowerDeviceD1: DEVICE_POWER_STATE = 2i32;
-pub const PowerDeviceD2: DEVICE_POWER_STATE = 3i32;
-pub const PowerDeviceD3: DEVICE_POWER_STATE = 4i32;
-pub const PowerDeviceMaximum: DEVICE_POWER_STATE = 5i32;
-pub const PowerDeviceUnspecified: DEVICE_POWER_STATE = 0i32;
-pub const PowerInformationInternal: POWER_INFORMATION_LEVEL = 87i32;
-pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = 98i32;
-pub const PowerInformationLevelUnused0: POWER_INFORMATION_LEVEL = 27i32;
-pub const PowerRequestAction: POWER_INFORMATION_LEVEL = 44i32;
-pub const PowerRequestActionInternal: POWER_INFORMATION_LEVEL = 85i32;
-pub const PowerRequestAwayModeRequired: POWER_REQUEST_TYPE = 2i32;
-pub const PowerRequestCreate: POWER_INFORMATION_LEVEL = 43i32;
-pub const PowerRequestDisplayRequired: POWER_REQUEST_TYPE = 0i32;
-pub const PowerRequestExecutionRequired: POWER_REQUEST_TYPE = 3i32;
-pub const PowerRequestSystemRequired: POWER_REQUEST_TYPE = 1i32;
-pub const PowerSettingNotificationName: POWER_INFORMATION_LEVEL = 58i32;
-pub const PowerShutdownNotification: POWER_INFORMATION_LEVEL = 39i32;
-pub const PowerSystemHibernate: SYSTEM_POWER_STATE = 5i32;
-pub const PowerSystemMaximum: SYSTEM_POWER_STATE = 7i32;
-pub const PowerSystemShutdown: SYSTEM_POWER_STATE = 6i32;
-pub const PowerSystemSleeping1: SYSTEM_POWER_STATE = 2i32;
-pub const PowerSystemSleeping2: SYSTEM_POWER_STATE = 3i32;
-pub const PowerSystemSleeping3: SYSTEM_POWER_STATE = 4i32;
-pub const PowerSystemUnspecified: SYSTEM_POWER_STATE = 0i32;
-pub const PowerSystemWorking: SYSTEM_POWER_STATE = 1i32;
-pub const PowerUserInactive: USER_ACTIVITY_PRESENCE = 2i32;
-pub const PowerUserInvalid: USER_ACTIVITY_PRESENCE = 3i32;
-pub const PowerUserMaximum: USER_ACTIVITY_PRESENCE = 3i32;
-pub const PowerUserNotPresent: USER_ACTIVITY_PRESENCE = 1i32;
-pub const PowerUserPresent: USER_ACTIVITY_PRESENCE = 0i32;
-pub const ProcessorCap: POWER_INFORMATION_LEVEL = 34i32;
-pub const ProcessorIdleDomains: POWER_INFORMATION_LEVEL = 49i32;
-pub const ProcessorIdleStates: POWER_INFORMATION_LEVEL = 33i32;
-pub const ProcessorIdleStatesHv: POWER_INFORMATION_LEVEL = 52i32;
-pub const ProcessorIdleVeto: POWER_INFORMATION_LEVEL = 81i32;
-pub const ProcessorInformation: POWER_INFORMATION_LEVEL = 11i32;
-pub const ProcessorInformationEx: POWER_INFORMATION_LEVEL = 46i32;
-pub const ProcessorLoad: POWER_INFORMATION_LEVEL = 38i32;
-pub const ProcessorPerfCapHv: POWER_INFORMATION_LEVEL = 54i32;
-pub const ProcessorPerfStates: POWER_INFORMATION_LEVEL = 32i32;
-pub const ProcessorPerfStatesHv: POWER_INFORMATION_LEVEL = 53i32;
-pub const ProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = 18i32;
-pub const ProcessorPowerPolicyCurrent: POWER_INFORMATION_LEVEL = 22i32;
-pub const ProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = 19i32;
-pub const ProcessorSetIdle: POWER_INFORMATION_LEVEL = 55i32;
-pub const ProcessorStateHandler: POWER_INFORMATION_LEVEL = 7i32;
-pub const ProcessorStateHandler2: POWER_INFORMATION_LEVEL = 13i32;
-pub const QueryPotentialDripsConstraint: POWER_INFORMATION_LEVEL = 91i32;
-pub const RegisterSpmPowerSettings: POWER_INFORMATION_LEVEL = 79i32;
-pub const SYS_BUTTON_LID: u32 = 4u32;
-pub const SYS_BUTTON_LID_CHANGED: u32 = 524288u32;
-pub const SYS_BUTTON_LID_CLOSED: u32 = 131072u32;
-pub const SYS_BUTTON_LID_INITIAL: u32 = 262144u32;
-pub const SYS_BUTTON_LID_OPEN: u32 = 65536u32;
-pub const SYS_BUTTON_LID_STATE_MASK: u32 = 196608u32;
-pub const SYS_BUTTON_POWER: u32 = 1u32;
-pub const SYS_BUTTON_SLEEP: u32 = 2u32;
-pub const SYS_BUTTON_WAKE: u32 = 2147483648u32;
-pub const ScreenOff: POWER_INFORMATION_LEVEL = 73i32;
-pub const SendSuspendResumeNotification: POWER_INFORMATION_LEVEL = 96i32;
-pub const SessionAllowExternalDmaDevices: POWER_INFORMATION_LEVEL = 95i32;
-pub const SessionConnectNotification: POWER_INFORMATION_LEVEL = 62i32;
-pub const SessionDisplayState: POWER_INFORMATION_LEVEL = 42i32;
-pub const SessionLockState: POWER_INFORMATION_LEVEL = 64i32;
-pub const SessionPowerCleanup: POWER_INFORMATION_LEVEL = 63i32;
-pub const SessionPowerInit: POWER_INFORMATION_LEVEL = 41i32;
-pub const SessionRITState: POWER_INFORMATION_LEVEL = 61i32;
-pub const SetPowerSettingValue: POWER_INFORMATION_LEVEL = 25i32;
-pub const SetShutdownSelectedTime: POWER_INFORMATION_LEVEL = 70i32;
-pub const SuspendResumeInvocation: POWER_INFORMATION_LEVEL = 71i32;
-pub const SystemBatteryState: POWER_INFORMATION_LEVEL = 5i32;
-pub const SystemBatteryStatePrecise: POWER_INFORMATION_LEVEL = 83i32;
-pub const SystemExecutionState: POWER_INFORMATION_LEVEL = 16i32;
-pub const SystemHiberFileInformation: POWER_INFORMATION_LEVEL = 36i32;
-pub const SystemHiberFileSize: POWER_INFORMATION_LEVEL = 51i32;
-pub const SystemHiberFileType: POWER_INFORMATION_LEVEL = 89i32;
-pub const SystemHiberbootState: POWER_INFORMATION_LEVEL = 65i32;
-pub const SystemMonitorHiberBootPowerOff: POWER_INFORMATION_LEVEL = 28i32;
-pub const SystemPowerCapabilities: POWER_INFORMATION_LEVEL = 4i32;
-pub const SystemPowerInformation: POWER_INFORMATION_LEVEL = 12i32;
-pub const SystemPowerLoggingEntry: POWER_INFORMATION_LEVEL = 24i32;
-pub const SystemPowerPolicyAc: POWER_INFORMATION_LEVEL = 0i32;
-pub const SystemPowerPolicyCurrent: POWER_INFORMATION_LEVEL = 8i32;
-pub const SystemPowerPolicyDc: POWER_INFORMATION_LEVEL = 1i32;
-pub const SystemPowerStateHandler: POWER_INFORMATION_LEVEL = 6i32;
-pub const SystemPowerStateLogging: POWER_INFORMATION_LEVEL = 23i32;
-pub const SystemPowerStateNotifyHandler: POWER_INFORMATION_LEVEL = 17i32;
-pub const SystemReserveHiberFile: POWER_INFORMATION_LEVEL = 10i32;
-pub const SystemVideoState: POWER_INFORMATION_LEVEL = 29i32;
-pub const SystemWakeSource: POWER_INFORMATION_LEVEL = 35i32;
-pub const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1u32;
-pub const THERMAL_DEVICE_INTERFACE_VERSION: u32 = 1u32;
-pub const THERMAL_EVENT_VERSION: u32 = 1u32;
-pub const THERMAL_POLICY_VERSION_1: u32 = 1u32;
-pub const THERMAL_POLICY_VERSION_2: u32 = 2u32;
-pub const TZ_ACTIVATION_REASON_CURRENT: u32 = 2u32;
-pub const TZ_ACTIVATION_REASON_THERMAL: u32 = 1u32;
-pub const ThermalEvent: POWER_INFORMATION_LEVEL = 84i32;
-pub const ThermalStandby: POWER_INFORMATION_LEVEL = 88i32;
-pub const TraceApplicationPowerMessage: POWER_INFORMATION_LEVEL = 30i32;
-pub const TraceApplicationPowerMessageEnd: POWER_INFORMATION_LEVEL = 31i32;
-pub const TraceServicePowerMessage: POWER_INFORMATION_LEVEL = 37i32;
-pub const UNKNOWN_CAPACITY: u32 = 4294967295u32;
-pub const UNKNOWN_CURRENT: u32 = 4294967295u32;
-pub const UNKNOWN_RATE: u32 = 2147483648u32;
-pub const UNKNOWN_VOLTAGE: u32 = 4294967295u32;
-pub const UpdateBlackBoxRecorder: POWER_INFORMATION_LEVEL = 94i32;
-pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = 0i32;
-pub const UsbChargerPort_Max: USB_CHARGER_PORT = 2i32;
-pub const UsbChargerPort_TypeC: USB_CHARGER_PORT = 1i32;
-pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = 0i32;
-pub const UserPresence: POWER_INFORMATION_LEVEL = 57i32;
-pub const UserPresent: POWER_USER_PRESENCE_TYPE = 1i32;
-pub const UserUnknown: POWER_USER_PRESENCE_TYPE = 255i32;
-pub const VerifyProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = 20i32;
-pub const VerifyProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = 21i32;
-pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = 2i32;
-pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = 3i32;
-pub const WakeTimerList: POWER_INFORMATION_LEVEL = 50i32;
-pub type ACPI_TIME_RESOLUTION = i32;
-pub type BATTERY_CHARGING_SOURCE_TYPE = i32;
-pub type BATTERY_QUERY_INFORMATION_LEVEL = i32;
-pub type BATTERY_SET_INFORMATION_LEVEL = i32;
-pub type DEVICE_POWER_CAPABILITIES = u32;
-pub type DEVICE_POWER_STATE = i32;
-pub type EFFECTIVE_POWER_MODE = i32;
-pub type EMI_MEASUREMENT_UNIT = i32;
-pub type EXECUTION_STATE = u32;
-pub type LATENCY_TIME = i32;
-pub type POWER_ACTION = i32;
-pub type POWER_ACTION_POLICY_EVENT_CODE = u32;
-pub type POWER_COOLING_MODE = u16;
-pub type POWER_DATA_ACCESSOR = i32;
-pub type POWER_INFORMATION_LEVEL = i32;
-pub type POWER_MONITOR_REQUEST_REASON = i32;
-pub type POWER_MONITOR_REQUEST_TYPE = i32;
-pub type POWER_PLATFORM_ROLE = i32;
-pub type POWER_PLATFORM_ROLE_VERSION = u32;
-pub type POWER_REQUEST_TYPE = i32;
-pub type POWER_SETTING_ALTITUDE = i32;
-pub type POWER_USER_PRESENCE_TYPE = i32;
-pub type SYSTEM_POWER_CONDITION = i32;
-pub type SYSTEM_POWER_STATE = i32;
-pub type USB_CHARGER_PORT = i32;
-pub type USER_ACTIVITY_PRESENCE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACPI_REAL_TIME {
-    pub Year: u16,
-    pub Month: u8,
-    pub Day: u8,
-    pub Hour: u8,
-    pub Minute: u8,
-    pub Second: u8,
-    pub Valid: u8,
-    pub Milliseconds: u16,
-    pub TimeZone: i16,
-    pub DayLight: u8,
-    pub Reserved1: [u8; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
-    pub AcWakeSupported: super::super::Foundation::BOOLEAN,
-    pub DcWakeSupported: super::super::Foundation::BOOLEAN,
-    pub S4AcWakeSupported: super::super::Foundation::BOOLEAN,
-    pub S4DcWakeSupported: super::super::Foundation::BOOLEAN,
-    pub S5AcWakeSupported: super::super::Foundation::BOOLEAN,
-    pub S5DcWakeSupported: super::super::Foundation::BOOLEAN,
-    pub S4S5WakeStatusSupported: super::super::Foundation::BOOLEAN,
-    pub DeepestWakeSystemState: u32,
-    pub RealTimeFeaturesSupported: super::super::Foundation::BOOLEAN,
-    pub RealTimeResolution: ACPI_TIME_RESOLUTION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ADMINISTRATOR_POWER_POLICY {
-    pub MinSleep: SYSTEM_POWER_STATE,
-    pub MaxSleep: SYSTEM_POWER_STATE,
-    pub MinVideoTimeout: u32,
-    pub MaxVideoTimeout: u32,
-    pub MinSpindownTimeout: u32,
-    pub MaxSpindownTimeout: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BATTERY_CHARGER_STATUS {
-    pub Type: BATTERY_CHARGING_SOURCE_TYPE,
-    pub VaData: [u32; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BATTERY_CHARGING_SOURCE {
-    pub Type: BATTERY_CHARGING_SOURCE_TYPE,
-    pub MaxCurrent: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
-    pub Type: BATTERY_CHARGING_SOURCE_TYPE,
-    pub SourceOnline: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BATTERY_INFORMATION {
-    pub Capabilities: u32,
-    pub Technology: u8,
-    pub Reserved: [u8; 3],
-    pub Chemistry: [u8; 4],
-    pub DesignedCapacity: u32,
-    pub FullChargedCapacity: u32,
-    pub DefaultAlert1: u32,
-    pub DefaultAlert2: u32,
-    pub CriticalBias: u32,
-    pub CycleCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BATTERY_MANUFACTURE_DATE {
-    pub Day: u8,
-    pub Month: u8,
-    pub Year: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BATTERY_QUERY_INFORMATION {
-    pub BatteryTag: u32,
-    pub InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
-    pub AtRate: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BATTERY_REPORTING_SCALE {
-    pub Granularity: u32,
-    pub Capacity: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BATTERY_SET_INFORMATION {
-    pub BatteryTag: u32,
-    pub InformationLevel: BATTERY_SET_INFORMATION_LEVEL,
-    pub Buffer: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BATTERY_STATUS {
-    pub PowerState: u32,
-    pub Capacity: u32,
-    pub Voltage: u32,
-    pub Rate: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BATTERY_USB_CHARGER_STATUS {
-    pub Type: BATTERY_CHARGING_SOURCE_TYPE,
-    pub Reserved: u32,
-    pub Flags: u32,
-    pub MaxCurrent: u32,
-    pub Voltage: u32,
-    pub PortType: USB_CHARGER_PORT,
-    pub PortId: u64,
-    pub PowerSourceInformation: *mut core::ffi::c_void,
-    pub OemCharger: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BATTERY_WAIT_STATUS {
-    pub BatteryTag: u32,
-    pub Timeout: u32,
-    pub PowerState: u32,
-    pub LowCapacity: u32,
-    pub HighCapacity: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CM_POWER_DATA {
-    pub PD_Size: u32,
-    pub PD_MostRecentPowerState: DEVICE_POWER_STATE,
-    pub PD_Capabilities: u32,
-    pub PD_D1Latency: u32,
-    pub PD_D2Latency: u32,
-    pub PD_D3Latency: u32,
-    pub PD_PowerStateMapping: [DEVICE_POWER_STATE; 7],
-    pub PD_DeepestSystemWake: SYSTEM_POWER_STATE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
-    pub Context: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EMI_CHANNEL_MEASUREMENT_DATA {
-    pub AbsoluteEnergy: u64,
-    pub AbsoluteTime: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EMI_CHANNEL_V2 {
-    pub MeasurementUnit: EMI_MEASUREMENT_UNIT,
-    pub ChannelNameSize: u16,
-    pub ChannelName: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EMI_MEASUREMENT_DATA_V2 {
-    pub ChannelData: [EMI_CHANNEL_MEASUREMENT_DATA; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EMI_METADATA_SIZE {
-    pub MetadataSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EMI_METADATA_V1 {
-    pub MeasurementUnit: EMI_MEASUREMENT_UNIT,
-    pub HardwareOEM: [u16; 16],
-    pub HardwareModel: [u16; 16],
-    pub HardwareRevision: u16,
-    pub MeteredHardwareNameSize: u16,
-    pub MeteredHardwareName: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EMI_METADATA_V2 {
-    pub HardwareOEM: [u16; 16],
-    pub HardwareModel: [u16; 16],
-    pub HardwareRevision: u16,
-    pub ChannelCount: u16,
-    pub Channels: [EMI_CHANNEL_V2; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EMI_VERSION {
-    pub EmiVersion: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GLOBAL_MACHINE_POWER_POLICY {
-    pub Revision: u32,
-    pub LidOpenWakeAc: SYSTEM_POWER_STATE,
-    pub LidOpenWakeDc: SYSTEM_POWER_STATE,
-    pub BroadcastCapacityResolution: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GLOBAL_POWER_POLICY {
-    pub user: GLOBAL_USER_POWER_POLICY,
-    pub mach: GLOBAL_MACHINE_POWER_POLICY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GLOBAL_USER_POWER_POLICY {
-    pub Revision: u32,
-    pub PowerButtonAc: POWER_ACTION_POLICY,
-    pub PowerButtonDc: POWER_ACTION_POLICY,
-    pub SleepButtonAc: POWER_ACTION_POLICY,
-    pub SleepButtonDc: POWER_ACTION_POLICY,
-    pub LidCloseAc: POWER_ACTION_POLICY,
-    pub LidCloseDc: POWER_ACTION_POLICY,
-    pub DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
-    pub GlobalFlags: u32,
-}
-pub type HPOWERNOTIFY = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MACHINE_POWER_POLICY {
-    pub Revision: u32,
-    pub MinSleepAc: SYSTEM_POWER_STATE,
-    pub MinSleepDc: SYSTEM_POWER_STATE,
-    pub ReducedLatencySleepAc: SYSTEM_POWER_STATE,
-    pub ReducedLatencySleepDc: SYSTEM_POWER_STATE,
-    pub DozeTimeoutAc: u32,
-    pub DozeTimeoutDc: u32,
-    pub DozeS4TimeoutAc: u32,
-    pub DozeS4TimeoutDc: u32,
-    pub MinThrottleAc: u8,
-    pub MinThrottleDc: u8,
-    pub pad1: [u8; 2],
-    pub OverThrottledAc: POWER_ACTION_POLICY,
-    pub OverThrottledDc: POWER_ACTION_POLICY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MACHINE_PROCESSOR_POWER_POLICY {
-    pub Revision: u32,
-    pub ProcessorPolicyAc: PROCESSOR_POWER_POLICY,
-    pub ProcessorPolicyDc: PROCESSOR_POWER_POLICY,
-}
+pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, r#type: u32, setting: *const core::ffi::c_void) -> u32>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWERBROADCAST_SETTING {
@@ -897,6 +679,7 @@ pub struct POWERBROADCAST_SETTING {
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
+pub type POWER_ACTION = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_ACTION_POLICY {
@@ -904,29 +687,46 @@ pub struct POWER_ACTION_POLICY {
     pub Flags: u32,
     pub EventCode: POWER_ACTION_POLICY_EVENT_CODE,
 }
+pub type POWER_ACTION_POLICY_EVENT_CODE = u32;
+pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
+pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
+pub type POWER_COOLING_MODE = u16;
+pub type POWER_DATA_ACCESSOR = i32;
+pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = 2147483648u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_IDLE_RESILIENCY {
     pub CoalescingTimeout: u32,
     pub IdleResiliencyPeriod: u32,
 }
+pub type POWER_INFORMATION_LEVEL = i32;
+pub const POWER_LEVEL_USER_NOTIFY_EXEC: POWER_ACTION_POLICY_EVENT_CODE = 4u32;
+pub const POWER_LEVEL_USER_NOTIFY_SOUND: POWER_ACTION_POLICY_EVENT_CODE = 2u32;
+pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_MONITOR_INVOCATION {
     pub Console: super::super::Foundation::BOOLEAN,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
 }
+pub type POWER_MONITOR_REQUEST_REASON = i32;
+pub type POWER_MONITOR_REQUEST_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: super::super::Foundation::BOOLEAN,
 }
+pub type POWER_PLATFORM_ROLE = i32;
+pub const POWER_PLATFORM_ROLE_V1: POWER_PLATFORM_ROLE_VERSION = 1u32;
+pub const POWER_PLATFORM_ROLE_V2: POWER_PLATFORM_ROLE_VERSION = 2u32;
+pub type POWER_PLATFORM_ROLE_VERSION = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_POLICY {
     pub user: USER_POWER_POLICY,
     pub mach: MACHINE_POWER_POLICY,
 }
+pub type POWER_REQUEST_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
@@ -957,11 +757,40 @@ pub struct POWER_SESSION_WINLOGON {
     pub Console: super::super::Foundation::BOOLEAN,
     pub Locked: super::super::Foundation::BOOLEAN,
 }
+pub type POWER_SETTING_ALTITUDE = i32;
+pub const POWER_USER_NOTIFY_BUTTON: POWER_ACTION_POLICY_EVENT_CODE = 8u32;
+pub const POWER_USER_NOTIFY_SHUTDOWN: POWER_ACTION_POLICY_EVENT_CODE = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_USER_PRESENCE {
     pub UserPresence: POWER_USER_PRESENCE_TYPE,
 }
+pub type POWER_USER_PRESENCE_TYPE = i32;
+pub const PO_TZ_ACTIVE: POWER_COOLING_MODE = 0u16;
+pub const PO_TZ_INVALID_MODE: POWER_COOLING_MODE = 2u16;
+pub const PO_TZ_PASSIVE: POWER_COOLING_MODE = 1u16;
+pub const PPM_FIRMWARE_ACPI1C2: u32 = 1u32;
+pub const PPM_FIRMWARE_ACPI1C3: u32 = 2u32;
+pub const PPM_FIRMWARE_ACPI1TSTATES: u32 = 4u32;
+pub const PPM_FIRMWARE_CPC: u32 = 262144u32;
+pub const PPM_FIRMWARE_CSD: u32 = 16u32;
+pub const PPM_FIRMWARE_CST: u32 = 8u32;
+pub const PPM_FIRMWARE_LPI: u32 = 524288u32;
+pub const PPM_FIRMWARE_OSC: u32 = 65536u32;
+pub const PPM_FIRMWARE_PCCH: u32 = 16384u32;
+pub const PPM_FIRMWARE_PCCP: u32 = 32768u32;
+pub const PPM_FIRMWARE_PCT: u32 = 32u32;
+pub const PPM_FIRMWARE_PDC: u32 = 131072u32;
+pub const PPM_FIRMWARE_PPC: u32 = 256u32;
+pub const PPM_FIRMWARE_PSD: u32 = 512u32;
+pub const PPM_FIRMWARE_PSS: u32 = 64u32;
+pub const PPM_FIRMWARE_PTC: u32 = 1024u32;
+pub const PPM_FIRMWARE_TPC: u32 = 4096u32;
+pub const PPM_FIRMWARE_TSD: u32 = 8192u32;
+pub const PPM_FIRMWARE_TSS: u32 = 2048u32;
+pub const PPM_FIRMWARE_XPSS: u32 = 128u32;
+pub const PPM_IDLESTATES_DATA_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7);
+pub const PPM_IDLESTATE_CHANGE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPM_IDLESTATE_EVENT {
@@ -988,6 +817,13 @@ pub struct PPM_IDLE_ACCOUNTING_EX {
     pub StartTime: u64,
     pub State: [PPM_IDLE_STATE_ACCOUNTING_EX; 1],
 }
+pub const PPM_IDLE_ACCOUNTING_EX_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd67abd39_81f8_4a5e_8152_72e31ec912ee);
+pub const PPM_IDLE_ACCOUNTING_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2a26f78_ae07_4ee0_a30f_ce54f55a94cd);
+pub const PPM_IDLE_IMPLEMENTATION_CSTATES: u32 = 1u32;
+pub const PPM_IDLE_IMPLEMENTATION_LPISTATES: u32 = 4u32;
+pub const PPM_IDLE_IMPLEMENTATION_MICROPEP: u32 = 3u32;
+pub const PPM_IDLE_IMPLEMENTATION_NONE: u32 = 0u32;
+pub const PPM_IDLE_IMPLEMENTATION_PEP: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPM_IDLE_STATE_ACCOUNTING {
@@ -1017,6 +853,15 @@ pub struct PPM_IDLE_STATE_BUCKET_EX {
     pub MaxTimeUs: u32,
     pub Count: u32,
 }
+pub const PPM_PERFMON_PERFSTATE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7fd18652_0cfe_40d2_b0a1_0b066a87759e);
+pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3u32;
+pub const PPM_PERFORMANCE_IMPLEMENTATION_NONE: u32 = 0u32;
+pub const PPM_PERFORMANCE_IMPLEMENTATION_PCCV1: u32 = 2u32;
+pub const PPM_PERFORMANCE_IMPLEMENTATION_PEP: u32 = 4u32;
+pub const PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: u32 = 1u32;
+pub const PPM_PERFSTATES_DATA_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5708cc20_7d40_4bf4_b4aa_2b01338d0126);
+pub const PPM_PERFSTATE_CHANGE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb);
+pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPM_PERFSTATE_DOMAIN_EVENT {
@@ -1040,6 +885,8 @@ pub struct PPM_THERMALCHANGE_EVENT {
     pub ThermalConstraint: u32,
     pub Processors: u64,
 }
+pub const PPM_THERMALCONSTRAINT_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa852c2c8_1a4c_423b_8c2c_f30d82931a88);
+pub const PPM_THERMAL_POLICY_CHANGE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x48f377b8_6880_4c7b_8bdc_380176c6654d);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPM_THERMAL_POLICY_EVENT {
@@ -1156,6 +1003,7 @@ pub struct PPM_WMI_PERF_STATES_EX {
     pub Reserved2: u64,
     pub State: [PPM_WMI_PERF_STATE; 1],
 }
+pub const PROCESSOR_NUMBER_PKEY: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: 1 };
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESSOR_OBJECT_INFO {
@@ -1202,6 +1050,87 @@ pub struct PROCESSOR_POWER_POLICY_INFO {
     pub Spare: [u8; 2],
     pub _bitfield: u32,
 }
+pub type PWRSCHEMESENUMPROC = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: windows_sys::core::PCWSTR, descriptionsize: u32, description: windows_sys::core::PCWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
+pub type PWRSCHEMESENUMPROC_V1 = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
+pub const PdcInvocation: POWER_INFORMATION_LEVEL = 67i32;
+pub const PhysicalPowerButtonPress: POWER_INFORMATION_LEVEL = 90i32;
+pub const PlatformIdleStates: POWER_INFORMATION_LEVEL = 80i32;
+pub const PlatformIdleVeto: POWER_INFORMATION_LEVEL = 82i32;
+pub const PlatformInformation: POWER_INFORMATION_LEVEL = 66i32;
+pub const PlatformRole: POWER_INFORMATION_LEVEL = 75i32;
+pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = 6i32;
+pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = 1i32;
+pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = 4i32;
+pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = 9i32;
+pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = 2i32;
+pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = 7i32;
+pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = 5i32;
+pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = 8i32;
+pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = 0i32;
+pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = 3i32;
+pub const PlmPowerRequestCreate: POWER_INFORMATION_LEVEL = 72i32;
+pub const PoAc: SYSTEM_POWER_CONDITION = 0i32;
+pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = 3i32;
+pub const PoDc: SYSTEM_POWER_CONDITION = 1i32;
+pub const PoHot: SYSTEM_POWER_CONDITION = 2i32;
+pub const PowerActionDisplayOff: POWER_ACTION = 8i32;
+pub const PowerActionHibernate: POWER_ACTION = 3i32;
+pub const PowerActionNone: POWER_ACTION = 0i32;
+pub const PowerActionReserved: POWER_ACTION = 1i32;
+pub const PowerActionShutdown: POWER_ACTION = 4i32;
+pub const PowerActionShutdownOff: POWER_ACTION = 6i32;
+pub const PowerActionShutdownReset: POWER_ACTION = 5i32;
+pub const PowerActionSleep: POWER_ACTION = 2i32;
+pub const PowerActionWarmEject: POWER_ACTION = 7i32;
+pub const PowerDeviceD0: DEVICE_POWER_STATE = 1i32;
+pub const PowerDeviceD1: DEVICE_POWER_STATE = 2i32;
+pub const PowerDeviceD2: DEVICE_POWER_STATE = 3i32;
+pub const PowerDeviceD3: DEVICE_POWER_STATE = 4i32;
+pub const PowerDeviceMaximum: DEVICE_POWER_STATE = 5i32;
+pub const PowerDeviceUnspecified: DEVICE_POWER_STATE = 0i32;
+pub const PowerInformationInternal: POWER_INFORMATION_LEVEL = 87i32;
+pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = 98i32;
+pub const PowerInformationLevelUnused0: POWER_INFORMATION_LEVEL = 27i32;
+pub const PowerRequestAction: POWER_INFORMATION_LEVEL = 44i32;
+pub const PowerRequestActionInternal: POWER_INFORMATION_LEVEL = 85i32;
+pub const PowerRequestAwayModeRequired: POWER_REQUEST_TYPE = 2i32;
+pub const PowerRequestCreate: POWER_INFORMATION_LEVEL = 43i32;
+pub const PowerRequestDisplayRequired: POWER_REQUEST_TYPE = 0i32;
+pub const PowerRequestExecutionRequired: POWER_REQUEST_TYPE = 3i32;
+pub const PowerRequestSystemRequired: POWER_REQUEST_TYPE = 1i32;
+pub const PowerSettingNotificationName: POWER_INFORMATION_LEVEL = 58i32;
+pub const PowerShutdownNotification: POWER_INFORMATION_LEVEL = 39i32;
+pub const PowerSystemHibernate: SYSTEM_POWER_STATE = 5i32;
+pub const PowerSystemMaximum: SYSTEM_POWER_STATE = 7i32;
+pub const PowerSystemShutdown: SYSTEM_POWER_STATE = 6i32;
+pub const PowerSystemSleeping1: SYSTEM_POWER_STATE = 2i32;
+pub const PowerSystemSleeping2: SYSTEM_POWER_STATE = 3i32;
+pub const PowerSystemSleeping3: SYSTEM_POWER_STATE = 4i32;
+pub const PowerSystemUnspecified: SYSTEM_POWER_STATE = 0i32;
+pub const PowerSystemWorking: SYSTEM_POWER_STATE = 1i32;
+pub const PowerUserInactive: USER_ACTIVITY_PRESENCE = 2i32;
+pub const PowerUserInvalid: USER_ACTIVITY_PRESENCE = 3i32;
+pub const PowerUserMaximum: USER_ACTIVITY_PRESENCE = 3i32;
+pub const PowerUserNotPresent: USER_ACTIVITY_PRESENCE = 1i32;
+pub const PowerUserPresent: USER_ACTIVITY_PRESENCE = 0i32;
+pub const ProcessorCap: POWER_INFORMATION_LEVEL = 34i32;
+pub const ProcessorIdleDomains: POWER_INFORMATION_LEVEL = 49i32;
+pub const ProcessorIdleStates: POWER_INFORMATION_LEVEL = 33i32;
+pub const ProcessorIdleStatesHv: POWER_INFORMATION_LEVEL = 52i32;
+pub const ProcessorIdleVeto: POWER_INFORMATION_LEVEL = 81i32;
+pub const ProcessorInformation: POWER_INFORMATION_LEVEL = 11i32;
+pub const ProcessorInformationEx: POWER_INFORMATION_LEVEL = 46i32;
+pub const ProcessorLoad: POWER_INFORMATION_LEVEL = 38i32;
+pub const ProcessorPerfCapHv: POWER_INFORMATION_LEVEL = 54i32;
+pub const ProcessorPerfStates: POWER_INFORMATION_LEVEL = 32i32;
+pub const ProcessorPerfStatesHv: POWER_INFORMATION_LEVEL = 53i32;
+pub const ProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = 18i32;
+pub const ProcessorPowerPolicyCurrent: POWER_INFORMATION_LEVEL = 22i32;
+pub const ProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = 19i32;
+pub const ProcessorSetIdle: POWER_INFORMATION_LEVEL = 55i32;
+pub const ProcessorStateHandler: POWER_INFORMATION_LEVEL = 7i32;
+pub const ProcessorStateHandler2: POWER_INFORMATION_LEVEL = 13i32;
+pub const QueryPotentialDripsConstraint: POWER_INFORMATION_LEVEL = 91i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RESUME_PERFORMANCE {
@@ -1209,6 +1138,7 @@ pub struct RESUME_PERFORMANCE {
     pub TotalResumeTimeMs: u64,
     pub ResumeCompleteTimestamp: u64,
 }
+pub const RegisterSpmPowerSettings: POWER_INFORMATION_LEVEL = 79i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SET_POWER_SETTING_VALUE {
@@ -1271,6 +1201,7 @@ pub struct SYSTEM_POWER_CAPABILITIES {
     pub MinDeviceWakeState: SYSTEM_POWER_STATE,
     pub DefaultLowLatencyWake: SYSTEM_POWER_STATE,
 }
+pub type SYSTEM_POWER_CONDITION = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_POWER_INFORMATION {
@@ -1320,6 +1251,7 @@ pub struct SYSTEM_POWER_POLICY {
     pub MinThrottle: u8,
     pub OverThrottled: POWER_ACTION_POLICY,
 }
+pub type SYSTEM_POWER_STATE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_POWER_STATUS {
@@ -1330,6 +1262,49 @@ pub struct SYSTEM_POWER_STATUS {
     pub BatteryLifeTime: u32,
     pub BatteryFullLifeTime: u32,
 }
+pub const SYS_BUTTON_LID: u32 = 4u32;
+pub const SYS_BUTTON_LID_CHANGED: u32 = 524288u32;
+pub const SYS_BUTTON_LID_CLOSED: u32 = 131072u32;
+pub const SYS_BUTTON_LID_INITIAL: u32 = 262144u32;
+pub const SYS_BUTTON_LID_OPEN: u32 = 65536u32;
+pub const SYS_BUTTON_LID_STATE_MASK: u32 = 196608u32;
+pub const SYS_BUTTON_POWER: u32 = 1u32;
+pub const SYS_BUTTON_SLEEP: u32 = 2u32;
+pub const SYS_BUTTON_WAKE: u32 = 2147483648u32;
+pub const ScreenOff: POWER_INFORMATION_LEVEL = 73i32;
+pub const SendSuspendResumeNotification: POWER_INFORMATION_LEVEL = 96i32;
+pub const SessionAllowExternalDmaDevices: POWER_INFORMATION_LEVEL = 95i32;
+pub const SessionConnectNotification: POWER_INFORMATION_LEVEL = 62i32;
+pub const SessionDisplayState: POWER_INFORMATION_LEVEL = 42i32;
+pub const SessionLockState: POWER_INFORMATION_LEVEL = 64i32;
+pub const SessionPowerCleanup: POWER_INFORMATION_LEVEL = 63i32;
+pub const SessionPowerInit: POWER_INFORMATION_LEVEL = 41i32;
+pub const SessionRITState: POWER_INFORMATION_LEVEL = 61i32;
+pub const SetPowerSettingValue: POWER_INFORMATION_LEVEL = 25i32;
+pub const SetShutdownSelectedTime: POWER_INFORMATION_LEVEL = 70i32;
+pub const SuspendResumeInvocation: POWER_INFORMATION_LEVEL = 71i32;
+pub const SystemBatteryState: POWER_INFORMATION_LEVEL = 5i32;
+pub const SystemBatteryStatePrecise: POWER_INFORMATION_LEVEL = 83i32;
+pub const SystemExecutionState: POWER_INFORMATION_LEVEL = 16i32;
+pub const SystemHiberFileInformation: POWER_INFORMATION_LEVEL = 36i32;
+pub const SystemHiberFileSize: POWER_INFORMATION_LEVEL = 51i32;
+pub const SystemHiberFileType: POWER_INFORMATION_LEVEL = 89i32;
+pub const SystemHiberbootState: POWER_INFORMATION_LEVEL = 65i32;
+pub const SystemMonitorHiberBootPowerOff: POWER_INFORMATION_LEVEL = 28i32;
+pub const SystemPowerCapabilities: POWER_INFORMATION_LEVEL = 4i32;
+pub const SystemPowerInformation: POWER_INFORMATION_LEVEL = 12i32;
+pub const SystemPowerLoggingEntry: POWER_INFORMATION_LEVEL = 24i32;
+pub const SystemPowerPolicyAc: POWER_INFORMATION_LEVEL = 0i32;
+pub const SystemPowerPolicyCurrent: POWER_INFORMATION_LEVEL = 8i32;
+pub const SystemPowerPolicyDc: POWER_INFORMATION_LEVEL = 1i32;
+pub const SystemPowerStateHandler: POWER_INFORMATION_LEVEL = 6i32;
+pub const SystemPowerStateLogging: POWER_INFORMATION_LEVEL = 23i32;
+pub const SystemPowerStateNotifyHandler: POWER_INFORMATION_LEVEL = 17i32;
+pub const SystemReserveHiberFile: POWER_INFORMATION_LEVEL = 10i32;
+pub const SystemVideoState: POWER_INFORMATION_LEVEL = 29i32;
+pub const SystemWakeSource: POWER_INFORMATION_LEVEL = 35i32;
+pub const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1u32;
+pub const THERMAL_DEVICE_INTERFACE_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct THERMAL_EVENT {
@@ -1340,6 +1315,7 @@ pub struct THERMAL_EVENT {
     pub TripPointTemperature: u32,
     pub Initiator: windows_sys::core::PWSTR,
 }
+pub const THERMAL_EVENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct THERMAL_INFORMATION {
@@ -1367,6 +1343,8 @@ pub struct THERMAL_POLICY {
     pub ActiveLevel: u32,
     pub OverThrottled: super::super::Foundation::BOOLEAN,
 }
+pub const THERMAL_POLICY_VERSION_1: u32 = 1u32;
+pub const THERMAL_POLICY_VERSION_2: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct THERMAL_WAIT_READ {
@@ -1374,6 +1352,19 @@ pub struct THERMAL_WAIT_READ {
     pub LowTemperature: u32,
     pub HighTemperature: u32,
 }
+pub const TZ_ACTIVATION_REASON_CURRENT: u32 = 2u32;
+pub const TZ_ACTIVATION_REASON_THERMAL: u32 = 1u32;
+pub const ThermalEvent: POWER_INFORMATION_LEVEL = 84i32;
+pub const ThermalStandby: POWER_INFORMATION_LEVEL = 88i32;
+pub const TraceApplicationPowerMessage: POWER_INFORMATION_LEVEL = 30i32;
+pub const TraceApplicationPowerMessageEnd: POWER_INFORMATION_LEVEL = 31i32;
+pub const TraceServicePowerMessage: POWER_INFORMATION_LEVEL = 37i32;
+pub const UNKNOWN_CAPACITY: u32 = 4294967295u32;
+pub const UNKNOWN_CURRENT: u32 = 4294967295u32;
+pub const UNKNOWN_RATE: u32 = 2147483648u32;
+pub const UNKNOWN_VOLTAGE: u32 = 4294967295u32;
+pub type USB_CHARGER_PORT = i32;
+pub type USER_ACTIVITY_PRESENCE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_POWER_POLICY {
@@ -1400,13 +1391,22 @@ pub struct USER_POWER_POLICY {
     pub ForcedThrottleAc: u8,
     pub ForcedThrottleDc: u8,
 }
+pub const UpdateBlackBoxRecorder: POWER_INFORMATION_LEVEL = 94i32;
+pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = 0i32;
+pub const UsbChargerPort_Max: USB_CHARGER_PORT = 2i32;
+pub const UsbChargerPort_TypeC: USB_CHARGER_PORT = 1i32;
+pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = 0i32;
+pub const UserPresence: POWER_INFORMATION_LEVEL = 57i32;
+pub const UserPresent: POWER_USER_PRESENCE_TYPE = 1i32;
+pub const UserUnknown: POWER_USER_PRESENCE_TYPE = 255i32;
+pub const VerifyProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = 20i32;
+pub const VerifyProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = 21i32;
+pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = 2i32;
+pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAKE_ALARM_INFORMATION {
     pub TimerIdentifier: u32,
     pub Timeout: u32,
 }
-pub type EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const core::ffi::c_void)>;
-pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, r#type: u32, setting: *const core::ffi::c_void) -> u32>;
-pub type PWRSCHEMESENUMPROC = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: windows_sys::core::PCWSTR, descriptionsize: u32, description: windows_sys::core::PCWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
-pub type PWRSCHEMESENUMPROC_V1 = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
+pub const WakeTimerList: POWER_INFORMATION_LEVEL = 50i32;

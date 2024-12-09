@@ -20,10 +20,13 @@ pub struct IInstalledVoicesStatic2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TrySetDefaultVoiceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Storage_Streams")]
 windows_core::imp::define_interface!(ISpeechSynthesisStream, ISpeechSynthesisStream_Vtbl, 0x83e46e93_244c_4622_ba0b_6229c4d0d65d);
+#[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeType for ISpeechSynthesisStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+#[cfg(feature = "Storage_Streams")]
 #[repr(C)]
 pub struct ISpeechSynthesisStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -39,8 +42,14 @@ impl windows_core::RuntimeType for ISpeechSynthesizer {
 #[repr(C)]
 pub struct ISpeechSynthesizer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub SynthesizeTextToStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SynthesizeSsmlToStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
+    pub SynthesizeTextToStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Media_Core", feature = "Storage_Streams")))]
+    SynthesizeTextToStreamAsync: usize,
+    #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
+    pub SynthesizeSsmlToStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Media_Core", feature = "Storage_Streams")))]
+    SynthesizeSsmlToStreamAsync: usize,
     pub SetVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Voice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -98,29 +107,57 @@ impl windows_core::RuntimeType for IVoiceInformation {
 #[repr(C)]
 pub struct IVoiceInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Gender: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VoiceGender) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechAppendedSilence(pub i32);
+impl SpeechAppendedSilence {
+    pub const Default: Self = Self(0i32);
+    pub const Min: Self = Self(1i32);
+}
+impl windows_core::TypeKind for SpeechAppendedSilence {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for SpeechAppendedSilence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechPunctuationSilence(pub i32);
+impl SpeechPunctuationSilence {
+    pub const Default: Self = Self(0i32);
+    pub const Min: Self = Self(1i32);
+}
+impl windows_core::TypeKind for SpeechPunctuationSilence {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for SpeechPunctuationSilence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
+}
+#[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechSynthesisStream(windows_core::IUnknown);
+#[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 windows_core::imp::interface_hierarchy!(SpeechSynthesisStream, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 windows_core::imp::required_hierarchy!(SpeechSynthesisStream, super::super::Foundation::IClosable, super::super::Storage::Streams::IContentTypeProvider, super::super::Storage::Streams::IInputStream, super::super::Storage::Streams::IOutputStream, super::super::Storage::Streams::IRandomAccessStream, super::super::Storage::Streams::IRandomAccessStreamWithContentType, super::Core::ITimedMetadataTrackProvider);
+#[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 impl SpeechSynthesisStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IContentTypeProvider>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -145,7 +182,6 @@ impl SpeechSynthesisStream {
             (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn FlushAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
@@ -153,7 +189,6 @@ impl SpeechSynthesisStream {
             (windows_core::Interface::vtable(this).FlushAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn Size(&self) -> windows_core::Result<u64> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -161,12 +196,10 @@ impl SpeechSynthesisStream {
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn SetSize(&self, value: u64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn GetInputStreamAt(&self, position: u64) -> windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -174,7 +207,6 @@ impl SpeechSynthesisStream {
             (windows_core::Interface::vtable(this).GetInputStreamAt)(windows_core::Interface::as_raw(this), position, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStreamAt(&self, position: u64) -> windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -182,7 +214,6 @@ impl SpeechSynthesisStream {
             (windows_core::Interface::vtable(this).GetOutputStreamAt)(windows_core::Interface::as_raw(this), position, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn Position(&self) -> windows_core::Result<u64> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -190,12 +221,10 @@ impl SpeechSynthesisStream {
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn Seek(&self, position: u64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Seek)(windows_core::Interface::as_raw(this), position).ok() }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn CloneStream(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -203,7 +232,6 @@ impl SpeechSynthesisStream {
             (windows_core::Interface::vtable(this).CloneStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn CanRead(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -211,7 +239,6 @@ impl SpeechSynthesisStream {
             (windows_core::Interface::vtable(this).CanRead)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn CanWrite(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -236,20 +263,25 @@ impl SpeechSynthesisStream {
         }
     }
 }
+#[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 impl windows_core::RuntimeType for SpeechSynthesisStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechSynthesisStream>();
 }
+#[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 unsafe impl windows_core::Interface for SpeechSynthesisStream {
-    type Vtable = ISpeechSynthesisStream_Vtbl;
+    type Vtable = <ISpeechSynthesisStream as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechSynthesisStream as windows_core::Interface>::IID;
 }
+#[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for SpeechSynthesisStream {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesisStream";
 }
+#[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 unsafe impl Send for SpeechSynthesisStream {}
+#[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 unsafe impl Sync for SpeechSynthesisStream {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechSynthesizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechSynthesizer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechSynthesizer, super::super::Foundation::IClosable);
@@ -287,6 +319,7 @@ impl SpeechSynthesizer {
             (windows_core::Interface::vtable(this).TrySetDefaultVoiceAsync)(windows_core::Interface::as_raw(this), voice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
     pub fn SynthesizeTextToStreamAsync(&self, text: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
         let this = self;
         unsafe {
@@ -294,6 +327,7 @@ impl SpeechSynthesizer {
             (windows_core::Interface::vtable(this).SynthesizeTextToStreamAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
     pub fn SynthesizeSsmlToStreamAsync(&self, ssml: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
         let this = self;
         unsafe {
@@ -335,7 +369,7 @@ impl windows_core::RuntimeType for SpeechSynthesizer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechSynthesizer>();
 }
 unsafe impl windows_core::Interface for SpeechSynthesizer {
-    type Vtable = ISpeechSynthesizer_Vtbl;
+    type Vtable = <ISpeechSynthesizer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechSynthesizer as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpeechSynthesizer {
@@ -344,7 +378,7 @@ impl windows_core::RuntimeName for SpeechSynthesizer {
 unsafe impl Send for SpeechSynthesizer {}
 unsafe impl Sync for SpeechSynthesizer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechSynthesizerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechSynthesizerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechSynthesizerOptions {
@@ -430,7 +464,7 @@ impl windows_core::RuntimeType for SpeechSynthesizerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechSynthesizerOptions>();
 }
 unsafe impl windows_core::Interface for SpeechSynthesizerOptions {
-    type Vtable = ISpeechSynthesizerOptions_Vtbl;
+    type Vtable = <ISpeechSynthesizerOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechSynthesizerOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpeechSynthesizerOptions {
@@ -439,7 +473,20 @@ impl windows_core::RuntimeName for SpeechSynthesizerOptions {
 unsafe impl Send for SpeechSynthesizerOptions {}
 unsafe impl Sync for SpeechSynthesizerOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VoiceGender(pub i32);
+impl VoiceGender {
+    pub const Male: Self = Self(0i32);
+    pub const Female: Self = Self(1i32);
+}
+impl windows_core::TypeKind for VoiceGender {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for VoiceGender {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VoiceInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceInformation {
@@ -447,28 +494,28 @@ impl VoiceInformation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Gender(&self) -> windows_core::Result<VoiceGender> {
@@ -483,7 +530,7 @@ impl windows_core::RuntimeType for VoiceInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoiceInformation>();
 }
 unsafe impl windows_core::Interface for VoiceInformation {
-    type Vtable = IVoiceInformation_Vtbl;
+    type Vtable = <IVoiceInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVoiceInformation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for VoiceInformation {
@@ -491,57 +538,3 @@ impl windows_core::RuntimeName for VoiceInformation {
 }
 unsafe impl Send for VoiceInformation {}
 unsafe impl Sync for VoiceInformation {}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct SpeechAppendedSilence(pub i32);
-impl SpeechAppendedSilence {
-    pub const Default: Self = Self(0i32);
-    pub const Min: Self = Self(1i32);
-}
-impl windows_core::TypeKind for SpeechAppendedSilence {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SpeechAppendedSilence {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SpeechAppendedSilence").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for SpeechAppendedSilence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct SpeechPunctuationSilence(pub i32);
-impl SpeechPunctuationSilence {
-    pub const Default: Self = Self(0i32);
-    pub const Min: Self = Self(1i32);
-}
-impl windows_core::TypeKind for SpeechPunctuationSilence {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SpeechPunctuationSilence {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SpeechPunctuationSilence").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for SpeechPunctuationSilence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct VoiceGender(pub i32);
-impl VoiceGender {
-    pub const Male: Self = Self(0i32);
-    pub const Female: Self = Self(1i32);
-}
-impl windows_core::TypeKind for VoiceGender {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VoiceGender {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VoiceGender").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for VoiceGender {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
-}

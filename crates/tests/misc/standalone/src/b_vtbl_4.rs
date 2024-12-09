@@ -5,7 +5,7 @@
     dead_code,
     clippy::all
 )]
-pub type BOOL = i32;
+
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GUID {
@@ -36,8 +36,8 @@ pub const IID_IPersistFile: GUID = GUID::from_u128(0x0000010b_0000_0000_c000_000
 pub struct IPersistFile_Vtbl {
     pub base__: IPersist_Vtbl,
     pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
-    pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, PCWSTR, STGM) -> HRESULT,
-    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, PCWSTR, BOOL) -> HRESULT,
+    Load: usize,
+    Save: usize,
     pub SaveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, PCWSTR) -> HRESULT,
     pub GetCurFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PWSTR) -> HRESULT,
 }
@@ -54,4 +54,3 @@ pub struct IUnknown_Vtbl {
 }
 pub type PCWSTR = *const u16;
 pub type PWSTR = *mut u16;
-pub type STGM = u32;

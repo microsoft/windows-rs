@@ -10,54 +10,13 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("wnvapi.dll" "system" fn WnvRequestNotification(wnvhandle : super::super::Foundation:: HANDLE, notificationparam : *mut WNV_NOTIFICATION_PARAM, overlapped : *mut super::super::System::IO:: OVERLAPPED, bytestransferred : *mut u32) -> u32);
-    WnvRequestNotification(wnvhandle.param().abi(), notificationparam, overlapped, bytestransferred)
+    WnvRequestNotification(wnvhandle.param().abi(), core::mem::transmute(notificationparam), core::mem::transmute(overlapped), core::mem::transmute(bytestransferred))
 }
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
 pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;
-pub const WnvCustomerAddressAdded: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(0i32);
-pub const WnvCustomerAddressDeleted: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(1i32);
-pub const WnvCustomerAddressMax: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(3i32);
-pub const WnvCustomerAddressMoved: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(2i32);
-pub const WnvCustomerAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(1i32);
-pub const WnvNotificationTypeMax: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(3i32);
-pub const WnvObjectChangeType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(2i32);
-pub const WnvObjectTypeMax: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(2i32);
-pub const WnvPolicyMismatchType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(0i32);
-pub const WnvProviderAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(0i32);
-pub const WnvRedirectType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(1i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WNV_CA_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for WNV_CA_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WNV_CA_NOTIFICATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WNV_CA_NOTIFICATION_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WNV_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for WNV_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WNV_NOTIFICATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WNV_NOTIFICATION_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WNV_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for WNV_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WNV_OBJECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WNV_OBJECT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -71,14 +30,14 @@ pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     pub NotificationReason: WNV_CA_NOTIFICATION_TYPE,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -87,14 +46,14 @@ pub struct WNV_IP_ADDRESS {
     pub IP: WNV_IP_ADDRESS_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for WNV_IP_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for WNV_IP_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for WNV_IP_ADDRESS {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -105,31 +64,34 @@ pub union WNV_IP_ADDRESS_0 {
     pub Addr: [u8; 16],
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for WNV_IP_ADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for WNV_IP_ADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for WNV_IP_ADDRESS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WNV_NOTIFICATION_PARAM {
     pub Header: WNV_OBJECT_HEADER,
     pub NotificationType: WNV_NOTIFICATION_TYPE,
     pub PendingNotifications: u32,
     pub Buffer: *mut u8,
 }
-impl windows_core::TypeKind for WNV_NOTIFICATION_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WNV_NOTIFICATION_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNV_NOTIFICATION_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WNV_NOTIFICATION_TYPE(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -138,14 +100,14 @@ pub struct WNV_OBJECT_CHANGE_PARAM {
     pub ObjectParam: WNV_OBJECT_CHANGE_PARAM_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for WNV_OBJECT_CHANGE_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for WNV_OBJECT_CHANGE_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for WNV_OBJECT_CHANGE_PARAM {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -155,30 +117,33 @@ pub union WNV_OBJECT_CHANGE_PARAM_0 {
     pub CustomerAddressChange: WNV_CUSTOMER_ADDRESS_CHANGE_PARAM,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for WNV_OBJECT_CHANGE_PARAM_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for WNV_OBJECT_CHANGE_PARAM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for WNV_OBJECT_CHANGE_PARAM_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WNV_OBJECT_HEADER {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
     pub Size: u32,
-}
-impl windows_core::TypeKind for WNV_OBJECT_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WNV_OBJECT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNV_OBJECT_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WNV_OBJECT_TYPE(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -190,14 +155,14 @@ pub struct WNV_POLICY_MISMATCH_PARAM {
     pub PA: WNV_IP_ADDRESS,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for WNV_POLICY_MISMATCH_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for WNV_POLICY_MISMATCH_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for WNV_POLICY_MISMATCH_PARAM {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -208,14 +173,14 @@ pub struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     pub AddressState: super::super::Networking::WinSock::NL_DAD_STATE,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -230,12 +195,23 @@ pub struct WNV_REDIRECT_PARAM {
     pub NewPA: WNV_IP_ADDRESS,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for WNV_REDIRECT_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for WNV_REDIRECT_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for WNV_REDIRECT_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
+pub const WnvCustomerAddressAdded: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(0i32);
+pub const WnvCustomerAddressDeleted: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(1i32);
+pub const WnvCustomerAddressMax: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(3i32);
+pub const WnvCustomerAddressMoved: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(2i32);
+pub const WnvCustomerAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(1i32);
+pub const WnvNotificationTypeMax: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(3i32);
+pub const WnvObjectChangeType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(2i32);
+pub const WnvObjectTypeMax: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(2i32);
+pub const WnvPolicyMismatchType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(0i32);
+pub const WnvProviderAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(0i32);
+pub const WnvRedirectType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(1i32);

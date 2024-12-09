@@ -40,8 +40,10 @@ windows_targets::link!("comctl32.dll" "system" fn DPA_GetPtrIndex(hdpa : HDPA, p
 windows_targets::link!("comctl32.dll" "system" fn DPA_GetSize(hdpa : HDPA) -> u64);
 windows_targets::link!("comctl32.dll" "system" fn DPA_Grow(pdpa : HDPA, cp : i32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("comctl32.dll" "system" fn DPA_InsertPtr(hdpa : HDPA, i : i32, p : *const core::ffi::c_void) -> i32);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("comctl32.dll" "system" fn DPA_LoadStream(phdpa : *mut HDPA, pfn : PFNDPASTREAM, pstream : * mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : HDPA, hdpasrc : HDPA, dwflags : u32, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : HDPA, pfn : PFNDPASTREAM, pstream : * mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("comctl32.dll" "system" fn DPA_Search(hdpa : HDPA, pfind : *const core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM, options : u32) -> i32);
 windows_targets::link!("comctl32.dll" "system" fn DPA_SetPtr(hdpa : HDPA, i : i32, p : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
@@ -214,7 +216,9 @@ windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageA(hi : supe
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageW(hi : super::super::Foundation:: HINSTANCE, lpbmp : windows_sys::core::PCWSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
 windows_targets::link!("comctl32.dll" "system" fn ImageList_Merge(himl1 : HIMAGELIST, i1 : i32, himl2 : HIMAGELIST, i2 : i32, dx : i32, dy : i32) -> HIMAGELIST);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("comctl32.dll" "system" fn ImageList_Read(pstm : * mut core::ffi::c_void) -> HIMAGELIST);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("comctl32.dll" "system" fn ImageList_ReadEx(dwflags : u32, pstm : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("comctl32.dll" "system" fn ImageList_Remove(himl : HIMAGELIST, i : i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -226,7 +230,9 @@ windows_targets::link!("comctl32.dll" "system" fn ImageList_SetDragCursorImage(h
 windows_targets::link!("comctl32.dll" "system" fn ImageList_SetIconSize(himl : HIMAGELIST, cx : i32, cy : i32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("comctl32.dll" "system" fn ImageList_SetImageCount(himl : HIMAGELIST, unewcount : u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("comctl32.dll" "system" fn ImageList_SetOverlayImage(himl : HIMAGELIST, iimage : i32, ioverlay : i32) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("comctl32.dll" "system" fn ImageList_Write(himl : HIMAGELIST, pstm : * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("comctl32.dll" "system" fn ImageList_WriteEx(himl : HIMAGELIST, dwflags : IMAGE_LIST_WRITE_STREAM_FLAGS, pstm : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("comctl32.dll" "system" fn InitCommonControls());
 windows_targets::link!("comctl32.dll" "system" fn InitCommonControlsEx(picce : *const INITCOMMONCONTROLSEX) -> super::super::Foundation:: BOOL);
@@ -308,12 +314,14 @@ pub const ACS_AUTOPLAY: u32 = 4u32;
 pub const ACS_CENTER: u32 = 1u32;
 pub const ACS_TIMER: u32 = 8u32;
 pub const ACS_TRANSPARENT: u32 = 2u32;
+pub type AEROWIZARDPARTS = i32;
 pub const ALLOW_CONTROLS: SET_THEME_APP_PROPERTIES_FLAGS = 2u32;
 pub const ALLOW_NONCLIENT: SET_THEME_APP_PROPERTIES_FLAGS = 1u32;
 pub const ALLOW_WEBCONTENT: SET_THEME_APP_PROPERTIES_FLAGS = 4u32;
 pub const ANIMATE_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("SysAnimate32");
 pub const ANIMATE_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysAnimate32");
 pub const ANIMATE_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysAnimate32");
+pub type ARROWBTNSTATES = i32;
 pub const AW_BUTTON: AEROWIZARDPARTS = 5i32;
 pub const AW_COMMANDAREA: AEROWIZARDPARTS = 4i32;
 pub const AW_CONTENTAREA: AEROWIZARDPARTS = 3i32;
@@ -323,6 +331,12 @@ pub const AW_S_HEADERAREA_NOMARGIN: HEADERAREASTATES = 1i32;
 pub const AW_S_TITLEBAR_ACTIVE: TITLEBARSTATES = 1i32;
 pub const AW_S_TITLEBAR_INACTIVE: TITLEBARSTATES = 2i32;
 pub const AW_TITLEBAR: AEROWIZARDPARTS = 1i32;
+pub type BACKGROUNDSTATES = i32;
+pub type BACKGROUNDWITHBORDERSTATES = i32;
+pub type BALLOONSTATES = i32;
+pub type BALLOONSTEMSTATES = i32;
+pub type BARBACKGROUNDSTATES = i32;
+pub type BARITEMSTATES = i32;
 pub const BCM_FIRST: u32 = 5632u32;
 pub const BCM_GETIDEALSIZE: u32 = 5633u32;
 pub const BCM_GETIMAGELIST: u32 = 5635u32;
@@ -348,6 +362,14 @@ pub const BCSS_ALIGNLEFT: u32 = 4u32;
 pub const BCSS_IMAGE: u32 = 8u32;
 pub const BCSS_NOSPLIT: u32 = 1u32;
 pub const BCSS_STRETCH: u32 = 2u32;
+pub type BGTYPE = i32;
+pub type BODYSTATES = i32;
+pub type BORDERSTATES = i32;
+pub type BORDERTYPE = i32;
+pub type BORDER_HSCROLLSTATES = i32;
+pub type BORDER_HVSCROLLSTATES = i32;
+pub type BORDER_NOSCROLLSTATES = i32;
+pub type BORDER_VSCROLLSTATES = i32;
 pub const BPAS_CUBIC: BP_ANIMATIONSTYLE = 2i32;
 pub const BPAS_LINEAR: BP_ANIMATIONSTYLE = 1i32;
 pub const BPAS_NONE: BP_ANIMATIONSTYLE = 0i32;
@@ -359,12 +381,32 @@ pub const BPBF_TOPDOWNMONODIB: BP_BUFFERFORMAT = 3i32;
 pub const BPPF_ERASE: BP_PAINTPARAMS_FLAGS = 1u32;
 pub const BPPF_NOCLIP: BP_PAINTPARAMS_FLAGS = 2u32;
 pub const BPPF_NONCLIENT: BP_PAINTPARAMS_FLAGS = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BP_ANIMATIONPARAMS {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub style: BP_ANIMATIONSTYLE,
+    pub dwDuration: u32,
+}
+pub type BP_ANIMATIONSTYLE = i32;
+pub type BP_BUFFERFORMAT = i32;
 pub const BP_CHECKBOX: BUTTONPARTS = 3i32;
 pub const BP_CHECKBOX_HCDISABLED: BUTTONPARTS = 9i32;
 pub const BP_COMMANDLINK: BUTTONPARTS = 6i32;
 pub const BP_COMMANDLINKGLYPH: BUTTONPARTS = 7i32;
 pub const BP_GROUPBOX: BUTTONPARTS = 4i32;
 pub const BP_GROUPBOX_HCDISABLED: BUTTONPARTS = 10i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct BP_PAINTPARAMS {
+    pub cbSize: u32,
+    pub dwFlags: BP_PAINTPARAMS_FLAGS,
+    pub prcExclude: *const super::super::Foundation::RECT,
+    pub pBlendFunction: *const super::super::Graphics::Gdi::BLENDFUNCTION,
+}
+pub type BP_PAINTPARAMS_FLAGS = u32;
 pub const BP_PUSHBUTTON: BUTTONPARTS = 1i32;
 pub const BP_PUSHBUTTONDROPDOWN: BUTTONPARTS = 11i32;
 pub const BP_RADIOBUTTON: BUTTONPARTS = 2i32;
@@ -394,11 +436,29 @@ pub const BT_IMAGEFILE: BGTYPE = 0i32;
 pub const BT_NONE: BGTYPE = 2i32;
 pub const BT_RECT: BORDERTYPE = 0i32;
 pub const BT_ROUNDRECT: BORDERTYPE = 1i32;
+pub type BUTTONPARTS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BUTTON_IMAGELIST {
+    pub himl: HIMAGELIST,
+    pub margin: super::super::Foundation::RECT,
+    pub uAlign: BUTTON_IMAGELIST_ALIGN,
+}
+pub type BUTTON_IMAGELIST_ALIGN = u32;
 pub const BUTTON_IMAGELIST_ALIGN_BOTTOM: BUTTON_IMAGELIST_ALIGN = 3u32;
 pub const BUTTON_IMAGELIST_ALIGN_CENTER: BUTTON_IMAGELIST_ALIGN = 4u32;
 pub const BUTTON_IMAGELIST_ALIGN_LEFT: BUTTON_IMAGELIST_ALIGN = 0u32;
 pub const BUTTON_IMAGELIST_ALIGN_RIGHT: BUTTON_IMAGELIST_ALIGN = 1u32;
 pub const BUTTON_IMAGELIST_ALIGN_TOP: BUTTON_IMAGELIST_ALIGN = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BUTTON_SPLITINFO {
+    pub mask: u32,
+    pub himlGlyph: HIMAGELIST,
+    pub uSplitStyle: u32,
+    pub size: super::super::Foundation::SIZE,
+}
+pub type CAPTIONSTATES = i32;
 pub const CA_CENTER: CONTENTALIGNMENT = 1i32;
 pub const CA_LEFT: CONTENTALIGNMENT = 0i32;
 pub const CA_RIGHT: CONTENTALIGNMENT = 2i32;
@@ -517,6 +577,46 @@ pub const CCF_NOTEXT: u32 = 1u32;
 pub const CCHCCCLASS: u32 = 32u32;
 pub const CCHCCDESC: u32 = 32u32;
 pub const CCHCCTEXT: u32 = 256u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct CCINFOA {
+    pub szClass: [i8; 32],
+    pub flOptions: u32,
+    pub szDesc: [i8; 32],
+    pub cxDefault: u32,
+    pub cyDefault: u32,
+    pub flStyleDefault: u32,
+    pub flExtStyleDefault: u32,
+    pub flCtrlTypeMask: u32,
+    pub szTextDefault: [i8; 256],
+    pub cStyleFlags: i32,
+    pub aStyleFlags: *mut CCSTYLEFLAGA,
+    pub lpfnStyle: LPFNCCSTYLEA,
+    pub lpfnSizeToText: LPFNCCSIZETOTEXTA,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct CCINFOW {
+    pub szClass: [u16; 32],
+    pub flOptions: u32,
+    pub szDesc: [u16; 32],
+    pub cxDefault: u32,
+    pub cyDefault: u32,
+    pub flStyleDefault: u32,
+    pub flExtStyleDefault: u32,
+    pub flCtrlTypeMask: u32,
+    pub cStyleFlags: i32,
+    pub aStyleFlags: *mut CCSTYLEFLAGW,
+    pub szTextDefault: [u16; 256],
+    pub lpfnStyle: LPFNCCSTYLEW,
+    pub lpfnSizeToText: LPFNCCSIZETOTEXTW,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
 pub const CCM_DPISCALE: u32 = 8204u32;
 pub const CCM_FIRST: u32 = 8192u32;
 pub const CCM_GETCOLORSCHEME: u32 = 8195u32;
@@ -530,6 +630,38 @@ pub const CCM_SETNOTIFYWINDOW: u32 = 8201u32;
 pub const CCM_SETUNICODEFORMAT: u32 = 8197u32;
 pub const CCM_SETVERSION: u32 = 8199u32;
 pub const CCM_SETWINDOWTHEME: u32 = 8203u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CCSTYLEA {
+    pub flStyle: u32,
+    pub flExtStyle: u32,
+    pub szText: [i8; 256],
+    pub lgid: u16,
+    pub wReserved1: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CCSTYLEFLAGA {
+    pub flStyle: u32,
+    pub flStyleMask: u32,
+    pub pszStyle: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CCSTYLEFLAGW {
+    pub flStyle: u32,
+    pub flStyleMask: u32,
+    pub pszStyle: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CCSTYLEW {
+    pub flStyle: u32,
+    pub flExtStyle: u32,
+    pub szText: [u16; 256],
+    pub lgid: u16,
+    pub wReserved1: u16,
+}
 pub const CCS_ADJUSTABLE: i32 = 32i32;
 pub const CCS_BOTTOM: i32 = 3i32;
 pub const CCS_NODIVIDER: i32 = 64i32;
@@ -572,12 +704,19 @@ pub const CDRF_NOTIFYPOSTPAINT: u32 = 16u32;
 pub const CDRF_NOTIFYSUBITEMDRAW: u32 = 32u32;
 pub const CDRF_SKIPDEFAULT: u32 = 4u32;
 pub const CDRF_SKIPPOSTPAINT: u32 = 256u32;
+pub type CHECKBOXSTATES = i32;
+pub type CHEVRONSTATES = i32;
+pub type CHEVRONVERTSTATES = i32;
 pub const CHEVSV_HOT: CHEVRONVERTSTATES = 2i32;
 pub const CHEVSV_NORMAL: CHEVRONVERTSTATES = 1i32;
 pub const CHEVSV_PRESSED: CHEVRONVERTSTATES = 3i32;
 pub const CHEVS_HOT: CHEVRONSTATES = 2i32;
 pub const CHEVS_NORMAL: CHEVRONSTATES = 1i32;
 pub const CHEVS_PRESSED: CHEVRONSTATES = 3i32;
+pub type CLOCKPARTS = i32;
+pub type CLOCKSTATES = i32;
+pub type CLOSEBUTTONSTATES = i32;
+pub type CLOSESTATES = i32;
 pub const CLP_TIME: CLOCKPARTS = 1i32;
 pub const CLR_DEFAULT: i32 = -16777216i32;
 pub const CLR_HILIGHT: i32 = -16777216i32;
@@ -597,8 +736,85 @@ pub const CMDLS_DISABLED: COMMANDLINKSTATES = 4i32;
 pub const CMDLS_HOT: COMMANDLINKSTATES = 2i32;
 pub const CMDLS_NORMAL: COMMANDLINKSTATES = 1i32;
 pub const CMDLS_PRESSED: COMMANDLINKSTATES = 3i32;
+pub type COLLAPSEBUTTONSTATES = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COLORMAP {
+    pub from: super::super::Foundation::COLORREF,
+    pub to: super::super::Foundation::COLORREF,
+}
 pub const COLORMGMTDLGORD: u32 = 1551u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COLORSCHEME {
+    pub dwSize: u32,
+    pub clrBtnHighlight: super::super::Foundation::COLORREF,
+    pub clrBtnShadow: super::super::Foundation::COLORREF,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COMBOBOXEXITEMA {
+    pub mask: COMBOBOX_EX_ITEM_FLAGS,
+    pub iItem: isize,
+    pub pszText: windows_sys::core::PSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub iSelectedImage: i32,
+    pub iOverlay: i32,
+    pub iIndent: i32,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COMBOBOXEXITEMW {
+    pub mask: COMBOBOX_EX_ITEM_FLAGS,
+    pub iItem: isize,
+    pub pszText: windows_sys::core::PWSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub iSelectedImage: i32,
+    pub iOverlay: i32,
+    pub iIndent: i32,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COMBOBOXINFO {
+    pub cbSize: u32,
+    pub rcItem: super::super::Foundation::RECT,
+    pub rcButton: super::super::Foundation::RECT,
+    pub stateButton: COMBOBOXINFO_BUTTON_STATE,
+    pub hwndCombo: super::super::Foundation::HWND,
+    pub hwndItem: super::super::Foundation::HWND,
+    pub hwndList: super::super::Foundation::HWND,
+}
+pub type COMBOBOXINFO_BUTTON_STATE = u32;
+pub type COMBOBOXPARTS = i32;
+pub type COMBOBOXSTYLESTATES = i32;
+pub type COMBOBOX_EX_ITEM_FLAGS = u32;
 pub const COMCTL32_VERSION: u32 = 6u32;
+pub type COMMANDLINKGLYPHSTATES = i32;
+pub type COMMANDLINKSTATES = i32;
+pub type COMMUNICATIONSPARTS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COMPAREITEMSTRUCT {
+    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
+    pub CtlID: u32,
+    pub hwndItem: super::super::Foundation::HWND,
+    pub itemID1: u32,
+    pub itemData1: usize,
+    pub itemID2: u32,
+    pub itemData2: usize,
+    pub dwLocaleId: u32,
+}
+pub type CONTENTALIGNMENT = i32;
+pub type CONTENTAREASTATES = i32;
+pub type CONTENTLINKSTATES = i32;
+pub type CONTENTPANESTATES = i32;
+pub type CONTROLLABELSTATES = i32;
+pub type CONTROLPANELPARTS = i32;
+pub type COPYSTATES = i32;
 pub const CPANEL_BANNERAREA: CONTROLPANELPARTS = 18i32;
 pub const CPANEL_BODYTEXT: CONTROLPANELPARTS = 6i32;
 pub const CPANEL_BODYTITLE: CONTROLPANELPARTS = 19i32;
@@ -642,6 +858,7 @@ pub const CP_DROPDOWNBUTTONRIGHT: COMBOBOXPARTS = 6i32;
 pub const CP_DROPDOWNITEM: COMBOBOXPARTS = 9i32;
 pub const CP_READONLY: COMBOBOXPARTS = 5i32;
 pub const CP_TRANSPARENTBACKGROUND: COMBOBOXPARTS = 3i32;
+pub type CREATELINKSTATES = i32;
 pub const CSST_TAB: COMMUNICATIONSPARTS = 1i32;
 pub const CSTB_HOT: TABSTATES = 2i32;
 pub const CSTB_NORMAL: TABSTATES = 1i32;
@@ -649,6 +866,22 @@ pub const CSTB_SELECTED: TABSTATES = 3i32;
 pub const CS_ACTIVE: CAPTIONSTATES = 1i32;
 pub const CS_DISABLED: CAPTIONSTATES = 3i32;
 pub const CS_INACTIVE: CAPTIONSTATES = 2i32;
+pub type CUEBANNERSTATES = i32;
+pub type DATEBORDERSTATES = i32;
+pub type DATEPICKERPARTS = i32;
+pub type DATETEXTSTATES = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DATETIMEPICKERINFO {
+    pub cbSize: u32,
+    pub rcCheck: super::super::Foundation::RECT,
+    pub stateCheck: u32,
+    pub rcButton: super::super::Foundation::RECT,
+    pub stateButton: u32,
+    pub hwndEdit: super::super::Foundation::HWND,
+    pub hwndUD: super::super::Foundation::HWND,
+    pub hwndDropDown: super::super::Foundation::HWND,
+}
 pub const DATETIMEPICK_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("SysDateTimePick32");
 pub const DATETIMEPICK_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysDateTimePick32");
 pub const DATETIMEPICK_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysDateTimePick32");
@@ -683,6 +916,17 @@ pub const DD_NONE: DRAGDROPPARTS = 6i32;
 pub const DD_TEXTBG: DRAGDROPPARTS = 8i32;
 pub const DD_UPDATEMETADATA: DRAGDROPPARTS = 3i32;
 pub const DD_WARNING: DRAGDROPPARTS = 5i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DELETEITEMSTRUCT {
+    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
+    pub CtlID: u32,
+    pub itemID: u32,
+    pub hwndItem: super::super::Foundation::HWND,
+    pub itemData: usize,
+}
+pub type DLG_BUTTON_CHECK_STATE = u32;
+pub type DLG_DIR_LIST_FILE_TYPE = u32;
 pub const DL_BEGINDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = 1157u32;
 pub const DL_CANCELDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = 1160u32;
 pub const DL_COPYCURSOR: u32 = 2u32;
@@ -699,13 +943,22 @@ pub const DNS_DISABLED: DOWNSTATES = 4i32;
 pub const DNS_HOT: DOWNSTATES = 2i32;
 pub const DNS_NORMAL: DOWNSTATES = 1i32;
 pub const DNS_PRESSED: DOWNSTATES = 3i32;
+pub type DOWNHORZSTATES = i32;
+pub type DOWNSTATES = i32;
 pub const DPAMM_DELETE: DPAMM_MESSAGE = 2u32;
 pub const DPAMM_INSERT: DPAMM_MESSAGE = 3u32;
 pub const DPAMM_MERGE: DPAMM_MESSAGE = 1u32;
+pub type DPAMM_MESSAGE = u32;
 pub const DPAM_INTERSECT: u32 = 8u32;
 pub const DPAM_NORMAL: u32 = 2u32;
 pub const DPAM_SORTED: u32 = 1u32;
 pub const DPAM_UNION: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DPASTREAMINFO {
+    pub iPos: i32,
+    pub pvItem: *mut core::ffi::c_void,
+}
 pub const DPAS_INSERTAFTER: u32 = 4u32;
 pub const DPAS_INSERTBEFORE: u32 = 2u32;
 pub const DPAS_SORTED: u32 = 1u32;
@@ -725,9 +978,44 @@ pub const DPSCBR_PRESSED: SHOWCALENDARBUTTONRIGHTSTATES = 3i32;
 pub const DP_DATEBORDER: DATEPICKERPARTS = 2i32;
 pub const DP_DATETEXT: DATEPICKERPARTS = 1i32;
 pub const DP_SHOWCALENDARBUTTONRIGHT: DATEPICKERPARTS = 3i32;
+pub type DRAGDROPPARTS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRAGLISTINFO {
+    pub uNotification: DRAGLISTINFO_NOTIFICATION_FLAGS,
+    pub hWnd: super::super::Foundation::HWND,
+    pub ptCursor: super::super::Foundation::POINT,
+}
+pub type DRAGLISTINFO_NOTIFICATION_FLAGS = u32;
 pub const DRAGLISTMSGSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("commctrl_DragListMsg");
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct DRAWITEMSTRUCT {
+    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
+    pub CtlID: u32,
+    pub itemID: u32,
+    pub itemAction: ODA_FLAGS,
+    pub itemState: ODS_FLAGS,
+    pub hwndItem: super::super::Foundation::HWND,
+    pub hDC: super::super::Graphics::Gdi::HDC,
+    pub rcItem: super::super::Foundation::RECT,
+    pub itemData: usize,
+}
+pub type DRAWITEMSTRUCT_CTL_TYPE = u32;
+pub type DRAW_THEME_PARENT_BACKGROUND_FLAGS = u32;
+pub type DROPDOWNBUTTONLEFTSTATES = i32;
+pub type DROPDOWNBUTTONRIGHTSTATES = i32;
+pub type DROPDOWNITEMSTATES = i32;
 pub const DSA_APPEND: u32 = 2147483647u32;
 pub const DSA_ERR: i32 = -1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DTBGOPTS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub rcClip: super::super::Foundation::RECT,
+}
 pub const DTBG_CLIPRECT: u32 = 1u32;
 pub const DTBG_COMPUTINGREGION: u32 = 16u32;
 pub const DTBG_DRAWSOLID: u32 = 2u32;
@@ -783,11 +1071,34 @@ pub const DTS_SHORTDATEFORMAT: u32 = 0u32;
 pub const DTS_SHOWNONE: u32 = 2u32;
 pub const DTS_TIMEFORMAT: u32 = 9u32;
 pub const DTS_UPDOWN: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct DTTOPTS {
+    pub dwSize: u32,
+    pub dwFlags: DTTOPTS_FLAGS,
+    pub crText: super::super::Foundation::COLORREF,
+    pub crBorder: super::super::Foundation::COLORREF,
+    pub crShadow: super::super::Foundation::COLORREF,
+    pub iTextShadowType: i32,
+    pub ptShadowOffset: super::super::Foundation::POINT,
+    pub iBorderSize: i32,
+    pub iFontPropId: i32,
+    pub iColorPropId: i32,
+    pub iStateId: i32,
+    pub fApplyOverlay: super::super::Foundation::BOOL,
+    pub iGlowSize: i32,
+    pub pfnDrawTextCallback: DTT_CALLBACK_PROC,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+pub type DTTOPTS_FLAGS = u32;
 pub const DTT_APPLYOVERLAY: DTTOPTS_FLAGS = 1024u32;
 pub const DTT_BORDERCOLOR: DTTOPTS_FLAGS = 2u32;
 pub const DTT_BORDERSIZE: DTTOPTS_FLAGS = 32u32;
 pub const DTT_CALCRECT: DTTOPTS_FLAGS = 512u32;
 pub const DTT_CALLBACK: DTTOPTS_FLAGS = 4096u32;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type DTT_CALLBACK_PROC = Option<unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: windows_sys::core::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32>;
 pub const DTT_COLORPROP: DTTOPTS_FLAGS = 128u32;
 pub const DTT_COMPOSITED: DTTOPTS_FLAGS = 8192u32;
 pub const DTT_FLAGS2VALIDBITS: u32 = 1u32;
@@ -847,13 +1158,33 @@ pub const EBWBS_FOCUSED: BACKGROUNDWITHBORDERSTATES = 4i32;
 pub const EBWBS_HOT: BACKGROUNDWITHBORDERSTATES = 2i32;
 pub const EBWBS_NORMAL: BACKGROUNDWITHBORDERSTATES = 1i32;
 pub const ECM_FIRST: u32 = 5376u32;
+pub type EC_ENDOFLINE = i32;
 pub const EC_ENDOFLINE_CR: EC_ENDOFLINE = 2i32;
 pub const EC_ENDOFLINE_CRLF: EC_ENDOFLINE = 1i32;
 pub const EC_ENDOFLINE_DETECTFROMCONTENT: EC_ENDOFLINE = 0i32;
 pub const EC_ENDOFLINE_LF: EC_ENDOFLINE = 3i32;
+pub type EC_SEARCHWEB_ENTRYPOINT = i32;
 pub const EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU: EC_SEARCHWEB_ENTRYPOINT = 1i32;
 pub const EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EC_SEARCHWEB_ENTRYPOINT = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EDITBALLOONTIP {
+    pub cbStruct: u32,
+    pub pszTitle: windows_sys::core::PCWSTR,
+    pub pszText: windows_sys::core::PCWSTR,
+    pub ttiIcon: EDITBALLOONTIP_ICON,
+}
+pub type EDITBALLOONTIP_ICON = i32;
+pub type EDITBORDER_HSCROLLSTATES = i32;
+pub type EDITBORDER_HVSCROLLSTATES = i32;
+pub type EDITBORDER_NOSCROLLSTATES = i32;
+pub type EDITBORDER_VSCROLLSTATES = i32;
+pub type EDITPARTS = i32;
+pub type EDITTEXTSTATES = i32;
+pub type EDITWORDBREAKPROCA = Option<unsafe extern "system" fn(lpch: windows_sys::core::PCSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
+pub type EDITWORDBREAKPROCW = Option<unsafe extern "system" fn(lpch: windows_sys::core::PCWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
 pub const EMF_CENTERED: NMLVEMPTYMARKUP_FLAGS = 1u32;
+pub type EMPTYMARKUPPARTS = i32;
 pub const EMP_MARKUPTEXT: EMPTYMARKUPPARTS = 1i32;
 pub const EMT_LINKTEXT: MARKUPTEXTSTATES = 2i32;
 pub const EMT_NORMALTEXT: MARKUPTEXTSTATES = 1i32;
@@ -918,6 +1249,7 @@ pub const EM_SETWORDBREAKPROC: u32 = 208u32;
 pub const EM_SHOWBALLOONTIP: u32 = 5379u32;
 pub const EM_TAKEFOCUS: u32 = 5384u32;
 pub const EM_UNDO: u32 = 199u32;
+pub type ENABLE_SCROLL_BAR_ARROWS = u32;
 pub const EN_FIRST: u32 = 4294965776u32;
 pub const EN_LAST: u32 = 4294965756u32;
 pub const EN_SEARCHWEB: u32 = 4294965776u32;
@@ -970,6 +1302,9 @@ pub const ETS_HOT: EDITTEXTSTATES = 2i32;
 pub const ETS_NORMAL: EDITTEXTSTATES = 1i32;
 pub const ETS_READONLY: EDITTEXTSTATES = 6i32;
 pub const ETS_SELECTED: EDITTEXTSTATES = 3i32;
+pub type EXPANDBUTTONSTATES = i32;
+pub type EXPANDOBUTTONSTATES = i32;
+pub type EXPLORERBARPARTS = i32;
 pub const FBS_EMPHASIZED: BODYSTATES = 2i32;
 pub const FBS_NORMAL: BODYSTATES = 1i32;
 pub const FEEDBACK_GESTURE_PRESSANDTAP: FEEDBACK_TYPE = 11i32;
@@ -984,7 +1319,11 @@ pub const FEEDBACK_TOUCH_DOUBLETAP: FEEDBACK_TYPE = 8i32;
 pub const FEEDBACK_TOUCH_PRESSANDHOLD: FEEDBACK_TYPE = 9i32;
 pub const FEEDBACK_TOUCH_RIGHTTAP: FEEDBACK_TYPE = 10i32;
 pub const FEEDBACK_TOUCH_TAP: FEEDBACK_TYPE = 7i32;
+pub type FEEDBACK_TYPE = i32;
 pub const FILEOPENORD: u32 = 1536u32;
+pub type FILLSTATES = i32;
+pub type FILLTYPE = i32;
+pub type FILLVERTSTATES = i32;
 pub const FINDDLGORD: u32 = 1540u32;
 pub const FLH_HOVER: LINKHEADERSTATES = 2i32;
 pub const FLH_NORMAL: LINKHEADERSTATES = 1i32;
@@ -994,6 +1333,7 @@ pub const FLS_NORMAL: LABELSTATES = 1i32;
 pub const FLS_SELECTED: LABELSTATES = 2i32;
 pub const FLYOUTLINK_HOVER: LINKSTATES = 2i32;
 pub const FLYOUTLINK_NORMAL: LINKSTATES = 1i32;
+pub type FLYOUTPARTS = i32;
 pub const FLYOUT_BODY: FLYOUTPARTS = 2i32;
 pub const FLYOUT_DIVIDER: FLYOUTPARTS = 5i32;
 pub const FLYOUT_HEADER: FLYOUTPARTS = 1i32;
@@ -1005,6 +1345,10 @@ pub const FLYOUT_WINDOW: FLYOUTPARTS = 6i32;
 pub const FONTDLGORD: u32 = 1542u32;
 pub const FORMATDLGORD30: u32 = 1544u32;
 pub const FORMATDLGORD31: u32 = 1543u32;
+pub type FRAMEBOTTOMSTATES = i32;
+pub type FRAMELEFTSTATES = i32;
+pub type FRAMERIGHTSTATES = i32;
+pub type FRAMESTATES = i32;
 pub const FRB_ACTIVE: FRAMEBOTTOMSTATES = 1i32;
 pub const FRB_INACTIVE: FRAMEBOTTOMSTATES = 2i32;
 pub const FRL_ACTIVE: FRAMELEFTSTATES = 1i32;
@@ -1031,16 +1375,28 @@ pub const GDTR_MIN: u32 = 1u32;
 pub const GDT_ERROR: i32 = -1i32;
 pub const GDT_NONE: NMDATETIMECHANGE_FLAGS = 1u32;
 pub const GDT_VALID: NMDATETIMECHANGE_FLAGS = 0u32;
+pub type GET_THEME_BITMAP_FLAGS = u32;
 pub const GFST_DPI: GLYPHFONTSIZINGTYPE = 2i32;
 pub const GFST_NONE: GLYPHFONTSIZINGTYPE = 0i32;
 pub const GFST_SIZE: GLYPHFONTSIZINGTYPE = 1i32;
 pub const GLPS_CLOSED: GLYPHSTATES = 1i32;
 pub const GLPS_OPENED: GLYPHSTATES = 2i32;
+pub type GLYPHFONTSIZINGTYPE = i32;
+pub type GLYPHSTATES = i32;
+pub type GLYPHTYPE = i32;
 pub const GMR_DAYSTATE: u32 = 1u32;
 pub const GMR_VISIBLE: u32 = 0u32;
+pub type GRIDCELLBACKGROUNDSTATES = i32;
+pub type GRIDCELLSTATES = i32;
+pub type GRIDCELLUPPERSTATES = i32;
+pub type GRIPPERSTATES = i32;
+pub type GROUPBOXSTATES = i32;
+pub type GROUPHEADERLINESTATES = i32;
+pub type GROUPHEADERSTATES = i32;
 pub const GT_FONTGLYPH: GLYPHTYPE = 2i32;
 pub const GT_IMAGEGLYPH: GLYPHTYPE = 1i32;
 pub const GT_NONE: GLYPHTYPE = 0i32;
+pub type HALIGN = i32;
 pub const HA_CENTER: HALIGN = 1i32;
 pub const HA_LEFT: HALIGN = 0i32;
 pub const HA_RIGHT: HALIGN = 2i32;
@@ -1076,7 +1432,48 @@ pub const HDF_SORTDOWN: HEADER_CONTROL_FORMAT_FLAGS = 512i32;
 pub const HDF_SORTUP: HEADER_CONTROL_FORMAT_FLAGS = 1024i32;
 pub const HDF_SPLITBUTTON: HEADER_CONTROL_FORMAT_FLAGS = 16777216i32;
 pub const HDF_STRING: HEADER_CONTROL_FORMAT_FLAGS = 16384i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HDHITTESTINFO {
+    pub pt: super::super::Foundation::POINT,
+    pub flags: HEADER_HITTEST_INFO_FLAGS,
+    pub iItem: i32,
+}
 pub const HDIS_FOCUSED: HEADER_CONTROL_FORMAT_STATE = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct HDITEMA {
+    pub mask: HDI_MASK,
+    pub cxy: i32,
+    pub pszText: windows_sys::core::PSTR,
+    pub hbm: super::super::Graphics::Gdi::HBITMAP,
+    pub cchTextMax: i32,
+    pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iImage: i32,
+    pub iOrder: i32,
+    pub r#type: HEADER_CONTROL_FORMAT_TYPE,
+    pub pvFilter: *mut core::ffi::c_void,
+    pub state: HEADER_CONTROL_FORMAT_STATE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct HDITEMW {
+    pub mask: HDI_MASK,
+    pub cxy: i32,
+    pub pszText: windows_sys::core::PWSTR,
+    pub hbm: super::super::Graphics::Gdi::HBITMAP,
+    pub cchTextMax: i32,
+    pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iImage: i32,
+    pub iOrder: i32,
+    pub r#type: HEADER_CONTROL_FORMAT_TYPE,
+    pub pvFilter: *mut core::ffi::c_void,
+    pub state: HEADER_CONTROL_FORMAT_STATE,
+}
 pub const HDI_BITMAP: HDI_MASK = 16u32;
 pub const HDI_DI_SETITEM: HDI_MASK = 64u32;
 pub const HDI_FILTER: HDI_MASK = 256u32;
@@ -1084,10 +1481,18 @@ pub const HDI_FORMAT: HDI_MASK = 4u32;
 pub const HDI_HEIGHT: HDI_MASK = 1u32;
 pub const HDI_IMAGE: HDI_MASK = 32u32;
 pub const HDI_LPARAM: HDI_MASK = 8u32;
+pub type HDI_MASK = u32;
 pub const HDI_ORDER: HDI_MASK = 128u32;
 pub const HDI_STATE: HDI_MASK = 512u32;
 pub const HDI_TEXT: HDI_MASK = 2u32;
 pub const HDI_WIDTH: HDI_MASK = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct HDLAYOUT {
+    pub prc: *mut super::super::Foundation::RECT,
+    pub pwpos: *mut super::WindowsAndMessaging::WINDOWPOS,
+}
 pub const HDM_CLEARFILTER: u32 = 4632u32;
 pub const HDM_CREATEDRAGIMAGE: u32 = 4624u32;
 pub const HDM_DELETEITEM: u32 = 4610u32;
@@ -1160,6 +1565,8 @@ pub const HDN_OVERFLOWCLICK: u32 = 4294966977u32;
 pub const HDN_TRACK: u32 = 4294966968u32;
 pub const HDN_TRACKA: u32 = 4294966988u32;
 pub const HDN_TRACKW: u32 = 4294966968u32;
+pub type HDPA = isize;
+pub type HDSA = isize;
 pub const HDSIL_NORMAL: u32 = 0u32;
 pub const HDSIL_STATE: u32 = 1u32;
 pub const HDS_BUTTONS: u32 = 2u32;
@@ -1173,9 +1580,40 @@ pub const HDS_HORZ: u32 = 0u32;
 pub const HDS_HOTTRACK: u32 = 4u32;
 pub const HDS_NOSIZING: u32 = 2048u32;
 pub const HDS_OVERFLOW: u32 = 4096u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HD_TEXTFILTERA {
+    pub pszText: windows_sys::core::PSTR,
+    pub cchTextMax: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HD_TEXTFILTERW {
+    pub pszText: windows_sys::core::PWSTR,
+    pub cchTextMax: i32,
+}
+pub type HEADERAREASTATES = i32;
+pub type HEADERCLOSESTATES = i32;
+pub type HEADERDROPDOWNFILTERSTATES = i32;
+pub type HEADERDROPDOWNSTATES = i32;
+pub type HEADERITEMLEFTSTATES = i32;
+pub type HEADERITEMRIGHTSTATES = i32;
+pub type HEADERITEMSTATES = i32;
+pub type HEADEROVERFLOWSTATES = i32;
+pub type HEADERPARTS = i32;
+pub type HEADERPINSTATES = i32;
+pub type HEADERSORTARROWSTATES = i32;
+pub type HEADERSTYLESTATES = i32;
+pub type HEADER_CONTROL_FORMAT_FLAGS = i32;
+pub type HEADER_CONTROL_FORMAT_STATE = u32;
+pub type HEADER_CONTROL_FORMAT_TYPE = u32;
+pub type HEADER_CONTROL_NOTIFICATION_BUTTON = i32;
 pub const HEADER_CONTROL_NOTIFICATION_BUTTON_LEFT: HEADER_CONTROL_NOTIFICATION_BUTTON = 0i32;
 pub const HEADER_CONTROL_NOTIFICATION_BUTTON_MIDDLE: HEADER_CONTROL_NOTIFICATION_BUTTON = 2i32;
 pub const HEADER_CONTROL_NOTIFICATION_BUTTON_RIGHT: HEADER_CONTROL_NOTIFICATION_BUTTON = 1i32;
+pub type HEADER_HITTEST_INFO_FLAGS = u32;
+pub type HELPBUTTONSTATES = i32;
+pub type HELPLINKSTATES = i32;
 pub const HGLPS_CLOSED: HOTGLYPHSTATES = 1i32;
 pub const HGLPS_OPENED: HOTGLYPHSTATES = 2i32;
 pub const HHT_ABOVE: HEADER_HITTEST_INFO_FLAGS = 256u32;
@@ -1204,6 +1642,7 @@ pub const HICF_TOGGLEDROPDOWN: NMTBHOTITEM_FLAGS = 256u32;
 pub const HILS_HOT: HEADERITEMLEFTSTATES = 2i32;
 pub const HILS_NORMAL: HEADERITEMLEFTSTATES = 1i32;
 pub const HILS_PRESSED: HEADERITEMLEFTSTATES = 3i32;
+pub type HIMAGELIST = isize;
 pub const HIRS_HOT: HEADERITEMRIGHTSTATES = 2i32;
 pub const HIRS_NORMAL: HEADERITEMRIGHTSTATES = 1i32;
 pub const HIRS_PRESSED: HEADERITEMRIGHTSTATES = 3i32;
@@ -1224,6 +1663,7 @@ pub const HIS_PRESSED: HEADERITEMSTATES = 3i32;
 pub const HIS_SORTEDHOT: HEADERITEMSTATES = 5i32;
 pub const HIS_SORTEDNORMAL: HEADERITEMSTATES = 4i32;
 pub const HIS_SORTEDPRESSED: HEADERITEMSTATES = 6i32;
+pub type HIT_TEST_BACKGROUND_OPTIONS = u32;
 pub const HKCOMB_A: u32 = 8u32;
 pub const HKCOMB_C: u32 = 4u32;
 pub const HKCOMB_CA: u32 = 64u32;
@@ -1239,6 +1679,9 @@ pub const HLS_LINKTEXT: HYPERLINKSTATES = 2i32;
 pub const HLS_NORMALTEXT: HYPERLINKSTATES = 1i32;
 pub const HOFS_HOT: HEADEROVERFLOWSTATES = 2i32;
 pub const HOFS_NORMAL: HEADEROVERFLOWSTATES = 1i32;
+pub type HORZSCROLLSTATES = i32;
+pub type HORZTHUMBSTATES = i32;
+pub type HOTGLYPHSTATES = i32;
 pub const HOTKEYF_ALT: u32 = 4u32;
 pub const HOTKEYF_CONTROL: u32 = 2u32;
 pub const HOTKEYF_EXT: u32 = 8u32;
@@ -1246,7 +1689,9 @@ pub const HOTKEYF_SHIFT: u32 = 1u32;
 pub const HOTKEY_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_hotkey32");
 pub const HOTKEY_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_hotkey32");
 pub const HOTKEY_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_hotkey32");
+pub type HOVERBACKGROUNDSTATES = i32;
 pub const HOVER_DEFAULT: u32 = 4294967295u32;
+pub type HPROPSHEETPAGE = *mut core::ffi::c_void;
 pub const HP_HEADERDROPDOWN: HEADERPARTS = 5i32;
 pub const HP_HEADERDROPDOWNFILTER: HEADERPARTS = 6i32;
 pub const HP_HEADERITEM: HEADERPARTS = 1i32;
@@ -1260,6 +1705,9 @@ pub const HSS_DISABLED: HORZSCROLLSTATES = 4i32;
 pub const HSS_HOT: HORZSCROLLSTATES = 2i32;
 pub const HSS_NORMAL: HORZSCROLLSTATES = 1i32;
 pub const HSS_PUSHED: HORZSCROLLSTATES = 3i32;
+pub type HSYNTHETICPOINTERDEVICE = *mut core::ffi::c_void;
+pub type HTHEME = isize;
+pub type HTREEITEM = isize;
 pub const HTS_DISABLED: HORZTHUMBSTATES = 4i32;
 pub const HTS_HOT: HORZTHUMBSTATES = 2i32;
 pub const HTS_NORMAL: HORZTHUMBSTATES = 1i32;
@@ -1274,6 +1722,8 @@ pub const HTTB_RESIZINGBORDER_RIGHT: HIT_TEST_BACKGROUND_OPTIONS = 64u32;
 pub const HTTB_RESIZINGBORDER_TOP: HIT_TEST_BACKGROUND_OPTIONS = 32u32;
 pub const HTTB_SIZINGTEMPLATE: HIT_TEST_BACKGROUND_OPTIONS = 256u32;
 pub const HTTB_SYSTEMSIZINGMARGINS: HIT_TEST_BACKGROUND_OPTIONS = 512u32;
+pub type HYPERLINKSTATES = i32;
+pub type HYPERLINKTEXTSTATES = i32;
 pub const ICC_ANIMATE_CLASS: INITCOMMONCONTROLSEX_ICC = 128u32;
 pub const ICC_BAR_CLASSES: INITCOMMONCONTROLSEX_ICC = 4u32;
 pub const ICC_COOL_CLASSES: INITCOMMONCONTROLSEX_ICC = 1024u32;
@@ -1296,6 +1746,7 @@ pub const ICE_GLOW: ICONEFFECT = 1i32;
 pub const ICE_NONE: ICONEFFECT = 0i32;
 pub const ICE_PULSE: ICONEFFECT = 3i32;
 pub const ICE_SHADOW: ICONEFFECT = 2i32;
+pub type ICONEFFECT = i32;
 pub const IDB_HIST_DISABLED: u32 = 14u32;
 pub const IDB_HIST_HOT: u32 = 13u32;
 pub const IDB_HIST_LARGE_COLOR: u32 = 9u32;
@@ -1308,6 +1759,7 @@ pub const IDB_VIEW_LARGE_COLOR: u32 = 5u32;
 pub const IDB_VIEW_SMALL_COLOR: u32 = 4u32;
 pub const IDC_MANAGE_LINK: u32 = 1592u32;
 pub const ID_PSRESTARTWINDOWS: u32 = 2u32;
+pub type IEBARMENUSTATES = i32;
 pub const ILCF_MOVE: IMAGE_LIST_COPY_FLAGS = 0u32;
 pub const ILCF_SWAP: IMAGE_LIST_COPY_FLAGS = 1u32;
 pub const ILC_COLOR: IMAGELIST_CREATION_FLAGS = 0u32;
@@ -1370,7 +1822,67 @@ pub const ILS_SATURATE: u32 = 4u32;
 pub const ILS_SHADOW: u32 = 2u32;
 pub const IL_HORIZONTAL: IMAGELAYOUT = 1i32;
 pub const IL_VERTICAL: IMAGELAYOUT = 0i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct IMAGEINFO {
+    pub hbmImage: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
+    pub Unused1: i32,
+    pub Unused2: i32,
+    pub rcImage: super::super::Foundation::RECT,
+}
+pub type IMAGELAYOUT = i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct IMAGELISTDRAWPARAMS {
+    pub cbSize: u32,
+    pub himl: HIMAGELIST,
+    pub i: i32,
+    pub hdcDst: super::super::Graphics::Gdi::HDC,
+    pub x: i32,
+    pub y: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub xBitmap: i32,
+    pub yBitmap: i32,
+    pub rgbBk: super::super::Foundation::COLORREF,
+    pub rgbFg: super::super::Foundation::COLORREF,
+    pub fStyle: u32,
+    pub dwRop: u32,
+    pub fState: u32,
+    pub Frame: u32,
+    pub crEffect: super::super::Foundation::COLORREF,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGELISTSTATS {
+    pub cbSize: u32,
+    pub cAlloc: i32,
+    pub cUsed: i32,
+    pub cStandby: i32,
+}
+pub type IMAGELIST_CREATION_FLAGS = u32;
+pub type IMAGESELECTTYPE = i32;
+pub type IMAGE_LIST_COPY_FLAGS = u32;
+pub type IMAGE_LIST_DRAW_STYLE = u32;
+pub type IMAGE_LIST_ITEM_FLAGS = u32;
+pub type IMAGE_LIST_WRITE_STREAM_FLAGS = u32;
 pub const INFOTIPSIZE: u32 = 1024u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INITCOMMONCONTROLSEX {
+    pub dwSize: u32,
+    pub dwICC: INITCOMMONCONTROLSEX_ICC,
+}
+pub type INITCOMMONCONTROLSEX_ICC = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INTLIST {
+    pub iValueCount: i32,
+    pub iValues: [i32; 402],
+}
 pub const INVALID_LINK_INDEX: i32 = -1i32;
 pub const IPM_CLEARADDRESS: u32 = 1124u32;
 pub const IPM_GETADDRESS: u32 = 1126u32;
@@ -1384,6 +1896,7 @@ pub const IPN_LAST: u32 = 4294966417u32;
 pub const IST_DPI: IMAGESELECTTYPE = 2i32;
 pub const IST_NONE: IMAGESELECTTYPE = 0i32;
 pub const IST_SIZE: IMAGESELECTTYPE = 1i32;
+pub type ITEMSTATES = i32;
 pub const I_CHILDRENAUTO: TVITEMEXW_CHILDREN = -2i32;
 pub const I_CHILDRENCALLBACK: TVITEMEXW_CHILDREN = -1i32;
 pub const I_GROUPIDCALLBACK: LVITEMA_GROUP_ID = -1i32;
@@ -1393,6 +1906,8 @@ pub const I_IMAGENONE: i32 = -2i32;
 pub const I_INDENTCALLBACK: i32 = -1i32;
 pub const I_ONE_OR_MORE: TVITEMEXW_CHILDREN = 1i32;
 pub const I_ZERO: TVITEMEXW_CHILDREN = 0i32;
+pub const ImageList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
+pub type LABELSTATES = i32;
 pub const LBCP_BORDER_HSCROLL: LISTBOXPARTS = 1i32;
 pub const LBCP_BORDER_HVSCROLL: LISTBOXPARTS = 2i32;
 pub const LBCP_BORDER_NOSCROLL: LISTBOXPARTS = 3i32;
@@ -1418,28 +1933,75 @@ pub const LBPSV_DISABLED: BORDER_VSCROLLSTATES = 4i32;
 pub const LBPSV_FOCUSED: BORDER_VSCROLLSTATES = 2i32;
 pub const LBPSV_HOT: BORDER_VSCROLLSTATES = 3i32;
 pub const LBPSV_NORMAL: BORDER_VSCROLLSTATES = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LHITTESTINFO {
+    pub pt: super::super::Foundation::POINT,
+    pub item: LITEM,
+}
 pub const LIF_ITEMID: LIST_ITEM_FLAGS = 4u32;
 pub const LIF_ITEMINDEX: LIST_ITEM_FLAGS = 1u32;
 pub const LIF_STATE: LIST_ITEM_FLAGS = 2u32;
 pub const LIF_URL: LIST_ITEM_FLAGS = 8u32;
 pub const LIM_LARGE: _LI_METRIC = 1i32;
 pub const LIM_SMALL: _LI_METRIC = 0i32;
+pub type LINKHEADERSTATES = i32;
+pub type LINKPARTS = i32;
+pub type LINKSTATES = i32;
 pub const LISS_DISABLED: LISTITEMSTATES = 4i32;
 pub const LISS_HOT: LISTITEMSTATES = 2i32;
 pub const LISS_HOTSELECTED: LISTITEMSTATES = 6i32;
 pub const LISS_NORMAL: LISTITEMSTATES = 1i32;
 pub const LISS_SELECTED: LISTITEMSTATES = 3i32;
 pub const LISS_SELECTEDNOTFOCUS: LISTITEMSTATES = 5i32;
+pub type LISTBOXPARTS = i32;
+pub type LISTITEMSTATES = i32;
+pub type LISTVIEWPARTS = i32;
+pub type LIST_ITEM_FLAGS = u32;
+pub type LIST_ITEM_STATE_FLAGS = u32;
+pub type LIST_VIEW_BACKGROUND_IMAGE_FLAGS = u32;
+pub type LIST_VIEW_GROUP_ALIGN_FLAGS = u32;
+pub type LIST_VIEW_GROUP_STATE_FLAGS = u32;
+pub type LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = i32;
+pub type LIST_VIEW_ITEM_FLAGS = u32;
+pub type LIST_VIEW_ITEM_STATE_FLAGS = u32;
 pub const LIS_DEFAULTCOLORS: LIST_ITEM_STATE_FLAGS = 16u32;
 pub const LIS_ENABLED: LIST_ITEM_STATE_FLAGS = 2u32;
 pub const LIS_FOCUSED: LIST_ITEM_STATE_FLAGS = 1u32;
 pub const LIS_HOTTRACK: LIST_ITEM_STATE_FLAGS = 8u32;
 pub const LIS_VISITED: LIST_ITEM_STATE_FLAGS = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LITEM {
+    pub mask: LIST_ITEM_FLAGS,
+    pub iLink: i32,
+    pub state: LIST_ITEM_STATE_FLAGS,
+    pub stateMask: LIST_ITEM_STATE_FLAGS,
+    pub szID: [u16; 48],
+    pub szUrl: [u16; 2084],
+}
 pub const LM_GETIDEALHEIGHT: u32 = 1793u32;
 pub const LM_GETIDEALSIZE: u32 = 1793u32;
 pub const LM_GETITEM: u32 = 1795u32;
 pub const LM_HITTEST: u32 = 1792u32;
 pub const LM_SETITEM: u32 = 1794u32;
+pub type LOGOFFBUTTONSSTATES = i32;
+pub type LPFNADDPROPSHEETPAGES = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: LPFNSVADDPROPSHEETPAGE, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type LPFNCCINFOA = Option<unsafe extern "system" fn(acci: *mut CCINFOA) -> u32>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type LPFNCCINFOW = Option<unsafe extern "system" fn(acci: *mut CCINFOW) -> u32>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type LPFNCCSIZETOTEXTA = Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: windows_sys::core::PCSTR) -> i32>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type LPFNCCSIZETOTEXTW = Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: windows_sys::core::PCWSTR) -> i32>;
+pub type LPFNCCSTYLEA = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEA) -> super::super::Foundation::BOOL>;
+pub type LPFNCCSTYLEW = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEW) -> super::super::Foundation::BOOL>;
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type LPFNPSPCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEA) -> u32>;
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type LPFNPSPCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEW) -> u32>;
+pub type LPFNSVADDPROPSHEETPAGE = Option<unsafe extern "system" fn(param0: HPROPSHEETPAGE, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 pub const LP_HYPERLINK: LINKPARTS = 1i32;
 pub const LVA_ALIGNLEFT: u32 = 1u32;
 pub const LVA_ALIGNTOP: u32 = 2u32;
@@ -1455,6 +2017,28 @@ pub const LVBKIF_STYLE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 16u32;
 pub const LVBKIF_STYLE_NORMAL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 0u32;
 pub const LVBKIF_STYLE_TILE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 16u32;
 pub const LVBKIF_TYPE_WATERMARK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 268435456u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct LVBKIMAGEA {
+    pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
+    pub hbm: super::super::Graphics::Gdi::HBITMAP,
+    pub pszImage: windows_sys::core::PSTR,
+    pub cchImageMax: u32,
+    pub xOffsetPercent: i32,
+    pub yOffsetPercent: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct LVBKIMAGEW {
+    pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
+    pub hbm: super::super::Graphics::Gdi::HBITMAP,
+    pub pszImage: windows_sys::core::PWSTR,
+    pub cchImageMax: u32,
+    pub xOffsetPercent: i32,
+    pub yOffsetPercent: i32,
+}
 pub const LVCB_HOVER: COLLAPSEBUTTONSTATES = 2i32;
 pub const LVCB_NORMAL: COLLAPSEBUTTONSTATES = 1i32;
 pub const LVCB_PUSHED: COLLAPSEBUTTONSTATES = 3i32;
@@ -1488,12 +2072,63 @@ pub const LVCF_ORDER: LVCOLUMNW_MASK = 32u32;
 pub const LVCF_SUBITEM: LVCOLUMNW_MASK = 8u32;
 pub const LVCF_TEXT: LVCOLUMNW_MASK = 4u32;
 pub const LVCF_WIDTH: LVCOLUMNW_MASK = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVCOLUMNA {
+    pub mask: LVCOLUMNW_MASK,
+    pub fmt: LVCOLUMNW_FORMAT,
+    pub cx: i32,
+    pub pszText: windows_sys::core::PSTR,
+    pub cchTextMax: i32,
+    pub iSubItem: i32,
+    pub iImage: i32,
+    pub iOrder: i32,
+    pub cxMin: i32,
+    pub cxDefault: i32,
+    pub cxIdeal: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVCOLUMNW {
+    pub mask: LVCOLUMNW_MASK,
+    pub fmt: LVCOLUMNW_FORMAT,
+    pub cx: i32,
+    pub pszText: windows_sys::core::PWSTR,
+    pub cchTextMax: i32,
+    pub iSubItem: i32,
+    pub iImage: i32,
+    pub iOrder: i32,
+    pub cxMin: i32,
+    pub cxDefault: i32,
+    pub cxIdeal: i32,
+}
+pub type LVCOLUMNW_FORMAT = i32;
+pub type LVCOLUMNW_MASK = u32;
 pub const LVEB_HOVER: EXPANDBUTTONSTATES = 2i32;
 pub const LVEB_NORMAL: EXPANDBUTTONSTATES = 1i32;
 pub const LVEB_PUSHED: EXPANDBUTTONSTATES = 3i32;
 pub const LVFF_ITEMCOUNT: u32 = 1u32;
 pub const LVFIF_STATE: LVFOOTERITEM_MASK = 2u32;
 pub const LVFIF_TEXT: LVFOOTERITEM_MASK = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVFINDINFOA {
+    pub flags: LVFINDINFOW_FLAGS,
+    pub psz: windows_sys::core::PCSTR,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub pt: super::super::Foundation::POINT,
+    pub vkDirection: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVFINDINFOW {
+    pub flags: LVFINDINFOW_FLAGS,
+    pub psz: windows_sys::core::PCWSTR,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub pt: super::super::Foundation::POINT,
+    pub vkDirection: u32,
+}
+pub type LVFINDINFOW_FLAGS = u32;
 pub const LVFIS_FOCUSED: u32 = 1u32;
 pub const LVFI_NEARESTXY: LVFINDINFOW_FLAGS = 64u32;
 pub const LVFI_PARAM: LVFINDINFOW_FLAGS = 1u32;
@@ -1501,6 +2136,25 @@ pub const LVFI_PARTIAL: LVFINDINFOW_FLAGS = 8u32;
 pub const LVFI_STRING: LVFINDINFOW_FLAGS = 2u32;
 pub const LVFI_SUBSTRING: LVFINDINFOW_FLAGS = 4u32;
 pub const LVFI_WRAP: LVFINDINFOW_FLAGS = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVFOOTERINFO {
+    pub mask: u32,
+    pub pszText: windows_sys::core::PWSTR,
+    pub cchTextMax: i32,
+    pub cItems: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVFOOTERITEM {
+    pub mask: LVFOOTERITEM_MASK,
+    pub iItem: i32,
+    pub pszText: windows_sys::core::PWSTR,
+    pub cchTextMax: i32,
+    pub state: u32,
+    pub stateMask: u32,
+}
+pub type LVFOOTERITEM_MASK = u32;
 pub const LVGA_FOOTER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = 16u32;
 pub const LVGA_FOOTER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = 8u32;
 pub const LVGA_FOOTER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = 32u32;
@@ -1564,6 +2218,51 @@ pub const LVGMF_BORDERCOLOR: u32 = 2u32;
 pub const LVGMF_BORDERSIZE: u32 = 1u32;
 pub const LVGMF_NONE: u32 = 0u32;
 pub const LVGMF_TEXTCOLOR: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVGROUP {
+    pub cbSize: u32,
+    pub mask: LVGROUP_MASK,
+    pub pszHeader: windows_sys::core::PWSTR,
+    pub cchHeader: i32,
+    pub pszFooter: windows_sys::core::PWSTR,
+    pub cchFooter: i32,
+    pub iGroupId: i32,
+    pub stateMask: LIST_VIEW_GROUP_STATE_FLAGS,
+    pub state: LIST_VIEW_GROUP_STATE_FLAGS,
+    pub uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS,
+    pub pszSubtitle: windows_sys::core::PWSTR,
+    pub cchSubtitle: u32,
+    pub pszTask: windows_sys::core::PWSTR,
+    pub cchTask: u32,
+    pub pszDescriptionTop: windows_sys::core::PWSTR,
+    pub cchDescriptionTop: u32,
+    pub pszDescriptionBottom: windows_sys::core::PWSTR,
+    pub cchDescriptionBottom: u32,
+    pub iTitleImage: i32,
+    pub iExtendedImage: i32,
+    pub iFirstItem: i32,
+    pub cItems: u32,
+    pub pszSubsetTitle: windows_sys::core::PWSTR,
+    pub cchSubsetTitle: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVGROUPMETRICS {
+    pub cbSize: u32,
+    pub mask: u32,
+    pub Left: u32,
+    pub Top: u32,
+    pub Right: u32,
+    pub Bottom: u32,
+    pub crLeft: super::super::Foundation::COLORREF,
+    pub crTop: super::super::Foundation::COLORREF,
+    pub crRight: super::super::Foundation::COLORREF,
+    pub crBottom: super::super::Foundation::COLORREF,
+    pub crHeader: super::super::Foundation::COLORREF,
+    pub crFooter: super::super::Foundation::COLORREF,
+}
+pub type LVGROUP_MASK = u32;
 pub const LVGS_COLLAPSED: LIST_VIEW_GROUP_STATE_FLAGS = 1u32;
 pub const LVGS_COLLAPSIBLE: LIST_VIEW_GROUP_STATE_FLAGS = 8u32;
 pub const LVGS_FOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = 16u32;
@@ -1573,6 +2272,16 @@ pub const LVGS_NORMAL: LIST_VIEW_GROUP_STATE_FLAGS = 0u32;
 pub const LVGS_SELECTED: LIST_VIEW_GROUP_STATE_FLAGS = 32u32;
 pub const LVGS_SUBSETED: LIST_VIEW_GROUP_STATE_FLAGS = 64u32;
 pub const LVGS_SUBSETLINKFOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = 128u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVHITTESTINFO {
+    pub pt: super::super::Foundation::POINT,
+    pub flags: LVHITTESTINFO_FLAGS,
+    pub iItem: i32,
+    pub iSubItem: i32,
+    pub iGroup: i32,
+}
+pub type LVHITTESTINFO_FLAGS = u32;
 pub const LVHT_ABOVE: LVHITTESTINFO_FLAGS = 8u32;
 pub const LVHT_BELOW: LVHITTESTINFO_FLAGS = 16u32;
 pub const LVHT_EX_FOOTER: LVHITTESTINFO_FLAGS = 134217728u32;
@@ -1601,6 +2310,21 @@ pub const LVIF_PARAM: LIST_VIEW_ITEM_FLAGS = 4u32;
 pub const LVIF_STATE: LIST_VIEW_ITEM_FLAGS = 8u32;
 pub const LVIF_TEXT: LIST_VIEW_ITEM_FLAGS = 1u32;
 pub const LVIM_AFTER: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVINSERTGROUPSORTED {
+    pub pfnGroupCompare: PFNLVGROUPCOMPARE,
+    pub pvData: *mut core::ffi::c_void,
+    pub lvGroup: LVGROUP,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVINSERTMARK {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub iItem: i32,
+    pub dwReserved: u32,
+}
 pub const LVIR_BOUNDS: u32 = 0u32;
 pub const LVIR_ICON: u32 = 1u32;
 pub const LVIR_LABEL: u32 = 2u32;
@@ -1613,6 +2337,51 @@ pub const LVIS_GLOW: LIST_VIEW_ITEM_STATE_FLAGS = 16u32;
 pub const LVIS_OVERLAYMASK: LIST_VIEW_ITEM_STATE_FLAGS = 3840u32;
 pub const LVIS_SELECTED: LIST_VIEW_ITEM_STATE_FLAGS = 2u32;
 pub const LVIS_STATEIMAGEMASK: LIST_VIEW_ITEM_STATE_FLAGS = 61440u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVITEMA {
+    pub mask: LIST_VIEW_ITEM_FLAGS,
+    pub iItem: i32,
+    pub iSubItem: i32,
+    pub state: LIST_VIEW_ITEM_STATE_FLAGS,
+    pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
+    pub pszText: windows_sys::core::PSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iIndent: i32,
+    pub iGroupId: i32,
+    pub cColumns: u32,
+    pub puColumns: *mut u32,
+    pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
+    pub iGroup: i32,
+}
+pub type LVITEMA_GROUP_ID = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVITEMINDEX {
+    pub iItem: i32,
+    pub iGroup: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVITEMW {
+    pub mask: LIST_VIEW_ITEM_FLAGS,
+    pub iItem: i32,
+    pub iSubItem: i32,
+    pub state: LIST_VIEW_ITEM_STATE_FLAGS,
+    pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
+    pub pszText: windows_sys::core::PWSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iIndent: i32,
+    pub iGroupId: i32,
+    pub cColumns: u32,
+    pub puColumns: *mut u32,
+    pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
+    pub iGroup: i32,
+}
 pub const LVKF_ALT: u32 = 1u32;
 pub const LVKF_CONTROL: u32 = 2u32;
 pub const LVKF_SHIFT: u32 = 4u32;
@@ -1842,6 +2611,15 @@ pub const LVP_LISTITEM: LISTVIEWPARTS = 1i32;
 pub const LVP_LISTSORTEDDETAIL: LISTVIEWPARTS = 4i32;
 pub const LVSCW_AUTOSIZE: i32 = -1i32;
 pub const LVSCW_AUTOSIZE_USEHEADER: i32 = -2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVSETINFOTIP {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub pszText: windows_sys::core::PWSTR,
+    pub iItem: i32,
+    pub iSubItem: i32,
+}
 pub const LVSICF_NOINVALIDATEALL: u32 = 1u32;
 pub const LVSICF_NOSCROLL: u32 = 2u32;
 pub const LVSIL_GROUPHEADER: u32 = 3u32;
@@ -1900,6 +2678,27 @@ pub const LVS_SORTASCENDING: u32 = 16u32;
 pub const LVS_SORTDESCENDING: u32 = 32u32;
 pub const LVS_TYPEMASK: u32 = 3u32;
 pub const LVS_TYPESTYLEMASK: u32 = 64512u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVTILEINFO {
+    pub cbSize: u32,
+    pub iItem: i32,
+    pub cColumns: u32,
+    pub puColumns: *mut u32,
+    pub piColFmt: *mut i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LVTILEVIEWINFO {
+    pub cbSize: u32,
+    pub dwMask: LVTILEVIEWINFO_MASK,
+    pub dwFlags: LVTILEVIEWINFO_FLAGS,
+    pub sizeTile: super::super::Foundation::SIZE,
+    pub cLines: i32,
+    pub rcLabelMargin: super::super::Foundation::RECT,
+}
+pub type LVTILEVIEWINFO_FLAGS = u32;
+pub type LVTILEVIEWINFO_MASK = u32;
 pub const LVTVIF_AUTOSIZE: LVTILEVIEWINFO_FLAGS = 0u32;
 pub const LVTVIF_EXTENDED: u32 = 4u32;
 pub const LVTVIF_FIXEDHEIGHT: LVTILEVIEWINFO_FLAGS = 2u32;
@@ -1921,10 +2720,21 @@ pub const LWS_RIGHT: u32 = 32u32;
 pub const LWS_TRANSPARENT: u32 = 1u32;
 pub const LWS_USECUSTOMTEXT: u32 = 16u32;
 pub const LWS_USEVISUALSTYLE: u32 = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MARGINS {
+    pub cxLeftWidth: i32,
+    pub cxRightWidth: i32,
+    pub cyTopHeight: i32,
+    pub cyBottomHeight: i32,
+}
+pub type MARKUPTEXTSTATES = i32;
 pub const MAXBS_DISABLED: MAXBUTTONSTATES = 4i32;
 pub const MAXBS_HOT: MAXBUTTONSTATES = 2i32;
 pub const MAXBS_NORMAL: MAXBUTTONSTATES = 1i32;
 pub const MAXBS_PUSHED: MAXBUTTONSTATES = 3i32;
+pub type MAXBUTTONSTATES = i32;
+pub type MAXCAPTIONSTATES = i32;
 pub const MAXPROPPAGES: u32 = 100u32;
 pub const MAX_INTLIST_COUNT: u32 = 402u32;
 pub const MAX_LINKID_TEXT: u32 = 48u32;
@@ -1971,6 +2781,37 @@ pub const MCGIP_CALENDARROW: MCGRIDINFO_PART = 7u32;
 pub const MCGIP_FOOTER: MCGRIDINFO_PART = 3u32;
 pub const MCGIP_NEXT: MCGRIDINFO_PART = 1u32;
 pub const MCGIP_PREV: MCGRIDINFO_PART = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MCGRIDINFO {
+    pub cbSize: u32,
+    pub dwPart: MCGRIDINFO_PART,
+    pub dwFlags: MCGRIDINFO_FLAGS,
+    pub iCalendar: i32,
+    pub iRow: i32,
+    pub iCol: i32,
+    pub bSelected: super::super::Foundation::BOOL,
+    pub stStart: super::super::Foundation::SYSTEMTIME,
+    pub stEnd: super::super::Foundation::SYSTEMTIME,
+    pub rc: super::super::Foundation::RECT,
+    pub pszName: windows_sys::core::PWSTR,
+    pub cchName: usize,
+}
+pub type MCGRIDINFO_FLAGS = u32;
+pub type MCGRIDINFO_PART = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MCHITTESTINFO {
+    pub cbSize: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub uHit: MCHITTESTINFO_HIT_FLAGS,
+    pub st: super::super::Foundation::SYSTEMTIME,
+    pub rc: super::super::Foundation::RECT,
+    pub iOffset: i32,
+    pub iRow: i32,
+    pub iCol: i32,
+}
+pub type MCHITTESTINFO_HIT_FLAGS = u32;
 pub const MCHT_CALENDAR: MCHITTESTINFO_HIT_FLAGS = 131072u32;
 pub const MCHT_CALENDARBK: MCHITTESTINFO_HIT_FLAGS = 131072u32;
 pub const MCHT_CALENDARCONTROL: MCHITTESTINFO_HIT_FLAGS = 1048576u32;
@@ -2088,6 +2929,9 @@ pub const MDCL_DISABLED: MDICLOSEBUTTONSTATES = 4i32;
 pub const MDCL_HOT: MDICLOSEBUTTONSTATES = 2i32;
 pub const MDCL_NORMAL: MDICLOSEBUTTONSTATES = 1i32;
 pub const MDCL_PUSHED: MDICLOSEBUTTONSTATES = 3i32;
+pub type MDICLOSEBUTTONSTATES = i32;
+pub type MDIMINBUTTONSTATES = i32;
+pub type MDIRESTOREBUTTONSTATES = i32;
 pub const MDMI_DISABLED: MDIMINBUTTONSTATES = 4i32;
 pub const MDMI_HOT: MDIMINBUTTONSTATES = 2i32;
 pub const MDMI_NORMAL: MDIMINBUTTONSTATES = 1i32;
@@ -2104,6 +2948,19 @@ pub const MDS_HOT: MENUBANDSTATES = 2i32;
 pub const MDS_HOTCHECKED: MENUBANDSTATES = 6i32;
 pub const MDS_NORMAL: MENUBANDSTATES = 1i32;
 pub const MDS_PRESSED: MENUBANDSTATES = 3i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MEASUREITEMSTRUCT {
+    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
+    pub CtlID: u32,
+    pub itemID: u32,
+    pub itemWidth: u32,
+    pub itemHeight: u32,
+    pub itemData: usize,
+}
+pub type MENUBANDPARTS = i32;
+pub type MENUBANDSTATES = i32;
+pub type MENUPARTS = i32;
 pub const MENU_BARBACKGROUND: MENUPARTS = 7i32;
 pub const MENU_BARITEM: MENUPARTS = 8i32;
 pub const MENU_CHEVRON_TMSCHEMA: MENUPARTS = 5i32;
@@ -2135,12 +2992,20 @@ pub const MINBS_DISABLED: MINBUTTONSTATES = 4i32;
 pub const MINBS_HOT: MINBUTTONSTATES = 2i32;
 pub const MINBS_NORMAL: MINBUTTONSTATES = 1i32;
 pub const MINBS_PUSHED: MINBUTTONSTATES = 3i32;
+pub type MINBUTTONSTATES = i32;
+pub type MINCAPTIONSTATES = i32;
 pub const MNCS_ACTIVE: MINCAPTIONSTATES = 1i32;
 pub const MNCS_DISABLED: MINCAPTIONSTATES = 3i32;
 pub const MNCS_INACTIVE: MINCAPTIONSTATES = 2i32;
+pub type MONTHCALPARTS = i32;
 pub const MONTHCAL_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("SysMonthCal32");
 pub const MONTHCAL_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysMonthCal32");
 pub const MONTHCAL_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysMonthCal32");
+pub type MONTH_CALDENDAR_MESSAGES_VIEW = u32;
+pub type MOREPROGRAMSARROWBACKSTATES = i32;
+pub type MOREPROGRAMSARROWSTATES = i32;
+pub type MOREPROGRAMSTABSTATES = i32;
+pub type MOVESTATES = i32;
 pub const MPIF_DISABLED: POPUPITEMFOCUSABLESTATES = 3i32;
 pub const MPIF_DISABLEDHOT: POPUPITEMFOCUSABLESTATES = 4i32;
 pub const MPIF_HOT: POPUPITEMFOCUSABLESTATES = 2i32;
@@ -2173,7 +3038,11 @@ pub const MULTIFILEOPENORD: u32 = 1537u32;
 pub const MXCS_ACTIVE: MAXCAPTIONSTATES = 1i32;
 pub const MXCS_DISABLED: MAXCAPTIONSTATES = 3i32;
 pub const MXCS_INACTIVE: MAXCAPTIONSTATES = 2i32;
+pub type NAVIGATIONPARTS = i32;
+pub type NAVNEXTSTATES = i32;
+pub type NAVPREVSTATES = i32;
 pub const NAV_BACKBUTTON: NAVIGATIONPARTS = 1i32;
+pub type NAV_BACKBUTTONSTATES = i32;
 pub const NAV_BB_DISABLED: NAV_BACKBUTTONSTATES = 4i32;
 pub const NAV_BB_HOT: NAV_BACKBUTTONSTATES = 2i32;
 pub const NAV_BB_NORMAL: NAV_BACKBUTTONSTATES = 1i32;
@@ -2183,11 +3052,13 @@ pub const NAV_FB_HOT: NAV_FORWARDBUTTONSTATES = 2i32;
 pub const NAV_FB_NORMAL: NAV_FORWARDBUTTONSTATES = 1i32;
 pub const NAV_FB_PRESSED: NAV_FORWARDBUTTONSTATES = 3i32;
 pub const NAV_FORWARDBUTTON: NAVIGATIONPARTS = 2i32;
+pub type NAV_FORWARDBUTTONSTATES = i32;
 pub const NAV_MB_DISABLED: NAV_MENUBUTTONSTATES = 4i32;
 pub const NAV_MB_HOT: NAV_MENUBUTTONSTATES = 2i32;
 pub const NAV_MB_NORMAL: NAV_MENUBUTTONSTATES = 1i32;
 pub const NAV_MB_PRESSED: NAV_MENUBUTTONSTATES = 3i32;
 pub const NAV_MENUBUTTON: NAVIGATIONPARTS = 3i32;
+pub type NAV_MENUBUTTONSTATES = i32;
 pub const NEWFILEOPENORD: u32 = 1547u32;
 pub const NEWFILEOPENV2ORD: u32 = 1552u32;
 pub const NEWFILEOPENV3ORD: u32 = 1553u32;
@@ -2198,3254 +3069,6 @@ pub const NFS_EDIT: u32 = 1u32;
 pub const NFS_LISTCOMBO: u32 = 4u32;
 pub const NFS_STATIC: u32 = 2u32;
 pub const NFS_USEFONTASSOC: u32 = 32u32;
-pub const NM_CHAR: u32 = 4294967278u32;
-pub const NM_CLICK: u32 = 4294967294u32;
-pub const NM_CUSTOMDRAW: u32 = 4294967284u32;
-pub const NM_CUSTOMTEXT: u32 = 4294967272u32;
-pub const NM_DBLCLK: u32 = 4294967293u32;
-pub const NM_FIRST: u32 = 0u32;
-pub const NM_FONTCHANGED: u32 = 4294967273u32;
-pub const NM_GETCUSTOMSPLITRECT: u32 = 4294966049u32;
-pub const NM_HOVER: u32 = 4294967283u32;
-pub const NM_KEYDOWN: u32 = 4294967281u32;
-pub const NM_KILLFOCUS: u32 = 4294967288u32;
-pub const NM_LAST: u32 = 4294967197u32;
-pub const NM_LDOWN: u32 = 4294967276u32;
-pub const NM_NCHITTEST: u32 = 4294967282u32;
-pub const NM_OUTOFMEMORY: u32 = 4294967295u32;
-pub const NM_RCLICK: u32 = 4294967291u32;
-pub const NM_RDBLCLK: u32 = 4294967290u32;
-pub const NM_RDOWN: u32 = 4294967275u32;
-pub const NM_RELEASEDCAPTURE: u32 = 4294967280u32;
-pub const NM_RETURN: u32 = 4294967292u32;
-pub const NM_SETCURSOR: u32 = 4294967279u32;
-pub const NM_SETFOCUS: u32 = 4294967289u32;
-pub const NM_THEMECHANGED: u32 = 4294967274u32;
-pub const NM_TOOLTIPSCREATED: u32 = 4294967277u32;
-pub const NM_TVSTATEIMAGECHANGING: u32 = 4294967272u32;
-pub const ODA_DRAWENTIRE: ODA_FLAGS = 1u32;
-pub const ODA_FOCUS: ODA_FLAGS = 4u32;
-pub const ODA_SELECT: ODA_FLAGS = 2u32;
-pub const ODS_CHECKED: ODS_FLAGS = 8u32;
-pub const ODS_COMBOBOXEDIT: ODS_FLAGS = 4096u32;
-pub const ODS_DEFAULT: ODS_FLAGS = 32u32;
-pub const ODS_DISABLED: ODS_FLAGS = 4u32;
-pub const ODS_FOCUS: ODS_FLAGS = 16u32;
-pub const ODS_GRAYED: ODS_FLAGS = 2u32;
-pub const ODS_HOTLIGHT: ODS_FLAGS = 64u32;
-pub const ODS_INACTIVE: ODS_FLAGS = 128u32;
-pub const ODS_NOACCEL: ODS_FLAGS = 256u32;
-pub const ODS_NOFOCUSRECT: ODS_FLAGS = 512u32;
-pub const ODS_SELECTED: ODS_FLAGS = 1u32;
-pub const ODT_BUTTON: DRAWITEMSTRUCT_CTL_TYPE = 4u32;
-pub const ODT_COMBOBOX: DRAWITEMSTRUCT_CTL_TYPE = 3u32;
-pub const ODT_HEADER: u32 = 100u32;
-pub const ODT_LISTBOX: DRAWITEMSTRUCT_CTL_TYPE = 2u32;
-pub const ODT_LISTVIEW: DRAWITEMSTRUCT_CTL_TYPE = 102u32;
-pub const ODT_MENU: DRAWITEMSTRUCT_CTL_TYPE = 1u32;
-pub const ODT_STATIC: DRAWITEMSTRUCT_CTL_TYPE = 5u32;
-pub const ODT_TAB: DRAWITEMSTRUCT_CTL_TYPE = 101u32;
-pub const OTD_FORCE_RECT_SIZING: OPEN_THEME_DATA_FLAGS = 1u32;
-pub const OTD_NONCLIENT: OPEN_THEME_DATA_FLAGS = 2u32;
-pub const OT_ABOVELASTBUTTON: OFFSETTYPE = 12i32;
-pub const OT_BELOWLASTBUTTON: OFFSETTYPE = 13i32;
-pub const OT_BOTTOMLEFT: OFFSETTYPE = 3i32;
-pub const OT_BOTTOMMIDDLE: OFFSETTYPE = 5i32;
-pub const OT_BOTTOMRIGHT: OFFSETTYPE = 4i32;
-pub const OT_LEFTOFCAPTION: OFFSETTYPE = 8i32;
-pub const OT_LEFTOFLASTBUTTON: OFFSETTYPE = 10i32;
-pub const OT_MIDDLELEFT: OFFSETTYPE = 6i32;
-pub const OT_MIDDLERIGHT: OFFSETTYPE = 7i32;
-pub const OT_RIGHTOFCAPTION: OFFSETTYPE = 9i32;
-pub const OT_RIGHTOFLASTBUTTON: OFFSETTYPE = 11i32;
-pub const OT_TOPLEFT: OFFSETTYPE = 0i32;
-pub const OT_TOPMIDDLE: OFFSETTYPE = 2i32;
-pub const OT_TOPRIGHT: OFFSETTYPE = 1i32;
-pub const PAGESETUPDLGORD: u32 = 1546u32;
-pub const PAGESETUPDLGORDMOTIF: u32 = 1550u32;
-pub const PBBS_NORMAL: TRANSPARENTBARSTATES = 1i32;
-pub const PBBS_PARTIAL: TRANSPARENTBARSTATES = 2i32;
-pub const PBBVS_NORMAL: TRANSPARENTBARVERTSTATES = 1i32;
-pub const PBBVS_PARTIAL: TRANSPARENTBARVERTSTATES = 2i32;
-pub const PBDDS_DISABLED: PUSHBUTTONDROPDOWNSTATES = 2i32;
-pub const PBDDS_NORMAL: PUSHBUTTONDROPDOWNSTATES = 1i32;
-pub const PBFS_ERROR: FILLSTATES = 2i32;
-pub const PBFS_NORMAL: FILLSTATES = 1i32;
-pub const PBFS_PARTIAL: FILLSTATES = 4i32;
-pub const PBFS_PAUSED: FILLSTATES = 3i32;
-pub const PBFVS_ERROR: FILLVERTSTATES = 2i32;
-pub const PBFVS_NORMAL: FILLVERTSTATES = 1i32;
-pub const PBFVS_PARTIAL: FILLVERTSTATES = 4i32;
-pub const PBFVS_PAUSED: FILLVERTSTATES = 3i32;
-pub const PBM_DELTAPOS: u32 = 1027u32;
-pub const PBM_GETBARCOLOR: u32 = 1039u32;
-pub const PBM_GETBKCOLOR: u32 = 1038u32;
-pub const PBM_GETPOS: u32 = 1032u32;
-pub const PBM_GETRANGE: u32 = 1031u32;
-pub const PBM_GETSTATE: u32 = 1041u32;
-pub const PBM_GETSTEP: u32 = 1037u32;
-pub const PBM_SETBARCOLOR: u32 = 1033u32;
-pub const PBM_SETBKCOLOR: u32 = 8193u32;
-pub const PBM_SETMARQUEE: u32 = 1034u32;
-pub const PBM_SETPOS: u32 = 1026u32;
-pub const PBM_SETRANGE: u32 = 1025u32;
-pub const PBM_SETRANGE32: u32 = 1030u32;
-pub const PBM_SETSTATE: u32 = 1040u32;
-pub const PBM_SETSTEP: u32 = 1028u32;
-pub const PBM_STEPIT: u32 = 1029u32;
-pub const PBST_ERROR: u32 = 2u32;
-pub const PBST_NORMAL: u32 = 1u32;
-pub const PBST_PAUSED: u32 = 3u32;
-pub const PBS_DEFAULTED: PUSHBUTTONSTATES = 5i32;
-pub const PBS_DEFAULTED_ANIMATING: PUSHBUTTONSTATES = 6i32;
-pub const PBS_DISABLED: PUSHBUTTONSTATES = 4i32;
-pub const PBS_HOT: PUSHBUTTONSTATES = 2i32;
-pub const PBS_MARQUEE: u32 = 8u32;
-pub const PBS_NORMAL: PUSHBUTTONSTATES = 1i32;
-pub const PBS_PRESSED: PUSHBUTTONSTATES = 3i32;
-pub const PBS_SMOOTH: u32 = 1u32;
-pub const PBS_SMOOTHREVERSE: u32 = 16u32;
-pub const PBS_VERTICAL: u32 = 4u32;
-pub const PGB_BOTTOMORRIGHT: u32 = 1u32;
-pub const PGB_TOPORLEFT: u32 = 0u32;
-pub const PGF_CALCHEIGHT: NMPGCALCSIZE_FLAGS = 2u32;
-pub const PGF_CALCWIDTH: NMPGCALCSIZE_FLAGS = 1u32;
-pub const PGF_DEPRESSED: u32 = 4u32;
-pub const PGF_GRAYED: u32 = 2u32;
-pub const PGF_HOT: u32 = 8u32;
-pub const PGF_INVISIBLE: u32 = 0u32;
-pub const PGF_NORMAL: u32 = 1u32;
-pub const PGF_SCROLLDOWN: NMPGSCROLL_DIR = 2i32;
-pub const PGF_SCROLLLEFT: NMPGSCROLL_DIR = 4i32;
-pub const PGF_SCROLLRIGHT: NMPGSCROLL_DIR = 8i32;
-pub const PGF_SCROLLUP: NMPGSCROLL_DIR = 1i32;
-pub const PGK_CONTROL: NMPGSCROLL_KEYS = 2u16;
-pub const PGK_MENU: NMPGSCROLL_KEYS = 4u16;
-pub const PGK_NONE: NMPGSCROLL_KEYS = 0u16;
-pub const PGK_SHIFT: NMPGSCROLL_KEYS = 1u16;
-pub const PGM_FIRST: u32 = 5120u32;
-pub const PGM_FORWARDMOUSE: u32 = 5123u32;
-pub const PGM_GETBKCOLOR: u32 = 5125u32;
-pub const PGM_GETBORDER: u32 = 5127u32;
-pub const PGM_GETBUTTONSIZE: u32 = 5131u32;
-pub const PGM_GETBUTTONSTATE: u32 = 5132u32;
-pub const PGM_GETDROPTARGET: u32 = 8196u32;
-pub const PGM_GETPOS: u32 = 5129u32;
-pub const PGM_RECALCSIZE: u32 = 5122u32;
-pub const PGM_SETBKCOLOR: u32 = 5124u32;
-pub const PGM_SETBORDER: u32 = 5126u32;
-pub const PGM_SETBUTTONSIZE: u32 = 5130u32;
-pub const PGM_SETCHILD: u32 = 5121u32;
-pub const PGM_SETPOS: u32 = 5128u32;
-pub const PGM_SETSCROLLINFO: u32 = 5133u32;
-pub const PGN_CALCSIZE: u32 = 4294966394u32;
-pub const PGN_FIRST: u32 = 4294966396u32;
-pub const PGN_HOTITEMCHANGE: u32 = 4294966393u32;
-pub const PGN_LAST: u32 = 4294966346u32;
-pub const PGN_SCROLL: u32 = 4294966395u32;
-pub const PGRP_DOWN: PAGEPARTS = 2i32;
-pub const PGRP_DOWNHORZ: PAGEPARTS = 4i32;
-pub const PGRP_UP: PAGEPARTS = 1i32;
-pub const PGRP_UPHORZ: PAGEPARTS = 3i32;
-pub const PGS_AUTOSCROLL: u32 = 2u32;
-pub const PGS_DRAGNDROP: u32 = 4u32;
-pub const PGS_HORZ: u32 = 1u32;
-pub const PGS_VERT: u32 = 0u32;
-pub const POINTER_DEVICE_CURSOR_TYPE_ERASER: POINTER_DEVICE_CURSOR_TYPE = 2i32;
-pub const POINTER_DEVICE_CURSOR_TYPE_MAX: POINTER_DEVICE_CURSOR_TYPE = -1i32;
-pub const POINTER_DEVICE_CURSOR_TYPE_TIP: POINTER_DEVICE_CURSOR_TYPE = 1i32;
-pub const POINTER_DEVICE_CURSOR_TYPE_UNKNOWN: POINTER_DEVICE_CURSOR_TYPE = 0i32;
-pub const POINTER_DEVICE_TYPE_EXTERNAL_PEN: POINTER_DEVICE_TYPE = 2i32;
-pub const POINTER_DEVICE_TYPE_INTEGRATED_PEN: POINTER_DEVICE_TYPE = 1i32;
-pub const POINTER_DEVICE_TYPE_MAX: POINTER_DEVICE_TYPE = -1i32;
-pub const POINTER_DEVICE_TYPE_TOUCH: POINTER_DEVICE_TYPE = 3i32;
-pub const POINTER_DEVICE_TYPE_TOUCH_PAD: POINTER_DEVICE_TYPE = 4i32;
-pub const POINTER_FEEDBACK_DEFAULT: POINTER_FEEDBACK_MODE = 1i32;
-pub const POINTER_FEEDBACK_INDIRECT: POINTER_FEEDBACK_MODE = 2i32;
-pub const POINTER_FEEDBACK_NONE: POINTER_FEEDBACK_MODE = 3i32;
-pub const PO_CLASS: PROPERTYORIGIN = 2i32;
-pub const PO_GLOBAL: PROPERTYORIGIN = 3i32;
-pub const PO_NOTFOUND: PROPERTYORIGIN = 4i32;
-pub const PO_PART: PROPERTYORIGIN = 1i32;
-pub const PO_STATE: PROPERTYORIGIN = 0i32;
-pub const PP_BAR: PROGRESSPARTS = 1i32;
-pub const PP_BARVERT: PROGRESSPARTS = 2i32;
-pub const PP_CHUNK: PROGRESSPARTS = 3i32;
-pub const PP_CHUNKVERT: PROGRESSPARTS = 4i32;
-pub const PP_FILL: PROGRESSPARTS = 5i32;
-pub const PP_FILLVERT: PROGRESSPARTS = 6i32;
-pub const PP_MOVEOVERLAY: PROGRESSPARTS = 8i32;
-pub const PP_MOVEOVERLAYVERT: PROGRESSPARTS = 10i32;
-pub const PP_PULSEOVERLAY: PROGRESSPARTS = 7i32;
-pub const PP_PULSEOVERLAYVERT: PROGRESSPARTS = 9i32;
-pub const PP_TRANSPARENTBAR: PROGRESSPARTS = 11i32;
-pub const PP_TRANSPARENTBARVERT: PROGRESSPARTS = 12i32;
-pub const PRINTDLGEXORD: u32 = 1549u32;
-pub const PRINTDLGORD: u32 = 1538u32;
-pub const PRNSETUPDLGORD: u32 = 1539u32;
-pub const PROGRESS_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_progress32");
-pub const PROGRESS_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_progress32");
-pub const PROGRESS_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_progress32");
-pub const PROP_LG_CXDLG: u32 = 252u32;
-pub const PROP_LG_CYDLG: u32 = 218u32;
-pub const PROP_MED_CXDLG: u32 = 227u32;
-pub const PROP_MED_CYDLG: u32 = 215u32;
-pub const PROP_SM_CXDLG: u32 = 212u32;
-pub const PROP_SM_CYDLG: u32 = 188u32;
-pub const PSBTN_APPLYNOW: u32 = 4u32;
-pub const PSBTN_BACK: u32 = 0u32;
-pub const PSBTN_CANCEL: u32 = 5u32;
-pub const PSBTN_FINISH: u32 = 2u32;
-pub const PSBTN_HELP: u32 = 6u32;
-pub const PSBTN_MAX: u32 = 6u32;
-pub const PSBTN_NEXT: u32 = 1u32;
-pub const PSBTN_OK: u32 = 3u32;
-pub const PSCB_BUTTONPRESSED: u32 = 3u32;
-pub const PSCB_INITIALIZED: u32 = 1u32;
-pub const PSCB_PRECREATE: u32 = 2u32;
-pub const PSH_AEROWIZARD: u32 = 16384u32;
-pub const PSH_DEFAULT: u32 = 0u32;
-pub const PSH_HASHELP: u32 = 512u32;
-pub const PSH_HEADER: u32 = 524288u32;
-pub const PSH_HEADERBITMAP: u32 = 134217728u32;
-pub const PSH_MODELESS: u32 = 1024u32;
-pub const PSH_NOAPPLYNOW: u32 = 128u32;
-pub const PSH_NOCONTEXTHELP: u32 = 33554432u32;
-pub const PSH_NOMARGIN: u32 = 268435456u32;
-pub const PSH_PROPSHEETPAGE: u32 = 8u32;
-pub const PSH_PROPTITLE: u32 = 1u32;
-pub const PSH_RESIZABLE: u32 = 67108864u32;
-pub const PSH_RTLREADING: u32 = 2048u32;
-pub const PSH_STRETCHWATERMARK: u32 = 262144u32;
-pub const PSH_USECALLBACK: u32 = 256u32;
-pub const PSH_USEHBMHEADER: u32 = 1048576u32;
-pub const PSH_USEHBMWATERMARK: u32 = 65536u32;
-pub const PSH_USEHICON: u32 = 2u32;
-pub const PSH_USEHPLWATERMARK: u32 = 131072u32;
-pub const PSH_USEICONID: u32 = 4u32;
-pub const PSH_USEPAGELANG: u32 = 2097152u32;
-pub const PSH_USEPSTARTPAGE: u32 = 64u32;
-pub const PSH_WATERMARK: u32 = 32768u32;
-pub const PSH_WIZARD: u32 = 32u32;
-pub const PSH_WIZARD97: u32 = 8192u32;
-pub const PSH_WIZARDCONTEXTHELP: u32 = 4096u32;
-pub const PSH_WIZARDHASFINISH: u32 = 16u32;
-pub const PSH_WIZARD_LITE: u32 = 4194304u32;
-pub const PSM_ADDPAGE: u32 = 1127u32;
-pub const PSM_APPLY: u32 = 1134u32;
-pub const PSM_CANCELTOCLOSE: u32 = 1131u32;
-pub const PSM_CHANGED: u32 = 1128u32;
-pub const PSM_ENABLEWIZBUTTONS: u32 = 1163u32;
-pub const PSM_GETCURRENTPAGEHWND: u32 = 1142u32;
-pub const PSM_GETRESULT: u32 = 1159u32;
-pub const PSM_GETTABCONTROL: u32 = 1140u32;
-pub const PSM_HWNDTOINDEX: u32 = 1153u32;
-pub const PSM_IDTOINDEX: u32 = 1157u32;
-pub const PSM_INDEXTOHWND: u32 = 1154u32;
-pub const PSM_INDEXTOID: u32 = 1158u32;
-pub const PSM_INDEXTOPAGE: u32 = 1156u32;
-pub const PSM_INSERTPAGE: u32 = 1143u32;
-pub const PSM_ISDIALOGMESSAGE: u32 = 1141u32;
-pub const PSM_PAGETOINDEX: u32 = 1155u32;
-pub const PSM_PRESSBUTTON: u32 = 1137u32;
-pub const PSM_QUERYSIBLINGS: u32 = 1132u32;
-pub const PSM_REBOOTSYSTEM: u32 = 1130u32;
-pub const PSM_RECALCPAGESIZES: u32 = 1160u32;
-pub const PSM_REMOVEPAGE: u32 = 1126u32;
-pub const PSM_RESTARTWINDOWS: u32 = 1129u32;
-pub const PSM_SETBUTTONTEXT: u32 = 1164u32;
-pub const PSM_SETBUTTONTEXTW: u32 = 1164u32;
-pub const PSM_SETCURSEL: u32 = 1125u32;
-pub const PSM_SETCURSELID: u32 = 1138u32;
-pub const PSM_SETFINISHTEXT: u32 = 1145u32;
-pub const PSM_SETFINISHTEXTA: u32 = 1139u32;
-pub const PSM_SETFINISHTEXTW: u32 = 1145u32;
-pub const PSM_SETHEADERSUBTITLE: u32 = 1152u32;
-pub const PSM_SETHEADERSUBTITLEA: u32 = 1151u32;
-pub const PSM_SETHEADERSUBTITLEW: u32 = 1152u32;
-pub const PSM_SETHEADERTITLE: u32 = 1150u32;
-pub const PSM_SETHEADERTITLEA: u32 = 1149u32;
-pub const PSM_SETHEADERTITLEW: u32 = 1150u32;
-pub const PSM_SETNEXTTEXT: u32 = 1161u32;
-pub const PSM_SETNEXTTEXTW: u32 = 1161u32;
-pub const PSM_SETTITLE: u32 = 1144u32;
-pub const PSM_SETTITLEA: u32 = 1135u32;
-pub const PSM_SETTITLEW: u32 = 1144u32;
-pub const PSM_SETWIZBUTTONS: u32 = 1136u32;
-pub const PSM_SHOWWIZBUTTONS: u32 = 1162u32;
-pub const PSM_UNCHANGED: u32 = 1133u32;
-pub const PSNRET_INVALID: u32 = 1u32;
-pub const PSNRET_INVALID_NOCHANGEPAGE: u32 = 2u32;
-pub const PSNRET_MESSAGEHANDLED: u32 = 3u32;
-pub const PSNRET_NOERROR: u32 = 0u32;
-pub const PSN_APPLY: u32 = 4294967094u32;
-pub const PSN_FIRST: u32 = 4294967096u32;
-pub const PSN_GETOBJECT: u32 = 4294967086u32;
-pub const PSN_HELP: u32 = 4294967091u32;
-pub const PSN_KILLACTIVE: u32 = 4294967095u32;
-pub const PSN_LAST: u32 = 4294966997u32;
-pub const PSN_QUERYCANCEL: u32 = 4294967087u32;
-pub const PSN_QUERYINITIALFOCUS: u32 = 4294967083u32;
-pub const PSN_RESET: u32 = 4294967093u32;
-pub const PSN_SETACTIVE: u32 = 4294967096u32;
-pub const PSN_TRANSLATEACCELERATOR: u32 = 4294967084u32;
-pub const PSN_WIZBACK: u32 = 4294967090u32;
-pub const PSN_WIZFINISH: u32 = 4294967088u32;
-pub const PSN_WIZNEXT: u32 = 4294967089u32;
-pub const PSPCB_ADDREF: PSPCB_MESSAGE = 0u32;
-pub const PSPCB_CREATE: PSPCB_MESSAGE = 2u32;
-pub const PSPCB_RELEASE: PSPCB_MESSAGE = 1u32;
-pub const PSPCB_SI_INITDIALOG: PSPCB_MESSAGE = 1025u32;
-pub const PSP_DEFAULT: u32 = 0u32;
-pub const PSP_DLGINDIRECT: u32 = 1u32;
-pub const PSP_HASHELP: u32 = 32u32;
-pub const PSP_HIDEHEADER: u32 = 2048u32;
-pub const PSP_PREMATURE: u32 = 1024u32;
-pub const PSP_RTLREADING: u32 = 16u32;
-pub const PSP_USECALLBACK: u32 = 128u32;
-pub const PSP_USEFUSIONCONTEXT: u32 = 16384u32;
-pub const PSP_USEHEADERSUBTITLE: u32 = 8192u32;
-pub const PSP_USEHEADERTITLE: u32 = 4096u32;
-pub const PSP_USEHICON: u32 = 2u32;
-pub const PSP_USEICONID: u32 = 4u32;
-pub const PSP_USEREFPARENT: u32 = 64u32;
-pub const PSP_USETITLE: u32 = 8u32;
-pub const PSWIZBF_ELEVATIONREQUIRED: u32 = 1u32;
-pub const PSWIZB_BACK: u32 = 1u32;
-pub const PSWIZB_CANCEL: u32 = 16u32;
-pub const PSWIZB_DISABLEDFINISH: u32 = 8u32;
-pub const PSWIZB_FINISH: u32 = 4u32;
-pub const PSWIZB_NEXT: u32 = 2u32;
-pub const PSWIZB_RESTORE: u32 = 1u32;
-pub const PSWIZB_SHOW: u32 = 0u32;
-pub const RBAB_ADDBAND: u32 = 2u32;
-pub const RBAB_AUTOSIZE: u32 = 1u32;
-pub const RBBIM_BACKGROUND: u32 = 128u32;
-pub const RBBIM_CHEVRONLOCATION: u32 = 4096u32;
-pub const RBBIM_CHEVRONSTATE: u32 = 8192u32;
-pub const RBBIM_CHILD: u32 = 16u32;
-pub const RBBIM_CHILDSIZE: u32 = 32u32;
-pub const RBBIM_COLORS: u32 = 2u32;
-pub const RBBIM_HEADERSIZE: u32 = 2048u32;
-pub const RBBIM_ID: u32 = 256u32;
-pub const RBBIM_IDEALSIZE: u32 = 512u32;
-pub const RBBIM_IMAGE: u32 = 8u32;
-pub const RBBIM_LPARAM: u32 = 1024u32;
-pub const RBBIM_SIZE: u32 = 64u32;
-pub const RBBIM_STYLE: u32 = 1u32;
-pub const RBBIM_TEXT: u32 = 4u32;
-pub const RBBS_BREAK: u32 = 1u32;
-pub const RBBS_CHILDEDGE: u32 = 4u32;
-pub const RBBS_FIXEDBMP: u32 = 32u32;
-pub const RBBS_FIXEDSIZE: u32 = 2u32;
-pub const RBBS_GRIPPERALWAYS: u32 = 128u32;
-pub const RBBS_HIDDEN: u32 = 8u32;
-pub const RBBS_HIDETITLE: u32 = 1024u32;
-pub const RBBS_NOGRIPPER: u32 = 256u32;
-pub const RBBS_NOVERT: u32 = 16u32;
-pub const RBBS_TOPALIGN: u32 = 2048u32;
-pub const RBBS_USECHEVRON: u32 = 512u32;
-pub const RBBS_VARIABLEHEIGHT: u32 = 64u32;
-pub const RBHT_CAPTION: u32 = 2u32;
-pub const RBHT_CHEVRON: u32 = 8u32;
-pub const RBHT_CLIENT: u32 = 3u32;
-pub const RBHT_GRABBER: u32 = 4u32;
-pub const RBHT_NOWHERE: u32 = 1u32;
-pub const RBHT_SPLITTER: u32 = 16u32;
-pub const RBIM_IMAGELIST: u32 = 1u32;
-pub const RBNM_ID: NMREBAR_MASK_FLAGS = 1u32;
-pub const RBNM_LPARAM: NMREBAR_MASK_FLAGS = 4u32;
-pub const RBNM_STYLE: NMREBAR_MASK_FLAGS = 2u32;
-pub const RBN_AUTOBREAK: u32 = 4294966443u32;
-pub const RBN_AUTOSIZE: u32 = 4294966462u32;
-pub const RBN_BEGINDRAG: u32 = 4294966461u32;
-pub const RBN_CHEVRONPUSHED: u32 = 4294966455u32;
-pub const RBN_CHILDSIZE: u32 = 4294966457u32;
-pub const RBN_DELETEDBAND: u32 = 4294966458u32;
-pub const RBN_DELETINGBAND: u32 = 4294966459u32;
-pub const RBN_ENDDRAG: u32 = 4294966460u32;
-pub const RBN_FIRST: u32 = 4294966465u32;
-pub const RBN_GETOBJECT: u32 = 4294966464u32;
-pub const RBN_HEIGHTCHANGE: u32 = 4294966465u32;
-pub const RBN_LAST: u32 = 4294966437u32;
-pub const RBN_LAYOUTCHANGED: u32 = 4294966463u32;
-pub const RBN_MINMAX: u32 = 4294966444u32;
-pub const RBN_SPLITTERDRAG: u32 = 4294966454u32;
-pub const RBSTR_CHANGERECT: u32 = 1u32;
-pub const RBS_AUTOSIZE: u32 = 8192u32;
-pub const RBS_BANDBORDERS: u32 = 1024u32;
-pub const RBS_CHECKEDDISABLED: RADIOBUTTONSTATES = 8i32;
-pub const RBS_CHECKEDHOT: RADIOBUTTONSTATES = 6i32;
-pub const RBS_CHECKEDNORMAL: RADIOBUTTONSTATES = 5i32;
-pub const RBS_CHECKEDPRESSED: RADIOBUTTONSTATES = 7i32;
-pub const RBS_DBLCLKTOGGLE: u32 = 32768u32;
-pub const RBS_DISABLED: RESTOREBUTTONSTATES = 4i32;
-pub const RBS_FIXEDORDER: u32 = 2048u32;
-pub const RBS_HOT: RESTOREBUTTONSTATES = 2i32;
-pub const RBS_NORMAL: RESTOREBUTTONSTATES = 1i32;
-pub const RBS_PUSHED: RESTOREBUTTONSTATES = 3i32;
-pub const RBS_REGISTERDROP: u32 = 4096u32;
-pub const RBS_TOOLTIPS: u32 = 256u32;
-pub const RBS_UNCHECKEDDISABLED: RADIOBUTTONSTATES = 4i32;
-pub const RBS_UNCHECKEDHOT: RADIOBUTTONSTATES = 2i32;
-pub const RBS_UNCHECKEDNORMAL: RADIOBUTTONSTATES = 1i32;
-pub const RBS_UNCHECKEDPRESSED: RADIOBUTTONSTATES = 3i32;
-pub const RBS_VARHEIGHT: u32 = 512u32;
-pub const RBS_VERTICALGRIPPER: u32 = 16384u32;
-pub const RB_BEGINDRAG: u32 = 1048u32;
-pub const RB_DELETEBAND: u32 = 1026u32;
-pub const RB_DRAGMOVE: u32 = 1050u32;
-pub const RB_ENDDRAG: u32 = 1049u32;
-pub const RB_GETBANDBORDERS: u32 = 1058u32;
-pub const RB_GETBANDCOUNT: u32 = 1036u32;
-pub const RB_GETBANDINFO: u32 = 1052u32;
-pub const RB_GETBANDINFOA: u32 = 1053u32;
-pub const RB_GETBANDINFOW: u32 = 1052u32;
-pub const RB_GETBANDMARGINS: u32 = 1064u32;
-pub const RB_GETBARHEIGHT: u32 = 1051u32;
-pub const RB_GETBARINFO: u32 = 1027u32;
-pub const RB_GETBKCOLOR: u32 = 1044u32;
-pub const RB_GETCOLORSCHEME: u32 = 8195u32;
-pub const RB_GETDROPTARGET: u32 = 8196u32;
-pub const RB_GETEXTENDEDSTYLE: u32 = 1066u32;
-pub const RB_GETPALETTE: u32 = 1062u32;
-pub const RB_GETRECT: u32 = 1033u32;
-pub const RB_GETROWCOUNT: u32 = 1037u32;
-pub const RB_GETROWHEIGHT: u32 = 1038u32;
-pub const RB_GETTEXTCOLOR: u32 = 1046u32;
-pub const RB_GETTOOLTIPS: u32 = 1041u32;
-pub const RB_GETUNICODEFORMAT: u32 = 8198u32;
-pub const RB_HITTEST: u32 = 1032u32;
-pub const RB_IDTOINDEX: u32 = 1040u32;
-pub const RB_INSERTBAND: u32 = 1034u32;
-pub const RB_INSERTBANDA: u32 = 1025u32;
-pub const RB_INSERTBANDW: u32 = 1034u32;
-pub const RB_MAXIMIZEBAND: u32 = 1055u32;
-pub const RB_MINIMIZEBAND: u32 = 1054u32;
-pub const RB_MOVEBAND: u32 = 1063u32;
-pub const RB_PUSHCHEVRON: u32 = 1067u32;
-pub const RB_SETBANDINFO: u32 = 1035u32;
-pub const RB_SETBANDINFOA: u32 = 1030u32;
-pub const RB_SETBANDINFOW: u32 = 1035u32;
-pub const RB_SETBANDWIDTH: u32 = 1068u32;
-pub const RB_SETBARINFO: u32 = 1028u32;
-pub const RB_SETBKCOLOR: u32 = 1043u32;
-pub const RB_SETCOLORSCHEME: u32 = 8194u32;
-pub const RB_SETEXTENDEDSTYLE: u32 = 1065u32;
-pub const RB_SETPALETTE: u32 = 1061u32;
-pub const RB_SETPARENT: u32 = 1031u32;
-pub const RB_SETTEXTCOLOR: u32 = 1045u32;
-pub const RB_SETTOOLTIPS: u32 = 1042u32;
-pub const RB_SETUNICODEFORMAT: u32 = 8197u32;
-pub const RB_SETWINDOWTHEME: u32 = 8203u32;
-pub const RB_SHOWBAND: u32 = 1059u32;
-pub const RB_SIZETORECT: u32 = 1047u32;
-pub const REBARCLASSNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ReBarWindow32");
-pub const REBARCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("ReBarWindow32");
-pub const REBARCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("ReBarWindow32");
-pub const REPLACEDLGORD: u32 = 1541u32;
-pub const RP_BACKGROUND: REBARPARTS = 6i32;
-pub const RP_BAND: REBARPARTS = 3i32;
-pub const RP_CHEVRON: REBARPARTS = 4i32;
-pub const RP_CHEVRONVERT: REBARPARTS = 5i32;
-pub const RP_GRIPPER: REBARPARTS = 1i32;
-pub const RP_GRIPPERVERT: REBARPARTS = 2i32;
-pub const RP_SPLITTER: REBARPARTS = 7i32;
-pub const RP_SPLITTERVERT: REBARPARTS = 8i32;
-pub const RUNDLGORD: u32 = 1545u32;
-pub const SBARS_SIZEGRIP: u32 = 256u32;
-pub const SBARS_TOOLTIPS: u32 = 2048u32;
-pub const SBN_FIRST: u32 = 4294966416u32;
-pub const SBN_LAST: u32 = 4294966397u32;
-pub const SBN_SIMPLEMODECHANGE: u32 = 4294966416u32;
-pub const SBP_ARROWBTN: SCROLLBARPARTS = 1i32;
-pub const SBP_GRIPPERHORZ: SCROLLBARPARTS = 8i32;
-pub const SBP_GRIPPERVERT: SCROLLBARPARTS = 9i32;
-pub const SBP_LOWERTRACKHORZ: SCROLLBARPARTS = 4i32;
-pub const SBP_LOWERTRACKVERT: SCROLLBARPARTS = 6i32;
-pub const SBP_SIZEBOX: SCROLLBARPARTS = 10i32;
-pub const SBP_SIZEBOXBKGND: SCROLLBARPARTS = 11i32;
-pub const SBP_THUMBBTNHORZ: SCROLLBARPARTS = 2i32;
-pub const SBP_THUMBBTNVERT: SCROLLBARPARTS = 3i32;
-pub const SBP_UPPERTRACKHORZ: SCROLLBARPARTS = 5i32;
-pub const SBP_UPPERTRACKVERT: SCROLLBARPARTS = 7i32;
-pub const SBS_DISABLED: SYSBUTTONSTATES = 4i32;
-pub const SBS_HOT: SYSBUTTONSTATES = 2i32;
-pub const SBS_NORMAL: SYSBUTTONSTATES = 1i32;
-pub const SBS_PUSHED: SYSBUTTONSTATES = 3i32;
-pub const SBT_NOBORDERS: u32 = 256u32;
-pub const SBT_NOTABPARSING: u32 = 2048u32;
-pub const SBT_OWNERDRAW: u32 = 4096u32;
-pub const SBT_POPOUT: u32 = 512u32;
-pub const SBT_RTLREADING: u32 = 1024u32;
-pub const SBT_TOOLTIPS: u32 = 2048u32;
-pub const SB_GETBORDERS: u32 = 1031u32;
-pub const SB_GETICON: u32 = 1044u32;
-pub const SB_GETPARTS: u32 = 1030u32;
-pub const SB_GETRECT: u32 = 1034u32;
-pub const SB_GETTEXT: u32 = 1037u32;
-pub const SB_GETTEXTA: u32 = 1026u32;
-pub const SB_GETTEXTLENGTH: u32 = 1036u32;
-pub const SB_GETTEXTLENGTHA: u32 = 1027u32;
-pub const SB_GETTEXTLENGTHW: u32 = 1036u32;
-pub const SB_GETTEXTW: u32 = 1037u32;
-pub const SB_GETTIPTEXTA: u32 = 1042u32;
-pub const SB_GETTIPTEXTW: u32 = 1043u32;
-pub const SB_GETUNICODEFORMAT: u32 = 8198u32;
-pub const SB_ISSIMPLE: u32 = 1038u32;
-pub const SB_SETBKCOLOR: u32 = 8193u32;
-pub const SB_SETICON: u32 = 1039u32;
-pub const SB_SETMINHEIGHT: u32 = 1032u32;
-pub const SB_SETPARTS: u32 = 1028u32;
-pub const SB_SETTEXT: u32 = 1035u32;
-pub const SB_SETTEXTA: u32 = 1025u32;
-pub const SB_SETTEXTW: u32 = 1035u32;
-pub const SB_SETTIPTEXTA: u32 = 1040u32;
-pub const SB_SETTIPTEXTW: u32 = 1041u32;
-pub const SB_SETUNICODEFORMAT: u32 = 8197u32;
-pub const SB_SIMPLE: u32 = 1033u32;
-pub const SB_SIMPLEID: u32 = 255u32;
-pub const SCBS_DISABLED: SMALLCLOSEBUTTONSTATES = 4i32;
-pub const SCBS_HOT: SMALLCLOSEBUTTONSTATES = 2i32;
-pub const SCBS_NORMAL: SMALLCLOSEBUTTONSTATES = 1i32;
-pub const SCBS_PUSHED: SMALLCLOSEBUTTONSTATES = 3i32;
-pub const SCRBS_DISABLED: SCROLLBARSTYLESTATES = 4i32;
-pub const SCRBS_HOT: SCROLLBARSTYLESTATES = 2i32;
-pub const SCRBS_HOVER: SCROLLBARSTYLESTATES = 5i32;
-pub const SCRBS_NORMAL: SCROLLBARSTYLESTATES = 1i32;
-pub const SCRBS_PRESSED: SCROLLBARSTYLESTATES = 3i32;
-pub const SCS_ACTIVE: SMALLCAPTIONSTATES = 1i32;
-pub const SCS_DISABLED: SMALLCAPTIONSTATES = 3i32;
-pub const SCS_INACTIVE: SMALLCAPTIONSTATES = 2i32;
-pub const SFRB_ACTIVE: SMALLFRAMEBOTTOMSTATES = 1i32;
-pub const SFRB_INACTIVE: SMALLFRAMEBOTTOMSTATES = 2i32;
-pub const SFRL_ACTIVE: SMALLFRAMELEFTSTATES = 1i32;
-pub const SFRL_INACTIVE: SMALLFRAMELEFTSTATES = 2i32;
-pub const SFRR_ACTIVE: SMALLFRAMERIGHTSTATES = 1i32;
-pub const SFRR_INACTIVE: SMALLFRAMERIGHTSTATES = 2i32;
-pub const SPLITSV_HOT: SPLITTERVERTSTATES = 2i32;
-pub const SPLITSV_NORMAL: SPLITTERVERTSTATES = 1i32;
-pub const SPLITSV_PRESSED: SPLITTERVERTSTATES = 3i32;
-pub const SPLITS_HOT: SPLITTERSTATES = 2i32;
-pub const SPLITS_NORMAL: SPLITTERSTATES = 1i32;
-pub const SPLITS_PRESSED: SPLITTERSTATES = 3i32;
-pub const SPLS_HOT: LOGOFFBUTTONSSTATES = 2i32;
-pub const SPLS_NORMAL: LOGOFFBUTTONSSTATES = 1i32;
-pub const SPLS_PRESSED: LOGOFFBUTTONSSTATES = 3i32;
-pub const SPMPT_DISABLED: MOREPROGRAMSTABSTATES = 4i32;
-pub const SPMPT_FOCUSED: MOREPROGRAMSTABSTATES = 5i32;
-pub const SPMPT_HOT: MOREPROGRAMSTABSTATES = 2i32;
-pub const SPMPT_NORMAL: MOREPROGRAMSTABSTATES = 1i32;
-pub const SPMPT_SELECTED: MOREPROGRAMSTABSTATES = 3i32;
-pub const SPNP_DOWN: SPINPARTS = 2i32;
-pub const SPNP_DOWNHORZ: SPINPARTS = 4i32;
-pub const SPNP_UP: SPINPARTS = 1i32;
-pub const SPNP_UPHORZ: SPINPARTS = 3i32;
-pub const SPOB_DISABLED: OPENBOXSTATES = 4i32;
-pub const SPOB_FOCUSED: OPENBOXSTATES = 5i32;
-pub const SPOB_HOT: OPENBOXSTATES = 2i32;
-pub const SPOB_NORMAL: OPENBOXSTATES = 1i32;
-pub const SPOB_SELECTED: OPENBOXSTATES = 3i32;
-pub const SPP_LOGOFF: STARTPANELPARTS = 8i32;
-pub const SPP_LOGOFFBUTTONS: STARTPANELPARTS = 9i32;
-pub const SPP_LOGOFFSPLITBUTTONDROPDOWN: STARTPANELPARTS = 19i32;
-pub const SPP_MOREPROGRAMS: STARTPANELPARTS = 2i32;
-pub const SPP_MOREPROGRAMSARROW: STARTPANELPARTS = 3i32;
-pub const SPP_MOREPROGRAMSARROWBACK: STARTPANELPARTS = 17i32;
-pub const SPP_MOREPROGRAMSTAB: STARTPANELPARTS = 12i32;
-pub const SPP_NSCHOST: STARTPANELPARTS = 13i32;
-pub const SPP_OPENBOX: STARTPANELPARTS = 15i32;
-pub const SPP_PLACESLIST: STARTPANELPARTS = 6i32;
-pub const SPP_PLACESLISTSEPARATOR: STARTPANELPARTS = 7i32;
-pub const SPP_PREVIEW: STARTPANELPARTS = 11i32;
-pub const SPP_PROGLIST: STARTPANELPARTS = 4i32;
-pub const SPP_PROGLISTSEPARATOR: STARTPANELPARTS = 5i32;
-pub const SPP_SEARCHVIEW: STARTPANELPARTS = 16i32;
-pub const SPP_SOFTWAREEXPLORER: STARTPANELPARTS = 14i32;
-pub const SPP_TOPMATCH: STARTPANELPARTS = 18i32;
-pub const SPP_USERPANE: STARTPANELPARTS = 1i32;
-pub const SPP_USERPICTURE: STARTPANELPARTS = 10i32;
-pub const SPSB_HOT: MOREPROGRAMSARROWBACKSTATES = 2i32;
-pub const SPSB_NORMAL: MOREPROGRAMSARROWBACKSTATES = 1i32;
-pub const SPSB_PRESSED: MOREPROGRAMSARROWBACKSTATES = 3i32;
-pub const SPSE_DISABLED: SOFTWAREEXPLORERSTATES = 4i32;
-pub const SPSE_FOCUSED: SOFTWAREEXPLORERSTATES = 5i32;
-pub const SPSE_HOT: SOFTWAREEXPLORERSTATES = 2i32;
-pub const SPSE_NORMAL: SOFTWAREEXPLORERSTATES = 1i32;
-pub const SPSE_SELECTED: SOFTWAREEXPLORERSTATES = 3i32;
-pub const SPS_HOT: MOREPROGRAMSARROWSTATES = 2i32;
-pub const SPS_NORMAL: MOREPROGRAMSARROWSTATES = 1i32;
-pub const SPS_PRESSED: MOREPROGRAMSARROWSTATES = 3i32;
-pub const SP_GRIPPER: STATUSPARTS = 3i32;
-pub const SP_GRIPPERPANE: STATUSPARTS = 2i32;
-pub const SP_PANE: STATUSPARTS = 1i32;
-pub const STATE_SYSTEM_FOCUSABLE: COMBOBOXINFO_BUTTON_STATE = 1048576u32;
-pub const STATE_SYSTEM_INVISIBLE: COMBOBOXINFO_BUTTON_STATE = 32768u32;
-pub const STATE_SYSTEM_OFFSCREEN: COMBOBOXINFO_BUTTON_STATE = 65536u32;
-pub const STATE_SYSTEM_PRESSED: COMBOBOXINFO_BUTTON_STATE = 8u32;
-pub const STATE_SYSTEM_UNAVAILABLE: COMBOBOXINFO_BUTTON_STATE = 1u32;
-pub const STATUSCLASSNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_statusbar32");
-pub const STATUSCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_statusbar32");
-pub const STATUSCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_statusbar32");
-pub const STAT_TEXT: STATICPARTS = 1i32;
-pub const STD_COPY: u32 = 1u32;
-pub const STD_CUT: u32 = 0u32;
-pub const STD_DELETE: u32 = 5u32;
-pub const STD_FILENEW: u32 = 6u32;
-pub const STD_FILEOPEN: u32 = 7u32;
-pub const STD_FILESAVE: u32 = 8u32;
-pub const STD_FIND: u32 = 12u32;
-pub const STD_HELP: u32 = 11u32;
-pub const STD_PASTE: u32 = 2u32;
-pub const STD_PRINT: u32 = 14u32;
-pub const STD_PRINTPRE: u32 = 9u32;
-pub const STD_PROPERTIES: u32 = 10u32;
-pub const STD_REDOW: u32 = 4u32;
-pub const STD_REPLACE: u32 = 13u32;
-pub const STD_UNDO: u32 = 3u32;
-pub const ST_STRETCH: SIZINGTYPE = 1i32;
-pub const ST_TILE: SIZINGTYPE = 2i32;
-pub const ST_TRUESIZE: SIZINGTYPE = 0i32;
-pub const SZB_HALFBOTTOMLEFTALIGN: SIZEBOXSTATES = 6i32;
-pub const SZB_HALFBOTTOMRIGHTALIGN: SIZEBOXSTATES = 5i32;
-pub const SZB_HALFTOPLEFTALIGN: SIZEBOXSTATES = 8i32;
-pub const SZB_HALFTOPRIGHTALIGN: SIZEBOXSTATES = 7i32;
-pub const SZB_LEFTALIGN: SIZEBOXSTATES = 2i32;
-pub const SZB_RIGHTALIGN: SIZEBOXSTATES = 1i32;
-pub const SZB_TOPLEFTALIGN: SIZEBOXSTATES = 4i32;
-pub const SZB_TOPRIGHTALIGN: SIZEBOXSTATES = 3i32;
-pub const SZ_THDOCPROP_AUTHOR: windows_sys::core::PCWSTR = windows_sys::core::w!("author");
-pub const SZ_THDOCPROP_CANONICALNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ThemeName");
-pub const SZ_THDOCPROP_DISPLAYNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DisplayName");
-pub const SZ_THDOCPROP_TOOLTIP: windows_sys::core::PCWSTR = windows_sys::core::w!("ToolTip");
-pub const TABP_AEROWIZARDBODY: TABPARTS = 11i32;
-pub const TABP_BODY: TABPARTS = 10i32;
-pub const TABP_PANE: TABPARTS = 9i32;
-pub const TABP_TABITEM: TABPARTS = 1i32;
-pub const TABP_TABITEMBOTHEDGE: TABPARTS = 4i32;
-pub const TABP_TABITEMLEFTEDGE: TABPARTS = 2i32;
-pub const TABP_TABITEMRIGHTEDGE: TABPARTS = 3i32;
-pub const TABP_TOPTABITEM: TABPARTS = 5i32;
-pub const TABP_TOPTABITEMBOTHEDGE: TABPARTS = 8i32;
-pub const TABP_TOPTABITEMLEFTEDGE: TABPARTS = 6i32;
-pub const TABP_TOPTABITEMRIGHTEDGE: TABPARTS = 7i32;
-pub const TAPF_ALLOWCOLLECTION: TA_PROPERTY_FLAG = 4i32;
-pub const TAPF_HASBACKGROUND: TA_PROPERTY_FLAG = 8i32;
-pub const TAPF_HASPERSPECTIVE: TA_PROPERTY_FLAG = 16i32;
-pub const TAPF_HASSTAGGER: TA_PROPERTY_FLAG = 1i32;
-pub const TAPF_ISRTLAWARE: TA_PROPERTY_FLAG = 2i32;
-pub const TAPF_NONE: TA_PROPERTY_FLAG = 0i32;
-pub const TAP_FLAGS: TA_PROPERTY = 0i32;
-pub const TAP_STAGGERDELAY: TA_PROPERTY = 2i32;
-pub const TAP_STAGGERDELAYCAP: TA_PROPERTY = 3i32;
-pub const TAP_STAGGERDELAYFACTOR: TA_PROPERTY = 4i32;
-pub const TAP_TRANSFORMCOUNT: TA_PROPERTY = 1i32;
-pub const TAP_ZORDER: TA_PROPERTY = 5i32;
-pub const TATF_HASINITIALVALUES: TA_TRANSFORM_FLAG = 2i32;
-pub const TATF_HASORIGINVALUES: TA_TRANSFORM_FLAG = 4i32;
-pub const TATF_NONE: TA_TRANSFORM_FLAG = 0i32;
-pub const TATF_TARGETVALUES_USER: TA_TRANSFORM_FLAG = 1i32;
-pub const TATT_CLIP: TA_TRANSFORM_TYPE = 3i32;
-pub const TATT_OPACITY: TA_TRANSFORM_TYPE = 2i32;
-pub const TATT_SCALE_2D: TA_TRANSFORM_TYPE = 1i32;
-pub const TATT_TRANSLATE_2D: TA_TRANSFORM_TYPE = 0i32;
-pub const TBBF_LARGE: u32 = 1u32;
-pub const TBCDRF_BLENDICON: u32 = 2097152u32;
-pub const TBCDRF_HILITEHOTTRACK: u32 = 131072u32;
-pub const TBCDRF_NOBACKGROUND: u32 = 4194304u32;
-pub const TBCDRF_NOEDGES: u32 = 65536u32;
-pub const TBCDRF_NOETCHEDEFFECT: u32 = 1048576u32;
-pub const TBCDRF_NOMARK: u32 = 524288u32;
-pub const TBCDRF_NOOFFSET: u32 = 262144u32;
-pub const TBCDRF_USECDCOLORS: u32 = 8388608u32;
-pub const TBCD_CHANNEL: u32 = 3u32;
-pub const TBCD_THUMB: u32 = 2u32;
-pub const TBCD_TICS: u32 = 1u32;
-pub const TBDDRET_DEFAULT: u32 = 0u32;
-pub const TBDDRET_NODEFAULT: u32 = 1u32;
-pub const TBDDRET_TREATPRESSED: u32 = 2u32;
-pub const TBIF_BYINDEX: TBBUTTONINFOW_MASK = 2147483648u32;
-pub const TBIF_COMMAND: TBBUTTONINFOW_MASK = 32u32;
-pub const TBIF_IMAGE: TBBUTTONINFOW_MASK = 1u32;
-pub const TBIF_LPARAM: TBBUTTONINFOW_MASK = 16u32;
-pub const TBIF_SIZE: TBBUTTONINFOW_MASK = 64u32;
-pub const TBIF_STATE: TBBUTTONINFOW_MASK = 4u32;
-pub const TBIF_STYLE: TBBUTTONINFOW_MASK = 8u32;
-pub const TBIF_TEXT: TBBUTTONINFOW_MASK = 2u32;
-pub const TBIMHT_AFTER: TBINSERTMARK_FLAGS = 1u32;
-pub const TBIMHT_BACKGROUND: TBINSERTMARK_FLAGS = 2u32;
-pub const TBIMHT_NONE: TBINSERTMARK_FLAGS = 0u32;
-pub const TBMF_BARPAD: u32 = 2u32;
-pub const TBMF_BUTTONSPACING: u32 = 4u32;
-pub const TBMF_PAD: u32 = 1u32;
-pub const TBM_CLEARSEL: u32 = 1043u32;
-pub const TBM_CLEARTICS: u32 = 1033u32;
-pub const TBM_GETBUDDY: u32 = 1057u32;
-pub const TBM_GETCHANNELRECT: u32 = 1050u32;
-pub const TBM_GETLINESIZE: u32 = 1048u32;
-pub const TBM_GETNUMTICS: u32 = 1040u32;
-pub const TBM_GETPAGESIZE: u32 = 1046u32;
-pub const TBM_GETPTICS: u32 = 1038u32;
-pub const TBM_GETRANGEMAX: u32 = 1026u32;
-pub const TBM_GETRANGEMIN: u32 = 1025u32;
-pub const TBM_GETSELEND: u32 = 1042u32;
-pub const TBM_GETSELSTART: u32 = 1041u32;
-pub const TBM_GETTHUMBLENGTH: u32 = 1052u32;
-pub const TBM_GETTHUMBRECT: u32 = 1049u32;
-pub const TBM_GETTIC: u32 = 1027u32;
-pub const TBM_GETTICPOS: u32 = 1039u32;
-pub const TBM_GETTOOLTIPS: u32 = 1054u32;
-pub const TBM_GETUNICODEFORMAT: u32 = 8198u32;
-pub const TBM_SETBUDDY: u32 = 1056u32;
-pub const TBM_SETLINESIZE: u32 = 1047u32;
-pub const TBM_SETPAGESIZE: u32 = 1045u32;
-pub const TBM_SETPOS: u32 = 1029u32;
-pub const TBM_SETPOSNOTIFY: u32 = 1058u32;
-pub const TBM_SETRANGE: u32 = 1030u32;
-pub const TBM_SETRANGEMAX: u32 = 1032u32;
-pub const TBM_SETRANGEMIN: u32 = 1031u32;
-pub const TBM_SETSEL: u32 = 1034u32;
-pub const TBM_SETSELEND: u32 = 1036u32;
-pub const TBM_SETSELSTART: u32 = 1035u32;
-pub const TBM_SETTHUMBLENGTH: u32 = 1051u32;
-pub const TBM_SETTIC: u32 = 1028u32;
-pub const TBM_SETTICFREQ: u32 = 1044u32;
-pub const TBM_SETTIPSIDE: u32 = 1055u32;
-pub const TBM_SETTOOLTIPS: u32 = 1053u32;
-pub const TBM_SETUNICODEFORMAT: u32 = 8197u32;
-pub const TBNF_DI_SETITEM: NMTBDISPINFOW_MASK = 268435456u32;
-pub const TBNF_IMAGE: NMTBDISPINFOW_MASK = 1u32;
-pub const TBNF_TEXT: NMTBDISPINFOW_MASK = 2u32;
-pub const TBNRF_ENDCUSTOMIZE: u32 = 2u32;
-pub const TBNRF_HIDEHELP: u32 = 1u32;
-pub const TBN_BEGINADJUST: u32 = 4294966593u32;
-pub const TBN_BEGINDRAG: u32 = 4294966595u32;
-pub const TBN_CUSTHELP: u32 = 4294966587u32;
-pub const TBN_DELETINGBUTTON: u32 = 4294966581u32;
-pub const TBN_DRAGOUT: u32 = 4294966582u32;
-pub const TBN_DRAGOVER: u32 = 4294966569u32;
-pub const TBN_DROPDOWN: u32 = 4294966586u32;
-pub const TBN_DUPACCELERATOR: u32 = 4294966571u32;
-pub const TBN_ENDADJUST: u32 = 4294966592u32;
-pub const TBN_ENDDRAG: u32 = 4294966594u32;
-pub const TBN_FIRST: u32 = 4294966596u32;
-pub const TBN_GETBUTTONINFO: u32 = 4294966576u32;
-pub const TBN_GETBUTTONINFOA: u32 = 4294966596u32;
-pub const TBN_GETBUTTONINFOW: u32 = 4294966576u32;
-pub const TBN_GETDISPINFO: u32 = 4294966579u32;
-pub const TBN_GETDISPINFOA: u32 = 4294966580u32;
-pub const TBN_GETDISPINFOW: u32 = 4294966579u32;
-pub const TBN_GETINFOTIP: u32 = 4294966577u32;
-pub const TBN_GETINFOTIPA: u32 = 4294966578u32;
-pub const TBN_GETINFOTIPW: u32 = 4294966577u32;
-pub const TBN_GETOBJECT: u32 = 4294966584u32;
-pub const TBN_HOTITEMCHANGE: u32 = 4294966583u32;
-pub const TBN_INITCUSTOMIZE: u32 = 4294966573u32;
-pub const TBN_LAST: u32 = 4294966576u32;
-pub const TBN_MAPACCELERATOR: u32 = 4294966568u32;
-pub const TBN_QUERYDELETE: u32 = 4294966589u32;
-pub const TBN_QUERYINSERT: u32 = 4294966590u32;
-pub const TBN_RESET: u32 = 4294966591u32;
-pub const TBN_RESTORE: u32 = 4294966575u32;
-pub const TBN_SAVE: u32 = 4294966574u32;
-pub const TBN_TOOLBARCHANGE: u32 = 4294966588u32;
-pub const TBN_WRAPACCELERATOR: u32 = 4294966570u32;
-pub const TBN_WRAPHOTITEM: u32 = 4294966572u32;
-pub const TBP_BACKGROUNDBOTTOM: TASKBARPARTS = 1i32;
-pub const TBP_BACKGROUNDLEFT: TASKBARPARTS = 4i32;
-pub const TBP_BACKGROUNDRIGHT: TASKBARPARTS = 2i32;
-pub const TBP_BACKGROUNDTOP: TASKBARPARTS = 3i32;
-pub const TBP_SIZINGBARBOTTOM: TASKBARPARTS = 5i32;
-pub const TBP_SIZINGBARLEFT: TASKBARPARTS = 8i32;
-pub const TBP_SIZINGBARRIGHT: TASKBARPARTS = 6i32;
-pub const TBP_SIZINGBARTOP: TASKBARPARTS = 7i32;
-pub const TBSTATE_CHECKED: u32 = 1u32;
-pub const TBSTATE_ELLIPSES: u32 = 64u32;
-pub const TBSTATE_ENABLED: u32 = 4u32;
-pub const TBSTATE_HIDDEN: u32 = 8u32;
-pub const TBSTATE_INDETERMINATE: u32 = 16u32;
-pub const TBSTATE_MARKED: u32 = 128u32;
-pub const TBSTATE_PRESSED: u32 = 2u32;
-pub const TBSTATE_WRAP: u32 = 32u32;
-pub const TBSTYLE_ALTDRAG: u32 = 1024u32;
-pub const TBSTYLE_AUTOSIZE: u32 = 16u32;
-pub const TBSTYLE_BUTTON: u32 = 0u32;
-pub const TBSTYLE_CHECK: u32 = 2u32;
-pub const TBSTYLE_CUSTOMERASE: u32 = 8192u32;
-pub const TBSTYLE_DROPDOWN: u32 = 8u32;
-pub const TBSTYLE_EX_DOUBLEBUFFER: u32 = 128u32;
-pub const TBSTYLE_EX_DRAWDDARROWS: u32 = 1u32;
-pub const TBSTYLE_EX_HIDECLIPPEDBUTTONS: u32 = 16u32;
-pub const TBSTYLE_EX_MIXEDBUTTONS: u32 = 8u32;
-pub const TBSTYLE_EX_MULTICOLUMN: u32 = 2u32;
-pub const TBSTYLE_EX_VERTICAL: u32 = 4u32;
-pub const TBSTYLE_FLAT: u32 = 2048u32;
-pub const TBSTYLE_GROUP: u32 = 4u32;
-pub const TBSTYLE_LIST: u32 = 4096u32;
-pub const TBSTYLE_NOPREFIX: u32 = 32u32;
-pub const TBSTYLE_REGISTERDROP: u32 = 16384u32;
-pub const TBSTYLE_SEP: u32 = 1u32;
-pub const TBSTYLE_TOOLTIPS: u32 = 256u32;
-pub const TBSTYLE_TRANSPARENT: u32 = 32768u32;
-pub const TBSTYLE_WRAPABLE: u32 = 512u32;
-pub const TBS_AUTOTICKS: u32 = 1u32;
-pub const TBS_BOTH: u32 = 8u32;
-pub const TBS_BOTTOM: u32 = 0u32;
-pub const TBS_DOWNISLEFT: u32 = 1024u32;
-pub const TBS_ENABLESELRANGE: u32 = 32u32;
-pub const TBS_FIXEDLENGTH: u32 = 64u32;
-pub const TBS_HORZ: u32 = 0u32;
-pub const TBS_LEFT: u32 = 4u32;
-pub const TBS_NOTHUMB: u32 = 128u32;
-pub const TBS_NOTICKS: u32 = 16u32;
-pub const TBS_NOTIFYBEFOREMOVE: u32 = 2048u32;
-pub const TBS_REVERSED: u32 = 512u32;
-pub const TBS_RIGHT: u32 = 0u32;
-pub const TBS_TOOLTIPS: u32 = 256u32;
-pub const TBS_TOP: u32 = 4u32;
-pub const TBS_TRANSPARENTBKGND: u32 = 4096u32;
-pub const TBS_VERT: u32 = 2u32;
-pub const TBTS_BOTTOM: u32 = 2u32;
-pub const TBTS_LEFT: u32 = 1u32;
-pub const TBTS_RIGHT: u32 = 3u32;
-pub const TBTS_TOP: u32 = 0u32;
-pub const TB_ADDBITMAP: u32 = 1043u32;
-pub const TB_ADDBUTTONS: u32 = 1092u32;
-pub const TB_ADDBUTTONSA: u32 = 1044u32;
-pub const TB_ADDBUTTONSW: u32 = 1092u32;
-pub const TB_ADDSTRING: u32 = 1101u32;
-pub const TB_ADDSTRINGA: u32 = 1052u32;
-pub const TB_ADDSTRINGW: u32 = 1101u32;
-pub const TB_AUTOSIZE: u32 = 1057u32;
-pub const TB_BOTTOM: u32 = 7u32;
-pub const TB_BUTTONCOUNT: u32 = 1048u32;
-pub const TB_BUTTONSTRUCTSIZE: u32 = 1054u32;
-pub const TB_CHANGEBITMAP: u32 = 1067u32;
-pub const TB_CHECKBUTTON: u32 = 1026u32;
-pub const TB_COMMANDTOINDEX: u32 = 1049u32;
-pub const TB_CUSTOMIZE: u32 = 1051u32;
-pub const TB_DELETEBUTTON: u32 = 1046u32;
-pub const TB_ENABLEBUTTON: u32 = 1025u32;
-pub const TB_ENDTRACK: u32 = 8u32;
-pub const TB_GETANCHORHIGHLIGHT: u32 = 1098u32;
-pub const TB_GETBITMAP: u32 = 1068u32;
-pub const TB_GETBITMAPFLAGS: u32 = 1065u32;
-pub const TB_GETBUTTON: u32 = 1047u32;
-pub const TB_GETBUTTONINFO: u32 = 1087u32;
-pub const TB_GETBUTTONINFOA: u32 = 1089u32;
-pub const TB_GETBUTTONINFOW: u32 = 1087u32;
-pub const TB_GETBUTTONSIZE: u32 = 1082u32;
-pub const TB_GETBUTTONTEXT: u32 = 1099u32;
-pub const TB_GETBUTTONTEXTA: u32 = 1069u32;
-pub const TB_GETBUTTONTEXTW: u32 = 1099u32;
-pub const TB_GETCOLORSCHEME: u32 = 8195u32;
-pub const TB_GETDISABLEDIMAGELIST: u32 = 1079u32;
-pub const TB_GETEXTENDEDSTYLE: u32 = 1109u32;
-pub const TB_GETHOTIMAGELIST: u32 = 1077u32;
-pub const TB_GETHOTITEM: u32 = 1095u32;
-pub const TB_GETIDEALSIZE: u32 = 1123u32;
-pub const TB_GETIMAGELIST: u32 = 1073u32;
-pub const TB_GETIMAGELISTCOUNT: u32 = 1122u32;
-pub const TB_GETINSERTMARK: u32 = 1103u32;
-pub const TB_GETINSERTMARKCOLOR: u32 = 1113u32;
-pub const TB_GETITEMDROPDOWNRECT: u32 = 1127u32;
-pub const TB_GETITEMRECT: u32 = 1053u32;
-pub const TB_GETMAXSIZE: u32 = 1107u32;
-pub const TB_GETMETRICS: u32 = 1125u32;
-pub const TB_GETOBJECT: u32 = 1086u32;
-pub const TB_GETPADDING: u32 = 1110u32;
-pub const TB_GETPRESSEDIMAGELIST: u32 = 1129u32;
-pub const TB_GETRECT: u32 = 1075u32;
-pub const TB_GETROWS: u32 = 1064u32;
-pub const TB_GETSTATE: u32 = 1042u32;
-pub const TB_GETSTRING: u32 = 1115u32;
-pub const TB_GETSTRINGA: u32 = 1116u32;
-pub const TB_GETSTRINGW: u32 = 1115u32;
-pub const TB_GETSTYLE: u32 = 1081u32;
-pub const TB_GETTEXTROWS: u32 = 1085u32;
-pub const TB_GETTOOLTIPS: u32 = 1059u32;
-pub const TB_GETUNICODEFORMAT: u32 = 8198u32;
-pub const TB_HASACCELERATOR: u32 = 1119u32;
-pub const TB_HIDEBUTTON: u32 = 1028u32;
-pub const TB_HITTEST: u32 = 1093u32;
-pub const TB_INDETERMINATE: u32 = 1029u32;
-pub const TB_INSERTBUTTON: u32 = 1091u32;
-pub const TB_INSERTBUTTONA: u32 = 1045u32;
-pub const TB_INSERTBUTTONW: u32 = 1091u32;
-pub const TB_INSERTMARKHITTEST: u32 = 1105u32;
-pub const TB_ISBUTTONCHECKED: u32 = 1034u32;
-pub const TB_ISBUTTONENABLED: u32 = 1033u32;
-pub const TB_ISBUTTONHIDDEN: u32 = 1036u32;
-pub const TB_ISBUTTONHIGHLIGHTED: u32 = 1038u32;
-pub const TB_ISBUTTONINDETERMINATE: u32 = 1037u32;
-pub const TB_ISBUTTONPRESSED: u32 = 1035u32;
-pub const TB_LINEDOWN: u32 = 1u32;
-pub const TB_LINEUP: u32 = 0u32;
-pub const TB_LOADIMAGES: u32 = 1074u32;
-pub const TB_MAPACCELERATOR: u32 = 1114u32;
-pub const TB_MAPACCELERATORA: u32 = 1102u32;
-pub const TB_MAPACCELERATORW: u32 = 1114u32;
-pub const TB_MARKBUTTON: u32 = 1030u32;
-pub const TB_MOVEBUTTON: u32 = 1106u32;
-pub const TB_PAGEDOWN: u32 = 3u32;
-pub const TB_PAGEUP: u32 = 2u32;
-pub const TB_PRESSBUTTON: u32 = 1027u32;
-pub const TB_REPLACEBITMAP: u32 = 1070u32;
-pub const TB_SAVERESTORE: u32 = 1100u32;
-pub const TB_SAVERESTOREA: u32 = 1050u32;
-pub const TB_SAVERESTOREW: u32 = 1100u32;
-pub const TB_SETANCHORHIGHLIGHT: u32 = 1097u32;
-pub const TB_SETBITMAPSIZE: u32 = 1056u32;
-pub const TB_SETBOUNDINGSIZE: u32 = 1117u32;
-pub const TB_SETBUTTONINFO: u32 = 1088u32;
-pub const TB_SETBUTTONINFOA: u32 = 1090u32;
-pub const TB_SETBUTTONINFOW: u32 = 1088u32;
-pub const TB_SETBUTTONSIZE: u32 = 1055u32;
-pub const TB_SETBUTTONWIDTH: u32 = 1083u32;
-pub const TB_SETCMDID: u32 = 1066u32;
-pub const TB_SETCOLORSCHEME: u32 = 8194u32;
-pub const TB_SETDISABLEDIMAGELIST: u32 = 1078u32;
-pub const TB_SETDRAWTEXTFLAGS: u32 = 1094u32;
-pub const TB_SETEXTENDEDSTYLE: u32 = 1108u32;
-pub const TB_SETHOTIMAGELIST: u32 = 1076u32;
-pub const TB_SETHOTITEM: u32 = 1096u32;
-pub const TB_SETHOTITEM2: u32 = 1118u32;
-pub const TB_SETIMAGELIST: u32 = 1072u32;
-pub const TB_SETINDENT: u32 = 1071u32;
-pub const TB_SETINSERTMARK: u32 = 1104u32;
-pub const TB_SETINSERTMARKCOLOR: u32 = 1112u32;
-pub const TB_SETLISTGAP: u32 = 1120u32;
-pub const TB_SETMAXTEXTROWS: u32 = 1084u32;
-pub const TB_SETMETRICS: u32 = 1126u32;
-pub const TB_SETPADDING: u32 = 1111u32;
-pub const TB_SETPARENT: u32 = 1061u32;
-pub const TB_SETPRESSEDIMAGELIST: u32 = 1128u32;
-pub const TB_SETROWS: u32 = 1063u32;
-pub const TB_SETSTATE: u32 = 1041u32;
-pub const TB_SETSTYLE: u32 = 1080u32;
-pub const TB_SETTOOLTIPS: u32 = 1060u32;
-pub const TB_SETUNICODEFORMAT: u32 = 8197u32;
-pub const TB_SETWINDOWTHEME: u32 = 8203u32;
-pub const TB_THUMBPOSITION: u32 = 4u32;
-pub const TB_THUMBTRACK: u32 = 5u32;
-pub const TB_TOP: u32 = 6u32;
-pub const TCHT_NOWHERE: TCHITTESTINFO_FLAGS = 1u32;
-pub const TCHT_ONITEM: TCHITTESTINFO_FLAGS = 6u32;
-pub const TCHT_ONITEMICON: TCHITTESTINFO_FLAGS = 2u32;
-pub const TCHT_ONITEMLABEL: TCHITTESTINFO_FLAGS = 4u32;
-pub const TCIF_IMAGE: TCITEMHEADERA_MASK = 2u32;
-pub const TCIF_PARAM: TCITEMHEADERA_MASK = 8u32;
-pub const TCIF_RTLREADING: TCITEMHEADERA_MASK = 4u32;
-pub const TCIF_STATE: TCITEMHEADERA_MASK = 16u32;
-pub const TCIF_TEXT: TCITEMHEADERA_MASK = 1u32;
-pub const TCIS_BUTTONPRESSED: TAB_CONTROL_ITEM_STATE = 1u32;
-pub const TCIS_HIGHLIGHTED: TAB_CONTROL_ITEM_STATE = 2u32;
-pub const TCM_ADJUSTRECT: u32 = 4904u32;
-pub const TCM_DELETEALLITEMS: u32 = 4873u32;
-pub const TCM_DELETEITEM: u32 = 4872u32;
-pub const TCM_DESELECTALL: u32 = 4914u32;
-pub const TCM_FIRST: u32 = 4864u32;
-pub const TCM_GETCURFOCUS: u32 = 4911u32;
-pub const TCM_GETCURSEL: u32 = 4875u32;
-pub const TCM_GETEXTENDEDSTYLE: u32 = 4917u32;
-pub const TCM_GETIMAGELIST: u32 = 4866u32;
-pub const TCM_GETITEM: u32 = 4924u32;
-pub const TCM_GETITEMA: u32 = 4869u32;
-pub const TCM_GETITEMCOUNT: u32 = 4868u32;
-pub const TCM_GETITEMRECT: u32 = 4874u32;
-pub const TCM_GETITEMW: u32 = 4924u32;
-pub const TCM_GETROWCOUNT: u32 = 4908u32;
-pub const TCM_GETTOOLTIPS: u32 = 4909u32;
-pub const TCM_GETUNICODEFORMAT: u32 = 8198u32;
-pub const TCM_HIGHLIGHTITEM: u32 = 4915u32;
-pub const TCM_HITTEST: u32 = 4877u32;
-pub const TCM_INSERTITEM: u32 = 4926u32;
-pub const TCM_INSERTITEMA: u32 = 4871u32;
-pub const TCM_INSERTITEMW: u32 = 4926u32;
-pub const TCM_REMOVEIMAGE: u32 = 4906u32;
-pub const TCM_SETCURFOCUS: u32 = 4912u32;
-pub const TCM_SETCURSEL: u32 = 4876u32;
-pub const TCM_SETEXTENDEDSTYLE: u32 = 4916u32;
-pub const TCM_SETIMAGELIST: u32 = 4867u32;
-pub const TCM_SETITEM: u32 = 4925u32;
-pub const TCM_SETITEMA: u32 = 4870u32;
-pub const TCM_SETITEMEXTRA: u32 = 4878u32;
-pub const TCM_SETITEMSIZE: u32 = 4905u32;
-pub const TCM_SETITEMW: u32 = 4925u32;
-pub const TCM_SETMINTABWIDTH: u32 = 4913u32;
-pub const TCM_SETPADDING: u32 = 4907u32;
-pub const TCM_SETTOOLTIPS: u32 = 4910u32;
-pub const TCM_SETUNICODEFORMAT: u32 = 8197u32;
-pub const TCN_FIRST: u32 = 4294966746u32;
-pub const TCN_FOCUSCHANGE: u32 = 4294966742u32;
-pub const TCN_GETOBJECT: u32 = 4294966743u32;
-pub const TCN_KEYDOWN: u32 = 4294966746u32;
-pub const TCN_LAST: u32 = 4294966716u32;
-pub const TCN_SELCHANGE: u32 = 4294966745u32;
-pub const TCN_SELCHANGING: u32 = 4294966744u32;
-pub const TCS_BOTTOM: u32 = 2u32;
-pub const TCS_BUTTONS: u32 = 256u32;
-pub const TCS_EX_FLATSEPARATORS: u32 = 1u32;
-pub const TCS_EX_REGISTERDROP: u32 = 2u32;
-pub const TCS_FIXEDWIDTH: u32 = 1024u32;
-pub const TCS_FLATBUTTONS: u32 = 8u32;
-pub const TCS_FOCUSNEVER: u32 = 32768u32;
-pub const TCS_FOCUSONBUTTONDOWN: u32 = 4096u32;
-pub const TCS_FORCEICONLEFT: u32 = 16u32;
-pub const TCS_FORCELABELLEFT: u32 = 32u32;
-pub const TCS_HOTTRACK: u32 = 64u32;
-pub const TCS_MULTILINE: u32 = 512u32;
-pub const TCS_MULTISELECT: u32 = 4u32;
-pub const TCS_OWNERDRAWFIXED: u32 = 8192u32;
-pub const TCS_RAGGEDRIGHT: u32 = 2048u32;
-pub const TCS_RIGHT: u32 = 2u32;
-pub const TCS_RIGHTJUSTIFY: u32 = 0u32;
-pub const TCS_SCROLLOPPOSITE: u32 = 1u32;
-pub const TCS_SINGLELINE: u32 = 0u32;
-pub const TCS_TABS: u32 = 0u32;
-pub const TCS_TOOLTIPS: u32 = 16384u32;
-pub const TCS_VERTICAL: u32 = 128u32;
-pub const TDCBF_ABORT_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 65536i32;
-pub const TDCBF_CANCEL_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 8i32;
-pub const TDCBF_CLOSE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 32i32;
-pub const TDCBF_CONTINUE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 524288i32;
-pub const TDCBF_HELP_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 1048576i32;
-pub const TDCBF_IGNORE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 131072i32;
-pub const TDCBF_NO_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 4i32;
-pub const TDCBF_OK_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 1i32;
-pub const TDCBF_RETRY_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 16i32;
-pub const TDCBF_TRYAGAIN_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 262144i32;
-pub const TDCBF_YES_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 2i32;
-pub const TDE_CONTENT: TASKDIALOG_ELEMENTS = 0i32;
-pub const TDE_EXPANDED_INFORMATION: TASKDIALOG_ELEMENTS = 1i32;
-pub const TDE_FOOTER: TASKDIALOG_ELEMENTS = 2i32;
-pub const TDE_MAIN_INSTRUCTION: TASKDIALOG_ELEMENTS = 3i32;
-pub const TDF_ALLOW_DIALOG_CANCELLATION: TASKDIALOG_FLAGS = 8i32;
-pub const TDF_CALLBACK_TIMER: TASKDIALOG_FLAGS = 2048i32;
-pub const TDF_CAN_BE_MINIMIZED: TASKDIALOG_FLAGS = 32768i32;
-pub const TDF_ENABLE_HYPERLINKS: TASKDIALOG_FLAGS = 1i32;
-pub const TDF_EXPANDED_BY_DEFAULT: TASKDIALOG_FLAGS = 128i32;
-pub const TDF_EXPAND_FOOTER_AREA: TASKDIALOG_FLAGS = 64i32;
-pub const TDF_NO_DEFAULT_RADIO_BUTTON: TASKDIALOG_FLAGS = 16384i32;
-pub const TDF_NO_SET_FOREGROUND: TASKDIALOG_FLAGS = 65536i32;
-pub const TDF_POSITION_RELATIVE_TO_WINDOW: TASKDIALOG_FLAGS = 4096i32;
-pub const TDF_RTL_LAYOUT: TASKDIALOG_FLAGS = 8192i32;
-pub const TDF_SHOW_MARQUEE_PROGRESS_BAR: TASKDIALOG_FLAGS = 1024i32;
-pub const TDF_SHOW_PROGRESS_BAR: TASKDIALOG_FLAGS = 512i32;
-pub const TDF_SIZE_TO_CONTENT: TASKDIALOG_FLAGS = 16777216i32;
-pub const TDF_USE_COMMAND_LINKS: TASKDIALOG_FLAGS = 16i32;
-pub const TDF_USE_COMMAND_LINKS_NO_ICON: TASKDIALOG_FLAGS = 32i32;
-pub const TDF_USE_HICON_FOOTER: TASKDIALOG_FLAGS = 4i32;
-pub const TDF_USE_HICON_MAIN: TASKDIALOG_FLAGS = 2i32;
-pub const TDF_VERIFICATION_FLAG_CHECKED: TASKDIALOG_FLAGS = 256i32;
-pub const TDIE_ICON_FOOTER: TASKDIALOG_ICON_ELEMENTS = 1i32;
-pub const TDIE_ICON_MAIN: TASKDIALOG_ICON_ELEMENTS = 0i32;
-pub const TDLGCPS_STANDALONE: CONTENTPANESTATES = 1i32;
-pub const TDLGEBS_EXPANDEDDISABLED: EXPANDOBUTTONSTATES = 8i32;
-pub const TDLGEBS_EXPANDEDHOVER: EXPANDOBUTTONSTATES = 5i32;
-pub const TDLGEBS_EXPANDEDNORMAL: EXPANDOBUTTONSTATES = 4i32;
-pub const TDLGEBS_EXPANDEDPRESSED: EXPANDOBUTTONSTATES = 6i32;
-pub const TDLGEBS_HOVER: EXPANDOBUTTONSTATES = 2i32;
-pub const TDLGEBS_NORMAL: EXPANDOBUTTONSTATES = 1i32;
-pub const TDLGEBS_NORMALDISABLED: EXPANDOBUTTONSTATES = 7i32;
-pub const TDLGEBS_PRESSED: EXPANDOBUTTONSTATES = 3i32;
-pub const TDLG_BUTTONSECTION: TASKDIALOGPARTS = 10i32;
-pub const TDLG_BUTTONWRAPPER: TASKDIALOGPARTS = 11i32;
-pub const TDLG_COMMANDLINKPANE: TASKDIALOGPARTS = 7i32;
-pub const TDLG_CONTENTICON: TASKDIALOGPARTS = 5i32;
-pub const TDLG_CONTENTPANE: TASKDIALOGPARTS = 4i32;
-pub const TDLG_CONTROLPANE: TASKDIALOGPARTS = 9i32;
-pub const TDLG_EXPANDEDCONTENT: TASKDIALOGPARTS = 6i32;
-pub const TDLG_EXPANDEDFOOTERAREA: TASKDIALOGPARTS = 18i32;
-pub const TDLG_EXPANDOBUTTON: TASKDIALOGPARTS = 13i32;
-pub const TDLG_EXPANDOTEXT: TASKDIALOGPARTS = 12i32;
-pub const TDLG_FOOTNOTEAREA: TASKDIALOGPARTS = 16i32;
-pub const TDLG_FOOTNOTEPANE: TASKDIALOGPARTS = 15i32;
-pub const TDLG_FOOTNOTESEPARATOR: TASKDIALOGPARTS = 17i32;
-pub const TDLG_IMAGEALIGNMENT: TASKDIALOGPARTS = 20i32;
-pub const TDLG_MAINICON: TASKDIALOGPARTS = 3i32;
-pub const TDLG_MAININSTRUCTIONPANE: TASKDIALOGPARTS = 2i32;
-pub const TDLG_PRIMARYPANEL: TASKDIALOGPARTS = 1i32;
-pub const TDLG_PROGRESSBAR: TASKDIALOGPARTS = 19i32;
-pub const TDLG_RADIOBUTTONPANE: TASKDIALOGPARTS = 21i32;
-pub const TDLG_SECONDARYPANEL: TASKDIALOGPARTS = 8i32;
-pub const TDLG_VERIFICATIONTEXT: TASKDIALOGPARTS = 14i32;
-pub const TDM_CLICK_BUTTON: TASKDIALOG_MESSAGES = 1126i32;
-pub const TDM_CLICK_RADIO_BUTTON: TASKDIALOG_MESSAGES = 1134i32;
-pub const TDM_CLICK_VERIFICATION: TASKDIALOG_MESSAGES = 1137i32;
-pub const TDM_ENABLE_BUTTON: TASKDIALOG_MESSAGES = 1135i32;
-pub const TDM_ENABLE_RADIO_BUTTON: TASKDIALOG_MESSAGES = 1136i32;
-pub const TDM_NAVIGATE_PAGE: TASKDIALOG_MESSAGES = 1125i32;
-pub const TDM_SET_BUTTON_ELEVATION_REQUIRED_STATE: TASKDIALOG_MESSAGES = 1139i32;
-pub const TDM_SET_ELEMENT_TEXT: TASKDIALOG_MESSAGES = 1132i32;
-pub const TDM_SET_MARQUEE_PROGRESS_BAR: TASKDIALOG_MESSAGES = 1127i32;
-pub const TDM_SET_PROGRESS_BAR_MARQUEE: TASKDIALOG_MESSAGES = 1131i32;
-pub const TDM_SET_PROGRESS_BAR_POS: TASKDIALOG_MESSAGES = 1130i32;
-pub const TDM_SET_PROGRESS_BAR_RANGE: TASKDIALOG_MESSAGES = 1129i32;
-pub const TDM_SET_PROGRESS_BAR_STATE: TASKDIALOG_MESSAGES = 1128i32;
-pub const TDM_UPDATE_ELEMENT_TEXT: TASKDIALOG_MESSAGES = 1138i32;
-pub const TDM_UPDATE_ICON: TASKDIALOG_MESSAGES = 1140i32;
-pub const TDN_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = 2i32;
-pub const TDN_CREATED: TASKDIALOG_NOTIFICATIONS = 0i32;
-pub const TDN_DESTROYED: TASKDIALOG_NOTIFICATIONS = 5i32;
-pub const TDN_DIALOG_CONSTRUCTED: TASKDIALOG_NOTIFICATIONS = 7i32;
-pub const TDN_EXPANDO_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = 10i32;
-pub const TDN_HELP: TASKDIALOG_NOTIFICATIONS = 9i32;
-pub const TDN_HYPERLINK_CLICKED: TASKDIALOG_NOTIFICATIONS = 3i32;
-pub const TDN_NAVIGATED: TASKDIALOG_NOTIFICATIONS = 1i32;
-pub const TDN_RADIO_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = 6i32;
-pub const TDN_TIMER: TASKDIALOG_NOTIFICATIONS = 4i32;
-pub const TDN_VERIFICATION_CLICKED: TASKDIALOG_NOTIFICATIONS = 8i32;
-pub const TDP_FLASHBUTTON: TASKBANDPARTS = 2i32;
-pub const TDP_FLASHBUTTONGROUPMENU: TASKBANDPARTS = 3i32;
-pub const TDP_GROUPCOUNT: TASKBANDPARTS = 1i32;
-pub const TD_ERROR_ICON: windows_sys::core::PCWSTR = 65534u16 as _;
-pub const TD_INFORMATION_ICON: windows_sys::core::PCWSTR = 65533u16 as _;
-pub const TD_SHIELD_ICON: windows_sys::core::PCWSTR = 65532u16 as _;
-pub const TD_WARNING_ICON: windows_sys::core::PCWSTR = 65535u16 as _;
-pub const TEXT_BODYTEXT: TEXTSTYLEPARTS = 4i32;
-pub const TEXT_BODYTITLE: TEXTSTYLEPARTS = 3i32;
-pub const TEXT_CONTROLLABEL: TEXTSTYLEPARTS = 9i32;
-pub const TEXT_EXPANDED: TEXTSTYLEPARTS = 7i32;
-pub const TEXT_HYPERLINKTEXT: TEXTSTYLEPARTS = 6i32;
-pub const TEXT_INSTRUCTION: TEXTSTYLEPARTS = 2i32;
-pub const TEXT_LABEL: TEXTSTYLEPARTS = 8i32;
-pub const TEXT_MAININSTRUCTION: TEXTSTYLEPARTS = 1i32;
-pub const TEXT_SECONDARYTEXT: TEXTSTYLEPARTS = 5i32;
-pub const TIBES_DISABLED: TABITEMBOTHEDGESTATES = 4i32;
-pub const TIBES_FOCUSED: TABITEMBOTHEDGESTATES = 5i32;
-pub const TIBES_HOT: TABITEMBOTHEDGESTATES = 2i32;
-pub const TIBES_NORMAL: TABITEMBOTHEDGESTATES = 1i32;
-pub const TIBES_SELECTED: TABITEMBOTHEDGESTATES = 3i32;
-pub const TILES_DISABLED: TABITEMLEFTEDGESTATES = 4i32;
-pub const TILES_FOCUSED: TABITEMLEFTEDGESTATES = 5i32;
-pub const TILES_HOT: TABITEMLEFTEDGESTATES = 2i32;
-pub const TILES_NORMAL: TABITEMLEFTEDGESTATES = 1i32;
-pub const TILES_SELECTED: TABITEMLEFTEDGESTATES = 3i32;
-pub const TIRES_DISABLED: TABITEMRIGHTEDGESTATES = 4i32;
-pub const TIRES_FOCUSED: TABITEMRIGHTEDGESTATES = 5i32;
-pub const TIRES_HOT: TABITEMRIGHTEDGESTATES = 2i32;
-pub const TIRES_NORMAL: TABITEMRIGHTEDGESTATES = 1i32;
-pub const TIRES_SELECTED: TABITEMRIGHTEDGESTATES = 3i32;
-pub const TIS_DISABLED: TABITEMSTATES = 4i32;
-pub const TIS_FOCUSED: TABITEMSTATES = 5i32;
-pub const TIS_HOT: TABITEMSTATES = 2i32;
-pub const TIS_NORMAL: TABITEMSTATES = 1i32;
-pub const TIS_SELECTED: TABITEMSTATES = 3i32;
-pub const TKP_THUMB: TRACKBARPARTS = 3i32;
-pub const TKP_THUMBBOTTOM: TRACKBARPARTS = 4i32;
-pub const TKP_THUMBLEFT: TRACKBARPARTS = 7i32;
-pub const TKP_THUMBRIGHT: TRACKBARPARTS = 8i32;
-pub const TKP_THUMBTOP: TRACKBARPARTS = 5i32;
-pub const TKP_THUMBVERT: TRACKBARPARTS = 6i32;
-pub const TKP_TICS: TRACKBARPARTS = 9i32;
-pub const TKP_TICSVERT: TRACKBARPARTS = 10i32;
-pub const TKP_TRACK: TRACKBARPARTS = 1i32;
-pub const TKP_TRACKVERT: TRACKBARPARTS = 2i32;
-pub const TKS_NORMAL: TRACKBARSTYLESTATES = 1i32;
-pub const TMTVS_RESERVEDHIGH: u32 = 19999u32;
-pub const TMTVS_RESERVEDLOW: u32 = 100000u32;
-pub const TMT_ACCENTCOLORHINT: THEME_PROPERTY_SYMBOL_ID = 3823u32;
-pub const TMT_ACTIVEBORDER: THEME_PROPERTY_SYMBOL_ID = 1611u32;
-pub const TMT_ACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = 1603u32;
-pub const TMT_ALIAS: THEME_PROPERTY_SYMBOL_ID = 1404u32;
-pub const TMT_ALPHALEVEL: THEME_PROPERTY_SYMBOL_ID = 2402u32;
-pub const TMT_ALPHATHRESHOLD: THEME_PROPERTY_SYMBOL_ID = 2415u32;
-pub const TMT_ALWAYSSHOWSIZINGBAR: THEME_PROPERTY_SYMBOL_ID = 2208u32;
-pub const TMT_ANIMATIONBUTTONRECT: THEME_PROPERTY_SYMBOL_ID = 5005u32;
-pub const TMT_ANIMATIONDELAY: THEME_PROPERTY_SYMBOL_ID = 2428u32;
-pub const TMT_ANIMATIONDURATION: THEME_PROPERTY_SYMBOL_ID = 5006u32;
-pub const TMT_APPWORKSPACE: THEME_PROPERTY_SYMBOL_ID = 1613u32;
-pub const TMT_ATLASIMAGE: THEME_PROPERTY_SYMBOL_ID = 8000u32;
-pub const TMT_ATLASINPUTIMAGE: THEME_PROPERTY_SYMBOL_ID = 8001u32;
-pub const TMT_ATLASRECT: THEME_PROPERTY_SYMBOL_ID = 8002u32;
-pub const TMT_AUTHOR: THEME_PROPERTY_SYMBOL_ID = 604u32;
-pub const TMT_AUTOSIZE: THEME_PROPERTY_SYMBOL_ID = 2202u32;
-pub const TMT_BACKGROUND: THEME_PROPERTY_SYMBOL_ID = 1602u32;
-pub const TMT_BGFILL: THEME_PROPERTY_SYMBOL_ID = 2205u32;
-pub const TMT_BGTYPE: THEME_PROPERTY_SYMBOL_ID = 4001u32;
-pub const TMT_BITMAPREF: THEME_PROPERTY_SYMBOL_ID = 215u32;
-pub const TMT_BLENDCOLOR: THEME_PROPERTY_SYMBOL_ID = 5003u32;
-pub const TMT_BODYFONT: THEME_PROPERTY_SYMBOL_ID = 809u32;
-pub const TMT_BODYTEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3827u32;
-pub const TMT_BOOL: THEME_PROPERTY_SYMBOL_ID = 203u32;
-pub const TMT_BORDERCOLOR: THEME_PROPERTY_SYMBOL_ID = 3801u32;
-pub const TMT_BORDERCOLORHINT: THEME_PROPERTY_SYMBOL_ID = 3822u32;
-pub const TMT_BORDERONLY: THEME_PROPERTY_SYMBOL_ID = 2203u32;
-pub const TMT_BORDERSIZE: THEME_PROPERTY_SYMBOL_ID = 2403u32;
-pub const TMT_BORDERTYPE: THEME_PROPERTY_SYMBOL_ID = 4002u32;
-pub const TMT_BTNFACE: THEME_PROPERTY_SYMBOL_ID = 1616u32;
-pub const TMT_BTNHIGHLIGHT: THEME_PROPERTY_SYMBOL_ID = 1621u32;
-pub const TMT_BTNSHADOW: THEME_PROPERTY_SYMBOL_ID = 1617u32;
-pub const TMT_BTNTEXT: THEME_PROPERTY_SYMBOL_ID = 1619u32;
-pub const TMT_BUTTONALTERNATEFACE: THEME_PROPERTY_SYMBOL_ID = 1626u32;
-pub const TMT_CAPTIONBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = 1205u32;
-pub const TMT_CAPTIONBARWIDTH: THEME_PROPERTY_SYMBOL_ID = 1204u32;
-pub const TMT_CAPTIONFONT: THEME_PROPERTY_SYMBOL_ID = 801u32;
-pub const TMT_CAPTIONMARGINS: THEME_PROPERTY_SYMBOL_ID = 3603u32;
-pub const TMT_CAPTIONTEXT: THEME_PROPERTY_SYMBOL_ID = 1610u32;
-pub const TMT_CHARSET: THEME_PROPERTY_SYMBOL_ID = 403u32;
-pub const TMT_CLASSICVALUE: THEME_PROPERTY_SYMBOL_ID = 3202u32;
-pub const TMT_COLOR: THEME_PROPERTY_SYMBOL_ID = 204u32;
-pub const TMT_COLORIZATIONCOLOR: THEME_PROPERTY_SYMBOL_ID = 2431u32;
-pub const TMT_COLORIZATIONOPACITY: THEME_PROPERTY_SYMBOL_ID = 2432u32;
-pub const TMT_COLORSCHEMES: THEME_PROPERTY_SYMBOL_ID = 401u32;
-pub const TMT_COMPANY: THEME_PROPERTY_SYMBOL_ID = 603u32;
-pub const TMT_COMPOSITED: THEME_PROPERTY_SYMBOL_ID = 2204u32;
-pub const TMT_COMPOSITEDOPAQUE: THEME_PROPERTY_SYMBOL_ID = 2219u32;
-pub const TMT_CONTENTALIGNMENT: THEME_PROPERTY_SYMBOL_ID = 4006u32;
-pub const TMT_CONTENTMARGINS: THEME_PROPERTY_SYMBOL_ID = 3602u32;
-pub const TMT_COPYRIGHT: THEME_PROPERTY_SYMBOL_ID = 605u32;
-pub const TMT_CSSNAME: THEME_PROPERTY_SYMBOL_ID = 1401u32;
-pub const TMT_CUSTOMSPLITRECT: THEME_PROPERTY_SYMBOL_ID = 5004u32;
-pub const TMT_DEFAULTPANESIZE: THEME_PROPERTY_SYMBOL_ID = 5002u32;
-pub const TMT_DESCRIPTION: THEME_PROPERTY_SYMBOL_ID = 608u32;
-pub const TMT_DIBDATA: THEME_PROPERTY_SYMBOL_ID = 2u32;
-pub const TMT_DISKSTREAM: THEME_PROPERTY_SYMBOL_ID = 213u32;
-pub const TMT_DISPLAYNAME: THEME_PROPERTY_SYMBOL_ID = 601u32;
-pub const TMT_DKSHADOW3D: THEME_PROPERTY_SYMBOL_ID = 1622u32;
-pub const TMT_DRAWBORDERS: THEME_PROPERTY_SYMBOL_ID = 2214u32;
-pub const TMT_EDGEDKSHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3807u32;
-pub const TMT_EDGEFILLCOLOR: THEME_PROPERTY_SYMBOL_ID = 3808u32;
-pub const TMT_EDGEHIGHLIGHTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3805u32;
-pub const TMT_EDGELIGHTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3804u32;
-pub const TMT_EDGESHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3806u32;
-pub const TMT_ENUM: THEME_PROPERTY_SYMBOL_ID = 200u32;
-pub const TMT_FILENAME: THEME_PROPERTY_SYMBOL_ID = 206u32;
-pub const TMT_FILLCOLOR: THEME_PROPERTY_SYMBOL_ID = 3802u32;
-pub const TMT_FILLCOLORHINT: THEME_PROPERTY_SYMBOL_ID = 3821u32;
-pub const TMT_FILLTYPE: THEME_PROPERTY_SYMBOL_ID = 4003u32;
-pub const TMT_FIRSTBOOL: THEME_PROPERTY_SYMBOL_ID = 1001u32;
-pub const TMT_FIRSTCOLOR: THEME_PROPERTY_SYMBOL_ID = 1601u32;
-pub const TMT_FIRSTFONT: THEME_PROPERTY_SYMBOL_ID = 801u32;
-pub const TMT_FIRSTINT: THEME_PROPERTY_SYMBOL_ID = 1301u32;
-pub const TMT_FIRSTSIZE: THEME_PROPERTY_SYMBOL_ID = 1201u32;
-pub const TMT_FIRSTSTRING: THEME_PROPERTY_SYMBOL_ID = 1401u32;
-pub const TMT_FIRST_RCSTRING_NAME: THEME_PROPERTY_SYMBOL_ID = 601u32;
-pub const TMT_FLATMENUS: THEME_PROPERTY_SYMBOL_ID = 1001u32;
-pub const TMT_FLOAT: THEME_PROPERTY_SYMBOL_ID = 216u32;
-pub const TMT_FLOATLIST: THEME_PROPERTY_SYMBOL_ID = 217u32;
-pub const TMT_FONT: THEME_PROPERTY_SYMBOL_ID = 210u32;
-pub const TMT_FRAMESPERSECOND: THEME_PROPERTY_SYMBOL_ID = 2426u32;
-pub const TMT_FROMCOLOR1: THEME_PROPERTY_SYMBOL_ID = 2001u32;
-pub const TMT_FROMCOLOR2: THEME_PROPERTY_SYMBOL_ID = 2002u32;
-pub const TMT_FROMCOLOR3: THEME_PROPERTY_SYMBOL_ID = 2003u32;
-pub const TMT_FROMCOLOR4: THEME_PROPERTY_SYMBOL_ID = 2004u32;
-pub const TMT_FROMCOLOR5: THEME_PROPERTY_SYMBOL_ID = 2005u32;
-pub const TMT_FROMHUE1: THEME_PROPERTY_SYMBOL_ID = 1801u32;
-pub const TMT_FROMHUE2: THEME_PROPERTY_SYMBOL_ID = 1802u32;
-pub const TMT_FROMHUE3: THEME_PROPERTY_SYMBOL_ID = 1803u32;
-pub const TMT_FROMHUE4: THEME_PROPERTY_SYMBOL_ID = 1804u32;
-pub const TMT_FROMHUE5: THEME_PROPERTY_SYMBOL_ID = 1805u32;
-pub const TMT_GLOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3816u32;
-pub const TMT_GLOWINTENSITY: THEME_PROPERTY_SYMBOL_ID = 2429u32;
-pub const TMT_GLYPHDIBDATA: THEME_PROPERTY_SYMBOL_ID = 8u32;
-pub const TMT_GLYPHFONT: THEME_PROPERTY_SYMBOL_ID = 2601u32;
-pub const TMT_GLYPHFONTSIZINGTYPE: THEME_PROPERTY_SYMBOL_ID = 4014u32;
-pub const TMT_GLYPHIMAGEFILE: THEME_PROPERTY_SYMBOL_ID = 3008u32;
-pub const TMT_GLYPHINDEX: THEME_PROPERTY_SYMBOL_ID = 2418u32;
-pub const TMT_GLYPHONLY: THEME_PROPERTY_SYMBOL_ID = 2207u32;
-pub const TMT_GLYPHTEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3819u32;
-pub const TMT_GLYPHTRANSPARENT: THEME_PROPERTY_SYMBOL_ID = 2206u32;
-pub const TMT_GLYPHTRANSPARENTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3820u32;
-pub const TMT_GLYPHTYPE: THEME_PROPERTY_SYMBOL_ID = 4012u32;
-pub const TMT_GRADIENTACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = 1628u32;
-pub const TMT_GRADIENTCOLOR1: THEME_PROPERTY_SYMBOL_ID = 3810u32;
-pub const TMT_GRADIENTCOLOR2: THEME_PROPERTY_SYMBOL_ID = 3811u32;
-pub const TMT_GRADIENTCOLOR3: THEME_PROPERTY_SYMBOL_ID = 3812u32;
-pub const TMT_GRADIENTCOLOR4: THEME_PROPERTY_SYMBOL_ID = 3813u32;
-pub const TMT_GRADIENTCOLOR5: THEME_PROPERTY_SYMBOL_ID = 3814u32;
-pub const TMT_GRADIENTINACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = 1629u32;
-pub const TMT_GRADIENTRATIO1: THEME_PROPERTY_SYMBOL_ID = 2406u32;
-pub const TMT_GRADIENTRATIO2: THEME_PROPERTY_SYMBOL_ID = 2407u32;
-pub const TMT_GRADIENTRATIO3: THEME_PROPERTY_SYMBOL_ID = 2408u32;
-pub const TMT_GRADIENTRATIO4: THEME_PROPERTY_SYMBOL_ID = 2409u32;
-pub const TMT_GRADIENTRATIO5: THEME_PROPERTY_SYMBOL_ID = 2410u32;
-pub const TMT_GRAYTEXT: THEME_PROPERTY_SYMBOL_ID = 1618u32;
-pub const TMT_HALIGN: THEME_PROPERTY_SYMBOL_ID = 4005u32;
-pub const TMT_HBITMAP: THEME_PROPERTY_SYMBOL_ID = 212u32;
-pub const TMT_HEADING1FONT: THEME_PROPERTY_SYMBOL_ID = 807u32;
-pub const TMT_HEADING1TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3825u32;
-pub const TMT_HEADING2FONT: THEME_PROPERTY_SYMBOL_ID = 808u32;
-pub const TMT_HEADING2TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3826u32;
-pub const TMT_HEIGHT: THEME_PROPERTY_SYMBOL_ID = 2417u32;
-pub const TMT_HIGHLIGHT: THEME_PROPERTY_SYMBOL_ID = 1614u32;
-pub const TMT_HIGHLIGHTTEXT: THEME_PROPERTY_SYMBOL_ID = 1615u32;
-pub const TMT_HOTTRACKING: THEME_PROPERTY_SYMBOL_ID = 1627u32;
-pub const TMT_ICONEFFECT: THEME_PROPERTY_SYMBOL_ID = 4009u32;
-pub const TMT_ICONTITLEFONT: THEME_PROPERTY_SYMBOL_ID = 806u32;
-pub const TMT_IMAGECOUNT: THEME_PROPERTY_SYMBOL_ID = 2401u32;
-pub const TMT_IMAGEFILE: THEME_PROPERTY_SYMBOL_ID = 3001u32;
-pub const TMT_IMAGEFILE1: THEME_PROPERTY_SYMBOL_ID = 3002u32;
-pub const TMT_IMAGEFILE2: THEME_PROPERTY_SYMBOL_ID = 3003u32;
-pub const TMT_IMAGEFILE3: THEME_PROPERTY_SYMBOL_ID = 3004u32;
-pub const TMT_IMAGEFILE4: THEME_PROPERTY_SYMBOL_ID = 3005u32;
-pub const TMT_IMAGEFILE5: THEME_PROPERTY_SYMBOL_ID = 3006u32;
-pub const TMT_IMAGEFILE6: THEME_PROPERTY_SYMBOL_ID = 3009u32;
-pub const TMT_IMAGEFILE7: THEME_PROPERTY_SYMBOL_ID = 3010u32;
-pub const TMT_IMAGELAYOUT: THEME_PROPERTY_SYMBOL_ID = 4011u32;
-pub const TMT_IMAGESELECTTYPE: THEME_PROPERTY_SYMBOL_ID = 4013u32;
-pub const TMT_INACTIVEBORDER: THEME_PROPERTY_SYMBOL_ID = 1612u32;
-pub const TMT_INACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = 1604u32;
-pub const TMT_INACTIVECAPTIONTEXT: THEME_PROPERTY_SYMBOL_ID = 1620u32;
-pub const TMT_INFOBK: THEME_PROPERTY_SYMBOL_ID = 1625u32;
-pub const TMT_INFOTEXT: THEME_PROPERTY_SYMBOL_ID = 1624u32;
-pub const TMT_INT: THEME_PROPERTY_SYMBOL_ID = 202u32;
-pub const TMT_INTEGRALSIZING: THEME_PROPERTY_SYMBOL_ID = 2211u32;
-pub const TMT_INTLIST: THEME_PROPERTY_SYMBOL_ID = 211u32;
-pub const TMT_LASTBOOL: THEME_PROPERTY_SYMBOL_ID = 1001u32;
-pub const TMT_LASTCOLOR: THEME_PROPERTY_SYMBOL_ID = 1631u32;
-pub const TMT_LASTFONT: THEME_PROPERTY_SYMBOL_ID = 809u32;
-pub const TMT_LASTINT: THEME_PROPERTY_SYMBOL_ID = 1301u32;
-pub const TMT_LASTSIZE: THEME_PROPERTY_SYMBOL_ID = 1210u32;
-pub const TMT_LASTSTRING: THEME_PROPERTY_SYMBOL_ID = 1404u32;
-pub const TMT_LASTUPDATED: THEME_PROPERTY_SYMBOL_ID = 1403u32;
-pub const TMT_LAST_RCSTRING_NAME: THEME_PROPERTY_SYMBOL_ID = 608u32;
-pub const TMT_LIGHT3D: THEME_PROPERTY_SYMBOL_ID = 1623u32;
-pub const TMT_LOCALIZEDMIRRORIMAGE: THEME_PROPERTY_SYMBOL_ID = 2220u32;
-pub const TMT_MARGINS: THEME_PROPERTY_SYMBOL_ID = 205u32;
-pub const TMT_MENU: THEME_PROPERTY_SYMBOL_ID = 1605u32;
-pub const TMT_MENUBAR: THEME_PROPERTY_SYMBOL_ID = 1631u32;
-pub const TMT_MENUBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = 1209u32;
-pub const TMT_MENUBARWIDTH: THEME_PROPERTY_SYMBOL_ID = 1208u32;
-pub const TMT_MENUFONT: THEME_PROPERTY_SYMBOL_ID = 803u32;
-pub const TMT_MENUHILIGHT: THEME_PROPERTY_SYMBOL_ID = 1630u32;
-pub const TMT_MENUTEXT: THEME_PROPERTY_SYMBOL_ID = 1608u32;
-pub const TMT_MINCOLORDEPTH: THEME_PROPERTY_SYMBOL_ID = 1301u32;
-pub const TMT_MINDPI1: THEME_PROPERTY_SYMBOL_ID = 2420u32;
-pub const TMT_MINDPI2: THEME_PROPERTY_SYMBOL_ID = 2421u32;
-pub const TMT_MINDPI3: THEME_PROPERTY_SYMBOL_ID = 2422u32;
-pub const TMT_MINDPI4: THEME_PROPERTY_SYMBOL_ID = 2423u32;
-pub const TMT_MINDPI5: THEME_PROPERTY_SYMBOL_ID = 2424u32;
-pub const TMT_MINDPI6: THEME_PROPERTY_SYMBOL_ID = 2433u32;
-pub const TMT_MINDPI7: THEME_PROPERTY_SYMBOL_ID = 2434u32;
-pub const TMT_MINSIZE: THEME_PROPERTY_SYMBOL_ID = 3403u32;
-pub const TMT_MINSIZE1: THEME_PROPERTY_SYMBOL_ID = 3404u32;
-pub const TMT_MINSIZE2: THEME_PROPERTY_SYMBOL_ID = 3405u32;
-pub const TMT_MINSIZE3: THEME_PROPERTY_SYMBOL_ID = 3406u32;
-pub const TMT_MINSIZE4: THEME_PROPERTY_SYMBOL_ID = 3407u32;
-pub const TMT_MINSIZE5: THEME_PROPERTY_SYMBOL_ID = 3408u32;
-pub const TMT_MINSIZE6: THEME_PROPERTY_SYMBOL_ID = 3410u32;
-pub const TMT_MINSIZE7: THEME_PROPERTY_SYMBOL_ID = 3411u32;
-pub const TMT_MIRRORIMAGE: THEME_PROPERTY_SYMBOL_ID = 2209u32;
-pub const TMT_MSGBOXFONT: THEME_PROPERTY_SYMBOL_ID = 805u32;
-pub const TMT_NAME: THEME_PROPERTY_SYMBOL_ID = 600u32;
-pub const TMT_NOETCHEDEFFECT: THEME_PROPERTY_SYMBOL_ID = 2215u32;
-pub const TMT_NORMALSIZE: THEME_PROPERTY_SYMBOL_ID = 3409u32;
-pub const TMT_OFFSET: THEME_PROPERTY_SYMBOL_ID = 3401u32;
-pub const TMT_OFFSETTYPE: THEME_PROPERTY_SYMBOL_ID = 4008u32;
-pub const TMT_OPACITY: THEME_PROPERTY_SYMBOL_ID = 2430u32;
-pub const TMT_PADDEDBORDERWIDTH: THEME_PROPERTY_SYMBOL_ID = 1210u32;
-pub const TMT_PIXELSPERFRAME: THEME_PROPERTY_SYMBOL_ID = 2427u32;
-pub const TMT_POSITION: THEME_PROPERTY_SYMBOL_ID = 208u32;
-pub const TMT_PROGRESSCHUNKSIZE: THEME_PROPERTY_SYMBOL_ID = 2411u32;
-pub const TMT_PROGRESSSPACESIZE: THEME_PROPERTY_SYMBOL_ID = 2412u32;
-pub const TMT_RECT: THEME_PROPERTY_SYMBOL_ID = 209u32;
-pub const TMT_RESERVEDHIGH: THEME_PROPERTY_SYMBOL_ID = 7999u32;
-pub const TMT_RESERVEDLOW: THEME_PROPERTY_SYMBOL_ID = 0u32;
-pub const TMT_ROUNDCORNERHEIGHT: THEME_PROPERTY_SYMBOL_ID = 2405u32;
-pub const TMT_ROUNDCORNERWIDTH: THEME_PROPERTY_SYMBOL_ID = 2404u32;
-pub const TMT_SATURATION: THEME_PROPERTY_SYMBOL_ID = 2413u32;
-pub const TMT_SCALEDBACKGROUND: THEME_PROPERTY_SYMBOL_ID = 7001u32;
-pub const TMT_SCROLLBAR: THEME_PROPERTY_SYMBOL_ID = 1601u32;
-pub const TMT_SCROLLBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = 1203u32;
-pub const TMT_SCROLLBARWIDTH: THEME_PROPERTY_SYMBOL_ID = 1202u32;
-pub const TMT_SHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3815u32;
-pub const TMT_SIZE: THEME_PROPERTY_SYMBOL_ID = 207u32;
-pub const TMT_SIZES: THEME_PROPERTY_SYMBOL_ID = 402u32;
-pub const TMT_SIZINGBORDERWIDTH: THEME_PROPERTY_SYMBOL_ID = 1201u32;
-pub const TMT_SIZINGMARGINS: THEME_PROPERTY_SYMBOL_ID = 3601u32;
-pub const TMT_SIZINGTYPE: THEME_PROPERTY_SYMBOL_ID = 4004u32;
-pub const TMT_SMALLCAPTIONFONT: THEME_PROPERTY_SYMBOL_ID = 802u32;
-pub const TMT_SMCAPTIONBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = 1207u32;
-pub const TMT_SMCAPTIONBARWIDTH: THEME_PROPERTY_SYMBOL_ID = 1206u32;
-pub const TMT_SOURCEGROW: THEME_PROPERTY_SYMBOL_ID = 2212u32;
-pub const TMT_SOURCESHRINK: THEME_PROPERTY_SYMBOL_ID = 2213u32;
-pub const TMT_STATUSFONT: THEME_PROPERTY_SYMBOL_ID = 804u32;
-pub const TMT_STREAM: THEME_PROPERTY_SYMBOL_ID = 214u32;
-pub const TMT_STRING: THEME_PROPERTY_SYMBOL_ID = 201u32;
-pub const TMT_TEXT: THEME_PROPERTY_SYMBOL_ID = 3201u32;
-pub const TMT_TEXTAPPLYOVERLAY: THEME_PROPERTY_SYMBOL_ID = 2216u32;
-pub const TMT_TEXTBORDERCOLOR: THEME_PROPERTY_SYMBOL_ID = 3817u32;
-pub const TMT_TEXTBORDERSIZE: THEME_PROPERTY_SYMBOL_ID = 2414u32;
-pub const TMT_TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3803u32;
-pub const TMT_TEXTCOLORHINT: THEME_PROPERTY_SYMBOL_ID = 3824u32;
-pub const TMT_TEXTGLOW: THEME_PROPERTY_SYMBOL_ID = 2217u32;
-pub const TMT_TEXTGLOWSIZE: THEME_PROPERTY_SYMBOL_ID = 2425u32;
-pub const TMT_TEXTITALIC: THEME_PROPERTY_SYMBOL_ID = 2218u32;
-pub const TMT_TEXTSHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3818u32;
-pub const TMT_TEXTSHADOWOFFSET: THEME_PROPERTY_SYMBOL_ID = 3402u32;
-pub const TMT_TEXTSHADOWTYPE: THEME_PROPERTY_SYMBOL_ID = 4010u32;
-pub const TMT_TOCOLOR1: THEME_PROPERTY_SYMBOL_ID = 2006u32;
-pub const TMT_TOCOLOR2: THEME_PROPERTY_SYMBOL_ID = 2007u32;
-pub const TMT_TOCOLOR3: THEME_PROPERTY_SYMBOL_ID = 2008u32;
-pub const TMT_TOCOLOR4: THEME_PROPERTY_SYMBOL_ID = 2009u32;
-pub const TMT_TOCOLOR5: THEME_PROPERTY_SYMBOL_ID = 2010u32;
-pub const TMT_TOHUE1: THEME_PROPERTY_SYMBOL_ID = 1806u32;
-pub const TMT_TOHUE2: THEME_PROPERTY_SYMBOL_ID = 1807u32;
-pub const TMT_TOHUE3: THEME_PROPERTY_SYMBOL_ID = 1808u32;
-pub const TMT_TOHUE4: THEME_PROPERTY_SYMBOL_ID = 1809u32;
-pub const TMT_TOHUE5: THEME_PROPERTY_SYMBOL_ID = 1810u32;
-pub const TMT_TOOLTIP: THEME_PROPERTY_SYMBOL_ID = 602u32;
-pub const TMT_TRANSITIONDURATIONS: THEME_PROPERTY_SYMBOL_ID = 6000u32;
-pub const TMT_TRANSPARENT: THEME_PROPERTY_SYMBOL_ID = 2201u32;
-pub const TMT_TRANSPARENTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3809u32;
-pub const TMT_TRUESIZESCALINGTYPE: THEME_PROPERTY_SYMBOL_ID = 4015u32;
-pub const TMT_TRUESIZESTRETCHMARK: THEME_PROPERTY_SYMBOL_ID = 2419u32;
-pub const TMT_UNIFORMSIZING: THEME_PROPERTY_SYMBOL_ID = 2210u32;
-pub const TMT_URL: THEME_PROPERTY_SYMBOL_ID = 606u32;
-pub const TMT_USERPICTURE: THEME_PROPERTY_SYMBOL_ID = 5001u32;
-pub const TMT_VALIGN: THEME_PROPERTY_SYMBOL_ID = 4007u32;
-pub const TMT_VERSION: THEME_PROPERTY_SYMBOL_ID = 607u32;
-pub const TMT_WIDTH: THEME_PROPERTY_SYMBOL_ID = 2416u32;
-pub const TMT_WINDOW: THEME_PROPERTY_SYMBOL_ID = 1606u32;
-pub const TMT_WINDOWFRAME: THEME_PROPERTY_SYMBOL_ID = 1607u32;
-pub const TMT_WINDOWTEXT: THEME_PROPERTY_SYMBOL_ID = 1609u32;
-pub const TMT_XMLNAME: THEME_PROPERTY_SYMBOL_ID = 1402u32;
-pub const TNP_ANIMBACKGROUND: TRAYNOTIFYPARTS = 2i32;
-pub const TNP_BACKGROUND: TRAYNOTIFYPARTS = 1i32;
-pub const TOOLBARCLASSNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ToolbarWindow32");
-pub const TOOLBARCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("ToolbarWindow32");
-pub const TOOLBARCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("ToolbarWindow32");
-pub const TOOLTIPS_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("tooltips_class32");
-pub const TOOLTIPS_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("tooltips_class32");
-pub const TOOLTIPS_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("tooltips_class32");
-pub const TP_BUTTON: TOOLBARPARTS = 1i32;
-pub const TP_DROPDOWNBUTTON: TOOLBARPARTS = 2i32;
-pub const TP_DROPDOWNBUTTONGLYPH: TOOLBARPARTS = 7i32;
-pub const TP_SEPARATOR: TOOLBARPARTS = 5i32;
-pub const TP_SEPARATORVERT: TOOLBARPARTS = 6i32;
-pub const TP_SPLITBUTTON: TOOLBARPARTS = 3i32;
-pub const TP_SPLITBUTTONDROPDOWN: TOOLBARPARTS = 4i32;
-pub const TRACKBAR_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_trackbar32");
-pub const TRACKBAR_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_trackbar32");
-pub const TRACKBAR_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_trackbar32");
-pub const TRBN_FIRST: u32 = 4294965795u32;
-pub const TRBN_LAST: u32 = 4294965777u32;
-pub const TRBN_THUMBPOSCHANGING: u32 = 4294965794u32;
-pub const TREIS_DISABLED: TREEITEMSTATES = 4i32;
-pub const TREIS_HOT: TREEITEMSTATES = 2i32;
-pub const TREIS_HOTSELECTED: TREEITEMSTATES = 6i32;
-pub const TREIS_NORMAL: TREEITEMSTATES = 1i32;
-pub const TREIS_SELECTED: TREEITEMSTATES = 3i32;
-pub const TREIS_SELECTEDNOTFOCUS: TREEITEMSTATES = 5i32;
-pub const TRS_NORMAL: TRACKSTATES = 1i32;
-pub const TRVS_NORMAL: TRACKVERTSTATES = 1i32;
-pub const TSGP_GRIPPER: TEXTSELECTIONGRIPPERPARTS = 1i32;
-pub const TSGS_CENTERED: GRIPPERSTATES = 2i32;
-pub const TSGS_NORMAL: GRIPPERSTATES = 1i32;
-pub const TSST_DPI: TRUESIZESCALINGTYPE = 2i32;
-pub const TSST_NONE: TRUESIZESCALINGTYPE = 0i32;
-pub const TSST_SIZE: TRUESIZESCALINGTYPE = 1i32;
-pub const TSS_NORMAL: TICSSTATES = 1i32;
-pub const TST_CONTINUOUS: TEXTSHADOWTYPE = 2i32;
-pub const TST_NONE: TEXTSHADOWTYPE = 0i32;
-pub const TST_SINGLE: TEXTSHADOWTYPE = 1i32;
-pub const TSVS_NORMAL: TICSVERTSTATES = 1i32;
-pub const TS_CHECKED: TOOLBARSTYLESTATES = 5i32;
-pub const TS_CONTROLLABEL_DISABLED: CONTROLLABELSTATES = 2i32;
-pub const TS_CONTROLLABEL_NORMAL: CONTROLLABELSTATES = 1i32;
-pub const TS_DISABLED: TOOLBARSTYLESTATES = 4i32;
-pub const TS_DRAW: THEMESIZE = 2i32;
-pub const TS_HOT: TOOLBARSTYLESTATES = 2i32;
-pub const TS_HOTCHECKED: TOOLBARSTYLESTATES = 6i32;
-pub const TS_HYPERLINK_DISABLED: HYPERLINKTEXTSTATES = 4i32;
-pub const TS_HYPERLINK_HOT: HYPERLINKTEXTSTATES = 2i32;
-pub const TS_HYPERLINK_NORMAL: HYPERLINKTEXTSTATES = 1i32;
-pub const TS_HYPERLINK_PRESSED: HYPERLINKTEXTSTATES = 3i32;
-pub const TS_MIN: THEMESIZE = 0i32;
-pub const TS_NEARHOT: TOOLBARSTYLESTATES = 7i32;
-pub const TS_NORMAL: TOOLBARSTYLESTATES = 1i32;
-pub const TS_OTHERSIDEHOT: TOOLBARSTYLESTATES = 8i32;
-pub const TS_PRESSED: TOOLBARSTYLESTATES = 3i32;
-pub const TS_TRUE: THEMESIZE = 1i32;
-pub const TTBSS_POINTINGDOWNCENTERED: BALLOONSTEMSTATES = 5i32;
-pub const TTBSS_POINTINGDOWNLEFTWALL: BALLOONSTEMSTATES = 6i32;
-pub const TTBSS_POINTINGDOWNRIGHTWALL: BALLOONSTEMSTATES = 4i32;
-pub const TTBSS_POINTINGUPCENTERED: BALLOONSTEMSTATES = 2i32;
-pub const TTBSS_POINTINGUPLEFTWALL: BALLOONSTEMSTATES = 1i32;
-pub const TTBSS_POINTINGUPRIGHTWALL: BALLOONSTEMSTATES = 3i32;
-pub const TTBS_LINK: BALLOONSTATES = 2i32;
-pub const TTBS_NORMAL: BALLOONSTATES = 1i32;
-pub const TTCS_HOT: CLOSESTATES = 2i32;
-pub const TTCS_NORMAL: CLOSESTATES = 1i32;
-pub const TTCS_PRESSED: CLOSESTATES = 3i32;
-pub const TTDT_AUTOMATIC: u32 = 0u32;
-pub const TTDT_AUTOPOP: u32 = 2u32;
-pub const TTDT_INITIAL: u32 = 3u32;
-pub const TTDT_RESHOW: u32 = 1u32;
-pub const TTFT_CUBIC_BEZIER: TA_TIMINGFUNCTION_TYPE = 1i32;
-pub const TTFT_UNDEFINED: TA_TIMINGFUNCTION_TYPE = 0i32;
-pub const TTF_ABSOLUTE: TOOLTIP_FLAGS = 128u32;
-pub const TTF_CENTERTIP: TOOLTIP_FLAGS = 2u32;
-pub const TTF_DI_SETITEM: TOOLTIP_FLAGS = 32768u32;
-pub const TTF_IDISHWND: TOOLTIP_FLAGS = 1u32;
-pub const TTF_PARSELINKS: TOOLTIP_FLAGS = 4096u32;
-pub const TTF_RTLREADING: TOOLTIP_FLAGS = 4u32;
-pub const TTF_SUBCLASS: TOOLTIP_FLAGS = 16u32;
-pub const TTF_TRACK: TOOLTIP_FLAGS = 32u32;
-pub const TTF_TRANSPARENT: TOOLTIP_FLAGS = 256u32;
-pub const TTIBES_DISABLED: TOPTABITEMBOTHEDGESTATES = 4i32;
-pub const TTIBES_FOCUSED: TOPTABITEMBOTHEDGESTATES = 5i32;
-pub const TTIBES_HOT: TOPTABITEMBOTHEDGESTATES = 2i32;
-pub const TTIBES_NORMAL: TOPTABITEMBOTHEDGESTATES = 1i32;
-pub const TTIBES_SELECTED: TOPTABITEMBOTHEDGESTATES = 3i32;
-pub const TTILES_DISABLED: TOPTABITEMLEFTEDGESTATES = 4i32;
-pub const TTILES_FOCUSED: TOPTABITEMLEFTEDGESTATES = 5i32;
-pub const TTILES_HOT: TOPTABITEMLEFTEDGESTATES = 2i32;
-pub const TTILES_NORMAL: TOPTABITEMLEFTEDGESTATES = 1i32;
-pub const TTILES_SELECTED: TOPTABITEMLEFTEDGESTATES = 3i32;
-pub const TTIRES_DISABLED: TOPTABITEMRIGHTEDGESTATES = 4i32;
-pub const TTIRES_FOCUSED: TOPTABITEMRIGHTEDGESTATES = 5i32;
-pub const TTIRES_HOT: TOPTABITEMRIGHTEDGESTATES = 2i32;
-pub const TTIRES_NORMAL: TOPTABITEMRIGHTEDGESTATES = 1i32;
-pub const TTIRES_SELECTED: TOPTABITEMRIGHTEDGESTATES = 3i32;
-pub const TTIS_DISABLED: TOPTABITEMSTATES = 4i32;
-pub const TTIS_FOCUSED: TOPTABITEMSTATES = 5i32;
-pub const TTIS_HOT: TOPTABITEMSTATES = 2i32;
-pub const TTIS_NORMAL: TOPTABITEMSTATES = 1i32;
-pub const TTIS_SELECTED: TOPTABITEMSTATES = 3i32;
-pub const TTI_ERROR: EDITBALLOONTIP_ICON = 3i32;
-pub const TTI_ERROR_LARGE: EDITBALLOONTIP_ICON = 6i32;
-pub const TTI_INFO: EDITBALLOONTIP_ICON = 1i32;
-pub const TTI_INFO_LARGE: EDITBALLOONTIP_ICON = 4i32;
-pub const TTI_NONE: EDITBALLOONTIP_ICON = 0i32;
-pub const TTI_WARNING: EDITBALLOONTIP_ICON = 2i32;
-pub const TTI_WARNING_LARGE: EDITBALLOONTIP_ICON = 5i32;
-pub const TTM_ACTIVATE: u32 = 1025u32;
-pub const TTM_ADDTOOL: u32 = 1074u32;
-pub const TTM_ADDTOOLA: u32 = 1028u32;
-pub const TTM_ADDTOOLW: u32 = 1074u32;
-pub const TTM_ADJUSTRECT: u32 = 1055u32;
-pub const TTM_DELTOOL: u32 = 1075u32;
-pub const TTM_DELTOOLA: u32 = 1029u32;
-pub const TTM_DELTOOLW: u32 = 1075u32;
-pub const TTM_ENUMTOOLS: u32 = 1082u32;
-pub const TTM_ENUMTOOLSA: u32 = 1038u32;
-pub const TTM_ENUMTOOLSW: u32 = 1082u32;
-pub const TTM_GETBUBBLESIZE: u32 = 1054u32;
-pub const TTM_GETCURRENTTOOL: u32 = 1083u32;
-pub const TTM_GETCURRENTTOOLA: u32 = 1039u32;
-pub const TTM_GETCURRENTTOOLW: u32 = 1083u32;
-pub const TTM_GETDELAYTIME: u32 = 1045u32;
-pub const TTM_GETMARGIN: u32 = 1051u32;
-pub const TTM_GETMAXTIPWIDTH: u32 = 1049u32;
-pub const TTM_GETTEXT: u32 = 1080u32;
-pub const TTM_GETTEXTA: u32 = 1035u32;
-pub const TTM_GETTEXTW: u32 = 1080u32;
-pub const TTM_GETTIPBKCOLOR: u32 = 1046u32;
-pub const TTM_GETTIPTEXTCOLOR: u32 = 1047u32;
-pub const TTM_GETTITLE: u32 = 1059u32;
-pub const TTM_GETTOOLCOUNT: u32 = 1037u32;
-pub const TTM_GETTOOLINFO: u32 = 1077u32;
-pub const TTM_GETTOOLINFOA: u32 = 1032u32;
-pub const TTM_GETTOOLINFOW: u32 = 1077u32;
-pub const TTM_HITTEST: u32 = 1079u32;
-pub const TTM_HITTESTA: u32 = 1034u32;
-pub const TTM_HITTESTW: u32 = 1079u32;
-pub const TTM_NEWTOOLRECT: u32 = 1076u32;
-pub const TTM_NEWTOOLRECTA: u32 = 1030u32;
-pub const TTM_NEWTOOLRECTW: u32 = 1076u32;
-pub const TTM_POP: u32 = 1052u32;
-pub const TTM_POPUP: u32 = 1058u32;
-pub const TTM_RELAYEVENT: u32 = 1031u32;
-pub const TTM_SETDELAYTIME: u32 = 1027u32;
-pub const TTM_SETMARGIN: u32 = 1050u32;
-pub const TTM_SETMAXTIPWIDTH: u32 = 1048u32;
-pub const TTM_SETTIPBKCOLOR: u32 = 1043u32;
-pub const TTM_SETTIPTEXTCOLOR: u32 = 1044u32;
-pub const TTM_SETTITLE: u32 = 1057u32;
-pub const TTM_SETTITLEA: u32 = 1056u32;
-pub const TTM_SETTITLEW: u32 = 1057u32;
-pub const TTM_SETTOOLINFO: u32 = 1078u32;
-pub const TTM_SETTOOLINFOA: u32 = 1033u32;
-pub const TTM_SETTOOLINFOW: u32 = 1078u32;
-pub const TTM_SETWINDOWTHEME: u32 = 8203u32;
-pub const TTM_TRACKACTIVATE: u32 = 1041u32;
-pub const TTM_TRACKPOSITION: u32 = 1042u32;
-pub const TTM_UPDATE: u32 = 1053u32;
-pub const TTM_UPDATETIPTEXT: u32 = 1081u32;
-pub const TTM_UPDATETIPTEXTA: u32 = 1036u32;
-pub const TTM_UPDATETIPTEXTW: u32 = 1081u32;
-pub const TTM_WINDOWFROMPOINT: u32 = 1040u32;
-pub const TTN_FIRST: u32 = 4294966776u32;
-pub const TTN_GETDISPINFO: u32 = 4294966766u32;
-pub const TTN_GETDISPINFOA: u32 = 4294966776u32;
-pub const TTN_GETDISPINFOW: u32 = 4294966766u32;
-pub const TTN_LAST: u32 = 4294966747u32;
-pub const TTN_LINKCLICK: u32 = 4294966773u32;
-pub const TTN_NEEDTEXT: u32 = 4294966766u32;
-pub const TTN_NEEDTEXTA: u32 = 4294966776u32;
-pub const TTN_NEEDTEXTW: u32 = 4294966766u32;
-pub const TTN_POP: u32 = 4294966774u32;
-pub const TTN_SHOW: u32 = 4294966775u32;
-pub const TTP_BALLOON: TOOLTIPPARTS = 3i32;
-pub const TTP_BALLOONSTEM: TOOLTIPPARTS = 6i32;
-pub const TTP_BALLOONTITLE: TOOLTIPPARTS = 4i32;
-pub const TTP_CLOSE: TOOLTIPPARTS = 5i32;
-pub const TTP_STANDARD: TOOLTIPPARTS = 1i32;
-pub const TTP_STANDARDTITLE: TOOLTIPPARTS = 2i32;
-pub const TTP_WRENCH: TOOLTIPPARTS = 7i32;
-pub const TTSS_LINK: STANDARDSTATES = 2i32;
-pub const TTSS_NORMAL: STANDARDSTATES = 1i32;
-pub const TTS_ALWAYSTIP: u32 = 1u32;
-pub const TTS_BALLOON: u32 = 64u32;
-pub const TTS_CLOSE: u32 = 128u32;
-pub const TTS_NOANIMATE: u32 = 16u32;
-pub const TTS_NOFADE: u32 = 32u32;
-pub const TTS_NOPREFIX: u32 = 2u32;
-pub const TTS_USEVISUALSTYLE: u32 = 256u32;
-pub const TTWS_HOT: WRENCHSTATES = 2i32;
-pub const TTWS_NORMAL: WRENCHSTATES = 1i32;
-pub const TTWS_PRESSED: WRENCHSTATES = 3i32;
-pub const TUBS_DISABLED: THUMBBOTTOMSTATES = 5i32;
-pub const TUBS_FOCUSED: THUMBBOTTOMSTATES = 4i32;
-pub const TUBS_HOT: THUMBBOTTOMSTATES = 2i32;
-pub const TUBS_NORMAL: THUMBBOTTOMSTATES = 1i32;
-pub const TUBS_PRESSED: THUMBBOTTOMSTATES = 3i32;
-pub const TUS_DISABLED: THUMBSTATES = 5i32;
-pub const TUS_FOCUSED: THUMBSTATES = 4i32;
-pub const TUS_HOT: THUMBSTATES = 2i32;
-pub const TUS_NORMAL: THUMBSTATES = 1i32;
-pub const TUS_PRESSED: THUMBSTATES = 3i32;
-pub const TUTS_DISABLED: THUMBTOPSTATES = 5i32;
-pub const TUTS_FOCUSED: THUMBTOPSTATES = 4i32;
-pub const TUTS_HOT: THUMBTOPSTATES = 2i32;
-pub const TUTS_NORMAL: THUMBTOPSTATES = 1i32;
-pub const TUTS_PRESSED: THUMBTOPSTATES = 3i32;
-pub const TUVLS_DISABLED: THUMBLEFTSTATES = 5i32;
-pub const TUVLS_FOCUSED: THUMBLEFTSTATES = 4i32;
-pub const TUVLS_HOT: THUMBLEFTSTATES = 2i32;
-pub const TUVLS_NORMAL: THUMBLEFTSTATES = 1i32;
-pub const TUVLS_PRESSED: THUMBLEFTSTATES = 3i32;
-pub const TUVRS_DISABLED: THUMBRIGHTSTATES = 5i32;
-pub const TUVRS_FOCUSED: THUMBRIGHTSTATES = 4i32;
-pub const TUVRS_HOT: THUMBRIGHTSTATES = 2i32;
-pub const TUVRS_NORMAL: THUMBRIGHTSTATES = 1i32;
-pub const TUVRS_PRESSED: THUMBRIGHTSTATES = 3i32;
-pub const TUVS_DISABLED: THUMBVERTSTATES = 5i32;
-pub const TUVS_FOCUSED: THUMBVERTSTATES = 4i32;
-pub const TUVS_HOT: THUMBVERTSTATES = 2i32;
-pub const TUVS_NORMAL: THUMBVERTSTATES = 1i32;
-pub const TUVS_PRESSED: THUMBVERTSTATES = 3i32;
-pub const TVCDRF_NOIMAGES: u32 = 65536u32;
-pub const TVC_BYKEYBOARD: NM_TREEVIEW_ACTION = 2u32;
-pub const TVC_BYMOUSE: NM_TREEVIEW_ACTION = 1u32;
-pub const TVC_UNKNOWN: NM_TREEVIEW_ACTION = 0u32;
-pub const TVE_COLLAPSE: NM_TREEVIEW_ACTION = 1u32;
-pub const TVE_COLLAPSERESET: NM_TREEVIEW_ACTION = 32768u32;
-pub const TVE_EXPAND: NM_TREEVIEW_ACTION = 2u32;
-pub const TVE_EXPANDPARTIAL: NM_TREEVIEW_ACTION = 16384u32;
-pub const TVE_TOGGLE: NM_TREEVIEW_ACTION = 3u32;
-pub const TVGIPR_BUTTON: TVITEMPART = 1i32;
-pub const TVGN_CARET: u32 = 9u32;
-pub const TVGN_CHILD: u32 = 4u32;
-pub const TVGN_DROPHILITE: u32 = 8u32;
-pub const TVGN_FIRSTVISIBLE: u32 = 5u32;
-pub const TVGN_LASTVISIBLE: u32 = 10u32;
-pub const TVGN_NEXT: u32 = 1u32;
-pub const TVGN_NEXTSELECTED: u32 = 11u32;
-pub const TVGN_NEXTVISIBLE: u32 = 6u32;
-pub const TVGN_PARENT: u32 = 3u32;
-pub const TVGN_PREVIOUS: u32 = 2u32;
-pub const TVGN_PREVIOUSVISIBLE: u32 = 7u32;
-pub const TVGN_ROOT: u32 = 0u32;
-pub const TVHT_ABOVE: TVHITTESTINFO_FLAGS = 256u32;
-pub const TVHT_BELOW: TVHITTESTINFO_FLAGS = 512u32;
-pub const TVHT_NOWHERE: TVHITTESTINFO_FLAGS = 1u32;
-pub const TVHT_ONITEM: TVHITTESTINFO_FLAGS = 70u32;
-pub const TVHT_ONITEMBUTTON: TVHITTESTINFO_FLAGS = 16u32;
-pub const TVHT_ONITEMICON: TVHITTESTINFO_FLAGS = 2u32;
-pub const TVHT_ONITEMINDENT: TVHITTESTINFO_FLAGS = 8u32;
-pub const TVHT_ONITEMLABEL: TVHITTESTINFO_FLAGS = 4u32;
-pub const TVHT_ONITEMRIGHT: TVHITTESTINFO_FLAGS = 32u32;
-pub const TVHT_ONITEMSTATEICON: TVHITTESTINFO_FLAGS = 64u32;
-pub const TVHT_TOLEFT: TVHITTESTINFO_FLAGS = 2048u32;
-pub const TVHT_TORIGHT: TVHITTESTINFO_FLAGS = 1024u32;
-pub const TVIF_CHILDREN: TVITEM_MASK = 64u32;
-pub const TVIF_DI_SETITEM: TVITEM_MASK = 4096u32;
-pub const TVIF_EXPANDEDIMAGE: TVITEM_MASK = 512u32;
-pub const TVIF_HANDLE: TVITEM_MASK = 16u32;
-pub const TVIF_IMAGE: TVITEM_MASK = 2u32;
-pub const TVIF_INTEGRAL: TVITEM_MASK = 128u32;
-pub const TVIF_PARAM: TVITEM_MASK = 4u32;
-pub const TVIF_SELECTEDIMAGE: TVITEM_MASK = 32u32;
-pub const TVIF_STATE: TVITEM_MASK = 8u32;
-pub const TVIF_STATEEX: TVITEM_MASK = 256u32;
-pub const TVIF_TEXT: TVITEM_MASK = 1u32;
-pub const TVIS_BOLD: TREE_VIEW_ITEM_STATE_FLAGS = 16u32;
-pub const TVIS_CUT: TREE_VIEW_ITEM_STATE_FLAGS = 4u32;
-pub const TVIS_DROPHILITED: TREE_VIEW_ITEM_STATE_FLAGS = 8u32;
-pub const TVIS_EXPANDED: TREE_VIEW_ITEM_STATE_FLAGS = 32u32;
-pub const TVIS_EXPANDEDONCE: TREE_VIEW_ITEM_STATE_FLAGS = 64u32;
-pub const TVIS_EXPANDPARTIAL: TREE_VIEW_ITEM_STATE_FLAGS = 128u32;
-pub const TVIS_EX_ALL: TREE_VIEW_ITEM_STATE_FLAGS = 2u32;
-pub const TVIS_EX_DISABLED: TREE_VIEW_ITEM_STATE_FLAGS = 2u32;
-pub const TVIS_EX_FLAT: TREE_VIEW_ITEM_STATE_FLAGS = 1u32;
-pub const TVIS_OVERLAYMASK: TREE_VIEW_ITEM_STATE_FLAGS = 3840u32;
-pub const TVIS_SELECTED: TREE_VIEW_ITEM_STATE_FLAGS = 2u32;
-pub const TVIS_STATEIMAGEMASK: TREE_VIEW_ITEM_STATE_FLAGS = 61440u32;
-pub const TVIS_USERMASK: TREE_VIEW_ITEM_STATE_FLAGS = 61440u32;
-pub const TVI_FIRST: HTREEITEM = -65535i32 as _;
-pub const TVI_LAST: HTREEITEM = -65534i32 as _;
-pub const TVI_ROOT: HTREEITEM = -65536i32 as _;
-pub const TVI_SORT: HTREEITEM = -65533i32 as _;
-pub const TVM_CREATEDRAGIMAGE: u32 = 4370u32;
-pub const TVM_DELETEITEM: u32 = 4353u32;
-pub const TVM_EDITLABEL: u32 = 4417u32;
-pub const TVM_EDITLABELA: u32 = 4366u32;
-pub const TVM_EDITLABELW: u32 = 4417u32;
-pub const TVM_ENDEDITLABELNOW: u32 = 4374u32;
-pub const TVM_ENSUREVISIBLE: u32 = 4372u32;
-pub const TVM_EXPAND: u32 = 4354u32;
-pub const TVM_GETBKCOLOR: u32 = 4383u32;
-pub const TVM_GETCOUNT: u32 = 4357u32;
-pub const TVM_GETEDITCONTROL: u32 = 4367u32;
-pub const TVM_GETEXTENDEDSTYLE: u32 = 4397u32;
-pub const TVM_GETIMAGELIST: u32 = 4360u32;
-pub const TVM_GETINDENT: u32 = 4358u32;
-pub const TVM_GETINSERTMARKCOLOR: u32 = 4390u32;
-pub const TVM_GETISEARCHSTRING: u32 = 4416u32;
-pub const TVM_GETISEARCHSTRINGA: u32 = 4375u32;
-pub const TVM_GETISEARCHSTRINGW: u32 = 4416u32;
-pub const TVM_GETITEM: u32 = 4414u32;
-pub const TVM_GETITEMA: u32 = 4364u32;
-pub const TVM_GETITEMHEIGHT: u32 = 4380u32;
-pub const TVM_GETITEMPARTRECT: u32 = 4424u32;
-pub const TVM_GETITEMRECT: u32 = 4356u32;
-pub const TVM_GETITEMSTATE: u32 = 4391u32;
-pub const TVM_GETITEMW: u32 = 4414u32;
-pub const TVM_GETLINECOLOR: u32 = 4393u32;
-pub const TVM_GETNEXTITEM: u32 = 4362u32;
-pub const TVM_GETSCROLLTIME: u32 = 4386u32;
-pub const TVM_GETSELECTEDCOUNT: u32 = 4422u32;
-pub const TVM_GETTEXTCOLOR: u32 = 4384u32;
-pub const TVM_GETTOOLTIPS: u32 = 4377u32;
-pub const TVM_GETUNICODEFORMAT: u32 = 8198u32;
-pub const TVM_GETVISIBLECOUNT: u32 = 4368u32;
-pub const TVM_HITTEST: u32 = 4369u32;
-pub const TVM_INSERTITEM: u32 = 4402u32;
-pub const TVM_INSERTITEMA: u32 = 4352u32;
-pub const TVM_INSERTITEMW: u32 = 4402u32;
-pub const TVM_MAPACCIDTOHTREEITEM: u32 = 4394u32;
-pub const TVM_MAPHTREEITEMTOACCID: u32 = 4395u32;
-pub const TVM_SELECTITEM: u32 = 4363u32;
-pub const TVM_SETAUTOSCROLLINFO: u32 = 4411u32;
-pub const TVM_SETBKCOLOR: u32 = 4381u32;
-pub const TVM_SETBORDER: u32 = 4387u32;
-pub const TVM_SETEXTENDEDSTYLE: u32 = 4396u32;
-pub const TVM_SETHOT: u32 = 4410u32;
-pub const TVM_SETIMAGELIST: u32 = 4361u32;
-pub const TVM_SETINDENT: u32 = 4359u32;
-pub const TVM_SETINSERTMARK: u32 = 4378u32;
-pub const TVM_SETINSERTMARKCOLOR: u32 = 4389u32;
-pub const TVM_SETITEM: u32 = 4415u32;
-pub const TVM_SETITEMA: u32 = 4365u32;
-pub const TVM_SETITEMHEIGHT: u32 = 4379u32;
-pub const TVM_SETITEMW: u32 = 4415u32;
-pub const TVM_SETLINECOLOR: u32 = 4392u32;
-pub const TVM_SETSCROLLTIME: u32 = 4385u32;
-pub const TVM_SETTEXTCOLOR: u32 = 4382u32;
-pub const TVM_SETTOOLTIPS: u32 = 4376u32;
-pub const TVM_SETUNICODEFORMAT: u32 = 8197u32;
-pub const TVM_SHOWINFOTIP: u32 = 4423u32;
-pub const TVM_SORTCHILDREN: u32 = 4371u32;
-pub const TVM_SORTCHILDRENCB: u32 = 4373u32;
-pub const TVNRET_DEFAULT: u32 = 0u32;
-pub const TVNRET_SKIPNEW: u32 = 2u32;
-pub const TVNRET_SKIPOLD: u32 = 1u32;
-pub const TVN_ASYNCDRAW: u32 = 4294966876u32;
-pub const TVN_BEGINDRAG: u32 = 4294966840u32;
-pub const TVN_BEGINDRAGA: u32 = 4294966889u32;
-pub const TVN_BEGINDRAGW: u32 = 4294966840u32;
-pub const TVN_BEGINLABELEDIT: u32 = 4294966837u32;
-pub const TVN_BEGINLABELEDITA: u32 = 4294966886u32;
-pub const TVN_BEGINLABELEDITW: u32 = 4294966837u32;
-pub const TVN_BEGINRDRAG: u32 = 4294966839u32;
-pub const TVN_BEGINRDRAGA: u32 = 4294966888u32;
-pub const TVN_BEGINRDRAGW: u32 = 4294966839u32;
-pub const TVN_DELETEITEM: u32 = 4294966838u32;
-pub const TVN_DELETEITEMA: u32 = 4294966887u32;
-pub const TVN_DELETEITEMW: u32 = 4294966838u32;
-pub const TVN_ENDLABELEDIT: u32 = 4294966836u32;
-pub const TVN_ENDLABELEDITA: u32 = 4294966885u32;
-pub const TVN_ENDLABELEDITW: u32 = 4294966836u32;
-pub const TVN_FIRST: u32 = 4294966896u32;
-pub const TVN_GETDISPINFO: u32 = 4294966844u32;
-pub const TVN_GETDISPINFOA: u32 = 4294966893u32;
-pub const TVN_GETDISPINFOW: u32 = 4294966844u32;
-pub const TVN_GETINFOTIP: u32 = 4294966882u32;
-pub const TVN_GETINFOTIPA: u32 = 4294966883u32;
-pub const TVN_GETINFOTIPW: u32 = 4294966882u32;
-pub const TVN_ITEMCHANGED: u32 = 4294966877u32;
-pub const TVN_ITEMCHANGEDA: u32 = 4294966878u32;
-pub const TVN_ITEMCHANGEDW: u32 = 4294966877u32;
-pub const TVN_ITEMCHANGING: u32 = 4294966879u32;
-pub const TVN_ITEMCHANGINGA: u32 = 4294966880u32;
-pub const TVN_ITEMCHANGINGW: u32 = 4294966879u32;
-pub const TVN_ITEMEXPANDED: u32 = 4294966841u32;
-pub const TVN_ITEMEXPANDEDA: u32 = 4294966890u32;
-pub const TVN_ITEMEXPANDEDW: u32 = 4294966841u32;
-pub const TVN_ITEMEXPANDING: u32 = 4294966842u32;
-pub const TVN_ITEMEXPANDINGA: u32 = 4294966891u32;
-pub const TVN_ITEMEXPANDINGW: u32 = 4294966842u32;
-pub const TVN_KEYDOWN: u32 = 4294966884u32;
-pub const TVN_LAST: u32 = 4294966797u32;
-pub const TVN_SELCHANGED: u32 = 4294966845u32;
-pub const TVN_SELCHANGEDA: u32 = 4294966894u32;
-pub const TVN_SELCHANGEDW: u32 = 4294966845u32;
-pub const TVN_SELCHANGING: u32 = 4294966846u32;
-pub const TVN_SELCHANGINGA: u32 = 4294966895u32;
-pub const TVN_SELCHANGINGW: u32 = 4294966846u32;
-pub const TVN_SETDISPINFO: u32 = 4294966843u32;
-pub const TVN_SETDISPINFOA: u32 = 4294966892u32;
-pub const TVN_SETDISPINFOW: u32 = 4294966843u32;
-pub const TVN_SINGLEEXPAND: u32 = 4294966881u32;
-pub const TVP_BRANCH: TREEVIEWPARTS = 3i32;
-pub const TVP_GLYPH: TREEVIEWPARTS = 2i32;
-pub const TVP_HOTGLYPH: TREEVIEWPARTS = 4i32;
-pub const TVP_TREEITEM: TREEVIEWPARTS = 1i32;
-pub const TVSBF_XBORDER: u32 = 1u32;
-pub const TVSBF_YBORDER: u32 = 2u32;
-pub const TVSIL_NORMAL: u32 = 0u32;
-pub const TVSIL_STATE: u32 = 2u32;
-pub const TVSI_NOSINGLEEXPAND: u32 = 32768u32;
-pub const TVS_CHECKBOXES: u32 = 256u32;
-pub const TVS_DISABLEDRAGDROP: u32 = 16u32;
-pub const TVS_EDITLABELS: u32 = 8u32;
-pub const TVS_EX_AUTOHSCROLL: u32 = 32u32;
-pub const TVS_EX_DIMMEDCHECKBOXES: u32 = 512u32;
-pub const TVS_EX_DOUBLEBUFFER: u32 = 4u32;
-pub const TVS_EX_DRAWIMAGEASYNC: u32 = 1024u32;
-pub const TVS_EX_EXCLUSIONCHECKBOXES: u32 = 256u32;
-pub const TVS_EX_FADEINOUTEXPANDOS: u32 = 64u32;
-pub const TVS_EX_MULTISELECT: u32 = 2u32;
-pub const TVS_EX_NOINDENTSTATE: u32 = 8u32;
-pub const TVS_EX_NOSINGLECOLLAPSE: u32 = 1u32;
-pub const TVS_EX_PARTIALCHECKBOXES: u32 = 128u32;
-pub const TVS_EX_RICHTOOLTIP: u32 = 16u32;
-pub const TVS_FULLROWSELECT: u32 = 4096u32;
-pub const TVS_HASBUTTONS: u32 = 1u32;
-pub const TVS_HASLINES: u32 = 2u32;
-pub const TVS_INFOTIP: u32 = 2048u32;
-pub const TVS_LINESATROOT: u32 = 4u32;
-pub const TVS_NOHSCROLL: u32 = 32768u32;
-pub const TVS_NONEVENHEIGHT: u32 = 16384u32;
-pub const TVS_NOSCROLL: u32 = 8192u32;
-pub const TVS_NOTOOLTIPS: u32 = 128u32;
-pub const TVS_RTLREADING: u32 = 64u32;
-pub const TVS_SHOWSELALWAYS: u32 = 32u32;
-pub const TVS_SINGLEEXPAND: u32 = 1024u32;
-pub const TVS_TRACKSELECT: u32 = 512u32;
-pub const TV_FIRST: u32 = 4352u32;
-pub const UDM_GETACCEL: u32 = 1132u32;
-pub const UDM_GETBASE: u32 = 1134u32;
-pub const UDM_GETBUDDY: u32 = 1130u32;
-pub const UDM_GETPOS: u32 = 1128u32;
-pub const UDM_GETPOS32: u32 = 1138u32;
-pub const UDM_GETRANGE: u32 = 1126u32;
-pub const UDM_GETRANGE32: u32 = 1136u32;
-pub const UDM_GETUNICODEFORMAT: u32 = 8198u32;
-pub const UDM_SETACCEL: u32 = 1131u32;
-pub const UDM_SETBASE: u32 = 1133u32;
-pub const UDM_SETBUDDY: u32 = 1129u32;
-pub const UDM_SETPOS: u32 = 1127u32;
-pub const UDM_SETPOS32: u32 = 1137u32;
-pub const UDM_SETRANGE: u32 = 1125u32;
-pub const UDM_SETRANGE32: u32 = 1135u32;
-pub const UDM_SETUNICODEFORMAT: u32 = 8197u32;
-pub const UDN_DELTAPOS: u32 = 4294966574u32;
-pub const UDN_FIRST: u32 = 4294966575u32;
-pub const UDN_LAST: u32 = 4294966567u32;
-pub const UDS_ALIGNLEFT: u32 = 8u32;
-pub const UDS_ALIGNRIGHT: u32 = 4u32;
-pub const UDS_ARROWKEYS: u32 = 32u32;
-pub const UDS_AUTOBUDDY: u32 = 16u32;
-pub const UDS_HORZ: u32 = 64u32;
-pub const UDS_HOTTRACK: u32 = 256u32;
-pub const UDS_NOTHOUSANDS: u32 = 128u32;
-pub const UDS_SETBUDDYINT: u32 = 2u32;
-pub const UDS_WRAP: u32 = 1u32;
-pub const UD_MAXVAL: u32 = 32767u32;
-pub const UPDOWN_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_updown32");
-pub const UPDOWN_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_updown32");
-pub const UPDOWN_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_updown32");
-pub const UPHZS_DISABLED: UPHORZSTATES = 4i32;
-pub const UPHZS_HOT: UPHORZSTATES = 2i32;
-pub const UPHZS_NORMAL: UPHORZSTATES = 1i32;
-pub const UPHZS_PRESSED: UPHORZSTATES = 3i32;
-pub const UPS_DISABLED: UPSTATES = 4i32;
-pub const UPS_HOT: UPSTATES = 2i32;
-pub const UPS_NORMAL: UPSTATES = 1i32;
-pub const UPS_PRESSED: UPSTATES = 3i32;
-pub const UTP_HOVERBACKGROUND: USERTILEPARTS = 2i32;
-pub const UTP_STROKEBACKGROUND: USERTILEPARTS = 1i32;
-pub const UTS_HOT: HOVERBACKGROUNDSTATES = 2i32;
-pub const UTS_NORMAL: HOVERBACKGROUNDSTATES = 1i32;
-pub const UTS_PRESSED: HOVERBACKGROUNDSTATES = 3i32;
-pub const VALIDBITS: SET_THEME_APP_PROPERTIES_FLAGS = 7u32;
-pub const VA_BOTTOM: VALIGN = 2i32;
-pub const VA_CENTER: VALIGN = 1i32;
-pub const VA_TOP: VALIGN = 0i32;
-pub const VIEW_DETAILS: u32 = 3u32;
-pub const VIEW_LARGEICONS: u32 = 0u32;
-pub const VIEW_LIST: u32 = 2u32;
-pub const VIEW_NETCONNECT: u32 = 9u32;
-pub const VIEW_NETDISCONNECT: u32 = 10u32;
-pub const VIEW_NEWFOLDER: u32 = 11u32;
-pub const VIEW_PARENTFOLDER: u32 = 8u32;
-pub const VIEW_SMALLICONS: u32 = 1u32;
-pub const VIEW_SORTDATE: u32 = 6u32;
-pub const VIEW_SORTNAME: u32 = 4u32;
-pub const VIEW_SORTSIZE: u32 = 5u32;
-pub const VIEW_SORTTYPE: u32 = 7u32;
-pub const VIEW_VIEWMENU: u32 = 12u32;
-pub const VSCLASS_AEROWIZARD: windows_sys::core::PCWSTR = windows_sys::core::w!("AEROWIZARD");
-pub const VSCLASS_AEROWIZARDSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("AEROWIZARDSTYLE");
-pub const VSCLASS_BUTTON: windows_sys::core::PCWSTR = windows_sys::core::w!("BUTTON");
-pub const VSCLASS_BUTTONSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("BUTTONSTYLE");
-pub const VSCLASS_CLOCK: windows_sys::core::PCWSTR = windows_sys::core::w!("CLOCK");
-pub const VSCLASS_COMBOBOX: windows_sys::core::PCWSTR = windows_sys::core::w!("COMBOBOX");
-pub const VSCLASS_COMBOBOXSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("COMBOBOXSTYLE");
-pub const VSCLASS_COMMUNICATIONS: windows_sys::core::PCWSTR = windows_sys::core::w!("COMMUNICATIONS");
-pub const VSCLASS_COMMUNICATIONSSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("COMMUNICATIONSSTYLE");
-pub const VSCLASS_CONTROLPANEL: windows_sys::core::PCWSTR = windows_sys::core::w!("CONTROLPANEL");
-pub const VSCLASS_CONTROLPANELSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("CONTROLPANELSTYLE");
-pub const VSCLASS_DATEPICKER: windows_sys::core::PCWSTR = windows_sys::core::w!("DATEPICKER");
-pub const VSCLASS_DATEPICKERSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("DATEPICKERSTYLE");
-pub const VSCLASS_DRAGDROP: windows_sys::core::PCWSTR = windows_sys::core::w!("DRAGDROP");
-pub const VSCLASS_DRAGDROPSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("DRAGDROPSTYLE");
-pub const VSCLASS_EDIT: windows_sys::core::PCWSTR = windows_sys::core::w!("EDIT");
-pub const VSCLASS_EDITSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("EDITSTYLE");
-pub const VSCLASS_EMPTYMARKUP: windows_sys::core::PCWSTR = windows_sys::core::w!("EMPTYMARKUP");
-pub const VSCLASS_EXPLORERBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("EXPLORERBAR");
-pub const VSCLASS_EXPLORERBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("EXPLORERBARSTYLE");
-pub const VSCLASS_FLYOUT: windows_sys::core::PCWSTR = windows_sys::core::w!("FLYOUT");
-pub const VSCLASS_FLYOUTSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("FLYOUTSTYLE");
-pub const VSCLASS_HEADER: windows_sys::core::PCWSTR = windows_sys::core::w!("HEADER");
-pub const VSCLASS_HEADERSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("HEADERSTYLE");
-pub const VSCLASS_LINK: windows_sys::core::PCWSTR = windows_sys::core::w!("LINK");
-pub const VSCLASS_LISTBOX: windows_sys::core::PCWSTR = windows_sys::core::w!("LISTBOX");
-pub const VSCLASS_LISTBOXSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("LISTBOXSTYLE");
-pub const VSCLASS_LISTVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("LISTVIEW");
-pub const VSCLASS_LISTVIEWSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("LISTVIEWSTYLE");
-pub const VSCLASS_MENU: windows_sys::core::PCWSTR = windows_sys::core::w!("MENU");
-pub const VSCLASS_MENUBAND: windows_sys::core::PCWSTR = windows_sys::core::w!("MENUBAND");
-pub const VSCLASS_MENUSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("MENUSTYLE");
-pub const VSCLASS_MONTHCAL: windows_sys::core::PCWSTR = windows_sys::core::w!("MONTHCAL");
-pub const VSCLASS_NAVIGATION: windows_sys::core::PCWSTR = windows_sys::core::w!("NAVIGATION");
-pub const VSCLASS_PAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("PAGE");
-pub const VSCLASS_PROGRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("PROGRESS");
-pub const VSCLASS_PROGRESSSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("PROGRESSSTYLE");
-pub const VSCLASS_REBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("REBAR");
-pub const VSCLASS_REBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("REBARSTYLE");
-pub const VSCLASS_SCROLLBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("SCROLLBAR");
-pub const VSCLASS_SCROLLBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("SCROLLBARSTYLE");
-pub const VSCLASS_SPIN: windows_sys::core::PCWSTR = windows_sys::core::w!("SPIN");
-pub const VSCLASS_SPINSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("SPINSTYLE");
-pub const VSCLASS_STARTPANEL: windows_sys::core::PCWSTR = windows_sys::core::w!("STARTPANEL");
-pub const VSCLASS_STATIC: windows_sys::core::PCWSTR = windows_sys::core::w!("STATIC");
-pub const VSCLASS_STATUS: windows_sys::core::PCWSTR = windows_sys::core::w!("STATUS");
-pub const VSCLASS_STATUSSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("STATUSSTYLE");
-pub const VSCLASS_TAB: windows_sys::core::PCWSTR = windows_sys::core::w!("TAB");
-pub const VSCLASS_TABSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TABSTYLE");
-pub const VSCLASS_TASKBAND: windows_sys::core::PCWSTR = windows_sys::core::w!("TASKBAND");
-pub const VSCLASS_TASKBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("TASKBAR");
-pub const VSCLASS_TASKDIALOG: windows_sys::core::PCWSTR = windows_sys::core::w!("TASKDIALOG");
-pub const VSCLASS_TASKDIALOGSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TASKDIALOGSTYLE");
-pub const VSCLASS_TEXTSELECTIONGRIPPER: windows_sys::core::PCWSTR = windows_sys::core::w!("TEXTSELECTIONGRIPPER");
-pub const VSCLASS_TEXTSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TEXTSTYLE");
-pub const VSCLASS_TOOLBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("TOOLBAR");
-pub const VSCLASS_TOOLBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TOOLBARSTYLE");
-pub const VSCLASS_TOOLTIP: windows_sys::core::PCWSTR = windows_sys::core::w!("TOOLTIP");
-pub const VSCLASS_TOOLTIPSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TOOLTIPSTYLE");
-pub const VSCLASS_TRACKBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("TRACKBAR");
-pub const VSCLASS_TRACKBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TRACKBARSTYLE");
-pub const VSCLASS_TRAYNOTIFY: windows_sys::core::PCWSTR = windows_sys::core::w!("TRAYNOTIFY");
-pub const VSCLASS_TREEVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("TREEVIEW");
-pub const VSCLASS_TREEVIEWSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TREEVIEWSTYLE");
-pub const VSCLASS_USERTILE: windows_sys::core::PCWSTR = windows_sys::core::w!("USERTILE");
-pub const VSCLASS_WINDOW: windows_sys::core::PCWSTR = windows_sys::core::w!("WINDOW");
-pub const VSCLASS_WINDOWSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("WINDOWSTYLE");
-pub const VSS_DISABLED: VERTSCROLLSTATES = 4i32;
-pub const VSS_HOT: VERTSCROLLSTATES = 2i32;
-pub const VSS_NORMAL: VERTSCROLLSTATES = 1i32;
-pub const VSS_PUSHED: VERTSCROLLSTATES = 3i32;
-pub const VTS_DISABLED: VERTTHUMBSTATES = 4i32;
-pub const VTS_HOT: VERTTHUMBSTATES = 2i32;
-pub const VTS_NORMAL: VERTTHUMBSTATES = 1i32;
-pub const VTS_PUSHED: VERTTHUMBSTATES = 3i32;
-pub const WB_CLASSIFY: WORD_BREAK_ACTION = 3i32;
-pub const WB_ISDELIMITER: WORD_BREAK_ACTION = 2i32;
-pub const WB_LEFT: WORD_BREAK_ACTION = 0i32;
-pub const WB_LEFTBREAK: WORD_BREAK_ACTION = 6i32;
-pub const WB_MOVEWORDLEFT: WORD_BREAK_ACTION = 4i32;
-pub const WB_MOVEWORDRIGHT: WORD_BREAK_ACTION = 5i32;
-pub const WB_RIGHT: WORD_BREAK_ACTION = 1i32;
-pub const WB_RIGHTBREAK: WORD_BREAK_ACTION = 7i32;
-pub const WC_BUTTON: windows_sys::core::PCWSTR = windows_sys::core::w!("Button");
-pub const WC_BUTTONA: windows_sys::core::PCSTR = windows_sys::core::s!("Button");
-pub const WC_BUTTONW: windows_sys::core::PCWSTR = windows_sys::core::w!("Button");
-pub const WC_COMBOBOX: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBox");
-pub const WC_COMBOBOXA: windows_sys::core::PCSTR = windows_sys::core::s!("ComboBox");
-pub const WC_COMBOBOXEX: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBoxEx32");
-pub const WC_COMBOBOXEXA: windows_sys::core::PCSTR = windows_sys::core::s!("ComboBoxEx32");
-pub const WC_COMBOBOXEXW: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBoxEx32");
-pub const WC_COMBOBOXW: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBox");
-pub const WC_EDIT: windows_sys::core::PCWSTR = windows_sys::core::w!("Edit");
-pub const WC_EDITA: windows_sys::core::PCSTR = windows_sys::core::s!("Edit");
-pub const WC_EDITW: windows_sys::core::PCWSTR = windows_sys::core::w!("Edit");
-pub const WC_HEADER: windows_sys::core::PCWSTR = windows_sys::core::w!("SysHeader32");
-pub const WC_HEADERA: windows_sys::core::PCSTR = windows_sys::core::s!("SysHeader32");
-pub const WC_HEADERW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysHeader32");
-pub const WC_IPADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("SysIPAddress32");
-pub const WC_IPADDRESSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysIPAddress32");
-pub const WC_IPADDRESSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysIPAddress32");
-pub const WC_LINK: windows_sys::core::PCWSTR = windows_sys::core::w!("SysLink");
-pub const WC_LISTBOX: windows_sys::core::PCWSTR = windows_sys::core::w!("ListBox");
-pub const WC_LISTBOXA: windows_sys::core::PCSTR = windows_sys::core::s!("ListBox");
-pub const WC_LISTBOXW: windows_sys::core::PCWSTR = windows_sys::core::w!("ListBox");
-pub const WC_LISTVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysListView32");
-pub const WC_LISTVIEWA: windows_sys::core::PCSTR = windows_sys::core::s!("SysListView32");
-pub const WC_LISTVIEWW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysListView32");
-pub const WC_NATIVEFONTCTL: windows_sys::core::PCWSTR = windows_sys::core::w!("NativeFontCtl");
-pub const WC_NATIVEFONTCTLA: windows_sys::core::PCSTR = windows_sys::core::s!("NativeFontCtl");
-pub const WC_NATIVEFONTCTLW: windows_sys::core::PCWSTR = windows_sys::core::w!("NativeFontCtl");
-pub const WC_PAGESCROLLER: windows_sys::core::PCWSTR = windows_sys::core::w!("SysPager");
-pub const WC_PAGESCROLLERA: windows_sys::core::PCSTR = windows_sys::core::s!("SysPager");
-pub const WC_PAGESCROLLERW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysPager");
-pub const WC_SCROLLBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("ScrollBar");
-pub const WC_SCROLLBARA: windows_sys::core::PCSTR = windows_sys::core::s!("ScrollBar");
-pub const WC_SCROLLBARW: windows_sys::core::PCWSTR = windows_sys::core::w!("ScrollBar");
-pub const WC_STATIC: windows_sys::core::PCWSTR = windows_sys::core::w!("Static");
-pub const WC_STATICA: windows_sys::core::PCSTR = windows_sys::core::s!("Static");
-pub const WC_STATICW: windows_sys::core::PCWSTR = windows_sys::core::w!("Static");
-pub const WC_TABCONTROL: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTabControl32");
-pub const WC_TABCONTROLA: windows_sys::core::PCSTR = windows_sys::core::s!("SysTabControl32");
-pub const WC_TABCONTROLW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTabControl32");
-pub const WC_TREEVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTreeView32");
-pub const WC_TREEVIEWA: windows_sys::core::PCSTR = windows_sys::core::s!("SysTreeView32");
-pub const WC_TREEVIEWW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTreeView32");
-pub const WIZ_BODYCX: u32 = 184u32;
-pub const WIZ_BODYX: u32 = 92u32;
-pub const WIZ_CXBMP: u32 = 80u32;
-pub const WIZ_CXDLG: u32 = 276u32;
-pub const WIZ_CYDLG: u32 = 140u32;
-pub const WMN_FIRST: u32 = 4294966296u32;
-pub const WMN_LAST: u32 = 4294966096u32;
-pub const WM_CTLCOLOR: u32 = 25u32;
-pub const WM_MOUSEHOVER: u32 = 673u32;
-pub const WM_MOUSELEAVE: u32 = 675u32;
-pub const WP_BORDER: WINDOWPARTS = 39i32;
-pub const WP_CAPTION: WINDOWPARTS = 1i32;
-pub const WP_CAPTIONSIZINGTEMPLATE: WINDOWPARTS = 30i32;
-pub const WP_CLOSEBUTTON: WINDOWPARTS = 18i32;
-pub const WP_DIALOG: WINDOWPARTS = 29i32;
-pub const WP_FRAME: WINDOWPARTS = 38i32;
-pub const WP_FRAMEBOTTOM: WINDOWPARTS = 9i32;
-pub const WP_FRAMEBOTTOMSIZINGTEMPLATE: WINDOWPARTS = 36i32;
-pub const WP_FRAMELEFT: WINDOWPARTS = 7i32;
-pub const WP_FRAMELEFTSIZINGTEMPLATE: WINDOWPARTS = 32i32;
-pub const WP_FRAMERIGHT: WINDOWPARTS = 8i32;
-pub const WP_FRAMERIGHTSIZINGTEMPLATE: WINDOWPARTS = 34i32;
-pub const WP_HELPBUTTON: WINDOWPARTS = 23i32;
-pub const WP_HORZSCROLL: WINDOWPARTS = 25i32;
-pub const WP_HORZTHUMB: WINDOWPARTS = 26i32;
-pub const WP_MAXBUTTON: WINDOWPARTS = 17i32;
-pub const WP_MAXCAPTION: WINDOWPARTS = 5i32;
-pub const WP_MDICLOSEBUTTON: WINDOWPARTS = 20i32;
-pub const WP_MDIHELPBUTTON: WINDOWPARTS = 24i32;
-pub const WP_MDIMINBUTTON: WINDOWPARTS = 16i32;
-pub const WP_MDIRESTOREBUTTON: WINDOWPARTS = 22i32;
-pub const WP_MDISYSBUTTON: WINDOWPARTS = 14i32;
-pub const WP_MINBUTTON: WINDOWPARTS = 15i32;
-pub const WP_MINCAPTION: WINDOWPARTS = 3i32;
-pub const WP_RESTOREBUTTON: WINDOWPARTS = 21i32;
-pub const WP_SMALLCAPTION: WINDOWPARTS = 2i32;
-pub const WP_SMALLCAPTIONSIZINGTEMPLATE: WINDOWPARTS = 31i32;
-pub const WP_SMALLCLOSEBUTTON: WINDOWPARTS = 19i32;
-pub const WP_SMALLFRAMEBOTTOM: WINDOWPARTS = 12i32;
-pub const WP_SMALLFRAMEBOTTOMSIZINGTEMPLATE: WINDOWPARTS = 37i32;
-pub const WP_SMALLFRAMELEFT: WINDOWPARTS = 10i32;
-pub const WP_SMALLFRAMELEFTSIZINGTEMPLATE: WINDOWPARTS = 33i32;
-pub const WP_SMALLFRAMERIGHT: WINDOWPARTS = 11i32;
-pub const WP_SMALLFRAMERIGHTSIZINGTEMPLATE: WINDOWPARTS = 35i32;
-pub const WP_SMALLMAXCAPTION: WINDOWPARTS = 6i32;
-pub const WP_SMALLMINCAPTION: WINDOWPARTS = 4i32;
-pub const WP_SYSBUTTON: WINDOWPARTS = 13i32;
-pub const WP_VERTSCROLL: WINDOWPARTS = 27i32;
-pub const WP_VERTTHUMB: WINDOWPARTS = 28i32;
-pub const WSB_PROP_CXHSCROLL: WSB_PROP = 2i32;
-pub const WSB_PROP_CXHTHUMB: WSB_PROP = 16i32;
-pub const WSB_PROP_CXVSCROLL: WSB_PROP = 8i32;
-pub const WSB_PROP_CYHSCROLL: WSB_PROP = 4i32;
-pub const WSB_PROP_CYVSCROLL: WSB_PROP = 1i32;
-pub const WSB_PROP_CYVTHUMB: WSB_PROP = 32i32;
-pub const WSB_PROP_HBKGCOLOR: WSB_PROP = 128i32;
-pub const WSB_PROP_HSTYLE: WSB_PROP = 512i32;
-pub const WSB_PROP_MASK: i32 = 4095i32;
-pub const WSB_PROP_PALETTE: WSB_PROP = 2048i32;
-pub const WSB_PROP_VBKGCOLOR: WSB_PROP = 64i32;
-pub const WSB_PROP_VSTYLE: WSB_PROP = 256i32;
-pub const WSB_PROP_WINSTYLE: WSB_PROP = 1024i32;
-pub const WTA_NONCLIENT: WINDOWTHEMEATTRIBUTETYPE = 1i32;
-pub const WTNCA_NODRAWCAPTION: u32 = 1u32;
-pub const WTNCA_NODRAWICON: u32 = 2u32;
-pub const WTNCA_NOMIRRORHELP: u32 = 8u32;
-pub const WTNCA_NOSYSMENU: u32 = 4u32;
-pub const chx1: u32 = 1040u32;
-pub const chx10: u32 = 1049u32;
-pub const chx11: u32 = 1050u32;
-pub const chx12: u32 = 1051u32;
-pub const chx13: u32 = 1052u32;
-pub const chx14: u32 = 1053u32;
-pub const chx15: u32 = 1054u32;
-pub const chx16: u32 = 1055u32;
-pub const chx2: u32 = 1041u32;
-pub const chx3: u32 = 1042u32;
-pub const chx4: u32 = 1043u32;
-pub const chx5: u32 = 1044u32;
-pub const chx6: u32 = 1045u32;
-pub const chx7: u32 = 1046u32;
-pub const chx8: u32 = 1047u32;
-pub const chx9: u32 = 1048u32;
-pub const cmb1: u32 = 1136u32;
-pub const cmb10: u32 = 1145u32;
-pub const cmb11: u32 = 1146u32;
-pub const cmb12: u32 = 1147u32;
-pub const cmb13: u32 = 1148u32;
-pub const cmb14: u32 = 1149u32;
-pub const cmb15: u32 = 1150u32;
-pub const cmb16: u32 = 1151u32;
-pub const cmb2: u32 = 1137u32;
-pub const cmb3: u32 = 1138u32;
-pub const cmb4: u32 = 1139u32;
-pub const cmb5: u32 = 1140u32;
-pub const cmb6: u32 = 1141u32;
-pub const cmb7: u32 = 1142u32;
-pub const cmb8: u32 = 1143u32;
-pub const cmb9: u32 = 1144u32;
-pub const ctl1: u32 = 1184u32;
-pub const ctlFirst: u32 = 1024u32;
-pub const ctlLast: u32 = 1279u32;
-pub const edt1: u32 = 1152u32;
-pub const edt10: u32 = 1161u32;
-pub const edt11: u32 = 1162u32;
-pub const edt12: u32 = 1163u32;
-pub const edt13: u32 = 1164u32;
-pub const edt14: u32 = 1165u32;
-pub const edt15: u32 = 1166u32;
-pub const edt16: u32 = 1167u32;
-pub const edt2: u32 = 1153u32;
-pub const edt3: u32 = 1154u32;
-pub const edt4: u32 = 1155u32;
-pub const edt5: u32 = 1156u32;
-pub const edt6: u32 = 1157u32;
-pub const edt7: u32 = 1158u32;
-pub const edt8: u32 = 1159u32;
-pub const edt9: u32 = 1160u32;
-pub const frm1: u32 = 1076u32;
-pub const frm2: u32 = 1077u32;
-pub const frm3: u32 = 1078u32;
-pub const frm4: u32 = 1079u32;
-pub const grp1: u32 = 1072u32;
-pub const grp2: u32 = 1073u32;
-pub const grp3: u32 = 1074u32;
-pub const grp4: u32 = 1075u32;
-pub const ico1: u32 = 1084u32;
-pub const ico2: u32 = 1085u32;
-pub const ico3: u32 = 1086u32;
-pub const ico4: u32 = 1087u32;
-pub const lst1: u32 = 1120u32;
-pub const lst10: u32 = 1129u32;
-pub const lst11: u32 = 1130u32;
-pub const lst12: u32 = 1131u32;
-pub const lst13: u32 = 1132u32;
-pub const lst14: u32 = 1133u32;
-pub const lst15: u32 = 1134u32;
-pub const lst16: u32 = 1135u32;
-pub const lst2: u32 = 1121u32;
-pub const lst3: u32 = 1122u32;
-pub const lst4: u32 = 1123u32;
-pub const lst5: u32 = 1124u32;
-pub const lst6: u32 = 1125u32;
-pub const lst7: u32 = 1126u32;
-pub const lst8: u32 = 1127u32;
-pub const lst9: u32 = 1128u32;
-pub const psh1: u32 = 1024u32;
-pub const psh10: u32 = 1033u32;
-pub const psh11: u32 = 1034u32;
-pub const psh12: u32 = 1035u32;
-pub const psh13: u32 = 1036u32;
-pub const psh14: u32 = 1037u32;
-pub const psh15: u32 = 1038u32;
-pub const psh16: u32 = 1039u32;
-pub const psh2: u32 = 1025u32;
-pub const psh3: u32 = 1026u32;
-pub const psh4: u32 = 1027u32;
-pub const psh5: u32 = 1028u32;
-pub const psh6: u32 = 1029u32;
-pub const psh7: u32 = 1030u32;
-pub const psh8: u32 = 1031u32;
-pub const psh9: u32 = 1032u32;
-pub const pshHelp: u32 = 1038u32;
-pub const rad1: u32 = 1056u32;
-pub const rad10: u32 = 1065u32;
-pub const rad11: u32 = 1066u32;
-pub const rad12: u32 = 1067u32;
-pub const rad13: u32 = 1068u32;
-pub const rad14: u32 = 1069u32;
-pub const rad15: u32 = 1070u32;
-pub const rad16: u32 = 1071u32;
-pub const rad2: u32 = 1057u32;
-pub const rad3: u32 = 1058u32;
-pub const rad4: u32 = 1059u32;
-pub const rad5: u32 = 1060u32;
-pub const rad6: u32 = 1061u32;
-pub const rad7: u32 = 1062u32;
-pub const rad8: u32 = 1063u32;
-pub const rad9: u32 = 1064u32;
-pub const rct1: u32 = 1080u32;
-pub const rct2: u32 = 1081u32;
-pub const rct3: u32 = 1082u32;
-pub const rct4: u32 = 1083u32;
-pub const scr1: u32 = 1168u32;
-pub const scr2: u32 = 1169u32;
-pub const scr3: u32 = 1170u32;
-pub const scr4: u32 = 1171u32;
-pub const scr5: u32 = 1172u32;
-pub const scr6: u32 = 1173u32;
-pub const scr7: u32 = 1174u32;
-pub const scr8: u32 = 1175u32;
-pub const stc1: u32 = 1088u32;
-pub const stc10: u32 = 1097u32;
-pub const stc11: u32 = 1098u32;
-pub const stc12: u32 = 1099u32;
-pub const stc13: u32 = 1100u32;
-pub const stc14: u32 = 1101u32;
-pub const stc15: u32 = 1102u32;
-pub const stc16: u32 = 1103u32;
-pub const stc17: u32 = 1104u32;
-pub const stc18: u32 = 1105u32;
-pub const stc19: u32 = 1106u32;
-pub const stc2: u32 = 1089u32;
-pub const stc20: u32 = 1107u32;
-pub const stc21: u32 = 1108u32;
-pub const stc22: u32 = 1109u32;
-pub const stc23: u32 = 1110u32;
-pub const stc24: u32 = 1111u32;
-pub const stc25: u32 = 1112u32;
-pub const stc26: u32 = 1113u32;
-pub const stc27: u32 = 1114u32;
-pub const stc28: u32 = 1115u32;
-pub const stc29: u32 = 1116u32;
-pub const stc3: u32 = 1090u32;
-pub const stc30: u32 = 1117u32;
-pub const stc31: u32 = 1118u32;
-pub const stc32: u32 = 1119u32;
-pub const stc4: u32 = 1091u32;
-pub const stc5: u32 = 1092u32;
-pub const stc6: u32 = 1093u32;
-pub const stc7: u32 = 1094u32;
-pub const stc8: u32 = 1095u32;
-pub const stc9: u32 = 1096u32;
-pub type AEROWIZARDPARTS = i32;
-pub type ARROWBTNSTATES = i32;
-pub type BACKGROUNDSTATES = i32;
-pub type BACKGROUNDWITHBORDERSTATES = i32;
-pub type BALLOONSTATES = i32;
-pub type BALLOONSTEMSTATES = i32;
-pub type BARBACKGROUNDSTATES = i32;
-pub type BARITEMSTATES = i32;
-pub type BGTYPE = i32;
-pub type BODYSTATES = i32;
-pub type BORDERSTATES = i32;
-pub type BORDERTYPE = i32;
-pub type BORDER_HSCROLLSTATES = i32;
-pub type BORDER_HVSCROLLSTATES = i32;
-pub type BORDER_NOSCROLLSTATES = i32;
-pub type BORDER_VSCROLLSTATES = i32;
-pub type BP_ANIMATIONSTYLE = i32;
-pub type BP_BUFFERFORMAT = i32;
-pub type BP_PAINTPARAMS_FLAGS = u32;
-pub type BUTTONPARTS = i32;
-pub type BUTTON_IMAGELIST_ALIGN = u32;
-pub type CAPTIONSTATES = i32;
-pub type CHECKBOXSTATES = i32;
-pub type CHEVRONSTATES = i32;
-pub type CHEVRONVERTSTATES = i32;
-pub type CLOCKPARTS = i32;
-pub type CLOCKSTATES = i32;
-pub type CLOSEBUTTONSTATES = i32;
-pub type CLOSESTATES = i32;
-pub type COLLAPSEBUTTONSTATES = i32;
-pub type COMBOBOXINFO_BUTTON_STATE = u32;
-pub type COMBOBOXPARTS = i32;
-pub type COMBOBOXSTYLESTATES = i32;
-pub type COMBOBOX_EX_ITEM_FLAGS = u32;
-pub type COMMANDLINKGLYPHSTATES = i32;
-pub type COMMANDLINKSTATES = i32;
-pub type COMMUNICATIONSPARTS = i32;
-pub type CONTENTALIGNMENT = i32;
-pub type CONTENTAREASTATES = i32;
-pub type CONTENTLINKSTATES = i32;
-pub type CONTENTPANESTATES = i32;
-pub type CONTROLLABELSTATES = i32;
-pub type CONTROLPANELPARTS = i32;
-pub type COPYSTATES = i32;
-pub type CREATELINKSTATES = i32;
-pub type CUEBANNERSTATES = i32;
-pub type DATEBORDERSTATES = i32;
-pub type DATEPICKERPARTS = i32;
-pub type DATETEXTSTATES = i32;
-pub type DLG_BUTTON_CHECK_STATE = u32;
-pub type DLG_DIR_LIST_FILE_TYPE = u32;
-pub type DOWNHORZSTATES = i32;
-pub type DOWNSTATES = i32;
-pub type DPAMM_MESSAGE = u32;
-pub type DRAGDROPPARTS = i32;
-pub type DRAGLISTINFO_NOTIFICATION_FLAGS = u32;
-pub type DRAWITEMSTRUCT_CTL_TYPE = u32;
-pub type DRAW_THEME_PARENT_BACKGROUND_FLAGS = u32;
-pub type DROPDOWNBUTTONLEFTSTATES = i32;
-pub type DROPDOWNBUTTONRIGHTSTATES = i32;
-pub type DROPDOWNITEMSTATES = i32;
-pub type DTTOPTS_FLAGS = u32;
-pub type EC_ENDOFLINE = i32;
-pub type EC_SEARCHWEB_ENTRYPOINT = i32;
-pub type EDITBALLOONTIP_ICON = i32;
-pub type EDITBORDER_HSCROLLSTATES = i32;
-pub type EDITBORDER_HVSCROLLSTATES = i32;
-pub type EDITBORDER_NOSCROLLSTATES = i32;
-pub type EDITBORDER_VSCROLLSTATES = i32;
-pub type EDITPARTS = i32;
-pub type EDITTEXTSTATES = i32;
-pub type EMPTYMARKUPPARTS = i32;
-pub type ENABLE_SCROLL_BAR_ARROWS = u32;
-pub type EXPANDBUTTONSTATES = i32;
-pub type EXPANDOBUTTONSTATES = i32;
-pub type EXPLORERBARPARTS = i32;
-pub type FEEDBACK_TYPE = i32;
-pub type FILLSTATES = i32;
-pub type FILLTYPE = i32;
-pub type FILLVERTSTATES = i32;
-pub type FLYOUTPARTS = i32;
-pub type FRAMEBOTTOMSTATES = i32;
-pub type FRAMELEFTSTATES = i32;
-pub type FRAMERIGHTSTATES = i32;
-pub type FRAMESTATES = i32;
-pub type GET_THEME_BITMAP_FLAGS = u32;
-pub type GLYPHFONTSIZINGTYPE = i32;
-pub type GLYPHSTATES = i32;
-pub type GLYPHTYPE = i32;
-pub type GRIDCELLBACKGROUNDSTATES = i32;
-pub type GRIDCELLSTATES = i32;
-pub type GRIDCELLUPPERSTATES = i32;
-pub type GRIPPERSTATES = i32;
-pub type GROUPBOXSTATES = i32;
-pub type GROUPHEADERLINESTATES = i32;
-pub type GROUPHEADERSTATES = i32;
-pub type HALIGN = i32;
-pub type HDI_MASK = u32;
-pub type HEADERAREASTATES = i32;
-pub type HEADERCLOSESTATES = i32;
-pub type HEADERDROPDOWNFILTERSTATES = i32;
-pub type HEADERDROPDOWNSTATES = i32;
-pub type HEADERITEMLEFTSTATES = i32;
-pub type HEADERITEMRIGHTSTATES = i32;
-pub type HEADERITEMSTATES = i32;
-pub type HEADEROVERFLOWSTATES = i32;
-pub type HEADERPARTS = i32;
-pub type HEADERPINSTATES = i32;
-pub type HEADERSORTARROWSTATES = i32;
-pub type HEADERSTYLESTATES = i32;
-pub type HEADER_CONTROL_FORMAT_FLAGS = i32;
-pub type HEADER_CONTROL_FORMAT_STATE = u32;
-pub type HEADER_CONTROL_FORMAT_TYPE = u32;
-pub type HEADER_CONTROL_NOTIFICATION_BUTTON = i32;
-pub type HEADER_HITTEST_INFO_FLAGS = u32;
-pub type HELPBUTTONSTATES = i32;
-pub type HELPLINKSTATES = i32;
-pub type HIT_TEST_BACKGROUND_OPTIONS = u32;
-pub type HORZSCROLLSTATES = i32;
-pub type HORZTHUMBSTATES = i32;
-pub type HOTGLYPHSTATES = i32;
-pub type HOVERBACKGROUNDSTATES = i32;
-pub type HYPERLINKSTATES = i32;
-pub type HYPERLINKTEXTSTATES = i32;
-pub type ICONEFFECT = i32;
-pub type IEBARMENUSTATES = i32;
-pub type IMAGELAYOUT = i32;
-pub type IMAGELIST_CREATION_FLAGS = u32;
-pub type IMAGESELECTTYPE = i32;
-pub type IMAGE_LIST_COPY_FLAGS = u32;
-pub type IMAGE_LIST_DRAW_STYLE = u32;
-pub type IMAGE_LIST_ITEM_FLAGS = u32;
-pub type IMAGE_LIST_WRITE_STREAM_FLAGS = u32;
-pub type INITCOMMONCONTROLSEX_ICC = u32;
-pub type ITEMSTATES = i32;
-pub type LABELSTATES = i32;
-pub type LINKHEADERSTATES = i32;
-pub type LINKPARTS = i32;
-pub type LINKSTATES = i32;
-pub type LISTBOXPARTS = i32;
-pub type LISTITEMSTATES = i32;
-pub type LISTVIEWPARTS = i32;
-pub type LIST_ITEM_FLAGS = u32;
-pub type LIST_ITEM_STATE_FLAGS = u32;
-pub type LIST_VIEW_BACKGROUND_IMAGE_FLAGS = u32;
-pub type LIST_VIEW_GROUP_ALIGN_FLAGS = u32;
-pub type LIST_VIEW_GROUP_STATE_FLAGS = u32;
-pub type LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = i32;
-pub type LIST_VIEW_ITEM_FLAGS = u32;
-pub type LIST_VIEW_ITEM_STATE_FLAGS = u32;
-pub type LOGOFFBUTTONSSTATES = i32;
-pub type LVCOLUMNW_FORMAT = i32;
-pub type LVCOLUMNW_MASK = u32;
-pub type LVFINDINFOW_FLAGS = u32;
-pub type LVFOOTERITEM_MASK = u32;
-pub type LVGROUP_MASK = u32;
-pub type LVHITTESTINFO_FLAGS = u32;
-pub type LVITEMA_GROUP_ID = i32;
-pub type LVTILEVIEWINFO_FLAGS = u32;
-pub type LVTILEVIEWINFO_MASK = u32;
-pub type MARKUPTEXTSTATES = i32;
-pub type MAXBUTTONSTATES = i32;
-pub type MAXCAPTIONSTATES = i32;
-pub type MCGRIDINFO_FLAGS = u32;
-pub type MCGRIDINFO_PART = u32;
-pub type MCHITTESTINFO_HIT_FLAGS = u32;
-pub type MDICLOSEBUTTONSTATES = i32;
-pub type MDIMINBUTTONSTATES = i32;
-pub type MDIRESTOREBUTTONSTATES = i32;
-pub type MENUBANDPARTS = i32;
-pub type MENUBANDSTATES = i32;
-pub type MENUPARTS = i32;
-pub type MINBUTTONSTATES = i32;
-pub type MINCAPTIONSTATES = i32;
-pub type MONTHCALPARTS = i32;
-pub type MONTH_CALDENDAR_MESSAGES_VIEW = u32;
-pub type MOREPROGRAMSARROWBACKSTATES = i32;
-pub type MOREPROGRAMSARROWSTATES = i32;
-pub type MOREPROGRAMSTABSTATES = i32;
-pub type MOVESTATES = i32;
-pub type NAVIGATIONPARTS = i32;
-pub type NAVNEXTSTATES = i32;
-pub type NAVPREVSTATES = i32;
-pub type NAV_BACKBUTTONSTATES = i32;
-pub type NAV_FORWARDBUTTONSTATES = i32;
-pub type NAV_MENUBUTTONSTATES = i32;
-pub type NMCUSTOMDRAW_DRAW_STAGE = u32;
-pub type NMCUSTOMDRAW_DRAW_STATE_FLAGS = u32;
-pub type NMDATETIMECHANGE_FLAGS = u32;
-pub type NMLVCUSTOMDRAW_ITEM_TYPE = u32;
-pub type NMLVEMPTYMARKUP_FLAGS = u32;
-pub type NMLVGETINFOTIP_FLAGS = u32;
-pub type NMPGCALCSIZE_FLAGS = u32;
-pub type NMPGSCROLL_DIR = i32;
-pub type NMPGSCROLL_KEYS = u16;
-pub type NMREBAR_MASK_FLAGS = u32;
-pub type NMTBDISPINFOW_MASK = u32;
-pub type NMTBHOTITEM_FLAGS = u32;
-pub type NM_TREEVIEW_ACTION = u32;
-pub type NONESTATES = i32;
-pub type NORMALGROUPCOLLAPSESTATES = i32;
-pub type NORMALGROUPEXPANDSTATES = i32;
-pub type ODA_FLAGS = u32;
-pub type ODS_FLAGS = u32;
-pub type OFFSETTYPE = i32;
-pub type OPENBOXSTATES = i32;
-pub type OPEN_THEME_DATA_FLAGS = u32;
-pub type PAGEPARTS = i32;
-pub type POINTER_DEVICE_CURSOR_TYPE = i32;
-pub type POINTER_DEVICE_TYPE = i32;
-pub type POINTER_FEEDBACK_MODE = i32;
-pub type POPUPCHECKBACKGROUNDSTATES = i32;
-pub type POPUPCHECKSTATES = i32;
-pub type POPUPITEMFOCUSABLESTATES = i32;
-pub type POPUPITEMKBFOCUSSTATES = i32;
-pub type POPUPITEMSTATES = i32;
-pub type POPUPSUBMENUHCHOTSTATES = i32;
-pub type POPUPSUBMENUSTATES = i32;
-pub type PROGRESSPARTS = i32;
-pub type PROPERTYORIGIN = i32;
-pub type PSPCB_MESSAGE = u32;
-pub type PUSHBUTTONDROPDOWNSTATES = i32;
-pub type PUSHBUTTONSTATES = i32;
-pub type RADIOBUTTONSTATES = i32;
-pub type READONLYSTATES = i32;
-pub type REBARPARTS = i32;
-pub type RESTOREBUTTONSTATES = i32;
-pub type SCROLLBARPARTS = i32;
-pub type SCROLLBARSTYLESTATES = i32;
-pub type SECTIONTITLELINKSTATES = i32;
-pub type SET_THEME_APP_PROPERTIES_FLAGS = u32;
-pub type SHOWCALENDARBUTTONRIGHTSTATES = i32;
-pub type SIZEBOXSTATES = i32;
-pub type SIZINGTYPE = i32;
-pub type SMALLCAPTIONSTATES = i32;
-pub type SMALLCLOSEBUTTONSTATES = i32;
-pub type SMALLFRAMEBOTTOMSTATES = i32;
-pub type SMALLFRAMELEFTSTATES = i32;
-pub type SMALLFRAMERIGHTSTATES = i32;
-pub type SOFTWAREEXPLORERSTATES = i32;
-pub type SPECIALGROUPCOLLAPSESTATES = i32;
-pub type SPECIALGROUPEXPANDSTATES = i32;
-pub type SPINPARTS = i32;
-pub type SPLITTERSTATES = i32;
-pub type SPLITTERVERTSTATES = i32;
-pub type STANDARDSTATES = i32;
-pub type STARTPANELPARTS = i32;
-pub type STATICPARTS = i32;
-pub type STATUSPARTS = i32;
-pub type SYSBUTTONSTATES = i32;
-pub type SYSTEMCLOSEHCHOTSTATES = i32;
-pub type SYSTEMCLOSESTATES = i32;
-pub type SYSTEMMAXIMIZEHCHOTSTATES = i32;
-pub type SYSTEMMAXIMIZESTATES = i32;
-pub type SYSTEMMINIMIZEHCHOTSTATES = i32;
-pub type SYSTEMMINIMIZESTATES = i32;
-pub type SYSTEMRESTOREHCHOTSTATES = i32;
-pub type SYSTEMRESTORESTATES = i32;
-pub type TABITEMBOTHEDGESTATES = i32;
-pub type TABITEMLEFTEDGESTATES = i32;
-pub type TABITEMRIGHTEDGESTATES = i32;
-pub type TABITEMSTATES = i32;
-pub type TABPARTS = i32;
-pub type TABSTATES = i32;
-pub type TAB_CONTROL_ITEM_STATE = u32;
-pub type TASKBANDPARTS = i32;
-pub type TASKBARPARTS = i32;
-pub type TASKDIALOGPARTS = i32;
-pub type TASKDIALOG_COMMON_BUTTON_FLAGS = i32;
-pub type TASKDIALOG_ELEMENTS = i32;
-pub type TASKDIALOG_FLAGS = i32;
-pub type TASKDIALOG_ICON_ELEMENTS = i32;
-pub type TASKDIALOG_MESSAGES = i32;
-pub type TASKDIALOG_NOTIFICATIONS = i32;
-pub type TASKLINKSTATES = i32;
-pub type TA_PROPERTY = i32;
-pub type TA_PROPERTY_FLAG = i32;
-pub type TA_TIMINGFUNCTION_TYPE = i32;
-pub type TA_TRANSFORM_FLAG = i32;
-pub type TA_TRANSFORM_TYPE = i32;
-pub type TBBUTTONINFOW_MASK = u32;
-pub type TBINSERTMARK_FLAGS = u32;
-pub type TCHITTESTINFO_FLAGS = u32;
-pub type TCITEMHEADERA_MASK = u32;
-pub type TEXTSELECTIONGRIPPERPARTS = i32;
-pub type TEXTSHADOWTYPE = i32;
-pub type TEXTSTYLEPARTS = i32;
-pub type THEMESIZE = i32;
-pub type THEME_PROPERTY_SYMBOL_ID = u32;
-pub type THUMBBOTTOMSTATES = i32;
-pub type THUMBLEFTSTATES = i32;
-pub type THUMBRIGHTSTATES = i32;
-pub type THUMBSTATES = i32;
-pub type THUMBTOPSTATES = i32;
-pub type THUMBVERTSTATES = i32;
-pub type TICSSTATES = i32;
-pub type TICSVERTSTATES = i32;
-pub type TITLEBARSTATES = i32;
-pub type TOOLBARPARTS = i32;
-pub type TOOLBARSTYLESTATES = i32;
-pub type TOOLTIPPARTS = i32;
-pub type TOOLTIP_FLAGS = u32;
-pub type TOPTABITEMBOTHEDGESTATES = i32;
-pub type TOPTABITEMLEFTEDGESTATES = i32;
-pub type TOPTABITEMRIGHTEDGESTATES = i32;
-pub type TOPTABITEMSTATES = i32;
-pub type TRACKBARPARTS = i32;
-pub type TRACKBARSTYLESTATES = i32;
-pub type TRACKSTATES = i32;
-pub type TRACKVERTSTATES = i32;
-pub type TRAILINGGRIDCELLSTATES = i32;
-pub type TRAILINGGRIDCELLUPPERSTATES = i32;
-pub type TRANSPARENTBACKGROUNDSTATES = i32;
-pub type TRANSPARENTBARSTATES = i32;
-pub type TRANSPARENTBARVERTSTATES = i32;
-pub type TRAYNOTIFYPARTS = i32;
-pub type TREEITEMSTATES = i32;
-pub type TREEVIEWPARTS = i32;
-pub type TREE_VIEW_ITEM_STATE_FLAGS = u32;
-pub type TRUESIZESCALINGTYPE = i32;
-pub type TVHITTESTINFO_FLAGS = u32;
-pub type TVITEMEXW_CHILDREN = i32;
-pub type TVITEMPART = i32;
-pub type TVITEM_MASK = u32;
-pub type UPDATEMETADATASTATES = i32;
-pub type UPHORZSTATES = i32;
-pub type UPSTATES = i32;
-pub type USERTILEPARTS = i32;
-pub type VALIGN = i32;
-pub type VERTSCROLLSTATES = i32;
-pub type VERTTHUMBSTATES = i32;
-pub type WARNINGSTATES = i32;
-pub type WINDOWPARTS = i32;
-pub type WINDOWTHEMEATTRIBUTETYPE = i32;
-pub type WORD_BREAK_ACTION = i32;
-pub type WRENCHSTATES = i32;
-pub type WSB_PROP = i32;
-pub type _LI_METRIC = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BP_ANIMATIONPARAMS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub style: BP_ANIMATIONSTYLE,
-    pub dwDuration: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct BP_PAINTPARAMS {
-    pub cbSize: u32,
-    pub dwFlags: BP_PAINTPARAMS_FLAGS,
-    pub prcExclude: *const super::super::Foundation::RECT,
-    pub pBlendFunction: *const super::super::Graphics::Gdi::BLENDFUNCTION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BUTTON_IMAGELIST {
-    pub himl: HIMAGELIST,
-    pub margin: super::super::Foundation::RECT,
-    pub uAlign: BUTTON_IMAGELIST_ALIGN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BUTTON_SPLITINFO {
-    pub mask: u32,
-    pub himlGlyph: HIMAGELIST,
-    pub uSplitStyle: u32,
-    pub size: super::super::Foundation::SIZE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct CCINFOA {
-    pub szClass: [i8; 32],
-    pub flOptions: u32,
-    pub szDesc: [i8; 32],
-    pub cxDefault: u32,
-    pub cyDefault: u32,
-    pub flStyleDefault: u32,
-    pub flExtStyleDefault: u32,
-    pub flCtrlTypeMask: u32,
-    pub szTextDefault: [i8; 256],
-    pub cStyleFlags: i32,
-    pub aStyleFlags: *mut CCSTYLEFLAGA,
-    pub lpfnStyle: LPFNCCSTYLEA,
-    pub lpfnSizeToText: LPFNCCSIZETOTEXTA,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct CCINFOW {
-    pub szClass: [u16; 32],
-    pub flOptions: u32,
-    pub szDesc: [u16; 32],
-    pub cxDefault: u32,
-    pub cyDefault: u32,
-    pub flStyleDefault: u32,
-    pub flExtStyleDefault: u32,
-    pub flCtrlTypeMask: u32,
-    pub cStyleFlags: i32,
-    pub aStyleFlags: *mut CCSTYLEFLAGW,
-    pub szTextDefault: [u16; 256],
-    pub lpfnStyle: LPFNCCSTYLEW,
-    pub lpfnSizeToText: LPFNCCSIZETOTEXTW,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CCSTYLEA {
-    pub flStyle: u32,
-    pub flExtStyle: u32,
-    pub szText: [i8; 256],
-    pub lgid: u16,
-    pub wReserved1: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CCSTYLEFLAGA {
-    pub flStyle: u32,
-    pub flStyleMask: u32,
-    pub pszStyle: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CCSTYLEFLAGW {
-    pub flStyle: u32,
-    pub flStyleMask: u32,
-    pub pszStyle: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CCSTYLEW {
-    pub flStyle: u32,
-    pub flExtStyle: u32,
-    pub szText: [u16; 256],
-    pub lgid: u16,
-    pub wReserved1: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COLORMAP {
-    pub from: super::super::Foundation::COLORREF,
-    pub to: super::super::Foundation::COLORREF,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COLORSCHEME {
-    pub dwSize: u32,
-    pub clrBtnHighlight: super::super::Foundation::COLORREF,
-    pub clrBtnShadow: super::super::Foundation::COLORREF,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COMBOBOXEXITEMA {
-    pub mask: COMBOBOX_EX_ITEM_FLAGS,
-    pub iItem: isize,
-    pub pszText: windows_sys::core::PSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub iSelectedImage: i32,
-    pub iOverlay: i32,
-    pub iIndent: i32,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COMBOBOXEXITEMW {
-    pub mask: COMBOBOX_EX_ITEM_FLAGS,
-    pub iItem: isize,
-    pub pszText: windows_sys::core::PWSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub iSelectedImage: i32,
-    pub iOverlay: i32,
-    pub iIndent: i32,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COMBOBOXINFO {
-    pub cbSize: u32,
-    pub rcItem: super::super::Foundation::RECT,
-    pub rcButton: super::super::Foundation::RECT,
-    pub stateButton: COMBOBOXINFO_BUTTON_STATE,
-    pub hwndCombo: super::super::Foundation::HWND,
-    pub hwndItem: super::super::Foundation::HWND,
-    pub hwndList: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COMPAREITEMSTRUCT {
-    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
-    pub CtlID: u32,
-    pub hwndItem: super::super::Foundation::HWND,
-    pub itemID1: u32,
-    pub itemData1: usize,
-    pub itemID2: u32,
-    pub itemData2: usize,
-    pub dwLocaleId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DATETIMEPICKERINFO {
-    pub cbSize: u32,
-    pub rcCheck: super::super::Foundation::RECT,
-    pub stateCheck: u32,
-    pub rcButton: super::super::Foundation::RECT,
-    pub stateButton: u32,
-    pub hwndEdit: super::super::Foundation::HWND,
-    pub hwndUD: super::super::Foundation::HWND,
-    pub hwndDropDown: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DELETEITEMSTRUCT {
-    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
-    pub CtlID: u32,
-    pub itemID: u32,
-    pub hwndItem: super::super::Foundation::HWND,
-    pub itemData: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DPASTREAMINFO {
-    pub iPos: i32,
-    pub pvItem: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRAGLISTINFO {
-    pub uNotification: DRAGLISTINFO_NOTIFICATION_FLAGS,
-    pub hWnd: super::super::Foundation::HWND,
-    pub ptCursor: super::super::Foundation::POINT,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct DRAWITEMSTRUCT {
-    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
-    pub CtlID: u32,
-    pub itemID: u32,
-    pub itemAction: ODA_FLAGS,
-    pub itemState: ODS_FLAGS,
-    pub hwndItem: super::super::Foundation::HWND,
-    pub hDC: super::super::Graphics::Gdi::HDC,
-    pub rcItem: super::super::Foundation::RECT,
-    pub itemData: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DTBGOPTS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub rcClip: super::super::Foundation::RECT,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct DTTOPTS {
-    pub dwSize: u32,
-    pub dwFlags: DTTOPTS_FLAGS,
-    pub crText: super::super::Foundation::COLORREF,
-    pub crBorder: super::super::Foundation::COLORREF,
-    pub crShadow: super::super::Foundation::COLORREF,
-    pub iTextShadowType: i32,
-    pub ptShadowOffset: super::super::Foundation::POINT,
-    pub iBorderSize: i32,
-    pub iFontPropId: i32,
-    pub iColorPropId: i32,
-    pub iStateId: i32,
-    pub fApplyOverlay: super::super::Foundation::BOOL,
-    pub iGlowSize: i32,
-    pub pfnDrawTextCallback: DTT_CALLBACK_PROC,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EDITBALLOONTIP {
-    pub cbStruct: u32,
-    pub pszTitle: windows_sys::core::PCWSTR,
-    pub pszText: windows_sys::core::PCWSTR,
-    pub ttiIcon: EDITBALLOONTIP_ICON,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HDHITTESTINFO {
-    pub pt: super::super::Foundation::POINT,
-    pub flags: HEADER_HITTEST_INFO_FLAGS,
-    pub iItem: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct HDITEMA {
-    pub mask: HDI_MASK,
-    pub cxy: i32,
-    pub pszText: windows_sys::core::PSTR,
-    pub hbm: super::super::Graphics::Gdi::HBITMAP,
-    pub cchTextMax: i32,
-    pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iImage: i32,
-    pub iOrder: i32,
-    pub r#type: HEADER_CONTROL_FORMAT_TYPE,
-    pub pvFilter: *mut core::ffi::c_void,
-    pub state: HEADER_CONTROL_FORMAT_STATE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct HDITEMW {
-    pub mask: HDI_MASK,
-    pub cxy: i32,
-    pub pszText: windows_sys::core::PWSTR,
-    pub hbm: super::super::Graphics::Gdi::HBITMAP,
-    pub cchTextMax: i32,
-    pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iImage: i32,
-    pub iOrder: i32,
-    pub r#type: HEADER_CONTROL_FORMAT_TYPE,
-    pub pvFilter: *mut core::ffi::c_void,
-    pub state: HEADER_CONTROL_FORMAT_STATE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct HDLAYOUT {
-    pub prc: *mut super::super::Foundation::RECT,
-    pub pwpos: *mut super::WindowsAndMessaging::WINDOWPOS,
-}
-pub type HDPA = isize;
-pub type HDSA = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HD_TEXTFILTERA {
-    pub pszText: windows_sys::core::PSTR,
-    pub cchTextMax: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HD_TEXTFILTERW {
-    pub pszText: windows_sys::core::PWSTR,
-    pub cchTextMax: i32,
-}
-pub type HIMAGELIST = isize;
-pub type HPROPSHEETPAGE = *mut core::ffi::c_void;
-pub type HSYNTHETICPOINTERDEVICE = *mut core::ffi::c_void;
-pub type HTHEME = isize;
-pub type HTREEITEM = isize;
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct IMAGEINFO {
-    pub hbmImage: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
-    pub Unused1: i32,
-    pub Unused2: i32,
-    pub rcImage: super::super::Foundation::RECT,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct IMAGELISTDRAWPARAMS {
-    pub cbSize: u32,
-    pub himl: HIMAGELIST,
-    pub i: i32,
-    pub hdcDst: super::super::Graphics::Gdi::HDC,
-    pub x: i32,
-    pub y: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub xBitmap: i32,
-    pub yBitmap: i32,
-    pub rgbBk: super::super::Foundation::COLORREF,
-    pub rgbFg: super::super::Foundation::COLORREF,
-    pub fStyle: u32,
-    pub dwRop: u32,
-    pub fState: u32,
-    pub Frame: u32,
-    pub crEffect: super::super::Foundation::COLORREF,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGELISTSTATS {
-    pub cbSize: u32,
-    pub cAlloc: i32,
-    pub cUsed: i32,
-    pub cStandby: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INITCOMMONCONTROLSEX {
-    pub dwSize: u32,
-    pub dwICC: INITCOMMONCONTROLSEX_ICC,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INTLIST {
-    pub iValueCount: i32,
-    pub iValues: [i32; 402],
-}
-pub const ImageList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LHITTESTINFO {
-    pub pt: super::super::Foundation::POINT,
-    pub item: LITEM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LITEM {
-    pub mask: LIST_ITEM_FLAGS,
-    pub iLink: i32,
-    pub state: LIST_ITEM_STATE_FLAGS,
-    pub stateMask: LIST_ITEM_STATE_FLAGS,
-    pub szID: [u16; 48],
-    pub szUrl: [u16; 2084],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct LVBKIMAGEA {
-    pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
-    pub hbm: super::super::Graphics::Gdi::HBITMAP,
-    pub pszImage: windows_sys::core::PSTR,
-    pub cchImageMax: u32,
-    pub xOffsetPercent: i32,
-    pub yOffsetPercent: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct LVBKIMAGEW {
-    pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
-    pub hbm: super::super::Graphics::Gdi::HBITMAP,
-    pub pszImage: windows_sys::core::PWSTR,
-    pub cchImageMax: u32,
-    pub xOffsetPercent: i32,
-    pub yOffsetPercent: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVCOLUMNA {
-    pub mask: LVCOLUMNW_MASK,
-    pub fmt: LVCOLUMNW_FORMAT,
-    pub cx: i32,
-    pub pszText: windows_sys::core::PSTR,
-    pub cchTextMax: i32,
-    pub iSubItem: i32,
-    pub iImage: i32,
-    pub iOrder: i32,
-    pub cxMin: i32,
-    pub cxDefault: i32,
-    pub cxIdeal: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVCOLUMNW {
-    pub mask: LVCOLUMNW_MASK,
-    pub fmt: LVCOLUMNW_FORMAT,
-    pub cx: i32,
-    pub pszText: windows_sys::core::PWSTR,
-    pub cchTextMax: i32,
-    pub iSubItem: i32,
-    pub iImage: i32,
-    pub iOrder: i32,
-    pub cxMin: i32,
-    pub cxDefault: i32,
-    pub cxIdeal: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVFINDINFOA {
-    pub flags: LVFINDINFOW_FLAGS,
-    pub psz: windows_sys::core::PCSTR,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub pt: super::super::Foundation::POINT,
-    pub vkDirection: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVFINDINFOW {
-    pub flags: LVFINDINFOW_FLAGS,
-    pub psz: windows_sys::core::PCWSTR,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub pt: super::super::Foundation::POINT,
-    pub vkDirection: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVFOOTERINFO {
-    pub mask: u32,
-    pub pszText: windows_sys::core::PWSTR,
-    pub cchTextMax: i32,
-    pub cItems: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVFOOTERITEM {
-    pub mask: LVFOOTERITEM_MASK,
-    pub iItem: i32,
-    pub pszText: windows_sys::core::PWSTR,
-    pub cchTextMax: i32,
-    pub state: u32,
-    pub stateMask: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVGROUP {
-    pub cbSize: u32,
-    pub mask: LVGROUP_MASK,
-    pub pszHeader: windows_sys::core::PWSTR,
-    pub cchHeader: i32,
-    pub pszFooter: windows_sys::core::PWSTR,
-    pub cchFooter: i32,
-    pub iGroupId: i32,
-    pub stateMask: LIST_VIEW_GROUP_STATE_FLAGS,
-    pub state: LIST_VIEW_GROUP_STATE_FLAGS,
-    pub uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS,
-    pub pszSubtitle: windows_sys::core::PWSTR,
-    pub cchSubtitle: u32,
-    pub pszTask: windows_sys::core::PWSTR,
-    pub cchTask: u32,
-    pub pszDescriptionTop: windows_sys::core::PWSTR,
-    pub cchDescriptionTop: u32,
-    pub pszDescriptionBottom: windows_sys::core::PWSTR,
-    pub cchDescriptionBottom: u32,
-    pub iTitleImage: i32,
-    pub iExtendedImage: i32,
-    pub iFirstItem: i32,
-    pub cItems: u32,
-    pub pszSubsetTitle: windows_sys::core::PWSTR,
-    pub cchSubsetTitle: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVGROUPMETRICS {
-    pub cbSize: u32,
-    pub mask: u32,
-    pub Left: u32,
-    pub Top: u32,
-    pub Right: u32,
-    pub Bottom: u32,
-    pub crLeft: super::super::Foundation::COLORREF,
-    pub crTop: super::super::Foundation::COLORREF,
-    pub crRight: super::super::Foundation::COLORREF,
-    pub crBottom: super::super::Foundation::COLORREF,
-    pub crHeader: super::super::Foundation::COLORREF,
-    pub crFooter: super::super::Foundation::COLORREF,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVHITTESTINFO {
-    pub pt: super::super::Foundation::POINT,
-    pub flags: LVHITTESTINFO_FLAGS,
-    pub iItem: i32,
-    pub iSubItem: i32,
-    pub iGroup: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVINSERTGROUPSORTED {
-    pub pfnGroupCompare: PFNLVGROUPCOMPARE,
-    pub pvData: *mut core::ffi::c_void,
-    pub lvGroup: LVGROUP,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVINSERTMARK {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iItem: i32,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVITEMA {
-    pub mask: LIST_VIEW_ITEM_FLAGS,
-    pub iItem: i32,
-    pub iSubItem: i32,
-    pub state: LIST_VIEW_ITEM_STATE_FLAGS,
-    pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: windows_sys::core::PSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iIndent: i32,
-    pub iGroupId: i32,
-    pub cColumns: u32,
-    pub puColumns: *mut u32,
-    pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
-    pub iGroup: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVITEMINDEX {
-    pub iItem: i32,
-    pub iGroup: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVITEMW {
-    pub mask: LIST_VIEW_ITEM_FLAGS,
-    pub iItem: i32,
-    pub iSubItem: i32,
-    pub state: LIST_VIEW_ITEM_STATE_FLAGS,
-    pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: windows_sys::core::PWSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iIndent: i32,
-    pub iGroupId: i32,
-    pub cColumns: u32,
-    pub puColumns: *mut u32,
-    pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
-    pub iGroup: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVSETINFOTIP {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub pszText: windows_sys::core::PWSTR,
-    pub iItem: i32,
-    pub iSubItem: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVTILEINFO {
-    pub cbSize: u32,
-    pub iItem: i32,
-    pub cColumns: u32,
-    pub puColumns: *mut u32,
-    pub piColFmt: *mut i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LVTILEVIEWINFO {
-    pub cbSize: u32,
-    pub dwMask: LVTILEVIEWINFO_MASK,
-    pub dwFlags: LVTILEVIEWINFO_FLAGS,
-    pub sizeTile: super::super::Foundation::SIZE,
-    pub cLines: i32,
-    pub rcLabelMargin: super::super::Foundation::RECT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MARGINS {
-    pub cxLeftWidth: i32,
-    pub cxRightWidth: i32,
-    pub cyTopHeight: i32,
-    pub cyBottomHeight: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MCGRIDINFO {
-    pub cbSize: u32,
-    pub dwPart: MCGRIDINFO_PART,
-    pub dwFlags: MCGRIDINFO_FLAGS,
-    pub iCalendar: i32,
-    pub iRow: i32,
-    pub iCol: i32,
-    pub bSelected: super::super::Foundation::BOOL,
-    pub stStart: super::super::Foundation::SYSTEMTIME,
-    pub stEnd: super::super::Foundation::SYSTEMTIME,
-    pub rc: super::super::Foundation::RECT,
-    pub pszName: windows_sys::core::PWSTR,
-    pub cchName: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MCHITTESTINFO {
-    pub cbSize: u32,
-    pub pt: super::super::Foundation::POINT,
-    pub uHit: MCHITTESTINFO_HIT_FLAGS,
-    pub st: super::super::Foundation::SYSTEMTIME,
-    pub rc: super::super::Foundation::RECT,
-    pub iOffset: i32,
-    pub iRow: i32,
-    pub iCol: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MEASUREITEMSTRUCT {
-    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
-    pub CtlID: u32,
-    pub itemID: u32,
-    pub itemWidth: u32,
-    pub itemHeight: u32,
-    pub itemData: usize,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMBCDROPDOWN {
@@ -5522,6 +3145,8 @@ pub struct NMCUSTOMDRAW {
     pub uItemState: NMCUSTOMDRAW_DRAW_STATE_FLAGS,
     pub lItemlParam: super::super::Foundation::LPARAM,
 }
+pub type NMCUSTOMDRAW_DRAW_STAGE = u32;
+pub type NMCUSTOMDRAW_DRAW_STATE_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMCUSTOMSPLITRECTINFO {
@@ -5549,6 +3174,7 @@ pub struct NMDATETIMECHANGE {
     pub dwFlags: NMDATETIMECHANGE_FLAGS,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
+pub type NMDATETIMECHANGE_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMDATETIMEFORMATA {
@@ -5744,6 +3370,7 @@ pub struct NMLVCUSTOMDRAW {
     pub rcText: super::super::Foundation::RECT,
     pub uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS,
 }
+pub type NMLVCUSTOMDRAW_ITEM_TYPE = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMLVDISPINFOA {
@@ -5763,6 +3390,7 @@ pub struct NMLVEMPTYMARKUP {
     pub dwFlags: NMLVEMPTYMARKUP_FLAGS,
     pub szMarkup: [u16; 2084],
 }
+pub type NMLVEMPTYMARKUP_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMLVFINDITEMA {
@@ -5799,6 +3427,7 @@ pub struct NMLVGETINFOTIPW {
     pub iSubItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
+pub type NMLVGETINFOTIP_FLAGS = u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NMLVKEYDOWN {
@@ -5857,6 +3486,7 @@ pub struct NMPGCALCSIZE {
     pub iWidth: i32,
     pub iHeight: i32,
 }
+pub type NMPGCALCSIZE_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMPGHOTITEM {
@@ -5876,6 +3506,8 @@ pub struct NMPGSCROLL {
     pub iYpos: i32,
     pub iScroll: i32,
 }
+pub type NMPGSCROLL_DIR = i32;
+pub type NMPGSCROLL_KEYS = u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMRBAUTOSIZE {
@@ -5930,6 +3562,7 @@ pub struct NMREBARSPLITTER {
     pub hdr: NMHDR,
     pub rcSizing: super::super::Foundation::RECT,
 }
+pub type NMREBAR_MASK_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMSEARCHWEB {
@@ -5986,6 +3619,7 @@ pub struct NMTBDISPINFOW {
     pub pszText: windows_sys::core::PWSTR,
     pub cchText: i32,
 }
+pub type NMTBDISPINFOW_MASK = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMTBGETINFOTIPA {
@@ -6012,6 +3646,7 @@ pub struct NMTBHOTITEM {
     pub idNew: i32,
     pub dwFlags: NMTBHOTITEM_FLAGS,
 }
+pub type NMTBHOTITEM_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMTBRESTORE {
@@ -6222,18 +3857,199 @@ pub struct NMVIEWCHANGE {
     pub dwOldView: MONTH_CALDENDAR_MESSAGES_VIEW,
     pub dwNewView: MONTH_CALDENDAR_MESSAGES_VIEW,
 }
+pub const NM_CHAR: u32 = 4294967278u32;
+pub const NM_CLICK: u32 = 4294967294u32;
+pub const NM_CUSTOMDRAW: u32 = 4294967284u32;
+pub const NM_CUSTOMTEXT: u32 = 4294967272u32;
+pub const NM_DBLCLK: u32 = 4294967293u32;
+pub const NM_FIRST: u32 = 0u32;
+pub const NM_FONTCHANGED: u32 = 4294967273u32;
+pub const NM_GETCUSTOMSPLITRECT: u32 = 4294966049u32;
+pub const NM_HOVER: u32 = 4294967283u32;
+pub const NM_KEYDOWN: u32 = 4294967281u32;
+pub const NM_KILLFOCUS: u32 = 4294967288u32;
+pub const NM_LAST: u32 = 4294967197u32;
+pub const NM_LDOWN: u32 = 4294967276u32;
+pub const NM_NCHITTEST: u32 = 4294967282u32;
+pub const NM_OUTOFMEMORY: u32 = 4294967295u32;
+pub const NM_RCLICK: u32 = 4294967291u32;
+pub const NM_RDBLCLK: u32 = 4294967290u32;
+pub const NM_RDOWN: u32 = 4294967275u32;
+pub const NM_RELEASEDCAPTURE: u32 = 4294967280u32;
+pub const NM_RETURN: u32 = 4294967292u32;
+pub const NM_SETCURSOR: u32 = 4294967279u32;
+pub const NM_SETFOCUS: u32 = 4294967289u32;
+pub const NM_THEMECHANGED: u32 = 4294967274u32;
+pub const NM_TOOLTIPSCREATED: u32 = 4294967277u32;
+pub type NM_TREEVIEW_ACTION = u32;
+pub const NM_TVSTATEIMAGECHANGING: u32 = 4294967272u32;
+pub type NONESTATES = i32;
+pub type NORMALGROUPCOLLAPSESTATES = i32;
+pub type NORMALGROUPEXPANDSTATES = i32;
+pub const ODA_DRAWENTIRE: ODA_FLAGS = 1u32;
+pub type ODA_FLAGS = u32;
+pub const ODA_FOCUS: ODA_FLAGS = 4u32;
+pub const ODA_SELECT: ODA_FLAGS = 2u32;
+pub const ODS_CHECKED: ODS_FLAGS = 8u32;
+pub const ODS_COMBOBOXEDIT: ODS_FLAGS = 4096u32;
+pub const ODS_DEFAULT: ODS_FLAGS = 32u32;
+pub const ODS_DISABLED: ODS_FLAGS = 4u32;
+pub type ODS_FLAGS = u32;
+pub const ODS_FOCUS: ODS_FLAGS = 16u32;
+pub const ODS_GRAYED: ODS_FLAGS = 2u32;
+pub const ODS_HOTLIGHT: ODS_FLAGS = 64u32;
+pub const ODS_INACTIVE: ODS_FLAGS = 128u32;
+pub const ODS_NOACCEL: ODS_FLAGS = 256u32;
+pub const ODS_NOFOCUSRECT: ODS_FLAGS = 512u32;
+pub const ODS_SELECTED: ODS_FLAGS = 1u32;
+pub const ODT_BUTTON: DRAWITEMSTRUCT_CTL_TYPE = 4u32;
+pub const ODT_COMBOBOX: DRAWITEMSTRUCT_CTL_TYPE = 3u32;
+pub const ODT_HEADER: u32 = 100u32;
+pub const ODT_LISTBOX: DRAWITEMSTRUCT_CTL_TYPE = 2u32;
+pub const ODT_LISTVIEW: DRAWITEMSTRUCT_CTL_TYPE = 102u32;
+pub const ODT_MENU: DRAWITEMSTRUCT_CTL_TYPE = 1u32;
+pub const ODT_STATIC: DRAWITEMSTRUCT_CTL_TYPE = 5u32;
+pub const ODT_TAB: DRAWITEMSTRUCT_CTL_TYPE = 101u32;
+pub type OFFSETTYPE = i32;
+pub type OPENBOXSTATES = i32;
+pub type OPEN_THEME_DATA_FLAGS = u32;
+pub const OTD_FORCE_RECT_SIZING: OPEN_THEME_DATA_FLAGS = 1u32;
+pub const OTD_NONCLIENT: OPEN_THEME_DATA_FLAGS = 2u32;
+pub const OT_ABOVELASTBUTTON: OFFSETTYPE = 12i32;
+pub const OT_BELOWLASTBUTTON: OFFSETTYPE = 13i32;
+pub const OT_BOTTOMLEFT: OFFSETTYPE = 3i32;
+pub const OT_BOTTOMMIDDLE: OFFSETTYPE = 5i32;
+pub const OT_BOTTOMRIGHT: OFFSETTYPE = 4i32;
+pub const OT_LEFTOFCAPTION: OFFSETTYPE = 8i32;
+pub const OT_LEFTOFLASTBUTTON: OFFSETTYPE = 10i32;
+pub const OT_MIDDLELEFT: OFFSETTYPE = 6i32;
+pub const OT_MIDDLERIGHT: OFFSETTYPE = 7i32;
+pub const OT_RIGHTOFCAPTION: OFFSETTYPE = 9i32;
+pub const OT_RIGHTOFLASTBUTTON: OFFSETTYPE = 11i32;
+pub const OT_TOPLEFT: OFFSETTYPE = 0i32;
+pub const OT_TOPMIDDLE: OFFSETTYPE = 2i32;
+pub const OT_TOPRIGHT: OFFSETTYPE = 1i32;
+pub type PAGEPARTS = i32;
+pub const PAGESETUPDLGORD: u32 = 1546u32;
+pub const PAGESETUPDLGORDMOTIF: u32 = 1550u32;
+pub const PBBS_NORMAL: TRANSPARENTBARSTATES = 1i32;
+pub const PBBS_PARTIAL: TRANSPARENTBARSTATES = 2i32;
+pub const PBBVS_NORMAL: TRANSPARENTBARVERTSTATES = 1i32;
+pub const PBBVS_PARTIAL: TRANSPARENTBARVERTSTATES = 2i32;
+pub const PBDDS_DISABLED: PUSHBUTTONDROPDOWNSTATES = 2i32;
+pub const PBDDS_NORMAL: PUSHBUTTONDROPDOWNSTATES = 1i32;
+pub const PBFS_ERROR: FILLSTATES = 2i32;
+pub const PBFS_NORMAL: FILLSTATES = 1i32;
+pub const PBFS_PARTIAL: FILLSTATES = 4i32;
+pub const PBFS_PAUSED: FILLSTATES = 3i32;
+pub const PBFVS_ERROR: FILLVERTSTATES = 2i32;
+pub const PBFVS_NORMAL: FILLVERTSTATES = 1i32;
+pub const PBFVS_PARTIAL: FILLVERTSTATES = 4i32;
+pub const PBFVS_PAUSED: FILLVERTSTATES = 3i32;
+pub const PBM_DELTAPOS: u32 = 1027u32;
+pub const PBM_GETBARCOLOR: u32 = 1039u32;
+pub const PBM_GETBKCOLOR: u32 = 1038u32;
+pub const PBM_GETPOS: u32 = 1032u32;
+pub const PBM_GETRANGE: u32 = 1031u32;
+pub const PBM_GETSTATE: u32 = 1041u32;
+pub const PBM_GETSTEP: u32 = 1037u32;
+pub const PBM_SETBARCOLOR: u32 = 1033u32;
+pub const PBM_SETBKCOLOR: u32 = 8193u32;
+pub const PBM_SETMARQUEE: u32 = 1034u32;
+pub const PBM_SETPOS: u32 = 1026u32;
+pub const PBM_SETRANGE: u32 = 1025u32;
+pub const PBM_SETRANGE32: u32 = 1030u32;
+pub const PBM_SETSTATE: u32 = 1040u32;
+pub const PBM_SETSTEP: u32 = 1028u32;
+pub const PBM_STEPIT: u32 = 1029u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PBRANGE {
     pub iLow: i32,
     pub iHigh: i32,
 }
+pub const PBST_ERROR: u32 = 2u32;
+pub const PBST_NORMAL: u32 = 1u32;
+pub const PBST_PAUSED: u32 = 3u32;
+pub const PBS_DEFAULTED: PUSHBUTTONSTATES = 5i32;
+pub const PBS_DEFAULTED_ANIMATING: PUSHBUTTONSTATES = 6i32;
+pub const PBS_DISABLED: PUSHBUTTONSTATES = 4i32;
+pub const PBS_HOT: PUSHBUTTONSTATES = 2i32;
+pub const PBS_MARQUEE: u32 = 8u32;
+pub const PBS_NORMAL: PUSHBUTTONSTATES = 1i32;
+pub const PBS_PRESSED: PUSHBUTTONSTATES = 3i32;
+pub const PBS_SMOOTH: u32 = 1u32;
+pub const PBS_SMOOTHREVERSE: u32 = 16u32;
+pub const PBS_VERTICAL: u32 = 4u32;
+pub type PFNDACOMPARE = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
+pub type PFNDACOMPARECONST = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
+pub type PFNDAENUMCALLBACK = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
+pub type PFNDAENUMCALLBACKCONST = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
+pub type PFNDPAMERGE = Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut core::ffi::c_void>;
+pub type PFNDPAMERGECONST = Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut core::ffi::c_void>;
+#[cfg(feature = "Win32_System_Com")]
+pub type PFNDPASTREAM = Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: *mut core::ffi::c_void, pvinstdata: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PFNLVCOMPARE = Option<unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32>;
+pub type PFNLVGROUPCOMPARE = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut core::ffi::c_void) -> i32>;
+pub type PFNPROPSHEETCALLBACK = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::LPARAM) -> i32>;
+pub type PFNTVCOMPARE = Option<unsafe extern "system" fn(lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM, lparamsort: super::super::Foundation::LPARAM) -> i32>;
+pub type PFTASKDIALOGCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> windows_sys::core::HRESULT>;
+pub const PGB_BOTTOMORRIGHT: u32 = 1u32;
+pub const PGB_TOPORLEFT: u32 = 0u32;
+pub const PGF_CALCHEIGHT: NMPGCALCSIZE_FLAGS = 2u32;
+pub const PGF_CALCWIDTH: NMPGCALCSIZE_FLAGS = 1u32;
+pub const PGF_DEPRESSED: u32 = 4u32;
+pub const PGF_GRAYED: u32 = 2u32;
+pub const PGF_HOT: u32 = 8u32;
+pub const PGF_INVISIBLE: u32 = 0u32;
+pub const PGF_NORMAL: u32 = 1u32;
+pub const PGF_SCROLLDOWN: NMPGSCROLL_DIR = 2i32;
+pub const PGF_SCROLLLEFT: NMPGSCROLL_DIR = 4i32;
+pub const PGF_SCROLLRIGHT: NMPGSCROLL_DIR = 8i32;
+pub const PGF_SCROLLUP: NMPGSCROLL_DIR = 1i32;
+pub const PGK_CONTROL: NMPGSCROLL_KEYS = 2u16;
+pub const PGK_MENU: NMPGSCROLL_KEYS = 4u16;
+pub const PGK_NONE: NMPGSCROLL_KEYS = 0u16;
+pub const PGK_SHIFT: NMPGSCROLL_KEYS = 1u16;
+pub const PGM_FIRST: u32 = 5120u32;
+pub const PGM_FORWARDMOUSE: u32 = 5123u32;
+pub const PGM_GETBKCOLOR: u32 = 5125u32;
+pub const PGM_GETBORDER: u32 = 5127u32;
+pub const PGM_GETBUTTONSIZE: u32 = 5131u32;
+pub const PGM_GETBUTTONSTATE: u32 = 5132u32;
+pub const PGM_GETDROPTARGET: u32 = 8196u32;
+pub const PGM_GETPOS: u32 = 5129u32;
+pub const PGM_RECALCSIZE: u32 = 5122u32;
+pub const PGM_SETBKCOLOR: u32 = 5124u32;
+pub const PGM_SETBORDER: u32 = 5126u32;
+pub const PGM_SETBUTTONSIZE: u32 = 5130u32;
+pub const PGM_SETCHILD: u32 = 5121u32;
+pub const PGM_SETPOS: u32 = 5128u32;
+pub const PGM_SETSCROLLINFO: u32 = 5133u32;
+pub const PGN_CALCSIZE: u32 = 4294966394u32;
+pub const PGN_FIRST: u32 = 4294966396u32;
+pub const PGN_HOTITEMCHANGE: u32 = 4294966393u32;
+pub const PGN_LAST: u32 = 4294966346u32;
+pub const PGN_SCROLL: u32 = 4294966395u32;
+pub const PGRP_DOWN: PAGEPARTS = 2i32;
+pub const PGRP_DOWNHORZ: PAGEPARTS = 4i32;
+pub const PGRP_UP: PAGEPARTS = 1i32;
+pub const PGRP_UPHORZ: PAGEPARTS = 3i32;
+pub const PGS_AUTOSCROLL: u32 = 2u32;
+pub const PGS_DRAGNDROP: u32 = 4u32;
+pub const PGS_HORZ: u32 = 1u32;
+pub const PGS_VERT: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POINTER_DEVICE_CURSOR_INFO {
     pub cursorId: u32,
     pub cursor: POINTER_DEVICE_CURSOR_TYPE,
 }
+pub type POINTER_DEVICE_CURSOR_TYPE = i32;
+pub const POINTER_DEVICE_CURSOR_TYPE_ERASER: POINTER_DEVICE_CURSOR_TYPE = 2i32;
+pub const POINTER_DEVICE_CURSOR_TYPE_MAX: POINTER_DEVICE_CURSOR_TYPE = -1i32;
+pub const POINTER_DEVICE_CURSOR_TYPE_TIP: POINTER_DEVICE_CURSOR_TYPE = 1i32;
+pub const POINTER_DEVICE_CURSOR_TYPE_UNKNOWN: POINTER_DEVICE_CURSOR_TYPE = 0i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -6258,6 +4074,16 @@ pub struct POINTER_DEVICE_PROPERTY {
     pub usagePageId: u16,
     pub usageId: u16,
 }
+pub type POINTER_DEVICE_TYPE = i32;
+pub const POINTER_DEVICE_TYPE_EXTERNAL_PEN: POINTER_DEVICE_TYPE = 2i32;
+pub const POINTER_DEVICE_TYPE_INTEGRATED_PEN: POINTER_DEVICE_TYPE = 1i32;
+pub const POINTER_DEVICE_TYPE_MAX: POINTER_DEVICE_TYPE = -1i32;
+pub const POINTER_DEVICE_TYPE_TOUCH: POINTER_DEVICE_TYPE = 3i32;
+pub const POINTER_DEVICE_TYPE_TOUCH_PAD: POINTER_DEVICE_TYPE = 4i32;
+pub const POINTER_FEEDBACK_DEFAULT: POINTER_FEEDBACK_MODE = 1i32;
+pub const POINTER_FEEDBACK_INDIRECT: POINTER_FEEDBACK_MODE = 2i32;
+pub type POINTER_FEEDBACK_MODE = i32;
+pub const POINTER_FEEDBACK_NONE: POINTER_FEEDBACK_MODE = 3i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -6272,6 +4098,38 @@ pub union POINTER_TYPE_INFO_0 {
     pub touchInfo: super::Input::Pointer::POINTER_TOUCH_INFO,
     pub penInfo: super::Input::Pointer::POINTER_PEN_INFO,
 }
+pub type POPUPCHECKBACKGROUNDSTATES = i32;
+pub type POPUPCHECKSTATES = i32;
+pub type POPUPITEMFOCUSABLESTATES = i32;
+pub type POPUPITEMKBFOCUSSTATES = i32;
+pub type POPUPITEMSTATES = i32;
+pub type POPUPSUBMENUHCHOTSTATES = i32;
+pub type POPUPSUBMENUSTATES = i32;
+pub const PO_CLASS: PROPERTYORIGIN = 2i32;
+pub const PO_GLOBAL: PROPERTYORIGIN = 3i32;
+pub const PO_NOTFOUND: PROPERTYORIGIN = 4i32;
+pub const PO_PART: PROPERTYORIGIN = 1i32;
+pub const PO_STATE: PROPERTYORIGIN = 0i32;
+pub const PP_BAR: PROGRESSPARTS = 1i32;
+pub const PP_BARVERT: PROGRESSPARTS = 2i32;
+pub const PP_CHUNK: PROGRESSPARTS = 3i32;
+pub const PP_CHUNKVERT: PROGRESSPARTS = 4i32;
+pub const PP_FILL: PROGRESSPARTS = 5i32;
+pub const PP_FILLVERT: PROGRESSPARTS = 6i32;
+pub const PP_MOVEOVERLAY: PROGRESSPARTS = 8i32;
+pub const PP_MOVEOVERLAYVERT: PROGRESSPARTS = 10i32;
+pub const PP_PULSEOVERLAY: PROGRESSPARTS = 7i32;
+pub const PP_PULSEOVERLAYVERT: PROGRESSPARTS = 9i32;
+pub const PP_TRANSPARENTBAR: PROGRESSPARTS = 11i32;
+pub const PP_TRANSPARENTBARVERT: PROGRESSPARTS = 12i32;
+pub const PRINTDLGEXORD: u32 = 1549u32;
+pub const PRINTDLGORD: u32 = 1538u32;
+pub const PRNSETUPDLGORD: u32 = 1539u32;
+pub type PROGRESSPARTS = i32;
+pub const PROGRESS_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_progress32");
+pub const PROGRESS_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_progress32");
+pub const PROGRESS_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_progress32");
+pub type PROPERTYORIGIN = i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -6714,12 +4572,176 @@ pub union PROPSHEETPAGEW_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
+pub const PROP_LG_CXDLG: u32 = 252u32;
+pub const PROP_LG_CYDLG: u32 = 218u32;
+pub const PROP_MED_CXDLG: u32 = 227u32;
+pub const PROP_MED_CYDLG: u32 = 215u32;
+pub const PROP_SM_CXDLG: u32 = 212u32;
+pub const PROP_SM_CYDLG: u32 = 188u32;
+pub const PSBTN_APPLYNOW: u32 = 4u32;
+pub const PSBTN_BACK: u32 = 0u32;
+pub const PSBTN_CANCEL: u32 = 5u32;
+pub const PSBTN_FINISH: u32 = 2u32;
+pub const PSBTN_HELP: u32 = 6u32;
+pub const PSBTN_MAX: u32 = 6u32;
+pub const PSBTN_NEXT: u32 = 1u32;
+pub const PSBTN_OK: u32 = 3u32;
+pub const PSCB_BUTTONPRESSED: u32 = 3u32;
+pub const PSCB_INITIALIZED: u32 = 1u32;
+pub const PSCB_PRECREATE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PSHNOTIFY {
     pub hdr: NMHDR,
     pub lParam: super::super::Foundation::LPARAM,
 }
+pub const PSH_AEROWIZARD: u32 = 16384u32;
+pub const PSH_DEFAULT: u32 = 0u32;
+pub const PSH_HASHELP: u32 = 512u32;
+pub const PSH_HEADER: u32 = 524288u32;
+pub const PSH_HEADERBITMAP: u32 = 134217728u32;
+pub const PSH_MODELESS: u32 = 1024u32;
+pub const PSH_NOAPPLYNOW: u32 = 128u32;
+pub const PSH_NOCONTEXTHELP: u32 = 33554432u32;
+pub const PSH_NOMARGIN: u32 = 268435456u32;
+pub const PSH_PROPSHEETPAGE: u32 = 8u32;
+pub const PSH_PROPTITLE: u32 = 1u32;
+pub const PSH_RESIZABLE: u32 = 67108864u32;
+pub const PSH_RTLREADING: u32 = 2048u32;
+pub const PSH_STRETCHWATERMARK: u32 = 262144u32;
+pub const PSH_USECALLBACK: u32 = 256u32;
+pub const PSH_USEHBMHEADER: u32 = 1048576u32;
+pub const PSH_USEHBMWATERMARK: u32 = 65536u32;
+pub const PSH_USEHICON: u32 = 2u32;
+pub const PSH_USEHPLWATERMARK: u32 = 131072u32;
+pub const PSH_USEICONID: u32 = 4u32;
+pub const PSH_USEPAGELANG: u32 = 2097152u32;
+pub const PSH_USEPSTARTPAGE: u32 = 64u32;
+pub const PSH_WATERMARK: u32 = 32768u32;
+pub const PSH_WIZARD: u32 = 32u32;
+pub const PSH_WIZARD97: u32 = 8192u32;
+pub const PSH_WIZARDCONTEXTHELP: u32 = 4096u32;
+pub const PSH_WIZARDHASFINISH: u32 = 16u32;
+pub const PSH_WIZARD_LITE: u32 = 4194304u32;
+pub const PSM_ADDPAGE: u32 = 1127u32;
+pub const PSM_APPLY: u32 = 1134u32;
+pub const PSM_CANCELTOCLOSE: u32 = 1131u32;
+pub const PSM_CHANGED: u32 = 1128u32;
+pub const PSM_ENABLEWIZBUTTONS: u32 = 1163u32;
+pub const PSM_GETCURRENTPAGEHWND: u32 = 1142u32;
+pub const PSM_GETRESULT: u32 = 1159u32;
+pub const PSM_GETTABCONTROL: u32 = 1140u32;
+pub const PSM_HWNDTOINDEX: u32 = 1153u32;
+pub const PSM_IDTOINDEX: u32 = 1157u32;
+pub const PSM_INDEXTOHWND: u32 = 1154u32;
+pub const PSM_INDEXTOID: u32 = 1158u32;
+pub const PSM_INDEXTOPAGE: u32 = 1156u32;
+pub const PSM_INSERTPAGE: u32 = 1143u32;
+pub const PSM_ISDIALOGMESSAGE: u32 = 1141u32;
+pub const PSM_PAGETOINDEX: u32 = 1155u32;
+pub const PSM_PRESSBUTTON: u32 = 1137u32;
+pub const PSM_QUERYSIBLINGS: u32 = 1132u32;
+pub const PSM_REBOOTSYSTEM: u32 = 1130u32;
+pub const PSM_RECALCPAGESIZES: u32 = 1160u32;
+pub const PSM_REMOVEPAGE: u32 = 1126u32;
+pub const PSM_RESTARTWINDOWS: u32 = 1129u32;
+pub const PSM_SETBUTTONTEXT: u32 = 1164u32;
+pub const PSM_SETBUTTONTEXTW: u32 = 1164u32;
+pub const PSM_SETCURSEL: u32 = 1125u32;
+pub const PSM_SETCURSELID: u32 = 1138u32;
+pub const PSM_SETFINISHTEXT: u32 = 1145u32;
+pub const PSM_SETFINISHTEXTA: u32 = 1139u32;
+pub const PSM_SETFINISHTEXTW: u32 = 1145u32;
+pub const PSM_SETHEADERSUBTITLE: u32 = 1152u32;
+pub const PSM_SETHEADERSUBTITLEA: u32 = 1151u32;
+pub const PSM_SETHEADERSUBTITLEW: u32 = 1152u32;
+pub const PSM_SETHEADERTITLE: u32 = 1150u32;
+pub const PSM_SETHEADERTITLEA: u32 = 1149u32;
+pub const PSM_SETHEADERTITLEW: u32 = 1150u32;
+pub const PSM_SETNEXTTEXT: u32 = 1161u32;
+pub const PSM_SETNEXTTEXTW: u32 = 1161u32;
+pub const PSM_SETTITLE: u32 = 1144u32;
+pub const PSM_SETTITLEA: u32 = 1135u32;
+pub const PSM_SETTITLEW: u32 = 1144u32;
+pub const PSM_SETWIZBUTTONS: u32 = 1136u32;
+pub const PSM_SHOWWIZBUTTONS: u32 = 1162u32;
+pub const PSM_UNCHANGED: u32 = 1133u32;
+pub const PSNRET_INVALID: u32 = 1u32;
+pub const PSNRET_INVALID_NOCHANGEPAGE: u32 = 2u32;
+pub const PSNRET_MESSAGEHANDLED: u32 = 3u32;
+pub const PSNRET_NOERROR: u32 = 0u32;
+pub const PSN_APPLY: u32 = 4294967094u32;
+pub const PSN_FIRST: u32 = 4294967096u32;
+pub const PSN_GETOBJECT: u32 = 4294967086u32;
+pub const PSN_HELP: u32 = 4294967091u32;
+pub const PSN_KILLACTIVE: u32 = 4294967095u32;
+pub const PSN_LAST: u32 = 4294966997u32;
+pub const PSN_QUERYCANCEL: u32 = 4294967087u32;
+pub const PSN_QUERYINITIALFOCUS: u32 = 4294967083u32;
+pub const PSN_RESET: u32 = 4294967093u32;
+pub const PSN_SETACTIVE: u32 = 4294967096u32;
+pub const PSN_TRANSLATEACCELERATOR: u32 = 4294967084u32;
+pub const PSN_WIZBACK: u32 = 4294967090u32;
+pub const PSN_WIZFINISH: u32 = 4294967088u32;
+pub const PSN_WIZNEXT: u32 = 4294967089u32;
+pub const PSPCB_ADDREF: PSPCB_MESSAGE = 0u32;
+pub const PSPCB_CREATE: PSPCB_MESSAGE = 2u32;
+pub type PSPCB_MESSAGE = u32;
+pub const PSPCB_RELEASE: PSPCB_MESSAGE = 1u32;
+pub const PSPCB_SI_INITDIALOG: PSPCB_MESSAGE = 1025u32;
+pub const PSP_DEFAULT: u32 = 0u32;
+pub const PSP_DLGINDIRECT: u32 = 1u32;
+pub const PSP_HASHELP: u32 = 32u32;
+pub const PSP_HIDEHEADER: u32 = 2048u32;
+pub const PSP_PREMATURE: u32 = 1024u32;
+pub const PSP_RTLREADING: u32 = 16u32;
+pub const PSP_USECALLBACK: u32 = 128u32;
+pub const PSP_USEFUSIONCONTEXT: u32 = 16384u32;
+pub const PSP_USEHEADERSUBTITLE: u32 = 8192u32;
+pub const PSP_USEHEADERTITLE: u32 = 4096u32;
+pub const PSP_USEHICON: u32 = 2u32;
+pub const PSP_USEICONID: u32 = 4u32;
+pub const PSP_USEREFPARENT: u32 = 64u32;
+pub const PSP_USETITLE: u32 = 8u32;
+pub const PSWIZBF_ELEVATIONREQUIRED: u32 = 1u32;
+pub const PSWIZB_BACK: u32 = 1u32;
+pub const PSWIZB_CANCEL: u32 = 16u32;
+pub const PSWIZB_DISABLEDFINISH: u32 = 8u32;
+pub const PSWIZB_FINISH: u32 = 4u32;
+pub const PSWIZB_NEXT: u32 = 2u32;
+pub const PSWIZB_RESTORE: u32 = 1u32;
+pub const PSWIZB_SHOW: u32 = 0u32;
+pub type PUSHBUTTONDROPDOWNSTATES = i32;
+pub type PUSHBUTTONSTATES = i32;
+pub type RADIOBUTTONSTATES = i32;
+pub const RBAB_ADDBAND: u32 = 2u32;
+pub const RBAB_AUTOSIZE: u32 = 1u32;
+pub const RBBIM_BACKGROUND: u32 = 128u32;
+pub const RBBIM_CHEVRONLOCATION: u32 = 4096u32;
+pub const RBBIM_CHEVRONSTATE: u32 = 8192u32;
+pub const RBBIM_CHILD: u32 = 16u32;
+pub const RBBIM_CHILDSIZE: u32 = 32u32;
+pub const RBBIM_COLORS: u32 = 2u32;
+pub const RBBIM_HEADERSIZE: u32 = 2048u32;
+pub const RBBIM_ID: u32 = 256u32;
+pub const RBBIM_IDEALSIZE: u32 = 512u32;
+pub const RBBIM_IMAGE: u32 = 8u32;
+pub const RBBIM_LPARAM: u32 = 1024u32;
+pub const RBBIM_SIZE: u32 = 64u32;
+pub const RBBIM_STYLE: u32 = 1u32;
+pub const RBBIM_TEXT: u32 = 4u32;
+pub const RBBS_BREAK: u32 = 1u32;
+pub const RBBS_CHILDEDGE: u32 = 4u32;
+pub const RBBS_FIXEDBMP: u32 = 32u32;
+pub const RBBS_FIXEDSIZE: u32 = 2u32;
+pub const RBBS_GRIPPERALWAYS: u32 = 128u32;
+pub const RBBS_HIDDEN: u32 = 8u32;
+pub const RBBS_HIDETITLE: u32 = 1024u32;
+pub const RBBS_NOGRIPPER: u32 = 256u32;
+pub const RBBS_NOVERT: u32 = 16u32;
+pub const RBBS_TOPALIGN: u32 = 2048u32;
+pub const RBBS_USECHEVRON: u32 = 512u32;
+pub const RBBS_VARIABLEHEIGHT: u32 = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RBHITTESTINFO {
@@ -6727,6 +4749,101 @@ pub struct RBHITTESTINFO {
     pub flags: u32,
     pub iBand: i32,
 }
+pub const RBHT_CAPTION: u32 = 2u32;
+pub const RBHT_CHEVRON: u32 = 8u32;
+pub const RBHT_CLIENT: u32 = 3u32;
+pub const RBHT_GRABBER: u32 = 4u32;
+pub const RBHT_NOWHERE: u32 = 1u32;
+pub const RBHT_SPLITTER: u32 = 16u32;
+pub const RBIM_IMAGELIST: u32 = 1u32;
+pub const RBNM_ID: NMREBAR_MASK_FLAGS = 1u32;
+pub const RBNM_LPARAM: NMREBAR_MASK_FLAGS = 4u32;
+pub const RBNM_STYLE: NMREBAR_MASK_FLAGS = 2u32;
+pub const RBN_AUTOBREAK: u32 = 4294966443u32;
+pub const RBN_AUTOSIZE: u32 = 4294966462u32;
+pub const RBN_BEGINDRAG: u32 = 4294966461u32;
+pub const RBN_CHEVRONPUSHED: u32 = 4294966455u32;
+pub const RBN_CHILDSIZE: u32 = 4294966457u32;
+pub const RBN_DELETEDBAND: u32 = 4294966458u32;
+pub const RBN_DELETINGBAND: u32 = 4294966459u32;
+pub const RBN_ENDDRAG: u32 = 4294966460u32;
+pub const RBN_FIRST: u32 = 4294966465u32;
+pub const RBN_GETOBJECT: u32 = 4294966464u32;
+pub const RBN_HEIGHTCHANGE: u32 = 4294966465u32;
+pub const RBN_LAST: u32 = 4294966437u32;
+pub const RBN_LAYOUTCHANGED: u32 = 4294966463u32;
+pub const RBN_MINMAX: u32 = 4294966444u32;
+pub const RBN_SPLITTERDRAG: u32 = 4294966454u32;
+pub const RBSTR_CHANGERECT: u32 = 1u32;
+pub const RBS_AUTOSIZE: u32 = 8192u32;
+pub const RBS_BANDBORDERS: u32 = 1024u32;
+pub const RBS_CHECKEDDISABLED: RADIOBUTTONSTATES = 8i32;
+pub const RBS_CHECKEDHOT: RADIOBUTTONSTATES = 6i32;
+pub const RBS_CHECKEDNORMAL: RADIOBUTTONSTATES = 5i32;
+pub const RBS_CHECKEDPRESSED: RADIOBUTTONSTATES = 7i32;
+pub const RBS_DBLCLKTOGGLE: u32 = 32768u32;
+pub const RBS_DISABLED: RESTOREBUTTONSTATES = 4i32;
+pub const RBS_FIXEDORDER: u32 = 2048u32;
+pub const RBS_HOT: RESTOREBUTTONSTATES = 2i32;
+pub const RBS_NORMAL: RESTOREBUTTONSTATES = 1i32;
+pub const RBS_PUSHED: RESTOREBUTTONSTATES = 3i32;
+pub const RBS_REGISTERDROP: u32 = 4096u32;
+pub const RBS_TOOLTIPS: u32 = 256u32;
+pub const RBS_UNCHECKEDDISABLED: RADIOBUTTONSTATES = 4i32;
+pub const RBS_UNCHECKEDHOT: RADIOBUTTONSTATES = 2i32;
+pub const RBS_UNCHECKEDNORMAL: RADIOBUTTONSTATES = 1i32;
+pub const RBS_UNCHECKEDPRESSED: RADIOBUTTONSTATES = 3i32;
+pub const RBS_VARHEIGHT: u32 = 512u32;
+pub const RBS_VERTICALGRIPPER: u32 = 16384u32;
+pub const RB_BEGINDRAG: u32 = 1048u32;
+pub const RB_DELETEBAND: u32 = 1026u32;
+pub const RB_DRAGMOVE: u32 = 1050u32;
+pub const RB_ENDDRAG: u32 = 1049u32;
+pub const RB_GETBANDBORDERS: u32 = 1058u32;
+pub const RB_GETBANDCOUNT: u32 = 1036u32;
+pub const RB_GETBANDINFO: u32 = 1052u32;
+pub const RB_GETBANDINFOA: u32 = 1053u32;
+pub const RB_GETBANDINFOW: u32 = 1052u32;
+pub const RB_GETBANDMARGINS: u32 = 1064u32;
+pub const RB_GETBARHEIGHT: u32 = 1051u32;
+pub const RB_GETBARINFO: u32 = 1027u32;
+pub const RB_GETBKCOLOR: u32 = 1044u32;
+pub const RB_GETCOLORSCHEME: u32 = 8195u32;
+pub const RB_GETDROPTARGET: u32 = 8196u32;
+pub const RB_GETEXTENDEDSTYLE: u32 = 1066u32;
+pub const RB_GETPALETTE: u32 = 1062u32;
+pub const RB_GETRECT: u32 = 1033u32;
+pub const RB_GETROWCOUNT: u32 = 1037u32;
+pub const RB_GETROWHEIGHT: u32 = 1038u32;
+pub const RB_GETTEXTCOLOR: u32 = 1046u32;
+pub const RB_GETTOOLTIPS: u32 = 1041u32;
+pub const RB_GETUNICODEFORMAT: u32 = 8198u32;
+pub const RB_HITTEST: u32 = 1032u32;
+pub const RB_IDTOINDEX: u32 = 1040u32;
+pub const RB_INSERTBAND: u32 = 1034u32;
+pub const RB_INSERTBANDA: u32 = 1025u32;
+pub const RB_INSERTBANDW: u32 = 1034u32;
+pub const RB_MAXIMIZEBAND: u32 = 1055u32;
+pub const RB_MINIMIZEBAND: u32 = 1054u32;
+pub const RB_MOVEBAND: u32 = 1063u32;
+pub const RB_PUSHCHEVRON: u32 = 1067u32;
+pub const RB_SETBANDINFO: u32 = 1035u32;
+pub const RB_SETBANDINFOA: u32 = 1030u32;
+pub const RB_SETBANDINFOW: u32 = 1035u32;
+pub const RB_SETBANDWIDTH: u32 = 1068u32;
+pub const RB_SETBARINFO: u32 = 1028u32;
+pub const RB_SETBKCOLOR: u32 = 1043u32;
+pub const RB_SETCOLORSCHEME: u32 = 8194u32;
+pub const RB_SETEXTENDEDSTYLE: u32 = 1065u32;
+pub const RB_SETPALETTE: u32 = 1061u32;
+pub const RB_SETPARENT: u32 = 1031u32;
+pub const RB_SETTEXTCOLOR: u32 = 1045u32;
+pub const RB_SETTOOLTIPS: u32 = 1042u32;
+pub const RB_SETUNICODEFORMAT: u32 = 8197u32;
+pub const RB_SETWINDOWTHEME: u32 = 8203u32;
+pub const RB_SHOWBAND: u32 = 1059u32;
+pub const RB_SIZETORECT: u32 = 1047u32;
+pub type READONLYSTATES = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -6781,6 +4898,9 @@ pub struct REBARBANDINFOW {
     pub rcChevronLocation: super::super::Foundation::RECT,
     pub uChevronState: u32,
 }
+pub const REBARCLASSNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ReBarWindow32");
+pub const REBARCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("ReBarWindow32");
+pub const REBARCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("ReBarWindow32");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REBARINFO {
@@ -6788,6 +4908,246 @@ pub struct REBARINFO {
     pub fMask: u32,
     pub himl: HIMAGELIST,
 }
+pub type REBARPARTS = i32;
+pub const REPLACEDLGORD: u32 = 1541u32;
+pub type RESTOREBUTTONSTATES = i32;
+pub const RP_BACKGROUND: REBARPARTS = 6i32;
+pub const RP_BAND: REBARPARTS = 3i32;
+pub const RP_CHEVRON: REBARPARTS = 4i32;
+pub const RP_CHEVRONVERT: REBARPARTS = 5i32;
+pub const RP_GRIPPER: REBARPARTS = 1i32;
+pub const RP_GRIPPERVERT: REBARPARTS = 2i32;
+pub const RP_SPLITTER: REBARPARTS = 7i32;
+pub const RP_SPLITTERVERT: REBARPARTS = 8i32;
+pub const RUNDLGORD: u32 = 1545u32;
+pub const SBARS_SIZEGRIP: u32 = 256u32;
+pub const SBARS_TOOLTIPS: u32 = 2048u32;
+pub const SBN_FIRST: u32 = 4294966416u32;
+pub const SBN_LAST: u32 = 4294966397u32;
+pub const SBN_SIMPLEMODECHANGE: u32 = 4294966416u32;
+pub const SBP_ARROWBTN: SCROLLBARPARTS = 1i32;
+pub const SBP_GRIPPERHORZ: SCROLLBARPARTS = 8i32;
+pub const SBP_GRIPPERVERT: SCROLLBARPARTS = 9i32;
+pub const SBP_LOWERTRACKHORZ: SCROLLBARPARTS = 4i32;
+pub const SBP_LOWERTRACKVERT: SCROLLBARPARTS = 6i32;
+pub const SBP_SIZEBOX: SCROLLBARPARTS = 10i32;
+pub const SBP_SIZEBOXBKGND: SCROLLBARPARTS = 11i32;
+pub const SBP_THUMBBTNHORZ: SCROLLBARPARTS = 2i32;
+pub const SBP_THUMBBTNVERT: SCROLLBARPARTS = 3i32;
+pub const SBP_UPPERTRACKHORZ: SCROLLBARPARTS = 5i32;
+pub const SBP_UPPERTRACKVERT: SCROLLBARPARTS = 7i32;
+pub const SBS_DISABLED: SYSBUTTONSTATES = 4i32;
+pub const SBS_HOT: SYSBUTTONSTATES = 2i32;
+pub const SBS_NORMAL: SYSBUTTONSTATES = 1i32;
+pub const SBS_PUSHED: SYSBUTTONSTATES = 3i32;
+pub const SBT_NOBORDERS: u32 = 256u32;
+pub const SBT_NOTABPARSING: u32 = 2048u32;
+pub const SBT_OWNERDRAW: u32 = 4096u32;
+pub const SBT_POPOUT: u32 = 512u32;
+pub const SBT_RTLREADING: u32 = 1024u32;
+pub const SBT_TOOLTIPS: u32 = 2048u32;
+pub const SB_GETBORDERS: u32 = 1031u32;
+pub const SB_GETICON: u32 = 1044u32;
+pub const SB_GETPARTS: u32 = 1030u32;
+pub const SB_GETRECT: u32 = 1034u32;
+pub const SB_GETTEXT: u32 = 1037u32;
+pub const SB_GETTEXTA: u32 = 1026u32;
+pub const SB_GETTEXTLENGTH: u32 = 1036u32;
+pub const SB_GETTEXTLENGTHA: u32 = 1027u32;
+pub const SB_GETTEXTLENGTHW: u32 = 1036u32;
+pub const SB_GETTEXTW: u32 = 1037u32;
+pub const SB_GETTIPTEXTA: u32 = 1042u32;
+pub const SB_GETTIPTEXTW: u32 = 1043u32;
+pub const SB_GETUNICODEFORMAT: u32 = 8198u32;
+pub const SB_ISSIMPLE: u32 = 1038u32;
+pub const SB_SETBKCOLOR: u32 = 8193u32;
+pub const SB_SETICON: u32 = 1039u32;
+pub const SB_SETMINHEIGHT: u32 = 1032u32;
+pub const SB_SETPARTS: u32 = 1028u32;
+pub const SB_SETTEXT: u32 = 1035u32;
+pub const SB_SETTEXTA: u32 = 1025u32;
+pub const SB_SETTEXTW: u32 = 1035u32;
+pub const SB_SETTIPTEXTA: u32 = 1040u32;
+pub const SB_SETTIPTEXTW: u32 = 1041u32;
+pub const SB_SETUNICODEFORMAT: u32 = 8197u32;
+pub const SB_SIMPLE: u32 = 1033u32;
+pub const SB_SIMPLEID: u32 = 255u32;
+pub const SCBS_DISABLED: SMALLCLOSEBUTTONSTATES = 4i32;
+pub const SCBS_HOT: SMALLCLOSEBUTTONSTATES = 2i32;
+pub const SCBS_NORMAL: SMALLCLOSEBUTTONSTATES = 1i32;
+pub const SCBS_PUSHED: SMALLCLOSEBUTTONSTATES = 3i32;
+pub const SCRBS_DISABLED: SCROLLBARSTYLESTATES = 4i32;
+pub const SCRBS_HOT: SCROLLBARSTYLESTATES = 2i32;
+pub const SCRBS_HOVER: SCROLLBARSTYLESTATES = 5i32;
+pub const SCRBS_NORMAL: SCROLLBARSTYLESTATES = 1i32;
+pub const SCRBS_PRESSED: SCROLLBARSTYLESTATES = 3i32;
+pub type SCROLLBARPARTS = i32;
+pub type SCROLLBARSTYLESTATES = i32;
+pub const SCS_ACTIVE: SMALLCAPTIONSTATES = 1i32;
+pub const SCS_DISABLED: SMALLCAPTIONSTATES = 3i32;
+pub const SCS_INACTIVE: SMALLCAPTIONSTATES = 2i32;
+pub type SECTIONTITLELINKSTATES = i32;
+pub type SET_THEME_APP_PROPERTIES_FLAGS = u32;
+pub const SFRB_ACTIVE: SMALLFRAMEBOTTOMSTATES = 1i32;
+pub const SFRB_INACTIVE: SMALLFRAMEBOTTOMSTATES = 2i32;
+pub const SFRL_ACTIVE: SMALLFRAMELEFTSTATES = 1i32;
+pub const SFRL_INACTIVE: SMALLFRAMELEFTSTATES = 2i32;
+pub const SFRR_ACTIVE: SMALLFRAMERIGHTSTATES = 1i32;
+pub const SFRR_INACTIVE: SMALLFRAMERIGHTSTATES = 2i32;
+pub type SHOWCALENDARBUTTONRIGHTSTATES = i32;
+pub type SIZEBOXSTATES = i32;
+pub type SIZINGTYPE = i32;
+pub type SMALLCAPTIONSTATES = i32;
+pub type SMALLCLOSEBUTTONSTATES = i32;
+pub type SMALLFRAMEBOTTOMSTATES = i32;
+pub type SMALLFRAMELEFTSTATES = i32;
+pub type SMALLFRAMERIGHTSTATES = i32;
+pub type SOFTWAREEXPLORERSTATES = i32;
+pub type SPECIALGROUPCOLLAPSESTATES = i32;
+pub type SPECIALGROUPEXPANDSTATES = i32;
+pub type SPINPARTS = i32;
+pub const SPLITSV_HOT: SPLITTERVERTSTATES = 2i32;
+pub const SPLITSV_NORMAL: SPLITTERVERTSTATES = 1i32;
+pub const SPLITSV_PRESSED: SPLITTERVERTSTATES = 3i32;
+pub const SPLITS_HOT: SPLITTERSTATES = 2i32;
+pub const SPLITS_NORMAL: SPLITTERSTATES = 1i32;
+pub const SPLITS_PRESSED: SPLITTERSTATES = 3i32;
+pub type SPLITTERSTATES = i32;
+pub type SPLITTERVERTSTATES = i32;
+pub const SPLS_HOT: LOGOFFBUTTONSSTATES = 2i32;
+pub const SPLS_NORMAL: LOGOFFBUTTONSSTATES = 1i32;
+pub const SPLS_PRESSED: LOGOFFBUTTONSSTATES = 3i32;
+pub const SPMPT_DISABLED: MOREPROGRAMSTABSTATES = 4i32;
+pub const SPMPT_FOCUSED: MOREPROGRAMSTABSTATES = 5i32;
+pub const SPMPT_HOT: MOREPROGRAMSTABSTATES = 2i32;
+pub const SPMPT_NORMAL: MOREPROGRAMSTABSTATES = 1i32;
+pub const SPMPT_SELECTED: MOREPROGRAMSTABSTATES = 3i32;
+pub const SPNP_DOWN: SPINPARTS = 2i32;
+pub const SPNP_DOWNHORZ: SPINPARTS = 4i32;
+pub const SPNP_UP: SPINPARTS = 1i32;
+pub const SPNP_UPHORZ: SPINPARTS = 3i32;
+pub const SPOB_DISABLED: OPENBOXSTATES = 4i32;
+pub const SPOB_FOCUSED: OPENBOXSTATES = 5i32;
+pub const SPOB_HOT: OPENBOXSTATES = 2i32;
+pub const SPOB_NORMAL: OPENBOXSTATES = 1i32;
+pub const SPOB_SELECTED: OPENBOXSTATES = 3i32;
+pub const SPP_LOGOFF: STARTPANELPARTS = 8i32;
+pub const SPP_LOGOFFBUTTONS: STARTPANELPARTS = 9i32;
+pub const SPP_LOGOFFSPLITBUTTONDROPDOWN: STARTPANELPARTS = 19i32;
+pub const SPP_MOREPROGRAMS: STARTPANELPARTS = 2i32;
+pub const SPP_MOREPROGRAMSARROW: STARTPANELPARTS = 3i32;
+pub const SPP_MOREPROGRAMSARROWBACK: STARTPANELPARTS = 17i32;
+pub const SPP_MOREPROGRAMSTAB: STARTPANELPARTS = 12i32;
+pub const SPP_NSCHOST: STARTPANELPARTS = 13i32;
+pub const SPP_OPENBOX: STARTPANELPARTS = 15i32;
+pub const SPP_PLACESLIST: STARTPANELPARTS = 6i32;
+pub const SPP_PLACESLISTSEPARATOR: STARTPANELPARTS = 7i32;
+pub const SPP_PREVIEW: STARTPANELPARTS = 11i32;
+pub const SPP_PROGLIST: STARTPANELPARTS = 4i32;
+pub const SPP_PROGLISTSEPARATOR: STARTPANELPARTS = 5i32;
+pub const SPP_SEARCHVIEW: STARTPANELPARTS = 16i32;
+pub const SPP_SOFTWAREEXPLORER: STARTPANELPARTS = 14i32;
+pub const SPP_TOPMATCH: STARTPANELPARTS = 18i32;
+pub const SPP_USERPANE: STARTPANELPARTS = 1i32;
+pub const SPP_USERPICTURE: STARTPANELPARTS = 10i32;
+pub const SPSB_HOT: MOREPROGRAMSARROWBACKSTATES = 2i32;
+pub const SPSB_NORMAL: MOREPROGRAMSARROWBACKSTATES = 1i32;
+pub const SPSB_PRESSED: MOREPROGRAMSARROWBACKSTATES = 3i32;
+pub const SPSE_DISABLED: SOFTWAREEXPLORERSTATES = 4i32;
+pub const SPSE_FOCUSED: SOFTWAREEXPLORERSTATES = 5i32;
+pub const SPSE_HOT: SOFTWAREEXPLORERSTATES = 2i32;
+pub const SPSE_NORMAL: SOFTWAREEXPLORERSTATES = 1i32;
+pub const SPSE_SELECTED: SOFTWAREEXPLORERSTATES = 3i32;
+pub const SPS_HOT: MOREPROGRAMSARROWSTATES = 2i32;
+pub const SPS_NORMAL: MOREPROGRAMSARROWSTATES = 1i32;
+pub const SPS_PRESSED: MOREPROGRAMSARROWSTATES = 3i32;
+pub const SP_GRIPPER: STATUSPARTS = 3i32;
+pub const SP_GRIPPERPANE: STATUSPARTS = 2i32;
+pub const SP_PANE: STATUSPARTS = 1i32;
+pub type STANDARDSTATES = i32;
+pub type STARTPANELPARTS = i32;
+pub const STATE_SYSTEM_FOCUSABLE: COMBOBOXINFO_BUTTON_STATE = 1048576u32;
+pub const STATE_SYSTEM_INVISIBLE: COMBOBOXINFO_BUTTON_STATE = 32768u32;
+pub const STATE_SYSTEM_OFFSCREEN: COMBOBOXINFO_BUTTON_STATE = 65536u32;
+pub const STATE_SYSTEM_PRESSED: COMBOBOXINFO_BUTTON_STATE = 8u32;
+pub const STATE_SYSTEM_UNAVAILABLE: COMBOBOXINFO_BUTTON_STATE = 1u32;
+pub type STATICPARTS = i32;
+pub const STATUSCLASSNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_statusbar32");
+pub const STATUSCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_statusbar32");
+pub const STATUSCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_statusbar32");
+pub type STATUSPARTS = i32;
+pub const STAT_TEXT: STATICPARTS = 1i32;
+pub const STD_COPY: u32 = 1u32;
+pub const STD_CUT: u32 = 0u32;
+pub const STD_DELETE: u32 = 5u32;
+pub const STD_FILENEW: u32 = 6u32;
+pub const STD_FILEOPEN: u32 = 7u32;
+pub const STD_FILESAVE: u32 = 8u32;
+pub const STD_FIND: u32 = 12u32;
+pub const STD_HELP: u32 = 11u32;
+pub const STD_PASTE: u32 = 2u32;
+pub const STD_PRINT: u32 = 14u32;
+pub const STD_PRINTPRE: u32 = 9u32;
+pub const STD_PROPERTIES: u32 = 10u32;
+pub const STD_REDOW: u32 = 4u32;
+pub const STD_REPLACE: u32 = 13u32;
+pub const STD_UNDO: u32 = 3u32;
+pub const ST_STRETCH: SIZINGTYPE = 1i32;
+pub const ST_TILE: SIZINGTYPE = 2i32;
+pub const ST_TRUESIZE: SIZINGTYPE = 0i32;
+pub type SYSBUTTONSTATES = i32;
+pub type SYSTEMCLOSEHCHOTSTATES = i32;
+pub type SYSTEMCLOSESTATES = i32;
+pub type SYSTEMMAXIMIZEHCHOTSTATES = i32;
+pub type SYSTEMMAXIMIZESTATES = i32;
+pub type SYSTEMMINIMIZEHCHOTSTATES = i32;
+pub type SYSTEMMINIMIZESTATES = i32;
+pub type SYSTEMRESTOREHCHOTSTATES = i32;
+pub type SYSTEMRESTORESTATES = i32;
+pub const SZB_HALFBOTTOMLEFTALIGN: SIZEBOXSTATES = 6i32;
+pub const SZB_HALFBOTTOMRIGHTALIGN: SIZEBOXSTATES = 5i32;
+pub const SZB_HALFTOPLEFTALIGN: SIZEBOXSTATES = 8i32;
+pub const SZB_HALFTOPRIGHTALIGN: SIZEBOXSTATES = 7i32;
+pub const SZB_LEFTALIGN: SIZEBOXSTATES = 2i32;
+pub const SZB_RIGHTALIGN: SIZEBOXSTATES = 1i32;
+pub const SZB_TOPLEFTALIGN: SIZEBOXSTATES = 4i32;
+pub const SZB_TOPRIGHTALIGN: SIZEBOXSTATES = 3i32;
+pub const SZ_THDOCPROP_AUTHOR: windows_sys::core::PCWSTR = windows_sys::core::w!("author");
+pub const SZ_THDOCPROP_CANONICALNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ThemeName");
+pub const SZ_THDOCPROP_DISPLAYNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DisplayName");
+pub const SZ_THDOCPROP_TOOLTIP: windows_sys::core::PCWSTR = windows_sys::core::w!("ToolTip");
+pub type TABITEMBOTHEDGESTATES = i32;
+pub type TABITEMLEFTEDGESTATES = i32;
+pub type TABITEMRIGHTEDGESTATES = i32;
+pub type TABITEMSTATES = i32;
+pub type TABPARTS = i32;
+pub const TABP_AEROWIZARDBODY: TABPARTS = 11i32;
+pub const TABP_BODY: TABPARTS = 10i32;
+pub const TABP_PANE: TABPARTS = 9i32;
+pub const TABP_TABITEM: TABPARTS = 1i32;
+pub const TABP_TABITEMBOTHEDGE: TABPARTS = 4i32;
+pub const TABP_TABITEMLEFTEDGE: TABPARTS = 2i32;
+pub const TABP_TABITEMRIGHTEDGE: TABPARTS = 3i32;
+pub const TABP_TOPTABITEM: TABPARTS = 5i32;
+pub const TABP_TOPTABITEMBOTHEDGE: TABPARTS = 8i32;
+pub const TABP_TOPTABITEMLEFTEDGE: TABPARTS = 6i32;
+pub const TABP_TOPTABITEMRIGHTEDGE: TABPARTS = 7i32;
+pub type TABSTATES = i32;
+pub type TAB_CONTROL_ITEM_STATE = u32;
+pub const TAPF_ALLOWCOLLECTION: TA_PROPERTY_FLAG = 4i32;
+pub const TAPF_HASBACKGROUND: TA_PROPERTY_FLAG = 8i32;
+pub const TAPF_HASPERSPECTIVE: TA_PROPERTY_FLAG = 16i32;
+pub const TAPF_HASSTAGGER: TA_PROPERTY_FLAG = 1i32;
+pub const TAPF_ISRTLAWARE: TA_PROPERTY_FLAG = 2i32;
+pub const TAPF_NONE: TA_PROPERTY_FLAG = 0i32;
+pub const TAP_FLAGS: TA_PROPERTY = 0i32;
+pub const TAP_STAGGERDELAY: TA_PROPERTY = 2i32;
+pub const TAP_STAGGERDELAYCAP: TA_PROPERTY = 3i32;
+pub const TAP_STAGGERDELAYFACTOR: TA_PROPERTY = 4i32;
+pub const TAP_TRANSFORMCOUNT: TA_PROPERTY = 1i32;
+pub const TAP_ZORDER: TA_PROPERTY = 5i32;
+pub type TASKBANDPARTS = i32;
+pub type TASKBARPARTS = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -6831,12 +5191,28 @@ pub union TASKDIALOGCONFIG_1 {
     pub hFooterIcon: super::WindowsAndMessaging::HICON,
     pub pszFooterIcon: windows_sys::core::PCWSTR,
 }
+pub type TASKDIALOGPARTS = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct TASKDIALOG_BUTTON {
     pub nButtonID: i32,
     pub pszButtonText: windows_sys::core::PCWSTR,
 }
+pub type TASKDIALOG_COMMON_BUTTON_FLAGS = i32;
+pub type TASKDIALOG_ELEMENTS = i32;
+pub type TASKDIALOG_FLAGS = i32;
+pub type TASKDIALOG_ICON_ELEMENTS = i32;
+pub type TASKDIALOG_MESSAGES = i32;
+pub type TASKDIALOG_NOTIFICATIONS = i32;
+pub type TASKLINKSTATES = i32;
+pub const TATF_HASINITIALVALUES: TA_TRANSFORM_FLAG = 2i32;
+pub const TATF_HASORIGINVALUES: TA_TRANSFORM_FLAG = 4i32;
+pub const TATF_NONE: TA_TRANSFORM_FLAG = 0i32;
+pub const TATF_TARGETVALUES_USER: TA_TRANSFORM_FLAG = 1i32;
+pub const TATT_CLIP: TA_TRANSFORM_TYPE = 3i32;
+pub const TATT_OPACITY: TA_TRANSFORM_TYPE = 2i32;
+pub const TATT_SCALE_2D: TA_TRANSFORM_TYPE = 1i32;
+pub const TATT_TRANSLATE_2D: TA_TRANSFORM_TYPE = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TA_CUBIC_BEZIER {
@@ -6846,11 +5222,14 @@ pub struct TA_CUBIC_BEZIER {
     pub rX1: f32,
     pub rY1: f32,
 }
+pub type TA_PROPERTY = i32;
+pub type TA_PROPERTY_FLAG = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TA_TIMINGFUNCTION {
     pub eTimingFunctionType: TA_TIMINGFUNCTION_TYPE,
 }
+pub type TA_TIMINGFUNCTION_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TA_TRANSFORM {
@@ -6884,6 +5263,7 @@ pub struct TA_TRANSFORM_CLIP {
     pub rInitialRight: f32,
     pub rInitialBottom: f32,
 }
+pub type TA_TRANSFORM_FLAG = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TA_TRANSFORM_OPACITY {
@@ -6891,11 +5271,25 @@ pub struct TA_TRANSFORM_OPACITY {
     pub rOpacity: f32,
     pub rInitialOpacity: f32,
 }
+pub type TA_TRANSFORM_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TBADDBITMAP {
     pub hInst: super::super::Foundation::HINSTANCE,
     pub nID: usize,
+}
+pub const TBBF_LARGE: u32 = 1u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct TBBUTTON {
+    pub iBitmap: i32,
+    pub idCommand: i32,
+    pub fsState: u8,
+    pub fsStyle: u8,
+    pub bReserved: [u8; 2],
+    pub dwData: usize,
+    pub iString: isize,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -6906,18 +5300,6 @@ pub struct TBBUTTON {
     pub fsState: u8,
     pub fsStyle: u8,
     pub bReserved: [u8; 6],
-    pub dwData: usize,
-    pub iString: isize,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct TBBUTTON {
-    pub iBitmap: i32,
-    pub idCommand: i32,
-    pub fsState: u8,
-    pub fsStyle: u8,
-    pub bReserved: [u8; 2],
     pub dwData: usize,
     pub iString: isize,
 }
@@ -6949,12 +5331,39 @@ pub struct TBBUTTONINFOW {
     pub pszText: windows_sys::core::PWSTR,
     pub cchText: i32,
 }
+pub type TBBUTTONINFOW_MASK = u32;
+pub const TBCDRF_BLENDICON: u32 = 2097152u32;
+pub const TBCDRF_HILITEHOTTRACK: u32 = 131072u32;
+pub const TBCDRF_NOBACKGROUND: u32 = 4194304u32;
+pub const TBCDRF_NOEDGES: u32 = 65536u32;
+pub const TBCDRF_NOETCHEDEFFECT: u32 = 1048576u32;
+pub const TBCDRF_NOMARK: u32 = 524288u32;
+pub const TBCDRF_NOOFFSET: u32 = 262144u32;
+pub const TBCDRF_USECDCOLORS: u32 = 8388608u32;
+pub const TBCD_CHANNEL: u32 = 3u32;
+pub const TBCD_THUMB: u32 = 2u32;
+pub const TBCD_TICS: u32 = 1u32;
+pub const TBDDRET_DEFAULT: u32 = 0u32;
+pub const TBDDRET_NODEFAULT: u32 = 1u32;
+pub const TBDDRET_TREATPRESSED: u32 = 2u32;
+pub const TBIF_BYINDEX: TBBUTTONINFOW_MASK = 2147483648u32;
+pub const TBIF_COMMAND: TBBUTTONINFOW_MASK = 32u32;
+pub const TBIF_IMAGE: TBBUTTONINFOW_MASK = 1u32;
+pub const TBIF_LPARAM: TBBUTTONINFOW_MASK = 16u32;
+pub const TBIF_SIZE: TBBUTTONINFOW_MASK = 64u32;
+pub const TBIF_STATE: TBBUTTONINFOW_MASK = 4u32;
+pub const TBIF_STYLE: TBBUTTONINFOW_MASK = 8u32;
+pub const TBIF_TEXT: TBBUTTONINFOW_MASK = 2u32;
+pub const TBIMHT_AFTER: TBINSERTMARK_FLAGS = 1u32;
+pub const TBIMHT_BACKGROUND: TBINSERTMARK_FLAGS = 2u32;
+pub const TBIMHT_NONE: TBINSERTMARK_FLAGS = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TBINSERTMARK {
     pub iButton: i32,
     pub dwFlags: TBINSERTMARK_FLAGS,
 }
+pub type TBINSERTMARK_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TBMETRICS {
@@ -6967,6 +5376,90 @@ pub struct TBMETRICS {
     pub cxButtonSpacing: i32,
     pub cyButtonSpacing: i32,
 }
+pub const TBMF_BARPAD: u32 = 2u32;
+pub const TBMF_BUTTONSPACING: u32 = 4u32;
+pub const TBMF_PAD: u32 = 1u32;
+pub const TBM_CLEARSEL: u32 = 1043u32;
+pub const TBM_CLEARTICS: u32 = 1033u32;
+pub const TBM_GETBUDDY: u32 = 1057u32;
+pub const TBM_GETCHANNELRECT: u32 = 1050u32;
+pub const TBM_GETLINESIZE: u32 = 1048u32;
+pub const TBM_GETNUMTICS: u32 = 1040u32;
+pub const TBM_GETPAGESIZE: u32 = 1046u32;
+pub const TBM_GETPTICS: u32 = 1038u32;
+pub const TBM_GETRANGEMAX: u32 = 1026u32;
+pub const TBM_GETRANGEMIN: u32 = 1025u32;
+pub const TBM_GETSELEND: u32 = 1042u32;
+pub const TBM_GETSELSTART: u32 = 1041u32;
+pub const TBM_GETTHUMBLENGTH: u32 = 1052u32;
+pub const TBM_GETTHUMBRECT: u32 = 1049u32;
+pub const TBM_GETTIC: u32 = 1027u32;
+pub const TBM_GETTICPOS: u32 = 1039u32;
+pub const TBM_GETTOOLTIPS: u32 = 1054u32;
+pub const TBM_GETUNICODEFORMAT: u32 = 8198u32;
+pub const TBM_SETBUDDY: u32 = 1056u32;
+pub const TBM_SETLINESIZE: u32 = 1047u32;
+pub const TBM_SETPAGESIZE: u32 = 1045u32;
+pub const TBM_SETPOS: u32 = 1029u32;
+pub const TBM_SETPOSNOTIFY: u32 = 1058u32;
+pub const TBM_SETRANGE: u32 = 1030u32;
+pub const TBM_SETRANGEMAX: u32 = 1032u32;
+pub const TBM_SETRANGEMIN: u32 = 1031u32;
+pub const TBM_SETSEL: u32 = 1034u32;
+pub const TBM_SETSELEND: u32 = 1036u32;
+pub const TBM_SETSELSTART: u32 = 1035u32;
+pub const TBM_SETTHUMBLENGTH: u32 = 1051u32;
+pub const TBM_SETTIC: u32 = 1028u32;
+pub const TBM_SETTICFREQ: u32 = 1044u32;
+pub const TBM_SETTIPSIDE: u32 = 1055u32;
+pub const TBM_SETTOOLTIPS: u32 = 1053u32;
+pub const TBM_SETUNICODEFORMAT: u32 = 8197u32;
+pub const TBNF_DI_SETITEM: NMTBDISPINFOW_MASK = 268435456u32;
+pub const TBNF_IMAGE: NMTBDISPINFOW_MASK = 1u32;
+pub const TBNF_TEXT: NMTBDISPINFOW_MASK = 2u32;
+pub const TBNRF_ENDCUSTOMIZE: u32 = 2u32;
+pub const TBNRF_HIDEHELP: u32 = 1u32;
+pub const TBN_BEGINADJUST: u32 = 4294966593u32;
+pub const TBN_BEGINDRAG: u32 = 4294966595u32;
+pub const TBN_CUSTHELP: u32 = 4294966587u32;
+pub const TBN_DELETINGBUTTON: u32 = 4294966581u32;
+pub const TBN_DRAGOUT: u32 = 4294966582u32;
+pub const TBN_DRAGOVER: u32 = 4294966569u32;
+pub const TBN_DROPDOWN: u32 = 4294966586u32;
+pub const TBN_DUPACCELERATOR: u32 = 4294966571u32;
+pub const TBN_ENDADJUST: u32 = 4294966592u32;
+pub const TBN_ENDDRAG: u32 = 4294966594u32;
+pub const TBN_FIRST: u32 = 4294966596u32;
+pub const TBN_GETBUTTONINFO: u32 = 4294966576u32;
+pub const TBN_GETBUTTONINFOA: u32 = 4294966596u32;
+pub const TBN_GETBUTTONINFOW: u32 = 4294966576u32;
+pub const TBN_GETDISPINFO: u32 = 4294966579u32;
+pub const TBN_GETDISPINFOA: u32 = 4294966580u32;
+pub const TBN_GETDISPINFOW: u32 = 4294966579u32;
+pub const TBN_GETINFOTIP: u32 = 4294966577u32;
+pub const TBN_GETINFOTIPA: u32 = 4294966578u32;
+pub const TBN_GETINFOTIPW: u32 = 4294966577u32;
+pub const TBN_GETOBJECT: u32 = 4294966584u32;
+pub const TBN_HOTITEMCHANGE: u32 = 4294966583u32;
+pub const TBN_INITCUSTOMIZE: u32 = 4294966573u32;
+pub const TBN_LAST: u32 = 4294966576u32;
+pub const TBN_MAPACCELERATOR: u32 = 4294966568u32;
+pub const TBN_QUERYDELETE: u32 = 4294966589u32;
+pub const TBN_QUERYINSERT: u32 = 4294966590u32;
+pub const TBN_RESET: u32 = 4294966591u32;
+pub const TBN_RESTORE: u32 = 4294966575u32;
+pub const TBN_SAVE: u32 = 4294966574u32;
+pub const TBN_TOOLBARCHANGE: u32 = 4294966588u32;
+pub const TBN_WRAPACCELERATOR: u32 = 4294966570u32;
+pub const TBN_WRAPHOTITEM: u32 = 4294966572u32;
+pub const TBP_BACKGROUNDBOTTOM: TASKBARPARTS = 1i32;
+pub const TBP_BACKGROUNDLEFT: TASKBARPARTS = 4i32;
+pub const TBP_BACKGROUNDRIGHT: TASKBARPARTS = 2i32;
+pub const TBP_BACKGROUNDTOP: TASKBARPARTS = 3i32;
+pub const TBP_SIZINGBARBOTTOM: TASKBARPARTS = 5i32;
+pub const TBP_SIZINGBARLEFT: TASKBARPARTS = 8i32;
+pub const TBP_SIZINGBARRIGHT: TASKBARPARTS = 6i32;
+pub const TBP_SIZINGBARTOP: TASKBARPARTS = 7i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TBREPLACEBITMAP {
@@ -6992,12 +5485,194 @@ pub struct TBSAVEPARAMSW {
     pub pszSubKey: windows_sys::core::PCWSTR,
     pub pszValueName: windows_sys::core::PCWSTR,
 }
+pub const TBSTATE_CHECKED: u32 = 1u32;
+pub const TBSTATE_ELLIPSES: u32 = 64u32;
+pub const TBSTATE_ENABLED: u32 = 4u32;
+pub const TBSTATE_HIDDEN: u32 = 8u32;
+pub const TBSTATE_INDETERMINATE: u32 = 16u32;
+pub const TBSTATE_MARKED: u32 = 128u32;
+pub const TBSTATE_PRESSED: u32 = 2u32;
+pub const TBSTATE_WRAP: u32 = 32u32;
+pub const TBSTYLE_ALTDRAG: u32 = 1024u32;
+pub const TBSTYLE_AUTOSIZE: u32 = 16u32;
+pub const TBSTYLE_BUTTON: u32 = 0u32;
+pub const TBSTYLE_CHECK: u32 = 2u32;
+pub const TBSTYLE_CUSTOMERASE: u32 = 8192u32;
+pub const TBSTYLE_DROPDOWN: u32 = 8u32;
+pub const TBSTYLE_EX_DOUBLEBUFFER: u32 = 128u32;
+pub const TBSTYLE_EX_DRAWDDARROWS: u32 = 1u32;
+pub const TBSTYLE_EX_HIDECLIPPEDBUTTONS: u32 = 16u32;
+pub const TBSTYLE_EX_MIXEDBUTTONS: u32 = 8u32;
+pub const TBSTYLE_EX_MULTICOLUMN: u32 = 2u32;
+pub const TBSTYLE_EX_VERTICAL: u32 = 4u32;
+pub const TBSTYLE_FLAT: u32 = 2048u32;
+pub const TBSTYLE_GROUP: u32 = 4u32;
+pub const TBSTYLE_LIST: u32 = 4096u32;
+pub const TBSTYLE_NOPREFIX: u32 = 32u32;
+pub const TBSTYLE_REGISTERDROP: u32 = 16384u32;
+pub const TBSTYLE_SEP: u32 = 1u32;
+pub const TBSTYLE_TOOLTIPS: u32 = 256u32;
+pub const TBSTYLE_TRANSPARENT: u32 = 32768u32;
+pub const TBSTYLE_WRAPABLE: u32 = 512u32;
+pub const TBS_AUTOTICKS: u32 = 1u32;
+pub const TBS_BOTH: u32 = 8u32;
+pub const TBS_BOTTOM: u32 = 0u32;
+pub const TBS_DOWNISLEFT: u32 = 1024u32;
+pub const TBS_ENABLESELRANGE: u32 = 32u32;
+pub const TBS_FIXEDLENGTH: u32 = 64u32;
+pub const TBS_HORZ: u32 = 0u32;
+pub const TBS_LEFT: u32 = 4u32;
+pub const TBS_NOTHUMB: u32 = 128u32;
+pub const TBS_NOTICKS: u32 = 16u32;
+pub const TBS_NOTIFYBEFOREMOVE: u32 = 2048u32;
+pub const TBS_REVERSED: u32 = 512u32;
+pub const TBS_RIGHT: u32 = 0u32;
+pub const TBS_TOOLTIPS: u32 = 256u32;
+pub const TBS_TOP: u32 = 4u32;
+pub const TBS_TRANSPARENTBKGND: u32 = 4096u32;
+pub const TBS_VERT: u32 = 2u32;
+pub const TBTS_BOTTOM: u32 = 2u32;
+pub const TBTS_LEFT: u32 = 1u32;
+pub const TBTS_RIGHT: u32 = 3u32;
+pub const TBTS_TOP: u32 = 0u32;
+pub const TB_ADDBITMAP: u32 = 1043u32;
+pub const TB_ADDBUTTONS: u32 = 1092u32;
+pub const TB_ADDBUTTONSA: u32 = 1044u32;
+pub const TB_ADDBUTTONSW: u32 = 1092u32;
+pub const TB_ADDSTRING: u32 = 1101u32;
+pub const TB_ADDSTRINGA: u32 = 1052u32;
+pub const TB_ADDSTRINGW: u32 = 1101u32;
+pub const TB_AUTOSIZE: u32 = 1057u32;
+pub const TB_BOTTOM: u32 = 7u32;
+pub const TB_BUTTONCOUNT: u32 = 1048u32;
+pub const TB_BUTTONSTRUCTSIZE: u32 = 1054u32;
+pub const TB_CHANGEBITMAP: u32 = 1067u32;
+pub const TB_CHECKBUTTON: u32 = 1026u32;
+pub const TB_COMMANDTOINDEX: u32 = 1049u32;
+pub const TB_CUSTOMIZE: u32 = 1051u32;
+pub const TB_DELETEBUTTON: u32 = 1046u32;
+pub const TB_ENABLEBUTTON: u32 = 1025u32;
+pub const TB_ENDTRACK: u32 = 8u32;
+pub const TB_GETANCHORHIGHLIGHT: u32 = 1098u32;
+pub const TB_GETBITMAP: u32 = 1068u32;
+pub const TB_GETBITMAPFLAGS: u32 = 1065u32;
+pub const TB_GETBUTTON: u32 = 1047u32;
+pub const TB_GETBUTTONINFO: u32 = 1087u32;
+pub const TB_GETBUTTONINFOA: u32 = 1089u32;
+pub const TB_GETBUTTONINFOW: u32 = 1087u32;
+pub const TB_GETBUTTONSIZE: u32 = 1082u32;
+pub const TB_GETBUTTONTEXT: u32 = 1099u32;
+pub const TB_GETBUTTONTEXTA: u32 = 1069u32;
+pub const TB_GETBUTTONTEXTW: u32 = 1099u32;
+pub const TB_GETCOLORSCHEME: u32 = 8195u32;
+pub const TB_GETDISABLEDIMAGELIST: u32 = 1079u32;
+pub const TB_GETEXTENDEDSTYLE: u32 = 1109u32;
+pub const TB_GETHOTIMAGELIST: u32 = 1077u32;
+pub const TB_GETHOTITEM: u32 = 1095u32;
+pub const TB_GETIDEALSIZE: u32 = 1123u32;
+pub const TB_GETIMAGELIST: u32 = 1073u32;
+pub const TB_GETIMAGELISTCOUNT: u32 = 1122u32;
+pub const TB_GETINSERTMARK: u32 = 1103u32;
+pub const TB_GETINSERTMARKCOLOR: u32 = 1113u32;
+pub const TB_GETITEMDROPDOWNRECT: u32 = 1127u32;
+pub const TB_GETITEMRECT: u32 = 1053u32;
+pub const TB_GETMAXSIZE: u32 = 1107u32;
+pub const TB_GETMETRICS: u32 = 1125u32;
+pub const TB_GETOBJECT: u32 = 1086u32;
+pub const TB_GETPADDING: u32 = 1110u32;
+pub const TB_GETPRESSEDIMAGELIST: u32 = 1129u32;
+pub const TB_GETRECT: u32 = 1075u32;
+pub const TB_GETROWS: u32 = 1064u32;
+pub const TB_GETSTATE: u32 = 1042u32;
+pub const TB_GETSTRING: u32 = 1115u32;
+pub const TB_GETSTRINGA: u32 = 1116u32;
+pub const TB_GETSTRINGW: u32 = 1115u32;
+pub const TB_GETSTYLE: u32 = 1081u32;
+pub const TB_GETTEXTROWS: u32 = 1085u32;
+pub const TB_GETTOOLTIPS: u32 = 1059u32;
+pub const TB_GETUNICODEFORMAT: u32 = 8198u32;
+pub const TB_HASACCELERATOR: u32 = 1119u32;
+pub const TB_HIDEBUTTON: u32 = 1028u32;
+pub const TB_HITTEST: u32 = 1093u32;
+pub const TB_INDETERMINATE: u32 = 1029u32;
+pub const TB_INSERTBUTTON: u32 = 1091u32;
+pub const TB_INSERTBUTTONA: u32 = 1045u32;
+pub const TB_INSERTBUTTONW: u32 = 1091u32;
+pub const TB_INSERTMARKHITTEST: u32 = 1105u32;
+pub const TB_ISBUTTONCHECKED: u32 = 1034u32;
+pub const TB_ISBUTTONENABLED: u32 = 1033u32;
+pub const TB_ISBUTTONHIDDEN: u32 = 1036u32;
+pub const TB_ISBUTTONHIGHLIGHTED: u32 = 1038u32;
+pub const TB_ISBUTTONINDETERMINATE: u32 = 1037u32;
+pub const TB_ISBUTTONPRESSED: u32 = 1035u32;
+pub const TB_LINEDOWN: u32 = 1u32;
+pub const TB_LINEUP: u32 = 0u32;
+pub const TB_LOADIMAGES: u32 = 1074u32;
+pub const TB_MAPACCELERATOR: u32 = 1114u32;
+pub const TB_MAPACCELERATORA: u32 = 1102u32;
+pub const TB_MAPACCELERATORW: u32 = 1114u32;
+pub const TB_MARKBUTTON: u32 = 1030u32;
+pub const TB_MOVEBUTTON: u32 = 1106u32;
+pub const TB_PAGEDOWN: u32 = 3u32;
+pub const TB_PAGEUP: u32 = 2u32;
+pub const TB_PRESSBUTTON: u32 = 1027u32;
+pub const TB_REPLACEBITMAP: u32 = 1070u32;
+pub const TB_SAVERESTORE: u32 = 1100u32;
+pub const TB_SAVERESTOREA: u32 = 1050u32;
+pub const TB_SAVERESTOREW: u32 = 1100u32;
+pub const TB_SETANCHORHIGHLIGHT: u32 = 1097u32;
+pub const TB_SETBITMAPSIZE: u32 = 1056u32;
+pub const TB_SETBOUNDINGSIZE: u32 = 1117u32;
+pub const TB_SETBUTTONINFO: u32 = 1088u32;
+pub const TB_SETBUTTONINFOA: u32 = 1090u32;
+pub const TB_SETBUTTONINFOW: u32 = 1088u32;
+pub const TB_SETBUTTONSIZE: u32 = 1055u32;
+pub const TB_SETBUTTONWIDTH: u32 = 1083u32;
+pub const TB_SETCMDID: u32 = 1066u32;
+pub const TB_SETCOLORSCHEME: u32 = 8194u32;
+pub const TB_SETDISABLEDIMAGELIST: u32 = 1078u32;
+pub const TB_SETDRAWTEXTFLAGS: u32 = 1094u32;
+pub const TB_SETEXTENDEDSTYLE: u32 = 1108u32;
+pub const TB_SETHOTIMAGELIST: u32 = 1076u32;
+pub const TB_SETHOTITEM: u32 = 1096u32;
+pub const TB_SETHOTITEM2: u32 = 1118u32;
+pub const TB_SETIMAGELIST: u32 = 1072u32;
+pub const TB_SETINDENT: u32 = 1071u32;
+pub const TB_SETINSERTMARK: u32 = 1104u32;
+pub const TB_SETINSERTMARKCOLOR: u32 = 1112u32;
+pub const TB_SETLISTGAP: u32 = 1120u32;
+pub const TB_SETMAXTEXTROWS: u32 = 1084u32;
+pub const TB_SETMETRICS: u32 = 1126u32;
+pub const TB_SETPADDING: u32 = 1111u32;
+pub const TB_SETPARENT: u32 = 1061u32;
+pub const TB_SETPRESSEDIMAGELIST: u32 = 1128u32;
+pub const TB_SETROWS: u32 = 1063u32;
+pub const TB_SETSTATE: u32 = 1041u32;
+pub const TB_SETSTYLE: u32 = 1080u32;
+pub const TB_SETTOOLTIPS: u32 = 1060u32;
+pub const TB_SETUNICODEFORMAT: u32 = 8197u32;
+pub const TB_SETWINDOWTHEME: u32 = 8203u32;
+pub const TB_THUMBPOSITION: u32 = 4u32;
+pub const TB_THUMBTRACK: u32 = 5u32;
+pub const TB_TOP: u32 = 6u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: TCHITTESTINFO_FLAGS,
 }
+pub type TCHITTESTINFO_FLAGS = u32;
+pub const TCHT_NOWHERE: TCHITTESTINFO_FLAGS = 1u32;
+pub const TCHT_ONITEM: TCHITTESTINFO_FLAGS = 6u32;
+pub const TCHT_ONITEMICON: TCHITTESTINFO_FLAGS = 2u32;
+pub const TCHT_ONITEMLABEL: TCHITTESTINFO_FLAGS = 4u32;
+pub const TCIF_IMAGE: TCITEMHEADERA_MASK = 2u32;
+pub const TCIF_PARAM: TCITEMHEADERA_MASK = 8u32;
+pub const TCIF_RTLREADING: TCITEMHEADERA_MASK = 4u32;
+pub const TCIF_STATE: TCITEMHEADERA_MASK = 16u32;
+pub const TCIF_TEXT: TCITEMHEADERA_MASK = 1u32;
+pub const TCIS_BUTTONPRESSED: TAB_CONTROL_ITEM_STATE = 1u32;
+pub const TCIS_HIGHLIGHTED: TAB_CONTROL_ITEM_STATE = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCITEMA {
@@ -7019,6 +5694,7 @@ pub struct TCITEMHEADERA {
     pub cchTextMax: i32,
     pub iImage: i32,
 }
+pub type TCITEMHEADERA_MASK = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCITEMHEADERW {
@@ -7040,6 +5716,498 @@ pub struct TCITEMW {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
+pub const TCM_ADJUSTRECT: u32 = 4904u32;
+pub const TCM_DELETEALLITEMS: u32 = 4873u32;
+pub const TCM_DELETEITEM: u32 = 4872u32;
+pub const TCM_DESELECTALL: u32 = 4914u32;
+pub const TCM_FIRST: u32 = 4864u32;
+pub const TCM_GETCURFOCUS: u32 = 4911u32;
+pub const TCM_GETCURSEL: u32 = 4875u32;
+pub const TCM_GETEXTENDEDSTYLE: u32 = 4917u32;
+pub const TCM_GETIMAGELIST: u32 = 4866u32;
+pub const TCM_GETITEM: u32 = 4924u32;
+pub const TCM_GETITEMA: u32 = 4869u32;
+pub const TCM_GETITEMCOUNT: u32 = 4868u32;
+pub const TCM_GETITEMRECT: u32 = 4874u32;
+pub const TCM_GETITEMW: u32 = 4924u32;
+pub const TCM_GETROWCOUNT: u32 = 4908u32;
+pub const TCM_GETTOOLTIPS: u32 = 4909u32;
+pub const TCM_GETUNICODEFORMAT: u32 = 8198u32;
+pub const TCM_HIGHLIGHTITEM: u32 = 4915u32;
+pub const TCM_HITTEST: u32 = 4877u32;
+pub const TCM_INSERTITEM: u32 = 4926u32;
+pub const TCM_INSERTITEMA: u32 = 4871u32;
+pub const TCM_INSERTITEMW: u32 = 4926u32;
+pub const TCM_REMOVEIMAGE: u32 = 4906u32;
+pub const TCM_SETCURFOCUS: u32 = 4912u32;
+pub const TCM_SETCURSEL: u32 = 4876u32;
+pub const TCM_SETEXTENDEDSTYLE: u32 = 4916u32;
+pub const TCM_SETIMAGELIST: u32 = 4867u32;
+pub const TCM_SETITEM: u32 = 4925u32;
+pub const TCM_SETITEMA: u32 = 4870u32;
+pub const TCM_SETITEMEXTRA: u32 = 4878u32;
+pub const TCM_SETITEMSIZE: u32 = 4905u32;
+pub const TCM_SETITEMW: u32 = 4925u32;
+pub const TCM_SETMINTABWIDTH: u32 = 4913u32;
+pub const TCM_SETPADDING: u32 = 4907u32;
+pub const TCM_SETTOOLTIPS: u32 = 4910u32;
+pub const TCM_SETUNICODEFORMAT: u32 = 8197u32;
+pub const TCN_FIRST: u32 = 4294966746u32;
+pub const TCN_FOCUSCHANGE: u32 = 4294966742u32;
+pub const TCN_GETOBJECT: u32 = 4294966743u32;
+pub const TCN_KEYDOWN: u32 = 4294966746u32;
+pub const TCN_LAST: u32 = 4294966716u32;
+pub const TCN_SELCHANGE: u32 = 4294966745u32;
+pub const TCN_SELCHANGING: u32 = 4294966744u32;
+pub const TCS_BOTTOM: u32 = 2u32;
+pub const TCS_BUTTONS: u32 = 256u32;
+pub const TCS_EX_FLATSEPARATORS: u32 = 1u32;
+pub const TCS_EX_REGISTERDROP: u32 = 2u32;
+pub const TCS_FIXEDWIDTH: u32 = 1024u32;
+pub const TCS_FLATBUTTONS: u32 = 8u32;
+pub const TCS_FOCUSNEVER: u32 = 32768u32;
+pub const TCS_FOCUSONBUTTONDOWN: u32 = 4096u32;
+pub const TCS_FORCEICONLEFT: u32 = 16u32;
+pub const TCS_FORCELABELLEFT: u32 = 32u32;
+pub const TCS_HOTTRACK: u32 = 64u32;
+pub const TCS_MULTILINE: u32 = 512u32;
+pub const TCS_MULTISELECT: u32 = 4u32;
+pub const TCS_OWNERDRAWFIXED: u32 = 8192u32;
+pub const TCS_RAGGEDRIGHT: u32 = 2048u32;
+pub const TCS_RIGHT: u32 = 2u32;
+pub const TCS_RIGHTJUSTIFY: u32 = 0u32;
+pub const TCS_SCROLLOPPOSITE: u32 = 1u32;
+pub const TCS_SINGLELINE: u32 = 0u32;
+pub const TCS_TABS: u32 = 0u32;
+pub const TCS_TOOLTIPS: u32 = 16384u32;
+pub const TCS_VERTICAL: u32 = 128u32;
+pub const TDCBF_ABORT_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 65536i32;
+pub const TDCBF_CANCEL_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 8i32;
+pub const TDCBF_CLOSE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 32i32;
+pub const TDCBF_CONTINUE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 524288i32;
+pub const TDCBF_HELP_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 1048576i32;
+pub const TDCBF_IGNORE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 131072i32;
+pub const TDCBF_NO_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 4i32;
+pub const TDCBF_OK_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 1i32;
+pub const TDCBF_RETRY_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 16i32;
+pub const TDCBF_TRYAGAIN_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 262144i32;
+pub const TDCBF_YES_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 2i32;
+pub const TDE_CONTENT: TASKDIALOG_ELEMENTS = 0i32;
+pub const TDE_EXPANDED_INFORMATION: TASKDIALOG_ELEMENTS = 1i32;
+pub const TDE_FOOTER: TASKDIALOG_ELEMENTS = 2i32;
+pub const TDE_MAIN_INSTRUCTION: TASKDIALOG_ELEMENTS = 3i32;
+pub const TDF_ALLOW_DIALOG_CANCELLATION: TASKDIALOG_FLAGS = 8i32;
+pub const TDF_CALLBACK_TIMER: TASKDIALOG_FLAGS = 2048i32;
+pub const TDF_CAN_BE_MINIMIZED: TASKDIALOG_FLAGS = 32768i32;
+pub const TDF_ENABLE_HYPERLINKS: TASKDIALOG_FLAGS = 1i32;
+pub const TDF_EXPANDED_BY_DEFAULT: TASKDIALOG_FLAGS = 128i32;
+pub const TDF_EXPAND_FOOTER_AREA: TASKDIALOG_FLAGS = 64i32;
+pub const TDF_NO_DEFAULT_RADIO_BUTTON: TASKDIALOG_FLAGS = 16384i32;
+pub const TDF_NO_SET_FOREGROUND: TASKDIALOG_FLAGS = 65536i32;
+pub const TDF_POSITION_RELATIVE_TO_WINDOW: TASKDIALOG_FLAGS = 4096i32;
+pub const TDF_RTL_LAYOUT: TASKDIALOG_FLAGS = 8192i32;
+pub const TDF_SHOW_MARQUEE_PROGRESS_BAR: TASKDIALOG_FLAGS = 1024i32;
+pub const TDF_SHOW_PROGRESS_BAR: TASKDIALOG_FLAGS = 512i32;
+pub const TDF_SIZE_TO_CONTENT: TASKDIALOG_FLAGS = 16777216i32;
+pub const TDF_USE_COMMAND_LINKS: TASKDIALOG_FLAGS = 16i32;
+pub const TDF_USE_COMMAND_LINKS_NO_ICON: TASKDIALOG_FLAGS = 32i32;
+pub const TDF_USE_HICON_FOOTER: TASKDIALOG_FLAGS = 4i32;
+pub const TDF_USE_HICON_MAIN: TASKDIALOG_FLAGS = 2i32;
+pub const TDF_VERIFICATION_FLAG_CHECKED: TASKDIALOG_FLAGS = 256i32;
+pub const TDIE_ICON_FOOTER: TASKDIALOG_ICON_ELEMENTS = 1i32;
+pub const TDIE_ICON_MAIN: TASKDIALOG_ICON_ELEMENTS = 0i32;
+pub const TDLGCPS_STANDALONE: CONTENTPANESTATES = 1i32;
+pub const TDLGEBS_EXPANDEDDISABLED: EXPANDOBUTTONSTATES = 8i32;
+pub const TDLGEBS_EXPANDEDHOVER: EXPANDOBUTTONSTATES = 5i32;
+pub const TDLGEBS_EXPANDEDNORMAL: EXPANDOBUTTONSTATES = 4i32;
+pub const TDLGEBS_EXPANDEDPRESSED: EXPANDOBUTTONSTATES = 6i32;
+pub const TDLGEBS_HOVER: EXPANDOBUTTONSTATES = 2i32;
+pub const TDLGEBS_NORMAL: EXPANDOBUTTONSTATES = 1i32;
+pub const TDLGEBS_NORMALDISABLED: EXPANDOBUTTONSTATES = 7i32;
+pub const TDLGEBS_PRESSED: EXPANDOBUTTONSTATES = 3i32;
+pub const TDLG_BUTTONSECTION: TASKDIALOGPARTS = 10i32;
+pub const TDLG_BUTTONWRAPPER: TASKDIALOGPARTS = 11i32;
+pub const TDLG_COMMANDLINKPANE: TASKDIALOGPARTS = 7i32;
+pub const TDLG_CONTENTICON: TASKDIALOGPARTS = 5i32;
+pub const TDLG_CONTENTPANE: TASKDIALOGPARTS = 4i32;
+pub const TDLG_CONTROLPANE: TASKDIALOGPARTS = 9i32;
+pub const TDLG_EXPANDEDCONTENT: TASKDIALOGPARTS = 6i32;
+pub const TDLG_EXPANDEDFOOTERAREA: TASKDIALOGPARTS = 18i32;
+pub const TDLG_EXPANDOBUTTON: TASKDIALOGPARTS = 13i32;
+pub const TDLG_EXPANDOTEXT: TASKDIALOGPARTS = 12i32;
+pub const TDLG_FOOTNOTEAREA: TASKDIALOGPARTS = 16i32;
+pub const TDLG_FOOTNOTEPANE: TASKDIALOGPARTS = 15i32;
+pub const TDLG_FOOTNOTESEPARATOR: TASKDIALOGPARTS = 17i32;
+pub const TDLG_IMAGEALIGNMENT: TASKDIALOGPARTS = 20i32;
+pub const TDLG_MAINICON: TASKDIALOGPARTS = 3i32;
+pub const TDLG_MAININSTRUCTIONPANE: TASKDIALOGPARTS = 2i32;
+pub const TDLG_PRIMARYPANEL: TASKDIALOGPARTS = 1i32;
+pub const TDLG_PROGRESSBAR: TASKDIALOGPARTS = 19i32;
+pub const TDLG_RADIOBUTTONPANE: TASKDIALOGPARTS = 21i32;
+pub const TDLG_SECONDARYPANEL: TASKDIALOGPARTS = 8i32;
+pub const TDLG_VERIFICATIONTEXT: TASKDIALOGPARTS = 14i32;
+pub const TDM_CLICK_BUTTON: TASKDIALOG_MESSAGES = 1126i32;
+pub const TDM_CLICK_RADIO_BUTTON: TASKDIALOG_MESSAGES = 1134i32;
+pub const TDM_CLICK_VERIFICATION: TASKDIALOG_MESSAGES = 1137i32;
+pub const TDM_ENABLE_BUTTON: TASKDIALOG_MESSAGES = 1135i32;
+pub const TDM_ENABLE_RADIO_BUTTON: TASKDIALOG_MESSAGES = 1136i32;
+pub const TDM_NAVIGATE_PAGE: TASKDIALOG_MESSAGES = 1125i32;
+pub const TDM_SET_BUTTON_ELEVATION_REQUIRED_STATE: TASKDIALOG_MESSAGES = 1139i32;
+pub const TDM_SET_ELEMENT_TEXT: TASKDIALOG_MESSAGES = 1132i32;
+pub const TDM_SET_MARQUEE_PROGRESS_BAR: TASKDIALOG_MESSAGES = 1127i32;
+pub const TDM_SET_PROGRESS_BAR_MARQUEE: TASKDIALOG_MESSAGES = 1131i32;
+pub const TDM_SET_PROGRESS_BAR_POS: TASKDIALOG_MESSAGES = 1130i32;
+pub const TDM_SET_PROGRESS_BAR_RANGE: TASKDIALOG_MESSAGES = 1129i32;
+pub const TDM_SET_PROGRESS_BAR_STATE: TASKDIALOG_MESSAGES = 1128i32;
+pub const TDM_UPDATE_ELEMENT_TEXT: TASKDIALOG_MESSAGES = 1138i32;
+pub const TDM_UPDATE_ICON: TASKDIALOG_MESSAGES = 1140i32;
+pub const TDN_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = 2i32;
+pub const TDN_CREATED: TASKDIALOG_NOTIFICATIONS = 0i32;
+pub const TDN_DESTROYED: TASKDIALOG_NOTIFICATIONS = 5i32;
+pub const TDN_DIALOG_CONSTRUCTED: TASKDIALOG_NOTIFICATIONS = 7i32;
+pub const TDN_EXPANDO_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = 10i32;
+pub const TDN_HELP: TASKDIALOG_NOTIFICATIONS = 9i32;
+pub const TDN_HYPERLINK_CLICKED: TASKDIALOG_NOTIFICATIONS = 3i32;
+pub const TDN_NAVIGATED: TASKDIALOG_NOTIFICATIONS = 1i32;
+pub const TDN_RADIO_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = 6i32;
+pub const TDN_TIMER: TASKDIALOG_NOTIFICATIONS = 4i32;
+pub const TDN_VERIFICATION_CLICKED: TASKDIALOG_NOTIFICATIONS = 8i32;
+pub const TDP_FLASHBUTTON: TASKBANDPARTS = 2i32;
+pub const TDP_FLASHBUTTONGROUPMENU: TASKBANDPARTS = 3i32;
+pub const TDP_GROUPCOUNT: TASKBANDPARTS = 1i32;
+pub const TD_ERROR_ICON: windows_sys::core::PCWSTR = 65534u16 as _;
+pub const TD_INFORMATION_ICON: windows_sys::core::PCWSTR = 65533u16 as _;
+pub const TD_SHIELD_ICON: windows_sys::core::PCWSTR = 65532u16 as _;
+pub const TD_WARNING_ICON: windows_sys::core::PCWSTR = 65535u16 as _;
+pub type TEXTSELECTIONGRIPPERPARTS = i32;
+pub type TEXTSHADOWTYPE = i32;
+pub type TEXTSTYLEPARTS = i32;
+pub const TEXT_BODYTEXT: TEXTSTYLEPARTS = 4i32;
+pub const TEXT_BODYTITLE: TEXTSTYLEPARTS = 3i32;
+pub const TEXT_CONTROLLABEL: TEXTSTYLEPARTS = 9i32;
+pub const TEXT_EXPANDED: TEXTSTYLEPARTS = 7i32;
+pub const TEXT_HYPERLINKTEXT: TEXTSTYLEPARTS = 6i32;
+pub const TEXT_INSTRUCTION: TEXTSTYLEPARTS = 2i32;
+pub const TEXT_LABEL: TEXTSTYLEPARTS = 8i32;
+pub const TEXT_MAININSTRUCTION: TEXTSTYLEPARTS = 1i32;
+pub const TEXT_SECONDARYTEXT: TEXTSTYLEPARTS = 5i32;
+pub type THEMESIZE = i32;
+pub type THEME_PROPERTY_SYMBOL_ID = u32;
+pub type THUMBBOTTOMSTATES = i32;
+pub type THUMBLEFTSTATES = i32;
+pub type THUMBRIGHTSTATES = i32;
+pub type THUMBSTATES = i32;
+pub type THUMBTOPSTATES = i32;
+pub type THUMBVERTSTATES = i32;
+pub const TIBES_DISABLED: TABITEMBOTHEDGESTATES = 4i32;
+pub const TIBES_FOCUSED: TABITEMBOTHEDGESTATES = 5i32;
+pub const TIBES_HOT: TABITEMBOTHEDGESTATES = 2i32;
+pub const TIBES_NORMAL: TABITEMBOTHEDGESTATES = 1i32;
+pub const TIBES_SELECTED: TABITEMBOTHEDGESTATES = 3i32;
+pub type TICSSTATES = i32;
+pub type TICSVERTSTATES = i32;
+pub const TILES_DISABLED: TABITEMLEFTEDGESTATES = 4i32;
+pub const TILES_FOCUSED: TABITEMLEFTEDGESTATES = 5i32;
+pub const TILES_HOT: TABITEMLEFTEDGESTATES = 2i32;
+pub const TILES_NORMAL: TABITEMLEFTEDGESTATES = 1i32;
+pub const TILES_SELECTED: TABITEMLEFTEDGESTATES = 3i32;
+pub const TIRES_DISABLED: TABITEMRIGHTEDGESTATES = 4i32;
+pub const TIRES_FOCUSED: TABITEMRIGHTEDGESTATES = 5i32;
+pub const TIRES_HOT: TABITEMRIGHTEDGESTATES = 2i32;
+pub const TIRES_NORMAL: TABITEMRIGHTEDGESTATES = 1i32;
+pub const TIRES_SELECTED: TABITEMRIGHTEDGESTATES = 3i32;
+pub const TIS_DISABLED: TABITEMSTATES = 4i32;
+pub const TIS_FOCUSED: TABITEMSTATES = 5i32;
+pub const TIS_HOT: TABITEMSTATES = 2i32;
+pub const TIS_NORMAL: TABITEMSTATES = 1i32;
+pub const TIS_SELECTED: TABITEMSTATES = 3i32;
+pub type TITLEBARSTATES = i32;
+pub const TKP_THUMB: TRACKBARPARTS = 3i32;
+pub const TKP_THUMBBOTTOM: TRACKBARPARTS = 4i32;
+pub const TKP_THUMBLEFT: TRACKBARPARTS = 7i32;
+pub const TKP_THUMBRIGHT: TRACKBARPARTS = 8i32;
+pub const TKP_THUMBTOP: TRACKBARPARTS = 5i32;
+pub const TKP_THUMBVERT: TRACKBARPARTS = 6i32;
+pub const TKP_TICS: TRACKBARPARTS = 9i32;
+pub const TKP_TICSVERT: TRACKBARPARTS = 10i32;
+pub const TKP_TRACK: TRACKBARPARTS = 1i32;
+pub const TKP_TRACKVERT: TRACKBARPARTS = 2i32;
+pub const TKS_NORMAL: TRACKBARSTYLESTATES = 1i32;
+pub const TMTVS_RESERVEDHIGH: u32 = 19999u32;
+pub const TMTVS_RESERVEDLOW: u32 = 100000u32;
+pub const TMT_ACCENTCOLORHINT: THEME_PROPERTY_SYMBOL_ID = 3823u32;
+pub const TMT_ACTIVEBORDER: THEME_PROPERTY_SYMBOL_ID = 1611u32;
+pub const TMT_ACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = 1603u32;
+pub const TMT_ALIAS: THEME_PROPERTY_SYMBOL_ID = 1404u32;
+pub const TMT_ALPHALEVEL: THEME_PROPERTY_SYMBOL_ID = 2402u32;
+pub const TMT_ALPHATHRESHOLD: THEME_PROPERTY_SYMBOL_ID = 2415u32;
+pub const TMT_ALWAYSSHOWSIZINGBAR: THEME_PROPERTY_SYMBOL_ID = 2208u32;
+pub const TMT_ANIMATIONBUTTONRECT: THEME_PROPERTY_SYMBOL_ID = 5005u32;
+pub const TMT_ANIMATIONDELAY: THEME_PROPERTY_SYMBOL_ID = 2428u32;
+pub const TMT_ANIMATIONDURATION: THEME_PROPERTY_SYMBOL_ID = 5006u32;
+pub const TMT_APPWORKSPACE: THEME_PROPERTY_SYMBOL_ID = 1613u32;
+pub const TMT_ATLASIMAGE: THEME_PROPERTY_SYMBOL_ID = 8000u32;
+pub const TMT_ATLASINPUTIMAGE: THEME_PROPERTY_SYMBOL_ID = 8001u32;
+pub const TMT_ATLASRECT: THEME_PROPERTY_SYMBOL_ID = 8002u32;
+pub const TMT_AUTHOR: THEME_PROPERTY_SYMBOL_ID = 604u32;
+pub const TMT_AUTOSIZE: THEME_PROPERTY_SYMBOL_ID = 2202u32;
+pub const TMT_BACKGROUND: THEME_PROPERTY_SYMBOL_ID = 1602u32;
+pub const TMT_BGFILL: THEME_PROPERTY_SYMBOL_ID = 2205u32;
+pub const TMT_BGTYPE: THEME_PROPERTY_SYMBOL_ID = 4001u32;
+pub const TMT_BITMAPREF: THEME_PROPERTY_SYMBOL_ID = 215u32;
+pub const TMT_BLENDCOLOR: THEME_PROPERTY_SYMBOL_ID = 5003u32;
+pub const TMT_BODYFONT: THEME_PROPERTY_SYMBOL_ID = 809u32;
+pub const TMT_BODYTEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3827u32;
+pub const TMT_BOOL: THEME_PROPERTY_SYMBOL_ID = 203u32;
+pub const TMT_BORDERCOLOR: THEME_PROPERTY_SYMBOL_ID = 3801u32;
+pub const TMT_BORDERCOLORHINT: THEME_PROPERTY_SYMBOL_ID = 3822u32;
+pub const TMT_BORDERONLY: THEME_PROPERTY_SYMBOL_ID = 2203u32;
+pub const TMT_BORDERSIZE: THEME_PROPERTY_SYMBOL_ID = 2403u32;
+pub const TMT_BORDERTYPE: THEME_PROPERTY_SYMBOL_ID = 4002u32;
+pub const TMT_BTNFACE: THEME_PROPERTY_SYMBOL_ID = 1616u32;
+pub const TMT_BTNHIGHLIGHT: THEME_PROPERTY_SYMBOL_ID = 1621u32;
+pub const TMT_BTNSHADOW: THEME_PROPERTY_SYMBOL_ID = 1617u32;
+pub const TMT_BTNTEXT: THEME_PROPERTY_SYMBOL_ID = 1619u32;
+pub const TMT_BUTTONALTERNATEFACE: THEME_PROPERTY_SYMBOL_ID = 1626u32;
+pub const TMT_CAPTIONBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = 1205u32;
+pub const TMT_CAPTIONBARWIDTH: THEME_PROPERTY_SYMBOL_ID = 1204u32;
+pub const TMT_CAPTIONFONT: THEME_PROPERTY_SYMBOL_ID = 801u32;
+pub const TMT_CAPTIONMARGINS: THEME_PROPERTY_SYMBOL_ID = 3603u32;
+pub const TMT_CAPTIONTEXT: THEME_PROPERTY_SYMBOL_ID = 1610u32;
+pub const TMT_CHARSET: THEME_PROPERTY_SYMBOL_ID = 403u32;
+pub const TMT_CLASSICVALUE: THEME_PROPERTY_SYMBOL_ID = 3202u32;
+pub const TMT_COLOR: THEME_PROPERTY_SYMBOL_ID = 204u32;
+pub const TMT_COLORIZATIONCOLOR: THEME_PROPERTY_SYMBOL_ID = 2431u32;
+pub const TMT_COLORIZATIONOPACITY: THEME_PROPERTY_SYMBOL_ID = 2432u32;
+pub const TMT_COLORSCHEMES: THEME_PROPERTY_SYMBOL_ID = 401u32;
+pub const TMT_COMPANY: THEME_PROPERTY_SYMBOL_ID = 603u32;
+pub const TMT_COMPOSITED: THEME_PROPERTY_SYMBOL_ID = 2204u32;
+pub const TMT_COMPOSITEDOPAQUE: THEME_PROPERTY_SYMBOL_ID = 2219u32;
+pub const TMT_CONTENTALIGNMENT: THEME_PROPERTY_SYMBOL_ID = 4006u32;
+pub const TMT_CONTENTMARGINS: THEME_PROPERTY_SYMBOL_ID = 3602u32;
+pub const TMT_COPYRIGHT: THEME_PROPERTY_SYMBOL_ID = 605u32;
+pub const TMT_CSSNAME: THEME_PROPERTY_SYMBOL_ID = 1401u32;
+pub const TMT_CUSTOMSPLITRECT: THEME_PROPERTY_SYMBOL_ID = 5004u32;
+pub const TMT_DEFAULTPANESIZE: THEME_PROPERTY_SYMBOL_ID = 5002u32;
+pub const TMT_DESCRIPTION: THEME_PROPERTY_SYMBOL_ID = 608u32;
+pub const TMT_DIBDATA: THEME_PROPERTY_SYMBOL_ID = 2u32;
+pub const TMT_DISKSTREAM: THEME_PROPERTY_SYMBOL_ID = 213u32;
+pub const TMT_DISPLAYNAME: THEME_PROPERTY_SYMBOL_ID = 601u32;
+pub const TMT_DKSHADOW3D: THEME_PROPERTY_SYMBOL_ID = 1622u32;
+pub const TMT_DRAWBORDERS: THEME_PROPERTY_SYMBOL_ID = 2214u32;
+pub const TMT_EDGEDKSHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3807u32;
+pub const TMT_EDGEFILLCOLOR: THEME_PROPERTY_SYMBOL_ID = 3808u32;
+pub const TMT_EDGEHIGHLIGHTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3805u32;
+pub const TMT_EDGELIGHTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3804u32;
+pub const TMT_EDGESHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3806u32;
+pub const TMT_ENUM: THEME_PROPERTY_SYMBOL_ID = 200u32;
+pub const TMT_FILENAME: THEME_PROPERTY_SYMBOL_ID = 206u32;
+pub const TMT_FILLCOLOR: THEME_PROPERTY_SYMBOL_ID = 3802u32;
+pub const TMT_FILLCOLORHINT: THEME_PROPERTY_SYMBOL_ID = 3821u32;
+pub const TMT_FILLTYPE: THEME_PROPERTY_SYMBOL_ID = 4003u32;
+pub const TMT_FIRSTBOOL: THEME_PROPERTY_SYMBOL_ID = 1001u32;
+pub const TMT_FIRSTCOLOR: THEME_PROPERTY_SYMBOL_ID = 1601u32;
+pub const TMT_FIRSTFONT: THEME_PROPERTY_SYMBOL_ID = 801u32;
+pub const TMT_FIRSTINT: THEME_PROPERTY_SYMBOL_ID = 1301u32;
+pub const TMT_FIRSTSIZE: THEME_PROPERTY_SYMBOL_ID = 1201u32;
+pub const TMT_FIRSTSTRING: THEME_PROPERTY_SYMBOL_ID = 1401u32;
+pub const TMT_FIRST_RCSTRING_NAME: THEME_PROPERTY_SYMBOL_ID = 601u32;
+pub const TMT_FLATMENUS: THEME_PROPERTY_SYMBOL_ID = 1001u32;
+pub const TMT_FLOAT: THEME_PROPERTY_SYMBOL_ID = 216u32;
+pub const TMT_FLOATLIST: THEME_PROPERTY_SYMBOL_ID = 217u32;
+pub const TMT_FONT: THEME_PROPERTY_SYMBOL_ID = 210u32;
+pub const TMT_FRAMESPERSECOND: THEME_PROPERTY_SYMBOL_ID = 2426u32;
+pub const TMT_FROMCOLOR1: THEME_PROPERTY_SYMBOL_ID = 2001u32;
+pub const TMT_FROMCOLOR2: THEME_PROPERTY_SYMBOL_ID = 2002u32;
+pub const TMT_FROMCOLOR3: THEME_PROPERTY_SYMBOL_ID = 2003u32;
+pub const TMT_FROMCOLOR4: THEME_PROPERTY_SYMBOL_ID = 2004u32;
+pub const TMT_FROMCOLOR5: THEME_PROPERTY_SYMBOL_ID = 2005u32;
+pub const TMT_FROMHUE1: THEME_PROPERTY_SYMBOL_ID = 1801u32;
+pub const TMT_FROMHUE2: THEME_PROPERTY_SYMBOL_ID = 1802u32;
+pub const TMT_FROMHUE3: THEME_PROPERTY_SYMBOL_ID = 1803u32;
+pub const TMT_FROMHUE4: THEME_PROPERTY_SYMBOL_ID = 1804u32;
+pub const TMT_FROMHUE5: THEME_PROPERTY_SYMBOL_ID = 1805u32;
+pub const TMT_GLOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3816u32;
+pub const TMT_GLOWINTENSITY: THEME_PROPERTY_SYMBOL_ID = 2429u32;
+pub const TMT_GLYPHDIBDATA: THEME_PROPERTY_SYMBOL_ID = 8u32;
+pub const TMT_GLYPHFONT: THEME_PROPERTY_SYMBOL_ID = 2601u32;
+pub const TMT_GLYPHFONTSIZINGTYPE: THEME_PROPERTY_SYMBOL_ID = 4014u32;
+pub const TMT_GLYPHIMAGEFILE: THEME_PROPERTY_SYMBOL_ID = 3008u32;
+pub const TMT_GLYPHINDEX: THEME_PROPERTY_SYMBOL_ID = 2418u32;
+pub const TMT_GLYPHONLY: THEME_PROPERTY_SYMBOL_ID = 2207u32;
+pub const TMT_GLYPHTEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3819u32;
+pub const TMT_GLYPHTRANSPARENT: THEME_PROPERTY_SYMBOL_ID = 2206u32;
+pub const TMT_GLYPHTRANSPARENTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3820u32;
+pub const TMT_GLYPHTYPE: THEME_PROPERTY_SYMBOL_ID = 4012u32;
+pub const TMT_GRADIENTACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = 1628u32;
+pub const TMT_GRADIENTCOLOR1: THEME_PROPERTY_SYMBOL_ID = 3810u32;
+pub const TMT_GRADIENTCOLOR2: THEME_PROPERTY_SYMBOL_ID = 3811u32;
+pub const TMT_GRADIENTCOLOR3: THEME_PROPERTY_SYMBOL_ID = 3812u32;
+pub const TMT_GRADIENTCOLOR4: THEME_PROPERTY_SYMBOL_ID = 3813u32;
+pub const TMT_GRADIENTCOLOR5: THEME_PROPERTY_SYMBOL_ID = 3814u32;
+pub const TMT_GRADIENTINACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = 1629u32;
+pub const TMT_GRADIENTRATIO1: THEME_PROPERTY_SYMBOL_ID = 2406u32;
+pub const TMT_GRADIENTRATIO2: THEME_PROPERTY_SYMBOL_ID = 2407u32;
+pub const TMT_GRADIENTRATIO3: THEME_PROPERTY_SYMBOL_ID = 2408u32;
+pub const TMT_GRADIENTRATIO4: THEME_PROPERTY_SYMBOL_ID = 2409u32;
+pub const TMT_GRADIENTRATIO5: THEME_PROPERTY_SYMBOL_ID = 2410u32;
+pub const TMT_GRAYTEXT: THEME_PROPERTY_SYMBOL_ID = 1618u32;
+pub const TMT_HALIGN: THEME_PROPERTY_SYMBOL_ID = 4005u32;
+pub const TMT_HBITMAP: THEME_PROPERTY_SYMBOL_ID = 212u32;
+pub const TMT_HEADING1FONT: THEME_PROPERTY_SYMBOL_ID = 807u32;
+pub const TMT_HEADING1TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3825u32;
+pub const TMT_HEADING2FONT: THEME_PROPERTY_SYMBOL_ID = 808u32;
+pub const TMT_HEADING2TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3826u32;
+pub const TMT_HEIGHT: THEME_PROPERTY_SYMBOL_ID = 2417u32;
+pub const TMT_HIGHLIGHT: THEME_PROPERTY_SYMBOL_ID = 1614u32;
+pub const TMT_HIGHLIGHTTEXT: THEME_PROPERTY_SYMBOL_ID = 1615u32;
+pub const TMT_HOTTRACKING: THEME_PROPERTY_SYMBOL_ID = 1627u32;
+pub const TMT_ICONEFFECT: THEME_PROPERTY_SYMBOL_ID = 4009u32;
+pub const TMT_ICONTITLEFONT: THEME_PROPERTY_SYMBOL_ID = 806u32;
+pub const TMT_IMAGECOUNT: THEME_PROPERTY_SYMBOL_ID = 2401u32;
+pub const TMT_IMAGEFILE: THEME_PROPERTY_SYMBOL_ID = 3001u32;
+pub const TMT_IMAGEFILE1: THEME_PROPERTY_SYMBOL_ID = 3002u32;
+pub const TMT_IMAGEFILE2: THEME_PROPERTY_SYMBOL_ID = 3003u32;
+pub const TMT_IMAGEFILE3: THEME_PROPERTY_SYMBOL_ID = 3004u32;
+pub const TMT_IMAGEFILE4: THEME_PROPERTY_SYMBOL_ID = 3005u32;
+pub const TMT_IMAGEFILE5: THEME_PROPERTY_SYMBOL_ID = 3006u32;
+pub const TMT_IMAGEFILE6: THEME_PROPERTY_SYMBOL_ID = 3009u32;
+pub const TMT_IMAGEFILE7: THEME_PROPERTY_SYMBOL_ID = 3010u32;
+pub const TMT_IMAGELAYOUT: THEME_PROPERTY_SYMBOL_ID = 4011u32;
+pub const TMT_IMAGESELECTTYPE: THEME_PROPERTY_SYMBOL_ID = 4013u32;
+pub const TMT_INACTIVEBORDER: THEME_PROPERTY_SYMBOL_ID = 1612u32;
+pub const TMT_INACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = 1604u32;
+pub const TMT_INACTIVECAPTIONTEXT: THEME_PROPERTY_SYMBOL_ID = 1620u32;
+pub const TMT_INFOBK: THEME_PROPERTY_SYMBOL_ID = 1625u32;
+pub const TMT_INFOTEXT: THEME_PROPERTY_SYMBOL_ID = 1624u32;
+pub const TMT_INT: THEME_PROPERTY_SYMBOL_ID = 202u32;
+pub const TMT_INTEGRALSIZING: THEME_PROPERTY_SYMBOL_ID = 2211u32;
+pub const TMT_INTLIST: THEME_PROPERTY_SYMBOL_ID = 211u32;
+pub const TMT_LASTBOOL: THEME_PROPERTY_SYMBOL_ID = 1001u32;
+pub const TMT_LASTCOLOR: THEME_PROPERTY_SYMBOL_ID = 1631u32;
+pub const TMT_LASTFONT: THEME_PROPERTY_SYMBOL_ID = 809u32;
+pub const TMT_LASTINT: THEME_PROPERTY_SYMBOL_ID = 1301u32;
+pub const TMT_LASTSIZE: THEME_PROPERTY_SYMBOL_ID = 1210u32;
+pub const TMT_LASTSTRING: THEME_PROPERTY_SYMBOL_ID = 1404u32;
+pub const TMT_LASTUPDATED: THEME_PROPERTY_SYMBOL_ID = 1403u32;
+pub const TMT_LAST_RCSTRING_NAME: THEME_PROPERTY_SYMBOL_ID = 608u32;
+pub const TMT_LIGHT3D: THEME_PROPERTY_SYMBOL_ID = 1623u32;
+pub const TMT_LOCALIZEDMIRRORIMAGE: THEME_PROPERTY_SYMBOL_ID = 2220u32;
+pub const TMT_MARGINS: THEME_PROPERTY_SYMBOL_ID = 205u32;
+pub const TMT_MENU: THEME_PROPERTY_SYMBOL_ID = 1605u32;
+pub const TMT_MENUBAR: THEME_PROPERTY_SYMBOL_ID = 1631u32;
+pub const TMT_MENUBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = 1209u32;
+pub const TMT_MENUBARWIDTH: THEME_PROPERTY_SYMBOL_ID = 1208u32;
+pub const TMT_MENUFONT: THEME_PROPERTY_SYMBOL_ID = 803u32;
+pub const TMT_MENUHILIGHT: THEME_PROPERTY_SYMBOL_ID = 1630u32;
+pub const TMT_MENUTEXT: THEME_PROPERTY_SYMBOL_ID = 1608u32;
+pub const TMT_MINCOLORDEPTH: THEME_PROPERTY_SYMBOL_ID = 1301u32;
+pub const TMT_MINDPI1: THEME_PROPERTY_SYMBOL_ID = 2420u32;
+pub const TMT_MINDPI2: THEME_PROPERTY_SYMBOL_ID = 2421u32;
+pub const TMT_MINDPI3: THEME_PROPERTY_SYMBOL_ID = 2422u32;
+pub const TMT_MINDPI4: THEME_PROPERTY_SYMBOL_ID = 2423u32;
+pub const TMT_MINDPI5: THEME_PROPERTY_SYMBOL_ID = 2424u32;
+pub const TMT_MINDPI6: THEME_PROPERTY_SYMBOL_ID = 2433u32;
+pub const TMT_MINDPI7: THEME_PROPERTY_SYMBOL_ID = 2434u32;
+pub const TMT_MINSIZE: THEME_PROPERTY_SYMBOL_ID = 3403u32;
+pub const TMT_MINSIZE1: THEME_PROPERTY_SYMBOL_ID = 3404u32;
+pub const TMT_MINSIZE2: THEME_PROPERTY_SYMBOL_ID = 3405u32;
+pub const TMT_MINSIZE3: THEME_PROPERTY_SYMBOL_ID = 3406u32;
+pub const TMT_MINSIZE4: THEME_PROPERTY_SYMBOL_ID = 3407u32;
+pub const TMT_MINSIZE5: THEME_PROPERTY_SYMBOL_ID = 3408u32;
+pub const TMT_MINSIZE6: THEME_PROPERTY_SYMBOL_ID = 3410u32;
+pub const TMT_MINSIZE7: THEME_PROPERTY_SYMBOL_ID = 3411u32;
+pub const TMT_MIRRORIMAGE: THEME_PROPERTY_SYMBOL_ID = 2209u32;
+pub const TMT_MSGBOXFONT: THEME_PROPERTY_SYMBOL_ID = 805u32;
+pub const TMT_NAME: THEME_PROPERTY_SYMBOL_ID = 600u32;
+pub const TMT_NOETCHEDEFFECT: THEME_PROPERTY_SYMBOL_ID = 2215u32;
+pub const TMT_NORMALSIZE: THEME_PROPERTY_SYMBOL_ID = 3409u32;
+pub const TMT_OFFSET: THEME_PROPERTY_SYMBOL_ID = 3401u32;
+pub const TMT_OFFSETTYPE: THEME_PROPERTY_SYMBOL_ID = 4008u32;
+pub const TMT_OPACITY: THEME_PROPERTY_SYMBOL_ID = 2430u32;
+pub const TMT_PADDEDBORDERWIDTH: THEME_PROPERTY_SYMBOL_ID = 1210u32;
+pub const TMT_PIXELSPERFRAME: THEME_PROPERTY_SYMBOL_ID = 2427u32;
+pub const TMT_POSITION: THEME_PROPERTY_SYMBOL_ID = 208u32;
+pub const TMT_PROGRESSCHUNKSIZE: THEME_PROPERTY_SYMBOL_ID = 2411u32;
+pub const TMT_PROGRESSSPACESIZE: THEME_PROPERTY_SYMBOL_ID = 2412u32;
+pub const TMT_RECT: THEME_PROPERTY_SYMBOL_ID = 209u32;
+pub const TMT_RESERVEDHIGH: THEME_PROPERTY_SYMBOL_ID = 7999u32;
+pub const TMT_RESERVEDLOW: THEME_PROPERTY_SYMBOL_ID = 0u32;
+pub const TMT_ROUNDCORNERHEIGHT: THEME_PROPERTY_SYMBOL_ID = 2405u32;
+pub const TMT_ROUNDCORNERWIDTH: THEME_PROPERTY_SYMBOL_ID = 2404u32;
+pub const TMT_SATURATION: THEME_PROPERTY_SYMBOL_ID = 2413u32;
+pub const TMT_SCALEDBACKGROUND: THEME_PROPERTY_SYMBOL_ID = 7001u32;
+pub const TMT_SCROLLBAR: THEME_PROPERTY_SYMBOL_ID = 1601u32;
+pub const TMT_SCROLLBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = 1203u32;
+pub const TMT_SCROLLBARWIDTH: THEME_PROPERTY_SYMBOL_ID = 1202u32;
+pub const TMT_SHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3815u32;
+pub const TMT_SIZE: THEME_PROPERTY_SYMBOL_ID = 207u32;
+pub const TMT_SIZES: THEME_PROPERTY_SYMBOL_ID = 402u32;
+pub const TMT_SIZINGBORDERWIDTH: THEME_PROPERTY_SYMBOL_ID = 1201u32;
+pub const TMT_SIZINGMARGINS: THEME_PROPERTY_SYMBOL_ID = 3601u32;
+pub const TMT_SIZINGTYPE: THEME_PROPERTY_SYMBOL_ID = 4004u32;
+pub const TMT_SMALLCAPTIONFONT: THEME_PROPERTY_SYMBOL_ID = 802u32;
+pub const TMT_SMCAPTIONBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = 1207u32;
+pub const TMT_SMCAPTIONBARWIDTH: THEME_PROPERTY_SYMBOL_ID = 1206u32;
+pub const TMT_SOURCEGROW: THEME_PROPERTY_SYMBOL_ID = 2212u32;
+pub const TMT_SOURCESHRINK: THEME_PROPERTY_SYMBOL_ID = 2213u32;
+pub const TMT_STATUSFONT: THEME_PROPERTY_SYMBOL_ID = 804u32;
+pub const TMT_STREAM: THEME_PROPERTY_SYMBOL_ID = 214u32;
+pub const TMT_STRING: THEME_PROPERTY_SYMBOL_ID = 201u32;
+pub const TMT_TEXT: THEME_PROPERTY_SYMBOL_ID = 3201u32;
+pub const TMT_TEXTAPPLYOVERLAY: THEME_PROPERTY_SYMBOL_ID = 2216u32;
+pub const TMT_TEXTBORDERCOLOR: THEME_PROPERTY_SYMBOL_ID = 3817u32;
+pub const TMT_TEXTBORDERSIZE: THEME_PROPERTY_SYMBOL_ID = 2414u32;
+pub const TMT_TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3803u32;
+pub const TMT_TEXTCOLORHINT: THEME_PROPERTY_SYMBOL_ID = 3824u32;
+pub const TMT_TEXTGLOW: THEME_PROPERTY_SYMBOL_ID = 2217u32;
+pub const TMT_TEXTGLOWSIZE: THEME_PROPERTY_SYMBOL_ID = 2425u32;
+pub const TMT_TEXTITALIC: THEME_PROPERTY_SYMBOL_ID = 2218u32;
+pub const TMT_TEXTSHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3818u32;
+pub const TMT_TEXTSHADOWOFFSET: THEME_PROPERTY_SYMBOL_ID = 3402u32;
+pub const TMT_TEXTSHADOWTYPE: THEME_PROPERTY_SYMBOL_ID = 4010u32;
+pub const TMT_TOCOLOR1: THEME_PROPERTY_SYMBOL_ID = 2006u32;
+pub const TMT_TOCOLOR2: THEME_PROPERTY_SYMBOL_ID = 2007u32;
+pub const TMT_TOCOLOR3: THEME_PROPERTY_SYMBOL_ID = 2008u32;
+pub const TMT_TOCOLOR4: THEME_PROPERTY_SYMBOL_ID = 2009u32;
+pub const TMT_TOCOLOR5: THEME_PROPERTY_SYMBOL_ID = 2010u32;
+pub const TMT_TOHUE1: THEME_PROPERTY_SYMBOL_ID = 1806u32;
+pub const TMT_TOHUE2: THEME_PROPERTY_SYMBOL_ID = 1807u32;
+pub const TMT_TOHUE3: THEME_PROPERTY_SYMBOL_ID = 1808u32;
+pub const TMT_TOHUE4: THEME_PROPERTY_SYMBOL_ID = 1809u32;
+pub const TMT_TOHUE5: THEME_PROPERTY_SYMBOL_ID = 1810u32;
+pub const TMT_TOOLTIP: THEME_PROPERTY_SYMBOL_ID = 602u32;
+pub const TMT_TRANSITIONDURATIONS: THEME_PROPERTY_SYMBOL_ID = 6000u32;
+pub const TMT_TRANSPARENT: THEME_PROPERTY_SYMBOL_ID = 2201u32;
+pub const TMT_TRANSPARENTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3809u32;
+pub const TMT_TRUESIZESCALINGTYPE: THEME_PROPERTY_SYMBOL_ID = 4015u32;
+pub const TMT_TRUESIZESTRETCHMARK: THEME_PROPERTY_SYMBOL_ID = 2419u32;
+pub const TMT_UNIFORMSIZING: THEME_PROPERTY_SYMBOL_ID = 2210u32;
+pub const TMT_URL: THEME_PROPERTY_SYMBOL_ID = 606u32;
+pub const TMT_USERPICTURE: THEME_PROPERTY_SYMBOL_ID = 5001u32;
+pub const TMT_VALIGN: THEME_PROPERTY_SYMBOL_ID = 4007u32;
+pub const TMT_VERSION: THEME_PROPERTY_SYMBOL_ID = 607u32;
+pub const TMT_WIDTH: THEME_PROPERTY_SYMBOL_ID = 2416u32;
+pub const TMT_WINDOW: THEME_PROPERTY_SYMBOL_ID = 1606u32;
+pub const TMT_WINDOWFRAME: THEME_PROPERTY_SYMBOL_ID = 1607u32;
+pub const TMT_WINDOWTEXT: THEME_PROPERTY_SYMBOL_ID = 1609u32;
+pub const TMT_XMLNAME: THEME_PROPERTY_SYMBOL_ID = 1402u32;
+pub const TNP_ANIMBACKGROUND: TRAYNOTIFYPARTS = 2i32;
+pub const TNP_BACKGROUND: TRAYNOTIFYPARTS = 1i32;
+pub const TOOLBARCLASSNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ToolbarWindow32");
+pub const TOOLBARCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("ToolbarWindow32");
+pub const TOOLBARCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("ToolbarWindow32");
+pub type TOOLBARPARTS = i32;
+pub type TOOLBARSTYLESTATES = i32;
+pub type TOOLTIPPARTS = i32;
+pub const TOOLTIPS_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("tooltips_class32");
+pub const TOOLTIPS_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("tooltips_class32");
+pub const TOOLTIPS_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("tooltips_class32");
+pub type TOOLTIP_FLAGS = u32;
+pub type TOPTABITEMBOTHEDGESTATES = i32;
+pub type TOPTABITEMLEFTEDGESTATES = i32;
+pub type TOPTABITEMRIGHTEDGESTATES = i32;
+pub type TOPTABITEMSTATES = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOUCH_HIT_TESTING_INPUT {
@@ -7055,6 +6223,95 @@ pub struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
     pub score: u16,
     pub adjustedPoint: super::super::Foundation::POINT,
 }
+pub const TP_BUTTON: TOOLBARPARTS = 1i32;
+pub const TP_DROPDOWNBUTTON: TOOLBARPARTS = 2i32;
+pub const TP_DROPDOWNBUTTONGLYPH: TOOLBARPARTS = 7i32;
+pub const TP_SEPARATOR: TOOLBARPARTS = 5i32;
+pub const TP_SEPARATORVERT: TOOLBARPARTS = 6i32;
+pub const TP_SPLITBUTTON: TOOLBARPARTS = 3i32;
+pub const TP_SPLITBUTTONDROPDOWN: TOOLBARPARTS = 4i32;
+pub type TRACKBARPARTS = i32;
+pub type TRACKBARSTYLESTATES = i32;
+pub const TRACKBAR_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_trackbar32");
+pub const TRACKBAR_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_trackbar32");
+pub const TRACKBAR_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_trackbar32");
+pub type TRACKSTATES = i32;
+pub type TRACKVERTSTATES = i32;
+pub type TRAILINGGRIDCELLSTATES = i32;
+pub type TRAILINGGRIDCELLUPPERSTATES = i32;
+pub type TRANSPARENTBACKGROUNDSTATES = i32;
+pub type TRANSPARENTBARSTATES = i32;
+pub type TRANSPARENTBARVERTSTATES = i32;
+pub type TRAYNOTIFYPARTS = i32;
+pub const TRBN_FIRST: u32 = 4294965795u32;
+pub const TRBN_LAST: u32 = 4294965777u32;
+pub const TRBN_THUMBPOSCHANGING: u32 = 4294965794u32;
+pub type TREEITEMSTATES = i32;
+pub type TREEVIEWPARTS = i32;
+pub type TREE_VIEW_ITEM_STATE_FLAGS = u32;
+pub const TREIS_DISABLED: TREEITEMSTATES = 4i32;
+pub const TREIS_HOT: TREEITEMSTATES = 2i32;
+pub const TREIS_HOTSELECTED: TREEITEMSTATES = 6i32;
+pub const TREIS_NORMAL: TREEITEMSTATES = 1i32;
+pub const TREIS_SELECTED: TREEITEMSTATES = 3i32;
+pub const TREIS_SELECTEDNOTFOCUS: TREEITEMSTATES = 5i32;
+pub const TRS_NORMAL: TRACKSTATES = 1i32;
+pub type TRUESIZESCALINGTYPE = i32;
+pub const TRVS_NORMAL: TRACKVERTSTATES = 1i32;
+pub const TSGP_GRIPPER: TEXTSELECTIONGRIPPERPARTS = 1i32;
+pub const TSGS_CENTERED: GRIPPERSTATES = 2i32;
+pub const TSGS_NORMAL: GRIPPERSTATES = 1i32;
+pub const TSST_DPI: TRUESIZESCALINGTYPE = 2i32;
+pub const TSST_NONE: TRUESIZESCALINGTYPE = 0i32;
+pub const TSST_SIZE: TRUESIZESCALINGTYPE = 1i32;
+pub const TSS_NORMAL: TICSSTATES = 1i32;
+pub const TST_CONTINUOUS: TEXTSHADOWTYPE = 2i32;
+pub const TST_NONE: TEXTSHADOWTYPE = 0i32;
+pub const TST_SINGLE: TEXTSHADOWTYPE = 1i32;
+pub const TSVS_NORMAL: TICSVERTSTATES = 1i32;
+pub const TS_CHECKED: TOOLBARSTYLESTATES = 5i32;
+pub const TS_CONTROLLABEL_DISABLED: CONTROLLABELSTATES = 2i32;
+pub const TS_CONTROLLABEL_NORMAL: CONTROLLABELSTATES = 1i32;
+pub const TS_DISABLED: TOOLBARSTYLESTATES = 4i32;
+pub const TS_DRAW: THEMESIZE = 2i32;
+pub const TS_HOT: TOOLBARSTYLESTATES = 2i32;
+pub const TS_HOTCHECKED: TOOLBARSTYLESTATES = 6i32;
+pub const TS_HYPERLINK_DISABLED: HYPERLINKTEXTSTATES = 4i32;
+pub const TS_HYPERLINK_HOT: HYPERLINKTEXTSTATES = 2i32;
+pub const TS_HYPERLINK_NORMAL: HYPERLINKTEXTSTATES = 1i32;
+pub const TS_HYPERLINK_PRESSED: HYPERLINKTEXTSTATES = 3i32;
+pub const TS_MIN: THEMESIZE = 0i32;
+pub const TS_NEARHOT: TOOLBARSTYLESTATES = 7i32;
+pub const TS_NORMAL: TOOLBARSTYLESTATES = 1i32;
+pub const TS_OTHERSIDEHOT: TOOLBARSTYLESTATES = 8i32;
+pub const TS_PRESSED: TOOLBARSTYLESTATES = 3i32;
+pub const TS_TRUE: THEMESIZE = 1i32;
+pub const TTBSS_POINTINGDOWNCENTERED: BALLOONSTEMSTATES = 5i32;
+pub const TTBSS_POINTINGDOWNLEFTWALL: BALLOONSTEMSTATES = 6i32;
+pub const TTBSS_POINTINGDOWNRIGHTWALL: BALLOONSTEMSTATES = 4i32;
+pub const TTBSS_POINTINGUPCENTERED: BALLOONSTEMSTATES = 2i32;
+pub const TTBSS_POINTINGUPLEFTWALL: BALLOONSTEMSTATES = 1i32;
+pub const TTBSS_POINTINGUPRIGHTWALL: BALLOONSTEMSTATES = 3i32;
+pub const TTBS_LINK: BALLOONSTATES = 2i32;
+pub const TTBS_NORMAL: BALLOONSTATES = 1i32;
+pub const TTCS_HOT: CLOSESTATES = 2i32;
+pub const TTCS_NORMAL: CLOSESTATES = 1i32;
+pub const TTCS_PRESSED: CLOSESTATES = 3i32;
+pub const TTDT_AUTOMATIC: u32 = 0u32;
+pub const TTDT_AUTOPOP: u32 = 2u32;
+pub const TTDT_INITIAL: u32 = 3u32;
+pub const TTDT_RESHOW: u32 = 1u32;
+pub const TTFT_CUBIC_BEZIER: TA_TIMINGFUNCTION_TYPE = 1i32;
+pub const TTFT_UNDEFINED: TA_TIMINGFUNCTION_TYPE = 0i32;
+pub const TTF_ABSOLUTE: TOOLTIP_FLAGS = 128u32;
+pub const TTF_CENTERTIP: TOOLTIP_FLAGS = 2u32;
+pub const TTF_DI_SETITEM: TOOLTIP_FLAGS = 32768u32;
+pub const TTF_IDISHWND: TOOLTIP_FLAGS = 1u32;
+pub const TTF_PARSELINKS: TOOLTIP_FLAGS = 4096u32;
+pub const TTF_RTLREADING: TOOLTIP_FLAGS = 4u32;
+pub const TTF_SUBCLASS: TOOLTIP_FLAGS = 16u32;
+pub const TTF_TRACK: TOOLTIP_FLAGS = 32u32;
+pub const TTF_TRANSPARENT: TOOLTIP_FLAGS = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TTGETTITLE {
@@ -7077,6 +6334,116 @@ pub struct TTHITTESTINFOW {
     pub pt: super::super::Foundation::POINT,
     pub ti: TTTOOLINFOW,
 }
+pub const TTIBES_DISABLED: TOPTABITEMBOTHEDGESTATES = 4i32;
+pub const TTIBES_FOCUSED: TOPTABITEMBOTHEDGESTATES = 5i32;
+pub const TTIBES_HOT: TOPTABITEMBOTHEDGESTATES = 2i32;
+pub const TTIBES_NORMAL: TOPTABITEMBOTHEDGESTATES = 1i32;
+pub const TTIBES_SELECTED: TOPTABITEMBOTHEDGESTATES = 3i32;
+pub const TTILES_DISABLED: TOPTABITEMLEFTEDGESTATES = 4i32;
+pub const TTILES_FOCUSED: TOPTABITEMLEFTEDGESTATES = 5i32;
+pub const TTILES_HOT: TOPTABITEMLEFTEDGESTATES = 2i32;
+pub const TTILES_NORMAL: TOPTABITEMLEFTEDGESTATES = 1i32;
+pub const TTILES_SELECTED: TOPTABITEMLEFTEDGESTATES = 3i32;
+pub const TTIRES_DISABLED: TOPTABITEMRIGHTEDGESTATES = 4i32;
+pub const TTIRES_FOCUSED: TOPTABITEMRIGHTEDGESTATES = 5i32;
+pub const TTIRES_HOT: TOPTABITEMRIGHTEDGESTATES = 2i32;
+pub const TTIRES_NORMAL: TOPTABITEMRIGHTEDGESTATES = 1i32;
+pub const TTIRES_SELECTED: TOPTABITEMRIGHTEDGESTATES = 3i32;
+pub const TTIS_DISABLED: TOPTABITEMSTATES = 4i32;
+pub const TTIS_FOCUSED: TOPTABITEMSTATES = 5i32;
+pub const TTIS_HOT: TOPTABITEMSTATES = 2i32;
+pub const TTIS_NORMAL: TOPTABITEMSTATES = 1i32;
+pub const TTIS_SELECTED: TOPTABITEMSTATES = 3i32;
+pub const TTI_ERROR: EDITBALLOONTIP_ICON = 3i32;
+pub const TTI_ERROR_LARGE: EDITBALLOONTIP_ICON = 6i32;
+pub const TTI_INFO: EDITBALLOONTIP_ICON = 1i32;
+pub const TTI_INFO_LARGE: EDITBALLOONTIP_ICON = 4i32;
+pub const TTI_NONE: EDITBALLOONTIP_ICON = 0i32;
+pub const TTI_WARNING: EDITBALLOONTIP_ICON = 2i32;
+pub const TTI_WARNING_LARGE: EDITBALLOONTIP_ICON = 5i32;
+pub const TTM_ACTIVATE: u32 = 1025u32;
+pub const TTM_ADDTOOL: u32 = 1074u32;
+pub const TTM_ADDTOOLA: u32 = 1028u32;
+pub const TTM_ADDTOOLW: u32 = 1074u32;
+pub const TTM_ADJUSTRECT: u32 = 1055u32;
+pub const TTM_DELTOOL: u32 = 1075u32;
+pub const TTM_DELTOOLA: u32 = 1029u32;
+pub const TTM_DELTOOLW: u32 = 1075u32;
+pub const TTM_ENUMTOOLS: u32 = 1082u32;
+pub const TTM_ENUMTOOLSA: u32 = 1038u32;
+pub const TTM_ENUMTOOLSW: u32 = 1082u32;
+pub const TTM_GETBUBBLESIZE: u32 = 1054u32;
+pub const TTM_GETCURRENTTOOL: u32 = 1083u32;
+pub const TTM_GETCURRENTTOOLA: u32 = 1039u32;
+pub const TTM_GETCURRENTTOOLW: u32 = 1083u32;
+pub const TTM_GETDELAYTIME: u32 = 1045u32;
+pub const TTM_GETMARGIN: u32 = 1051u32;
+pub const TTM_GETMAXTIPWIDTH: u32 = 1049u32;
+pub const TTM_GETTEXT: u32 = 1080u32;
+pub const TTM_GETTEXTA: u32 = 1035u32;
+pub const TTM_GETTEXTW: u32 = 1080u32;
+pub const TTM_GETTIPBKCOLOR: u32 = 1046u32;
+pub const TTM_GETTIPTEXTCOLOR: u32 = 1047u32;
+pub const TTM_GETTITLE: u32 = 1059u32;
+pub const TTM_GETTOOLCOUNT: u32 = 1037u32;
+pub const TTM_GETTOOLINFO: u32 = 1077u32;
+pub const TTM_GETTOOLINFOA: u32 = 1032u32;
+pub const TTM_GETTOOLINFOW: u32 = 1077u32;
+pub const TTM_HITTEST: u32 = 1079u32;
+pub const TTM_HITTESTA: u32 = 1034u32;
+pub const TTM_HITTESTW: u32 = 1079u32;
+pub const TTM_NEWTOOLRECT: u32 = 1076u32;
+pub const TTM_NEWTOOLRECTA: u32 = 1030u32;
+pub const TTM_NEWTOOLRECTW: u32 = 1076u32;
+pub const TTM_POP: u32 = 1052u32;
+pub const TTM_POPUP: u32 = 1058u32;
+pub const TTM_RELAYEVENT: u32 = 1031u32;
+pub const TTM_SETDELAYTIME: u32 = 1027u32;
+pub const TTM_SETMARGIN: u32 = 1050u32;
+pub const TTM_SETMAXTIPWIDTH: u32 = 1048u32;
+pub const TTM_SETTIPBKCOLOR: u32 = 1043u32;
+pub const TTM_SETTIPTEXTCOLOR: u32 = 1044u32;
+pub const TTM_SETTITLE: u32 = 1057u32;
+pub const TTM_SETTITLEA: u32 = 1056u32;
+pub const TTM_SETTITLEW: u32 = 1057u32;
+pub const TTM_SETTOOLINFO: u32 = 1078u32;
+pub const TTM_SETTOOLINFOA: u32 = 1033u32;
+pub const TTM_SETTOOLINFOW: u32 = 1078u32;
+pub const TTM_SETWINDOWTHEME: u32 = 8203u32;
+pub const TTM_TRACKACTIVATE: u32 = 1041u32;
+pub const TTM_TRACKPOSITION: u32 = 1042u32;
+pub const TTM_UPDATE: u32 = 1053u32;
+pub const TTM_UPDATETIPTEXT: u32 = 1081u32;
+pub const TTM_UPDATETIPTEXTA: u32 = 1036u32;
+pub const TTM_UPDATETIPTEXTW: u32 = 1081u32;
+pub const TTM_WINDOWFROMPOINT: u32 = 1040u32;
+pub const TTN_FIRST: u32 = 4294966776u32;
+pub const TTN_GETDISPINFO: u32 = 4294966766u32;
+pub const TTN_GETDISPINFOA: u32 = 4294966776u32;
+pub const TTN_GETDISPINFOW: u32 = 4294966766u32;
+pub const TTN_LAST: u32 = 4294966747u32;
+pub const TTN_LINKCLICK: u32 = 4294966773u32;
+pub const TTN_NEEDTEXT: u32 = 4294966766u32;
+pub const TTN_NEEDTEXTA: u32 = 4294966776u32;
+pub const TTN_NEEDTEXTW: u32 = 4294966766u32;
+pub const TTN_POP: u32 = 4294966774u32;
+pub const TTN_SHOW: u32 = 4294966775u32;
+pub const TTP_BALLOON: TOOLTIPPARTS = 3i32;
+pub const TTP_BALLOONSTEM: TOOLTIPPARTS = 6i32;
+pub const TTP_BALLOONTITLE: TOOLTIPPARTS = 4i32;
+pub const TTP_CLOSE: TOOLTIPPARTS = 5i32;
+pub const TTP_STANDARD: TOOLTIPPARTS = 1i32;
+pub const TTP_STANDARDTITLE: TOOLTIPPARTS = 2i32;
+pub const TTP_WRENCH: TOOLTIPPARTS = 7i32;
+pub const TTSS_LINK: STANDARDSTATES = 2i32;
+pub const TTSS_NORMAL: STANDARDSTATES = 1i32;
+pub const TTS_ALWAYSTIP: u32 = 1u32;
+pub const TTS_BALLOON: u32 = 64u32;
+pub const TTS_CLOSE: u32 = 128u32;
+pub const TTS_NOANIMATE: u32 = 16u32;
+pub const TTS_NOFADE: u32 = 32u32;
+pub const TTS_NOPREFIX: u32 = 2u32;
+pub const TTS_USEVISUALSTYLE: u32 = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TTTOOLINFOA {
@@ -7103,6 +6470,48 @@ pub struct TTTOOLINFOW {
     pub lParam: super::super::Foundation::LPARAM,
     pub lpReserved: *mut core::ffi::c_void,
 }
+pub const TTWS_HOT: WRENCHSTATES = 2i32;
+pub const TTWS_NORMAL: WRENCHSTATES = 1i32;
+pub const TTWS_PRESSED: WRENCHSTATES = 3i32;
+pub const TUBS_DISABLED: THUMBBOTTOMSTATES = 5i32;
+pub const TUBS_FOCUSED: THUMBBOTTOMSTATES = 4i32;
+pub const TUBS_HOT: THUMBBOTTOMSTATES = 2i32;
+pub const TUBS_NORMAL: THUMBBOTTOMSTATES = 1i32;
+pub const TUBS_PRESSED: THUMBBOTTOMSTATES = 3i32;
+pub const TUS_DISABLED: THUMBSTATES = 5i32;
+pub const TUS_FOCUSED: THUMBSTATES = 4i32;
+pub const TUS_HOT: THUMBSTATES = 2i32;
+pub const TUS_NORMAL: THUMBSTATES = 1i32;
+pub const TUS_PRESSED: THUMBSTATES = 3i32;
+pub const TUTS_DISABLED: THUMBTOPSTATES = 5i32;
+pub const TUTS_FOCUSED: THUMBTOPSTATES = 4i32;
+pub const TUTS_HOT: THUMBTOPSTATES = 2i32;
+pub const TUTS_NORMAL: THUMBTOPSTATES = 1i32;
+pub const TUTS_PRESSED: THUMBTOPSTATES = 3i32;
+pub const TUVLS_DISABLED: THUMBLEFTSTATES = 5i32;
+pub const TUVLS_FOCUSED: THUMBLEFTSTATES = 4i32;
+pub const TUVLS_HOT: THUMBLEFTSTATES = 2i32;
+pub const TUVLS_NORMAL: THUMBLEFTSTATES = 1i32;
+pub const TUVLS_PRESSED: THUMBLEFTSTATES = 3i32;
+pub const TUVRS_DISABLED: THUMBRIGHTSTATES = 5i32;
+pub const TUVRS_FOCUSED: THUMBRIGHTSTATES = 4i32;
+pub const TUVRS_HOT: THUMBRIGHTSTATES = 2i32;
+pub const TUVRS_NORMAL: THUMBRIGHTSTATES = 1i32;
+pub const TUVRS_PRESSED: THUMBRIGHTSTATES = 3i32;
+pub const TUVS_DISABLED: THUMBVERTSTATES = 5i32;
+pub const TUVS_FOCUSED: THUMBVERTSTATES = 4i32;
+pub const TUVS_HOT: THUMBVERTSTATES = 2i32;
+pub const TUVS_NORMAL: THUMBVERTSTATES = 1i32;
+pub const TUVS_PRESSED: THUMBVERTSTATES = 3i32;
+pub const TVCDRF_NOIMAGES: u32 = 65536u32;
+pub const TVC_BYKEYBOARD: NM_TREEVIEW_ACTION = 2u32;
+pub const TVC_BYMOUSE: NM_TREEVIEW_ACTION = 1u32;
+pub const TVC_UNKNOWN: NM_TREEVIEW_ACTION = 0u32;
+pub const TVE_COLLAPSE: NM_TREEVIEW_ACTION = 1u32;
+pub const TVE_COLLAPSERESET: NM_TREEVIEW_ACTION = 32768u32;
+pub const TVE_EXPAND: NM_TREEVIEW_ACTION = 2u32;
+pub const TVE_EXPANDPARTIAL: NM_TREEVIEW_ACTION = 16384u32;
+pub const TVE_TOGGLE: NM_TREEVIEW_ACTION = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TVGETITEMPARTRECTINFO {
@@ -7110,6 +6519,19 @@ pub struct TVGETITEMPARTRECTINFO {
     pub prc: *mut super::super::Foundation::RECT,
     pub partID: TVITEMPART,
 }
+pub const TVGIPR_BUTTON: TVITEMPART = 1i32;
+pub const TVGN_CARET: u32 = 9u32;
+pub const TVGN_CHILD: u32 = 4u32;
+pub const TVGN_DROPHILITE: u32 = 8u32;
+pub const TVGN_FIRSTVISIBLE: u32 = 5u32;
+pub const TVGN_LASTVISIBLE: u32 = 10u32;
+pub const TVGN_NEXT: u32 = 1u32;
+pub const TVGN_NEXTSELECTED: u32 = 11u32;
+pub const TVGN_NEXTVISIBLE: u32 = 6u32;
+pub const TVGN_PARENT: u32 = 3u32;
+pub const TVGN_PREVIOUS: u32 = 2u32;
+pub const TVGN_PREVIOUSVISIBLE: u32 = 7u32;
+pub const TVGN_ROOT: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TVHITTESTINFO {
@@ -7117,6 +6539,30 @@ pub struct TVHITTESTINFO {
     pub flags: TVHITTESTINFO_FLAGS,
     pub hItem: HTREEITEM,
 }
+pub type TVHITTESTINFO_FLAGS = u32;
+pub const TVHT_ABOVE: TVHITTESTINFO_FLAGS = 256u32;
+pub const TVHT_BELOW: TVHITTESTINFO_FLAGS = 512u32;
+pub const TVHT_NOWHERE: TVHITTESTINFO_FLAGS = 1u32;
+pub const TVHT_ONITEM: TVHITTESTINFO_FLAGS = 70u32;
+pub const TVHT_ONITEMBUTTON: TVHITTESTINFO_FLAGS = 16u32;
+pub const TVHT_ONITEMICON: TVHITTESTINFO_FLAGS = 2u32;
+pub const TVHT_ONITEMINDENT: TVHITTESTINFO_FLAGS = 8u32;
+pub const TVHT_ONITEMLABEL: TVHITTESTINFO_FLAGS = 4u32;
+pub const TVHT_ONITEMRIGHT: TVHITTESTINFO_FLAGS = 32u32;
+pub const TVHT_ONITEMSTATEICON: TVHITTESTINFO_FLAGS = 64u32;
+pub const TVHT_TOLEFT: TVHITTESTINFO_FLAGS = 2048u32;
+pub const TVHT_TORIGHT: TVHITTESTINFO_FLAGS = 1024u32;
+pub const TVIF_CHILDREN: TVITEM_MASK = 64u32;
+pub const TVIF_DI_SETITEM: TVITEM_MASK = 4096u32;
+pub const TVIF_EXPANDEDIMAGE: TVITEM_MASK = 512u32;
+pub const TVIF_HANDLE: TVITEM_MASK = 16u32;
+pub const TVIF_IMAGE: TVITEM_MASK = 2u32;
+pub const TVIF_INTEGRAL: TVITEM_MASK = 128u32;
+pub const TVIF_PARAM: TVITEM_MASK = 4u32;
+pub const TVIF_SELECTEDIMAGE: TVITEM_MASK = 32u32;
+pub const TVIF_STATE: TVITEM_MASK = 8u32;
+pub const TVIF_STATEEX: TVITEM_MASK = 256u32;
+pub const TVIF_TEXT: TVITEM_MASK = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TVINSERTSTRUCTA {
@@ -7143,6 +6589,19 @@ pub union TVINSERTSTRUCTW_0 {
     pub itemex: TVITEMEXW,
     pub item: TVITEMW,
 }
+pub const TVIS_BOLD: TREE_VIEW_ITEM_STATE_FLAGS = 16u32;
+pub const TVIS_CUT: TREE_VIEW_ITEM_STATE_FLAGS = 4u32;
+pub const TVIS_DROPHILITED: TREE_VIEW_ITEM_STATE_FLAGS = 8u32;
+pub const TVIS_EXPANDED: TREE_VIEW_ITEM_STATE_FLAGS = 32u32;
+pub const TVIS_EXPANDEDONCE: TREE_VIEW_ITEM_STATE_FLAGS = 64u32;
+pub const TVIS_EXPANDPARTIAL: TREE_VIEW_ITEM_STATE_FLAGS = 128u32;
+pub const TVIS_EX_ALL: TREE_VIEW_ITEM_STATE_FLAGS = 2u32;
+pub const TVIS_EX_DISABLED: TREE_VIEW_ITEM_STATE_FLAGS = 2u32;
+pub const TVIS_EX_FLAT: TREE_VIEW_ITEM_STATE_FLAGS = 1u32;
+pub const TVIS_OVERLAYMASK: TREE_VIEW_ITEM_STATE_FLAGS = 3840u32;
+pub const TVIS_SELECTED: TREE_VIEW_ITEM_STATE_FLAGS = 2u32;
+pub const TVIS_STATEIMAGEMASK: TREE_VIEW_ITEM_STATE_FLAGS = 61440u32;
+pub const TVIS_USERMASK: TREE_VIEW_ITEM_STATE_FLAGS = 61440u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TVITEMA {
@@ -7195,6 +6654,8 @@ pub struct TVITEMEXW {
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
+pub type TVITEMEXW_CHILDREN = i32;
+pub type TVITEMPART = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TVITEMW {
@@ -7209,6 +6670,131 @@ pub struct TVITEMW {
     pub cChildren: TVITEMEXW_CHILDREN,
     pub lParam: super::super::Foundation::LPARAM,
 }
+pub type TVITEM_MASK = u32;
+pub const TVI_FIRST: HTREEITEM = -65535i32 as _;
+pub const TVI_LAST: HTREEITEM = -65534i32 as _;
+pub const TVI_ROOT: HTREEITEM = -65536i32 as _;
+pub const TVI_SORT: HTREEITEM = -65533i32 as _;
+pub const TVM_CREATEDRAGIMAGE: u32 = 4370u32;
+pub const TVM_DELETEITEM: u32 = 4353u32;
+pub const TVM_EDITLABEL: u32 = 4417u32;
+pub const TVM_EDITLABELA: u32 = 4366u32;
+pub const TVM_EDITLABELW: u32 = 4417u32;
+pub const TVM_ENDEDITLABELNOW: u32 = 4374u32;
+pub const TVM_ENSUREVISIBLE: u32 = 4372u32;
+pub const TVM_EXPAND: u32 = 4354u32;
+pub const TVM_GETBKCOLOR: u32 = 4383u32;
+pub const TVM_GETCOUNT: u32 = 4357u32;
+pub const TVM_GETEDITCONTROL: u32 = 4367u32;
+pub const TVM_GETEXTENDEDSTYLE: u32 = 4397u32;
+pub const TVM_GETIMAGELIST: u32 = 4360u32;
+pub const TVM_GETINDENT: u32 = 4358u32;
+pub const TVM_GETINSERTMARKCOLOR: u32 = 4390u32;
+pub const TVM_GETISEARCHSTRING: u32 = 4416u32;
+pub const TVM_GETISEARCHSTRINGA: u32 = 4375u32;
+pub const TVM_GETISEARCHSTRINGW: u32 = 4416u32;
+pub const TVM_GETITEM: u32 = 4414u32;
+pub const TVM_GETITEMA: u32 = 4364u32;
+pub const TVM_GETITEMHEIGHT: u32 = 4380u32;
+pub const TVM_GETITEMPARTRECT: u32 = 4424u32;
+pub const TVM_GETITEMRECT: u32 = 4356u32;
+pub const TVM_GETITEMSTATE: u32 = 4391u32;
+pub const TVM_GETITEMW: u32 = 4414u32;
+pub const TVM_GETLINECOLOR: u32 = 4393u32;
+pub const TVM_GETNEXTITEM: u32 = 4362u32;
+pub const TVM_GETSCROLLTIME: u32 = 4386u32;
+pub const TVM_GETSELECTEDCOUNT: u32 = 4422u32;
+pub const TVM_GETTEXTCOLOR: u32 = 4384u32;
+pub const TVM_GETTOOLTIPS: u32 = 4377u32;
+pub const TVM_GETUNICODEFORMAT: u32 = 8198u32;
+pub const TVM_GETVISIBLECOUNT: u32 = 4368u32;
+pub const TVM_HITTEST: u32 = 4369u32;
+pub const TVM_INSERTITEM: u32 = 4402u32;
+pub const TVM_INSERTITEMA: u32 = 4352u32;
+pub const TVM_INSERTITEMW: u32 = 4402u32;
+pub const TVM_MAPACCIDTOHTREEITEM: u32 = 4394u32;
+pub const TVM_MAPHTREEITEMTOACCID: u32 = 4395u32;
+pub const TVM_SELECTITEM: u32 = 4363u32;
+pub const TVM_SETAUTOSCROLLINFO: u32 = 4411u32;
+pub const TVM_SETBKCOLOR: u32 = 4381u32;
+pub const TVM_SETBORDER: u32 = 4387u32;
+pub const TVM_SETEXTENDEDSTYLE: u32 = 4396u32;
+pub const TVM_SETHOT: u32 = 4410u32;
+pub const TVM_SETIMAGELIST: u32 = 4361u32;
+pub const TVM_SETINDENT: u32 = 4359u32;
+pub const TVM_SETINSERTMARK: u32 = 4378u32;
+pub const TVM_SETINSERTMARKCOLOR: u32 = 4389u32;
+pub const TVM_SETITEM: u32 = 4415u32;
+pub const TVM_SETITEMA: u32 = 4365u32;
+pub const TVM_SETITEMHEIGHT: u32 = 4379u32;
+pub const TVM_SETITEMW: u32 = 4415u32;
+pub const TVM_SETLINECOLOR: u32 = 4392u32;
+pub const TVM_SETSCROLLTIME: u32 = 4385u32;
+pub const TVM_SETTEXTCOLOR: u32 = 4382u32;
+pub const TVM_SETTOOLTIPS: u32 = 4376u32;
+pub const TVM_SETUNICODEFORMAT: u32 = 8197u32;
+pub const TVM_SHOWINFOTIP: u32 = 4423u32;
+pub const TVM_SORTCHILDREN: u32 = 4371u32;
+pub const TVM_SORTCHILDRENCB: u32 = 4373u32;
+pub const TVNRET_DEFAULT: u32 = 0u32;
+pub const TVNRET_SKIPNEW: u32 = 2u32;
+pub const TVNRET_SKIPOLD: u32 = 1u32;
+pub const TVN_ASYNCDRAW: u32 = 4294966876u32;
+pub const TVN_BEGINDRAG: u32 = 4294966840u32;
+pub const TVN_BEGINDRAGA: u32 = 4294966889u32;
+pub const TVN_BEGINDRAGW: u32 = 4294966840u32;
+pub const TVN_BEGINLABELEDIT: u32 = 4294966837u32;
+pub const TVN_BEGINLABELEDITA: u32 = 4294966886u32;
+pub const TVN_BEGINLABELEDITW: u32 = 4294966837u32;
+pub const TVN_BEGINRDRAG: u32 = 4294966839u32;
+pub const TVN_BEGINRDRAGA: u32 = 4294966888u32;
+pub const TVN_BEGINRDRAGW: u32 = 4294966839u32;
+pub const TVN_DELETEITEM: u32 = 4294966838u32;
+pub const TVN_DELETEITEMA: u32 = 4294966887u32;
+pub const TVN_DELETEITEMW: u32 = 4294966838u32;
+pub const TVN_ENDLABELEDIT: u32 = 4294966836u32;
+pub const TVN_ENDLABELEDITA: u32 = 4294966885u32;
+pub const TVN_ENDLABELEDITW: u32 = 4294966836u32;
+pub const TVN_FIRST: u32 = 4294966896u32;
+pub const TVN_GETDISPINFO: u32 = 4294966844u32;
+pub const TVN_GETDISPINFOA: u32 = 4294966893u32;
+pub const TVN_GETDISPINFOW: u32 = 4294966844u32;
+pub const TVN_GETINFOTIP: u32 = 4294966882u32;
+pub const TVN_GETINFOTIPA: u32 = 4294966883u32;
+pub const TVN_GETINFOTIPW: u32 = 4294966882u32;
+pub const TVN_ITEMCHANGED: u32 = 4294966877u32;
+pub const TVN_ITEMCHANGEDA: u32 = 4294966878u32;
+pub const TVN_ITEMCHANGEDW: u32 = 4294966877u32;
+pub const TVN_ITEMCHANGING: u32 = 4294966879u32;
+pub const TVN_ITEMCHANGINGA: u32 = 4294966880u32;
+pub const TVN_ITEMCHANGINGW: u32 = 4294966879u32;
+pub const TVN_ITEMEXPANDED: u32 = 4294966841u32;
+pub const TVN_ITEMEXPANDEDA: u32 = 4294966890u32;
+pub const TVN_ITEMEXPANDEDW: u32 = 4294966841u32;
+pub const TVN_ITEMEXPANDING: u32 = 4294966842u32;
+pub const TVN_ITEMEXPANDINGA: u32 = 4294966891u32;
+pub const TVN_ITEMEXPANDINGW: u32 = 4294966842u32;
+pub const TVN_KEYDOWN: u32 = 4294966884u32;
+pub const TVN_LAST: u32 = 4294966797u32;
+pub const TVN_SELCHANGED: u32 = 4294966845u32;
+pub const TVN_SELCHANGEDA: u32 = 4294966894u32;
+pub const TVN_SELCHANGEDW: u32 = 4294966845u32;
+pub const TVN_SELCHANGING: u32 = 4294966846u32;
+pub const TVN_SELCHANGINGA: u32 = 4294966895u32;
+pub const TVN_SELCHANGINGW: u32 = 4294966846u32;
+pub const TVN_SETDISPINFO: u32 = 4294966843u32;
+pub const TVN_SETDISPINFOA: u32 = 4294966892u32;
+pub const TVN_SETDISPINFOW: u32 = 4294966843u32;
+pub const TVN_SINGLEEXPAND: u32 = 4294966881u32;
+pub const TVP_BRANCH: TREEVIEWPARTS = 3i32;
+pub const TVP_GLYPH: TREEVIEWPARTS = 2i32;
+pub const TVP_HOTGLYPH: TREEVIEWPARTS = 4i32;
+pub const TVP_TREEITEM: TREEVIEWPARTS = 1i32;
+pub const TVSBF_XBORDER: u32 = 1u32;
+pub const TVSBF_YBORDER: u32 = 2u32;
+pub const TVSIL_NORMAL: u32 = 0u32;
+pub const TVSIL_STATE: u32 = 2u32;
+pub const TVSI_NOSINGLEEXPAND: u32 = 32768u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TVSORTCB {
@@ -7216,12 +6802,83 @@ pub struct TVSORTCB {
     pub lpfnCompare: PFNTVCOMPARE,
     pub lParam: super::super::Foundation::LPARAM,
 }
+pub const TVS_CHECKBOXES: u32 = 256u32;
+pub const TVS_DISABLEDRAGDROP: u32 = 16u32;
+pub const TVS_EDITLABELS: u32 = 8u32;
+pub const TVS_EX_AUTOHSCROLL: u32 = 32u32;
+pub const TVS_EX_DIMMEDCHECKBOXES: u32 = 512u32;
+pub const TVS_EX_DOUBLEBUFFER: u32 = 4u32;
+pub const TVS_EX_DRAWIMAGEASYNC: u32 = 1024u32;
+pub const TVS_EX_EXCLUSIONCHECKBOXES: u32 = 256u32;
+pub const TVS_EX_FADEINOUTEXPANDOS: u32 = 64u32;
+pub const TVS_EX_MULTISELECT: u32 = 2u32;
+pub const TVS_EX_NOINDENTSTATE: u32 = 8u32;
+pub const TVS_EX_NOSINGLECOLLAPSE: u32 = 1u32;
+pub const TVS_EX_PARTIALCHECKBOXES: u32 = 128u32;
+pub const TVS_EX_RICHTOOLTIP: u32 = 16u32;
+pub const TVS_FULLROWSELECT: u32 = 4096u32;
+pub const TVS_HASBUTTONS: u32 = 1u32;
+pub const TVS_HASLINES: u32 = 2u32;
+pub const TVS_INFOTIP: u32 = 2048u32;
+pub const TVS_LINESATROOT: u32 = 4u32;
+pub const TVS_NOHSCROLL: u32 = 32768u32;
+pub const TVS_NONEVENHEIGHT: u32 = 16384u32;
+pub const TVS_NOSCROLL: u32 = 8192u32;
+pub const TVS_NOTOOLTIPS: u32 = 128u32;
+pub const TVS_RTLREADING: u32 = 64u32;
+pub const TVS_SHOWSELALWAYS: u32 = 32u32;
+pub const TVS_SINGLEEXPAND: u32 = 1024u32;
+pub const TVS_TRACKSELECT: u32 = 512u32;
+pub const TV_FIRST: u32 = 4352u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UDACCEL {
     pub nSec: u32,
     pub nInc: u32,
 }
+pub const UDM_GETACCEL: u32 = 1132u32;
+pub const UDM_GETBASE: u32 = 1134u32;
+pub const UDM_GETBUDDY: u32 = 1130u32;
+pub const UDM_GETPOS: u32 = 1128u32;
+pub const UDM_GETPOS32: u32 = 1138u32;
+pub const UDM_GETRANGE: u32 = 1126u32;
+pub const UDM_GETRANGE32: u32 = 1136u32;
+pub const UDM_GETUNICODEFORMAT: u32 = 8198u32;
+pub const UDM_SETACCEL: u32 = 1131u32;
+pub const UDM_SETBASE: u32 = 1133u32;
+pub const UDM_SETBUDDY: u32 = 1129u32;
+pub const UDM_SETPOS: u32 = 1127u32;
+pub const UDM_SETPOS32: u32 = 1137u32;
+pub const UDM_SETRANGE: u32 = 1125u32;
+pub const UDM_SETRANGE32: u32 = 1135u32;
+pub const UDM_SETUNICODEFORMAT: u32 = 8197u32;
+pub const UDN_DELTAPOS: u32 = 4294966574u32;
+pub const UDN_FIRST: u32 = 4294966575u32;
+pub const UDN_LAST: u32 = 4294966567u32;
+pub const UDS_ALIGNLEFT: u32 = 8u32;
+pub const UDS_ALIGNRIGHT: u32 = 4u32;
+pub const UDS_ARROWKEYS: u32 = 32u32;
+pub const UDS_AUTOBUDDY: u32 = 16u32;
+pub const UDS_HORZ: u32 = 64u32;
+pub const UDS_HOTTRACK: u32 = 256u32;
+pub const UDS_NOTHOUSANDS: u32 = 128u32;
+pub const UDS_SETBUDDYINT: u32 = 2u32;
+pub const UDS_WRAP: u32 = 1u32;
+pub const UD_MAXVAL: u32 = 32767u32;
+pub type UPDATEMETADATASTATES = i32;
+pub const UPDOWN_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_updown32");
+pub const UPDOWN_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_updown32");
+pub const UPDOWN_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_updown32");
+pub type UPHORZSTATES = i32;
+pub const UPHZS_DISABLED: UPHORZSTATES = 4i32;
+pub const UPHZS_HOT: UPHORZSTATES = 2i32;
+pub const UPHZS_NORMAL: UPHORZSTATES = 1i32;
+pub const UPHZS_PRESSED: UPHORZSTATES = 3i32;
+pub type UPSTATES = i32;
+pub const UPS_DISABLED: UPSTATES = 4i32;
+pub const UPS_HOT: UPSTATES = 2i32;
+pub const UPS_NORMAL: UPSTATES = 1i32;
+pub const UPS_PRESSED: UPSTATES = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USAGE_PROPERTIES {
@@ -7236,41 +6893,391 @@ pub struct USAGE_PROPERTIES {
     pub physicalMinimum: i32,
     pub physicalMaximum: i32,
 }
+pub type USERTILEPARTS = i32;
+pub const UTP_HOVERBACKGROUND: USERTILEPARTS = 2i32;
+pub const UTP_STROKEBACKGROUND: USERTILEPARTS = 1i32;
+pub const UTS_HOT: HOVERBACKGROUNDSTATES = 2i32;
+pub const UTS_NORMAL: HOVERBACKGROUNDSTATES = 1i32;
+pub const UTS_PRESSED: HOVERBACKGROUNDSTATES = 3i32;
+pub const VALIDBITS: SET_THEME_APP_PROPERTIES_FLAGS = 7u32;
+pub type VALIGN = i32;
+pub const VA_BOTTOM: VALIGN = 2i32;
+pub const VA_CENTER: VALIGN = 1i32;
+pub const VA_TOP: VALIGN = 0i32;
+pub type VERTSCROLLSTATES = i32;
+pub type VERTTHUMBSTATES = i32;
+pub const VIEW_DETAILS: u32 = 3u32;
+pub const VIEW_LARGEICONS: u32 = 0u32;
+pub const VIEW_LIST: u32 = 2u32;
+pub const VIEW_NETCONNECT: u32 = 9u32;
+pub const VIEW_NETDISCONNECT: u32 = 10u32;
+pub const VIEW_NEWFOLDER: u32 = 11u32;
+pub const VIEW_PARENTFOLDER: u32 = 8u32;
+pub const VIEW_SMALLICONS: u32 = 1u32;
+pub const VIEW_SORTDATE: u32 = 6u32;
+pub const VIEW_SORTNAME: u32 = 4u32;
+pub const VIEW_SORTSIZE: u32 = 5u32;
+pub const VIEW_SORTTYPE: u32 = 7u32;
+pub const VIEW_VIEWMENU: u32 = 12u32;
+pub const VSCLASS_AEROWIZARD: windows_sys::core::PCWSTR = windows_sys::core::w!("AEROWIZARD");
+pub const VSCLASS_AEROWIZARDSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("AEROWIZARDSTYLE");
+pub const VSCLASS_BUTTON: windows_sys::core::PCWSTR = windows_sys::core::w!("BUTTON");
+pub const VSCLASS_BUTTONSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("BUTTONSTYLE");
+pub const VSCLASS_CLOCK: windows_sys::core::PCWSTR = windows_sys::core::w!("CLOCK");
+pub const VSCLASS_COMBOBOX: windows_sys::core::PCWSTR = windows_sys::core::w!("COMBOBOX");
+pub const VSCLASS_COMBOBOXSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("COMBOBOXSTYLE");
+pub const VSCLASS_COMMUNICATIONS: windows_sys::core::PCWSTR = windows_sys::core::w!("COMMUNICATIONS");
+pub const VSCLASS_COMMUNICATIONSSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("COMMUNICATIONSSTYLE");
+pub const VSCLASS_CONTROLPANEL: windows_sys::core::PCWSTR = windows_sys::core::w!("CONTROLPANEL");
+pub const VSCLASS_CONTROLPANELSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("CONTROLPANELSTYLE");
+pub const VSCLASS_DATEPICKER: windows_sys::core::PCWSTR = windows_sys::core::w!("DATEPICKER");
+pub const VSCLASS_DATEPICKERSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("DATEPICKERSTYLE");
+pub const VSCLASS_DRAGDROP: windows_sys::core::PCWSTR = windows_sys::core::w!("DRAGDROP");
+pub const VSCLASS_DRAGDROPSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("DRAGDROPSTYLE");
+pub const VSCLASS_EDIT: windows_sys::core::PCWSTR = windows_sys::core::w!("EDIT");
+pub const VSCLASS_EDITSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("EDITSTYLE");
+pub const VSCLASS_EMPTYMARKUP: windows_sys::core::PCWSTR = windows_sys::core::w!("EMPTYMARKUP");
+pub const VSCLASS_EXPLORERBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("EXPLORERBAR");
+pub const VSCLASS_EXPLORERBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("EXPLORERBARSTYLE");
+pub const VSCLASS_FLYOUT: windows_sys::core::PCWSTR = windows_sys::core::w!("FLYOUT");
+pub const VSCLASS_FLYOUTSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("FLYOUTSTYLE");
+pub const VSCLASS_HEADER: windows_sys::core::PCWSTR = windows_sys::core::w!("HEADER");
+pub const VSCLASS_HEADERSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("HEADERSTYLE");
+pub const VSCLASS_LINK: windows_sys::core::PCWSTR = windows_sys::core::w!("LINK");
+pub const VSCLASS_LISTBOX: windows_sys::core::PCWSTR = windows_sys::core::w!("LISTBOX");
+pub const VSCLASS_LISTBOXSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("LISTBOXSTYLE");
+pub const VSCLASS_LISTVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("LISTVIEW");
+pub const VSCLASS_LISTVIEWSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("LISTVIEWSTYLE");
+pub const VSCLASS_MENU: windows_sys::core::PCWSTR = windows_sys::core::w!("MENU");
+pub const VSCLASS_MENUBAND: windows_sys::core::PCWSTR = windows_sys::core::w!("MENUBAND");
+pub const VSCLASS_MENUSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("MENUSTYLE");
+pub const VSCLASS_MONTHCAL: windows_sys::core::PCWSTR = windows_sys::core::w!("MONTHCAL");
+pub const VSCLASS_NAVIGATION: windows_sys::core::PCWSTR = windows_sys::core::w!("NAVIGATION");
+pub const VSCLASS_PAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("PAGE");
+pub const VSCLASS_PROGRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("PROGRESS");
+pub const VSCLASS_PROGRESSSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("PROGRESSSTYLE");
+pub const VSCLASS_REBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("REBAR");
+pub const VSCLASS_REBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("REBARSTYLE");
+pub const VSCLASS_SCROLLBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("SCROLLBAR");
+pub const VSCLASS_SCROLLBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("SCROLLBARSTYLE");
+pub const VSCLASS_SPIN: windows_sys::core::PCWSTR = windows_sys::core::w!("SPIN");
+pub const VSCLASS_SPINSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("SPINSTYLE");
+pub const VSCLASS_STARTPANEL: windows_sys::core::PCWSTR = windows_sys::core::w!("STARTPANEL");
+pub const VSCLASS_STATIC: windows_sys::core::PCWSTR = windows_sys::core::w!("STATIC");
+pub const VSCLASS_STATUS: windows_sys::core::PCWSTR = windows_sys::core::w!("STATUS");
+pub const VSCLASS_STATUSSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("STATUSSTYLE");
+pub const VSCLASS_TAB: windows_sys::core::PCWSTR = windows_sys::core::w!("TAB");
+pub const VSCLASS_TABSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TABSTYLE");
+pub const VSCLASS_TASKBAND: windows_sys::core::PCWSTR = windows_sys::core::w!("TASKBAND");
+pub const VSCLASS_TASKBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("TASKBAR");
+pub const VSCLASS_TASKDIALOG: windows_sys::core::PCWSTR = windows_sys::core::w!("TASKDIALOG");
+pub const VSCLASS_TASKDIALOGSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TASKDIALOGSTYLE");
+pub const VSCLASS_TEXTSELECTIONGRIPPER: windows_sys::core::PCWSTR = windows_sys::core::w!("TEXTSELECTIONGRIPPER");
+pub const VSCLASS_TEXTSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TEXTSTYLE");
+pub const VSCLASS_TOOLBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("TOOLBAR");
+pub const VSCLASS_TOOLBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TOOLBARSTYLE");
+pub const VSCLASS_TOOLTIP: windows_sys::core::PCWSTR = windows_sys::core::w!("TOOLTIP");
+pub const VSCLASS_TOOLTIPSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TOOLTIPSTYLE");
+pub const VSCLASS_TRACKBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("TRACKBAR");
+pub const VSCLASS_TRACKBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TRACKBARSTYLE");
+pub const VSCLASS_TRAYNOTIFY: windows_sys::core::PCWSTR = windows_sys::core::w!("TRAYNOTIFY");
+pub const VSCLASS_TREEVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("TREEVIEW");
+pub const VSCLASS_TREEVIEWSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TREEVIEWSTYLE");
+pub const VSCLASS_USERTILE: windows_sys::core::PCWSTR = windows_sys::core::w!("USERTILE");
+pub const VSCLASS_WINDOW: windows_sys::core::PCWSTR = windows_sys::core::w!("WINDOW");
+pub const VSCLASS_WINDOWSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("WINDOWSTYLE");
+pub const VSS_DISABLED: VERTSCROLLSTATES = 4i32;
+pub const VSS_HOT: VERTSCROLLSTATES = 2i32;
+pub const VSS_NORMAL: VERTSCROLLSTATES = 1i32;
+pub const VSS_PUSHED: VERTSCROLLSTATES = 3i32;
+pub const VTS_DISABLED: VERTTHUMBSTATES = 4i32;
+pub const VTS_HOT: VERTTHUMBSTATES = 2i32;
+pub const VTS_NORMAL: VERTTHUMBSTATES = 1i32;
+pub const VTS_PUSHED: VERTTHUMBSTATES = 3i32;
+pub type WARNINGSTATES = i32;
+pub const WB_CLASSIFY: WORD_BREAK_ACTION = 3i32;
+pub const WB_ISDELIMITER: WORD_BREAK_ACTION = 2i32;
+pub const WB_LEFT: WORD_BREAK_ACTION = 0i32;
+pub const WB_LEFTBREAK: WORD_BREAK_ACTION = 6i32;
+pub const WB_MOVEWORDLEFT: WORD_BREAK_ACTION = 4i32;
+pub const WB_MOVEWORDRIGHT: WORD_BREAK_ACTION = 5i32;
+pub const WB_RIGHT: WORD_BREAK_ACTION = 1i32;
+pub const WB_RIGHTBREAK: WORD_BREAK_ACTION = 7i32;
+pub const WC_BUTTON: windows_sys::core::PCWSTR = windows_sys::core::w!("Button");
+pub const WC_BUTTONA: windows_sys::core::PCSTR = windows_sys::core::s!("Button");
+pub const WC_BUTTONW: windows_sys::core::PCWSTR = windows_sys::core::w!("Button");
+pub const WC_COMBOBOX: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBox");
+pub const WC_COMBOBOXA: windows_sys::core::PCSTR = windows_sys::core::s!("ComboBox");
+pub const WC_COMBOBOXEX: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBoxEx32");
+pub const WC_COMBOBOXEXA: windows_sys::core::PCSTR = windows_sys::core::s!("ComboBoxEx32");
+pub const WC_COMBOBOXEXW: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBoxEx32");
+pub const WC_COMBOBOXW: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBox");
+pub const WC_EDIT: windows_sys::core::PCWSTR = windows_sys::core::w!("Edit");
+pub const WC_EDITA: windows_sys::core::PCSTR = windows_sys::core::s!("Edit");
+pub const WC_EDITW: windows_sys::core::PCWSTR = windows_sys::core::w!("Edit");
+pub const WC_HEADER: windows_sys::core::PCWSTR = windows_sys::core::w!("SysHeader32");
+pub const WC_HEADERA: windows_sys::core::PCSTR = windows_sys::core::s!("SysHeader32");
+pub const WC_HEADERW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysHeader32");
+pub const WC_IPADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("SysIPAddress32");
+pub const WC_IPADDRESSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysIPAddress32");
+pub const WC_IPADDRESSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysIPAddress32");
+pub const WC_LINK: windows_sys::core::PCWSTR = windows_sys::core::w!("SysLink");
+pub const WC_LISTBOX: windows_sys::core::PCWSTR = windows_sys::core::w!("ListBox");
+pub const WC_LISTBOXA: windows_sys::core::PCSTR = windows_sys::core::s!("ListBox");
+pub const WC_LISTBOXW: windows_sys::core::PCWSTR = windows_sys::core::w!("ListBox");
+pub const WC_LISTVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysListView32");
+pub const WC_LISTVIEWA: windows_sys::core::PCSTR = windows_sys::core::s!("SysListView32");
+pub const WC_LISTVIEWW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysListView32");
+pub const WC_NATIVEFONTCTL: windows_sys::core::PCWSTR = windows_sys::core::w!("NativeFontCtl");
+pub const WC_NATIVEFONTCTLA: windows_sys::core::PCSTR = windows_sys::core::s!("NativeFontCtl");
+pub const WC_NATIVEFONTCTLW: windows_sys::core::PCWSTR = windows_sys::core::w!("NativeFontCtl");
+pub const WC_PAGESCROLLER: windows_sys::core::PCWSTR = windows_sys::core::w!("SysPager");
+pub const WC_PAGESCROLLERA: windows_sys::core::PCSTR = windows_sys::core::s!("SysPager");
+pub const WC_PAGESCROLLERW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysPager");
+pub const WC_SCROLLBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("ScrollBar");
+pub const WC_SCROLLBARA: windows_sys::core::PCSTR = windows_sys::core::s!("ScrollBar");
+pub const WC_SCROLLBARW: windows_sys::core::PCWSTR = windows_sys::core::w!("ScrollBar");
+pub const WC_STATIC: windows_sys::core::PCWSTR = windows_sys::core::w!("Static");
+pub const WC_STATICA: windows_sys::core::PCSTR = windows_sys::core::s!("Static");
+pub const WC_STATICW: windows_sys::core::PCWSTR = windows_sys::core::w!("Static");
+pub const WC_TABCONTROL: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTabControl32");
+pub const WC_TABCONTROLA: windows_sys::core::PCSTR = windows_sys::core::s!("SysTabControl32");
+pub const WC_TABCONTROLW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTabControl32");
+pub const WC_TREEVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTreeView32");
+pub const WC_TREEVIEWA: windows_sys::core::PCSTR = windows_sys::core::s!("SysTreeView32");
+pub const WC_TREEVIEWW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTreeView32");
+pub type WINDOWPARTS = i32;
+pub type WINDOWTHEMEATTRIBUTETYPE = i32;
+pub const WIZ_BODYCX: u32 = 184u32;
+pub const WIZ_BODYX: u32 = 92u32;
+pub const WIZ_CXBMP: u32 = 80u32;
+pub const WIZ_CXDLG: u32 = 276u32;
+pub const WIZ_CYDLG: u32 = 140u32;
+pub const WMN_FIRST: u32 = 4294966296u32;
+pub const WMN_LAST: u32 = 4294966096u32;
+pub const WM_CTLCOLOR: u32 = 25u32;
+pub const WM_MOUSEHOVER: u32 = 673u32;
+pub const WM_MOUSELEAVE: u32 = 675u32;
+pub type WORD_BREAK_ACTION = i32;
+pub const WP_BORDER: WINDOWPARTS = 39i32;
+pub const WP_CAPTION: WINDOWPARTS = 1i32;
+pub const WP_CAPTIONSIZINGTEMPLATE: WINDOWPARTS = 30i32;
+pub const WP_CLOSEBUTTON: WINDOWPARTS = 18i32;
+pub const WP_DIALOG: WINDOWPARTS = 29i32;
+pub const WP_FRAME: WINDOWPARTS = 38i32;
+pub const WP_FRAMEBOTTOM: WINDOWPARTS = 9i32;
+pub const WP_FRAMEBOTTOMSIZINGTEMPLATE: WINDOWPARTS = 36i32;
+pub const WP_FRAMELEFT: WINDOWPARTS = 7i32;
+pub const WP_FRAMELEFTSIZINGTEMPLATE: WINDOWPARTS = 32i32;
+pub const WP_FRAMERIGHT: WINDOWPARTS = 8i32;
+pub const WP_FRAMERIGHTSIZINGTEMPLATE: WINDOWPARTS = 34i32;
+pub const WP_HELPBUTTON: WINDOWPARTS = 23i32;
+pub const WP_HORZSCROLL: WINDOWPARTS = 25i32;
+pub const WP_HORZTHUMB: WINDOWPARTS = 26i32;
+pub const WP_MAXBUTTON: WINDOWPARTS = 17i32;
+pub const WP_MAXCAPTION: WINDOWPARTS = 5i32;
+pub const WP_MDICLOSEBUTTON: WINDOWPARTS = 20i32;
+pub const WP_MDIHELPBUTTON: WINDOWPARTS = 24i32;
+pub const WP_MDIMINBUTTON: WINDOWPARTS = 16i32;
+pub const WP_MDIRESTOREBUTTON: WINDOWPARTS = 22i32;
+pub const WP_MDISYSBUTTON: WINDOWPARTS = 14i32;
+pub const WP_MINBUTTON: WINDOWPARTS = 15i32;
+pub const WP_MINCAPTION: WINDOWPARTS = 3i32;
+pub const WP_RESTOREBUTTON: WINDOWPARTS = 21i32;
+pub const WP_SMALLCAPTION: WINDOWPARTS = 2i32;
+pub const WP_SMALLCAPTIONSIZINGTEMPLATE: WINDOWPARTS = 31i32;
+pub const WP_SMALLCLOSEBUTTON: WINDOWPARTS = 19i32;
+pub const WP_SMALLFRAMEBOTTOM: WINDOWPARTS = 12i32;
+pub const WP_SMALLFRAMEBOTTOMSIZINGTEMPLATE: WINDOWPARTS = 37i32;
+pub const WP_SMALLFRAMELEFT: WINDOWPARTS = 10i32;
+pub const WP_SMALLFRAMELEFTSIZINGTEMPLATE: WINDOWPARTS = 33i32;
+pub const WP_SMALLFRAMERIGHT: WINDOWPARTS = 11i32;
+pub const WP_SMALLFRAMERIGHTSIZINGTEMPLATE: WINDOWPARTS = 35i32;
+pub const WP_SMALLMAXCAPTION: WINDOWPARTS = 6i32;
+pub const WP_SMALLMINCAPTION: WINDOWPARTS = 4i32;
+pub const WP_SYSBUTTON: WINDOWPARTS = 13i32;
+pub const WP_VERTSCROLL: WINDOWPARTS = 27i32;
+pub const WP_VERTTHUMB: WINDOWPARTS = 28i32;
+pub type WRENCHSTATES = i32;
+pub type WSB_PROP = i32;
+pub const WSB_PROP_CXHSCROLL: WSB_PROP = 2i32;
+pub const WSB_PROP_CXHTHUMB: WSB_PROP = 16i32;
+pub const WSB_PROP_CXVSCROLL: WSB_PROP = 8i32;
+pub const WSB_PROP_CYHSCROLL: WSB_PROP = 4i32;
+pub const WSB_PROP_CYVSCROLL: WSB_PROP = 1i32;
+pub const WSB_PROP_CYVTHUMB: WSB_PROP = 32i32;
+pub const WSB_PROP_HBKGCOLOR: WSB_PROP = 128i32;
+pub const WSB_PROP_HSTYLE: WSB_PROP = 512i32;
+pub const WSB_PROP_MASK: i32 = 4095i32;
+pub const WSB_PROP_PALETTE: WSB_PROP = 2048i32;
+pub const WSB_PROP_VBKGCOLOR: WSB_PROP = 64i32;
+pub const WSB_PROP_VSTYLE: WSB_PROP = 256i32;
+pub const WSB_PROP_WINSTYLE: WSB_PROP = 1024i32;
+pub const WTA_NONCLIENT: WINDOWTHEMEATTRIBUTETYPE = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTA_OPTIONS {
     pub dwFlags: u32,
     pub dwMask: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type DTT_CALLBACK_PROC = Option<unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: windows_sys::core::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32>;
-pub type EDITWORDBREAKPROCA = Option<unsafe extern "system" fn(lpch: windows_sys::core::PCSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
-pub type EDITWORDBREAKPROCW = Option<unsafe extern "system" fn(lpch: windows_sys::core::PCWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
-pub type LPFNADDPROPSHEETPAGES = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: LPFNSVADDPROPSHEETPAGE, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCINFOA = Option<unsafe extern "system" fn(acci: *mut CCINFOA) -> u32>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCINFOW = Option<unsafe extern "system" fn(acci: *mut CCINFOW) -> u32>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCSIZETOTEXTA = Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: windows_sys::core::PCSTR) -> i32>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCSIZETOTEXTW = Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: windows_sys::core::PCWSTR) -> i32>;
-pub type LPFNCCSTYLEA = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEA) -> super::super::Foundation::BOOL>;
-pub type LPFNCCSTYLEW = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEW) -> super::super::Foundation::BOOL>;
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPFNPSPCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEA) -> u32>;
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPFNPSPCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEW) -> u32>;
-pub type LPFNSVADDPROPSHEETPAGE = Option<unsafe extern "system" fn(param0: HPROPSHEETPAGE, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type PFNDACOMPARE = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
-pub type PFNDACOMPARECONST = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
-pub type PFNDAENUMCALLBACK = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
-pub type PFNDAENUMCALLBACKCONST = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
-pub type PFNDPAMERGE = Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut core::ffi::c_void>;
-pub type PFNDPAMERGECONST = Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut core::ffi::c_void>;
-pub type PFNDPASTREAM = Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: *mut core::ffi::c_void, pvinstdata: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type PFNLVCOMPARE = Option<unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32>;
-pub type PFNLVGROUPCOMPARE = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut core::ffi::c_void) -> i32>;
-pub type PFNPROPSHEETCALLBACK = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::LPARAM) -> i32>;
-pub type PFNTVCOMPARE = Option<unsafe extern "system" fn(lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM, lparamsort: super::super::Foundation::LPARAM) -> i32>;
-pub type PFTASKDIALOGCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: TASKDIALOG_NOTIFICATIONS, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> windows_sys::core::HRESULT>;
+pub const WTNCA_NODRAWCAPTION: u32 = 1u32;
+pub const WTNCA_NODRAWICON: u32 = 2u32;
+pub const WTNCA_NOMIRRORHELP: u32 = 8u32;
+pub const WTNCA_NOSYSMENU: u32 = 4u32;
+pub type _LI_METRIC = i32;
+pub const chx1: u32 = 1040u32;
+pub const chx10: u32 = 1049u32;
+pub const chx11: u32 = 1050u32;
+pub const chx12: u32 = 1051u32;
+pub const chx13: u32 = 1052u32;
+pub const chx14: u32 = 1053u32;
+pub const chx15: u32 = 1054u32;
+pub const chx16: u32 = 1055u32;
+pub const chx2: u32 = 1041u32;
+pub const chx3: u32 = 1042u32;
+pub const chx4: u32 = 1043u32;
+pub const chx5: u32 = 1044u32;
+pub const chx6: u32 = 1045u32;
+pub const chx7: u32 = 1046u32;
+pub const chx8: u32 = 1047u32;
+pub const chx9: u32 = 1048u32;
+pub const cmb1: u32 = 1136u32;
+pub const cmb10: u32 = 1145u32;
+pub const cmb11: u32 = 1146u32;
+pub const cmb12: u32 = 1147u32;
+pub const cmb13: u32 = 1148u32;
+pub const cmb14: u32 = 1149u32;
+pub const cmb15: u32 = 1150u32;
+pub const cmb16: u32 = 1151u32;
+pub const cmb2: u32 = 1137u32;
+pub const cmb3: u32 = 1138u32;
+pub const cmb4: u32 = 1139u32;
+pub const cmb5: u32 = 1140u32;
+pub const cmb6: u32 = 1141u32;
+pub const cmb7: u32 = 1142u32;
+pub const cmb8: u32 = 1143u32;
+pub const cmb9: u32 = 1144u32;
+pub const ctl1: u32 = 1184u32;
+pub const ctlFirst: u32 = 1024u32;
+pub const ctlLast: u32 = 1279u32;
+pub const edt1: u32 = 1152u32;
+pub const edt10: u32 = 1161u32;
+pub const edt11: u32 = 1162u32;
+pub const edt12: u32 = 1163u32;
+pub const edt13: u32 = 1164u32;
+pub const edt14: u32 = 1165u32;
+pub const edt15: u32 = 1166u32;
+pub const edt16: u32 = 1167u32;
+pub const edt2: u32 = 1153u32;
+pub const edt3: u32 = 1154u32;
+pub const edt4: u32 = 1155u32;
+pub const edt5: u32 = 1156u32;
+pub const edt6: u32 = 1157u32;
+pub const edt7: u32 = 1158u32;
+pub const edt8: u32 = 1159u32;
+pub const edt9: u32 = 1160u32;
+pub const frm1: u32 = 1076u32;
+pub const frm2: u32 = 1077u32;
+pub const frm3: u32 = 1078u32;
+pub const frm4: u32 = 1079u32;
+pub const grp1: u32 = 1072u32;
+pub const grp2: u32 = 1073u32;
+pub const grp3: u32 = 1074u32;
+pub const grp4: u32 = 1075u32;
+pub const ico1: u32 = 1084u32;
+pub const ico2: u32 = 1085u32;
+pub const ico3: u32 = 1086u32;
+pub const ico4: u32 = 1087u32;
+pub const lst1: u32 = 1120u32;
+pub const lst10: u32 = 1129u32;
+pub const lst11: u32 = 1130u32;
+pub const lst12: u32 = 1131u32;
+pub const lst13: u32 = 1132u32;
+pub const lst14: u32 = 1133u32;
+pub const lst15: u32 = 1134u32;
+pub const lst16: u32 = 1135u32;
+pub const lst2: u32 = 1121u32;
+pub const lst3: u32 = 1122u32;
+pub const lst4: u32 = 1123u32;
+pub const lst5: u32 = 1124u32;
+pub const lst6: u32 = 1125u32;
+pub const lst7: u32 = 1126u32;
+pub const lst8: u32 = 1127u32;
+pub const lst9: u32 = 1128u32;
+pub const psh1: u32 = 1024u32;
+pub const psh10: u32 = 1033u32;
+pub const psh11: u32 = 1034u32;
+pub const psh12: u32 = 1035u32;
+pub const psh13: u32 = 1036u32;
+pub const psh14: u32 = 1037u32;
+pub const psh15: u32 = 1038u32;
+pub const psh16: u32 = 1039u32;
+pub const psh2: u32 = 1025u32;
+pub const psh3: u32 = 1026u32;
+pub const psh4: u32 = 1027u32;
+pub const psh5: u32 = 1028u32;
+pub const psh6: u32 = 1029u32;
+pub const psh7: u32 = 1030u32;
+pub const psh8: u32 = 1031u32;
+pub const psh9: u32 = 1032u32;
+pub const pshHelp: u32 = 1038u32;
+pub const rad1: u32 = 1056u32;
+pub const rad10: u32 = 1065u32;
+pub const rad11: u32 = 1066u32;
+pub const rad12: u32 = 1067u32;
+pub const rad13: u32 = 1068u32;
+pub const rad14: u32 = 1069u32;
+pub const rad15: u32 = 1070u32;
+pub const rad16: u32 = 1071u32;
+pub const rad2: u32 = 1057u32;
+pub const rad3: u32 = 1058u32;
+pub const rad4: u32 = 1059u32;
+pub const rad5: u32 = 1060u32;
+pub const rad6: u32 = 1061u32;
+pub const rad7: u32 = 1062u32;
+pub const rad8: u32 = 1063u32;
+pub const rad9: u32 = 1064u32;
+pub const rct1: u32 = 1080u32;
+pub const rct2: u32 = 1081u32;
+pub const rct3: u32 = 1082u32;
+pub const rct4: u32 = 1083u32;
+pub const scr1: u32 = 1168u32;
+pub const scr2: u32 = 1169u32;
+pub const scr3: u32 = 1170u32;
+pub const scr4: u32 = 1171u32;
+pub const scr5: u32 = 1172u32;
+pub const scr6: u32 = 1173u32;
+pub const scr7: u32 = 1174u32;
+pub const scr8: u32 = 1175u32;
+pub const stc1: u32 = 1088u32;
+pub const stc10: u32 = 1097u32;
+pub const stc11: u32 = 1098u32;
+pub const stc12: u32 = 1099u32;
+pub const stc13: u32 = 1100u32;
+pub const stc14: u32 = 1101u32;
+pub const stc15: u32 = 1102u32;
+pub const stc16: u32 = 1103u32;
+pub const stc17: u32 = 1104u32;
+pub const stc18: u32 = 1105u32;
+pub const stc19: u32 = 1106u32;
+pub const stc2: u32 = 1089u32;
+pub const stc20: u32 = 1107u32;
+pub const stc21: u32 = 1108u32;
+pub const stc22: u32 = 1109u32;
+pub const stc23: u32 = 1110u32;
+pub const stc24: u32 = 1111u32;
+pub const stc25: u32 = 1112u32;
+pub const stc26: u32 = 1113u32;
+pub const stc27: u32 = 1114u32;
+pub const stc28: u32 = 1115u32;
+pub const stc29: u32 = 1116u32;
+pub const stc3: u32 = 1090u32;
+pub const stc30: u32 = 1117u32;
+pub const stc31: u32 = 1118u32;
+pub const stc32: u32 = 1119u32;
+pub const stc4: u32 = 1091u32;
+pub const stc5: u32 = 1092u32;
+pub const stc6: u32 = 1093u32;
+pub const stc7: u32 = 1094u32;
+pub const stc8: u32 = 1095u32;
+pub const stc9: u32 = 1096u32;

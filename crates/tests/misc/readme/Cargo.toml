@@ -21,10 +21,10 @@ features = [
     "Win32_UI_WindowsAndMessaging",
 ]
 
-[dependencies.windows-targets]
+[dev-dependencies.windows-bindgen]
 workspace = true
 
-[dependencies.windows-metadata]
+[dependencies.windows-targets]
 workspace = true
 
 [dev-dependencies.windows-result]

@@ -1,38 +1,5 @@
-windows_core::imp::define_interface!(IDataProtectionProvider, IDataProtectionProvider_Vtbl, 0x09639948_ed22_4270_bd1c_6d72c00f8787);
-impl windows_core::RuntimeType for IDataProtectionProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IDataProtectionProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub ProtectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    ProtectAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub UnprotectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    UnprotectAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub ProtectStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    ProtectStreamAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub UnprotectStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    UnprotectStreamAsync: usize,
-}
-windows_core::imp::define_interface!(IDataProtectionProviderFactory, IDataProtectionProviderFactory_Vtbl, 0xadf33dac_4932_4cdf_ac41_7214333514ca);
-impl windows_core::RuntimeType for IDataProtectionProviderFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IDataProtectionProviderFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateOverloadExplicit: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataProtectionProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataProtectionProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl DataProtectionProvider {
@@ -104,7 +71,7 @@ impl windows_core::RuntimeType for DataProtectionProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataProtectionProvider>();
 }
 unsafe impl windows_core::Interface for DataProtectionProvider {
-    type Vtable = IDataProtectionProvider_Vtbl;
+    type Vtable = <IDataProtectionProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataProtectionProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DataProtectionProvider {
@@ -112,3 +79,36 @@ impl windows_core::RuntimeName for DataProtectionProvider {
 }
 unsafe impl Send for DataProtectionProvider {}
 unsafe impl Sync for DataProtectionProvider {}
+windows_core::imp::define_interface!(IDataProtectionProvider, IDataProtectionProvider_Vtbl, 0x09639948_ed22_4270_bd1c_6d72c00f8787);
+impl windows_core::RuntimeType for IDataProtectionProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDataProtectionProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub ProtectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ProtectAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub UnprotectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    UnprotectAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub ProtectStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ProtectStreamAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub UnprotectStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    UnprotectStreamAsync: usize,
+}
+windows_core::imp::define_interface!(IDataProtectionProviderFactory, IDataProtectionProviderFactory_Vtbl, 0xadf33dac_4932_4cdf_ac41_7214333514ca);
+impl windows_core::RuntimeType for IDataProtectionProviderFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDataProtectionProviderFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateOverloadExplicit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}

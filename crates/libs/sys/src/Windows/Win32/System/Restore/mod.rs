@@ -28,11 +28,6 @@ pub const MIN_RPT: u32 = 0u32;
 pub const MODIFY_SETTINGS: RESTOREPOINTINFO_TYPE = 12u32;
 pub const OE_SETTING: u32 = 4u32;
 pub const RESTORE: u32 = 6u32;
-pub const WINDOWS_BOOT: u32 = 9u32;
-pub const WINDOWS_SHUTDOWN: u32 = 8u32;
-pub const WINDOWS_UPDATE: u32 = 17u32;
-pub type RESTOREPOINTINFO_EVENT_TYPE = u32;
-pub type RESTOREPOINTINFO_TYPE = u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOA {
@@ -58,9 +53,14 @@ pub struct RESTOREPOINTINFOW {
     pub llSequenceNumber: i64,
     pub szDescription: [u16; 256],
 }
+pub type RESTOREPOINTINFO_EVENT_TYPE = u32;
+pub type RESTOREPOINTINFO_TYPE = u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct STATEMGRSTATUS {
     pub nStatus: super::super::Foundation::WIN32_ERROR,
     pub llSequenceNumber: i64,
 }
+pub const WINDOWS_BOOT: u32 = 9u32;
+pub const WINDOWS_SHUTDOWN: u32 = 8u32;
+pub const WINDOWS_UPDATE: u32 = 17u32;

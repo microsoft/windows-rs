@@ -5,18 +5,19 @@
     dead_code,
     clippy::all
 )]
-windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetActivationFactory(activatableclassid : * mut core::ffi::c_void, iid : *const GUID, factory : *mut *mut core::ffi::c_void) -> HRESULT);
+
 windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
+windows_targets::link!("ole32.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> HRESULT);
+windows_targets::link!("ole32.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
+windows_targets::link!("ole32.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
 windows_targets::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const SECURITY_ATTRIBUTES, bmanualreset : BOOL, binitialstate : BOOL, lpname : PCWSTR) -> HANDLE);
 windows_targets::link!("kernel32.dll" "system" fn EncodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
 windows_targets::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> BOOL);
 windows_targets::link!("kernel32.dll" "system" fn GetProcAddress(hmodule : HMODULE, lpprocname : PCSTR) -> FARPROC);
 windows_targets::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : PCSTR, hfile : HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> HMODULE);
+windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetActivationFactory(activatableclassid : HSTRING, iid : *const GUID, factory : *mut *mut core::ffi::c_void) -> HRESULT);
 windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : HANDLE) -> BOOL);
 windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HANDLE, dwmilliseconds : u32) -> WAIT_EVENT);
-windows_targets::link!("ole32.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> HRESULT);
-windows_targets::link!("ole32.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
-windows_targets::link!("ole32.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
 pub type BOOL = i32;
 pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
@@ -39,6 +40,7 @@ impl GUID {
     }
 }
 pub type HANDLE = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut core::ffi::c_void;
 pub type HMODULE = *mut core::ffi::c_void;
 pub type HRESULT = i32;
 pub type LOAD_LIBRARY_FLAGS = u32;
@@ -52,4 +54,5 @@ pub struct SECURITY_ATTRIBUTES {
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: BOOL,
 }
+pub type HSTRING = *mut core::ffi::c_void;
 pub type WAIT_EVENT = u32;

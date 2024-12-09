@@ -23,7 +23,7 @@ pub struct IPalmRejectionDelayZonePreviewStatics_Vtbl {
     CreateForVisualWithViewportClip: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PalmRejectionDelayZonePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PalmRejectionDelayZonePreview, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PalmRejectionDelayZonePreview, super::super::super::super::Foundation::IClosable);
@@ -43,10 +43,10 @@ impl PalmRejectionDelayZonePreview {
         })
     }
     #[cfg(feature = "UI_Composition")]
-    pub fn CreateForVisualWithViewportClip<P0, P1>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P1, viewportrect: super::super::super::super::Foundation::Rect) -> windows_core::Result<PalmRejectionDelayZonePreview>
+    pub fn CreateForVisualWithViewportClip<P0, P2>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P2, viewportrect: super::super::super::super::Foundation::Rect) -> windows_core::Result<PalmRejectionDelayZonePreview>
     where
         P0: windows_core::Param<super::super::super::Composition::Visual>,
-        P1: windows_core::Param<super::super::super::Composition::Visual>,
+        P2: windows_core::Param<super::super::super::Composition::Visual>,
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -62,7 +62,7 @@ impl windows_core::RuntimeType for PalmRejectionDelayZonePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPalmRejectionDelayZonePreview>();
 }
 unsafe impl windows_core::Interface for PalmRejectionDelayZonePreview {
-    type Vtable = IPalmRejectionDelayZonePreview_Vtbl;
+    type Vtable = <IPalmRejectionDelayZonePreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPalmRejectionDelayZonePreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PalmRejectionDelayZonePreview {

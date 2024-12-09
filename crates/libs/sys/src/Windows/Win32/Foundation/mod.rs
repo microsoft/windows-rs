@@ -54,7 +54,14 @@ pub const APPX_E_PACKAGING_INTERNAL: windows_sys::core::HRESULT = 0x80080200_u32
 pub const APPX_E_RELATIONSHIPS_NOT_ALLOWED: windows_sys::core::HRESULT = 0x80080202_u32 as _;
 pub const APPX_E_REQUESTED_RANGE_TOO_LARGE: windows_sys::core::HRESULT = 0x80080208_u32 as _;
 pub const APPX_E_RESOURCESPRI_NOT_ALLOWED: windows_sys::core::HRESULT = 0x80080213_u32 as _;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct APP_LOCAL_DEVICE_ID {
+    pub value: [u8; 32],
+}
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
+pub type BOOL = i32;
+pub type BOOLEAN = u8;
 pub const BT_E_SPURIOUS_ACTIVATION: windows_sys::core::HRESULT = 0x80080300_u32 as _;
 pub const CACHE_E_FIRST: i32 = -2147221136i32;
 pub const CACHE_E_LAST: i32 = -2147221121i32;
@@ -206,6 +213,7 @@ pub const CLIPBRD_E_FIRST: i32 = -2147221040i32;
 pub const CLIPBRD_E_LAST: i32 = -2147221025i32;
 pub const CLIPBRD_S_FIRST: i32 = 262608i32;
 pub const CLIPBRD_S_LAST: i32 = 262623i32;
+pub type COLORREF = u32;
 pub const COMADMIN_E_ALREADYINSTALLED: windows_sys::core::HRESULT = 0x80110404_u32 as _;
 pub const COMADMIN_E_AMBIGUOUS_APPLICATION_NAME: windows_sys::core::HRESULT = 0x8011045C_u32 as _;
 pub const COMADMIN_E_AMBIGUOUS_PARTITION_NAME: windows_sys::core::HRESULT = 0x8011045D_u32 as _;
@@ -630,6 +638,44 @@ pub const DBG_UNABLE_TO_PROVIDE_HANDLE: NTSTATUS = 0x40010002_u32 as _;
 pub const DCOMPOSITION_ERROR_SURFACE_BEING_RENDERED: windows_sys::core::HRESULT = 0x88980801_u32 as _;
 pub const DCOMPOSITION_ERROR_SURFACE_NOT_BEING_RENDERED: windows_sys::core::HRESULT = 0x88980802_u32 as _;
 pub const DCOMPOSITION_ERROR_WINDOW_ALREADY_COMPOSED: windows_sys::core::HRESULT = 0x88980800_u32 as _;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DECIMAL {
+    pub wReserved: u16,
+    pub Anonymous1: DECIMAL_0,
+    pub Hi32: u32,
+    pub Anonymous2: DECIMAL_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DECIMAL_0 {
+    pub Anonymous: DECIMAL_0_0,
+    pub signscale: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DECIMAL_0_0 {
+    pub scale: u8,
+    pub sign: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DECIMAL_1 {
+    pub Anonymous: DECIMAL_1_0,
+    pub Lo64: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DECIMAL_1_0 {
+    pub Lo32: u32,
+    pub Mid32: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVPROPKEY {
+    pub fmtid: windows_sys::core::GUID,
+    pub pid: u32,
+}
 pub const DIGSIG_E_CRYPTO: windows_sys::core::HRESULT = 0x800B0008_u32 as _;
 pub const DIGSIG_E_DECODE: windows_sys::core::HRESULT = 0x800B0006_u32 as _;
 pub const DIGSIG_E_ENCODE: windows_sys::core::HRESULT = 0x800B0005_u32 as _;
@@ -865,6 +911,7 @@ pub const DRAGDROP_S_FIRST: i32 = 262400i32;
 pub const DRAGDROP_S_LAST: i32 = 262415i32;
 pub const DRAGDROP_S_USEDEFAULTCURSORS: windows_sys::core::HRESULT = 0x40102_u32 as _;
 pub const DUPLICATE_CLOSE_SOURCE: DUPLICATE_HANDLE_OPTIONS = 1u32;
+pub type DUPLICATE_HANDLE_OPTIONS = u32;
 pub const DUPLICATE_SAME_ACCESS: DUPLICATE_HANDLE_OPTIONS = 2u32;
 pub const DV_E_CLIPFORMAT: windows_sys::core::HRESULT = 0x8004006A_u32 as _;
 pub const DV_E_DVASPECT: windows_sys::core::HRESULT = 0x8004006B_u32 as _;
@@ -4688,6 +4735,7 @@ pub const FACILITY_WIN32K_NTUSER: NTSTATUS_FACILITY_CODE = 62u32;
 pub const FACILITY_XVS: NTSTATUS_FACILITY_CODE = 94u32;
 pub const FACILTIY_MUI_ERROR_CODE: u32 = 11u32;
 pub const FALSE: BOOL = 0i32;
+pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
 pub const FA_E_HOMEGROUP_NOT_AVAILABLE: windows_sys::core::HRESULT = 0x80270222_u32 as _;
 pub const FA_E_MAX_PERSISTED_ITEMS_REACHED: windows_sys::core::HRESULT = 0x80270220_u32 as _;
 pub const FDAEMON_E_CHANGEUPDATEFAILED: windows_sys::core::HRESULT = 0x80041684_u32 as _;
@@ -4699,6 +4747,12 @@ pub const FDAEMON_E_TOOMANYFILTEREDBLOCKS: windows_sys::core::HRESULT = 0x800416
 pub const FDAEMON_E_WORDLISTCOMMITFAILED: windows_sys::core::HRESULT = 0x80041686_u32 as _;
 pub const FDAEMON_W_EMPTYWORDLIST: windows_sys::core::HRESULT = 0x41685_u32 as _;
 pub const FDAEMON_W_WORDLISTFULL: windows_sys::core::HRESULT = 0x41680_u32 as _;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILETIME {
+    pub dwLowDateTime: u32,
+    pub dwHighDateTime: u32,
+}
 pub const FILTER_E_ALREADY_OPEN: windows_sys::core::HRESULT = 0x80041736_u32 as _;
 pub const FILTER_E_CONTENTINDEXCORRUPT: windows_sys::core::HRESULT = 0xC0041734_u32 as _;
 pub const FILTER_E_IN_USE: windows_sys::core::HRESULT = 0x80041738_u32 as _;
@@ -4714,6 +4768,12 @@ pub const FILTER_S_FULL_CONTENTSCAN_IMMEDIATE: windows_sys::core::HRESULT = 0x41
 pub const FILTER_S_NO_PROPSETS: windows_sys::core::HRESULT = 0x4173A_u32 as _;
 pub const FILTER_S_NO_SECURITY_DESCRIPTOR: windows_sys::core::HRESULT = 0x4173C_u32 as _;
 pub const FILTER_S_PARTIAL_CONTENTSCAN_IMMEDIATE: windows_sys::core::HRESULT = 0x41731_u32 as _;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FLOAT128 {
+    pub LowPart: i64,
+    pub HighPart: i64,
+}
 pub const FRS_ERR_AUTHENTICATION: i32 = 8008i32;
 pub const FRS_ERR_CHILD_TO_PARENT_COMM: i32 = 8011i32;
 pub const FRS_ERR_INSUFFICIENT_PRIV: i32 = 8007i32;
@@ -5033,12 +5093,16 @@ pub const GCN_E_NETINTERFACE_NOT_FOUND: windows_sys::core::HRESULT = 0x803B0028_
 pub const GCN_E_NO_REQUEST_HANDLERS: windows_sys::core::HRESULT = 0x803B0022_u32 as _;
 pub const GCN_E_REQUEST_UNSUPPORTED: windows_sys::core::HRESULT = 0x803B0023_u32 as _;
 pub const GCN_E_RUNTIMEKEYS_FAILED: windows_sys::core::HRESULT = 0x803B0024_u32 as _;
+pub type GENERIC_ACCESS_RIGHTS = u32;
 pub const GENERIC_ALL: GENERIC_ACCESS_RIGHTS = 268435456u32;
 pub const GENERIC_EXECUTE: GENERIC_ACCESS_RIGHTS = 536870912u32;
 pub const GENERIC_READ: GENERIC_ACCESS_RIGHTS = 2147483648u32;
 pub const GENERIC_WRITE: GENERIC_ACCESS_RIGHTS = 1073741824u32;
+pub type HANDLE = *mut core::ffi::c_void;
+pub type HANDLE_FLAGS = u32;
 pub const HANDLE_FLAG_INHERIT: HANDLE_FLAGS = 1u32;
 pub const HANDLE_FLAG_PROTECT_FROM_CLOSE: HANDLE_FLAGS = 2u32;
+pub type HANDLE_PTR = usize;
 pub const HCN_E_ADAPTER_NOT_FOUND: windows_sys::core::HRESULT = 0x803B0006_u32 as _;
 pub const HCN_E_ADDR_INVALID_OR_RESERVED: windows_sys::core::HRESULT = 0x803B002F_u32 as _;
 pub const HCN_E_DEGRADED_OPERATION: windows_sys::core::HRESULT = 0x803B0017_u32 as _;
@@ -5117,6 +5181,13 @@ pub const HCS_E_UNEXPECTED_EXIT: windows_sys::core::HRESULT = 0x80370106_u32 as 
 pub const HCS_E_UNKNOWN_MESSAGE: windows_sys::core::HRESULT = 0x8037010B_u32 as _;
 pub const HCS_E_UNSUPPORTED_PROTOCOL_VERSION: windows_sys::core::HRESULT = 0x8037010C_u32 as _;
 pub const HCS_E_WINDOWS_INSIDER_REQUIRED: windows_sys::core::HRESULT = 0x80370113_u32 as _;
+pub type HGLOBAL = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut core::ffi::c_void;
+pub type HLOCAL = *mut core::ffi::c_void;
+pub type HLSURF = *mut core::ffi::c_void;
+pub type HMODULE = *mut core::ffi::c_void;
+pub type HRSRC = *mut core::ffi::c_void;
+pub type HSPRITE = *mut core::ffi::c_void;
 pub const HSP_BASE_ERROR_MASK: windows_sys::core::HRESULT = 0x81290100_u32 as _;
 pub const HSP_BASE_INTERNAL_ERROR: windows_sys::core::HRESULT = 0x812901FF_u32 as _;
 pub const HSP_BS_ERROR_MASK: windows_sys::core::HRESULT = 0x81281000_u32 as _;
@@ -5145,6 +5216,7 @@ pub const HSP_KSP_NOT_SUPPORTED: windows_sys::core::HRESULT = 0x81290206_u32 as 
 pub const HSP_KSP_NO_MEMORY: windows_sys::core::HRESULT = 0x81290210_u32 as _;
 pub const HSP_KSP_NO_MORE_ITEMS: windows_sys::core::HRESULT = 0x81290218_u32 as _;
 pub const HSP_KSP_PARAMETER_NOT_SET: windows_sys::core::HRESULT = 0x81290211_u32 as _;
+pub type HSTR = *mut core::ffi::c_void;
 pub const HTTP_E_STATUS_AMBIGUOUS: windows_sys::core::HRESULT = 0x8019012C_u32 as _;
 pub const HTTP_E_STATUS_BAD_GATEWAY: windows_sys::core::HRESULT = 0x801901F6_u32 as _;
 pub const HTTP_E_STATUS_BAD_METHOD: windows_sys::core::HRESULT = 0x80190195_u32 as _;
@@ -5180,6 +5252,8 @@ pub const HTTP_E_STATUS_UNSUPPORTED_MEDIA: windows_sys::core::HRESULT = 0x801901
 pub const HTTP_E_STATUS_URI_TOO_LONG: windows_sys::core::HRESULT = 0x8019019E_u32 as _;
 pub const HTTP_E_STATUS_USE_PROXY: windows_sys::core::HRESULT = 0x80190131_u32 as _;
 pub const HTTP_E_STATUS_VERSION_NOT_SUP: windows_sys::core::HRESULT = 0x801901F9_u32 as _;
+pub type HUMPD = *mut core::ffi::c_void;
+pub type HWND = *mut core::ffi::c_void;
 pub const INPLACE_E_FIRST: i32 = -2147221088i32;
 pub const INPLACE_E_LAST: i32 = -2147221073i32;
 pub const INPLACE_E_NOTOOLSPACE: windows_sys::core::HRESULT = 0x800401A1_u32 as _;
@@ -5299,6 +5373,14 @@ pub const IO_WRN_FAILURE_PREDICTED: NTSTATUS = 0x80040034_u32 as _;
 pub const JSCRIPT_E_CANTEXECUTE: windows_sys::core::HRESULT = 0x89020001_u32 as _;
 pub const LANGUAGE_E_DATABASE_NOT_FOUND: windows_sys::core::HRESULT = 0x80041784_u32 as _;
 pub const LANGUAGE_S_LARGE_WORD: windows_sys::core::HRESULT = 0x41781_u32 as _;
+pub type LPARAM = isize;
+pub type LRESULT = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LUID {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
 pub const MARSHAL_E_FIRST: i32 = -2147221216i32;
 pub const MARSHAL_E_LAST: i32 = -2147221201i32;
 pub const MARSHAL_S_FIRST: i32 = 262432i32;
@@ -5509,6 +5591,7 @@ pub const NAP_E_SHV_TIMEOUT: windows_sys::core::HRESULT = 0x80270013_u32 as _;
 pub const NAP_E_STILL_BOUND: windows_sys::core::HRESULT = 0x80270005_u32 as _;
 pub const NAP_E_TOO_MANY_CALLS: windows_sys::core::HRESULT = 0x80270010_u32 as _;
 pub const NAP_S_CERT_ALREADY_PRESENT: windows_sys::core::HRESULT = 0x27000D_u32 as _;
+pub type NEARPROC = Option<unsafe extern "system" fn() -> isize>;
 pub const NOERROR: u32 = 0u32;
 pub const NOT_AN_ERROR1: windows_sys::core::HRESULT = 0x81600_u32 as _;
 pub const NO_ERROR: WIN32_ERROR = 0u32;
@@ -5570,6 +5653,10 @@ pub const NTE_TOKEN_KEYSET_STORAGE_FULL: windows_sys::core::HRESULT = 0x80090023
 pub const NTE_UI_REQUIRED: windows_sys::core::HRESULT = 0x8009002E_u32 as _;
 pub const NTE_USER_CANCELLED: windows_sys::core::HRESULT = 0x80090036_u32 as _;
 pub const NTE_VALIDATION_FAILED: windows_sys::core::HRESULT = 0x80090032_u32 as _;
+pub type NTSTATUS = i32;
+pub type NTSTATUS_FACILITY_CODE = u32;
+pub type NTSTATUS_SEVERITY_CODE = u32;
+pub type OBJECT_ATTRIBUTE_FLAGS = u32;
 pub const OBJ_CASE_INSENSITIVE: OBJECT_ATTRIBUTE_FLAGS = 64u32;
 pub const OBJ_DONT_REPARSE: OBJECT_ATTRIBUTE_FLAGS = 4096u32;
 pub const OBJ_EXCLUSIVE: OBJECT_ATTRIBUTE_FLAGS = 32u32;
@@ -5681,6 +5768,7 @@ pub const OSS_TRACE_FILE_ALREADY_OPEN: windows_sys::core::HRESULT = 0x8009301C_u
 pub const OSS_TYPE_NOT_SUPPORTED: windows_sys::core::HRESULT = 0x8009301E_u32 as _;
 pub const OSS_UNAVAIL_ENCRULES: windows_sys::core::HRESULT = 0x80093017_u32 as _;
 pub const OSS_UNIMPLEMENTED: windows_sys::core::HRESULT = 0x80093019_u32 as _;
+pub type PAPCFUNC = Option<unsafe extern "system" fn(parameter: usize)>;
 pub const PEERDIST_ERROR_ALREADY_COMPLETED: i32 = 4060i32;
 pub const PEERDIST_ERROR_ALREADY_EXISTS: i32 = 4058i32;
 pub const PEERDIST_ERROR_ALREADY_INITIALIZED: i32 = 4055i32;
@@ -5810,7 +5898,32 @@ pub const PLA_E_RULES_MANAGER_FAILED: windows_sys::core::HRESULT = 0x80300112_u3
 pub const PLA_E_TASKSCHED_CHANNEL_NOT_ENABLED: windows_sys::core::HRESULT = 0x80300111_u32 as _;
 pub const PLA_E_TOO_MANY_FOLDERS: windows_sys::core::HRESULT = 0x80300045_u32 as _;
 pub const PLA_S_PROPERTY_IGNORED: windows_sys::core::HRESULT = 0x300100_u32 as _;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct POINT {
+    pub x: i32,
+    pub y: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct POINTL {
+    pub x: i32,
+    pub y: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct POINTS {
+    pub x: i16,
+    pub y: i16,
+}
 pub const PRESENTATION_ERROR_LOST: windows_sys::core::HRESULT = 0x88810001_u32 as _;
+pub type PROC = Option<unsafe extern "system" fn() -> isize>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROPERTYKEY {
+    pub fmtid: windows_sys::core::GUID,
+    pub pid: u32,
+}
 pub const PSINK_E_INDEX_ONLY: windows_sys::core::HRESULT = 0x80041791_u32 as _;
 pub const PSINK_E_LARGE_ATTACHMENT: windows_sys::core::HRESULT = 0x80041792_u32 as _;
 pub const PSINK_E_QUERY_ONLY: windows_sys::core::HRESULT = 0x80041790_u32 as _;
@@ -5870,6 +5983,22 @@ pub const QUERY_E_TOOCOMPLEX: windows_sys::core::HRESULT = 0x80041606_u32 as _;
 pub const QUERY_S_NO_QUERY: windows_sys::core::HRESULT = 0x8004160C_u32 as _;
 pub const QUTIL_E_CANT_CONVERT_VROOT: windows_sys::core::HRESULT = 0x80041676_u32 as _;
 pub const QUTIL_E_INVALID_CODEPAGE: windows_sys::core::HRESULT = 0xC0041678_u32 as _;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RECT {
+    pub left: i32,
+    pub top: i32,
+    pub right: i32,
+    pub bottom: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RECTL {
+    pub left: i32,
+    pub top: i32,
+    pub right: i32,
+    pub bottom: i32,
+}
 pub const REGDB_E_BADTHREADINGMODEL: windows_sys::core::HRESULT = 0x80040156_u32 as _;
 pub const REGDB_E_CLASSNOTREG: windows_sys::core::HRESULT = 0x80040154_u32 as _;
 pub const REGDB_E_FIRST: i32 = -2147221168i32;
@@ -6308,6 +6437,13 @@ pub const SEC_I_RENEGOTIATE: windows_sys::core::HRESULT = 0x90321_u32 as _;
 pub const SEC_I_SIGNATURE_NEEDED: windows_sys::core::HRESULT = 0x9035C_u32 as _;
 pub const SEVERITY_ERROR: u32 = 1u32;
 pub const SEVERITY_SUCCESS: u32 = 0u32;
+pub type SHANDLE_PTR = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SIZE {
+    pub cx: i32,
+    pub cy: i32,
+}
 pub const SPAPI_E_AUTHENTICODE_DISALLOWED: windows_sys::core::HRESULT = 0x800F0240_u32 as _;
 pub const SPAPI_E_AUTHENTICODE_PUBLISHER_NOT_TRUSTED: windows_sys::core::HRESULT = 0x800F0243_u32 as _;
 pub const SPAPI_E_AUTHENTICODE_TRUSTED_PUBLISHER: windows_sys::core::HRESULT = 0x800F0241_u32 as _;
@@ -9281,6 +9417,18 @@ pub const STORE_ERROR_UNLICENSED: i32 = 15861i32;
 pub const STORE_ERROR_UNLICENSED_USER: i32 = 15862i32;
 pub const STRICT: u32 = 1u32;
 pub const SUCCESS: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEMTIME {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDayOfWeek: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+    pub wMilliseconds: u16,
+}
 pub const S_APPLICATION_ACTIVATION_ERROR_HANDLED_BY_DIALOG: windows_sys::core::HRESULT = 0x270259_u32 as _;
 pub const S_FALSE: windows_sys::core::HRESULT = 0x1_u32 as _;
 pub const S_OK: windows_sys::core::HRESULT = 0x0_u32 as _;
@@ -9735,6 +9883,13 @@ pub const UI_E_VALUE_NOT_DETERMINED: windows_sys::core::HRESULT = 0x802A0006_u32
 pub const UI_E_VALUE_NOT_SET: windows_sys::core::HRESULT = 0x802A0005_u32 as _;
 pub const UI_E_WINDOW_CLOSED: windows_sys::core::HRESULT = 0x802A0201_u32 as _;
 pub const UI_E_WRONG_THREAD: windows_sys::core::HRESULT = 0x802A000C_u32 as _;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UNICODE_STRING {
+    pub Length: u16,
+    pub MaximumLength: u16,
+    pub Buffer: windows_sys::core::PWSTR,
+}
 pub const UTC_E_ACTION_NOT_SUPPORTED_IN_DESTINATION: windows_sys::core::HRESULT = 0x87C51044_u32 as _;
 pub const UTC_E_AGENT_DIAGNOSTICS_TOO_LARGE: windows_sys::core::HRESULT = 0x87C51055_u32 as _;
 pub const UTC_E_ALTERNATIVE_TRACE_CANNOT_PREEMPT: windows_sys::core::HRESULT = 0x87C51002_u32 as _;
@@ -9821,6 +9976,7 @@ pub const UTC_E_TTTRACER_STORAGE_FULL: windows_sys::core::HRESULT = 0x87C51058_u
 pub const UTC_E_UNABLE_TO_RESOLVE_SESSION: windows_sys::core::HRESULT = 0x87C51037_u32 as _;
 pub const UTC_E_UNAPPROVED_SCRIPT: windows_sys::core::HRESULT = 0x87C51039_u32 as _;
 pub const UTC_E_WINRT_INIT_FAILED: windows_sys::core::HRESULT = 0x87C51017_u32 as _;
+pub type VARIANT_BOOL = i16;
 pub const VARIANT_FALSE: VARIANT_BOOL = 0i16;
 pub const VARIANT_TRUE: VARIANT_BOOL = -1i16;
 pub const VIEW_E_DRAW: windows_sys::core::HRESULT = 0x80040140_u32 as _;
@@ -9842,6 +9998,7 @@ pub const VOLMGR_KSR_ERROR: NTSTATUS = 0x80380001_u32 as _;
 pub const VOLMGR_KSR_READ_ERROR: NTSTATUS = 0x80380002_u32 as _;
 pub const WAIT_ABANDONED: WAIT_EVENT = 128u32;
 pub const WAIT_ABANDONED_0: WAIT_EVENT = 128u32;
+pub type WAIT_EVENT = u32;
 pub const WAIT_FAILED: WAIT_EVENT = 4294967295u32;
 pub const WAIT_IO_COMPLETION: WAIT_EVENT = 192u32;
 pub const WAIT_OBJECT_0: WAIT_EVENT = 0u32;
@@ -9903,6 +10060,7 @@ pub const WHV_E_UNSUPPORTED_HYPERVISOR_CONFIG: windows_sys::core::HRESULT = 0x80
 pub const WHV_E_UNSUPPORTED_PROCESSOR_CONFIG: windows_sys::core::HRESULT = 0x80370310_u32 as _;
 pub const WHV_E_VP_ALREADY_EXISTS: windows_sys::core::HRESULT = 0x80370306_u32 as _;
 pub const WHV_E_VP_DOES_NOT_EXIST: windows_sys::core::HRESULT = 0x80370307_u32 as _;
+pub type WIN32_ERROR = u32;
 pub const WINCODEC_ERR_ALREADYLOCKED: windows_sys::core::HRESULT = 0x88982F0D_u32 as _;
 pub const WINCODEC_ERR_BADHEADER: windows_sys::core::HRESULT = 0x88982F61_u32 as _;
 pub const WINCODEC_ERR_BADIMAGE: windows_sys::core::HRESULT = 0x88982F60_u32 as _;
@@ -10028,6 +10186,7 @@ pub const WINML_ERR_SIZE_MISMATCH: windows_sys::core::HRESULT = 0x88900004_u32 a
 pub const WINML_ERR_VALUE_NOTFOUND: windows_sys::core::HRESULT = 0x88900003_u32 as _;
 pub const WINVER: u32 = 1280u32;
 pub const WINVER_MAXVER: u32 = 2560u32;
+pub type WPARAM = usize;
 pub const WPN_E_ACCESS_DENIED: windows_sys::core::HRESULT = 0x803E0117_u32 as _;
 pub const WPN_E_ALL_URL_NOT_COMPLETED: windows_sys::core::HRESULT = 0x803E0203_u32 as _;
 pub const WPN_E_CALLBACK_ALREADY_REGISTERED: windows_sys::core::HRESULT = 0x803E0206_u32 as _;
@@ -10181,162 +10340,3 @@ pub const _WIN32_IE_MAXVER: u32 = 2560u32;
 pub const _WIN32_MAXVER: u32 = 2560u32;
 pub const _WIN32_WINDOWS_MAXVER: u32 = 2560u32;
 pub const _WIN32_WINNT_MAXVER: u32 = 2560u32;
-pub type DUPLICATE_HANDLE_OPTIONS = u32;
-pub type GENERIC_ACCESS_RIGHTS = u32;
-pub type HANDLE_FLAGS = u32;
-pub type NTSTATUS_FACILITY_CODE = u32;
-pub type NTSTATUS_SEVERITY_CODE = u32;
-pub type OBJECT_ATTRIBUTE_FLAGS = u32;
-pub type WAIT_EVENT = u32;
-pub type WIN32_ERROR = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct APP_LOCAL_DEVICE_ID {
-    pub value: [u8; 32],
-}
-pub type BOOL = i32;
-pub type BOOLEAN = u8;
-pub type COLORREF = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DECIMAL {
-    pub wReserved: u16,
-    pub Anonymous1: DECIMAL_0,
-    pub Hi32: u32,
-    pub Anonymous2: DECIMAL_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DECIMAL_0 {
-    pub Anonymous: DECIMAL_0_0,
-    pub signscale: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DECIMAL_0_0 {
-    pub scale: u8,
-    pub sign: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DECIMAL_1 {
-    pub Anonymous: DECIMAL_1_0,
-    pub Lo64: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DECIMAL_1_0 {
-    pub Lo32: u32,
-    pub Mid32: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEVPROPKEY {
-    pub fmtid: windows_sys::core::GUID,
-    pub pid: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILETIME {
-    pub dwLowDateTime: u32,
-    pub dwHighDateTime: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FLOAT128 {
-    pub LowPart: i64,
-    pub HighPart: i64,
-}
-pub type HANDLE = *mut core::ffi::c_void;
-pub type HANDLE_PTR = usize;
-pub type HGLOBAL = *mut core::ffi::c_void;
-pub type HINSTANCE = *mut core::ffi::c_void;
-pub type HLOCAL = *mut core::ffi::c_void;
-pub type HLSURF = *mut core::ffi::c_void;
-pub type HMODULE = *mut core::ffi::c_void;
-pub type HRSRC = *mut core::ffi::c_void;
-pub type HSPRITE = *mut core::ffi::c_void;
-pub type HSTR = *mut core::ffi::c_void;
-pub type HUMPD = *mut core::ffi::c_void;
-pub type HWND = *mut core::ffi::c_void;
-pub type LPARAM = isize;
-pub type LRESULT = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LUID {
-    pub LowPart: u32,
-    pub HighPart: i32,
-}
-pub type NTSTATUS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct POINT {
-    pub x: i32,
-    pub y: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct POINTL {
-    pub x: i32,
-    pub y: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct POINTS {
-    pub x: i16,
-    pub y: i16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROPERTYKEY {
-    pub fmtid: windows_sys::core::GUID,
-    pub pid: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RECT {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RECTL {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
-}
-pub type SHANDLE_PTR = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SIZE {
-    pub cx: i32,
-    pub cy: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEMTIME {
-    pub wYear: u16,
-    pub wMonth: u16,
-    pub wDayOfWeek: u16,
-    pub wDay: u16,
-    pub wHour: u16,
-    pub wMinute: u16,
-    pub wSecond: u16,
-    pub wMilliseconds: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UNICODE_STRING {
-    pub Length: u16,
-    pub MaximumLength: u16,
-    pub Buffer: windows_sys::core::PWSTR,
-}
-pub type VARIANT_BOOL = i16;
-pub type WPARAM = usize;
-pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
-pub type NEARPROC = Option<unsafe extern "system" fn() -> isize>;
-pub type PAPCFUNC = Option<unsafe extern "system" fn(parameter: usize)>;
-pub type PROC = Option<unsafe extern "system" fn() -> isize>;

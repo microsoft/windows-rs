@@ -6,5 +6,5 @@ publish = false
 
 [dependencies]
 regex = "1.7"
-windows-metadata = { workspace = true }
+windows-bindgen = { workspace = true }
 windows-targets = { workspace = true }

@@ -491,76 +491,6 @@ pub const FLTFL_REGISTRATION_SUPPORT_NPFS_MSFS: u32 = 2u32;
 pub const FLTFL_REGISTRATION_SUPPORT_WCOS: u32 = 8u32;
 pub const FLTTCFL_AUTO_REPARSE: u32 = 1u32;
 pub const FLT_ALLOCATE_CALLBACK_DATA_PREALLOCATE_ALL_MEMORY: u32 = 1u32;
-pub const FLT_CONTEXT_END: u32 = 65535u32;
-pub const FLT_FILE_CONTEXT: u32 = 4u32;
-pub const FLT_FILE_NAME_ALLOW_QUERY_ON_REPARSE: u32 = 67108864u32;
-pub const FLT_FILE_NAME_DO_NOT_CACHE: u32 = 33554432u32;
-pub const FLT_FILE_NAME_NORMALIZED: u32 = 1u32;
-pub const FLT_FILE_NAME_OPENED: u32 = 2u32;
-pub const FLT_FILE_NAME_QUERY_ALWAYS_ALLOW_CACHE_LOOKUP: u32 = 1024u32;
-pub const FLT_FILE_NAME_QUERY_CACHE_ONLY: u32 = 512u32;
-pub const FLT_FILE_NAME_QUERY_DEFAULT: u32 = 256u32;
-pub const FLT_FILE_NAME_QUERY_FILESYSTEM_ONLY: u32 = 768u32;
-pub const FLT_FILE_NAME_REQUEST_FROM_CURRENT_PROVIDER: u32 = 16777216u32;
-pub const FLT_FILE_NAME_SHORT: u32 = 3u32;
-pub const FLT_FLUSH_TYPE_DATA_SYNC_ONLY: u32 = 8u32;
-pub const FLT_FLUSH_TYPE_FILE_DATA_ONLY: u32 = 2u32;
-pub const FLT_FLUSH_TYPE_FLUSH_AND_PURGE: u32 = 1u32;
-pub const FLT_FLUSH_TYPE_NO_SYNC: u32 = 4u32;
-pub const FLT_INSTANCE_CONTEXT: u32 = 2u32;
-pub const FLT_INTERNAL_OPERATION_COUNT: u32 = 22u32;
-pub const FLT_MAX_DEVICE_REPARSE_ATTEMPTS: u32 = 64u32;
-pub const FLT_PORT_CONNECT: u32 = 1u32;
-pub const FLT_POSTOP_DISALLOW_FSFILTER_IO: FLT_POSTOP_CALLBACK_STATUS = 2i32;
-pub const FLT_POSTOP_FINISHED_PROCESSING: FLT_POSTOP_CALLBACK_STATUS = 0i32;
-pub const FLT_POSTOP_MORE_PROCESSING_REQUIRED: FLT_POSTOP_CALLBACK_STATUS = 1i32;
-pub const FLT_PREOP_COMPLETE: FLT_PREOP_CALLBACK_STATUS = 4i32;
-pub const FLT_PREOP_DISALLOW_FASTIO: FLT_PREOP_CALLBACK_STATUS = 3i32;
-pub const FLT_PREOP_DISALLOW_FSFILTER_IO: FLT_PREOP_CALLBACK_STATUS = 6i32;
-pub const FLT_PREOP_PENDING: FLT_PREOP_CALLBACK_STATUS = 2i32;
-pub const FLT_PREOP_SUCCESS_NO_CALLBACK: FLT_PREOP_CALLBACK_STATUS = 1i32;
-pub const FLT_PREOP_SUCCESS_WITH_CALLBACK: FLT_PREOP_CALLBACK_STATUS = 0i32;
-pub const FLT_PREOP_SYNCHRONIZE: FLT_PREOP_CALLBACK_STATUS = 5i32;
-pub const FLT_PUSH_LOCK_DISABLE_AUTO_BOOST: u32 = 2u32;
-pub const FLT_PUSH_LOCK_ENABLE_AUTO_BOOST: u32 = 1u32;
-pub const FLT_PUSH_LOCK_VALID_FLAGS: u32 = 3u32;
-pub const FLT_REGISTRATION_VERSION: u32 = 515u32;
-pub const FLT_REGISTRATION_VERSION_0200: u32 = 512u32;
-pub const FLT_REGISTRATION_VERSION_0201: u32 = 513u32;
-pub const FLT_REGISTRATION_VERSION_0202: u32 = 514u32;
-pub const FLT_REGISTRATION_VERSION_0203: u32 = 515u32;
-pub const FLT_SECTION_CONTEXT: u32 = 64u32;
-pub const FLT_SET_CONTEXT_KEEP_IF_EXISTS: FLT_SET_CONTEXT_OPERATION = 1i32;
-pub const FLT_SET_CONTEXT_REPLACE_IF_EXISTS: FLT_SET_CONTEXT_OPERATION = 0i32;
-pub const FLT_STREAMHANDLE_CONTEXT: u32 = 16u32;
-pub const FLT_STREAM_CONTEXT: u32 = 8u32;
-pub const FLT_TRANSACTION_CONTEXT: u32 = 32u32;
-pub const FLT_VALID_FILE_NAME_FLAGS: u32 = 4278190080u32;
-pub const FLT_VALID_FILE_NAME_FORMATS: u32 = 255u32;
-pub const FLT_VALID_FILE_NAME_QUERY_METHODS: u32 = 65280u32;
-pub const FLT_VOLUME_CONTEXT: u32 = 1u32;
-pub const GUID_ECP_FLT_CREATEFILE_TARGET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xce08041d_f411_447f_b70d_ccee45c23fac);
-pub const IRP_MJ_ACQUIRE_FOR_CC_FLUSH: u16 = 65531u16;
-pub const IRP_MJ_ACQUIRE_FOR_MOD_WRITE: u16 = 65533u16;
-pub const IRP_MJ_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: u16 = 65535u16;
-pub const IRP_MJ_FAST_IO_CHECK_IF_POSSIBLE: u16 = 65523u16;
-pub const IRP_MJ_MDL_READ: u16 = 65521u16;
-pub const IRP_MJ_MDL_READ_COMPLETE: u16 = 65520u16;
-pub const IRP_MJ_MDL_WRITE_COMPLETE: u16 = 65518u16;
-pub const IRP_MJ_NETWORK_QUERY_OPEN: u16 = 65522u16;
-pub const IRP_MJ_OPERATION_END: u16 = 128u16;
-pub const IRP_MJ_PREPARE_MDL_WRITE: u16 = 65519u16;
-pub const IRP_MJ_QUERY_OPEN: u16 = 65529u16;
-pub const IRP_MJ_RELEASE_FOR_CC_FLUSH: u16 = 65530u16;
-pub const IRP_MJ_RELEASE_FOR_MOD_WRITE: u16 = 65532u16;
-pub const IRP_MJ_RELEASE_FOR_SECTION_SYNCHRONIZATION: u16 = 65534u16;
-pub const IRP_MJ_VOLUME_DISMOUNT: u16 = 65516u16;
-pub const IRP_MJ_VOLUME_MOUNT: u16 = 65517u16;
-pub const VOL_PROP_FL_DAX_VOLUME: u32 = 1u32;
-pub type FLT_CALLBACK_DATA_QUEUE_FLAGS = i32;
-pub type FLT_POSTOP_CALLBACK_STATUS = i32;
-pub type FLT_PREOP_CALLBACK_STATUS = i32;
-pub type FLT_SET_CONTEXT_OPERATION = i32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -601,6 +531,8 @@ pub struct FLT_CALLBACK_DATA_QUEUE {
     pub Release: PFLT_CALLBACK_DATA_QUEUE_RELEASE,
     pub CompleteCanceledIo: PFLT_CALLBACK_DATA_QUEUE_COMPLETE_CANCELED_IO,
 }
+pub type FLT_CALLBACK_DATA_QUEUE_FLAGS = i32;
+pub const FLT_CONTEXT_END: u32 = 65535u32;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -622,6 +554,9 @@ pub struct FLT_CREATEFILE_TARGET_ECP_CONTEXT {
     pub FileNameInformation: *mut FLT_FILE_NAME_INFORMATION,
     pub Flags: u16,
 }
+pub const FLT_FILE_CONTEXT: u32 = 4u32;
+pub const FLT_FILE_NAME_ALLOW_QUERY_ON_REPARSE: u32 = 67108864u32;
+pub const FLT_FILE_NAME_DO_NOT_CACHE: u32 = 33554432u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FLT_FILE_NAME_INFORMATION {
@@ -636,6 +571,20 @@ pub struct FLT_FILE_NAME_INFORMATION {
     pub FinalComponent: super::super::super::super::Win32::Foundation::UNICODE_STRING,
     pub ParentDir: super::super::super::super::Win32::Foundation::UNICODE_STRING,
 }
+pub const FLT_FILE_NAME_NORMALIZED: u32 = 1u32;
+pub const FLT_FILE_NAME_OPENED: u32 = 2u32;
+pub const FLT_FILE_NAME_QUERY_ALWAYS_ALLOW_CACHE_LOOKUP: u32 = 1024u32;
+pub const FLT_FILE_NAME_QUERY_CACHE_ONLY: u32 = 512u32;
+pub const FLT_FILE_NAME_QUERY_DEFAULT: u32 = 256u32;
+pub const FLT_FILE_NAME_QUERY_FILESYSTEM_ONLY: u32 = 768u32;
+pub const FLT_FILE_NAME_REQUEST_FROM_CURRENT_PROVIDER: u32 = 16777216u32;
+pub const FLT_FILE_NAME_SHORT: u32 = 3u32;
+pub const FLT_FLUSH_TYPE_DATA_SYNC_ONLY: u32 = 8u32;
+pub const FLT_FLUSH_TYPE_FILE_DATA_ONLY: u32 = 2u32;
+pub const FLT_FLUSH_TYPE_FLUSH_AND_PURGE: u32 = 1u32;
+pub const FLT_FLUSH_TYPE_NO_SYNC: u32 = 4u32;
+pub const FLT_INSTANCE_CONTEXT: u32 = 2u32;
+pub const FLT_INTERNAL_OPERATION_COUNT: u32 = 22u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -649,6 +598,7 @@ pub struct FLT_IO_PARAMETER_BLOCK {
     pub TargetInstance: PFLT_INSTANCE,
     pub Parameters: FLT_PARAMETERS,
 }
+pub const FLT_MAX_DEVICE_REPARSE_ATTEMPTS: u32 = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FLT_NAME_CONTROL {
@@ -1215,6 +1165,22 @@ pub struct FLT_PARAMETERS_4 {
     pub WriteBuffer: *mut core::ffi::c_void,
     pub MdlAddress: *mut super::super::super::Foundation::MDL,
 }
+pub const FLT_PORT_CONNECT: u32 = 1u32;
+pub type FLT_POSTOP_CALLBACK_STATUS = i32;
+pub const FLT_POSTOP_DISALLOW_FSFILTER_IO: FLT_POSTOP_CALLBACK_STATUS = 2i32;
+pub const FLT_POSTOP_FINISHED_PROCESSING: FLT_POSTOP_CALLBACK_STATUS = 0i32;
+pub const FLT_POSTOP_MORE_PROCESSING_REQUIRED: FLT_POSTOP_CALLBACK_STATUS = 1i32;
+pub type FLT_PREOP_CALLBACK_STATUS = i32;
+pub const FLT_PREOP_COMPLETE: FLT_PREOP_CALLBACK_STATUS = 4i32;
+pub const FLT_PREOP_DISALLOW_FASTIO: FLT_PREOP_CALLBACK_STATUS = 3i32;
+pub const FLT_PREOP_DISALLOW_FSFILTER_IO: FLT_PREOP_CALLBACK_STATUS = 6i32;
+pub const FLT_PREOP_PENDING: FLT_PREOP_CALLBACK_STATUS = 2i32;
+pub const FLT_PREOP_SUCCESS_NO_CALLBACK: FLT_PREOP_CALLBACK_STATUS = 1i32;
+pub const FLT_PREOP_SUCCESS_WITH_CALLBACK: FLT_PREOP_CALLBACK_STATUS = 0i32;
+pub const FLT_PREOP_SYNCHRONIZE: FLT_PREOP_CALLBACK_STATUS = 5i32;
+pub const FLT_PUSH_LOCK_DISABLE_AUTO_BOOST: u32 = 2u32;
+pub const FLT_PUSH_LOCK_ENABLE_AUTO_BOOST: u32 = 1u32;
+pub const FLT_PUSH_LOCK_VALID_FLAGS: u32 = 3u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_Storage_InstallableFileSystems", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -1236,6 +1202,11 @@ pub struct FLT_REGISTRATION {
     pub NormalizeNameComponentExCallback: PFLT_NORMALIZE_NAME_COMPONENT_EX,
     pub SectionNotificationCallback: PFLT_SECTION_CONFLICT_NOTIFICATION_CALLBACK,
 }
+pub const FLT_REGISTRATION_VERSION: u32 = 515u32;
+pub const FLT_REGISTRATION_VERSION_0200: u32 = 512u32;
+pub const FLT_REGISTRATION_VERSION_0201: u32 = 513u32;
+pub const FLT_REGISTRATION_VERSION_0202: u32 = 514u32;
+pub const FLT_REGISTRATION_VERSION_0203: u32 = 515u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FLT_RELATED_CONTEXTS {
@@ -1269,6 +1240,12 @@ pub struct FLT_RELATED_OBJECTS {
     pub FileObject: *const super::super::super::Foundation::FILE_OBJECT,
     pub Transaction: *const super::super::super::Foundation::KTRANSACTION,
 }
+pub const FLT_SECTION_CONTEXT: u32 = 64u32;
+pub const FLT_SET_CONTEXT_KEEP_IF_EXISTS: FLT_SET_CONTEXT_OPERATION = 1i32;
+pub type FLT_SET_CONTEXT_OPERATION = i32;
+pub const FLT_SET_CONTEXT_REPLACE_IF_EXISTS: FLT_SET_CONTEXT_OPERATION = 0i32;
+pub const FLT_STREAMHANDLE_CONTEXT: u32 = 16u32;
+pub const FLT_STREAM_CONTEXT: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FLT_TAG_DATA_BUFFER {
@@ -1315,6 +1292,11 @@ pub struct FLT_TAG_DATA_BUFFER_0_0 {
     pub Flags: u32,
     pub PathBuffer: [u16; 1],
 }
+pub const FLT_TRANSACTION_CONTEXT: u32 = 32u32;
+pub const FLT_VALID_FILE_NAME_FLAGS: u32 = 4278190080u32;
+pub const FLT_VALID_FILE_NAME_FORMATS: u32 = 255u32;
+pub const FLT_VALID_FILE_NAME_QUERY_METHODS: u32 = 65280u32;
+pub const FLT_VOLUME_CONTEXT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FLT_VOLUME_PROPERTIES {
@@ -1328,13 +1310,23 @@ pub struct FLT_VOLUME_PROPERTIES {
     pub FileSystemDeviceName: super::super::super::super::Win32::Foundation::UNICODE_STRING,
     pub RealDeviceName: super::super::super::super::Win32::Foundation::UNICODE_STRING,
 }
-pub type PFLT_CONTEXT = *mut core::ffi::c_void;
-pub type PFLT_DEFERRED_IO_WORKITEM = isize;
-pub type PFLT_FILTER = isize;
-pub type PFLT_GENERIC_WORKITEM = isize;
-pub type PFLT_INSTANCE = isize;
-pub type PFLT_PORT = isize;
-pub type PFLT_VOLUME = isize;
+pub const GUID_ECP_FLT_CREATEFILE_TARGET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xce08041d_f411_447f_b70d_ccee45c23fac);
+pub const IRP_MJ_ACQUIRE_FOR_CC_FLUSH: u16 = 65531u16;
+pub const IRP_MJ_ACQUIRE_FOR_MOD_WRITE: u16 = 65533u16;
+pub const IRP_MJ_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: u16 = 65535u16;
+pub const IRP_MJ_FAST_IO_CHECK_IF_POSSIBLE: u16 = 65523u16;
+pub const IRP_MJ_MDL_READ: u16 = 65521u16;
+pub const IRP_MJ_MDL_READ_COMPLETE: u16 = 65520u16;
+pub const IRP_MJ_MDL_WRITE_COMPLETE: u16 = 65518u16;
+pub const IRP_MJ_NETWORK_QUERY_OPEN: u16 = 65522u16;
+pub const IRP_MJ_OPERATION_END: u16 = 128u16;
+pub const IRP_MJ_PREPARE_MDL_WRITE: u16 = 65519u16;
+pub const IRP_MJ_QUERY_OPEN: u16 = 65529u16;
+pub const IRP_MJ_RELEASE_FOR_CC_FLUSH: u16 = 65530u16;
+pub const IRP_MJ_RELEASE_FOR_MOD_WRITE: u16 = 65532u16;
+pub const IRP_MJ_RELEASE_FOR_SECTION_SYNCHRONIZATION: u16 = 65534u16;
+pub const IRP_MJ_VOLUME_DISMOUNT: u16 = 65516u16;
+pub const IRP_MJ_VOLUME_MOUNT: u16 = 65517u16;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLTOPLOCK_PREPOST_CALLBACKDATA_ROUTINE = Option<unsafe extern "system" fn(callbackdata: *const FLT_CALLBACK_DATA, context: *const core::ffi::c_void)>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -1358,19 +1350,24 @@ pub type PFLT_COMPLETE_CANCELED_CALLBACK = Option<unsafe extern "system" fn(call
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_COMPLETE_LOCK_CALLBACK_DATA_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, callbackdata: *const FLT_CALLBACK_DATA) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFLT_CONNECT_NOTIFY = Option<unsafe extern "system" fn(clientport: PFLT_PORT, serverportcookie: *const core::ffi::c_void, connectioncontext: *const core::ffi::c_void, sizeofcontext: u32, connectionportcookie: *mut *mut core::ffi::c_void) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFLT_CONTEXT = *mut core::ffi::c_void;
 #[cfg(feature = "Wdk_Foundation")]
 pub type PFLT_CONTEXT_ALLOCATE_CALLBACK = Option<unsafe extern "system" fn(pooltype: super::super::super::Foundation::POOL_TYPE, size: usize, contexttype: u16) -> *mut core::ffi::c_void>;
 pub type PFLT_CONTEXT_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(context: PFLT_CONTEXT, contexttype: u16)>;
 pub type PFLT_CONTEXT_FREE_CALLBACK = Option<unsafe extern "system" fn(pool: *const core::ffi::c_void, contexttype: u16)>;
+pub type PFLT_DEFERRED_IO_WORKITEM = isize;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_DEFERRED_IO_WORKITEM_ROUTINE = Option<unsafe extern "system" fn(fltworkitem: PFLT_DEFERRED_IO_WORKITEM, callbackdata: *const FLT_CALLBACK_DATA, context: *const core::ffi::c_void)>;
 pub type PFLT_DISCONNECT_NOTIFY = Option<unsafe extern "system" fn(connectioncookie: *const core::ffi::c_void)>;
+pub type PFLT_FILTER = isize;
 pub type PFLT_FILTER_UNLOAD_CALLBACK = Option<unsafe extern "system" fn(flags: u32) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_GENERATE_FILE_NAME = Option<unsafe extern "system" fn(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, callbackdata: *const FLT_CALLBACK_DATA, nameoptions: u32, cachefilenameinformation: *mut super::super::super::super::Win32::Foundation::BOOLEAN, filename: *mut FLT_NAME_CONTROL) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFLT_GENERIC_WORKITEM = isize;
 pub type PFLT_GENERIC_WORKITEM_ROUTINE = Option<unsafe extern "system" fn(fltworkitem: PFLT_GENERIC_WORKITEM, fltobject: *const core::ffi::c_void, context: *const core::ffi::c_void)>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_GET_OPERATION_STATUS_CALLBACK = Option<unsafe extern "system" fn(fltobjects: *const FLT_RELATED_OBJECTS, iopbsnapshot: *const FLT_IO_PARAMETER_BLOCK, operationstatus: super::super::super::super::Win32::Foundation::NTSTATUS, requestercontext: *const core::ffi::c_void)>;
+pub type PFLT_INSTANCE = isize;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_INSTANCE_QUERY_TEARDOWN_CALLBACK = Option<unsafe extern "system" fn(fltobjects: *const FLT_RELATED_OBJECTS, flags: u32) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_Storage_InstallableFileSystems", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -1382,6 +1379,7 @@ pub type PFLT_NORMALIZE_CONTEXT_CLEANUP = Option<unsafe extern "system" fn(norma
 pub type PFLT_NORMALIZE_NAME_COMPONENT = Option<unsafe extern "system" fn(instance: PFLT_INSTANCE, parentdirectory: *const super::super::super::super::Win32::Foundation::UNICODE_STRING, volumenamelength: u16, component: *const super::super::super::super::Win32::Foundation::UNICODE_STRING, expandcomponentname: *mut super::FILE_NAMES_INFORMATION, expandcomponentnamelength: u32, flags: u32, normalizationcontext: *mut *mut core::ffi::c_void) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_NORMALIZE_NAME_COMPONENT_EX = Option<unsafe extern "system" fn(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, parentdirectory: *const super::super::super::super::Win32::Foundation::UNICODE_STRING, volumenamelength: u16, component: *const super::super::super::super::Win32::Foundation::UNICODE_STRING, expandcomponentname: *mut super::FILE_NAMES_INFORMATION, expandcomponentnamelength: u32, flags: u32, normalizationcontext: *mut *mut core::ffi::c_void) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFLT_PORT = isize;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_POST_OPERATION_CALLBACK = Option<unsafe extern "system" fn(data: *mut FLT_CALLBACK_DATA, fltobjects: *const FLT_RELATED_OBJECTS, completioncontext: *const core::ffi::c_void, flags: u32) -> FLT_POSTOP_CALLBACK_STATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -1390,3 +1388,5 @@ pub type PFLT_PRE_OPERATION_CALLBACK = Option<unsafe extern "system" fn(data: *m
 pub type PFLT_SECTION_CONFLICT_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(instance: PFLT_INSTANCE, sectioncontext: PFLT_CONTEXT, data: *const FLT_CALLBACK_DATA) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_TRANSACTION_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(fltobjects: *const FLT_RELATED_OBJECTS, transactioncontext: PFLT_CONTEXT, notificationmask: u32) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFLT_VOLUME = isize;
+pub const VOL_PROP_FL_DAX_VOLUME: u32 = 1u32;

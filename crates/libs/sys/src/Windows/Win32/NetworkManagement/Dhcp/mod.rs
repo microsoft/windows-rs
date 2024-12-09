@@ -219,14 +219,186 @@ pub const CLIENT_TYPE_RESERVATION_FLAG: u32 = 4u32;
 pub const CLIENT_TYPE_UNSPECIFIED: u32 = 0u32;
 pub const COMMUNICATION_INT: FSM_STATE = 4i32;
 pub const CONFLICT_DONE: FSM_STATE = 7i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DATE_TIME {
+    pub dwLowDateTime: u32,
+    pub dwHighDateTime: u32,
+}
 pub const DEFAULTQUARSETTING: QuarantineStatus = 5i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPAPI_PARAMS {
+    pub Flags: u32,
+    pub OptionId: u32,
+    pub IsVendor: super::super::Foundation::BOOL,
+    pub Data: *mut u8,
+    pub nBytesData: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPCAPI_CLASSID {
+    pub Flags: u32,
+    pub Data: *mut u8,
+    pub nBytesData: u32,
+}
 pub const DHCPCAPI_DEREGISTER_HANDLE_EVENT: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPCAPI_PARAMS_ARRAY {
+    pub nParams: u32,
+    pub Params: *mut DHCPAPI_PARAMS,
+}
 pub const DHCPCAPI_REGISTER_HANDLE_EVENT: u32 = 1u32;
 pub const DHCPCAPI_REQUEST_ASYNCHRONOUS: u32 = 4u32;
 pub const DHCPCAPI_REQUEST_CANCEL: u32 = 8u32;
 pub const DHCPCAPI_REQUEST_MASK: u32 = 15u32;
 pub const DHCPCAPI_REQUEST_PERSISTENT: u32 = 1u32;
 pub const DHCPCAPI_REQUEST_SYNCHRONOUS: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPDS_SERVER {
+    pub Version: u32,
+    pub ServerName: windows_sys::core::PWSTR,
+    pub ServerAddress: u32,
+    pub Flags: u32,
+    pub State: u32,
+    pub DsLocation: windows_sys::core::PWSTR,
+    pub DsLocType: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPDS_SERVERS {
+    pub Flags: u32,
+    pub NumElements: u32,
+    pub Servers: *mut DHCPDS_SERVER,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV4_FAILOVER_CLIENT_INFO {
+    pub ClientIpAddress: u32,
+    pub SubnetMask: u32,
+    pub ClientHardwareAddress: DHCP_BINARY_DATA,
+    pub ClientName: windows_sys::core::PWSTR,
+    pub ClientComment: windows_sys::core::PWSTR,
+    pub ClientLeaseExpires: DATE_TIME,
+    pub OwnerHost: DHCP_HOST_INFO,
+    pub bClientType: u8,
+    pub AddressState: u8,
+    pub Status: QuarantineStatus,
+    pub ProbationEnds: DATE_TIME,
+    pub QuarantineCapable: super::super::Foundation::BOOL,
+    pub SentPotExpTime: u32,
+    pub AckPotExpTime: u32,
+    pub RecvPotExpTime: u32,
+    pub StartTime: u32,
+    pub CltLastTransTime: u32,
+    pub LastBndUpdTime: u32,
+    pub BndMsgStatus: u32,
+    pub PolicyName: windows_sys::core::PWSTR,
+    pub Flags: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
+    pub NumElements: u32,
+    pub Clients: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
+    pub ClientIpAddress: u32,
+    pub SubnetMask: u32,
+    pub ClientHardwareAddress: DHCP_BINARY_DATA,
+    pub ClientName: windows_sys::core::PWSTR,
+    pub ClientComment: windows_sys::core::PWSTR,
+    pub ClientLeaseExpires: DATE_TIME,
+    pub OwnerHost: DHCP_HOST_INFO,
+    pub bClientType: u8,
+    pub AddressState: u8,
+    pub Status: QuarantineStatus,
+    pub ProbationEnds: DATE_TIME,
+    pub QuarantineCapable: super::super::Foundation::BOOL,
+    pub SentPotExpTime: u32,
+    pub AckPotExpTime: u32,
+    pub RecvPotExpTime: u32,
+    pub StartTime: u32,
+    pub CltLastTransTime: u32,
+    pub LastBndUpdTime: u32,
+    pub BndMsgStatus: u32,
+    pub PolicyName: windows_sys::core::PWSTR,
+    pub Flags: u8,
+    pub AddressStateEx: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV6CAPI_CLASSID {
+    pub Flags: u32,
+    pub Data: *mut u8,
+    pub nBytesData: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV6CAPI_PARAMS {
+    pub Flags: u32,
+    pub OptionId: u32,
+    pub IsVendor: super::super::Foundation::BOOL,
+    pub Data: *mut u8,
+    pub nBytesData: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV6CAPI_PARAMS_ARRAY {
+    pub nParams: u32,
+    pub Params: *mut DHCPV6CAPI_PARAMS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV6Prefix {
+    pub prefix: [u8; 16],
+    pub prefixLength: u32,
+    pub preferredLifeTime: u32,
+    pub validLifeTime: u32,
+    pub status: StatusCode,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV6PrefixLeaseInformation {
+    pub nPrefixes: u32,
+    pub prefixArray: *mut DHCPV6Prefix,
+    pub iaid: u32,
+    pub T1: i64,
+    pub T2: i64,
+    pub MaxLeaseExpirationTime: i64,
+    pub LastRenewalTime: i64,
+    pub status: StatusCode,
+    pub ServerId: *mut u8,
+    pub ServerIdLen: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV6_BIND_ELEMENT {
+    pub Flags: u32,
+    pub fBoundToDHCPServer: super::super::Foundation::BOOL,
+    pub AdapterPrimaryAddress: DHCP_IPV6_ADDRESS,
+    pub AdapterSubnetAddress: DHCP_IPV6_ADDRESS,
+    pub IfDescription: windows_sys::core::PWSTR,
+    pub IpV6IfIndex: u32,
+    pub IfIdSize: u32,
+    pub IfId: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV6_BIND_ELEMENT_ARRAY {
+    pub NumElements: u32,
+    pub Elements: *mut DHCPV6_BIND_ELEMENT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV6_IP_ARRAY {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_IPV6_ADDRESS,
+}
 pub const DHCPV6_OPTION_CLIENTID: u32 = 1u32;
 pub const DHCPV6_OPTION_DNS_SERVERS: u32 = 23u32;
 pub const DHCPV6_OPTION_DOMAIN_LIST: u32 = 24u32;
@@ -248,6 +420,99 @@ pub const DHCPV6_OPTION_UNICAST: u32 = 12u32;
 pub const DHCPV6_OPTION_USER_CLASS: u32 = 15u32;
 pub const DHCPV6_OPTION_VENDOR_CLASS: u32 = 16u32;
 pub const DHCPV6_OPTION_VENDOR_OPTS: u32 = 17u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV6_STATELESS_PARAMS {
+    pub Status: super::super::Foundation::BOOL,
+    pub PurgeInterval: u32,
+}
+pub type DHCPV6_STATELESS_PARAM_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV6_STATELESS_SCOPE_STATS {
+    pub SubnetAddress: DHCP_IPV6_ADDRESS,
+    pub NumStatelessClientsAdded: u64,
+    pub NumStatelessClientsRemoved: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCPV6_STATELESS_STATS {
+    pub NumScopes: u32,
+    pub ScopeStats: *mut DHCPV6_STATELESS_SCOPE_STATS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_ADDR_PATTERN {
+    pub MatchHWType: super::super::Foundation::BOOL,
+    pub HWType: u8,
+    pub IsWildcard: super::super::Foundation::BOOL,
+    pub Length: u8,
+    pub Pattern: [u8; 255],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_ALL_OPTIONS {
+    pub Flags: u32,
+    pub NonVendorOptions: *mut DHCP_OPTION_ARRAY,
+    pub NumVendorOptions: u32,
+    pub VendorOptions: *mut DHCP_ALL_OPTIONS_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_ALL_OPTIONS_0 {
+    pub Option: DHCP_OPTION,
+    pub VendorName: windows_sys::core::PWSTR,
+    pub ClassName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_ALL_OPTION_VALUES {
+    pub Flags: u32,
+    pub NumElements: u32,
+    pub Options: *mut DHCP_ALL_OPTION_VALUES_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_ALL_OPTION_VALUES_0 {
+    pub ClassName: windows_sys::core::PWSTR,
+    pub VendorName: windows_sys::core::PWSTR,
+    pub IsVendor: super::super::Foundation::BOOL,
+    pub OptionsArray: *mut DHCP_OPTION_VALUE_ARRAY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_ALL_OPTION_VALUES_PB {
+    pub Flags: u32,
+    pub NumElements: u32,
+    pub Options: *mut DHCP_ALL_OPTION_VALUES_PB_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_ALL_OPTION_VALUES_PB_0 {
+    pub PolicyName: windows_sys::core::PWSTR,
+    pub VendorName: windows_sys::core::PWSTR,
+    pub IsVendor: super::super::Foundation::BOOL,
+    pub OptionsArray: *mut DHCP_OPTION_VALUE_ARRAY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_ATTRIB {
+    pub DhcpAttribId: u32,
+    pub DhcpAttribType: u32,
+    pub Anonymous: DHCP_ATTRIB_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DHCP_ATTRIB_0 {
+    pub DhcpAttribBool: super::super::Foundation::BOOL,
+    pub DhcpAttribUlong: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_ATTRIB_ARRAY {
+    pub NumElements: u32,
+    pub DhcpAttribs: *mut DHCP_ATTRIB,
+}
 pub const DHCP_ATTRIB_BOOL_IS_ADMIN: u32 = 5u32;
 pub const DHCP_ATTRIB_BOOL_IS_BINDING_AWARE: u32 = 4u32;
 pub const DHCP_ATTRIB_BOOL_IS_DYNBOOTP: u32 = 2u32;
@@ -256,11 +521,256 @@ pub const DHCP_ATTRIB_BOOL_IS_ROGUE: u32 = 1u32;
 pub const DHCP_ATTRIB_TYPE_BOOL: u32 = 1u32;
 pub const DHCP_ATTRIB_TYPE_ULONG: u32 = 2u32;
 pub const DHCP_ATTRIB_ULONG_RESTORE_STATUS: u32 = 6u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_BINARY_DATA {
+    pub DataLength: u32,
+    pub Data: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_BIND_ELEMENT {
+    pub Flags: u32,
+    pub fBoundToDHCPServer: super::super::Foundation::BOOL,
+    pub AdapterPrimaryAddress: u32,
+    pub AdapterSubnetAddress: u32,
+    pub IfDescription: windows_sys::core::PWSTR,
+    pub IfIdSize: u32,
+    pub IfId: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_BIND_ELEMENT_ARRAY {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_BIND_ELEMENT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_BOOTP_IP_RANGE {
+    pub StartAddress: u32,
+    pub EndAddress: u32,
+    pub BootpAllocated: u32,
+    pub MaxBootpAllowed: u32,
+}
 pub const DHCP_CALLOUT_ENTRY_POINT: windows_sys::core::PCSTR = windows_sys::core::s!("DhcpServerCalloutEntry");
 pub const DHCP_CALLOUT_LIST_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("System\\CurrentControlSet\\Services\\DHCPServer\\Parameters");
 pub const DHCP_CALLOUT_LIST_VALUE: windows_sys::core::PCWSTR = windows_sys::core::w!("CalloutDlls");
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CALLOUT_TABLE {
+    pub DhcpControlHook: LPDHCP_CONTROL,
+    pub DhcpNewPktHook: LPDHCP_NEWPKT,
+    pub DhcpPktDropHook: LPDHCP_DROP_SEND,
+    pub DhcpPktSendHook: LPDHCP_DROP_SEND,
+    pub DhcpAddressDelHook: LPDHCP_PROB,
+    pub DhcpAddressOfferHook: LPDHCP_GIVE_ADDRESS,
+    pub DhcpHandleOptionsHook: LPDHCP_HANDLE_OPTIONS,
+    pub DhcpDeleteClientHook: LPDHCP_DELETE_CLIENT,
+    pub DhcpExtensionHook: *mut core::ffi::c_void,
+    pub DhcpReservedHook: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLASS_INFO {
+    pub ClassName: windows_sys::core::PWSTR,
+    pub ClassComment: windows_sys::core::PWSTR,
+    pub ClassDataLength: u32,
+    pub IsVendor: super::super::Foundation::BOOL,
+    pub Flags: u32,
+    pub ClassData: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLASS_INFO_ARRAY {
+    pub NumElements: u32,
+    pub Classes: *mut DHCP_CLASS_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLASS_INFO_ARRAY_V6 {
+    pub NumElements: u32,
+    pub Classes: *mut DHCP_CLASS_INFO_V6,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLASS_INFO_V6 {
+    pub ClassName: windows_sys::core::PWSTR,
+    pub ClassComment: windows_sys::core::PWSTR,
+    pub ClassDataLength: u32,
+    pub IsVendor: super::super::Foundation::BOOL,
+    pub EnterpriseNumber: u32,
+    pub Flags: u32,
+    pub ClassData: *mut u8,
+}
 pub const DHCP_CLIENT_BOOTP: u32 = 805306371u32;
 pub const DHCP_CLIENT_DHCP: u32 = 805306372u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
+    pub ClientIpAddress: u32,
+    pub SubnetMask: u32,
+    pub ClientHardwareAddress: DHCP_BINARY_DATA,
+    pub ClientName: windows_sys::core::PWSTR,
+    pub ClientComment: windows_sys::core::PWSTR,
+    pub ClientLeaseExpires: DATE_TIME,
+    pub OwnerHost: DHCP_HOST_INFO,
+    pub bClientType: u8,
+    pub AddressState: u8,
+    pub Status: QuarantineStatus,
+    pub ProbationEnds: DATE_TIME,
+    pub QuarantineCapable: super::super::Foundation::BOOL,
+    pub FilterStatus: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
+    pub NumElements: u32,
+    pub Clients: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO {
+    pub ClientIpAddress: u32,
+    pub SubnetMask: u32,
+    pub ClientHardwareAddress: DHCP_BINARY_DATA,
+    pub ClientName: windows_sys::core::PWSTR,
+    pub ClientComment: windows_sys::core::PWSTR,
+    pub ClientLeaseExpires: DATE_TIME,
+    pub OwnerHost: DHCP_HOST_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_ARRAY {
+    pub NumElements: u32,
+    pub Clients: *mut *mut DHCP_CLIENT_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_ARRAY_V4 {
+    pub NumElements: u32,
+    pub Clients: *mut *mut DHCP_CLIENT_INFO_V4,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_ARRAY_V5 {
+    pub NumElements: u32,
+    pub Clients: *mut *mut DHCP_CLIENT_INFO_V5,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_ARRAY_V6 {
+    pub NumElements: u32,
+    pub Clients: *mut *mut DHCP_CLIENT_INFO_V6,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_ARRAY_VQ {
+    pub NumElements: u32,
+    pub Clients: *mut *mut DHCP_CLIENT_INFO_VQ,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_EX {
+    pub ClientIpAddress: u32,
+    pub SubnetMask: u32,
+    pub ClientHardwareAddress: DHCP_BINARY_DATA,
+    pub ClientName: windows_sys::core::PWSTR,
+    pub ClientComment: windows_sys::core::PWSTR,
+    pub ClientLeaseExpires: DATE_TIME,
+    pub OwnerHost: DHCP_HOST_INFO,
+    pub bClientType: u8,
+    pub AddressState: u8,
+    pub Status: QuarantineStatus,
+    pub ProbationEnds: DATE_TIME,
+    pub QuarantineCapable: super::super::Foundation::BOOL,
+    pub FilterStatus: u32,
+    pub PolicyName: windows_sys::core::PWSTR,
+    pub Properties: *mut DHCP_PROPERTY_ARRAY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_EX_ARRAY {
+    pub NumElements: u32,
+    pub Clients: *mut *mut DHCP_CLIENT_INFO_EX,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_PB {
+    pub ClientIpAddress: u32,
+    pub SubnetMask: u32,
+    pub ClientHardwareAddress: DHCP_BINARY_DATA,
+    pub ClientName: windows_sys::core::PWSTR,
+    pub ClientComment: windows_sys::core::PWSTR,
+    pub ClientLeaseExpires: DATE_TIME,
+    pub OwnerHost: DHCP_HOST_INFO,
+    pub bClientType: u8,
+    pub AddressState: u8,
+    pub Status: QuarantineStatus,
+    pub ProbationEnds: DATE_TIME,
+    pub QuarantineCapable: super::super::Foundation::BOOL,
+    pub FilterStatus: u32,
+    pub PolicyName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_PB_ARRAY {
+    pub NumElements: u32,
+    pub Clients: *mut *mut DHCP_CLIENT_INFO_PB,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_V4 {
+    pub ClientIpAddress: u32,
+    pub SubnetMask: u32,
+    pub ClientHardwareAddress: DHCP_BINARY_DATA,
+    pub ClientName: windows_sys::core::PWSTR,
+    pub ClientComment: windows_sys::core::PWSTR,
+    pub ClientLeaseExpires: DATE_TIME,
+    pub OwnerHost: DHCP_HOST_INFO,
+    pub bClientType: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_V5 {
+    pub ClientIpAddress: u32,
+    pub SubnetMask: u32,
+    pub ClientHardwareAddress: DHCP_BINARY_DATA,
+    pub ClientName: windows_sys::core::PWSTR,
+    pub ClientComment: windows_sys::core::PWSTR,
+    pub ClientLeaseExpires: DATE_TIME,
+    pub OwnerHost: DHCP_HOST_INFO,
+    pub bClientType: u8,
+    pub AddressState: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_V6 {
+    pub ClientIpAddress: DHCP_IPV6_ADDRESS,
+    pub ClientDUID: DHCP_BINARY_DATA,
+    pub AddressType: u32,
+    pub IAID: u32,
+    pub ClientName: windows_sys::core::PWSTR,
+    pub ClientComment: windows_sys::core::PWSTR,
+    pub ClientValidLeaseExpires: DATE_TIME,
+    pub ClientPrefLeaseExpires: DATE_TIME,
+    pub OwnerHost: DHCP_HOST_INFO_V6,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_CLIENT_INFO_VQ {
+    pub ClientIpAddress: u32,
+    pub SubnetMask: u32,
+    pub ClientHardwareAddress: DHCP_BINARY_DATA,
+    pub ClientName: windows_sys::core::PWSTR,
+    pub ClientComment: windows_sys::core::PWSTR,
+    pub ClientLeaseExpires: DATE_TIME,
+    pub OwnerHost: DHCP_HOST_INFO,
+    pub bClientType: u8,
+    pub AddressState: u8,
+    pub Status: QuarantineStatus,
+    pub ProbationEnds: DATE_TIME,
+    pub QuarantineCapable: super::super::Foundation::BOOL,
+}
 pub const DHCP_CONTROL_CONTINUE: u32 = 4u32;
 pub const DHCP_CONTROL_PAUSE: u32 = 3u32;
 pub const DHCP_CONTROL_START: u32 = 1u32;
@@ -281,21 +791,742 @@ pub const DHCP_ENDPOINT_FLAG_CANT_MODIFY: u32 = 1u32;
 pub const DHCP_FAILOVER_DELETE_SCOPES: u32 = 1u32;
 pub const DHCP_FAILOVER_MAX_NUM_ADD_SCOPES: u32 = 400u32;
 pub const DHCP_FAILOVER_MAX_NUM_REL: u32 = 31u32;
+pub type DHCP_FAILOVER_MODE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_FAILOVER_RELATIONSHIP {
+    pub PrimaryServer: u32,
+    pub SecondaryServer: u32,
+    pub Mode: DHCP_FAILOVER_MODE,
+    pub ServerType: DHCP_FAILOVER_SERVER,
+    pub State: FSM_STATE,
+    pub PrevState: FSM_STATE,
+    pub Mclt: u32,
+    pub SafePeriod: u32,
+    pub RelationshipName: windows_sys::core::PWSTR,
+    pub PrimaryServerName: windows_sys::core::PWSTR,
+    pub SecondaryServerName: windows_sys::core::PWSTR,
+    pub pScopes: *mut DHCP_IP_ARRAY,
+    pub Percentage: u8,
+    pub SharedSecret: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
+    pub NumElements: u32,
+    pub pRelationships: *mut DHCP_FAILOVER_RELATIONSHIP,
+}
+pub type DHCP_FAILOVER_SERVER = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_FAILOVER_STATISTICS {
+    pub NumAddr: u32,
+    pub AddrFree: u32,
+    pub AddrInUse: u32,
+    pub PartnerAddrFree: u32,
+    pub ThisAddrFree: u32,
+    pub PartnerAddrInUse: u32,
+    pub ThisAddrInUse: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_FILTER_ADD_INFO {
+    pub AddrPatt: DHCP_ADDR_PATTERN,
+    pub Comment: windows_sys::core::PWSTR,
+    pub ListType: DHCP_FILTER_LIST_TYPE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_FILTER_ENUM_INFO {
+    pub NumElements: u32,
+    pub pEnumRecords: *mut DHCP_FILTER_RECORD,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_FILTER_GLOBAL_INFO {
+    pub EnforceAllowList: super::super::Foundation::BOOL,
+    pub EnforceDenyList: super::super::Foundation::BOOL,
+}
+pub type DHCP_FILTER_LIST_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_FILTER_RECORD {
+    pub AddrPatt: DHCP_ADDR_PATTERN,
+    pub Comment: windows_sys::core::PWSTR,
+}
 pub const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1u32;
 pub const DHCP_FLAGS_DONT_DO_RPC: u32 = 2u32;
 pub const DHCP_FLAGS_OPTION_IS_VENDOR: u32 = 3u32;
+pub type DHCP_FORCE_FLAG = i32;
 pub const DHCP_GIVE_ADDRESS_NEW: u32 = 805306369u32;
 pub const DHCP_GIVE_ADDRESS_OLD: u32 = 805306370u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_HOST_INFO {
+    pub IpAddress: u32,
+    pub NetBiosName: windows_sys::core::PWSTR,
+    pub HostName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_HOST_INFO_V6 {
+    pub IpAddress: DHCP_IPV6_ADDRESS,
+    pub NetBiosName: windows_sys::core::PWSTR,
+    pub HostName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_IPV6_ADDRESS {
+    pub HighOrderBits: u64,
+    pub LowOrderBits: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_IP_ARRAY {
+    pub NumElements: u32,
+    pub Elements: *mut u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_IP_CLUSTER {
+    pub ClusterAddress: u32,
+    pub ClusterMask: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_IP_RANGE {
+    pub StartAddress: u32,
+    pub EndAddress: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_IP_RANGE_ARRAY {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_IP_RANGE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_IP_RANGE_V6 {
+    pub StartAddress: DHCP_IPV6_ADDRESS,
+    pub EndAddress: DHCP_IPV6_ADDRESS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_IP_RESERVATION {
+    pub ReservedIpAddress: u32,
+    pub ReservedForClient: *mut DHCP_BINARY_DATA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_IP_RESERVATION_INFO {
+    pub ReservedIpAddress: u32,
+    pub ReservedForClient: DHCP_BINARY_DATA,
+    pub ReservedClientName: windows_sys::core::PWSTR,
+    pub ReservedClientDesc: windows_sys::core::PWSTR,
+    pub bAllowedClientTypes: u8,
+    pub fOptionsPresent: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_IP_RESERVATION_V4 {
+    pub ReservedIpAddress: u32,
+    pub ReservedForClient: *mut DHCP_BINARY_DATA,
+    pub bAllowedClientTypes: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_IP_RESERVATION_V6 {
+    pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
+    pub ReservedForClient: *mut DHCP_BINARY_DATA,
+    pub InterfaceId: u32,
+}
 pub const DHCP_MAX_DELAY: u32 = 1000u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_MIB_INFO {
+    pub Discovers: u32,
+    pub Offers: u32,
+    pub Requests: u32,
+    pub Acks: u32,
+    pub Naks: u32,
+    pub Declines: u32,
+    pub Releases: u32,
+    pub ServerStartTime: DATE_TIME,
+    pub Scopes: u32,
+    pub ScopeInfo: *mut SCOPE_MIB_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_MIB_INFO_V5 {
+    pub Discovers: u32,
+    pub Offers: u32,
+    pub Requests: u32,
+    pub Acks: u32,
+    pub Naks: u32,
+    pub Declines: u32,
+    pub Releases: u32,
+    pub ServerStartTime: DATE_TIME,
+    pub QtnNumLeases: u32,
+    pub QtnPctQtnLeases: u32,
+    pub QtnProbationLeases: u32,
+    pub QtnNonQtnLeases: u32,
+    pub QtnExemptLeases: u32,
+    pub QtnCapableClients: u32,
+    pub QtnIASErrors: u32,
+    pub DelayedOffers: u32,
+    pub ScopesWithDelayedOffers: u32,
+    pub Scopes: u32,
+    pub ScopeInfo: *mut SCOPE_MIB_INFO_V5,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_MIB_INFO_V6 {
+    pub Solicits: u32,
+    pub Advertises: u32,
+    pub Requests: u32,
+    pub Renews: u32,
+    pub Rebinds: u32,
+    pub Replies: u32,
+    pub Confirms: u32,
+    pub Declines: u32,
+    pub Releases: u32,
+    pub Informs: u32,
+    pub ServerStartTime: DATE_TIME,
+    pub Scopes: u32,
+    pub ScopeInfo: *mut SCOPE_MIB_INFO_V6,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_MIB_INFO_VQ {
+    pub Discovers: u32,
+    pub Offers: u32,
+    pub Requests: u32,
+    pub Acks: u32,
+    pub Naks: u32,
+    pub Declines: u32,
+    pub Releases: u32,
+    pub ServerStartTime: DATE_TIME,
+    pub QtnNumLeases: u32,
+    pub QtnPctQtnLeases: u32,
+    pub QtnProbationLeases: u32,
+    pub QtnNonQtnLeases: u32,
+    pub QtnExemptLeases: u32,
+    pub QtnCapableClients: u32,
+    pub QtnIASErrors: u32,
+    pub Scopes: u32,
+    pub ScopeInfo: *mut SCOPE_MIB_INFO_VQ,
+}
 pub const DHCP_MIN_DELAY: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_OPTION {
+    pub OptionID: u32,
+    pub OptionName: windows_sys::core::PWSTR,
+    pub OptionComment: windows_sys::core::PWSTR,
+    pub DefaultValue: DHCP_OPTION_DATA,
+    pub OptionType: DHCP_OPTION_TYPE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_OPTION_ARRAY {
+    pub NumElements: u32,
+    pub Options: *mut DHCP_OPTION,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_OPTION_DATA {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_OPTION_DATA_ELEMENT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_OPTION_DATA_ELEMENT {
+    pub OptionType: DHCP_OPTION_DATA_TYPE,
+    pub Element: DHCP_OPTION_DATA_ELEMENT_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DHCP_OPTION_DATA_ELEMENT_0 {
+    pub ByteOption: u8,
+    pub WordOption: u16,
+    pub DWordOption: u32,
+    pub DWordDWordOption: DWORD_DWORD,
+    pub IpAddressOption: u32,
+    pub StringDataOption: windows_sys::core::PWSTR,
+    pub BinaryDataOption: DHCP_BINARY_DATA,
+    pub EncapsulatedDataOption: DHCP_BINARY_DATA,
+    pub Ipv6AddressDataOption: windows_sys::core::PWSTR,
+}
+pub type DHCP_OPTION_DATA_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_OPTION_LIST {
+    pub NumOptions: u32,
+    pub Options: *mut DHCP_OPTION_VALUE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_OPTION_SCOPE_INFO {
+    pub ScopeType: DHCP_OPTION_SCOPE_TYPE,
+    pub ScopeInfo: DHCP_OPTION_SCOPE_INFO_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DHCP_OPTION_SCOPE_INFO_0 {
+    pub DefaultScopeInfo: *mut core::ffi::c_void,
+    pub GlobalScopeInfo: *mut core::ffi::c_void,
+    pub SubnetScopeInfo: u32,
+    pub ReservedScopeInfo: DHCP_RESERVED_SCOPE,
+    pub MScopeInfo: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_OPTION_SCOPE_INFO6 {
+    pub ScopeType: DHCP_OPTION_SCOPE_TYPE6,
+    pub ScopeInfo: DHCP_OPTION_SCOPE_INFO6_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DHCP_OPTION_SCOPE_INFO6_0 {
+    pub DefaultScopeInfo: *mut core::ffi::c_void,
+    pub SubnetScopeInfo: DHCP_IPV6_ADDRESS,
+    pub ReservedScopeInfo: DHCP_RESERVED_SCOPE6,
+}
+pub type DHCP_OPTION_SCOPE_TYPE = i32;
+pub type DHCP_OPTION_SCOPE_TYPE6 = i32;
+pub type DHCP_OPTION_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_OPTION_VALUE {
+    pub OptionID: u32,
+    pub Value: DHCP_OPTION_DATA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_OPTION_VALUE_ARRAY {
+    pub NumElements: u32,
+    pub Values: *mut DHCP_OPTION_VALUE,
+}
 pub const DHCP_OPT_ENUM_IGNORE_VENDOR: u32 = 1u32;
 pub const DHCP_OPT_ENUM_USE_CLASSNAME: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_PERF_STATS {
+    pub dwNumPacketsReceived: u32,
+    pub dwNumPacketsDuplicate: u32,
+    pub dwNumPacketsExpired: u32,
+    pub dwNumMilliSecondsProcessed: u32,
+    pub dwNumPacketsInActiveQueue: u32,
+    pub dwNumPacketsInPingQueue: u32,
+    pub dwNumDiscoversReceived: u32,
+    pub dwNumOffersSent: u32,
+    pub dwNumRequestsReceived: u32,
+    pub dwNumInformsReceived: u32,
+    pub dwNumAcksSent: u32,
+    pub dwNumNacksSent: u32,
+    pub dwNumDeclinesReceived: u32,
+    pub dwNumReleasesReceived: u32,
+    pub dwNumDelayedOfferInQueue: u32,
+    pub dwNumPacketsProcessed: u32,
+    pub dwNumPacketsInQuarWaitingQueue: u32,
+    pub dwNumPacketsInQuarReadyQueue: u32,
+    pub dwNumPacketsInQuarDecisionQueue: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_POLICY {
+    pub PolicyName: windows_sys::core::PWSTR,
+    pub IsGlobalPolicy: super::super::Foundation::BOOL,
+    pub Subnet: u32,
+    pub ProcessingOrder: u32,
+    pub Conditions: *mut DHCP_POL_COND_ARRAY,
+    pub Expressions: *mut DHCP_POL_EXPR_ARRAY,
+    pub Ranges: *mut DHCP_IP_RANGE_ARRAY,
+    pub Description: windows_sys::core::PWSTR,
+    pub Enabled: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_POLICY_ARRAY {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_POLICY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_POLICY_EX {
+    pub PolicyName: windows_sys::core::PWSTR,
+    pub IsGlobalPolicy: super::super::Foundation::BOOL,
+    pub Subnet: u32,
+    pub ProcessingOrder: u32,
+    pub Conditions: *mut DHCP_POL_COND_ARRAY,
+    pub Expressions: *mut DHCP_POL_EXPR_ARRAY,
+    pub Ranges: *mut DHCP_IP_RANGE_ARRAY,
+    pub Description: windows_sys::core::PWSTR,
+    pub Enabled: super::super::Foundation::BOOL,
+    pub Properties: *mut DHCP_PROPERTY_ARRAY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_POLICY_EX_ARRAY {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_POLICY_EX,
+}
+pub type DHCP_POLICY_FIELDS_TO_UPDATE = i32;
+pub type DHCP_POL_ATTR_TYPE = i32;
+pub type DHCP_POL_COMPARATOR = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_POL_COND {
+    pub ParentExpr: u32,
+    pub Type: DHCP_POL_ATTR_TYPE,
+    pub OptionID: u32,
+    pub SubOptionID: u32,
+    pub VendorName: windows_sys::core::PWSTR,
+    pub Operator: DHCP_POL_COMPARATOR,
+    pub Value: *mut u8,
+    pub ValueLength: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_POL_COND_ARRAY {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_POL_COND,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_POL_EXPR {
+    pub ParentExpr: u32,
+    pub Operator: DHCP_POL_LOGIC_OPER,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_POL_EXPR_ARRAY {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_POL_EXPR,
+}
+pub type DHCP_POL_LOGIC_OPER = i32;
 pub const DHCP_PROB_CONFLICT: u32 = 536870913u32;
 pub const DHCP_PROB_DECLINE: u32 = 536870914u32;
 pub const DHCP_PROB_NACKED: u32 = 536870916u32;
 pub const DHCP_PROB_RELEASE: u32 = 536870915u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_PROPERTY {
+    pub ID: DHCP_PROPERTY_ID,
+    pub Type: DHCP_PROPERTY_TYPE,
+    pub Value: DHCP_PROPERTY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DHCP_PROPERTY_0 {
+    pub ByteValue: u8,
+    pub WordValue: u16,
+    pub DWordValue: u32,
+    pub StringValue: windows_sys::core::PWSTR,
+    pub BinaryValue: DHCP_BINARY_DATA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_PROPERTY_ARRAY {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_PROPERTY,
+}
+pub type DHCP_PROPERTY_ID = i32;
+pub type DHCP_PROPERTY_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_RESERVATION_INFO_ARRAY {
+    pub NumElements: u32,
+    pub Elements: *mut *mut DHCP_IP_RESERVATION_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_RESERVED_SCOPE {
+    pub ReservedIpAddress: u32,
+    pub ReservedIpSubnetAddress: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_RESERVED_SCOPE6 {
+    pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
+    pub ReservedIpSubnetAddress: DHCP_IPV6_ADDRESS,
+}
+pub type DHCP_SCAN_FLAG = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SCAN_ITEM {
+    pub IpAddress: u32,
+    pub ScanFlag: DHCP_SCAN_FLAG,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SCAN_LIST {
+    pub NumScanItems: u32,
+    pub ScanItems: *mut DHCP_SCAN_ITEM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SEARCH_INFO {
+    pub SearchType: DHCP_SEARCH_INFO_TYPE,
+    pub SearchInfo: DHCP_SEARCH_INFO_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DHCP_SEARCH_INFO_0 {
+    pub ClientIpAddress: u32,
+    pub ClientHardwareAddress: DHCP_BINARY_DATA,
+    pub ClientName: windows_sys::core::PWSTR,
+}
+pub type DHCP_SEARCH_INFO_TYPE = i32;
+pub type DHCP_SEARCH_INFO_TYPE_V6 = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SEARCH_INFO_V6 {
+    pub SearchType: DHCP_SEARCH_INFO_TYPE_V6,
+    pub SearchInfo: DHCP_SEARCH_INFO_V6_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DHCP_SEARCH_INFO_V6_0 {
+    pub ClientIpAddress: DHCP_IPV6_ADDRESS,
+    pub ClientDUID: DHCP_BINARY_DATA,
+    pub ClientName: windows_sys::core::PWSTR,
+}
 pub const DHCP_SEND_PACKET: u32 = 268435456u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SERVER_CONFIG_INFO {
+    pub APIProtocolSupport: u32,
+    pub DatabaseName: windows_sys::core::PWSTR,
+    pub DatabasePath: windows_sys::core::PWSTR,
+    pub BackupPath: windows_sys::core::PWSTR,
+    pub BackupInterval: u32,
+    pub DatabaseLoggingFlag: u32,
+    pub RestoreFlag: u32,
+    pub DatabaseCleanupInterval: u32,
+    pub DebugFlag: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SERVER_CONFIG_INFO_V4 {
+    pub APIProtocolSupport: u32,
+    pub DatabaseName: windows_sys::core::PWSTR,
+    pub DatabasePath: windows_sys::core::PWSTR,
+    pub BackupPath: windows_sys::core::PWSTR,
+    pub BackupInterval: u32,
+    pub DatabaseLoggingFlag: u32,
+    pub RestoreFlag: u32,
+    pub DatabaseCleanupInterval: u32,
+    pub DebugFlag: u32,
+    pub dwPingRetries: u32,
+    pub cbBootTableString: u32,
+    pub wszBootTableString: windows_sys::core::PWSTR,
+    pub fAuditLog: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SERVER_CONFIG_INFO_V6 {
+    pub UnicastFlag: super::super::Foundation::BOOL,
+    pub RapidCommitFlag: super::super::Foundation::BOOL,
+    pub PreferredLifetime: u32,
+    pub ValidLifetime: u32,
+    pub T1: u32,
+    pub T2: u32,
+    pub PreferredLifetimeIATA: u32,
+    pub ValidLifetimeIATA: u32,
+    pub fAuditLog: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SERVER_CONFIG_INFO_VQ {
+    pub APIProtocolSupport: u32,
+    pub DatabaseName: windows_sys::core::PWSTR,
+    pub DatabasePath: windows_sys::core::PWSTR,
+    pub BackupPath: windows_sys::core::PWSTR,
+    pub BackupInterval: u32,
+    pub DatabaseLoggingFlag: u32,
+    pub RestoreFlag: u32,
+    pub DatabaseCleanupInterval: u32,
+    pub DebugFlag: u32,
+    pub dwPingRetries: u32,
+    pub cbBootTableString: u32,
+    pub wszBootTableString: windows_sys::core::PWSTR,
+    pub fAuditLog: super::super::Foundation::BOOL,
+    pub QuarantineOn: super::super::Foundation::BOOL,
+    pub QuarDefFail: u32,
+    pub QuarRuntimeStatus: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SERVER_OPTIONS {
+    pub MessageType: *mut u8,
+    pub SubnetMask: *mut u32,
+    pub RequestedAddress: *mut u32,
+    pub RequestLeaseTime: *mut u32,
+    pub OverlayFields: *mut u8,
+    pub RouterAddress: *mut u32,
+    pub Server: *mut u32,
+    pub ParameterRequestList: *mut u8,
+    pub ParameterRequestListLength: u32,
+    pub MachineName: windows_sys::core::PSTR,
+    pub MachineNameLength: u32,
+    pub ClientHardwareAddressType: u8,
+    pub ClientHardwareAddressLength: u8,
+    pub ClientHardwareAddress: *mut u8,
+    pub ClassIdentifier: windows_sys::core::PSTR,
+    pub ClassIdentifierLength: u32,
+    pub VendorClass: *mut u8,
+    pub VendorClassLength: u32,
+    pub DNSFlags: u32,
+    pub DNSNameLength: u32,
+    pub DNSName: *mut u8,
+    pub DSDomainNameRequested: super::super::Foundation::BOOLEAN,
+    pub DSDomainName: windows_sys::core::PSTR,
+    pub DSDomainNameLen: u32,
+    pub ScopeId: *mut u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SERVER_SPECIFIC_STRINGS {
+    pub DefaultVendorClassName: windows_sys::core::PWSTR,
+    pub DefaultUserClassName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUBNET_ELEMENT_DATA {
+    pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
+    pub Element: DHCP_SUBNET_ELEMENT_DATA_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DHCP_SUBNET_ELEMENT_DATA_0 {
+    pub IpRange: *mut DHCP_IP_RANGE,
+    pub SecondaryHost: *mut DHCP_HOST_INFO,
+    pub ReservedIp: *mut DHCP_IP_RESERVATION,
+    pub ExcludeIpRange: *mut DHCP_IP_RANGE,
+    pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUBNET_ELEMENT_DATA_V4 {
+    pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
+    pub Element: DHCP_SUBNET_ELEMENT_DATA_V4_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DHCP_SUBNET_ELEMENT_DATA_V4_0 {
+    pub IpRange: *mut DHCP_IP_RANGE,
+    pub SecondaryHost: *mut DHCP_HOST_INFO,
+    pub ReservedIp: *mut DHCP_IP_RESERVATION_V4,
+    pub ExcludeIpRange: *mut DHCP_IP_RANGE,
+    pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUBNET_ELEMENT_DATA_V5 {
+    pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
+    pub Element: DHCP_SUBNET_ELEMENT_DATA_V5_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DHCP_SUBNET_ELEMENT_DATA_V5_0 {
+    pub IpRange: *mut DHCP_BOOTP_IP_RANGE,
+    pub SecondaryHost: *mut DHCP_HOST_INFO,
+    pub ReservedIp: *mut DHCP_IP_RESERVATION_V4,
+    pub ExcludeIpRange: *mut DHCP_IP_RANGE,
+    pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUBNET_ELEMENT_DATA_V6 {
+    pub ElementType: DHCP_SUBNET_ELEMENT_TYPE_V6,
+    pub Element: DHCP_SUBNET_ELEMENT_DATA_V6_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DHCP_SUBNET_ELEMENT_DATA_V6_0 {
+    pub IpRange: *mut DHCP_IP_RANGE_V6,
+    pub ReservedIp: *mut DHCP_IP_RESERVATION_V6,
+    pub ExcludeIpRange: *mut DHCP_IP_RANGE_V6,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V4,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V5,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
+    pub NumElements: u32,
+    pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V6,
+}
+pub type DHCP_SUBNET_ELEMENT_TYPE = i32;
+pub type DHCP_SUBNET_ELEMENT_TYPE_V6 = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUBNET_INFO {
+    pub SubnetAddress: u32,
+    pub SubnetMask: u32,
+    pub SubnetName: windows_sys::core::PWSTR,
+    pub SubnetComment: windows_sys::core::PWSTR,
+    pub PrimaryHost: DHCP_HOST_INFO,
+    pub SubnetState: DHCP_SUBNET_STATE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUBNET_INFO_V6 {
+    pub SubnetAddress: DHCP_IPV6_ADDRESS,
+    pub Prefix: u32,
+    pub Preference: u16,
+    pub SubnetName: windows_sys::core::PWSTR,
+    pub SubnetComment: windows_sys::core::PWSTR,
+    pub State: u32,
+    pub ScopeId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUBNET_INFO_VQ {
+    pub SubnetAddress: u32,
+    pub SubnetMask: u32,
+    pub SubnetName: windows_sys::core::PWSTR,
+    pub SubnetComment: windows_sys::core::PWSTR,
+    pub PrimaryHost: DHCP_HOST_INFO,
+    pub SubnetState: DHCP_SUBNET_STATE,
+    pub QuarantineOn: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub Reserved3: i64,
+    pub Reserved4: i64,
+}
 pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1u32;
+pub type DHCP_SUBNET_STATE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUPER_SCOPE_TABLE {
+    pub cEntries: u32,
+    pub pEntries: *mut DHCP_SUPER_SCOPE_TABLE_ENTRY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
+    pub SubnetAddress: u32,
+    pub SuperScopeNumber: u32,
+    pub NextInSuperScope: u32,
+    pub SuperScopeName: windows_sys::core::PWSTR,
+}
 pub const DNS_FLAG_CLEANUP_EXPIRED: u32 = 4u32;
 pub const DNS_FLAG_DISABLE_PTR_UPDATE: u32 = 64u32;
 pub const DNS_FLAG_ENABLED: u32 = 1u32;
@@ -304,6 +1535,12 @@ pub const DNS_FLAG_UPDATE_BOTH_ALWAYS: u32 = 16u32;
 pub const DNS_FLAG_UPDATE_DHCID: u32 = 32u32;
 pub const DNS_FLAG_UPDATE_DOWNLEVEL: u32 = 2u32;
 pub const DROPPACKET: QuarantineStatus = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DWORD_DWORD {
+    pub DWord1: u32,
+    pub DWord2: u32,
+}
 pub const Deny: DHCP_FILTER_LIST_TYPE = 0i32;
 pub const DhcpArrayTypeOption: DHCP_OPTION_TYPE = 1i32;
 pub const DhcpAttrFqdn: DHCP_POL_ATTR_TYPE = 3i32;
@@ -505,9 +1742,18 @@ pub const FILTER_STATUS_FULL_MATCH_IN_DENY_LIST: u32 = 4u32;
 pub const FILTER_STATUS_NONE: u32 = 1u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_ALLOW_LIST: u32 = 8u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST: u32 = 16u32;
+pub type FSM_STATE = i32;
 pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
 pub const HotStandby: DHCP_FAILOVER_MODE = 1i32;
 pub const INIT: FSM_STATE = 1i32;
+pub type LPDHCP_CONTROL = Option<unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut core::ffi::c_void) -> u32>;
+pub type LPDHCP_DELETE_CLIENT = Option<unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32>;
+pub type LPDHCP_DROP_SEND = Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, controlcode: u32, ipaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
+pub type LPDHCP_ENTRY_POINT_FUNC = Option<unsafe extern "system" fn(chaindlls: windows_sys::core::PCWSTR, calloutversion: u32, callouttbl: *mut DHCP_CALLOUT_TABLE) -> u32>;
+pub type LPDHCP_GIVE_ADDRESS = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, addrtype: u32, leasetime: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
+pub type LPDHCP_HANDLE_OPTIONS = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void, serveroptions: *mut DHCP_SERVER_OPTIONS) -> u32>;
+pub type LPDHCP_NEWPKT = Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut *mut core::ffi::c_void, processit: *mut super::super::Foundation::BOOL) -> u32>;
+pub type LPDHCP_PROB = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
 pub const LoadBalance: DHCP_FAILOVER_MODE = 0i32;
 pub const MAC_ADDRESS_LENGTH: u32 = 6u32;
 pub const MAX_PATTERN_LENGTH: u32 = 255u32;
@@ -593,1291 +1839,13 @@ pub const PrimaryServer: DHCP_FAILOVER_SERVER = 0i32;
 pub const QUARANTINE_CONFIG_OPTION: u32 = 43222u32;
 pub const QUARANTINE_SCOPE_QUARPROFILE_OPTION: u32 = 43221u32;
 pub const QUARANTIN_OPTION_BASE: u32 = 43220u32;
+pub type QuarantineStatus = i32;
 pub const RECOVER: FSM_STATE = 9i32;
 pub const RECOVER_DONE: FSM_STATE = 11i32;
 pub const RECOVER_WAIT: FSM_STATE = 10i32;
 pub const RESOLUTION_INT: FSM_STATE = 8i32;
 pub const RESTRICTEDACCESS: QuarantineStatus = 1i32;
 pub const SAFEPERIOD: u32 = 2u32;
-pub const SHAREDSECRET: u32 = 64u32;
-pub const SHUTDOWN: FSM_STATE = 13i32;
-pub const STARTUP: FSM_STATE = 2i32;
-pub const STATUS_NOPREFIX_AVAIL: StatusCode = 6i32;
-pub const STATUS_NO_BINDING: StatusCode = 3i32;
-pub const STATUS_NO_ERROR: StatusCode = 0i32;
-pub const STATUS_UNSPECIFIED_FAILURE: StatusCode = 1i32;
-pub const SecondaryServer: DHCP_FAILOVER_SERVER = 1i32;
-pub const Set_APIProtocolSupport: u32 = 1u32;
-pub const Set_AuditLogState: u32 = 2048u32;
-pub const Set_BackupInterval: u32 = 16u32;
-pub const Set_BackupPath: u32 = 8u32;
-pub const Set_BootFileTable: u32 = 1024u32;
-pub const Set_DatabaseCleanupInterval: u32 = 128u32;
-pub const Set_DatabaseLoggingFlag: u32 = 32u32;
-pub const Set_DatabaseName: u32 = 2u32;
-pub const Set_DatabasePath: u32 = 4u32;
-pub const Set_DebugFlag: u32 = 256u32;
-pub const Set_PingRetries: u32 = 512u32;
-pub const Set_PreferredLifetime: u32 = 4u32;
-pub const Set_PreferredLifetimeIATA: u32 = 64u32;
-pub const Set_QuarantineDefFail: u32 = 8192u32;
-pub const Set_QuarantineON: u32 = 4096u32;
-pub const Set_RapidCommitFlag: u32 = 2u32;
-pub const Set_RestoreFlag: u32 = 64u32;
-pub const Set_T1: u32 = 16u32;
-pub const Set_T2: u32 = 32u32;
-pub const Set_UnicastFlag: u32 = 1u32;
-pub const Set_ValidLifetime: u32 = 8u32;
-pub const Set_ValidLifetimeIATA: u32 = 128u32;
-pub const V5_ADDRESS_BIT_BOTH_REC: u32 = 32u32;
-pub const V5_ADDRESS_BIT_DELETED: u32 = 128u32;
-pub const V5_ADDRESS_BIT_UNREGISTERED: u32 = 64u32;
-pub const V5_ADDRESS_EX_BIT_DISABLE_PTR_RR: u32 = 1u32;
-pub const V5_ADDRESS_STATE_ACTIVE: u32 = 1u32;
-pub const V5_ADDRESS_STATE_DECLINED: u32 = 2u32;
-pub const V5_ADDRESS_STATE_DOOM: u32 = 3u32;
-pub const V5_ADDRESS_STATE_OFFERED: u32 = 0u32;
-pub const WARNING_EXTENDED_LESS: i32 = 20026i32;
-pub type DHCPV6_STATELESS_PARAM_TYPE = i32;
-pub type DHCP_FAILOVER_MODE = i32;
-pub type DHCP_FAILOVER_SERVER = i32;
-pub type DHCP_FILTER_LIST_TYPE = i32;
-pub type DHCP_FORCE_FLAG = i32;
-pub type DHCP_OPTION_DATA_TYPE = i32;
-pub type DHCP_OPTION_SCOPE_TYPE = i32;
-pub type DHCP_OPTION_SCOPE_TYPE6 = i32;
-pub type DHCP_OPTION_TYPE = i32;
-pub type DHCP_POLICY_FIELDS_TO_UPDATE = i32;
-pub type DHCP_POL_ATTR_TYPE = i32;
-pub type DHCP_POL_COMPARATOR = i32;
-pub type DHCP_POL_LOGIC_OPER = i32;
-pub type DHCP_PROPERTY_ID = i32;
-pub type DHCP_PROPERTY_TYPE = i32;
-pub type DHCP_SCAN_FLAG = i32;
-pub type DHCP_SEARCH_INFO_TYPE = i32;
-pub type DHCP_SEARCH_INFO_TYPE_V6 = i32;
-pub type DHCP_SUBNET_ELEMENT_TYPE = i32;
-pub type DHCP_SUBNET_ELEMENT_TYPE_V6 = i32;
-pub type DHCP_SUBNET_STATE = i32;
-pub type FSM_STATE = i32;
-pub type QuarantineStatus = i32;
-pub type StatusCode = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DATE_TIME {
-    pub dwLowDateTime: u32,
-    pub dwHighDateTime: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPAPI_PARAMS {
-    pub Flags: u32,
-    pub OptionId: u32,
-    pub IsVendor: super::super::Foundation::BOOL,
-    pub Data: *mut u8,
-    pub nBytesData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPCAPI_CLASSID {
-    pub Flags: u32,
-    pub Data: *mut u8,
-    pub nBytesData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPCAPI_PARAMS_ARRAY {
-    pub nParams: u32,
-    pub Params: *mut DHCPAPI_PARAMS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPDS_SERVER {
-    pub Version: u32,
-    pub ServerName: windows_sys::core::PWSTR,
-    pub ServerAddress: u32,
-    pub Flags: u32,
-    pub State: u32,
-    pub DsLocation: windows_sys::core::PWSTR,
-    pub DsLocType: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPDS_SERVERS {
-    pub Flags: u32,
-    pub NumElements: u32,
-    pub Servers: *mut DHCPDS_SERVER,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV4_FAILOVER_CLIENT_INFO {
-    pub ClientIpAddress: u32,
-    pub SubnetMask: u32,
-    pub ClientHardwareAddress: DHCP_BINARY_DATA,
-    pub ClientName: windows_sys::core::PWSTR,
-    pub ClientComment: windows_sys::core::PWSTR,
-    pub ClientLeaseExpires: DATE_TIME,
-    pub OwnerHost: DHCP_HOST_INFO,
-    pub bClientType: u8,
-    pub AddressState: u8,
-    pub Status: QuarantineStatus,
-    pub ProbationEnds: DATE_TIME,
-    pub QuarantineCapable: super::super::Foundation::BOOL,
-    pub SentPotExpTime: u32,
-    pub AckPotExpTime: u32,
-    pub RecvPotExpTime: u32,
-    pub StartTime: u32,
-    pub CltLastTransTime: u32,
-    pub LastBndUpdTime: u32,
-    pub BndMsgStatus: u32,
-    pub PolicyName: windows_sys::core::PWSTR,
-    pub Flags: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
-    pub NumElements: u32,
-    pub Clients: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
-    pub ClientIpAddress: u32,
-    pub SubnetMask: u32,
-    pub ClientHardwareAddress: DHCP_BINARY_DATA,
-    pub ClientName: windows_sys::core::PWSTR,
-    pub ClientComment: windows_sys::core::PWSTR,
-    pub ClientLeaseExpires: DATE_TIME,
-    pub OwnerHost: DHCP_HOST_INFO,
-    pub bClientType: u8,
-    pub AddressState: u8,
-    pub Status: QuarantineStatus,
-    pub ProbationEnds: DATE_TIME,
-    pub QuarantineCapable: super::super::Foundation::BOOL,
-    pub SentPotExpTime: u32,
-    pub AckPotExpTime: u32,
-    pub RecvPotExpTime: u32,
-    pub StartTime: u32,
-    pub CltLastTransTime: u32,
-    pub LastBndUpdTime: u32,
-    pub BndMsgStatus: u32,
-    pub PolicyName: windows_sys::core::PWSTR,
-    pub Flags: u8,
-    pub AddressStateEx: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV6CAPI_CLASSID {
-    pub Flags: u32,
-    pub Data: *mut u8,
-    pub nBytesData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV6CAPI_PARAMS {
-    pub Flags: u32,
-    pub OptionId: u32,
-    pub IsVendor: super::super::Foundation::BOOL,
-    pub Data: *mut u8,
-    pub nBytesData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV6CAPI_PARAMS_ARRAY {
-    pub nParams: u32,
-    pub Params: *mut DHCPV6CAPI_PARAMS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV6Prefix {
-    pub prefix: [u8; 16],
-    pub prefixLength: u32,
-    pub preferredLifeTime: u32,
-    pub validLifeTime: u32,
-    pub status: StatusCode,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV6PrefixLeaseInformation {
-    pub nPrefixes: u32,
-    pub prefixArray: *mut DHCPV6Prefix,
-    pub iaid: u32,
-    pub T1: i64,
-    pub T2: i64,
-    pub MaxLeaseExpirationTime: i64,
-    pub LastRenewalTime: i64,
-    pub status: StatusCode,
-    pub ServerId: *mut u8,
-    pub ServerIdLen: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV6_BIND_ELEMENT {
-    pub Flags: u32,
-    pub fBoundToDHCPServer: super::super::Foundation::BOOL,
-    pub AdapterPrimaryAddress: DHCP_IPV6_ADDRESS,
-    pub AdapterSubnetAddress: DHCP_IPV6_ADDRESS,
-    pub IfDescription: windows_sys::core::PWSTR,
-    pub IpV6IfIndex: u32,
-    pub IfIdSize: u32,
-    pub IfId: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV6_BIND_ELEMENT_ARRAY {
-    pub NumElements: u32,
-    pub Elements: *mut DHCPV6_BIND_ELEMENT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV6_IP_ARRAY {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_IPV6_ADDRESS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV6_STATELESS_PARAMS {
-    pub Status: super::super::Foundation::BOOL,
-    pub PurgeInterval: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV6_STATELESS_SCOPE_STATS {
-    pub SubnetAddress: DHCP_IPV6_ADDRESS,
-    pub NumStatelessClientsAdded: u64,
-    pub NumStatelessClientsRemoved: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCPV6_STATELESS_STATS {
-    pub NumScopes: u32,
-    pub ScopeStats: *mut DHCPV6_STATELESS_SCOPE_STATS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_ADDR_PATTERN {
-    pub MatchHWType: super::super::Foundation::BOOL,
-    pub HWType: u8,
-    pub IsWildcard: super::super::Foundation::BOOL,
-    pub Length: u8,
-    pub Pattern: [u8; 255],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_ALL_OPTIONS {
-    pub Flags: u32,
-    pub NonVendorOptions: *mut DHCP_OPTION_ARRAY,
-    pub NumVendorOptions: u32,
-    pub VendorOptions: *mut DHCP_ALL_OPTIONS_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_ALL_OPTIONS_0 {
-    pub Option: DHCP_OPTION,
-    pub VendorName: windows_sys::core::PWSTR,
-    pub ClassName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_ALL_OPTION_VALUES {
-    pub Flags: u32,
-    pub NumElements: u32,
-    pub Options: *mut DHCP_ALL_OPTION_VALUES_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_ALL_OPTION_VALUES_0 {
-    pub ClassName: windows_sys::core::PWSTR,
-    pub VendorName: windows_sys::core::PWSTR,
-    pub IsVendor: super::super::Foundation::BOOL,
-    pub OptionsArray: *mut DHCP_OPTION_VALUE_ARRAY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_ALL_OPTION_VALUES_PB {
-    pub Flags: u32,
-    pub NumElements: u32,
-    pub Options: *mut DHCP_ALL_OPTION_VALUES_PB_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_ALL_OPTION_VALUES_PB_0 {
-    pub PolicyName: windows_sys::core::PWSTR,
-    pub VendorName: windows_sys::core::PWSTR,
-    pub IsVendor: super::super::Foundation::BOOL,
-    pub OptionsArray: *mut DHCP_OPTION_VALUE_ARRAY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_ATTRIB {
-    pub DhcpAttribId: u32,
-    pub DhcpAttribType: u32,
-    pub Anonymous: DHCP_ATTRIB_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DHCP_ATTRIB_0 {
-    pub DhcpAttribBool: super::super::Foundation::BOOL,
-    pub DhcpAttribUlong: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_ATTRIB_ARRAY {
-    pub NumElements: u32,
-    pub DhcpAttribs: *mut DHCP_ATTRIB,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_BINARY_DATA {
-    pub DataLength: u32,
-    pub Data: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_BIND_ELEMENT {
-    pub Flags: u32,
-    pub fBoundToDHCPServer: super::super::Foundation::BOOL,
-    pub AdapterPrimaryAddress: u32,
-    pub AdapterSubnetAddress: u32,
-    pub IfDescription: windows_sys::core::PWSTR,
-    pub IfIdSize: u32,
-    pub IfId: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_BIND_ELEMENT_ARRAY {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_BIND_ELEMENT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_BOOTP_IP_RANGE {
-    pub StartAddress: u32,
-    pub EndAddress: u32,
-    pub BootpAllocated: u32,
-    pub MaxBootpAllowed: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CALLOUT_TABLE {
-    pub DhcpControlHook: LPDHCP_CONTROL,
-    pub DhcpNewPktHook: LPDHCP_NEWPKT,
-    pub DhcpPktDropHook: LPDHCP_DROP_SEND,
-    pub DhcpPktSendHook: LPDHCP_DROP_SEND,
-    pub DhcpAddressDelHook: LPDHCP_PROB,
-    pub DhcpAddressOfferHook: LPDHCP_GIVE_ADDRESS,
-    pub DhcpHandleOptionsHook: LPDHCP_HANDLE_OPTIONS,
-    pub DhcpDeleteClientHook: LPDHCP_DELETE_CLIENT,
-    pub DhcpExtensionHook: *mut core::ffi::c_void,
-    pub DhcpReservedHook: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLASS_INFO {
-    pub ClassName: windows_sys::core::PWSTR,
-    pub ClassComment: windows_sys::core::PWSTR,
-    pub ClassDataLength: u32,
-    pub IsVendor: super::super::Foundation::BOOL,
-    pub Flags: u32,
-    pub ClassData: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLASS_INFO_ARRAY {
-    pub NumElements: u32,
-    pub Classes: *mut DHCP_CLASS_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLASS_INFO_ARRAY_V6 {
-    pub NumElements: u32,
-    pub Classes: *mut DHCP_CLASS_INFO_V6,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLASS_INFO_V6 {
-    pub ClassName: windows_sys::core::PWSTR,
-    pub ClassComment: windows_sys::core::PWSTR,
-    pub ClassDataLength: u32,
-    pub IsVendor: super::super::Foundation::BOOL,
-    pub EnterpriseNumber: u32,
-    pub Flags: u32,
-    pub ClassData: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
-    pub ClientIpAddress: u32,
-    pub SubnetMask: u32,
-    pub ClientHardwareAddress: DHCP_BINARY_DATA,
-    pub ClientName: windows_sys::core::PWSTR,
-    pub ClientComment: windows_sys::core::PWSTR,
-    pub ClientLeaseExpires: DATE_TIME,
-    pub OwnerHost: DHCP_HOST_INFO,
-    pub bClientType: u8,
-    pub AddressState: u8,
-    pub Status: QuarantineStatus,
-    pub ProbationEnds: DATE_TIME,
-    pub QuarantineCapable: super::super::Foundation::BOOL,
-    pub FilterStatus: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
-    pub NumElements: u32,
-    pub Clients: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO {
-    pub ClientIpAddress: u32,
-    pub SubnetMask: u32,
-    pub ClientHardwareAddress: DHCP_BINARY_DATA,
-    pub ClientName: windows_sys::core::PWSTR,
-    pub ClientComment: windows_sys::core::PWSTR,
-    pub ClientLeaseExpires: DATE_TIME,
-    pub OwnerHost: DHCP_HOST_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_ARRAY {
-    pub NumElements: u32,
-    pub Clients: *mut *mut DHCP_CLIENT_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_ARRAY_V4 {
-    pub NumElements: u32,
-    pub Clients: *mut *mut DHCP_CLIENT_INFO_V4,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_ARRAY_V5 {
-    pub NumElements: u32,
-    pub Clients: *mut *mut DHCP_CLIENT_INFO_V5,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_ARRAY_V6 {
-    pub NumElements: u32,
-    pub Clients: *mut *mut DHCP_CLIENT_INFO_V6,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_ARRAY_VQ {
-    pub NumElements: u32,
-    pub Clients: *mut *mut DHCP_CLIENT_INFO_VQ,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_EX {
-    pub ClientIpAddress: u32,
-    pub SubnetMask: u32,
-    pub ClientHardwareAddress: DHCP_BINARY_DATA,
-    pub ClientName: windows_sys::core::PWSTR,
-    pub ClientComment: windows_sys::core::PWSTR,
-    pub ClientLeaseExpires: DATE_TIME,
-    pub OwnerHost: DHCP_HOST_INFO,
-    pub bClientType: u8,
-    pub AddressState: u8,
-    pub Status: QuarantineStatus,
-    pub ProbationEnds: DATE_TIME,
-    pub QuarantineCapable: super::super::Foundation::BOOL,
-    pub FilterStatus: u32,
-    pub PolicyName: windows_sys::core::PWSTR,
-    pub Properties: *mut DHCP_PROPERTY_ARRAY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_EX_ARRAY {
-    pub NumElements: u32,
-    pub Clients: *mut *mut DHCP_CLIENT_INFO_EX,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_PB {
-    pub ClientIpAddress: u32,
-    pub SubnetMask: u32,
-    pub ClientHardwareAddress: DHCP_BINARY_DATA,
-    pub ClientName: windows_sys::core::PWSTR,
-    pub ClientComment: windows_sys::core::PWSTR,
-    pub ClientLeaseExpires: DATE_TIME,
-    pub OwnerHost: DHCP_HOST_INFO,
-    pub bClientType: u8,
-    pub AddressState: u8,
-    pub Status: QuarantineStatus,
-    pub ProbationEnds: DATE_TIME,
-    pub QuarantineCapable: super::super::Foundation::BOOL,
-    pub FilterStatus: u32,
-    pub PolicyName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_PB_ARRAY {
-    pub NumElements: u32,
-    pub Clients: *mut *mut DHCP_CLIENT_INFO_PB,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_V4 {
-    pub ClientIpAddress: u32,
-    pub SubnetMask: u32,
-    pub ClientHardwareAddress: DHCP_BINARY_DATA,
-    pub ClientName: windows_sys::core::PWSTR,
-    pub ClientComment: windows_sys::core::PWSTR,
-    pub ClientLeaseExpires: DATE_TIME,
-    pub OwnerHost: DHCP_HOST_INFO,
-    pub bClientType: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_V5 {
-    pub ClientIpAddress: u32,
-    pub SubnetMask: u32,
-    pub ClientHardwareAddress: DHCP_BINARY_DATA,
-    pub ClientName: windows_sys::core::PWSTR,
-    pub ClientComment: windows_sys::core::PWSTR,
-    pub ClientLeaseExpires: DATE_TIME,
-    pub OwnerHost: DHCP_HOST_INFO,
-    pub bClientType: u8,
-    pub AddressState: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_V6 {
-    pub ClientIpAddress: DHCP_IPV6_ADDRESS,
-    pub ClientDUID: DHCP_BINARY_DATA,
-    pub AddressType: u32,
-    pub IAID: u32,
-    pub ClientName: windows_sys::core::PWSTR,
-    pub ClientComment: windows_sys::core::PWSTR,
-    pub ClientValidLeaseExpires: DATE_TIME,
-    pub ClientPrefLeaseExpires: DATE_TIME,
-    pub OwnerHost: DHCP_HOST_INFO_V6,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_CLIENT_INFO_VQ {
-    pub ClientIpAddress: u32,
-    pub SubnetMask: u32,
-    pub ClientHardwareAddress: DHCP_BINARY_DATA,
-    pub ClientName: windows_sys::core::PWSTR,
-    pub ClientComment: windows_sys::core::PWSTR,
-    pub ClientLeaseExpires: DATE_TIME,
-    pub OwnerHost: DHCP_HOST_INFO,
-    pub bClientType: u8,
-    pub AddressState: u8,
-    pub Status: QuarantineStatus,
-    pub ProbationEnds: DATE_TIME,
-    pub QuarantineCapable: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_FAILOVER_RELATIONSHIP {
-    pub PrimaryServer: u32,
-    pub SecondaryServer: u32,
-    pub Mode: DHCP_FAILOVER_MODE,
-    pub ServerType: DHCP_FAILOVER_SERVER,
-    pub State: FSM_STATE,
-    pub PrevState: FSM_STATE,
-    pub Mclt: u32,
-    pub SafePeriod: u32,
-    pub RelationshipName: windows_sys::core::PWSTR,
-    pub PrimaryServerName: windows_sys::core::PWSTR,
-    pub SecondaryServerName: windows_sys::core::PWSTR,
-    pub pScopes: *mut DHCP_IP_ARRAY,
-    pub Percentage: u8,
-    pub SharedSecret: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
-    pub NumElements: u32,
-    pub pRelationships: *mut DHCP_FAILOVER_RELATIONSHIP,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_FAILOVER_STATISTICS {
-    pub NumAddr: u32,
-    pub AddrFree: u32,
-    pub AddrInUse: u32,
-    pub PartnerAddrFree: u32,
-    pub ThisAddrFree: u32,
-    pub PartnerAddrInUse: u32,
-    pub ThisAddrInUse: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_FILTER_ADD_INFO {
-    pub AddrPatt: DHCP_ADDR_PATTERN,
-    pub Comment: windows_sys::core::PWSTR,
-    pub ListType: DHCP_FILTER_LIST_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_FILTER_ENUM_INFO {
-    pub NumElements: u32,
-    pub pEnumRecords: *mut DHCP_FILTER_RECORD,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_FILTER_GLOBAL_INFO {
-    pub EnforceAllowList: super::super::Foundation::BOOL,
-    pub EnforceDenyList: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_FILTER_RECORD {
-    pub AddrPatt: DHCP_ADDR_PATTERN,
-    pub Comment: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_HOST_INFO {
-    pub IpAddress: u32,
-    pub NetBiosName: windows_sys::core::PWSTR,
-    pub HostName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_HOST_INFO_V6 {
-    pub IpAddress: DHCP_IPV6_ADDRESS,
-    pub NetBiosName: windows_sys::core::PWSTR,
-    pub HostName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_IPV6_ADDRESS {
-    pub HighOrderBits: u64,
-    pub LowOrderBits: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_IP_ARRAY {
-    pub NumElements: u32,
-    pub Elements: *mut u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_IP_CLUSTER {
-    pub ClusterAddress: u32,
-    pub ClusterMask: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_IP_RANGE {
-    pub StartAddress: u32,
-    pub EndAddress: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_IP_RANGE_ARRAY {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_IP_RANGE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_IP_RANGE_V6 {
-    pub StartAddress: DHCP_IPV6_ADDRESS,
-    pub EndAddress: DHCP_IPV6_ADDRESS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_IP_RESERVATION {
-    pub ReservedIpAddress: u32,
-    pub ReservedForClient: *mut DHCP_BINARY_DATA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_IP_RESERVATION_INFO {
-    pub ReservedIpAddress: u32,
-    pub ReservedForClient: DHCP_BINARY_DATA,
-    pub ReservedClientName: windows_sys::core::PWSTR,
-    pub ReservedClientDesc: windows_sys::core::PWSTR,
-    pub bAllowedClientTypes: u8,
-    pub fOptionsPresent: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_IP_RESERVATION_V4 {
-    pub ReservedIpAddress: u32,
-    pub ReservedForClient: *mut DHCP_BINARY_DATA,
-    pub bAllowedClientTypes: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_IP_RESERVATION_V6 {
-    pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
-    pub ReservedForClient: *mut DHCP_BINARY_DATA,
-    pub InterfaceId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_MIB_INFO {
-    pub Discovers: u32,
-    pub Offers: u32,
-    pub Requests: u32,
-    pub Acks: u32,
-    pub Naks: u32,
-    pub Declines: u32,
-    pub Releases: u32,
-    pub ServerStartTime: DATE_TIME,
-    pub Scopes: u32,
-    pub ScopeInfo: *mut SCOPE_MIB_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_MIB_INFO_V5 {
-    pub Discovers: u32,
-    pub Offers: u32,
-    pub Requests: u32,
-    pub Acks: u32,
-    pub Naks: u32,
-    pub Declines: u32,
-    pub Releases: u32,
-    pub ServerStartTime: DATE_TIME,
-    pub QtnNumLeases: u32,
-    pub QtnPctQtnLeases: u32,
-    pub QtnProbationLeases: u32,
-    pub QtnNonQtnLeases: u32,
-    pub QtnExemptLeases: u32,
-    pub QtnCapableClients: u32,
-    pub QtnIASErrors: u32,
-    pub DelayedOffers: u32,
-    pub ScopesWithDelayedOffers: u32,
-    pub Scopes: u32,
-    pub ScopeInfo: *mut SCOPE_MIB_INFO_V5,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_MIB_INFO_V6 {
-    pub Solicits: u32,
-    pub Advertises: u32,
-    pub Requests: u32,
-    pub Renews: u32,
-    pub Rebinds: u32,
-    pub Replies: u32,
-    pub Confirms: u32,
-    pub Declines: u32,
-    pub Releases: u32,
-    pub Informs: u32,
-    pub ServerStartTime: DATE_TIME,
-    pub Scopes: u32,
-    pub ScopeInfo: *mut SCOPE_MIB_INFO_V6,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_MIB_INFO_VQ {
-    pub Discovers: u32,
-    pub Offers: u32,
-    pub Requests: u32,
-    pub Acks: u32,
-    pub Naks: u32,
-    pub Declines: u32,
-    pub Releases: u32,
-    pub ServerStartTime: DATE_TIME,
-    pub QtnNumLeases: u32,
-    pub QtnPctQtnLeases: u32,
-    pub QtnProbationLeases: u32,
-    pub QtnNonQtnLeases: u32,
-    pub QtnExemptLeases: u32,
-    pub QtnCapableClients: u32,
-    pub QtnIASErrors: u32,
-    pub Scopes: u32,
-    pub ScopeInfo: *mut SCOPE_MIB_INFO_VQ,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_OPTION {
-    pub OptionID: u32,
-    pub OptionName: windows_sys::core::PWSTR,
-    pub OptionComment: windows_sys::core::PWSTR,
-    pub DefaultValue: DHCP_OPTION_DATA,
-    pub OptionType: DHCP_OPTION_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_OPTION_ARRAY {
-    pub NumElements: u32,
-    pub Options: *mut DHCP_OPTION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_OPTION_DATA {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_OPTION_DATA_ELEMENT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_OPTION_DATA_ELEMENT {
-    pub OptionType: DHCP_OPTION_DATA_TYPE,
-    pub Element: DHCP_OPTION_DATA_ELEMENT_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DHCP_OPTION_DATA_ELEMENT_0 {
-    pub ByteOption: u8,
-    pub WordOption: u16,
-    pub DWordOption: u32,
-    pub DWordDWordOption: DWORD_DWORD,
-    pub IpAddressOption: u32,
-    pub StringDataOption: windows_sys::core::PWSTR,
-    pub BinaryDataOption: DHCP_BINARY_DATA,
-    pub EncapsulatedDataOption: DHCP_BINARY_DATA,
-    pub Ipv6AddressDataOption: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_OPTION_LIST {
-    pub NumOptions: u32,
-    pub Options: *mut DHCP_OPTION_VALUE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_OPTION_SCOPE_INFO {
-    pub ScopeType: DHCP_OPTION_SCOPE_TYPE,
-    pub ScopeInfo: DHCP_OPTION_SCOPE_INFO_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DHCP_OPTION_SCOPE_INFO_0 {
-    pub DefaultScopeInfo: *mut core::ffi::c_void,
-    pub GlobalScopeInfo: *mut core::ffi::c_void,
-    pub SubnetScopeInfo: u32,
-    pub ReservedScopeInfo: DHCP_RESERVED_SCOPE,
-    pub MScopeInfo: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_OPTION_SCOPE_INFO6 {
-    pub ScopeType: DHCP_OPTION_SCOPE_TYPE6,
-    pub ScopeInfo: DHCP_OPTION_SCOPE_INFO6_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DHCP_OPTION_SCOPE_INFO6_0 {
-    pub DefaultScopeInfo: *mut core::ffi::c_void,
-    pub SubnetScopeInfo: DHCP_IPV6_ADDRESS,
-    pub ReservedScopeInfo: DHCP_RESERVED_SCOPE6,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_OPTION_VALUE {
-    pub OptionID: u32,
-    pub Value: DHCP_OPTION_DATA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_OPTION_VALUE_ARRAY {
-    pub NumElements: u32,
-    pub Values: *mut DHCP_OPTION_VALUE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_PERF_STATS {
-    pub dwNumPacketsReceived: u32,
-    pub dwNumPacketsDuplicate: u32,
-    pub dwNumPacketsExpired: u32,
-    pub dwNumMilliSecondsProcessed: u32,
-    pub dwNumPacketsInActiveQueue: u32,
-    pub dwNumPacketsInPingQueue: u32,
-    pub dwNumDiscoversReceived: u32,
-    pub dwNumOffersSent: u32,
-    pub dwNumRequestsReceived: u32,
-    pub dwNumInformsReceived: u32,
-    pub dwNumAcksSent: u32,
-    pub dwNumNacksSent: u32,
-    pub dwNumDeclinesReceived: u32,
-    pub dwNumReleasesReceived: u32,
-    pub dwNumDelayedOfferInQueue: u32,
-    pub dwNumPacketsProcessed: u32,
-    pub dwNumPacketsInQuarWaitingQueue: u32,
-    pub dwNumPacketsInQuarReadyQueue: u32,
-    pub dwNumPacketsInQuarDecisionQueue: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_POLICY {
-    pub PolicyName: windows_sys::core::PWSTR,
-    pub IsGlobalPolicy: super::super::Foundation::BOOL,
-    pub Subnet: u32,
-    pub ProcessingOrder: u32,
-    pub Conditions: *mut DHCP_POL_COND_ARRAY,
-    pub Expressions: *mut DHCP_POL_EXPR_ARRAY,
-    pub Ranges: *mut DHCP_IP_RANGE_ARRAY,
-    pub Description: windows_sys::core::PWSTR,
-    pub Enabled: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_POLICY_ARRAY {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_POLICY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_POLICY_EX {
-    pub PolicyName: windows_sys::core::PWSTR,
-    pub IsGlobalPolicy: super::super::Foundation::BOOL,
-    pub Subnet: u32,
-    pub ProcessingOrder: u32,
-    pub Conditions: *mut DHCP_POL_COND_ARRAY,
-    pub Expressions: *mut DHCP_POL_EXPR_ARRAY,
-    pub Ranges: *mut DHCP_IP_RANGE_ARRAY,
-    pub Description: windows_sys::core::PWSTR,
-    pub Enabled: super::super::Foundation::BOOL,
-    pub Properties: *mut DHCP_PROPERTY_ARRAY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_POLICY_EX_ARRAY {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_POLICY_EX,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_POL_COND {
-    pub ParentExpr: u32,
-    pub Type: DHCP_POL_ATTR_TYPE,
-    pub OptionID: u32,
-    pub SubOptionID: u32,
-    pub VendorName: windows_sys::core::PWSTR,
-    pub Operator: DHCP_POL_COMPARATOR,
-    pub Value: *mut u8,
-    pub ValueLength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_POL_COND_ARRAY {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_POL_COND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_POL_EXPR {
-    pub ParentExpr: u32,
-    pub Operator: DHCP_POL_LOGIC_OPER,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_POL_EXPR_ARRAY {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_POL_EXPR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_PROPERTY {
-    pub ID: DHCP_PROPERTY_ID,
-    pub Type: DHCP_PROPERTY_TYPE,
-    pub Value: DHCP_PROPERTY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DHCP_PROPERTY_0 {
-    pub ByteValue: u8,
-    pub WordValue: u16,
-    pub DWordValue: u32,
-    pub StringValue: windows_sys::core::PWSTR,
-    pub BinaryValue: DHCP_BINARY_DATA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_PROPERTY_ARRAY {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_PROPERTY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_RESERVATION_INFO_ARRAY {
-    pub NumElements: u32,
-    pub Elements: *mut *mut DHCP_IP_RESERVATION_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_RESERVED_SCOPE {
-    pub ReservedIpAddress: u32,
-    pub ReservedIpSubnetAddress: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_RESERVED_SCOPE6 {
-    pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
-    pub ReservedIpSubnetAddress: DHCP_IPV6_ADDRESS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SCAN_ITEM {
-    pub IpAddress: u32,
-    pub ScanFlag: DHCP_SCAN_FLAG,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SCAN_LIST {
-    pub NumScanItems: u32,
-    pub ScanItems: *mut DHCP_SCAN_ITEM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SEARCH_INFO {
-    pub SearchType: DHCP_SEARCH_INFO_TYPE,
-    pub SearchInfo: DHCP_SEARCH_INFO_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DHCP_SEARCH_INFO_0 {
-    pub ClientIpAddress: u32,
-    pub ClientHardwareAddress: DHCP_BINARY_DATA,
-    pub ClientName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SEARCH_INFO_V6 {
-    pub SearchType: DHCP_SEARCH_INFO_TYPE_V6,
-    pub SearchInfo: DHCP_SEARCH_INFO_V6_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DHCP_SEARCH_INFO_V6_0 {
-    pub ClientIpAddress: DHCP_IPV6_ADDRESS,
-    pub ClientDUID: DHCP_BINARY_DATA,
-    pub ClientName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SERVER_CONFIG_INFO {
-    pub APIProtocolSupport: u32,
-    pub DatabaseName: windows_sys::core::PWSTR,
-    pub DatabasePath: windows_sys::core::PWSTR,
-    pub BackupPath: windows_sys::core::PWSTR,
-    pub BackupInterval: u32,
-    pub DatabaseLoggingFlag: u32,
-    pub RestoreFlag: u32,
-    pub DatabaseCleanupInterval: u32,
-    pub DebugFlag: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SERVER_CONFIG_INFO_V4 {
-    pub APIProtocolSupport: u32,
-    pub DatabaseName: windows_sys::core::PWSTR,
-    pub DatabasePath: windows_sys::core::PWSTR,
-    pub BackupPath: windows_sys::core::PWSTR,
-    pub BackupInterval: u32,
-    pub DatabaseLoggingFlag: u32,
-    pub RestoreFlag: u32,
-    pub DatabaseCleanupInterval: u32,
-    pub DebugFlag: u32,
-    pub dwPingRetries: u32,
-    pub cbBootTableString: u32,
-    pub wszBootTableString: windows_sys::core::PWSTR,
-    pub fAuditLog: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SERVER_CONFIG_INFO_V6 {
-    pub UnicastFlag: super::super::Foundation::BOOL,
-    pub RapidCommitFlag: super::super::Foundation::BOOL,
-    pub PreferredLifetime: u32,
-    pub ValidLifetime: u32,
-    pub T1: u32,
-    pub T2: u32,
-    pub PreferredLifetimeIATA: u32,
-    pub ValidLifetimeIATA: u32,
-    pub fAuditLog: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SERVER_CONFIG_INFO_VQ {
-    pub APIProtocolSupport: u32,
-    pub DatabaseName: windows_sys::core::PWSTR,
-    pub DatabasePath: windows_sys::core::PWSTR,
-    pub BackupPath: windows_sys::core::PWSTR,
-    pub BackupInterval: u32,
-    pub DatabaseLoggingFlag: u32,
-    pub RestoreFlag: u32,
-    pub DatabaseCleanupInterval: u32,
-    pub DebugFlag: u32,
-    pub dwPingRetries: u32,
-    pub cbBootTableString: u32,
-    pub wszBootTableString: windows_sys::core::PWSTR,
-    pub fAuditLog: super::super::Foundation::BOOL,
-    pub QuarantineOn: super::super::Foundation::BOOL,
-    pub QuarDefFail: u32,
-    pub QuarRuntimeStatus: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SERVER_OPTIONS {
-    pub MessageType: *mut u8,
-    pub SubnetMask: *mut u32,
-    pub RequestedAddress: *mut u32,
-    pub RequestLeaseTime: *mut u32,
-    pub OverlayFields: *mut u8,
-    pub RouterAddress: *mut u32,
-    pub Server: *mut u32,
-    pub ParameterRequestList: *mut u8,
-    pub ParameterRequestListLength: u32,
-    pub MachineName: windows_sys::core::PSTR,
-    pub MachineNameLength: u32,
-    pub ClientHardwareAddressType: u8,
-    pub ClientHardwareAddressLength: u8,
-    pub ClientHardwareAddress: *mut u8,
-    pub ClassIdentifier: windows_sys::core::PSTR,
-    pub ClassIdentifierLength: u32,
-    pub VendorClass: *mut u8,
-    pub VendorClassLength: u32,
-    pub DNSFlags: u32,
-    pub DNSNameLength: u32,
-    pub DNSName: *mut u8,
-    pub DSDomainNameRequested: super::super::Foundation::BOOLEAN,
-    pub DSDomainName: windows_sys::core::PSTR,
-    pub DSDomainNameLen: u32,
-    pub ScopeId: *mut u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SERVER_SPECIFIC_STRINGS {
-    pub DefaultVendorClassName: windows_sys::core::PWSTR,
-    pub DefaultUserClassName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUBNET_ELEMENT_DATA {
-    pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
-    pub Element: DHCP_SUBNET_ELEMENT_DATA_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DHCP_SUBNET_ELEMENT_DATA_0 {
-    pub IpRange: *mut DHCP_IP_RANGE,
-    pub SecondaryHost: *mut DHCP_HOST_INFO,
-    pub ReservedIp: *mut DHCP_IP_RESERVATION,
-    pub ExcludeIpRange: *mut DHCP_IP_RANGE,
-    pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUBNET_ELEMENT_DATA_V4 {
-    pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
-    pub Element: DHCP_SUBNET_ELEMENT_DATA_V4_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DHCP_SUBNET_ELEMENT_DATA_V4_0 {
-    pub IpRange: *mut DHCP_IP_RANGE,
-    pub SecondaryHost: *mut DHCP_HOST_INFO,
-    pub ReservedIp: *mut DHCP_IP_RESERVATION_V4,
-    pub ExcludeIpRange: *mut DHCP_IP_RANGE,
-    pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUBNET_ELEMENT_DATA_V5 {
-    pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
-    pub Element: DHCP_SUBNET_ELEMENT_DATA_V5_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DHCP_SUBNET_ELEMENT_DATA_V5_0 {
-    pub IpRange: *mut DHCP_BOOTP_IP_RANGE,
-    pub SecondaryHost: *mut DHCP_HOST_INFO,
-    pub ReservedIp: *mut DHCP_IP_RESERVATION_V4,
-    pub ExcludeIpRange: *mut DHCP_IP_RANGE,
-    pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUBNET_ELEMENT_DATA_V6 {
-    pub ElementType: DHCP_SUBNET_ELEMENT_TYPE_V6,
-    pub Element: DHCP_SUBNET_ELEMENT_DATA_V6_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DHCP_SUBNET_ELEMENT_DATA_V6_0 {
-    pub IpRange: *mut DHCP_IP_RANGE_V6,
-    pub ReservedIp: *mut DHCP_IP_RESERVATION_V6,
-    pub ExcludeIpRange: *mut DHCP_IP_RANGE_V6,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V4,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V5,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
-    pub NumElements: u32,
-    pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V6,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUBNET_INFO {
-    pub SubnetAddress: u32,
-    pub SubnetMask: u32,
-    pub SubnetName: windows_sys::core::PWSTR,
-    pub SubnetComment: windows_sys::core::PWSTR,
-    pub PrimaryHost: DHCP_HOST_INFO,
-    pub SubnetState: DHCP_SUBNET_STATE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUBNET_INFO_V6 {
-    pub SubnetAddress: DHCP_IPV6_ADDRESS,
-    pub Prefix: u32,
-    pub Preference: u16,
-    pub SubnetName: windows_sys::core::PWSTR,
-    pub SubnetComment: windows_sys::core::PWSTR,
-    pub State: u32,
-    pub ScopeId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUBNET_INFO_VQ {
-    pub SubnetAddress: u32,
-    pub SubnetMask: u32,
-    pub SubnetName: windows_sys::core::PWSTR,
-    pub SubnetComment: windows_sys::core::PWSTR,
-    pub PrimaryHost: DHCP_HOST_INFO,
-    pub SubnetState: DHCP_SUBNET_STATE,
-    pub QuarantineOn: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: i64,
-    pub Reserved4: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUPER_SCOPE_TABLE {
-    pub cEntries: u32,
-    pub pEntries: *mut DHCP_SUPER_SCOPE_TABLE_ENTRY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
-    pub SubnetAddress: u32,
-    pub SuperScopeNumber: u32,
-    pub NextInSuperScope: u32,
-    pub SuperScopeName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DWORD_DWORD {
-    pub DWord1: u32,
-    pub DWord2: u32,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCOPE_MIB_INFO {
@@ -1916,11 +1884,43 @@ pub struct SCOPE_MIB_INFO_VQ {
     pub QtnExemptLeases: u32,
     pub QtnCapableClients: u32,
 }
-pub type LPDHCP_CONTROL = Option<unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut core::ffi::c_void) -> u32>;
-pub type LPDHCP_DELETE_CLIENT = Option<unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32>;
-pub type LPDHCP_DROP_SEND = Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, controlcode: u32, ipaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
-pub type LPDHCP_ENTRY_POINT_FUNC = Option<unsafe extern "system" fn(chaindlls: windows_sys::core::PCWSTR, calloutversion: u32, callouttbl: *mut DHCP_CALLOUT_TABLE) -> u32>;
-pub type LPDHCP_GIVE_ADDRESS = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, addrtype: u32, leasetime: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
-pub type LPDHCP_HANDLE_OPTIONS = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void, serveroptions: *mut DHCP_SERVER_OPTIONS) -> u32>;
-pub type LPDHCP_NEWPKT = Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut *mut core::ffi::c_void, processit: *mut super::super::Foundation::BOOL) -> u32>;
-pub type LPDHCP_PROB = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
+pub const SHAREDSECRET: u32 = 64u32;
+pub const SHUTDOWN: FSM_STATE = 13i32;
+pub const STARTUP: FSM_STATE = 2i32;
+pub const STATUS_NOPREFIX_AVAIL: StatusCode = 6i32;
+pub const STATUS_NO_BINDING: StatusCode = 3i32;
+pub const STATUS_NO_ERROR: StatusCode = 0i32;
+pub const STATUS_UNSPECIFIED_FAILURE: StatusCode = 1i32;
+pub const SecondaryServer: DHCP_FAILOVER_SERVER = 1i32;
+pub const Set_APIProtocolSupport: u32 = 1u32;
+pub const Set_AuditLogState: u32 = 2048u32;
+pub const Set_BackupInterval: u32 = 16u32;
+pub const Set_BackupPath: u32 = 8u32;
+pub const Set_BootFileTable: u32 = 1024u32;
+pub const Set_DatabaseCleanupInterval: u32 = 128u32;
+pub const Set_DatabaseLoggingFlag: u32 = 32u32;
+pub const Set_DatabaseName: u32 = 2u32;
+pub const Set_DatabasePath: u32 = 4u32;
+pub const Set_DebugFlag: u32 = 256u32;
+pub const Set_PingRetries: u32 = 512u32;
+pub const Set_PreferredLifetime: u32 = 4u32;
+pub const Set_PreferredLifetimeIATA: u32 = 64u32;
+pub const Set_QuarantineDefFail: u32 = 8192u32;
+pub const Set_QuarantineON: u32 = 4096u32;
+pub const Set_RapidCommitFlag: u32 = 2u32;
+pub const Set_RestoreFlag: u32 = 64u32;
+pub const Set_T1: u32 = 16u32;
+pub const Set_T2: u32 = 32u32;
+pub const Set_UnicastFlag: u32 = 1u32;
+pub const Set_ValidLifetime: u32 = 8u32;
+pub const Set_ValidLifetimeIATA: u32 = 128u32;
+pub type StatusCode = i32;
+pub const V5_ADDRESS_BIT_BOTH_REC: u32 = 32u32;
+pub const V5_ADDRESS_BIT_DELETED: u32 = 128u32;
+pub const V5_ADDRESS_BIT_UNREGISTERED: u32 = 64u32;
+pub const V5_ADDRESS_EX_BIT_DISABLE_PTR_RR: u32 = 1u32;
+pub const V5_ADDRESS_STATE_ACTIVE: u32 = 1u32;
+pub const V5_ADDRESS_STATE_DECLINED: u32 = 2u32;
+pub const V5_ADDRESS_STATE_DOOM: u32 = 3u32;
+pub const V5_ADDRESS_STATE_OFFERED: u32 = 0u32;
+pub const WARNING_EXTENDED_LESS: i32 = 20026i32;

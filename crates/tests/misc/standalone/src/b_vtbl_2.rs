@@ -5,6 +5,7 @@
     dead_code,
     clippy::all
 )]
+
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GUID {
@@ -31,6 +32,17 @@ pub struct IActivationFactory_Vtbl {
     pub ActivateInstance:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
 }
+pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IUnknown_Vtbl {
+    pub QueryInterface: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        iid: *const GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> HRESULT,
+    pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+    pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+}
 pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
 #[repr(C)]
 pub struct IInspectable_Vtbl {
@@ -46,15 +58,4 @@ pub struct IInspectable_Vtbl {
     ) -> HRESULT,
     pub GetTrustLevel:
         unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut i32) -> HRESULT,
-}
-pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
-#[repr(C)]
-pub struct IUnknown_Vtbl {
-    pub QueryInterface: unsafe extern "system" fn(
-        this: *mut core::ffi::c_void,
-        iid: *const GUID,
-        interface: *mut *mut core::ffi::c_void,
-    ) -> HRESULT,
-    pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
 }

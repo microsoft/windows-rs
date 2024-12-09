@@ -1,59 +1,3 @@
-pub const DVD_CGMS_COPY_ONCE: u32 = 16u32;
-pub const DVD_CGMS_COPY_PERMITTED: u32 = 0u32;
-pub const DVD_CGMS_COPY_PROTECT_MASK: u32 = 24u32;
-pub const DVD_CGMS_NO_COPY: u32 = 24u32;
-pub const DVD_CGMS_RESERVED_MASK: u32 = 120u32;
-pub const DVD_COPYRIGHTED: u32 = 64u32;
-pub const DVD_COPYRIGHT_MASK: u32 = 64u32;
-pub const DVD_NOT_COPYRIGHTED: u32 = 0u32;
-pub const DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
-pub const DVD_SECTOR_PROTECTED: u32 = 32u32;
-pub const DVD_SECTOR_PROTECT_MASK: u32 = 32u32;
-pub const DiscControlBlockList: DISC_CONTROL_BLOCK_TYPE = -1i32;
-pub const DvdAsf: DVD_KEY_TYPE = 5i32;
-pub const DvdBCADescriptor: DVD_STRUCTURE_FORMAT = 3i32;
-pub const DvdBusKey1: DVD_KEY_TYPE = 2i32;
-pub const DvdBusKey2: DVD_KEY_TYPE = 3i32;
-pub const DvdChallengeKey: DVD_KEY_TYPE = 1i32;
-pub const DvdCopyrightDescriptor: DVD_STRUCTURE_FORMAT = 1i32;
-pub const DvdDiskKey: DVD_KEY_TYPE = 128i32;
-pub const DvdDiskKeyDescriptor: DVD_STRUCTURE_FORMAT = 2i32;
-pub const DvdGetRpcKey: DVD_KEY_TYPE = 8i32;
-pub const DvdInvalidateAGID: DVD_KEY_TYPE = 63i32;
-pub const DvdManufacturerDescriptor: DVD_STRUCTURE_FORMAT = 4i32;
-pub const DvdMaxDescriptor: DVD_STRUCTURE_FORMAT = 5i32;
-pub const DvdPhysicalDescriptor: DVD_STRUCTURE_FORMAT = 0i32;
-pub const DvdSetRpcKey: DVD_KEY_TYPE = 6i32;
-pub const DvdTitleKey: DVD_KEY_TYPE = 4i32;
-pub const FormattingDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = 1178878720i32;
-pub const IOCTL_AACS_END_SESSION: u32 = 3363020u32;
-pub const IOCTL_AACS_GENERATE_BINDING_NONCE: u32 = 3395824u32;
-pub const IOCTL_AACS_GET_CERTIFICATE: u32 = 3363028u32;
-pub const IOCTL_AACS_GET_CHALLENGE_KEY: u32 = 3363032u32;
-pub const IOCTL_AACS_READ_BINDING_NONCE: u32 = 3363052u32;
-pub const IOCTL_AACS_READ_MEDIA_ID: u32 = 3363048u32;
-pub const IOCTL_AACS_READ_MEDIA_KEY_BLOCK: u32 = 3363012u32;
-pub const IOCTL_AACS_READ_MEDIA_KEY_BLOCK_SIZE: u32 = 3363008u32;
-pub const IOCTL_AACS_READ_SERIAL_NUMBER: u32 = 3363044u32;
-pub const IOCTL_AACS_READ_VOLUME_ID: u32 = 3363040u32;
-pub const IOCTL_AACS_SEND_CERTIFICATE: u32 = 3363024u32;
-pub const IOCTL_AACS_SEND_CHALLENGE_KEY: u32 = 3363036u32;
-pub const IOCTL_AACS_START_SESSION: u32 = 3363016u32;
-pub const IOCTL_DVD_BASE: i32 = 51i32;
-pub const IOCTL_DVD_END_SESSION: u32 = 3362828u32;
-pub const IOCTL_DVD_GET_REGION: u32 = 3362836u32;
-pub const IOCTL_DVD_READ_KEY: u32 = 3362820u32;
-pub const IOCTL_DVD_READ_STRUCTURE: u32 = 3363136u32;
-pub const IOCTL_DVD_SEND_KEY: u32 = 3362824u32;
-pub const IOCTL_DVD_SEND_KEY2: u32 = 3395608u32;
-pub const IOCTL_DVD_SET_READ_AHEAD: u32 = 3362832u32;
-pub const IOCTL_DVD_START_SESSION: u32 = 3362816u32;
-pub const IOCTL_STORAGE_SET_READ_AHEAD: u32 = 2966528u32;
-pub const SessionInfoDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = 1396982528i32;
-pub const WriteInhibitDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = 1464091392i32;
-pub type DISC_CONTROL_BLOCK_TYPE = i32;
-pub type DVD_KEY_TYPE = i32;
-pub type DVD_STRUCTURE_FORMAT = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AACS_BINDING_NONCE {
@@ -139,6 +83,7 @@ pub struct BD_PAC_HEADER {
     pub Segments: [u8; 256],
     pub Reserved2: [u8; 112],
 }
+pub type DISC_CONTROL_BLOCK_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DVD_ASF {
@@ -157,6 +102,12 @@ pub struct DVD_BD_SPARE_AREA_INFORMATION {
     pub NumberOfFreeSpareBlocks: [u8; 4],
     pub NumberOfAllocatedSpareBlocks: [u8; 4],
 }
+pub const DVD_CGMS_COPY_ONCE: u32 = 16u32;
+pub const DVD_CGMS_COPY_PERMITTED: u32 = 0u32;
+pub const DVD_CGMS_COPY_PROTECT_MASK: u32 = 24u32;
+pub const DVD_CGMS_NO_COPY: u32 = 24u32;
+pub const DVD_CGMS_RESERVED_MASK: u32 = 120u32;
+pub const DVD_COPYRIGHTED: u32 = 64u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DVD_COPYRIGHT_DESCRIPTOR {
@@ -199,6 +150,7 @@ pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_2 {
 pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
+pub const DVD_COPYRIGHT_MASK: u32 = 64u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DVD_COPY_PROTECT_KEY {
@@ -337,6 +289,7 @@ pub struct DVD_FULL_LAYER_DESCRIPTOR {
     pub commonHeader: DVD_LAYER_DESCRIPTOR,
     pub MediaSpecific: [u8; 2031],
 }
+pub type DVD_KEY_TYPE = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DVD_LAYER_DESCRIPTOR {
@@ -365,6 +318,7 @@ pub struct DVD_LIST_OF_RECOGNIZED_FORMAT_LAYERS_TYPE_CODE {
 pub struct DVD_MANUFACTURER_DESCRIPTOR {
     pub ManufacturingInformation: [u8; 2048],
 }
+pub const DVD_NOT_COPYRIGHTED: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DVD_PRERECORDED_INFORMATION {
@@ -441,12 +395,16 @@ pub struct DVD_RPC_KEY {
     pub RpcScheme: u8,
     pub Reserved02: u8,
 }
+pub const DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
+pub const DVD_SECTOR_PROTECTED: u32 = 32u32;
+pub const DVD_SECTOR_PROTECT_MASK: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DVD_SET_RPC_KEY {
     pub PreferredDriveRegionCode: u8,
     pub Reserved: [u8; 3],
 }
+pub type DVD_STRUCTURE_FORMAT = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DVD_STRUCTURE_LIST_ENTRY {
@@ -472,6 +430,23 @@ pub struct DVD_WRITE_PROTECTION_STATUS {
     pub _bitfield: u8,
     pub Reserved1: [u8; 3],
 }
+pub const DiscControlBlockList: DISC_CONTROL_BLOCK_TYPE = -1i32;
+pub const DvdAsf: DVD_KEY_TYPE = 5i32;
+pub const DvdBCADescriptor: DVD_STRUCTURE_FORMAT = 3i32;
+pub const DvdBusKey1: DVD_KEY_TYPE = 2i32;
+pub const DvdBusKey2: DVD_KEY_TYPE = 3i32;
+pub const DvdChallengeKey: DVD_KEY_TYPE = 1i32;
+pub const DvdCopyrightDescriptor: DVD_STRUCTURE_FORMAT = 1i32;
+pub const DvdDiskKey: DVD_KEY_TYPE = 128i32;
+pub const DvdDiskKeyDescriptor: DVD_STRUCTURE_FORMAT = 2i32;
+pub const DvdGetRpcKey: DVD_KEY_TYPE = 8i32;
+pub const DvdInvalidateAGID: DVD_KEY_TYPE = 63i32;
+pub const DvdManufacturerDescriptor: DVD_STRUCTURE_FORMAT = 4i32;
+pub const DvdMaxDescriptor: DVD_STRUCTURE_FORMAT = 5i32;
+pub const DvdPhysicalDescriptor: DVD_STRUCTURE_FORMAT = 0i32;
+pub const DvdSetRpcKey: DVD_KEY_TYPE = 6i32;
+pub const DvdTitleKey: DVD_KEY_TYPE = 4i32;
+pub const FormattingDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = 1178878720i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HD_DVD_R_MEDIUM_STATUS {
@@ -479,9 +454,34 @@ pub struct HD_DVD_R_MEDIUM_STATUS {
     pub NumberOfRemainingRMDsInRDZ: u8,
     pub NumberOfRemainingRMDsInCurrentRMZ: [u8; 2],
 }
+pub const IOCTL_AACS_END_SESSION: u32 = 3363020u32;
+pub const IOCTL_AACS_GENERATE_BINDING_NONCE: u32 = 3395824u32;
+pub const IOCTL_AACS_GET_CERTIFICATE: u32 = 3363028u32;
+pub const IOCTL_AACS_GET_CHALLENGE_KEY: u32 = 3363032u32;
+pub const IOCTL_AACS_READ_BINDING_NONCE: u32 = 3363052u32;
+pub const IOCTL_AACS_READ_MEDIA_ID: u32 = 3363048u32;
+pub const IOCTL_AACS_READ_MEDIA_KEY_BLOCK: u32 = 3363012u32;
+pub const IOCTL_AACS_READ_MEDIA_KEY_BLOCK_SIZE: u32 = 3363008u32;
+pub const IOCTL_AACS_READ_SERIAL_NUMBER: u32 = 3363044u32;
+pub const IOCTL_AACS_READ_VOLUME_ID: u32 = 3363040u32;
+pub const IOCTL_AACS_SEND_CERTIFICATE: u32 = 3363024u32;
+pub const IOCTL_AACS_SEND_CHALLENGE_KEY: u32 = 3363036u32;
+pub const IOCTL_AACS_START_SESSION: u32 = 3363016u32;
+pub const IOCTL_DVD_BASE: i32 = 51i32;
+pub const IOCTL_DVD_END_SESSION: u32 = 3362828u32;
+pub const IOCTL_DVD_GET_REGION: u32 = 3362836u32;
+pub const IOCTL_DVD_READ_KEY: u32 = 3362820u32;
+pub const IOCTL_DVD_READ_STRUCTURE: u32 = 3363136u32;
+pub const IOCTL_DVD_SEND_KEY: u32 = 3362824u32;
+pub const IOCTL_DVD_SEND_KEY2: u32 = 3395608u32;
+pub const IOCTL_DVD_SET_READ_AHEAD: u32 = 3362832u32;
+pub const IOCTL_DVD_START_SESSION: u32 = 3362816u32;
+pub const IOCTL_STORAGE_SET_READ_AHEAD: u32 = 2966528u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct STORAGE_SET_READ_AHEAD {
     pub TriggerAddress: i64,
     pub TargetAddress: i64,
 }
+pub const SessionInfoDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = 1396982528i32;
+pub const WriteInhibitDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = 1464091392i32;

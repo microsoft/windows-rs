@@ -1,10 +1,4 @@
 windows_core::imp::define_interface!(IWsbApplicationAsync, IWsbApplicationAsync_Vtbl, 0x0843f6f7_895c_44a6_b0c2_05a5022aa3a1);
-impl core::ops::Deref for IWsbApplicationAsync {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWsbApplicationAsync, windows_core::IUnknown);
 impl IWsbApplicationAsync {
     pub unsafe fn QueryStatus(&self) -> windows_core::Result<windows_core::HRESULT> {
@@ -21,13 +15,12 @@ pub struct IWsbApplicationAsync_Vtbl {
     pub QueryStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IWsbApplicationAsync_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWsbApplicationAsync_Impl: windows_core::IUnknownImpl {
     fn QueryStatus(&self) -> windows_core::Result<windows_core::HRESULT>;
     fn Abort(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IWsbApplicationAsync {}
 impl IWsbApplicationAsync_Vtbl {
-    pub const fn new<Identity: IWsbApplicationAsync_Impl, const OFFSET: isize>() -> IWsbApplicationAsync_Vtbl {
+    pub const fn new<Identity: IWsbApplicationAsync_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryStatus<Identity: IWsbApplicationAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phrresult: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWsbApplicationAsync_Impl::QueryStatus(this) {
@@ -48,13 +41,8 @@ impl IWsbApplicationAsync_Vtbl {
         iid == &<IWsbApplicationAsync as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IWsbApplicationAsync {}
 windows_core::imp::define_interface!(IWsbApplicationBackupSupport, IWsbApplicationBackupSupport_Vtbl, 0x1eff3510_4a27_46ad_b9e0_08332f0f4f6d);
-impl core::ops::Deref for IWsbApplicationBackupSupport {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWsbApplicationBackupSupport, windows_core::IUnknown);
 impl IWsbApplicationBackupSupport {
     pub unsafe fn CheckConsistency<P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, cvolumes: u32, rgwszsourcevolumepath: *const windows_core::PCWSTR, rgwszsnapshotvolumepath: *const windows_core::PCWSTR) -> windows_core::Result<IWsbApplicationAsync>
@@ -64,7 +52,7 @@ impl IWsbApplicationBackupSupport {
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CheckConsistency)(windows_core::Interface::as_raw(self), wszwritermetadata.param().abi(), wszcomponentname.param().abi(), wszcomponentlogicalpath.param().abi(), cvolumes, rgwszsourcevolumepath, rgwszsnapshotvolumepath, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CheckConsistency)(windows_core::Interface::as_raw(self), wszwritermetadata.param().abi(), wszcomponentname.param().abi(), wszcomponentlogicalpath.param().abi(), core::mem::transmute(cvolumes), core::mem::transmute(rgwszsourcevolumepath), core::mem::transmute(rgwszsnapshotvolumepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -72,12 +60,11 @@ pub struct IWsbApplicationBackupSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CheckConsistency: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, *const windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IWsbApplicationBackupSupport_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWsbApplicationBackupSupport_Impl: windows_core::IUnknownImpl {
     fn CheckConsistency(&self, wszwritermetadata: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszcomponentlogicalpath: &windows_core::PCWSTR, cvolumes: u32, rgwszsourcevolumepath: *const windows_core::PCWSTR, rgwszsnapshotvolumepath: *const windows_core::PCWSTR) -> windows_core::Result<IWsbApplicationAsync>;
 }
-impl windows_core::RuntimeName for IWsbApplicationBackupSupport {}
 impl IWsbApplicationBackupSupport_Vtbl {
-    pub const fn new<Identity: IWsbApplicationBackupSupport_Impl, const OFFSET: isize>() -> IWsbApplicationBackupSupport_Vtbl {
+    pub const fn new<Identity: IWsbApplicationBackupSupport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CheckConsistency<Identity: IWsbApplicationBackupSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszwritermetadata: windows_core::PCWSTR, wszcomponentname: windows_core::PCWSTR, wszcomponentlogicalpath: windows_core::PCWSTR, cvolumes: u32, rgwszsourcevolumepath: *const windows_core::PCWSTR, rgwszsnapshotvolumepath: *const windows_core::PCWSTR, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWsbApplicationBackupSupport_Impl::CheckConsistency(this, core::mem::transmute(&wszwritermetadata), core::mem::transmute(&wszcomponentname), core::mem::transmute(&wszcomponentlogicalpath), core::mem::transmute_copy(&cvolumes), core::mem::transmute_copy(&rgwszsourcevolumepath), core::mem::transmute_copy(&rgwszsnapshotvolumepath)) {
@@ -94,13 +81,8 @@ impl IWsbApplicationBackupSupport_Vtbl {
         iid == &<IWsbApplicationBackupSupport as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IWsbApplicationBackupSupport {}
 windows_core::imp::define_interface!(IWsbApplicationRestoreSupport, IWsbApplicationRestoreSupport_Vtbl, 0x8d3bdb38_4ee8_4718_85f9_c7dbc4ab77aa);
-impl core::ops::Deref for IWsbApplicationRestoreSupport {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWsbApplicationRestoreSupport, windows_core::IUnknown);
 impl IWsbApplicationRestoreSupport {
     pub unsafe fn PreRestore<P0, P1, P2, P3>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: P3) -> windows_core::Result<()>
@@ -122,7 +104,7 @@ impl IWsbApplicationRestoreSupport {
         (windows_core::Interface::vtable(self).PostRestore)(windows_core::Interface::as_raw(self), wszwritermetadata.param().abi(), wszcomponentname.param().abi(), wszcomponentlogicalpath.param().abi(), bnorollforward.param().abi()).ok()
     }
     pub unsafe fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const windows_core::PCWSTR, rgcomponentlogicalpaths: *const windows_core::PCWSTR, prgcomponentname: *mut *mut windows_core::PWSTR, prgcomponentlogicalpath: *mut *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OrderComponents)(windows_core::Interface::as_raw(self), ccomponents, rgcomponentname, rgcomponentlogicalpaths, prgcomponentname, prgcomponentlogicalpath).ok()
+        (windows_core::Interface::vtable(self).OrderComponents)(windows_core::Interface::as_raw(self), core::mem::transmute(ccomponents), core::mem::transmute(rgcomponentname), core::mem::transmute(rgcomponentlogicalpaths), core::mem::transmute(prgcomponentname), core::mem::transmute(prgcomponentlogicalpath)).ok()
     }
     pub unsafe fn IsRollForwardSupported(&self) -> windows_core::Result<u8> {
         let mut result__ = core::mem::zeroed();
@@ -137,15 +119,14 @@ pub struct IWsbApplicationRestoreSupport_Vtbl {
     pub OrderComponents: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::PCWSTR, *const windows_core::PCWSTR, *mut *mut windows_core::PWSTR, *mut *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub IsRollForwardSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
-pub trait IWsbApplicationRestoreSupport_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWsbApplicationRestoreSupport_Impl: windows_core::IUnknownImpl {
     fn PreRestore(&self, wszwritermetadata: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszcomponentlogicalpath: &windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> windows_core::Result<()>;
     fn PostRestore(&self, wszwritermetadata: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszcomponentlogicalpath: &windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> windows_core::Result<()>;
     fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const windows_core::PCWSTR, rgcomponentlogicalpaths: *const windows_core::PCWSTR, prgcomponentname: *mut *mut windows_core::PWSTR, prgcomponentlogicalpath: *mut *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn IsRollForwardSupported(&self) -> windows_core::Result<u8>;
 }
-impl windows_core::RuntimeName for IWsbApplicationRestoreSupport {}
 impl IWsbApplicationRestoreSupport_Vtbl {
-    pub const fn new<Identity: IWsbApplicationRestoreSupport_Impl, const OFFSET: isize>() -> IWsbApplicationRestoreSupport_Vtbl {
+    pub const fn new<Identity: IWsbApplicationRestoreSupport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PreRestore<Identity: IWsbApplicationRestoreSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszwritermetadata: windows_core::PCWSTR, wszcomponentname: windows_core::PCWSTR, wszcomponentlogicalpath: windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWsbApplicationRestoreSupport_Impl::PreRestore(this, core::mem::transmute(&wszwritermetadata), core::mem::transmute(&wszcomponentname), core::mem::transmute(&wszcomponentlogicalpath), core::mem::transmute_copy(&bnorollforward)).into()
@@ -180,6 +161,7 @@ impl IWsbApplicationRestoreSupport_Vtbl {
         iid == &<IWsbApplicationRestoreSupport as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IWsbApplicationRestoreSupport {}
 pub const WSBAPP_ASYNC_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x7A0004_u32 as _);
 pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;
 pub const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5u32;
@@ -190,19 +172,8 @@ pub const WSB_OB_ET_SIZE: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PA
 pub const WSB_OB_ET_STRING: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(1i32);
 pub const WSB_OB_ET_TIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(4i32);
 pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(0i32);
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WSB_OB_STATUS_ENTRY_PAIR_TYPE(pub i32);
-impl windows_core::TypeKind for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WSB_OB_STATUS_ENTRY_PAIR_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSB_OB_REGISTRATION_INFO {
     pub m_wszResourceDLL: windows_core::PWSTR,
     pub m_guidSnapinId: windows_core::GUID,
@@ -210,16 +181,16 @@ pub struct WSB_OB_REGISTRATION_INFO {
     pub m_dwProviderIcon: u32,
     pub m_bSupportsRemoting: super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for WSB_OB_REGISTRATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WSB_OB_REGISTRATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WSB_OB_REGISTRATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSB_OB_STATUS_ENTRY {
     pub m_dwIcon: u32,
     pub m_dwStatusEntryName: u32,
@@ -227,40 +198,43 @@ pub struct WSB_OB_STATUS_ENTRY {
     pub m_cValueTypePair: u32,
     pub m_rgValueTypePair: *mut WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR,
 }
-impl windows_core::TypeKind for WSB_OB_STATUS_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WSB_OB_STATUS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WSB_OB_STATUS_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WSB_OB_STATUS_ENTRY_PAIR_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
     pub m_wszObStatusEntryPairValue: windows_core::PWSTR,
     pub m_ObStatusEntryPairType: WSB_OB_STATUS_ENTRY_PAIR_TYPE,
-}
-impl windows_core::TypeKind for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSB_OB_STATUS_INFO {
     pub m_guidSnapinId: windows_core::GUID,
     pub m_cStatusEntry: u32,
     pub m_rgStatusEntry: *mut WSB_OB_STATUS_ENTRY,
 }
-impl windows_core::TypeKind for WSB_OB_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WSB_OB_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for WSB_OB_STATUS_INFO {
+    type TypeKind = windows_core::CopyType;
 }

@@ -1,10 +1,4 @@
 windows_core::imp::define_interface!(INotificationActivationCallback, INotificationActivationCallback_Vtbl, 0x53e31837_6600_4a81_9395_75cffe746f94);
-impl core::ops::Deref for INotificationActivationCallback {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(INotificationActivationCallback, windows_core::IUnknown);
 impl INotificationActivationCallback {
     pub unsafe fn Activate<P0, P1>(&self, appusermodelid: P0, invokedargs: P1, data: &[NOTIFICATION_USER_INPUT_DATA]) -> windows_core::Result<()>
@@ -20,12 +14,11 @@ pub struct INotificationActivationCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const NOTIFICATION_USER_INPUT_DATA, u32) -> windows_core::HRESULT,
 }
-pub trait INotificationActivationCallback_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INotificationActivationCallback_Impl: windows_core::IUnknownImpl {
     fn Activate(&self, appusermodelid: &windows_core::PCWSTR, invokedargs: &windows_core::PCWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for INotificationActivationCallback {}
 impl INotificationActivationCallback_Vtbl {
-    pub const fn new<Identity: INotificationActivationCallback_Impl, const OFFSET: isize>() -> INotificationActivationCallback_Vtbl {
+    pub const fn new<Identity: INotificationActivationCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Activate<Identity: INotificationActivationCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appusermodelid: windows_core::PCWSTR, invokedargs: windows_core::PCWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             INotificationActivationCallback_Impl::Activate(this, core::mem::transmute(&appusermodelid), core::mem::transmute(&invokedargs), core::mem::transmute_copy(&data), core::mem::transmute_copy(&count)).into()
@@ -36,17 +29,18 @@ impl INotificationActivationCallback_Vtbl {
         iid == &<INotificationActivationCallback as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for INotificationActivationCallback {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NOTIFICATION_USER_INPUT_DATA {
     pub Key: windows_core::PCWSTR,
     pub Value: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for NOTIFICATION_USER_INPUT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NOTIFICATION_USER_INPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for NOTIFICATION_USER_INPUT_DATA {
+    type TypeKind = windows_core::CopyType;
 }

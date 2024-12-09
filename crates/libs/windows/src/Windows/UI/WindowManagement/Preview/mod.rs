@@ -16,7 +16,7 @@ pub struct IWindowManagementPreviewStatics_Vtbl {
     pub SetPreferredMinSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::Size) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WindowManagementPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowManagementPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowManagementPreview {
@@ -35,7 +35,7 @@ impl windows_core::RuntimeType for WindowManagementPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowManagementPreview>();
 }
 unsafe impl windows_core::Interface for WindowManagementPreview {
-    type Vtable = IWindowManagementPreview_Vtbl;
+    type Vtable = <IWindowManagementPreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowManagementPreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WindowManagementPreview {

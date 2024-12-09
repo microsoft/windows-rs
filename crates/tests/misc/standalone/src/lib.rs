@@ -1,5 +1,5 @@
 #![cfg(test)]
-#![allow(clashing_extern_declarations)]
+#![allow(clashing_extern_declarations, unused_imports)]
 
 mod b_arch;
 mod b_arch_dependencies;

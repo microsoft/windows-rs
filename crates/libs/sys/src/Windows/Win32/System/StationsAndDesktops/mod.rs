@@ -36,6 +36,8 @@ windows_targets::link!("user32.dll" "system" fn SetThreadDesktop(hdesktop : HDES
 windows_targets::link!("user32.dll" "system" fn SetUserObjectInformationA(hobj : super::super::Foundation:: HANDLE, nindex : i32, pvinfo : *const core::ffi::c_void, nlength : u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("user32.dll" "system" fn SetUserObjectInformationW(hobj : super::super::Foundation:: HANDLE, nindex : i32, pvinfo : *const core::ffi::c_void, nlength : u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("user32.dll" "system" fn SwitchDesktop(hdesktop : HDESK) -> super::super::Foundation:: BOOL);
+pub type BROADCAST_SYSTEM_MESSAGE_FLAGS = u32;
+pub type BROADCAST_SYSTEM_MESSAGE_INFO = u32;
 pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = 128u32;
 pub const BSF_FLUSHDISK: BROADCAST_SYSTEM_MESSAGE_FLAGS = 4u32;
 pub const BSF_FORCEIFHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = 32u32;
@@ -47,9 +49,21 @@ pub const BSF_POSTMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = 16u32;
 pub const BSF_QUERY: BROADCAST_SYSTEM_MESSAGE_FLAGS = 1u32;
 pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = 512u32;
 pub const BSF_SENDNOTIFYMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = 256u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BSMINFO {
+    pub cbSize: u32,
+    pub hdesk: HDESK,
+    pub hwnd: super::super::Foundation::HWND,
+    pub luid: super::super::Foundation::LUID,
+}
 pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = 0u32;
 pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = 16u32;
 pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = 8u32;
+pub type DESKTOPENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type DESKTOPENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type DESKTOP_ACCESS_FLAGS = u32;
+pub type DESKTOP_CONTROL_FLAGS = u32;
 pub const DESKTOP_CREATEMENU: DESKTOP_ACCESS_FLAGS = 4u32;
 pub const DESKTOP_CREATEWINDOW: DESKTOP_ACCESS_FLAGS = 2u32;
 pub const DESKTOP_DELETE: DESKTOP_ACCESS_FLAGS = 65536u32;
@@ -65,27 +79,14 @@ pub const DESKTOP_WRITEOBJECTS: DESKTOP_ACCESS_FLAGS = 128u32;
 pub const DESKTOP_WRITE_DAC: DESKTOP_ACCESS_FLAGS = 262144u32;
 pub const DESKTOP_WRITE_OWNER: DESKTOP_ACCESS_FLAGS = 524288u32;
 pub const DF_ALLOWOTHERACCOUNTHOOK: DESKTOP_CONTROL_FLAGS = 1u32;
+pub type HDESK = *mut core::ffi::c_void;
+pub type HWINSTA = *mut core::ffi::c_void;
 pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = 1i32;
 pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = 5i32;
 pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = 6i32;
 pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = 2i32;
 pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = 3i32;
 pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = 4i32;
-pub type BROADCAST_SYSTEM_MESSAGE_FLAGS = u32;
-pub type BROADCAST_SYSTEM_MESSAGE_INFO = u32;
-pub type DESKTOP_ACCESS_FLAGS = u32;
-pub type DESKTOP_CONTROL_FLAGS = u32;
-pub type USER_OBJECT_INFORMATION_INDEX = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BSMINFO {
-    pub cbSize: u32,
-    pub hdesk: HDESK,
-    pub hwnd: super::super::Foundation::HWND,
-    pub luid: super::super::Foundation::LUID,
-}
-pub type HDESK = *mut core::ffi::c_void;
-pub type HWINSTA = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USEROBJECTFLAGS {
@@ -93,7 +94,6 @@ pub struct USEROBJECTFLAGS {
     pub fReserved: super::super::Foundation::BOOL,
     pub dwFlags: u32,
 }
-pub type DESKTOPENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type DESKTOPENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type USER_OBJECT_INFORMATION_INDEX = i32;
 pub type WINSTAENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 pub type WINSTAENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;

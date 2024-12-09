@@ -1,5 +1,6 @@
+--in default
 --out crates/libs/registry/src/bindings.rs
---config flatten sys minimal no-bindgen-comment
+--flat --sys --no-core --no-comment
 
 --filter
     Windows.Win32.Foundation.ERROR_INVALID_DATA

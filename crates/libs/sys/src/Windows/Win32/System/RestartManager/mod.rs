@@ -12,8 +12,47 @@ windows_targets::link!("rstrtmgr.dll" "system" fn RmStartSession(psessionhandle 
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
 pub const CCH_RM_SESSION_KEY: u32 = 32u32;
+pub type RM_APP_STATUS = i32;
+pub type RM_APP_TYPE = i32;
+pub type RM_FILTER_ACTION = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RM_FILTER_INFO {
+    pub FilterAction: RM_FILTER_ACTION,
+    pub FilterTrigger: RM_FILTER_TRIGGER,
+    pub cbNextOffset: u32,
+    pub Anonymous: RM_FILTER_INFO_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union RM_FILTER_INFO_0 {
+    pub strFilename: windows_sys::core::PWSTR,
+    pub Process: RM_UNIQUE_PROCESS,
+    pub strServiceShortName: windows_sys::core::PWSTR,
+}
+pub type RM_FILTER_TRIGGER = i32;
 pub const RM_INVALID_PROCESS: i32 = -1i32;
 pub const RM_INVALID_TS_SESSION: i32 = -1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RM_PROCESS_INFO {
+    pub Process: RM_UNIQUE_PROCESS,
+    pub strAppName: [u16; 256],
+    pub strServiceShortName: [u16; 64],
+    pub ApplicationType: RM_APP_TYPE,
+    pub AppStatus: u32,
+    pub TSSessionId: u32,
+    pub bRestartable: super::super::Foundation::BOOL,
+}
+pub type RM_REBOOT_REASON = i32;
+pub type RM_SHUTDOWN_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RM_UNIQUE_PROCESS {
+    pub dwProcessId: u32,
+    pub ProcessStartTime: super::super::Foundation::FILETIME,
+}
+pub type RM_WRITE_STATUS_CALLBACK = Option<unsafe extern "system" fn(npercentcomplete: u32)>;
 pub const RmConsole: RM_APP_TYPE = 5i32;
 pub const RmCritical: RM_APP_TYPE = 1000i32;
 pub const RmExplorer: RM_APP_TYPE = 4i32;
@@ -45,42 +84,3 @@ pub const RmStatusStopped: RM_APP_STATUS = 2i32;
 pub const RmStatusStoppedOther: RM_APP_STATUS = 4i32;
 pub const RmStatusUnknown: RM_APP_STATUS = 0i32;
 pub const RmUnknownApp: RM_APP_TYPE = 0i32;
-pub type RM_APP_STATUS = i32;
-pub type RM_APP_TYPE = i32;
-pub type RM_FILTER_ACTION = i32;
-pub type RM_FILTER_TRIGGER = i32;
-pub type RM_REBOOT_REASON = i32;
-pub type RM_SHUTDOWN_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RM_FILTER_INFO {
-    pub FilterAction: RM_FILTER_ACTION,
-    pub FilterTrigger: RM_FILTER_TRIGGER,
-    pub cbNextOffset: u32,
-    pub Anonymous: RM_FILTER_INFO_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union RM_FILTER_INFO_0 {
-    pub strFilename: windows_sys::core::PWSTR,
-    pub Process: RM_UNIQUE_PROCESS,
-    pub strServiceShortName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RM_PROCESS_INFO {
-    pub Process: RM_UNIQUE_PROCESS,
-    pub strAppName: [u16; 256],
-    pub strServiceShortName: [u16; 64],
-    pub ApplicationType: RM_APP_TYPE,
-    pub AppStatus: u32,
-    pub TSSessionId: u32,
-    pub bRestartable: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RM_UNIQUE_PROCESS {
-    pub dwProcessId: u32,
-    pub ProcessStartTime: super::super::Foundation::FILETIME,
-}
-pub type RM_WRITE_STATUS_CALLBACK = Option<unsafe extern "system" fn(npercentcomplete: u32)>;

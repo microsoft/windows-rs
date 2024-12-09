@@ -32,12 +32,15 @@ pub struct ISceneLightingEffect2_Vtbl {
     pub ReflectanceModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneLightingEffectReflectanceModel) -> windows_core::HRESULT,
     pub SetReflectanceModel: unsafe extern "system" fn(*mut core::ffi::c_void, SceneLightingEffectReflectanceModel) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Graphics_Effects")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneLightingEffect(windows_core::IUnknown);
+#[cfg(feature = "Graphics_Effects")]
 windows_core::imp::interface_hierarchy!(SceneLightingEffect, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Graphics_Effects")]
 windows_core::imp::required_hierarchy!(SceneLightingEffect, super::super::super::Graphics::Effects::IGraphicsEffect, super::super::super::Graphics::Effects::IGraphicsEffectSource);
+#[cfg(feature = "Graphics_Effects")]
 impl SceneLightingEffect {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -46,15 +49,13 @@ impl SceneLightingEffect {
         static SHARED: windows_core::imp::FactoryCache<SceneLightingEffect, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Graphics_Effects")]
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Graphics_Effects")]
     pub fn SetName(&self, name: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name)).ok() }
@@ -81,7 +82,6 @@ impl SceneLightingEffect {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDiffuseAmount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Graphics_Effects")]
     pub fn NormalMapSource(&self) -> windows_core::Result<super::super::super::Graphics::Effects::IGraphicsEffectSource> {
         let this = self;
         unsafe {
@@ -89,7 +89,6 @@ impl SceneLightingEffect {
             (windows_core::Interface::vtable(this).NormalMapSource)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Graphics_Effects")]
     pub fn SetNormalMapSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Graphics::Effects::IGraphicsEffectSource>,
@@ -131,20 +130,25 @@ impl SceneLightingEffect {
         unsafe { (windows_core::Interface::vtable(this).SetReflectanceModel)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+#[cfg(feature = "Graphics_Effects")]
 impl windows_core::RuntimeType for SceneLightingEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneLightingEffect>();
 }
+#[cfg(feature = "Graphics_Effects")]
 unsafe impl windows_core::Interface for SceneLightingEffect {
-    type Vtable = ISceneLightingEffect_Vtbl;
+    type Vtable = <ISceneLightingEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneLightingEffect as windows_core::Interface>::IID;
 }
+#[cfg(feature = "Graphics_Effects")]
 impl windows_core::RuntimeName for SceneLightingEffect {
     const NAME: &'static str = "Windows.UI.Composition.Effects.SceneLightingEffect";
 }
+#[cfg(feature = "Graphics_Effects")]
 unsafe impl Send for SceneLightingEffect {}
+#[cfg(feature = "Graphics_Effects")]
 unsafe impl Sync for SceneLightingEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneLightingEffectReflectanceModel(pub i32);
 impl SceneLightingEffectReflectanceModel {
     pub const BlinnPhong: Self = Self(0i32);
@@ -152,11 +156,6 @@ impl SceneLightingEffectReflectanceModel {
 }
 impl windows_core::TypeKind for SceneLightingEffectReflectanceModel {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SceneLightingEffectReflectanceModel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SceneLightingEffectReflectanceModel").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for SceneLightingEffectReflectanceModel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel;i4)");

@@ -8,22 +8,22 @@ pub unsafe fn FwpmBfeStateGet0() -> super::super::super::Win32::NetworkManagemen
 #[inline]
 pub unsafe fn FwpmBfeStateSubscribeChanges0(deviceobject: *mut core::ffi::c_void, callback: FWPM_SERVICE_STATE_CHANGE_CALLBACK0, context: Option<*const core::ffi::c_void>, changehandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("fwpkclnt.sys" "system" fn FwpmBfeStateSubscribeChanges0(deviceobject : *mut core::ffi::c_void, callback : FWPM_SERVICE_STATE_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmBfeStateSubscribeChanges0(deviceobject, callback, core::mem::transmute(context.unwrap_or(core::ptr::null())), changehandle)
+    FwpmBfeStateSubscribeChanges0(core::mem::transmute(deviceobject), core::mem::transmute(callback), core::mem::transmute(context.unwrap_or(core::ptr::null())), core::mem::transmute(changehandle))
 }
 #[inline]
 pub unsafe fn FwpmBfeStateUnsubscribeChanges0(changehandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("fwpkclnt.sys" "system" fn FwpmBfeStateUnsubscribeChanges0(changehandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmBfeStateUnsubscribeChanges0(changehandle)
+    FwpmBfeStateUnsubscribeChanges0(core::mem::transmute(changehandle))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmCalloutAdd0<P0, P1>(enginehandle: P0, callout: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_CALLOUT0, sd: P1, id: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FwpmCalloutAdd0<P0, P2>(enginehandle: P0, callout: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_CALLOUT0, sd: P2, id: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutAdd0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, callout : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_CALLOUT0, sd : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, id : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmCalloutAdd0(enginehandle.param().abi(), callout, sd.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null_mut())))
+    FwpmCalloutAdd0(enginehandle.param().abi(), core::mem::transmute(callout), sd.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -32,7 +32,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_CALLOUT_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmCalloutCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    FwpmCalloutCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[inline]
 pub unsafe fn FwpmCalloutDeleteById0<P0>(enginehandle: P0, id: u32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -40,7 +40,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutDeleteById0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmCalloutDeleteById0(enginehandle.param().abi(), id)
+    FwpmCalloutDeleteById0(enginehandle.param().abi(), core::mem::transmute(id))
 }
 #[inline]
 pub unsafe fn FwpmCalloutDeleteByKey0<P0>(enginehandle: P0, key: *const windows_core::GUID) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -48,7 +48,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutDeleteByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmCalloutDeleteByKey0(enginehandle.param().abi(), key)
+    FwpmCalloutDeleteByKey0(enginehandle.param().abi(), core::mem::transmute(key))
 }
 #[inline]
 pub unsafe fn FwpmCalloutDestroyEnumHandle0<P0>(enginehandle: P0, enumhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -56,7 +56,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutDestroyEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmCalloutDestroyEnumHandle0(enginehandle.param().abi(), enumhandle)
+    FwpmCalloutDestroyEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumhandle))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -66,7 +66,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_CALLOUT0, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmCalloutEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmCalloutEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -75,7 +75,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetById0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u32, callout : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_CALLOUT0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmCalloutGetById0(enginehandle.param().abi(), id, callout)
+    FwpmCalloutGetById0(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(callout))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -84,7 +84,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, callout : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_CALLOUT0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmCalloutGetByKey0(enginehandle.param().abi(), key, callout)
+    FwpmCalloutGetByKey0(enginehandle.param().abi(), core::mem::transmute(key), core::mem::transmute(callout))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -93,7 +93,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetSecurityInfoByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmCalloutGetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    FwpmCalloutGetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -102,7 +102,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmCalloutSetSecurityInfoByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmCalloutSetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    FwpmCalloutSetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -111,7 +111,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmConnectionCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_CONNECTION_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmConnectionCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    FwpmConnectionCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[inline]
 pub unsafe fn FwpmConnectionDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -130,7 +130,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmConnectionEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_CONNECTION0, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmConnectionEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmConnectionEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -139,7 +139,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmConnectionGetById0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, connection : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_CONNECTION0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmConnectionGetById0(enginehandle.param().abi(), id, connection)
+    FwpmConnectionGetById0(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(connection))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -148,7 +148,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmConnectionGetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmConnectionGetSecurityInfo0(enginehandle.param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    FwpmConnectionGetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -157,12 +157,12 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmConnectionSetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmConnectionSetSecurityInfo0(enginehandle.param().abi(), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    FwpmConnectionSetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn FwpmEngineClose0(enginehandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmEngineClose0(enginehandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmEngineClose0(enginehandle)
+    FwpmEngineClose0(core::mem::transmute(enginehandle))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -171,7 +171,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmEngineGetOption0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, option : super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_ENGINE_OPTION, value : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWP_VALUE0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmEngineGetOption0(enginehandle.param().abi(), option, value)
+    FwpmEngineGetOption0(enginehandle.param().abi(), core::mem::transmute(option), core::mem::transmute(value))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -180,7 +180,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmEngineGetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmEngineGetSecurityInfo0(enginehandle.param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    FwpmEngineGetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security", feature = "Win32_System_Rpc"))]
 #[inline]
@@ -189,7 +189,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmEngineOpen0(servername : windows_core::PCWSTR, authnservice : u32, authidentity : *const super::super::super::Win32::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W, session : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_SESSION0, enginehandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmEngineOpen0(servername.param().abi(), authnservice, core::mem::transmute(authidentity.unwrap_or(core::ptr::null())), core::mem::transmute(session.unwrap_or(core::ptr::null())), enginehandle)
+    FwpmEngineOpen0(servername.param().abi(), core::mem::transmute(authnservice), core::mem::transmute(authidentity.unwrap_or(core::ptr::null())), core::mem::transmute(session.unwrap_or(core::ptr::null())), core::mem::transmute(enginehandle))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -198,7 +198,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmEngineSetOption0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, option : super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_ENGINE_OPTION, newvalue : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWP_VALUE0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmEngineSetOption0(enginehandle.param().abi(), option, newvalue)
+    FwpmEngineSetOption0(enginehandle.param().abi(), core::mem::transmute(option), core::mem::transmute(newvalue))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -207,17 +207,17 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmEngineSetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmEngineSetSecurityInfo0(enginehandle.param().abi(), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    FwpmEngineSetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmFilterAdd0<P0, P1>(enginehandle: P0, filter: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_FILTER0, sd: P1, id: Option<*mut u64>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FwpmFilterAdd0<P0, P2>(enginehandle: P0, filter: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_FILTER0, sd: P2, id: Option<*mut u64>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterAdd0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, filter : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_FILTER0, sd : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmFilterAdd0(enginehandle.param().abi(), filter, sd.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null_mut())))
+    FwpmFilterAdd0(enginehandle.param().abi(), core::mem::transmute(filter), sd.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -226,7 +226,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_FILTER_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmFilterCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    FwpmFilterCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[inline]
 pub unsafe fn FwpmFilterDeleteById0<P0>(enginehandle: P0, id: u64) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -234,7 +234,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterDeleteById0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmFilterDeleteById0(enginehandle.param().abi(), id)
+    FwpmFilterDeleteById0(enginehandle.param().abi(), core::mem::transmute(id))
 }
 #[inline]
 pub unsafe fn FwpmFilterDeleteByKey0<P0>(enginehandle: P0, key: *const windows_core::GUID) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -242,7 +242,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterDeleteByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmFilterDeleteByKey0(enginehandle.param().abi(), key)
+    FwpmFilterDeleteByKey0(enginehandle.param().abi(), core::mem::transmute(key))
 }
 #[inline]
 pub unsafe fn FwpmFilterDestroyEnumHandle0<P0>(enginehandle: P0, enumhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -250,7 +250,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterDestroyEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmFilterDestroyEnumHandle0(enginehandle.param().abi(), enumhandle)
+    FwpmFilterDestroyEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumhandle))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -260,7 +260,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_FILTER0, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmFilterEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmFilterEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -269,7 +269,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterGetById0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, filter : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_FILTER0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmFilterGetById0(enginehandle.param().abi(), id, filter)
+    FwpmFilterGetById0(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(filter))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -278,7 +278,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterGetByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, filter : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_FILTER0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmFilterGetByKey0(enginehandle.param().abi(), key, filter)
+    FwpmFilterGetByKey0(enginehandle.param().abi(), core::mem::transmute(key), core::mem::transmute(filter))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -287,7 +287,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterGetSecurityInfoByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmFilterGetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    FwpmFilterGetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -296,52 +296,52 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFilterSetSecurityInfoByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmFilterSetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    FwpmFilterSetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn FwpmFreeMemory0(p: *mut *mut core::ffi::c_void) {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmFreeMemory0(p : *mut *mut core::ffi::c_void));
-    FwpmFreeMemory0(p)
+    FwpmFreeMemory0(core::mem::transmute(p))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmIPsecTunnelAdd0<P0, P1>(enginehandle: P0, flags: u32, mainmodepolicy: Option<*const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT0>, tunnelpolicy: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT0, filterconditions: &[super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_FILTER_CONDITION0], sd: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FwpmIPsecTunnelAdd0<P0, P6>(enginehandle: P0, flags: u32, mainmodepolicy: Option<*const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT0>, tunnelpolicy: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT0, filterconditions: &[super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_FILTER_CONDITION0], sd: P6) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P6: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT0, tunnelpolicy : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT0, numfilterconditions : u32, filterconditions : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_FILTER_CONDITION0, sd : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmIPsecTunnelAdd0(enginehandle.param().abi(), flags, core::mem::transmute(mainmodepolicy.unwrap_or(core::ptr::null())), tunnelpolicy, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), sd.param().abi())
+    FwpmIPsecTunnelAdd0(enginehandle.param().abi(), core::mem::transmute(flags), core::mem::transmute(mainmodepolicy.unwrap_or(core::ptr::null())), core::mem::transmute(tunnelpolicy), filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), sd.param().abi())
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmIPsecTunnelAdd1<P0, P1>(enginehandle: P0, flags: u32, mainmodepolicy: Option<*const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT1>, tunnelpolicy: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT1, filterconditions: &[super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FwpmIPsecTunnelAdd1<P0, P7>(enginehandle: P0, flags: u32, mainmodepolicy: Option<*const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT1>, tunnelpolicy: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT1, filterconditions: &[super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: P7) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P7: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT1, tunnelpolicy : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT1, numfilterconditions : u32, filterconditions : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmIPsecTunnelAdd1(enginehandle.param().abi(), flags, core::mem::transmute(mainmodepolicy.unwrap_or(core::ptr::null())), tunnelpolicy, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), core::mem::transmute(keymodkey.unwrap_or(core::ptr::null())), sd.param().abi())
+    FwpmIPsecTunnelAdd1(enginehandle.param().abi(), core::mem::transmute(flags), core::mem::transmute(mainmodepolicy.unwrap_or(core::ptr::null())), core::mem::transmute(tunnelpolicy), filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), core::mem::transmute(keymodkey.unwrap_or(core::ptr::null())), sd.param().abi())
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmIPsecTunnelAdd2<P0, P1>(enginehandle: P0, flags: u32, mainmodepolicy: Option<*const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT2>, tunnelpolicy: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT2, filterconditions: &[super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FwpmIPsecTunnelAdd2<P0, P7>(enginehandle: P0, flags: u32, mainmodepolicy: Option<*const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT2>, tunnelpolicy: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT2, filterconditions: &[super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: P7) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P7: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd2(enginehandle : super::super::super::Win32::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT2, tunnelpolicy : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT2, numfilterconditions : u32, filterconditions : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmIPsecTunnelAdd2(enginehandle.param().abi(), flags, core::mem::transmute(mainmodepolicy.unwrap_or(core::ptr::null())), tunnelpolicy, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), core::mem::transmute(keymodkey.unwrap_or(core::ptr::null())), sd.param().abi())
+    FwpmIPsecTunnelAdd2(enginehandle.param().abi(), core::mem::transmute(flags), core::mem::transmute(mainmodepolicy.unwrap_or(core::ptr::null())), core::mem::transmute(tunnelpolicy), filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), core::mem::transmute(keymodkey.unwrap_or(core::ptr::null())), sd.param().abi())
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmIPsecTunnelAdd3<P0, P1>(enginehandle: P0, flags: u32, mainmodepolicy: Option<*const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT3>, tunnelpolicy: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT3, filterconditions: &[super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FwpmIPsecTunnelAdd3<P0, P7>(enginehandle: P0, flags: u32, mainmodepolicy: Option<*const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT3>, tunnelpolicy: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT3, filterconditions: &[super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: P7) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P7: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd3(enginehandle : super::super::super::Win32::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT3, tunnelpolicy : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT3, numfilterconditions : u32, filterconditions : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmIPsecTunnelAdd3(enginehandle.param().abi(), flags, core::mem::transmute(mainmodepolicy.unwrap_or(core::ptr::null())), tunnelpolicy, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), core::mem::transmute(keymodkey.unwrap_or(core::ptr::null())), sd.param().abi())
+    FwpmIPsecTunnelAdd3(enginehandle.param().abi(), core::mem::transmute(flags), core::mem::transmute(mainmodepolicy.unwrap_or(core::ptr::null())), core::mem::transmute(tunnelpolicy), filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), core::mem::transmute(keymodkey.unwrap_or(core::ptr::null())), sd.param().abi())
 }
 #[inline]
 pub unsafe fn FwpmIPsecTunnelDeleteByKey0<P0>(enginehandle: P0, key: *const windows_core::GUID) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -349,7 +349,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelDeleteByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmIPsecTunnelDeleteByKey0(enginehandle.param().abi(), key)
+    FwpmIPsecTunnelDeleteByKey0(enginehandle.param().abi(), core::mem::transmute(key))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -358,7 +358,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmLayerCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_LAYER_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmLayerCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    FwpmLayerCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[inline]
 pub unsafe fn FwpmLayerDestroyEnumHandle0<P0>(enginehandle: P0, enumhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -366,7 +366,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmLayerDestroyEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmLayerDestroyEnumHandle0(enginehandle.param().abi(), enumhandle)
+    FwpmLayerDestroyEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumhandle))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -376,7 +376,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmLayerEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_LAYER0, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmLayerEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmLayerEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -385,7 +385,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmLayerGetById0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u16, layer : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_LAYER0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmLayerGetById0(enginehandle.param().abi(), id, layer)
+    FwpmLayerGetById0(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(layer))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -394,7 +394,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmLayerGetByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, layer : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_LAYER0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmLayerGetByKey0(enginehandle.param().abi(), key, layer)
+    FwpmLayerGetByKey0(enginehandle.param().abi(), core::mem::transmute(key), core::mem::transmute(layer))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -403,7 +403,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmLayerGetSecurityInfoByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmLayerGetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    FwpmLayerGetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -412,7 +412,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmLayerSetSecurityInfoByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmLayerSetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    FwpmLayerSetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -421,7 +421,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmNetEventCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_NET_EVENT_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmNetEventCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    FwpmNetEventCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[inline]
 pub unsafe fn FwpmNetEventDestroyEnumHandle0<P0>(enginehandle: P0, enumhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -429,7 +429,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmNetEventDestroyEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmNetEventDestroyEnumHandle0(enginehandle.param().abi(), enumhandle)
+    FwpmNetEventDestroyEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumhandle))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -439,7 +439,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_NET_EVENT0, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmNetEventEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmNetEventEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -449,7 +449,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_NET_EVENT1, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmNetEventEnum1(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmNetEventEnum1(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -459,7 +459,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum2(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_NET_EVENT2, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmNetEventEnum2(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmNetEventEnum2(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -469,7 +469,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum3(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_NET_EVENT3, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmNetEventEnum3(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmNetEventEnum3(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -479,7 +479,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum4(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_NET_EVENT4, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmNetEventEnum4(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmNetEventEnum4(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -489,7 +489,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum5(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_NET_EVENT5, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmNetEventEnum5(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmNetEventEnum5(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -498,7 +498,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmNetEventsGetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmNetEventsGetSecurityInfo0(enginehandle.param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    FwpmNetEventsGetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -507,57 +507,57 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmNetEventsSetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmNetEventsSetSecurityInfo0(enginehandle.param().abi(), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    FwpmNetEventsSetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmProviderAdd0<P0, P1>(enginehandle: P0, provider: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER0, sd: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FwpmProviderAdd0<P0, P2>(enginehandle: P0, provider: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER0, sd: P2) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderAdd0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, provider : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER0, sd : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderAdd0(enginehandle.param().abi(), provider, sd.param().abi())
+    FwpmProviderAdd0(enginehandle.param().abi(), core::mem::transmute(provider), sd.param().abi())
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmProviderContextAdd0<P0, P1>(enginehandle: P0, providercontext: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT0, sd: P1, id: Option<*mut u64>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FwpmProviderContextAdd0<P0, P2>(enginehandle: P0, providercontext: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT0, sd: P2, id: Option<*mut u64>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, providercontext : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT0, sd : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextAdd0(enginehandle.param().abi(), providercontext, sd.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null_mut())))
+    FwpmProviderContextAdd0(enginehandle.param().abi(), core::mem::transmute(providercontext), sd.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmProviderContextAdd1<P0, P1>(enginehandle: P0, providercontext: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT1, sd: P1, id: Option<*mut u64>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FwpmProviderContextAdd1<P0, P2>(enginehandle: P0, providercontext: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT1, sd: P2, id: Option<*mut u64>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, providercontext : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT1, sd : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextAdd1(enginehandle.param().abi(), providercontext, sd.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null_mut())))
+    FwpmProviderContextAdd1(enginehandle.param().abi(), core::mem::transmute(providercontext), sd.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmProviderContextAdd2<P0, P1>(enginehandle: P0, providercontext: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT2, sd: P1, id: Option<*mut u64>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FwpmProviderContextAdd2<P0, P2>(enginehandle: P0, providercontext: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT2, sd: P2, id: Option<*mut u64>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd2(enginehandle : super::super::super::Win32::Foundation:: HANDLE, providercontext : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT2, sd : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextAdd2(enginehandle.param().abi(), providercontext, sd.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null_mut())))
+    FwpmProviderContextAdd2(enginehandle.param().abi(), core::mem::transmute(providercontext), sd.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmProviderContextAdd3<P0, P1>(enginehandle: P0, providercontext: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT3, sd: P1, id: Option<*mut u64>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FwpmProviderContextAdd3<P0, P2>(enginehandle: P0, providercontext: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_PROVIDER_CONTEXT3, sd: P2, id: Option<*mut u64>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd3(enginehandle : super::super::super::Win32::Foundation:: HANDLE, providercontext : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT3, sd : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextAdd3(enginehandle.param().abi(), providercontext, sd.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null_mut())))
+    FwpmProviderContextAdd3(enginehandle.param().abi(), core::mem::transmute(providercontext), sd.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -566,7 +566,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    FwpmProviderContextCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[inline]
 pub unsafe fn FwpmProviderContextDeleteById0<P0>(enginehandle: P0, id: u64) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -574,7 +574,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDeleteById0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextDeleteById0(enginehandle.param().abi(), id)
+    FwpmProviderContextDeleteById0(enginehandle.param().abi(), core::mem::transmute(id))
 }
 #[inline]
 pub unsafe fn FwpmProviderContextDeleteByKey0<P0>(enginehandle: P0, key: *const windows_core::GUID) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -582,7 +582,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDeleteByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextDeleteByKey0(enginehandle.param().abi(), key)
+    FwpmProviderContextDeleteByKey0(enginehandle.param().abi(), core::mem::transmute(key))
 }
 #[inline]
 pub unsafe fn FwpmProviderContextDestroyEnumHandle0<P0>(enginehandle: P0, enumhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -590,7 +590,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDestroyEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextDestroyEnumHandle0(enginehandle.param().abi(), enumhandle)
+    FwpmProviderContextDestroyEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumhandle))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -600,7 +600,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT0, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmProviderContextEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -610,7 +610,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT1, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextEnum1(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmProviderContextEnum1(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -620,7 +620,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum2(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT2, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextEnum2(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmProviderContextEnum2(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -630,7 +630,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum3(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT3, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextEnum3(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmProviderContextEnum3(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -639,7 +639,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, providercontext : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextGetById0(enginehandle.param().abi(), id, providercontext)
+    FwpmProviderContextGetById0(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(providercontext))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -648,7 +648,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, providercontext : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT1) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextGetById1(enginehandle.param().abi(), id, providercontext)
+    FwpmProviderContextGetById1(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(providercontext))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -657,7 +657,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById2(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, providercontext : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextGetById2(enginehandle.param().abi(), id, providercontext)
+    FwpmProviderContextGetById2(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(providercontext))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -666,7 +666,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById3(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, providercontext : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT3) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextGetById3(enginehandle.param().abi(), id, providercontext)
+    FwpmProviderContextGetById3(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(providercontext))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -675,7 +675,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, providercontext : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextGetByKey0(enginehandle.param().abi(), key, providercontext)
+    FwpmProviderContextGetByKey0(enginehandle.param().abi(), core::mem::transmute(key), core::mem::transmute(providercontext))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -684,7 +684,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, providercontext : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT1) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextGetByKey1(enginehandle.param().abi(), key, providercontext)
+    FwpmProviderContextGetByKey1(enginehandle.param().abi(), core::mem::transmute(key), core::mem::transmute(providercontext))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -693,7 +693,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey2(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, providercontext : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextGetByKey2(enginehandle.param().abi(), key, providercontext)
+    FwpmProviderContextGetByKey2(enginehandle.param().abi(), core::mem::transmute(key), core::mem::transmute(providercontext))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -702,7 +702,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey3(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, providercontext : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_CONTEXT3) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextGetByKey3(enginehandle.param().abi(), key, providercontext)
+    FwpmProviderContextGetByKey3(enginehandle.param().abi(), core::mem::transmute(key), core::mem::transmute(providercontext))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -711,7 +711,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextGetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    FwpmProviderContextGetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -720,7 +720,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderContextSetSecurityInfoByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderContextSetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    FwpmProviderContextSetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -729,7 +729,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    FwpmProviderCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[inline]
 pub unsafe fn FwpmProviderDeleteByKey0<P0>(enginehandle: P0, key: *const windows_core::GUID) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -737,7 +737,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderDeleteByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderDeleteByKey0(enginehandle.param().abi(), key)
+    FwpmProviderDeleteByKey0(enginehandle.param().abi(), core::mem::transmute(key))
 }
 #[inline]
 pub unsafe fn FwpmProviderDestroyEnumHandle0<P0>(enginehandle: P0, enumhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -745,7 +745,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderDestroyEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderDestroyEnumHandle0(enginehandle.param().abi(), enumhandle)
+    FwpmProviderDestroyEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumhandle))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -755,7 +755,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER0, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmProviderEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -764,7 +764,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderGetByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, provider : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_PROVIDER0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderGetByKey0(enginehandle.param().abi(), key, provider)
+    FwpmProviderGetByKey0(enginehandle.param().abi(), core::mem::transmute(key), core::mem::transmute(provider))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -773,7 +773,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderGetSecurityInfoByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderGetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    FwpmProviderGetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -782,7 +782,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmProviderSetSecurityInfoByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmProviderSetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    FwpmProviderSetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -791,7 +791,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSessionCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_SESSION_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmSessionCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    FwpmSessionCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[inline]
 pub unsafe fn FwpmSessionDestroyEnumHandle0<P0>(enginehandle: P0, enumhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -799,7 +799,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSessionDestroyEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmSessionDestroyEnumHandle0(enginehandle.param().abi(), enumhandle)
+    FwpmSessionDestroyEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumhandle))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -809,17 +809,17 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSessionEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_SESSION0, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmSessionEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmSessionEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmSubLayerAdd0<P0, P1>(enginehandle: P0, sublayer: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_SUBLAYER0, sd: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FwpmSubLayerAdd0<P0, P2>(enginehandle: P0, sublayer: *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_SUBLAYER0, sd: P2) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerAdd0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, sublayer : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_SUBLAYER0, sd : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmSubLayerAdd0(enginehandle.param().abi(), sublayer, sd.param().abi())
+    FwpmSubLayerAdd0(enginehandle.param().abi(), core::mem::transmute(sublayer), sd.param().abi())
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -828,7 +828,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_SUBLAYER_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmSubLayerCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    FwpmSubLayerCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[inline]
 pub unsafe fn FwpmSubLayerDeleteByKey0<P0>(enginehandle: P0, key: *const windows_core::GUID) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -836,7 +836,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerDeleteByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmSubLayerDeleteByKey0(enginehandle.param().abi(), key)
+    FwpmSubLayerDeleteByKey0(enginehandle.param().abi(), core::mem::transmute(key))
 }
 #[inline]
 pub unsafe fn FwpmSubLayerDestroyEnumHandle0<P0>(enginehandle: P0, enumhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -844,7 +844,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerDestroyEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmSubLayerDestroyEnumHandle0(enginehandle.param().abi(), enumhandle)
+    FwpmSubLayerDestroyEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumhandle))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -854,7 +854,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_SUBLAYER0, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmSubLayerEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    FwpmSubLayerEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -863,7 +863,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerGetByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, sublayer : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_SUBLAYER0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmSubLayerGetByKey0(enginehandle.param().abi(), key, sublayer)
+    FwpmSubLayerGetByKey0(enginehandle.param().abi(), core::mem::transmute(key), core::mem::transmute(sublayer))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -872,7 +872,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmSubLayerGetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    FwpmSubLayerGetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -881,7 +881,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmSubLayerSetSecurityInfoByKey0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmSubLayerSetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    FwpmSubLayerSetSecurityInfoByKey0(enginehandle.param().abi(), core::mem::transmute(key.unwrap_or(core::ptr::null())), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn FwpmTransactionAbort0<P0>(enginehandle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -897,7 +897,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmTransactionBegin0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, flags : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmTransactionBegin0(enginehandle.param().abi(), flags)
+    FwpmTransactionBegin0(enginehandle.param().abi(), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn FwpmTransactionCommit0<P0>(enginehandle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -914,7 +914,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmvSwitchEventsGetSecurityInfo0(enginehandle.param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    FwpmvSwitchEventsGetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -923,7 +923,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventsSetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    FwpmvSwitchEventsSetSecurityInfo0(enginehandle.param().abi(), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    FwpmvSwitchEventsSetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -932,7 +932,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecDospGetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecDospGetSecurityInfo0(enginehandle.param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    IPsecDospGetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -941,7 +941,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecDospGetStatistics0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, idpstatistics : *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_DOSP_STATISTICS0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecDospGetStatistics0(enginehandle.param().abi(), idpstatistics)
+    IPsecDospGetStatistics0(enginehandle.param().abi(), core::mem::transmute(idpstatistics))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -950,7 +950,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecDospSetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecDospSetSecurityInfo0(enginehandle.param().abi(), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    IPsecDospSetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -959,7 +959,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecDospStateCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_DOSP_STATE_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecDospStateCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    IPsecDospStateCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[inline]
 pub unsafe fn IPsecDospStateDestroyEnumHandle0<P0>(enginehandle: P0, enumhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -967,7 +967,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecDospStateDestroyEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecDospStateDestroyEnumHandle0(enginehandle.param().abi(), enumhandle)
+    IPsecDospStateDestroyEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumhandle))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -977,7 +977,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecDospStateEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_DOSP_STATE0, numentries : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecDospStateEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentries)
+    IPsecDospStateEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentries))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -986,7 +986,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecGetStatistics0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, ipsecstatistics : *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_STATISTICS0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecGetStatistics0(enginehandle.param().abi(), ipsecstatistics)
+    IPsecGetStatistics0(enginehandle.param().abi(), core::mem::transmute(ipsecstatistics))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -995,7 +995,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecGetStatistics1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, ipsecstatistics : *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_STATISTICS1) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecGetStatistics1(enginehandle.param().abi(), ipsecstatistics)
+    IPsecGetStatistics1(enginehandle.param().abi(), core::mem::transmute(ipsecstatistics))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1004,7 +1004,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddInbound0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, inboundbundle : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_BUNDLE0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextAddInbound0(enginehandle.param().abi(), id, inboundbundle)
+    IPsecSaContextAddInbound0(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(inboundbundle))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1013,7 +1013,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddInbound1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, inboundbundle : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_BUNDLE1) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextAddInbound1(enginehandle.param().abi(), id, inboundbundle)
+    IPsecSaContextAddInbound1(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(inboundbundle))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1022,7 +1022,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddOutbound0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, outboundbundle : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_BUNDLE0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextAddOutbound0(enginehandle.param().abi(), id, outboundbundle)
+    IPsecSaContextAddOutbound0(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(outboundbundle))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1031,7 +1031,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddOutbound1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, outboundbundle : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_BUNDLE1) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextAddOutbound1(enginehandle.param().abi(), id, outboundbundle)
+    IPsecSaContextAddOutbound1(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(outboundbundle))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1040,7 +1040,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreate0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, outboundtraffic : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_TRAFFIC0, inboundfilterid : *mut u64, id : *mut u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextCreate0(enginehandle.param().abi(), outboundtraffic, core::mem::transmute(inboundfilterid.unwrap_or(core::ptr::null_mut())), id)
+    IPsecSaContextCreate0(enginehandle.param().abi(), core::mem::transmute(outboundtraffic), core::mem::transmute(inboundfilterid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(id))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1049,7 +1049,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreate1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, outboundtraffic : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_TRAFFIC1, virtualiftunnelinfo : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_VIRTUAL_IF_TUNNEL_INFO0, inboundfilterid : *mut u64, id : *mut u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextCreate1(enginehandle.param().abi(), outboundtraffic, core::mem::transmute(virtualiftunnelinfo.unwrap_or(core::ptr::null())), core::mem::transmute(inboundfilterid.unwrap_or(core::ptr::null_mut())), id)
+    IPsecSaContextCreate1(enginehandle.param().abi(), core::mem::transmute(outboundtraffic), core::mem::transmute(virtualiftunnelinfo.unwrap_or(core::ptr::null())), core::mem::transmute(inboundfilterid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(id))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -1058,7 +1058,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_CONTEXT_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    IPsecSaContextCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[inline]
 pub unsafe fn IPsecSaContextDeleteById0<P0>(enginehandle: P0, id: u64) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -1066,7 +1066,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextDeleteById0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextDeleteById0(enginehandle.param().abi(), id)
+    IPsecSaContextDeleteById0(enginehandle.param().abi(), core::mem::transmute(id))
 }
 #[inline]
 pub unsafe fn IPsecSaContextDestroyEnumHandle0<P0>(enginehandle: P0, enumhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -1074,7 +1074,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextDestroyEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextDestroyEnumHandle0(enginehandle.param().abi(), enumhandle)
+    IPsecSaContextDestroyEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumhandle))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -1084,7 +1084,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_CONTEXT0, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    IPsecSaContextEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -1094,7 +1094,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextEnum1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_CONTEXT1, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextEnum1(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    IPsecSaContextEnum1(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[inline]
 pub unsafe fn IPsecSaContextExpire0<P0>(enginehandle: P0, id: u64) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -1102,7 +1102,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextExpire0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextExpire0(enginehandle.param().abi(), id)
+    IPsecSaContextExpire0(enginehandle.param().abi(), core::mem::transmute(id))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -1111,7 +1111,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetById0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, sacontext : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_CONTEXT0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextGetById0(enginehandle.param().abi(), id, sacontext)
+    IPsecSaContextGetById0(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(sacontext))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -1120,7 +1120,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetById1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, sacontext : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_CONTEXT1) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextGetById1(enginehandle.param().abi(), id, sacontext)
+    IPsecSaContextGetById1(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(sacontext))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1129,7 +1129,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetSpi0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, getspi : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_GETSPI0, inboundspi : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextGetSpi0(enginehandle.param().abi(), id, getspi, inboundspi)
+    IPsecSaContextGetSpi0(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(getspi), core::mem::transmute(inboundspi))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1138,7 +1138,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetSpi1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, getspi : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_GETSPI1, inboundspi : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextGetSpi1(enginehandle.param().abi(), id, getspi, inboundspi)
+    IPsecSaContextGetSpi1(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(getspi), core::mem::transmute(inboundspi))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1147,7 +1147,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextSetSpi0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, getspi : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_GETSPI1, inboundspi : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextSetSpi0(enginehandle.param().abi(), id, getspi, inboundspi)
+    IPsecSaContextSetSpi0(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(getspi), core::mem::transmute(inboundspi))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -1156,7 +1156,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaContextUpdate0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, flags : u64, newvalues : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_CONTEXT1) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaContextUpdate0(enginehandle.param().abi(), flags, newvalues)
+    IPsecSaContextUpdate0(enginehandle.param().abi(), core::mem::transmute(flags), core::mem::transmute(newvalues))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1165,7 +1165,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    IPsecSaCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -1174,7 +1174,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaDbGetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaDbGetSecurityInfo0(enginehandle.param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    IPsecSaDbGetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -1183,7 +1183,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaDbSetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaDbSetSecurityInfo0(enginehandle.param().abi(), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    IPsecSaDbSetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn IPsecSaDestroyEnumHandle0<P0>(enginehandle: P0, enumhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -1191,7 +1191,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaDestroyEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaDestroyEnumHandle0(enginehandle.param().abi(), enumhandle)
+    IPsecSaDestroyEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumhandle))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -1201,7 +1201,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_DETAILS0, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    IPsecSaEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -1211,7 +1211,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IPsecSaEnum1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IPSEC_SA_DETAILS1, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IPsecSaEnum1(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    IPsecSaEnum1(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1220,7 +1220,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextGetStatistics0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, ikeextstatistics : *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IKEEXT_STATISTICS0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextGetStatistics0(enginehandle.param().abi(), ikeextstatistics)
+    IkeextGetStatistics0(enginehandle.param().abi(), core::mem::transmute(ikeextstatistics))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1229,7 +1229,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextGetStatistics1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, ikeextstatistics : *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IKEEXT_STATISTICS1) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextGetStatistics1(enginehandle.param().abi(), ikeextstatistics)
+    IkeextGetStatistics1(enginehandle.param().abi(), core::mem::transmute(ikeextstatistics))
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]
@@ -1238,7 +1238,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaCreateEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumtemplate : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IKEEXT_SA_ENUM_TEMPLATE0, enumhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextSaCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), enumhandle)
+    IkeextSaCreateEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumtemplate.unwrap_or(core::ptr::null())), core::mem::transmute(enumhandle))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -1247,7 +1247,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaDbGetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::super::Win32::Security:: PSID, sidgroup : *mut super::super::super::Win32::Security:: PSID, dacl : *mut *mut super::super::super::Win32::Security:: ACL, sacl : *mut *mut super::super::super::Win32::Security:: ACL, securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextSaDbGetSecurityInfo0(enginehandle.param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    IkeextSaDbGetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner), core::mem::transmute(sidgroup), core::mem::transmute(dacl), core::mem::transmute(sacl), core::mem::transmute(securitydescriptor))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -1256,7 +1256,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaDbSetSecurityInfo0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::super::Win32::Security:: SID, sidgroup : *const super::super::super::Win32::Security:: SID, dacl : *const super::super::super::Win32::Security:: ACL, sacl : *const super::super::super::Win32::Security:: ACL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextSaDbSetSecurityInfo0(enginehandle.param().abi(), securityinfo, core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
+    IkeextSaDbSetSecurityInfo0(enginehandle.param().abi(), core::mem::transmute(securityinfo), core::mem::transmute(sidowner.unwrap_or(core::ptr::null())), core::mem::transmute(sidgroup.unwrap_or(core::ptr::null())), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), core::mem::transmute(sacl.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn IkeextSaDeleteById0<P0>(enginehandle: P0, id: u64) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -1264,7 +1264,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaDeleteById0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextSaDeleteById0(enginehandle.param().abi(), id)
+    IkeextSaDeleteById0(enginehandle.param().abi(), core::mem::transmute(id))
 }
 #[inline]
 pub unsafe fn IkeextSaDestroyEnumHandle0<P0>(enginehandle: P0, enumhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -1272,7 +1272,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaDestroyEnumHandle0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextSaDestroyEnumHandle0(enginehandle.param().abi(), enumhandle)
+    IkeextSaDestroyEnumHandle0(enginehandle.param().abi(), core::mem::transmute(enumhandle))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1282,7 +1282,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaEnum0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IKEEXT_SA_DETAILS0, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextSaEnum0(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    IkeextSaEnum0(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1292,7 +1292,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaEnum1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IKEEXT_SA_DETAILS1, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextSaEnum1(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    IkeextSaEnum1(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1302,7 +1302,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaEnum2(enginehandle : super::super::super::Win32::Foundation:: HANDLE, enumhandle : super::super::super::Win32::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IKEEXT_SA_DETAILS2, numentriesreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextSaEnum2(enginehandle.param().abi(), enumhandle.param().abi(), numentriesrequested, entries, numentriesreturned)
+    IkeextSaEnum2(enginehandle.param().abi(), enumhandle.param().abi(), core::mem::transmute(numentriesrequested), core::mem::transmute(entries), core::mem::transmute(numentriesreturned))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1311,7 +1311,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaGetById0(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, sa : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IKEEXT_SA_DETAILS0) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextSaGetById0(enginehandle.param().abi(), id, sa)
+    IkeextSaGetById0(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(sa))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1320,7 +1320,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaGetById1(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, salookupcontext : *const windows_core::GUID, sa : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IKEEXT_SA_DETAILS1) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextSaGetById1(enginehandle.param().abi(), id, core::mem::transmute(salookupcontext.unwrap_or(core::ptr::null())), sa)
+    IkeextSaGetById1(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(salookupcontext.unwrap_or(core::ptr::null())), core::mem::transmute(sa))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
@@ -1329,7 +1329,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("fwpuclnt.dll" "system" fn IkeextSaGetById2(enginehandle : super::super::super::Win32::Foundation:: HANDLE, id : u64, salookupcontext : *const windows_core::GUID, sa : *mut *mut super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: IKEEXT_SA_DETAILS2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    IkeextSaGetById2(enginehandle.param().abi(), id, core::mem::transmute(salookupcontext.unwrap_or(core::ptr::null())), sa)
+    IkeextSaGetById2(enginehandle.param().abi(), core::mem::transmute(id), core::mem::transmute(salookupcontext.unwrap_or(core::ptr::null())), core::mem::transmute(sa))
 }
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 pub type FWPM_SERVICE_STATE_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, newstate: super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_SERVICE_STATE)>;

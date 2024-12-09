@@ -20,7 +20,7 @@ pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
     pub GetForCurrentApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkWorkspaceHostedAppManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkWorkspaceHostedAppManager, windows_core::IUnknown, windows_core::IInspectable);
 impl InkWorkspaceHostedAppManager {
@@ -50,7 +50,7 @@ impl windows_core::RuntimeType for InkWorkspaceHostedAppManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkWorkspaceHostedAppManager>();
 }
 unsafe impl windows_core::Interface for InkWorkspaceHostedAppManager {
-    type Vtable = IInkWorkspaceHostedAppManager_Vtbl;
+    type Vtable = <IInkWorkspaceHostedAppManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkWorkspaceHostedAppManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InkWorkspaceHostedAppManager {

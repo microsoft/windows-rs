@@ -14,36 +14,8 @@ pub mod Imaging;
 pub mod Printing;
 #[cfg(feature = "Graphics_Printing3D")]
 pub mod Printing3D;
-windows_core::imp::define_interface!(IGeometrySource2D, IGeometrySource2D_Vtbl, 0xcaff7902_670c_4181_a624_da977203b845);
-impl core::ops::Deref for IGeometrySource2D {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-windows_core::imp::interface_hierarchy!(IGeometrySource2D, windows_core::IUnknown, windows_core::IInspectable);
-impl IGeometrySource2D {}
-impl windows_core::RuntimeType for IGeometrySource2D {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
-pub struct IGeometrySource2D_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-pub trait IGeometrySource2D_Impl: Sized + windows_core::IUnknownImpl {}
-impl windows_core::RuntimeName for IGeometrySource2D {
-    const NAME: &'static str = "Windows.Graphics.IGeometrySource2D";
-}
-impl IGeometrySource2D_Vtbl {
-    pub const fn new<Identity: IGeometrySource2D_Impl, const OFFSET: isize>() -> IGeometrySource2D_Vtbl {
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IGeometrySource2D, OFFSET>() }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IGeometrySource2D as windows_core::Interface>::IID
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DisplayAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -54,13 +26,8 @@ impl windows_core::TypeKind for DisplayAdapterId {
 impl windows_core::RuntimeType for DisplayAdapterId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayAdapterId;u4;i4)");
 }
-impl Default for DisplayAdapterId {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DisplayId {
     pub Value: u64,
 }
@@ -70,13 +37,29 @@ impl windows_core::TypeKind for DisplayId {
 impl windows_core::RuntimeType for DisplayId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayId;u8)");
 }
-impl Default for DisplayId {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
+windows_core::imp::define_interface!(IGeometrySource2D, IGeometrySource2D_Vtbl, 0xcaff7902_670c_4181_a624_da977203b845);
+impl windows_core::RuntimeType for IGeometrySource2D {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(IGeometrySource2D, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeName for IGeometrySource2D {
+    const NAME: &'static str = "Windows.Graphics.IGeometrySource2D";
+}
+pub trait IGeometrySource2D_Impl: windows_core::IUnknownImpl {}
+impl IGeometrySource2D_Vtbl {
+    pub const fn new<Identity: IGeometrySource2D_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IGeometrySource2D, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IGeometrySource2D as windows_core::Interface>::IID
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct IGeometrySource2D_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PointInt32 {
     pub X: i32,
     pub Y: i32,
@@ -87,13 +70,8 @@ impl windows_core::TypeKind for PointInt32 {
 impl windows_core::RuntimeType for PointInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.PointInt32;i4;i4)");
 }
-impl Default for PointInt32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RectInt32 {
     pub X: i32,
     pub Y: i32,
@@ -106,13 +84,8 @@ impl windows_core::TypeKind for RectInt32 {
 impl windows_core::RuntimeType for RectInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.RectInt32;i4;i4;i4;i4)");
 }
-impl Default for RectInt32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SizeInt32 {
     pub Width: i32,
     pub Height: i32,
@@ -122,9 +95,4 @@ impl windows_core::TypeKind for SizeInt32 {
 }
 impl windows_core::RuntimeType for SizeInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.SizeInt32;i4;i4)");
-}
-impl Default for SizeInt32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

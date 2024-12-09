@@ -1,11 +1,8 @@
 #[cfg(feature = "Web_UI_Interop")]
 pub mod Interop;
 windows_core::imp::define_interface!(IWebViewControl, IWebViewControl_Vtbl, 0x3f921316_bc70_4bda_9136_c94370899fab);
-impl core::ops::Deref for IWebViewControl {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IWebViewControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IWebViewControl, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebViewControl {
@@ -27,7 +24,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DocumentTitle)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DocumentTitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn CanGoBack(&self) -> windows_core::Result<bool> {
@@ -54,7 +51,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DefaultBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DefaultBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ContainsFullScreenElement(&self) -> windows_core::Result<bool> {
@@ -123,9 +120,9 @@ impl IWebViewControl {
         unsafe { (windows_core::Interface::vtable(this).NavigateWithHttpRequestMessage)(windows_core::Interface::as_raw(this), requestmessage.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn InvokeScriptAsync<P0>(&self, scriptname: &windows_core::HSTRING, arguments: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
+    pub fn InvokeScriptAsync<P1>(&self, scriptname: &windows_core::HSTRING, arguments: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -170,7 +167,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NavigationStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NavigationStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveNavigationStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -184,7 +181,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContentLoading)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ContentLoading)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveContentLoading(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -198,7 +195,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DOMContentLoaded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DOMContentLoaded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveDOMContentLoaded(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -212,7 +209,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NavigationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NavigationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveNavigationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -226,7 +223,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameNavigationStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FrameNavigationStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveFrameNavigationStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -240,7 +237,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameContentLoading)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FrameContentLoading)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveFrameContentLoading(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -254,7 +251,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameDOMContentLoaded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FrameDOMContentLoaded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveFrameDOMContentLoaded(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -268,7 +265,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameNavigationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FrameNavigationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveFrameNavigationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -282,7 +279,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScriptNotify)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScriptNotify)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveScriptNotify(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -296,7 +293,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LongRunningScriptDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).LongRunningScriptDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveLongRunningScriptDetected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -310,7 +307,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnsafeContentWarningDisplaying)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UnsafeContentWarningDisplaying)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveUnsafeContentWarningDisplaying(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -324,7 +321,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnviewableContentIdentified)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UnviewableContentIdentified)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveUnviewableContentIdentified(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -338,7 +335,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PermissionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PermissionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemovePermissionRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -352,7 +349,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnsupportedUriSchemeIdentified)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UnsupportedUriSchemeIdentified)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveUnsupportedUriSchemeIdentified(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -366,7 +363,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NewWindowRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NewWindowRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveNewWindowRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -380,7 +377,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContainsFullScreenElementChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ContainsFullScreenElementChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveContainsFullScreenElementChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -394,7 +391,7 @@ impl IWebViewControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WebResourceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).WebResourceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveWebResourceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -402,93 +399,12 @@ impl IWebViewControl {
         unsafe { (windows_core::Interface::vtable(this).RemoveWebResourceRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl windows_core::RuntimeType for IWebViewControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IWebViewControl_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DocumentTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub CanGoBack: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub CanGoForward: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "UI")]
-    pub SetDefaultBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::UI::Color) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI"))]
-    SetDefaultBackgroundColor: usize,
-    #[cfg(feature = "UI")]
-    pub DefaultBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::UI::Color) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI"))]
-    DefaultBackgroundColor: usize,
-    pub ContainsFullScreenElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub Settings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub DeferredPermissionRequests: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DeferredPermissionRequests: usize,
-    pub GoForward: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GoBack: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NavigateToString: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub NavigateToLocalStreamUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Web_Http")]
-    pub NavigateWithHttpRequestMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Web_Http"))]
-    NavigateWithHttpRequestMessage: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub InvokeScriptAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InvokeScriptAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub CapturePreviewToStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CapturePreviewToStreamAsync: usize,
-    #[cfg(feature = "ApplicationModel_DataTransfer")]
-    pub CaptureSelectedContentToDataPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_DataTransfer"))]
-    CaptureSelectedContentToDataPackageAsync: usize,
-    pub BuildLocalStreamUri: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeferredPermissionRequestById: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NavigationStarting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveNavigationStarting: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub ContentLoading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveContentLoading: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub DOMContentLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveDOMContentLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub NavigationCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveNavigationCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub FrameNavigationStarting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveFrameNavigationStarting: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub FrameContentLoading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveFrameContentLoading: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub FrameDOMContentLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveFrameDOMContentLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub FrameNavigationCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveFrameNavigationCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub ScriptNotify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveScriptNotify: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub LongRunningScriptDetected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveLongRunningScriptDetected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub UnsafeContentWarningDisplaying: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveUnsafeContentWarningDisplaying: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub UnviewableContentIdentified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveUnviewableContentIdentified: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PermissionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePermissionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub UnsupportedUriSchemeIdentified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveUnsupportedUriSchemeIdentified: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub NewWindowRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveNewWindowRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub ContainsFullScreenElementChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveContainsFullScreenElementChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub WebResourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveWebResourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+#[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
+impl windows_core::RuntimeName for IWebViewControl {
+    const NAME: &'static str = "Windows.Web.UI.IWebViewControl";
 }
 #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
-pub trait IWebViewControl_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWebViewControl_Impl: windows_core::IUnknownImpl {
     fn Source(&self) -> windows_core::Result<super::super::Foundation::Uri>;
     fn SetSource(&self, source: Option<&super::super::Foundation::Uri>) -> windows_core::Result<()>;
     fn DocumentTitle(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -505,12 +421,12 @@ pub trait IWebViewControl_Impl: Sized + windows_core::IUnknownImpl {
     fn Stop(&self) -> windows_core::Result<()>;
     fn Navigate(&self, source: Option<&super::super::Foundation::Uri>) -> windows_core::Result<()>;
     fn NavigateToString(&self, text: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn NavigateToLocalStreamUri(&self, source: Option<&super::super::Foundation::Uri>, streamresolver: Option<&super::IUriToStreamResolver>) -> windows_core::Result<()>;
-    fn NavigateWithHttpRequestMessage(&self, requestmessage: Option<&super::Http::HttpRequestMessage>) -> windows_core::Result<()>;
-    fn InvokeScriptAsync(&self, scriptname: &windows_core::HSTRING, arguments: Option<&super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>;
+    fn NavigateToLocalStreamUri(&self, source: Option<&super::super::Foundation::Uri>, streamResolver: Option<&super::IUriToStreamResolver>) -> windows_core::Result<()>;
+    fn NavigateWithHttpRequestMessage(&self, requestMessage: Option<&super::Http::HttpRequestMessage>) -> windows_core::Result<()>;
+    fn InvokeScriptAsync(&self, scriptName: &windows_core::HSTRING, arguments: Option<&super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>;
     fn CapturePreviewToStreamAsync(&self, stream: Option<&super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<super::super::Foundation::IAsyncAction>;
     fn CaptureSelectedContentToDataPackageAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>>;
-    fn BuildLocalStreamUri(&self, contentidentifier: &windows_core::HSTRING, relativepath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Uri>;
+    fn BuildLocalStreamUri(&self, contentIdentifier: &windows_core::HSTRING, relativePath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Uri>;
     fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut Option<WebViewControlDeferredPermissionRequest>) -> windows_core::Result<()>;
     fn NavigationStarting(&self, handler: Option<&super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNavigationStartingEventArgs>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveNavigationStarting(&self, token: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
@@ -548,12 +464,8 @@ pub trait IWebViewControl_Impl: Sized + windows_core::IUnknownImpl {
     fn RemoveWebResourceRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
-impl windows_core::RuntimeName for IWebViewControl {
-    const NAME: &'static str = "Windows.Web.UI.IWebViewControl";
-}
-#[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
 impl IWebViewControl_Vtbl {
-    pub const fn new<Identity: IWebViewControl_Impl, const OFFSET: isize>() -> IWebViewControl_Vtbl {
+    pub const fn new<Identity: IWebViewControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Source<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebViewControl_Impl::Source(this) {
@@ -569,7 +481,7 @@ impl IWebViewControl_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWebViewControl_Impl::SetSource(this, windows_core::from_raw_borrowed(&source)).into()
         }
-        unsafe extern "system" fn DocumentTitle<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DocumentTitle<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebViewControl_Impl::DocumentTitle(this) {
                 Ok(ok__) => {
@@ -666,7 +578,7 @@ impl IWebViewControl_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWebViewControl_Impl::Navigate(this, windows_core::from_raw_borrowed(&source)).into()
         }
-        unsafe extern "system" fn NavigateToString<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+        unsafe extern "system" fn NavigateToString<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWebViewControl_Impl::NavigateToString(this, core::mem::transmute(&text)).into()
         }
@@ -678,7 +590,7 @@ impl IWebViewControl_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWebViewControl_Impl::NavigateWithHttpRequestMessage(this, windows_core::from_raw_borrowed(&requestmessage)).into()
         }
-        unsafe extern "system" fn InvokeScriptAsync<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scriptname: core::mem::MaybeUninit<windows_core::HSTRING>, arguments: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeScriptAsync<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scriptname: *mut core::ffi::c_void, arguments: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebViewControl_Impl::InvokeScriptAsync(this, core::mem::transmute(&scriptname), windows_core::from_raw_borrowed(&arguments)) {
                 Ok(ok__) => {
@@ -711,7 +623,7 @@ impl IWebViewControl_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BuildLocalStreamUri<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentidentifier: core::mem::MaybeUninit<windows_core::HSTRING>, relativepath: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BuildLocalStreamUri<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentidentifier: *mut core::ffi::c_void, relativepath: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebViewControl_Impl::BuildLocalStreamUri(this, core::mem::transmute(&contentidentifier), core::mem::transmute(&relativepath)) {
                 Ok(ok__) => {
@@ -1029,12 +941,91 @@ impl IWebViewControl_Vtbl {
         iid == &<IWebViewControl as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IWebViewControl_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DocumentTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CanGoBack: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub CanGoForward: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "UI")]
+    pub SetDefaultBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::UI::Color) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI"))]
+    SetDefaultBackgroundColor: usize,
+    #[cfg(feature = "UI")]
+    pub DefaultBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::UI::Color) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI"))]
+    DefaultBackgroundColor: usize,
+    pub ContainsFullScreenElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub Settings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub DeferredPermissionRequests: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    DeferredPermissionRequests: usize,
+    pub GoForward: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GoBack: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NavigateToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NavigateToLocalStreamUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Web_Http")]
+    pub NavigateWithHttpRequestMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Web_Http"))]
+    NavigateWithHttpRequestMessage: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub InvokeScriptAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    InvokeScriptAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub CapturePreviewToStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CapturePreviewToStreamAsync: usize,
+    #[cfg(feature = "ApplicationModel_DataTransfer")]
+    pub CaptureSelectedContentToDataPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_DataTransfer"))]
+    CaptureSelectedContentToDataPackageAsync: usize,
+    pub BuildLocalStreamUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeferredPermissionRequestById: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NavigationStarting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveNavigationStarting: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub ContentLoading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveContentLoading: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub DOMContentLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveDOMContentLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub NavigationCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveNavigationCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub FrameNavigationStarting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveFrameNavigationStarting: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub FrameContentLoading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveFrameContentLoading: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub FrameDOMContentLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveFrameDOMContentLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub FrameNavigationCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveFrameNavigationCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub ScriptNotify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveScriptNotify: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub LongRunningScriptDetected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveLongRunningScriptDetected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub UnsafeContentWarningDisplaying: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveUnsafeContentWarningDisplaying: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub UnviewableContentIdentified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveUnviewableContentIdentified: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PermissionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePermissionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub UnsupportedUriSchemeIdentified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveUnsupportedUriSchemeIdentified: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub NewWindowRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveNewWindowRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub ContainsFullScreenElementChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveContainsFullScreenElementChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub WebResourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveWebResourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IWebViewControl2, IWebViewControl2_Vtbl, 0x4d3c06f9_c8df_41cc_8bd5_2a947b204503);
-impl core::ops::Deref for IWebViewControl2 {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IWebViewControl2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IWebViewControl2, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebViewControl2 {
@@ -1043,23 +1034,15 @@ impl IWebViewControl2 {
         unsafe { (windows_core::Interface::vtable(this).AddInitializeScript)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(script)).ok() }
     }
 }
-impl windows_core::RuntimeType for IWebViewControl2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IWebViewControl2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub AddInitializeScript: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-}
-pub trait IWebViewControl2_Impl: Sized + windows_core::IUnknownImpl {
-    fn AddInitializeScript(&self, script: &windows_core::HSTRING) -> windows_core::Result<()>;
-}
 impl windows_core::RuntimeName for IWebViewControl2 {
     const NAME: &'static str = "Windows.Web.UI.IWebViewControl2";
 }
+pub trait IWebViewControl2_Impl: windows_core::IUnknownImpl {
+    fn AddInitializeScript(&self, script: &windows_core::HSTRING) -> windows_core::Result<()>;
+}
 impl IWebViewControl2_Vtbl {
-    pub const fn new<Identity: IWebViewControl2_Impl, const OFFSET: isize>() -> IWebViewControl2_Vtbl {
-        unsafe extern "system" fn AddInitializeScript<Identity: IWebViewControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, script: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+    pub const fn new<Identity: IWebViewControl2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn AddInitializeScript<Identity: IWebViewControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, script: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWebViewControl2_Impl::AddInitializeScript(this, core::mem::transmute(&script)).into()
         }
@@ -1071,6 +1054,11 @@ impl IWebViewControl2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebViewControl2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebViewControl2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AddInitializeScript: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebViewControlContentLoadingEventArgs, IWebViewControlContentLoadingEventArgs_Vtbl, 0x9a3fccb2_b9bb_404b_a22b_66dccd1250c6);
 impl windows_core::RuntimeType for IWebViewControlContentLoadingEventArgs {
@@ -1191,7 +1179,7 @@ impl windows_core::RuntimeType for IWebViewControlScriptNotifyEventArgs {
 pub struct IWebViewControlScriptNotifyEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebViewControlSettings, IWebViewControlSettings_Vtbl, 0xc9967fbf_5e98_4cfd_8cce_27b0911e3de8);
 impl windows_core::RuntimeType for IWebViewControlSettings {
@@ -1227,7 +1215,7 @@ pub struct IWebViewControlUnviewableContentIdentifiedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Referrer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub MediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebViewControlWebResourceRequestedEventArgs, IWebViewControlWebResourceRequestedEventArgs_Vtbl, 0x44d6524d_55a4_4d8b_891c_931d8e25d42e);
 impl windows_core::RuntimeType for IWebViewControlWebResourceRequestedEventArgs {
@@ -1251,7 +1239,7 @@ pub struct IWebViewControlWebResourceRequestedEventArgs_Vtbl {
     Response: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlContentLoadingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlContentLoadingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlContentLoadingEventArgs {
@@ -1267,14 +1255,14 @@ impl windows_core::RuntimeType for WebViewControlContentLoadingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlContentLoadingEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlContentLoadingEventArgs {
-    type Vtable = IWebViewControlContentLoadingEventArgs_Vtbl;
+    type Vtable = <IWebViewControlContentLoadingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlContentLoadingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlContentLoadingEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlContentLoadingEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlDOMContentLoadedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlDOMContentLoadedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlDOMContentLoadedEventArgs {
@@ -1290,14 +1278,14 @@ impl windows_core::RuntimeType for WebViewControlDOMContentLoadedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlDOMContentLoadedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlDOMContentLoadedEventArgs {
-    type Vtable = IWebViewControlDOMContentLoadedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlDOMContentLoadedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlDOMContentLoadedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlDOMContentLoadedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlDOMContentLoadedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlDeferredPermissionRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlDeferredPermissionRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlDeferredPermissionRequest {
@@ -1335,14 +1323,14 @@ impl windows_core::RuntimeType for WebViewControlDeferredPermissionRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlDeferredPermissionRequest>();
 }
 unsafe impl windows_core::Interface for WebViewControlDeferredPermissionRequest {
-    type Vtable = IWebViewControlDeferredPermissionRequest_Vtbl;
+    type Vtable = <IWebViewControlDeferredPermissionRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlDeferredPermissionRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlDeferredPermissionRequest {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlDeferredPermissionRequest";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlLongRunningScriptDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlLongRunningScriptDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlLongRunningScriptDetectedEventArgs {
@@ -1350,7 +1338,7 @@ impl WebViewControlLongRunningScriptDetectedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExecutionTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ExecutionTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn StopPageScriptExecution(&self) -> windows_core::Result<bool> {
@@ -1369,14 +1357,14 @@ impl windows_core::RuntimeType for WebViewControlLongRunningScriptDetectedEventA
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlLongRunningScriptDetectedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlLongRunningScriptDetectedEventArgs {
-    type Vtable = IWebViewControlLongRunningScriptDetectedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlLongRunningScriptDetectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlLongRunningScriptDetectedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlLongRunningScriptDetectedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlLongRunningScriptDetectedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlNavigationCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlNavigationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlNavigationCompletedEventArgs {
@@ -1406,14 +1394,14 @@ impl windows_core::RuntimeType for WebViewControlNavigationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlNavigationCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlNavigationCompletedEventArgs {
-    type Vtable = IWebViewControlNavigationCompletedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlNavigationCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlNavigationCompletedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlNavigationCompletedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlNavigationCompletedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlNavigationStartingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlNavigationStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlNavigationStartingEventArgs {
@@ -1440,14 +1428,14 @@ impl windows_core::RuntimeType for WebViewControlNavigationStartingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlNavigationStartingEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlNavigationStartingEventArgs {
-    type Vtable = IWebViewControlNavigationStartingEventArgs_Vtbl;
+    type Vtable = <IWebViewControlNavigationStartingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlNavigationStartingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlNavigationStartingEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlNavigationStartingEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlNewWindowRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlNewWindowRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlNewWindowRequestedEventArgs {
@@ -1502,14 +1490,14 @@ impl windows_core::RuntimeType for WebViewControlNewWindowRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlNewWindowRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlNewWindowRequestedEventArgs {
-    type Vtable = IWebViewControlNewWindowRequestedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlNewWindowRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlNewWindowRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlNewWindowRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlNewWindowRequestedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlPermissionRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlPermissionRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlPermissionRequest {
@@ -1558,14 +1546,14 @@ impl windows_core::RuntimeType for WebViewControlPermissionRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlPermissionRequest>();
 }
 unsafe impl windows_core::Interface for WebViewControlPermissionRequest {
-    type Vtable = IWebViewControlPermissionRequest_Vtbl;
+    type Vtable = <IWebViewControlPermissionRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlPermissionRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlPermissionRequest {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlPermissionRequest";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlPermissionRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlPermissionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlPermissionRequestedEventArgs {
@@ -1581,14 +1569,47 @@ impl windows_core::RuntimeType for WebViewControlPermissionRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlPermissionRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlPermissionRequestedEventArgs {
-    type Vtable = IWebViewControlPermissionRequestedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlPermissionRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlPermissionRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlPermissionRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlPermissionRequestedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WebViewControlPermissionState(pub i32);
+impl WebViewControlPermissionState {
+    pub const Unknown: Self = Self(0i32);
+    pub const Defer: Self = Self(1i32);
+    pub const Allow: Self = Self(2i32);
+    pub const Deny: Self = Self(3i32);
+}
+impl windows_core::TypeKind for WebViewControlPermissionState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for WebViewControlPermissionState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionState;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WebViewControlPermissionType(pub i32);
+impl WebViewControlPermissionType {
+    pub const Geolocation: Self = Self(0i32);
+    pub const UnlimitedIndexedDBQuota: Self = Self(1i32);
+    pub const Media: Self = Self(2i32);
+    pub const PointerLock: Self = Self(3i32);
+    pub const WebNotifications: Self = Self(4i32);
+    pub const Screen: Self = Self(5i32);
+    pub const ImmersiveView: Self = Self(6i32);
+}
+impl windows_core::TypeKind for WebViewControlPermissionType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for WebViewControlPermissionType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlScriptNotifyEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlScriptNotifyEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlScriptNotifyEventArgs {
@@ -1603,7 +1624,7 @@ impl WebViewControlScriptNotifyEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -1611,14 +1632,14 @@ impl windows_core::RuntimeType for WebViewControlScriptNotifyEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlScriptNotifyEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlScriptNotifyEventArgs {
-    type Vtable = IWebViewControlScriptNotifyEventArgs_Vtbl;
+    type Vtable = <IWebViewControlScriptNotifyEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlScriptNotifyEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlScriptNotifyEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlScriptNotifyEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlSettings {
@@ -1660,14 +1681,14 @@ impl windows_core::RuntimeType for WebViewControlSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlSettings>();
 }
 unsafe impl windows_core::Interface for WebViewControlSettings {
-    type Vtable = IWebViewControlSettings_Vtbl;
+    type Vtable = <IWebViewControlSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlSettings as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlSettings {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlSettings";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlUnsupportedUriSchemeIdentifiedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlUnsupportedUriSchemeIdentifiedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
@@ -1694,14 +1715,14 @@ impl windows_core::RuntimeType for WebViewControlUnsupportedUriSchemeIdentifiedE
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
-    type Vtable = IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlUnsupportedUriSchemeIdentifiedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlUnviewableContentIdentifiedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlUnviewableContentIdentifiedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlUnviewableContentIdentifiedEventArgs {
@@ -1723,7 +1744,7 @@ impl WebViewControlUnviewableContentIdentifiedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MediaType)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MediaType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -1731,14 +1752,14 @@ impl windows_core::RuntimeType for WebViewControlUnviewableContentIdentifiedEven
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlUnviewableContentIdentifiedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlUnviewableContentIdentifiedEventArgs {
-    type Vtable = IWebViewControlUnviewableContentIdentifiedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlUnviewableContentIdentifiedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlUnviewableContentIdentifiedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlUnviewableContentIdentifiedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlUnviewableContentIdentifiedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebViewControlWebResourceRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlWebResourceRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlWebResourceRequestedEventArgs {
@@ -1778,52 +1799,9 @@ impl windows_core::RuntimeType for WebViewControlWebResourceRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlWebResourceRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlWebResourceRequestedEventArgs {
-    type Vtable = IWebViewControlWebResourceRequestedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlWebResourceRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlWebResourceRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlWebResourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlWebResourceRequestedEventArgs";
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WebViewControlPermissionState(pub i32);
-impl WebViewControlPermissionState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Defer: Self = Self(1i32);
-    pub const Allow: Self = Self(2i32);
-    pub const Deny: Self = Self(3i32);
-}
-impl windows_core::TypeKind for WebViewControlPermissionState {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WebViewControlPermissionState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WebViewControlPermissionState").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for WebViewControlPermissionState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionState;i4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WebViewControlPermissionType(pub i32);
-impl WebViewControlPermissionType {
-    pub const Geolocation: Self = Self(0i32);
-    pub const UnlimitedIndexedDBQuota: Self = Self(1i32);
-    pub const Media: Self = Self(2i32);
-    pub const PointerLock: Self = Self(3i32);
-    pub const WebNotifications: Self = Self(4i32);
-    pub const Screen: Self = Self(5i32);
-    pub const ImmersiveView: Self = Self(6i32);
-}
-impl windows_core::TypeKind for WebViewControlPermissionType {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WebViewControlPermissionType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WebViewControlPermissionType").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for WebViewControlPermissionType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionType;i4)");
 }

@@ -18,7 +18,7 @@ pub struct IVibrationDeviceStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VibrationDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VibrationDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl VibrationDevice {
@@ -45,7 +45,7 @@ impl windows_core::RuntimeType for VibrationDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVibrationDevice>();
 }
 unsafe impl windows_core::Interface for VibrationDevice {
-    type Vtable = IVibrationDevice_Vtbl;
+    type Vtable = <IVibrationDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVibrationDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for VibrationDevice {

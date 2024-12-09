@@ -227,6 +227,10 @@ jobs:
         run:  cargo clippy -p test_query_signature
       - name: Clippy test_readme
         run:  cargo clippy -p test_readme
+      - name: Clippy test_reference
+        run:  cargo clippy -p test_reference
+      - name: Clippy test_reference_client
+        run:  cargo clippy -p test_reference_client
       - name: Clippy test_reference_float
         run:  cargo clippy -p test_reference_float
       - name: Clippy test_registry
@@ -273,6 +277,8 @@ jobs:
         run:  cargo clippy -p test_window_long
       - name: Clippy test_winrt
         run:  cargo clippy -p test_winrt
+      - name: Clippy tool_bindgen
+        run:  cargo clippy -p tool_bindgen
       - name: Clippy tool_bindings
         run:  cargo clippy -p tool_bindings
       - name: Clippy tool_gnu
@@ -295,8 +301,6 @@ jobs:
         run:  cargo clippy -p windows-implement
       - name: Clippy windows-interface
         run:  cargo clippy -p windows-interface
-      - name: Clippy windows-metadata
-        run:  cargo clippy -p windows-metadata
       - name: Clippy windows-registry
         run:  cargo clippy -p windows-registry
       - name: Clippy windows-result

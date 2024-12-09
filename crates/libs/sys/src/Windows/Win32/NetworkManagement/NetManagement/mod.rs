@@ -206,7 +206,30 @@ pub const ACCESS_FAIL_OPEN: u32 = 256u32;
 pub const ACCESS_FAIL_SHIFT: u32 = 4u32;
 pub const ACCESS_FAIL_WRITE: u32 = 512u32;
 pub const ACCESS_GROUP: u32 = 32768u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACCESS_INFO_0 {
+    pub acc0_resource_name: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACCESS_INFO_1 {
+    pub acc1_resource_name: windows_sys::core::PWSTR,
+    pub acc1_attr: u32,
+    pub acc1_count: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACCESS_INFO_1002 {
+    pub acc1002_attr: u32,
+}
 pub const ACCESS_LETTERS: windows_sys::core::PCSTR = windows_sys::core::s!("RWCXDAP         ");
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACCESS_LIST {
+    pub acl_ugname: windows_sys::core::PWSTR,
+    pub acl_access: u32,
+}
 pub const ACCESS_NONE: u32 = 0u32;
 pub const ACCESS_RESOURCE_NAME_PARMNUM: u32 = 1u32;
 pub const ACCESS_SUCCESS_ACL: u32 = 128u32;
@@ -216,8 +239,31 @@ pub const ACCESS_SUCCESS_OPEN: u32 = 16u32;
 pub const ACCESS_SUCCESS_WRITE: u32 = 32u32;
 pub const ACTION_ADMINUNLOCK: u32 = 1u32;
 pub const ACTION_LOCKOUT: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ADMIN_OTHER_INFO {
+    pub alrtad_errcode: u32,
+    pub alrtad_numstrings: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_ACCLIM {
+    pub ae_al_compname: u32,
+    pub ae_al_username: u32,
+    pub ae_al_resname: u32,
+    pub ae_al_limit: u32,
+}
 pub const AE_ACCLIMITEXCD: u32 = 17u32;
 pub const AE_ACCRESTRICT: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_ACLMOD {
+    pub ae_am_compname: u32,
+    pub ae_am_username: u32,
+    pub ae_am_resname: u32,
+    pub ae_am_action: u32,
+    pub ae_am_datalen: u32,
+}
 pub const AE_ACLMOD: u32 = 12u32;
 pub const AE_ACLMODFAIL: u32 = 19u32;
 pub const AE_ADD: u32 = 2u32;
@@ -227,13 +273,64 @@ pub const AE_ADMINPRIVREQD: u32 = 2u32;
 pub const AE_ADMIN_CLOSE: u32 = 2u32;
 pub const AE_AUTODIS: u32 = 2u32;
 pub const AE_BADPW: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_CLOSEFILE {
+    pub ae_cf_compname: u32,
+    pub ae_cf_username: u32,
+    pub ae_cf_resname: u32,
+    pub ae_cf_fileid: u32,
+    pub ae_cf_duration: u32,
+    pub ae_cf_reason: u32,
+}
 pub const AE_CLOSEFILE: u32 = 9u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_CONNREJ {
+    pub ae_cr_compname: u32,
+    pub ae_cr_username: u32,
+    pub ae_cr_netname: u32,
+    pub ae_cr_reason: u32,
+}
 pub const AE_CONNREJ: u32 = 6u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_CONNSTART {
+    pub ae_ct_compname: u32,
+    pub ae_ct_username: u32,
+    pub ae_ct_netname: u32,
+    pub ae_ct_connid: u32,
+}
 pub const AE_CONNSTART: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_CONNSTOP {
+    pub ae_cp_compname: u32,
+    pub ae_cp_username: u32,
+    pub ae_cp_netname: u32,
+    pub ae_cp_connid: u32,
+    pub ae_cp_reason: u32,
+}
 pub const AE_CONNSTOP: u32 = 5u32;
 pub const AE_DELETE: u32 = 1u32;
 pub const AE_ERROR: u32 = 1u32;
 pub const AE_GENERAL: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_GENERIC {
+    pub ae_ge_msgfile: u32,
+    pub ae_ge_msgnum: u32,
+    pub ae_ge_params: u32,
+    pub ae_ge_param1: u32,
+    pub ae_ge_param2: u32,
+    pub ae_ge_param3: u32,
+    pub ae_ge_param4: u32,
+    pub ae_ge_param5: u32,
+    pub ae_ge_param6: u32,
+    pub ae_ge_param7: u32,
+    pub ae_ge_param8: u32,
+    pub ae_ge_param9: u32,
+}
 pub const AE_GENERIC_TYPE: u32 = 21u32;
 pub const AE_GUEST: u32 = 0u32;
 pub const AE_LIM_DELETED: u32 = 5u32;
@@ -242,28 +339,117 @@ pub const AE_LIM_EXPIRED: u32 = 2u32;
 pub const AE_LIM_INVAL_WKSTA: u32 = 3u32;
 pub const AE_LIM_LOGONHOURS: u32 = 1u32;
 pub const AE_LIM_UNKNOWN: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_LOCKOUT {
+    pub ae_lk_compname: u32,
+    pub ae_lk_username: u32,
+    pub ae_lk_action: u32,
+    pub ae_lk_bad_pw_count: u32,
+}
 pub const AE_LOCKOUT: u32 = 20u32;
 pub const AE_MOD: u32 = 0u32;
 pub const AE_NETLOGDENIED: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_NETLOGOFF {
+    pub ae_nf_compname: u32,
+    pub ae_nf_username: u32,
+    pub ae_nf_reserved1: u32,
+    pub ae_nf_reserved2: u32,
+}
 pub const AE_NETLOGOFF: u32 = 15u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_NETLOGON {
+    pub ae_no_compname: u32,
+    pub ae_no_username: u32,
+    pub ae_no_privilege: u32,
+    pub ae_no_authflags: u32,
+}
 pub const AE_NETLOGON: u32 = 14u32;
 pub const AE_NOACCESSPERM: u32 = 3u32;
 pub const AE_NORMAL: u32 = 0u32;
 pub const AE_NORMAL_CLOSE: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_RESACCESS {
+    pub ae_ra_compname: u32,
+    pub ae_ra_username: u32,
+    pub ae_ra_resname: u32,
+    pub ae_ra_operation: u32,
+    pub ae_ra_returncode: u32,
+    pub ae_ra_restype: u32,
+    pub ae_ra_fileid: u32,
+}
 pub const AE_RESACCESS: u32 = 7u32;
 pub const AE_RESACCESS2: u32 = 18u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_RESACCESSREJ {
+    pub ae_rr_compname: u32,
+    pub ae_rr_username: u32,
+    pub ae_rr_resname: u32,
+    pub ae_rr_operation: u32,
+}
 pub const AE_RESACCESSREJ: u32 = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_SERVICESTAT {
+    pub ae_ss_compname: u32,
+    pub ae_ss_username: u32,
+    pub ae_ss_svcname: u32,
+    pub ae_ss_status: u32,
+    pub ae_ss_code: u32,
+    pub ae_ss_text: u32,
+    pub ae_ss_returnval: u32,
+}
 pub const AE_SERVICESTAT: u32 = 11u32;
 pub const AE_SESSDIS: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_SESSLOGOFF {
+    pub ae_sf_compname: u32,
+    pub ae_sf_username: u32,
+    pub ae_sf_reason: u32,
+}
 pub const AE_SESSLOGOFF: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_SESSLOGON {
+    pub ae_so_compname: u32,
+    pub ae_so_username: u32,
+    pub ae_so_privilege: u32,
+}
 pub const AE_SESSLOGON: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_SESSPWERR {
+    pub ae_sp_compname: u32,
+    pub ae_sp_username: u32,
+}
 pub const AE_SESSPWERR: u32 = 3u32;
 pub const AE_SES_CLOSE: u32 = 1u32;
 pub const AE_SRVCONT: u32 = 2u32;
 pub const AE_SRVPAUSED: u32 = 1u32;
 pub const AE_SRVSTART: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_SRVSTATUS {
+    pub ae_sv_status: u32,
+}
 pub const AE_SRVSTATUS: u32 = 0u32;
 pub const AE_SRVSTOP: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AE_UASMOD {
+    pub ae_um_compname: u32,
+    pub ae_um_username: u32,
+    pub ae_um_resname: u32,
+    pub ae_um_rectype: u32,
+    pub ae_um_action: u32,
+    pub ae_um_datalen: u32,
+}
 pub const AE_UASMOD: u32 = 13u32;
 pub const AE_UAS_GROUP: u32 = 1u32;
 pub const AE_UAS_MODALS: u32 = 2u32;
@@ -271,6 +457,7 @@ pub const AE_UAS_USER: u32 = 0u32;
 pub const AE_UNSHARE: u32 = 2u32;
 pub const AE_USER: u32 = 1u32;
 pub const AE_USERLIMIT: u32 = 0u32;
+pub type AF_OP = u32;
 pub const AF_OP_ACCOUNTS: AF_OP = 8u32;
 pub const AF_OP_COMM: AF_OP = 2u32;
 pub const AF_OP_PRINT: AF_OP = 1u32;
@@ -285,9 +472,46 @@ pub const ALERT_USER_EVENT: windows_sys::core::PCWSTR = windows_sys::core::w!("U
 pub const ALIGN_SHIFT: u32 = 7u32;
 pub const ALIGN_SIZE: u32 = 8u32;
 pub const ALLOCATE_RESPONSE: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AT_ENUM {
+    pub JobId: u32,
+    pub JobTime: usize,
+    pub DaysOfMonth: u32,
+    pub DaysOfWeek: u8,
+    pub Flags: u8,
+    pub Command: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AT_INFO {
+    pub JobTime: usize,
+    pub DaysOfMonth: u32,
+    pub DaysOfWeek: u8,
+    pub Flags: u8,
+    pub Command: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUDIT_ENTRY {
+    pub ae_len: u32,
+    pub ae_reserved: u32,
+    pub ae_time: u32,
+    pub ae_type: u32,
+    pub ae_data_offset: u32,
+    pub ae_data_size: u32,
+}
 pub const BACKUP_MSG_FILENAME: windows_sys::core::PCWSTR = windows_sys::core::w!("BAK.MSG");
+pub type BIND_FLAGS1 = i32;
 pub const CLTYPE_LEN: u32 = 12u32;
 pub const CNLEN: u32 = 15u32;
+pub type COMPONENT_CHARACTERISTICS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONFIG_INFO_0 {
+    pub cfgi0_key: windows_sys::core::PWSTR,
+    pub cfgi0_data: windows_sys::core::PWSTR,
+}
 pub const COULD_NOT_VERIFY_VOLUMES: i32 = -1073727512i32;
 pub const CREATE_BYPASS_CSC: u32 = 2u32;
 pub const CREATE_CRED_RESET: u32 = 4u32;
@@ -299,6 +523,7 @@ pub const CREATE_REQUIRE_CONNECTION_PRIVACY: u32 = 16u32;
 pub const CREATE_WRITE_THROUGH_SEMANTICS: u32 = 64u32;
 pub const CRYPT_KEY_LEN: u32 = 7u32;
 pub const CRYPT_TXT_LEN: u32 = 8u32;
+pub type DEFAULT_PAGES = i32;
 pub const DEF_MAX_BADPW: u32 = 0u32;
 pub const DEF_MAX_PWHIST: u32 = 8u32;
 pub const DEF_MIN_PWLEN: u32 = 6u32;
@@ -361,13 +586,58 @@ pub const DFS_WARN_METADATA_LINK_TYPE_INCORRECT: i32 = -2147469107i32;
 pub const DNLEN: u32 = 15u32;
 pub const DPP_ADVANCED: DEFAULT_PAGES = 1i32;
 pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = 1i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
+pub struct DSREG_JOIN_INFO {
+    pub joinType: DSREG_JOIN_TYPE,
+    pub pJoinCertificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
+    pub pszDeviceId: windows_sys::core::PWSTR,
+    pub pszIdpDomain: windows_sys::core::PWSTR,
+    pub pszTenantId: windows_sys::core::PWSTR,
+    pub pszJoinUserEmail: windows_sys::core::PWSTR,
+    pub pszTenantDisplayName: windows_sys::core::PWSTR,
+    pub pszMdmEnrollmentUrl: windows_sys::core::PWSTR,
+    pub pszMdmTermsOfUseUrl: windows_sys::core::PWSTR,
+    pub pszMdmComplianceUrl: windows_sys::core::PWSTR,
+    pub pszUserSettingSyncUrl: windows_sys::core::PWSTR,
+    pub pUserInfo: *mut DSREG_USER_INFO,
+}
+pub type DSREG_JOIN_TYPE = i32;
 pub const DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DSREG_USER_INFO {
+    pub pszUserEmail: windows_sys::core::PWSTR,
+    pub pszUserKeyId: windows_sys::core::PWSTR,
+    pub pszUserKeyName: windows_sys::core::PWSTR,
+}
 pub const DSREG_WORKPLACE_JOIN: DSREG_JOIN_TYPE = 2i32;
 pub const EBP_ABOVE: ENUM_BINDING_PATHS_FLAGS = 1i32;
 pub const EBP_BELOW: ENUM_BINDING_PATHS_FLAGS = 2i32;
 pub const ENCRYPTED_PWLEN: u32 = 16u32;
+pub type ENUM_BINDING_PATHS_FLAGS = i32;
 pub const ERRLOG2_BASE: u32 = 5700u32;
 pub const ERRLOG_BASE: u32 = 3100u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ERRLOG_OTHER_INFO {
+    pub alrter_errcode: u32,
+    pub alrter_offset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ERROR_LOG {
+    pub el_len: u32,
+    pub el_reserved: u32,
+    pub el_time: u32,
+    pub el_error: u32,
+    pub el_name: windows_sys::core::PWSTR,
+    pub el_text: windows_sys::core::PWSTR,
+    pub el_data: *mut u8,
+    pub el_data_size: u32,
+    pub el_nstrings: u32,
+}
 pub const EVENT_BAD_ACCOUNT_NAME: i32 = -1073734816i32;
 pub const EVENT_BAD_SERVICE_STATE: i32 = -1073734808i32;
 pub const EVENT_BOOT_SYSTEM_DRIVERS_FAILED: i32 = -1073734798i32;
@@ -866,18 +1136,88 @@ pub const FILTER_NORMAL_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 2u32;
 pub const FILTER_SERVER_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 32u32;
 pub const FILTER_TEMP_DUPLICATE_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 1u32;
 pub const FILTER_WORKSTATION_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FLAT_STRING {
+    pub MaximumLength: i16,
+    pub Length: i16,
+    pub Buffer: [i8; 1],
+}
+pub type FORCE_LEVEL_FLAGS = u32;
 pub const GNLEN: u32 = 256u32;
 pub const GROUPIDMASK: u32 = 32768u32;
 pub const GROUP_ALL_PARMNUM: u32 = 0u32;
 pub const GROUP_ATTRIBUTES_PARMNUM: u32 = 3u32;
 pub const GROUP_COMMENT_PARMNUM: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_INFO_0 {
+    pub grpi0_name: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_INFO_1 {
+    pub grpi1_name: windows_sys::core::PWSTR,
+    pub grpi1_comment: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_INFO_1002 {
+    pub grpi1002_comment: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_INFO_1005 {
+    pub grpi1005_attributes: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_INFO_2 {
+    pub grpi2_name: windows_sys::core::PWSTR,
+    pub grpi2_comment: windows_sys::core::PWSTR,
+    pub grpi2_group_id: u32,
+    pub grpi2_attributes: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct GROUP_INFO_3 {
+    pub grpi3_name: windows_sys::core::PWSTR,
+    pub grpi3_comment: windows_sys::core::PWSTR,
+    pub grpi3_group_sid: super::super::Security::PSID,
+    pub grpi3_attributes: u32,
+}
 pub const GROUP_NAME_PARMNUM: u32 = 1u32;
 pub const GROUP_SPECIALGRP_ADMINS: windows_sys::core::PCWSTR = windows_sys::core::w!("ADMINS");
 pub const GROUP_SPECIALGRP_GUESTS: windows_sys::core::PCWSTR = windows_sys::core::w!("GUESTS");
 pub const GROUP_SPECIALGRP_LOCAL: windows_sys::core::PCWSTR = windows_sys::core::w!("LOCAL");
 pub const GROUP_SPECIALGRP_USERS: windows_sys::core::PCWSTR = windows_sys::core::w!("USERS");
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_USERS_INFO_0 {
+    pub grui0_name: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_USERS_INFO_1 {
+    pub grui1_name: windows_sys::core::PWSTR,
+    pub grui1_attributes: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HARDWARE_ADDRESS {
+    pub Address: [u8; 6],
+}
 pub const HARDWARE_ADDRESS_LENGTH: u32 = 6u32;
 pub const HELP_MSG_FILENAME: windows_sys::core::PCWSTR = windows_sys::core::w!("NETH");
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HLOG {
+    pub time: u32,
+    pub last_flags: u32,
+    pub offset: u32,
+    pub rec_offset: u32,
+}
 pub const INTERFACE_INFO_REVISION_1: u32 = 1u32;
 pub const INVALID_TRACEID: u32 = 4294967295u32;
 pub const IPX_PROTOCOL_BASE: u32 = 131071u32;
@@ -910,7 +1250,55 @@ pub const LM20_UNCLEN: u32 = 17u32;
 pub const LM20_UNLEN: u32 = 20u32;
 pub const LM_REDIR_FAILURE: i32 = 1073756225i32;
 pub const LOCALGROUP_COMMENT_PARMNUM: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LOCALGROUP_INFO_0 {
+    pub lgrpi0_name: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LOCALGROUP_INFO_1 {
+    pub lgrpi1_name: windows_sys::core::PWSTR,
+    pub lgrpi1_comment: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LOCALGROUP_INFO_1002 {
+    pub lgrpi1002_comment: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct LOCALGROUP_MEMBERS_INFO_0 {
+    pub lgrmi0_sid: super::super::Security::PSID,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct LOCALGROUP_MEMBERS_INFO_1 {
+    pub lgrmi1_sid: super::super::Security::PSID,
+    pub lgrmi1_sidusage: super::super::Security::SID_NAME_USE,
+    pub lgrmi1_name: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct LOCALGROUP_MEMBERS_INFO_2 {
+    pub lgrmi2_sid: super::super::Security::PSID,
+    pub lgrmi2_sidusage: super::super::Security::SID_NAME_USE,
+    pub lgrmi2_domainandname: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LOCALGROUP_MEMBERS_INFO_3 {
+    pub lgrmi3_domainandname: windows_sys::core::PWSTR,
+}
 pub const LOCALGROUP_NAME_PARMNUM: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LOCALGROUP_USERS_INFO_0 {
+    pub lgrui0_name: windows_sys::core::PWSTR,
+}
 pub const LOGFLAGS_BACKWARD: u32 = 1u32;
 pub const LOGFLAGS_FORWARD: u32 = 0u32;
 pub const LOGFLAGS_SEEK: u32 = 2u32;
@@ -960,15 +1348,41 @@ pub const MODALS_MIN_PASSWD_LEN_PARMNUM: u32 = 1u32;
 pub const MODALS_PASSWD_HIST_LEN_PARMNUM: u32 = 5u32;
 pub const MODALS_PRIMARY_PARMNUM: u32 = 7u32;
 pub const MODALS_ROLE_PARMNUM: u32 = 6u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MPR_PROTOCOL_0 {
+    pub dwProtocolId: u32,
+    pub wszProtocol: [u16; 41],
+    pub wszDLLName: [u16; 49],
+}
 pub const MRINFO_DISABLED_FLAG: u32 = 32u32;
 pub const MRINFO_DOWN_FLAG: u32 = 16u32;
 pub const MRINFO_LEAF_FLAG: u32 = 128u32;
 pub const MRINFO_PIM_FLAG: u32 = 4u32;
 pub const MRINFO_QUERIER_FLAG: u32 = 64u32;
 pub const MRINFO_TUNNEL_FLAG: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSA_INFO_0 {
+    pub State: MSA_INFO_STATE,
+}
+pub type MSA_INFO_LEVEL = i32;
+pub type MSA_INFO_STATE = i32;
 pub const MSGNAME_FORWARDED_FROM: u32 = 16u32;
 pub const MSGNAME_FORWARDED_TO: u32 = 4u32;
 pub const MSGNAME_NOT_FORWARDED: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSG_INFO_0 {
+    pub msgi0_name: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSG_INFO_1 {
+    pub msgi1_name: windows_sys::core::PWSTR,
+    pub msgi1_forward_flag: u32,
+    pub msgi1_forward: windows_sys::core::PWSTR,
+}
 pub const MS_ROUTER_VERSION: u32 = 1536u32;
 pub const MsaInfoCanInstall: MSA_INFO_STATE = 4i32;
 pub const MsaInfoCannotInstall: MSA_INFO_STATE = 3i32;
@@ -1005,8 +1419,10 @@ pub const NCN_NETTRANS: BIND_FLAGS1 = 131072i32;
 pub const NCN_PROPERTYCHANGE: BIND_FLAGS1 = 512i32;
 pub const NCN_REMOVE: BIND_FLAGS1 = 2i32;
 pub const NCN_UPDATE: BIND_FLAGS1 = 4i32;
+pub type NCPNP_RECONFIG_LAYER = i32;
 pub const NCRL_NDIS: NCPNP_RECONFIG_LAYER = 1i32;
 pub const NCRL_TDI: NCPNP_RECONFIG_LAYER = 2i32;
+pub type NCRP_FLAGS = i32;
 pub const NCRP_QUERY_PROPERTY_UI: NCRP_FLAGS = 1i32;
 pub const NCRP_SHOW_PROPERTY_UI: NCRP_FLAGS = 2i32;
 pub const NELOG_AT_Exec_Err: u32 = 3178u32;
@@ -1633,6 +2049,37 @@ pub const NETLOGON_DNS_UPDATE_FAILURE: u32 = 64u32;
 pub const NETLOGON_FULL_SYNC_REPLICATION: u32 = 4u32;
 pub const NETLOGON_HAS_IP: u32 = 16u32;
 pub const NETLOGON_HAS_TIMESERV: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETLOGON_INFO_1 {
+    pub netlog1_flags: u32,
+    pub netlog1_pdc_connection_status: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETLOGON_INFO_2 {
+    pub netlog2_flags: u32,
+    pub netlog2_pdc_connection_status: u32,
+    pub netlog2_trusted_dc_name: windows_sys::core::PWSTR,
+    pub netlog2_tc_connection_status: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETLOGON_INFO_3 {
+    pub netlog3_flags: u32,
+    pub netlog3_logon_attempts: u32,
+    pub netlog3_reserved1: u32,
+    pub netlog3_reserved2: u32,
+    pub netlog3_reserved3: u32,
+    pub netlog3_reserved4: u32,
+    pub netlog3_reserved5: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETLOGON_INFO_4 {
+    pub netlog4_trusted_dc_name: windows_sys::core::PWSTR,
+    pub netlog4_trusted_domain_name: windows_sys::core::PWSTR,
+}
 pub const NETLOGON_REDO_NEEDED: u32 = 8u32;
 pub const NETLOGON_REPLICATION_IN_PROGRESS: u32 = 2u32;
 pub const NETLOGON_REPLICATION_NEEDED: u32 = 1u32;
@@ -1670,11 +2117,33 @@ pub const NETSETUP_INSTALL_INVOCATION: u32 = 262144u32;
 pub const NETSETUP_JOIN_DC_ACCOUNT: NET_JOIN_DOMAIN_JOIN_OPTIONS = 512u32;
 pub const NETSETUP_JOIN_DOMAIN: NET_JOIN_DOMAIN_JOIN_OPTIONS = 1u32;
 pub const NETSETUP_JOIN_READONLY: NET_JOIN_DOMAIN_JOIN_OPTIONS = 2048u32;
+pub type NETSETUP_JOIN_STATUS = i32;
 pub const NETSETUP_JOIN_UNSECURE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 64u32;
 pub const NETSETUP_JOIN_WITH_NEW_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = 1024u32;
 pub const NETSETUP_MACHINE_PWD_PASSED: NET_JOIN_DOMAIN_JOIN_OPTIONS = 128u32;
+pub type NETSETUP_NAME_TYPE = i32;
 pub const NETSETUP_NO_ACCT_REUSE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 131072u32;
 pub const NETSETUP_NO_NETLOGON_CACHE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 8192u32;
+pub type NETSETUP_PROVISION = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETSETUP_PROVISIONING_PARAMS {
+    pub dwVersion: u32,
+    pub lpDomain: windows_sys::core::PCWSTR,
+    pub lpHostName: windows_sys::core::PCWSTR,
+    pub lpMachineAccountOU: windows_sys::core::PCWSTR,
+    pub lpDcName: windows_sys::core::PCWSTR,
+    pub dwProvisionOptions: NETSETUP_PROVISION,
+    pub aCertTemplateNames: *const windows_sys::core::PCWSTR,
+    pub cCertTemplateNames: u32,
+    pub aMachinePolicyNames: *const windows_sys::core::PCWSTR,
+    pub cMachinePolicyNames: u32,
+    pub aMachinePolicyPaths: *const windows_sys::core::PCWSTR,
+    pub cMachinePolicyPaths: u32,
+    pub lpNetbiosName: windows_sys::core::PWSTR,
+    pub lpSiteName: windows_sys::core::PWSTR,
+    pub lpPrimaryDNSDomain: windows_sys::core::PWSTR,
+}
 pub const NETSETUP_PROVISIONING_PARAMS_CURRENT_VERSION: u32 = 2u32;
 pub const NETSETUP_PROVISIONING_PARAMS_WIN8_VERSION: u32 = 1u32;
 pub const NETSETUP_PROVISION_CHECK_PWD_ONLY: u32 = 2147483648u32;
@@ -1687,15 +2156,105 @@ pub const NETSETUP_PROVISION_SKIP_ACCOUNT_SEARCH: NETSETUP_PROVISION = 8u32;
 pub const NETSETUP_PROVISION_USE_DEFAULT_PASSWORD: NETSETUP_PROVISION = 4u32;
 pub const NETSETUP_SET_MACHINE_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = 32768u32;
 pub const NETSETUP_WIN9X_UPGRADE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 16u32;
+pub type NETWORK_INSTALL_TIME = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_NAME {
+    pub Name: FLAT_STRING,
+}
+pub type NETWORK_UPGRADE_TYPE = i32;
+pub type NET_COMPUTER_NAME_TYPE = i32;
 pub const NET_DFS_ENUM: i32 = 1073756324i32;
 pub const NET_DFS_ENUMEX: i32 = 1073756325i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_DISPLAY_GROUP {
+    pub grpi3_name: windows_sys::core::PWSTR,
+    pub grpi3_comment: windows_sys::core::PWSTR,
+    pub grpi3_group_id: u32,
+    pub grpi3_attributes: u32,
+    pub grpi3_next_index: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_DISPLAY_MACHINE {
+    pub usri2_name: windows_sys::core::PWSTR,
+    pub usri2_comment: windows_sys::core::PWSTR,
+    pub usri2_flags: USER_ACCOUNT_FLAGS,
+    pub usri2_user_id: u32,
+    pub usri2_next_index: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_DISPLAY_USER {
+    pub usri1_name: windows_sys::core::PWSTR,
+    pub usri1_comment: windows_sys::core::PWSTR,
+    pub usri1_flags: USER_ACCOUNT_FLAGS,
+    pub usri1_full_name: windows_sys::core::PWSTR,
+    pub usri1_user_id: u32,
+    pub usri1_next_index: u32,
+}
 pub const NET_IGNORE_UNSUPPORTED_FLAGS: u32 = 1u32;
+pub type NET_JOIN_DOMAIN_JOIN_OPTIONS = u32;
+pub type NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = u32;
+pub type NET_REQUEST_PROVISION_OPTIONS = u32;
+pub type NET_SERVER_TYPE = u32;
+pub type NET_USER_ENUM_FILTER_FLAGS = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
+    pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
+    pub PasswordMatched: super::super::Foundation::BOOLEAN,
+}
 pub const NET_VALIDATE_BAD_PASSWORD_COUNT: u32 = 8u32;
 pub const NET_VALIDATE_BAD_PASSWORD_TIME: u32 = 2u32;
 pub const NET_VALIDATE_LOCKOUT_TIME: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_VALIDATE_OUTPUT_ARG {
+    pub ChangedPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
+    pub ValidationStatus: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
+    pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
+    pub ClearPassword: windows_sys::core::PWSTR,
+    pub UserAccountName: windows_sys::core::PWSTR,
+    pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
+    pub PasswordMatch: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_VALIDATE_PASSWORD_HASH {
+    pub Length: u32,
+    pub Hash: *mut u8,
+}
 pub const NET_VALIDATE_PASSWORD_HISTORY: u32 = 32u32;
 pub const NET_VALIDATE_PASSWORD_HISTORY_LENGTH: u32 = 16u32;
 pub const NET_VALIDATE_PASSWORD_LAST_SET: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
+    pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
+    pub ClearPassword: windows_sys::core::PWSTR,
+    pub UserAccountName: windows_sys::core::PWSTR,
+    pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
+    pub PasswordMustChangeAtNextLogon: super::super::Foundation::BOOLEAN,
+    pub ClearLockout: super::super::Foundation::BOOLEAN,
+}
+pub type NET_VALIDATE_PASSWORD_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_VALIDATE_PERSISTED_FIELDS {
+    pub PresentFields: u32,
+    pub PasswordLastSet: super::super::Foundation::FILETIME,
+    pub BadPasswordTime: super::super::Foundation::FILETIME,
+    pub LockoutTime: super::super::Foundation::FILETIME,
+    pub BadPasswordCount: u32,
+    pub PasswordHistoryLength: u32,
+    pub PasswordHistory: *mut NET_VALIDATE_PASSWORD_HASH,
+}
 pub const NON_VALIDATED_LOGON: u32 = 3u32;
 pub const NOT_A_DFS_PATH: i32 = 1073756224i32;
 pub const NO_PERMISSION_REQUIRED: u32 = 1u32;
@@ -1759,6 +2318,7 @@ pub const NetAllComputerNames: NET_COMPUTER_NAME_TYPE = 2i32;
 pub const NetAlternateComputerNames: NET_COMPUTER_NAME_TYPE = 1i32;
 pub const NetComputerNameTypeMax: NET_COMPUTER_NAME_TYPE = 3i32;
 pub const NetPrimaryComputerName: NET_COMPUTER_NAME_TYPE = 0i32;
+pub const NetProvisioning: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
 pub const NetSetupDnsMachine: NETSETUP_NAME_TYPE = 5i32;
 pub const NetSetupDomain: NETSETUP_NAME_TYPE = 3i32;
 pub const NetSetupDomainName: NETSETUP_JOIN_STATUS = 3i32;
@@ -1774,6 +2334,17 @@ pub const NetValidatePasswordChange: NET_VALIDATE_PASSWORD_TYPE = 2i32;
 pub const NetValidatePasswordReset: NET_VALIDATE_PASSWORD_TYPE = 3i32;
 pub const OBO_COMPONENT: OBO_TOKEN_TYPE = 2i32;
 pub const OBO_SOFTWARE: OBO_TOKEN_TYPE = 3i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OBO_TOKEN {
+    pub Type: OBO_TOKEN_TYPE,
+    pub pncc: *mut core::ffi::c_void,
+    pub pszwManufacturer: windows_sys::core::PCWSTR,
+    pub pszwProduct: windows_sys::core::PCWSTR,
+    pub pszwDisplayName: windows_sys::core::PCWSTR,
+    pub fRegistered: super::super::Foundation::BOOL,
+}
+pub type OBO_TOKEN_TYPE = i32;
 pub const OBO_USER: OBO_TOKEN_TYPE = 1i32;
 pub const OS2MSG_FILENAME: windows_sys::core::PCWSTR = windows_sys::core::w!("BASE");
 pub const PARMNUM_ALL: u32 = 0u32;
@@ -1790,6 +2361,14 @@ pub const PLATFORM_ID_VMS: u32 = 700u32;
 pub const PREFIX_MISMATCH: i32 = -1073727510i32;
 pub const PREFIX_MISMATCH_FIXED: i32 = -1073727509i32;
 pub const PREFIX_MISMATCH_NOT_FIXED: i32 = -1073727508i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PRINT_OTHER_INFO {
+    pub alrtpr_jobid: u32,
+    pub alrtpr_status: u32,
+    pub alrtpr_submitted: u32,
+    pub alrtpr_size: u32,
+}
 pub const PRJOB_COMPLETE: u32 = 4u32;
 pub const PRJOB_DELETED: u32 = 32768u32;
 pub const PRJOB_DESTNOPAPER: u32 = 256u32;
@@ -1828,1222 +2407,6 @@ pub const PROTO_VENDOR_MS1: u32 = 311u32;
 pub const PROTO_VENDOR_MS2: u32 = 16383u32;
 pub const PWLEN: u32 = 256u32;
 pub const QNLEN: u32 = 80u32;
-pub const RCUIF_DEMAND_DIAL: RASCON_UIINFO_FLAGS = 2i32;
-pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: RASCON_UIINFO_FLAGS = 32768i32;
-pub const RCUIF_ENABLE_NBT: RASCON_UIINFO_FLAGS = 1024i32;
-pub const RCUIF_NOT_ADMIN: RASCON_UIINFO_FLAGS = 4i32;
-pub const RCUIF_USE_DISABLE_REGISTER_DNS: RASCON_UIINFO_FLAGS = 256i32;
-pub const RCUIF_USE_HEADER_COMPRESSION: RASCON_UIINFO_FLAGS = 128i32;
-pub const RCUIF_USE_IPv4_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = 64i32;
-pub const RCUIF_USE_IPv4_NAME_SERVERS: RASCON_UIINFO_FLAGS = 16i32;
-pub const RCUIF_USE_IPv4_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = 32i32;
-pub const RCUIF_USE_IPv4_STATICADDRESS: RASCON_UIINFO_FLAGS = 8i32;
-pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = 16384i32;
-pub const RCUIF_USE_IPv6_NAME_SERVERS: RASCON_UIINFO_FLAGS = 4096i32;
-pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = 8192i32;
-pub const RCUIF_USE_IPv6_STATICADDRESS: RASCON_UIINFO_FLAGS = 2048i32;
-pub const RCUIF_USE_PRIVATE_DNS_SUFFIX: RASCON_UIINFO_FLAGS = 512i32;
-pub const RCUIF_VPN: RASCON_UIINFO_FLAGS = 1i32;
-pub const REGISTER_PROTOCOL_ENTRY_POINT_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("RegisterProtocol");
-pub const REPL_EXPORT_EXTENT_INFOLEVEL: u32 = 1001u32;
-pub const REPL_EXPORT_INTEGRITY_INFOLEVEL: u32 = 1000u32;
-pub const REPL_EXTENT_FILE: u32 = 1u32;
-pub const REPL_EXTENT_TREE: u32 = 2u32;
-pub const REPL_GUARDTIME_INFOLEVEL: u32 = 1002u32;
-pub const REPL_INTEGRITY_FILE: u32 = 1u32;
-pub const REPL_INTEGRITY_TREE: u32 = 2u32;
-pub const REPL_INTERVAL_INFOLEVEL: u32 = 1000u32;
-pub const REPL_PULSE_INFOLEVEL: u32 = 1001u32;
-pub const REPL_RANDOM_INFOLEVEL: u32 = 1003u32;
-pub const REPL_ROLE_BOTH: u32 = 3u32;
-pub const REPL_ROLE_EXPORT: u32 = 1u32;
-pub const REPL_ROLE_IMPORT: u32 = 2u32;
-pub const REPL_STATE_NEVER_REPLICATED: u32 = 3u32;
-pub const REPL_STATE_NO_MASTER: u32 = 1u32;
-pub const REPL_STATE_NO_SYNC: u32 = 2u32;
-pub const REPL_STATE_OK: u32 = 0u32;
-pub const REPL_UNLOCK_FORCE: u32 = 1u32;
-pub const REPL_UNLOCK_NOFORCE: u32 = 0u32;
-pub const RF_ADD_ALL_INTERFACES: u32 = 16u32;
-pub const RF_DEMAND_UPDATE_ROUTES: u32 = 4u32;
-pub const RF_MULTICAST: u32 = 32u32;
-pub const RF_POWER: u32 = 64u32;
-pub const RF_ROUTING: u32 = 1u32;
-pub const RF_ROUTINGV6: u32 = 2u32;
-pub const RIS_INTERFACE_ADDRESS_CHANGE: u32 = 0u32;
-pub const RIS_INTERFACE_DISABLED: u32 = 2u32;
-pub const RIS_INTERFACE_ENABLED: u32 = 1u32;
-pub const RIS_INTERFACE_MEDIA_ABSENT: u32 = 4u32;
-pub const RIS_INTERFACE_MEDIA_PRESENT: u32 = 3u32;
-pub const ROUTING_DOMAIN_INFO_REVISION_1: u32 = 1u32;
-pub const RTR_INFO_BLOCK_VERSION: u32 = 1u32;
-pub const RTUTILS_MAX_PROTOCOL_DLL_LEN: u32 = 48u32;
-pub const RTUTILS_MAX_PROTOCOL_NAME_LEN: u32 = 40u32;
-pub const SERVCE_LM20_W32TIME: windows_sys::core::PCWSTR = windows_sys::core::w!("w32time");
-pub const SERVER_DISPLAY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("Server");
-pub const SERVICE2_BASE: u32 = 5600u32;
-pub const SERVICE_ACCOUNT_FLAG_ADD_AGAINST_RODC: i32 = 2i32;
-pub const SERVICE_ACCOUNT_FLAG_LINK_TO_HOST_ONLY: i32 = 1i32;
-pub const SERVICE_ACCOUNT_FLAG_REMOVE_OFFLINE: i32 = 2i32;
-pub const SERVICE_ACCOUNT_FLAG_UNLINK_FROM_HOST_ONLY: i32 = 1i32;
-pub const SERVICE_ACCOUNT_PASSWORD: windows_sys::core::PCWSTR = windows_sys::core::w!("_SA_{262E99C9-6160-4871-ACEC-4E61736B6F21}");
-pub const SERVICE_ACCOUNT_SECRET_PREFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("_SC_{262E99C9-6160-4871-ACEC-4E61736B6F21}_");
-pub const SERVICE_ADWS: windows_sys::core::PCWSTR = windows_sys::core::w!("ADWS");
-pub const SERVICE_AFP: windows_sys::core::PCWSTR = windows_sys::core::w!("AFP");
-pub const SERVICE_ALERTER: windows_sys::core::PCWSTR = windows_sys::core::w!("ALERTER");
-pub const SERVICE_BASE: u32 = 3050u32;
-pub const SERVICE_BROWSER: windows_sys::core::PCWSTR = windows_sys::core::w!("BROWSER");
-pub const SERVICE_CCP_CHKPT_NUM: u32 = 255u32;
-pub const SERVICE_CCP_NO_HINT: u32 = 0u32;
-pub const SERVICE_CCP_QUERY_HINT: u32 = 65536u32;
-pub const SERVICE_CCP_WAIT_TIME: u32 = 65280u32;
-pub const SERVICE_CTRL_CONTINUE: u32 = 2u32;
-pub const SERVICE_CTRL_INTERROGATE: u32 = 0u32;
-pub const SERVICE_CTRL_PAUSE: u32 = 1u32;
-pub const SERVICE_CTRL_REDIR_COMM: u32 = 4u32;
-pub const SERVICE_CTRL_REDIR_DISK: u32 = 1u32;
-pub const SERVICE_CTRL_REDIR_PRINT: u32 = 2u32;
-pub const SERVICE_CTRL_UNINSTALL: u32 = 3u32;
-pub const SERVICE_DHCP: windows_sys::core::PCWSTR = windows_sys::core::w!("DHCP");
-pub const SERVICE_DNS_CACHE: windows_sys::core::PCWSTR = windows_sys::core::w!("DnsCache");
-pub const SERVICE_DOS_ENCRYPTION: windows_sys::core::PCWSTR = windows_sys::core::w!("ENCRYPT");
-pub const SERVICE_DSROLE: windows_sys::core::PCWSTR = windows_sys::core::w!("DsRoleSvc");
-pub const SERVICE_INSTALLED: u32 = 3u32;
-pub const SERVICE_INSTALL_PENDING: u32 = 1u32;
-pub const SERVICE_INSTALL_STATE: u32 = 3u32;
-pub const SERVICE_IP_CHKPT_NUM: u32 = 255u32;
-pub const SERVICE_IP_NO_HINT: u32 = 0u32;
-pub const SERVICE_IP_QUERY_HINT: u32 = 65536u32;
-pub const SERVICE_IP_WAITTIME_SHIFT: u32 = 8u32;
-pub const SERVICE_IP_WAIT_TIME: u32 = 65280u32;
-pub const SERVICE_ISMSERV: windows_sys::core::PCWSTR = windows_sys::core::w!("IsmServ");
-pub const SERVICE_KDC: windows_sys::core::PCWSTR = windows_sys::core::w!("kdc");
-pub const SERVICE_LM20_AFP: windows_sys::core::PCWSTR = windows_sys::core::w!("AFP");
-pub const SERVICE_LM20_ALERTER: windows_sys::core::PCWSTR = windows_sys::core::w!("ALERTER");
-pub const SERVICE_LM20_BROWSER: windows_sys::core::PCWSTR = windows_sys::core::w!("BROWSER");
-pub const SERVICE_LM20_DHCP: windows_sys::core::PCWSTR = windows_sys::core::w!("DHCP");
-pub const SERVICE_LM20_DSROLE: windows_sys::core::PCWSTR = windows_sys::core::w!("DsRoleSvc");
-pub const SERVICE_LM20_ISMSERV: windows_sys::core::PCWSTR = windows_sys::core::w!("IsmServ");
-pub const SERVICE_LM20_KDC: windows_sys::core::PCWSTR = windows_sys::core::w!("kdc");
-pub const SERVICE_LM20_LMHOSTS: windows_sys::core::PCWSTR = windows_sys::core::w!("LMHOSTS");
-pub const SERVICE_LM20_MESSENGER: windows_sys::core::PCWSTR = windows_sys::core::w!("MESSENGER");
-pub const SERVICE_LM20_NBT: windows_sys::core::PCWSTR = windows_sys::core::w!("NBT");
-pub const SERVICE_LM20_NETLOGON: windows_sys::core::PCWSTR = windows_sys::core::w!("NETLOGON");
-pub const SERVICE_LM20_NETPOPUP: windows_sys::core::PCWSTR = windows_sys::core::w!("NETPOPUP");
-pub const SERVICE_LM20_NETRUN: windows_sys::core::PCWSTR = windows_sys::core::w!("NETRUN");
-pub const SERVICE_LM20_NTDS: windows_sys::core::PCWSTR = windows_sys::core::w!("NTDS");
-pub const SERVICE_LM20_NTFRS: windows_sys::core::PCWSTR = windows_sys::core::w!("NtFrs");
-pub const SERVICE_LM20_NWSAP: windows_sys::core::PCWSTR = windows_sys::core::w!("NwSapAgent");
-pub const SERVICE_LM20_REPL: windows_sys::core::PCWSTR = windows_sys::core::w!("REPLICATOR");
-pub const SERVICE_LM20_RIPL: windows_sys::core::PCWSTR = windows_sys::core::w!("REMOTEBOOT");
-pub const SERVICE_LM20_RPCLOCATOR: windows_sys::core::PCWSTR = windows_sys::core::w!("RPCLOCATOR");
-pub const SERVICE_LM20_SCHEDULE: windows_sys::core::PCWSTR = windows_sys::core::w!("Schedule");
-pub const SERVICE_LM20_SERVER: windows_sys::core::PCWSTR = windows_sys::core::w!("SERVER");
-pub const SERVICE_LM20_SPOOLER: windows_sys::core::PCWSTR = windows_sys::core::w!("SPOOLER");
-pub const SERVICE_LM20_SQLSERVER: windows_sys::core::PCWSTR = windows_sys::core::w!("SQLSERVER");
-pub const SERVICE_LM20_TCPIP: windows_sys::core::PCWSTR = windows_sys::core::w!("TCPIP");
-pub const SERVICE_LM20_TELNET: windows_sys::core::PCWSTR = windows_sys::core::w!("Telnet");
-pub const SERVICE_LM20_TIMESOURCE: windows_sys::core::PCWSTR = windows_sys::core::w!("TIMESOURCE");
-pub const SERVICE_LM20_TRKSVR: windows_sys::core::PCWSTR = windows_sys::core::w!("TrkSvr");
-pub const SERVICE_LM20_TRKWKS: windows_sys::core::PCWSTR = windows_sys::core::w!("TrkWks");
-pub const SERVICE_LM20_UPS: windows_sys::core::PCWSTR = windows_sys::core::w!("UPS");
-pub const SERVICE_LM20_WORKSTATION: windows_sys::core::PCWSTR = windows_sys::core::w!("WORKSTATION");
-pub const SERVICE_LM20_XACTSRV: windows_sys::core::PCWSTR = windows_sys::core::w!("XACTSRV");
-pub const SERVICE_LMHOSTS: windows_sys::core::PCWSTR = windows_sys::core::w!("LMHOSTS");
-pub const SERVICE_MAXTIME: u32 = 255u32;
-pub const SERVICE_MESSENGER: windows_sys::core::PCWSTR = windows_sys::core::w!("MESSENGER");
-pub const SERVICE_NBT: windows_sys::core::PCWSTR = windows_sys::core::w!("NBT");
-pub const SERVICE_NETLOGON: windows_sys::core::PCWSTR = windows_sys::core::w!("NETLOGON");
-pub const SERVICE_NETPOPUP: windows_sys::core::PCWSTR = windows_sys::core::w!("NETPOPUP");
-pub const SERVICE_NETRUN: windows_sys::core::PCWSTR = windows_sys::core::w!("NETRUN");
-pub const SERVICE_NOT_PAUSABLE: u32 = 0u32;
-pub const SERVICE_NOT_UNINSTALLABLE: u32 = 0u32;
-pub const SERVICE_NTDS: windows_sys::core::PCWSTR = windows_sys::core::w!("NTDS");
-pub const SERVICE_NTFRS: windows_sys::core::PCWSTR = windows_sys::core::w!("NtFrs");
-pub const SERVICE_NTIP_WAITTIME_SHIFT: u32 = 12u32;
-pub const SERVICE_NTLMSSP: windows_sys::core::PCWSTR = windows_sys::core::w!("NtLmSsp");
-pub const SERVICE_NT_MAXTIME: u32 = 65535u32;
-pub const SERVICE_NWCS: windows_sys::core::PCWSTR = windows_sys::core::w!("NWCWorkstation");
-pub const SERVICE_NWSAP: windows_sys::core::PCWSTR = windows_sys::core::w!("NwSapAgent");
-pub const SERVICE_PAUSABLE: u32 = 32u32;
-pub const SERVICE_PAUSE_STATE: u32 = 12u32;
-pub const SERVICE_REDIR_COMM_PAUSED: u32 = 1024u32;
-pub const SERVICE_REDIR_DISK_PAUSED: u32 = 256u32;
-pub const SERVICE_REDIR_PAUSED: u32 = 1792u32;
-pub const SERVICE_REDIR_PRINT_PAUSED: u32 = 512u32;
-pub const SERVICE_REPL: windows_sys::core::PCWSTR = windows_sys::core::w!("REPLICATOR");
-pub const SERVICE_RESRV_MASK: u32 = 131071u32;
-pub const SERVICE_RIPL: windows_sys::core::PCWSTR = windows_sys::core::w!("REMOTEBOOT");
-pub const SERVICE_RPCLOCATOR: windows_sys::core::PCWSTR = windows_sys::core::w!("RPCLOCATOR");
-pub const SERVICE_SCHEDULE: windows_sys::core::PCWSTR = windows_sys::core::w!("Schedule");
-pub const SERVICE_SERVER: windows_sys::core::PCWSTR = windows_sys::core::w!("LanmanServer");
-pub const SERVICE_SPOOLER: windows_sys::core::PCWSTR = windows_sys::core::w!("SPOOLER");
-pub const SERVICE_SQLSERVER: windows_sys::core::PCWSTR = windows_sys::core::w!("SQLSERVER");
-pub const SERVICE_TCPIP: windows_sys::core::PCWSTR = windows_sys::core::w!("TCPIP");
-pub const SERVICE_TELNET: windows_sys::core::PCWSTR = windows_sys::core::w!("Telnet");
-pub const SERVICE_TIMESOURCE: windows_sys::core::PCWSTR = windows_sys::core::w!("TIMESOURCE");
-pub const SERVICE_TRKSVR: windows_sys::core::PCWSTR = windows_sys::core::w!("TrkSvr");
-pub const SERVICE_TRKWKS: windows_sys::core::PCWSTR = windows_sys::core::w!("TrkWks");
-pub const SERVICE_UIC_AMBIGPARM: u32 = 3058u32;
-pub const SERVICE_UIC_BADPARMVAL: u32 = 3051u32;
-pub const SERVICE_UIC_CONFIG: u32 = 3055u32;
-pub const SERVICE_UIC_CONFLPARM: u32 = 3063u32;
-pub const SERVICE_UIC_DUPPARM: u32 = 3059u32;
-pub const SERVICE_UIC_EXEC: u32 = 3061u32;
-pub const SERVICE_UIC_FILE: u32 = 3064u32;
-pub const SERVICE_UIC_INTERNAL: u32 = 3057u32;
-pub const SERVICE_UIC_KILL: u32 = 3060u32;
-pub const SERVICE_UIC_MISSPARM: u32 = 3052u32;
-pub const SERVICE_UIC_M_ADDPAK: u32 = 3090u32;
-pub const SERVICE_UIC_M_ANNOUNCE: u32 = 3083u32;
-pub const SERVICE_UIC_M_DATABASE_ERROR: u32 = 5602u32;
-pub const SERVICE_UIC_M_DISK: u32 = 3071u32;
-pub const SERVICE_UIC_M_ERRLOG: u32 = 3088u32;
-pub const SERVICE_UIC_M_FILES: u32 = 3079u32;
-pub const SERVICE_UIC_M_FILE_UW: u32 = 3089u32;
-pub const SERVICE_UIC_M_LANGROUP: u32 = 3081u32;
-pub const SERVICE_UIC_M_LANROOT: u32 = 3075u32;
-pub const SERVICE_UIC_M_LAZY: u32 = 3091u32;
-pub const SERVICE_UIC_M_LOGS: u32 = 3080u32;
-pub const SERVICE_UIC_M_LSA_MACHINE_ACCT: u32 = 5601u32;
-pub const SERVICE_UIC_M_MEMORY: u32 = 3070u32;
-pub const SERVICE_UIC_M_MSGNAME: u32 = 3082u32;
-pub const SERVICE_UIC_M_NETLOGON_AUTH: u32 = 3098u32;
-pub const SERVICE_UIC_M_NETLOGON_DC_CFLCT: u32 = 3097u32;
-pub const SERVICE_UIC_M_NETLOGON_MPATH: u32 = 5600u32;
-pub const SERVICE_UIC_M_NETLOGON_NO_DC: u32 = 3096u32;
-pub const SERVICE_UIC_M_NULL: u32 = 0u32;
-pub const SERVICE_UIC_M_PROCESSES: u32 = 3073u32;
-pub const SERVICE_UIC_M_REDIR: u32 = 3076u32;
-pub const SERVICE_UIC_M_SECURITY: u32 = 3074u32;
-pub const SERVICE_UIC_M_SEC_FILE_ERR: u32 = 3078u32;
-pub const SERVICE_UIC_M_SERVER: u32 = 3077u32;
-pub const SERVICE_UIC_M_SERVER_SEC_ERR: u32 = 3085u32;
-pub const SERVICE_UIC_M_THREADS: u32 = 3072u32;
-pub const SERVICE_UIC_M_UAS: u32 = 3084u32;
-pub const SERVICE_UIC_M_UAS_INVALID_ROLE: u32 = 3095u32;
-pub const SERVICE_UIC_M_UAS_MACHINE_ACCT: u32 = 3092u32;
-pub const SERVICE_UIC_M_UAS_PROLOG: u32 = 3099u32;
-pub const SERVICE_UIC_M_UAS_SERVERS_NMEMB: u32 = 3093u32;
-pub const SERVICE_UIC_M_UAS_SERVERS_NOGRP: u32 = 3094u32;
-pub const SERVICE_UIC_M_WKSTA: u32 = 3087u32;
-pub const SERVICE_UIC_NORMAL: u32 = 0u32;
-pub const SERVICE_UIC_RESOURCE: u32 = 3054u32;
-pub const SERVICE_UIC_SUBSERV: u32 = 3062u32;
-pub const SERVICE_UIC_SYSTEM: u32 = 3056u32;
-pub const SERVICE_UIC_UNKPARM: u32 = 3053u32;
-pub const SERVICE_UNINSTALLABLE: u32 = 16u32;
-pub const SERVICE_UNINSTALLED: u32 = 0u32;
-pub const SERVICE_UNINSTALL_PENDING: u32 = 2u32;
-pub const SERVICE_UPS: windows_sys::core::PCWSTR = windows_sys::core::w!("UPS");
-pub const SERVICE_W32TIME: windows_sys::core::PCWSTR = windows_sys::core::w!("w32time");
-pub const SERVICE_WORKSTATION: windows_sys::core::PCWSTR = windows_sys::core::w!("LanmanWorkstation");
-pub const SERVICE_XACTSRV: windows_sys::core::PCWSTR = windows_sys::core::w!("XACTSRV");
-pub const SESSION_CRYPT_KLEN: u32 = 21u32;
-pub const SESSION_PWLEN: u32 = 24u32;
-pub const SHPWLEN: u32 = 8u32;
-pub const SNLEN: u32 = 80u32;
-pub const SRV_HASH_GENERATION_ACTIVE: u32 = 2u32;
-pub const SRV_SUPPORT_HASH_GENERATION: u32 = 1u32;
-pub const STXTLEN: u32 = 256u32;
-pub const SUPPORTS_ANY: i32 = -1i32;
-pub const SUPPORTS_LOCAL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 32u32;
-pub const SUPPORTS_REMOTE_ADMIN_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 2u32;
-pub const SUPPORTS_RPC: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 4u32;
-pub const SUPPORTS_SAM_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 8u32;
-pub const SUPPORTS_UNICODE: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 16u32;
-pub const SVAUD_BADNETLOGON: u32 = 384u32;
-pub const SVAUD_BADSESSLOGON: u32 = 24u32;
-pub const SVAUD_BADUSE: u32 = 6144u32;
-pub const SVAUD_GOODNETLOGON: u32 = 96u32;
-pub const SVAUD_GOODSESSLOGON: u32 = 6u32;
-pub const SVAUD_GOODUSE: u32 = 1536u32;
-pub const SVAUD_LOGONLIM: u32 = 65536u32;
-pub const SVAUD_PERMISSIONS: u32 = 16384u32;
-pub const SVAUD_RESOURCE: u32 = 32768u32;
-pub const SVAUD_SERVICE: u32 = 1u32;
-pub const SVAUD_USERLIST: u32 = 8192u32;
-pub const SVI1_NUM_ELEMENTS: u32 = 5u32;
-pub const SVI2_NUM_ELEMENTS: u32 = 40u32;
-pub const SVI3_NUM_ELEMENTS: u32 = 44u32;
-pub const SVTI2_CLUSTER_DNN_NAME: u32 = 16u32;
-pub const SVTI2_CLUSTER_NAME: u32 = 8u32;
-pub const SVTI2_REMAP_PIPE_NAMES: u32 = 2u32;
-pub const SVTI2_RESERVED1: u32 = 4096u32;
-pub const SVTI2_RESERVED2: u32 = 8192u32;
-pub const SVTI2_RESERVED3: u32 = 16384u32;
-pub const SVTI2_SCOPED_NAME: u32 = 4u32;
-pub const SVTI2_UNICODE_TRANSPORT_ADDRESS: u32 = 32u32;
-pub const SV_ACCEPTDOWNLEVELAPIS_PARMNUM: u32 = 517u32;
-pub const SV_ACCESSALERT_PARMNUM: u32 = 40u32;
-pub const SV_ACTIVELOCKS_PARMNUM: u32 = 419u32;
-pub const SV_ALERTSCHEDULE_PARMNUM: u32 = 547u32;
-pub const SV_ALERTSCHED_PARMNUM: u32 = 37u32;
-pub const SV_ALERTS_PARMNUM: u32 = 11u32;
-pub const SV_ALIST_MTIME_PARMNUM: u32 = 403u32;
-pub const SV_ANNDELTA_PARMNUM: u32 = 18u32;
-pub const SV_ANNOUNCE_PARMNUM: u32 = 17u32;
-pub const SV_AUTOSHARESERVER_PARMNUM: u32 = 592u32;
-pub const SV_AUTOSHAREWKS_PARMNUM: u32 = 591u32;
-pub const SV_BALANCECOUNT_PARMNUM: u32 = 577u32;
-pub const SV_CACHEDDIRECTORYLIMIT_PARMNUM: u32 = 587u32;
-pub const SV_CACHEDOPENLIMIT_PARMNUM: u32 = 571u32;
-pub const SV_CHDEVJOBS_PARMNUM: u32 = 411u32;
-pub const SV_CHDEVQ_PARMNUM: u32 = 410u32;
-pub const SV_COMMENT_PARMNUM: u32 = 5u32;
-pub const SV_CONNECTIONLESSAUTODISC_PARMNUM: u32 = 562u32;
-pub const SV_CONNECTIONNOSESSIONSTIMEOUT_PARMNUM: u32 = 596u32;
-pub const SV_CONNECTIONS_PARMNUM: u32 = 412u32;
-pub const SV_CRITICALTHREADS_PARMNUM: u32 = 572u32;
-pub const SV_DISABLEDOS_PARMNUM: u32 = 600u32;
-pub const SV_DISABLESTRICTNAMECHECKING_PARMNUM: u32 = 602u32;
-pub const SV_DISC_PARMNUM: u32 = 10u32;
-pub const SV_DISKALERT_PARMNUM: u32 = 41u32;
-pub const SV_DISKSPACETHRESHOLD_PARMNUM: u32 = 550u32;
-pub const SV_DOMAIN_PARMNUM: u32 = 519u32;
-pub const SV_ENABLEAUTHENTICATEUSERSHARING_PARMNUM: u32 = 603u32;
-pub const SV_ENABLECOMPRESSION_PARMNUM: u32 = 590u32;
-pub const SV_ENABLEFCBOPENS_PARMNUM: u32 = 538u32;
-pub const SV_ENABLEFORCEDLOGOFF_PARMNUM: u32 = 515u32;
-pub const SV_ENABLEOPLOCKFORCECLOSE_PARMNUM: u32 = 537u32;
-pub const SV_ENABLEOPLOCKS_PARMNUM: u32 = 536u32;
-pub const SV_ENABLERAW_PARMNUM: u32 = 539u32;
-pub const SV_ENABLESECURITYSIGNATURE_PARMNUM: u32 = 593u32;
-pub const SV_ENABLESHAREDNETDRIVES_PARMNUM: u32 = 540u32;
-pub const SV_ENABLESOFTCOMPAT_PARMNUM: u32 = 514u32;
-pub const SV_ENABLEW9XSECURITYSIGNATURE_PARMNUM: u32 = 598u32;
-pub const SV_ENABLEWFW311DIRECTIPX_PARMNUM: u32 = 574u32;
-pub const SV_ENFORCEKERBEROSREAUTHENTICATION_PARMNUM: u32 = 599u32;
-pub const SV_ERRORALERT_PARMNUM: u32 = 38u32;
-pub const SV_ERRORTHRESHOLD_PARMNUM: u32 = 548u32;
-pub const SV_GLIST_MTIME_PARMNUM: u32 = 402u32;
-pub const SV_GUESTACC_PARMNUM: u32 = 408u32;
-pub const SV_HIDDEN: SERVER_INFO_HIDDEN = 1i32;
-pub const SV_HIDDEN_PARMNUM: u32 = 16u32;
-pub const SV_IDLETHREADTIMEOUT_PARMNUM: u32 = 597u32;
-pub const SV_INITCONNTABLE_PARMNUM: u32 = 544u32;
-pub const SV_INITFILETABLE_PARMNUM: u32 = 545u32;
-pub const SV_INITSEARCHTABLE_PARMNUM: u32 = 546u32;
-pub const SV_INITSESSTABLE_PARMNUM: u32 = 543u32;
-pub const SV_INITWORKITEMS_PARMNUM: u32 = 505u32;
-pub const SV_IRPSTACKSIZE_PARMNUM: u32 = 508u32;
-pub const SV_LANMASK_PARMNUM: u32 = 407u32;
-pub const SV_LINKINFOVALIDTIME_PARMNUM: u32 = 554u32;
-pub const SV_LMANNOUNCE_PARMNUM: u32 = 518u32;
-pub const SV_LOCKVIOLATIONDELAY_PARMNUM: u32 = 569u32;
-pub const SV_LOCKVIOLATIONOFFSET_PARMNUM: u32 = 568u32;
-pub const SV_LOCKVIOLATIONRETRIES_PARMNUM: u32 = 567u32;
-pub const SV_LOGONALERT_PARMNUM: u32 = 39u32;
-pub const SV_LOWDISKSPACEMINIMUM_PARMNUM: u32 = 601u32;
-pub const SV_MAXAUDITSZ_PARMNUM: u32 = 43u32;
-pub const SV_MAXCOPYLENGTH_PARMNUM: u32 = 588u32;
-pub const SV_MAXCOPYREADLEN_PARMNUM: u32 = 520u32;
-pub const SV_MAXCOPYWRITELEN_PARMNUM: u32 = 521u32;
-pub const SV_MAXFREECONNECTIONS_PARMNUM: u32 = 542u32;
-pub const SV_MAXFREELFCBS_PARMNUM: u32 = 581u32;
-pub const SV_MAXFREEMFCBS_PARMNUM: u32 = 580u32;
-pub const SV_MAXFREEPAGEDPOOLCHUNKS_PARMNUM: u32 = 582u32;
-pub const SV_MAXFREERFCBS_PARMNUM: u32 = 579u32;
-pub const SV_MAXGLOBALOPENSEARCH_PARMNUM: u32 = 565u32;
-pub const SV_MAXKEEPCOMPLSEARCH_PARMNUM: u32 = 525u32;
-pub const SV_MAXKEEPSEARCH_PARMNUM: u32 = 523u32;
-pub const SV_MAXLINKDELAY_PARMNUM: u32 = 552u32;
-pub const SV_MAXMPXCT_PARMNUM: u32 = 533u32;
-pub const SV_MAXNONPAGEDMEMORYUSAGE_PARMNUM: u32 = 512u32;
-pub const SV_MAXPAGEDMEMORYUSAGE_PARMNUM: u32 = 513u32;
-pub const SV_MAXPAGEDPOOLCHUNKSIZE_PARMNUM: u32 = 584u32;
-pub const SV_MAXRAWBUFLEN_PARMNUM: u32 = 509u32;
-pub const SV_MAXRAWWORKITEMS_PARMNUM: u32 = 557u32;
-pub const SV_MAXTHREADSPERQUEUE_PARMNUM: u32 = 586u32;
-pub const SV_MAXWORKITEMIDLETIME_PARMNUM: u32 = 556u32;
-pub const SV_MAXWORKITEMS_PARMNUM: u32 = 506u32;
-pub const SV_MAX_CMD_LEN: u32 = 256u32;
-pub const SV_MAX_SRV_HEUR_LEN: u32 = 32u32;
-pub const SV_MDLREADSWITCHOVER_PARMNUM: u32 = 570u32;
-pub const SV_MINCLIENTBUFFERSIZE_PARMNUM: u32 = 595u32;
-pub const SV_MINFREECONNECTIONS_PARMNUM: u32 = 541u32;
-pub const SV_MINFREEWORKITEMS_PARMNUM: u32 = 530u32;
-pub const SV_MINKEEPCOMPLSEARCH_PARMNUM: u32 = 524u32;
-pub const SV_MINKEEPSEARCH_PARMNUM: u32 = 522u32;
-pub const SV_MINLINKTHROUGHPUT_PARMNUM: u32 = 553u32;
-pub const SV_MINPAGEDPOOLCHUNKSIZE_PARMNUM: u32 = 583u32;
-pub const SV_MINRCVQUEUE_PARMNUM: u32 = 529u32;
-pub const SV_NAME_PARMNUM: u32 = 102u32;
-pub const SV_NETIOALERT_PARMNUM: u32 = 42u32;
-pub const SV_NETWORKERRORTHRESHOLD_PARMNUM: u32 = 549u32;
-pub const SV_NODISC: i32 = -1i32;
-pub const SV_NUMADMIN_PARMNUM: u32 = 406u32;
-pub const SV_NUMBIGBUF_PARMNUM: u32 = 422u32;
-pub const SV_NUMBLOCKTHREADS_PARMNUM: u32 = 527u32;
-pub const SV_NUMFILETASKS_PARMNUM: u32 = 423u32;
-pub const SV_NUMREQBUF_PARMNUM: u32 = 420u32;
-pub const SV_OPENFILES_PARMNUM: u32 = 414u32;
-pub const SV_OPENSEARCH_PARMNUM: u32 = 503u32;
-pub const SV_OPLOCKBREAKRESPONSEWAIT_PARMNUM: u32 = 535u32;
-pub const SV_OPLOCKBREAKWAIT_PARMNUM: u32 = 534u32;
-pub const SV_OTHERQUEUEAFFINITY_PARMNUM: u32 = 575u32;
-pub const SV_PLATFORM_ID_NT: u32 = 500u32;
-pub const SV_PLATFORM_ID_OS2: u32 = 400u32;
-pub const SV_PLATFORM_ID_PARMNUM: u32 = 101u32;
-pub const SV_PREFERREDAFFINITY_PARMNUM: u32 = 578u32;
-pub const SV_PRODUCTTYPE_PARMNUM: u32 = 560u32;
-pub const SV_QUEUESAMPLESECS_PARMNUM: u32 = 576u32;
-pub const SV_RAWWORKITEMS_PARMNUM: u32 = 507u32;
-pub const SV_REMOVEDUPLICATESEARCHES_PARMNUM: u32 = 566u32;
-pub const SV_REQUIRESECURITYSIGNATURE_PARMNUM: u32 = 594u32;
-pub const SV_RESTRICTNULLSESSACCESS_PARMNUM: u32 = 573u32;
-pub const SV_SCAVQOSINFOUPDATETIME_PARMNUM: u32 = 555u32;
-pub const SV_SCAVTIMEOUT_PARMNUM: u32 = 528u32;
-pub const SV_SECURITY_PARMNUM: u32 = 405u32;
-pub const SV_SENDSFROMPREFERREDPROCESSOR_PARMNUM: u32 = 585u32;
-pub const SV_SERVERSIZE_PARMNUM: u32 = 561u32;
-pub const SV_SESSCONNS_PARMNUM: u32 = 511u32;
-pub const SV_SESSOPENS_PARMNUM: u32 = 501u32;
-pub const SV_SESSREQS_PARMNUM: u32 = 417u32;
-pub const SV_SESSUSERS_PARMNUM: u32 = 510u32;
-pub const SV_SESSVCS_PARMNUM: u32 = 502u32;
-pub const SV_SHARESECURITY: SERVER_INFO_SECURITY = 0u32;
-pub const SV_SHARES_PARMNUM: u32 = 413u32;
-pub const SV_SHARINGVIOLATIONDELAY_PARMNUM: u32 = 564u32;
-pub const SV_SHARINGVIOLATIONRETRIES_PARMNUM: u32 = 563u32;
-pub const SV_SIZREQBUF_PARMNUM: u32 = 504u32;
-pub const SV_SRVHEURISTICS_PARMNUM: u32 = 431u32;
-pub const SV_THREADCOUNTADD_PARMNUM: u32 = 526u32;
-pub const SV_THREADPRIORITY_PARMNUM: u32 = 532u32;
-pub const SV_TIMESOURCE_PARMNUM: u32 = 516u32;
-pub const SV_TYPE_AFP: NET_SERVER_TYPE = 64u32;
-pub const SV_TYPE_ALL: NET_SERVER_TYPE = 4294967295u32;
-pub const SV_TYPE_ALTERNATE_XPORT: NET_SERVER_TYPE = 536870912u32;
-pub const SV_TYPE_BACKUP_BROWSER: NET_SERVER_TYPE = 131072u32;
-pub const SV_TYPE_CLUSTER_NT: NET_SERVER_TYPE = 16777216u32;
-pub const SV_TYPE_CLUSTER_VS_NT: NET_SERVER_TYPE = 67108864u32;
-pub const SV_TYPE_DCE: NET_SERVER_TYPE = 268435456u32;
-pub const SV_TYPE_DFS: NET_SERVER_TYPE = 8388608u32;
-pub const SV_TYPE_DIALIN_SERVER: NET_SERVER_TYPE = 1024u32;
-pub const SV_TYPE_DOMAIN_BAKCTRL: NET_SERVER_TYPE = 16u32;
-pub const SV_TYPE_DOMAIN_CTRL: NET_SERVER_TYPE = 8u32;
-pub const SV_TYPE_DOMAIN_ENUM: NET_SERVER_TYPE = 2147483648u32;
-pub const SV_TYPE_DOMAIN_MASTER: NET_SERVER_TYPE = 524288u32;
-pub const SV_TYPE_DOMAIN_MEMBER: NET_SERVER_TYPE = 256u32;
-pub const SV_TYPE_LOCAL_LIST_ONLY: NET_SERVER_TYPE = 1073741824u32;
-pub const SV_TYPE_MASTER_BROWSER: NET_SERVER_TYPE = 262144u32;
-pub const SV_TYPE_NOVELL: NET_SERVER_TYPE = 128u32;
-pub const SV_TYPE_NT: NET_SERVER_TYPE = 4096u32;
-pub const SV_TYPE_PARMNUM: u32 = 105u32;
-pub const SV_TYPE_POTENTIAL_BROWSER: NET_SERVER_TYPE = 65536u32;
-pub const SV_TYPE_PRINTQ_SERVER: NET_SERVER_TYPE = 512u32;
-pub const SV_TYPE_SERVER: NET_SERVER_TYPE = 2u32;
-pub const SV_TYPE_SERVER_MFPN: NET_SERVER_TYPE = 16384u32;
-pub const SV_TYPE_SERVER_NT: NET_SERVER_TYPE = 32768u32;
-pub const SV_TYPE_SERVER_OSF: NET_SERVER_TYPE = 1048576u32;
-pub const SV_TYPE_SERVER_UNIX: NET_SERVER_TYPE = 2048u32;
-pub const SV_TYPE_SERVER_VMS: NET_SERVER_TYPE = 2097152u32;
-pub const SV_TYPE_SQLSERVER: NET_SERVER_TYPE = 4u32;
-pub const SV_TYPE_TERMINALSERVER: NET_SERVER_TYPE = 33554432u32;
-pub const SV_TYPE_TIME_SOURCE: NET_SERVER_TYPE = 32u32;
-pub const SV_TYPE_WFW: NET_SERVER_TYPE = 8192u32;
-pub const SV_TYPE_WINDOWS: NET_SERVER_TYPE = 4194304u32;
-pub const SV_TYPE_WORKSTATION: NET_SERVER_TYPE = 1u32;
-pub const SV_TYPE_XENIX_SERVER: NET_SERVER_TYPE = 2048u32;
-pub const SV_ULIST_MTIME_PARMNUM: u32 = 401u32;
-pub const SV_USERPATH_PARMNUM: u32 = 112u32;
-pub const SV_USERSECURITY: SERVER_INFO_SECURITY = 1u32;
-pub const SV_USERS_PARMNUM: u32 = 107u32;
-pub const SV_USERS_PER_LICENSE: u32 = 5u32;
-pub const SV_VERSION_MAJOR_PARMNUM: u32 = 103u32;
-pub const SV_VERSION_MINOR_PARMNUM: u32 = 104u32;
-pub const SV_VISIBLE: SERVER_INFO_HIDDEN = 0i32;
-pub const SV_XACTMEMSIZE_PARMNUM: u32 = 531u32;
-pub const SW_AUTOPROF_LOAD_MASK: u32 = 1u32;
-pub const SW_AUTOPROF_SAVE_MASK: u32 = 2u32;
-pub const ServiceAccountPasswordGUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x262e99c9_6160_4871_acec_4e61736b6f21);
-pub const TITLE_SC_MESSAGE_BOX: i32 = -1073734795i32;
-pub const TRACE_NO_STDINFO: u32 = 1u32;
-pub const TRACE_NO_SYNCH: u32 = 4u32;
-pub const TRACE_USE_CONSOLE: u32 = 2u32;
-pub const TRACE_USE_DATE: u32 = 8u32;
-pub const TRACE_USE_FILE: u32 = 1u32;
-pub const TRACE_USE_MASK: u32 = 2u32;
-pub const TRACE_USE_MSEC: u32 = 4u32;
-pub const TRANSPORT_NAME_PARMNUM: u32 = 202u32;
-pub const TRANSPORT_QUALITYOFSERVICE_PARMNUM: u32 = 201u32;
-pub const UAS_ROLE_BACKUP: USER_MODALS_ROLES = 2u32;
-pub const UAS_ROLE_MEMBER: USER_MODALS_ROLES = 1u32;
-pub const UAS_ROLE_PRIMARY: USER_MODALS_ROLES = 3u32;
-pub const UAS_ROLE_STANDALONE: USER_MODALS_ROLES = 0u32;
-pub const UF_ACCOUNTDISABLE: USER_ACCOUNT_FLAGS = 2u32;
-pub const UF_DONT_EXPIRE_PASSWD: USER_ACCOUNT_FLAGS = 65536u32;
-pub const UF_DONT_REQUIRE_PREAUTH: USER_ACCOUNT_FLAGS = 4194304u32;
-pub const UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: USER_ACCOUNT_FLAGS = 128u32;
-pub const UF_HOMEDIR_REQUIRED: USER_ACCOUNT_FLAGS = 8u32;
-pub const UF_INTERDOMAIN_TRUST_ACCOUNT: u32 = 2048u32;
-pub const UF_LOCKOUT: USER_ACCOUNT_FLAGS = 16u32;
-pub const UF_MNS_LOGON_ACCOUNT: u32 = 131072u32;
-pub const UF_NORMAL_ACCOUNT: u32 = 512u32;
-pub const UF_NOT_DELEGATED: USER_ACCOUNT_FLAGS = 1048576u32;
-pub const UF_NO_AUTH_DATA_REQUIRED: u32 = 33554432u32;
-pub const UF_PARTIAL_SECRETS_ACCOUNT: u32 = 67108864u32;
-pub const UF_PASSWD_CANT_CHANGE: USER_ACCOUNT_FLAGS = 64u32;
-pub const UF_PASSWD_NOTREQD: USER_ACCOUNT_FLAGS = 32u32;
-pub const UF_PASSWORD_EXPIRED: USER_ACCOUNT_FLAGS = 8388608u32;
-pub const UF_SCRIPT: USER_ACCOUNT_FLAGS = 1u32;
-pub const UF_SERVER_TRUST_ACCOUNT: u32 = 8192u32;
-pub const UF_SMARTCARD_REQUIRED: USER_ACCOUNT_FLAGS = 262144u32;
-pub const UF_TEMP_DUPLICATE_ACCOUNT: u32 = 256u32;
-pub const UF_TRUSTED_FOR_DELEGATION: USER_ACCOUNT_FLAGS = 524288u32;
-pub const UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: USER_ACCOUNT_FLAGS = 16777216u32;
-pub const UF_USE_AES_KEYS: u32 = 134217728u32;
-pub const UF_USE_DES_KEY_ONLY: USER_ACCOUNT_FLAGS = 2097152u32;
-pub const UF_WORKSTATION_TRUST_ACCOUNT: u32 = 4096u32;
-pub const UNCLEN: u32 = 17u32;
-pub const UNITS_PER_DAY: u32 = 24u32;
-pub const UNLEN: u32 = 256u32;
-pub const UPPER_GET_HINT_MASK: u32 = 267386880u32;
-pub const UPPER_HINT_MASK: u32 = 65280u32;
-pub const USER_ACCT_EXPIRES_PARMNUM: u32 = 17u32;
-pub const USER_AUTH_FLAGS_PARMNUM: u32 = 10u32;
-pub const USER_CODE_PAGE_PARMNUM: u32 = 25u32;
-pub const USER_COMMENT_PARMNUM: u32 = 7u32;
-pub const USER_COUNTRY_CODE_PARMNUM: u32 = 24u32;
-pub const USER_FLAGS_PARMNUM: u32 = 8u32;
-pub const USER_FULL_NAME_PARMNUM: u32 = 11u32;
-pub const USER_HOME_DIR_DRIVE_PARMNUM: u32 = 53u32;
-pub const USER_HOME_DIR_PARMNUM: u32 = 6u32;
-pub const USER_LAST_LOGOFF_PARMNUM: u32 = 16u32;
-pub const USER_LAST_LOGON_PARMNUM: u32 = 15u32;
-pub const USER_LOGON_HOURS_PARMNUM: u32 = 20u32;
-pub const USER_LOGON_SERVER_PARMNUM: u32 = 23u32;
-pub const USER_MAX_STORAGE_PARMNUM: u32 = 18u32;
-pub const USER_NAME_PARMNUM: u32 = 1u32;
-pub const USER_NUM_LOGONS_PARMNUM: u32 = 22u32;
-pub const USER_PAD_PW_COUNT_PARMNUM: u32 = 21u32;
-pub const USER_PARMS_PARMNUM: u32 = 13u32;
-pub const USER_PASSWORD_AGE_PARMNUM: u32 = 4u32;
-pub const USER_PASSWORD_PARMNUM: u32 = 3u32;
-pub const USER_PRIMARY_GROUP_PARMNUM: u32 = 51u32;
-pub const USER_PRIV_ADMIN: USER_PRIV = 2u32;
-pub const USER_PRIV_GUEST: USER_PRIV = 0u32;
-pub const USER_PRIV_MASK: u32 = 3u32;
-pub const USER_PRIV_PARMNUM: u32 = 5u32;
-pub const USER_PRIV_USER: USER_PRIV = 1u32;
-pub const USER_PROFILE: u32 = 52u32;
-pub const USER_PROFILE_PARMNUM: u32 = 52u32;
-pub const USER_SCRIPT_PATH_PARMNUM: u32 = 9u32;
-pub const USER_UNITS_PER_WEEK_PARMNUM: u32 = 19u32;
-pub const USER_USR_COMMENT_PARMNUM: u32 = 12u32;
-pub const USER_WORKSTATIONS_PARMNUM: u32 = 14u32;
-pub const USE_ASGTYPE_PARMNUM: u32 = 4u32;
-pub const USE_AUTHIDENTITY_PARMNUM: u32 = 8u32;
-pub const USE_CHARDEV: u32 = 2u32;
-pub const USE_CONN: u32 = 4u32;
-pub const USE_DEFAULT_CREDENTIALS: u32 = 4u32;
-pub const USE_DISCONN: u32 = 2u32;
-pub const USE_DISKDEV: USE_INFO_ASG_TYPE = 0u32;
-pub const USE_DOMAINNAME_PARMNUM: u32 = 6u32;
-pub const USE_FLAGS_PARMNUM: u32 = 7u32;
-pub const USE_FLAG_GLOBAL_MAPPING: u32 = 65536u32;
-pub const USE_FORCE: FORCE_LEVEL_FLAGS = 1u32;
-pub const USE_IPC: USE_INFO_ASG_TYPE = 3u32;
-pub const USE_LOCAL_PARMNUM: u32 = 1u32;
-pub const USE_LOTS_OF_FORCE: FORCE_LEVEL_FLAGS = 2u32;
-pub const USE_NETERR: u32 = 3u32;
-pub const USE_NOFORCE: FORCE_LEVEL_FLAGS = 0u32;
-pub const USE_OK: u32 = 0u32;
-pub const USE_OPTIONS_PARMNUM: u32 = 10u32;
-pub const USE_PASSWORD_PARMNUM: u32 = 3u32;
-pub const USE_PAUSED: u32 = 1u32;
-pub const USE_RECONN: u32 = 5u32;
-pub const USE_REMOTE_PARMNUM: u32 = 2u32;
-pub const USE_SD_PARMNUM: u32 = 9u32;
-pub const USE_SESSLOST: u32 = 2u32;
-pub const USE_SPECIFIC_TRANSPORT: u32 = 2147483648u32;
-pub const USE_SPOOLDEV: USE_INFO_ASG_TYPE = 1u32;
-pub const USE_USERNAME_PARMNUM: u32 = 5u32;
-pub const USE_WILDCARD: USE_INFO_ASG_TYPE = 4294967295u32;
-pub const UseTransportType_None: TRANSPORT_TYPE = 0i32;
-pub const UseTransportType_Quic: TRANSPORT_TYPE = 2i32;
-pub const UseTransportType_Wsk: TRANSPORT_TYPE = 1i32;
-pub const VALIDATED_LOGON: u32 = 0u32;
-pub const VALID_LOGOFF: u32 = 1u32;
-pub const WKSTA_BUFFERNAMEDPIPES_PARMNUM: u32 = 51u32;
-pub const WKSTA_BUFFERREADONLYFILES_PARMNUM: u32 = 59u32;
-pub const WKSTA_BUFFILESWITHDENYWRITE_PARMNUM: u32 = 58u32;
-pub const WKSTA_CACHEFILETIMEOUT_PARMNUM: u32 = 47u32;
-pub const WKSTA_CHARCOUNT_PARMNUM: u32 = 12u32;
-pub const WKSTA_CHARTIME_PARMNUM: u32 = 11u32;
-pub const WKSTA_CHARWAIT_PARMNUM: u32 = 10u32;
-pub const WKSTA_COMPUTERNAME_PARMNUM: u32 = 1u32;
-pub const WKSTA_DORMANTFILELIMIT_PARMNUM: u32 = 46u32;
-pub const WKSTA_ERRLOGSZ_PARMNUM: u32 = 27u32;
-pub const WKSTA_FORCECORECREATEMODE_PARMNUM: u32 = 60u32;
-pub const WKSTA_KEEPCONN_PARMNUM: u32 = 13u32;
-pub const WKSTA_KEEPSEARCH_PARMNUM: u32 = 14u32;
-pub const WKSTA_LANGROUP_PARMNUM: u32 = 2u32;
-pub const WKSTA_LANROOT_PARMNUM: u32 = 7u32;
-pub const WKSTA_LOCKINCREMENT_PARMNUM: u32 = 42u32;
-pub const WKSTA_LOCKMAXIMUM_PARMNUM: u32 = 43u32;
-pub const WKSTA_LOCKQUOTA_PARMNUM: u32 = 41u32;
-pub const WKSTA_LOGGED_ON_USERS_PARMNUM: u32 = 6u32;
-pub const WKSTA_LOGON_DOMAIN_PARMNUM: u32 = 8u32;
-pub const WKSTA_LOGON_SERVER_PARMNUM: u32 = 9u32;
-pub const WKSTA_MAILSLOTS_PARMNUM: u32 = 30u32;
-pub const WKSTA_MAXCMDS_PARMNUM: u32 = 15u32;
-pub const WKSTA_MAXTHREADS_PARMNUM: u32 = 33u32;
-pub const WKSTA_MAXWRKCACHE_PARMNUM: u32 = 17u32;
-pub const WKSTA_NUMALERTS_PARMNUM: u32 = 20u32;
-pub const WKSTA_NUMCHARBUF_PARMNUM: u32 = 22u32;
-pub const WKSTA_NUMDGRAMBUF_PARMNUM: u32 = 31u32;
-pub const WKSTA_NUMSERVICES_PARMNUM: u32 = 21u32;
-pub const WKSTA_NUMWORKBUF_PARMNUM: u32 = 16u32;
-pub const WKSTA_OTH_DOMAINS_PARMNUM: u32 = 101u32;
-pub const WKSTA_PIPEINCREMENT_PARMNUM: u32 = 44u32;
-pub const WKSTA_PIPEMAXIMUM_PARMNUM: u32 = 45u32;
-pub const WKSTA_PLATFORM_ID_PARMNUM: u32 = 100u32;
-pub const WKSTA_PRINTBUFTIME_PARMNUM: u32 = 28u32;
-pub const WKSTA_READAHEADTHRUPUT_PARMNUM: u32 = 62u32;
-pub const WKSTA_SESSTIMEOUT_PARMNUM: u32 = 18u32;
-pub const WKSTA_SIZCHARBUF_PARMNUM: u32 = 23u32;
-pub const WKSTA_SIZERROR_PARMNUM: u32 = 19u32;
-pub const WKSTA_SIZWORKBUF_PARMNUM: u32 = 29u32;
-pub const WKSTA_USE512BYTESMAXTRANSFER_PARMNUM: u32 = 61u32;
-pub const WKSTA_USECLOSEBEHIND_PARMNUM: u32 = 50u32;
-pub const WKSTA_USEENCRYPTION_PARMNUM: u32 = 57u32;
-pub const WKSTA_USELOCKANDREADANDUNLOCK_PARMNUM: u32 = 52u32;
-pub const WKSTA_USEOPPORTUNISTICLOCKING_PARMNUM: u32 = 48u32;
-pub const WKSTA_USERAWREAD_PARMNUM: u32 = 54u32;
-pub const WKSTA_USERAWWRITE_PARMNUM: u32 = 55u32;
-pub const WKSTA_USEUNLOCKBEHIND_PARMNUM: u32 = 49u32;
-pub const WKSTA_USEWRITERAWWITHDATA_PARMNUM: u32 = 56u32;
-pub const WKSTA_UTILIZENTCACHING_PARMNUM: u32 = 53u32;
-pub const WKSTA_VER_MAJOR_PARMNUM: u32 = 4u32;
-pub const WKSTA_VER_MINOR_PARMNUM: u32 = 5u32;
-pub const WKSTA_WRKHEURISTICS_PARMNUM: u32 = 32u32;
-pub const WORKSTATION_DISPLAY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("Workstation");
-pub const WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_SCHEMA: u32 = 34u32;
-pub const WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_XML: u32 = 33u32;
-pub const WZC_PROFILE_API_ERROR_INTERNAL: u32 = 36u32;
-pub const WZC_PROFILE_API_ERROR_NOT_SUPPORTED: u32 = 32u32;
-pub const WZC_PROFILE_API_ERROR_XML_VALIDATION_FAILED: u32 = 35u32;
-pub const WZC_PROFILE_CONFIG_ERROR_1X_NOT_ALLOWED: u32 = 20u32;
-pub const WZC_PROFILE_CONFIG_ERROR_1X_NOT_ALLOWED_KEY_REQUIRED: u32 = 21u32;
-pub const WZC_PROFILE_CONFIG_ERROR_1X_NOT_ENABLED_KEY_PROVIDED: u32 = 22u32;
-pub const WZC_PROFILE_CONFIG_ERROR_EAP_METHOD_NOT_APPLICABLE: u32 = 24u32;
-pub const WZC_PROFILE_CONFIG_ERROR_EAP_METHOD_REQUIRED: u32 = 23u32;
-pub const WZC_PROFILE_CONFIG_ERROR_INVALID_AUTH_FOR_CONNECTION_TYPE: u32 = 15u32;
-pub const WZC_PROFILE_CONFIG_ERROR_INVALID_ENCRYPTION_FOR_AUTHMODE: u32 = 16u32;
-pub const WZC_PROFILE_CONFIG_ERROR_KEY_INDEX_NOT_APPLICABLE: u32 = 19u32;
-pub const WZC_PROFILE_CONFIG_ERROR_KEY_INDEX_REQUIRED: u32 = 18u32;
-pub const WZC_PROFILE_CONFIG_ERROR_KEY_REQUIRED: u32 = 17u32;
-pub const WZC_PROFILE_CONFIG_ERROR_WPA_ENCRYPTION_NOT_SUPPORTED: u32 = 26u32;
-pub const WZC_PROFILE_CONFIG_ERROR_WPA_NOT_SUPPORTED: u32 = 25u32;
-pub const WZC_PROFILE_SET_ERROR_DUPLICATE_NETWORK: u32 = 27u32;
-pub const WZC_PROFILE_SET_ERROR_MEMORY_ALLOCATION: u32 = 28u32;
-pub const WZC_PROFILE_SET_ERROR_READING_1X_CONFIG: u32 = 29u32;
-pub const WZC_PROFILE_SET_ERROR_WRITING_1X_CONFIG: u32 = 30u32;
-pub const WZC_PROFILE_SET_ERROR_WRITING_WZC_CFG: u32 = 31u32;
-pub const WZC_PROFILE_SUCCESS: u32 = 0u32;
-pub const WZC_PROFILE_XML_ERROR_1X_ENABLED: u32 = 10u32;
-pub const WZC_PROFILE_XML_ERROR_AUTHENTICATION: u32 = 7u32;
-pub const WZC_PROFILE_XML_ERROR_BAD_KEY_INDEX: u32 = 12u32;
-pub const WZC_PROFILE_XML_ERROR_BAD_NETWORK_KEY: u32 = 14u32;
-pub const WZC_PROFILE_XML_ERROR_BAD_SSID: u32 = 5u32;
-pub const WZC_PROFILE_XML_ERROR_BAD_VERSION: u32 = 2u32;
-pub const WZC_PROFILE_XML_ERROR_CONNECTION_TYPE: u32 = 6u32;
-pub const WZC_PROFILE_XML_ERROR_EAP_METHOD: u32 = 11u32;
-pub const WZC_PROFILE_XML_ERROR_ENCRYPTION: u32 = 8u32;
-pub const WZC_PROFILE_XML_ERROR_KEY_INDEX_RANGE: u32 = 13u32;
-pub const WZC_PROFILE_XML_ERROR_KEY_PROVIDED_AUTOMATICALLY: u32 = 9u32;
-pub const WZC_PROFILE_XML_ERROR_NO_VERSION: u32 = 1u32;
-pub const WZC_PROFILE_XML_ERROR_SSID_NOT_FOUND: u32 = 4u32;
-pub const WZC_PROFILE_XML_ERROR_UNSUPPORTED_VERSION: u32 = 3u32;
-pub type AF_OP = u32;
-pub type BIND_FLAGS1 = i32;
-pub type COMPONENT_CHARACTERISTICS = i32;
-pub type DEFAULT_PAGES = i32;
-pub type DSREG_JOIN_TYPE = i32;
-pub type ENUM_BINDING_PATHS_FLAGS = i32;
-pub type FORCE_LEVEL_FLAGS = u32;
-pub type MSA_INFO_LEVEL = i32;
-pub type MSA_INFO_STATE = i32;
-pub type NCPNP_RECONFIG_LAYER = i32;
-pub type NCRP_FLAGS = i32;
-pub type NETSETUP_JOIN_STATUS = i32;
-pub type NETSETUP_NAME_TYPE = i32;
-pub type NETSETUP_PROVISION = u32;
-pub type NETWORK_INSTALL_TIME = i32;
-pub type NETWORK_UPGRADE_TYPE = i32;
-pub type NET_COMPUTER_NAME_TYPE = i32;
-pub type NET_JOIN_DOMAIN_JOIN_OPTIONS = u32;
-pub type NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = u32;
-pub type NET_REQUEST_PROVISION_OPTIONS = u32;
-pub type NET_SERVER_TYPE = u32;
-pub type NET_USER_ENUM_FILTER_FLAGS = u32;
-pub type NET_VALIDATE_PASSWORD_TYPE = i32;
-pub type OBO_TOKEN_TYPE = i32;
-pub type RASCON_UIINFO_FLAGS = i32;
-pub type SERVER_INFO_HIDDEN = i32;
-pub type SERVER_INFO_SECURITY = u32;
-pub type SUPPORTS_BINDING_INTERFACE_FLAGS = i32;
-pub type TRANSPORT_TYPE = i32;
-pub type USER_ACCOUNT_FLAGS = u32;
-pub type USER_MODALS_ROLES = u32;
-pub type USER_PRIV = u32;
-pub type USE_INFO_ASG_TYPE = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACCESS_INFO_0 {
-    pub acc0_resource_name: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACCESS_INFO_1 {
-    pub acc1_resource_name: windows_sys::core::PWSTR,
-    pub acc1_attr: u32,
-    pub acc1_count: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACCESS_INFO_1002 {
-    pub acc1002_attr: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACCESS_LIST {
-    pub acl_ugname: windows_sys::core::PWSTR,
-    pub acl_access: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ADMIN_OTHER_INFO {
-    pub alrtad_errcode: u32,
-    pub alrtad_numstrings: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_ACCLIM {
-    pub ae_al_compname: u32,
-    pub ae_al_username: u32,
-    pub ae_al_resname: u32,
-    pub ae_al_limit: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_ACLMOD {
-    pub ae_am_compname: u32,
-    pub ae_am_username: u32,
-    pub ae_am_resname: u32,
-    pub ae_am_action: u32,
-    pub ae_am_datalen: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_CLOSEFILE {
-    pub ae_cf_compname: u32,
-    pub ae_cf_username: u32,
-    pub ae_cf_resname: u32,
-    pub ae_cf_fileid: u32,
-    pub ae_cf_duration: u32,
-    pub ae_cf_reason: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_CONNREJ {
-    pub ae_cr_compname: u32,
-    pub ae_cr_username: u32,
-    pub ae_cr_netname: u32,
-    pub ae_cr_reason: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_CONNSTART {
-    pub ae_ct_compname: u32,
-    pub ae_ct_username: u32,
-    pub ae_ct_netname: u32,
-    pub ae_ct_connid: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_CONNSTOP {
-    pub ae_cp_compname: u32,
-    pub ae_cp_username: u32,
-    pub ae_cp_netname: u32,
-    pub ae_cp_connid: u32,
-    pub ae_cp_reason: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_GENERIC {
-    pub ae_ge_msgfile: u32,
-    pub ae_ge_msgnum: u32,
-    pub ae_ge_params: u32,
-    pub ae_ge_param1: u32,
-    pub ae_ge_param2: u32,
-    pub ae_ge_param3: u32,
-    pub ae_ge_param4: u32,
-    pub ae_ge_param5: u32,
-    pub ae_ge_param6: u32,
-    pub ae_ge_param7: u32,
-    pub ae_ge_param8: u32,
-    pub ae_ge_param9: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_LOCKOUT {
-    pub ae_lk_compname: u32,
-    pub ae_lk_username: u32,
-    pub ae_lk_action: u32,
-    pub ae_lk_bad_pw_count: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_NETLOGOFF {
-    pub ae_nf_compname: u32,
-    pub ae_nf_username: u32,
-    pub ae_nf_reserved1: u32,
-    pub ae_nf_reserved2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_NETLOGON {
-    pub ae_no_compname: u32,
-    pub ae_no_username: u32,
-    pub ae_no_privilege: u32,
-    pub ae_no_authflags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_RESACCESS {
-    pub ae_ra_compname: u32,
-    pub ae_ra_username: u32,
-    pub ae_ra_resname: u32,
-    pub ae_ra_operation: u32,
-    pub ae_ra_returncode: u32,
-    pub ae_ra_restype: u32,
-    pub ae_ra_fileid: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_RESACCESSREJ {
-    pub ae_rr_compname: u32,
-    pub ae_rr_username: u32,
-    pub ae_rr_resname: u32,
-    pub ae_rr_operation: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_SERVICESTAT {
-    pub ae_ss_compname: u32,
-    pub ae_ss_username: u32,
-    pub ae_ss_svcname: u32,
-    pub ae_ss_status: u32,
-    pub ae_ss_code: u32,
-    pub ae_ss_text: u32,
-    pub ae_ss_returnval: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_SESSLOGOFF {
-    pub ae_sf_compname: u32,
-    pub ae_sf_username: u32,
-    pub ae_sf_reason: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_SESSLOGON {
-    pub ae_so_compname: u32,
-    pub ae_so_username: u32,
-    pub ae_so_privilege: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_SESSPWERR {
-    pub ae_sp_compname: u32,
-    pub ae_sp_username: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_SRVSTATUS {
-    pub ae_sv_status: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AE_UASMOD {
-    pub ae_um_compname: u32,
-    pub ae_um_username: u32,
-    pub ae_um_resname: u32,
-    pub ae_um_rectype: u32,
-    pub ae_um_action: u32,
-    pub ae_um_datalen: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AT_ENUM {
-    pub JobId: u32,
-    pub JobTime: usize,
-    pub DaysOfMonth: u32,
-    pub DaysOfWeek: u8,
-    pub Flags: u8,
-    pub Command: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AT_INFO {
-    pub JobTime: usize,
-    pub DaysOfMonth: u32,
-    pub DaysOfWeek: u8,
-    pub Flags: u8,
-    pub Command: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUDIT_ENTRY {
-    pub ae_len: u32,
-    pub ae_reserved: u32,
-    pub ae_time: u32,
-    pub ae_type: u32,
-    pub ae_data_offset: u32,
-    pub ae_data_size: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONFIG_INFO_0 {
-    pub cfgi0_key: windows_sys::core::PWSTR,
-    pub cfgi0_data: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
-pub struct DSREG_JOIN_INFO {
-    pub joinType: DSREG_JOIN_TYPE,
-    pub pJoinCertificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
-    pub pszDeviceId: windows_sys::core::PWSTR,
-    pub pszIdpDomain: windows_sys::core::PWSTR,
-    pub pszTenantId: windows_sys::core::PWSTR,
-    pub pszJoinUserEmail: windows_sys::core::PWSTR,
-    pub pszTenantDisplayName: windows_sys::core::PWSTR,
-    pub pszMdmEnrollmentUrl: windows_sys::core::PWSTR,
-    pub pszMdmTermsOfUseUrl: windows_sys::core::PWSTR,
-    pub pszMdmComplianceUrl: windows_sys::core::PWSTR,
-    pub pszUserSettingSyncUrl: windows_sys::core::PWSTR,
-    pub pUserInfo: *mut DSREG_USER_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DSREG_USER_INFO {
-    pub pszUserEmail: windows_sys::core::PWSTR,
-    pub pszUserKeyId: windows_sys::core::PWSTR,
-    pub pszUserKeyName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ERRLOG_OTHER_INFO {
-    pub alrter_errcode: u32,
-    pub alrter_offset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ERROR_LOG {
-    pub el_len: u32,
-    pub el_reserved: u32,
-    pub el_time: u32,
-    pub el_error: u32,
-    pub el_name: windows_sys::core::PWSTR,
-    pub el_text: windows_sys::core::PWSTR,
-    pub el_data: *mut u8,
-    pub el_data_size: u32,
-    pub el_nstrings: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FLAT_STRING {
-    pub MaximumLength: i16,
-    pub Length: i16,
-    pub Buffer: [i8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_INFO_0 {
-    pub grpi0_name: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_INFO_1 {
-    pub grpi1_name: windows_sys::core::PWSTR,
-    pub grpi1_comment: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_INFO_1002 {
-    pub grpi1002_comment: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_INFO_1005 {
-    pub grpi1005_attributes: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_INFO_2 {
-    pub grpi2_name: windows_sys::core::PWSTR,
-    pub grpi2_comment: windows_sys::core::PWSTR,
-    pub grpi2_group_id: u32,
-    pub grpi2_attributes: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct GROUP_INFO_3 {
-    pub grpi3_name: windows_sys::core::PWSTR,
-    pub grpi3_comment: windows_sys::core::PWSTR,
-    pub grpi3_group_sid: super::super::Security::PSID,
-    pub grpi3_attributes: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_USERS_INFO_0 {
-    pub grui0_name: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_USERS_INFO_1 {
-    pub grui1_name: windows_sys::core::PWSTR,
-    pub grui1_attributes: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HARDWARE_ADDRESS {
-    pub Address: [u8; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HLOG {
-    pub time: u32,
-    pub last_flags: u32,
-    pub offset: u32,
-    pub rec_offset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LOCALGROUP_INFO_0 {
-    pub lgrpi0_name: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LOCALGROUP_INFO_1 {
-    pub lgrpi1_name: windows_sys::core::PWSTR,
-    pub lgrpi1_comment: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LOCALGROUP_INFO_1002 {
-    pub lgrpi1002_comment: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct LOCALGROUP_MEMBERS_INFO_0 {
-    pub lgrmi0_sid: super::super::Security::PSID,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct LOCALGROUP_MEMBERS_INFO_1 {
-    pub lgrmi1_sid: super::super::Security::PSID,
-    pub lgrmi1_sidusage: super::super::Security::SID_NAME_USE,
-    pub lgrmi1_name: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct LOCALGROUP_MEMBERS_INFO_2 {
-    pub lgrmi2_sid: super::super::Security::PSID,
-    pub lgrmi2_sidusage: super::super::Security::SID_NAME_USE,
-    pub lgrmi2_domainandname: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LOCALGROUP_MEMBERS_INFO_3 {
-    pub lgrmi3_domainandname: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LOCALGROUP_USERS_INFO_0 {
-    pub lgrui0_name: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MPR_PROTOCOL_0 {
-    pub dwProtocolId: u32,
-    pub wszProtocol: [u16; 41],
-    pub wszDLLName: [u16; 49],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSA_INFO_0 {
-    pub State: MSA_INFO_STATE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSG_INFO_0 {
-    pub msgi0_name: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSG_INFO_1 {
-    pub msgi1_name: windows_sys::core::PWSTR,
-    pub msgi1_forward_flag: u32,
-    pub msgi1_forward: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETLOGON_INFO_1 {
-    pub netlog1_flags: u32,
-    pub netlog1_pdc_connection_status: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETLOGON_INFO_2 {
-    pub netlog2_flags: u32,
-    pub netlog2_pdc_connection_status: u32,
-    pub netlog2_trusted_dc_name: windows_sys::core::PWSTR,
-    pub netlog2_tc_connection_status: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETLOGON_INFO_3 {
-    pub netlog3_flags: u32,
-    pub netlog3_logon_attempts: u32,
-    pub netlog3_reserved1: u32,
-    pub netlog3_reserved2: u32,
-    pub netlog3_reserved3: u32,
-    pub netlog3_reserved4: u32,
-    pub netlog3_reserved5: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETLOGON_INFO_4 {
-    pub netlog4_trusted_dc_name: windows_sys::core::PWSTR,
-    pub netlog4_trusted_domain_name: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETSETUP_PROVISIONING_PARAMS {
-    pub dwVersion: u32,
-    pub lpDomain: windows_sys::core::PCWSTR,
-    pub lpHostName: windows_sys::core::PCWSTR,
-    pub lpMachineAccountOU: windows_sys::core::PCWSTR,
-    pub lpDcName: windows_sys::core::PCWSTR,
-    pub dwProvisionOptions: NETSETUP_PROVISION,
-    pub aCertTemplateNames: *const windows_sys::core::PCWSTR,
-    pub cCertTemplateNames: u32,
-    pub aMachinePolicyNames: *const windows_sys::core::PCWSTR,
-    pub cMachinePolicyNames: u32,
-    pub aMachinePolicyPaths: *const windows_sys::core::PCWSTR,
-    pub cMachinePolicyPaths: u32,
-    pub lpNetbiosName: windows_sys::core::PWSTR,
-    pub lpSiteName: windows_sys::core::PWSTR,
-    pub lpPrimaryDNSDomain: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_NAME {
-    pub Name: FLAT_STRING,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_DISPLAY_GROUP {
-    pub grpi3_name: windows_sys::core::PWSTR,
-    pub grpi3_comment: windows_sys::core::PWSTR,
-    pub grpi3_group_id: u32,
-    pub grpi3_attributes: u32,
-    pub grpi3_next_index: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_DISPLAY_MACHINE {
-    pub usri2_name: windows_sys::core::PWSTR,
-    pub usri2_comment: windows_sys::core::PWSTR,
-    pub usri2_flags: USER_ACCOUNT_FLAGS,
-    pub usri2_user_id: u32,
-    pub usri2_next_index: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_DISPLAY_USER {
-    pub usri1_name: windows_sys::core::PWSTR,
-    pub usri1_comment: windows_sys::core::PWSTR,
-    pub usri1_flags: USER_ACCOUNT_FLAGS,
-    pub usri1_full_name: windows_sys::core::PWSTR,
-    pub usri1_user_id: u32,
-    pub usri1_next_index: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
-    pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-    pub PasswordMatched: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_VALIDATE_OUTPUT_ARG {
-    pub ChangedPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-    pub ValidationStatus: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
-    pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-    pub ClearPassword: windows_sys::core::PWSTR,
-    pub UserAccountName: windows_sys::core::PWSTR,
-    pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
-    pub PasswordMatch: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_VALIDATE_PASSWORD_HASH {
-    pub Length: u32,
-    pub Hash: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
-    pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-    pub ClearPassword: windows_sys::core::PWSTR,
-    pub UserAccountName: windows_sys::core::PWSTR,
-    pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
-    pub PasswordMustChangeAtNextLogon: super::super::Foundation::BOOLEAN,
-    pub ClearLockout: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_VALIDATE_PERSISTED_FIELDS {
-    pub PresentFields: u32,
-    pub PasswordLastSet: super::super::Foundation::FILETIME,
-    pub BadPasswordTime: super::super::Foundation::FILETIME,
-    pub LockoutTime: super::super::Foundation::FILETIME,
-    pub BadPasswordCount: u32,
-    pub PasswordHistoryLength: u32,
-    pub PasswordHistory: *mut NET_VALIDATE_PASSWORD_HASH,
-}
-pub const NetProvisioning: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OBO_TOKEN {
-    pub Type: OBO_TOKEN_TYPE,
-    pub pncc: *mut core::ffi::c_void,
-    pub pszwManufacturer: windows_sys::core::PCWSTR,
-    pub pszwProduct: windows_sys::core::PCWSTR,
-    pub pszwDisplayName: windows_sys::core::PCWSTR,
-    pub fRegistered: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PRINT_OTHER_INFO {
-    pub alrtpr_jobid: u32,
-    pub alrtpr_status: u32,
-    pub alrtpr_submitted: u32,
-    pub alrtpr_size: u32,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASCON_IPUI {
@@ -3063,6 +2426,24 @@ pub struct RASCON_IPUI {
     pub dwIPv4InfMetric: u32,
     pub dwIPv6InfMetric: u32,
 }
+pub type RASCON_UIINFO_FLAGS = i32;
+pub const RCUIF_DEMAND_DIAL: RASCON_UIINFO_FLAGS = 2i32;
+pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: RASCON_UIINFO_FLAGS = 32768i32;
+pub const RCUIF_ENABLE_NBT: RASCON_UIINFO_FLAGS = 1024i32;
+pub const RCUIF_NOT_ADMIN: RASCON_UIINFO_FLAGS = 4i32;
+pub const RCUIF_USE_DISABLE_REGISTER_DNS: RASCON_UIINFO_FLAGS = 256i32;
+pub const RCUIF_USE_HEADER_COMPRESSION: RASCON_UIINFO_FLAGS = 128i32;
+pub const RCUIF_USE_IPv4_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = 64i32;
+pub const RCUIF_USE_IPv4_NAME_SERVERS: RASCON_UIINFO_FLAGS = 16i32;
+pub const RCUIF_USE_IPv4_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = 32i32;
+pub const RCUIF_USE_IPv4_STATICADDRESS: RASCON_UIINFO_FLAGS = 8i32;
+pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = 16384i32;
+pub const RCUIF_USE_IPv6_NAME_SERVERS: RASCON_UIINFO_FLAGS = 4096i32;
+pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = 8192i32;
+pub const RCUIF_USE_IPv6_STATICADDRESS: RASCON_UIINFO_FLAGS = 2048i32;
+pub const RCUIF_USE_PRIVATE_DNS_SUFFIX: RASCON_UIINFO_FLAGS = 512i32;
+pub const RCUIF_VPN: RASCON_UIINFO_FLAGS = 1i32;
+pub const REGISTER_PROTOCOL_ENTRY_POINT_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("RegisterProtocol");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REPL_EDIR_INFO_0 {
@@ -3094,6 +2475,11 @@ pub struct REPL_EDIR_INFO_2 {
     pub rped2_lockcount: u32,
     pub rped2_locktime: u32,
 }
+pub const REPL_EXPORT_EXTENT_INFOLEVEL: u32 = 1001u32;
+pub const REPL_EXPORT_INTEGRITY_INFOLEVEL: u32 = 1000u32;
+pub const REPL_EXTENT_FILE: u32 = 1u32;
+pub const REPL_EXTENT_TREE: u32 = 2u32;
+pub const REPL_GUARDTIME_INFOLEVEL: u32 = 1002u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REPL_IDIR_INFO_0 {
@@ -3143,6 +2529,32 @@ pub struct REPL_INFO_1002 {
 pub struct REPL_INFO_1003 {
     pub rp1003_random: u32,
 }
+pub const REPL_INTEGRITY_FILE: u32 = 1u32;
+pub const REPL_INTEGRITY_TREE: u32 = 2u32;
+pub const REPL_INTERVAL_INFOLEVEL: u32 = 1000u32;
+pub const REPL_PULSE_INFOLEVEL: u32 = 1001u32;
+pub const REPL_RANDOM_INFOLEVEL: u32 = 1003u32;
+pub const REPL_ROLE_BOTH: u32 = 3u32;
+pub const REPL_ROLE_EXPORT: u32 = 1u32;
+pub const REPL_ROLE_IMPORT: u32 = 2u32;
+pub const REPL_STATE_NEVER_REPLICATED: u32 = 3u32;
+pub const REPL_STATE_NO_MASTER: u32 = 1u32;
+pub const REPL_STATE_NO_SYNC: u32 = 2u32;
+pub const REPL_STATE_OK: u32 = 0u32;
+pub const REPL_UNLOCK_FORCE: u32 = 1u32;
+pub const REPL_UNLOCK_NOFORCE: u32 = 0u32;
+pub const RF_ADD_ALL_INTERFACES: u32 = 16u32;
+pub const RF_DEMAND_UPDATE_ROUTES: u32 = 4u32;
+pub const RF_MULTICAST: u32 = 32u32;
+pub const RF_POWER: u32 = 64u32;
+pub const RF_ROUTING: u32 = 1u32;
+pub const RF_ROUTINGV6: u32 = 2u32;
+pub const RIS_INTERFACE_ADDRESS_CHANGE: u32 = 0u32;
+pub const RIS_INTERFACE_DISABLED: u32 = 2u32;
+pub const RIS_INTERFACE_ENABLED: u32 = 1u32;
+pub const RIS_INTERFACE_MEDIA_ABSENT: u32 = 4u32;
+pub const RIS_INTERFACE_MEDIA_PRESENT: u32 = 3u32;
+pub const ROUTING_DOMAIN_INFO_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTR_INFO_BLOCK_HEADER {
@@ -3151,6 +2563,7 @@ pub struct RTR_INFO_BLOCK_HEADER {
     pub TocEntriesCount: u32,
     pub TocEntry: [RTR_TOC_ENTRY; 1],
 }
+pub const RTR_INFO_BLOCK_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTR_TOC_ENTRY {
@@ -3159,6 +2572,10 @@ pub struct RTR_TOC_ENTRY {
     pub Count: u32,
     pub Offset: u32,
 }
+pub const RTUTILS_MAX_PROTOCOL_DLL_LEN: u32 = 48u32;
+pub const RTUTILS_MAX_PROTOCOL_NAME_LEN: u32 = 40u32;
+pub const SERVCE_LM20_W32TIME: windows_sys::core::PCWSTR = windows_sys::core::w!("w32time");
+pub const SERVER_DISPLAY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("Server");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_100 {
@@ -3928,6 +3345,8 @@ pub struct SERVER_INFO_599 {
     pub sv599_scavqosinfoupdatetime: u32,
     pub sv599_maxworkitemidletime: u32,
 }
+pub type SERVER_INFO_HIDDEN = i32;
+pub type SERVER_INFO_SECURITY = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_TRANSPORT_INFO_0 {
@@ -3971,6 +3390,33 @@ pub struct SERVER_TRANSPORT_INFO_3 {
     pub svti3_passwordlength: u32,
     pub svti3_password: [u8; 256],
 }
+pub const SERVICE2_BASE: u32 = 5600u32;
+pub const SERVICE_ACCOUNT_FLAG_ADD_AGAINST_RODC: i32 = 2i32;
+pub const SERVICE_ACCOUNT_FLAG_LINK_TO_HOST_ONLY: i32 = 1i32;
+pub const SERVICE_ACCOUNT_FLAG_REMOVE_OFFLINE: i32 = 2i32;
+pub const SERVICE_ACCOUNT_FLAG_UNLINK_FROM_HOST_ONLY: i32 = 1i32;
+pub const SERVICE_ACCOUNT_PASSWORD: windows_sys::core::PCWSTR = windows_sys::core::w!("_SA_{262E99C9-6160-4871-ACEC-4E61736B6F21}");
+pub const SERVICE_ACCOUNT_SECRET_PREFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("_SC_{262E99C9-6160-4871-ACEC-4E61736B6F21}_");
+pub const SERVICE_ADWS: windows_sys::core::PCWSTR = windows_sys::core::w!("ADWS");
+pub const SERVICE_AFP: windows_sys::core::PCWSTR = windows_sys::core::w!("AFP");
+pub const SERVICE_ALERTER: windows_sys::core::PCWSTR = windows_sys::core::w!("ALERTER");
+pub const SERVICE_BASE: u32 = 3050u32;
+pub const SERVICE_BROWSER: windows_sys::core::PCWSTR = windows_sys::core::w!("BROWSER");
+pub const SERVICE_CCP_CHKPT_NUM: u32 = 255u32;
+pub const SERVICE_CCP_NO_HINT: u32 = 0u32;
+pub const SERVICE_CCP_QUERY_HINT: u32 = 65536u32;
+pub const SERVICE_CCP_WAIT_TIME: u32 = 65280u32;
+pub const SERVICE_CTRL_CONTINUE: u32 = 2u32;
+pub const SERVICE_CTRL_INTERROGATE: u32 = 0u32;
+pub const SERVICE_CTRL_PAUSE: u32 = 1u32;
+pub const SERVICE_CTRL_REDIR_COMM: u32 = 4u32;
+pub const SERVICE_CTRL_REDIR_DISK: u32 = 1u32;
+pub const SERVICE_CTRL_REDIR_PRINT: u32 = 2u32;
+pub const SERVICE_CTRL_UNINSTALL: u32 = 3u32;
+pub const SERVICE_DHCP: windows_sys::core::PCWSTR = windows_sys::core::w!("DHCP");
+pub const SERVICE_DNS_CACHE: windows_sys::core::PCWSTR = windows_sys::core::w!("DnsCache");
+pub const SERVICE_DOS_ENCRYPTION: windows_sys::core::PCWSTR = windows_sys::core::w!("ENCRYPT");
+pub const SERVICE_DSROLE: windows_sys::core::PCWSTR = windows_sys::core::w!("DsRoleSvc");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVICE_INFO_0 {
@@ -3995,6 +3441,140 @@ pub struct SERVICE_INFO_2 {
     pub svci2_specific_error: u32,
     pub svci2_display_name: windows_sys::core::PWSTR,
 }
+pub const SERVICE_INSTALLED: u32 = 3u32;
+pub const SERVICE_INSTALL_PENDING: u32 = 1u32;
+pub const SERVICE_INSTALL_STATE: u32 = 3u32;
+pub const SERVICE_IP_CHKPT_NUM: u32 = 255u32;
+pub const SERVICE_IP_NO_HINT: u32 = 0u32;
+pub const SERVICE_IP_QUERY_HINT: u32 = 65536u32;
+pub const SERVICE_IP_WAITTIME_SHIFT: u32 = 8u32;
+pub const SERVICE_IP_WAIT_TIME: u32 = 65280u32;
+pub const SERVICE_ISMSERV: windows_sys::core::PCWSTR = windows_sys::core::w!("IsmServ");
+pub const SERVICE_KDC: windows_sys::core::PCWSTR = windows_sys::core::w!("kdc");
+pub const SERVICE_LM20_AFP: windows_sys::core::PCWSTR = windows_sys::core::w!("AFP");
+pub const SERVICE_LM20_ALERTER: windows_sys::core::PCWSTR = windows_sys::core::w!("ALERTER");
+pub const SERVICE_LM20_BROWSER: windows_sys::core::PCWSTR = windows_sys::core::w!("BROWSER");
+pub const SERVICE_LM20_DHCP: windows_sys::core::PCWSTR = windows_sys::core::w!("DHCP");
+pub const SERVICE_LM20_DSROLE: windows_sys::core::PCWSTR = windows_sys::core::w!("DsRoleSvc");
+pub const SERVICE_LM20_ISMSERV: windows_sys::core::PCWSTR = windows_sys::core::w!("IsmServ");
+pub const SERVICE_LM20_KDC: windows_sys::core::PCWSTR = windows_sys::core::w!("kdc");
+pub const SERVICE_LM20_LMHOSTS: windows_sys::core::PCWSTR = windows_sys::core::w!("LMHOSTS");
+pub const SERVICE_LM20_MESSENGER: windows_sys::core::PCWSTR = windows_sys::core::w!("MESSENGER");
+pub const SERVICE_LM20_NBT: windows_sys::core::PCWSTR = windows_sys::core::w!("NBT");
+pub const SERVICE_LM20_NETLOGON: windows_sys::core::PCWSTR = windows_sys::core::w!("NETLOGON");
+pub const SERVICE_LM20_NETPOPUP: windows_sys::core::PCWSTR = windows_sys::core::w!("NETPOPUP");
+pub const SERVICE_LM20_NETRUN: windows_sys::core::PCWSTR = windows_sys::core::w!("NETRUN");
+pub const SERVICE_LM20_NTDS: windows_sys::core::PCWSTR = windows_sys::core::w!("NTDS");
+pub const SERVICE_LM20_NTFRS: windows_sys::core::PCWSTR = windows_sys::core::w!("NtFrs");
+pub const SERVICE_LM20_NWSAP: windows_sys::core::PCWSTR = windows_sys::core::w!("NwSapAgent");
+pub const SERVICE_LM20_REPL: windows_sys::core::PCWSTR = windows_sys::core::w!("REPLICATOR");
+pub const SERVICE_LM20_RIPL: windows_sys::core::PCWSTR = windows_sys::core::w!("REMOTEBOOT");
+pub const SERVICE_LM20_RPCLOCATOR: windows_sys::core::PCWSTR = windows_sys::core::w!("RPCLOCATOR");
+pub const SERVICE_LM20_SCHEDULE: windows_sys::core::PCWSTR = windows_sys::core::w!("Schedule");
+pub const SERVICE_LM20_SERVER: windows_sys::core::PCWSTR = windows_sys::core::w!("SERVER");
+pub const SERVICE_LM20_SPOOLER: windows_sys::core::PCWSTR = windows_sys::core::w!("SPOOLER");
+pub const SERVICE_LM20_SQLSERVER: windows_sys::core::PCWSTR = windows_sys::core::w!("SQLSERVER");
+pub const SERVICE_LM20_TCPIP: windows_sys::core::PCWSTR = windows_sys::core::w!("TCPIP");
+pub const SERVICE_LM20_TELNET: windows_sys::core::PCWSTR = windows_sys::core::w!("Telnet");
+pub const SERVICE_LM20_TIMESOURCE: windows_sys::core::PCWSTR = windows_sys::core::w!("TIMESOURCE");
+pub const SERVICE_LM20_TRKSVR: windows_sys::core::PCWSTR = windows_sys::core::w!("TrkSvr");
+pub const SERVICE_LM20_TRKWKS: windows_sys::core::PCWSTR = windows_sys::core::w!("TrkWks");
+pub const SERVICE_LM20_UPS: windows_sys::core::PCWSTR = windows_sys::core::w!("UPS");
+pub const SERVICE_LM20_WORKSTATION: windows_sys::core::PCWSTR = windows_sys::core::w!("WORKSTATION");
+pub const SERVICE_LM20_XACTSRV: windows_sys::core::PCWSTR = windows_sys::core::w!("XACTSRV");
+pub const SERVICE_LMHOSTS: windows_sys::core::PCWSTR = windows_sys::core::w!("LMHOSTS");
+pub const SERVICE_MAXTIME: u32 = 255u32;
+pub const SERVICE_MESSENGER: windows_sys::core::PCWSTR = windows_sys::core::w!("MESSENGER");
+pub const SERVICE_NBT: windows_sys::core::PCWSTR = windows_sys::core::w!("NBT");
+pub const SERVICE_NETLOGON: windows_sys::core::PCWSTR = windows_sys::core::w!("NETLOGON");
+pub const SERVICE_NETPOPUP: windows_sys::core::PCWSTR = windows_sys::core::w!("NETPOPUP");
+pub const SERVICE_NETRUN: windows_sys::core::PCWSTR = windows_sys::core::w!("NETRUN");
+pub const SERVICE_NOT_PAUSABLE: u32 = 0u32;
+pub const SERVICE_NOT_UNINSTALLABLE: u32 = 0u32;
+pub const SERVICE_NTDS: windows_sys::core::PCWSTR = windows_sys::core::w!("NTDS");
+pub const SERVICE_NTFRS: windows_sys::core::PCWSTR = windows_sys::core::w!("NtFrs");
+pub const SERVICE_NTIP_WAITTIME_SHIFT: u32 = 12u32;
+pub const SERVICE_NTLMSSP: windows_sys::core::PCWSTR = windows_sys::core::w!("NtLmSsp");
+pub const SERVICE_NT_MAXTIME: u32 = 65535u32;
+pub const SERVICE_NWCS: windows_sys::core::PCWSTR = windows_sys::core::w!("NWCWorkstation");
+pub const SERVICE_NWSAP: windows_sys::core::PCWSTR = windows_sys::core::w!("NwSapAgent");
+pub const SERVICE_PAUSABLE: u32 = 32u32;
+pub const SERVICE_PAUSE_STATE: u32 = 12u32;
+pub const SERVICE_REDIR_COMM_PAUSED: u32 = 1024u32;
+pub const SERVICE_REDIR_DISK_PAUSED: u32 = 256u32;
+pub const SERVICE_REDIR_PAUSED: u32 = 1792u32;
+pub const SERVICE_REDIR_PRINT_PAUSED: u32 = 512u32;
+pub const SERVICE_REPL: windows_sys::core::PCWSTR = windows_sys::core::w!("REPLICATOR");
+pub const SERVICE_RESRV_MASK: u32 = 131071u32;
+pub const SERVICE_RIPL: windows_sys::core::PCWSTR = windows_sys::core::w!("REMOTEBOOT");
+pub const SERVICE_RPCLOCATOR: windows_sys::core::PCWSTR = windows_sys::core::w!("RPCLOCATOR");
+pub const SERVICE_SCHEDULE: windows_sys::core::PCWSTR = windows_sys::core::w!("Schedule");
+pub const SERVICE_SERVER: windows_sys::core::PCWSTR = windows_sys::core::w!("LanmanServer");
+pub const SERVICE_SPOOLER: windows_sys::core::PCWSTR = windows_sys::core::w!("SPOOLER");
+pub const SERVICE_SQLSERVER: windows_sys::core::PCWSTR = windows_sys::core::w!("SQLSERVER");
+pub const SERVICE_TCPIP: windows_sys::core::PCWSTR = windows_sys::core::w!("TCPIP");
+pub const SERVICE_TELNET: windows_sys::core::PCWSTR = windows_sys::core::w!("Telnet");
+pub const SERVICE_TIMESOURCE: windows_sys::core::PCWSTR = windows_sys::core::w!("TIMESOURCE");
+pub const SERVICE_TRKSVR: windows_sys::core::PCWSTR = windows_sys::core::w!("TrkSvr");
+pub const SERVICE_TRKWKS: windows_sys::core::PCWSTR = windows_sys::core::w!("TrkWks");
+pub const SERVICE_UIC_AMBIGPARM: u32 = 3058u32;
+pub const SERVICE_UIC_BADPARMVAL: u32 = 3051u32;
+pub const SERVICE_UIC_CONFIG: u32 = 3055u32;
+pub const SERVICE_UIC_CONFLPARM: u32 = 3063u32;
+pub const SERVICE_UIC_DUPPARM: u32 = 3059u32;
+pub const SERVICE_UIC_EXEC: u32 = 3061u32;
+pub const SERVICE_UIC_FILE: u32 = 3064u32;
+pub const SERVICE_UIC_INTERNAL: u32 = 3057u32;
+pub const SERVICE_UIC_KILL: u32 = 3060u32;
+pub const SERVICE_UIC_MISSPARM: u32 = 3052u32;
+pub const SERVICE_UIC_M_ADDPAK: u32 = 3090u32;
+pub const SERVICE_UIC_M_ANNOUNCE: u32 = 3083u32;
+pub const SERVICE_UIC_M_DATABASE_ERROR: u32 = 5602u32;
+pub const SERVICE_UIC_M_DISK: u32 = 3071u32;
+pub const SERVICE_UIC_M_ERRLOG: u32 = 3088u32;
+pub const SERVICE_UIC_M_FILES: u32 = 3079u32;
+pub const SERVICE_UIC_M_FILE_UW: u32 = 3089u32;
+pub const SERVICE_UIC_M_LANGROUP: u32 = 3081u32;
+pub const SERVICE_UIC_M_LANROOT: u32 = 3075u32;
+pub const SERVICE_UIC_M_LAZY: u32 = 3091u32;
+pub const SERVICE_UIC_M_LOGS: u32 = 3080u32;
+pub const SERVICE_UIC_M_LSA_MACHINE_ACCT: u32 = 5601u32;
+pub const SERVICE_UIC_M_MEMORY: u32 = 3070u32;
+pub const SERVICE_UIC_M_MSGNAME: u32 = 3082u32;
+pub const SERVICE_UIC_M_NETLOGON_AUTH: u32 = 3098u32;
+pub const SERVICE_UIC_M_NETLOGON_DC_CFLCT: u32 = 3097u32;
+pub const SERVICE_UIC_M_NETLOGON_MPATH: u32 = 5600u32;
+pub const SERVICE_UIC_M_NETLOGON_NO_DC: u32 = 3096u32;
+pub const SERVICE_UIC_M_NULL: u32 = 0u32;
+pub const SERVICE_UIC_M_PROCESSES: u32 = 3073u32;
+pub const SERVICE_UIC_M_REDIR: u32 = 3076u32;
+pub const SERVICE_UIC_M_SECURITY: u32 = 3074u32;
+pub const SERVICE_UIC_M_SEC_FILE_ERR: u32 = 3078u32;
+pub const SERVICE_UIC_M_SERVER: u32 = 3077u32;
+pub const SERVICE_UIC_M_SERVER_SEC_ERR: u32 = 3085u32;
+pub const SERVICE_UIC_M_THREADS: u32 = 3072u32;
+pub const SERVICE_UIC_M_UAS: u32 = 3084u32;
+pub const SERVICE_UIC_M_UAS_INVALID_ROLE: u32 = 3095u32;
+pub const SERVICE_UIC_M_UAS_MACHINE_ACCT: u32 = 3092u32;
+pub const SERVICE_UIC_M_UAS_PROLOG: u32 = 3099u32;
+pub const SERVICE_UIC_M_UAS_SERVERS_NMEMB: u32 = 3093u32;
+pub const SERVICE_UIC_M_UAS_SERVERS_NOGRP: u32 = 3094u32;
+pub const SERVICE_UIC_M_WKSTA: u32 = 3087u32;
+pub const SERVICE_UIC_NORMAL: u32 = 0u32;
+pub const SERVICE_UIC_RESOURCE: u32 = 3054u32;
+pub const SERVICE_UIC_SUBSERV: u32 = 3062u32;
+pub const SERVICE_UIC_SYSTEM: u32 = 3056u32;
+pub const SERVICE_UIC_UNKPARM: u32 = 3053u32;
+pub const SERVICE_UNINSTALLABLE: u32 = 16u32;
+pub const SERVICE_UNINSTALLED: u32 = 0u32;
+pub const SERVICE_UNINSTALL_PENDING: u32 = 2u32;
+pub const SERVICE_UPS: windows_sys::core::PCWSTR = windows_sys::core::w!("UPS");
+pub const SERVICE_W32TIME: windows_sys::core::PCWSTR = windows_sys::core::w!("w32time");
+pub const SERVICE_WORKSTATION: windows_sys::core::PCWSTR = windows_sys::core::w!("LanmanWorkstation");
+pub const SERVICE_XACTSRV: windows_sys::core::PCWSTR = windows_sys::core::w!("XACTSRV");
+pub const SESSION_CRYPT_KLEN: u32 = 21u32;
+pub const SESSION_PWLEN: u32 = 24u32;
+pub const SHPWLEN: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SMB_COMPRESSION_INFO {
@@ -4018,6 +3598,9 @@ pub struct SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     pub Length: u16,
     pub Reserved: u16,
 }
+pub const SNLEN: u32 = 80u32;
+pub const SRV_HASH_GENERATION_ACTIVE: u32 = 2u32;
+pub const SRV_SUPPORT_HASH_GENERATION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STD_ALERT {
@@ -4025,6 +3608,219 @@ pub struct STD_ALERT {
     pub alrt_eventname: [u16; 17],
     pub alrt_servicename: [u16; 81],
 }
+pub const STXTLEN: u32 = 256u32;
+pub const SUPPORTS_ANY: i32 = -1i32;
+pub type SUPPORTS_BINDING_INTERFACE_FLAGS = i32;
+pub const SUPPORTS_LOCAL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 32u32;
+pub const SUPPORTS_REMOTE_ADMIN_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 2u32;
+pub const SUPPORTS_RPC: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 4u32;
+pub const SUPPORTS_SAM_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 8u32;
+pub const SUPPORTS_UNICODE: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 16u32;
+pub const SVAUD_BADNETLOGON: u32 = 384u32;
+pub const SVAUD_BADSESSLOGON: u32 = 24u32;
+pub const SVAUD_BADUSE: u32 = 6144u32;
+pub const SVAUD_GOODNETLOGON: u32 = 96u32;
+pub const SVAUD_GOODSESSLOGON: u32 = 6u32;
+pub const SVAUD_GOODUSE: u32 = 1536u32;
+pub const SVAUD_LOGONLIM: u32 = 65536u32;
+pub const SVAUD_PERMISSIONS: u32 = 16384u32;
+pub const SVAUD_RESOURCE: u32 = 32768u32;
+pub const SVAUD_SERVICE: u32 = 1u32;
+pub const SVAUD_USERLIST: u32 = 8192u32;
+pub const SVI1_NUM_ELEMENTS: u32 = 5u32;
+pub const SVI2_NUM_ELEMENTS: u32 = 40u32;
+pub const SVI3_NUM_ELEMENTS: u32 = 44u32;
+pub const SVTI2_CLUSTER_DNN_NAME: u32 = 16u32;
+pub const SVTI2_CLUSTER_NAME: u32 = 8u32;
+pub const SVTI2_REMAP_PIPE_NAMES: u32 = 2u32;
+pub const SVTI2_RESERVED1: u32 = 4096u32;
+pub const SVTI2_RESERVED2: u32 = 8192u32;
+pub const SVTI2_RESERVED3: u32 = 16384u32;
+pub const SVTI2_SCOPED_NAME: u32 = 4u32;
+pub const SVTI2_UNICODE_TRANSPORT_ADDRESS: u32 = 32u32;
+pub const SV_ACCEPTDOWNLEVELAPIS_PARMNUM: u32 = 517u32;
+pub const SV_ACCESSALERT_PARMNUM: u32 = 40u32;
+pub const SV_ACTIVELOCKS_PARMNUM: u32 = 419u32;
+pub const SV_ALERTSCHEDULE_PARMNUM: u32 = 547u32;
+pub const SV_ALERTSCHED_PARMNUM: u32 = 37u32;
+pub const SV_ALERTS_PARMNUM: u32 = 11u32;
+pub const SV_ALIST_MTIME_PARMNUM: u32 = 403u32;
+pub const SV_ANNDELTA_PARMNUM: u32 = 18u32;
+pub const SV_ANNOUNCE_PARMNUM: u32 = 17u32;
+pub const SV_AUTOSHARESERVER_PARMNUM: u32 = 592u32;
+pub const SV_AUTOSHAREWKS_PARMNUM: u32 = 591u32;
+pub const SV_BALANCECOUNT_PARMNUM: u32 = 577u32;
+pub const SV_CACHEDDIRECTORYLIMIT_PARMNUM: u32 = 587u32;
+pub const SV_CACHEDOPENLIMIT_PARMNUM: u32 = 571u32;
+pub const SV_CHDEVJOBS_PARMNUM: u32 = 411u32;
+pub const SV_CHDEVQ_PARMNUM: u32 = 410u32;
+pub const SV_COMMENT_PARMNUM: u32 = 5u32;
+pub const SV_CONNECTIONLESSAUTODISC_PARMNUM: u32 = 562u32;
+pub const SV_CONNECTIONNOSESSIONSTIMEOUT_PARMNUM: u32 = 596u32;
+pub const SV_CONNECTIONS_PARMNUM: u32 = 412u32;
+pub const SV_CRITICALTHREADS_PARMNUM: u32 = 572u32;
+pub const SV_DISABLEDOS_PARMNUM: u32 = 600u32;
+pub const SV_DISABLESTRICTNAMECHECKING_PARMNUM: u32 = 602u32;
+pub const SV_DISC_PARMNUM: u32 = 10u32;
+pub const SV_DISKALERT_PARMNUM: u32 = 41u32;
+pub const SV_DISKSPACETHRESHOLD_PARMNUM: u32 = 550u32;
+pub const SV_DOMAIN_PARMNUM: u32 = 519u32;
+pub const SV_ENABLEAUTHENTICATEUSERSHARING_PARMNUM: u32 = 603u32;
+pub const SV_ENABLECOMPRESSION_PARMNUM: u32 = 590u32;
+pub const SV_ENABLEFCBOPENS_PARMNUM: u32 = 538u32;
+pub const SV_ENABLEFORCEDLOGOFF_PARMNUM: u32 = 515u32;
+pub const SV_ENABLEOPLOCKFORCECLOSE_PARMNUM: u32 = 537u32;
+pub const SV_ENABLEOPLOCKS_PARMNUM: u32 = 536u32;
+pub const SV_ENABLERAW_PARMNUM: u32 = 539u32;
+pub const SV_ENABLESECURITYSIGNATURE_PARMNUM: u32 = 593u32;
+pub const SV_ENABLESHAREDNETDRIVES_PARMNUM: u32 = 540u32;
+pub const SV_ENABLESOFTCOMPAT_PARMNUM: u32 = 514u32;
+pub const SV_ENABLEW9XSECURITYSIGNATURE_PARMNUM: u32 = 598u32;
+pub const SV_ENABLEWFW311DIRECTIPX_PARMNUM: u32 = 574u32;
+pub const SV_ENFORCEKERBEROSREAUTHENTICATION_PARMNUM: u32 = 599u32;
+pub const SV_ERRORALERT_PARMNUM: u32 = 38u32;
+pub const SV_ERRORTHRESHOLD_PARMNUM: u32 = 548u32;
+pub const SV_GLIST_MTIME_PARMNUM: u32 = 402u32;
+pub const SV_GUESTACC_PARMNUM: u32 = 408u32;
+pub const SV_HIDDEN: SERVER_INFO_HIDDEN = 1i32;
+pub const SV_HIDDEN_PARMNUM: u32 = 16u32;
+pub const SV_IDLETHREADTIMEOUT_PARMNUM: u32 = 597u32;
+pub const SV_INITCONNTABLE_PARMNUM: u32 = 544u32;
+pub const SV_INITFILETABLE_PARMNUM: u32 = 545u32;
+pub const SV_INITSEARCHTABLE_PARMNUM: u32 = 546u32;
+pub const SV_INITSESSTABLE_PARMNUM: u32 = 543u32;
+pub const SV_INITWORKITEMS_PARMNUM: u32 = 505u32;
+pub const SV_IRPSTACKSIZE_PARMNUM: u32 = 508u32;
+pub const SV_LANMASK_PARMNUM: u32 = 407u32;
+pub const SV_LINKINFOVALIDTIME_PARMNUM: u32 = 554u32;
+pub const SV_LMANNOUNCE_PARMNUM: u32 = 518u32;
+pub const SV_LOCKVIOLATIONDELAY_PARMNUM: u32 = 569u32;
+pub const SV_LOCKVIOLATIONOFFSET_PARMNUM: u32 = 568u32;
+pub const SV_LOCKVIOLATIONRETRIES_PARMNUM: u32 = 567u32;
+pub const SV_LOGONALERT_PARMNUM: u32 = 39u32;
+pub const SV_LOWDISKSPACEMINIMUM_PARMNUM: u32 = 601u32;
+pub const SV_MAXAUDITSZ_PARMNUM: u32 = 43u32;
+pub const SV_MAXCOPYLENGTH_PARMNUM: u32 = 588u32;
+pub const SV_MAXCOPYREADLEN_PARMNUM: u32 = 520u32;
+pub const SV_MAXCOPYWRITELEN_PARMNUM: u32 = 521u32;
+pub const SV_MAXFREECONNECTIONS_PARMNUM: u32 = 542u32;
+pub const SV_MAXFREELFCBS_PARMNUM: u32 = 581u32;
+pub const SV_MAXFREEMFCBS_PARMNUM: u32 = 580u32;
+pub const SV_MAXFREEPAGEDPOOLCHUNKS_PARMNUM: u32 = 582u32;
+pub const SV_MAXFREERFCBS_PARMNUM: u32 = 579u32;
+pub const SV_MAXGLOBALOPENSEARCH_PARMNUM: u32 = 565u32;
+pub const SV_MAXKEEPCOMPLSEARCH_PARMNUM: u32 = 525u32;
+pub const SV_MAXKEEPSEARCH_PARMNUM: u32 = 523u32;
+pub const SV_MAXLINKDELAY_PARMNUM: u32 = 552u32;
+pub const SV_MAXMPXCT_PARMNUM: u32 = 533u32;
+pub const SV_MAXNONPAGEDMEMORYUSAGE_PARMNUM: u32 = 512u32;
+pub const SV_MAXPAGEDMEMORYUSAGE_PARMNUM: u32 = 513u32;
+pub const SV_MAXPAGEDPOOLCHUNKSIZE_PARMNUM: u32 = 584u32;
+pub const SV_MAXRAWBUFLEN_PARMNUM: u32 = 509u32;
+pub const SV_MAXRAWWORKITEMS_PARMNUM: u32 = 557u32;
+pub const SV_MAXTHREADSPERQUEUE_PARMNUM: u32 = 586u32;
+pub const SV_MAXWORKITEMIDLETIME_PARMNUM: u32 = 556u32;
+pub const SV_MAXWORKITEMS_PARMNUM: u32 = 506u32;
+pub const SV_MAX_CMD_LEN: u32 = 256u32;
+pub const SV_MAX_SRV_HEUR_LEN: u32 = 32u32;
+pub const SV_MDLREADSWITCHOVER_PARMNUM: u32 = 570u32;
+pub const SV_MINCLIENTBUFFERSIZE_PARMNUM: u32 = 595u32;
+pub const SV_MINFREECONNECTIONS_PARMNUM: u32 = 541u32;
+pub const SV_MINFREEWORKITEMS_PARMNUM: u32 = 530u32;
+pub const SV_MINKEEPCOMPLSEARCH_PARMNUM: u32 = 524u32;
+pub const SV_MINKEEPSEARCH_PARMNUM: u32 = 522u32;
+pub const SV_MINLINKTHROUGHPUT_PARMNUM: u32 = 553u32;
+pub const SV_MINPAGEDPOOLCHUNKSIZE_PARMNUM: u32 = 583u32;
+pub const SV_MINRCVQUEUE_PARMNUM: u32 = 529u32;
+pub const SV_NAME_PARMNUM: u32 = 102u32;
+pub const SV_NETIOALERT_PARMNUM: u32 = 42u32;
+pub const SV_NETWORKERRORTHRESHOLD_PARMNUM: u32 = 549u32;
+pub const SV_NODISC: i32 = -1i32;
+pub const SV_NUMADMIN_PARMNUM: u32 = 406u32;
+pub const SV_NUMBIGBUF_PARMNUM: u32 = 422u32;
+pub const SV_NUMBLOCKTHREADS_PARMNUM: u32 = 527u32;
+pub const SV_NUMFILETASKS_PARMNUM: u32 = 423u32;
+pub const SV_NUMREQBUF_PARMNUM: u32 = 420u32;
+pub const SV_OPENFILES_PARMNUM: u32 = 414u32;
+pub const SV_OPENSEARCH_PARMNUM: u32 = 503u32;
+pub const SV_OPLOCKBREAKRESPONSEWAIT_PARMNUM: u32 = 535u32;
+pub const SV_OPLOCKBREAKWAIT_PARMNUM: u32 = 534u32;
+pub const SV_OTHERQUEUEAFFINITY_PARMNUM: u32 = 575u32;
+pub const SV_PLATFORM_ID_NT: u32 = 500u32;
+pub const SV_PLATFORM_ID_OS2: u32 = 400u32;
+pub const SV_PLATFORM_ID_PARMNUM: u32 = 101u32;
+pub const SV_PREFERREDAFFINITY_PARMNUM: u32 = 578u32;
+pub const SV_PRODUCTTYPE_PARMNUM: u32 = 560u32;
+pub const SV_QUEUESAMPLESECS_PARMNUM: u32 = 576u32;
+pub const SV_RAWWORKITEMS_PARMNUM: u32 = 507u32;
+pub const SV_REMOVEDUPLICATESEARCHES_PARMNUM: u32 = 566u32;
+pub const SV_REQUIRESECURITYSIGNATURE_PARMNUM: u32 = 594u32;
+pub const SV_RESTRICTNULLSESSACCESS_PARMNUM: u32 = 573u32;
+pub const SV_SCAVQOSINFOUPDATETIME_PARMNUM: u32 = 555u32;
+pub const SV_SCAVTIMEOUT_PARMNUM: u32 = 528u32;
+pub const SV_SECURITY_PARMNUM: u32 = 405u32;
+pub const SV_SENDSFROMPREFERREDPROCESSOR_PARMNUM: u32 = 585u32;
+pub const SV_SERVERSIZE_PARMNUM: u32 = 561u32;
+pub const SV_SESSCONNS_PARMNUM: u32 = 511u32;
+pub const SV_SESSOPENS_PARMNUM: u32 = 501u32;
+pub const SV_SESSREQS_PARMNUM: u32 = 417u32;
+pub const SV_SESSUSERS_PARMNUM: u32 = 510u32;
+pub const SV_SESSVCS_PARMNUM: u32 = 502u32;
+pub const SV_SHARESECURITY: SERVER_INFO_SECURITY = 0u32;
+pub const SV_SHARES_PARMNUM: u32 = 413u32;
+pub const SV_SHARINGVIOLATIONDELAY_PARMNUM: u32 = 564u32;
+pub const SV_SHARINGVIOLATIONRETRIES_PARMNUM: u32 = 563u32;
+pub const SV_SIZREQBUF_PARMNUM: u32 = 504u32;
+pub const SV_SRVHEURISTICS_PARMNUM: u32 = 431u32;
+pub const SV_THREADCOUNTADD_PARMNUM: u32 = 526u32;
+pub const SV_THREADPRIORITY_PARMNUM: u32 = 532u32;
+pub const SV_TIMESOURCE_PARMNUM: u32 = 516u32;
+pub const SV_TYPE_AFP: NET_SERVER_TYPE = 64u32;
+pub const SV_TYPE_ALL: NET_SERVER_TYPE = 4294967295u32;
+pub const SV_TYPE_ALTERNATE_XPORT: NET_SERVER_TYPE = 536870912u32;
+pub const SV_TYPE_BACKUP_BROWSER: NET_SERVER_TYPE = 131072u32;
+pub const SV_TYPE_CLUSTER_NT: NET_SERVER_TYPE = 16777216u32;
+pub const SV_TYPE_CLUSTER_VS_NT: NET_SERVER_TYPE = 67108864u32;
+pub const SV_TYPE_DCE: NET_SERVER_TYPE = 268435456u32;
+pub const SV_TYPE_DFS: NET_SERVER_TYPE = 8388608u32;
+pub const SV_TYPE_DIALIN_SERVER: NET_SERVER_TYPE = 1024u32;
+pub const SV_TYPE_DOMAIN_BAKCTRL: NET_SERVER_TYPE = 16u32;
+pub const SV_TYPE_DOMAIN_CTRL: NET_SERVER_TYPE = 8u32;
+pub const SV_TYPE_DOMAIN_ENUM: NET_SERVER_TYPE = 2147483648u32;
+pub const SV_TYPE_DOMAIN_MASTER: NET_SERVER_TYPE = 524288u32;
+pub const SV_TYPE_DOMAIN_MEMBER: NET_SERVER_TYPE = 256u32;
+pub const SV_TYPE_LOCAL_LIST_ONLY: NET_SERVER_TYPE = 1073741824u32;
+pub const SV_TYPE_MASTER_BROWSER: NET_SERVER_TYPE = 262144u32;
+pub const SV_TYPE_NOVELL: NET_SERVER_TYPE = 128u32;
+pub const SV_TYPE_NT: NET_SERVER_TYPE = 4096u32;
+pub const SV_TYPE_PARMNUM: u32 = 105u32;
+pub const SV_TYPE_POTENTIAL_BROWSER: NET_SERVER_TYPE = 65536u32;
+pub const SV_TYPE_PRINTQ_SERVER: NET_SERVER_TYPE = 512u32;
+pub const SV_TYPE_SERVER: NET_SERVER_TYPE = 2u32;
+pub const SV_TYPE_SERVER_MFPN: NET_SERVER_TYPE = 16384u32;
+pub const SV_TYPE_SERVER_NT: NET_SERVER_TYPE = 32768u32;
+pub const SV_TYPE_SERVER_OSF: NET_SERVER_TYPE = 1048576u32;
+pub const SV_TYPE_SERVER_UNIX: NET_SERVER_TYPE = 2048u32;
+pub const SV_TYPE_SERVER_VMS: NET_SERVER_TYPE = 2097152u32;
+pub const SV_TYPE_SQLSERVER: NET_SERVER_TYPE = 4u32;
+pub const SV_TYPE_TERMINALSERVER: NET_SERVER_TYPE = 33554432u32;
+pub const SV_TYPE_TIME_SOURCE: NET_SERVER_TYPE = 32u32;
+pub const SV_TYPE_WFW: NET_SERVER_TYPE = 8192u32;
+pub const SV_TYPE_WINDOWS: NET_SERVER_TYPE = 4194304u32;
+pub const SV_TYPE_WORKSTATION: NET_SERVER_TYPE = 1u32;
+pub const SV_TYPE_XENIX_SERVER: NET_SERVER_TYPE = 2048u32;
+pub const SV_ULIST_MTIME_PARMNUM: u32 = 401u32;
+pub const SV_USERPATH_PARMNUM: u32 = 112u32;
+pub const SV_USERSECURITY: SERVER_INFO_SECURITY = 1u32;
+pub const SV_USERS_PARMNUM: u32 = 107u32;
+pub const SV_USERS_PER_LICENSE: u32 = 5u32;
+pub const SV_VERSION_MAJOR_PARMNUM: u32 = 103u32;
+pub const SV_VERSION_MINOR_PARMNUM: u32 = 104u32;
+pub const SV_VISIBLE: SERVER_INFO_HIDDEN = 0i32;
+pub const SV_XACTMEMSIZE_PARMNUM: u32 = 531u32;
+pub const SW_AUTOPROF_LOAD_MASK: u32 = 1u32;
+pub const SW_AUTOPROF_SAVE_MASK: u32 = 2u32;
+pub const ServiceAccountPasswordGUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x262e99c9_6160_4871_acec_4e61736b6f21);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TIME_OF_DAY_INFO {
@@ -4041,12 +3837,66 @@ pub struct TIME_OF_DAY_INFO {
     pub tod_year: u32,
     pub tod_weekday: u32,
 }
+pub const TITLE_SC_MESSAGE_BOX: i32 = -1073734795i32;
+pub const TRACE_NO_STDINFO: u32 = 1u32;
+pub const TRACE_NO_SYNCH: u32 = 4u32;
+pub const TRACE_USE_CONSOLE: u32 = 2u32;
+pub const TRACE_USE_DATE: u32 = 8u32;
+pub const TRACE_USE_FILE: u32 = 1u32;
+pub const TRACE_USE_MASK: u32 = 2u32;
+pub const TRACE_USE_MSEC: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TRANSPORT_INFO {
     pub Type: TRANSPORT_TYPE,
     pub SkipCertificateCheck: super::super::Foundation::BOOLEAN,
 }
+pub const TRANSPORT_NAME_PARMNUM: u32 = 202u32;
+pub const TRANSPORT_QUALITYOFSERVICE_PARMNUM: u32 = 201u32;
+pub type TRANSPORT_TYPE = i32;
+pub const UAS_ROLE_BACKUP: USER_MODALS_ROLES = 2u32;
+pub const UAS_ROLE_MEMBER: USER_MODALS_ROLES = 1u32;
+pub const UAS_ROLE_PRIMARY: USER_MODALS_ROLES = 3u32;
+pub const UAS_ROLE_STANDALONE: USER_MODALS_ROLES = 0u32;
+pub const UF_ACCOUNTDISABLE: USER_ACCOUNT_FLAGS = 2u32;
+pub const UF_DONT_EXPIRE_PASSWD: USER_ACCOUNT_FLAGS = 65536u32;
+pub const UF_DONT_REQUIRE_PREAUTH: USER_ACCOUNT_FLAGS = 4194304u32;
+pub const UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: USER_ACCOUNT_FLAGS = 128u32;
+pub const UF_HOMEDIR_REQUIRED: USER_ACCOUNT_FLAGS = 8u32;
+pub const UF_INTERDOMAIN_TRUST_ACCOUNT: u32 = 2048u32;
+pub const UF_LOCKOUT: USER_ACCOUNT_FLAGS = 16u32;
+pub const UF_MNS_LOGON_ACCOUNT: u32 = 131072u32;
+pub const UF_NORMAL_ACCOUNT: u32 = 512u32;
+pub const UF_NOT_DELEGATED: USER_ACCOUNT_FLAGS = 1048576u32;
+pub const UF_NO_AUTH_DATA_REQUIRED: u32 = 33554432u32;
+pub const UF_PARTIAL_SECRETS_ACCOUNT: u32 = 67108864u32;
+pub const UF_PASSWD_CANT_CHANGE: USER_ACCOUNT_FLAGS = 64u32;
+pub const UF_PASSWD_NOTREQD: USER_ACCOUNT_FLAGS = 32u32;
+pub const UF_PASSWORD_EXPIRED: USER_ACCOUNT_FLAGS = 8388608u32;
+pub const UF_SCRIPT: USER_ACCOUNT_FLAGS = 1u32;
+pub const UF_SERVER_TRUST_ACCOUNT: u32 = 8192u32;
+pub const UF_SMARTCARD_REQUIRED: USER_ACCOUNT_FLAGS = 262144u32;
+pub const UF_TEMP_DUPLICATE_ACCOUNT: u32 = 256u32;
+pub const UF_TRUSTED_FOR_DELEGATION: USER_ACCOUNT_FLAGS = 524288u32;
+pub const UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: USER_ACCOUNT_FLAGS = 16777216u32;
+pub const UF_USE_AES_KEYS: u32 = 134217728u32;
+pub const UF_USE_DES_KEY_ONLY: USER_ACCOUNT_FLAGS = 2097152u32;
+pub const UF_WORKSTATION_TRUST_ACCOUNT: u32 = 4096u32;
+pub const UNCLEN: u32 = 17u32;
+pub const UNITS_PER_DAY: u32 = 24u32;
+pub const UNLEN: u32 = 256u32;
+pub const UPPER_GET_HINT_MASK: u32 = 267386880u32;
+pub const UPPER_HINT_MASK: u32 = 65280u32;
+pub type USER_ACCOUNT_FLAGS = u32;
+pub const USER_ACCT_EXPIRES_PARMNUM: u32 = 17u32;
+pub const USER_AUTH_FLAGS_PARMNUM: u32 = 10u32;
+pub const USER_CODE_PAGE_PARMNUM: u32 = 25u32;
+pub const USER_COMMENT_PARMNUM: u32 = 7u32;
+pub const USER_COUNTRY_CODE_PARMNUM: u32 = 24u32;
+pub const USER_FLAGS_PARMNUM: u32 = 8u32;
+pub const USER_FULL_NAME_PARMNUM: u32 = 11u32;
+pub const USER_HOME_DIR_DRIVE_PARMNUM: u32 = 53u32;
+pub const USER_HOME_DIR_PARMNUM: u32 = 6u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_0 {
@@ -4354,6 +4204,11 @@ pub struct USER_INFO_4 {
     pub usri4_home_dir_drive: windows_sys::core::PWSTR,
     pub usri4_password_expired: u32,
 }
+pub const USER_LAST_LOGOFF_PARMNUM: u32 = 16u32;
+pub const USER_LAST_LOGON_PARMNUM: u32 = 15u32;
+pub const USER_LOGON_HOURS_PARMNUM: u32 = 20u32;
+pub const USER_LOGON_SERVER_PARMNUM: u32 = 23u32;
+pub const USER_MAX_STORAGE_PARMNUM: u32 = 18u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_0 {
@@ -4418,12 +4273,43 @@ pub struct USER_MODALS_INFO_3 {
     pub usrmod3_lockout_observation_window: u32,
     pub usrmod3_lockout_threshold: u32,
 }
+pub type USER_MODALS_ROLES = u32;
+pub const USER_NAME_PARMNUM: u32 = 1u32;
+pub const USER_NUM_LOGONS_PARMNUM: u32 = 22u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_OTHER_INFO {
     pub alrtus_errcode: u32,
     pub alrtus_numstrings: u32,
 }
+pub const USER_PAD_PW_COUNT_PARMNUM: u32 = 21u32;
+pub const USER_PARMS_PARMNUM: u32 = 13u32;
+pub const USER_PASSWORD_AGE_PARMNUM: u32 = 4u32;
+pub const USER_PASSWORD_PARMNUM: u32 = 3u32;
+pub const USER_PRIMARY_GROUP_PARMNUM: u32 = 51u32;
+pub type USER_PRIV = u32;
+pub const USER_PRIV_ADMIN: USER_PRIV = 2u32;
+pub const USER_PRIV_GUEST: USER_PRIV = 0u32;
+pub const USER_PRIV_MASK: u32 = 3u32;
+pub const USER_PRIV_PARMNUM: u32 = 5u32;
+pub const USER_PRIV_USER: USER_PRIV = 1u32;
+pub const USER_PROFILE: u32 = 52u32;
+pub const USER_PROFILE_PARMNUM: u32 = 52u32;
+pub const USER_SCRIPT_PATH_PARMNUM: u32 = 9u32;
+pub const USER_UNITS_PER_WEEK_PARMNUM: u32 = 19u32;
+pub const USER_USR_COMMENT_PARMNUM: u32 = 12u32;
+pub const USER_WORKSTATIONS_PARMNUM: u32 = 14u32;
+pub const USE_ASGTYPE_PARMNUM: u32 = 4u32;
+pub const USE_AUTHIDENTITY_PARMNUM: u32 = 8u32;
+pub const USE_CHARDEV: u32 = 2u32;
+pub const USE_CONN: u32 = 4u32;
+pub const USE_DEFAULT_CREDENTIALS: u32 = 4u32;
+pub const USE_DISCONN: u32 = 2u32;
+pub const USE_DISKDEV: USE_INFO_ASG_TYPE = 0u32;
+pub const USE_DOMAINNAME_PARMNUM: u32 = 6u32;
+pub const USE_FLAGS_PARMNUM: u32 = 7u32;
+pub const USE_FLAG_GLOBAL_MAPPING: u32 = 65536u32;
+pub const USE_FORCE: FORCE_LEVEL_FLAGS = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USE_INFO_0 {
@@ -4478,6 +4364,14 @@ pub struct USE_INFO_5 {
     pub ui5_use_options_length: u32,
     pub ui5_use_options: *mut u8,
 }
+pub type USE_INFO_ASG_TYPE = u32;
+pub const USE_IPC: USE_INFO_ASG_TYPE = 3u32;
+pub const USE_LOCAL_PARMNUM: u32 = 1u32;
+pub const USE_LOTS_OF_FORCE: FORCE_LEVEL_FLAGS = 2u32;
+pub const USE_NETERR: u32 = 3u32;
+pub const USE_NOFORCE: FORCE_LEVEL_FLAGS = 0u32;
+pub const USE_OK: u32 = 0u32;
+pub const USE_OPTIONS_PARMNUM: u32 = 10u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
@@ -4506,6 +4400,32 @@ pub struct USE_OPTION_TRANSPORT_PARAMETERS {
     pub Length: u16,
     pub Reserved: u16,
 }
+pub const USE_PASSWORD_PARMNUM: u32 = 3u32;
+pub const USE_PAUSED: u32 = 1u32;
+pub const USE_RECONN: u32 = 5u32;
+pub const USE_REMOTE_PARMNUM: u32 = 2u32;
+pub const USE_SD_PARMNUM: u32 = 9u32;
+pub const USE_SESSLOST: u32 = 2u32;
+pub const USE_SPECIFIC_TRANSPORT: u32 = 2147483648u32;
+pub const USE_SPOOLDEV: USE_INFO_ASG_TYPE = 1u32;
+pub const USE_USERNAME_PARMNUM: u32 = 5u32;
+pub const USE_WILDCARD: USE_INFO_ASG_TYPE = 4294967295u32;
+pub const UseTransportType_None: TRANSPORT_TYPE = 0i32;
+pub const UseTransportType_Quic: TRANSPORT_TYPE = 2i32;
+pub const UseTransportType_Wsk: TRANSPORT_TYPE = 1i32;
+pub const VALIDATED_LOGON: u32 = 0u32;
+pub const VALID_LOGOFF: u32 = 1u32;
+pub const WKSTA_BUFFERNAMEDPIPES_PARMNUM: u32 = 51u32;
+pub const WKSTA_BUFFERREADONLYFILES_PARMNUM: u32 = 59u32;
+pub const WKSTA_BUFFILESWITHDENYWRITE_PARMNUM: u32 = 58u32;
+pub const WKSTA_CACHEFILETIMEOUT_PARMNUM: u32 = 47u32;
+pub const WKSTA_CHARCOUNT_PARMNUM: u32 = 12u32;
+pub const WKSTA_CHARTIME_PARMNUM: u32 = 11u32;
+pub const WKSTA_CHARWAIT_PARMNUM: u32 = 10u32;
+pub const WKSTA_COMPUTERNAME_PARMNUM: u32 = 1u32;
+pub const WKSTA_DORMANTFILELIMIT_PARMNUM: u32 = 46u32;
+pub const WKSTA_ERRLOGSZ_PARMNUM: u32 = 27u32;
+pub const WKSTA_FORCECORECREATEMODE_PARMNUM: u32 = 60u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_100 {
@@ -4784,6 +4704,35 @@ pub struct WKSTA_INFO_502 {
     pub wki502_force_core_create_mode: super::super::Foundation::BOOL,
     pub wki502_use_512_byte_max_transfer: super::super::Foundation::BOOL,
 }
+pub const WKSTA_KEEPCONN_PARMNUM: u32 = 13u32;
+pub const WKSTA_KEEPSEARCH_PARMNUM: u32 = 14u32;
+pub const WKSTA_LANGROUP_PARMNUM: u32 = 2u32;
+pub const WKSTA_LANROOT_PARMNUM: u32 = 7u32;
+pub const WKSTA_LOCKINCREMENT_PARMNUM: u32 = 42u32;
+pub const WKSTA_LOCKMAXIMUM_PARMNUM: u32 = 43u32;
+pub const WKSTA_LOCKQUOTA_PARMNUM: u32 = 41u32;
+pub const WKSTA_LOGGED_ON_USERS_PARMNUM: u32 = 6u32;
+pub const WKSTA_LOGON_DOMAIN_PARMNUM: u32 = 8u32;
+pub const WKSTA_LOGON_SERVER_PARMNUM: u32 = 9u32;
+pub const WKSTA_MAILSLOTS_PARMNUM: u32 = 30u32;
+pub const WKSTA_MAXCMDS_PARMNUM: u32 = 15u32;
+pub const WKSTA_MAXTHREADS_PARMNUM: u32 = 33u32;
+pub const WKSTA_MAXWRKCACHE_PARMNUM: u32 = 17u32;
+pub const WKSTA_NUMALERTS_PARMNUM: u32 = 20u32;
+pub const WKSTA_NUMCHARBUF_PARMNUM: u32 = 22u32;
+pub const WKSTA_NUMDGRAMBUF_PARMNUM: u32 = 31u32;
+pub const WKSTA_NUMSERVICES_PARMNUM: u32 = 21u32;
+pub const WKSTA_NUMWORKBUF_PARMNUM: u32 = 16u32;
+pub const WKSTA_OTH_DOMAINS_PARMNUM: u32 = 101u32;
+pub const WKSTA_PIPEINCREMENT_PARMNUM: u32 = 44u32;
+pub const WKSTA_PIPEMAXIMUM_PARMNUM: u32 = 45u32;
+pub const WKSTA_PLATFORM_ID_PARMNUM: u32 = 100u32;
+pub const WKSTA_PRINTBUFTIME_PARMNUM: u32 = 28u32;
+pub const WKSTA_READAHEADTHRUPUT_PARMNUM: u32 = 62u32;
+pub const WKSTA_SESSTIMEOUT_PARMNUM: u32 = 18u32;
+pub const WKSTA_SIZCHARBUF_PARMNUM: u32 = 23u32;
+pub const WKSTA_SIZERROR_PARMNUM: u32 = 19u32;
+pub const WKSTA_SIZWORKBUF_PARMNUM: u32 = 29u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_TRANSPORT_INFO_0 {
@@ -4793,6 +4742,13 @@ pub struct WKSTA_TRANSPORT_INFO_0 {
     pub wkti0_transport_address: windows_sys::core::PWSTR,
     pub wkti0_wan_ish: super::super::Foundation::BOOL,
 }
+pub const WKSTA_USE512BYTESMAXTRANSFER_PARMNUM: u32 = 61u32;
+pub const WKSTA_USECLOSEBEHIND_PARMNUM: u32 = 50u32;
+pub const WKSTA_USEENCRYPTION_PARMNUM: u32 = 57u32;
+pub const WKSTA_USELOCKANDREADANDUNLOCK_PARMNUM: u32 = 52u32;
+pub const WKSTA_USEOPPORTUNISTICLOCKING_PARMNUM: u32 = 48u32;
+pub const WKSTA_USERAWREAD_PARMNUM: u32 = 54u32;
+pub const WKSTA_USERAWWRITE_PARMNUM: u32 = 55u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_USER_INFO_0 {
@@ -4811,4 +4767,48 @@ pub struct WKSTA_USER_INFO_1 {
 pub struct WKSTA_USER_INFO_1101 {
     pub wkui1101_oth_domains: windows_sys::core::PWSTR,
 }
+pub const WKSTA_USEUNLOCKBEHIND_PARMNUM: u32 = 49u32;
+pub const WKSTA_USEWRITERAWWITHDATA_PARMNUM: u32 = 56u32;
+pub const WKSTA_UTILIZENTCACHING_PARMNUM: u32 = 53u32;
+pub const WKSTA_VER_MAJOR_PARMNUM: u32 = 4u32;
+pub const WKSTA_VER_MINOR_PARMNUM: u32 = 5u32;
+pub const WKSTA_WRKHEURISTICS_PARMNUM: u32 = 32u32;
 pub type WORKERFUNCTION = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
+pub const WORKSTATION_DISPLAY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("Workstation");
+pub const WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_SCHEMA: u32 = 34u32;
+pub const WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_XML: u32 = 33u32;
+pub const WZC_PROFILE_API_ERROR_INTERNAL: u32 = 36u32;
+pub const WZC_PROFILE_API_ERROR_NOT_SUPPORTED: u32 = 32u32;
+pub const WZC_PROFILE_API_ERROR_XML_VALIDATION_FAILED: u32 = 35u32;
+pub const WZC_PROFILE_CONFIG_ERROR_1X_NOT_ALLOWED: u32 = 20u32;
+pub const WZC_PROFILE_CONFIG_ERROR_1X_NOT_ALLOWED_KEY_REQUIRED: u32 = 21u32;
+pub const WZC_PROFILE_CONFIG_ERROR_1X_NOT_ENABLED_KEY_PROVIDED: u32 = 22u32;
+pub const WZC_PROFILE_CONFIG_ERROR_EAP_METHOD_NOT_APPLICABLE: u32 = 24u32;
+pub const WZC_PROFILE_CONFIG_ERROR_EAP_METHOD_REQUIRED: u32 = 23u32;
+pub const WZC_PROFILE_CONFIG_ERROR_INVALID_AUTH_FOR_CONNECTION_TYPE: u32 = 15u32;
+pub const WZC_PROFILE_CONFIG_ERROR_INVALID_ENCRYPTION_FOR_AUTHMODE: u32 = 16u32;
+pub const WZC_PROFILE_CONFIG_ERROR_KEY_INDEX_NOT_APPLICABLE: u32 = 19u32;
+pub const WZC_PROFILE_CONFIG_ERROR_KEY_INDEX_REQUIRED: u32 = 18u32;
+pub const WZC_PROFILE_CONFIG_ERROR_KEY_REQUIRED: u32 = 17u32;
+pub const WZC_PROFILE_CONFIG_ERROR_WPA_ENCRYPTION_NOT_SUPPORTED: u32 = 26u32;
+pub const WZC_PROFILE_CONFIG_ERROR_WPA_NOT_SUPPORTED: u32 = 25u32;
+pub const WZC_PROFILE_SET_ERROR_DUPLICATE_NETWORK: u32 = 27u32;
+pub const WZC_PROFILE_SET_ERROR_MEMORY_ALLOCATION: u32 = 28u32;
+pub const WZC_PROFILE_SET_ERROR_READING_1X_CONFIG: u32 = 29u32;
+pub const WZC_PROFILE_SET_ERROR_WRITING_1X_CONFIG: u32 = 30u32;
+pub const WZC_PROFILE_SET_ERROR_WRITING_WZC_CFG: u32 = 31u32;
+pub const WZC_PROFILE_SUCCESS: u32 = 0u32;
+pub const WZC_PROFILE_XML_ERROR_1X_ENABLED: u32 = 10u32;
+pub const WZC_PROFILE_XML_ERROR_AUTHENTICATION: u32 = 7u32;
+pub const WZC_PROFILE_XML_ERROR_BAD_KEY_INDEX: u32 = 12u32;
+pub const WZC_PROFILE_XML_ERROR_BAD_NETWORK_KEY: u32 = 14u32;
+pub const WZC_PROFILE_XML_ERROR_BAD_SSID: u32 = 5u32;
+pub const WZC_PROFILE_XML_ERROR_BAD_VERSION: u32 = 2u32;
+pub const WZC_PROFILE_XML_ERROR_CONNECTION_TYPE: u32 = 6u32;
+pub const WZC_PROFILE_XML_ERROR_EAP_METHOD: u32 = 11u32;
+pub const WZC_PROFILE_XML_ERROR_ENCRYPTION: u32 = 8u32;
+pub const WZC_PROFILE_XML_ERROR_KEY_INDEX_RANGE: u32 = 13u32;
+pub const WZC_PROFILE_XML_ERROR_KEY_PROVIDED_AUTOMATICALLY: u32 = 9u32;
+pub const WZC_PROFILE_XML_ERROR_NO_VERSION: u32 = 1u32;
+pub const WZC_PROFILE_XML_ERROR_SSID_NOT_FOUND: u32 = 4u32;
+pub const WZC_PROFILE_XML_ERROR_UNSUPPORTED_VERSION: u32 = 3u32;

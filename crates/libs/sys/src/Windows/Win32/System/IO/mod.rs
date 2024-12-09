@@ -21,6 +21,7 @@ pub union IO_STATUS_BLOCK_0 {
     pub Status: super::super::Foundation::NTSTATUS,
     pub Pointer: *mut core::ffi::c_void,
 }
+pub type LPOVERLAPPED_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OVERLAPPED {
@@ -49,5 +50,4 @@ pub struct OVERLAPPED_ENTRY {
     pub Internal: usize,
     pub dwNumberOfBytesTransferred: u32,
 }
-pub type LPOVERLAPPED_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
 pub type PIO_APC_ROUTINE = Option<unsafe extern "system" fn(apccontext: *mut core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32)>;

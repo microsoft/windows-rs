@@ -56,6 +56,271 @@ pub const FACILITY_NONE: u32 = 0u32;
 pub const FACILITY_WINBIO: u32 = 9u32;
 pub const GUID_DEVINTERFACE_BIOMETRIC_READER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2b5183a_99ea_4cc3_ad6b_80ca8d715b80);
 pub const IOCTL_BIOMETRIC_VENDOR: u32 = 4464640u32;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, typeinfobufferaddress: *const u8, typeinfobuffersize: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_ACCEPT_SAMPLE_DATA_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, samplebuffer: *const WINBIO_BIR, samplesize: usize, purpose: u8, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_ACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_ATTACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, duplicate: *mut super::super::Foundation::BOOLEAN) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_CLEAR_CONTEXT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_COMMIT_ENROLLMENT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8, payloadblob: *const u8, payloadblobsize: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_CONTROL_UNIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_CONTROL_UNIT_PRIVILEGED_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, nonce: *mut *mut u8, noncesize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_CREATE_ENROLLMENT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_CREATE_KEY_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, key: *const u8, keysize: usize, keyidentifier: *mut u8, keyidentifiersize: usize, resultsize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_DEACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_DETACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_DISCARD_ENROLLMENT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_EXPORT_ENGINE_DATA_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, flags: u8, samplebuffer: *mut *mut WINBIO_BIR, samplesize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_GET_ENROLLMENT_HASH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, hashvalue: *mut *mut u8, hashsize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_GET_ENROLLMENT_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_IDENTIFY_ALL_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, presencecount: *mut usize, presencearray: *mut *mut WINBIO_PRESENCE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, nonce: *const u8, noncesize: usize, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, rejectdetail: *mut u32, authentication: *mut *mut u8, authenticationsize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_IDENTIFY_FEATURE_SET_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, payloadblob: *mut *mut u8, payloadblobsize: *mut usize, hashvalue: *mut *mut u8, hashsize: *mut usize, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_IDENTIFY_FEATURE_SET_SECURE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, nonce: *const u8, noncesize: usize, keyidentifier: *const u8, keyidentifiersize: usize, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, rejectdetail: *mut u32, authorization: *mut *mut u8, authorizationsize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_NOTIFY_POWER_CHANGE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, powereventtype: u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_PIPELINE_CLEANUP_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_PIPELINE_INIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, discardandrepeatcapture: *mut super::super::Foundation::BOOLEAN, calibrationbuffer: *mut u8, calibrationbuffersize: *mut usize, maxbuffersize: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, enrollmentstatus: *mut WINBIO_EXTENDED_ENROLLMENT_STATUS, enrollmentstatussize: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_QUERY_EXTENDED_INFO_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, engineinfo: *mut WINBIO_EXTENDED_ENGINE_INFO, engineinfosize: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_QUERY_HASH_ALGORITHMS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, algorithmcount: *mut usize, algorithmbuffersize: *mut usize, algorithmbuffer: *mut *mut u8) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_QUERY_INDEX_VECTOR_SIZE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, indexelementcount: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, standardformat: *mut WINBIO_REGISTERED_FORMAT, vendorformat: *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_QUERY_SAMPLE_HINT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, samplehint: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_REFRESH_CACHE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_RESERVED_1_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *mut WINBIO_IDENTITY) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, formatarray: *const windows_sys::core::GUID, formatcount: usize, selectedformat: *mut windows_sys::core::GUID, maxbuffersize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_SET_ACCOUNT_POLICY_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, policyitemarray: *const WINBIO_ACCOUNT_POLICY, policyitemcount: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_SET_ENROLLMENT_PARAMETERS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, parameters: *const WINBIO_EXTENDED_ENROLLMENT_PARAMETERS) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_SET_ENROLLMENT_SELECTOR_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, selectorvalue: u64) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_SET_HASH_ALGORITHM_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, algorithmbuffersize: usize, algorithmbuffer: *const u8) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_UPDATE_ENROLLMENT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_ENGINE_VERIFY_FEATURE_SET_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8, r#match: *mut super::super::Foundation::BOOLEAN, payloadblob: *mut *mut u8, payloadblobsize: *mut usize, hashvalue: *mut *mut u8, hashsize: *mut usize, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, allocationsize: usize, address: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_FREE_MEMORY_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, address: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_GET_PROPERTY_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, propertytype: u32, propertyid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut core::ffi::c_void, propertybuffersize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, securebufferidentifier: windows_sys::core::GUID, securebufferaddress: *mut *mut core::ffi::c_void, securebuffersize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_RELEASE_SECURE_BUFFER_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, securebufferidentifier: windows_sys::core::GUID) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_SET_UNIT_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, extendedstatus: *const WINBIO_EXTENDED_UNIT_STATUS, extendedstatussize: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_VSM_CACHE_CLEAR_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_BEGIN_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, requiredcapacity: *mut usize, maxbuffersize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_END_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_NEXT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, bufferaddress: *mut u8, buffersize: usize, returneddatasize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_BEGIN_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, requiredcapacity: usize, maxbuffersize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_END_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_NEXT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, bufferaddress: *const u8, buffersize: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, authentication: *const u8, authenticationsize: usize, iv: *const u8, ivsize: usize, encrypteddata: *mut u8, encrypteddatasize: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_VSM_QUERY_AUTHORIZED_ENROLLMENTS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, secureidentitycount: *mut usize, secureidentities: *mut *mut WINBIO_IDENTITY) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_1_FN = Option<unsafe extern "system" fn(pipeline: *const WINBIO_PIPELINE, reserved1: usize, reserved2: *const usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_2_FN = Option<unsafe extern "system" fn(pipeline: *const WINBIO_PIPELINE, reserved1: *const u8, reserved2: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_3_FN = Option<unsafe extern "system" fn(pipeline: *const WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_ACCEPT_CALIBRATION_DATA_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, calibrationbuffer: *const u8, calibrationbuffersize: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_ACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, rawbufferaddress: *const u8, rawbuffersize: usize, resultbufferaddress: *mut *mut u8, resultbuffersize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, securebufferidentifier: windows_sys::core::GUID, metadatabufferaddress: *const u8, metadatabuffersize: usize, resultbufferaddress: *mut *mut u8, resultbuffersize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_ATTACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_CANCEL_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_CLEAR_CONTEXT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_CONNECT_SECURE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, connectionparams: *const WINBIO_SECURE_CONNECTION_PARAMS, connectiondata: *mut *mut WINBIO_SECURE_CONNECTION_DATA) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_CONTROL_UNIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_CONTROL_UNIT_PRIVILEGED_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_DEACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_DETACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_EXPORT_SENSOR_DATA_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, samplebuffer: *mut *mut WINBIO_BIR, samplesize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_FINISH_CAPTURE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, reason: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_GET_INDICATOR_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, indicatorstatus: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, powereventtype: u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_PIPELINE_CLEANUP_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_PIPELINE_INIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, purpose: u8, flags: u8, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, formatarray: *mut windows_sys::core::GUID, formatarraysize: usize, formatcount: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_QUERY_EXTENDED_INFO_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, sensorinfo: *mut WINBIO_EXTENDED_SENSOR_INFO, sensorinfosize: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_QUERY_PRIVATE_SENSOR_TYPE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, typeinfobufferaddress: *mut u8, typeinfobuffersize: usize, typeinfodatasize: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_QUERY_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, status: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_RESET_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, format: *const windows_sys::core::GUID) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_SET_INDICATOR_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, indicatorstatus: u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_SET_MODE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, mode: u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_START_CAPTURE_EX_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, purpose: u8, nonce: *const u8, noncesize: usize, flags: u8, overlapped: *mut *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_START_CAPTURE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, purpose: u8, overlapped: *mut *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_SENSOR_START_NOTIFY_WAKE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, overlapped: *mut *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_ACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_ADD_RECORD_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, recordcontents: *const WINBIO_STORAGE_RECORD) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_ATTACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_CLEAR_CONTEXT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_CLOSE_DATABASE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_CONTROL_UNIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_CONTROL_UNIT_PRIVILEGED_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_CREATE_DATABASE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, databaseid: *const windows_sys::core::GUID, factor: u32, format: *const windows_sys::core::GUID, filepath: windows_sys::core::PCWSTR, connectstring: windows_sys::core::PCWSTR, indexelementcount: usize, initialsize: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_DEACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_DELETE_RECORD_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_DETACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_ERASE_DATABASE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, databaseid: *const windows_sys::core::GUID, filepath: windows_sys::core::PCWSTR, connectstring: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_FIRST_RECORD_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_GET_CURRENT_RECORD_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, recordcontents: *mut WINBIO_STORAGE_RECORD) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_GET_DATABASE_SIZE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, availablerecordcount: *mut usize, totalrecordcount: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_GET_DATA_FORMAT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, format: *mut windows_sys::core::GUID, version: *mut WINBIO_VERSION) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_GET_RECORD_COUNT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, recordcount: *mut usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_NEXT_RECORD_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, recordsadded: super::super::Foundation::BOOLEAN) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, powereventtype: u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_OPEN_DATABASE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, databaseid: *const windows_sys::core::GUID, filepath: windows_sys::core::PCWSTR, connectstring: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_PIPELINE_CLEANUP_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_PIPELINE_INIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_QUERY_BY_CONTENT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, subfactor: u8, indexvector: *const u32, indexelementcount: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_QUERY_BY_SUBJECT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, storageinfo: *mut WINBIO_EXTENDED_STORAGE_INFO, storageinfosize: usize) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_RESERVED_1_FN = Option<unsafe extern "system" fn(pipeline: *const WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, reserved1: *const u64, reserved2: *const u64) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_RESERVED_2_FN = Option<unsafe extern "system" fn(pipeline: *const WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_UPDATE_RECORD_BEGIN_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8, recordcontents: *mut WINBIO_STORAGE_RECORD) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, recordcontents: *const WINBIO_STORAGE_RECORD) -> windows_sys::core::HRESULT>;
+pub type PWINBIO_ASYNC_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(asyncresult: *const WINBIO_ASYNC_RESULT)>;
+pub type PWINBIO_CAPTURE_CALLBACK = Option<unsafe extern "system" fn(capturecallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: u32, sample: *const WINBIO_BIR, samplesize: usize, rejectdetail: u32)>;
+pub type PWINBIO_ENROLL_CAPTURE_CALLBACK = Option<unsafe extern "system" fn(enrollcallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, rejectdetail: u32)>;
+pub type PWINBIO_EVENT_CALLBACK = Option<unsafe extern "system" fn(eventcallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, event: *const WINBIO_EVENT)>;
+pub type PWINBIO_IDENTIFY_CALLBACK = Option<unsafe extern "system" fn(identifycallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, rejectdetail: u32)>;
+pub type PWINBIO_LOCATE_SENSOR_CALLBACK = Option<unsafe extern "system" fn(locatecallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: u32)>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PWINBIO_QUERY_ENGINE_INTERFACE_FN = Option<unsafe extern "system" fn(engineinterface: *mut *mut WINBIO_ENGINE_INTERFACE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PWINBIO_QUERY_SENSOR_INTERFACE_FN = Option<unsafe extern "system" fn(sensorinterface: *mut *mut WINBIO_SENSOR_INTERFACE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type PWINBIO_QUERY_STORAGE_INTERFACE_FN = Option<unsafe extern "system" fn(storageinterface: *mut *mut WINBIO_STORAGE_INTERFACE) -> windows_sys::core::HRESULT>;
+pub type PWINBIO_VERIFY_CALLBACK = Option<unsafe extern "system" fn(verifycallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: u32, r#match: super::super::Foundation::BOOLEAN, rejectdetail: u32)>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINBIO_ACCOUNT_POLICY {
+    pub Identity: WINBIO_IDENTITY,
+    pub AntiSpoofBehavior: WINBIO_ANTI_SPOOF_POLICY_ACTION,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINBIO_ADAPTER_INTERFACE_VERSION {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+}
 pub const WINBIO_ANSI_381_IMG_BIT_PACKED: u16 = 1u16;
 pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG: u16 = 3u16;
 pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG2000: u16 = 4u16;
@@ -73,165 +338,19 @@ pub const WINBIO_ANSI_381_PIXELS_PER_CM: u16 = 2u16;
 pub const WINBIO_ANSI_381_PIXELS_PER_INCH: u16 = 1u16;
 pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 0i32;
 pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 1i32;
-pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 2i32;
-pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = 1i32;
-pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = 3i32;
-pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = 2i32;
-pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = 0i32;
-pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
-pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8u32;
-pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = 2u32;
-pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = 1u32;
-pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = 3u32;
-pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = -1i32;
-pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = 1i32;
-pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = 1i32;
-pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = 2i32;
-pub const WINBIO_DATA_FLAG_INTEGRITY: u16 = 1u16;
-pub const WINBIO_DATA_FLAG_INTERMEDIATE: u16 = 64u16;
-pub const WINBIO_DATA_FLAG_OPTION_MASK_PRESENT: u16 = 8u16;
-pub const WINBIO_DATA_FLAG_PRIVACY: u16 = 2u16;
-pub const WINBIO_DATA_FLAG_PROCESSED: u16 = 128u16;
-pub const WINBIO_DATA_FLAG_RAW: u16 = 32u16;
-pub const WINBIO_DATA_FLAG_SIGNED: u16 = 4u16;
-pub const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: windows_sys::core::HRESULT = 0x8009803D_u32 as _;
-pub const WINBIO_E_AUTO_LOGON_DISABLED: windows_sys::core::HRESULT = 0x80098043_u32 as _;
-pub const WINBIO_E_BAD_CAPTURE: windows_sys::core::HRESULT = 0x80098008_u32 as _;
-pub const WINBIO_E_CALIBRATION_BUFFER_INVALID: windows_sys::core::HRESULT = 0x80098051_u32 as _;
-pub const WINBIO_E_CALIBRATION_BUFFER_TOO_LARGE: windows_sys::core::HRESULT = 0x80098050_u32 as _;
-pub const WINBIO_E_CALIBRATION_BUFFER_TOO_SMALL: windows_sys::core::HRESULT = 0x8009804F_u32 as _;
-pub const WINBIO_E_CANCELED: windows_sys::core::HRESULT = 0x80098004_u32 as _;
-pub const WINBIO_E_CAPTURE_ABORTED: windows_sys::core::HRESULT = 0x80098006_u32 as _;
-pub const WINBIO_E_CONFIGURATION_FAILURE: windows_sys::core::HRESULT = 0x80098033_u32 as _;
-pub const WINBIO_E_CRED_PROV_DISABLED: windows_sys::core::HRESULT = 0x80098030_u32 as _;
-pub const WINBIO_E_CRED_PROV_NO_CREDENTIAL: windows_sys::core::HRESULT = 0x80098031_u32 as _;
-pub const WINBIO_E_CRED_PROV_SECURITY_LOCKOUT: windows_sys::core::HRESULT = 0x80098047_u32 as _;
-pub const WINBIO_E_DATABASE_ALREADY_EXISTS: windows_sys::core::HRESULT = 0x80098016_u32 as _;
-pub const WINBIO_E_DATABASE_BAD_INDEX_VECTOR: windows_sys::core::HRESULT = 0x80098022_u32 as _;
-pub const WINBIO_E_DATABASE_CANT_CLOSE: windows_sys::core::HRESULT = 0x80098013_u32 as _;
-pub const WINBIO_E_DATABASE_CANT_CREATE: windows_sys::core::HRESULT = 0x80098011_u32 as _;
-pub const WINBIO_E_DATABASE_CANT_ERASE: windows_sys::core::HRESULT = 0x80098014_u32 as _;
-pub const WINBIO_E_DATABASE_CANT_FIND: windows_sys::core::HRESULT = 0x80098015_u32 as _;
-pub const WINBIO_E_DATABASE_CANT_OPEN: windows_sys::core::HRESULT = 0x80098012_u32 as _;
-pub const WINBIO_E_DATABASE_CORRUPTED: windows_sys::core::HRESULT = 0x8009801A_u32 as _;
-pub const WINBIO_E_DATABASE_EOF: windows_sys::core::HRESULT = 0x80098021_u32 as _;
-pub const WINBIO_E_DATABASE_FULL: windows_sys::core::HRESULT = 0x80098018_u32 as _;
-pub const WINBIO_E_DATABASE_LOCKED: windows_sys::core::HRESULT = 0x80098019_u32 as _;
-pub const WINBIO_E_DATABASE_NO_MORE_RECORDS: windows_sys::core::HRESULT = 0x80098020_u32 as _;
-pub const WINBIO_E_DATABASE_NO_RESULTS: windows_sys::core::HRESULT = 0x8009801F_u32 as _;
-pub const WINBIO_E_DATABASE_NO_SUCH_RECORD: windows_sys::core::HRESULT = 0x8009801B_u32 as _;
-pub const WINBIO_E_DATABASE_READ_ERROR: windows_sys::core::HRESULT = 0x8009801D_u32 as _;
-pub const WINBIO_E_DATABASE_WRITE_ERROR: windows_sys::core::HRESULT = 0x8009801E_u32 as _;
-pub const WINBIO_E_DATA_COLLECTION_IN_PROGRESS: windows_sys::core::HRESULT = 0x8009800B_u32 as _;
-pub const WINBIO_E_DATA_PROTECTION_FAILURE: windows_sys::core::HRESULT = 0x80098046_u32 as _;
-pub const WINBIO_E_DEADLOCK_DETECTED: windows_sys::core::HRESULT = 0x80098040_u32 as _;
-pub const WINBIO_E_DEVICE_BUSY: windows_sys::core::HRESULT = 0x80098010_u32 as _;
-pub const WINBIO_E_DEVICE_FAILURE: windows_sys::core::HRESULT = 0x80098036_u32 as _;
-pub const WINBIO_E_DISABLED: windows_sys::core::HRESULT = 0x80098032_u32 as _;
-pub const WINBIO_E_DUPLICATE_ENROLLMENT: windows_sys::core::HRESULT = 0x8009801C_u32 as _;
-pub const WINBIO_E_DUPLICATE_TEMPLATE: windows_sys::core::HRESULT = 0x8009802B_u32 as _;
-pub const WINBIO_E_ENROLLMENT_CANCELED_BY_SUSPEND: windows_sys::core::HRESULT = 0x8009805B_u32 as _;
-pub const WINBIO_E_ENROLLMENT_IN_PROGRESS: windows_sys::core::HRESULT = 0x80098007_u32 as _;
-pub const WINBIO_E_EVENT_MONITOR_ACTIVE: windows_sys::core::HRESULT = 0x80098039_u32 as _;
-pub const WINBIO_E_FAST_USER_SWITCH_DISABLED: windows_sys::core::HRESULT = 0x80098037_u32 as _;
-pub const WINBIO_E_INCORRECT_BSP: windows_sys::core::HRESULT = 0x80098024_u32 as _;
-pub const WINBIO_E_INCORRECT_SENSOR_POOL: windows_sys::core::HRESULT = 0x80098025_u32 as _;
-pub const WINBIO_E_INCORRECT_SESSION_TYPE: windows_sys::core::HRESULT = 0x8009803E_u32 as _;
-pub const WINBIO_E_INSECURE_SENSOR: windows_sys::core::HRESULT = 0x80098057_u32 as _;
-pub const WINBIO_E_INVALID_BUFFER: windows_sys::core::HRESULT = 0x80098059_u32 as _;
-pub const WINBIO_E_INVALID_BUFFER_ID: windows_sys::core::HRESULT = 0x80098058_u32 as _;
-pub const WINBIO_E_INVALID_CALIBRATION_FORMAT_ARRAY: windows_sys::core::HRESULT = 0x8009804C_u32 as _;
-pub const WINBIO_E_INVALID_CONTROL_CODE: windows_sys::core::HRESULT = 0x80098009_u32 as _;
-pub const WINBIO_E_INVALID_DEVICE_STATE: windows_sys::core::HRESULT = 0x8009800F_u32 as _;
-pub const WINBIO_E_INVALID_KEY_IDENTIFIER: windows_sys::core::HRESULT = 0x80098052_u32 as _;
-pub const WINBIO_E_INVALID_OPERATION: windows_sys::core::HRESULT = 0x8009802C_u32 as _;
-pub const WINBIO_E_INVALID_PROPERTY_ID: windows_sys::core::HRESULT = 0x8009803B_u32 as _;
-pub const WINBIO_E_INVALID_PROPERTY_TYPE: windows_sys::core::HRESULT = 0x8009803A_u32 as _;
-pub const WINBIO_E_INVALID_SENSOR_MODE: windows_sys::core::HRESULT = 0x80098027_u32 as _;
-pub const WINBIO_E_INVALID_SUBFACTOR: windows_sys::core::HRESULT = 0x8009804B_u32 as _;
-pub const WINBIO_E_INVALID_TICKET: windows_sys::core::HRESULT = 0x80098044_u32 as _;
-pub const WINBIO_E_INVALID_UNIT: windows_sys::core::HRESULT = 0x80098002_u32 as _;
-pub const WINBIO_E_KEY_CREATION_FAILED: windows_sys::core::HRESULT = 0x80098053_u32 as _;
-pub const WINBIO_E_KEY_IDENTIFIER_BUFFER_TOO_SMALL: windows_sys::core::HRESULT = 0x80098054_u32 as _;
-pub const WINBIO_E_LOCK_VIOLATION: windows_sys::core::HRESULT = 0x8009802A_u32 as _;
-pub const WINBIO_E_MAX_ERROR_COUNT_EXCEEDED: windows_sys::core::HRESULT = 0x80098042_u32 as _;
-pub const WINBIO_E_NOT_ACTIVE_CONSOLE: windows_sys::core::HRESULT = 0x80098038_u32 as _;
-pub const WINBIO_E_NO_CAPTURE_DATA: windows_sys::core::HRESULT = 0x80098026_u32 as _;
-pub const WINBIO_E_NO_MATCH: windows_sys::core::HRESULT = 0x80098005_u32 as _;
-pub const WINBIO_E_NO_PREBOOT_IDENTITY: windows_sys::core::HRESULT = 0x80098041_u32 as _;
-pub const WINBIO_E_NO_SUPPORTED_CALIBRATION_FORMAT: windows_sys::core::HRESULT = 0x8009804D_u32 as _;
-pub const WINBIO_E_POLICY_PROTECTION_UNAVAILABLE: windows_sys::core::HRESULT = 0x80098056_u32 as _;
-pub const WINBIO_E_PRESENCE_MONITOR_ACTIVE: windows_sys::core::HRESULT = 0x8009804A_u32 as _;
-pub const WINBIO_E_PROPERTY_UNAVAILABLE: windows_sys::core::HRESULT = 0x80098055_u32 as _;
-pub const WINBIO_E_SAS_ENABLED: windows_sys::core::HRESULT = 0x80098035_u32 as _;
-pub const WINBIO_E_SELECTION_REQUIRED: windows_sys::core::HRESULT = 0x80098049_u32 as _;
-pub const WINBIO_E_SENSOR_UNAVAILABLE: windows_sys::core::HRESULT = 0x80098034_u32 as _;
-pub const WINBIO_E_SESSION_BUSY: windows_sys::core::HRESULT = 0x8009802D_u32 as _;
-pub const WINBIO_E_SESSION_HANDLE_CLOSED: windows_sys::core::HRESULT = 0x8009803F_u32 as _;
-pub const WINBIO_E_TICKET_QUOTA_EXCEEDED: windows_sys::core::HRESULT = 0x80098045_u32 as _;
-pub const WINBIO_E_TRUSTLET_INTEGRITY_FAIL: windows_sys::core::HRESULT = 0x8009805A_u32 as _;
-pub const WINBIO_E_UNKNOWN_ID: windows_sys::core::HRESULT = 0x80098003_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_DATA_FORMAT: windows_sys::core::HRESULT = 0x8009800C_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_DATA_TYPE: windows_sys::core::HRESULT = 0x8009800D_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_FACTOR: windows_sys::core::HRESULT = 0x80098001_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_POOL_TYPE: windows_sys::core::HRESULT = 0x80098048_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_PROPERTY: windows_sys::core::HRESULT = 0x8009803C_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_PURPOSE: windows_sys::core::HRESULT = 0x8009800E_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_SENSOR_CALIBRATION_FORMAT: windows_sys::core::HRESULT = 0x8009804E_u32 as _;
-pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: windows_sys::core::HRESULT = 0x90002_u32 as _;
-pub const WINBIO_I_MORE_DATA: windows_sys::core::HRESULT = 0x90001_u32 as _;
-pub const WINBIO_MAX_STRING_LEN: u32 = 256u32;
-pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = 1i32;
-pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = 2i32;
-pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = 3i32;
-pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = 3i32;
-pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = 1i32;
-pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = 2i32;
-pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = 0i32;
-pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = 2u32;
-pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = 1u32;
-pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_DIGEST_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_ENCRYPTION_BLOCK_SIZE_V1: u32 = 16u32;
-pub const WINBIO_SCP_ENCRYPTION_KEY_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_PRIVATE_KEY_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_PUBLIC_KEY_SIZE_V1: u32 = 65u32;
-pub const WINBIO_SCP_RANDOM_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64u32;
-pub const WINBIO_SCP_VERSION_1: u32 = 1u32;
-pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = 1u32;
-pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = 0u32;
-pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = 3u32;
-pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = 2u32;
-pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
-pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
-pub type WINBIO_ANTI_SPOOF_POLICY_ACTION = i32;
-pub type WINBIO_ASYNC_NOTIFICATION_METHOD = i32;
-pub type WINBIO_COMPONENT = u32;
-pub type WINBIO_CREDENTIAL_FORMAT = i32;
-pub type WINBIO_CREDENTIAL_STATE = i32;
-pub type WINBIO_CREDENTIAL_TYPE = i32;
-pub type WINBIO_POLICY_SOURCE = i32;
-pub type WINBIO_POOL = u32;
-pub type WINBIO_SETTING_SOURCE = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINBIO_ACCOUNT_POLICY {
-    pub Identity: WINBIO_IDENTITY,
-    pub AntiSpoofBehavior: WINBIO_ANTI_SPOOF_POLICY_ACTION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINBIO_ADAPTER_INTERFACE_VERSION {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ANTI_SPOOF_POLICY {
     pub Action: WINBIO_ANTI_SPOOF_POLICY_ACTION,
     pub Source: WINBIO_POLICY_SOURCE,
 }
+pub type WINBIO_ANTI_SPOOF_POLICY_ACTION = i32;
+pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 2i32;
+pub type WINBIO_ASYNC_NOTIFICATION_METHOD = i32;
+pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = 1i32;
+pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = 3i32;
+pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = 2i32;
+pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT {
@@ -451,6 +570,8 @@ pub struct WINBIO_BIR {
     pub VendorDataBlock: WINBIO_BIR_DATA,
     pub SignatureBlock: WINBIO_BIR_DATA,
 }
+pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
+pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_BIR_DATA {
@@ -519,12 +640,30 @@ pub struct WINBIO_CAPTURE_PARAMETERS {
     pub VendorFormat: windows_sys::core::GUID,
     pub Flags: u8,
 }
+pub type WINBIO_COMPONENT = u32;
+pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = 2u32;
+pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = 1u32;
+pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = 3u32;
+pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = -1i32;
+pub type WINBIO_CREDENTIAL_FORMAT = i32;
+pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = 1i32;
+pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = 1i32;
+pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = 2i32;
+pub type WINBIO_CREDENTIAL_STATE = i32;
+pub type WINBIO_CREDENTIAL_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_DATA {
     pub Size: u32,
     pub Data: [u8; 1],
 }
+pub const WINBIO_DATA_FLAG_INTEGRITY: u16 = 1u16;
+pub const WINBIO_DATA_FLAG_INTERMEDIATE: u16 = 64u16;
+pub const WINBIO_DATA_FLAG_OPTION_MASK_PRESENT: u16 = 8u16;
+pub const WINBIO_DATA_FLAG_PRIVACY: u16 = 2u16;
+pub const WINBIO_DATA_FLAG_PROCESSED: u16 = 128u16;
+pub const WINBIO_DATA_FLAG_RAW: u16 = 32u16;
+pub const WINBIO_DATA_FLAG_SIGNED: u16 = 4u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_DIAGNOSTICS {
@@ -853,6 +992,90 @@ pub struct WINBIO_EXTENDED_UNIT_STATUS {
     pub Availability: u32,
     pub ReasonCode: u32,
 }
+pub const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: windows_sys::core::HRESULT = 0x8009803D_u32 as _;
+pub const WINBIO_E_AUTO_LOGON_DISABLED: windows_sys::core::HRESULT = 0x80098043_u32 as _;
+pub const WINBIO_E_BAD_CAPTURE: windows_sys::core::HRESULT = 0x80098008_u32 as _;
+pub const WINBIO_E_CALIBRATION_BUFFER_INVALID: windows_sys::core::HRESULT = 0x80098051_u32 as _;
+pub const WINBIO_E_CALIBRATION_BUFFER_TOO_LARGE: windows_sys::core::HRESULT = 0x80098050_u32 as _;
+pub const WINBIO_E_CALIBRATION_BUFFER_TOO_SMALL: windows_sys::core::HRESULT = 0x8009804F_u32 as _;
+pub const WINBIO_E_CANCELED: windows_sys::core::HRESULT = 0x80098004_u32 as _;
+pub const WINBIO_E_CAPTURE_ABORTED: windows_sys::core::HRESULT = 0x80098006_u32 as _;
+pub const WINBIO_E_CONFIGURATION_FAILURE: windows_sys::core::HRESULT = 0x80098033_u32 as _;
+pub const WINBIO_E_CRED_PROV_DISABLED: windows_sys::core::HRESULT = 0x80098030_u32 as _;
+pub const WINBIO_E_CRED_PROV_NO_CREDENTIAL: windows_sys::core::HRESULT = 0x80098031_u32 as _;
+pub const WINBIO_E_CRED_PROV_SECURITY_LOCKOUT: windows_sys::core::HRESULT = 0x80098047_u32 as _;
+pub const WINBIO_E_DATABASE_ALREADY_EXISTS: windows_sys::core::HRESULT = 0x80098016_u32 as _;
+pub const WINBIO_E_DATABASE_BAD_INDEX_VECTOR: windows_sys::core::HRESULT = 0x80098022_u32 as _;
+pub const WINBIO_E_DATABASE_CANT_CLOSE: windows_sys::core::HRESULT = 0x80098013_u32 as _;
+pub const WINBIO_E_DATABASE_CANT_CREATE: windows_sys::core::HRESULT = 0x80098011_u32 as _;
+pub const WINBIO_E_DATABASE_CANT_ERASE: windows_sys::core::HRESULT = 0x80098014_u32 as _;
+pub const WINBIO_E_DATABASE_CANT_FIND: windows_sys::core::HRESULT = 0x80098015_u32 as _;
+pub const WINBIO_E_DATABASE_CANT_OPEN: windows_sys::core::HRESULT = 0x80098012_u32 as _;
+pub const WINBIO_E_DATABASE_CORRUPTED: windows_sys::core::HRESULT = 0x8009801A_u32 as _;
+pub const WINBIO_E_DATABASE_EOF: windows_sys::core::HRESULT = 0x80098021_u32 as _;
+pub const WINBIO_E_DATABASE_FULL: windows_sys::core::HRESULT = 0x80098018_u32 as _;
+pub const WINBIO_E_DATABASE_LOCKED: windows_sys::core::HRESULT = 0x80098019_u32 as _;
+pub const WINBIO_E_DATABASE_NO_MORE_RECORDS: windows_sys::core::HRESULT = 0x80098020_u32 as _;
+pub const WINBIO_E_DATABASE_NO_RESULTS: windows_sys::core::HRESULT = 0x8009801F_u32 as _;
+pub const WINBIO_E_DATABASE_NO_SUCH_RECORD: windows_sys::core::HRESULT = 0x8009801B_u32 as _;
+pub const WINBIO_E_DATABASE_READ_ERROR: windows_sys::core::HRESULT = 0x8009801D_u32 as _;
+pub const WINBIO_E_DATABASE_WRITE_ERROR: windows_sys::core::HRESULT = 0x8009801E_u32 as _;
+pub const WINBIO_E_DATA_COLLECTION_IN_PROGRESS: windows_sys::core::HRESULT = 0x8009800B_u32 as _;
+pub const WINBIO_E_DATA_PROTECTION_FAILURE: windows_sys::core::HRESULT = 0x80098046_u32 as _;
+pub const WINBIO_E_DEADLOCK_DETECTED: windows_sys::core::HRESULT = 0x80098040_u32 as _;
+pub const WINBIO_E_DEVICE_BUSY: windows_sys::core::HRESULT = 0x80098010_u32 as _;
+pub const WINBIO_E_DEVICE_FAILURE: windows_sys::core::HRESULT = 0x80098036_u32 as _;
+pub const WINBIO_E_DISABLED: windows_sys::core::HRESULT = 0x80098032_u32 as _;
+pub const WINBIO_E_DUPLICATE_ENROLLMENT: windows_sys::core::HRESULT = 0x8009801C_u32 as _;
+pub const WINBIO_E_DUPLICATE_TEMPLATE: windows_sys::core::HRESULT = 0x8009802B_u32 as _;
+pub const WINBIO_E_ENROLLMENT_CANCELED_BY_SUSPEND: windows_sys::core::HRESULT = 0x8009805B_u32 as _;
+pub const WINBIO_E_ENROLLMENT_IN_PROGRESS: windows_sys::core::HRESULT = 0x80098007_u32 as _;
+pub const WINBIO_E_EVENT_MONITOR_ACTIVE: windows_sys::core::HRESULT = 0x80098039_u32 as _;
+pub const WINBIO_E_FAST_USER_SWITCH_DISABLED: windows_sys::core::HRESULT = 0x80098037_u32 as _;
+pub const WINBIO_E_INCORRECT_BSP: windows_sys::core::HRESULT = 0x80098024_u32 as _;
+pub const WINBIO_E_INCORRECT_SENSOR_POOL: windows_sys::core::HRESULT = 0x80098025_u32 as _;
+pub const WINBIO_E_INCORRECT_SESSION_TYPE: windows_sys::core::HRESULT = 0x8009803E_u32 as _;
+pub const WINBIO_E_INSECURE_SENSOR: windows_sys::core::HRESULT = 0x80098057_u32 as _;
+pub const WINBIO_E_INVALID_BUFFER: windows_sys::core::HRESULT = 0x80098059_u32 as _;
+pub const WINBIO_E_INVALID_BUFFER_ID: windows_sys::core::HRESULT = 0x80098058_u32 as _;
+pub const WINBIO_E_INVALID_CALIBRATION_FORMAT_ARRAY: windows_sys::core::HRESULT = 0x8009804C_u32 as _;
+pub const WINBIO_E_INVALID_CONTROL_CODE: windows_sys::core::HRESULT = 0x80098009_u32 as _;
+pub const WINBIO_E_INVALID_DEVICE_STATE: windows_sys::core::HRESULT = 0x8009800F_u32 as _;
+pub const WINBIO_E_INVALID_KEY_IDENTIFIER: windows_sys::core::HRESULT = 0x80098052_u32 as _;
+pub const WINBIO_E_INVALID_OPERATION: windows_sys::core::HRESULT = 0x8009802C_u32 as _;
+pub const WINBIO_E_INVALID_PROPERTY_ID: windows_sys::core::HRESULT = 0x8009803B_u32 as _;
+pub const WINBIO_E_INVALID_PROPERTY_TYPE: windows_sys::core::HRESULT = 0x8009803A_u32 as _;
+pub const WINBIO_E_INVALID_SENSOR_MODE: windows_sys::core::HRESULT = 0x80098027_u32 as _;
+pub const WINBIO_E_INVALID_SUBFACTOR: windows_sys::core::HRESULT = 0x8009804B_u32 as _;
+pub const WINBIO_E_INVALID_TICKET: windows_sys::core::HRESULT = 0x80098044_u32 as _;
+pub const WINBIO_E_INVALID_UNIT: windows_sys::core::HRESULT = 0x80098002_u32 as _;
+pub const WINBIO_E_KEY_CREATION_FAILED: windows_sys::core::HRESULT = 0x80098053_u32 as _;
+pub const WINBIO_E_KEY_IDENTIFIER_BUFFER_TOO_SMALL: windows_sys::core::HRESULT = 0x80098054_u32 as _;
+pub const WINBIO_E_LOCK_VIOLATION: windows_sys::core::HRESULT = 0x8009802A_u32 as _;
+pub const WINBIO_E_MAX_ERROR_COUNT_EXCEEDED: windows_sys::core::HRESULT = 0x80098042_u32 as _;
+pub const WINBIO_E_NOT_ACTIVE_CONSOLE: windows_sys::core::HRESULT = 0x80098038_u32 as _;
+pub const WINBIO_E_NO_CAPTURE_DATA: windows_sys::core::HRESULT = 0x80098026_u32 as _;
+pub const WINBIO_E_NO_MATCH: windows_sys::core::HRESULT = 0x80098005_u32 as _;
+pub const WINBIO_E_NO_PREBOOT_IDENTITY: windows_sys::core::HRESULT = 0x80098041_u32 as _;
+pub const WINBIO_E_NO_SUPPORTED_CALIBRATION_FORMAT: windows_sys::core::HRESULT = 0x8009804D_u32 as _;
+pub const WINBIO_E_POLICY_PROTECTION_UNAVAILABLE: windows_sys::core::HRESULT = 0x80098056_u32 as _;
+pub const WINBIO_E_PRESENCE_MONITOR_ACTIVE: windows_sys::core::HRESULT = 0x8009804A_u32 as _;
+pub const WINBIO_E_PROPERTY_UNAVAILABLE: windows_sys::core::HRESULT = 0x80098055_u32 as _;
+pub const WINBIO_E_SAS_ENABLED: windows_sys::core::HRESULT = 0x80098035_u32 as _;
+pub const WINBIO_E_SELECTION_REQUIRED: windows_sys::core::HRESULT = 0x80098049_u32 as _;
+pub const WINBIO_E_SENSOR_UNAVAILABLE: windows_sys::core::HRESULT = 0x80098034_u32 as _;
+pub const WINBIO_E_SESSION_BUSY: windows_sys::core::HRESULT = 0x8009802D_u32 as _;
+pub const WINBIO_E_SESSION_HANDLE_CLOSED: windows_sys::core::HRESULT = 0x8009803F_u32 as _;
+pub const WINBIO_E_TICKET_QUOTA_EXCEEDED: windows_sys::core::HRESULT = 0x80098045_u32 as _;
+pub const WINBIO_E_TRUSTLET_INTEGRITY_FAIL: windows_sys::core::HRESULT = 0x8009805A_u32 as _;
+pub const WINBIO_E_UNKNOWN_ID: windows_sys::core::HRESULT = 0x80098003_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_DATA_FORMAT: windows_sys::core::HRESULT = 0x8009800C_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_DATA_TYPE: windows_sys::core::HRESULT = 0x8009800D_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_FACTOR: windows_sys::core::HRESULT = 0x80098001_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_POOL_TYPE: windows_sys::core::HRESULT = 0x80098048_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_PROPERTY: windows_sys::core::HRESULT = 0x8009803C_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_PURPOSE: windows_sys::core::HRESULT = 0x8009800E_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_SENSOR_CALIBRATION_FORMAT: windows_sys::core::HRESULT = 0x8009804E_u32 as _;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_FP_BU_STATE {
@@ -948,6 +1171,9 @@ pub struct WINBIO_IDENTITY_0_0 {
     pub Size: u32,
     pub Data: [u8; 68],
 }
+pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: windows_sys::core::HRESULT = 0x90002_u32 as _;
+pub const WINBIO_I_MORE_DATA: windows_sys::core::HRESULT = 0x90001_u32 as _;
+pub const WINBIO_MAX_STRING_LEN: u32 = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_NOTIFY_WAKE {
@@ -955,6 +1181,9 @@ pub struct WINBIO_NOTIFY_WAKE {
     pub WinBioHresult: windows_sys::core::HRESULT,
     pub Reason: u32,
 }
+pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = 1i32;
+pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = 2i32;
+pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
@@ -970,6 +1199,14 @@ pub struct WINBIO_PIPELINE {
     pub StorageContext: *mut WINIBIO_STORAGE_CONTEXT,
     pub FrameworkInterface: *mut WINBIO_FRAMEWORK_INTERFACE,
 }
+pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = 3i32;
+pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = 1i32;
+pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = 2i32;
+pub type WINBIO_POLICY_SOURCE = i32;
+pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = 0i32;
+pub type WINBIO_POOL = u32;
+pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = 2u32;
+pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_PRESENCE {
@@ -1040,6 +1277,15 @@ pub struct WINBIO_REGISTERED_FORMAT {
     pub Owner: u16,
     pub Type: u16,
 }
+pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32u32;
+pub const WINBIO_SCP_DIGEST_SIZE_V1: u32 = 32u32;
+pub const WINBIO_SCP_ENCRYPTION_BLOCK_SIZE_V1: u32 = 16u32;
+pub const WINBIO_SCP_ENCRYPTION_KEY_SIZE_V1: u32 = 32u32;
+pub const WINBIO_SCP_PRIVATE_KEY_SIZE_V1: u32 = 32u32;
+pub const WINBIO_SCP_PUBLIC_KEY_SIZE_V1: u32 = 65u32;
+pub const WINBIO_SCP_RANDOM_SIZE_V1: u32 = 32u32;
+pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64u32;
+pub const WINBIO_SCP_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
@@ -1121,6 +1367,11 @@ pub struct WINBIO_SENSOR_INTERFACE {
     pub StartNotifyWake: PIBIO_SENSOR_START_NOTIFY_WAKE_FN,
     pub FinishNotifyWake: PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN,
 }
+pub type WINBIO_SETTING_SOURCE = u32;
+pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = 1u32;
+pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = 0u32;
+pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = 3u32;
+pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_SET_INDICATOR {
@@ -1223,259 +1474,8 @@ pub struct WINBIO_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
 }
+pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
+pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
 pub type WINIBIO_ENGINE_CONTEXT = isize;
 pub type WINIBIO_SENSOR_CONTEXT = isize;
 pub type WINIBIO_STORAGE_CONTEXT = isize;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, typeinfobufferaddress: *const u8, typeinfobuffersize: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_ACCEPT_SAMPLE_DATA_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, samplebuffer: *const WINBIO_BIR, samplesize: usize, purpose: u8, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_ACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_ATTACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, duplicate: *mut super::super::Foundation::BOOLEAN) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_CLEAR_CONTEXT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_COMMIT_ENROLLMENT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8, payloadblob: *const u8, payloadblobsize: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_CONTROL_UNIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_CONTROL_UNIT_PRIVILEGED_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, nonce: *mut *mut u8, noncesize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_CREATE_ENROLLMENT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_CREATE_KEY_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, key: *const u8, keysize: usize, keyidentifier: *mut u8, keyidentifiersize: usize, resultsize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_DEACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_DETACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_DISCARD_ENROLLMENT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_EXPORT_ENGINE_DATA_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, flags: u8, samplebuffer: *mut *mut WINBIO_BIR, samplesize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_GET_ENROLLMENT_HASH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, hashvalue: *mut *mut u8, hashsize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_GET_ENROLLMENT_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_IDENTIFY_ALL_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, presencecount: *mut usize, presencearray: *mut *mut WINBIO_PRESENCE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, nonce: *const u8, noncesize: usize, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, rejectdetail: *mut u32, authentication: *mut *mut u8, authenticationsize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_IDENTIFY_FEATURE_SET_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, payloadblob: *mut *mut u8, payloadblobsize: *mut usize, hashvalue: *mut *mut u8, hashsize: *mut usize, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_IDENTIFY_FEATURE_SET_SECURE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, nonce: *const u8, noncesize: usize, keyidentifier: *const u8, keyidentifiersize: usize, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, rejectdetail: *mut u32, authorization: *mut *mut u8, authorizationsize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_NOTIFY_POWER_CHANGE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, powereventtype: u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_PIPELINE_CLEANUP_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_PIPELINE_INIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, discardandrepeatcapture: *mut super::super::Foundation::BOOLEAN, calibrationbuffer: *mut u8, calibrationbuffersize: *mut usize, maxbuffersize: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, enrollmentstatus: *mut WINBIO_EXTENDED_ENROLLMENT_STATUS, enrollmentstatussize: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_QUERY_EXTENDED_INFO_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, engineinfo: *mut WINBIO_EXTENDED_ENGINE_INFO, engineinfosize: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_QUERY_HASH_ALGORITHMS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, algorithmcount: *mut usize, algorithmbuffersize: *mut usize, algorithmbuffer: *mut *mut u8) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_QUERY_INDEX_VECTOR_SIZE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, indexelementcount: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, standardformat: *mut WINBIO_REGISTERED_FORMAT, vendorformat: *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_QUERY_SAMPLE_HINT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, samplehint: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_REFRESH_CACHE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_RESERVED_1_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *mut WINBIO_IDENTITY) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, formatarray: *const windows_sys::core::GUID, formatcount: usize, selectedformat: *mut windows_sys::core::GUID, maxbuffersize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_SET_ACCOUNT_POLICY_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, policyitemarray: *const WINBIO_ACCOUNT_POLICY, policyitemcount: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_SET_ENROLLMENT_PARAMETERS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, parameters: *const WINBIO_EXTENDED_ENROLLMENT_PARAMETERS) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_SET_ENROLLMENT_SELECTOR_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, selectorvalue: u64) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_SET_HASH_ALGORITHM_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, algorithmbuffersize: usize, algorithmbuffer: *const u8) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_UPDATE_ENROLLMENT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_VERIFY_FEATURE_SET_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8, r#match: *mut super::super::Foundation::BOOLEAN, payloadblob: *mut *mut u8, payloadblobsize: *mut usize, hashvalue: *mut *mut u8, hashsize: *mut usize, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, allocationsize: usize, address: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_FREE_MEMORY_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, address: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_GET_PROPERTY_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, propertytype: u32, propertyid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut core::ffi::c_void, propertybuffersize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, securebufferidentifier: windows_sys::core::GUID, securebufferaddress: *mut *mut core::ffi::c_void, securebuffersize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_RELEASE_SECURE_BUFFER_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, securebufferidentifier: windows_sys::core::GUID) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_SET_UNIT_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, extendedstatus: *const WINBIO_EXTENDED_UNIT_STATUS, extendedstatussize: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_VSM_CACHE_CLEAR_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_BEGIN_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, requiredcapacity: *mut usize, maxbuffersize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_END_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_NEXT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, bufferaddress: *mut u8, buffersize: usize, returneddatasize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_BEGIN_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, requiredcapacity: usize, maxbuffersize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_END_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_NEXT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, bufferaddress: *const u8, buffersize: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, authentication: *const u8, authenticationsize: usize, iv: *const u8, ivsize: usize, encrypteddata: *mut u8, encrypteddatasize: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_VSM_QUERY_AUTHORIZED_ENROLLMENTS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, secureidentitycount: *mut usize, secureidentities: *mut *mut WINBIO_IDENTITY) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_1_FN = Option<unsafe extern "system" fn(pipeline: *const WINBIO_PIPELINE, reserved1: usize, reserved2: *const usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_2_FN = Option<unsafe extern "system" fn(pipeline: *const WINBIO_PIPELINE, reserved1: *const u8, reserved2: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_3_FN = Option<unsafe extern "system" fn(pipeline: *const WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_ACCEPT_CALIBRATION_DATA_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, calibrationbuffer: *const u8, calibrationbuffersize: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_ACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, rawbufferaddress: *const u8, rawbuffersize: usize, resultbufferaddress: *mut *mut u8, resultbuffersize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, securebufferidentifier: windows_sys::core::GUID, metadatabufferaddress: *const u8, metadatabuffersize: usize, resultbufferaddress: *mut *mut u8, resultbuffersize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_ATTACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_CANCEL_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_CLEAR_CONTEXT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_CONNECT_SECURE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, connectionparams: *const WINBIO_SECURE_CONNECTION_PARAMS, connectiondata: *mut *mut WINBIO_SECURE_CONNECTION_DATA) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_CONTROL_UNIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_CONTROL_UNIT_PRIVILEGED_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_DEACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_DETACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_EXPORT_SENSOR_DATA_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, samplebuffer: *mut *mut WINBIO_BIR, samplesize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_FINISH_CAPTURE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, reason: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_GET_INDICATOR_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, indicatorstatus: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, powereventtype: u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_PIPELINE_CLEANUP_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_PIPELINE_INIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, purpose: u8, flags: u8, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, formatarray: *mut windows_sys::core::GUID, formatarraysize: usize, formatcount: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_QUERY_EXTENDED_INFO_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, sensorinfo: *mut WINBIO_EXTENDED_SENSOR_INFO, sensorinfosize: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_QUERY_PRIVATE_SENSOR_TYPE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, typeinfobufferaddress: *mut u8, typeinfobuffersize: usize, typeinfodatasize: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_QUERY_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, status: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_RESET_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, format: *const windows_sys::core::GUID) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_SET_INDICATOR_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, indicatorstatus: u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_SET_MODE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, mode: u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_START_CAPTURE_EX_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, purpose: u8, nonce: *const u8, noncesize: usize, flags: u8, overlapped: *mut *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_START_CAPTURE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, purpose: u8, overlapped: *mut *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_SENSOR_START_NOTIFY_WAKE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, overlapped: *mut *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_ACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_ADD_RECORD_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, recordcontents: *const WINBIO_STORAGE_RECORD) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_ATTACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_CLEAR_CONTEXT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_CLOSE_DATABASE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_CONTROL_UNIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_CONTROL_UNIT_PRIVILEGED_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_CREATE_DATABASE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, databaseid: *const windows_sys::core::GUID, factor: u32, format: *const windows_sys::core::GUID, filepath: windows_sys::core::PCWSTR, connectstring: windows_sys::core::PCWSTR, indexelementcount: usize, initialsize: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_DEACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_DELETE_RECORD_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_DETACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_ERASE_DATABASE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, databaseid: *const windows_sys::core::GUID, filepath: windows_sys::core::PCWSTR, connectstring: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_FIRST_RECORD_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_GET_CURRENT_RECORD_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, recordcontents: *mut WINBIO_STORAGE_RECORD) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_GET_DATABASE_SIZE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, availablerecordcount: *mut usize, totalrecordcount: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_GET_DATA_FORMAT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, format: *mut windows_sys::core::GUID, version: *mut WINBIO_VERSION) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_GET_RECORD_COUNT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, recordcount: *mut usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_NEXT_RECORD_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, recordsadded: super::super::Foundation::BOOLEAN) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, powereventtype: u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_OPEN_DATABASE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, databaseid: *const windows_sys::core::GUID, filepath: windows_sys::core::PCWSTR, connectstring: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_PIPELINE_CLEANUP_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_PIPELINE_INIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_QUERY_BY_CONTENT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, subfactor: u8, indexvector: *const u32, indexelementcount: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_QUERY_BY_SUBJECT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, storageinfo: *mut WINBIO_EXTENDED_STORAGE_INFO, storageinfosize: usize) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_RESERVED_1_FN = Option<unsafe extern "system" fn(pipeline: *const WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, reserved1: *const u64, reserved2: *const u64) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_RESERVED_2_FN = Option<unsafe extern "system" fn(pipeline: *const WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_UPDATE_RECORD_BEGIN_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8, recordcontents: *mut WINBIO_STORAGE_RECORD) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, recordcontents: *const WINBIO_STORAGE_RECORD) -> windows_sys::core::HRESULT>;
-pub type PWINBIO_ASYNC_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(asyncresult: *const WINBIO_ASYNC_RESULT)>;
-pub type PWINBIO_CAPTURE_CALLBACK = Option<unsafe extern "system" fn(capturecallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: u32, sample: *const WINBIO_BIR, samplesize: usize, rejectdetail: u32)>;
-pub type PWINBIO_ENROLL_CAPTURE_CALLBACK = Option<unsafe extern "system" fn(enrollcallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, rejectdetail: u32)>;
-pub type PWINBIO_EVENT_CALLBACK = Option<unsafe extern "system" fn(eventcallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, event: *const WINBIO_EVENT)>;
-pub type PWINBIO_IDENTIFY_CALLBACK = Option<unsafe extern "system" fn(identifycallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, rejectdetail: u32)>;
-pub type PWINBIO_LOCATE_SENSOR_CALLBACK = Option<unsafe extern "system" fn(locatecallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: u32)>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PWINBIO_QUERY_ENGINE_INTERFACE_FN = Option<unsafe extern "system" fn(engineinterface: *mut *mut WINBIO_ENGINE_INTERFACE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PWINBIO_QUERY_SENSOR_INTERFACE_FN = Option<unsafe extern "system" fn(sensorinterface: *mut *mut WINBIO_SENSOR_INTERFACE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type PWINBIO_QUERY_STORAGE_INTERFACE_FN = Option<unsafe extern "system" fn(storageinterface: *mut *mut WINBIO_STORAGE_INTERFACE) -> windows_sys::core::HRESULT>;
-pub type PWINBIO_VERIFY_CALLBACK = Option<unsafe extern "system" fn(verifycallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: u32, r#match: super::super::Foundation::BOOLEAN, rejectdetail: u32)>;

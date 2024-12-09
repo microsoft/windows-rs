@@ -94,7 +94,21 @@ windows_targets::link!("advapi32.dll" "system" fn UnregisterTraceGuids(registrat
 windows_targets::link!("advapi32.dll" "system" fn UpdateTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn UpdateTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
 pub const ALPCGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x45d8cccd_539f_4b72_a8b7_5c683142609a);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLASSIC_EVENT_ID {
+    pub EventGuid: windows_sys::core::GUID,
+    pub Type: u8,
+    pub Reserved: [u8; 7],
+}
 pub const CLSID_TraceRelogger: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONTROLTRACE_HANDLE {
+    pub Value: u64,
+}
+pub const CTraceRelogger: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
+pub type DECODING_SOURCE = i32;
 pub const DIAG_LOGGER_NAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("DiagLog");
 pub const DIAG_LOGGER_NAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("DiagLog");
 pub const DecodingSourceMax: DECODING_SOURCE = 4i32;
@@ -104,14 +118,72 @@ pub const DecodingSourceWbem: DECODING_SOURCE = 1i32;
 pub const DecodingSourceXMLFile: DECODING_SOURCE = 0i32;
 pub const DefaultTraceSecurityGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0811c1af_7a07_4a06_82ed_869455cdf713);
 pub const DiskIoGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d6fa8d4_fe05_11d0_9dda_00c04fd7ba7c);
+pub type ENABLECALLBACK_ENABLED_STATE = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ENABLE_TRACE_PARAMETERS {
+    pub Version: u32,
+    pub EnableProperty: u32,
+    pub ControlFlags: u32,
+    pub SourceId: windows_sys::core::GUID,
+    pub EnableFilterDesc: *mut EVENT_FILTER_DESCRIPTOR,
+    pub FilterDescCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ENABLE_TRACE_PARAMETERS_V1 {
+    pub Version: u32,
+    pub EnableProperty: u32,
+    pub ControlFlags: u32,
+    pub SourceId: windows_sys::core::GUID,
+    pub EnableFilterDesc: *mut EVENT_FILTER_DESCRIPTOR,
+}
 pub const ENABLE_TRACE_PARAMETERS_VERSION: u32 = 1u32;
 pub const ENABLE_TRACE_PARAMETERS_VERSION_2: u32 = 2u32;
 pub const ETW_ASCIICHAR_TYPE_VALUE: u32 = 102u32;
 pub const ETW_ASCIISTRING_TYPE_VALUE: u32 = 103u32;
 pub const ETW_BOOLEAN_TYPE_VALUE: u32 = 14u32;
 pub const ETW_BOOL_TYPE_VALUE: u32 = 108u32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy)]
+pub struct ETW_BUFFER_CALLBACK_INFORMATION {
+    pub TraceHandle: u64,
+    pub LogfileHeader: *const TRACE_LOGFILE_HEADER,
+    pub BuffersRead: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ETW_BUFFER_CONTEXT {
+    pub Anonymous: ETW_BUFFER_CONTEXT_0,
+    pub LoggerId: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union ETW_BUFFER_CONTEXT_0 {
+    pub Anonymous: ETW_BUFFER_CONTEXT_0_0,
+    pub ProcessorIndex: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ETW_BUFFER_CONTEXT_0_0 {
+    pub ProcessorNumber: u8,
+    pub Alignment: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ETW_BUFFER_HEADER {
+    pub Reserved1: [u32; 4],
+    pub TimeStamp: i64,
+    pub Reserved2: [u32; 4],
+    pub ClientContext: ETW_BUFFER_CONTEXT,
+    pub Reserved3: u32,
+    pub FilledBytes: u32,
+    pub Reserved4: [u32; 5],
+}
 pub const ETW_BYTE_TYPE_VALUE: u32 = 4u32;
 pub const ETW_CHAR_TYPE_VALUE: u32 = 11u32;
+pub type ETW_COMPRESSION_RESUMPTION_MODE = i32;
 pub const ETW_COUNTED_ANSISTRING_TYPE_VALUE: u32 = 109u32;
 pub const ETW_COUNTED_STRING_TYPE_VALUE: u32 = 104u32;
 pub const ETW_DATETIME_TYPE_VALUE: u32 = 119u32;
@@ -125,9 +197,46 @@ pub const ETW_INT64_TYPE_VALUE: u32 = 9u32;
 pub const ETW_NON_NULL_TERMINATED_STRING_TYPE_VALUE: u32 = 112u32;
 pub const ETW_NULL_TYPE_VALUE: u32 = 0u32;
 pub const ETW_OBJECT_TYPE_VALUE: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy)]
+pub struct ETW_OPEN_TRACE_OPTIONS {
+    pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
+    pub EventCallback: PEVENT_RECORD_CALLBACK,
+    pub EventCallbackContext: *mut core::ffi::c_void,
+    pub BufferCallback: PETW_BUFFER_CALLBACK,
+    pub BufferCallbackContext: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ETW_PMC_COUNTER_OWNER {
+    pub OwnerType: ETW_PMC_COUNTER_OWNER_TYPE,
+    pub ProfileSource: u32,
+    pub OwnerTag: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ETW_PMC_COUNTER_OWNERSHIP_STATUS {
+    pub ProcessorNumber: u32,
+    pub NumberOfCounters: u32,
+    pub CounterOwners: [ETW_PMC_COUNTER_OWNER; 1],
+}
+pub type ETW_PMC_COUNTER_OWNER_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ETW_PMC_SESSION_INFO {
+    pub NextEntryOffset: u32,
+    pub LoggerId: u16,
+    pub Reserved: u16,
+    pub ProfileSourceCount: u32,
+    pub HookIdCount: u32,
+}
 pub const ETW_POINTER_TYPE_VALUE: u32 = 105u32;
+pub type ETW_PROCESS_HANDLE_INFO_TYPE = i32;
+pub type ETW_PROCESS_TRACE_MODES = i32;
 pub const ETW_PROCESS_TRACE_MODE_NONE: ETW_PROCESS_TRACE_MODES = 0i32;
 pub const ETW_PROCESS_TRACE_MODE_RAW_TIMESTAMP: ETW_PROCESS_TRACE_MODES = 1i32;
+pub type ETW_PROVIDER_TRAIT_TYPE = i32;
 pub const ETW_PTVECTOR_TYPE_VALUE: u32 = 117u32;
 pub const ETW_REDUCED_ANSISTRING_TYPE_VALUE: u32 = 113u32;
 pub const ETW_REDUCED_STRING_TYPE_VALUE: u32 = 114u32;
@@ -139,6 +248,22 @@ pub const ETW_SID_TYPE_VALUE: u32 = 115u32;
 pub const ETW_SINGLE_TYPE_VALUE: u32 = 12u32;
 pub const ETW_SIZET_TYPE_VALUE: u32 = 106u32;
 pub const ETW_STRING_TYPE_VALUE: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ETW_TRACE_PARTITION_INFORMATION {
+    pub PartitionId: windows_sys::core::GUID,
+    pub ParentId: windows_sys::core::GUID,
+    pub QpcOffsetFromRoot: i64,
+    pub PartitionType: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ETW_TRACE_PARTITION_INFORMATION_V2 {
+    pub QpcOffsetFromRoot: i64,
+    pub PartitionType: u32,
+    pub PartitionId: windows_sys::core::PWSTR,
+    pub ParentId: windows_sys::core::PWSTR,
+}
 pub const ETW_UINT16_TYPE_VALUE: u32 = 6u32;
 pub const ETW_UINT32_TYPE_VALUE: u32 = 8u32;
 pub const ETW_UINT64_TYPE_VALUE: u32 = 10u32;
@@ -153,6 +278,7 @@ pub const EVENTMAP_INFO_FLAG_WBEM_BITMAP: MAP_FLAGS = 16i32;
 pub const EVENTMAP_INFO_FLAG_WBEM_FLAG: MAP_FLAGS = 32i32;
 pub const EVENTMAP_INFO_FLAG_WBEM_NO_MAP: MAP_FLAGS = 64i32;
 pub const EVENTMAP_INFO_FLAG_WBEM_VALUEMAP: MAP_FLAGS = 8i32;
+pub type EVENTSECURITYOPERATION = i32;
 pub const EVENT_ACTIVITY_CTRL_CREATE_ID: u32 = 3u32;
 pub const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: u32 = 5u32;
 pub const EVENT_ACTIVITY_CTRL_GET_ID: u32 = 1u32;
@@ -161,10 +287,41 @@ pub const EVENT_ACTIVITY_CTRL_SET_ID: u32 = 2u32;
 pub const EVENT_CONTROL_CODE_CAPTURE_STATE: ENABLECALLBACK_ENABLED_STATE = 2u32;
 pub const EVENT_CONTROL_CODE_DISABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = 0u32;
 pub const EVENT_CONTROL_CODE_ENABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_DATA_DESCRIPTOR {
+    pub Ptr: u64,
+    pub Size: u32,
+    pub Anonymous: EVENT_DATA_DESCRIPTOR_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_DATA_DESCRIPTOR_0 {
+    pub Reserved: u32,
+    pub Anonymous: EVENT_DATA_DESCRIPTOR_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_DATA_DESCRIPTOR_0_0 {
+    pub Type: u8,
+    pub Reserved1: u8,
+    pub Reserved2: u16,
+}
 pub const EVENT_DATA_DESCRIPTOR_TYPE_EVENT_METADATA: u32 = 1u32;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_NONE: u32 = 0u32;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA: u32 = 2u32;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_DESCRIPTOR {
+    pub Id: u16,
+    pub Version: u8,
+    pub Channel: u8,
+    pub Level: u8,
+    pub Opcode: u8,
+    pub Task: u16,
+    pub Keyword: u64,
+}
 pub const EVENT_ENABLE_PROPERTY_ENABLE_KEYWORD_0: u32 = 64u32;
 pub const EVENT_ENABLE_PROPERTY_ENABLE_SILOS: u32 = 1024u32;
 pub const EVENT_ENABLE_PROPERTY_EVENT_KEY: u32 = 256u32;
@@ -177,6 +334,112 @@ pub const EVENT_ENABLE_PROPERTY_SID: u32 = 1u32;
 pub const EVENT_ENABLE_PROPERTY_SOURCE_CONTAINER_TRACKING: u32 = 2048u32;
 pub const EVENT_ENABLE_PROPERTY_STACK_TRACE: u32 = 4u32;
 pub const EVENT_ENABLE_PROPERTY_TS_ID: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_EXTENDED_ITEM_EVENT_KEY {
+    pub Key: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_EXTENDED_ITEM_INSTANCE {
+    pub InstanceId: u32,
+    pub ParentInstanceId: u32,
+    pub ParentGuid: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_EXTENDED_ITEM_PEBS_INDEX {
+    pub PebsIndex: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_EXTENDED_ITEM_PMC_COUNTERS {
+    pub Counter: [u64; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
+    pub ProcessStartKey: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
+    pub RelatedActivityId: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_EXTENDED_ITEM_STACK_KEY32 {
+    pub MatchId: u64,
+    pub StackKey: u32,
+    pub Padding: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_EXTENDED_ITEM_STACK_KEY64 {
+    pub MatchId: u64,
+    pub StackKey: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_EXTENDED_ITEM_STACK_TRACE32 {
+    pub MatchId: u64,
+    pub Address: [u32; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_EXTENDED_ITEM_STACK_TRACE64 {
+    pub MatchId: u64,
+    pub Address: [u64; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_EXTENDED_ITEM_TS_ID {
+    pub SessionId: u32,
+}
+pub type EVENT_FIELD_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_FILTER_DESCRIPTOR {
+    pub Ptr: u64,
+    pub Size: u32,
+    pub Type: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_FILTER_EVENT_ID {
+    pub FilterIn: super::super::super::Foundation::BOOLEAN,
+    pub Reserved: u8,
+    pub Count: u16,
+    pub Events: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_FILTER_EVENT_NAME {
+    pub MatchAnyKeyword: u64,
+    pub MatchAllKeyword: u64,
+    pub Level: u8,
+    pub FilterIn: super::super::super::Foundation::BOOLEAN,
+    pub NameCount: u16,
+    pub Names: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_FILTER_HEADER {
+    pub Id: u16,
+    pub Version: u8,
+    pub Reserved: [u8; 5],
+    pub InstanceId: u64,
+    pub Size: u32,
+    pub NextOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_FILTER_LEVEL_KW {
+    pub MatchAnyKeyword: u64,
+    pub MatchAllKeyword: u64,
+    pub Level: u8,
+    pub FilterIn: super::super::super::Foundation::BOOLEAN,
+}
 pub const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416u32;
 pub const EVENT_FILTER_TYPE_EVENT_ID: u32 = 2147484160u32;
 pub const EVENT_FILTER_TYPE_EVENT_NAME: u32 = 2147484672u32;
@@ -192,6 +455,47 @@ pub const EVENT_FILTER_TYPE_STACKWALK_LEVEL_KW: u32 = 2147500032u32;
 pub const EVENT_FILTER_TYPE_STACKWALK_NAME: u32 = 2147491840u32;
 pub const EVENT_FILTER_TYPE_SYSTEM_FLAGS: u32 = 2147483649u32;
 pub const EVENT_FILTER_TYPE_TRACEHANDLE: u32 = 2147483650u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_HEADER {
+    pub Size: u16,
+    pub HeaderType: u16,
+    pub Flags: u16,
+    pub EventProperty: u16,
+    pub ThreadId: u32,
+    pub ProcessId: u32,
+    pub TimeStamp: i64,
+    pub ProviderId: windows_sys::core::GUID,
+    pub EventDescriptor: EVENT_DESCRIPTOR,
+    pub Anonymous: EVENT_HEADER_0,
+    pub ActivityId: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_HEADER_0 {
+    pub Anonymous: EVENT_HEADER_0_0,
+    pub ProcessorTime: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_HEADER_0_0 {
+    pub KernelTime: u32,
+    pub UserTime: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_HEADER_EXTENDED_DATA_ITEM {
+    pub Reserved1: u16,
+    pub ExtType: u16,
+    pub Anonymous: EVENT_HEADER_EXTENDED_DATA_ITEM_0,
+    pub DataSize: u16,
+    pub DataPtr: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
+    pub _bitfield: u16,
+}
 pub const EVENT_HEADER_EXT_TYPE_CONTAINER_ID: u32 = 16u32;
 pub const EVENT_HEADER_EXT_TYPE_CONTROL_GUID: u32 = 14u32;
 pub const EVENT_HEADER_EXT_TYPE_EVENT_KEY: u32 = 10u32;
@@ -225,15 +529,198 @@ pub const EVENT_HEADER_PROPERTY_FORWARDED_XML: u32 = 2u32;
 pub const EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG: u32 = 4u32;
 pub const EVENT_HEADER_PROPERTY_RELOGGABLE: u32 = 8u32;
 pub const EVENT_HEADER_PROPERTY_XML: u32 = 1u32;
+pub type EVENT_INFO_CLASS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_INSTANCE_HEADER {
+    pub Size: u16,
+    pub Anonymous1: EVENT_INSTANCE_HEADER_0,
+    pub Anonymous2: EVENT_INSTANCE_HEADER_1,
+    pub ThreadId: u32,
+    pub ProcessId: u32,
+    pub TimeStamp: i64,
+    pub RegHandle: u64,
+    pub InstanceId: u32,
+    pub ParentInstanceId: u32,
+    pub Anonymous3: EVENT_INSTANCE_HEADER_2,
+    pub ParentRegHandle: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_INSTANCE_HEADER_0 {
+    pub FieldTypeFlags: u16,
+    pub Anonymous: EVENT_INSTANCE_HEADER_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_INSTANCE_HEADER_0_0 {
+    pub HeaderType: u8,
+    pub MarkerFlags: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_INSTANCE_HEADER_1 {
+    pub Version: u32,
+    pub Class: EVENT_INSTANCE_HEADER_1_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_INSTANCE_HEADER_1_0 {
+    pub Type: u8,
+    pub Level: u8,
+    pub Version: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_INSTANCE_HEADER_2 {
+    pub Anonymous1: EVENT_INSTANCE_HEADER_2_0,
+    pub ProcessorTime: u64,
+    pub Anonymous2: EVENT_INSTANCE_HEADER_2_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_INSTANCE_HEADER_2_0 {
+    pub KernelTime: u32,
+    pub UserTime: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_INSTANCE_HEADER_2_1 {
+    pub EventId: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_INSTANCE_INFO {
+    pub RegHandle: super::super::super::Foundation::HANDLE,
+    pub InstanceId: u32,
+}
 pub const EVENT_LOGGER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("EventLog");
 pub const EVENT_LOGGER_NAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("EventLog");
 pub const EVENT_LOGGER_NAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("EventLog");
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_MAP_ENTRY {
+    pub OutputOffset: u32,
+    pub Anonymous: EVENT_MAP_ENTRY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_MAP_ENTRY_0 {
+    pub Value: u32,
+    pub InputOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_MAP_INFO {
+    pub NameOffset: u32,
+    pub Flag: MAP_FLAGS,
+    pub EntryCount: u32,
+    pub Anonymous: EVENT_MAP_INFO_0,
+    pub MapEntryArray: [EVENT_MAP_ENTRY; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_MAP_INFO_0 {
+    pub MapEntryValueType: MAP_VALUETYPE,
+    pub FormatStringOffset: u32,
+}
 pub const EVENT_MAX_LEVEL: u32 = 255u32;
 pub const EVENT_MIN_LEVEL: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_PROPERTY_INFO {
+    pub Flags: PROPERTY_FLAGS,
+    pub NameOffset: u32,
+    pub Anonymous1: EVENT_PROPERTY_INFO_0,
+    pub Anonymous2: EVENT_PROPERTY_INFO_1,
+    pub Anonymous3: EVENT_PROPERTY_INFO_2,
+    pub Anonymous4: EVENT_PROPERTY_INFO_3,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_PROPERTY_INFO_0 {
+    pub nonStructType: EVENT_PROPERTY_INFO_0_0,
+    pub structType: EVENT_PROPERTY_INFO_0_1,
+    pub customSchemaType: EVENT_PROPERTY_INFO_0_2,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_PROPERTY_INFO_0_2 {
+    pub InType: u16,
+    pub OutType: u16,
+    pub CustomSchemaOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_PROPERTY_INFO_0_0 {
+    pub InType: u16,
+    pub OutType: u16,
+    pub MapNameOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_PROPERTY_INFO_0_1 {
+    pub StructStartIndex: u16,
+    pub NumOfStructMembers: u16,
+    pub padding: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_PROPERTY_INFO_1 {
+    pub count: u16,
+    pub countPropertyIndex: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_PROPERTY_INFO_2 {
+    pub length: u16,
+    pub lengthPropertyIndex: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_PROPERTY_INFO_3 {
+    pub Reserved: u32,
+    pub Anonymous: EVENT_PROPERTY_INFO_3_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_PROPERTY_INFO_3_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_RECORD {
+    pub EventHeader: EVENT_HEADER,
+    pub BufferContext: ETW_BUFFER_CONTEXT,
+    pub ExtendedDataCount: u16,
+    pub UserDataLength: u16,
+    pub ExtendedData: *mut EVENT_HEADER_EXTENDED_DATA_ITEM,
+    pub UserData: *mut core::ffi::c_void,
+    pub UserContext: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_TRACE {
+    pub Header: EVENT_TRACE_HEADER,
+    pub InstanceId: u32,
+    pub ParentInstanceId: u32,
+    pub ParentGuid: windows_sys::core::GUID,
+    pub MofData: *mut core::ffi::c_void,
+    pub MofLength: u32,
+    pub Anonymous: EVENT_TRACE_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_0 {
+    pub ClientContext: u32,
+    pub BufferContext: ETW_BUFFER_CONTEXT,
+}
 pub const EVENT_TRACE_ADDTO_TRIAGE_DUMP: u32 = 2147483648u32;
 pub const EVENT_TRACE_ADD_HEADER_MODE: u32 = 4096u32;
 pub const EVENT_TRACE_BUFFERING_MODE: u32 = 1024u32;
 pub const EVENT_TRACE_COMPRESSED_MODE: u32 = 67108864u32;
+pub type EVENT_TRACE_CONTROL = u32;
 pub const EVENT_TRACE_CONTROL_CONVERT_TO_REALTIME: u32 = 5u32;
 pub const EVENT_TRACE_CONTROL_FLUSH: EVENT_TRACE_CONTROL = 3u32;
 pub const EVENT_TRACE_CONTROL_INCREMENT_FILE: u32 = 4u32;
@@ -247,6 +734,7 @@ pub const EVENT_TRACE_FILE_MODE_NEWFILE: u32 = 8u32;
 pub const EVENT_TRACE_FILE_MODE_NONE: u32 = 0u32;
 pub const EVENT_TRACE_FILE_MODE_PREALLOCATE: u32 = 32u32;
 pub const EVENT_TRACE_FILE_MODE_SEQUENTIAL: u32 = 1u32;
+pub type EVENT_TRACE_FLAG = u32;
 pub const EVENT_TRACE_FLAG_ALPC: EVENT_TRACE_FLAG = 1048576u32;
 pub const EVENT_TRACE_FLAG_CSWITCH: EVENT_TRACE_FLAG = 16u32;
 pub const EVENT_TRACE_FLAG_DBGPRINT: EVENT_TRACE_FLAG = 262144u32;
@@ -278,13 +766,223 @@ pub const EVENT_TRACE_FLAG_SYSTEMCALL: EVENT_TRACE_FLAG = 128u32;
 pub const EVENT_TRACE_FLAG_THREAD: EVENT_TRACE_FLAG = 2u32;
 pub const EVENT_TRACE_FLAG_VAMAP: EVENT_TRACE_FLAG = 32768u32;
 pub const EVENT_TRACE_FLAG_VIRTUAL_ALLOC: EVENT_TRACE_FLAG = 16384u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_TRACE_HEADER {
+    pub Size: u16,
+    pub Anonymous1: EVENT_TRACE_HEADER_0,
+    pub Anonymous2: EVENT_TRACE_HEADER_1,
+    pub ThreadId: u32,
+    pub ProcessId: u32,
+    pub TimeStamp: i64,
+    pub Anonymous3: EVENT_TRACE_HEADER_2,
+    pub Anonymous4: EVENT_TRACE_HEADER_3,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_HEADER_0 {
+    pub FieldTypeFlags: u16,
+    pub Anonymous: EVENT_TRACE_HEADER_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_TRACE_HEADER_0_0 {
+    pub HeaderType: u8,
+    pub MarkerFlags: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_HEADER_1 {
+    pub Version: u32,
+    pub Class: EVENT_TRACE_HEADER_1_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_TRACE_HEADER_1_0 {
+    pub Type: u8,
+    pub Level: u8,
+    pub Version: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_HEADER_2 {
+    pub Guid: windows_sys::core::GUID,
+    pub GuidPtr: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_HEADER_3 {
+    pub Anonymous1: EVENT_TRACE_HEADER_3_0,
+    pub ProcessorTime: u64,
+    pub Anonymous2: EVENT_TRACE_HEADER_3_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_TRACE_HEADER_3_0 {
+    pub KernelTime: u32,
+    pub UserTime: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_TRACE_HEADER_3_1 {
+    pub ClientContext: u32,
+    pub Flags: u32,
+}
 pub const EVENT_TRACE_INDEPENDENT_SESSION_MODE: u32 = 134217728u32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy)]
+pub struct EVENT_TRACE_LOGFILEA {
+    pub LogFileName: windows_sys::core::PSTR,
+    pub LoggerName: windows_sys::core::PSTR,
+    pub CurrentTime: i64,
+    pub BuffersRead: u32,
+    pub Anonymous1: EVENT_TRACE_LOGFILEA_0,
+    pub CurrentEvent: EVENT_TRACE,
+    pub LogfileHeader: TRACE_LOGFILE_HEADER,
+    pub BufferCallback: PEVENT_TRACE_BUFFER_CALLBACKA,
+    pub BufferSize: u32,
+    pub Filled: u32,
+    pub EventsLost: u32,
+    pub Anonymous2: EVENT_TRACE_LOGFILEA_1,
+    pub IsKernelTrace: u32,
+    pub Context: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_LOGFILEA_0 {
+    pub LogFileMode: u32,
+    pub ProcessTraceMode: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_LOGFILEA_1 {
+    pub EventCallback: PEVENT_CALLBACK,
+    pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy)]
+pub struct EVENT_TRACE_LOGFILEW {
+    pub LogFileName: windows_sys::core::PWSTR,
+    pub LoggerName: windows_sys::core::PWSTR,
+    pub CurrentTime: i64,
+    pub BuffersRead: u32,
+    pub Anonymous1: EVENT_TRACE_LOGFILEW_0,
+    pub CurrentEvent: EVENT_TRACE,
+    pub LogfileHeader: TRACE_LOGFILE_HEADER,
+    pub BufferCallback: PEVENT_TRACE_BUFFER_CALLBACKW,
+    pub BufferSize: u32,
+    pub Filled: u32,
+    pub EventsLost: u32,
+    pub Anonymous2: EVENT_TRACE_LOGFILEW_1,
+    pub IsKernelTrace: u32,
+    pub Context: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_LOGFILEW_0 {
+    pub LogFileMode: u32,
+    pub ProcessTraceMode: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_LOGFILEW_1 {
+    pub EventCallback: PEVENT_CALLBACK,
+    pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
+}
 pub const EVENT_TRACE_MODE_RESERVED: u32 = 1048576u32;
 pub const EVENT_TRACE_NONSTOPPABLE_MODE: u32 = 64u32;
 pub const EVENT_TRACE_NO_PER_PROCESSOR_BUFFERING: u32 = 268435456u32;
 pub const EVENT_TRACE_PERSIST_ON_HYBRID_SHUTDOWN: u32 = 8388608u32;
 pub const EVENT_TRACE_PRIVATE_IN_PROC: u32 = 131072u32;
 pub const EVENT_TRACE_PRIVATE_LOGGER_MODE: u32 = 2048u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_TRACE_PROPERTIES {
+    pub Wnode: WNODE_HEADER,
+    pub BufferSize: u32,
+    pub MinimumBuffers: u32,
+    pub MaximumBuffers: u32,
+    pub MaximumFileSize: u32,
+    pub LogFileMode: u32,
+    pub FlushTimer: u32,
+    pub EnableFlags: EVENT_TRACE_FLAG,
+    pub Anonymous: EVENT_TRACE_PROPERTIES_0,
+    pub NumberOfBuffers: u32,
+    pub FreeBuffers: u32,
+    pub EventsLost: u32,
+    pub BuffersWritten: u32,
+    pub LogBuffersLost: u32,
+    pub RealTimeBuffersLost: u32,
+    pub LoggerThreadId: super::super::super::Foundation::HANDLE,
+    pub LogFileNameOffset: u32,
+    pub LoggerNameOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_PROPERTIES_0 {
+    pub AgeLimit: i32,
+    pub FlushThreshold: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_TRACE_PROPERTIES_V2 {
+    pub Wnode: WNODE_HEADER,
+    pub BufferSize: u32,
+    pub MinimumBuffers: u32,
+    pub MaximumBuffers: u32,
+    pub MaximumFileSize: u32,
+    pub LogFileMode: u32,
+    pub FlushTimer: u32,
+    pub EnableFlags: EVENT_TRACE_FLAG,
+    pub Anonymous1: EVENT_TRACE_PROPERTIES_V2_0,
+    pub NumberOfBuffers: u32,
+    pub FreeBuffers: u32,
+    pub EventsLost: u32,
+    pub BuffersWritten: u32,
+    pub LogBuffersLost: u32,
+    pub RealTimeBuffersLost: u32,
+    pub LoggerThreadId: super::super::super::Foundation::HANDLE,
+    pub LogFileNameOffset: u32,
+    pub LoggerNameOffset: u32,
+    pub Anonymous2: EVENT_TRACE_PROPERTIES_V2_1,
+    pub FilterDescCount: u32,
+    pub FilterDesc: *mut EVENT_FILTER_DESCRIPTOR,
+    pub Anonymous3: EVENT_TRACE_PROPERTIES_V2_2,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_PROPERTIES_V2_0 {
+    pub AgeLimit: i32,
+    pub FlushThreshold: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_PROPERTIES_V2_1 {
+    pub Anonymous: EVENT_TRACE_PROPERTIES_V2_1_0,
+    pub V2Control: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_TRACE_PROPERTIES_V2_1_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union EVENT_TRACE_PROPERTIES_V2_2 {
+    pub Anonymous: EVENT_TRACE_PROPERTIES_V2_2_0,
+    pub V2Options: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENT_TRACE_PROPERTIES_V2_2_0 {
+    pub _bitfield: u32,
+}
 pub const EVENT_TRACE_REAL_TIME_MODE: u32 = 256u32;
 pub const EVENT_TRACE_RELOG_MODE: u32 = 65536u32;
 pub const EVENT_TRACE_SECURE_MODE: u32 = 128u32;
@@ -448,6 +1146,8 @@ pub const ImageLoadGuid: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const KERNEL_LOGGER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("NT Kernel Logger");
 pub const KERNEL_LOGGER_NAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("NT Kernel Logger");
 pub const KERNEL_LOGGER_NAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("NT Kernel Logger");
+pub type MAP_FLAGS = i32;
+pub type MAP_VALUETYPE = i32;
 pub const MAX_EVENT_DATA_DESCRIPTORS: u32 = 128u32;
 pub const MAX_EVENT_FILTERS_COUNT: u32 = 13u32;
 pub const MAX_EVENT_FILTER_DATA_SIZE: u32 = 1024u32;
@@ -457,8 +1157,21 @@ pub const MAX_EVENT_FILTER_PAYLOAD_SIZE: u32 = 4096u32;
 pub const MAX_EVENT_FILTER_PID_COUNT: u32 = 8u32;
 pub const MAX_MOF_FIELDS: u32 = 16u32;
 pub const MAX_PAYLOAD_PREDICATES: u32 = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MOF_FIELD {
+    pub DataPtr: u64,
+    pub Length: u32,
+    pub DataType: u32,
+}
 pub const MaxEventInfo: EVENT_INFO_CLASS = 4i32;
 pub const MaxTraceSetInfoClass: TRACE_QUERY_INFO_CLASS = 28i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OFFSETINSTANCEDATAANDLENGTH {
+    pub OffsetInstanceData: u32,
+    pub LengthInstanceData: u32,
+}
 pub const PAYLOADFIELD_BETWEEN: PAYLOAD_OPERATOR = 6i32;
 pub const PAYLOADFIELD_CONTAINS: PAYLOAD_OPERATOR = 20i32;
 pub const PAYLOADFIELD_DOESNTCONTAIN: PAYLOAD_OPERATOR = 21i32;
@@ -473,9 +1186,88 @@ pub const PAYLOADFIELD_LT: PAYLOAD_OPERATOR = 4i32;
 pub const PAYLOADFIELD_MODULO: PAYLOAD_OPERATOR = 8i32;
 pub const PAYLOADFIELD_NE: PAYLOAD_OPERATOR = 1i32;
 pub const PAYLOADFIELD_NOTBETWEEN: PAYLOAD_OPERATOR = 7i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PAYLOAD_FILTER_PREDICATE {
+    pub FieldName: windows_sys::core::PWSTR,
+    pub CompareOp: u16,
+    pub Value: windows_sys::core::PWSTR,
+}
+pub type PAYLOAD_OPERATOR = i32;
+pub type PENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_sys::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
+#[cfg(feature = "Win32_System_Time")]
+pub type PETW_BUFFER_CALLBACK = Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, buffersize: u32, consumerinfo: *const ETW_BUFFER_CALLBACK_INFORMATION, callbackcontext: *const core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+pub type PETW_BUFFER_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, callbackcontext: *const core::ffi::c_void)>;
+pub type PEVENT_CALLBACK = Option<unsafe extern "system" fn(pevent: *mut EVENT_TRACE)>;
+pub type PEVENT_RECORD_CALLBACK = Option<unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD)>;
+#[cfg(feature = "Win32_System_Time")]
+pub type PEVENT_TRACE_BUFFER_CALLBACKA = Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEA) -> u32>;
+#[cfg(feature = "Win32_System_Time")]
+pub type PEVENT_TRACE_BUFFER_CALLBACKW = Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEW) -> u32>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESSTRACE_HANDLE {
+    pub Value: u64,
+}
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456u32;
 pub const PROCESS_TRACE_MODE_RAW_TIMESTAMP: u32 = 4096u32;
 pub const PROCESS_TRACE_MODE_REAL_TIME: u32 = 256u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROFILE_SOURCE_INFO {
+    pub NextEntryOffset: u32,
+    pub Source: u32,
+    pub MinInterval: u32,
+    pub MaxInterval: u32,
+    pub Reserved: u64,
+    pub Description: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROPERTY_DATA_DESCRIPTOR {
+    pub PropertyName: u64,
+    pub ArrayIndex: u32,
+    pub Reserved: u32,
+}
+pub type PROPERTY_FLAGS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROVIDER_ENUMERATION_INFO {
+    pub NumberOfProviders: u32,
+    pub Reserved: u32,
+    pub TraceProviderInfoArray: [TRACE_PROVIDER_INFO; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROVIDER_EVENT_INFO {
+    pub NumberOfEvents: u32,
+    pub Reserved: u32,
+    pub EventDescriptorsArray: [EVENT_DESCRIPTOR; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROVIDER_FIELD_INFO {
+    pub NameOffset: u32,
+    pub DescriptionOffset: u32,
+    pub Value: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROVIDER_FIELD_INFOARRAY {
+    pub NumberOfElements: u32,
+    pub FieldType: EVENT_FIELD_TYPE,
+    pub FieldInfoArray: [PROVIDER_FIELD_INFO; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROVIDER_FILTER_INFO {
+    pub Id: u8,
+    pub Version: u8,
+    pub MessageOffset: u32,
+    pub Reserved: u32,
+    pub PropertyCount: u32,
+    pub EventPropertyInfoArray: [EVENT_PROPERTY_INFO; 1],
+}
 pub const PageFaultGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d6fa8d3_fe05_11d0_9dda_00c04fd7ba7c);
 pub const PerfInfoGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xce1dbfb4_137e_4da6_87b0_3f59aa102cbc);
 pub const PrivateLoggerNotificationGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3595ab5c_042a_4c8e_b942_2d059bfeb1b1);
@@ -488,6 +1280,12 @@ pub const PropertyParamFixedLength: PROPERTY_FLAGS = 16i32;
 pub const PropertyParamLength: PROPERTY_FLAGS = 2i32;
 pub const PropertyStruct: PROPERTY_FLAGS = 1i32;
 pub const PropertyWBEMXmlFragment: PROPERTY_FLAGS = 8i32;
+pub type REGHANDLE = i64;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RELOGSTREAM_HANDLE {
+    pub Value: u64,
+}
 pub const RegistryGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae53722e_c863_11d2_8659_00c04fa321a1);
 pub const SYSTEM_ALPC_KW_GENERAL: u64 = 1u64;
 pub const SYSTEM_CONFIG_KW_GRAPHICS: u64 = 2u64;
@@ -603,12 +1401,21 @@ pub const SystemSchedulerProviderGuid: windows_sys::core::GUID = windows_sys::co
 pub const SystemSyscallProviderGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x434286f7_6f1b_45bb_b37e_95f623046c7c);
 pub const SystemTimerProviderGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4f061568_e215_499f_ab2e_eda0ae890a5b);
 pub const SystemTraceControlGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9e814aad_3204_11d2_9a82_006008a86939);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TDH_CONTEXT {
+    pub ParameterValue: u64,
+    pub ParameterType: TDH_CONTEXT_TYPE,
+    pub ParameterSize: u32,
+}
 pub const TDH_CONTEXT_MAXIMUM: TDH_CONTEXT_TYPE = 5i32;
 pub const TDH_CONTEXT_PDB_PATH: TDH_CONTEXT_TYPE = 4i32;
 pub const TDH_CONTEXT_POINTERSIZE: TDH_CONTEXT_TYPE = 3i32;
+pub type TDH_CONTEXT_TYPE = i32;
 pub const TDH_CONTEXT_WPP_GMT: TDH_CONTEXT_TYPE = 2i32;
 pub const TDH_CONTEXT_WPP_TMFFILE: TDH_CONTEXT_TYPE = 0i32;
 pub const TDH_CONTEXT_WPP_TMFSEARCHPATH: TDH_CONTEXT_TYPE = 1i32;
+pub type TDH_HANDLE = isize;
 pub const TDH_INTYPE_ANSICHAR: _TDH_IN_TYPE = 307i32;
 pub const TDH_INTYPE_ANSISTRING: _TDH_IN_TYPE = 2i32;
 pub const TDH_INTYPE_BINARY: _TDH_IN_TYPE = 14i32;
@@ -689,6 +1496,7 @@ pub const TDH_OUTTYPE_WIN32ERROR: _TDH_OUT_TYPE = 30i32;
 pub const TDH_OUTTYPE_XML: _TDH_OUT_TYPE = 28i32;
 pub const TEMPLATE_CONTROL_GUID: TEMPLATE_FLAGS = 4i32;
 pub const TEMPLATE_EVENT_DATA: TEMPLATE_FLAGS = 1i32;
+pub type TEMPLATE_FLAGS = i32;
 pub const TEMPLATE_USER_DATA: TEMPLATE_FLAGS = 2i32;
 pub const TRACELOG_ACCESS_KERNEL_LOGGER: u32 = 256u32;
 pub const TRACELOG_ACCESS_REALTIME: u32 = 1024u32;
@@ -699,921 +1507,6 @@ pub const TRACELOG_GUID_ENABLE: u32 = 128u32;
 pub const TRACELOG_JOIN_GROUP: u32 = 4096u32;
 pub const TRACELOG_LOG_EVENT: u32 = 512u32;
 pub const TRACELOG_REGISTER_GUIDS: u32 = 2048u32;
-pub const TRACE_HEADER_FLAG_LOG_WNODE: u32 = 262144u32;
-pub const TRACE_HEADER_FLAG_TRACED_GUID: u32 = 131072u32;
-pub const TRACE_HEADER_FLAG_USE_GUID_PTR: u32 = 524288u32;
-pub const TRACE_HEADER_FLAG_USE_MOF_PTR: u32 = 1048576u32;
-pub const TRACE_HEADER_FLAG_USE_TIMESTAMP: u32 = 512u32;
-pub const TRACE_LEVEL_CRITICAL: u32 = 1u32;
-pub const TRACE_LEVEL_ERROR: u32 = 2u32;
-pub const TRACE_LEVEL_FATAL: u32 = 1u32;
-pub const TRACE_LEVEL_INFORMATION: u32 = 4u32;
-pub const TRACE_LEVEL_NONE: u32 = 0u32;
-pub const TRACE_LEVEL_RESERVED6: u32 = 6u32;
-pub const TRACE_LEVEL_RESERVED7: u32 = 7u32;
-pub const TRACE_LEVEL_RESERVED8: u32 = 8u32;
-pub const TRACE_LEVEL_RESERVED9: u32 = 9u32;
-pub const TRACE_LEVEL_VERBOSE: u32 = 5u32;
-pub const TRACE_LEVEL_WARNING: u32 = 3u32;
-pub const TRACE_MESSAGE_COMPONENTID: TRACE_MESSAGE_FLAGS = 4u32;
-pub const TRACE_MESSAGE_FLAG_MASK: u32 = 65535u32;
-pub const TRACE_MESSAGE_GUID: TRACE_MESSAGE_FLAGS = 2u32;
-pub const TRACE_MESSAGE_PERFORMANCE_TIMESTAMP: u32 = 16u32;
-pub const TRACE_MESSAGE_POINTER32: u32 = 64u32;
-pub const TRACE_MESSAGE_POINTER64: u32 = 128u32;
-pub const TRACE_MESSAGE_SEQUENCE: TRACE_MESSAGE_FLAGS = 1u32;
-pub const TRACE_MESSAGE_SYSTEMINFO: TRACE_MESSAGE_FLAGS = 32u32;
-pub const TRACE_MESSAGE_TIMESTAMP: TRACE_MESSAGE_FLAGS = 8u32;
-pub const TRACE_PROVIDER_FLAG_LEGACY: u32 = 1u32;
-pub const TRACE_PROVIDER_FLAG_PRE_ENABLE: u32 = 2u32;
-pub const TcpIpGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a280ac0_c8e0_11d1_84e2_00c04fb998a2);
-pub const ThreadGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d6fa8d1_fe05_11d0_9dda_00c04fd7ba7c);
-pub const TraceDisallowListQuery: TRACE_QUERY_INFO_CLASS = 14i32;
-pub const TraceGroupQueryInfo: TRACE_QUERY_INFO_CLASS = 13i32;
-pub const TraceGroupQueryList: TRACE_QUERY_INFO_CLASS = 12i32;
-pub const TraceGuidQueryInfo: TRACE_QUERY_INFO_CLASS = 1i32;
-pub const TraceGuidQueryList: TRACE_QUERY_INFO_CLASS = 0i32;
-pub const TraceGuidQueryProcess: TRACE_QUERY_INFO_CLASS = 2i32;
-pub const TraceInfoReserved15: TRACE_QUERY_INFO_CLASS = 15i32;
-pub const TraceLbrConfigurationInfo: TRACE_QUERY_INFO_CLASS = 20i32;
-pub const TraceLbrEventListInfo: TRACE_QUERY_INFO_CLASS = 21i32;
-pub const TraceMaxLoggersQuery: TRACE_QUERY_INFO_CLASS = 19i32;
-pub const TraceMaxPmcCounterQuery: TRACE_QUERY_INFO_CLASS = 22i32;
-pub const TracePeriodicCaptureStateInfo: TRACE_QUERY_INFO_CLASS = 17i32;
-pub const TracePeriodicCaptureStateListInfo: TRACE_QUERY_INFO_CLASS = 16i32;
-pub const TracePmcCounterListInfo: TRACE_QUERY_INFO_CLASS = 9i32;
-pub const TracePmcCounterOwners: TRACE_QUERY_INFO_CLASS = 25i32;
-pub const TracePmcEventListInfo: TRACE_QUERY_INFO_CLASS = 8i32;
-pub const TracePmcSessionInformation: TRACE_QUERY_INFO_CLASS = 27i32;
-pub const TraceProfileSourceConfigInfo: TRACE_QUERY_INFO_CLASS = 6i32;
-pub const TraceProfileSourceListInfo: TRACE_QUERY_INFO_CLASS = 7i32;
-pub const TraceProviderBinaryTracking: TRACE_QUERY_INFO_CLASS = 18i32;
-pub const TraceSampledProfileIntervalInfo: TRACE_QUERY_INFO_CLASS = 5i32;
-pub const TraceSetDisallowList: TRACE_QUERY_INFO_CLASS = 10i32;
-pub const TraceStackCachingInfo: TRACE_QUERY_INFO_CLASS = 24i32;
-pub const TraceStackTracingInfo: TRACE_QUERY_INFO_CLASS = 3i32;
-pub const TraceStreamCount: TRACE_QUERY_INFO_CLASS = 23i32;
-pub const TraceSystemTraceEnableFlagsInfo: TRACE_QUERY_INFO_CLASS = 4i32;
-pub const TraceUnifiedStackCachingInfo: TRACE_QUERY_INFO_CLASS = 26i32;
-pub const TraceVersionInfo: TRACE_QUERY_INFO_CLASS = 11i32;
-pub const UdpIpGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf3a50c5_a9c9_4988_a005_2df0b7c80f80);
-pub const WMIGUID_EXECUTE: u32 = 16u32;
-pub const WMIGUID_NOTIFICATION: u32 = 4u32;
-pub const WMIGUID_QUERY: u32 = 1u32;
-pub const WMIGUID_READ_DESCRIPTION: u32 = 8u32;
-pub const WMIGUID_SET: u32 = 2u32;
-pub const WMIREG_FLAG_EVENT_ONLY_GUID: u32 = 64u32;
-pub const WMIREG_FLAG_EXPENSIVE: u32 = 1u32;
-pub const WMIREG_FLAG_INSTANCE_BASENAME: u32 = 8u32;
-pub const WMIREG_FLAG_INSTANCE_LIST: u32 = 4u32;
-pub const WMIREG_FLAG_INSTANCE_PDO: u32 = 32u32;
-pub const WMIREG_FLAG_REMOVE_GUID: u32 = 65536u32;
-pub const WMIREG_FLAG_RESERVED1: u32 = 131072u32;
-pub const WMIREG_FLAG_RESERVED2: u32 = 262144u32;
-pub const WMIREG_FLAG_TRACED_GUID: u32 = 524288u32;
-pub const WMIREG_FLAG_TRACE_CONTROL_GUID: u32 = 4096u32;
-pub const WMI_CAPTURE_STATE: WMIDPREQUESTCODE = 10i32;
-pub const WMI_DISABLE_COLLECTION: WMIDPREQUESTCODE = 7i32;
-pub const WMI_DISABLE_EVENTS: WMIDPREQUESTCODE = 5i32;
-pub const WMI_ENABLE_COLLECTION: WMIDPREQUESTCODE = 6i32;
-pub const WMI_ENABLE_EVENTS: WMIDPREQUESTCODE = 4i32;
-pub const WMI_EXECUTE_METHOD: WMIDPREQUESTCODE = 9i32;
-pub const WMI_GET_ALL_DATA: WMIDPREQUESTCODE = 0i32;
-pub const WMI_GET_SINGLE_INSTANCE: WMIDPREQUESTCODE = 1i32;
-pub const WMI_GLOBAL_LOGGER_ID: u32 = 1u32;
-pub const WMI_GUIDTYPE_DATA: u32 = 2u32;
-pub const WMI_GUIDTYPE_EVENT: u32 = 3u32;
-pub const WMI_GUIDTYPE_TRACE: u32 = 1u32;
-pub const WMI_GUIDTYPE_TRACECONTROL: u32 = 0u32;
-pub const WMI_REGINFO: WMIDPREQUESTCODE = 8i32;
-pub const WMI_SET_SINGLE_INSTANCE: WMIDPREQUESTCODE = 2i32;
-pub const WMI_SET_SINGLE_ITEM: WMIDPREQUESTCODE = 3i32;
-pub const WNODE_FLAG_ALL_DATA: u32 = 1u32;
-pub const WNODE_FLAG_ANSI_INSTANCENAMES: u32 = 16384u32;
-pub const WNODE_FLAG_EVENT_ITEM: u32 = 8u32;
-pub const WNODE_FLAG_EVENT_REFERENCE: u32 = 8192u32;
-pub const WNODE_FLAG_FIXED_INSTANCE_SIZE: u32 = 16u32;
-pub const WNODE_FLAG_INSTANCES_SAME: u32 = 64u32;
-pub const WNODE_FLAG_INTERNAL: u32 = 256u32;
-pub const WNODE_FLAG_LOG_WNODE: u32 = 262144u32;
-pub const WNODE_FLAG_METHOD_ITEM: u32 = 32768u32;
-pub const WNODE_FLAG_NO_HEADER: u32 = 2097152u32;
-pub const WNODE_FLAG_PDO_INSTANCE_NAMES: u32 = 65536u32;
-pub const WNODE_FLAG_PERSIST_EVENT: u32 = 1024u32;
-pub const WNODE_FLAG_SEND_DATA_BLOCK: u32 = 4194304u32;
-pub const WNODE_FLAG_SEVERITY_MASK: u32 = 4278190080u32;
-pub const WNODE_FLAG_SINGLE_INSTANCE: u32 = 2u32;
-pub const WNODE_FLAG_SINGLE_ITEM: u32 = 4u32;
-pub const WNODE_FLAG_STATIC_INSTANCE_NAMES: u32 = 128u32;
-pub const WNODE_FLAG_TOO_SMALL: u32 = 32u32;
-pub const WNODE_FLAG_TRACED_GUID: u32 = 131072u32;
-pub const WNODE_FLAG_USE_GUID_PTR: u32 = 524288u32;
-pub const WNODE_FLAG_USE_MOF_PTR: u32 = 1048576u32;
-pub const WNODE_FLAG_USE_TIMESTAMP: u32 = 512u32;
-pub const WNODE_FLAG_VERSIONED_PROPERTIES: u32 = 8388608u32;
-pub type DECODING_SOURCE = i32;
-pub type ENABLECALLBACK_ENABLED_STATE = u32;
-pub type ETW_COMPRESSION_RESUMPTION_MODE = i32;
-pub type ETW_PMC_COUNTER_OWNER_TYPE = i32;
-pub type ETW_PROCESS_HANDLE_INFO_TYPE = i32;
-pub type ETW_PROCESS_TRACE_MODES = i32;
-pub type ETW_PROVIDER_TRAIT_TYPE = i32;
-pub type EVENTSECURITYOPERATION = i32;
-pub type EVENT_FIELD_TYPE = i32;
-pub type EVENT_INFO_CLASS = i32;
-pub type EVENT_TRACE_CONTROL = u32;
-pub type EVENT_TRACE_FLAG = u32;
-pub type MAP_FLAGS = i32;
-pub type MAP_VALUETYPE = i32;
-pub type PAYLOAD_OPERATOR = i32;
-pub type PROPERTY_FLAGS = i32;
-pub type TDH_CONTEXT_TYPE = i32;
-pub type TEMPLATE_FLAGS = i32;
-pub type TRACE_MESSAGE_FLAGS = u32;
-pub type TRACE_QUERY_INFO_CLASS = i32;
-pub type WMIDPREQUESTCODE = i32;
-pub type _TDH_IN_TYPE = i32;
-pub type _TDH_OUT_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLASSIC_EVENT_ID {
-    pub EventGuid: windows_sys::core::GUID,
-    pub Type: u8,
-    pub Reserved: [u8; 7],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONTROLTRACE_HANDLE {
-    pub Value: u64,
-}
-pub const CTraceRelogger: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ENABLE_TRACE_PARAMETERS {
-    pub Version: u32,
-    pub EnableProperty: u32,
-    pub ControlFlags: u32,
-    pub SourceId: windows_sys::core::GUID,
-    pub EnableFilterDesc: *mut EVENT_FILTER_DESCRIPTOR,
-    pub FilterDescCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ENABLE_TRACE_PARAMETERS_V1 {
-    pub Version: u32,
-    pub EnableProperty: u32,
-    pub ControlFlags: u32,
-    pub SourceId: windows_sys::core::GUID,
-    pub EnableFilterDesc: *mut EVENT_FILTER_DESCRIPTOR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
-pub struct ETW_BUFFER_CALLBACK_INFORMATION {
-    pub TraceHandle: u64,
-    pub LogfileHeader: *const TRACE_LOGFILE_HEADER,
-    pub BuffersRead: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ETW_BUFFER_CONTEXT {
-    pub Anonymous: ETW_BUFFER_CONTEXT_0,
-    pub LoggerId: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union ETW_BUFFER_CONTEXT_0 {
-    pub Anonymous: ETW_BUFFER_CONTEXT_0_0,
-    pub ProcessorIndex: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ETW_BUFFER_CONTEXT_0_0 {
-    pub ProcessorNumber: u8,
-    pub Alignment: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ETW_BUFFER_HEADER {
-    pub Reserved1: [u32; 4],
-    pub TimeStamp: i64,
-    pub Reserved2: [u32; 4],
-    pub ClientContext: ETW_BUFFER_CONTEXT,
-    pub Reserved3: u32,
-    pub FilledBytes: u32,
-    pub Reserved4: [u32; 5],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
-pub struct ETW_OPEN_TRACE_OPTIONS {
-    pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
-    pub EventCallback: PEVENT_RECORD_CALLBACK,
-    pub EventCallbackContext: *mut core::ffi::c_void,
-    pub BufferCallback: PETW_BUFFER_CALLBACK,
-    pub BufferCallbackContext: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ETW_PMC_COUNTER_OWNER {
-    pub OwnerType: ETW_PMC_COUNTER_OWNER_TYPE,
-    pub ProfileSource: u32,
-    pub OwnerTag: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ETW_PMC_COUNTER_OWNERSHIP_STATUS {
-    pub ProcessorNumber: u32,
-    pub NumberOfCounters: u32,
-    pub CounterOwners: [ETW_PMC_COUNTER_OWNER; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ETW_PMC_SESSION_INFO {
-    pub NextEntryOffset: u32,
-    pub LoggerId: u16,
-    pub Reserved: u16,
-    pub ProfileSourceCount: u32,
-    pub HookIdCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ETW_TRACE_PARTITION_INFORMATION {
-    pub PartitionId: windows_sys::core::GUID,
-    pub ParentId: windows_sys::core::GUID,
-    pub QpcOffsetFromRoot: i64,
-    pub PartitionType: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ETW_TRACE_PARTITION_INFORMATION_V2 {
-    pub QpcOffsetFromRoot: i64,
-    pub PartitionType: u32,
-    pub PartitionId: windows_sys::core::PWSTR,
-    pub ParentId: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_DATA_DESCRIPTOR {
-    pub Ptr: u64,
-    pub Size: u32,
-    pub Anonymous: EVENT_DATA_DESCRIPTOR_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_DATA_DESCRIPTOR_0 {
-    pub Reserved: u32,
-    pub Anonymous: EVENT_DATA_DESCRIPTOR_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_DATA_DESCRIPTOR_0_0 {
-    pub Type: u8,
-    pub Reserved1: u8,
-    pub Reserved2: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_DESCRIPTOR {
-    pub Id: u16,
-    pub Version: u8,
-    pub Channel: u8,
-    pub Level: u8,
-    pub Opcode: u8,
-    pub Task: u16,
-    pub Keyword: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_EXTENDED_ITEM_EVENT_KEY {
-    pub Key: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_EXTENDED_ITEM_INSTANCE {
-    pub InstanceId: u32,
-    pub ParentInstanceId: u32,
-    pub ParentGuid: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_EXTENDED_ITEM_PEBS_INDEX {
-    pub PebsIndex: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_EXTENDED_ITEM_PMC_COUNTERS {
-    pub Counter: [u64; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
-    pub ProcessStartKey: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
-    pub RelatedActivityId: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_EXTENDED_ITEM_STACK_KEY32 {
-    pub MatchId: u64,
-    pub StackKey: u32,
-    pub Padding: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_EXTENDED_ITEM_STACK_KEY64 {
-    pub MatchId: u64,
-    pub StackKey: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_EXTENDED_ITEM_STACK_TRACE32 {
-    pub MatchId: u64,
-    pub Address: [u32; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_EXTENDED_ITEM_STACK_TRACE64 {
-    pub MatchId: u64,
-    pub Address: [u64; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_EXTENDED_ITEM_TS_ID {
-    pub SessionId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_FILTER_DESCRIPTOR {
-    pub Ptr: u64,
-    pub Size: u32,
-    pub Type: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_FILTER_EVENT_ID {
-    pub FilterIn: super::super::super::Foundation::BOOLEAN,
-    pub Reserved: u8,
-    pub Count: u16,
-    pub Events: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_FILTER_EVENT_NAME {
-    pub MatchAnyKeyword: u64,
-    pub MatchAllKeyword: u64,
-    pub Level: u8,
-    pub FilterIn: super::super::super::Foundation::BOOLEAN,
-    pub NameCount: u16,
-    pub Names: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_FILTER_HEADER {
-    pub Id: u16,
-    pub Version: u8,
-    pub Reserved: [u8; 5],
-    pub InstanceId: u64,
-    pub Size: u32,
-    pub NextOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_FILTER_LEVEL_KW {
-    pub MatchAnyKeyword: u64,
-    pub MatchAllKeyword: u64,
-    pub Level: u8,
-    pub FilterIn: super::super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_HEADER {
-    pub Size: u16,
-    pub HeaderType: u16,
-    pub Flags: u16,
-    pub EventProperty: u16,
-    pub ThreadId: u32,
-    pub ProcessId: u32,
-    pub TimeStamp: i64,
-    pub ProviderId: windows_sys::core::GUID,
-    pub EventDescriptor: EVENT_DESCRIPTOR,
-    pub Anonymous: EVENT_HEADER_0,
-    pub ActivityId: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_HEADER_0 {
-    pub Anonymous: EVENT_HEADER_0_0,
-    pub ProcessorTime: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_HEADER_0_0 {
-    pub KernelTime: u32,
-    pub UserTime: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_HEADER_EXTENDED_DATA_ITEM {
-    pub Reserved1: u16,
-    pub ExtType: u16,
-    pub Anonymous: EVENT_HEADER_EXTENDED_DATA_ITEM_0,
-    pub DataSize: u16,
-    pub DataPtr: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
-    pub _bitfield: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_INSTANCE_HEADER {
-    pub Size: u16,
-    pub Anonymous1: EVENT_INSTANCE_HEADER_0,
-    pub Anonymous2: EVENT_INSTANCE_HEADER_1,
-    pub ThreadId: u32,
-    pub ProcessId: u32,
-    pub TimeStamp: i64,
-    pub RegHandle: u64,
-    pub InstanceId: u32,
-    pub ParentInstanceId: u32,
-    pub Anonymous3: EVENT_INSTANCE_HEADER_2,
-    pub ParentRegHandle: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_INSTANCE_HEADER_0 {
-    pub FieldTypeFlags: u16,
-    pub Anonymous: EVENT_INSTANCE_HEADER_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_INSTANCE_HEADER_0_0 {
-    pub HeaderType: u8,
-    pub MarkerFlags: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_INSTANCE_HEADER_1 {
-    pub Version: u32,
-    pub Class: EVENT_INSTANCE_HEADER_1_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_INSTANCE_HEADER_1_0 {
-    pub Type: u8,
-    pub Level: u8,
-    pub Version: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_INSTANCE_HEADER_2 {
-    pub Anonymous1: EVENT_INSTANCE_HEADER_2_0,
-    pub ProcessorTime: u64,
-    pub Anonymous2: EVENT_INSTANCE_HEADER_2_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_INSTANCE_HEADER_2_0 {
-    pub KernelTime: u32,
-    pub UserTime: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_INSTANCE_HEADER_2_1 {
-    pub EventId: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_INSTANCE_INFO {
-    pub RegHandle: super::super::super::Foundation::HANDLE,
-    pub InstanceId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_MAP_ENTRY {
-    pub OutputOffset: u32,
-    pub Anonymous: EVENT_MAP_ENTRY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_MAP_ENTRY_0 {
-    pub Value: u32,
-    pub InputOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_MAP_INFO {
-    pub NameOffset: u32,
-    pub Flag: MAP_FLAGS,
-    pub EntryCount: u32,
-    pub Anonymous: EVENT_MAP_INFO_0,
-    pub MapEntryArray: [EVENT_MAP_ENTRY; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_MAP_INFO_0 {
-    pub MapEntryValueType: MAP_VALUETYPE,
-    pub FormatStringOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_PROPERTY_INFO {
-    pub Flags: PROPERTY_FLAGS,
-    pub NameOffset: u32,
-    pub Anonymous1: EVENT_PROPERTY_INFO_0,
-    pub Anonymous2: EVENT_PROPERTY_INFO_1,
-    pub Anonymous3: EVENT_PROPERTY_INFO_2,
-    pub Anonymous4: EVENT_PROPERTY_INFO_3,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_PROPERTY_INFO_0 {
-    pub nonStructType: EVENT_PROPERTY_INFO_0_0,
-    pub structType: EVENT_PROPERTY_INFO_0_1,
-    pub customSchemaType: EVENT_PROPERTY_INFO_0_2,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_PROPERTY_INFO_0_2 {
-    pub InType: u16,
-    pub OutType: u16,
-    pub CustomSchemaOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_PROPERTY_INFO_0_0 {
-    pub InType: u16,
-    pub OutType: u16,
-    pub MapNameOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_PROPERTY_INFO_0_1 {
-    pub StructStartIndex: u16,
-    pub NumOfStructMembers: u16,
-    pub padding: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_PROPERTY_INFO_1 {
-    pub count: u16,
-    pub countPropertyIndex: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_PROPERTY_INFO_2 {
-    pub length: u16,
-    pub lengthPropertyIndex: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_PROPERTY_INFO_3 {
-    pub Reserved: u32,
-    pub Anonymous: EVENT_PROPERTY_INFO_3_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_PROPERTY_INFO_3_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_RECORD {
-    pub EventHeader: EVENT_HEADER,
-    pub BufferContext: ETW_BUFFER_CONTEXT,
-    pub ExtendedDataCount: u16,
-    pub UserDataLength: u16,
-    pub ExtendedData: *mut EVENT_HEADER_EXTENDED_DATA_ITEM,
-    pub UserData: *mut core::ffi::c_void,
-    pub UserContext: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_TRACE {
-    pub Header: EVENT_TRACE_HEADER,
-    pub InstanceId: u32,
-    pub ParentInstanceId: u32,
-    pub ParentGuid: windows_sys::core::GUID,
-    pub MofData: *mut core::ffi::c_void,
-    pub MofLength: u32,
-    pub Anonymous: EVENT_TRACE_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_0 {
-    pub ClientContext: u32,
-    pub BufferContext: ETW_BUFFER_CONTEXT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_TRACE_HEADER {
-    pub Size: u16,
-    pub Anonymous1: EVENT_TRACE_HEADER_0,
-    pub Anonymous2: EVENT_TRACE_HEADER_1,
-    pub ThreadId: u32,
-    pub ProcessId: u32,
-    pub TimeStamp: i64,
-    pub Anonymous3: EVENT_TRACE_HEADER_2,
-    pub Anonymous4: EVENT_TRACE_HEADER_3,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_HEADER_0 {
-    pub FieldTypeFlags: u16,
-    pub Anonymous: EVENT_TRACE_HEADER_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_TRACE_HEADER_0_0 {
-    pub HeaderType: u8,
-    pub MarkerFlags: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_HEADER_1 {
-    pub Version: u32,
-    pub Class: EVENT_TRACE_HEADER_1_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_TRACE_HEADER_1_0 {
-    pub Type: u8,
-    pub Level: u8,
-    pub Version: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_HEADER_2 {
-    pub Guid: windows_sys::core::GUID,
-    pub GuidPtr: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_HEADER_3 {
-    pub Anonymous1: EVENT_TRACE_HEADER_3_0,
-    pub ProcessorTime: u64,
-    pub Anonymous2: EVENT_TRACE_HEADER_3_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_TRACE_HEADER_3_0 {
-    pub KernelTime: u32,
-    pub UserTime: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_TRACE_HEADER_3_1 {
-    pub ClientContext: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
-pub struct EVENT_TRACE_LOGFILEA {
-    pub LogFileName: windows_sys::core::PSTR,
-    pub LoggerName: windows_sys::core::PSTR,
-    pub CurrentTime: i64,
-    pub BuffersRead: u32,
-    pub Anonymous1: EVENT_TRACE_LOGFILEA_0,
-    pub CurrentEvent: EVENT_TRACE,
-    pub LogfileHeader: TRACE_LOGFILE_HEADER,
-    pub BufferCallback: PEVENT_TRACE_BUFFER_CALLBACKA,
-    pub BufferSize: u32,
-    pub Filled: u32,
-    pub EventsLost: u32,
-    pub Anonymous2: EVENT_TRACE_LOGFILEA_1,
-    pub IsKernelTrace: u32,
-    pub Context: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_LOGFILEA_0 {
-    pub LogFileMode: u32,
-    pub ProcessTraceMode: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_LOGFILEA_1 {
-    pub EventCallback: PEVENT_CALLBACK,
-    pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
-pub struct EVENT_TRACE_LOGFILEW {
-    pub LogFileName: windows_sys::core::PWSTR,
-    pub LoggerName: windows_sys::core::PWSTR,
-    pub CurrentTime: i64,
-    pub BuffersRead: u32,
-    pub Anonymous1: EVENT_TRACE_LOGFILEW_0,
-    pub CurrentEvent: EVENT_TRACE,
-    pub LogfileHeader: TRACE_LOGFILE_HEADER,
-    pub BufferCallback: PEVENT_TRACE_BUFFER_CALLBACKW,
-    pub BufferSize: u32,
-    pub Filled: u32,
-    pub EventsLost: u32,
-    pub Anonymous2: EVENT_TRACE_LOGFILEW_1,
-    pub IsKernelTrace: u32,
-    pub Context: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_LOGFILEW_0 {
-    pub LogFileMode: u32,
-    pub ProcessTraceMode: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_LOGFILEW_1 {
-    pub EventCallback: PEVENT_CALLBACK,
-    pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_TRACE_PROPERTIES {
-    pub Wnode: WNODE_HEADER,
-    pub BufferSize: u32,
-    pub MinimumBuffers: u32,
-    pub MaximumBuffers: u32,
-    pub MaximumFileSize: u32,
-    pub LogFileMode: u32,
-    pub FlushTimer: u32,
-    pub EnableFlags: EVENT_TRACE_FLAG,
-    pub Anonymous: EVENT_TRACE_PROPERTIES_0,
-    pub NumberOfBuffers: u32,
-    pub FreeBuffers: u32,
-    pub EventsLost: u32,
-    pub BuffersWritten: u32,
-    pub LogBuffersLost: u32,
-    pub RealTimeBuffersLost: u32,
-    pub LoggerThreadId: super::super::super::Foundation::HANDLE,
-    pub LogFileNameOffset: u32,
-    pub LoggerNameOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_PROPERTIES_0 {
-    pub AgeLimit: i32,
-    pub FlushThreshold: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_TRACE_PROPERTIES_V2 {
-    pub Wnode: WNODE_HEADER,
-    pub BufferSize: u32,
-    pub MinimumBuffers: u32,
-    pub MaximumBuffers: u32,
-    pub MaximumFileSize: u32,
-    pub LogFileMode: u32,
-    pub FlushTimer: u32,
-    pub EnableFlags: EVENT_TRACE_FLAG,
-    pub Anonymous1: EVENT_TRACE_PROPERTIES_V2_0,
-    pub NumberOfBuffers: u32,
-    pub FreeBuffers: u32,
-    pub EventsLost: u32,
-    pub BuffersWritten: u32,
-    pub LogBuffersLost: u32,
-    pub RealTimeBuffersLost: u32,
-    pub LoggerThreadId: super::super::super::Foundation::HANDLE,
-    pub LogFileNameOffset: u32,
-    pub LoggerNameOffset: u32,
-    pub Anonymous2: EVENT_TRACE_PROPERTIES_V2_1,
-    pub FilterDescCount: u32,
-    pub FilterDesc: *mut EVENT_FILTER_DESCRIPTOR,
-    pub Anonymous3: EVENT_TRACE_PROPERTIES_V2_2,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_PROPERTIES_V2_0 {
-    pub AgeLimit: i32,
-    pub FlushThreshold: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_PROPERTIES_V2_1 {
-    pub Anonymous: EVENT_TRACE_PROPERTIES_V2_1_0,
-    pub V2Control: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_TRACE_PROPERTIES_V2_1_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union EVENT_TRACE_PROPERTIES_V2_2 {
-    pub Anonymous: EVENT_TRACE_PROPERTIES_V2_2_0,
-    pub V2Options: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENT_TRACE_PROPERTIES_V2_2_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MOF_FIELD {
-    pub DataPtr: u64,
-    pub Length: u32,
-    pub DataType: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OFFSETINSTANCEDATAANDLENGTH {
-    pub OffsetInstanceData: u32,
-    pub LengthInstanceData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PAYLOAD_FILTER_PREDICATE {
-    pub FieldName: windows_sys::core::PWSTR,
-    pub CompareOp: u16,
-    pub Value: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESSTRACE_HANDLE {
-    pub Value: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROFILE_SOURCE_INFO {
-    pub NextEntryOffset: u32,
-    pub Source: u32,
-    pub MinInterval: u32,
-    pub MaxInterval: u32,
-    pub Reserved: u64,
-    pub Description: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROPERTY_DATA_DESCRIPTOR {
-    pub PropertyName: u64,
-    pub ArrayIndex: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROVIDER_ENUMERATION_INFO {
-    pub NumberOfProviders: u32,
-    pub Reserved: u32,
-    pub TraceProviderInfoArray: [TRACE_PROVIDER_INFO; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROVIDER_EVENT_INFO {
-    pub NumberOfEvents: u32,
-    pub Reserved: u32,
-    pub EventDescriptorsArray: [EVENT_DESCRIPTOR; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROVIDER_FIELD_INFO {
-    pub NameOffset: u32,
-    pub DescriptionOffset: u32,
-    pub Value: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROVIDER_FIELD_INFOARRAY {
-    pub NumberOfElements: u32,
-    pub FieldType: EVENT_FIELD_TYPE,
-    pub FieldInfoArray: [PROVIDER_FIELD_INFO; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROVIDER_FILTER_INFO {
-    pub Id: u8,
-    pub Version: u8,
-    pub MessageOffset: u32,
-    pub Reserved: u32,
-    pub PropertyCount: u32,
-    pub EventPropertyInfoArray: [EVENT_PROPERTY_INFO; 1],
-}
-pub type REGHANDLE = i64;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RELOGSTREAM_HANDLE {
-    pub Value: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TDH_CONTEXT {
-    pub ParameterValue: u64,
-    pub ParameterType: TDH_CONTEXT_TYPE,
-    pub ParameterSize: u32,
-}
-pub type TDH_HANDLE = isize;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TRACE_ENABLE_INFO {
@@ -1695,6 +1588,22 @@ pub struct TRACE_GUID_REGISTRATION {
     pub Guid: *const windows_sys::core::GUID,
     pub RegHandle: super::super::super::Foundation::HANDLE,
 }
+pub const TRACE_HEADER_FLAG_LOG_WNODE: u32 = 262144u32;
+pub const TRACE_HEADER_FLAG_TRACED_GUID: u32 = 131072u32;
+pub const TRACE_HEADER_FLAG_USE_GUID_PTR: u32 = 524288u32;
+pub const TRACE_HEADER_FLAG_USE_MOF_PTR: u32 = 1048576u32;
+pub const TRACE_HEADER_FLAG_USE_TIMESTAMP: u32 = 512u32;
+pub const TRACE_LEVEL_CRITICAL: u32 = 1u32;
+pub const TRACE_LEVEL_ERROR: u32 = 2u32;
+pub const TRACE_LEVEL_FATAL: u32 = 1u32;
+pub const TRACE_LEVEL_INFORMATION: u32 = 4u32;
+pub const TRACE_LEVEL_NONE: u32 = 0u32;
+pub const TRACE_LEVEL_RESERVED6: u32 = 6u32;
+pub const TRACE_LEVEL_RESERVED7: u32 = 7u32;
+pub const TRACE_LEVEL_RESERVED8: u32 = 8u32;
+pub const TRACE_LEVEL_RESERVED9: u32 = 9u32;
+pub const TRACE_LEVEL_VERBOSE: u32 = 5u32;
+pub const TRACE_LEVEL_WARNING: u32 = 3u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
@@ -1860,6 +1769,16 @@ pub struct TRACE_LOGFILE_HEADER64_1_0 {
     pub EventsLost: u32,
     pub CpuSpeedInMHz: u32,
 }
+pub const TRACE_MESSAGE_COMPONENTID: TRACE_MESSAGE_FLAGS = 4u32;
+pub type TRACE_MESSAGE_FLAGS = u32;
+pub const TRACE_MESSAGE_FLAG_MASK: u32 = 65535u32;
+pub const TRACE_MESSAGE_GUID: TRACE_MESSAGE_FLAGS = 2u32;
+pub const TRACE_MESSAGE_PERFORMANCE_TIMESTAMP: u32 = 16u32;
+pub const TRACE_MESSAGE_POINTER32: u32 = 64u32;
+pub const TRACE_MESSAGE_POINTER64: u32 = 128u32;
+pub const TRACE_MESSAGE_SEQUENCE: TRACE_MESSAGE_FLAGS = 1u32;
+pub const TRACE_MESSAGE_SYSTEMINFO: TRACE_MESSAGE_FLAGS = 32u32;
+pub const TRACE_MESSAGE_TIMESTAMP: TRACE_MESSAGE_FLAGS = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TRACE_PERIODIC_CAPTURE_STATE_INFO {
@@ -1873,6 +1792,8 @@ pub struct TRACE_PROFILE_INTERVAL {
     pub Source: u32,
     pub Interval: u32,
 }
+pub const TRACE_PROVIDER_FLAG_LEGACY: u32 = 1u32;
+pub const TRACE_PROVIDER_FLAG_PRE_ENABLE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TRACE_PROVIDER_INFO {
@@ -1888,6 +1809,7 @@ pub struct TRACE_PROVIDER_INSTANCE_INFO {
     pub Pid: u32,
     pub Flags: u32,
 }
+pub type TRACE_QUERY_INFO_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TRACE_STACK_CACHING_INFO {
@@ -1901,6 +1823,44 @@ pub struct TRACE_VERSION_INFO {
     pub EtwTraceProcessingVersion: u32,
     pub Reserved: u32,
 }
+pub const TcpIpGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a280ac0_c8e0_11d1_84e2_00c04fb998a2);
+pub const ThreadGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d6fa8d1_fe05_11d0_9dda_00c04fd7ba7c);
+pub const TraceDisallowListQuery: TRACE_QUERY_INFO_CLASS = 14i32;
+pub const TraceGroupQueryInfo: TRACE_QUERY_INFO_CLASS = 13i32;
+pub const TraceGroupQueryList: TRACE_QUERY_INFO_CLASS = 12i32;
+pub const TraceGuidQueryInfo: TRACE_QUERY_INFO_CLASS = 1i32;
+pub const TraceGuidQueryList: TRACE_QUERY_INFO_CLASS = 0i32;
+pub const TraceGuidQueryProcess: TRACE_QUERY_INFO_CLASS = 2i32;
+pub const TraceInfoReserved15: TRACE_QUERY_INFO_CLASS = 15i32;
+pub const TraceLbrConfigurationInfo: TRACE_QUERY_INFO_CLASS = 20i32;
+pub const TraceLbrEventListInfo: TRACE_QUERY_INFO_CLASS = 21i32;
+pub const TraceMaxLoggersQuery: TRACE_QUERY_INFO_CLASS = 19i32;
+pub const TraceMaxPmcCounterQuery: TRACE_QUERY_INFO_CLASS = 22i32;
+pub const TracePeriodicCaptureStateInfo: TRACE_QUERY_INFO_CLASS = 17i32;
+pub const TracePeriodicCaptureStateListInfo: TRACE_QUERY_INFO_CLASS = 16i32;
+pub const TracePmcCounterListInfo: TRACE_QUERY_INFO_CLASS = 9i32;
+pub const TracePmcCounterOwners: TRACE_QUERY_INFO_CLASS = 25i32;
+pub const TracePmcEventListInfo: TRACE_QUERY_INFO_CLASS = 8i32;
+pub const TracePmcSessionInformation: TRACE_QUERY_INFO_CLASS = 27i32;
+pub const TraceProfileSourceConfigInfo: TRACE_QUERY_INFO_CLASS = 6i32;
+pub const TraceProfileSourceListInfo: TRACE_QUERY_INFO_CLASS = 7i32;
+pub const TraceProviderBinaryTracking: TRACE_QUERY_INFO_CLASS = 18i32;
+pub const TraceSampledProfileIntervalInfo: TRACE_QUERY_INFO_CLASS = 5i32;
+pub const TraceSetDisallowList: TRACE_QUERY_INFO_CLASS = 10i32;
+pub const TraceStackCachingInfo: TRACE_QUERY_INFO_CLASS = 24i32;
+pub const TraceStackTracingInfo: TRACE_QUERY_INFO_CLASS = 3i32;
+pub const TraceStreamCount: TRACE_QUERY_INFO_CLASS = 23i32;
+pub const TraceSystemTraceEnableFlagsInfo: TRACE_QUERY_INFO_CLASS = 4i32;
+pub const TraceUnifiedStackCachingInfo: TRACE_QUERY_INFO_CLASS = 26i32;
+pub const TraceVersionInfo: TRACE_QUERY_INFO_CLASS = 11i32;
+pub const UdpIpGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf3a50c5_a9c9_4988_a005_2df0b7c80f80);
+pub type WMIDPREQUEST = Option<unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const core::ffi::c_void, buffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32>;
+pub type WMIDPREQUESTCODE = i32;
+pub const WMIGUID_EXECUTE: u32 = 16u32;
+pub const WMIGUID_NOTIFICATION: u32 = 4u32;
+pub const WMIGUID_QUERY: u32 = 1u32;
+pub const WMIGUID_READ_DESCRIPTION: u32 = 8u32;
+pub const WMIGUID_SET: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WMIREGGUIDW {
@@ -1927,6 +1887,32 @@ pub struct WMIREGINFOW {
     pub GuidCount: u32,
     pub WmiRegGuid: [WMIREGGUIDW; 1],
 }
+pub const WMIREG_FLAG_EVENT_ONLY_GUID: u32 = 64u32;
+pub const WMIREG_FLAG_EXPENSIVE: u32 = 1u32;
+pub const WMIREG_FLAG_INSTANCE_BASENAME: u32 = 8u32;
+pub const WMIREG_FLAG_INSTANCE_LIST: u32 = 4u32;
+pub const WMIREG_FLAG_INSTANCE_PDO: u32 = 32u32;
+pub const WMIREG_FLAG_REMOVE_GUID: u32 = 65536u32;
+pub const WMIREG_FLAG_RESERVED1: u32 = 131072u32;
+pub const WMIREG_FLAG_RESERVED2: u32 = 262144u32;
+pub const WMIREG_FLAG_TRACED_GUID: u32 = 524288u32;
+pub const WMIREG_FLAG_TRACE_CONTROL_GUID: u32 = 4096u32;
+pub const WMI_CAPTURE_STATE: WMIDPREQUESTCODE = 10i32;
+pub const WMI_DISABLE_COLLECTION: WMIDPREQUESTCODE = 7i32;
+pub const WMI_DISABLE_EVENTS: WMIDPREQUESTCODE = 5i32;
+pub const WMI_ENABLE_COLLECTION: WMIDPREQUESTCODE = 6i32;
+pub const WMI_ENABLE_EVENTS: WMIDPREQUESTCODE = 4i32;
+pub const WMI_EXECUTE_METHOD: WMIDPREQUESTCODE = 9i32;
+pub const WMI_GET_ALL_DATA: WMIDPREQUESTCODE = 0i32;
+pub const WMI_GET_SINGLE_INSTANCE: WMIDPREQUESTCODE = 1i32;
+pub const WMI_GLOBAL_LOGGER_ID: u32 = 1u32;
+pub const WMI_GUIDTYPE_DATA: u32 = 2u32;
+pub const WMI_GUIDTYPE_EVENT: u32 = 3u32;
+pub const WMI_GUIDTYPE_TRACE: u32 = 1u32;
+pub const WMI_GUIDTYPE_TRACECONTROL: u32 = 0u32;
+pub const WMI_REGINFO: WMIDPREQUESTCODE = 8i32;
+pub const WMI_SET_SINGLE_INSTANCE: WMIDPREQUESTCODE = 2i32;
+pub const WMI_SET_SINGLE_ITEM: WMIDPREQUESTCODE = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WNODE_ALL_DATA {
@@ -1961,6 +1947,29 @@ pub union WNODE_EVENT_REFERENCE_0 {
     pub TargetInstanceIndex: u32,
     pub TargetInstanceName: [u16; 1],
 }
+pub const WNODE_FLAG_ALL_DATA: u32 = 1u32;
+pub const WNODE_FLAG_ANSI_INSTANCENAMES: u32 = 16384u32;
+pub const WNODE_FLAG_EVENT_ITEM: u32 = 8u32;
+pub const WNODE_FLAG_EVENT_REFERENCE: u32 = 8192u32;
+pub const WNODE_FLAG_FIXED_INSTANCE_SIZE: u32 = 16u32;
+pub const WNODE_FLAG_INSTANCES_SAME: u32 = 64u32;
+pub const WNODE_FLAG_INTERNAL: u32 = 256u32;
+pub const WNODE_FLAG_LOG_WNODE: u32 = 262144u32;
+pub const WNODE_FLAG_METHOD_ITEM: u32 = 32768u32;
+pub const WNODE_FLAG_NO_HEADER: u32 = 2097152u32;
+pub const WNODE_FLAG_PDO_INSTANCE_NAMES: u32 = 65536u32;
+pub const WNODE_FLAG_PERSIST_EVENT: u32 = 1024u32;
+pub const WNODE_FLAG_SEND_DATA_BLOCK: u32 = 4194304u32;
+pub const WNODE_FLAG_SEVERITY_MASK: u32 = 4278190080u32;
+pub const WNODE_FLAG_SINGLE_INSTANCE: u32 = 2u32;
+pub const WNODE_FLAG_SINGLE_ITEM: u32 = 4u32;
+pub const WNODE_FLAG_STATIC_INSTANCE_NAMES: u32 = 128u32;
+pub const WNODE_FLAG_TOO_SMALL: u32 = 32u32;
+pub const WNODE_FLAG_TRACED_GUID: u32 = 131072u32;
+pub const WNODE_FLAG_USE_GUID_PTR: u32 = 524288u32;
+pub const WNODE_FLAG_USE_MOF_PTR: u32 = 1048576u32;
+pub const WNODE_FLAG_USE_TIMESTAMP: u32 = 512u32;
+pub const WNODE_FLAG_VERSIONED_PROPERTIES: u32 = 8388608u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WNODE_HEADER {
@@ -2029,14 +2038,5 @@ pub struct WNODE_TOO_SMALL {
     pub WnodeHeader: WNODE_HEADER,
     pub SizeNeeded: u32,
 }
-pub type PENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_sys::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
-#[cfg(feature = "Win32_System_Time")]
-pub type PETW_BUFFER_CALLBACK = Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, buffersize: u32, consumerinfo: *const ETW_BUFFER_CALLBACK_INFORMATION, callbackcontext: *const core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-pub type PETW_BUFFER_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, callbackcontext: *const core::ffi::c_void)>;
-pub type PEVENT_CALLBACK = Option<unsafe extern "system" fn(pevent: *mut EVENT_TRACE)>;
-pub type PEVENT_RECORD_CALLBACK = Option<unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD)>;
-#[cfg(feature = "Win32_System_Time")]
-pub type PEVENT_TRACE_BUFFER_CALLBACKA = Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEA) -> u32>;
-#[cfg(feature = "Win32_System_Time")]
-pub type PEVENT_TRACE_BUFFER_CALLBACKW = Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEW) -> u32>;
-pub type WMIDPREQUEST = Option<unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const core::ffi::c_void, buffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32>;
+pub type _TDH_IN_TYPE = i32;
+pub type _TDH_OUT_TYPE = i32;

@@ -5,6 +5,7 @@
     dead_code,
     clippy::all
 )]
+
 pub type ADDRESS_FAMILY = u16;
 pub type HANDLE = *mut core::ffi::c_void;
 pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = Option<

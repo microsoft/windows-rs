@@ -131,298 +131,21 @@ windows_targets::link!("scarddlg.dll" "system" fn SCardUIDlgSelectCardA(param0 :
 windows_targets::link!("scarddlg.dll" "system" fn SCardUIDlgSelectCardW(param0 : *mut OPENCARDNAME_EXW) -> i32);
 windows_targets::link!("winscard.dll" "system" fn SCardWriteCacheA(hcontext : usize, cardidentifier : *const windows_sys::core::GUID, freshnesscounter : u32, lookupname : windows_sys::core::PCSTR, data : *const u8, datalen : u32) -> i32);
 windows_targets::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : usize, cardidentifier : *const windows_sys::core::GUID, freshnesscounter : u32, lookupname : windows_sys::core::PCWSTR, data : *const u8, datalen : u32) -> i32);
-pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = 3i32;
-pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = 5i32;
-pub const CERT_HASH_LENGTH: u32 = 20u32;
-pub const CREDSSP_CRED_EX_VERSION: u32 = 0u32;
-pub const CREDSSP_FLAG_REDIRECT: u32 = 1u32;
-pub const CREDSSP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("CREDSSP");
-pub const CREDSSP_SERVER_AUTH_CERTIFICATE: u32 = 2u32;
-pub const CREDSSP_SERVER_AUTH_LOOPBACK: u32 = 4u32;
-pub const CREDSSP_SERVER_AUTH_NEGOTIATE: u32 = 1u32;
-pub const CREDUIWIN_AUTHPACKAGE_ONLY: CREDUIWIN_FLAGS = 16u32;
-pub const CREDUIWIN_CHECKBOX: CREDUIWIN_FLAGS = 2u32;
-pub const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648u32;
-pub const CREDUIWIN_ENUMERATE_ADMINS: CREDUIWIN_FLAGS = 256u32;
-pub const CREDUIWIN_ENUMERATE_CURRENT_USER: CREDUIWIN_FLAGS = 512u32;
-pub const CREDUIWIN_GENERIC: CREDUIWIN_FLAGS = 1u32;
-pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144u32;
-pub const CREDUIWIN_IN_CRED_ONLY: CREDUIWIN_FLAGS = 32u32;
-pub const CREDUIWIN_PACK_32_WOW: CREDUIWIN_FLAGS = 268435456u32;
-pub const CREDUIWIN_PREPROMPTING: CREDUIWIN_FLAGS = 8192u32;
-pub const CREDUIWIN_SECURE_PROMPT: CREDUIWIN_FLAGS = 4096u32;
-pub const CREDUI_FLAGS_ALWAYS_SHOW_UI: CREDUI_FLAGS = 128u32;
-pub const CREDUI_FLAGS_COMPLETE_USERNAME: CREDUI_FLAGS = 2048u32;
-pub const CREDUI_FLAGS_DO_NOT_PERSIST: CREDUI_FLAGS = 2u32;
-pub const CREDUI_FLAGS_EXCLUDE_CERTIFICATES: CREDUI_FLAGS = 8u32;
-pub const CREDUI_FLAGS_EXPECT_CONFIRMATION: CREDUI_FLAGS = 131072u32;
-pub const CREDUI_FLAGS_GENERIC_CREDENTIALS: CREDUI_FLAGS = 262144u32;
-pub const CREDUI_FLAGS_INCORRECT_PASSWORD: CREDUI_FLAGS = 1u32;
-pub const CREDUI_FLAGS_KEEP_USERNAME: CREDUI_FLAGS = 1048576u32;
-pub const CREDUI_FLAGS_PASSWORD_ONLY_OK: CREDUI_FLAGS = 512u32;
-pub const CREDUI_FLAGS_PERSIST: CREDUI_FLAGS = 4096u32;
-pub const CREDUI_FLAGS_REQUEST_ADMINISTRATOR: CREDUI_FLAGS = 4u32;
-pub const CREDUI_FLAGS_REQUIRE_CERTIFICATE: CREDUI_FLAGS = 16u32;
-pub const CREDUI_FLAGS_REQUIRE_SMARTCARD: CREDUI_FLAGS = 256u32;
-pub const CREDUI_FLAGS_SERVER_CREDENTIAL: CREDUI_FLAGS = 16384u32;
-pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: CREDUI_FLAGS = 64u32;
-pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: CREDUI_FLAGS = 524288u32;
-pub const CREDUI_FLAGS_VALIDATE_USERNAME: CREDUI_FLAGS = 1024u32;
-pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
-pub const CREDUI_MAX_DOMAIN_TARGET_LENGTH: u32 = 337u32;
-pub const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767u32;
-pub const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024u32;
-pub const CREDUI_MAX_USERNAME_LENGTH: u32 = 513u32;
-pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
-pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
-pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = 1u32;
-pub const CRED_FLAGS_NGC_CERT: CRED_FLAGS = 128u32;
-pub const CRED_FLAGS_OWF_CRED_BLOB: CRED_FLAGS = 8u32;
-pub const CRED_FLAGS_PASSWORD_FOR_CERT: CRED_FLAGS = 1u32;
-pub const CRED_FLAGS_PROMPT_NOW: CRED_FLAGS = 2u32;
-pub const CRED_FLAGS_REQUIRE_CONFIRMATION: CRED_FLAGS = 16u32;
-pub const CRED_FLAGS_USERNAME_TARGET: CRED_FLAGS = 4u32;
-pub const CRED_FLAGS_VALID_FLAGS: CRED_FLAGS = 61695u32;
-pub const CRED_FLAGS_VALID_INPUT_FLAGS: CRED_FLAGS = 61599u32;
-pub const CRED_FLAGS_VSM_PROTECTED: CRED_FLAGS = 64u32;
-pub const CRED_FLAGS_WILDCARD_MATCH: CRED_FLAGS = 32u32;
-pub const CRED_LOGON_TYPES_MASK: u32 = 61440u32;
-pub const CRED_MAX_ATTRIBUTES: u32 = 64u32;
-pub const CRED_MAX_CREDENTIAL_BLOB_SIZE: u32 = 2560u32;
-pub const CRED_MAX_DOMAIN_TARGET_NAME_LENGTH: u32 = 337u32;
-pub const CRED_MAX_GENERIC_TARGET_NAME_LENGTH: u32 = 32767u32;
-pub const CRED_MAX_STRING_LENGTH: u32 = 256u32;
-pub const CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH: u32 = 256u32;
-pub const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256u32;
-pub const CRED_MAX_USERNAME_LENGTH: u32 = 513u32;
-pub const CRED_MAX_VALUE_SIZE: u32 = 256u32;
-pub const CRED_PACK_GENERIC_CREDENTIALS: CRED_PACK_FLAGS = 4u32;
-pub const CRED_PACK_ID_PROVIDER_CREDENTIALS: CRED_PACK_FLAGS = 8u32;
-pub const CRED_PACK_PROTECTED_CREDENTIALS: CRED_PACK_FLAGS = 1u32;
-pub const CRED_PACK_WOW_BUFFER: CRED_PACK_FLAGS = 2u32;
-pub const CRED_PERSIST_ENTERPRISE: CRED_PERSIST = 3u32;
-pub const CRED_PERSIST_LOCAL_MACHINE: CRED_PERSIST = 2u32;
-pub const CRED_PERSIST_NONE: CRED_PERSIST = 0u32;
-pub const CRED_PERSIST_SESSION: CRED_PERSIST = 1u32;
-pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1u32;
-pub const CRED_PROTECT_AS_SELF: u32 = 1u32;
-pub const CRED_PROTECT_TO_SYSTEM: u32 = 2u32;
-pub const CRED_SESSION_WILDCARD_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("*Session");
-pub const CRED_SESSION_WILDCARD_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("*Session");
-pub const CRED_SESSION_WILDCARD_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("*Session");
-pub const CRED_TARGETNAME_ATTRIBUTE_BATCH: windows_sys::core::PCWSTR = windows_sys::core::w!("batch");
-pub const CRED_TARGETNAME_ATTRIBUTE_BATCH_A: windows_sys::core::PCSTR = windows_sys::core::s!("batch");
-pub const CRED_TARGETNAME_ATTRIBUTE_BATCH_W: windows_sys::core::PCWSTR = windows_sys::core::w!("batch");
-pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE: windows_sys::core::PCWSTR = windows_sys::core::w!("cachedinteractive");
-pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_A: windows_sys::core::PCSTR = windows_sys::core::s!("cachedinteractive");
-pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("cachedinteractive");
-pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE: windows_sys::core::PCWSTR = windows_sys::core::w!("interactive");
-pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_A: windows_sys::core::PCSTR = windows_sys::core::s!("interactive");
-pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("interactive");
-pub const CRED_TARGETNAME_ATTRIBUTE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("name");
-pub const CRED_TARGETNAME_ATTRIBUTE_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("name");
-pub const CRED_TARGETNAME_ATTRIBUTE_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("name");
-pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK: windows_sys::core::PCWSTR = windows_sys::core::w!("network");
-pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT: windows_sys::core::PCWSTR = windows_sys::core::w!("networkcleartext");
-pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_A: windows_sys::core::PCSTR = windows_sys::core::s!("networkcleartext");
-pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_W: windows_sys::core::PCWSTR = windows_sys::core::w!("networkcleartext");
-pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK_A: windows_sys::core::PCSTR = windows_sys::core::s!("network");
-pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK_W: windows_sys::core::PCWSTR = windows_sys::core::w!("network");
-pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE: windows_sys::core::PCWSTR = windows_sys::core::w!("remoteinteractive");
-pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_A: windows_sys::core::PCSTR = windows_sys::core::s!("remoteinteractive");
-pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("remoteinteractive");
-pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE: windows_sys::core::PCWSTR = windows_sys::core::w!("service");
-pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE_A: windows_sys::core::PCSTR = windows_sys::core::s!("service");
-pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("service");
-pub const CRED_TARGETNAME_ATTRIBUTE_TARGET: windows_sys::core::PCWSTR = windows_sys::core::w!("target");
-pub const CRED_TARGETNAME_ATTRIBUTE_TARGET_A: windows_sys::core::PCSTR = windows_sys::core::s!("target");
-pub const CRED_TARGETNAME_ATTRIBUTE_TARGET_W: windows_sys::core::PCWSTR = windows_sys::core::w!("target");
-pub const CRED_TARGETNAME_DOMAIN_NAMESPACE: windows_sys::core::PCWSTR = windows_sys::core::w!("Domain");
-pub const CRED_TARGETNAME_DOMAIN_NAMESPACE_A: windows_sys::core::PCSTR = windows_sys::core::s!("Domain");
-pub const CRED_TARGETNAME_DOMAIN_NAMESPACE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Domain");
-pub const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_A: windows_sys::core::PCSTR = windows_sys::core::s!("LegacyGeneric");
-pub const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("LegacyGeneric");
-pub const CRED_TI_CREATE_EXPLICIT_CRED: u32 = 16u32;
-pub const CRED_TI_DNSTREE_IS_DFS_SERVER: u32 = 64u32;
-pub const CRED_TI_DOMAIN_FORMAT_UNKNOWN: u32 = 2u32;
-pub const CRED_TI_ONLY_PASSWORD_REQUIRED: u32 = 4u32;
-pub const CRED_TI_SERVER_FORMAT_UNKNOWN: u32 = 1u32;
-pub const CRED_TI_USERNAME_TARGET: u32 = 8u32;
-pub const CRED_TI_VALID_FLAGS: u32 = 61567u32;
-pub const CRED_TI_WORKGROUP_MEMBER: u32 = 32u32;
-pub const CRED_TYPE_DOMAIN_CERTIFICATE: CRED_TYPE = 3u32;
-pub const CRED_TYPE_DOMAIN_EXTENDED: CRED_TYPE = 6u32;
-pub const CRED_TYPE_DOMAIN_PASSWORD: CRED_TYPE = 2u32;
-pub const CRED_TYPE_DOMAIN_VISIBLE_PASSWORD: CRED_TYPE = 4u32;
-pub const CRED_TYPE_GENERIC: CRED_TYPE = 1u32;
-pub const CRED_TYPE_GENERIC_CERTIFICATE: CRED_TYPE = 5u32;
-pub const CRED_TYPE_MAXIMUM: CRED_TYPE = 7u32;
-pub const CRED_TYPE_MAXIMUM_EX: CRED_TYPE = 1007u32;
-pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
-pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
-pub const CertCredential: CRED_MARSHAL_TYPE = 1i32;
-pub const CredForSystemProtection: CRED_PROTECTION_TYPE = 3i32;
-pub const CredTrustedProtection: CRED_PROTECTION_TYPE = 2i32;
-pub const CredUnprotected: CRED_PROTECTION_TYPE = 0i32;
-pub const CredUserProtection: CRED_PROTECTION_TYPE = 1i32;
-pub const CredsspCertificateCreds: CREDSPP_SUBMIT_TYPE = 13i32;
-pub const CredsspCredEx: CREDSPP_SUBMIT_TYPE = 100i32;
-pub const CredsspPasswordCreds: CREDSPP_SUBMIT_TYPE = 2i32;
-pub const CredsspSchannelCreds: CREDSPP_SUBMIT_TYPE = 4i32;
-pub const CredsspSubmitBufferBoth: CREDSPP_SUBMIT_TYPE = 50i32;
-pub const CredsspSubmitBufferBothOld: CREDSPP_SUBMIT_TYPE = 51i32;
-pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
-pub const GUID_DEVINTERFACE_SMARTCARD_READER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50dd5230_ba8a_11d1_bf5d_0000f805f530);
-pub const KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = 4i32;
-pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure: KeyCredentialManagerOperationErrorStates = 1i32;
-pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = 32i32;
-pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = 0i32;
-pub const KeyCredentialManagerOperationErrorStatePinExistsFailure: KeyCredentialManagerOperationErrorStates = 64i32;
-pub const KeyCredentialManagerOperationErrorStatePolicyFailure: KeyCredentialManagerOperationErrorStates = 16i32;
-pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure: KeyCredentialManagerOperationErrorStates = 8i32;
-pub const KeyCredentialManagerOperationErrorStateTokenFailure: KeyCredentialManagerOperationErrorStates = 2i32;
-pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType = 1i32;
-pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = 2i32;
-pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = 0i32;
-pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
-pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
-pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE = 3i32;
-pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = 1i32;
-pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE = 2i32;
-pub const SCARD_ABSENT: u32 = 1u32;
-pub const SCARD_ALL_READERS: windows_sys::core::PCWSTR = windows_sys::core::w!("SCard$AllReaders\u{0}00");
-pub const SCARD_ATR_LENGTH: u32 = 33u32;
-pub const SCARD_AUDIT_CHV_FAILURE: u32 = 0u32;
-pub const SCARD_AUDIT_CHV_SUCCESS: u32 = 1u32;
-pub const SCARD_CLASS_COMMUNICATIONS: u32 = 2u32;
-pub const SCARD_CLASS_ICC_STATE: u32 = 9u32;
-pub const SCARD_CLASS_IFD_PROTOCOL: u32 = 8u32;
-pub const SCARD_CLASS_MECHANICAL: u32 = 6u32;
-pub const SCARD_CLASS_PERF: u32 = 32766u32;
-pub const SCARD_CLASS_POWER_MGMT: u32 = 4u32;
-pub const SCARD_CLASS_PROTOCOL: u32 = 3u32;
-pub const SCARD_CLASS_SECURITY: u32 = 5u32;
-pub const SCARD_CLASS_SYSTEM: u32 = 32767u32;
-pub const SCARD_CLASS_VENDOR_DEFINED: u32 = 7u32;
-pub const SCARD_CLASS_VENDOR_INFO: u32 = 1u32;
-pub const SCARD_COLD_RESET: u32 = 1u32;
-pub const SCARD_DEFAULT_READERS: windows_sys::core::PCWSTR = windows_sys::core::w!("SCard$DefaultReaders\u{0}00");
-pub const SCARD_EJECT_CARD: u32 = 3u32;
-pub const SCARD_LEAVE_CARD: u32 = 0u32;
-pub const SCARD_LOCAL_READERS: windows_sys::core::PCWSTR = windows_sys::core::w!("SCard$LocalReaders\u{0}00");
-pub const SCARD_NEGOTIABLE: u32 = 5u32;
-pub const SCARD_POWERED: u32 = 4u32;
-pub const SCARD_POWER_DOWN: u32 = 0u32;
-pub const SCARD_PRESENT: u32 = 2u32;
-pub const SCARD_PROTOCOL_DEFAULT: u32 = 2147483648u32;
-pub const SCARD_PROTOCOL_OPTIMAL: u32 = 0u32;
-pub const SCARD_PROTOCOL_RAW: u32 = 65536u32;
-pub const SCARD_PROTOCOL_T0: u32 = 1u32;
-pub const SCARD_PROTOCOL_T1: u32 = 2u32;
-pub const SCARD_PROTOCOL_UNDEFINED: u32 = 0u32;
-pub const SCARD_PROVIDER_CSP: u32 = 2u32;
-pub const SCARD_PROVIDER_KSP: u32 = 3u32;
-pub const SCARD_PROVIDER_PRIMARY: u32 = 1u32;
-pub const SCARD_READER_CONFISCATES: u32 = 4u32;
-pub const SCARD_READER_CONTACTLESS: u32 = 8u32;
-pub const SCARD_READER_EJECTS: u32 = 2u32;
-pub const SCARD_READER_SWALLOWS: u32 = 1u32;
-pub const SCARD_READER_TYPE_EMBEDDEDSE: u32 = 2048u32;
-pub const SCARD_READER_TYPE_IDE: u32 = 16u32;
-pub const SCARD_READER_TYPE_KEYBOARD: u32 = 4u32;
-pub const SCARD_READER_TYPE_NFC: u32 = 256u32;
-pub const SCARD_READER_TYPE_NGC: u32 = 1024u32;
-pub const SCARD_READER_TYPE_PARALELL: u32 = 2u32;
-pub const SCARD_READER_TYPE_PCMCIA: u32 = 64u32;
-pub const SCARD_READER_TYPE_SCSI: u32 = 8u32;
-pub const SCARD_READER_TYPE_SERIAL: u32 = 1u32;
-pub const SCARD_READER_TYPE_TPM: u32 = 128u32;
-pub const SCARD_READER_TYPE_UICC: u32 = 512u32;
-pub const SCARD_READER_TYPE_USB: u32 = 32u32;
-pub const SCARD_READER_TYPE_VENDOR: u32 = 240u32;
-pub const SCARD_RESET_CARD: u32 = 1u32;
-pub const SCARD_SCOPE_SYSTEM: SCARD_SCOPE = 2u32;
-pub const SCARD_SCOPE_TERMINAL: u32 = 1u32;
-pub const SCARD_SCOPE_USER: SCARD_SCOPE = 0u32;
-pub const SCARD_SHARE_DIRECT: u32 = 3u32;
-pub const SCARD_SHARE_EXCLUSIVE: u32 = 1u32;
-pub const SCARD_SHARE_SHARED: u32 = 2u32;
-pub const SCARD_SPECIFIC: u32 = 6u32;
-pub const SCARD_STATE_ATRMATCH: SCARD_STATE = 64u32;
-pub const SCARD_STATE_CHANGED: SCARD_STATE = 2u32;
-pub const SCARD_STATE_EMPTY: SCARD_STATE = 16u32;
-pub const SCARD_STATE_EXCLUSIVE: SCARD_STATE = 128u32;
-pub const SCARD_STATE_IGNORE: SCARD_STATE = 1u32;
-pub const SCARD_STATE_INUSE: SCARD_STATE = 256u32;
-pub const SCARD_STATE_MUTE: SCARD_STATE = 512u32;
-pub const SCARD_STATE_PRESENT: SCARD_STATE = 32u32;
-pub const SCARD_STATE_UNAVAILABLE: SCARD_STATE = 8u32;
-pub const SCARD_STATE_UNAWARE: SCARD_STATE = 0u32;
-pub const SCARD_STATE_UNKNOWN: SCARD_STATE = 4u32;
-pub const SCARD_STATE_UNPOWERED: u32 = 1024u32;
-pub const SCARD_SWALLOWED: u32 = 3u32;
-pub const SCARD_SYSTEM_READERS: windows_sys::core::PCWSTR = windows_sys::core::w!("SCard$SystemReaders\u{0}00");
-pub const SCARD_T0_CMD_LENGTH: u32 = 5u32;
-pub const SCARD_T0_HEADER_LENGTH: u32 = 7u32;
-pub const SCARD_T1_EPILOGUE_LENGTH: u32 = 2u32;
-pub const SCARD_T1_EPILOGUE_LENGTH_LRC: u32 = 1u32;
-pub const SCARD_T1_MAX_IFS: u32 = 254u32;
-pub const SCARD_T1_PROLOGUE_LENGTH: u32 = 3u32;
-pub const SCARD_UNKNOWN: u32 = 0u32;
-pub const SCARD_UNPOWER_CARD: u32 = 2u32;
-pub const SCARD_WARM_RESET: u32 = 2u32;
-pub const SCERR_NOCARDNAME: u32 = 16384u32;
-pub const SCERR_NOGUIDS: u32 = 32768u32;
-pub const SC_DLG_FORCE_UI: u32 = 4u32;
-pub const SC_DLG_MINIMAL_UI: u32 = 1u32;
-pub const SC_DLG_NO_UI: u32 = 2u32;
-pub const SECPKG_ALT_ATTR: u32 = 2147483648u32;
-pub const SECPKG_ATTR_C_FULL_IDENT_TOKEN: u32 = 2147483781u32;
-pub const STATUS_ACCOUNT_DISABLED: super::super::Foundation::NTSTATUS = 0xC0000072_u32 as _;
-pub const STATUS_ACCOUNT_EXPIRED: super::super::Foundation::NTSTATUS = 0xC0000193_u32 as _;
-pub const STATUS_ACCOUNT_LOCKED_OUT: super::super::Foundation::NTSTATUS = 0xC0000234_u32 as _;
-pub const STATUS_ACCOUNT_RESTRICTION: super::super::Foundation::NTSTATUS = 0xC000006E_u32 as _;
-pub const STATUS_AUTHENTICATION_FIREWALL_FAILED: super::super::Foundation::NTSTATUS = 0xC0000413_u32 as _;
-pub const STATUS_DOWNGRADE_DETECTED: super::super::Foundation::NTSTATUS = 0xC0000388_u32 as _;
-pub const STATUS_LOGON_FAILURE: super::super::Foundation::NTSTATUS = 0xC000006D_u32 as _;
-pub const STATUS_LOGON_TYPE_NOT_GRANTED: super::super::Foundation::NTSTATUS = 0xC000015B_u32 as _;
-pub const STATUS_NO_SUCH_LOGON_SESSION: super::super::Foundation::NTSTATUS = 0xC000005F_u32 as _;
-pub const STATUS_NO_SUCH_USER: super::super::Foundation::NTSTATUS = 0xC0000064_u32 as _;
-pub const STATUS_PASSWORD_EXPIRED: super::super::Foundation::NTSTATUS = 0xC0000071_u32 as _;
-pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS = 0xC0000224_u32 as _;
-pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS = 0xC000006A_u32 as _;
-pub const TS_SSP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("TSSSP");
-pub const TS_SSP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("TSSSP");
-pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = 4i32;
-pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = 2i32;
-pub const szOID_TS_KP_TS_SERVER_AUTH: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.54.1.2");
-pub type CREDSPP_SUBMIT_TYPE = i32;
-pub type CREDUIWIN_FLAGS = u32;
-pub type CREDUI_FLAGS = u32;
-pub type CRED_ENUMERATE_FLAGS = u32;
-pub type CRED_FLAGS = u32;
-pub type CRED_MARSHAL_TYPE = i32;
-pub type CRED_PACK_FLAGS = u32;
-pub type CRED_PERSIST = u32;
-pub type CRED_PROTECTION_TYPE = i32;
-pub type CRED_TYPE = u32;
-pub type KeyCredentialManagerOperationErrorStates = i32;
-pub type KeyCredentialManagerOperationType = i32;
-pub type READER_SEL_REQUEST_MATCH_TYPE = i32;
-pub type SCARD_SCOPE = u32;
-pub type SCARD_STATE = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
 }
+pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = 3i32;
+pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = 5i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CERT_CREDENTIAL_INFO {
     pub cbSize: u32,
     pub rgbHashOfCert: [u8; 20],
 }
+pub const CERT_HASH_LENGTH: u32 = 20u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CREDENTIALA {
@@ -499,6 +222,7 @@ pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub CredTypeCount: u32,
     pub CredTypes: *mut u32,
 }
+pub type CREDSPP_SUBMIT_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CREDSSP_CRED {
@@ -515,6 +239,42 @@ pub struct CREDSSP_CRED_EX {
     pub Reserved: u32,
     pub Cred: CREDSSP_CRED,
 }
+pub const CREDSSP_CRED_EX_VERSION: u32 = 0u32;
+pub const CREDSSP_FLAG_REDIRECT: u32 = 1u32;
+pub const CREDSSP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("CREDSSP");
+pub const CREDSSP_SERVER_AUTH_CERTIFICATE: u32 = 2u32;
+pub const CREDSSP_SERVER_AUTH_LOOPBACK: u32 = 4u32;
+pub const CREDSSP_SERVER_AUTH_NEGOTIATE: u32 = 1u32;
+pub const CREDUIWIN_AUTHPACKAGE_ONLY: CREDUIWIN_FLAGS = 16u32;
+pub const CREDUIWIN_CHECKBOX: CREDUIWIN_FLAGS = 2u32;
+pub const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648u32;
+pub const CREDUIWIN_ENUMERATE_ADMINS: CREDUIWIN_FLAGS = 256u32;
+pub const CREDUIWIN_ENUMERATE_CURRENT_USER: CREDUIWIN_FLAGS = 512u32;
+pub type CREDUIWIN_FLAGS = u32;
+pub const CREDUIWIN_GENERIC: CREDUIWIN_FLAGS = 1u32;
+pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144u32;
+pub const CREDUIWIN_IN_CRED_ONLY: CREDUIWIN_FLAGS = 32u32;
+pub const CREDUIWIN_PACK_32_WOW: CREDUIWIN_FLAGS = 268435456u32;
+pub const CREDUIWIN_PREPROMPTING: CREDUIWIN_FLAGS = 8192u32;
+pub const CREDUIWIN_SECURE_PROMPT: CREDUIWIN_FLAGS = 4096u32;
+pub type CREDUI_FLAGS = u32;
+pub const CREDUI_FLAGS_ALWAYS_SHOW_UI: CREDUI_FLAGS = 128u32;
+pub const CREDUI_FLAGS_COMPLETE_USERNAME: CREDUI_FLAGS = 2048u32;
+pub const CREDUI_FLAGS_DO_NOT_PERSIST: CREDUI_FLAGS = 2u32;
+pub const CREDUI_FLAGS_EXCLUDE_CERTIFICATES: CREDUI_FLAGS = 8u32;
+pub const CREDUI_FLAGS_EXPECT_CONFIRMATION: CREDUI_FLAGS = 131072u32;
+pub const CREDUI_FLAGS_GENERIC_CREDENTIALS: CREDUI_FLAGS = 262144u32;
+pub const CREDUI_FLAGS_INCORRECT_PASSWORD: CREDUI_FLAGS = 1u32;
+pub const CREDUI_FLAGS_KEEP_USERNAME: CREDUI_FLAGS = 1048576u32;
+pub const CREDUI_FLAGS_PASSWORD_ONLY_OK: CREDUI_FLAGS = 512u32;
+pub const CREDUI_FLAGS_PERSIST: CREDUI_FLAGS = 4096u32;
+pub const CREDUI_FLAGS_REQUEST_ADMINISTRATOR: CREDUI_FLAGS = 4u32;
+pub const CREDUI_FLAGS_REQUIRE_CERTIFICATE: CREDUI_FLAGS = 16u32;
+pub const CREDUI_FLAGS_REQUIRE_SMARTCARD: CREDUI_FLAGS = 256u32;
+pub const CREDUI_FLAGS_SERVER_CREDENTIAL: CREDUI_FLAGS = 16384u32;
+pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: CREDUI_FLAGS = 64u32;
+pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: CREDUI_FLAGS = 524288u32;
+pub const CREDUI_FLAGS_VALIDATE_USERNAME: CREDUI_FLAGS = 1024u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -535,11 +295,142 @@ pub struct CREDUI_INFOW {
     pub pszCaptionText: windows_sys::core::PCWSTR,
     pub hbmBanner: super::super::Graphics::Gdi::HBITMAP,
 }
+pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
+pub const CREDUI_MAX_DOMAIN_TARGET_LENGTH: u32 = 337u32;
+pub const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767u32;
+pub const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024u32;
+pub const CREDUI_MAX_USERNAME_LENGTH: u32 = 513u32;
+pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
+pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
+pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = 1u32;
+pub type CRED_ENUMERATE_FLAGS = u32;
+pub type CRED_FLAGS = u32;
+pub const CRED_FLAGS_NGC_CERT: CRED_FLAGS = 128u32;
+pub const CRED_FLAGS_OWF_CRED_BLOB: CRED_FLAGS = 8u32;
+pub const CRED_FLAGS_PASSWORD_FOR_CERT: CRED_FLAGS = 1u32;
+pub const CRED_FLAGS_PROMPT_NOW: CRED_FLAGS = 2u32;
+pub const CRED_FLAGS_REQUIRE_CONFIRMATION: CRED_FLAGS = 16u32;
+pub const CRED_FLAGS_USERNAME_TARGET: CRED_FLAGS = 4u32;
+pub const CRED_FLAGS_VALID_FLAGS: CRED_FLAGS = 61695u32;
+pub const CRED_FLAGS_VALID_INPUT_FLAGS: CRED_FLAGS = 61599u32;
+pub const CRED_FLAGS_VSM_PROTECTED: CRED_FLAGS = 64u32;
+pub const CRED_FLAGS_WILDCARD_MATCH: CRED_FLAGS = 32u32;
+pub const CRED_LOGON_TYPES_MASK: u32 = 61440u32;
+pub type CRED_MARSHAL_TYPE = i32;
+pub const CRED_MAX_ATTRIBUTES: u32 = 64u32;
+pub const CRED_MAX_CREDENTIAL_BLOB_SIZE: u32 = 2560u32;
+pub const CRED_MAX_DOMAIN_TARGET_NAME_LENGTH: u32 = 337u32;
+pub const CRED_MAX_GENERIC_TARGET_NAME_LENGTH: u32 = 32767u32;
+pub const CRED_MAX_STRING_LENGTH: u32 = 256u32;
+pub const CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH: u32 = 256u32;
+pub const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256u32;
+pub const CRED_MAX_USERNAME_LENGTH: u32 = 513u32;
+pub const CRED_MAX_VALUE_SIZE: u32 = 256u32;
+pub type CRED_PACK_FLAGS = u32;
+pub const CRED_PACK_GENERIC_CREDENTIALS: CRED_PACK_FLAGS = 4u32;
+pub const CRED_PACK_ID_PROVIDER_CREDENTIALS: CRED_PACK_FLAGS = 8u32;
+pub const CRED_PACK_PROTECTED_CREDENTIALS: CRED_PACK_FLAGS = 1u32;
+pub const CRED_PACK_WOW_BUFFER: CRED_PACK_FLAGS = 2u32;
+pub type CRED_PERSIST = u32;
+pub const CRED_PERSIST_ENTERPRISE: CRED_PERSIST = 3u32;
+pub const CRED_PERSIST_LOCAL_MACHINE: CRED_PERSIST = 2u32;
+pub const CRED_PERSIST_NONE: CRED_PERSIST = 0u32;
+pub const CRED_PERSIST_SESSION: CRED_PERSIST = 1u32;
+pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1u32;
+pub type CRED_PROTECTION_TYPE = i32;
+pub const CRED_PROTECT_AS_SELF: u32 = 1u32;
+pub const CRED_PROTECT_TO_SYSTEM: u32 = 2u32;
+pub const CRED_SESSION_WILDCARD_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("*Session");
+pub const CRED_SESSION_WILDCARD_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("*Session");
+pub const CRED_SESSION_WILDCARD_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("*Session");
+pub const CRED_TARGETNAME_ATTRIBUTE_BATCH: windows_sys::core::PCWSTR = windows_sys::core::w!("batch");
+pub const CRED_TARGETNAME_ATTRIBUTE_BATCH_A: windows_sys::core::PCSTR = windows_sys::core::s!("batch");
+pub const CRED_TARGETNAME_ATTRIBUTE_BATCH_W: windows_sys::core::PCWSTR = windows_sys::core::w!("batch");
+pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE: windows_sys::core::PCWSTR = windows_sys::core::w!("cachedinteractive");
+pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_A: windows_sys::core::PCSTR = windows_sys::core::s!("cachedinteractive");
+pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("cachedinteractive");
+pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE: windows_sys::core::PCWSTR = windows_sys::core::w!("interactive");
+pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_A: windows_sys::core::PCSTR = windows_sys::core::s!("interactive");
+pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("interactive");
+pub const CRED_TARGETNAME_ATTRIBUTE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("name");
+pub const CRED_TARGETNAME_ATTRIBUTE_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("name");
+pub const CRED_TARGETNAME_ATTRIBUTE_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("name");
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK: windows_sys::core::PCWSTR = windows_sys::core::w!("network");
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT: windows_sys::core::PCWSTR = windows_sys::core::w!("networkcleartext");
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_A: windows_sys::core::PCSTR = windows_sys::core::s!("networkcleartext");
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_W: windows_sys::core::PCWSTR = windows_sys::core::w!("networkcleartext");
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK_A: windows_sys::core::PCSTR = windows_sys::core::s!("network");
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK_W: windows_sys::core::PCWSTR = windows_sys::core::w!("network");
+pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE: windows_sys::core::PCWSTR = windows_sys::core::w!("remoteinteractive");
+pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_A: windows_sys::core::PCSTR = windows_sys::core::s!("remoteinteractive");
+pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("remoteinteractive");
+pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE: windows_sys::core::PCWSTR = windows_sys::core::w!("service");
+pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE_A: windows_sys::core::PCSTR = windows_sys::core::s!("service");
+pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("service");
+pub const CRED_TARGETNAME_ATTRIBUTE_TARGET: windows_sys::core::PCWSTR = windows_sys::core::w!("target");
+pub const CRED_TARGETNAME_ATTRIBUTE_TARGET_A: windows_sys::core::PCSTR = windows_sys::core::s!("target");
+pub const CRED_TARGETNAME_ATTRIBUTE_TARGET_W: windows_sys::core::PCWSTR = windows_sys::core::w!("target");
+pub const CRED_TARGETNAME_DOMAIN_NAMESPACE: windows_sys::core::PCWSTR = windows_sys::core::w!("Domain");
+pub const CRED_TARGETNAME_DOMAIN_NAMESPACE_A: windows_sys::core::PCSTR = windows_sys::core::s!("Domain");
+pub const CRED_TARGETNAME_DOMAIN_NAMESPACE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Domain");
+pub const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_A: windows_sys::core::PCSTR = windows_sys::core::s!("LegacyGeneric");
+pub const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("LegacyGeneric");
+pub const CRED_TI_CREATE_EXPLICIT_CRED: u32 = 16u32;
+pub const CRED_TI_DNSTREE_IS_DFS_SERVER: u32 = 64u32;
+pub const CRED_TI_DOMAIN_FORMAT_UNKNOWN: u32 = 2u32;
+pub const CRED_TI_ONLY_PASSWORD_REQUIRED: u32 = 4u32;
+pub const CRED_TI_SERVER_FORMAT_UNKNOWN: u32 = 1u32;
+pub const CRED_TI_USERNAME_TARGET: u32 = 8u32;
+pub const CRED_TI_VALID_FLAGS: u32 = 61567u32;
+pub const CRED_TI_WORKGROUP_MEMBER: u32 = 32u32;
+pub type CRED_TYPE = u32;
+pub const CRED_TYPE_DOMAIN_CERTIFICATE: CRED_TYPE = 3u32;
+pub const CRED_TYPE_DOMAIN_EXTENDED: CRED_TYPE = 6u32;
+pub const CRED_TYPE_DOMAIN_PASSWORD: CRED_TYPE = 2u32;
+pub const CRED_TYPE_DOMAIN_VISIBLE_PASSWORD: CRED_TYPE = 4u32;
+pub const CRED_TYPE_GENERIC: CRED_TYPE = 1u32;
+pub const CRED_TYPE_GENERIC_CERTIFICATE: CRED_TYPE = 5u32;
+pub const CRED_TYPE_MAXIMUM: CRED_TYPE = 7u32;
+pub const CRED_TYPE_MAXIMUM_EX: CRED_TYPE = 1007u32;
+pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
+pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
+pub const CertCredential: CRED_MARSHAL_TYPE = 1i32;
+pub const CredForSystemProtection: CRED_PROTECTION_TYPE = 3i32;
+pub const CredTrustedProtection: CRED_PROTECTION_TYPE = 2i32;
+pub const CredUnprotected: CRED_PROTECTION_TYPE = 0i32;
+pub const CredUserProtection: CRED_PROTECTION_TYPE = 1i32;
+pub const CredsspCertificateCreds: CREDSPP_SUBMIT_TYPE = 13i32;
+pub const CredsspCredEx: CREDSPP_SUBMIT_TYPE = 100i32;
+pub const CredsspPasswordCreds: CREDSPP_SUBMIT_TYPE = 2i32;
+pub const CredsspSchannelCreds: CREDSPP_SUBMIT_TYPE = 4i32;
+pub const CredsspSubmitBufferBoth: CREDSPP_SUBMIT_TYPE = 50i32;
+pub const CredsspSubmitBufferBothOld: CREDSPP_SUBMIT_TYPE = 51i32;
+pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
+pub const GUID_DEVINTERFACE_SMARTCARD_READER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50dd5230_ba8a_11d1_bf5d_0000f805f530);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KeyCredentialManagerInfo {
     pub containerId: windows_sys::core::GUID,
 }
+pub const KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = 4i32;
+pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure: KeyCredentialManagerOperationErrorStates = 1i32;
+pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = 32i32;
+pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = 0i32;
+pub const KeyCredentialManagerOperationErrorStatePinExistsFailure: KeyCredentialManagerOperationErrorStates = 64i32;
+pub const KeyCredentialManagerOperationErrorStatePolicyFailure: KeyCredentialManagerOperationErrorStates = 16i32;
+pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure: KeyCredentialManagerOperationErrorStates = 8i32;
+pub const KeyCredentialManagerOperationErrorStateTokenFailure: KeyCredentialManagerOperationErrorStates = 2i32;
+pub type KeyCredentialManagerOperationErrorStates = i32;
+pub type KeyCredentialManagerOperationType = i32;
+pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType = 1i32;
+pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = 2i32;
+pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = 0i32;
+pub type LPOCNCHKPROC = Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPOCNCONNPROCA = Option<unsafe extern "system" fn(param0: usize, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: *const core::ffi::c_void) -> usize>;
+pub type LPOCNCONNPROCW = Option<unsafe extern "system" fn(param0: usize, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *const core::ffi::c_void) -> usize>;
+pub type LPOCNDSCPROC = Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const core::ffi::c_void)>;
+pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
+pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OPENCARDNAMEA {
@@ -705,6 +596,7 @@ pub struct READER_SEL_REQUEST_0_1 {
     pub cbSerialNumberLength: u32,
     pub dwDesiredCardModuleVersion: u32,
 }
+pub type READER_SEL_REQUEST_MATCH_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct READER_SEL_RESPONSE {
@@ -713,6 +605,11 @@ pub struct READER_SEL_RESPONSE {
     pub cbCardNameOffset: u32,
     pub cchCardNameLength: u32,
 }
+pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE = 3i32;
+pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = 1i32;
+pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE = 2i32;
+pub const SCARD_ABSENT: u32 = 1u32;
+pub const SCARD_ALL_READERS: windows_sys::core::PCWSTR = windows_sys::core::w!("SCard$AllReaders\u{0}00");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCARD_ATRMASK {
@@ -720,12 +617,44 @@ pub struct SCARD_ATRMASK {
     pub rgbAtr: [u8; 36],
     pub rgbMask: [u8; 36],
 }
+pub const SCARD_ATR_LENGTH: u32 = 33u32;
+pub const SCARD_AUDIT_CHV_FAILURE: u32 = 0u32;
+pub const SCARD_AUDIT_CHV_SUCCESS: u32 = 1u32;
+pub const SCARD_CLASS_COMMUNICATIONS: u32 = 2u32;
+pub const SCARD_CLASS_ICC_STATE: u32 = 9u32;
+pub const SCARD_CLASS_IFD_PROTOCOL: u32 = 8u32;
+pub const SCARD_CLASS_MECHANICAL: u32 = 6u32;
+pub const SCARD_CLASS_PERF: u32 = 32766u32;
+pub const SCARD_CLASS_POWER_MGMT: u32 = 4u32;
+pub const SCARD_CLASS_PROTOCOL: u32 = 3u32;
+pub const SCARD_CLASS_SECURITY: u32 = 5u32;
+pub const SCARD_CLASS_SYSTEM: u32 = 32767u32;
+pub const SCARD_CLASS_VENDOR_DEFINED: u32 = 7u32;
+pub const SCARD_CLASS_VENDOR_INFO: u32 = 1u32;
+pub const SCARD_COLD_RESET: u32 = 1u32;
+pub const SCARD_DEFAULT_READERS: windows_sys::core::PCWSTR = windows_sys::core::w!("SCard$DefaultReaders\u{0}00");
+pub const SCARD_EJECT_CARD: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCARD_IO_REQUEST {
     pub dwProtocol: u32,
     pub cbPciLength: u32,
 }
+pub const SCARD_LEAVE_CARD: u32 = 0u32;
+pub const SCARD_LOCAL_READERS: windows_sys::core::PCWSTR = windows_sys::core::w!("SCard$LocalReaders\u{0}00");
+pub const SCARD_NEGOTIABLE: u32 = 5u32;
+pub const SCARD_POWERED: u32 = 4u32;
+pub const SCARD_POWER_DOWN: u32 = 0u32;
+pub const SCARD_PRESENT: u32 = 2u32;
+pub const SCARD_PROTOCOL_DEFAULT: u32 = 2147483648u32;
+pub const SCARD_PROTOCOL_OPTIMAL: u32 = 0u32;
+pub const SCARD_PROTOCOL_RAW: u32 = 65536u32;
+pub const SCARD_PROTOCOL_T0: u32 = 1u32;
+pub const SCARD_PROTOCOL_T1: u32 = 2u32;
+pub const SCARD_PROTOCOL_UNDEFINED: u32 = 0u32;
+pub const SCARD_PROVIDER_CSP: u32 = 2u32;
+pub const SCARD_PROVIDER_KSP: u32 = 3u32;
+pub const SCARD_PROVIDER_PRIMARY: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCARD_READERSTATEA {
@@ -746,6 +675,48 @@ pub struct SCARD_READERSTATEW {
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
 }
+pub const SCARD_READER_CONFISCATES: u32 = 4u32;
+pub const SCARD_READER_CONTACTLESS: u32 = 8u32;
+pub const SCARD_READER_EJECTS: u32 = 2u32;
+pub const SCARD_READER_SWALLOWS: u32 = 1u32;
+pub const SCARD_READER_TYPE_EMBEDDEDSE: u32 = 2048u32;
+pub const SCARD_READER_TYPE_IDE: u32 = 16u32;
+pub const SCARD_READER_TYPE_KEYBOARD: u32 = 4u32;
+pub const SCARD_READER_TYPE_NFC: u32 = 256u32;
+pub const SCARD_READER_TYPE_NGC: u32 = 1024u32;
+pub const SCARD_READER_TYPE_PARALELL: u32 = 2u32;
+pub const SCARD_READER_TYPE_PCMCIA: u32 = 64u32;
+pub const SCARD_READER_TYPE_SCSI: u32 = 8u32;
+pub const SCARD_READER_TYPE_SERIAL: u32 = 1u32;
+pub const SCARD_READER_TYPE_TPM: u32 = 128u32;
+pub const SCARD_READER_TYPE_UICC: u32 = 512u32;
+pub const SCARD_READER_TYPE_USB: u32 = 32u32;
+pub const SCARD_READER_TYPE_VENDOR: u32 = 240u32;
+pub const SCARD_RESET_CARD: u32 = 1u32;
+pub type SCARD_SCOPE = u32;
+pub const SCARD_SCOPE_SYSTEM: SCARD_SCOPE = 2u32;
+pub const SCARD_SCOPE_TERMINAL: u32 = 1u32;
+pub const SCARD_SCOPE_USER: SCARD_SCOPE = 0u32;
+pub const SCARD_SHARE_DIRECT: u32 = 3u32;
+pub const SCARD_SHARE_EXCLUSIVE: u32 = 1u32;
+pub const SCARD_SHARE_SHARED: u32 = 2u32;
+pub const SCARD_SPECIFIC: u32 = 6u32;
+pub type SCARD_STATE = u32;
+pub const SCARD_STATE_ATRMATCH: SCARD_STATE = 64u32;
+pub const SCARD_STATE_CHANGED: SCARD_STATE = 2u32;
+pub const SCARD_STATE_EMPTY: SCARD_STATE = 16u32;
+pub const SCARD_STATE_EXCLUSIVE: SCARD_STATE = 128u32;
+pub const SCARD_STATE_IGNORE: SCARD_STATE = 1u32;
+pub const SCARD_STATE_INUSE: SCARD_STATE = 256u32;
+pub const SCARD_STATE_MUTE: SCARD_STATE = 512u32;
+pub const SCARD_STATE_PRESENT: SCARD_STATE = 32u32;
+pub const SCARD_STATE_UNAVAILABLE: SCARD_STATE = 8u32;
+pub const SCARD_STATE_UNAWARE: SCARD_STATE = 0u32;
+pub const SCARD_STATE_UNKNOWN: SCARD_STATE = 4u32;
+pub const SCARD_STATE_UNPOWERED: u32 = 1024u32;
+pub const SCARD_SWALLOWED: u32 = 3u32;
+pub const SCARD_SYSTEM_READERS: windows_sys::core::PCWSTR = windows_sys::core::w!("SCard$SystemReaders\u{0}00");
+pub const SCARD_T0_CMD_LENGTH: u32 = 5u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCARD_T0_COMMAND {
@@ -755,6 +726,7 @@ pub struct SCARD_T0_COMMAND {
     pub bP2: u8,
     pub bP3: u8,
 }
+pub const SCARD_T0_HEADER_LENGTH: u32 = 7u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCARD_T0_REQUEST {
@@ -769,11 +741,38 @@ pub union SCARD_T0_REQUEST_0 {
     pub CmdBytes: SCARD_T0_COMMAND,
     pub rgbHeader: [u8; 5],
 }
+pub const SCARD_T1_EPILOGUE_LENGTH: u32 = 2u32;
+pub const SCARD_T1_EPILOGUE_LENGTH_LRC: u32 = 1u32;
+pub const SCARD_T1_MAX_IFS: u32 = 254u32;
+pub const SCARD_T1_PROLOGUE_LENGTH: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCARD_T1_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
 }
+pub const SCARD_UNKNOWN: u32 = 0u32;
+pub const SCARD_UNPOWER_CARD: u32 = 2u32;
+pub const SCARD_WARM_RESET: u32 = 2u32;
+pub const SCERR_NOCARDNAME: u32 = 16384u32;
+pub const SCERR_NOGUIDS: u32 = 32768u32;
+pub const SC_DLG_FORCE_UI: u32 = 4u32;
+pub const SC_DLG_MINIMAL_UI: u32 = 1u32;
+pub const SC_DLG_NO_UI: u32 = 2u32;
+pub const SECPKG_ALT_ATTR: u32 = 2147483648u32;
+pub const SECPKG_ATTR_C_FULL_IDENT_TOKEN: u32 = 2147483781u32;
+pub const STATUS_ACCOUNT_DISABLED: super::super::Foundation::NTSTATUS = 0xC0000072_u32 as _;
+pub const STATUS_ACCOUNT_EXPIRED: super::super::Foundation::NTSTATUS = 0xC0000193_u32 as _;
+pub const STATUS_ACCOUNT_LOCKED_OUT: super::super::Foundation::NTSTATUS = 0xC0000234_u32 as _;
+pub const STATUS_ACCOUNT_RESTRICTION: super::super::Foundation::NTSTATUS = 0xC000006E_u32 as _;
+pub const STATUS_AUTHENTICATION_FIREWALL_FAILED: super::super::Foundation::NTSTATUS = 0xC0000413_u32 as _;
+pub const STATUS_DOWNGRADE_DETECTED: super::super::Foundation::NTSTATUS = 0xC0000388_u32 as _;
+pub const STATUS_LOGON_FAILURE: super::super::Foundation::NTSTATUS = 0xC000006D_u32 as _;
+pub const STATUS_LOGON_TYPE_NOT_GRANTED: super::super::Foundation::NTSTATUS = 0xC000015B_u32 as _;
+pub const STATUS_NO_SUCH_LOGON_SESSION: super::super::Foundation::NTSTATUS = 0xC000005F_u32 as _;
+pub const STATUS_NO_SUCH_USER: super::super::Foundation::NTSTATUS = 0xC0000064_u32 as _;
+pub const STATUS_PASSWORD_EXPIRED: super::super::Foundation::NTSTATUS = 0xC0000071_u32 as _;
+pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS = 0xC0000224_u32 as _;
+pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS = 0xC000006A_u32 as _;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SecHandle {
@@ -786,12 +785,13 @@ pub struct SecPkgContext_ClientCreds {
     pub AuthBufferLen: u32,
     pub AuthBuffer: *mut u8,
 }
+pub const TS_SSP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("TSSSP");
+pub const TS_SSP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("TSSSP");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USERNAME_TARGET_CREDENTIAL_INFO {
     pub UserName: windows_sys::core::PWSTR,
 }
-pub type LPOCNCHKPROC = Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPOCNCONNPROCA = Option<unsafe extern "system" fn(param0: usize, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: *const core::ffi::c_void) -> usize>;
-pub type LPOCNCONNPROCW = Option<unsafe extern "system" fn(param0: usize, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *const core::ffi::c_void) -> usize>;
-pub type LPOCNDSCPROC = Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const core::ffi::c_void)>;
+pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = 4i32;
+pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = 2i32;
+pub const szOID_TS_KP_TS_SERVER_AUTH: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.54.1.2");

@@ -42,7 +42,7 @@ pub struct IPerceptionTimestampHelperStatics2_Vtbl {
     pub FromSystemRelativeTargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PerceptionTimestamp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PerceptionTimestamp, windows_core::IUnknown, windows_core::IInspectable);
 impl PerceptionTimestamp {
@@ -50,21 +50,21 @@ impl PerceptionTimestamp {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn PredictionAmount(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PredictionAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PredictionAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemRelativeTargetTime(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IPerceptionTimestamp2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemRelativeTargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemRelativeTargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -72,7 +72,7 @@ impl windows_core::RuntimeType for PerceptionTimestamp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPerceptionTimestamp>();
 }
 unsafe impl windows_core::Interface for PerceptionTimestamp {
-    type Vtable = IPerceptionTimestamp_Vtbl;
+    type Vtable = <IPerceptionTimestamp as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPerceptionTimestamp as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PerceptionTimestamp {

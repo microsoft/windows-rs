@@ -6,6 +6,17 @@ windows_targets::link!("netsh.dll" "cdecl" fn PrintMessage(pwszformat : windows_
 windows_targets::link!("netsh.dll" "cdecl" fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32, ...) -> u32);
 windows_targets::link!("netsh.dll" "system" fn RegisterContext(pchildcontext : *const NS_CONTEXT_ATTRIBUTES) -> u32);
 windows_targets::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *const windows_sys::core::GUID, pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES) -> u32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CMD_ENTRY {
+    pub pwszCmdToken: windows_sys::core::PCWSTR,
+    pub pfnCmdHandler: PFN_HANDLE_CMD,
+    pub dwShortCmdHelpToken: u32,
+    pub dwCmdHlpToken: u32,
+    pub dwFlags: u32,
+    pub pOsVersionCheck: PNS_OSVERSIONCHECK,
+    pub pfnCustomHelpFn: PFN_CUSTOM_HELP,
+}
 pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = 32i32;
 pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = 2i32;
 pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = 65535i32;
@@ -13,6 +24,16 @@ pub const CMD_FLAG_LOCAL: NS_CMD_FLAGS = 8i32;
 pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = 16i32;
 pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = -2147483648i32;
 pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CMD_GROUP_ENTRY {
+    pub pwszCmdGroupToken: windows_sys::core::PCWSTR,
+    pub dwShortCmdHelpToken: u32,
+    pub ulCmdGroupSize: u32,
+    pub dwFlags: u32,
+    pub pCmdGroup: *mut CMD_ENTRY,
+    pub pOsVersionCheck: PNS_OSVERSIONCHECK,
+}
 pub const DEFAULT_CONTEXT_PRIORITY: u32 = 100u32;
 pub const ERROR_CMD_NOT_FOUND: u32 = 15004u32;
 pub const ERROR_CONTEXT_ALREADY_REGISTERED: u32 = 15019u32;
@@ -49,41 +70,7 @@ pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 pub const NETSH_SAVE: NS_MODE_CHANGE = 4i32;
 pub const NETSH_UNCOMMIT: NS_MODE_CHANGE = 1i32;
 pub const NETSH_VERSION_50: u32 = 20480u32;
-pub const NS_EVENT_FROM_N: NS_EVENTS = 4i32;
-pub const NS_EVENT_FROM_START: NS_EVENTS = 8i32;
-pub const NS_EVENT_LAST_N: NS_EVENTS = 1i32;
-pub const NS_EVENT_LAST_SECS: NS_EVENTS = 2i32;
-pub const NS_EVENT_LOOP: NS_EVENTS = 65536i32;
-pub const NS_GET_EVENT_IDS_FN_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("GetEventIds");
-pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = 2i32;
-pub const NS_REQ_ONE_OR_MORE: NS_REQS = 3i32;
-pub const NS_REQ_PRESENT: NS_REQS = 1i32;
-pub const NS_REQ_ZERO: NS_REQS = 0i32;
 pub type NS_CMD_FLAGS = i32;
-pub type NS_EVENTS = i32;
-pub type NS_MODE_CHANGE = i32;
-pub type NS_REQS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CMD_ENTRY {
-    pub pwszCmdToken: windows_sys::core::PCWSTR,
-    pub pfnCmdHandler: PFN_HANDLE_CMD,
-    pub dwShortCmdHelpToken: u32,
-    pub dwCmdHlpToken: u32,
-    pub dwFlags: u32,
-    pub pOsVersionCheck: PNS_OSVERSIONCHECK,
-    pub pfnCustomHelpFn: PFN_CUSTOM_HELP,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CMD_GROUP_ENTRY {
-    pub pwszCmdGroupToken: windows_sys::core::PCWSTR,
-    pub dwShortCmdHelpToken: u32,
-    pub ulCmdGroupSize: u32,
-    pub dwFlags: u32,
-    pub pCmdGroup: *mut CMD_ENTRY,
-    pub pOsVersionCheck: PNS_OSVERSIONCHECK,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NS_CONTEXT_ATTRIBUTES {
@@ -114,6 +101,13 @@ pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
+pub type NS_EVENTS = i32;
+pub const NS_EVENT_FROM_N: NS_EVENTS = 4i32;
+pub const NS_EVENT_FROM_START: NS_EVENTS = 8i32;
+pub const NS_EVENT_LAST_N: NS_EVENTS = 1i32;
+pub const NS_EVENT_LAST_SECS: NS_EVENTS = 2i32;
+pub const NS_EVENT_LOOP: NS_EVENTS = 65536i32;
+pub const NS_GET_EVENT_IDS_FN_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("GetEventIds");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NS_HELPER_ATTRIBUTES {
@@ -134,6 +128,23 @@ pub struct NS_HELPER_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
+pub type NS_MODE_CHANGE = i32;
+pub type NS_REQS = i32;
+pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = 2i32;
+pub const NS_REQ_ONE_OR_MORE: NS_REQS = 3i32;
+pub const NS_REQ_PRESENT: NS_REQS = 1i32;
+pub const NS_REQ_ZERO: NS_REQS = 0i32;
+pub type PFN_CUSTOM_HELP = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HANDLE, pwszcmdtoken: windows_sys::core::PCWSTR)>;
+pub type PFN_HANDLE_CMD = Option<unsafe extern "system" fn(pwszmachine: windows_sys::core::PCWSTR, ppwcarguments: *mut windows_sys::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;
+pub type PGET_RESOURCE_STRING_FN = Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: windows_sys::core::PCWSTR, nbuffermax: u32) -> u32>;
+pub type PNS_CONTEXT_COMMIT_FN = Option<unsafe extern "system" fn(dwaction: u32) -> u32>;
+pub type PNS_CONTEXT_CONNECT_FN = Option<unsafe extern "system" fn(pwszmachine: windows_sys::core::PCWSTR) -> u32>;
+pub type PNS_CONTEXT_DUMP_FN = Option<unsafe extern "system" fn(pwszrouter: windows_sys::core::PCWSTR, ppwcarguments: *const windows_sys::core::PCWSTR, dwargcount: u32, pvdata: *const core::ffi::c_void) -> u32>;
+pub type PNS_DLL_INIT_FN = Option<unsafe extern "system" fn(dwnetshversion: u32, preserved: *mut core::ffi::c_void) -> u32>;
+pub type PNS_DLL_STOP_FN = Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
+pub type PNS_HELPER_START_FN = Option<unsafe extern "system" fn(pguidparent: *const windows_sys::core::GUID, dwversion: u32) -> u32>;
+pub type PNS_HELPER_STOP_FN = Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
+pub type PNS_OSVERSIONCHECK = Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: windows_sys::core::PCWSTR, cimosbuildnumber: windows_sys::core::PCWSTR, cimservicepackmajorversion: windows_sys::core::PCWSTR, cimservicepackminorversion: windows_sys::core::PCWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TAG_TYPE {
@@ -147,14 +158,3 @@ pub struct TOKEN_VALUE {
     pub pwszToken: windows_sys::core::PCWSTR,
     pub dwValue: u32,
 }
-pub type PFN_CUSTOM_HELP = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HANDLE, pwszcmdtoken: windows_sys::core::PCWSTR)>;
-pub type PFN_HANDLE_CMD = Option<unsafe extern "system" fn(pwszmachine: windows_sys::core::PCWSTR, ppwcarguments: *mut windows_sys::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;
-pub type PGET_RESOURCE_STRING_FN = Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: windows_sys::core::PCWSTR, nbuffermax: u32) -> u32>;
-pub type PNS_CONTEXT_COMMIT_FN = Option<unsafe extern "system" fn(dwaction: u32) -> u32>;
-pub type PNS_CONTEXT_CONNECT_FN = Option<unsafe extern "system" fn(pwszmachine: windows_sys::core::PCWSTR) -> u32>;
-pub type PNS_CONTEXT_DUMP_FN = Option<unsafe extern "system" fn(pwszrouter: windows_sys::core::PCWSTR, ppwcarguments: *const windows_sys::core::PCWSTR, dwargcount: u32, pvdata: *const core::ffi::c_void) -> u32>;
-pub type PNS_DLL_INIT_FN = Option<unsafe extern "system" fn(dwnetshversion: u32, preserved: *mut core::ffi::c_void) -> u32>;
-pub type PNS_DLL_STOP_FN = Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
-pub type PNS_HELPER_START_FN = Option<unsafe extern "system" fn(pguidparent: *const windows_sys::core::GUID, dwversion: u32) -> u32>;
-pub type PNS_HELPER_STOP_FN = Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
-pub type PNS_OSVERSIONCHECK = Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: windows_sys::core::PCWSTR, cimosbuildnumber: windows_sys::core::PCWSTR, cimservicepackmajorversion: windows_sys::core::PCWSTR, cimservicepackminorversion: windows_sys::core::PCWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;

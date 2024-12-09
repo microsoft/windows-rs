@@ -45,7 +45,6 @@ jobs:
           -p cppwinrt
           -p windows-implement
           -p windows-interface
-          -p windows-metadata
           -p windows-registry
           -p windows-result
           -p windows-strings

@@ -301,6 +301,16 @@ pub const ALLOW_NO_AUTH: u32 = 1u32;
 pub const ALL_SOURCES: MGM_ENUM_TYPES = 1i32;
 pub const ANY_SOURCE: MGM_ENUM_TYPES = 0i32;
 pub const ATADDRESSLEN: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTH_VALIDATION_EX {
+    pub Header: MPRAPI_OBJECT_HEADER,
+    pub hRasConnection: super::super::Foundation::HANDLE,
+    pub wszUserName: [u16; 257],
+    pub wszLogonDomain: [u16; 16],
+    pub AuthInfoSize: u32,
+    pub AuthInfo: [u8; 1],
+}
 pub const DO_NOT_ALLOW_NO_AUTH: u32 = 0u32;
 pub const ERROR_ACCESSING_TCPCFGDLL: u32 = 727u32;
 pub const ERROR_ACCT_DISABLED: u32 = 647u32;
@@ -582,619 +592,6 @@ pub const ET_None: u32 = 0u32;
 pub const ET_Optional: u32 = 3u32;
 pub const ET_Require: u32 = 1u32;
 pub const ET_RequireMax: u32 = 2u32;
-pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_DN: IKEV2_ID_PAYLOAD_TYPE = 9i32;
-pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_GN: IKEV2_ID_PAYLOAD_TYPE = 10i32;
-pub const IKEV2_ID_PAYLOAD_TYPE_FQDN: IKEV2_ID_PAYLOAD_TYPE = 2i32;
-pub const IKEV2_ID_PAYLOAD_TYPE_ID_IPV6_ADDR: IKEV2_ID_PAYLOAD_TYPE = 5i32;
-pub const IKEV2_ID_PAYLOAD_TYPE_INVALID: IKEV2_ID_PAYLOAD_TYPE = 0i32;
-pub const IKEV2_ID_PAYLOAD_TYPE_IPV4_ADDR: IKEV2_ID_PAYLOAD_TYPE = 1i32;
-pub const IKEV2_ID_PAYLOAD_TYPE_KEY_ID: IKEV2_ID_PAYLOAD_TYPE = 11i32;
-pub const IKEV2_ID_PAYLOAD_TYPE_MAX: IKEV2_ID_PAYLOAD_TYPE = 12i32;
-pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED1: IKEV2_ID_PAYLOAD_TYPE = 4i32;
-pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED2: IKEV2_ID_PAYLOAD_TYPE = 6i32;
-pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED3: IKEV2_ID_PAYLOAD_TYPE = 7i32;
-pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED4: IKEV2_ID_PAYLOAD_TYPE = 8i32;
-pub const IKEV2_ID_PAYLOAD_TYPE_RFC822_ADDR: IKEV2_ID_PAYLOAD_TYPE = 3i32;
-pub const IPADDRESSLEN: u32 = 15u32;
-pub const IPV6_ADDRESS_LEN_IN_BYTES: u32 = 16u32;
-pub const IPXADDRESSLEN: u32 = 22u32;
-pub const MAXIPADRESSLEN: u32 = 64u32;
-pub const MAX_SSTP_HASH_SIZE: u32 = 32u32;
-pub const METHOD_BGP4_AS_PATH: u32 = 1u32;
-pub const METHOD_BGP4_NEXTHOP_ATTR: u32 = 8u32;
-pub const METHOD_BGP4_PA_ORIGIN: u32 = 4u32;
-pub const METHOD_BGP4_PEER_ID: u32 = 2u32;
-pub const METHOD_RIP2_NEIGHBOUR_ADDR: u32 = 1u32;
-pub const METHOD_RIP2_OUTBOUND_INTF: u32 = 2u32;
-pub const METHOD_RIP2_ROUTE_TAG: u32 = 4u32;
-pub const METHOD_RIP2_ROUTE_TIMESTAMP: u32 = 8u32;
-pub const METHOD_TYPE_ALL_METHODS: u32 = 4294967295u32;
-pub const MGM_FORWARD_STATE_FLAG: u32 = 2u32;
-pub const MGM_JOIN_STATE_FLAG: u32 = 1u32;
-pub const MGM_MFE_STATS_0: u32 = 1u32;
-pub const MGM_MFE_STATS_1: u32 = 2u32;
-pub const MPRAPI_ADMIN_DLL_VERSION_1: u32 = 1u32;
-pub const MPRAPI_ADMIN_DLL_VERSION_2: u32 = 2u32;
-pub const MPRAPI_IF_CUSTOM_CONFIG_FOR_IKEV2: u32 = 1u32;
-pub const MPRAPI_IKEV2_AUTH_USING_CERT: u32 = 1u32;
-pub const MPRAPI_IKEV2_AUTH_USING_EAP: u32 = 2u32;
-pub const MPRAPI_IKEV2_PROJECTION_INFO_TYPE: u32 = 2u32;
-pub const MPRAPI_IKEV2_SET_TUNNEL_CONFIG_PARAMS: u32 = 1u32;
-pub const MPRAPI_L2TP_SET_TUNNEL_CONFIG_PARAMS: u32 = 1u32;
-pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_1: u32 = 1u32;
-pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_2: u32 = 2u32;
-pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_3: u32 = 3u32;
-pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_1: u32 = 1u32;
-pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_2: u32 = 2u32;
-pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_3: u32 = 3u32;
-pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_4: u32 = 4u32;
-pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_5: u32 = 5u32;
-pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_1: u32 = 1u32;
-pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_2: u32 = 2u32;
-pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_3: u32 = 3u32;
-pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_4: u32 = 4u32;
-pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_5: u32 = 5u32;
-pub const MPRAPI_OBJECT_TYPE_AUTH_VALIDATION_OBJECT: MPRAPI_OBJECT_TYPE = 4i32;
-pub const MPRAPI_OBJECT_TYPE_IF_CUSTOM_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = 6i32;
-pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_OBJECT: MPRAPI_OBJECT_TYPE = 2i32;
-pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_SET_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = 3i32;
-pub const MPRAPI_OBJECT_TYPE_RAS_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = 1i32;
-pub const MPRAPI_OBJECT_TYPE_UPDATE_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = 5i32;
-pub const MPRAPI_PPP_PROJECTION_INFO_TYPE: u32 = 1u32;
-pub const MPRAPI_RAS_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
-pub const MPRAPI_RAS_UPDATE_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
-pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_GRE: u32 = 16u32;
-pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_IKEV2: u32 = 8u32;
-pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_L2TP: u32 = 2u32;
-pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1u32;
-pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4u32;
-pub const MPRDM_DialAll: MPR_INTERFACE_DIAL_MODE = 1u32;
-pub const MPRDM_DialAsNeeded: MPR_INTERFACE_DIAL_MODE = 2u32;
-pub const MPRDM_DialFirst: MPR_INTERFACE_DIAL_MODE = 0u32;
-pub const MPRDT_Atm: windows_sys::core::PCWSTR = windows_sys::core::w!("ATM");
-pub const MPRDT_FrameRelay: windows_sys::core::PCWSTR = windows_sys::core::w!("FRAMERELAY");
-pub const MPRDT_Generic: windows_sys::core::PCWSTR = windows_sys::core::w!("GENERIC");
-pub const MPRDT_Irda: windows_sys::core::PCWSTR = windows_sys::core::w!("IRDA");
-pub const MPRDT_Isdn: windows_sys::core::PCWSTR = windows_sys::core::w!("isdn");
-pub const MPRDT_Modem: windows_sys::core::PCWSTR = windows_sys::core::w!("modem");
-pub const MPRDT_Pad: windows_sys::core::PCWSTR = windows_sys::core::w!("pad");
-pub const MPRDT_Parallel: windows_sys::core::PCWSTR = windows_sys::core::w!("PARALLEL");
-pub const MPRDT_SW56: windows_sys::core::PCWSTR = windows_sys::core::w!("SW56");
-pub const MPRDT_Serial: windows_sys::core::PCWSTR = windows_sys::core::w!("SERIAL");
-pub const MPRDT_Sonet: windows_sys::core::PCWSTR = windows_sys::core::w!("SONET");
-pub const MPRDT_Vpn: windows_sys::core::PCWSTR = windows_sys::core::w!("vpn");
-pub const MPRDT_X25: windows_sys::core::PCWSTR = windows_sys::core::w!("x25");
-pub const MPRET_Direct: u32 = 3u32;
-pub const MPRET_Phone: u32 = 1u32;
-pub const MPRET_Vpn: u32 = 2u32;
-pub const MPRIDS_Disabled: u32 = 4294967295u32;
-pub const MPRIDS_UseGlobalValue: u32 = 0u32;
-pub const MPRIO_DisableLcpExtensions: u32 = 32u32;
-pub const MPRIO_IpHeaderCompression: u32 = 8u32;
-pub const MPRIO_IpSecPreSharedKey: u32 = 2147483648u32;
-pub const MPRIO_NetworkLogon: u32 = 8192u32;
-pub const MPRIO_PromoteAlternates: u32 = 32768u32;
-pub const MPRIO_RemoteDefaultGateway: u32 = 16u32;
-pub const MPRIO_RequireCHAP: u32 = 134217728u32;
-pub const MPRIO_RequireDataEncryption: u32 = 4096u32;
-pub const MPRIO_RequireEAP: u32 = 131072u32;
-pub const MPRIO_RequireEncryptedPw: u32 = 1024u32;
-pub const MPRIO_RequireMachineCertificates: u32 = 16777216u32;
-pub const MPRIO_RequireMsCHAP: u32 = 268435456u32;
-pub const MPRIO_RequireMsCHAP2: u32 = 536870912u32;
-pub const MPRIO_RequireMsEncryptedPw: u32 = 2048u32;
-pub const MPRIO_RequirePAP: u32 = 262144u32;
-pub const MPRIO_RequireSPAP: u32 = 524288u32;
-pub const MPRIO_SecureLocalFiles: u32 = 65536u32;
-pub const MPRIO_SharedPhoneNumbers: u32 = 8388608u32;
-pub const MPRIO_SpecificIpAddr: u32 = 2u32;
-pub const MPRIO_SpecificNameServers: u32 = 4u32;
-pub const MPRIO_SwCompression: u32 = 512u32;
-pub const MPRIO_UsePreSharedKeyForIkev2Initiator: u32 = 33554432u32;
-pub const MPRIO_UsePreSharedKeyForIkev2Responder: u32 = 67108864u32;
-pub const MPRNP_Ip: u32 = 4u32;
-pub const MPRNP_Ipv6: u32 = 8u32;
-pub const MPRNP_Ipx: u32 = 2u32;
-pub const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1u32;
-pub const MPR_ENABLE_ROUTING_ON_DEVICE: u32 = 2u32;
-pub const MPR_ET_None: MPR_ET = 0u32;
-pub const MPR_ET_Optional: MPR_ET = 3u32;
-pub const MPR_ET_Require: MPR_ET = 1u32;
-pub const MPR_ET_RequireMax: MPR_ET = 2u32;
-pub const MPR_INTERFACE_ADMIN_DISABLED: u32 = 2u32;
-pub const MPR_INTERFACE_CONNECTION_FAILURE: u32 = 4u32;
-pub const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: u32 = 16u32;
-pub const MPR_INTERFACE_NO_DEVICE: u32 = 64u32;
-pub const MPR_INTERFACE_NO_MEDIA_SENSE: u32 = 32u32;
-pub const MPR_INTERFACE_OUT_OF_RESOURCES: u32 = 1u32;
-pub const MPR_INTERFACE_SERVICE_PAUSED: u32 = 8u32;
-pub const MPR_MaxAreaCode: u32 = 10u32;
-pub const MPR_MaxCallbackNumber: u32 = 128u32;
-pub const MPR_MaxDeviceName: u32 = 128u32;
-pub const MPR_MaxDeviceType: u32 = 16u32;
-pub const MPR_MaxEntryName: u32 = 256u32;
-pub const MPR_MaxFacilities: u32 = 200u32;
-pub const MPR_MaxIpAddress: u32 = 15u32;
-pub const MPR_MaxIpxAddress: u32 = 21u32;
-pub const MPR_MaxPadType: u32 = 32u32;
-pub const MPR_MaxPhoneNumber: u32 = 128u32;
-pub const MPR_MaxUserData: u32 = 200u32;
-pub const MPR_MaxX25Address: u32 = 200u32;
-pub const MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = 7i32;
-pub const MPR_VPN_TS_IPv6_ADDR_RANGE: MPR_VPN_TS_TYPE = 8i32;
-pub const MPR_VS_Default: MPR_VS = 0u32;
-pub const MPR_VS_Ikev2First: u32 = 8u32;
-pub const MPR_VS_Ikev2Only: u32 = 7u32;
-pub const MPR_VS_L2tpFirst: MPR_VS = 4u32;
-pub const MPR_VS_L2tpOnly: MPR_VS = 3u32;
-pub const MPR_VS_PptpFirst: MPR_VS = 2u32;
-pub const MPR_VS_PptpOnly: MPR_VS = 1u32;
-pub const PENDING: u32 = 600u32;
-pub const PID_ATALK: u32 = 41u32;
-pub const PID_IP: u32 = 33u32;
-pub const PID_IPV6: u32 = 87u32;
-pub const PID_IPX: u32 = 43u32;
-pub const PID_NBF: u32 = 63u32;
-pub const PPP_CCP_COMPRESSION: u32 = 1u32;
-pub const PPP_CCP_ENCRYPTION128BIT: u32 = 64u32;
-pub const PPP_CCP_ENCRYPTION40BIT: u32 = 32u32;
-pub const PPP_CCP_ENCRYPTION40BITOLD: u32 = 16u32;
-pub const PPP_CCP_ENCRYPTION56BIT: u32 = 128u32;
-pub const PPP_CCP_HISTORYLESS: u32 = 16777216u32;
-pub const PPP_IPCP_VJ: u32 = 1u32;
-pub const PPP_LCP_3_DES: u32 = 32u32;
-pub const PPP_LCP_ACFC: u32 = 4u32;
-pub const PPP_LCP_AES_128: u32 = 64u32;
-pub const PPP_LCP_AES_192: u32 = 256u32;
-pub const PPP_LCP_AES_256: u32 = 128u32;
-pub const PPP_LCP_CHAP: PPP_LCP = 49699u32;
-pub const PPP_LCP_CHAP_MD5: PPP_LCP_INFO_AUTH_DATA = 5u32;
-pub const PPP_LCP_CHAP_MS: PPP_LCP_INFO_AUTH_DATA = 128u32;
-pub const PPP_LCP_CHAP_MSV2: PPP_LCP_INFO_AUTH_DATA = 129u32;
-pub const PPP_LCP_DES_56: u32 = 16u32;
-pub const PPP_LCP_EAP: PPP_LCP = 49703u32;
-pub const PPP_LCP_GCM_AES_128: u32 = 512u32;
-pub const PPP_LCP_GCM_AES_192: u32 = 1024u32;
-pub const PPP_LCP_GCM_AES_256: u32 = 2048u32;
-pub const PPP_LCP_MULTILINK_FRAMING: u32 = 1u32;
-pub const PPP_LCP_PAP: PPP_LCP = 49187u32;
-pub const PPP_LCP_PFC: u32 = 2u32;
-pub const PPP_LCP_SPAP: PPP_LCP = 49191u32;
-pub const PPP_LCP_SSHF: u32 = 8u32;
-pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = 2i32;
-pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = 1i32;
-pub const RASADFLG_PositionDlg: u32 = 1u32;
-pub const RASADP_ConnectionQueryTimeout: u32 = 4u32;
-pub const RASADP_DisableConnectionQuery: u32 = 0u32;
-pub const RASADP_FailedConnectionTimeout: u32 = 3u32;
-pub const RASADP_LoginSessionDisable: u32 = 1u32;
-pub const RASADP_SavedAddressesLimit: u32 = 2u32;
-pub const RASAPIVERSION_500: RASAPIVERSION = 1i32;
-pub const RASAPIVERSION_501: RASAPIVERSION = 2i32;
-pub const RASAPIVERSION_600: RASAPIVERSION = 3i32;
-pub const RASAPIVERSION_601: RASAPIVERSION = 4i32;
-pub const RASBASE: u32 = 600u32;
-pub const RASBASEEND: u32 = 877u32;
-pub const RASCCPCA_MPPC: u32 = 6u32;
-pub const RASCCPCA_STAC: u32 = 5u32;
-pub const RASCCPO_Compression: u32 = 1u32;
-pub const RASCCPO_Encryption128bit: u32 = 64u32;
-pub const RASCCPO_Encryption40bit: u32 = 32u32;
-pub const RASCCPO_Encryption56bit: u32 = 16u32;
-pub const RASCCPO_HistoryLess: u32 = 2u32;
-pub const RASCF_AllUsers: u32 = 1u32;
-pub const RASCF_GlobalCreds: u32 = 2u32;
-pub const RASCF_OwnerKnown: u32 = 4u32;
-pub const RASCF_OwnerMatch: u32 = 8u32;
-pub const RASCM_DDMPreSharedKey: u32 = 64u32;
-pub const RASCM_DefaultCreds: u32 = 8u32;
-pub const RASCM_Domain: u32 = 4u32;
-pub const RASCM_Password: u32 = 2u32;
-pub const RASCM_PreSharedKey: u32 = 16u32;
-pub const RASCM_ServerPreSharedKey: u32 = 32u32;
-pub const RASCM_UserName: u32 = 1u32;
-pub const RASCN_BandwidthAdded: u32 = 4u32;
-pub const RASCN_BandwidthRemoved: u32 = 8u32;
-pub const RASCN_Connection: u32 = 1u32;
-pub const RASCN_Disconnection: u32 = 2u32;
-pub const RASCN_Dormant: u32 = 16u32;
-pub const RASCN_EPDGPacketArrival: u32 = 64u32;
-pub const RASCN_ReConnection: u32 = 32u32;
-pub const RASCSS_DONE: u32 = 8192u32;
-pub const RASCSS_Dormant: RASCONNSUBSTATE = 1i32;
-pub const RASCSS_None: RASCONNSUBSTATE = 0i32;
-pub const RASCSS_Reconnected: RASCONNSUBSTATE = 8192i32;
-pub const RASCSS_Reconnecting: RASCONNSUBSTATE = 2i32;
-pub const RASCS_AllDevicesConnected: RASCONNSTATE = 4i32;
-pub const RASCS_ApplySettings: RASCONNSTATE = 24i32;
-pub const RASCS_AuthAck: RASCONNSTATE = 12i32;
-pub const RASCS_AuthCallback: RASCONNSTATE = 8i32;
-pub const RASCS_AuthChangePassword: RASCONNSTATE = 9i32;
-pub const RASCS_AuthLinkSpeed: RASCONNSTATE = 11i32;
-pub const RASCS_AuthNotify: RASCONNSTATE = 6i32;
-pub const RASCS_AuthProject: RASCONNSTATE = 10i32;
-pub const RASCS_AuthRetry: RASCONNSTATE = 7i32;
-pub const RASCS_Authenticate: RASCONNSTATE = 5i32;
-pub const RASCS_Authenticated: RASCONNSTATE = 14i32;
-pub const RASCS_CallbackComplete: RASCONNSTATE = 20i32;
-pub const RASCS_CallbackSetByCaller: RASCONNSTATE = 4098i32;
-pub const RASCS_ConnectDevice: RASCONNSTATE = 2i32;
-pub const RASCS_Connected: RASCONNSTATE = 8192i32;
-pub const RASCS_DONE: u32 = 8192u32;
-pub const RASCS_DeviceConnected: RASCONNSTATE = 3i32;
-pub const RASCS_Disconnected: RASCONNSTATE = 8193i32;
-pub const RASCS_Interactive: RASCONNSTATE = 4096i32;
-pub const RASCS_InvokeEapUI: RASCONNSTATE = 4100i32;
-pub const RASCS_LogonNetwork: RASCONNSTATE = 21i32;
-pub const RASCS_OpenPort: RASCONNSTATE = 0i32;
-pub const RASCS_PAUSED: u32 = 4096u32;
-pub const RASCS_PasswordExpired: RASCONNSTATE = 4099i32;
-pub const RASCS_PortOpened: RASCONNSTATE = 1i32;
-pub const RASCS_PrepareForCallback: RASCONNSTATE = 15i32;
-pub const RASCS_Projected: RASCONNSTATE = 18i32;
-pub const RASCS_ReAuthenticate: RASCONNSTATE = 13i32;
-pub const RASCS_RetryAuthentication: RASCONNSTATE = 4097i32;
-pub const RASCS_StartAuthentication: RASCONNSTATE = 19i32;
-pub const RASCS_SubEntryConnected: RASCONNSTATE = 22i32;
-pub const RASCS_SubEntryDisconnected: RASCONNSTATE = 23i32;
-pub const RASCS_WaitForCallback: RASCONNSTATE = 17i32;
-pub const RASCS_WaitForModemReset: RASCONNSTATE = 16i32;
-pub const RASDDFLAG_AoacRedial: u32 = 4u32;
-pub const RASDDFLAG_LinkFailure: u32 = 2147483648u32;
-pub const RASDDFLAG_NoPrompt: u32 = 2u32;
-pub const RASDDFLAG_PositionDlg: u32 = 1u32;
-pub const RASDIALEVENT: windows_sys::core::PCSTR = windows_sys::core::s!("RasDialEvent");
-pub const RASDT_Atm: windows_sys::core::PCWSTR = windows_sys::core::w!("ATM");
-pub const RASDT_FrameRelay: windows_sys::core::PCWSTR = windows_sys::core::w!("FRAMERELAY");
-pub const RASDT_Generic: windows_sys::core::PCWSTR = windows_sys::core::w!("GENERIC");
-pub const RASDT_Irda: windows_sys::core::PCWSTR = windows_sys::core::w!("IRDA");
-pub const RASDT_Isdn: windows_sys::core::PCWSTR = windows_sys::core::w!("isdn");
-pub const RASDT_Modem: windows_sys::core::PCWSTR = windows_sys::core::w!("modem");
-pub const RASDT_PPPoE: windows_sys::core::PCWSTR = windows_sys::core::w!("PPPoE");
-pub const RASDT_Pad: windows_sys::core::PCWSTR = windows_sys::core::w!("pad");
-pub const RASDT_Parallel: windows_sys::core::PCWSTR = windows_sys::core::w!("PARALLEL");
-pub const RASDT_SW56: windows_sys::core::PCWSTR = windows_sys::core::w!("SW56");
-pub const RASDT_Serial: windows_sys::core::PCWSTR = windows_sys::core::w!("SERIAL");
-pub const RASDT_Sonet: windows_sys::core::PCWSTR = windows_sys::core::w!("SONET");
-pub const RASDT_Vpn: windows_sys::core::PCWSTR = windows_sys::core::w!("vpn");
-pub const RASDT_X25: windows_sys::core::PCWSTR = windows_sys::core::w!("x25");
-pub const RASEAPF_Logon: u32 = 4u32;
-pub const RASEAPF_NonInteractive: u32 = 2u32;
-pub const RASEAPF_Preview: u32 = 8u32;
-pub const RASEDFLAG_CloneEntry: u32 = 4u32;
-pub const RASEDFLAG_IncomingConnection: u32 = 1024u32;
-pub const RASEDFLAG_InternetEntry: u32 = 256u32;
-pub const RASEDFLAG_NAT: u32 = 512u32;
-pub const RASEDFLAG_NewBroadbandEntry: u32 = 128u32;
-pub const RASEDFLAG_NewDirectEntry: u32 = 64u32;
-pub const RASEDFLAG_NewEntry: u32 = 2u32;
-pub const RASEDFLAG_NewPhoneEntry: u32 = 16u32;
-pub const RASEDFLAG_NewTunnelEntry: u32 = 32u32;
-pub const RASEDFLAG_NoRename: u32 = 8u32;
-pub const RASEDFLAG_PositionDlg: u32 = 1u32;
-pub const RASEDFLAG_ShellOwned: u32 = 1073741824u32;
-pub const RASEDM_DialAll: RASENTRY_DIAL_MODE = 1u32;
-pub const RASEDM_DialAsNeeded: RASENTRY_DIAL_MODE = 2u32;
-pub const RASEO2_AuthTypeIsOtp: u32 = 268435456u32;
-pub const RASEO2_AutoTriggerCapable: u32 = 67108864u32;
-pub const RASEO2_CacheCredentials: u32 = 33554432u32;
-pub const RASEO2_DisableClassBasedStaticRoute: u32 = 524288u32;
-pub const RASEO2_DisableIKENameEkuCheck: u32 = 262144u32;
-pub const RASEO2_DisableMobility: u32 = 2097152u32;
-pub const RASEO2_DisableNbtOverIP: u32 = 64u32;
-pub const RASEO2_DontNegotiateMultilink: u32 = 4u32;
-pub const RASEO2_DontUseRasCredentials: u32 = 8u32;
-pub const RASEO2_IPv4ExplicitMetric: u32 = 65536u32;
-pub const RASEO2_IPv6ExplicitMetric: u32 = 131072u32;
-pub const RASEO2_IPv6RemoteDefaultGateway: u32 = 8192u32;
-pub const RASEO2_IPv6SpecificNameServers: u32 = 4096u32;
-pub const RASEO2_Internet: u32 = 32u32;
-pub const RASEO2_IsAlwaysOn: u32 = 536870912u32;
-pub const RASEO2_IsPrivateNetwork: u32 = 1073741824u32;
-pub const RASEO2_IsThirdPartyProfile: u32 = 134217728u32;
-pub const RASEO2_PlumbIKEv2TSAsRoutes: u32 = 2147483648u32;
-pub const RASEO2_ReconnectIfDropped: u32 = 256u32;
-pub const RASEO2_RegisterIpWithDNS: u32 = 16384u32;
-pub const RASEO2_RequireMachineCertificates: u32 = 4194304u32;
-pub const RASEO2_SecureClientForMSNet: u32 = 2u32;
-pub const RASEO2_SecureFileAndPrint: u32 = 1u32;
-pub const RASEO2_SecureRoutingCompartment: u32 = 1024u32;
-pub const RASEO2_SharePhoneNumbers: u32 = 512u32;
-pub const RASEO2_SpecificIPv6Addr: u32 = 1048576u32;
-pub const RASEO2_UseDNSSuffixForRegistration: u32 = 32768u32;
-pub const RASEO2_UseGlobalDeviceSettings: u32 = 128u32;
-pub const RASEO2_UsePreSharedKey: u32 = 16u32;
-pub const RASEO2_UsePreSharedKeyForIkev2Initiator: u32 = 8388608u32;
-pub const RASEO2_UsePreSharedKeyForIkev2Responder: u32 = 16777216u32;
-pub const RASEO2_UseTypicalSettings: u32 = 2048u32;
-pub const RASEO_Custom: u32 = 1048576u32;
-pub const RASEO_CustomScript: u32 = 2147483648u32;
-pub const RASEO_DisableLcpExtensions: u32 = 32u32;
-pub const RASEO_IpHeaderCompression: u32 = 8u32;
-pub const RASEO_ModemLights: u32 = 256u32;
-pub const RASEO_NetworkLogon: u32 = 8192u32;
-pub const RASEO_PreviewDomain: u32 = 33554432u32;
-pub const RASEO_PreviewPhoneNumber: u32 = 2097152u32;
-pub const RASEO_PreviewUserPw: u32 = 16777216u32;
-pub const RASEO_PromoteAlternates: u32 = 32768u32;
-pub const RASEO_RemoteDefaultGateway: u32 = 16u32;
-pub const RASEO_RequireCHAP: u32 = 134217728u32;
-pub const RASEO_RequireDataEncryption: u32 = 4096u32;
-pub const RASEO_RequireEAP: u32 = 131072u32;
-pub const RASEO_RequireEncryptedPw: u32 = 1024u32;
-pub const RASEO_RequireMsCHAP: u32 = 268435456u32;
-pub const RASEO_RequireMsCHAP2: u32 = 536870912u32;
-pub const RASEO_RequireMsEncryptedPw: u32 = 2048u32;
-pub const RASEO_RequirePAP: u32 = 262144u32;
-pub const RASEO_RequireSPAP: u32 = 524288u32;
-pub const RASEO_RequireW95MSCHAP: u32 = 1073741824u32;
-pub const RASEO_SecureLocalFiles: u32 = 65536u32;
-pub const RASEO_SharedPhoneNumbers: u32 = 8388608u32;
-pub const RASEO_ShowDialingProgress: u32 = 67108864u32;
-pub const RASEO_SpecificIpAddr: u32 = 2u32;
-pub const RASEO_SpecificNameServers: u32 = 4u32;
-pub const RASEO_SwCompression: u32 = 512u32;
-pub const RASEO_TerminalAfterDial: u32 = 128u32;
-pub const RASEO_TerminalBeforeDial: u32 = 64u32;
-pub const RASEO_UseCountryAndAreaCodes: u32 = 1u32;
-pub const RASEO_UseLogonCredentials: u32 = 16384u32;
-pub const RASET_Broadband: u32 = 5u32;
-pub const RASET_Direct: u32 = 3u32;
-pub const RASET_Internet: u32 = 4u32;
-pub const RASET_Phone: u32 = 1u32;
-pub const RASET_Vpn: u32 = 2u32;
-pub const RASFP_Ppp: u32 = 1u32;
-pub const RASFP_Ras: u32 = 4u32;
-pub const RASFP_Slip: u32 = 2u32;
-pub const RASIDS_Disabled: u32 = 4294967295u32;
-pub const RASIDS_UseGlobalValue: u32 = 0u32;
-pub const RASIKEv2_AUTH_EAP: u32 = 2u32;
-pub const RASIKEv2_AUTH_MACHINECERTIFICATES: u32 = 1u32;
-pub const RASIKEv2_AUTH_PSK: u32 = 3u32;
-pub const RASIKEv2_FLAGS_BEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = 2u32;
-pub const RASIKEv2_FLAGS_MOBIKESUPPORTED: RASIKEV_PROJECTION_INFO_FLAGS = 1u32;
-pub const RASIKEv2_FLAGS_SERVERBEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = 4u32;
-pub const RASIPO_VJ: u32 = 1u32;
-pub const RASLCPAD_CHAP_MD5: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 5u32;
-pub const RASLCPAD_CHAP_MS: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 128u32;
-pub const RASLCPAD_CHAP_MSV2: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 129u32;
-pub const RASLCPAP_CHAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49699u32;
-pub const RASLCPAP_EAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49703u32;
-pub const RASLCPAP_PAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49187u32;
-pub const RASLCPAP_SPAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49191u32;
-pub const RASLCPO_3_DES: u32 = 16u32;
-pub const RASLCPO_ACFC: u32 = 2u32;
-pub const RASLCPO_AES_128: u32 = 32u32;
-pub const RASLCPO_AES_192: u32 = 128u32;
-pub const RASLCPO_AES_256: u32 = 64u32;
-pub const RASLCPO_DES_56: u32 = 8u32;
-pub const RASLCPO_GCM_AES_128: u32 = 256u32;
-pub const RASLCPO_GCM_AES_192: u32 = 512u32;
-pub const RASLCPO_GCM_AES_256: u32 = 1024u32;
-pub const RASLCPO_PFC: u32 = 1u32;
-pub const RASLCPO_SSHF: u32 = 4u32;
-pub const RASNAP_ProbationTime: u32 = 1u32;
-pub const RASNOUSER_SmartCard: u32 = 1u32;
-pub const RASNP_Ip: u32 = 4u32;
-pub const RASNP_Ipv6: u32 = 8u32;
-pub const RASNP_Ipx: u32 = 2u32;
-pub const RASNP_NetBEUI: u32 = 1u32;
-pub const RASPBDEVENT_AddEntry: u32 = 1u32;
-pub const RASPBDEVENT_DialEntry: u32 = 4u32;
-pub const RASPBDEVENT_EditEntry: u32 = 2u32;
-pub const RASPBDEVENT_EditGlobals: u32 = 5u32;
-pub const RASPBDEVENT_NoUser: u32 = 6u32;
-pub const RASPBDEVENT_NoUserEdit: u32 = 7u32;
-pub const RASPBDEVENT_RemoveEntry: u32 = 3u32;
-pub const RASPBDFLAG_ForceCloseOnDial: u32 = 2u32;
-pub const RASPBDFLAG_NoUser: u32 = 16u32;
-pub const RASPBDFLAG_PositionDlg: u32 = 1u32;
-pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648u32;
-pub const RASPRIV2_DialinPolicy: u32 = 1u32;
-pub const RASPRIV_AdminSetCallback: u32 = 2u32;
-pub const RASPRIV_CallerSetCallback: u32 = 4u32;
-pub const RASPRIV_DialinPrivilege: u32 = 8u32;
-pub const RASPRIV_NoCallback: u32 = 1u32;
-pub const RASP_Amb: RASPROJECTION = 65536i32;
-pub const RASP_PppCcp: RASPROJECTION = 33021i32;
-pub const RASP_PppIp: RASPROJECTION = 32801i32;
-pub const RASP_PppIpv6: RASPROJECTION = 32855i32;
-pub const RASP_PppIpx: RASPROJECTION = 32811i32;
-pub const RASP_PppLcp: RASPROJECTION = 49185i32;
-pub const RASP_PppNbf: RASPROJECTION = 32831i32;
-pub const RASTUNNELENDPOINT_IPv4: u32 = 1u32;
-pub const RASTUNNELENDPOINT_IPv6: u32 = 2u32;
-pub const RASTUNNELENDPOINT_UNKNOWN: u32 = 0u32;
-pub const RAS_FLAGS_ARAP_CONNECTION: RAS_FLAGS = 16u32;
-pub const RAS_FLAGS_DORMANT: RAS_FLAGS = 32u32;
-pub const RAS_FLAGS_IKEV2_CONNECTION: RAS_FLAGS = 16u32;
-pub const RAS_FLAGS_MESSENGER_PRESENT: RAS_FLAGS = 2u32;
-pub const RAS_FLAGS_PPP_CONNECTION: RAS_FLAGS = 1u32;
-pub const RAS_FLAGS_QUARANTINE_PRESENT: RAS_FLAGS = 8u32;
-pub const RAS_FLAGS_RAS_CONNECTION: u32 = 4u32;
-pub const RAS_HARDWARE_FAILURE: RAS_HARDWARE_CONDITION = 1i32;
-pub const RAS_HARDWARE_OPERATIONAL: RAS_HARDWARE_CONDITION = 0i32;
-pub const RAS_MaxAreaCode: u32 = 10u32;
-pub const RAS_MaxCallbackNumber: u32 = 128u32;
-pub const RAS_MaxDeviceName: u32 = 128u32;
-pub const RAS_MaxDeviceType: u32 = 16u32;
-pub const RAS_MaxDnsSuffix: u32 = 256u32;
-pub const RAS_MaxEntryName: u32 = 256u32;
-pub const RAS_MaxFacilities: u32 = 200u32;
-pub const RAS_MaxIDSize: u32 = 256u32;
-pub const RAS_MaxIpAddress: u32 = 15u32;
-pub const RAS_MaxIpxAddress: u32 = 21u32;
-pub const RAS_MaxPadType: u32 = 32u32;
-pub const RAS_MaxPhoneNumber: u32 = 128u32;
-pub const RAS_MaxReplyMessage: u32 = 1024u32;
-pub const RAS_MaxUserData: u32 = 200u32;
-pub const RAS_MaxX25Address: u32 = 200u32;
-pub const RAS_PORT_AUTHENTICATED: RAS_PORT_CONDITION = 5i32;
-pub const RAS_PORT_AUTHENTICATING: RAS_PORT_CONDITION = 4i32;
-pub const RAS_PORT_CALLING_BACK: RAS_PORT_CONDITION = 2i32;
-pub const RAS_PORT_DISCONNECTED: RAS_PORT_CONDITION = 1i32;
-pub const RAS_PORT_INITIALIZING: RAS_PORT_CONDITION = 6i32;
-pub const RAS_PORT_LISTENING: RAS_PORT_CONDITION = 3i32;
-pub const RAS_PORT_NON_OPERATIONAL: RAS_PORT_CONDITION = 0i32;
-pub const RAS_QUAR_STATE_NORMAL: RAS_QUARANTINE_STATE = 0i32;
-pub const RAS_QUAR_STATE_NOT_CAPABLE: RAS_QUARANTINE_STATE = 3i32;
-pub const RAS_QUAR_STATE_PROBATION: RAS_QUARANTINE_STATE = 2i32;
-pub const RAS_QUAR_STATE_QUARANTINE: RAS_QUARANTINE_STATE = 1i32;
-pub const RCD_AllUsers: u32 = 1u32;
-pub const RCD_Eap: u32 = 2u32;
-pub const RCD_Logon: u32 = 4u32;
-pub const RCD_SingleUser: u32 = 0u32;
-pub const RDEOPT_CustomDial: u32 = 4096u32;
-pub const RDEOPT_DisableConnectedUI: u32 = 64u32;
-pub const RDEOPT_DisableReconnect: u32 = 256u32;
-pub const RDEOPT_DisableReconnectUI: u32 = 128u32;
-pub const RDEOPT_EapInfoCryptInCapable: u32 = 32768u32;
-pub const RDEOPT_IgnoreModemSpeaker: u32 = 4u32;
-pub const RDEOPT_IgnoreSoftwareCompression: u32 = 16u32;
-pub const RDEOPT_InvokeAutoTriggerCredentialUI: u32 = 16384u32;
-pub const RDEOPT_NoUser: u32 = 512u32;
-pub const RDEOPT_PauseOnScript: u32 = 1024u32;
-pub const RDEOPT_PausedStates: u32 = 2u32;
-pub const RDEOPT_Router: u32 = 2048u32;
-pub const RDEOPT_SetModemSpeaker: u32 = 8u32;
-pub const RDEOPT_SetSoftwareCompression: u32 = 32u32;
-pub const RDEOPT_UseCustomScripting: u32 = 8192u32;
-pub const RDEOPT_UsePrefixSuffix: u32 = 1u32;
-pub const REN_AllUsers: u32 = 1u32;
-pub const REN_User: u32 = 0u32;
-pub const ROUTER_IF_STATE_CONNECTED: ROUTER_CONNECTION_STATE = 3i32;
-pub const ROUTER_IF_STATE_CONNECTING: ROUTER_CONNECTION_STATE = 2i32;
-pub const ROUTER_IF_STATE_DISCONNECTED: ROUTER_CONNECTION_STATE = 1i32;
-pub const ROUTER_IF_STATE_UNREACHABLE: ROUTER_CONNECTION_STATE = 0i32;
-pub const ROUTER_IF_TYPE_CLIENT: ROUTER_INTERFACE_TYPE = 0i32;
-pub const ROUTER_IF_TYPE_DEDICATED: ROUTER_INTERFACE_TYPE = 3i32;
-pub const ROUTER_IF_TYPE_DIALOUT: ROUTER_INTERFACE_TYPE = 7i32;
-pub const ROUTER_IF_TYPE_FULL_ROUTER: ROUTER_INTERFACE_TYPE = 2i32;
-pub const ROUTER_IF_TYPE_HOME_ROUTER: ROUTER_INTERFACE_TYPE = 1i32;
-pub const ROUTER_IF_TYPE_INTERNAL: ROUTER_INTERFACE_TYPE = 4i32;
-pub const ROUTER_IF_TYPE_LOOPBACK: ROUTER_INTERFACE_TYPE = 5i32;
-pub const ROUTER_IF_TYPE_MAX: ROUTER_INTERFACE_TYPE = 8i32;
-pub const ROUTER_IF_TYPE_TUNNEL1: ROUTER_INTERFACE_TYPE = 6i32;
-pub const RRAS_SERVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("RemoteAccess");
-pub const RTM_BLOCK_METHODS: u32 = 1u32;
-pub const RTM_CHANGE_NOTIFICATION: RTM_EVENT_TYPE = 3i32;
-pub const RTM_CHANGE_TYPE_ALL: u32 = 1u32;
-pub const RTM_CHANGE_TYPE_BEST: u32 = 2u32;
-pub const RTM_CHANGE_TYPE_FORWARDING: u32 = 4u32;
-pub const RTM_DEST_FLAG_DONT_FORWARD: u32 = 4u32;
-pub const RTM_DEST_FLAG_FWD_ENGIN_ADD: u32 = 2u32;
-pub const RTM_DEST_FLAG_NATURAL_NET: u32 = 1u32;
-pub const RTM_ENTITY_DEREGISTERED: RTM_EVENT_TYPE = 1i32;
-pub const RTM_ENTITY_REGISTERED: RTM_EVENT_TYPE = 0i32;
-pub const RTM_ENUM_ALL_DESTS: u32 = 0u32;
-pub const RTM_ENUM_ALL_ROUTES: u32 = 0u32;
-pub const RTM_ENUM_NEXT: u32 = 1u32;
-pub const RTM_ENUM_OWN_DESTS: u32 = 16777216u32;
-pub const RTM_ENUM_OWN_ROUTES: u32 = 65536u32;
-pub const RTM_ENUM_RANGE: u32 = 2u32;
-pub const RTM_ENUM_START: u32 = 0u32;
-pub const RTM_MATCH_FULL: u32 = 65535u32;
-pub const RTM_MATCH_INTERFACE: u32 = 16u32;
-pub const RTM_MATCH_NEIGHBOUR: u32 = 2u32;
-pub const RTM_MATCH_NEXTHOP: u32 = 8u32;
-pub const RTM_MATCH_NONE: u32 = 0u32;
-pub const RTM_MATCH_OWNER: u32 = 1u32;
-pub const RTM_MATCH_PREF: u32 = 4u32;
-pub const RTM_MAX_ADDRESS_SIZE: u32 = 16u32;
-pub const RTM_MAX_VIEWS: u32 = 32u32;
-pub const RTM_NEXTHOP_CHANGE_NEW: u32 = 1u32;
-pub const RTM_NEXTHOP_FLAGS_DOWN: u32 = 2u32;
-pub const RTM_NEXTHOP_FLAGS_REMOTE: u32 = 1u32;
-pub const RTM_NEXTHOP_STATE_CREATED: u32 = 0u32;
-pub const RTM_NEXTHOP_STATE_DELETED: u32 = 1u32;
-pub const RTM_NOTIFY_ONLY_MARKED_DESTS: u32 = 65536u32;
-pub const RTM_NUM_CHANGE_TYPES: u32 = 3u32;
-pub const RTM_RESUME_METHODS: u32 = 0u32;
-pub const RTM_ROUTE_CHANGE_BEST: u32 = 65536u32;
-pub const RTM_ROUTE_CHANGE_FIRST: u32 = 1u32;
-pub const RTM_ROUTE_CHANGE_NEW: u32 = 2u32;
-pub const RTM_ROUTE_EXPIRED: RTM_EVENT_TYPE = 2i32;
-pub const RTM_ROUTE_FLAGS_BLACKHOLE: u32 = 2u32;
-pub const RTM_ROUTE_FLAGS_DISCARD: u32 = 4u32;
-pub const RTM_ROUTE_FLAGS_INACTIVE: u32 = 8u32;
-pub const RTM_ROUTE_FLAGS_LIMITED_BC: u32 = 1024u32;
-pub const RTM_ROUTE_FLAGS_LOCAL: u32 = 16u32;
-pub const RTM_ROUTE_FLAGS_LOCAL_MCAST: u32 = 512u32;
-pub const RTM_ROUTE_FLAGS_LOOPBACK: u32 = 128u32;
-pub const RTM_ROUTE_FLAGS_MARTIAN: u32 = 1u32;
-pub const RTM_ROUTE_FLAGS_MCAST: u32 = 256u32;
-pub const RTM_ROUTE_FLAGS_MYSELF: u32 = 64u32;
-pub const RTM_ROUTE_FLAGS_ONES_NETBC: u32 = 16384u32;
-pub const RTM_ROUTE_FLAGS_ONES_SUBNETBC: u32 = 32768u32;
-pub const RTM_ROUTE_FLAGS_REMOTE: u32 = 32u32;
-pub const RTM_ROUTE_FLAGS_ZEROS_NETBC: u32 = 4096u32;
-pub const RTM_ROUTE_FLAGS_ZEROS_SUBNETBC: u32 = 8192u32;
-pub const RTM_ROUTE_STATE_CREATED: u32 = 0u32;
-pub const RTM_ROUTE_STATE_DELETED: u32 = 2u32;
-pub const RTM_ROUTE_STATE_DELETING: u32 = 1u32;
-pub const RTM_VIEW_ID_MCAST: u32 = 1u32;
-pub const RTM_VIEW_ID_UCAST: u32 = 0u32;
-pub const RTM_VIEW_MASK_ALL: u32 = 4294967295u32;
-pub const RTM_VIEW_MASK_ANY: u32 = 0u32;
-pub const RTM_VIEW_MASK_MCAST: u32 = 2u32;
-pub const RTM_VIEW_MASK_NONE: u32 = 0u32;
-pub const RTM_VIEW_MASK_SIZE: u32 = 32u32;
-pub const RTM_VIEW_MASK_UCAST: u32 = 1u32;
-pub const SECURITYMSG_ERROR: SECURITY_MESSAGE_MSG_ID = 3u32;
-pub const SECURITYMSG_FAILURE: SECURITY_MESSAGE_MSG_ID = 2u32;
-pub const SECURITYMSG_SUCCESS: SECURITY_MESSAGE_MSG_ID = 1u32;
-pub const VS_Default: u32 = 0u32;
-pub const VS_GREOnly: u32 = 9u32;
-pub const VS_Ikev2First: u32 = 8u32;
-pub const VS_Ikev2Only: u32 = 7u32;
-pub const VS_Ikev2Sstp: u32 = 14u32;
-pub const VS_L2tpFirst: u32 = 4u32;
-pub const VS_L2tpOnly: u32 = 3u32;
-pub const VS_L2tpSstp: u32 = 13u32;
-pub const VS_PptpFirst: u32 = 2u32;
-pub const VS_PptpOnly: u32 = 1u32;
-pub const VS_PptpSstp: u32 = 12u32;
-pub const VS_ProtocolList: u32 = 15u32;
-pub const VS_SstpFirst: u32 = 6u32;
-pub const VS_SstpOnly: u32 = 5u32;
-pub const WARNING_MSG_ALIAS_NOT_ADDED: u32 = 644u32;
-pub const WM_RASDIALEVENT: u32 = 52429u32;
-pub type IKEV2_ID_PAYLOAD_TYPE = i32;
-pub type MGM_ENUM_TYPES = i32;
-pub type MPRAPI_OBJECT_TYPE = i32;
-pub type MPR_ET = u32;
-pub type MPR_INTERFACE_DIAL_MODE = u32;
-pub type MPR_VPN_TS_TYPE = i32;
-pub type MPR_VS = u32;
-pub type PPP_LCP = u32;
-pub type PPP_LCP_INFO_AUTH_DATA = u32;
-pub type RASAPIVERSION = i32;
-pub type RASCONNSTATE = i32;
-pub type RASCONNSUBSTATE = i32;
-pub type RASENTRY_DIAL_MODE = u32;
-pub type RASIKEV_PROJECTION_INFO_FLAGS = u32;
-pub type RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = u32;
-pub type RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = u32;
-pub type RASPROJECTION = i32;
-pub type RASPROJECTION_INFO_TYPE = i32;
-pub type RAS_FLAGS = u32;
-pub type RAS_HARDWARE_CONDITION = i32;
-pub type RAS_PORT_CONDITION = i32;
-pub type RAS_QUARANTINE_STATE = i32;
-pub type ROUTER_CONNECTION_STATE = i32;
-pub type ROUTER_INTERFACE_TYPE = i32;
-pub type RTM_EVENT_TYPE = i32;
-pub type SECURITY_MESSAGE_MSG_ID = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTH_VALIDATION_EX {
-    pub Header: MPRAPI_OBJECT_HEADER,
-    pub hRasConnection: super::super::Foundation::HANDLE,
-    pub wszUserName: [u16; 257],
-    pub wszLogonDomain: [u16; 16],
-    pub AuthInfoSize: u32,
-    pub AuthInfo: [u8; 1],
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GRE_CONFIG_PARAMS0 {
@@ -1211,6 +608,20 @@ pub struct IKEV2_CONFIG_PARAMS {
     pub dwTunnelConfigParamFlags: u32,
     pub TunnelConfigParams: IKEV2_TUNNEL_CONFIG_PARAMS4,
 }
+pub type IKEV2_ID_PAYLOAD_TYPE = i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_DN: IKEV2_ID_PAYLOAD_TYPE = 9i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_GN: IKEV2_ID_PAYLOAD_TYPE = 10i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_FQDN: IKEV2_ID_PAYLOAD_TYPE = 2i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_ID_IPV6_ADDR: IKEV2_ID_PAYLOAD_TYPE = 5i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_INVALID: IKEV2_ID_PAYLOAD_TYPE = 0i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_IPV4_ADDR: IKEV2_ID_PAYLOAD_TYPE = 1i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_KEY_ID: IKEV2_ID_PAYLOAD_TYPE = 11i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_MAX: IKEV2_ID_PAYLOAD_TYPE = 12i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED1: IKEV2_ID_PAYLOAD_TYPE = 4i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED2: IKEV2_ID_PAYLOAD_TYPE = 6i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED3: IKEV2_ID_PAYLOAD_TYPE = 7i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED4: IKEV2_ID_PAYLOAD_TYPE = 8i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RFC822_ADDR: IKEV2_ID_PAYLOAD_TYPE = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEV2_PROJECTION_INFO {
@@ -1302,6 +713,9 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub machineCertificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub dwMmSaLifeTime: u32,
 }
+pub const IPADDRESSLEN: u32 = 15u32;
+pub const IPV6_ADDRESS_LEN_IN_BYTES: u32 = 16u32;
+pub const IPXADDRESSLEN: u32 = 22u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct L2TP_CONFIG_PARAMS0 {
@@ -1335,6 +749,19 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub dwMmSaLifeTime: u32,
 }
+pub const MAXIPADRESSLEN: u32 = 64u32;
+pub const MAX_SSTP_HASH_SIZE: u32 = 32u32;
+pub const METHOD_BGP4_AS_PATH: u32 = 1u32;
+pub const METHOD_BGP4_NEXTHOP_ATTR: u32 = 8u32;
+pub const METHOD_BGP4_PA_ORIGIN: u32 = 4u32;
+pub const METHOD_BGP4_PEER_ID: u32 = 2u32;
+pub const METHOD_RIP2_NEIGHBOUR_ADDR: u32 = 1u32;
+pub const METHOD_RIP2_OUTBOUND_INTF: u32 = 2u32;
+pub const METHOD_RIP2_ROUTE_TAG: u32 = 4u32;
+pub const METHOD_RIP2_ROUTE_TIMESTAMP: u32 = 8u32;
+pub const METHOD_TYPE_ALL_METHODS: u32 = 4294967295u32;
+pub type MGM_ENUM_TYPES = i32;
+pub const MGM_FORWARD_STATE_FLAG: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MGM_IF_ENTRY {
@@ -1343,6 +770,9 @@ pub struct MGM_IF_ENTRY {
     pub bIGMP: super::super::Foundation::BOOL,
     pub bIsEnabled: super::super::Foundation::BOOL,
 }
+pub const MGM_JOIN_STATE_FLAG: u32 = 1u32;
+pub const MGM_MFE_STATS_0: u32 = 1u32;
+pub const MGM_MFE_STATS_1: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -1361,6 +791,27 @@ pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub lpfnRasAdminConnectionHangupNotificationEx: PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX,
     pub lpfnRASValidatePreAuthenticatedConnectionEx: PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX,
 }
+pub const MPRAPI_ADMIN_DLL_VERSION_1: u32 = 1u32;
+pub const MPRAPI_ADMIN_DLL_VERSION_2: u32 = 2u32;
+pub const MPRAPI_IF_CUSTOM_CONFIG_FOR_IKEV2: u32 = 1u32;
+pub const MPRAPI_IKEV2_AUTH_USING_CERT: u32 = 1u32;
+pub const MPRAPI_IKEV2_AUTH_USING_EAP: u32 = 2u32;
+pub const MPRAPI_IKEV2_PROJECTION_INFO_TYPE: u32 = 2u32;
+pub const MPRAPI_IKEV2_SET_TUNNEL_CONFIG_PARAMS: u32 = 1u32;
+pub const MPRAPI_L2TP_SET_TUNNEL_CONFIG_PARAMS: u32 = 1u32;
+pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_1: u32 = 1u32;
+pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_2: u32 = 2u32;
+pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_3: u32 = 3u32;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_1: u32 = 1u32;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_2: u32 = 2u32;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_3: u32 = 3u32;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_4: u32 = 4u32;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_5: u32 = 5u32;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_1: u32 = 1u32;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_2: u32 = 2u32;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_3: u32 = 3u32;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_4: u32 = 4u32;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_5: u32 = 5u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MPRAPI_OBJECT_HEADER {
@@ -1368,6 +819,21 @@ pub struct MPRAPI_OBJECT_HEADER {
     pub r#type: u8,
     pub size: u16,
 }
+pub type MPRAPI_OBJECT_TYPE = i32;
+pub const MPRAPI_OBJECT_TYPE_AUTH_VALIDATION_OBJECT: MPRAPI_OBJECT_TYPE = 4i32;
+pub const MPRAPI_OBJECT_TYPE_IF_CUSTOM_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = 6i32;
+pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_OBJECT: MPRAPI_OBJECT_TYPE = 2i32;
+pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_SET_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = 3i32;
+pub const MPRAPI_OBJECT_TYPE_RAS_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = 1i32;
+pub const MPRAPI_OBJECT_TYPE_UPDATE_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = 5i32;
+pub const MPRAPI_PPP_PROJECTION_INFO_TYPE: u32 = 1u32;
+pub const MPRAPI_RAS_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
+pub const MPRAPI_RAS_UPDATE_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_GRE: u32 = 16u32;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_IKEV2: u32 = 8u32;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_L2TP: u32 = 2u32;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1u32;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -1387,6 +853,53 @@ pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub SstpConfigParams: SSTP_CONFIG_PARAMS,
     pub GREConfigParams: GRE_CONFIG_PARAMS0,
 }
+pub const MPRDM_DialAll: MPR_INTERFACE_DIAL_MODE = 1u32;
+pub const MPRDM_DialAsNeeded: MPR_INTERFACE_DIAL_MODE = 2u32;
+pub const MPRDM_DialFirst: MPR_INTERFACE_DIAL_MODE = 0u32;
+pub const MPRDT_Atm: windows_sys::core::PCWSTR = windows_sys::core::w!("ATM");
+pub const MPRDT_FrameRelay: windows_sys::core::PCWSTR = windows_sys::core::w!("FRAMERELAY");
+pub const MPRDT_Generic: windows_sys::core::PCWSTR = windows_sys::core::w!("GENERIC");
+pub const MPRDT_Irda: windows_sys::core::PCWSTR = windows_sys::core::w!("IRDA");
+pub const MPRDT_Isdn: windows_sys::core::PCWSTR = windows_sys::core::w!("isdn");
+pub const MPRDT_Modem: windows_sys::core::PCWSTR = windows_sys::core::w!("modem");
+pub const MPRDT_Pad: windows_sys::core::PCWSTR = windows_sys::core::w!("pad");
+pub const MPRDT_Parallel: windows_sys::core::PCWSTR = windows_sys::core::w!("PARALLEL");
+pub const MPRDT_SW56: windows_sys::core::PCWSTR = windows_sys::core::w!("SW56");
+pub const MPRDT_Serial: windows_sys::core::PCWSTR = windows_sys::core::w!("SERIAL");
+pub const MPRDT_Sonet: windows_sys::core::PCWSTR = windows_sys::core::w!("SONET");
+pub const MPRDT_Vpn: windows_sys::core::PCWSTR = windows_sys::core::w!("vpn");
+pub const MPRDT_X25: windows_sys::core::PCWSTR = windows_sys::core::w!("x25");
+pub const MPRET_Direct: u32 = 3u32;
+pub const MPRET_Phone: u32 = 1u32;
+pub const MPRET_Vpn: u32 = 2u32;
+pub const MPRIDS_Disabled: u32 = 4294967295u32;
+pub const MPRIDS_UseGlobalValue: u32 = 0u32;
+pub const MPRIO_DisableLcpExtensions: u32 = 32u32;
+pub const MPRIO_IpHeaderCompression: u32 = 8u32;
+pub const MPRIO_IpSecPreSharedKey: u32 = 2147483648u32;
+pub const MPRIO_NetworkLogon: u32 = 8192u32;
+pub const MPRIO_PromoteAlternates: u32 = 32768u32;
+pub const MPRIO_RemoteDefaultGateway: u32 = 16u32;
+pub const MPRIO_RequireCHAP: u32 = 134217728u32;
+pub const MPRIO_RequireDataEncryption: u32 = 4096u32;
+pub const MPRIO_RequireEAP: u32 = 131072u32;
+pub const MPRIO_RequireEncryptedPw: u32 = 1024u32;
+pub const MPRIO_RequireMachineCertificates: u32 = 16777216u32;
+pub const MPRIO_RequireMsCHAP: u32 = 268435456u32;
+pub const MPRIO_RequireMsCHAP2: u32 = 536870912u32;
+pub const MPRIO_RequireMsEncryptedPw: u32 = 2048u32;
+pub const MPRIO_RequirePAP: u32 = 262144u32;
+pub const MPRIO_RequireSPAP: u32 = 524288u32;
+pub const MPRIO_SecureLocalFiles: u32 = 65536u32;
+pub const MPRIO_SharedPhoneNumbers: u32 = 8388608u32;
+pub const MPRIO_SpecificIpAddr: u32 = 2u32;
+pub const MPRIO_SpecificNameServers: u32 = 4u32;
+pub const MPRIO_SwCompression: u32 = 512u32;
+pub const MPRIO_UsePreSharedKeyForIkev2Initiator: u32 = 33554432u32;
+pub const MPRIO_UsePreSharedKeyForIkev2Responder: u32 = 67108864u32;
+pub const MPRNP_Ip: u32 = 4u32;
+pub const MPRNP_Ipv6: u32 = 8u32;
+pub const MPRNP_Ipx: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MPR_CERT_EKU {
@@ -1420,6 +933,13 @@ pub struct MPR_DEVICE_1 {
     pub szLocalPhoneNumber: [u16; 129],
     pub szAlternates: windows_sys::core::PWSTR,
 }
+pub const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1u32;
+pub const MPR_ENABLE_ROUTING_ON_DEVICE: u32 = 2u32;
+pub type MPR_ET = u32;
+pub const MPR_ET_None: MPR_ET = 0u32;
+pub const MPR_ET_Optional: MPR_ET = 3u32;
+pub const MPR_ET_Require: MPR_ET = 1u32;
+pub const MPR_ET_RequireMax: MPR_ET = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MPR_FILTER_0 {
@@ -1566,12 +1086,32 @@ pub struct MPR_INTERFACE_3 {
     pub ipv6addrDnsAlt: super::super::Networking::WinSock::IN6_ADDR,
     pub ipv6addr: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
+pub const MPR_INTERFACE_ADMIN_DISABLED: u32 = 2u32;
+pub const MPR_INTERFACE_CONNECTION_FAILURE: u32 = 4u32;
+pub const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: u32 = 16u32;
+pub type MPR_INTERFACE_DIAL_MODE = u32;
+pub const MPR_INTERFACE_NO_DEVICE: u32 = 64u32;
+pub const MPR_INTERFACE_NO_MEDIA_SENSE: u32 = 32u32;
+pub const MPR_INTERFACE_OUT_OF_RESOURCES: u32 = 1u32;
+pub const MPR_INTERFACE_SERVICE_PAUSED: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MPR_IPINIP_INTERFACE_0 {
     pub wszFriendlyName: [u16; 257],
     pub Guid: windows_sys::core::GUID,
 }
+pub const MPR_MaxAreaCode: u32 = 10u32;
+pub const MPR_MaxCallbackNumber: u32 = 128u32;
+pub const MPR_MaxDeviceName: u32 = 128u32;
+pub const MPR_MaxDeviceType: u32 = 16u32;
+pub const MPR_MaxEntryName: u32 = 256u32;
+pub const MPR_MaxFacilities: u32 = 200u32;
+pub const MPR_MaxIpAddress: u32 = 15u32;
+pub const MPR_MaxIpxAddress: u32 = 21u32;
+pub const MPR_MaxPadType: u32 = 32u32;
+pub const MPR_MaxPhoneNumber: u32 = 128u32;
+pub const MPR_MaxUserData: u32 = 200u32;
+pub const MPR_MaxX25Address: u32 = 200u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MPR_SERVER_0 {
@@ -1666,12 +1206,72 @@ pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub tsI: *mut MPR_VPN_TRAFFIC_SELECTOR,
     pub tsR: *mut MPR_VPN_TRAFFIC_SELECTOR,
 }
+pub const MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = 7i32;
+pub const MPR_VPN_TS_IPv6_ADDR_RANGE: MPR_VPN_TS_TYPE = 8i32;
+pub type MPR_VPN_TS_TYPE = i32;
+pub type MPR_VS = u32;
+pub const MPR_VS_Default: MPR_VS = 0u32;
+pub const MPR_VS_Ikev2First: u32 = 8u32;
+pub const MPR_VS_Ikev2Only: u32 = 7u32;
+pub const MPR_VS_L2tpFirst: MPR_VS = 4u32;
+pub const MPR_VS_L2tpOnly: MPR_VS = 3u32;
+pub const MPR_VS_PptpFirst: MPR_VS = 2u32;
+pub const MPR_VS_PptpOnly: MPR_VS = 1u32;
+pub type ORASADFUNC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCSTR, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub const PENDING: u32 = 600u32;
+pub type PFNRASFREEBUFFER = Option<unsafe extern "system" fn(pbufer: *mut u8) -> u32>;
+pub type PFNRASGETBUFFER = Option<unsafe extern "system" fn(ppbuffer: *mut *mut u8, pdwsize: *mut u32) -> u32>;
+pub type PFNRASRECEIVEBUFFER = Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32, dwtimeout: u32, hevent: super::super::Foundation::HANDLE) -> u32>;
+pub type PFNRASRETRIEVEBUFFER = Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32) -> u32>;
+pub type PFNRASSENDBUFFER = Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, dwsize: u32) -> u32>;
+pub type PFNRASSETCOMMSETTINGS = Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, prascommsettings: *mut RASCOMMSETTINGS, pvreserved: *mut core::ffi::c_void) -> u32>;
+pub const PID_ATALK: u32 = 41u32;
+pub const PID_IP: u32 = 33u32;
+pub const PID_IPV6: u32 = 87u32;
+pub const PID_IPX: u32 = 43u32;
+pub const PID_NBF: u32 = 63u32;
+pub type PMGM_CREATION_ALERT_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwinifindex: u32, dwinifnexthopaddr: u32, dwifcount: u32, pmieoutiflist: *mut MGM_IF_ENTRY) -> u32>;
+pub type PMGM_DISABLE_IGMP_CALLBACK = Option<unsafe extern "system" fn(dwifindex: u32, dwifnexthopaddr: u32) -> u32>;
+pub type PMGM_ENABLE_IGMP_CALLBACK = Option<unsafe extern "system" fn(dwifindex: u32, dwifnexthopaddr: u32) -> u32>;
+pub type PMGM_JOIN_ALERT_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, bmemberupdate: super::super::Foundation::BOOL) -> u32>;
+pub type PMGM_LOCAL_JOIN_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32) -> u32>;
+pub type PMGM_LOCAL_LEAVE_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32) -> u32>;
+pub type PMGM_PRUNE_ALERT_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32, bmemberdelete: super::super::Foundation::BOOL, pdwtimeout: *mut u32) -> u32>;
+pub type PMGM_RPF_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, pdwinifindex: *mut u32, pdwinifnexthopaddr: *mut u32, pdwupstreamnbr: *mut u32, dwhdrsize: u32, pbpackethdr: *mut u8, pbroute: *mut u8) -> u32>;
+pub type PMGM_WRONG_IF_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwgroupaddr: u32, dwifindex: u32, dwifnexthopaddr: u32, dwhdrsize: u32, pbpackethdr: *mut u8) -> u32>;
+pub type PMPRADMINACCEPTNEWCONNECTION = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1) -> super::super::Foundation::BOOL>;
+pub type PMPRADMINACCEPTNEWCONNECTION2 = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2) -> super::super::Foundation::BOOL>;
+pub type PMPRADMINACCEPTNEWCONNECTION3 = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3) -> super::super::Foundation::BOOL>;
+pub type PMPRADMINACCEPTNEWCONNECTIONEX = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL>;
+pub type PMPRADMINACCEPTNEWLINK = Option<unsafe extern "system" fn(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1) -> super::super::Foundation::BOOL>;
+pub type PMPRADMINACCEPTREAUTHENTICATION = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3) -> super::super::Foundation::BOOL>;
+pub type PMPRADMINACCEPTREAUTHENTICATIONEX = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL>;
+pub type PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL>;
+pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1)>;
+pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION2 = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2)>;
+pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION3 = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3)>;
+pub type PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX)>;
+pub type PMPRADMINGETIPADDRESSFORUSER = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut u32, param3: *mut super::super::Foundation::BOOL) -> u32>;
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub type PMPRADMINGETIPV6ADDRESSFORUSER = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR, param3: *mut super::super::Foundation::BOOL) -> u32>;
+pub type PMPRADMINLINKHANGUPNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1)>;
+pub type PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX = Option<unsafe extern "system" fn(param0: *mut AUTH_VALIDATION_EX) -> u32>;
+pub type PMPRADMINRELEASEIPADRESS = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut u32)>;
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub type PMPRADMINRELEASEIPV6ADDRESSFORUSER = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR)>;
+pub type PMPRADMINTERMINATEDLL = Option<unsafe extern "system" fn() -> u32>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPP_ATCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 33],
 }
+pub const PPP_CCP_COMPRESSION: u32 = 1u32;
+pub const PPP_CCP_ENCRYPTION128BIT: u32 = 64u32;
+pub const PPP_CCP_ENCRYPTION40BIT: u32 = 32u32;
+pub const PPP_CCP_ENCRYPTION40BITOLD: u32 = 16u32;
+pub const PPP_CCP_ENCRYPTION56BIT: u32 = 128u32;
+pub const PPP_CCP_HISTORYLESS: u32 = 16777216u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPP_CCP_INFO {
@@ -1724,6 +1324,7 @@ pub struct PPP_IPCP_INFO2 {
     pub dwOptions: u32,
     pub dwRemoteOptions: u32,
 }
+pub const PPP_IPCP_VJ: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPP_IPV6_CP_INFO {
@@ -1743,6 +1344,21 @@ pub struct PPP_IPXCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 23],
 }
+pub type PPP_LCP = u32;
+pub const PPP_LCP_3_DES: u32 = 32u32;
+pub const PPP_LCP_ACFC: u32 = 4u32;
+pub const PPP_LCP_AES_128: u32 = 64u32;
+pub const PPP_LCP_AES_192: u32 = 256u32;
+pub const PPP_LCP_AES_256: u32 = 128u32;
+pub const PPP_LCP_CHAP: PPP_LCP = 49699u32;
+pub const PPP_LCP_CHAP_MD5: PPP_LCP_INFO_AUTH_DATA = 5u32;
+pub const PPP_LCP_CHAP_MS: PPP_LCP_INFO_AUTH_DATA = 128u32;
+pub const PPP_LCP_CHAP_MSV2: PPP_LCP_INFO_AUTH_DATA = 129u32;
+pub const PPP_LCP_DES_56: u32 = 16u32;
+pub const PPP_LCP_EAP: PPP_LCP = 49703u32;
+pub const PPP_LCP_GCM_AES_128: u32 = 512u32;
+pub const PPP_LCP_GCM_AES_192: u32 = 1024u32;
+pub const PPP_LCP_GCM_AES_256: u32 = 2048u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPP_LCP_INFO {
@@ -1758,6 +1374,12 @@ pub struct PPP_LCP_INFO {
     pub dwEapTypeId: u32,
     pub dwRemoteEapTypeId: u32,
 }
+pub type PPP_LCP_INFO_AUTH_DATA = u32;
+pub const PPP_LCP_MULTILINK_FRAMING: u32 = 1u32;
+pub const PPP_LCP_PAP: PPP_LCP = 49187u32;
+pub const PPP_LCP_PFC: u32 = 2u32;
+pub const PPP_LCP_SPAP: PPP_LCP = 49191u32;
+pub const PPP_LCP_SSHF: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPP_NBFCP_INFO {
@@ -1859,6 +1481,11 @@ pub union PROJECTION_INFO2_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO2,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO2,
 }
+pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = 2i32;
+pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = 1i32;
+pub const RASADFLG_PositionDlg: u32 = 1u32;
+pub type RASADFUNCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub type RASADFUNCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL>;
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct RASADPARAMS {
@@ -1868,6 +1495,11 @@ pub struct RASADPARAMS {
     pub xDlg: i32,
     pub yDlg: i32,
 }
+pub const RASADP_ConnectionQueryTimeout: u32 = 4u32;
+pub const RASADP_DisableConnectionQuery: u32 = 0u32;
+pub const RASADP_FailedConnectionTimeout: u32 = 3u32;
+pub const RASADP_LoginSessionDisable: u32 = 1u32;
+pub const RASADP_SavedAddressesLimit: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASAMBA {
@@ -1884,6 +1516,11 @@ pub struct RASAMBW {
     pub szNetBiosError: [u16; 17],
     pub bLana: u8,
 }
+pub type RASAPIVERSION = i32;
+pub const RASAPIVERSION_500: RASAPIVERSION = 1i32;
+pub const RASAPIVERSION_501: RASAPIVERSION = 2i32;
+pub const RASAPIVERSION_600: RASAPIVERSION = 3i32;
+pub const RASAPIVERSION_601: RASAPIVERSION = 4i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASAUTODIALENTRYA {
@@ -1900,6 +1537,33 @@ pub struct RASAUTODIALENTRYW {
     pub dwDialingLocation: u32,
     pub szEntry: [u16; 257],
 }
+pub const RASBASE: u32 = 600u32;
+pub const RASBASEEND: u32 = 877u32;
+pub const RASCCPCA_MPPC: u32 = 6u32;
+pub const RASCCPCA_STAC: u32 = 5u32;
+pub const RASCCPO_Compression: u32 = 1u32;
+pub const RASCCPO_Encryption128bit: u32 = 64u32;
+pub const RASCCPO_Encryption40bit: u32 = 32u32;
+pub const RASCCPO_Encryption56bit: u32 = 16u32;
+pub const RASCCPO_HistoryLess: u32 = 2u32;
+pub const RASCF_AllUsers: u32 = 1u32;
+pub const RASCF_GlobalCreds: u32 = 2u32;
+pub const RASCF_OwnerKnown: u32 = 4u32;
+pub const RASCF_OwnerMatch: u32 = 8u32;
+pub const RASCM_DDMPreSharedKey: u32 = 64u32;
+pub const RASCM_DefaultCreds: u32 = 8u32;
+pub const RASCM_Domain: u32 = 4u32;
+pub const RASCM_Password: u32 = 2u32;
+pub const RASCM_PreSharedKey: u32 = 16u32;
+pub const RASCM_ServerPreSharedKey: u32 = 32u32;
+pub const RASCM_UserName: u32 = 1u32;
+pub const RASCN_BandwidthAdded: u32 = 4u32;
+pub const RASCN_BandwidthRemoved: u32 = 8u32;
+pub const RASCN_Connection: u32 = 1u32;
+pub const RASCN_Disconnection: u32 = 2u32;
+pub const RASCN_Dormant: u32 = 16u32;
+pub const RASCN_EPDGPacketArrival: u32 = 64u32;
+pub const RASCN_ReConnection: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASCOMMSETTINGS {
@@ -1908,22 +1572,6 @@ pub struct RASCOMMSETTINGS {
     pub bStop: u8,
     pub bByteSize: u8,
     pub bAlign: u8,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct RASCONNA {
-    pub dwSize: u32,
-    pub hrasconn: HRASCONN,
-    pub szEntryName: [i8; 257],
-    pub szDeviceType: [i8; 17],
-    pub szDeviceName: [i8; 129],
-    pub szPhonebook: [i8; 260],
-    pub dwSubEntry: u32,
-    pub guidEntry: windows_sys::core::GUID,
-    pub dwFlags: u32,
-    pub luid: super::super::Foundation::LUID,
-    pub guidCorrelationId: windows_sys::core::GUID,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1941,6 +1589,23 @@ pub struct RASCONNA {
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: windows_sys::core::GUID,
 }
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RASCONNA {
+    pub dwSize: u32,
+    pub hrasconn: HRASCONN,
+    pub szEntryName: [i8; 257],
+    pub szDeviceType: [i8; 17],
+    pub szDeviceName: [i8; 129],
+    pub szPhonebook: [i8; 260],
+    pub dwSubEntry: u32,
+    pub guidEntry: windows_sys::core::GUID,
+    pub dwFlags: u32,
+    pub luid: super::super::Foundation::LUID,
+    pub guidCorrelationId: windows_sys::core::GUID,
+}
+pub type RASCONNSTATE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -1969,8 +1634,9 @@ pub struct RASCONNSTATUSW {
     pub remoteEndPoint: RASTUNNELENDPOINT,
     pub rasconnsubstate: RASCONNSUBSTATE,
 }
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type RASCONNSUBSTATE = i32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RASCONNW {
     pub dwSize: u32,
@@ -1985,8 +1651,8 @@ pub struct RASCONNW {
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: windows_sys::core::GUID,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASCONNW {
     pub dwSize: u32,
@@ -2019,6 +1685,45 @@ pub struct RASCREDENTIALSW {
     pub szPassword: [u16; 257],
     pub szDomain: [u16; 16],
 }
+pub const RASCSS_DONE: u32 = 8192u32;
+pub const RASCSS_Dormant: RASCONNSUBSTATE = 1i32;
+pub const RASCSS_None: RASCONNSUBSTATE = 0i32;
+pub const RASCSS_Reconnected: RASCONNSUBSTATE = 8192i32;
+pub const RASCSS_Reconnecting: RASCONNSUBSTATE = 2i32;
+pub const RASCS_AllDevicesConnected: RASCONNSTATE = 4i32;
+pub const RASCS_ApplySettings: RASCONNSTATE = 24i32;
+pub const RASCS_AuthAck: RASCONNSTATE = 12i32;
+pub const RASCS_AuthCallback: RASCONNSTATE = 8i32;
+pub const RASCS_AuthChangePassword: RASCONNSTATE = 9i32;
+pub const RASCS_AuthLinkSpeed: RASCONNSTATE = 11i32;
+pub const RASCS_AuthNotify: RASCONNSTATE = 6i32;
+pub const RASCS_AuthProject: RASCONNSTATE = 10i32;
+pub const RASCS_AuthRetry: RASCONNSTATE = 7i32;
+pub const RASCS_Authenticate: RASCONNSTATE = 5i32;
+pub const RASCS_Authenticated: RASCONNSTATE = 14i32;
+pub const RASCS_CallbackComplete: RASCONNSTATE = 20i32;
+pub const RASCS_CallbackSetByCaller: RASCONNSTATE = 4098i32;
+pub const RASCS_ConnectDevice: RASCONNSTATE = 2i32;
+pub const RASCS_Connected: RASCONNSTATE = 8192i32;
+pub const RASCS_DONE: u32 = 8192u32;
+pub const RASCS_DeviceConnected: RASCONNSTATE = 3i32;
+pub const RASCS_Disconnected: RASCONNSTATE = 8193i32;
+pub const RASCS_Interactive: RASCONNSTATE = 4096i32;
+pub const RASCS_InvokeEapUI: RASCONNSTATE = 4100i32;
+pub const RASCS_LogonNetwork: RASCONNSTATE = 21i32;
+pub const RASCS_OpenPort: RASCONNSTATE = 0i32;
+pub const RASCS_PAUSED: u32 = 4096u32;
+pub const RASCS_PasswordExpired: RASCONNSTATE = 4099i32;
+pub const RASCS_PortOpened: RASCONNSTATE = 1i32;
+pub const RASCS_PrepareForCallback: RASCONNSTATE = 15i32;
+pub const RASCS_Projected: RASCONNSTATE = 18i32;
+pub const RASCS_ReAuthenticate: RASCONNSTATE = 13i32;
+pub const RASCS_RetryAuthentication: RASCONNSTATE = 4097i32;
+pub const RASCS_StartAuthentication: RASCONNSTATE = 19i32;
+pub const RASCS_SubEntryConnected: RASCONNSTATE = 22i32;
+pub const RASCS_SubEntryDisconnected: RASCONNSTATE = 23i32;
+pub const RASCS_WaitForCallback: RASCONNSTATE = 17i32;
+pub const RASCS_WaitForModemReset: RASCONNSTATE = 16i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASCTRYINFO {
@@ -2034,6 +1739,10 @@ pub struct RASCUSTOMSCRIPTEXTENSIONS {
     pub dwSize: u32,
     pub pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
 }
+pub const RASDDFLAG_AoacRedial: u32 = 4u32;
+pub const RASDDFLAG_LinkFailure: u32 = 2147483648u32;
+pub const RASDDFLAG_NoPrompt: u32 = 2u32;
+pub const RASDDFLAG_PositionDlg: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASDEVINFOA {
@@ -2048,15 +1757,15 @@ pub struct RASDEVINFOW {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
 }
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
@@ -2075,6 +1784,7 @@ pub struct RASDIALDLG {
     pub reserved: usize,
     pub reserved2: usize,
 }
+pub const RASDIALEVENT: windows_sys::core::PCSTR = windows_sys::core::s!("RasDialEvent");
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct RASDIALEXTENSIONS {
@@ -2087,22 +1797,9 @@ pub struct RASDIALEXTENSIONS {
     pub fSkipPppAuth: super::super::Foundation::BOOL,
     pub RasDevSpecificInfo: RASDEVSPECIFICINFO,
 }
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct RASDIALPARAMSA {
-    pub dwSize: u32,
-    pub szEntryName: [i8; 257],
-    pub szPhoneNumber: [i8; 129],
-    pub szCallbackNumber: [i8; 129],
-    pub szUserName: [i8; 257],
-    pub szPassword: [i8; 257],
-    pub szDomain: [i8; 16],
-    pub dwSubEntry: u32,
-    pub dwCallbackId: usize,
-    pub dwIfIndex: u32,
-    pub szEncPassword: windows_sys::core::PSTR,
-}
+pub type RASDIALFUNC = Option<unsafe extern "system" fn(param0: u32, param1: RASCONNSTATE, param2: u32)>;
+pub type RASDIALFUNC1 = Option<unsafe extern "system" fn(param0: HRASCONN, param1: u32, param2: RASCONNSTATE, param3: u32, param4: u32)>;
+pub type RASDIALFUNC2 = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: HRASCONN, param3: u32, param4: RASCONNSTATE, param5: u32, param6: u32) -> u32>;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -2122,18 +1819,18 @@ pub struct RASDIALPARAMSA {
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
-pub struct RASDIALPARAMSW {
+pub struct RASDIALPARAMSA {
     pub dwSize: u32,
-    pub szEntryName: [u16; 257],
-    pub szPhoneNumber: [u16; 129],
-    pub szCallbackNumber: [u16; 129],
-    pub szUserName: [u16; 257],
-    pub szPassword: [u16; 257],
-    pub szDomain: [u16; 16],
+    pub szEntryName: [i8; 257],
+    pub szPhoneNumber: [i8; 129],
+    pub szCallbackNumber: [i8; 129],
+    pub szUserName: [i8; 257],
+    pub szPassword: [i8; 257],
+    pub szDomain: [i8; 16],
     pub dwSubEntry: u32,
     pub dwCallbackId: usize,
     pub dwIfIndex: u32,
-    pub szEncPassword: windows_sys::core::PWSTR,
+    pub szEncPassword: windows_sys::core::PSTR,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -2151,6 +1848,39 @@ pub struct RASDIALPARAMSW {
     pub dwIfIndex: u32,
     pub szEncPassword: windows_sys::core::PWSTR,
 }
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RASDIALPARAMSW {
+    pub dwSize: u32,
+    pub szEntryName: [u16; 257],
+    pub szPhoneNumber: [u16; 129],
+    pub szCallbackNumber: [u16; 129],
+    pub szUserName: [u16; 257],
+    pub szPassword: [u16; 257],
+    pub szDomain: [u16; 16],
+    pub dwSubEntry: u32,
+    pub dwCallbackId: usize,
+    pub dwIfIndex: u32,
+    pub szEncPassword: windows_sys::core::PWSTR,
+}
+pub const RASDT_Atm: windows_sys::core::PCWSTR = windows_sys::core::w!("ATM");
+pub const RASDT_FrameRelay: windows_sys::core::PCWSTR = windows_sys::core::w!("FRAMERELAY");
+pub const RASDT_Generic: windows_sys::core::PCWSTR = windows_sys::core::w!("GENERIC");
+pub const RASDT_Irda: windows_sys::core::PCWSTR = windows_sys::core::w!("IRDA");
+pub const RASDT_Isdn: windows_sys::core::PCWSTR = windows_sys::core::w!("isdn");
+pub const RASDT_Modem: windows_sys::core::PCWSTR = windows_sys::core::w!("modem");
+pub const RASDT_PPPoE: windows_sys::core::PCWSTR = windows_sys::core::w!("PPPoE");
+pub const RASDT_Pad: windows_sys::core::PCWSTR = windows_sys::core::w!("pad");
+pub const RASDT_Parallel: windows_sys::core::PCWSTR = windows_sys::core::w!("PARALLEL");
+pub const RASDT_SW56: windows_sys::core::PCWSTR = windows_sys::core::w!("SW56");
+pub const RASDT_Serial: windows_sys::core::PCWSTR = windows_sys::core::w!("SERIAL");
+pub const RASDT_Sonet: windows_sys::core::PCWSTR = windows_sys::core::w!("SONET");
+pub const RASDT_Vpn: windows_sys::core::PCWSTR = windows_sys::core::w!("vpn");
+pub const RASDT_X25: windows_sys::core::PCWSTR = windows_sys::core::w!("x25");
+pub const RASEAPF_Logon: u32 = 4u32;
+pub const RASEAPF_NonInteractive: u32 = 2u32;
+pub const RASEAPF_Preview: u32 = 8u32;
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct RASEAPINFO {
@@ -2171,6 +1901,20 @@ pub struct RASEAPUSERIDENTITYW {
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: [u8; 1],
 }
+pub const RASEDFLAG_CloneEntry: u32 = 4u32;
+pub const RASEDFLAG_IncomingConnection: u32 = 1024u32;
+pub const RASEDFLAG_InternetEntry: u32 = 256u32;
+pub const RASEDFLAG_NAT: u32 = 512u32;
+pub const RASEDFLAG_NewBroadbandEntry: u32 = 128u32;
+pub const RASEDFLAG_NewDirectEntry: u32 = 64u32;
+pub const RASEDFLAG_NewEntry: u32 = 2u32;
+pub const RASEDFLAG_NewPhoneEntry: u32 = 16u32;
+pub const RASEDFLAG_NewTunnelEntry: u32 = 32u32;
+pub const RASEDFLAG_NoRename: u32 = 8u32;
+pub const RASEDFLAG_PositionDlg: u32 = 1u32;
+pub const RASEDFLAG_ShellOwned: u32 = 1073741824u32;
+pub const RASEDM_DialAll: RASENTRY_DIAL_MODE = 1u32;
+pub const RASEDM_DialAsNeeded: RASENTRY_DIAL_MODE = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -2237,20 +1981,6 @@ pub struct RASENTRYA {
     pub IdrType: IKEV2_ID_PAYLOAD_TYPE,
     pub fDisableIKEv2Fragmentation: super::super::Foundation::BOOL,
 }
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct RASENTRYDLGA {
-    pub dwSize: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub szEntry: [i8; 257],
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -2267,6 +1997,20 @@ pub struct RASENTRYDLGA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RASENTRYDLGA {
+    pub dwSize: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub dwFlags: u32,
+    pub xDlg: i32,
+    pub yDlg: i32,
+    pub szEntry: [i8; 257],
+    pub dwError: u32,
+    pub reserved: usize,
+    pub reserved2: usize,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RASENTRYDLGW {
     pub dwSize: u32,
@@ -2279,8 +2023,8 @@ pub struct RASENTRYDLGW {
     pub reserved: usize,
     pub reserved2: usize,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASENTRYDLGW {
     pub dwSize: u32,
@@ -2375,27 +2119,80 @@ pub struct RASENTRYW {
     pub IdrType: IKEV2_ID_PAYLOAD_TYPE,
     pub fDisableIKEv2Fragmentation: super::super::Foundation::BOOL,
 }
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RASIKEV2_PROJECTION_INFO {
-    pub dwIPv4NegotiationError: u32,
-    pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
-    pub ipv4ServerAddress: super::super::Networking::WinSock::IN_ADDR,
-    pub dwIPv6NegotiationError: u32,
-    pub ipv6Address: super::super::Networking::WinSock::IN6_ADDR,
-    pub ipv6ServerAddress: super::super::Networking::WinSock::IN6_ADDR,
-    pub dwPrefixLength: u32,
-    pub dwAuthenticationProtocol: u32,
-    pub dwEapTypeId: u32,
-    pub dwFlags: RASIKEV_PROJECTION_INFO_FLAGS,
-    pub dwEncryptionMethod: u32,
-    pub numIPv4ServerAddresses: u32,
-    pub ipv4ServerAddresses: *mut super::super::Networking::WinSock::IN_ADDR,
-    pub numIPv6ServerAddresses: u32,
-    pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
-}
+pub type RASENTRY_DIAL_MODE = u32;
+pub const RASEO2_AuthTypeIsOtp: u32 = 268435456u32;
+pub const RASEO2_AutoTriggerCapable: u32 = 67108864u32;
+pub const RASEO2_CacheCredentials: u32 = 33554432u32;
+pub const RASEO2_DisableClassBasedStaticRoute: u32 = 524288u32;
+pub const RASEO2_DisableIKENameEkuCheck: u32 = 262144u32;
+pub const RASEO2_DisableMobility: u32 = 2097152u32;
+pub const RASEO2_DisableNbtOverIP: u32 = 64u32;
+pub const RASEO2_DontNegotiateMultilink: u32 = 4u32;
+pub const RASEO2_DontUseRasCredentials: u32 = 8u32;
+pub const RASEO2_IPv4ExplicitMetric: u32 = 65536u32;
+pub const RASEO2_IPv6ExplicitMetric: u32 = 131072u32;
+pub const RASEO2_IPv6RemoteDefaultGateway: u32 = 8192u32;
+pub const RASEO2_IPv6SpecificNameServers: u32 = 4096u32;
+pub const RASEO2_Internet: u32 = 32u32;
+pub const RASEO2_IsAlwaysOn: u32 = 536870912u32;
+pub const RASEO2_IsPrivateNetwork: u32 = 1073741824u32;
+pub const RASEO2_IsThirdPartyProfile: u32 = 134217728u32;
+pub const RASEO2_PlumbIKEv2TSAsRoutes: u32 = 2147483648u32;
+pub const RASEO2_ReconnectIfDropped: u32 = 256u32;
+pub const RASEO2_RegisterIpWithDNS: u32 = 16384u32;
+pub const RASEO2_RequireMachineCertificates: u32 = 4194304u32;
+pub const RASEO2_SecureClientForMSNet: u32 = 2u32;
+pub const RASEO2_SecureFileAndPrint: u32 = 1u32;
+pub const RASEO2_SecureRoutingCompartment: u32 = 1024u32;
+pub const RASEO2_SharePhoneNumbers: u32 = 512u32;
+pub const RASEO2_SpecificIPv6Addr: u32 = 1048576u32;
+pub const RASEO2_UseDNSSuffixForRegistration: u32 = 32768u32;
+pub const RASEO2_UseGlobalDeviceSettings: u32 = 128u32;
+pub const RASEO2_UsePreSharedKey: u32 = 16u32;
+pub const RASEO2_UsePreSharedKeyForIkev2Initiator: u32 = 8388608u32;
+pub const RASEO2_UsePreSharedKeyForIkev2Responder: u32 = 16777216u32;
+pub const RASEO2_UseTypicalSettings: u32 = 2048u32;
+pub const RASEO_Custom: u32 = 1048576u32;
+pub const RASEO_CustomScript: u32 = 2147483648u32;
+pub const RASEO_DisableLcpExtensions: u32 = 32u32;
+pub const RASEO_IpHeaderCompression: u32 = 8u32;
+pub const RASEO_ModemLights: u32 = 256u32;
+pub const RASEO_NetworkLogon: u32 = 8192u32;
+pub const RASEO_PreviewDomain: u32 = 33554432u32;
+pub const RASEO_PreviewPhoneNumber: u32 = 2097152u32;
+pub const RASEO_PreviewUserPw: u32 = 16777216u32;
+pub const RASEO_PromoteAlternates: u32 = 32768u32;
+pub const RASEO_RemoteDefaultGateway: u32 = 16u32;
+pub const RASEO_RequireCHAP: u32 = 134217728u32;
+pub const RASEO_RequireDataEncryption: u32 = 4096u32;
+pub const RASEO_RequireEAP: u32 = 131072u32;
+pub const RASEO_RequireEncryptedPw: u32 = 1024u32;
+pub const RASEO_RequireMsCHAP: u32 = 268435456u32;
+pub const RASEO_RequireMsCHAP2: u32 = 536870912u32;
+pub const RASEO_RequireMsEncryptedPw: u32 = 2048u32;
+pub const RASEO_RequirePAP: u32 = 262144u32;
+pub const RASEO_RequireSPAP: u32 = 524288u32;
+pub const RASEO_RequireW95MSCHAP: u32 = 1073741824u32;
+pub const RASEO_SecureLocalFiles: u32 = 65536u32;
+pub const RASEO_SharedPhoneNumbers: u32 = 8388608u32;
+pub const RASEO_ShowDialingProgress: u32 = 67108864u32;
+pub const RASEO_SpecificIpAddr: u32 = 2u32;
+pub const RASEO_SpecificNameServers: u32 = 4u32;
+pub const RASEO_SwCompression: u32 = 512u32;
+pub const RASEO_TerminalAfterDial: u32 = 128u32;
+pub const RASEO_TerminalBeforeDial: u32 = 64u32;
+pub const RASEO_UseCountryAndAreaCodes: u32 = 1u32;
+pub const RASEO_UseLogonCredentials: u32 = 16384u32;
+pub const RASET_Broadband: u32 = 5u32;
+pub const RASET_Direct: u32 = 3u32;
+pub const RASET_Internet: u32 = 4u32;
+pub const RASET_Phone: u32 = 1u32;
+pub const RASET_Vpn: u32 = 2u32;
+pub const RASFP_Ppp: u32 = 1u32;
+pub const RASFP_Ras: u32 = 4u32;
+pub const RASFP_Slip: u32 = 2u32;
+pub const RASIDS_Disabled: u32 = 4294967295u32;
+pub const RASIDS_UseGlobalValue: u32 = 0u32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -2417,6 +2214,34 @@ pub struct RASIKEV2_PROJECTION_INFO {
     pub numIPv6ServerAddresses: u32,
     pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct RASIKEV2_PROJECTION_INFO {
+    pub dwIPv4NegotiationError: u32,
+    pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
+    pub ipv4ServerAddress: super::super::Networking::WinSock::IN_ADDR,
+    pub dwIPv6NegotiationError: u32,
+    pub ipv6Address: super::super::Networking::WinSock::IN6_ADDR,
+    pub ipv6ServerAddress: super::super::Networking::WinSock::IN6_ADDR,
+    pub dwPrefixLength: u32,
+    pub dwAuthenticationProtocol: u32,
+    pub dwEapTypeId: u32,
+    pub dwFlags: RASIKEV_PROJECTION_INFO_FLAGS,
+    pub dwEncryptionMethod: u32,
+    pub numIPv4ServerAddresses: u32,
+    pub ipv4ServerAddresses: *mut super::super::Networking::WinSock::IN_ADDR,
+    pub numIPv6ServerAddresses: u32,
+    pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
+}
+pub type RASIKEV_PROJECTION_INFO_FLAGS = u32;
+pub const RASIKEv2_AUTH_EAP: u32 = 2u32;
+pub const RASIKEv2_AUTH_MACHINECERTIFICATES: u32 = 1u32;
+pub const RASIKEv2_AUTH_PSK: u32 = 3u32;
+pub const RASIKEv2_FLAGS_BEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = 2u32;
+pub const RASIKEv2_FLAGS_MOBIKESUPPORTED: RASIKEV_PROJECTION_INFO_FLAGS = 1u32;
+pub const RASIKEv2_FLAGS_SERVERBEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASIPADDR {
@@ -2425,6 +2250,7 @@ pub struct RASIPADDR {
     pub c: u8,
     pub d: u8,
 }
+pub const RASIPO_VJ: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASIPXW {
@@ -2432,6 +2258,25 @@ pub struct RASIPXW {
     pub dwError: u32,
     pub szIpxAddress: [u16; 22],
 }
+pub const RASLCPAD_CHAP_MD5: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 5u32;
+pub const RASLCPAD_CHAP_MS: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 128u32;
+pub const RASLCPAD_CHAP_MSV2: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 129u32;
+pub const RASLCPAP_CHAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49699u32;
+pub const RASLCPAP_EAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49703u32;
+pub const RASLCPAP_PAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49187u32;
+pub const RASLCPAP_SPAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49191u32;
+pub const RASLCPO_3_DES: u32 = 16u32;
+pub const RASLCPO_ACFC: u32 = 2u32;
+pub const RASLCPO_AES_128: u32 = 32u32;
+pub const RASLCPO_AES_192: u32 = 128u32;
+pub const RASLCPO_AES_256: u32 = 64u32;
+pub const RASLCPO_DES_56: u32 = 8u32;
+pub const RASLCPO_GCM_AES_128: u32 = 256u32;
+pub const RASLCPO_GCM_AES_192: u32 = 512u32;
+pub const RASLCPO_GCM_AES_256: u32 = 1024u32;
+pub const RASLCPO_PFC: u32 = 1u32;
+pub const RASLCPO_SSHF: u32 = 4u32;
+pub const RASNAP_ProbationTime: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASNOUSERA {
@@ -2452,21 +2297,22 @@ pub struct RASNOUSERW {
     pub szPassword: [u16; 257],
     pub szDomain: [u16; 16],
 }
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct RASPBDLGA {
-    pub dwSize: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub dwCallbackId: usize,
-    pub pCallback: RASPBDLGFUNCA,
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
-}
+pub const RASNOUSER_SmartCard: u32 = 1u32;
+pub const RASNP_Ip: u32 = 4u32;
+pub const RASNP_Ipv6: u32 = 8u32;
+pub const RASNP_Ipx: u32 = 2u32;
+pub const RASNP_NetBEUI: u32 = 1u32;
+pub const RASPBDEVENT_AddEntry: u32 = 1u32;
+pub const RASPBDEVENT_DialEntry: u32 = 4u32;
+pub const RASPBDEVENT_EditEntry: u32 = 2u32;
+pub const RASPBDEVENT_EditGlobals: u32 = 5u32;
+pub const RASPBDEVENT_NoUser: u32 = 6u32;
+pub const RASPBDEVENT_NoUserEdit: u32 = 7u32;
+pub const RASPBDEVENT_RemoveEntry: u32 = 3u32;
+pub const RASPBDFLAG_ForceCloseOnDial: u32 = 2u32;
+pub const RASPBDFLAG_NoUser: u32 = 16u32;
+pub const RASPBDFLAG_PositionDlg: u32 = 1u32;
+pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648u32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -2484,6 +2330,23 @@ pub struct RASPBDLGA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RASPBDLGA {
+    pub dwSize: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub dwFlags: u32,
+    pub xDlg: i32,
+    pub yDlg: i32,
+    pub dwCallbackId: usize,
+    pub pCallback: RASPBDLGFUNCA,
+    pub dwError: u32,
+    pub reserved: usize,
+    pub reserved2: usize,
+}
+pub type RASPBDLGFUNCA = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void)>;
+pub type RASPBDLGFUNCW = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void)>;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RASPBDLGW {
     pub dwSize: u32,
@@ -2497,8 +2360,8 @@ pub struct RASPBDLGW {
     pub reserved: usize,
     pub reserved2: usize,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASPBDLGW {
     pub dwSize: u32,
@@ -2645,6 +2508,23 @@ pub struct RASPPP_PROJECTION_INFO {
     pub dwCcpOptions: u32,
     pub dwCcpServerOptions: u32,
 }
+pub type RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = u32;
+pub type RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = u32;
+pub const RASPRIV2_DialinPolicy: u32 = 1u32;
+pub const RASPRIV_AdminSetCallback: u32 = 2u32;
+pub const RASPRIV_CallerSetCallback: u32 = 4u32;
+pub const RASPRIV_DialinPrivilege: u32 = 8u32;
+pub const RASPRIV_NoCallback: u32 = 1u32;
+pub type RASPROJECTION = i32;
+pub type RASPROJECTION_INFO_TYPE = i32;
+pub const RASP_Amb: RASPROJECTION = 65536i32;
+pub const RASP_PppCcp: RASPROJECTION = 33021i32;
+pub const RASP_PppIp: RASPROJECTION = 32801i32;
+pub const RASP_PppIpv6: RASPROJECTION = 32855i32;
+pub const RASP_PppIpx: RASPROJECTION = 32811i32;
+pub const RASP_PppLcp: RASPROJECTION = 49185i32;
+pub const RASP_PppNbf: RASPROJECTION = 32831i32;
+pub type RASSECURITYPROC = Option<unsafe extern "system" fn() -> u32>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASSUBENTRYA {
@@ -2679,6 +2559,9 @@ pub union RASTUNNELENDPOINT_0 {
     pub ipv4: super::super::Networking::WinSock::IN_ADDR,
     pub ipv6: super::super::Networking::WinSock::IN6_ADDR,
 }
+pub const RASTUNNELENDPOINT_IPv4: u32 = 1u32;
+pub const RASTUNNELENDPOINT_IPv6: u32 = 2u32;
+pub const RASTUNNELENDPOINT_UNKNOWN: u32 = 0u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -2811,6 +2694,32 @@ pub struct RAS_CONNECTION_EX {
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
 }
+pub type RAS_FLAGS = u32;
+pub const RAS_FLAGS_ARAP_CONNECTION: RAS_FLAGS = 16u32;
+pub const RAS_FLAGS_DORMANT: RAS_FLAGS = 32u32;
+pub const RAS_FLAGS_IKEV2_CONNECTION: RAS_FLAGS = 16u32;
+pub const RAS_FLAGS_MESSENGER_PRESENT: RAS_FLAGS = 2u32;
+pub const RAS_FLAGS_PPP_CONNECTION: RAS_FLAGS = 1u32;
+pub const RAS_FLAGS_QUARANTINE_PRESENT: RAS_FLAGS = 8u32;
+pub const RAS_FLAGS_RAS_CONNECTION: u32 = 4u32;
+pub type RAS_HARDWARE_CONDITION = i32;
+pub const RAS_HARDWARE_FAILURE: RAS_HARDWARE_CONDITION = 1i32;
+pub const RAS_HARDWARE_OPERATIONAL: RAS_HARDWARE_CONDITION = 0i32;
+pub const RAS_MaxAreaCode: u32 = 10u32;
+pub const RAS_MaxCallbackNumber: u32 = 128u32;
+pub const RAS_MaxDeviceName: u32 = 128u32;
+pub const RAS_MaxDeviceType: u32 = 16u32;
+pub const RAS_MaxDnsSuffix: u32 = 256u32;
+pub const RAS_MaxEntryName: u32 = 256u32;
+pub const RAS_MaxFacilities: u32 = 200u32;
+pub const RAS_MaxIDSize: u32 = 256u32;
+pub const RAS_MaxIpAddress: u32 = 15u32;
+pub const RAS_MaxIpxAddress: u32 = 21u32;
+pub const RAS_MaxPadType: u32 = 32u32;
+pub const RAS_MaxPhoneNumber: u32 = 128u32;
+pub const RAS_MaxReplyMessage: u32 = 1024u32;
+pub const RAS_MaxUserData: u32 = 200u32;
+pub const RAS_MaxX25Address: u32 = 200u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAS_PORT_0 {
@@ -2875,6 +2784,14 @@ pub struct RAS_PORT_2 {
     pub ullBytesRcvUncompressed: u64,
     pub ullBytesRcvCompressed: u64,
 }
+pub const RAS_PORT_AUTHENTICATED: RAS_PORT_CONDITION = 5i32;
+pub const RAS_PORT_AUTHENTICATING: RAS_PORT_CONDITION = 4i32;
+pub const RAS_PORT_CALLING_BACK: RAS_PORT_CONDITION = 2i32;
+pub type RAS_PORT_CONDITION = i32;
+pub const RAS_PORT_DISCONNECTED: RAS_PORT_CONDITION = 1i32;
+pub const RAS_PORT_INITIALIZING: RAS_PORT_CONDITION = 6i32;
+pub const RAS_PORT_LISTENING: RAS_PORT_CONDITION = 3i32;
+pub const RAS_PORT_NON_OPERATIONAL: RAS_PORT_CONDITION = 0i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -2890,6 +2807,11 @@ pub union RAS_PROJECTION_INFO_0 {
     pub ppp: RASPPP_PROJECTION_INFO,
     pub ikev2: RASIKEV2_PROJECTION_INFO,
 }
+pub type RAS_QUARANTINE_STATE = i32;
+pub const RAS_QUAR_STATE_NORMAL: RAS_QUARANTINE_STATE = 0i32;
+pub const RAS_QUAR_STATE_NOT_CAPABLE: RAS_QUARANTINE_STATE = 3i32;
+pub const RAS_QUAR_STATE_PROBATION: RAS_QUARANTINE_STATE = 2i32;
+pub const RAS_QUAR_STATE_QUARANTINE: RAS_QUARANTINE_STATE = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAS_SECURITY_INFO {
@@ -2937,6 +2859,29 @@ pub struct RAS_USER_1 {
     pub wszPhoneNumber: [u16; 129],
     pub bfPrivilege2: u8,
 }
+pub const RCD_AllUsers: u32 = 1u32;
+pub const RCD_Eap: u32 = 2u32;
+pub const RCD_Logon: u32 = 4u32;
+pub const RCD_SingleUser: u32 = 0u32;
+pub const RDEOPT_CustomDial: u32 = 4096u32;
+pub const RDEOPT_DisableConnectedUI: u32 = 64u32;
+pub const RDEOPT_DisableReconnect: u32 = 256u32;
+pub const RDEOPT_DisableReconnectUI: u32 = 128u32;
+pub const RDEOPT_EapInfoCryptInCapable: u32 = 32768u32;
+pub const RDEOPT_IgnoreModemSpeaker: u32 = 4u32;
+pub const RDEOPT_IgnoreSoftwareCompression: u32 = 16u32;
+pub const RDEOPT_InvokeAutoTriggerCredentialUI: u32 = 16384u32;
+pub const RDEOPT_NoUser: u32 = 512u32;
+pub const RDEOPT_PauseOnScript: u32 = 1024u32;
+pub const RDEOPT_PausedStates: u32 = 2u32;
+pub const RDEOPT_Router: u32 = 2048u32;
+pub const RDEOPT_SetModemSpeaker: u32 = 8u32;
+pub const RDEOPT_SetSoftwareCompression: u32 = 32u32;
+pub const RDEOPT_UseCustomScripting: u32 = 8192u32;
+pub const RDEOPT_UsePrefixSuffix: u32 = 1u32;
+pub const REN_AllUsers: u32 = 1u32;
+pub const REN_User: u32 = 0u32;
+pub type ROUTER_CONNECTION_STATE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
@@ -2947,6 +2892,19 @@ pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
     pub dwPfsGroup: u32,
     pub dwDhGroup: u32,
 }
+pub const ROUTER_IF_STATE_CONNECTED: ROUTER_CONNECTION_STATE = 3i32;
+pub const ROUTER_IF_STATE_CONNECTING: ROUTER_CONNECTION_STATE = 2i32;
+pub const ROUTER_IF_STATE_DISCONNECTED: ROUTER_CONNECTION_STATE = 1i32;
+pub const ROUTER_IF_STATE_UNREACHABLE: ROUTER_CONNECTION_STATE = 0i32;
+pub const ROUTER_IF_TYPE_CLIENT: ROUTER_INTERFACE_TYPE = 0i32;
+pub const ROUTER_IF_TYPE_DEDICATED: ROUTER_INTERFACE_TYPE = 3i32;
+pub const ROUTER_IF_TYPE_DIALOUT: ROUTER_INTERFACE_TYPE = 7i32;
+pub const ROUTER_IF_TYPE_FULL_ROUTER: ROUTER_INTERFACE_TYPE = 2i32;
+pub const ROUTER_IF_TYPE_HOME_ROUTER: ROUTER_INTERFACE_TYPE = 1i32;
+pub const ROUTER_IF_TYPE_INTERNAL: ROUTER_INTERFACE_TYPE = 4i32;
+pub const ROUTER_IF_TYPE_LOOPBACK: ROUTER_INTERFACE_TYPE = 5i32;
+pub const ROUTER_IF_TYPE_MAX: ROUTER_INTERFACE_TYPE = 8i32;
+pub const ROUTER_IF_TYPE_TUNNEL1: ROUTER_INTERFACE_TYPE = 6i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -2978,6 +2936,7 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwMmSaLifeTime: u32,
     pub vpnTrafficSelectors: MPR_VPN_TRAFFIC_SELECTORS,
 }
+pub type ROUTER_INTERFACE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ROUTING_PROTOCOL_CONFIG {
@@ -2992,6 +2951,15 @@ pub struct ROUTING_PROTOCOL_CONFIG {
     pub pfnDisableIgmpCallback: PMGM_DISABLE_IGMP_CALLBACK,
     pub pfnEnableIgmpCallback: PMGM_ENABLE_IGMP_CALLBACK,
 }
+pub const RRAS_SERVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("RemoteAccess");
+pub const RTM_BLOCK_METHODS: u32 = 1u32;
+pub const RTM_CHANGE_NOTIFICATION: RTM_EVENT_TYPE = 3i32;
+pub const RTM_CHANGE_TYPE_ALL: u32 = 1u32;
+pub const RTM_CHANGE_TYPE_BEST: u32 = 2u32;
+pub const RTM_CHANGE_TYPE_FORWARDING: u32 = 4u32;
+pub const RTM_DEST_FLAG_DONT_FORWARD: u32 = 4u32;
+pub const RTM_DEST_FLAG_FWD_ENGIN_ADD: u32 = 2u32;
+pub const RTM_DEST_FLAG_NATURAL_NET: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTM_DEST_INFO {
@@ -3012,6 +2980,8 @@ pub struct RTM_DEST_INFO_0 {
     pub DestFlags: u32,
     pub HoldRoute: isize,
 }
+pub const RTM_ENTITY_DEREGISTERED: RTM_EVENT_TYPE = 1i32;
+pub type RTM_ENTITY_EXPORT_METHOD = Option<unsafe extern "system" fn(callerhandle: isize, calleehandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, output: *mut RTM_ENTITY_METHOD_OUTPUT)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTM_ENTITY_EXPORT_METHODS {
@@ -3057,6 +3027,25 @@ pub struct RTM_ENTITY_METHOD_OUTPUT {
     pub OutputSize: u32,
     pub OutputData: [u8; 1],
 }
+pub const RTM_ENTITY_REGISTERED: RTM_EVENT_TYPE = 0i32;
+pub const RTM_ENUM_ALL_DESTS: u32 = 0u32;
+pub const RTM_ENUM_ALL_ROUTES: u32 = 0u32;
+pub const RTM_ENUM_NEXT: u32 = 1u32;
+pub const RTM_ENUM_OWN_DESTS: u32 = 16777216u32;
+pub const RTM_ENUM_OWN_ROUTES: u32 = 65536u32;
+pub const RTM_ENUM_RANGE: u32 = 2u32;
+pub const RTM_ENUM_START: u32 = 0u32;
+pub type RTM_EVENT_CALLBACK = Option<unsafe extern "system" fn(rtmreghandle: isize, eventtype: RTM_EVENT_TYPE, context1: *mut core::ffi::c_void, context2: *mut core::ffi::c_void) -> u32>;
+pub type RTM_EVENT_TYPE = i32;
+pub const RTM_MATCH_FULL: u32 = 65535u32;
+pub const RTM_MATCH_INTERFACE: u32 = 16u32;
+pub const RTM_MATCH_NEIGHBOUR: u32 = 2u32;
+pub const RTM_MATCH_NEXTHOP: u32 = 8u32;
+pub const RTM_MATCH_NONE: u32 = 0u32;
+pub const RTM_MATCH_OWNER: u32 = 1u32;
+pub const RTM_MATCH_PREF: u32 = 4u32;
+pub const RTM_MAX_ADDRESS_SIZE: u32 = 16u32;
+pub const RTM_MAX_VIEWS: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTM_NET_ADDRESS {
@@ -3064,6 +3053,9 @@ pub struct RTM_NET_ADDRESS {
     pub NumBits: u16,
     pub AddrBits: [u8; 16],
 }
+pub const RTM_NEXTHOP_CHANGE_NEW: u32 = 1u32;
+pub const RTM_NEXTHOP_FLAGS_DOWN: u32 = 2u32;
+pub const RTM_NEXTHOP_FLAGS_REMOTE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTM_NEXTHOP_INFO {
@@ -3081,6 +3073,10 @@ pub struct RTM_NEXTHOP_LIST {
     pub NumNextHops: u16,
     pub NextHops: [isize; 1],
 }
+pub const RTM_NEXTHOP_STATE_CREATED: u32 = 0u32;
+pub const RTM_NEXTHOP_STATE_DELETED: u32 = 1u32;
+pub const RTM_NOTIFY_ONLY_MARKED_DESTS: u32 = 65536u32;
+pub const RTM_NUM_CHANGE_TYPES: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTM_PREF_INFO {
@@ -3095,6 +3091,26 @@ pub struct RTM_REGN_PROFILE {
     pub ViewsSupported: u32,
     pub NumberOfViews: u32,
 }
+pub const RTM_RESUME_METHODS: u32 = 0u32;
+pub const RTM_ROUTE_CHANGE_BEST: u32 = 65536u32;
+pub const RTM_ROUTE_CHANGE_FIRST: u32 = 1u32;
+pub const RTM_ROUTE_CHANGE_NEW: u32 = 2u32;
+pub const RTM_ROUTE_EXPIRED: RTM_EVENT_TYPE = 2i32;
+pub const RTM_ROUTE_FLAGS_BLACKHOLE: u32 = 2u32;
+pub const RTM_ROUTE_FLAGS_DISCARD: u32 = 4u32;
+pub const RTM_ROUTE_FLAGS_INACTIVE: u32 = 8u32;
+pub const RTM_ROUTE_FLAGS_LIMITED_BC: u32 = 1024u32;
+pub const RTM_ROUTE_FLAGS_LOCAL: u32 = 16u32;
+pub const RTM_ROUTE_FLAGS_LOCAL_MCAST: u32 = 512u32;
+pub const RTM_ROUTE_FLAGS_LOOPBACK: u32 = 128u32;
+pub const RTM_ROUTE_FLAGS_MARTIAN: u32 = 1u32;
+pub const RTM_ROUTE_FLAGS_MCAST: u32 = 256u32;
+pub const RTM_ROUTE_FLAGS_MYSELF: u32 = 64u32;
+pub const RTM_ROUTE_FLAGS_ONES_NETBC: u32 = 16384u32;
+pub const RTM_ROUTE_FLAGS_ONES_SUBNETBC: u32 = 32768u32;
+pub const RTM_ROUTE_FLAGS_REMOTE: u32 = 32u32;
+pub const RTM_ROUTE_FLAGS_ZEROS_NETBC: u32 = 4096u32;
+pub const RTM_ROUTE_FLAGS_ZEROS_SUBNETBC: u32 = 8192u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTM_ROUTE_INFO {
@@ -3109,6 +3125,26 @@ pub struct RTM_ROUTE_INFO {
     pub EntitySpecificInfo: *mut core::ffi::c_void,
     pub NextHopsList: RTM_NEXTHOP_LIST,
 }
+pub const RTM_ROUTE_STATE_CREATED: u32 = 0u32;
+pub const RTM_ROUTE_STATE_DELETED: u32 = 2u32;
+pub const RTM_ROUTE_STATE_DELETING: u32 = 1u32;
+pub const RTM_VIEW_ID_MCAST: u32 = 1u32;
+pub const RTM_VIEW_ID_UCAST: u32 = 0u32;
+pub const RTM_VIEW_MASK_ALL: u32 = 4294967295u32;
+pub const RTM_VIEW_MASK_ANY: u32 = 0u32;
+pub const RTM_VIEW_MASK_MCAST: u32 = 2u32;
+pub const RTM_VIEW_MASK_NONE: u32 = 0u32;
+pub const RTM_VIEW_MASK_SIZE: u32 = 32u32;
+pub const RTM_VIEW_MASK_UCAST: u32 = 1u32;
+pub type RasCustomDeleteEntryNotifyFn = Option<unsafe extern "system" fn(lpszphonebook: windows_sys::core::PCWSTR, lpszentry: windows_sys::core::PCWSTR, dwflags: u32) -> u32>;
+pub type RasCustomDialDlgFn = Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, dwflags: u32, lpszphonebook: windows_sys::core::PCWSTR, lpszentry: windows_sys::core::PCWSTR, lpszphonenumber: windows_sys::core::PCWSTR, lpinfo: *mut RASDIALDLG, pvinfo: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type RasCustomDialFn = Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lprasdialextensions: *mut RASDIALEXTENSIONS, lpszphonebook: windows_sys::core::PCWSTR, lprasdialparams: *mut RASDIALPARAMSA, dwnotifiertype: u32, lpvnotifier: *mut core::ffi::c_void, lphrasconn: *mut HRASCONN, dwflags: u32) -> u32>;
+pub type RasCustomEntryDlgFn = Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lpszphonebook: windows_sys::core::PCWSTR, lpszentry: windows_sys::core::PCWSTR, lpinfo: *mut RASENTRYDLGA, dwflags: u32) -> super::super::Foundation::BOOL>;
+pub type RasCustomHangUpFn = Option<unsafe extern "system" fn(hrasconn: HRASCONN) -> u32>;
+pub type RasCustomScriptExecuteFn = Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, lpszphonebook: windows_sys::core::PCWSTR, lpszentryname: windows_sys::core::PCWSTR, pfnrasgetbuffer: PFNRASGETBUFFER, pfnrasfreebuffer: PFNRASFREEBUFFER, pfnrassendbuffer: PFNRASSENDBUFFER, pfnrasreceivebuffer: PFNRASRECEIVEBUFFER, pfnrasretrievebuffer: PFNRASRETRIEVEBUFFER, hwnd: super::super::Foundation::HWND, prasdialparams: *mut RASDIALPARAMSA, pvreserved: *mut core::ffi::c_void) -> u32>;
+pub const SECURITYMSG_ERROR: SECURITY_MESSAGE_MSG_ID = 3u32;
+pub const SECURITYMSG_FAILURE: SECURITY_MESSAGE_MSG_ID = 2u32;
+pub const SECURITYMSG_SUCCESS: SECURITY_MESSAGE_MSG_ID = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURITY_MESSAGE {
@@ -3118,6 +3154,7 @@ pub struct SECURITY_MESSAGE {
     pub UserName: [i8; 257],
     pub Domain: [i8; 16],
 }
+pub type SECURITY_MESSAGE_MSG_ID = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOURCE_GROUP_ENTRY {
@@ -3157,56 +3194,19 @@ pub union VPN_TS_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
     pub v6: super::super::Networking::WinSock::IN6_ADDR,
 }
-pub type ORASADFUNC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCSTR, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFNRASFREEBUFFER = Option<unsafe extern "system" fn(pbufer: *mut u8) -> u32>;
-pub type PFNRASGETBUFFER = Option<unsafe extern "system" fn(ppbuffer: *mut *mut u8, pdwsize: *mut u32) -> u32>;
-pub type PFNRASRECEIVEBUFFER = Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32, dwtimeout: u32, hevent: super::super::Foundation::HANDLE) -> u32>;
-pub type PFNRASRETRIEVEBUFFER = Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32) -> u32>;
-pub type PFNRASSENDBUFFER = Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, dwsize: u32) -> u32>;
-pub type PFNRASSETCOMMSETTINGS = Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, prascommsettings: *mut RASCOMMSETTINGS, pvreserved: *mut core::ffi::c_void) -> u32>;
-pub type PMGM_CREATION_ALERT_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwinifindex: u32, dwinifnexthopaddr: u32, dwifcount: u32, pmieoutiflist: *mut MGM_IF_ENTRY) -> u32>;
-pub type PMGM_DISABLE_IGMP_CALLBACK = Option<unsafe extern "system" fn(dwifindex: u32, dwifnexthopaddr: u32) -> u32>;
-pub type PMGM_ENABLE_IGMP_CALLBACK = Option<unsafe extern "system" fn(dwifindex: u32, dwifnexthopaddr: u32) -> u32>;
-pub type PMGM_JOIN_ALERT_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, bmemberupdate: super::super::Foundation::BOOL) -> u32>;
-pub type PMGM_LOCAL_JOIN_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32) -> u32>;
-pub type PMGM_LOCAL_LEAVE_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32) -> u32>;
-pub type PMGM_PRUNE_ALERT_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32, bmemberdelete: super::super::Foundation::BOOL, pdwtimeout: *mut u32) -> u32>;
-pub type PMGM_RPF_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, pdwinifindex: *mut u32, pdwinifnexthopaddr: *mut u32, pdwupstreamnbr: *mut u32, dwhdrsize: u32, pbpackethdr: *mut u8, pbroute: *mut u8) -> u32>;
-pub type PMGM_WRONG_IF_CALLBACK = Option<unsafe extern "system" fn(dwsourceaddr: u32, dwgroupaddr: u32, dwifindex: u32, dwifnexthopaddr: u32, dwhdrsize: u32, pbpackethdr: *mut u8) -> u32>;
-pub type PMPRADMINACCEPTNEWCONNECTION = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1) -> super::super::Foundation::BOOL>;
-pub type PMPRADMINACCEPTNEWCONNECTION2 = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2) -> super::super::Foundation::BOOL>;
-pub type PMPRADMINACCEPTNEWCONNECTION3 = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3) -> super::super::Foundation::BOOL>;
-pub type PMPRADMINACCEPTNEWCONNECTIONEX = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL>;
-pub type PMPRADMINACCEPTNEWLINK = Option<unsafe extern "system" fn(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1) -> super::super::Foundation::BOOL>;
-pub type PMPRADMINACCEPTREAUTHENTICATION = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3) -> super::super::Foundation::BOOL>;
-pub type PMPRADMINACCEPTREAUTHENTICATIONEX = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL>;
-pub type PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL>;
-pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1)>;
-pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION2 = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2)>;
-pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION3 = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3)>;
-pub type PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX)>;
-pub type PMPRADMINGETIPADDRESSFORUSER = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut u32, param3: *mut super::super::Foundation::BOOL) -> u32>;
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub type PMPRADMINGETIPV6ADDRESSFORUSER = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR, param3: *mut super::super::Foundation::BOOL) -> u32>;
-pub type PMPRADMINLINKHANGUPNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1)>;
-pub type PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX = Option<unsafe extern "system" fn(param0: *mut AUTH_VALIDATION_EX) -> u32>;
-pub type PMPRADMINRELEASEIPADRESS = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut u32)>;
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub type PMPRADMINRELEASEIPV6ADDRESSFORUSER = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR)>;
-pub type PMPRADMINTERMINATEDLL = Option<unsafe extern "system" fn() -> u32>;
-pub type RASADFUNCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL>;
-pub type RASADFUNCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL>;
-pub type RASDIALFUNC = Option<unsafe extern "system" fn(param0: u32, param1: RASCONNSTATE, param2: u32)>;
-pub type RASDIALFUNC1 = Option<unsafe extern "system" fn(param0: HRASCONN, param1: u32, param2: RASCONNSTATE, param3: u32, param4: u32)>;
-pub type RASDIALFUNC2 = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: HRASCONN, param3: u32, param4: RASCONNSTATE, param5: u32, param6: u32) -> u32>;
-pub type RASPBDLGFUNCA = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void)>;
-pub type RASPBDLGFUNCW = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void)>;
-pub type RASSECURITYPROC = Option<unsafe extern "system" fn() -> u32>;
-pub type RTM_ENTITY_EXPORT_METHOD = Option<unsafe extern "system" fn(callerhandle: isize, calleehandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, output: *mut RTM_ENTITY_METHOD_OUTPUT)>;
-pub type RTM_EVENT_CALLBACK = Option<unsafe extern "system" fn(rtmreghandle: isize, eventtype: RTM_EVENT_TYPE, context1: *mut core::ffi::c_void, context2: *mut core::ffi::c_void) -> u32>;
-pub type RasCustomDeleteEntryNotifyFn = Option<unsafe extern "system" fn(lpszphonebook: windows_sys::core::PCWSTR, lpszentry: windows_sys::core::PCWSTR, dwflags: u32) -> u32>;
-pub type RasCustomDialDlgFn = Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, dwflags: u32, lpszphonebook: windows_sys::core::PCWSTR, lpszentry: windows_sys::core::PCWSTR, lpszphonenumber: windows_sys::core::PCWSTR, lpinfo: *mut RASDIALDLG, pvinfo: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type RasCustomDialFn = Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lprasdialextensions: *mut RASDIALEXTENSIONS, lpszphonebook: windows_sys::core::PCWSTR, lprasdialparams: *mut RASDIALPARAMSA, dwnotifiertype: u32, lpvnotifier: *mut core::ffi::c_void, lphrasconn: *mut HRASCONN, dwflags: u32) -> u32>;
-pub type RasCustomEntryDlgFn = Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lpszphonebook: windows_sys::core::PCWSTR, lpszentry: windows_sys::core::PCWSTR, lpinfo: *mut RASENTRYDLGA, dwflags: u32) -> super::super::Foundation::BOOL>;
-pub type RasCustomHangUpFn = Option<unsafe extern "system" fn(hrasconn: HRASCONN) -> u32>;
-pub type RasCustomScriptExecuteFn = Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, lpszphonebook: windows_sys::core::PCWSTR, lpszentryname: windows_sys::core::PCWSTR, pfnrasgetbuffer: PFNRASGETBUFFER, pfnrasfreebuffer: PFNRASFREEBUFFER, pfnrassendbuffer: PFNRASSENDBUFFER, pfnrasreceivebuffer: PFNRASRECEIVEBUFFER, pfnrasretrievebuffer: PFNRASRETRIEVEBUFFER, hwnd: super::super::Foundation::HWND, prasdialparams: *mut RASDIALPARAMSA, pvreserved: *mut core::ffi::c_void) -> u32>;
+pub const VS_Default: u32 = 0u32;
+pub const VS_GREOnly: u32 = 9u32;
+pub const VS_Ikev2First: u32 = 8u32;
+pub const VS_Ikev2Only: u32 = 7u32;
+pub const VS_Ikev2Sstp: u32 = 14u32;
+pub const VS_L2tpFirst: u32 = 4u32;
+pub const VS_L2tpOnly: u32 = 3u32;
+pub const VS_L2tpSstp: u32 = 13u32;
+pub const VS_PptpFirst: u32 = 2u32;
+pub const VS_PptpOnly: u32 = 1u32;
+pub const VS_PptpSstp: u32 = 12u32;
+pub const VS_ProtocolList: u32 = 15u32;
+pub const VS_SstpFirst: u32 = 6u32;
+pub const VS_SstpOnly: u32 = 5u32;
+pub const WARNING_MSG_ALIAS_NOT_ADDED: u32 = 644u32;
+pub const WM_RASDIALEVENT: u32 = 52429u32;
