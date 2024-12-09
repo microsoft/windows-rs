@@ -4,9 +4,9 @@ use windows::Win32::UI::WindowsAndMessaging::*;
 #[test]
 fn test() {
     unsafe {
-        SetWindowLongPtrA(None, GWLP_USERDATA, 0);
-        GetWindowLongPtrA(None, GWLP_USERDATA);
-        SetWindowLongPtrW(None, GWLP_USERDATA, 0);
-        GetWindowLongPtrW(None, GWLP_USERDATA);
+        SetWindowLongPtrA(Default::default(), GWLP_USERDATA, 0);
+        GetWindowLongPtrA(Default::default(), GWLP_USERDATA);
+        SetWindowLongPtrW(Default::default(), GWLP_USERDATA, 0);
+        GetWindowLongPtrW(Default::default(), GWLP_USERDATA);
     }
 }

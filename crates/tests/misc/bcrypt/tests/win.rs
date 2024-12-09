@@ -14,7 +14,7 @@ fn test() -> Result<()> {
         let mut object_len = [0; 4];
         let mut bytes_copied = 0;
         BCryptGetProperty(
-            *des,
+            (*des).into(),
             BCRYPT_OBJECT_LENGTH,
             Some(&mut object_len),
             &mut bytes_copied,
@@ -24,14 +24,14 @@ fn test() -> Result<()> {
         let object_len = u32::from_le_bytes(object_len);
 
         let mut shared_secret = vec![0; object_len as usize];
-        BCryptGenRandom(*rng, &mut shared_secret, Default::default()).ok()?;
+        BCryptGenRandom((*rng).into(), &mut shared_secret, Default::default()).ok()?;
 
         let mut encrypt_key = Owned::default();
         BCryptGenerateSymmetricKey(*des, &mut *encrypt_key, None, &shared_secret, 0).ok()?;
 
         let mut block_len = [0; 4];
         BCryptGetProperty(
-            *des,
+            (*des).into(),
             BCRYPT_BLOCK_LENGTH,
             Some(&mut block_len),
             &mut bytes_copied,

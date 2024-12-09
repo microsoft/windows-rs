@@ -331,7 +331,7 @@ impl Window {
                 self.create_device_resources()?;
             }
 
-            ValidateRect(self.handle, None).ok()
+            ValidateRect(Some(self.handle), None).ok()
         }
     }
 
@@ -443,7 +443,7 @@ impl Window {
                 CW_USEDEFAULT,
                 None,
                 None,
-                instance,
+                None,
                 Some(self as *mut _ as _),
             )?;
 
@@ -451,7 +451,7 @@ impl Window {
             debug_assert!(handle == self.handle);
             let mut message = MSG::default();
 
-            while GetMessageA(&mut message, HWND::default(), 0, 0).into() {
+            while GetMessageA(&mut message, None, 0, 0).into() {
                 DispatchMessageA(&message);
             }
 
@@ -547,7 +547,7 @@ fn create_device_3d() -> Result<ID3D11Device> {
         D3D11CreateDevice(
             None,
             D3D_DRIVER_TYPE_HARDWARE,
-            None,
+            HMODULE::default(),
             D3D11_CREATE_DEVICE_BGRA_SUPPORT,
             None,
             D3D11_SDK_VERSION,

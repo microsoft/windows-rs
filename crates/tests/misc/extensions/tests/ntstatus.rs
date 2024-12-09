@@ -33,7 +33,7 @@ fn test() -> Result<()> {
             std::mem::size_of::<GUID>(),
         );
 
-        BCryptGenRandom(provider, bytes, Default::default()).ok()?;
+        BCryptGenRandom(Some(provider), bytes, Default::default()).ok()?;
 
         assert_ne!(random, GUID::zeroed());
     }

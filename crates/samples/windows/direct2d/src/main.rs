@@ -405,7 +405,7 @@ impl Window {
                 CW_USEDEFAULT,
                 None,
                 None,
-                instance,
+                None,
                 Some(self as *mut _ as _),
             )?;
 
@@ -536,7 +536,7 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
         D3D11CreateDevice(
             None,
             drive_type,
-            None,
+            HMODULE::default(),
             flags,
             None,
             D3D11_SDK_VERSION,
