@@ -179,7 +179,7 @@ impl windows_core::RuntimeType for MenuClosedEventHandler {
 impl MenuClosedEventHandler {
     pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MenuClosedEventHandlerBox { vtable: &MenuClosedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
         let this = self;
@@ -220,7 +220,7 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuClosedEventHan
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -236,7 +236,7 @@ impl windows_core::RuntimeType for MenuOpenedEventHandler {
 impl MenuOpenedEventHandler {
     pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MenuOpenedEventHandlerBox { vtable: &MenuOpenedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
         let this = self;
@@ -277,7 +277,7 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuOpenedEventHan
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -293,7 +293,7 @@ impl windows_core::RuntimeType for SizeChangedEventHandler {
 impl SizeChangedEventHandler {
     pub fn new<F: FnMut(Option<&WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SizeChangedEventHandlerBox { vtable: &SizeChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, eventargs: P0) -> windows_core::Result<()>
     where
@@ -337,7 +337,7 @@ impl<F: FnMut(Option<&WebUICommandBarSizeChangedEventArgs>) -> windows_core::Res
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }

@@ -13570,20 +13570,17 @@ impl ID3D12FunctionParameterReflection_Vtbl {
         Self { GetDesc: GetDesc::<Identity> }
     }
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 struct ID3D12FunctionParameterReflection_ImplVtbl<T: ID3D12FunctionParameterReflection_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D12FunctionParameterReflection_Impl> ID3D12FunctionParameterReflection_ImplVtbl<T> {
     const VTABLE: ID3D12FunctionParameterReflection_Vtbl = ID3D12FunctionParameterReflection_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12FunctionParameterReflection {
     pub fn new<'a, T: ID3D12FunctionParameterReflection_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D12FunctionParameterReflection_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -13705,20 +13702,17 @@ impl ID3D12FunctionReflection_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 struct ID3D12FunctionReflection_ImplVtbl<T: ID3D12FunctionReflection_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D12FunctionReflection_Impl> ID3D12FunctionReflection_ImplVtbl<T> {
     const VTABLE: ID3D12FunctionReflection_Vtbl = ID3D12FunctionReflection_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12FunctionReflection {
     pub fn new<'a, T: ID3D12FunctionReflection_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D12FunctionReflection_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -17007,20 +17001,17 @@ impl ID3D12ShaderReflectionConstantBuffer_Vtbl {
         Self { GetDesc: GetDesc::<Identity>, GetVariableByIndex: GetVariableByIndex::<Identity>, GetVariableByName: GetVariableByName::<Identity> }
     }
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 struct ID3D12ShaderReflectionConstantBuffer_ImplVtbl<T: ID3D12ShaderReflectionConstantBuffer_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D12ShaderReflectionConstantBuffer_Impl> ID3D12ShaderReflectionConstantBuffer_ImplVtbl<T> {
     const VTABLE: ID3D12ShaderReflectionConstantBuffer_Vtbl = ID3D12ShaderReflectionConstantBuffer_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12ShaderReflectionConstantBuffer {
     pub fn new<'a, T: ID3D12ShaderReflectionConstantBuffer_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D12ShaderReflectionConstantBuffer_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -17181,20 +17172,17 @@ impl ID3D12ShaderReflectionType_Vtbl {
         }
     }
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 struct ID3D12ShaderReflectionType_ImplVtbl<T: ID3D12ShaderReflectionType_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D12ShaderReflectionType_Impl> ID3D12ShaderReflectionType_ImplVtbl<T> {
     const VTABLE: ID3D12ShaderReflectionType_Vtbl = ID3D12ShaderReflectionType_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12ShaderReflectionType {
     pub fn new<'a, T: ID3D12ShaderReflectionType_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D12ShaderReflectionType_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -17255,17 +17243,14 @@ impl ID3D12ShaderReflectionVariable_Vtbl {
         Self { GetDesc: GetDesc::<Identity>, GetType: GetType::<Identity>, GetBuffer: GetBuffer::<Identity>, GetInterfaceSlot: GetInterfaceSlot::<Identity> }
     }
 }
-#[cfg(feature = "std")]
 struct ID3D12ShaderReflectionVariable_ImplVtbl<T: ID3D12ShaderReflectionVariable_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: ID3D12ShaderReflectionVariable_Impl> ID3D12ShaderReflectionVariable_ImplVtbl<T> {
     const VTABLE: ID3D12ShaderReflectionVariable_Vtbl = ID3D12ShaderReflectionVariable_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl ID3D12ShaderReflectionVariable {
     pub fn new<'a, T: ID3D12ShaderReflectionVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D12ShaderReflectionVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }

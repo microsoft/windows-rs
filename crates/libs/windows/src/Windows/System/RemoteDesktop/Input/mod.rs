@@ -170,7 +170,7 @@ impl windows_core::RuntimeType for RemoteTextConnectionDataHandler {
 impl RemoteTextConnectionDataHandler {
     pub fn new<F: FnMut(&[u8]) -> windows_core::Result<bool> + Send + 'static>(invoke: F) -> Self {
         let com = RemoteTextConnectionDataHandlerBox { vtable: &RemoteTextConnectionDataHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke(&self, pdudata: &[u8]) -> windows_core::Result<bool> {
         let this = self;
@@ -214,7 +214,7 @@ impl<F: FnMut(&[u8]) -> windows_core::Result<bool> + Send + 'static> RemoteTextC
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
