@@ -1793,17 +1793,14 @@ impl IMemoryAllocator_Vtbl {
         Self { Allocate: Allocate::<Identity>, Free: Free::<Identity> }
     }
 }
-#[cfg(feature = "std")]
 struct IMemoryAllocator_ImplVtbl<T: IMemoryAllocator_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
 impl<T: IMemoryAllocator_Impl> IMemoryAllocator_ImplVtbl<T> {
     const VTABLE: IMemoryAllocator_Vtbl = IMemoryAllocator_Vtbl::new::<T>();
 }
-#[cfg(feature = "std")]
 impl IMemoryAllocator {
     pub fn new<'a, T: IMemoryAllocator_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IMemoryAllocator_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
