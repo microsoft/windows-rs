@@ -30,7 +30,7 @@ impl windows_core::RuntimeType for ActivatedEventHandler {
 impl ActivatedEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = ActivatedEventHandlerBox { vtable: &ActivatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
     where
@@ -78,7 +78,7 @@ impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::Applica
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -154,7 +154,7 @@ impl windows_core::RuntimeType for BackgroundActivatedEventHandler {
 impl BackgroundActivatedEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundActivatedEventHandlerBox { vtable: &BackgroundActivatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
     where
@@ -202,7 +202,7 @@ impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::Applica
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -254,7 +254,7 @@ impl windows_core::RuntimeType for EnteredBackgroundEventHandler {
 impl EnteredBackgroundEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = EnteredBackgroundEventHandlerBox { vtable: &EnteredBackgroundEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -302,7 +302,7 @@ impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::Applica
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -840,7 +840,7 @@ impl windows_core::RuntimeType for LeavingBackgroundEventHandler {
 impl LeavingBackgroundEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = LeavingBackgroundEventHandlerBox { vtable: &LeavingBackgroundEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -888,7 +888,7 @@ impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::Applica
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -904,7 +904,7 @@ impl windows_core::RuntimeType for NavigatedEventHandler {
 impl NavigatedEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = NavigatedEventHandlerBox { vtable: &NavigatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -949,7 +949,7 @@ impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&IWebUINavigatedEventA
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -1026,7 +1026,7 @@ impl windows_core::RuntimeType for ResumingEventHandler {
 impl ResumingEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = ResumingEventHandlerBox { vtable: &ResumingEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
@@ -1070,7 +1070,7 @@ impl<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> +
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -1145,7 +1145,7 @@ impl windows_core::RuntimeType for SuspendingEventHandler {
 impl SuspendingEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SuspendingEventHandlerBox { vtable: &SuspendingEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -1193,7 +1193,7 @@ impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::Applica
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }

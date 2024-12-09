@@ -156,7 +156,7 @@ impl windows_core::RuntimeType for TimerDestroyedHandler {
 impl TimerDestroyedHandler {
     pub fn new<F: FnMut(Option<&ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = TimerDestroyedHandlerBox { vtable: &TimerDestroyedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, timer: P0) -> windows_core::Result<()>
     where
@@ -200,7 +200,7 @@ impl<F: FnMut(Option<&ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'st
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -216,7 +216,7 @@ impl windows_core::RuntimeType for TimerElapsedHandler {
 impl TimerElapsedHandler {
     pub fn new<F: FnMut(Option<&ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = TimerElapsedHandlerBox { vtable: &TimerElapsedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, timer: P0) -> windows_core::Result<()>
     where
@@ -260,7 +260,7 @@ impl<F: FnMut(Option<&ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'st
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -276,7 +276,7 @@ impl windows_core::RuntimeType for WorkItemHandler {
 impl WorkItemHandler {
     pub fn new<F: FnMut(Option<&super::super::Foundation::IAsyncAction>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = WorkItemHandlerBox { vtable: &WorkItemHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, operation: P0) -> windows_core::Result<()>
     where
@@ -320,7 +320,7 @@ impl<F: FnMut(Option<&super::super::Foundation::IAsyncAction>) -> windows_core::
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }

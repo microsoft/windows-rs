@@ -2205,7 +2205,7 @@ impl windows_core::RuntimeType for DispatchedHandler {
 impl DispatchedHandler {
     pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DispatchedHandlerBox { vtable: &DispatchedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2246,7 +2246,7 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> DispatchedHandlerB
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -4658,7 +4658,7 @@ impl windows_core::RuntimeType for IdleDispatchedHandler {
 impl IdleDispatchedHandler {
     pub fn new<F: FnMut(Option<&IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = IdleDispatchedHandlerBox { vtable: &IdleDispatchedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, e: P0) -> windows_core::Result<()>
     where
@@ -4702,7 +4702,7 @@ impl<F: FnMut(Option<&IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + 
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }

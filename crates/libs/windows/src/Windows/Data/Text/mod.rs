@@ -355,7 +355,7 @@ impl windows_core::RuntimeType for SelectableWordSegmentsTokenizingHandler {
 impl SelectableWordSegmentsTokenizingHandler {
     pub fn new<F: FnMut(Option<&super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, Option<&super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SelectableWordSegmentsTokenizingHandlerBox { vtable: &SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, precedingwords: P0, words: P1) -> windows_core::Result<()>
     where
@@ -403,7 +403,7 @@ impl<F: FnMut(Option<&super::super::Foundation::Collections::IIterable<Selectabl
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -1034,7 +1034,7 @@ impl windows_core::RuntimeType for WordSegmentsTokenizingHandler {
 impl WordSegmentsTokenizingHandler {
     pub fn new<F: FnMut(Option<&super::super::Foundation::Collections::IIterable<WordSegment>>, Option<&super::super::Foundation::Collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = WordSegmentsTokenizingHandlerBox { vtable: &WordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, precedingwords: P0, words: P1) -> windows_core::Result<()>
     where
@@ -1082,7 +1082,7 @@ impl<F: FnMut(Option<&super::super::Foundation::Collections::IIterable<WordSegme
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }

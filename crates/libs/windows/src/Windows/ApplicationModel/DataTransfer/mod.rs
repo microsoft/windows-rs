@@ -1160,7 +1160,7 @@ impl windows_core::RuntimeType for DataProviderHandler {
 impl DataProviderHandler {
     pub fn new<F: FnMut(Option<&DataProviderRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DataProviderHandlerBox { vtable: &DataProviderHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, request: P0) -> windows_core::Result<()>
     where
@@ -1204,7 +1204,7 @@ impl<F: FnMut(Option<&DataProviderRequest>) -> windows_core::Result<()> + Send +
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }
@@ -2274,7 +2274,7 @@ impl windows_core::RuntimeType for ShareProviderHandler {
 impl ShareProviderHandler {
     pub fn new<F: FnMut(Option<&ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = ShareProviderHandlerBox { vtable: &ShareProviderHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, operation: P0) -> windows_core::Result<()>
     where
@@ -2318,7 +2318,7 @@ impl<F: FnMut(Option<&ShareProviderOperation>) -> windows_core::Result<()> + Sen
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = Box::from_raw(this);
+            let _ = windows_core::imp::Box::from_raw(this);
         }
         remaining
     }

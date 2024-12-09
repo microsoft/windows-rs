@@ -369,20 +369,17 @@ impl CppInterface {
                             }
                         }
                     }
-                    #[cfg(feature = "std")]
                     #cfg
                     struct #implvtbl_ident<T: #impl_name> (core::marker::PhantomData<T>);
-                    #[cfg(feature = "std")]
                     #cfg
                     impl<T: #impl_name> #implvtbl_ident<T> {
                         const VTABLE: #vtbl_name = #vtbl_name::new::<T>();
                     }
-                    #[cfg(feature = "std")]
                     #cfg
                     impl #name {
                         pub fn new<'a, T: #impl_name>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
                             let this = windows_core::ScopedHeap { vtable: &#implvtbl_ident::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-                            let this = core::mem::ManuallyDrop::new(Box::new(this));
+                            let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
                             unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
                         }
                     }
