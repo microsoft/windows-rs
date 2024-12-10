@@ -31,6 +31,7 @@ pub enum ParamHint {
     Optional,
     ValueType,
     Blittable,
+    Bool,
 }
 
 impl ParamHint {
@@ -150,29 +151,25 @@ impl CppMethod {
 
         for (position, hint) in param_hints.iter_mut().enumerate() {
             if *hint == ParamHint::None {
-                if is_convertible(
-                    &signature.params[position].0,
-                    signature.params[position].1,
-                    *hint,
-                ) {
+                let ty = &signature.params[position].0;
+                let param = signature.params[position].1;
+                let flags = param.flags();
+
+                if is_convertible(ty, param, *hint) {
                     *hint = ParamHint::IntoParam;
-                } else {
-                    let flags = signature.params[position].1.flags();
-                    if signature.params[position].0.is_copyable()
-                        && (flags.contains(ParamAttributes::Optional)
-                            || signature.params[position]
-                                .1
-                                .has_attribute("ReservedAttribute"))
-                    {
-                        *hint = ParamHint::Optional;
-                    } else if signature.params[position].0.is_primitive()
-                        && (!signature.params[position].0.is_pointer()
-                            || signature.params[position].0.deref().is_copyable())
-                    {
-                        *hint = ParamHint::ValueType;
-                    } else if signature.params[position].0.is_copyable() {
-                        *hint = ParamHint::Blittable;
-                    }
+                } else if ty.is_copyable()
+                    && (flags.contains(ParamAttributes::Optional)
+                        || param.has_attribute("ReservedAttribute"))
+                {
+                    *hint = ParamHint::Optional;
+                } else if !flags.contains(ParamAttributes::Out)
+                    && matches!(ty.type_name(), TypeName::BOOL | TypeName::BOOLEAN)
+                {
+                    *hint = ParamHint::Bool;
+                } else if ty.is_primitive() && (!ty.is_pointer() || ty.deref().is_copyable()) {
+                    *hint = ParamHint::ValueType;
+                } else if ty.is_copyable() {
+                    *hint = ParamHint::Blittable;
                 }
             }
         }
@@ -612,6 +609,9 @@ impl CppMethod {
                     let kind = ty.write_default(writer);
                     tokens.combine(&quote! { #name: Option<#kind>, });
                 }
+                ParamHint::Bool => {
+                    tokens.combine(&quote! { #name: bool, });
+                }
                 ParamHint::ValueType | ParamHint::Blittable => {
                     let kind = ty.write_default(writer);
                     tokens.combine(&quote! { #name: #kind, });
@@ -676,6 +676,9 @@ impl CppMethod {
                         }
                         ParamHint::Optional => {
                             quote! { core::mem::transmute(#name.unwrap_or(core::mem::zeroed())), }
+                        }
+                        ParamHint::Bool => {
+                            quote! { #name.into(), }
                         }
                         ParamHint::ValueType => {
                             quote! { core::mem::transmute(#name), }

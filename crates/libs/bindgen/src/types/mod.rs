@@ -722,7 +722,6 @@ impl Type {
 
     pub fn is_convertible(&self) -> bool {
         match self {
-            Self::CppStruct(ty) => ty.is_convertible(),
             Self::Delegate(..) | Self::Interface(..) | Self::Class(..) | Self::CppInterface(..) => {
                 true
             }
@@ -950,7 +949,7 @@ impl Type {
             Self::String => TypeName("", "String"),
             Self::Object => TypeName("", "Object"),
 
-            rest => panic!("{rest:?}"),
+            _ => TypeName("", ""),
         }
     }
 
