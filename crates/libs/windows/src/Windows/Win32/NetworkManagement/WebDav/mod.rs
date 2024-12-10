@@ -97,9 +97,6 @@ impl Default for DAV_CALLBACK_AUTH_BLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DAV_CALLBACK_AUTH_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DAV_CALLBACK_AUTH_UNP {
@@ -113,9 +110,6 @@ impl Default for DAV_CALLBACK_AUTH_UNP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DAV_CALLBACK_AUTH_UNP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DAV_CALLBACK_CRED {
@@ -128,9 +122,6 @@ impl Default for DAV_CALLBACK_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DAV_CALLBACK_CRED {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
 pub type PFNDAVAUTHCALLBACK = Option<unsafe extern "system" fn(lpwzservername: windows_core::PCWSTR, lpwzremotename: windows_core::PCWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32>;

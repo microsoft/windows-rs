@@ -165,9 +165,6 @@ impl Default for APP_LOCAL_DEVICE_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APP_LOCAL_DEVICE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
 #[must_use]
 #[repr(transparent)]
@@ -776,9 +773,6 @@ impl Default for DECIMAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DECIMAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DECIMAL_0 {
@@ -789,9 +783,6 @@ impl Default for DECIMAL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DECIMAL_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -804,9 +795,6 @@ impl Default for DECIMAL_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DECIMAL_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DECIMAL_1 {
@@ -817,9 +805,6 @@ impl Default for DECIMAL_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DECIMAL_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -832,9 +817,6 @@ impl Default for DECIMAL_1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DECIMAL_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVPROPKEY {
@@ -845,9 +827,6 @@ impl Default for DEVPROPKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVPROPKEY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIGSIG_E_CRYPTO: windows_core::HRESULT = windows_core::HRESULT(0x800B0008_u32 as _);
 pub const DIGSIG_E_DECODE: windows_core::HRESULT = windows_core::HRESULT(0x800B0006_u32 as _);
@@ -4966,9 +4945,6 @@ impl Default for FILETIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILETIME {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FILTER_E_ALREADY_OPEN: windows_core::HRESULT = windows_core::HRESULT(0x80041736_u32 as _);
 pub const FILTER_E_CONTENTINDEXCORRUPT: windows_core::HRESULT = windows_core::HRESULT(0xC0041734_u32 as _);
 pub const FILTER_E_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0x80041738_u32 as _);
@@ -4994,9 +4970,6 @@ impl Default for FLOAT128 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FLOAT128 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FRS_ERR_AUTHENTICATION: i32 = 8008i32;
 pub const FRS_ERR_CHILD_TO_PARENT_COMM: i32 = 8011i32;
@@ -5923,9 +5896,6 @@ impl Default for LUID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LUID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MARSHAL_E_FIRST: i32 = -2147221216i32;
 pub const MARSHAL_E_LAST: i32 = -2147221201i32;
 pub const MARSHAL_S_FIRST: i32 = 262432i32;
@@ -6499,9 +6469,6 @@ impl Default for POINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTL {
@@ -6513,9 +6480,6 @@ impl Default for POINTL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POINTL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTS {
@@ -6526,9 +6490,6 @@ impl Default for POINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POINTS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRESENTATION_ERROR_LOST: windows_core::HRESULT = windows_core::HRESULT(0x88810001_u32 as _);
 pub type PROC = Option<unsafe extern "system" fn() -> isize>;
@@ -6542,9 +6503,6 @@ impl Default for PROPERTYKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROPERTYKEY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PSINK_E_INDEX_ONLY: windows_core::HRESULT = windows_core::HRESULT(0x80041791_u32 as _);
 pub const PSINK_E_LARGE_ATTACHMENT: windows_core::HRESULT = windows_core::HRESULT(0x80041792_u32 as _);
@@ -6618,9 +6576,6 @@ impl Default for RECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECTL {
@@ -6633,9 +6588,6 @@ impl Default for RECTL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RECTL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const REGDB_E_BADTHREADINGMODEL: windows_core::HRESULT = windows_core::HRESULT(0x80040156_u32 as _);
 pub const REGDB_E_CLASSNOTREG: windows_core::HRESULT = windows_core::HRESULT(0x80040154_u32 as _);
@@ -7091,9 +7043,6 @@ impl Default for SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SIZE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPAPI_E_AUTHENTICODE_DISALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x800F0240_u32 as _);
 pub const SPAPI_E_AUTHENTICODE_PUBLISHER_NOT_TRUSTED: windows_core::HRESULT = windows_core::HRESULT(0x800F0243_u32 as _);
@@ -10085,9 +10034,6 @@ impl Default for SYSTEMTIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEMTIME {
-    type TypeKind = windows_core::CopyType;
-}
 pub const S_APPLICATION_ACTIVATION_ERROR_HANDLED_BY_DIALOG: windows_core::HRESULT = windows_core::HRESULT(0x270259_u32 as _);
 pub const S_FALSE: windows_core::HRESULT = windows_core::HRESULT(0x1_u32 as _);
 pub const S_OK: windows_core::HRESULT = windows_core::HRESULT(0x0_u32 as _);
@@ -10553,9 +10499,6 @@ impl Default for UNICODE_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UNICODE_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UTC_E_ACTION_NOT_SUPPORTED_IN_DESTINATION: windows_core::HRESULT = windows_core::HRESULT(0x87C51044_u32 as _);
 pub const UTC_E_AGENT_DIAGNOSTICS_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x87C51055_u32 as _);

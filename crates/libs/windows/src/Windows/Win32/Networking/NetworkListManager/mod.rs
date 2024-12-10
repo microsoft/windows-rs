@@ -1226,9 +1226,6 @@ impl Default for NLM_DATAPLAN_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NLM_DATAPLAN_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_DOMAIN_AUTHENTICATION_KIND(pub i32);
@@ -1287,9 +1284,6 @@ impl Default for NLM_SIMULATED_PROFILE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NLM_SIMULATED_PROFILE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NLM_SOCKADDR {
@@ -1299,9 +1293,6 @@ impl Default for NLM_SOCKADDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NLM_SOCKADDR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[repr(C)]
@@ -1314,8 +1305,5 @@ impl Default for NLM_USAGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NLM_USAGE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NetworkListManager: windows_core::GUID = windows_core::GUID::from_u128(0xdcb00c01_570f_4a9b_8d69_199fdba5723b);

@@ -1304,9 +1304,6 @@ impl Default for ADSPROPERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADSPROPERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct ADSPROPINITPARAMS {
@@ -1321,9 +1318,6 @@ impl Default for ADSPROPINITPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADSPROPINITPARAMS {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1368,9 +1362,6 @@ impl Default for ADSVALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADSVALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ADSVALUE_0 {
@@ -1406,9 +1397,6 @@ impl Default for ADSVALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADSVALUE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1454,9 +1442,6 @@ impl Default for ADS_ATTR_DEF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_ATTR_DEF {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ADS_ATTR_DELETE: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1471,9 +1456,6 @@ impl Default for ADS_ATTR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADS_ATTR_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ADS_ATTR_UPDATE: u32 = 2u32;
 #[repr(transparent)]
@@ -1491,9 +1473,6 @@ impl Default for ADS_BACKLINK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_BACKLINK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_CASEIGNORE_LIST {
@@ -1504,9 +1483,6 @@ impl Default for ADS_CASEIGNORE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADS_CASEIGNORE_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ADS_CHASE_REFERRALS_ALWAYS: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(96i32);
 #[repr(transparent)]
@@ -1534,9 +1510,6 @@ impl Default for ADS_CLASS_DEF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_CLASS_DEF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_DEREFENUM(pub i32);
@@ -1561,9 +1534,6 @@ impl Default for ADS_DN_WITH_BINARY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_DN_WITH_BINARY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_DN_WITH_STRING {
@@ -1575,9 +1545,6 @@ impl Default for ADS_DN_WITH_STRING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_DN_WITH_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_EMAIL {
@@ -1588,9 +1555,6 @@ impl Default for ADS_EMAIL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADS_EMAIL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ADS_ESCAPEDMODE_DEFAULT: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(1i32);
 pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(3i32);
@@ -1615,9 +1579,6 @@ impl Default for ADS_FAXNUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADS_FAXNUMBER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1657,9 +1618,6 @@ impl Default for ADS_HOLD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_HOLD {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1693,9 +1651,6 @@ impl Default for ADS_NETADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_NETADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(16u32);
 pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(1024u32);
 #[repr(C)]
@@ -1708,9 +1663,6 @@ impl Default for ADS_NT_SECURITY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADS_NT_SECURITY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1726,9 +1678,6 @@ impl Default for ADS_OBJECT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_OBJECT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_OCTET_LIST {
@@ -1741,9 +1690,6 @@ impl Default for ADS_OCTET_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_OCTET_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_OCTET_STRING {
@@ -1754,9 +1700,6 @@ impl Default for ADS_OCTET_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADS_OCTET_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ADS_OPTION_ACCUMULATIVE_MODIFICATION: ADS_OPTION_ENUM = ADS_OPTION_ENUM(8i32);
 #[repr(transparent)]
@@ -1788,9 +1731,6 @@ impl Default for ADS_PATH {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_PATH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_PATHTYPE_ENUM(pub i32);
@@ -1806,9 +1746,6 @@ impl Default for ADS_POSTALADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADS_POSTALADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1832,9 +1769,6 @@ impl Default for ADS_PROV_SPECIFIC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_PROV_SPECIFIC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ADS_READONLY_SERVER: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(4u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1849,9 +1783,6 @@ impl Default for ADS_REPLICAPOINTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADS_REPLICAPOINTER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1931,9 +1862,6 @@ impl Default for ADS_SEARCHPREF_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_SEARCHPREF_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ADS_SEARCHPREF_PAGED_TIME_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(8i32);
 pub const ADS_SEARCHPREF_PAGESIZE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(7i32);
 pub const ADS_SEARCHPREF_SEARCH_SCOPE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(5i32);
@@ -1957,9 +1885,6 @@ impl Default for ADS_SEARCH_COLUMN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADS_SEARCH_COLUMN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -2000,9 +1925,6 @@ impl Default for ADS_SORTKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_SORTKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_STATUSENUM(pub i32);
@@ -2033,9 +1955,6 @@ impl Default for ADS_TIMESTAMP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADS_TIMESTAMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_TYPEDNAME {
@@ -2047,9 +1966,6 @@ impl Default for ADS_TYPEDNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADS_TYPEDNAME {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ADS_UF_ACCOUNTDISABLE: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2i32);
 pub const ADS_UF_DONT_EXPIRE_PASSWD: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(65536i32);
@@ -2095,9 +2011,6 @@ impl Default for ADS_VLV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADS_VLV {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ADSystemInfo: windows_core::GUID = windows_core::GUID::from_u128(0x50b6327f_afd1_11d2_9cb9_0000f87a369e);
 pub const ADsSecurityUtility: windows_core::GUID = windows_core::GUID::from_u128(0xf270c64a_ffb8_4ae4_85fe_3a75e5347966);
@@ -2148,10 +2061,6 @@ impl Default for CQFORM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for CQFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2170,10 +2079,6 @@ impl Default for CQPAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for CQPAGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CQPM_CLEARFORM: u32 = 6u32;
 pub const CQPM_ENABLE: u32 = 3u32;
@@ -2210,9 +2115,6 @@ impl Default for DOMAINDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOMAINDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOMAIN_CONTROLLER_INFOA {
@@ -2230,9 +2132,6 @@ impl Default for DOMAIN_CONTROLLER_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOMAIN_CONTROLLER_INFOA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2252,9 +2151,6 @@ impl Default for DOMAIN_CONTROLLER_INFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOMAIN_CONTROLLER_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOMAIN_TREE {
@@ -2266,9 +2162,6 @@ impl Default for DOMAIN_TREE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOMAIN_TREE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
 pub const DSA_NEWOBJ_CTX_COMMIT: u32 = 2u32;
@@ -2288,10 +2181,6 @@ impl Default for DSA_NEWOBJ_DISPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for DSA_NEWOBJ_DISPINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSA_NOTIFY_DEL: u32 = 1u32;
 pub const DSA_NOTIFY_FLAG_ADDITIONAL_DATA: u32 = 2u32;
@@ -2322,9 +2211,6 @@ impl Default for DSBITEMA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSBITEMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSBITEMW {
@@ -2342,9 +2228,6 @@ impl Default for DSBITEMW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSBITEMW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSBI_CHECKBOXES: u32 = 256u32;
 pub const DSBI_DONTSIGNSEAL: u32 = 33554432u32;
@@ -2392,10 +2275,6 @@ impl Default for DSBROWSEINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_Shell")]
-impl windows_core::TypeKind for DSBROWSEINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2422,10 +2301,6 @@ impl Default for DSBROWSEINFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_Shell")]
-impl windows_core::TypeKind for DSBROWSEINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSBS_CHECKED: u32 = 1u32;
 pub const DSBS_HIDDEN: u32 = 2u32;
 pub const DSBS_ROOT: u32 = 4u32;
@@ -2446,9 +2321,6 @@ impl Default for DSCLASSCREATIONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSCLASSCREATIONINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSCOLUMN {
@@ -2463,9 +2335,6 @@ impl Default for DSCOLUMN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSCOLUMN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2482,9 +2351,6 @@ impl Default for DSDISPLAYSPECOPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSDISPLAYSPECOPTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSDSOF_DONTSIGNSEAL: u32 = 4u32;
 pub const DSDSOF_DSAVAILABLE: u32 = 1073741824u32;
@@ -2511,9 +2377,6 @@ impl Default for DSOBJECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSOBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSOBJECTNAMES {
@@ -2525,9 +2388,6 @@ impl Default for DSOBJECTNAMES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSOBJECTNAMES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSOBJECT_ISCONTAINER: u32 = 1u32;
 pub const DSOBJECT_READONLYPAGES: u32 = 2147483648u32;
@@ -2576,9 +2436,6 @@ impl Default for DSOP_FILTER_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSOP_FILTER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSOP_FILTER_GLOBAL_GROUPS_DL: u32 = 64u32;
 pub const DSOP_FILTER_GLOBAL_GROUPS_SE: u32 = 128u32;
 pub const DSOP_FILTER_INCLUDE_ADVANCED_VIEW: u32 = 1u32;
@@ -2605,9 +2462,6 @@ impl Default for DSOP_INIT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSOP_INIT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_CONTACTS: u32 = 512u32;
@@ -2637,9 +2491,6 @@ impl Default for DSOP_SCOPE_INIT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSOP_SCOPE_INIT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
 pub const DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN: u32 = 8u32;
 pub const DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN: u32 = 64u32;
@@ -2662,9 +2513,6 @@ impl Default for DSOP_UPLEVEL_FILTER_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSOP_UPLEVEL_FILTER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSPROPERTYPAGEINFO {
@@ -2674,9 +2522,6 @@ impl Default for DSPROPERTYPAGEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSPROPERTYPAGEINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSPROP_ATTRCHANGED_MSG: windows_core::PCWSTR = windows_core::w!("DsPropAttrChanged");
 pub const DSPROVIDER_ADVANCED: u32 = 16u32;
@@ -2706,9 +2551,6 @@ impl Default for DSQUERYCLASSLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSQUERYCLASSLIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSQUERYINITPARAMS {
@@ -2724,9 +2566,6 @@ impl Default for DSQUERYINITPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSQUERYINITPARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2744,9 +2583,6 @@ impl Default for DSQUERYPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSQUERYPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSROLE_MACHINE_ROLE(pub i32);
@@ -2763,9 +2599,6 @@ impl Default for DSROLE_OPERATION_STATE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSROLE_OPERATION_STATE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2781,9 +2614,6 @@ impl Default for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2805,9 +2635,6 @@ impl Default for DSROLE_UPGRADE_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSROLE_UPGRADE_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSSSF_DONTSIGNSEAL: u32 = 2u32;
 pub const DSSSF_DSAVAILABLE: u32 = 2147483648u32;
@@ -2857,9 +2684,6 @@ impl Default for DS_DOMAIN_CONTROLLER_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
@@ -2875,9 +2699,6 @@ impl Default for DS_DOMAIN_CONTROLLER_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_1W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2902,9 +2723,6 @@ impl Default for DS_DOMAIN_CONTROLLER_INFO_2A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_2A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
@@ -2927,9 +2745,6 @@ impl Default for DS_DOMAIN_CONTROLLER_INFO_2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_2W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2955,9 +2770,6 @@ impl Default for DS_DOMAIN_CONTROLLER_INFO_3A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_3A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
@@ -2981,9 +2793,6 @@ impl Default for DS_DOMAIN_CONTROLLER_INFO_3W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_3W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
 pub const DS_DOMAIN_DIRECT_OUTBOUND: u32 = 2u32;
@@ -3010,10 +2819,6 @@ impl Default for DS_DOMAIN_TRUSTSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for DS_DOMAIN_TRUSTSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3032,10 +2837,6 @@ impl Default for DS_DOMAIN_TRUSTSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for DS_DOMAIN_TRUSTSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DS_DS_10_FLAG: u32 = 65536u32;
 pub const DS_DS_8_FLAG: u32 = 16384u32;
@@ -3111,9 +2912,6 @@ impl Default for DS_NAME_RESULTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_NAME_RESULTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_NAME_RESULTW {
@@ -3124,9 +2922,6 @@ impl Default for DS_NAME_RESULTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_NAME_RESULTW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3140,9 +2935,6 @@ impl Default for DS_NAME_RESULT_ITEMA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_NAME_RESULT_ITEMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_NAME_RESULT_ITEMW {
@@ -3154,9 +2946,6 @@ impl Default for DS_NAME_RESULT_ITEMW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_NAME_RESULT_ITEMW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DS_NDNC_FLAG: u32 = 1024u32;
 pub const DS_NOTIFY_AFTER_SITE_RECORDS: u32 = 2u32;
@@ -3204,9 +2993,6 @@ impl Default for DS_REPL_ATTR_META_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_ATTR_META_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_META_DATA_2 {
@@ -3222,9 +3008,6 @@ impl Default for DS_REPL_ATTR_META_DATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_ATTR_META_DATA_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3242,9 +3025,6 @@ impl Default for DS_REPL_ATTR_META_DATA_BLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_ATTR_META_DATA_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA {
@@ -3256,9 +3036,6 @@ impl Default for DS_REPL_ATTR_VALUE_META_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_ATTR_VALUE_META_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3272,9 +3049,6 @@ impl Default for DS_REPL_ATTR_VALUE_META_DATA_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_ATTR_VALUE_META_DATA_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
@@ -3287,9 +3061,6 @@ impl Default for DS_REPL_ATTR_VALUE_META_DATA_EXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_ATTR_VALUE_META_DATA_EXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSOR {
@@ -3300,9 +3071,6 @@ impl Default for DS_REPL_CURSOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_CURSOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3316,9 +3084,6 @@ impl Default for DS_REPL_CURSORS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_CURSORS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSORS_2 {
@@ -3330,9 +3095,6 @@ impl Default for DS_REPL_CURSORS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_CURSORS_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3346,9 +3108,6 @@ impl Default for DS_REPL_CURSORS_3W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_CURSORS_3W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSOR_2 {
@@ -3360,9 +3119,6 @@ impl Default for DS_REPL_CURSOR_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_CURSOR_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3377,9 +3133,6 @@ impl Default for DS_REPL_CURSOR_3W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_CURSOR_3W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSOR_BLOB {
@@ -3392,9 +3145,6 @@ impl Default for DS_REPL_CURSOR_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_CURSOR_BLOB {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DS_REPL_INFO_CURSORS_2_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(7i32);
 pub const DS_REPL_INFO_CURSORS_3_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(8i32);
@@ -3425,9 +3175,6 @@ impl Default for DS_REPL_KCC_DSA_FAILURESW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_KCC_DSA_FAILURESW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_KCC_DSA_FAILUREW {
@@ -3442,9 +3189,6 @@ impl Default for DS_REPL_KCC_DSA_FAILUREW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_KCC_DSA_FAILUREW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
@@ -3458,9 +3202,6 @@ impl Default for DS_REPL_KCC_DSA_FAILUREW_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_KCC_DSA_FAILUREW_BLOB {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456u32;
 pub const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: u32 = 134217728u32;
@@ -3492,9 +3233,6 @@ impl Default for DS_REPL_NEIGHBORSW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_NEIGHBORSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_NEIGHBORW {
@@ -3519,9 +3257,6 @@ impl Default for DS_REPL_NEIGHBORW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_NEIGHBORW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3548,9 +3283,6 @@ impl Default for DS_REPL_NEIGHBORW_BLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_NEIGHBORW_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_OBJ_META_DATA {
@@ -3563,9 +3295,6 @@ impl Default for DS_REPL_OBJ_META_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_OBJ_META_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_OBJ_META_DATA_2 {
@@ -3577,9 +3306,6 @@ impl Default for DS_REPL_OBJ_META_DATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_OBJ_META_DATA_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3600,9 +3326,6 @@ impl Default for DS_REPL_OPW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_OPW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_OPW_BLOB {
@@ -3621,9 +3344,6 @@ impl Default for DS_REPL_OPW_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_OPW_BLOB {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3645,9 +3365,6 @@ impl Default for DS_REPL_PENDING_OPSW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_PENDING_OPSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_QUEUE_STATISTICSW {
@@ -3663,9 +3380,6 @@ impl Default for DS_REPL_QUEUE_STATISTICSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_QUEUE_STATISTICSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3686,9 +3400,6 @@ impl Default for DS_REPL_VALUE_META_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3711,9 +3422,6 @@ impl Default for DS_REPL_VALUE_META_DATA_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB {
@@ -3734,9 +3442,6 @@ impl Default for DS_REPL_VALUE_META_DATA_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_BLOB {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3762,9 +3467,6 @@ impl Default for DS_REPL_VALUE_META_DATA_BLOB_EXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_BLOB_EXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_EXT {
@@ -3788,9 +3490,6 @@ impl Default for DS_REPL_VALUE_META_DATA_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_EXT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
 pub const DS_REPMOD_UPDATE_ADDRESS: u32 = 2u32;
@@ -3816,9 +3515,6 @@ impl Default for DS_REPSYNCALL_ERRINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPSYNCALL_ERRINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_ERRINFOW {
@@ -3831,9 +3527,6 @@ impl Default for DS_REPSYNCALL_ERRINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPSYNCALL_ERRINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3864,9 +3557,6 @@ impl Default for DS_REPSYNCALL_SYNCA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPSYNCALL_SYNCA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_SYNCW {
@@ -3881,9 +3571,6 @@ impl Default for DS_REPSYNCALL_SYNCW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPSYNCALL_SYNCW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3897,9 +3584,6 @@ impl Default for DS_REPSYNCALL_UPDATEA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_REPSYNCALL_UPDATEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_UPDATEW {
@@ -3911,9 +3595,6 @@ impl Default for DS_REPSYNCALL_UPDATEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_REPSYNCALL_UPDATEW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DS_REPSYNCALL_WIN32_ERROR_CONTACTING_SERVER: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(0i32);
 pub const DS_REPSYNCALL_WIN32_ERROR_REPLICATING: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(1i32);
@@ -3970,9 +3651,6 @@ impl Default for DS_SCHEMA_GUID_MAPA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS_SCHEMA_GUID_MAPA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_SCHEMA_GUID_MAPW {
@@ -3984,9 +3662,6 @@ impl Default for DS_SCHEMA_GUID_MAPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_SCHEMA_GUID_MAPW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
 #[repr(C)]
@@ -4006,10 +3681,6 @@ impl Default for DS_SELECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DS_SELECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4024,10 +3695,6 @@ impl Default for DS_SELECTION_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DS_SELECTION_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
 pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(10i32);
 pub const DS_SID_OR_SID_HISTORY_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(11i32);
@@ -4041,9 +3708,6 @@ impl Default for DS_SITE_COST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS_SITE_COST_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DS_SPN_ADD_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(0i32);
 pub const DS_SPN_DELETE_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(2i32);
@@ -16124,10 +15788,6 @@ impl Default for OPENQUERYWINDOW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::TypeKind for OPENQUERYWINDOW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub union OPENQUERYWINDOW_0 {
@@ -16145,10 +15805,6 @@ impl Default for OPENQUERYWINDOW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::TypeKind for OPENQUERYWINDOW_0 {
-    type TypeKind = windows_core::CloneType;
 }
 pub const OQWF_DEFAULTFORM: u32 = 2u32;
 pub const OQWF_HIDEMENUS: u32 = 1024u32;
@@ -16184,9 +15840,6 @@ impl Default for SCHEDULE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCHEDULE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SCHEDULE_BANDWIDTH: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -16198,9 +15851,6 @@ impl Default for SCHEDULE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCHEDULE_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCHEDULE_INTERVAL: u32 = 0u32;
 pub const SCHEDULE_PRIORITY: u32 = 2u32;

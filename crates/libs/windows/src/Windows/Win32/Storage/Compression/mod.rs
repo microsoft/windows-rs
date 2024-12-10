@@ -105,9 +105,6 @@ impl Default for COMPRESS_ALLOCATION_ROUTINES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMPRESS_ALLOCATION_ROUTINES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPRESS_INFORMATION_CLASS(pub i32);

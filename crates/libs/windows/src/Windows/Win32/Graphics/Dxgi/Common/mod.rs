@@ -178,9 +178,6 @@ impl Default for DXGI_GAMMA_CONTROL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_GAMMA_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_GAMMA_CONTROL_CAPABILITIES {
@@ -195,9 +192,6 @@ impl Default for DXGI_GAMMA_CONTROL_CAPABILITIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_GAMMA_CONTROL_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_JPEG_AC_HUFFMAN_TABLE {
@@ -208,9 +202,6 @@ impl Default for DXGI_JPEG_AC_HUFFMAN_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_JPEG_AC_HUFFMAN_TABLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -223,9 +214,6 @@ impl Default for DXGI_JPEG_DC_HUFFMAN_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_JPEG_DC_HUFFMAN_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_JPEG_QUANTIZATION_TABLE {
@@ -235,9 +223,6 @@ impl Default for DXGI_JPEG_QUANTIZATION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_JPEG_QUANTIZATION_TABLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -253,9 +238,6 @@ impl Default for DXGI_MODE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_MODE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -289,9 +271,6 @@ impl Default for DXGI_RATIONAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_RATIONAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_RGB {
@@ -304,9 +283,6 @@ impl Default for DXGI_RGB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_RGB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_SAMPLE_DESC {
@@ -317,9 +293,6 @@ impl Default for DXGI_SAMPLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_SAMPLE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967295u32;
 pub const _FACDXGI: u32 = 2170u32;

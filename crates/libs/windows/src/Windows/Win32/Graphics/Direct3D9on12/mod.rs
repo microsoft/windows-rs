@@ -24,9 +24,6 @@ impl Default for D3D9ON12_ARGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D9ON12_ARGS {
-    type TypeKind = windows_core::CloneType;
-}
 windows_core::imp::define_interface!(IDirect3DDevice9On12, IDirect3DDevice9On12_Vtbl, 0xe7fda234_b589_4049_940d_8878977531c8);
 windows_core::imp::interface_hierarchy!(IDirect3DDevice9On12, windows_core::IUnknown);
 impl IDirect3DDevice9On12 {

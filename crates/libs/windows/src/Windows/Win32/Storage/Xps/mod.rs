@@ -126,9 +126,6 @@ impl Default for DOCINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOCINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOCINFOW {
@@ -143,9 +140,6 @@ impl Default for DOCINFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOCINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRAWPATRECT {
@@ -158,9 +152,6 @@ impl Default for DRAWPATRECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRAWPATRECT {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IXpsDocumentPackageTarget, IXpsDocumentPackageTarget_Vtbl, 0x3b0b6d38_53ad_41da_b212_d37637a6714e);
 windows_core::imp::interface_hierarchy!(IXpsDocumentPackageTarget, windows_core::IUnknown);
@@ -10756,9 +10747,6 @@ impl Default for PSFEATURE_CUSTPAPER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSFEATURE_CUSTPAPER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSFEATURE_OUTPUT {
@@ -10769,9 +10757,6 @@ impl Default for PSFEATURE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSFEATURE_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10784,9 +10769,6 @@ impl Default for PSINJECTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSINJECTDATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PSINJECT_BEGINDEFAULTS: PSINJECT_POINT = PSINJECT_POINT(12u16);
 pub const PSINJECT_BEGINPAGESETUP: PSINJECT_POINT = PSINJECT_POINT(101u16);
@@ -10867,9 +10849,6 @@ impl Default for XPS_COLOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPS_COLOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union XPS_COLOR_0 {
@@ -10882,9 +10861,6 @@ impl Default for XPS_COLOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPS_COLOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_COLOR_0_2 {
@@ -10895,9 +10871,6 @@ impl Default for XPS_COLOR_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XPS_COLOR_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10912,9 +10885,6 @@ impl Default for XPS_COLOR_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPS_COLOR_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_COLOR_0_1 {
@@ -10927,9 +10897,6 @@ impl Default for XPS_COLOR_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XPS_COLOR_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10952,9 +10919,6 @@ impl Default for XPS_DASH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XPS_DASH {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11079,9 +11043,6 @@ impl Default for XPS_GLYPH_INDEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPS_GLYPH_INDEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_GLYPH_MAPPING {
@@ -11094,9 +11055,6 @@ impl Default for XPS_GLYPH_MAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XPS_GLYPH_MAPPING {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11139,9 +11097,6 @@ impl Default for XPS_MATRIX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPS_MATRIX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_OBJECT_TYPE(pub i32);
@@ -11166,9 +11121,6 @@ impl Default for XPS_POINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPS_POINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_RECT {
@@ -11181,9 +11133,6 @@ impl Default for XPS_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XPS_RECT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11299,9 +11248,6 @@ impl Default for XPS_SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XPS_SIZE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

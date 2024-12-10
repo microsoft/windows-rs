@@ -11,9 +11,6 @@ impl Default for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEVINTERFACE_AUDIOENDPOINTPLUGIN: windows_core::GUID = windows_core::GUID::from_u128(0x9f2f7b66_65ac_4fa6_8ae4_123c78b89313);
 pub const DEVPKEY_AudioEndpointPlugin2_FactoryCLSID: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 4 };
 pub const DEVPKEY_AudioEndpointPlugin_DataFlow: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 2 };

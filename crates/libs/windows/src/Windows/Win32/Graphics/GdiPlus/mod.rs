@@ -3399,9 +3399,6 @@ impl Default for BitmapData {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BitmapData {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Blur {
@@ -3411,9 +3408,6 @@ impl Default for Blur {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for Blur {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BlurEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x633c80a4_1843_482b_9ef2_be2834c5fdd4);
 #[repr(C)]
@@ -3427,9 +3421,6 @@ impl Default for BlurParams {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BlurParams {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BrightnessContrast {
@@ -3439,9 +3430,6 @@ impl Default for BrightnessContrast {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BrightnessContrast {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BrightnessContrastEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0xd3a1dbe1_8ec4_4c17_9f4c_ea97ad1c343d);
 #[repr(C)]
@@ -3454,9 +3442,6 @@ impl Default for BrightnessContrastParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BrightnessContrastParams {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3488,9 +3473,6 @@ impl Default for CharacterRange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CharacterRange {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CodecIImageBytes: windows_core::GUID = windows_core::GUID::from_u128(0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
 #[repr(C)]
@@ -3654,9 +3636,6 @@ impl Default for Color {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for Color {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ColorAdjustType(pub i32);
@@ -3677,9 +3656,6 @@ impl Default for ColorBalance {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ColorBalance {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ColorBalanceEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x537e597d_251e_48da_9664_29ca496b70f8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3692,9 +3668,6 @@ impl Default for ColorBalanceParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ColorBalanceParams {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3714,9 +3687,6 @@ impl Default for ColorCurve {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ColorCurve {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ColorCurveEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0xdd6a0022_58e4_4a67_9d9b_d48eb881a53d);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3730,9 +3700,6 @@ impl Default for ColorCurveParams {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ColorCurveParams {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ColorLUT {
@@ -3742,9 +3709,6 @@ impl Default for ColorLUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ColorLUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ColorLUTEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0xa7ce72a9_0f7f_40d7_b3cc_d0c02d5c3212);
 #[repr(C)]
@@ -3760,9 +3724,6 @@ impl Default for ColorLUTParams {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ColorLUTParams {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ColorMap {
@@ -3774,9 +3735,6 @@ impl Default for ColorMap {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ColorMap {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ColorMatrix {
@@ -3787,9 +3745,6 @@ impl Default for ColorMatrix {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ColorMatrix {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ColorMatrixEffect {
@@ -3799,9 +3754,6 @@ impl Default for ColorMatrixEffect {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ColorMatrixEffect {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ColorMatrixEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x718f2615_7933_40e3_a511_5f68fe14dd74);
 #[repr(transparent)]
@@ -3826,9 +3778,6 @@ impl Default for ColorPalette {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ColorPalette {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3954,9 +3903,6 @@ impl Default for ENHMETAHEADER3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENHMETAHEADER3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Effect {
@@ -3970,9 +3916,6 @@ impl Default for Effect {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for Effect {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EmfPlusRecordTotal: EmfPlusRecordType = EmfPlusRecordType(16443i32);
 #[repr(transparent)]
@@ -4195,9 +4138,6 @@ impl Default for EncoderParameter {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EncoderParameter {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EncoderParameterValueType(pub i32);
@@ -4220,9 +4160,6 @@ impl Default for EncoderParameters {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EncoderParameters {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EncoderQuality: windows_core::GUID = windows_core::GUID::from_u128(0x1d5be4b5_fa4a_452d_9cdd_5db35105e7eb);
 pub const EncoderRenderMethod: windows_core::GUID = windows_core::GUID::from_u128(0x6d42c53a_229a_4825_8bb7_5c99e2b9a8b8);
@@ -4360,9 +4297,6 @@ impl Default for GdiplusStartupInput {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GdiplusStartupInput {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GdiplusStartupInputEx {
@@ -4373,9 +4307,6 @@ impl Default for GdiplusStartupInputEx {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GdiplusStartupInputEx {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GdiplusStartupNoSetRound: GdiplusStartupParams = GdiplusStartupParams(1i32);
 #[repr(C)]
@@ -4388,9 +4319,6 @@ impl Default for GdiplusStartupOutput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GdiplusStartupOutput {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4413,9 +4341,6 @@ impl Default for GpAdjustableArrowCap {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpAdjustableArrowCap {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpBitmap(pub u8);
@@ -4423,9 +4348,6 @@ impl Default for GpBitmap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpBitmap {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4435,9 +4357,6 @@ impl Default for GpBrush {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpBrush {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpCachedBitmap(pub u8);
@@ -4445,9 +4364,6 @@ impl Default for GpCachedBitmap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpCachedBitmap {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4457,9 +4373,6 @@ impl Default for GpCustomLineCap {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpCustomLineCap {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpFont(pub u8);
@@ -4467,9 +4380,6 @@ impl Default for GpFont {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpFont {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4479,9 +4389,6 @@ impl Default for GpFontCollection {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpFontCollection {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpFontFamily(pub u8);
@@ -4489,9 +4396,6 @@ impl Default for GpFontFamily {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpFontFamily {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4501,9 +4405,6 @@ impl Default for GpGraphics {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpGraphics {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpHatch(pub u8);
@@ -4511,9 +4412,6 @@ impl Default for GpHatch {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpHatch {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4523,9 +4421,6 @@ impl Default for GpImage {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpImage {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpImageAttributes(pub u8);
@@ -4533,9 +4428,6 @@ impl Default for GpImageAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpImageAttributes {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4545,9 +4437,6 @@ impl Default for GpInstalledFontCollection {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpInstalledFontCollection {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpLineGradient(pub u8);
@@ -4555,9 +4444,6 @@ impl Default for GpLineGradient {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpLineGradient {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4567,9 +4453,6 @@ impl Default for GpMetafile {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpMetafile {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpPath(pub u8);
@@ -4577,9 +4460,6 @@ impl Default for GpPath {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpPath {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4589,9 +4469,6 @@ impl Default for GpPathGradient {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpPathGradient {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpPathIterator(pub u8);
@@ -4599,9 +4476,6 @@ impl Default for GpPathIterator {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpPathIterator {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4611,9 +4485,6 @@ impl Default for GpPen {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpPen {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpPrivateFontCollection(pub u8);
@@ -4621,9 +4492,6 @@ impl Default for GpPrivateFontCollection {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpPrivateFontCollection {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4633,9 +4501,6 @@ impl Default for GpRegion {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpRegion {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpSolidFill(pub u8);
@@ -4644,9 +4509,6 @@ impl Default for GpSolidFill {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpSolidFill {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpStringFormat(pub u8);
@@ -4654,9 +4516,6 @@ impl Default for GpStringFormat {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpStringFormat {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4668,9 +4527,6 @@ impl Default for GpTexture {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpTexture {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4759,9 +4615,6 @@ impl Default for HueSaturationLightness {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HueSaturationLightness {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HueSaturationLightnessEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x8b2dd6c3_eb07_4d87_a5f0_7108e26a9c5f);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4774,9 +4627,6 @@ impl Default for HueSaturationLightnessParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HueSaturationLightnessParams {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IImageBytes, IImageBytes_Vtbl, 0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
 windows_core::imp::interface_hierarchy!(IImageBytes, windows_core::IUnknown);
@@ -4870,9 +4720,6 @@ impl Default for ImageCodecInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ImageCodecInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ImageFlags(pub i32);
@@ -4918,9 +4765,6 @@ impl Default for ImageItemData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ImageItemData {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4970,9 +4814,6 @@ impl Default for Levels {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for Levels {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LevelsEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x99c354ec_2a31_4f3a_8c34_17a803b33a25);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4985,9 +4826,6 @@ impl Default for LevelsParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LevelsParams {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5068,10 +4906,6 @@ impl Default for MetafileHeader {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MetafileHeader {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -5084,10 +4918,6 @@ impl Default for MetafileHeader_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MetafileHeader_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5133,9 +4963,6 @@ impl Default for PWMFRect16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PWMFRect16 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5216,9 +5043,6 @@ impl Default for Point {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for Point {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PointF {
@@ -5229,9 +5053,6 @@ impl Default for PointF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PointF {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -5252,9 +5073,6 @@ impl Default for PropertyItem {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PropertyItem {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PropertyNotFound: Status = Status(19i32);
 pub const PropertyNotSupported: Status = Status(20i32);
@@ -5522,9 +5340,6 @@ impl Default for Rect {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for Rect {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RectF {
@@ -5538,9 +5353,6 @@ impl Default for RectF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RectF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RedEyeCorrection {
@@ -5550,9 +5362,6 @@ impl Default for RedEyeCorrection {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RedEyeCorrection {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RedEyeCorrectionEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x74d29d05_69a4_4266_9549_3cc52836b632);
 #[repr(C)]
@@ -5565,9 +5374,6 @@ impl Default for RedEyeCorrectionParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RedEyeCorrectionParams {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -5604,9 +5410,6 @@ impl Default for Sharpen {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for Sharpen {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SharpenEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x63cbf3ee_c526_402c_8f71_62c540bf5142);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5619,9 +5422,6 @@ impl Default for SharpenParams {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SharpenParams {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Size {
@@ -5633,9 +5433,6 @@ impl Default for Size {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for Size {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SizeF {
@@ -5646,9 +5443,6 @@ impl Default for SizeF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SizeF {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5721,9 +5515,6 @@ impl Default for Tint {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for Tint {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TintEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x1077af00_2848_4441_9489_44ad4c2d7a2c);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5735,9 +5526,6 @@ impl Default for TintParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TintParams {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5772,9 +5560,6 @@ impl Default for WmfPlaceableFileHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WmfPlaceableFileHeader {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WmfRecordTypeAbortDoc: EmfPlusRecordType = EmfPlusRecordType(65618i32);
 pub const WmfRecordTypeAnimatePalette: EmfPlusRecordType = EmfPlusRecordType(66614i32);

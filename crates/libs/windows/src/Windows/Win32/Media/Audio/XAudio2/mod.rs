@@ -47,9 +47,6 @@ impl Default for FXECHO_INITDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FXECHO_INITDATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FXECHO_MAX_DELAY: f32 = 2000f32;
 pub const FXECHO_MAX_FEEDBACK: f32 = 1f32;
 pub const FXECHO_MAX_WETDRYMIX: f32 = 1f32;
@@ -67,9 +64,6 @@ impl Default for FXECHO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FXECHO_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FXEQ: windows_core::GUID = windows_core::GUID::from_u128(0xf5e01117_d6c4_485a_a3f5_695196f3dbfa);
 pub const FXEQ_DEFAULT_BANDWIDTH: f32 = 1f32;
@@ -107,9 +101,6 @@ impl Default for FXEQ_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FXEQ_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FXEcho: windows_core::GUID = windows_core::GUID::from_u128(0x5039d740_f736_449a_84d3_a56202557b87);
 pub const FXLOUDNESS_DEFAULT_MOMENTARY_MS: u32 = 400u32;
 pub const FXLOUDNESS_DEFAULT_SHORTTERM_MS: u32 = 3000u32;
@@ -130,9 +121,6 @@ impl Default for FXMASTERINGLIMITER_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FXMASTERINGLIMITER_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FXMasteringLimiter: windows_core::GUID = windows_core::GUID::from_u128(0xc4137916_2be1_46fd_8599_441536f49856);
 pub const FXREVERB_DEFAULT_DIFFUSION: f32 = 0.9f32;
 pub const FXREVERB_DEFAULT_ROOMSIZE: f32 = 0.6f32;
@@ -150,9 +138,6 @@ impl Default for FXREVERB_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FXREVERB_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FXReverb: windows_core::GUID = windows_core::GUID::from_u128(0x7d9aca56_cb68_4807_b632_b137352e8596);
 pub const HRTF_DEFAULT_UNITY_GAIN_DISTANCE: f32 = 1f32;
@@ -172,9 +157,6 @@ impl Default for HrtfApoInit {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HrtfApoInit {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfDirectivity {
@@ -185,9 +167,6 @@ impl Default for HrtfDirectivity {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HrtfDirectivity {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -200,9 +179,6 @@ impl Default for HrtfDirectivityCardioid {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HrtfDirectivityCardioid {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfDirectivityCone {
@@ -214,9 +190,6 @@ impl Default for HrtfDirectivityCone {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HrtfDirectivityCone {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -235,9 +208,6 @@ impl Default for HrtfDistanceDecay {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HrtfDistanceDecay {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HrtfDistanceDecayType(pub i32);
@@ -254,9 +224,6 @@ impl Default for HrtfOrientation {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HrtfOrientation {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfPosition {
@@ -268,9 +235,6 @@ impl Default for HrtfPosition {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HrtfPosition {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IXAPO, IXAPO_Vtbl, 0xa410b984_9839_4819_a0be_2856ae6b3adb);
 windows_core::imp::interface_hierarchy!(IXAPO, windows_core::IUnknown);
@@ -1399,9 +1363,6 @@ impl Default for XAPO_LOCKFORPROCESS_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XAPO_LOCKFORPROCESS_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const XAPO_MAX_CHANNELS: u32 = 64u32;
 pub const XAPO_MAX_FRAMERATE: u32 = 200000u32;
 pub const XAPO_MIN_CHANNELS: u32 = 1u32;
@@ -1417,9 +1378,6 @@ impl Default for XAPO_PROCESS_BUFFER_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XAPO_PROCESS_BUFFER_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1439,9 +1397,6 @@ impl Default for XAPO_REGISTRATION_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XAPO_REGISTRATION_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const XAPO_REGISTRATION_STRING_LENGTH: u32 = 256u32;
 pub const XAUDIO2D_DLL: windows_core::PCWSTR = windows_core::w!("xaudio2_9d.dll");
@@ -1491,9 +1446,6 @@ impl Default for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const XAUDIO2FX_REVERB_MAX_7POINT1_REAR_DELAY: u32 = 20u32;
 pub const XAUDIO2FX_REVERB_MAX_7POINT1_SIDE_DELAY: u32 = 5u32;
@@ -1569,9 +1521,6 @@ impl Default for XAUDIO2FX_REVERB_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XAUDIO2FX_REVERB_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct XAUDIO2FX_VOLUMEMETER_LEVELS {
@@ -1583,9 +1532,6 @@ impl Default for XAUDIO2FX_VOLUMEMETER_LEVELS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XAUDIO2FX_VOLUMEMETER_LEVELS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const XAUDIO2_1024_QUANTUM: u32 = 32768u32;
 pub const XAUDIO2_ANY_PROCESSOR: u32 = 4294967295u32;
@@ -1607,9 +1553,6 @@ impl Default for XAUDIO2_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XAUDIO2_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct XAUDIO2_BUFFER_WMA {
@@ -1620,9 +1563,6 @@ impl Default for XAUDIO2_BUFFER_WMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XAUDIO2_BUFFER_WMA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const XAUDIO2_COMMIT_ALL: u32 = 0u32;
 pub const XAUDIO2_COMMIT_NOW: u32 = 0u32;
@@ -1640,9 +1580,6 @@ impl Default for XAUDIO2_DEBUG_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XAUDIO2_DEBUG_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const XAUDIO2_DEBUG_ENGINE: u32 = 1u32;
 pub const XAUDIO2_DEFAULT_CHANNELS: u32 = 0u32;
@@ -1665,9 +1602,6 @@ impl Default for XAUDIO2_EFFECT_CHAIN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XAUDIO2_EFFECT_CHAIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 pub struct XAUDIO2_EFFECT_DESCRIPTOR {
     pub pEffect: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
@@ -1678,9 +1612,6 @@ impl Default for XAUDIO2_EFFECT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XAUDIO2_EFFECT_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
 }
 pub const XAUDIO2_END_OF_STREAM: u32 = 64u32;
 pub const XAUDIO2_E_DEVICE_INVALIDATED: windows_core::HRESULT = windows_core::HRESULT(0x88960004_u32 as _);
@@ -1698,9 +1629,6 @@ impl Default for XAUDIO2_FILTER_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XAUDIO2_FILTER_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1755,9 +1683,6 @@ impl Default for XAUDIO2_PERFORMANCE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XAUDIO2_PERFORMANCE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const XAUDIO2_PLAY_TAILS: u32 = 32u32;
 pub const XAUDIO2_QUANTUM_DENOMINATOR: u32 = 100u32;
 pub const XAUDIO2_QUANTUM_NUMERATOR: u32 = 1u32;
@@ -1770,9 +1695,6 @@ impl Default for XAUDIO2_SEND_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XAUDIO2_SEND_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
 }
 pub const XAUDIO2_SEND_USEFILTER: u32 = 128u32;
 pub const XAUDIO2_STOP_ENGINE_WHEN_IDLE: u32 = 8192u32;
@@ -1790,9 +1712,6 @@ impl Default for XAUDIO2_VOICE_DETAILS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XAUDIO2_VOICE_DETAILS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const XAUDIO2_VOICE_NOPITCH: u32 = 2u32;
 pub const XAUDIO2_VOICE_NOSAMPLESPLAYED: u32 = 256u32;
 pub const XAUDIO2_VOICE_NOSRC: u32 = 4u32;
@@ -1807,9 +1726,6 @@ impl Default for XAUDIO2_VOICE_SENDS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XAUDIO2_VOICE_SENDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct XAUDIO2_VOICE_STATE {
@@ -1821,8 +1737,5 @@ impl Default for XAUDIO2_VOICE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XAUDIO2_VOICE_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;

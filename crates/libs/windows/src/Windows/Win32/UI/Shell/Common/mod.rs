@@ -9,9 +9,6 @@ impl Default for COMDLG_FILTERSPEC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMDLG_FILTERSPEC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_SCALE_FACTOR(pub i32);
@@ -147,9 +144,6 @@ impl Default for ITEMIDLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ITEMIDLIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERCEIVED(pub i32);
@@ -227,9 +221,6 @@ impl Default for SHELLDETAILS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SHELLDETAILS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SHITEMID {
@@ -240,9 +231,6 @@ impl Default for SHITEMID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SHITEMID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -255,9 +243,6 @@ impl Default for STRRET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STRRET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STRRET_0 {
@@ -269,9 +254,6 @@ impl Default for STRRET_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STRRET_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STRRET_CSTR: STRRET_TYPE = STRRET_TYPE(2i32);
 pub const STRRET_OFFSET: STRRET_TYPE = STRRET_TYPE(1i32);

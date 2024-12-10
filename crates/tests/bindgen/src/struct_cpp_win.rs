@@ -19,6 +19,3 @@ impl Default for RECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RECT {
-    type TypeKind = windows_core::CopyType;
-}

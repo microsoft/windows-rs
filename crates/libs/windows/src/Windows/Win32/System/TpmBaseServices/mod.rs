@@ -94,9 +94,6 @@ impl Default for TBS_CONTEXT_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TBS_CONTEXT_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TBS_CONTEXT_PARAMS2 {
@@ -107,9 +104,6 @@ impl Default for TBS_CONTEXT_PARAMS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TBS_CONTEXT_PARAMS2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -122,9 +116,6 @@ impl Default for TBS_CONTEXT_PARAMS2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TBS_CONTEXT_PARAMS2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TBS_CONTEXT_PARAMS2_0_0 {
@@ -134,9 +125,6 @@ impl Default for TBS_CONTEXT_PARAMS2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TBS_CONTEXT_PARAMS2_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TBS_CONTEXT_VERSION_ONE: u32 = 1u32;
 pub const TBS_CONTEXT_VERSION_TWO: u32 = 2u32;
@@ -166,9 +154,6 @@ impl Default for TPM_DEVICE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TPM_DEVICE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TPM_IFTYPE_1: u32 = 1u32;
 pub const TPM_IFTYPE_EMULATOR: u32 = 4u32;
 pub const TPM_IFTYPE_HW: u32 = 3u32;
@@ -191,7 +176,4 @@ impl Default for TPM_WNF_PROVISIONING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TPM_WNF_PROVISIONING {
-    type TypeKind = windows_core::CopyType;
 }

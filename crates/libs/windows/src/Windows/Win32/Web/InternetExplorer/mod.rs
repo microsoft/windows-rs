@@ -1320,9 +1320,6 @@ impl Default for IELAUNCHURLINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IELAUNCHURLINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const IEPROCESS_MODULE_NAME: windows_core::PCWSTR = windows_core::w!("IERtUtil.dll");
 pub const IEWebDriverManager: windows_core::GUID = windows_core::GUID::from_u128(0x90314af2_5250_47b3_89d8_6295fc23bc22);
 pub const IE_USE_OE_MAIL_HKEY: i32 = -2147483647i32;
@@ -6304,9 +6301,6 @@ impl Default for NAVIGATEDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NAVIGATEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAVIGATEFRAME_FLAGS(pub i32);
@@ -6499,9 +6493,6 @@ impl Default for STATURL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STATURL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STATURLFLAG_ISCACHED: u32 = 1u32;
 pub const STATURLFLAG_ISTOPLEVEL: u32 = 2u32;

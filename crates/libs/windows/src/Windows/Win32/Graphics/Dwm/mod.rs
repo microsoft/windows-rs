@@ -265,10 +265,6 @@ impl Default for DWM_BLURBEHIND {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DWM_BLURBEHIND {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DWM_CLOAKED_APP: u32 = 1u32;
 pub const DWM_CLOAKED_INHERITED: u32 = 4u32;
 pub const DWM_CLOAKED_SHELL: u32 = 2u32;
@@ -291,9 +287,6 @@ impl Default for DWM_PRESENT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWM_PRESENT_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -392,9 +385,6 @@ impl Default for DWM_THUMBNAIL_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWM_THUMBNAIL_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DWM_TIMING_INFO {
@@ -444,9 +434,6 @@ impl Default for DWM_TIMING_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWM_TIMING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DWM_TNP_OPACITY: u32 = 4u32;
 pub const DWM_TNP_RECTDESTINATION: u32 = 1u32;
 pub const DWM_TNP_RECTSOURCE: u32 = 2u32;
@@ -484,9 +471,6 @@ impl Default for MilMatrix3x2D {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MilMatrix3x2D {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct UNSIGNED_RATIO {
@@ -497,9 +481,6 @@ impl Default for UNSIGNED_RATIO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UNSIGNED_RATIO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const c_DwmMaxAdapters: u32 = 16u32;
 pub const c_DwmMaxMonitors: u32 = 16u32;

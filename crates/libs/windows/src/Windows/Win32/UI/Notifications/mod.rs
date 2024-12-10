@@ -41,6 +41,3 @@ impl Default for NOTIFICATION_USER_INPUT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NOTIFICATION_USER_INPUT_DATA {
-    type TypeKind = windows_core::CopyType;
-}

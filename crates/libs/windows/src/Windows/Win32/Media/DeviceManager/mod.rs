@@ -4682,9 +4682,6 @@ impl Default for MACINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MACINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MDSP_READ: u32 = 1u32;
 pub const MDSP_SEEK_BOF: u32 = 1u32;
 pub const MDSP_SEEK_CUR: u32 = 2u32;
@@ -4705,9 +4702,6 @@ impl Default for MTP_COMMAND_DATA_IN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MTP_COMMAND_DATA_IN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MTP_COMMAND_DATA_OUT {
@@ -4721,9 +4715,6 @@ impl Default for MTP_COMMAND_DATA_OUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MTP_COMMAND_DATA_OUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MTP_COMMAND_MAX_PARAMS: u32 = 5u32;
 pub const MTP_NEXTPHASE_NO_DATA: u32 = 3u32;
@@ -4745,9 +4736,6 @@ impl Default for OPAQUECOMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OPAQUECOMMAND {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RSA_KEY_LEN: u32 = 64u32;
 pub const SAC_CERT_V1: u32 = 2u32;
@@ -4774,9 +4762,6 @@ impl Default for WMDMDATETIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WMDMDATETIME {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4869,9 +4854,6 @@ impl Default for WMDMDetermineMaxPropStringLen {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WMDMDetermineMaxPropStringLen {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WMDMDevice: windows_core::GUID = windows_core::GUID::from_u128(0x807b3cdf_357a_11d3_8471_00c04f79dbc0);
 pub const WMDMDeviceEnum: windows_core::GUID = windows_core::GUID::from_u128(0x430e35af_3971_11d3_8474_00c04f79dbc0);
 #[repr(C)]
@@ -4886,9 +4868,6 @@ impl Default for WMDMID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WMDMID {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WMDMID_LENGTH: u32 = 128u32;
 pub const WMDMLogger: windows_core::GUID = windows_core::GUID::from_u128(0x110a3202_5a79_11d3_8d78_444553540000);
@@ -4907,9 +4886,6 @@ impl Default for WMDMMetadataView {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WMDMMetadataView {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMDMRIGHTS {
@@ -4925,9 +4901,6 @@ impl Default for WMDMRIGHTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WMDMRIGHTS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WMDMStorage: windows_core::GUID = windows_core::GUID::from_u128(0x807b3ce0_357a_11d3_8471_00c04f79dbc0);
 pub const WMDMStorageEnum: windows_core::GUID = windows_core::GUID::from_u128(0xeb401a3b_3af7_11d3_8474_00c04f79dbc0);
@@ -5119,10 +5092,6 @@ impl Default for WMDM_FORMAT_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for WMDM_FORMAT_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WMDM_GET_FORMAT_SUPPORT_AUDIO: u32 = 1u32;
 pub const WMDM_GET_FORMAT_SUPPORT_FILE: u32 = 4u32;
 pub const WMDM_GET_FORMAT_SUPPORT_VIDEO: u32 = 2u32;
@@ -5161,10 +5130,6 @@ impl Default for WMDM_PROP_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for WMDM_PROP_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct WMDM_PROP_DESC {
@@ -5184,10 +5149,6 @@ impl Default for WMDM_PROP_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for WMDM_PROP_DESC {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub union WMDM_PROP_DESC_0 {
@@ -5206,10 +5167,6 @@ impl Default for WMDM_PROP_DESC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for WMDM_PROP_DESC_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5222,10 +5179,6 @@ impl Default for WMDM_PROP_VALUES_ENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for WMDM_PROP_VALUES_ENUM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -5245,10 +5198,6 @@ impl Default for WMDM_PROP_VALUES_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for WMDM_PROP_VALUES_RANGE {
-    type TypeKind = windows_core::CloneType;
 }
 pub const WMDM_RIGHTS_COPY_TO_CD: u32 = 8u32;
 pub const WMDM_RIGHTS_COPY_TO_NON_SDMI_DEVICE: u32 = 2u32;
@@ -5351,9 +5300,6 @@ impl Default for WMFILECAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WMFILECAPABILITIES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const g_wszAudioWAVECodec: windows_core::PCWSTR = windows_core::w!("WMDM/AudioWAVECodec");
 pub const g_wszVideoFourCCCodec: windows_core::PCWSTR = windows_core::w!("WMDM/VideoFourCCCodec");

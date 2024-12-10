@@ -1123,9 +1123,6 @@ impl Default for ACCESS_ALLOWED_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACCESS_ALLOWED_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACCESS_ALLOWED_CALLBACK_ACE {
@@ -1137,9 +1134,6 @@ impl Default for ACCESS_ALLOWED_CALLBACK_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ACCESS_ALLOWED_CALLBACK_ACE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1156,9 +1150,6 @@ impl Default for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACCESS_ALLOWED_OBJECT_ACE {
@@ -1174,9 +1165,6 @@ impl Default for ACCESS_ALLOWED_OBJECT_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACCESS_ALLOWED_OBJECT_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACCESS_DENIED_ACE {
@@ -1189,9 +1177,6 @@ impl Default for ACCESS_DENIED_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACCESS_DENIED_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACCESS_DENIED_CALLBACK_ACE {
@@ -1203,9 +1188,6 @@ impl Default for ACCESS_DENIED_CALLBACK_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ACCESS_DENIED_CALLBACK_ACE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1222,9 +1204,6 @@ impl Default for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACCESS_DENIED_OBJECT_ACE {
@@ -1240,9 +1219,6 @@ impl Default for ACCESS_DENIED_OBJECT_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACCESS_DENIED_OBJECT_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACCESS_REASONS {
@@ -1252,9 +1228,6 @@ impl Default for ACCESS_REASONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ACCESS_REASONS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1304,9 +1277,6 @@ impl Default for ACE_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(2u32);
 pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(1u32);
 #[repr(transparent)]
@@ -1326,9 +1296,6 @@ impl Default for ACL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACL_INFORMATION_CLASS(pub i32);
@@ -1344,9 +1311,6 @@ impl Default for ACL_REVISION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACL_REVISION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACL_SIZE_INFORMATION {
@@ -1358,9 +1322,6 @@ impl Default for ACL_SIZE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ACL_SIZE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ATTRIBUTE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(32u32);
 #[repr(transparent)]
@@ -1384,9 +1345,6 @@ impl Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
@@ -1396,9 +1354,6 @@ impl Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(16u32);
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(8u32);
@@ -1449,9 +1404,6 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(32u32);
 pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(1u32);
 #[repr(C)]
@@ -1464,9 +1416,6 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1483,9 +1432,6 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
@@ -1499,9 +1445,6 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(6u16);
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(4u16);
@@ -1526,9 +1469,6 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
@@ -1542,9 +1482,6 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(2u32);
 #[repr(transparent)]
@@ -1615,9 +1552,6 @@ impl Default for GENERIC_MAPPING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GENERIC_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GROUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(2u32);
 pub const INHERITED_ACE: ACE_FLAGS = ACE_FLAGS(16u32);
 pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = ACE_FLAGS(4u32);
@@ -1634,9 +1568,6 @@ impl Default for LLFILETIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LLFILETIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union LLFILETIME_0 {
@@ -1647,9 +1578,6 @@ impl Default for LLFILETIME_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LLFILETIME_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1678,9 +1606,6 @@ impl Default for LUID_AND_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LUID_AND_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1776,9 +1701,6 @@ impl Default for OBJECT_TYPE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OBJECT_TYPE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const OWNER_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(1u32);
 pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS>;
 #[repr(C)]
@@ -1792,9 +1714,6 @@ impl Default for PRIVILEGE_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRIVILEGE_SET {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(2147483648u32);
 pub const PROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(1073741824u32);
@@ -1845,9 +1764,6 @@ impl Default for QUOTA_LIMITS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUOTA_LIMITS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(8u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1879,9 +1795,6 @@ impl Default for SECURITY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECURITY_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECURITY_AUTHENTICATION_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 18] };
 #[repr(transparent)]
@@ -1933,9 +1846,6 @@ impl Default for SECURITY_CAPABILITIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURITY_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SECURITY_CREATOR_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 3] };
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1952,9 +1862,6 @@ impl Default for SECURITY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECURITY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2008,9 +1915,6 @@ impl Default for SECURITY_DESCRIPTOR_RELATIVE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURITY_DESCRIPTOR_RELATIVE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SECURITY_DYNAMIC_TRACKING: super::Foundation::BOOLEAN = super::Foundation::BOOLEAN(1u8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2034,9 +1938,6 @@ impl Default for SECURITY_QUALITY_OF_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECURITY_QUALITY_OF_SERVICE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECURITY_RESOURCE_MANAGER_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 9] };
 pub const SECURITY_SCOPED_POLICY_ID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 17] };
@@ -2069,9 +1970,6 @@ impl Default for SE_ACCESS_REPLY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SE_ACCESS_REPLY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SE_ACCESS_REQUEST {
@@ -2088,9 +1986,6 @@ impl Default for SE_ACCESS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SE_ACCESS_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SE_ASSIGNPRIMARYTOKEN_NAME: windows_core::PCWSTR = windows_core::w!("SeAssignPrimaryTokenPrivilege");
 pub const SE_AUDIT_NAME: windows_core::PCWSTR = windows_core::w!("SeAuditPrivilege");
@@ -2123,9 +2018,6 @@ impl Default for SE_IMPERSONATION_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SE_IMPERSONATION_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SE_INCREASE_QUOTA_NAME: windows_core::PCWSTR = windows_core::w!("SeIncreaseQuotaPrivilege");
 pub const SE_INC_BASE_PRIORITY_NAME: windows_core::PCWSTR = windows_core::w!("SeIncreaseBasePriorityPrivilege");
@@ -2161,9 +2053,6 @@ impl Default for SE_SECURITY_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SE_SECURITY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SE_SECURITY_NAME: windows_core::PCWSTR = windows_core::w!("SeSecurityPrivilege");
 pub const SE_SELF_RELATIVE: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(32768u16);
 pub const SE_SHUTDOWN_NAME: windows_core::PCWSTR = windows_core::w!("SeShutdownPrivilege");
@@ -2177,9 +2066,6 @@ impl Default for SE_SID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SE_SID {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SE_SYNC_AGENT_NAME: windows_core::PCWSTR = windows_core::w!("SeSyncAgentPrivilege");
 pub const SE_SYSTEMTIME_NAME: windows_core::PCWSTR = windows_core::w!("SeSystemtimePrivilege");
@@ -2204,9 +2090,6 @@ impl Default for SID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SID_AND_ATTRIBUTES {
@@ -2217,9 +2100,6 @@ impl Default for SID_AND_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SID_AND_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2233,9 +2113,6 @@ impl Default for SID_AND_ATTRIBUTES_HASH {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SID_AND_ATTRIBUTES_HASH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SID_IDENTIFIER_AUTHORITY {
@@ -2245,9 +2122,6 @@ impl Default for SID_IDENTIFIER_AUTHORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SID_IDENTIFIER_AUTHORITY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2271,9 +2145,6 @@ impl Default for SYSTEM_ACCESS_FILTER_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_ACCESS_FILTER_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_ALARM_ACE {
@@ -2286,9 +2157,6 @@ impl Default for SYSTEM_ALARM_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_ALARM_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_ALARM_CALLBACK_ACE {
@@ -2300,9 +2168,6 @@ impl Default for SYSTEM_ALARM_CALLBACK_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_ALARM_CALLBACK_ACE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2319,9 +2184,6 @@ impl Default for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_ALARM_OBJECT_ACE {
@@ -2337,9 +2199,6 @@ impl Default for SYSTEM_ALARM_OBJECT_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_ALARM_OBJECT_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_AUDIT_ACE {
@@ -2352,9 +2211,6 @@ impl Default for SYSTEM_AUDIT_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_AUDIT_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_AUDIT_CALLBACK_ACE {
@@ -2366,9 +2222,6 @@ impl Default for SYSTEM_AUDIT_CALLBACK_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_AUDIT_CALLBACK_ACE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2385,9 +2238,6 @@ impl Default for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_AUDIT_OBJECT_ACE {
@@ -2402,9 +2252,6 @@ impl Default for SYSTEM_AUDIT_OBJECT_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_AUDIT_OBJECT_ACE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2454,9 +2301,6 @@ impl Default for SYSTEM_MANDATORY_LABEL_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_MANDATORY_LABEL_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
@@ -2468,9 +2312,6 @@ impl Default for SYSTEM_PROCESS_TRUST_LABEL_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_PROCESS_TRUST_LABEL_ACE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2484,9 +2325,6 @@ impl Default for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
@@ -2498,9 +2336,6 @@ impl Default for SYSTEM_SCOPED_POLICY_ID_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_SCOPED_POLICY_ID_ACE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SecurityAnonymous: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(0i32);
 pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(3i32);
@@ -2538,9 +2373,6 @@ impl Default for TOKEN_ACCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOKEN_ACCESS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2596,9 +2428,6 @@ impl Default for TOKEN_APPCONTAINER_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKEN_APPCONTAINER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TOKEN_ASSIGN_PRIMARY: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(1u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2609,9 +2438,6 @@ impl Default for TOKEN_AUDIT_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOKEN_AUDIT_POLICY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2626,9 +2452,6 @@ impl Default for TOKEN_CONTROL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKEN_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOKEN_DEFAULT_DACL {
@@ -2638,9 +2461,6 @@ impl Default for TOKEN_DEFAULT_DACL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOKEN_DEFAULT_DACL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TOKEN_DELETE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(65536u32);
 #[repr(C)]
@@ -2653,9 +2473,6 @@ impl Default for TOKEN_DEVICE_CLAIMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKEN_DEVICE_CLAIMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TOKEN_DUPLICATE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(2u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2666,9 +2483,6 @@ impl Default for TOKEN_ELEVATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOKEN_ELEVATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2684,9 +2498,6 @@ impl Default for TOKEN_GROUPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOKEN_GROUPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2707,9 +2518,6 @@ impl Default for TOKEN_GROUPS_AND_PRIVILEGES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKEN_GROUPS_AND_PRIVILEGES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TOKEN_IMPERSONATE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(4u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2724,9 +2532,6 @@ impl Default for TOKEN_LINKED_TOKEN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKEN_LINKED_TOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOKEN_MANDATORY_LABEL {
@@ -2737,9 +2542,6 @@ impl Default for TOKEN_MANDATORY_LABEL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKEN_MANDATORY_LABEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOKEN_MANDATORY_POLICY {
@@ -2749,9 +2551,6 @@ impl Default for TOKEN_MANDATORY_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOKEN_MANDATORY_POLICY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2770,9 +2569,6 @@ impl Default for TOKEN_ORIGIN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKEN_ORIGIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOKEN_OWNER {
@@ -2782,9 +2578,6 @@ impl Default for TOKEN_OWNER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOKEN_OWNER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2796,9 +2589,6 @@ impl Default for TOKEN_PRIMARY_GROUP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKEN_PRIMARY_GROUP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOKEN_PRIVILEGES {
@@ -2809,9 +2599,6 @@ impl Default for TOKEN_PRIVILEGES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOKEN_PRIVILEGES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2864,9 +2651,6 @@ impl Default for TOKEN_SOURCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKEN_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOKEN_STATISTICS {
@@ -2886,9 +2670,6 @@ impl Default for TOKEN_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKEN_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TOKEN_TRUST_CONSTRAINT_MASK: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131096u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2903,9 +2684,6 @@ impl Default for TOKEN_USER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKEN_USER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOKEN_USER_CLAIMS {
@@ -2915,9 +2693,6 @@ impl Default for TOKEN_USER_CLAIMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOKEN_USER_CLAIMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TOKEN_WRITE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131296u32);
 pub const TOKEN_WRITE_DAC: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(262144u32);

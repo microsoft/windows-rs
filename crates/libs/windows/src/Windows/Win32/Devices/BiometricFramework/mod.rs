@@ -560,9 +560,6 @@ impl Default for WINBIO_ACCOUNT_POLICY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ACCOUNT_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_ADAPTER_INTERFACE_VERSION {
@@ -573,9 +570,6 @@ impl Default for WINBIO_ADAPTER_INTERFACE_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ADAPTER_INTERFACE_VERSION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WINBIO_ANSI_381_IMG_BIT_PACKED: u16 = 1u16;
 pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG: u16 = 3u16;
@@ -605,9 +599,6 @@ impl Default for WINBIO_ANTI_SPOOF_POLICY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ANTI_SPOOF_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(pub i32);
@@ -635,9 +626,6 @@ impl Default for WINBIO_ASYNC_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -669,9 +657,6 @@ impl Default for WINBIO_ASYNC_RESULT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_6 {
@@ -683,9 +668,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -704,9 +686,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_11 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_11 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_7 {
@@ -718,9 +697,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_7 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_2 {
@@ -731,9 +707,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_3 {
@@ -743,9 +716,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -758,9 +728,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_17 {
@@ -770,9 +737,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_17 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_17 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -785,9 +749,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_13 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_13 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
@@ -798,9 +759,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_14 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_14 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -814,9 +772,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_12 {
@@ -828,9 +783,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_12 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_12 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_10 {
@@ -840,9 +792,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_10 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -859,9 +808,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_8 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_19 {
@@ -872,9 +818,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_19 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_19 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -889,9 +832,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_16 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_16 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_1 {
@@ -903,9 +843,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -919,9 +856,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_18 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_18 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_20 {
@@ -931,9 +865,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_20 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_20 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -950,9 +881,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_9 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_15 {
@@ -965,9 +893,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_15 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_15 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_0 {
@@ -978,9 +903,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1006,9 +928,6 @@ impl Default for WINBIO_BDB_ANSI_381_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BDB_ANSI_381_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_BDB_ANSI_381_RECORD {
@@ -1027,9 +946,6 @@ impl Default for WINBIO_BDB_ANSI_381_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BDB_ANSI_381_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_BIR {
@@ -1043,9 +959,6 @@ impl Default for WINBIO_BIR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BIR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
 pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8u32;
 #[repr(C)]
@@ -1058,9 +971,6 @@ impl Default for WINBIO_BIR_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_BIR_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1083,9 +993,6 @@ impl Default for WINBIO_BIR_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BIR_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_BIR_HEADER_0 {
@@ -1097,9 +1004,6 @@ impl Default for WINBIO_BIR_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BIR_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_BLANK_PAYLOAD {
@@ -1110,9 +1014,6 @@ impl Default for WINBIO_BLANK_PAYLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_BLANK_PAYLOAD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1128,9 +1029,6 @@ impl Default for WINBIO_BSP_SCHEMA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BSP_SCHEMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_CALIBRATION_INFO {
@@ -1142,9 +1040,6 @@ impl Default for WINBIO_CALIBRATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_CALIBRATION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1160,9 +1055,6 @@ impl Default for WINBIO_CAPTURE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_CAPTURE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_CAPTURE_PARAMETERS {
@@ -1176,9 +1068,6 @@ impl Default for WINBIO_CAPTURE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_CAPTURE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1210,9 +1099,6 @@ impl Default for WINBIO_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WINBIO_DATA_FLAG_INTEGRITY: u16 = 1u16;
 pub const WINBIO_DATA_FLAG_INTERMEDIATE: u16 = 64u16;
 pub const WINBIO_DATA_FLAG_OPTION_MASK_PRESENT: u16 = 8u16;
@@ -1233,9 +1119,6 @@ impl Default for WINBIO_DIAGNOSTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_DIAGNOSTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
@@ -1250,9 +1133,6 @@ impl Default for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
@@ -1310,10 +1190,6 @@ impl Default for WINBIO_ENGINE_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_IO")]
-impl windows_core::TypeKind for WINBIO_ENGINE_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_EVENT {
@@ -1324,9 +1200,6 @@ impl Default for WINBIO_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EVENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1340,9 +1213,6 @@ impl Default for WINBIO_EVENT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EVENT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EVENT_0_2 {
@@ -1352,9 +1222,6 @@ impl Default for WINBIO_EVENT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EVENT_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1369,9 +1236,6 @@ impl Default for WINBIO_EVENT_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EVENT_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EVENT_0_0 {
@@ -1382,9 +1246,6 @@ impl Default for WINBIO_EVENT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EVENT_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1397,9 +1258,6 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1415,9 +1273,6 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0 {
@@ -1429,9 +1284,6 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
@@ -1441,9 +1293,6 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1455,9 +1304,6 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1474,9 +1320,6 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2 {
@@ -1488,9 +1331,6 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
@@ -1500,9 +1340,6 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1515,9 +1352,6 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
@@ -1527,9 +1361,6 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1541,9 +1372,6 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1560,9 +1388,6 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
@@ -1577,9 +1402,6 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
@@ -1592,9 +1414,6 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
@@ -1605,9 +1424,6 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1623,9 +1439,6 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1645,9 +1458,6 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
@@ -1660,9 +1470,6 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
@@ -1672,9 +1479,6 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1687,9 +1491,6 @@ impl Default for WINBIO_EXTENDED_SENSOR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1705,9 +1506,6 @@ impl Default for WINBIO_EXTENDED_SENSOR_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
@@ -1721,9 +1519,6 @@ impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
@@ -1736,9 +1531,6 @@ impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_1 {
@@ -1748,9 +1540,6 @@ impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1764,9 +1553,6 @@ impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_3 {
@@ -1776,9 +1562,6 @@ impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1791,9 +1574,6 @@ impl Default for WINBIO_EXTENDED_STORAGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1809,9 +1589,6 @@ impl Default for WINBIO_EXTENDED_STORAGE_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_0 {
@@ -1821,9 +1598,6 @@ impl Default for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1835,9 +1609,6 @@ impl Default for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_2 {
@@ -1847,9 +1618,6 @@ impl Default for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1861,9 +1629,6 @@ impl Default for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_EXTENDED_UNIT_STATUS {
@@ -1874,9 +1639,6 @@ impl Default for WINBIO_EXTENDED_UNIT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_UNIT_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8009803D_u32 as _);
 pub const WINBIO_E_AUTO_LOGON_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80098043_u32 as _);
@@ -1973,9 +1735,6 @@ impl Default for WINBIO_FP_BU_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_FP_BU_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2035,10 +1794,6 @@ impl Default for WINBIO_FRAMEWORK_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_IO")]
-impl windows_core::TypeKind for WINBIO_FRAMEWORK_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_GESTURE_METADATA {
@@ -2052,9 +1807,6 @@ impl Default for WINBIO_GESTURE_METADATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_GESTURE_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_GET_INDICATOR {
@@ -2067,9 +1819,6 @@ impl Default for WINBIO_GET_INDICATOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_GET_INDICATOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_IDENTITY {
@@ -2080,9 +1829,6 @@ impl Default for WINBIO_IDENTITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_IDENTITY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2098,9 +1844,6 @@ impl Default for WINBIO_IDENTITY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_IDENTITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_IDENTITY_0_0 {
@@ -2111,9 +1854,6 @@ impl Default for WINBIO_IDENTITY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_IDENTITY_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: windows_core::HRESULT = windows_core::HRESULT(0x90002_u32 as _);
 pub const WINBIO_I_MORE_DATA: windows_core::HRESULT = windows_core::HRESULT(0x90001_u32 as _);
@@ -2129,9 +1869,6 @@ impl Default for WINBIO_NOTIFY_WAKE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_NOTIFY_WAKE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(1i32);
 pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(2i32);
@@ -2156,10 +1893,6 @@ impl Default for WINBIO_PIPELINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_IO")]
-impl windows_core::TypeKind for WINBIO_PIPELINE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(3i32);
 pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(1i32);
@@ -2191,9 +1924,6 @@ impl Default for WINBIO_PRESENCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_PRESENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_PRESENCE_0 {
@@ -2205,9 +1935,6 @@ impl Default for WINBIO_PRESENCE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_PRESENCE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WINBIO_PRESENCE_PROPERTIES {
@@ -2218,9 +1945,6 @@ impl Default for WINBIO_PRESENCE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2234,9 +1958,6 @@ impl Default for WINBIO_PRESENCE_PROPERTIES_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_PRESENCE_PROPERTIES_0_0 {
@@ -2247,9 +1968,6 @@ impl Default for WINBIO_PRESENCE_PROPERTIES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2265,9 +1983,6 @@ impl Default for WINBIO_PRESENCE_PROPERTIES_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_PRIVATE_SENSOR_TYPE_INFO {
@@ -2279,9 +1994,6 @@ impl Default for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2298,9 +2010,6 @@ impl Default for WINBIO_PROTECTION_POLICY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_PROTECTION_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_REGISTERED_FORMAT {
@@ -2311,9 +2020,6 @@ impl Default for WINBIO_REGISTERED_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_REGISTERED_FORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32u32;
 pub const WINBIO_SCP_DIGEST_SIZE_V1: u32 = 32u32;
@@ -2337,9 +2043,6 @@ impl Default for WINBIO_SECURE_BUFFER_HEADER_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_SECURE_BUFFER_HEADER_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_SECURE_CONNECTION_DATA {
@@ -2355,9 +2058,6 @@ impl Default for WINBIO_SECURE_CONNECTION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_SECURE_CONNECTION_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_SECURE_CONNECTION_PARAMS {
@@ -2369,9 +2069,6 @@ impl Default for WINBIO_SECURE_CONNECTION_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_SECURE_CONNECTION_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2393,9 +2090,6 @@ impl Default for WINBIO_SENSOR_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_SENSOR_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
@@ -2443,10 +2137,6 @@ impl Default for WINBIO_SENSOR_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_IO")]
-impl windows_core::TypeKind for WINBIO_SENSOR_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_SETTING_SOURCE(pub u32);
@@ -2464,9 +2154,6 @@ impl Default for WINBIO_SET_INDICATOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_SET_INDICATOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
@@ -2513,10 +2200,6 @@ impl Default for WINBIO_STORAGE_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_IO")]
-impl windows_core::TypeKind for WINBIO_STORAGE_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_STORAGE_RECORD {
@@ -2534,9 +2217,6 @@ impl Default for WINBIO_STORAGE_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_STORAGE_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_STORAGE_SCHEMA {
@@ -2552,9 +2232,6 @@ impl Default for WINBIO_STORAGE_SCHEMA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_STORAGE_SCHEMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_SUPPORTED_ALGORITHMS {
@@ -2567,9 +2244,6 @@ impl Default for WINBIO_SUPPORTED_ALGORITHMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_SUPPORTED_ALGORITHMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2591,9 +2265,6 @@ impl Default for WINBIO_UNIT_SCHEMA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_UNIT_SCHEMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_UPDATE_FIRMWARE {
@@ -2605,9 +2276,6 @@ impl Default for WINBIO_UPDATE_FIRMWARE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_UPDATE_FIRMWARE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_VERSION {
@@ -2618,9 +2286,6 @@ impl Default for WINBIO_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_VERSION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
 pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;

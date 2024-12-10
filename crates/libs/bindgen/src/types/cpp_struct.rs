@@ -146,24 +146,6 @@ impl CppStruct {
             derive.extend(["Debug", "PartialEq"]);
         }
 
-        let type_kind = if writer.config.sys {
-            quote! {}
-        } else if is_copyable {
-            quote! {
-               #cfg
-               impl windows_core::TypeKind for #name {
-                   type TypeKind = windows_core::CopyType;
-               }
-            }
-        } else {
-            quote! {
-               #cfg
-               impl windows_core::TypeKind for #name {
-                   type TypeKind = windows_core::CloneType;
-               }
-            }
-        };
-
         let default = if writer.config.sys {
             quote! {}
         } else {
@@ -230,7 +212,6 @@ impl CppStruct {
             #constants
             #manual_clone
             #default
-            #type_kind
         };
 
         for nested in self.nested.values() {

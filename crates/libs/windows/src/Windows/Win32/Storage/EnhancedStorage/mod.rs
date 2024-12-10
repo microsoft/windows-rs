@@ -8,9 +8,6 @@ impl Default for ACT_AUTHORIZATION_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACT_AUTHORIZATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
@@ -124,9 +121,6 @@ impl Default for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ENHANCED_STORAGE_PROPERTY_ADMIN_HINT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2011 };
 pub const ENHANCED_STORAGE_PROPERTY_AUTHENTICATION_STATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1006 };
@@ -1902,9 +1896,6 @@ impl Default for SILO_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SILO_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGEPROVIDERSTATE_ERROR: u32 = 7u32;
 pub const STORAGEPROVIDERSTATE_EXCLUDED: u32 = 9u32;

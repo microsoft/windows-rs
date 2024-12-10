@@ -319,9 +319,6 @@ impl Default for KEY_VALUE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_VALUE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_VALUE_INFORMATION_CLASS(pub i32);
@@ -369,9 +366,6 @@ impl Default for REG_ENUMERATE_KEY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_ENUMERATE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
@@ -390,9 +384,6 @@ impl Default for REG_ENUMERATE_VALUE_KEY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_ENUMERATE_VALUE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_QUERY_KEY_INFORMATION {
@@ -409,9 +400,6 @@ impl Default for REG_QUERY_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REG_QUERY_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -431,9 +419,6 @@ impl Default for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_QUERY_VALUE_KEY_INFORMATION {
@@ -452,9 +437,6 @@ impl Default for REG_QUERY_VALUE_KEY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_QUERY_VALUE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_SET_INFORMATION_KEY_INFORMATION {
@@ -470,7 +452,4 @@ impl Default for REG_SET_INFORMATION_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REG_SET_INFORMATION_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }

@@ -330,9 +330,6 @@ impl Default for PrintDocumentPackageStatus {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PrintDocumentPackageStatus {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PrintDocumentPackageTarget: windows_core::GUID = windows_core::GUID::from_u128(0x4842669e_9947_46ea_8ba2_d8cce432c2ca);
 pub const PrintDocumentPackageTargetFactory: windows_core::GUID = windows_core::GUID::from_u128(0x348ef17d_6c81_4982_92b4_ee188a43867a);
 pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(2i32);
@@ -356,7 +353,4 @@ impl Default for XPS_JOB_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XPS_JOB_STATUS {
-    type TypeKind = windows_core::CopyType;
 }

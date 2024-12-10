@@ -7544,7 +7544,3 @@ impl Default for TRANSPORT_SETTING {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for TRANSPORT_SETTING {
-    type TypeKind = windows_core::CopyType;
-}

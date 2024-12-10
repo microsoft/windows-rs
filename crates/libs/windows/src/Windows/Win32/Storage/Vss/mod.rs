@@ -2654,9 +2654,6 @@ impl Default for VSS_DIFF_AREA_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VSS_DIFF_AREA_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VSS_DIFF_VOLUME_PROP {
@@ -2669,9 +2666,6 @@ impl Default for VSS_DIFF_VOLUME_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VSS_DIFF_VOLUME_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VSS_E_ASRERROR_CRITICAL_DISKS_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x80042408_u32 as _);
 pub const VSS_E_ASRERROR_CRITICAL_DISK_CANNOT_BE_EXCLUDED: windows_core::HRESULT = windows_core::HRESULT(0x80042415_u32 as _);
@@ -2783,9 +2777,6 @@ impl Default for VSS_MGMT_OBJECT_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VSS_MGMT_OBJECT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_MGMT_OBJECT_TYPE(pub i32);
@@ -2801,9 +2792,6 @@ impl Default for VSS_MGMT_OBJECT_UNION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VSS_MGMT_OBJECT_UNION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VSS_MGMT_OBJECT_UNKNOWN: VSS_MGMT_OBJECT_TYPE = VSS_MGMT_OBJECT_TYPE(0i32);
 pub const VSS_MGMT_OBJECT_VOLUME: VSS_MGMT_OBJECT_TYPE = VSS_MGMT_OBJECT_TYPE(1i32);
 pub const VSS_OBJECT_NONE: VSS_OBJECT_TYPE = VSS_OBJECT_TYPE(1i32);
@@ -2817,9 +2805,6 @@ impl Default for VSS_OBJECT_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VSS_OBJECT_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VSS_OBJECT_PROVIDER: VSS_OBJECT_TYPE = VSS_OBJECT_TYPE(4i32);
 pub const VSS_OBJECT_SNAPSHOT: VSS_OBJECT_TYPE = VSS_OBJECT_TYPE(3i32);
@@ -2838,9 +2823,6 @@ impl Default for VSS_OBJECT_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VSS_OBJECT_UNION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VSS_OBJECT_UNKNOWN: VSS_OBJECT_TYPE = VSS_OBJECT_TYPE(0i32);
 pub const VSS_ONLUNSTATECHANGE_DO_MASK_LUNS: VSS_HARDWARE_OPTIONS = VSS_HARDWARE_OPTIONS(2048i32);
@@ -2889,9 +2871,6 @@ impl Default for VSS_PROVIDER_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VSS_PROVIDER_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2989,9 +2968,6 @@ impl Default for VSS_SNAPSHOT_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VSS_SNAPSHOT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_SNAPSHOT_PROPERTY_ID(pub i32);
@@ -3081,9 +3057,6 @@ impl Default for VSS_VOLUME_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VSS_VOLUME_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VSS_VOLUME_PROTECTION_INFO {
@@ -3098,9 +3071,6 @@ impl Default for VSS_VOLUME_PROTECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VSS_VOLUME_PROTECTION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

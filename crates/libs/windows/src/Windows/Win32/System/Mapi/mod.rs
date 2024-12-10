@@ -85,9 +85,6 @@ impl Default for MapiFileDesc {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MapiFileDesc {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiFileDescW {
@@ -103,9 +100,6 @@ impl Default for MapiFileDescW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MapiFileDescW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiFileTagExt {
@@ -119,9 +113,6 @@ impl Default for MapiFileTagExt {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MapiFileTagExt {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -144,9 +135,6 @@ impl Default for MapiMessage {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MapiMessage {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiMessageW {
@@ -168,9 +156,6 @@ impl Default for MapiMessageW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MapiMessageW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiRecipDesc {
@@ -186,9 +171,6 @@ impl Default for MapiRecipDesc {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MapiRecipDesc {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiRecipDescW {
@@ -203,8 +185,5 @@ impl Default for MapiRecipDescW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MapiRecipDescW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SUCCESS_SUCCESS: u32 = 0u32;

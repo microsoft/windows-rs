@@ -133,9 +133,6 @@ impl Default for FILE_UNPROTECT_OPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_UNPROTECT_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTHREAD_NETWORK_CONTEXT {
@@ -146,9 +143,6 @@ impl Default for HTHREAD_NETWORK_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HTHREAD_NETWORK_CONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IProtectionPolicyManagerInterop, IProtectionPolicyManagerInterop_Vtbl, 0x4652651d_c1fe_4ba1_9f0a_c0f56596f721);
 windows_core::imp::interface_hierarchy!(IProtectionPolicyManagerInterop, windows_core::IUnknown, windows_core::IInspectable);

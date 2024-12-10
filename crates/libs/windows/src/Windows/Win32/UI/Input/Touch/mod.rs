@@ -60,9 +60,6 @@ impl Default for GESTURECONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GESTURECONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GESTURECONFIG_ID(pub u32);
@@ -117,9 +114,6 @@ impl Default for GESTUREINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GESTUREINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GESTURENOTIFYSTRUCT {
@@ -133,9 +127,6 @@ impl Default for GESTURENOTIFYSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GESTURENOTIFYSTRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GID_BEGIN: GESTURECONFIG_ID = GESTURECONFIG_ID(1u32);
 pub const GID_END: GESTURECONFIG_ID = GESTURECONFIG_ID(2u32);
@@ -1277,9 +1268,6 @@ impl Default for TOUCHINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOUCHINPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TOUCHINPUTMASKF_CONTACTAREA: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(4u32);
 pub const TOUCHINPUTMASKF_EXTRAINFO: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(2u32);

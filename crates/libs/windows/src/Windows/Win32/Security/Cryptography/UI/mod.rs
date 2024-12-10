@@ -93,9 +93,6 @@ impl Default for CERT_FILTER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_FILTER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CERT_FILTER_EXTENSION_MATCH {
@@ -108,9 +105,6 @@ impl Default for CERT_FILTER_EXTENSION_MATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CERT_FILTER_EXTENSION_MATCH {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CERT_FILTER_INCLUDE_V1_CERTS: u32 = 1u32;
 pub const CERT_FILTER_ISSUER_CERTS_ONLY: u32 = 16u32;
@@ -132,9 +126,6 @@ impl Default for CERT_SELECTUI_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CERT_SELECTUI_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -161,9 +152,6 @@ impl Default for CERT_SELECT_STRUCT_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CERT_SELECT_STRUCT_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -227,9 +215,6 @@ impl Default for CERT_SELECT_STRUCT_W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_SELECT_STRUCT_W {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CERT_TRUST_DO_FULL_SEARCH: u32 = 1u32;
 pub const CERT_TRUST_DO_FULL_TRUST: u32 = 5u32;
 pub const CERT_TRUST_MASK: u32 = 16777215u32;
@@ -282,9 +267,6 @@ impl Default for CERT_VERIFY_CERTIFICATE_TRUST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_VERIFY_CERTIFICATE_TRUST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -317,10 +299,6 @@ impl Default for CERT_VIEWPROPERTIES_STRUCT_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for CERT_VIEWPROPERTIES_STRUCT_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -391,10 +369,6 @@ impl Default for CERT_VIEWPROPERTIES_STRUCT_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for CERT_VIEWPROPERTIES_STRUCT_W {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CM_ADD_CERT_STORES: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(512u32);
 pub const CM_ENABLEHOOK: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(1u32);
 pub const CM_ENABLETEMPLATE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(8u32);
@@ -432,9 +406,6 @@ impl Default for CRYPTUI_CERT_MGR_STRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTUI_CERT_MGR_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CRYPTUI_CERT_MGR_TAB_MASK: u32 = 15u32;
 pub const CRYPTUI_DISABLE_ADDTOSTORE: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(16u32);
 pub const CRYPTUI_DISABLE_EDITPROPERTIES: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(4u32);
@@ -461,9 +432,6 @@ impl Default for CRYPTUI_INITDIALOG_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPTUI_INITDIALOG_STRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CRYPTUI_ONLY_OPEN_ROOT_STORE: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(512u32);
 pub const CRYPTUI_SELECT_EXPIRATION_COLUMN: u64 = 32u64;
@@ -537,10 +505,6 @@ impl Default for CRYPTUI_VIEWCERTIFICATE_STRUCTA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for CRYPTUI_VIEWCERTIFICATE_STRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -553,10 +517,6 @@ impl Default for CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -587,10 +547,6 @@ impl Default for CRYPTUI_VIEWCERTIFICATE_STRUCTW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for CRYPTUI_VIEWCERTIFICATE_STRUCTW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -603,10 +559,6 @@ impl Default for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CRYPTUI_WARN_REMOTE_TRUST: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(4096u32);
 pub const CRYPTUI_WARN_UNTRUSTED_ROOT: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(1024u32);
@@ -633,9 +585,6 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_CERT: CRYPTUI_WIZ_DIGITAL_SIGN = CRYPTUI_WIZ_DIGITAL_SIGN(1u32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -650,9 +599,6 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
@@ -663,9 +609,6 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE(1u32);
 #[repr(C)]
@@ -679,9 +622,6 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: u32 = 2u32;
 #[repr(C)]
@@ -702,9 +642,6 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: u32 = 4u32;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_INDIVIDUAL: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE(2u32);
 #[repr(C)]
@@ -724,9 +661,6 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
@@ -737,9 +671,6 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -752,9 +683,6 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_NONE: CRYPTUI_WIZ_DIGITAL_SIGN = CRYPTUI_WIZ_DIGITAL_SIGN(0u32);
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK: CRYPTUI_WIZ_DIGITAL_SIGN = CRYPTUI_WIZ_DIGITAL_SIGN(3u32);
@@ -771,9 +699,6 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -797,9 +722,6 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT(pub u32);
@@ -820,9 +742,6 @@ impl Default for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CRYPTUI_WIZ_EXPORT_CERT_CONTEXT: CRYPTUI_WIZ_EXPORT_SUBJECT = CRYPTUI_WIZ_EXPORT_SUBJECT(1u32);
 pub const CRYPTUI_WIZ_EXPORT_CERT_STORE: CRYPTUI_WIZ_EXPORT_SUBJECT = CRYPTUI_WIZ_EXPORT_SUBJECT(4u32);
@@ -854,9 +773,6 @@ impl Default for CRYPTUI_WIZ_EXPORT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTUI_WIZ_EXPORT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CRYPTUI_WIZ_EXPORT_INFO_0 {
@@ -869,9 +785,6 @@ impl Default for CRYPTUI_WIZ_EXPORT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPTUI_WIZ_EXPORT_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CRYPTUI_WIZ_EXPORT_NO_DELETE_PRIVATE_KEY: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(512u32);
 pub const CRYPTUI_WIZ_EXPORT_PRIVATE_KEY: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(256u32);
@@ -934,9 +847,6 @@ impl Default for CRYPTUI_WIZ_IMPORT_SRC_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTUI_WIZ_IMPORT_SRC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
@@ -950,9 +860,6 @@ impl Default for CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_CONTEXT: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(2u32);
 pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_STORE: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(5u32);
@@ -985,9 +892,6 @@ impl Default for CTL_MODIFY_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CTL_MODIFY_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CTL_MODIFY_REQUEST_ADD_NOT_TRUSTED: CTL_MODIFY_REQUEST_OPERATION = CTL_MODIFY_REQUEST_OPERATION(1u32);
 pub const CTL_MODIFY_REQUEST_ADD_TRUSTED: CTL_MODIFY_REQUEST_OPERATION = CTL_MODIFY_REQUEST_OPERATION(3u32);

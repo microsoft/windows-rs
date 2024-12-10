@@ -67,9 +67,6 @@ impl Default for ALLOCATOR_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ALLOCATOR_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AMAP_3D_TARGET: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(2i32);
 pub const AMAP_ALLOW_SYSMEM: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(4i32);
 pub const AMAP_DIRECTED_FLIP: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(16i32);
@@ -94,9 +91,6 @@ impl Default for AMCOPPCommand {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AMCOPPCommand {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AMCOPPSignature {
@@ -106,9 +100,6 @@ impl Default for AMCOPPSignature {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AMCOPPSignature {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -124,9 +115,6 @@ impl Default for AMCOPPStatusInput {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AMCOPPStatusInput {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AMCOPPStatusOutput {
@@ -138,9 +126,6 @@ impl Default for AMCOPPStatusOutput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AMCOPPStatusOutput {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AMCOPYPROTECT_RestrictDuplication: u32 = 1u32;
 pub const AMDDS_ALL: u32 = 255u32;
@@ -377,9 +362,6 @@ impl Default for AMVABUFFERINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AMVABUFFERINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AMVABeginFrameInfo {
@@ -393,9 +375,6 @@ impl Default for AMVABeginFrameInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AMVABeginFrameInfo {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -414,10 +393,6 @@ impl Default for AMVACompBufferInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for AMVACompBufferInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AMVAEndFrameInfo {
@@ -429,9 +404,6 @@ impl Default for AMVAEndFrameInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AMVAEndFrameInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AMVAInternalMemInfo {
@@ -441,9 +413,6 @@ impl Default for AMVAInternalMemInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AMVAInternalMemInfo {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -459,10 +428,6 @@ impl Default for AMVAUncompBufferInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for AMVAUncompBufferInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 #[derive(Clone, Copy)]
@@ -476,10 +441,6 @@ impl Default for AMVAUncompDataInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for AMVAUncompDataInfo {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AMVA_QUERYRENDERSTATUSF_READ: u32 = 1u32;
 pub const AMVA_TYPEINDEX_OUTPUTFRAME: u32 = 4294967295u32;
@@ -505,9 +466,6 @@ impl Default for AMVPDATAINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AMVPDATAINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AMVPDIMINFO {
@@ -522,9 +480,6 @@ impl Default for AMVPDIMINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AMVPDIMINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AMVPSIZE {
@@ -535,9 +490,6 @@ impl Default for AMVPSIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AMVPSIZE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AMVP_BEST_BANDWIDTH: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(1i32);
 pub const AMVP_DO_NOT_CARE: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(0i32);
@@ -564,9 +516,6 @@ impl Default for AM_AC3_ALTERNATE_AUDIO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_AC3_ALTERNATE_AUDIO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AM_AC3_ALTERNATE_AUDIO_1: u32 = 1u32;
 pub const AM_AC3_ALTERNATE_AUDIO_2: u32 = 2u32;
 pub const AM_AC3_ALTERNATE_AUDIO_BOTH: u32 = 3u32;
@@ -580,9 +529,6 @@ impl Default for AM_AC3_BIT_STREAM_MODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_AC3_BIT_STREAM_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AM_AC3_DIALOGUE_LEVEL {
@@ -592,9 +538,6 @@ impl Default for AM_AC3_DIALOGUE_LEVEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AM_AC3_DIALOGUE_LEVEL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -607,9 +550,6 @@ impl Default for AM_AC3_DOWNMIX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_AC3_DOWNMIX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AM_AC3_ERROR_CONCEALMENT {
@@ -621,9 +561,6 @@ impl Default for AM_AC3_ERROR_CONCEALMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_AC3_ERROR_CONCEALMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AM_AC3_ROOM_TYPE {
@@ -633,9 +570,6 @@ impl Default for AM_AC3_ROOM_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AM_AC3_ROOM_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AM_AC3_SERVICE_COMMENTARY: u32 = 5u32;
 pub const AM_AC3_SERVICE_DIALOG_ONLY: u32 = 4u32;
@@ -677,9 +611,6 @@ impl Default for AM_COLCON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_COLCON {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AM_CONTENTPROPERTY_AUTHOR: u32 = 2u32;
 pub const AM_CONTENTPROPERTY_COPYRIGHT: u32 = 4u32;
 pub const AM_CONTENTPROPERTY_DESCRIPTION: u32 = 8u32;
@@ -693,9 +624,6 @@ impl Default for AM_COPY_MACROVISION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AM_COPY_MACROVISION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -725,9 +653,6 @@ impl Default for AM_DVDCOPY_BUSKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_DVDCOPY_BUSKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AM_DVDCOPY_CHLGKEY {
@@ -739,9 +664,6 @@ impl Default for AM_DVDCOPY_CHLGKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_DVDCOPY_CHLGKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AM_DVDCOPY_DISCKEY {
@@ -752,9 +674,6 @@ impl Default for AM_DVDCOPY_DISCKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_DVDCOPY_DISCKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AM_DVDCOPY_SET_COPY_STATE {
@@ -764,9 +683,6 @@ impl Default for AM_DVDCOPY_SET_COPY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AM_DVDCOPY_SET_COPY_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -780,9 +696,6 @@ impl Default for AM_DVDCOPY_TITLEKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AM_DVDCOPY_TITLEKEY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AM_DVD_ADAPT_GRAPH: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(16384i32);
 pub const AM_DVD_CGMS_COPY_ONCE: u32 = 16u32;
@@ -803,9 +716,6 @@ impl Default for AM_DVD_ChangeRate {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AM_DVD_ChangeRate {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AM_DVD_DO_NOT_CLEAR: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(512i32);
 pub const AM_DVD_EVR_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(4096i32);
@@ -835,9 +745,6 @@ impl Default for AM_DVD_RENDERSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_DVD_RENDERSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AM_DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
 pub const AM_DVD_SECTOR_PROTECTED: u32 = 32u32;
 pub const AM_DVD_SECTOR_PROTECT_MASK: u32 = 32u32;
@@ -863,9 +770,6 @@ impl Default for AM_DVD_YUV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_DVD_YUV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AM_DvdKaraokeData {
@@ -876,9 +780,6 @@ impl Default for AM_DvdKaraokeData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AM_DvdKaraokeData {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AM_EXSEEK_BUFFERING: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(32i32);
 pub const AM_EXSEEK_CANSCAN: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(2i32);
@@ -897,9 +798,6 @@ impl Default for AM_ExactRateChange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AM_ExactRateChange {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -920,9 +818,6 @@ impl Default for AM_FRAMESTEP_STEP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AM_FRAMESTEP_STEP {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AM_GBF_NODDSURFACELOCK: u32 = 8u32;
 pub const AM_GBF_NOTASYNCPOINT: u32 = 2u32;
@@ -1037,10 +932,6 @@ impl Default for AM_MPEGSTREAMTYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl windows_core::TypeKind for AM_MPEGSTREAMTYPE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 #[derive(Clone, Debug, PartialEq)]
@@ -1054,10 +945,6 @@ impl Default for AM_MPEGSYSTEMTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl windows_core::TypeKind for AM_MPEGSYSTEMTYPE {
-    type TypeKind = windows_core::CloneType;
 }
 pub const AM_MPEG_AUDIO_DUAL_LEFT: u32 = 1u32;
 pub const AM_MPEG_AUDIO_DUAL_MERGE: u32 = 0u32;
@@ -1130,9 +1017,6 @@ impl Default for AM_PROPERTY_SPHLI {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_PROPERTY_SPHLI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AM_PROPERTY_SPPAL {
@@ -1142,9 +1026,6 @@ impl Default for AM_PROPERTY_SPPAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AM_PROPERTY_SPPAL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1169,9 +1050,6 @@ impl Default for AM_QueryRate {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AM_QueryRate {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AM_RATE_ChangeRate: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(1i32);
 pub const AM_RATE_CorrectTS: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(8i32);
@@ -1212,10 +1090,6 @@ impl Default for AM_SAMPLE2_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl windows_core::TypeKind for AM_SAMPLE2_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AM_SAMPLE_DATADISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(4i32);
 pub const AM_SAMPLE_ENDOFSTREAM: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(512i32);
@@ -1268,9 +1142,6 @@ impl Default for AM_STREAM_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_STREAM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AM_STREAM_INFO_DISCARDING: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(4i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1289,9 +1160,6 @@ impl Default for AM_SimpleRateChange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AM_SimpleRateChange {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AM_UseNewCSSKey: u32 = 1u32;
 pub const AM_VIDEO_FLAG_B_SAMPLE: i32 = 32i32;
@@ -1326,9 +1194,6 @@ impl Default for AM_WST_PAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_WST_PAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_WST_SERVICE(pub i32);
@@ -1360,9 +1225,6 @@ impl Default for ANALOGVIDEOINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ANALOGVIDEOINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ANNEX_A_DSM_CC: MPEG2StreamType = MPEG2StreamType(8i32);
 pub const ATSCCT_AC3: ATSCComponentTypeFlags = ATSCComponentTypeFlags(1i32);
 #[repr(transparent)]
@@ -1387,9 +1249,6 @@ impl Default for AUDIO_STREAM_CONFIG_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUDIO_STREAM_CONFIG_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct AVIEXTHEADER {
@@ -1402,9 +1261,6 @@ impl Default for AVIEXTHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AVIEXTHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -1425,9 +1281,6 @@ impl Default for AVIFIELDINDEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVIFIELDINDEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct AVIFIELDINDEX_0 {
@@ -1439,9 +1292,6 @@ impl Default for AVIFIELDINDEX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AVIFIELDINDEX_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AVIF_COPYRIGHTED: u32 = 131072u32;
 pub const AVIF_HASINDEX: u32 = 16u32;
@@ -1470,9 +1320,6 @@ impl Default for AVIINDEXENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVIINDEXENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct AVIMAINHEADER {
@@ -1495,9 +1342,6 @@ impl Default for AVIMAINHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVIMAINHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct AVIMETAINDEX {
@@ -1516,9 +1360,6 @@ impl Default for AVIMETAINDEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVIMETAINDEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct AVIOLDINDEX {
@@ -1530,9 +1371,6 @@ impl Default for AVIOLDINDEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AVIOLDINDEX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -1546,9 +1384,6 @@ impl Default for AVIOLDINDEX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AVIOLDINDEX_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1564,10 +1399,6 @@ impl Default for AVIPALCHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for AVIPALCHANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AVISF_DISABLED: u32 = 1u32;
 pub const AVISF_VIDEO_PALCHANGES: u32 = 65536u32;
@@ -1590,9 +1421,6 @@ impl Default for AVISTDINDEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVISTDINDEX {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AVISTDINDEX_DELTAFRAME: u32 = 2147483648u32;
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -1604,9 +1432,6 @@ impl Default for AVISTDINDEX_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AVISTDINDEX_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -1633,9 +1458,6 @@ impl Default for AVISTREAMHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVISTREAMHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AVISTREAMHEADER_0 {
@@ -1648,9 +1470,6 @@ impl Default for AVISTREAMHEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AVISTREAMHEADER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -1670,9 +1489,6 @@ impl Default for AVISUPERINDEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVISUPERINDEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct AVISUPERINDEX_0 {
@@ -1684,9 +1500,6 @@ impl Default for AVISUPERINDEX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AVISUPERINDEX_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1711,9 +1524,6 @@ impl Default for AVIStreamHeader {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVIStreamHeader {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct AVITCDLINDEX {
@@ -1733,9 +1543,6 @@ impl Default for AVITCDLINDEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVITCDLINDEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct AVITCDLINDEX_ENTRY {
@@ -1749,9 +1556,6 @@ impl Default for AVITCDLINDEX_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AVITCDLINDEX_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -1770,9 +1574,6 @@ impl Default for AVITIMECODEINDEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AVITIMECODEINDEX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -1794,9 +1595,6 @@ impl Default for AVITIMEDINDEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVITIMEDINDEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct AVITIMEDINDEX_ENTRY {
@@ -1808,9 +1606,6 @@ impl Default for AVITIMEDINDEX_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AVITIMEDINDEX_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AVI_HEADERSIZE: u32 = 2048u32;
 pub const AVI_INDEX_IS_DATA: u32 = 128u32;
@@ -1871,9 +1666,6 @@ impl Default for BDANODE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDANODE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BDA_BCC_RATE_1_2: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(1i32);
 pub const BDA_BCC_RATE_1_3: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(10i32);
 pub const BDA_BCC_RATE_1_4: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(9i32);
@@ -1903,9 +1695,6 @@ impl Default for BDA_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_CAS_CHECK_ENTITLEMENTTOKEN {
@@ -1917,9 +1706,6 @@ impl Default for BDA_CAS_CHECK_ENTITLEMENTTOKEN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_CAS_CHECK_ENTITLEMENTTOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_CAS_CLOSEMMIDATA {
@@ -1929,9 +1715,6 @@ impl Default for BDA_CAS_CLOSEMMIDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_CAS_CLOSEMMIDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1943,9 +1726,6 @@ impl Default for BDA_CAS_CLOSE_MMIDIALOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_CAS_CLOSE_MMIDIALOG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1961,9 +1741,6 @@ impl Default for BDA_CAS_OPENMMIDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_CAS_OPENMMIDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_CAS_REQUESTTUNERDATA {
@@ -1977,9 +1754,6 @@ impl Default for BDA_CAS_REQUESTTUNERDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_CAS_REQUESTTUNERDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_CA_MODULE_UI {
@@ -1991,9 +1765,6 @@ impl Default for BDA_CA_MODULE_UI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_CA_MODULE_UI {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BDA_CHANGES_COMPLETE: BDA_CHANGE_STATE = BDA_CHANGE_STATE(0i32);
 pub const BDA_CHANGES_PENDING: BDA_CHANGE_STATE = BDA_CHANGE_STATE(1i32);
@@ -2038,9 +1809,6 @@ impl Default for BDA_DISEQC_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_DISEQC_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_DISEQC_SEND {
@@ -2052,9 +1820,6 @@ impl Default for BDA_DISEQC_SEND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_DISEQC_SEND {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2068,9 +1833,6 @@ impl Default for BDA_DRM_DRMSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_DRM_DRMSTATUS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2095,9 +1857,6 @@ impl Default for BDA_DVBT2_L1_SIGNALLING_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_DVBT2_L1_SIGNALLING_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_DrmPairingError(pub i32);
@@ -2121,9 +1880,6 @@ impl Default for BDA_ETHERNET_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_ETHERNET_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_ETHERNET_ADDRESS_LIST {
@@ -2134,9 +1890,6 @@ impl Default for BDA_ETHERNET_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_ETHERNET_ADDRESS_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BDA_EVENT_ACCESS_DENIED: BDA_EVENT_ID = BDA_EVENT_ID(15i32);
 pub const BDA_EVENT_ACCESS_GRANTED: BDA_EVENT_ID = BDA_EVENT_ID(14i32);
@@ -2239,9 +1992,6 @@ impl Default for BDA_GDDS_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_GDDS_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_GDDS_DATATYPE {
@@ -2252,9 +2002,6 @@ impl Default for BDA_GDDS_DATATYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_GDDS_DATATYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BDA_GUARD_19_128: GuardInterval = GuardInterval(6i32);
 pub const BDA_GUARD_19_256: GuardInterval = GuardInterval(7i32);
@@ -2282,9 +2029,6 @@ impl Default for BDA_IPv4_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_IPv4_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_IPv4_ADDRESS_LIST {
@@ -2296,9 +2040,6 @@ impl Default for BDA_IPv4_ADDRESS_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_IPv4_ADDRESS_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_IPv6_ADDRESS {
@@ -2308,9 +2049,6 @@ impl Default for BDA_IPv6_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_IPv6_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2322,9 +2060,6 @@ impl Default for BDA_IPv6_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_IPv6_ADDRESS_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2345,9 +2080,6 @@ impl Default for BDA_ISDBCAS_EMG_REQ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_ISDBCAS_EMG_REQ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct BDA_ISDBCAS_REQUESTHEADER {
@@ -2360,9 +2092,6 @@ impl Default for BDA_ISDBCAS_REQUESTHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_ISDBCAS_REQUESTHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -2377,9 +2106,6 @@ impl Default for BDA_ISDBCAS_RESPONSEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_ISDBCAS_RESPONSEDATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BDA_LNB_SOURCE_A: LNB_Source = LNB_Source(1i32);
 pub const BDA_LNB_SOURCE_B: LNB_Source = LNB_Source(2i32);
@@ -2441,9 +2167,6 @@ impl Default for BDA_MUX_PIDLISTITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_MUX_PIDLISTITEM {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BDA_NO_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2457,9 +2180,6 @@ impl Default for BDA_PID_MAP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_PID_MAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_PID_UNMAP {
@@ -2470,9 +2190,6 @@ impl Default for BDA_PID_UNMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_PID_UNMAP {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BDA_PILOT_MAX: Pilot = Pilot(3i32);
 pub const BDA_PILOT_NOT_DEFINED: Pilot = Pilot(0i32);
@@ -2499,9 +2216,6 @@ impl Default for BDA_PROGRAM_PID_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_PROGRAM_PID_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BDA_PROMISCUOUS_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(0i32);
 pub const BDA_RANGE_NOT_DEFINED: BDA_Range = BDA_Range(0i32);
 pub const BDA_RANGE_NOT_SET: BDA_Range = BDA_Range(-1i32);
@@ -2515,9 +2229,6 @@ impl Default for BDA_RATING_PINRESET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_RATING_PINRESET {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BDA_ROLL_OFF_20: RollOff = RollOff(1i32);
 pub const BDA_ROLL_OFF_25: RollOff = RollOff(2i32);
@@ -2538,9 +2249,6 @@ impl Default for BDA_SCAN_CAPABILTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_SCAN_CAPABILTIES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BDA_SCAN_MOD_1024QAM: ScanModulationTypes = ScanModulationTypes(262144i32);
 pub const BDA_SCAN_MOD_112QAM: ScanModulationTypes = ScanModulationTypes(32i32);
@@ -2584,9 +2292,6 @@ impl Default for BDA_SCAN_START {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_SCAN_START {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_SCAN_STATE {
@@ -2599,9 +2304,6 @@ impl Default for BDA_SCAN_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_SCAN_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BDA_SIGNAL_ACTIVE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(2i32);
 pub const BDA_SIGNAL_INACTIVE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(1i32);
@@ -2619,9 +2321,6 @@ impl Default for BDA_SIGNAL_TIMEOUTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_SIGNAL_TIMEOUTS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BDA_SIGNAL_UNAVAILABLE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(0i32);
 pub const BDA_SPECTRAL_INVERSION_AUTOMATIC: SpectralInversion = SpectralInversion(1i32);
@@ -2642,9 +2341,6 @@ impl Default for BDA_STRING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_TABLE_SECTION {
@@ -2657,9 +2353,6 @@ impl Default for BDA_TABLE_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_TABLE_SECTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2674,9 +2367,6 @@ impl Default for BDA_TEMPLATE_CONNECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_TEMPLATE_CONNECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_TEMPLATE_PIN_JOINT {
@@ -2687,9 +2377,6 @@ impl Default for BDA_TEMPLATE_PIN_JOINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_TEMPLATE_PIN_JOINT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -2705,9 +2392,6 @@ impl Default for BDA_TS_SELECTORINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_TS_SELECTORINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_TS_SELECTORINFO_ISDBS_EXT {
@@ -2717,9 +2401,6 @@ impl Default for BDA_TS_SELECTORINFO_ISDBS_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_TS_SELECTORINFO_ISDBS_EXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2734,9 +2415,6 @@ impl Default for BDA_TUNER_DIAGNOSTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_TUNER_DIAGNOSTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_TUNER_TUNERSTATE {
@@ -2748,9 +2426,6 @@ impl Default for BDA_TUNER_TUNERSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_TUNER_TUNERSTATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BDA_UNDEFINED_CHANNEL: BDA_Channel = BDA_Channel(-1i32);
 pub const BDA_UNITIALIZED_MPEG2STREAMTYPE: MPEG2StreamType = MPEG2StreamType(-1i32);
@@ -2765,9 +2440,6 @@ impl Default for BDA_USERACTIVITY_INTERVAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_USERACTIVITY_INTERVAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_WMDRMTUNER_PIDPROTECTION {
@@ -2778,9 +2450,6 @@ impl Default for BDA_WMDRMTUNER_PIDPROTECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_WMDRMTUNER_PIDPROTECTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2795,9 +2464,6 @@ impl Default for BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_WMDRM_KEYINFOLIST {
@@ -2809,9 +2475,6 @@ impl Default for BDA_WMDRM_KEYINFOLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_WMDRM_KEYINFOLIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2825,9 +2488,6 @@ impl Default for BDA_WMDRM_RENEWLICENSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_WMDRM_RENEWLICENSE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2847,9 +2507,6 @@ impl Default for BDA_WMDRM_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BDA_WMDRM_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BDA_XMIT_MODE_16K: TransmissionMode = TransmissionMode(7i32);
 pub const BDA_XMIT_MODE_1K: TransmissionMode = TransmissionMode(6i32);
@@ -2902,9 +2559,6 @@ impl Default for COLORKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COLORKEY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3151,9 +2805,6 @@ impl Default for DVD_ATR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_ATR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_AUDIO_APPMODE(pub i32);
@@ -3202,9 +2853,6 @@ impl Default for DVD_AudioAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_AudioAttributes {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DVD_AudioDuringFFwdRew: DVD_OPTION_FLAG = DVD_OPTION_FLAG(4i32);
 pub const DVD_AudioFormat_AC3: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(0i32);
@@ -3256,9 +2904,6 @@ impl Default for DVD_DECODER_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_DECODER_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DVD_DEFAULT_AUDIO_STREAM: u32 = 15u32;
 pub const DVD_DIR_BACKWARD: DVD_PLAY_DIRECTION = DVD_PLAY_DIRECTION(1i32);
@@ -3316,9 +2961,6 @@ impl Default for DVD_HMSF_TIMECODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_HMSF_TIMECODE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DVD_HMSF_TimeCodeEvents: DVD_OPTION_FLAG = DVD_OPTION_FLAG(3i32);
 pub const DVD_IncreaseOutputControl: DVD_OPTION_FLAG = DVD_OPTION_FLAG(10i32);
 #[repr(transparent)]
@@ -3343,9 +2985,6 @@ impl Default for DVD_KaraokeAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_KaraokeAttributes {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DVD_Karaoke_GuideMelody1: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(4i32);
 pub const DVD_Karaoke_GuideMelody2: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(8i32);
@@ -3375,9 +3014,6 @@ impl Default for DVD_MUA_Coeff {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_MUA_Coeff {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_MUA_MixingInfo {
@@ -3391,9 +3027,6 @@ impl Default for DVD_MUA_MixingInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_MUA_MixingInfo {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DVD_MaxReadBurstInKB: DVD_OPTION_FLAG = DVD_OPTION_FLAG(16i32);
 #[repr(C)]
@@ -3410,9 +3043,6 @@ impl Default for DVD_MenuAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_MenuAttributes {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DVD_Mix_0to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(1i32);
 pub const DVD_Mix_0to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(256i32);
@@ -3438,9 +3068,6 @@ impl Default for DVD_MultichannelAudioAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_MultichannelAudioAttributes {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3499,9 +3126,6 @@ impl Default for DVD_PLAYBACK_LOCATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_PLAYBACK_LOCATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_PLAYBACK_LOCATION2 {
@@ -3514,9 +3138,6 @@ impl Default for DVD_PLAYBACK_LOCATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_PLAYBACK_LOCATION2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3586,9 +3207,6 @@ impl Default for DVD_SubpictureAttributes {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_SubpictureAttributes {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DVD_TC_FLAG_25fps: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(1i32);
 pub const DVD_TC_FLAG_30fps: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(2i32);
 pub const DVD_TC_FLAG_DropFrame: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(4i32);
@@ -3602,9 +3220,6 @@ impl Default for DVD_TIMECODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_TIMECODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3635,9 +3250,6 @@ impl Default for DVD_TitleAttributes {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_TitleAttributes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DVD_TitleAttributes_0 {
@@ -3648,9 +3260,6 @@ impl Default for DVD_TitleAttributes_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_TitleAttributes_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DVD_Title_Album: DVD_TextStringType = DVD_TextStringType(59i32);
 pub const DVD_Title_Movie: DVD_TextStringType = DVD_TextStringType(57i32);
@@ -3695,9 +3304,6 @@ impl Default for DVD_VideoAttributes {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_VideoAttributes {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DVD_VideoCompression_MPEG1: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(1i32);
 pub const DVD_VideoCompression_MPEG2: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(2i32);
 pub const DVD_VideoCompression_Other: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(0i32);
@@ -3735,9 +3341,6 @@ impl Default for DVINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DVRESOLUTION_DC: _DVRESOLUTION = _DVRESOLUTION(1003i32);
 pub const DVRESOLUTION_FULL: _DVRESOLUTION = _DVRESOLUTION(1000i32);
 pub const DVRESOLUTION_HALF: _DVRESOLUTION = _DVRESOLUTION(1001i32);
@@ -3768,10 +3371,6 @@ impl Default for DXVA2SW_CALLBACKS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
-impl windows_core::TypeKind for DXVA2SW_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 #[derive(Clone, Copy)]
@@ -3789,10 +3388,6 @@ impl Default for DXVA2TraceVideoProcessBltData {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl windows_core::TypeKind for DXVA2TraceVideoProcessBltData {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DXVA2Trace_Control: windows_core::GUID = windows_core::GUID::from_u128(0xa0386e75_f70c_464c_a9ce_33c44e091623);
 pub const DXVA2Trace_DecodeDevBeginFrame: windows_core::GUID = windows_core::GUID::from_u128(0x9fd1acf6_44cb_4637_bc62_2c11a9608f90);
 #[repr(C)]
@@ -3809,10 +3404,6 @@ impl Default for DXVA2Trace_DecodeDevBeginFrameData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl windows_core::TypeKind for DXVA2Trace_DecodeDevBeginFrameData {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DXVA2Trace_DecodeDevCreated: windows_core::GUID = windows_core::GUID::from_u128(0xb4de17a1_c5b2_44fe_86d5_d97a648114ff);
 #[repr(C)]
@@ -3833,10 +3424,6 @@ impl Default for DXVA2Trace_DecodeDevCreatedData {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl windows_core::TypeKind for DXVA2Trace_DecodeDevCreatedData {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DXVA2Trace_DecodeDevDestroyed: windows_core::GUID = windows_core::GUID::from_u128(0x853ebdf2_4160_421d_8893_63dcea4f18bb);
 pub const DXVA2Trace_DecodeDevEndFrame: windows_core::GUID = windows_core::GUID::from_u128(0x9fb3cb33_47dc_4899_98c8_c0c6cd7cd3cb);
 pub const DXVA2Trace_DecodeDevExecute: windows_core::GUID = windows_core::GUID::from_u128(0x850aeb4c_d19a_4609_b3b4_bcbf0e22121e);
@@ -3856,10 +3443,6 @@ impl Default for DXVA2Trace_DecodeDevGetBufferData {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl windows_core::TypeKind for DXVA2Trace_DecodeDevGetBufferData {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 #[derive(Clone, Copy)]
@@ -3873,10 +3456,6 @@ impl Default for DXVA2Trace_DecodeDeviceData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl windows_core::TypeKind for DXVA2Trace_DecodeDeviceData {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DXVA2Trace_VideoProcessBlt: windows_core::GUID = windows_core::GUID::from_u128(0x69089cc0_71ab_42d0_953a_2887bf05a8af);
 pub const DXVA2Trace_VideoProcessDevCreated: windows_core::GUID = windows_core::GUID::from_u128(0x895508c6_540d_4c87_98f8_8dcbf2dabb2a);
@@ -3899,10 +3478,6 @@ impl Default for DXVA2Trace_VideoProcessDevCreatedData {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl windows_core::TypeKind for DXVA2Trace_VideoProcessDevCreatedData {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DXVA2Trace_VideoProcessDevDestroyed: windows_core::GUID = windows_core::GUID::from_u128(0xf97f30b1_fb49_42c7_8ee8_88bdfa92d4e2);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
@@ -3917,10 +3492,6 @@ impl Default for DXVA2Trace_VideoProcessDeviceData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-impl windows_core::TypeKind for DXVA2Trace_VideoProcessDeviceData {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DXVA2_DestinationFlagMask: DXVA2_DestinationFlags = DXVA2_DestinationFlags(-65521i32);
 pub const DXVA2_DestinationFlag_Alpha_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(8i32);
@@ -3971,10 +3542,6 @@ impl Default for DXVA2_VIDEOPROCESSBLT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl windows_core::TypeKind for DXVA2_VIDEOPROCESSBLT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 #[derive(Clone, Copy)]
@@ -3994,10 +3561,6 @@ impl Default for DXVA2_VIDEOSAMPLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl windows_core::TypeKind for DXVA2_VIDEOSAMPLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DXVA_ALPHA_BLEND_COMBINATION_BUFFER: u32 = 13u32;
 pub const DXVA_ALPHA_BLEND_COMBINATION_FUNCTION: u32 = 3u32;
@@ -4052,9 +3615,6 @@ impl Default for DXVA_COPPSetProtectionLevelCmdData {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXVA_COPPSetProtectionLevelCmdData {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DXVA_COPPSetSignaling: windows_core::GUID = windows_core::GUID::from_u128(0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4075,9 +3635,6 @@ impl Default for DXVA_COPPSetSignalingCmdData {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXVA_COPPSetSignalingCmdData {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_COPPStatusData {
@@ -4091,9 +3648,6 @@ impl Default for DXVA_COPPStatusData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXVA_COPPStatusData {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4112,9 +3666,6 @@ impl Default for DXVA_COPPStatusDisplayData {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXVA_COPPStatusDisplayData {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_COPPStatusHDCPKeyData {
@@ -4129,9 +3680,6 @@ impl Default for DXVA_COPPStatusHDCPKeyData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXVA_COPPStatusHDCPKeyData {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4154,9 +3702,6 @@ impl Default for DXVA_COPPStatusSignalingCmdData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXVA_COPPStatusSignalingCmdData {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DXVA_DCCMD_SURFACE_BUFFER: u32 = 12u32;
 pub const DXVA_DEBLOCKING_CONTROL_BUFFER: u32 = 4u32;
@@ -4362,9 +3907,6 @@ impl Default for EALocationCodeType {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EALocationCodeType {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EC_ACTIVATE: u32 = 19u32;
 pub const EC_BANDWIDTHCHANGE: u32 = 72u32;
 pub const EC_BUFFERING_DATA: u32 = 17u32;
@@ -4491,9 +4033,6 @@ impl Default for FILTER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILTER_INFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILTER_STATE(pub i32);
@@ -4527,10 +4066,6 @@ impl Default for HEAACWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for HEAACWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -4547,10 +4082,6 @@ impl Default for HEAACWAVEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for HEAACWAVEINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HEVC_TEMPORAL_VIDEO_SUBSET: MPEG2StreamType = MPEG2StreamType(37i32);
 pub const HEVC_VIDEO_OR_TEMPORAL_VIDEO: MPEG2StreamType = MPEG2StreamType(36i32);
@@ -31986,9 +31517,6 @@ impl Default for KS_BDA_FRAME_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_BDA_FRAME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LIBID_QuartzNetTypeLib: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b1_0ad4_11ce_b03a_0020af0ba770);
 pub const LIBID_QuartzTypeLib: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b0_0ad4_11ce_b03a_0020af0ba770);
 #[repr(transparent)]
@@ -32113,10 +31641,6 @@ impl Default for MPEG1WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for MPEG1WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG2StreamType(pub i32);
@@ -32176,9 +31700,6 @@ impl Default for MPEG2_TRANSPORT_STRIDE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MPEG2_TRANSPORT_STRIDE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -32195,10 +31716,6 @@ impl Default for MPEGLAYER3WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for MPEGLAYER3WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -32240,9 +31757,6 @@ impl Default for MP_ENVELOPE_SEGMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MP_ENVELOPE_SEGMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MP_PARAMINFO {
@@ -32258,9 +31772,6 @@ impl Default for MP_PARAMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MP_PARAMINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -32292,9 +31803,6 @@ impl Default for MainAVIHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MainAVIHeader {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MixerPref9_ARAdjustXorY: VMR9MixerPrefs = VMR9MixerPrefs(4i32);
 pub const MixerPref9_AnisotropicFiltering: VMR9MixerPrefs = VMR9MixerPrefs(64i32);
@@ -32350,9 +31858,6 @@ impl Default for NORMALIZEDRECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NORMALIZEDRECT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NotAssociated: SmartCardAssociationType = SmartCardAssociationType(0i32);
 pub const NotEntitled: EntitlementType = EntitlementType(1i32);
@@ -32444,9 +31949,6 @@ impl Default for PID_MAP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PID_MAP {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PID_MPEG2_SECTION_PSI_SI: MUX_PID_TYPE = MUX_PID_TYPE(1i32);
 pub const PID_OTHER: MUX_PID_TYPE = MUX_PID_TYPE(-1i32);
 pub const PINDIR_INPUT: PIN_DIRECTION = PIN_DIRECTION(0i32);
@@ -32467,10 +31969,6 @@ impl Default for PIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for PIN_INFO {
-    type TypeKind = windows_core::CloneType;
 }
 pub const PhysConn_Audio_1394: PhysicalConnectorType = PhysicalConnectorType(4103i32);
 pub const PhysConn_Audio_AESDigital: PhysicalConnectorType = PhysicalConnectorType(4099i32);
@@ -32524,9 +32022,6 @@ impl Default for Quality {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for Quality {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QualityMessageType(pub i32);
@@ -32541,9 +32036,6 @@ impl Default for REGFILTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REGFILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REGFILTER2 {
@@ -32556,9 +32048,6 @@ impl Default for REGFILTER2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REGFILTER2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union REGFILTER2_0 {
@@ -32569,9 +32058,6 @@ impl Default for REGFILTER2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REGFILTER2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -32584,9 +32070,6 @@ impl Default for REGFILTER2_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REGFILTER2_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REGFILTER2_0_1 {
@@ -32597,9 +32080,6 @@ impl Default for REGFILTER2_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REGFILTER2_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -32619,9 +32099,6 @@ impl Default for REGFILTERPINS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REGFILTERPINS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REGFILTERPINS2 {
@@ -32638,9 +32115,6 @@ impl Default for REGFILTERPINS2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REGFILTERPINS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REGPINMEDIUM {
@@ -32653,9 +32127,6 @@ impl Default for REGPINMEDIUM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REGPINMEDIUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REGPINTYPES {
@@ -32666,9 +32137,6 @@ impl Default for REGPINTYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REGPINTYPES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -32722,9 +32190,6 @@ impl Default for RIFFCHUNK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RIFFCHUNK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct RIFFLIST {
@@ -32736,9 +32201,6 @@ impl Default for RIFFLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RIFFLIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ReadData: OUTPUT_STATE = OUTPUT_STATE(1i32);
 pub const RenderData: OUTPUT_STATE = OUTPUT_STATE(2i32);
@@ -32812,9 +32274,6 @@ impl Default for STREAM_ID_MAP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STREAM_ID_MAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STREAM_STATE(pub i32);
@@ -32842,9 +32301,6 @@ impl Default for SmartCardApplication {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SmartCardApplication {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -32874,9 +32330,6 @@ impl Default for TIMECODEDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TIMECODEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TIMECODE_RATE_30DROP: u32 = 0u32;
 pub const TIMECODE_SMPTE_BINARY_GROUP: u32 = 7u32;
 pub const TIMECODE_SMPTE_COLOR_FRAME: u32 = 8u32;
@@ -32892,10 +32345,6 @@ impl Default for TRUECOLORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for TRUECOLORINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -33085,9 +32534,6 @@ impl Default for VFW_FILTERLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VFW_FILTERLIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VFW_FIRST_CODE: u32 = 512u32;
 pub const VFW_S_AUDIO_NOT_RENDERED: windows_core::HRESULT = windows_core::HRESULT(0x40258_u32 as _);
 pub const VFW_S_CANT_CUE: windows_core::HRESULT = windows_core::HRESULT(0x40268_u32 as _);
@@ -33131,10 +32577,6 @@ impl Default for VIDEOINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for VIDEOINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -33148,10 +32590,6 @@ impl Default for VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for VIDEOINFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -33183,9 +32621,6 @@ impl Default for VIDEO_STREAM_CONFIG_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_STREAM_CONFIG_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VMR9ARMode_LetterBox: VMR9AspectRatioMode = VMR9AspectRatioMode(1i32);
 pub const VMR9ARMode_None: VMR9AspectRatioMode = VMR9AspectRatioMode(0i32);
 pub const VMR9AllocFlag_3DRenderTarget: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(1i32);
@@ -33214,10 +32649,6 @@ impl Default for VMR9AllocationInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for VMR9AllocationInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -33236,10 +32667,6 @@ impl Default for VMR9AlphaBitmap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for VMR9AlphaBitmap {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -33267,9 +32694,6 @@ impl Default for VMR9DeinterlaceCaps {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VMR9DeinterlaceCaps {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMR9DeinterlacePrefs(pub i32);
@@ -33286,9 +32710,6 @@ impl Default for VMR9Frequency {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VMR9Frequency {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -33322,10 +32743,6 @@ impl Default for VMR9MonitorInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for VMR9MonitorInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VMR9NormalizedRect {
@@ -33338,9 +32755,6 @@ impl Default for VMR9NormalizedRect {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VMR9NormalizedRect {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -33365,10 +32779,6 @@ impl Default for VMR9PresentationInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for VMR9PresentationInfo {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VMR9ProcAmpControl {
@@ -33383,9 +32793,6 @@ impl Default for VMR9ProcAmpControl {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VMR9ProcAmpControl {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -33404,9 +32811,6 @@ impl Default for VMR9ProcAmpControlRange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VMR9ProcAmpControlRange {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -33435,9 +32839,6 @@ impl Default for VMR9VideoDesc {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VMR9VideoDesc {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[derive(Clone, Debug, PartialEq)]
@@ -33457,10 +32858,6 @@ impl Default for VMR9VideoStreamInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for VMR9VideoStreamInfo {
-    type TypeKind = windows_core::CloneType;
 }
 pub const VMR9_SampleFieldInterleavedEvenFirst: VMR9_SampleFormat = VMR9_SampleFormat(3i32);
 pub const VMR9_SampleFieldInterleavedOddFirst: VMR9_SampleFormat = VMR9_SampleFormat(4i32);
@@ -33490,10 +32887,6 @@ impl Default for VMRALLOCATIONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for VMRALLOCATIONINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -33511,10 +32904,6 @@ impl Default for VMRALPHABITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for VMRALPHABITMAP {
-    type TypeKind = windows_core::CloneType;
 }
 pub const VMRBITMAP_DISABLE: u32 = 1u32;
 pub const VMRBITMAP_ENTIREDDS: u32 = 4u32;
@@ -33535,9 +32924,6 @@ impl Default for VMRDeinterlaceCaps {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VMRDeinterlaceCaps {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMRDeinterlacePrefs(pub i32);
@@ -33555,9 +32941,6 @@ impl Default for VMRFrequency {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VMRFrequency {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VMRGUID {
@@ -33568,9 +32951,6 @@ impl Default for VMRGUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VMRGUID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -33593,10 +32973,6 @@ impl Default for VMRMONITORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for VMRMONITORINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -33627,10 +33003,6 @@ impl Default for VMRPRESENTATIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for VMRPRESENTATIONINFO {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -33664,10 +33036,6 @@ impl Default for VMRVIDEOSTREAMINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for VMRVIDEOSTREAMINFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VMRVideoDesc {
@@ -33683,9 +33051,6 @@ impl Default for VMRVideoDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VMRVideoDesc {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VMR_ARMODE_LETTER_BOX: VMR_ASPECT_RATIO_MODE = VMR_ASPECT_RATIO_MODE(1i32);
 pub const VMR_ARMODE_NONE: VMR_ASPECT_RATIO_MODE = VMR_ASPECT_RATIO_MODE(0i32);

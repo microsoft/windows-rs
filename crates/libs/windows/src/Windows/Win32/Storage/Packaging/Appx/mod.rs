@@ -500,9 +500,6 @@ impl Default for APPX_ENCRYPTED_EXEMPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APPX_ENCRYPTED_EXEMPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_OPTIONS(pub i32);
@@ -557,10 +554,6 @@ impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, PartialEq)]
@@ -575,10 +568,6 @@ impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -600,9 +589,6 @@ impl Default for APPX_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for APPX_KEY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -678,10 +664,6 @@ impl Default for APPX_PACKAGE_SETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for APPX_PACKAGE_SETTINGS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, PartialEq)]
@@ -696,10 +678,6 @@ impl Default for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6859,10 +6837,6 @@ impl Default for PACKAGE_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for PACKAGE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -6881,10 +6855,6 @@ impl Default for PACKAGE_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for PACKAGE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -6902,10 +6872,6 @@ impl Default for PACKAGE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for PACKAGE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -6922,10 +6888,6 @@ impl Default for PACKAGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for PACKAGE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;
 pub const PACKAGE_INFORMATION_FULL: u32 = 256u32;
@@ -6960,9 +6922,6 @@ impl Default for PACKAGE_VERSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PACKAGE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub union PACKAGE_VERSION_0 {
@@ -6973,9 +6932,6 @@ impl Default for PACKAGE_VERSION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PACKAGE_VERSION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6989,9 +6945,6 @@ impl Default for PACKAGE_VERSION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PACKAGE_VERSION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PACKAGE_VERSION_MAX_LENGTH: u32 = 23u32;
 pub const PACKAGE_VERSION_MIN_LENGTH: u32 = 7u32;
@@ -7092,7 +7045,4 @@ impl Default for _PACKAGE_INFO_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for _PACKAGE_INFO_REFERENCE {
-    type TypeKind = windows_core::CopyType;
 }

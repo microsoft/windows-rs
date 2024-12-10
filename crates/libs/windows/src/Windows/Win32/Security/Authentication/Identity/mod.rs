@@ -1604,9 +1604,6 @@ impl Default for AUDIT_POLICY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUDIT_POLICY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AUDIT_QUERY_MISC_POLICY: u32 = 64u32;
 pub const AUDIT_QUERY_SYSTEM_POLICY: u32 = 2u32;
 pub const AUDIT_QUERY_USER_POLICY: u32 = 8u32;
@@ -1719,9 +1716,6 @@ impl Default for CENTRAL_ACCESS_POLICY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CENTRAL_ACCESS_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CENTRAL_ACCESS_POLICY_ENTRY {
@@ -1741,9 +1735,6 @@ impl Default for CENTRAL_ACCESS_POLICY_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CENTRAL_ACCESS_POLICY_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CENTRAL_ACCESS_POLICY_OWNER_RIGHTS_PRESENT_FLAG: u32 = 1u32;
 pub const CENTRAL_ACCESS_POLICY_STAGED_FLAG: u32 = 65536u32;
 pub const CENTRAL_ACCESS_POLICY_STAGED_OWNER_RIGHTS_PRESENT_FLAG: u32 = 256u32;
@@ -1758,9 +1749,6 @@ impl Default for CLEAR_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLEAR_BLOCK {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLEAR_BLOCK_LENGTH: u32 = 8u32;
 pub const CLOUDAP_NAME: windows_core::PCWSTR = windows_core::w!("CloudAP");
@@ -1792,9 +1780,6 @@ impl Default for CRYPTO_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPTO_SETTINGS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CYPHER_BLOCK_LENGTH: u32 = 8u32;
 pub const CertHashInfo: KERB_CERTIFICATE_INFO_TYPE = KERB_CERTIFICATE_INFO_TYPE(1i32);
@@ -1837,9 +1822,6 @@ impl Default for DOMAIN_PASSWORD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOMAIN_PASSWORD_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOMAIN_PASSWORD_NO_ANON_CHANGE: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(2u32);
 pub const DOMAIN_PASSWORD_NO_CLEAR_CHANGE: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(4u32);
@@ -1900,10 +1882,6 @@ impl Default for ENCRYPTED_CREDENTIALW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Credentials")]
-impl windows_core::TypeKind for ENCRYPTED_CREDENTIALW {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ENCRYPT_MESSAGE_FN = Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> windows_core::HRESULT>;
@@ -2161,9 +2139,6 @@ impl Default for KDC_PROXY_CACHE_ENTRY_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KDC_PROXY_CACHE_ENTRY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KDC_PROXY_SETTINGS_FLAGS_FORCEPROXY: u32 = 1u32;
 pub const KDC_PROXY_SETTINGS_V1: u32 = 1u32;
 pub const KERBEROS_REVISION: u32 = 6u32;
@@ -2185,9 +2160,6 @@ impl Default for KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
@@ -2200,9 +2172,6 @@ impl Default for KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2219,9 +2188,6 @@ impl Default for KERB_ADD_CREDENTIALS_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_ADD_CREDENTIALS_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST_EX {
@@ -2234,9 +2200,6 @@ impl Default for KERB_ADD_CREDENTIALS_REQUEST_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_ADD_CREDENTIALS_REQUEST_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_AUTH_DATA {
@@ -2248,9 +2211,6 @@ impl Default for KERB_AUTH_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_AUTH_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2269,9 +2229,6 @@ impl Default for KERB_BINDING_CACHE_ENTRY_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_BINDING_CACHE_ENTRY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_CERTIFICATE_HASHINFO {
@@ -2283,9 +2240,6 @@ impl Default for KERB_CERTIFICATE_HASHINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_CERTIFICATE_HASHINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_CERTIFICATE_INFO {
@@ -2296,9 +2250,6 @@ impl Default for KERB_CERTIFICATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_CERTIFICATE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2319,9 +2270,6 @@ impl Default for KERB_CERTIFICATE_LOGON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_CERTIFICATE_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES: u32 = 1u32;
 pub const KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO: u32 = 2u32;
 #[repr(C)]
@@ -2339,9 +2287,6 @@ impl Default for KERB_CERTIFICATE_S4U_LOGON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_CERTIFICATE_S4U_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_DUPLICATES: u32 = 1u32;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2u32;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_FAIL_IF_NT_AUTH_POLICY_REQUIRED: u32 = 4u32;
@@ -2357,9 +2302,6 @@ impl Default for KERB_CERTIFICATE_UNLOCK_LOGON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_CERTIFICATE_UNLOCK_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_CHANGEPASSWORD_REQUEST {
@@ -2374,9 +2316,6 @@ impl Default for KERB_CHANGEPASSWORD_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_CHANGEPASSWORD_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERB_CHECKSUM_CRC32: u32 = 1u32;
 pub const KERB_CHECKSUM_DES_MAC: i32 = -133i32;
@@ -2413,9 +2352,6 @@ impl Default for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA {
@@ -2426,9 +2362,6 @@ impl Default for KERB_CLOUD_KERBEROS_DEBUG_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
@@ -2438,9 +2371,6 @@ impl Default for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: u32 = 1u32;
 #[repr(C)]
@@ -2453,9 +2383,6 @@ impl Default for KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2470,9 +2397,6 @@ impl Default for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_CRYPTO_KEY {
@@ -2485,9 +2409,6 @@ impl Default for KERB_CRYPTO_KEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_CRYPTO_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_CRYPTO_KEY32 {
@@ -2499,9 +2420,6 @@ impl Default for KERB_CRYPTO_KEY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_CRYPTO_KEY32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2526,9 +2444,6 @@ impl Default for KERB_DECRYPT_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_DECRYPT_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_DECRYPT_RESPONSE {
@@ -2538,9 +2453,6 @@ impl Default for KERB_DECRYPT_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_DECRYPT_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERB_ETYPE_AES128_CTS_HMAC_SHA1_96: u32 = 17u32;
 pub const KERB_ETYPE_AES128_CTS_HMAC_SHA1_96_PLAIN: i32 = -148i32;
@@ -2593,9 +2505,6 @@ impl Default for KERB_EXTERNAL_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_EXTERNAL_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_EXTERNAL_TICKET {
@@ -2621,9 +2530,6 @@ impl Default for KERB_EXTERNAL_TICKET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_EXTERNAL_TICKET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_INTERACTIVE_LOGON {
@@ -2636,9 +2542,6 @@ impl Default for KERB_INTERACTIVE_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_INTERACTIVE_LOGON {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2665,9 +2568,6 @@ impl Default for KERB_INTERACTIVE_PROFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_INTERACTIVE_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_INTERACTIVE_UNLOCK_LOGON {
@@ -2678,9 +2578,6 @@ impl Default for KERB_INTERACTIVE_UNLOCK_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_INTERACTIVE_UNLOCK_LOGON {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERB_LOGON_FLAG_ALLOW_EXPIRED_TICKET: u32 = 1u32;
 pub const KERB_LOGON_FLAG_REDIRECTED: u32 = 2u32;
@@ -2699,9 +2596,6 @@ impl Default for KERB_NET_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_NET_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_NET_ADDRESSES {
@@ -2712,9 +2606,6 @@ impl Default for KERB_NET_ADDRESSES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_NET_ADDRESSES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2733,9 +2624,6 @@ impl Default for KERB_PURGE_BINDING_CACHE_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_PURGE_BINDING_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
@@ -2748,9 +2636,6 @@ impl Default for KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
@@ -2761,9 +2646,6 @@ impl Default for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2778,9 +2660,6 @@ impl Default for KERB_PURGE_TKT_CACHE_EX_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_PURGE_TKT_CACHE_EX_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_PURGE_TKT_CACHE_REQUEST {
@@ -2794,9 +2673,6 @@ impl Default for KERB_PURGE_TKT_CACHE_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_PURGE_TKT_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_QUERY_BINDING_CACHE_REQUEST {
@@ -2806,9 +2682,6 @@ impl Default for KERB_QUERY_BINDING_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_QUERY_BINDING_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2822,9 +2695,6 @@ impl Default for KERB_QUERY_BINDING_CACHE_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_QUERY_BINDING_CACHE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
@@ -2836,9 +2706,6 @@ impl Default for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2853,9 +2720,6 @@ impl Default for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE_FLAG_DAC_DISABLED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2869,9 +2733,6 @@ impl Default for KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
@@ -2883,9 +2744,6 @@ impl Default for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2899,9 +2757,6 @@ impl Default for KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
@@ -2913,9 +2768,6 @@ impl Default for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2929,9 +2781,6 @@ impl Default for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
@@ -2943,9 +2792,6 @@ impl Default for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2959,9 +2805,6 @@ impl Default for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_REQUEST {
@@ -2972,9 +2815,6 @@ impl Default for KERB_QUERY_TKT_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2987,9 +2827,6 @@ impl Default for KERB_QUERY_TKT_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERB_REFRESH_POLICY_KDC: u32 = 2u32;
 pub const KERB_REFRESH_POLICY_KERBEROS: u32 = 1u32;
@@ -3004,9 +2841,6 @@ impl Default for KERB_REFRESH_POLICY_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_REFRESH_POLICY_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_REFRESH_POLICY_RESPONSE {
@@ -3017,9 +2851,6 @@ impl Default for KERB_REFRESH_POLICY_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_REFRESH_POLICY_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERB_REFRESH_SCCRED_GETTGT: u32 = 1u32;
 pub const KERB_REFRESH_SCCRED_RELEASE: u32 = 0u32;
@@ -3035,9 +2866,6 @@ impl Default for KERB_REFRESH_SCCRED_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_REFRESH_SCCRED_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERB_REQUEST_ADD_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(1u32);
 #[repr(transparent)]
@@ -3059,9 +2887,6 @@ impl Default for KERB_RETRIEVE_KEY_TAB_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_RETRIEVE_KEY_TAB_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_RETRIEVE_KEY_TAB_RESPONSE {
@@ -3073,9 +2898,6 @@ impl Default for KERB_RETRIEVE_KEY_TAB_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_RETRIEVE_KEY_TAB_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERB_RETRIEVE_TICKET_AS_KERB_CRED: u32 = 8u32;
 pub const KERB_RETRIEVE_TICKET_CACHE_TICKET: u32 = 32u32;
@@ -3103,10 +2925,6 @@ impl Default for KERB_RETRIEVE_TKT_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Credentials")]
-impl windows_core::TypeKind for KERB_RETRIEVE_TKT_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_RETRIEVE_TKT_RESPONSE {
@@ -3116,9 +2934,6 @@ impl Default for KERB_RETRIEVE_TKT_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_RETRIEVE_TKT_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3132,9 +2947,6 @@ impl Default for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE: u32 = 1u32;
 #[repr(C)]
@@ -3153,9 +2965,6 @@ impl Default for KERB_S4U2PROXY_CRED {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_S4U2PROXY_CRED {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KERB_S4U2PROXY_CRED_FLAG_NEGATIVE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3169,9 +2978,6 @@ impl Default for KERB_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_S4U_LOGON {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERB_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2u32;
 pub const KERB_S4U_LOGON_FLAG_IDENTIFY: u32 = 8u32;
@@ -3198,10 +3004,6 @@ impl Default for KERB_SETPASSWORD_EX_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Credentials")]
-impl windows_core::TypeKind for KERB_SETPASSWORD_EX_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3220,10 +3022,6 @@ impl Default for KERB_SETPASSWORD_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Credentials")]
-impl windows_core::TypeKind for KERB_SETPASSWORD_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KERB_SETPASS_USE_CREDHANDLE: u32 = 2u32;
 pub const KERB_SETPASS_USE_LOGONID: u32 = 1u32;
 #[repr(C)]
@@ -3239,9 +3037,6 @@ impl Default for KERB_SMART_CARD_LOGON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_SMART_CARD_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_SMART_CARD_PROFILE {
@@ -3254,9 +3049,6 @@ impl Default for KERB_SMART_CARD_PROFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_SMART_CARD_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_SMART_CARD_UNLOCK_LOGON {
@@ -3267,9 +3059,6 @@ impl Default for KERB_SMART_CARD_UNLOCK_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_SMART_CARD_UNLOCK_LOGON {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3286,9 +3075,6 @@ impl Default for KERB_SUBMIT_TKT_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_SUBMIT_TKT_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO {
@@ -3304,9 +3090,6 @@ impl Default for KERB_TICKET_CACHE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_TICKET_CACHE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3325,9 +3108,6 @@ impl Default for KERB_TICKET_CACHE_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_TICKET_CACHE_INFO_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3348,9 +3128,6 @@ impl Default for KERB_TICKET_CACHE_INFO_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_TICKET_CACHE_INFO_EX2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3373,9 +3150,6 @@ impl Default for KERB_TICKET_CACHE_INFO_EX3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_TICKET_CACHE_INFO_EX3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3445,9 +3219,6 @@ impl Default for KERB_TICKET_LOGON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_TICKET_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_TICKET_PROFILE {
@@ -3459,9 +3230,6 @@ impl Default for KERB_TICKET_PROFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERB_TICKET_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_TICKET_UNLOCK_LOGON {
@@ -3472,9 +3240,6 @@ impl Default for KERB_TICKET_UNLOCK_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_TICKET_UNLOCK_LOGON {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERB_TRANSFER_CRED_CLEANUP_CREDENTIALS: u32 = 2u32;
 #[repr(C)]
@@ -3489,9 +3254,6 @@ impl Default for KERB_TRANSFER_CRED_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KERB_TRANSFER_CRED_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERB_TRANSFER_CRED_WITH_TICKETS: u32 = 1u32;
 pub const KERB_USE_DEFAULT_TICKET_FLAGS: u32 = 0u32;
@@ -3532,10 +3294,6 @@ impl Default for KSEC_LIST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KSEC_LIST_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSecNonPaged: KSEC_CONTEXT_TYPE = KSEC_CONTEXT_TYPE(1i32);
 pub const KSecPaged: KSEC_CONTEXT_TYPE = KSEC_CONTEXT_TYPE(0i32);
@@ -3624,9 +3382,6 @@ impl Default for LOGON_HOURS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LOGON_HOURS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LOGON_LM_V2: u32 = 4096u32;
 pub const LOGON_MANAGED_SERVICE: u32 = 524288u32;
 pub const LOGON_NOENCRYPTION: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(2u32);
@@ -3675,9 +3430,6 @@ impl Default for LSA_AUTH_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_AUTH_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_AUTH_INFORMATION_AUTH_TYPE(pub u32);
@@ -3702,9 +3454,6 @@ impl Default for LSA_DISPATCH_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_DISPATCH_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LSA_ENUMERATION_INFORMATION {
@@ -3714,9 +3463,6 @@ impl Default for LSA_ENUMERATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LSA_ENUMERATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3729,9 +3475,6 @@ impl Default for LSA_FOREST_TRUST_BINARY_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_FOREST_TRUST_BINARY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_COLLISION_INFORMATION {
@@ -3742,9 +3485,6 @@ impl Default for LSA_FOREST_TRUST_COLLISION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_COLLISION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3758,9 +3498,6 @@ impl Default for LSA_FOREST_TRUST_COLLISION_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_COLLISION_RECORD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3777,9 +3514,6 @@ impl Default for LSA_FOREST_TRUST_DOMAIN_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_FOREST_TRUST_DOMAIN_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_INFORMATION {
@@ -3791,9 +3525,6 @@ impl Default for LSA_FOREST_TRUST_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_FOREST_TRUST_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_INFORMATION2 {
@@ -3804,9 +3535,6 @@ impl Default for LSA_FOREST_TRUST_INFORMATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_INFORMATION2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3821,9 +3549,6 @@ impl Default for LSA_FOREST_TRUST_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union LSA_FOREST_TRUST_RECORD_0 {
@@ -3835,9 +3560,6 @@ impl Default for LSA_FOREST_TRUST_RECORD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3852,9 +3574,6 @@ impl Default for LSA_FOREST_TRUST_RECORD2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union LSA_FOREST_TRUST_RECORD2_0 {
@@ -3867,9 +3586,6 @@ impl Default for LSA_FOREST_TRUST_RECORD2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3886,9 +3602,6 @@ impl Default for LSA_FOREST_TRUST_SCANNER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_SCANNER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LSA_FTRECORD_DISABLED_REASONS: i32 = 65535i32;
 pub const LSA_GLOBAL_SECRET_PREFIX: windows_core::PCWSTR = windows_core::w!("G$");
@@ -3925,9 +3638,6 @@ impl Default for LSA_LAST_INTER_LOGON_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_LAST_INTER_LOGON_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LSA_LOCAL_SECRET_PREFIX: windows_core::PCWSTR = windows_core::w!("L$");
 pub const LSA_LOCAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
 pub const LSA_LOOKUP_DISALLOW_CONNECTED_ACCOUNT_INTERNET_SID: u32 = 2147483648u32;
@@ -3960,9 +3670,6 @@ impl Default for LSA_OBJECT_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_OBJECT_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LSA_QUERY_CLIENT_PRELOGON_SESSION_ID: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3974,9 +3681,6 @@ impl Default for LSA_REFERENCED_DOMAIN_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LSA_REFERENCED_DOMAIN_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LSA_SCANNER_INFO_ADMIN_ALL_FLAGS: i32 = 1i32;
 pub const LSA_SCANNER_INFO_DISABLE_AUTH_TARGET_VALIDATION: i32 = 1i32;
@@ -4055,10 +3759,6 @@ impl Default for LSA_SECPKG_FUNCTION_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
-impl windows_core::TypeKind for LSA_SECPKG_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LSA_SECRET_MAXIMUM_COUNT: i32 = 4096i32;
 pub const LSA_SECRET_MAXIMUM_LENGTH: i32 = 512i32;
 pub const LSA_SID_DISABLED_ADMIN: i32 = 1i32;
@@ -4075,9 +3775,6 @@ impl Default for LSA_STRING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LSA_TLN_DISABLED_ADMIN: i32 = 2i32;
 pub const LSA_TLN_DISABLED_CONFLICT: i32 = 4i32;
 pub const LSA_TLN_DISABLED_NEW: i32 = 1i32;
@@ -4091,9 +3788,6 @@ impl Default for LSA_TOKEN_INFORMATION_NULL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LSA_TOKEN_INFORMATION_NULL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4114,9 +3808,6 @@ impl Default for LSA_TOKEN_INFORMATION_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_TOKEN_INFORMATION_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LSA_TOKEN_INFORMATION_V3 {
@@ -4136,9 +3827,6 @@ impl Default for LSA_TOKEN_INFORMATION_V3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_TOKEN_INFORMATION_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LSA_TRANSLATED_NAME {
@@ -4151,9 +3839,6 @@ impl Default for LSA_TRANSLATED_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_TRANSLATED_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LSA_TRANSLATED_SID {
@@ -4165,9 +3850,6 @@ impl Default for LSA_TRANSLATED_SID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LSA_TRANSLATED_SID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4182,9 +3864,6 @@ impl Default for LSA_TRANSLATED_SID2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LSA_TRANSLATED_SID2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LSA_TRUST_INFORMATION {
@@ -4195,9 +3874,6 @@ impl Default for LSA_TRUST_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LSA_TRUST_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4210,9 +3886,6 @@ impl Default for LSA_UNICODE_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LSA_UNICODE_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LocalUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(3i32);
 pub const LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(0i32);
@@ -4253,9 +3926,6 @@ impl Default for MSV1_0_AV_PAIR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MSV1_0_AV_PAIR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MSV1_0_CHALLENGE_LENGTH: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4272,9 +3942,6 @@ impl Default for MSV1_0_CHANGEPASSWORD_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MSV1_0_CHANGEPASSWORD_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSV1_0_CHANGEPASSWORD_RESPONSE {
@@ -4286,9 +3953,6 @@ impl Default for MSV1_0_CHANGEPASSWORD_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MSV1_0_CHANGEPASSWORD_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MSV1_0_CHECK_LOGONHOURS_FOR_S4U: u32 = 262144u32;
 pub const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(2u32);
@@ -4302,9 +3966,6 @@ impl Default for MSV1_0_CREDENTIAL_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MSV1_0_CREDENTIAL_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MSV1_0_CREDENTIAL_KEY_LENGTH: u32 = 20u32;
 #[repr(transparent)]
@@ -4339,9 +4000,6 @@ impl Default for MSV1_0_INTERACTIVE_LOGON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MSV1_0_INTERACTIVE_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSV1_0_INTERACTIVE_PROFILE {
@@ -4367,9 +4025,6 @@ impl Default for MSV1_0_INTERACTIVE_PROFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MSV1_0_INTERACTIVE_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MSV1_0_INTERNET_DOMAIN: u32 = 524288u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4382,9 +4037,6 @@ impl Default for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MSV1_0_LANMAN_SESSION_KEY_LENGTH: u32 = 8u32;
 #[repr(C)]
@@ -4404,9 +4056,6 @@ impl Default for MSV1_0_LM20_LOGON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MSV1_0_LM20_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSV1_0_LM20_LOGON_PROFILE {
@@ -4424,9 +4073,6 @@ impl Default for MSV1_0_LM20_LOGON_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MSV1_0_LM20_LOGON_PROFILE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4453,9 +4099,6 @@ impl Default for MSV1_0_NTLM3_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MSV1_0_NTLM3_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MSV1_0_NTLM3_RESPONSE_LENGTH: u32 = 16u32;
 pub const MSV1_0_OWF_PASSWORD_LENGTH: u32 = 16u32;
 pub const MSV1_0_PACKAGE_NAME: windows_core::PCSTR = windows_core::s!("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0");
@@ -4475,9 +4118,6 @@ impl Default for MSV1_0_PASSTHROUGH_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MSV1_0_PASSTHROUGH_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSV1_0_PASSTHROUGH_RESPONSE {
@@ -4490,9 +4130,6 @@ impl Default for MSV1_0_PASSTHROUGH_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MSV1_0_PASSTHROUGH_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MSV1_0_PASSTHRU: MSV1_0 = MSV1_0(1u32);
 #[repr(transparent)]
@@ -4516,9 +4153,6 @@ impl Default for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MSV1_0_RETURN_PASSWORD_EXPIRY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(64u32);
 pub const MSV1_0_RETURN_PROFILE_PATH: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(512u32);
 pub const MSV1_0_RETURN_USER_PARAMETERS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(8u32);
@@ -4535,9 +4169,6 @@ impl Default for MSV1_0_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MSV1_0_S4U_LOGON {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MSV1_0_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2u32;
 pub const MSV1_0_SHA_PASSWORD_LENGTH: u32 = 20u32;
@@ -4571,9 +4202,6 @@ impl Default for MSV1_0_SUBAUTH_LOGON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MSV1_0_SUBAUTH_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MSV1_0_SUBAUTH_LOGON_HOURS: u32 = 8u32;
 pub const MSV1_0_SUBAUTH_PASSWORD: u32 = 2u32;
 pub const MSV1_0_SUBAUTH_PASSWORD_EXPIRY: u32 = 32u32;
@@ -4590,9 +4218,6 @@ impl Default for MSV1_0_SUBAUTH_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MSV1_0_SUBAUTH_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSV1_0_SUBAUTH_RESPONSE {
@@ -4604,9 +4229,6 @@ impl Default for MSV1_0_SUBAUTH_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MSV1_0_SUBAUTH_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MSV1_0_SUBAUTH_WORKSTATIONS: u32 = 4u32;
 #[repr(C)]
@@ -4622,9 +4244,6 @@ impl Default for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
@@ -4637,9 +4256,6 @@ impl Default for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4655,9 +4271,6 @@ impl Default for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MSV1_0_TRY_GUEST_ACCOUNT_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(256u32);
 pub const MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(1024u32);
@@ -4684,10 +4297,6 @@ impl Default for MSV1_0_VALIDATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_PasswordManagement")]
-impl windows_core::TypeKind for MSV1_0_VALIDATION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MSV1_0_VALIDATION_KICKOFF_TIME: u32 = 2u32;
 pub const MSV1_0_VALIDATION_LOGOFF_TIME: u32 = 1u32;
@@ -4834,9 +4443,6 @@ impl Default for NEGOTIATE_CALLER_NAME_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NEGOTIATE_CALLER_NAME_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NEGOTIATE_CALLER_NAME_RESPONSE {
@@ -4847,9 +4453,6 @@ impl Default for NEGOTIATE_CALLER_NAME_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NEGOTIATE_CALLER_NAME_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NEGOTIATE_MAX_PREFIX: u32 = 32u32;
 #[repr(transparent)]
@@ -4870,9 +4473,6 @@ impl Default for NEGOTIATE_PACKAGE_PREFIX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NEGOTIATE_PACKAGE_PREFIX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NEGOTIATE_PACKAGE_PREFIXES {
@@ -4886,9 +4486,6 @@ impl Default for NEGOTIATE_PACKAGE_PREFIXES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NEGOTIATE_PACKAGE_PREFIXES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NETLOGON_GENERIC_INFO {
@@ -4901,9 +4498,6 @@ impl Default for NETLOGON_GENERIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NETLOGON_GENERIC_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_PasswordManagement")]
@@ -4919,10 +4513,6 @@ impl Default for NETLOGON_INTERACTIVE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_PasswordManagement")]
-impl windows_core::TypeKind for NETLOGON_INTERACTIVE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NETLOGON_LOGON_IDENTITY_INFO {
@@ -4936,9 +4526,6 @@ impl Default for NETLOGON_LOGON_IDENTITY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NETLOGON_LOGON_IDENTITY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4956,9 +4543,6 @@ impl Default for NETLOGON_NETWORK_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETLOGON_NETWORK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_PasswordManagement")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4972,10 +4556,6 @@ impl Default for NETLOGON_SERVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_PasswordManagement")]
-impl windows_core::TypeKind for NETLOGON_SERVICE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NGC_DATA_FLAG_IS_CLOUD_TRUST_CRED: u32 = 8u32;
 pub const NGC_DATA_FLAG_IS_SMARTCARD_DATA: u32 = 4u32;
@@ -5054,9 +4634,6 @@ impl Default for PKU2U_CERTIFICATE_S4U_LOGON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PKU2U_CERTIFICATE_S4U_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PKU2U_CERT_BLOB {
@@ -5067,9 +4644,6 @@ impl Default for PKU2U_CERT_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PKU2U_CERT_BLOB {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5084,9 +4658,6 @@ impl Default for PKU2U_CREDUI_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PKU2U_CREDUI_CONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5222,9 +4793,6 @@ impl Default for POLICY_ACCOUNT_DOMAIN_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POLICY_ACCOUNT_DOMAIN_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POLICY_AUDIT_CATEGORIES_INFO {
@@ -5235,9 +4803,6 @@ impl Default for POLICY_AUDIT_CATEGORIES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POLICY_AUDIT_CATEGORIES_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5250,9 +4815,6 @@ impl Default for POLICY_AUDIT_EVENTS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POLICY_AUDIT_EVENTS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const POLICY_AUDIT_EVENT_FAILURE: i32 = 2i32;
 pub const POLICY_AUDIT_EVENT_NONE: i32 = 4i32;
@@ -5272,9 +4834,6 @@ impl Default for POLICY_AUDIT_FULL_QUERY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POLICY_AUDIT_FULL_QUERY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POLICY_AUDIT_FULL_SET_INFO {
@@ -5284,9 +4843,6 @@ impl Default for POLICY_AUDIT_FULL_SET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POLICY_AUDIT_FULL_SET_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const POLICY_AUDIT_LOG_ADMIN: i32 = 512i32;
 #[repr(C)]
@@ -5304,9 +4860,6 @@ impl Default for POLICY_AUDIT_LOG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POLICY_AUDIT_LOG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POLICY_AUDIT_SID_ARRAY {
@@ -5318,9 +4871,6 @@ impl Default for POLICY_AUDIT_SID_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POLICY_AUDIT_SID_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POLICY_AUDIT_SUBCATEGORIES_INFO {
@@ -5331,9 +4881,6 @@ impl Default for POLICY_AUDIT_SUBCATEGORIES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POLICY_AUDIT_SUBCATEGORIES_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const POLICY_CREATE_ACCOUNT: i32 = 16i32;
 pub const POLICY_CREATE_PRIVILEGE: i32 = 64i32;
@@ -5347,9 +4894,6 @@ impl Default for POLICY_DEFAULT_QUOTA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POLICY_DEFAULT_QUOTA_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5365,9 +4909,6 @@ impl Default for POLICY_DNS_DOMAIN_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POLICY_DNS_DOMAIN_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POLICY_DOMAIN_EFS_INFO {
@@ -5378,9 +4919,6 @@ impl Default for POLICY_DOMAIN_EFS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POLICY_DOMAIN_EFS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5399,9 +4937,6 @@ impl Default for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const POLICY_GET_PRIVATE_INFORMATION: i32 = 4i32;
 #[repr(transparent)]
@@ -5422,9 +4957,6 @@ impl Default for POLICY_LSA_SERVER_ROLE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POLICY_LSA_SERVER_ROLE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POLICY_MACHINE_ACCT_INFO {
@@ -5435,9 +4967,6 @@ impl Default for POLICY_MACHINE_ACCT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POLICY_MACHINE_ACCT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5451,9 +4980,6 @@ impl Default for POLICY_MACHINE_ACCT_INFO2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POLICY_MACHINE_ACCT_INFO2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POLICY_MODIFICATION_INFO {
@@ -5464,9 +4990,6 @@ impl Default for POLICY_MODIFICATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POLICY_MODIFICATION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const POLICY_NOTIFICATION: i32 = 4096i32;
 #[repr(transparent)]
@@ -5482,9 +5005,6 @@ impl Default for POLICY_PD_ACCOUNT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POLICY_PD_ACCOUNT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POLICY_PRIMARY_DOMAIN_INFO {
@@ -5495,9 +5015,6 @@ impl Default for POLICY_PRIMARY_DOMAIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POLICY_PRIMARY_DOMAIN_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const POLICY_QOS_ALLOW_LOCAL_ROOT_CERT_STORE: u32 = 32u32;
 pub const POLICY_QOS_DHCP_SERVER_ALLOWED: u32 = 128u32;
@@ -5517,9 +5034,6 @@ impl Default for POLICY_REPLICA_SOURCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POLICY_REPLICA_SOURCE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const POLICY_SERVER_ADMIN: i32 = 1024i32;
 pub const POLICY_SET_AUDIT_REQUIREMENTS: i32 = 256i32;
@@ -5571,9 +5085,6 @@ impl Default for PctPublicKey {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PctPublicKey {
-    type TypeKind = windows_core::CopyType;
 }
 pub const Pku2uCertificateS4ULogon: PKU2U_LOGON_SUBMIT_TYPE = PKU2U_LOGON_SUBMIT_TYPE(14i32);
 pub const PolicyAccountDomainInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(5i32);
@@ -5655,9 +5166,6 @@ impl Default for SAM_REGISTER_MAPPING_ELEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SAM_REGISTER_MAPPING_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_LIST {
@@ -5669,9 +5177,6 @@ impl Default for SAM_REGISTER_MAPPING_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SAM_REGISTER_MAPPING_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_TABLE {
@@ -5682,9 +5187,6 @@ impl Default for SAM_REGISTER_MAPPING_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SAM_REGISTER_MAPPING_TABLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5706,9 +5208,6 @@ impl Default for SCHANNEL_ALERT_TOKEN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCHANNEL_ALERT_TOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHANNEL_ALERT_TOKEN_ALERT_TYPE(pub u32);
@@ -5725,9 +5224,6 @@ impl Default for SCHANNEL_CERT_HASH {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCHANNEL_CERT_HASH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCHANNEL_CERT_HASH_STORE {
@@ -5741,9 +5237,6 @@ impl Default for SCHANNEL_CERT_HASH_STORE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCHANNEL_CERT_HASH_STORE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -5760,10 +5253,6 @@ impl Default for SCHANNEL_CLIENT_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SCHANNEL_CLIENT_SIGNATURE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -5789,10 +5278,6 @@ impl Default for SCHANNEL_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SCHANNEL_CRED {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5849,9 +5334,6 @@ impl Default for SCHANNEL_SESSION_TOKEN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCHANNEL_SESSION_TOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHANNEL_SESSION_TOKEN_FLAGS(pub u32);
@@ -5871,9 +5353,6 @@ impl Default for SCH_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCH_CRED {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -5896,10 +5375,6 @@ impl Default for SCH_CREDENTIALS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SCH_CREDENTIALS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCH_CREDENTIALS_VERSION: u32 = 5u32;
 pub const SCH_CRED_AUTO_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(32u32);
@@ -5937,9 +5412,6 @@ impl Default for SCH_CRED_PUBLIC_CERTCHAIN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCH_CRED_PUBLIC_CERTCHAIN {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SCH_CRED_RESTRICTED_ROOTS: u32 = 8192u32;
 pub const SCH_CRED_REVOCATION_CHECK_CACHE_ONLY: u32 = 16384u32;
 pub const SCH_CRED_REVOCATION_CHECK_CHAIN: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(512u32);
@@ -5956,9 +5428,6 @@ impl Default for SCH_CRED_SECRET_CAPI {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCH_CRED_SECRET_CAPI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCH_CRED_SECRET_PRIVKEY {
@@ -5971,9 +5440,6 @@ impl Default for SCH_CRED_SECRET_PRIVKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCH_CRED_SECRET_PRIVKEY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCH_CRED_SNI_CREDENTIAL: u32 = 524288u32;
 pub const SCH_CRED_SNI_ENABLE_OCSP: u32 = 1048576u32;
@@ -5997,9 +5463,6 @@ impl Default for SCH_EXTENSION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCH_EXTENSION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCH_MACHINE_CERT_HASH: u32 = 1u32;
 pub const SCH_MAX_EXT_SUBSCRIPTIONS: u32 = 2u32;
@@ -6063,9 +5526,6 @@ impl Default for SECPKG_APP_MODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_APP_MODE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6169,9 +5629,6 @@ impl Default for SECPKG_BYTE_VECTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_BYTE_VECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SECPKG_CALLFLAGS_APPCONTAINER: u32 = 1u32;
 pub const SECPKG_CALLFLAGS_APPCONTAINER_AUTHCAPABLE: u32 = 2u32;
 pub const SECPKG_CALLFLAGS_APPCONTAINER_UPNCAPABLE: u32 = 8u32;
@@ -6194,9 +5651,6 @@ impl Default for SECPKG_CALL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_CALL_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECPKG_CALL_IN_PROC: u32 = 16u32;
 pub const SECPKG_CALL_IS_TCB: u32 = 512u32;
@@ -6221,9 +5675,6 @@ impl Default for SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
@@ -6236,9 +5687,6 @@ impl Default for SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_CLEANUP_CREDENTIALS: u32 = 2u32;
 pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_OPTIMISTIC_LOGON: u32 = 1u32;
@@ -6253,9 +5701,6 @@ impl Default for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECPKG_CALL_PROCESS_TERM: u32 = 256u32;
 pub const SECPKG_CALL_RECURSIVE: u32 = 8u32;
@@ -6285,9 +5730,6 @@ impl Default for SECPKG_CLIENT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_CLIENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECPKG_CLIENT_INFO_EX {
@@ -6308,9 +5750,6 @@ impl Default for SECPKG_CLIENT_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_CLIENT_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SECPKG_CLIENT_PROCESS_TERMINATED: u32 = 1u32;
 pub const SECPKG_CLIENT_THREAD_TERMINATED: u32 = 2u32;
 pub const SECPKG_CONTEXT_EXPORT_DELETE_OLD: EXPORT_SECURITY_CONTEXT_FLAGS = EXPORT_SECURITY_CONTEXT_FLAGS(2u32);
@@ -6326,9 +5765,6 @@ impl Default for SECPKG_CONTEXT_THUNKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_CONTEXT_THUNKS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6355,9 +5791,6 @@ impl Default for SECPKG_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECPKG_CREDENTIAL_ATTRIBUTE: u32 = 0u32;
 pub const SECPKG_CREDENTIAL_FLAGS_CALLER_HAS_TCB: u32 = 1u32;
@@ -6391,9 +5824,6 @@ impl Default for SECPKG_DLL_FUNCTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_DLL_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECPKG_EVENT_NOTIFY {
@@ -6408,9 +5838,6 @@ impl Default for SECPKG_EVENT_NOTIFY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_EVENT_NOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECPKG_EVENT_PACKAGE_CHANGE {
@@ -6423,9 +5850,6 @@ impl Default for SECPKG_EVENT_PACKAGE_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_EVENT_PACKAGE_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECPKG_EVENT_ROLE_CHANGE {
@@ -6437,9 +5861,6 @@ impl Default for SECPKG_EVENT_ROLE_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_EVENT_ROLE_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECPKG_EXTENDED_INFORMATION {
@@ -6450,9 +5871,6 @@ impl Default for SECPKG_EXTENDED_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_EXTENDED_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6469,9 +5887,6 @@ impl Default for SECPKG_EXTENDED_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_EXTENDED_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_EXTENDED_INFORMATION_CLASS(pub i32);
@@ -6485,9 +5900,6 @@ impl Default for SECPKG_EXTRA_OIDS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_EXTRA_OIDS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECPKG_FLAG_ACCEPT_WIN32_NAME: u32 = 512u32;
 pub const SECPKG_FLAG_APPCONTAINER_CHECKS: u32 = 8388608u32;
@@ -6569,10 +5981,6 @@ impl Default for SECPKG_FUNCTION_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
-impl windows_core::TypeKind for SECPKG_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECPKG_GSS_INFO {
@@ -6583,9 +5991,6 @@ impl Default for SECPKG_GSS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_GSS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECPKG_ID_NONE: u32 = 65535u32;
 pub const SECPKG_INTERFACE_VERSION: u32 = 65536u32;
@@ -6619,10 +6024,6 @@ impl Default for SECPKG_KERNEL_FUNCTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for SECPKG_KERNEL_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6649,10 +6050,6 @@ impl Default for SECPKG_KERNEL_FUNCTION_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for SECPKG_KERNEL_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SECPKG_LSAMODEINIT_NAME: windows_core::PCSTR = windows_core::s!("SpLsaModeInitialize");
 pub const SECPKG_MAX_OID_LENGTH: u32 = 32u32;
 pub const SECPKG_MSVAV_FLAGS_VALID: u32 = 1u32;
@@ -6667,9 +6064,6 @@ impl Default for SECPKG_MUTUAL_AUTH_LEVEL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_MUTUAL_AUTH_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_NAME_TYPE(pub i32);
@@ -6683,9 +6077,6 @@ impl Default for SECPKG_NEGO2_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_NEGO2_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECPKG_NEGOTIATION_COMPLETE: u32 = 0u32;
 pub const SECPKG_NEGOTIATION_DIRECT: u32 = 3u32;
@@ -6709,9 +6100,6 @@ impl Default for SECPKG_NTLM_TARGETINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_NTLM_TARGETINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECPKG_OPTIONS_PERMANENT: u32 = 1u32;
 pub const SECPKG_OPTIONS_TYPE_LSA: SECURITY_PACKAGE_OPTIONS_TYPE = SECURITY_PACKAGE_OPTIONS_TYPE(1u32);
@@ -6739,9 +6127,6 @@ impl Default for SECPKG_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECPKG_POST_LOGON_USER_INFO {
@@ -6753,9 +6138,6 @@ impl Default for SECPKG_POST_LOGON_USER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_POST_LOGON_USER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6779,9 +6161,6 @@ impl Default for SECPKG_PRIMARY_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_PRIMARY_CRED {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6809,9 +6188,6 @@ impl Default for SECPKG_PRIMARY_CRED_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_PRIMARY_CRED_EX {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6830,9 +6206,6 @@ impl Default for SECPKG_REDIRECTED_LOGON_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_REDIRECTED_LOGON_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SECPKG_REDIRECTED_LOGON_GUID_INITIALIZER: windows_core::GUID = windows_core::GUID::from_u128(0xc2be5457_82eb_483e_ae4e_7468ef14d509);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6845,9 +6218,6 @@ impl Default for SECPKG_SERIALIZED_OID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_SERIALIZED_OID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6862,9 +6232,6 @@ impl Default for SECPKG_SHORT_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_SHORT_VECTOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECPKG_STATE_CRED_ISOLATION_ENABLED: u32 = 32u32;
 pub const SECPKG_STATE_DOMAIN_CONTROLLER: u32 = 4u32;
@@ -6885,9 +6252,6 @@ impl Default for SECPKG_SUPPLEMENTAL_CRED {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_SUPPLEMENTAL_CRED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECPKG_SUPPLEMENTAL_CRED_ARRAY {
@@ -6898,9 +6262,6 @@ impl Default for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6917,9 +6278,6 @@ impl Default for SECPKG_SUPPLIED_CREDENTIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_SUPPLIED_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECPKG_SURROGATE_LOGON {
@@ -6933,9 +6291,6 @@ impl Default for SECPKG_SURROGATE_LOGON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_SURROGATE_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECPKG_SURROGATE_LOGON_ENTRY {
@@ -6946,9 +6301,6 @@ impl Default for SECPKG_SURROGATE_LOGON_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_SURROGATE_LOGON_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECPKG_SURROGATE_LOGON_VERSION_1: u32 = 1u32;
 #[repr(C)]
@@ -6961,9 +6313,6 @@ impl Default for SECPKG_TARGETINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_TARGETINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECPKG_UNICODE_ATTRIBUTE: u32 = 2147483648u32;
 pub const SECPKG_USERMODEINIT_NAME: windows_core::PCSTR = windows_core::s!("SpUserModeInitialize");
@@ -6991,9 +6340,6 @@ impl Default for SECPKG_USER_FUNCTION_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECPKG_USER_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECPKG_WOW_CLIENT_DLL {
@@ -7003,9 +6349,6 @@ impl Default for SECPKG_WOW_CLIENT_DLL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECPKG_WOW_CLIENT_DLL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECQOP_WRAP_NO_ENCRYPT: u32 = 2147483649u32;
 pub const SECQOP_WRAP_OOB_DATA: u32 = 1073741824u32;
@@ -7048,9 +6391,6 @@ impl Default for SECURITY_LOGON_SESSION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURITY_LOGON_SESSION_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_LOGON_TYPE(pub i32);
@@ -7085,9 +6425,6 @@ impl Default for SECURITY_PACKAGE_OPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURITY_PACKAGE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_PACKAGE_OPTIONS_TYPE(pub u32);
@@ -7102,9 +6439,6 @@ impl Default for SECURITY_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECURITY_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION: u32 = 1u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_2: u32 = 2u32;
@@ -7124,9 +6458,6 @@ impl Default for SECURITY_USER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURITY_USER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEC_APPLICATION_PROTOCOLS {
@@ -7137,9 +6468,6 @@ impl Default for SEC_APPLICATION_PROTOCOLS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEC_APPLICATION_PROTOCOLS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7152,9 +6480,6 @@ impl Default for SEC_APPLICATION_PROTOCOL_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEC_APPLICATION_PROTOCOL_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7173,9 +6498,6 @@ impl Default for SEC_CERTIFICATE_REQUEST_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_CERTIFICATE_REQUEST_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEC_CHANNEL_BINDINGS {
@@ -7192,9 +6514,6 @@ impl Default for SEC_CHANNEL_BINDINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEC_CHANNEL_BINDINGS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SEC_CHANNEL_BINDINGS_AUDIT_BINDINGS: u32 = 1u32;
 #[repr(C)]
@@ -7218,9 +6537,6 @@ impl Default for SEC_CHANNEL_BINDINGS_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_CHANNEL_BINDINGS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEC_CHANNEL_BINDINGS_RESULT {
@@ -7230,9 +6546,6 @@ impl Default for SEC_CHANNEL_BINDINGS_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEC_CHANNEL_BINDINGS_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SEC_CHANNEL_BINDINGS_RESULT_ABSENT: u32 = 2u32;
 pub const SEC_CHANNEL_BINDINGS_RESULT_CLIENT_SUPPORT: u32 = 1u32;
@@ -7252,9 +6565,6 @@ impl Default for SEC_DTLS_MTU {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_DTLS_MTU {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEC_FLAGS {
@@ -7264,9 +6574,6 @@ impl Default for SEC_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEC_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 pub type SEC_GET_KEY_FN = Option<unsafe extern "system" fn(arg: *mut core::ffi::c_void, principal: *mut core::ffi::c_void, keyver: u32, key: *mut *mut core::ffi::c_void, status: *mut windows_core::HRESULT)>;
 #[repr(C)]
@@ -7282,9 +6589,6 @@ impl Default for SEC_NEGOTIATION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_NEGOTIATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEC_PRESHAREDKEY {
@@ -7295,9 +6599,6 @@ impl Default for SEC_PRESHAREDKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEC_PRESHAREDKEY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7310,9 +6611,6 @@ impl Default for SEC_PRESHAREDKEY_IDENTITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_PRESHAREDKEY_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEC_SRTP_MASTER_KEY_IDENTIFIER {
@@ -7324,9 +6622,6 @@ impl Default for SEC_SRTP_MASTER_KEY_IDENTIFIER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_SRTP_MASTER_KEY_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEC_SRTP_PROTECTION_PROFILES {
@@ -7337,9 +6632,6 @@ impl Default for SEC_SRTP_PROTECTION_PROFILES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEC_SRTP_PROTECTION_PROFILES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7353,9 +6645,6 @@ impl Default for SEC_TOKEN_BINDING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEC_TOKEN_BINDING {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7376,9 +6665,6 @@ impl Default for SEC_TRAFFIC_SECRETS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_TRAFFIC_SECRETS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_TRAFFIC_SECRET_TYPE(pub i32);
@@ -7397,9 +6683,6 @@ impl Default for SEC_WINNT_AUTH_IDENTITY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY32 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_FOR_SYSTEM: u32 = 4u32;
 pub const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_LOGON: u32 = 1u32;
@@ -7425,9 +6708,6 @@ impl Default for SEC_WINNT_AUTH_IDENTITY_EX2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EX2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_EX32 {
@@ -7447,9 +6727,6 @@ impl Default for SEC_WINNT_AUTH_IDENTITY_EX32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EX32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7471,9 +6748,6 @@ impl Default for SEC_WINNT_AUTH_IDENTITY_EXA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EXA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_EXW {
@@ -7493,9 +6767,6 @@ impl Default for SEC_WINNT_AUTH_IDENTITY_EXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EXW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SEC_WINNT_AUTH_IDENTITY_FLAGS_ID_PROVIDER: u32 = 524288u32;
 pub const SEC_WINNT_AUTH_IDENTITY_FLAGS_NULL_DOMAIN: u32 = 262144u32;
@@ -7527,10 +6798,6 @@ impl Default for SEC_WINNT_AUTH_IDENTITY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Rpc")]
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SEC_WINNT_AUTH_IDENTITY_MARSHALLED: u32 = 4u32;
 pub const SEC_WINNT_AUTH_IDENTITY_ONLY: u32 = 8u32;
 pub const SEC_WINNT_AUTH_IDENTITY_VERSION: u32 = 512u32;
@@ -7548,9 +6815,6 @@ impl Default for SEND_GENERIC_TLS_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEND_GENERIC_TLS_EXTENSION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SESSION_TICKET_INFO_V0: u32 = 0u32;
 pub const SESSION_TICKET_INFO_VERSION: u32 = 0u32;
@@ -7576,9 +6840,6 @@ impl Default for SE_ADT_ACCESS_REASON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SE_ADT_ACCESS_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SE_ADT_CLAIMS {
@@ -7589,9 +6850,6 @@ impl Default for SE_ADT_CLAIMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SE_ADT_CLAIMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SE_ADT_OBJECT_ONLY: u32 = 1u32;
 #[repr(C)]
@@ -7606,9 +6864,6 @@ impl Default for SE_ADT_OBJECT_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SE_ADT_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SE_ADT_PARAMETERS_SELF_RELATIVE: u32 = 1u32;
 pub const SE_ADT_PARAMETERS_SEND_TO_LSA: u32 = 2u32;
@@ -7629,9 +6884,6 @@ impl Default for SE_ADT_PARAMETER_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SE_ADT_PARAMETER_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SE_ADT_PARAMETER_ARRAY_ENTRY {
@@ -7644,9 +6896,6 @@ impl Default for SE_ADT_PARAMETER_ARRAY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SE_ADT_PARAMETER_ARRAY_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7665,9 +6914,6 @@ impl Default for SE_ADT_PARAMETER_ARRAY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SE_ADT_PARAMETER_ARRAY_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SE_ADT_PARAMETER_EXTENSIBLE_AUDIT: u32 = 4u32;
 pub const SE_ADT_PARAMETER_GENERIC_AUDIT: u32 = 8u32;
@@ -7711,9 +6957,6 @@ impl Default for SL_ACTIVATION_INFO_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SL_ACTIVATION_INFO_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SL_ACTIVATION_TYPE(pub i32);
@@ -7730,9 +6973,6 @@ impl Default for SL_AD_ACTIVATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SL_AD_ACTIVATION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SL_CLIENTAPI_ZONE: u32 = 61440u32;
 pub const SL_DATA_BINARY: SLDATATYPE = SLDATATYPE(3u32);
@@ -8105,9 +7345,6 @@ impl Default for SL_LICENSING_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SL_LICENSING_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SL_LICENSING_STATUS_IN_GRACE_PERIOD: SLLICENSINGSTATUS = SLLICENSINGSTATUS(2i32);
 pub const SL_LICENSING_STATUS_LAST: SLLICENSINGSTATUS = SLLICENSINGSTATUS(4i32);
 pub const SL_LICENSING_STATUS_LICENSED: SLLICENSINGSTATUS = SLLICENSINGSTATUS(1i32);
@@ -8126,9 +7363,6 @@ impl Default for SL_NONGENUINE_UI_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SL_NONGENUINE_UI_OPTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SL_PKEY_DETECT: windows_core::PCWSTR = windows_core::w!("msft:rm/algorithm/pkey/detect");
 pub const SL_PKEY_MS2005: windows_core::PCWSTR = windows_core::w!("msft:rm/algorithm/pkey/2005");
@@ -8277,9 +7511,6 @@ impl Default for SL_SYSTEM_POLICY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SL_SYSTEM_POLICY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SL_SYSTEM_STATE_REBOOT_POLICY_FOUND: u32 = 1u32;
 pub const SL_SYSTEM_STATE_TAMPERED: u32 = 2u32;
 pub const SPP_MIGRATION_GATHER_ACTIVATED_WINDOWS_STATE: u32 = 2u32;
@@ -8325,9 +7556,6 @@ impl Default for SR_SECURITY_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SR_SECURITY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SSL2SP_NAME: windows_core::PCWSTR = windows_core::w!("Microsoft SSL 2.0");
 pub const SSL2SP_NAME_A: windows_core::PCSTR = windows_core::s!("Microsoft SSL 2.0");
 pub const SSL2SP_NAME_W: windows_core::PCWSTR = windows_core::w!("Microsoft SSL 2.0");
@@ -8350,9 +7578,6 @@ impl Default for SSL_CREDENTIAL_CERTIFICATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SSL_CREDENTIAL_CERTIFICATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub type SSL_EMPTY_CACHE_FN_A = Option<unsafe extern "system" fn(psztargetname: windows_core::PCSTR, dwflags: u32) -> super::super::super::Foundation::BOOL>;
 pub type SSL_EMPTY_CACHE_FN_W = Option<unsafe extern "system" fn(psztargetname: windows_core::PCWSTR, dwflags: u32) -> super::super::super::Foundation::BOOL>;
@@ -8378,9 +7603,6 @@ impl Default for SUBSCRIBE_GENERIC_TLS_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SUBSCRIBE_GENERIC_TLS_EXTENSION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SZ_ALG_MAX_SIZE: u32 = 64u32;
 pub const Sasl_AuthZIDForbidden: SASL_AUTHZID_STATE = SASL_AUTHZID_STATE(0i32);
@@ -8475,9 +7697,6 @@ impl Default for SecBuffer {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecBuffer {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecBufferDesc {
@@ -8489,9 +7708,6 @@ impl Default for SecBufferDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecBufferDesc {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8522,9 +7738,6 @@ impl Default for SecPkgContext_AccessToken {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_AccessToken {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_ApplicationProtocol {
@@ -8538,9 +7751,6 @@ impl Default for SecPkgContext_ApplicationProtocol {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_ApplicationProtocol {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_AuthorityA {
@@ -8551,9 +7761,6 @@ impl Default for SecPkgContext_AuthorityA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_AuthorityA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_AuthorityW {
@@ -8563,9 +7770,6 @@ impl Default for SecPkgContext_AuthorityW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_AuthorityW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8578,9 +7782,6 @@ impl Default for SecPkgContext_AuthzID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_AuthzID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_Bindings {
@@ -8591,9 +7792,6 @@ impl Default for SecPkgContext_Bindings {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_Bindings {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8610,9 +7808,6 @@ impl Default for SecPkgContext_CertInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_CertInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_CertificateValidationResult {
@@ -8623,9 +7818,6 @@ impl Default for SecPkgContext_CertificateValidationResult {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_CertificateValidationResult {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8638,9 +7830,6 @@ impl Default for SecPkgContext_Certificates {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_Certificates {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8666,9 +7855,6 @@ impl Default for SecPkgContext_CipherInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_CipherInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_ClientCertPolicyResult {
@@ -8680,9 +7866,6 @@ impl Default for SecPkgContext_ClientCertPolicyResult {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_ClientCertPolicyResult {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_ClientSpecifiedTarget {
@@ -8692,9 +7875,6 @@ impl Default for SecPkgContext_ClientSpecifiedTarget {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_ClientSpecifiedTarget {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -8714,10 +7894,6 @@ impl Default for SecPkgContext_ConnectionInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SecPkgContext_ConnectionInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_ConnectionInfoEx {
@@ -8735,9 +7911,6 @@ impl Default for SecPkgContext_ConnectionInfoEx {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_ConnectionInfoEx {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_CredInfo {
@@ -8748,9 +7921,6 @@ impl Default for SecPkgContext_CredInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_CredInfo {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8763,9 +7933,6 @@ impl Default for SecPkgContext_CredentialNameA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_CredentialNameA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_CredentialNameW {
@@ -8776,9 +7943,6 @@ impl Default for SecPkgContext_CredentialNameW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_CredentialNameW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8791,9 +7955,6 @@ impl Default for SecPkgContext_DceInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_DceInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_EapKeyBlock {
@@ -8804,9 +7965,6 @@ impl Default for SecPkgContext_EapKeyBlock {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_EapKeyBlock {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8820,9 +7978,6 @@ impl Default for SecPkgContext_EapPrfInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_EapPrfInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_EarlyStart {
@@ -8833,9 +7988,6 @@ impl Default for SecPkgContext_EarlyStart {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_EarlyStart {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_Flags {
@@ -8845,9 +7997,6 @@ impl Default for SecPkgContext_Flags {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_Flags {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -8861,10 +8010,6 @@ impl Default for SecPkgContext_IssuerListInfoEx {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SecPkgContext_IssuerListInfoEx {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8880,9 +8025,6 @@ impl Default for SecPkgContext_KeyInfoA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_KeyInfoA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_KeyInfoW {
@@ -8897,9 +8039,6 @@ impl Default for SecPkgContext_KeyInfoW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_KeyInfoW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_KeyingMaterial {
@@ -8910,9 +8049,6 @@ impl Default for SecPkgContext_KeyingMaterial {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_KeyingMaterial {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8927,9 +8063,6 @@ impl Default for SecPkgContext_KeyingMaterialInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_KeyingMaterialInfo {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8946,9 +8079,6 @@ impl Default for SecPkgContext_KeyingMaterial_Inproc {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_KeyingMaterial_Inproc {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_LastClientTokenStatus {
@@ -8958,9 +8088,6 @@ impl Default for SecPkgContext_LastClientTokenStatus {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_LastClientTokenStatus {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8972,9 +8099,6 @@ impl Default for SecPkgContext_Lifespan {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_Lifespan {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8990,9 +8114,6 @@ impl Default for SecPkgContext_LocalCredentialInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_LocalCredentialInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_LogoffTime {
@@ -9002,9 +8123,6 @@ impl Default for SecPkgContext_LogoffTime {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_LogoffTime {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9017,9 +8135,6 @@ impl Default for SecPkgContext_MappedCredAttr {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_MappedCredAttr {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_NamesA {
@@ -9030,9 +8145,6 @@ impl Default for SecPkgContext_NamesA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_NamesA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_NamesW {
@@ -9042,9 +8154,6 @@ impl Default for SecPkgContext_NamesW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_NamesW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9057,9 +8166,6 @@ impl Default for SecPkgContext_NativeNamesA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_NativeNamesA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_NativeNamesW {
@@ -9070,9 +8176,6 @@ impl Default for SecPkgContext_NativeNamesW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_NativeNamesW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9089,9 +8192,6 @@ impl Default for SecPkgContext_NegoKeys {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_NegoKeys {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_NegoPackageInfo {
@@ -9102,9 +8202,6 @@ impl Default for SecPkgContext_NegoPackageInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_NegoPackageInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_NegoStatus {
@@ -9114,9 +8211,6 @@ impl Default for SecPkgContext_NegoStatus {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_NegoStatus {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9129,9 +8223,6 @@ impl Default for SecPkgContext_NegotiatedTlsExtensions {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_NegotiatedTlsExtensions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_NegotiationInfoA {
@@ -9142,9 +8233,6 @@ impl Default for SecPkgContext_NegotiationInfoA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_NegotiationInfoA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9157,9 +8245,6 @@ impl Default for SecPkgContext_NegotiationInfoW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_NegotiationInfoW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_PackageInfoA {
@@ -9169,9 +8254,6 @@ impl Default for SecPkgContext_PackageInfoA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_PackageInfoA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9183,9 +8265,6 @@ impl Default for SecPkgContext_PackageInfoW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_PackageInfoW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_PasswordExpiry {
@@ -9195,9 +8274,6 @@ impl Default for SecPkgContext_PasswordExpiry {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_PasswordExpiry {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9211,9 +8287,6 @@ impl Default for SecPkgContext_ProtoInfoA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_ProtoInfoA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_ProtoInfoW {
@@ -9225,9 +8298,6 @@ impl Default for SecPkgContext_ProtoInfoW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_ProtoInfoW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9243,9 +8313,6 @@ impl Default for SecPkgContext_RemoteCredentialInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_RemoteCredentialInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_SaslContext {
@@ -9255,9 +8322,6 @@ impl Default for SecPkgContext_SaslContext {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_SaslContext {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9271,9 +8335,6 @@ impl Default for SecPkgContext_SessionAppData {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_SessionAppData {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_SessionInfo {
@@ -9286,9 +8347,6 @@ impl Default for SecPkgContext_SessionInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_SessionInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_SessionKey {
@@ -9299,9 +8357,6 @@ impl Default for SecPkgContext_SessionKey {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_SessionKey {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9316,9 +8371,6 @@ impl Default for SecPkgContext_Sizes {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_Sizes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_SrtpParameters {
@@ -9330,9 +8382,6 @@ impl Default for SecPkgContext_SrtpParameters {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_SrtpParameters {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9348,9 +8397,6 @@ impl Default for SecPkgContext_StreamSizes {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_StreamSizes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_SubjectAttributes {
@@ -9360,9 +8406,6 @@ impl Default for SecPkgContext_SubjectAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_SubjectAttributes {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9375,9 +8418,6 @@ impl Default for SecPkgContext_SupportedSignatures {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_SupportedSignatures {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_Target {
@@ -9389,9 +8429,6 @@ impl Default for SecPkgContext_Target {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_Target {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_TargetInformation {
@@ -9402,9 +8439,6 @@ impl Default for SecPkgContext_TargetInformation {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_TargetInformation {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9419,9 +8453,6 @@ impl Default for SecPkgContext_TokenBinding {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_TokenBinding {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_UiInfo {
@@ -9432,9 +8463,6 @@ impl Default for SecPkgContext_UiInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgContext_UiInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_UserFlags {
@@ -9444,9 +8472,6 @@ impl Default for SecPkgContext_UserFlags {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_UserFlags {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SecPkgCredClass_Ephemeral: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(10i32);
 pub const SecPkgCredClass_Explicit: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(40i32);
@@ -9463,9 +8488,6 @@ impl Default for SecPkgCred_CipherStrengths {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgCred_CipherStrengths {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9485,9 +8507,6 @@ impl Default for SecPkgCred_ClientCertPolicy {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgCred_ClientCertPolicy {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgCred_SessionTicketKey {
@@ -9501,9 +8520,6 @@ impl Default for SecPkgCred_SessionTicketKey {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgCred_SessionTicketKey {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgCred_SessionTicketKeys {
@@ -9514,9 +8530,6 @@ impl Default for SecPkgCred_SessionTicketKeys {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgCred_SessionTicketKeys {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -9531,10 +8544,6 @@ impl Default for SecPkgCred_SupportedAlgs {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SecPkgCred_SupportedAlgs {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgCred_SupportedProtocols {
@@ -9544,9 +8553,6 @@ impl Default for SecPkgCred_SupportedProtocols {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgCred_SupportedProtocols {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9558,9 +8564,6 @@ impl Default for SecPkgCredentials_Cert {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgCredentials_Cert {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9577,9 +8580,6 @@ impl Default for SecPkgCredentials_KdcProxySettingsW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgCredentials_KdcProxySettingsW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgCredentials_NamesA {
@@ -9590,9 +8590,6 @@ impl Default for SecPkgCredentials_NamesA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgCredentials_NamesA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgCredentials_NamesW {
@@ -9602,9 +8599,6 @@ impl Default for SecPkgCredentials_NamesW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgCredentials_NamesW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9618,9 +8612,6 @@ impl Default for SecPkgCredentials_SSIProviderA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgCredentials_SSIProviderA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgCredentials_SSIProviderW {
@@ -9632,9 +8623,6 @@ impl Default for SecPkgCredentials_SSIProviderW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgCredentials_SSIProviderW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9651,9 +8639,6 @@ impl Default for SecPkgInfoA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecPkgInfoA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgInfoW {
@@ -9668,9 +8653,6 @@ impl Default for SecPkgInfoW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgInfoW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SecService: SecDelegationType = SecDelegationType(1i32);
 pub const SecSessionPrimaryCred: SECPKG_SESSIONINFO_TYPE = SECPKG_SESSIONINFO_TYPE(0i32);
@@ -9728,10 +8710,6 @@ impl Default for SecurityFunctionTableA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Credentials")]
-impl windows_core::TypeKind for SecurityFunctionTableA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9774,10 +8752,6 @@ impl Default for SecurityFunctionTableW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Credentials")]
-impl windows_core::TypeKind for SecurityFunctionTableW {
-    type TypeKind = windows_core::CopyType;
 }
 pub type SpAcceptCredentialsFn = Option<unsafe extern "system" fn(logontype: SECURITY_LOGON_TYPE, accountname: *const LSA_UNICODE_STRING, primarycredentials: *const SECPKG_PRIMARY_CRED, supplementalcredentials: *const SECPKG_SUPPLEMENTAL_CRED) -> super::super::super::Foundation::NTSTATUS>;
 pub type SpAcceptLsaModeContextFn = Option<unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, inputbuffer: *const SecBufferDesc, contextrequirements: u32, targetdatarep: u32, newcontexthandle: *mut usize, outputbuffer: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut super::super::super::Foundation::BOOLEAN, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
@@ -9873,9 +8847,6 @@ impl Default for TLS_EXTENSION_SUBSCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TLS_EXTENSION_SUBSCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TLS_PARAMETERS {
@@ -9891,9 +8862,6 @@ impl Default for TLS_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TLS_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TLS_PARAMS_OPTIONAL: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9908,9 +8876,6 @@ impl Default for TOKENBINDING_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOKENBINDING_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9930,9 +8895,6 @@ impl Default for TOKENBINDING_KEY_TYPES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKENBINDING_KEY_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOKENBINDING_RESULT_DATA {
@@ -9948,9 +8910,6 @@ impl Default for TOKENBINDING_RESULT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TOKENBINDING_RESULT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOKENBINDING_RESULT_LIST {
@@ -9961,9 +8920,6 @@ impl Default for TOKENBINDING_RESULT_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOKENBINDING_RESULT_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9981,9 +8937,6 @@ impl Default for TRUSTED_CONTROLLERS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRUSTED_CONTROLLERS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRUSTED_DOMAIN_AUTH_INFORMATION {
@@ -9999,9 +8952,6 @@ impl Default for TRUSTED_DOMAIN_AUTH_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRUSTED_DOMAIN_AUTH_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION {
@@ -10014,9 +8964,6 @@ impl Default for TRUSTED_DOMAIN_FULL_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRUSTED_DOMAIN_FULL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION2 {
@@ -10028,9 +8975,6 @@ impl Default for TRUSTED_DOMAIN_FULL_INFORMATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TRUSTED_DOMAIN_FULL_INFORMATION2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10046,9 +8990,6 @@ impl Default for TRUSTED_DOMAIN_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TRUSTED_DOMAIN_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10067,9 +9008,6 @@ impl Default for TRUSTED_DOMAIN_INFORMATION_EX2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRUSTED_DOMAIN_INFORMATION_EX2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRUSTED_DOMAIN_NAME_INFO {
@@ -10080,9 +9018,6 @@ impl Default for TRUSTED_DOMAIN_NAME_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRUSTED_DOMAIN_NAME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
@@ -10092,9 +9027,6 @@ impl Default for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10119,9 +9051,6 @@ impl Default for TRUSTED_PASSWORD_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRUSTED_PASSWORD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRUSTED_POSIX_OFFSET_INFO {
@@ -10131,9 +9060,6 @@ impl Default for TRUSTED_POSIX_OFFSET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TRUSTED_POSIX_OFFSET_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TRUSTED_QUERY_AUTH: i32 = 64i32;
 pub const TRUSTED_QUERY_CONTROLLERS: i32 = 2i32;
@@ -10253,9 +9179,6 @@ impl Default for USER_ALL_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for USER_ALL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const USER_ALL_PARAMETERS: u32 = 2097152u32;
 pub const USER_DONT_EXPIRE_PASSWORD: u32 = 512u32;
 pub const USER_DONT_REQUIRE_PREAUTH: u32 = 65536u32;
@@ -10281,10 +9204,6 @@ impl Default for USER_SESSION_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_PasswordManagement")]
-impl windows_core::TypeKind for USER_SESSION_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const USER_SMARTCARD_REQUIRED: u32 = 4096u32;
 pub const USER_TEMP_DUPLICATE_ACCOUNT: u32 = 8u32;
@@ -10317,10 +9236,6 @@ impl Default for X509Certificate {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for X509Certificate {
-    type TypeKind = windows_core::CopyType;
 }
 pub const _FACILITY_WINDOWS_STORE: u32 = 63u32;
 #[repr(transparent)]

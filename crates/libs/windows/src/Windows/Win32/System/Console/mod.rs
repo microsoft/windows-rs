@@ -570,9 +570,6 @@ impl Default for CHAR_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHAR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CHAR_INFO_0 {
@@ -583,9 +580,6 @@ impl Default for CHAR_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CHAR_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COMMON_LVB_GRID_HORIZONTAL: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(1024u16);
 pub const COMMON_LVB_GRID_LVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(2048u16);
@@ -611,9 +605,6 @@ impl Default for CONSOLEENDTASK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLEENDTASK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONSOLESETFOREGROUND {
@@ -624,9 +615,6 @@ impl Default for CONSOLESETFOREGROUND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONSOLESETFOREGROUND {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -640,9 +628,6 @@ impl Default for CONSOLEWINDOWOWNER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLEWINDOWOWNER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONSOLE_CARET_INFO {
@@ -653,9 +638,6 @@ impl Default for CONSOLE_CARET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONSOLE_CARET_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -704,9 +686,6 @@ impl Default for CONSOLE_CURSOR_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_CURSOR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONSOLE_FONT_INFO {
@@ -717,9 +696,6 @@ impl Default for CONSOLE_FONT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONSOLE_FONT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -736,9 +712,6 @@ impl Default for CONSOLE_FONT_INFOEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_FONT_INFOEX {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CONSOLE_FULLSCREEN: u32 = 1u32;
 pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2u32;
 pub const CONSOLE_FULLSCREEN_MODE: u32 = 1u32;
@@ -754,9 +727,6 @@ impl Default for CONSOLE_HISTORY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONSOLE_HISTORY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -808,9 +778,6 @@ impl Default for CONSOLE_PROCESS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_PROCESS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONSOLE_READCONSOLE_CONTROL {
@@ -823,9 +790,6 @@ impl Default for CONSOLE_READCONSOLE_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONSOLE_READCONSOLE_CONTROL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -840,9 +804,6 @@ impl Default for CONSOLE_SCREEN_BUFFER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONSOLE_SCREEN_BUFFER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -862,9 +823,6 @@ impl Default for CONSOLE_SCREEN_BUFFER_INFOEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_SCREEN_BUFFER_INFOEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONSOLE_SELECTION_INFO {
@@ -876,9 +834,6 @@ impl Default for CONSOLE_SELECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONSOLE_SELECTION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1u32;
 pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2u32;
@@ -894,9 +849,6 @@ impl Default for COORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COORD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CTRL_BREAK_EVENT: u32 = 1u32;
 pub const CTRL_CLOSE_EVENT: u32 = 2u32;
@@ -935,9 +887,6 @@ impl Default for FOCUS_EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FOCUS_EVENT_RECORD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FOREGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(1u16);
 pub const FOREGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(2u16);
@@ -979,9 +928,6 @@ impl Default for INPUT_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INPUT_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INPUT_RECORD_0 {
@@ -995,9 +941,6 @@ impl Default for INPUT_RECORD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INPUT_RECORD_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KEY_EVENT: u32 = 1u32;
 #[repr(C)]
@@ -1015,9 +958,6 @@ impl Default for KEY_EVENT_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_EVENT_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KEY_EVENT_RECORD_0 {
@@ -1028,9 +968,6 @@ impl Default for KEY_EVENT_RECORD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KEY_EVENT_RECORD_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LEFT_ALT_PRESSED: u32 = 2u32;
 pub const LEFT_CTRL_PRESSED: u32 = 8u32;
@@ -1045,9 +982,6 @@ impl Default for MENU_EVENT_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MENU_EVENT_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MOUSE_EVENT: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1061,9 +995,6 @@ impl Default for MOUSE_EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MOUSE_EVENT_RECORD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MOUSE_HWHEELED: u32 = 8u32;
 pub const MOUSE_MOVED: u32 = 1u32;
@@ -1099,9 +1030,6 @@ impl Default for SMALL_RECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SMALL_RECT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STD_ERROR_HANDLE: STD_HANDLE = STD_HANDLE(4294967284u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1118,7 +1046,4 @@ impl Default for WINDOW_BUFFER_SIZE_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINDOW_BUFFER_SIZE_RECORD {
-    type TypeKind = windows_core::CopyType;
 }

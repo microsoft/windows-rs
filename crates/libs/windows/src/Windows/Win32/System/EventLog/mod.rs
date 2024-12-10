@@ -407,9 +407,6 @@ impl Default for EVENTLOGRECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EVENTLOGRECORD {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EVENTLOG_AUDIT_FAILURE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(16u16);
 pub const EVENTLOG_AUDIT_SUCCESS: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(8u16);
 pub const EVENTLOG_ERROR_TYPE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(1u16);
@@ -422,9 +419,6 @@ impl Default for EVENTLOG_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EVENTLOG_FULL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EVENTLOG_INFORMATION_TYPE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(4u16);
 pub const EVENTLOG_SEEK_READ: READ_EVENT_LOG_READ_FLAGS = READ_EVENT_LOG_READ_FLAGS(2u32);
@@ -443,9 +437,6 @@ impl Default for EVENTSFORLOGFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EVENTSFORLOGFILE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EVT_ALL_ACCESS: u32 = 7u32;
 #[repr(transparent)]
@@ -538,9 +529,6 @@ impl Default for EVT_RPC_LOGIN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EVT_RPC_LOGIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_RPC_LOGIN_FLAGS(pub u32);
@@ -570,10 +558,6 @@ impl Default for EVT_VARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for EVT_VARIANT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -625,10 +609,6 @@ impl Default for EVT_VARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for EVT_VARIANT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

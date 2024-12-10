@@ -64,9 +64,6 @@ impl Default for DXGI_ADAPTER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_ADAPTER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_ADAPTER_DESC1 {
@@ -85,9 +82,6 @@ impl Default for DXGI_ADAPTER_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_ADAPTER_DESC1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -110,9 +104,6 @@ impl Default for DXGI_ADAPTER_DESC2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_ADAPTER_DESC2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_ADAPTER_DESC3 {
@@ -133,9 +124,6 @@ impl Default for DXGI_ADAPTER_DESC3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_ADAPTER_DESC3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -319,9 +307,6 @@ impl Default for DXGI_DECODE_SWAP_CHAIN_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_DECODE_SWAP_CHAIN_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_DISPLAY_COLOR_SPACE {
@@ -332,9 +317,6 @@ impl Default for DXGI_DISPLAY_COLOR_SPACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_DISPLAY_COLOR_SPACE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -434,9 +416,6 @@ impl Default for DXGI_FRAME_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_FRAME_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_FRAME_STATISTICS_MEDIA {
@@ -452,9 +431,6 @@ impl Default for DXGI_FRAME_STATISTICS_MEDIA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_FRAME_STATISTICS_MEDIA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -526,9 +502,6 @@ impl Default for DXGI_HDR_METADATA_HDR10 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_HDR_METADATA_HDR10 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_HDR_METADATA_HDR10PLUS {
@@ -538,9 +511,6 @@ impl Default for DXGI_HDR_METADATA_HDR10PLUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_HDR_METADATA_HDR10PLUS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -560,9 +530,6 @@ impl Default for DXGI_INFO_QUEUE_FILTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_INFO_QUEUE_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_INFO_QUEUE_FILTER_DESC {
@@ -578,9 +545,6 @@ impl Default for DXGI_INFO_QUEUE_FILTER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_INFO_QUEUE_FILTER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_INFO_QUEUE_MESSAGE {
@@ -595,9 +559,6 @@ impl Default for DXGI_INFO_QUEUE_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_INFO_QUEUE_MESSAGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -632,9 +593,6 @@ impl Default for DXGI_MAPPED_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_MAPPED_RECT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DXGI_MAP_DISCARD: DXGI_MAP_FLAGS = DXGI_MAP_FLAGS(4u32);
 #[repr(transparent)]
@@ -690,9 +648,6 @@ impl Default for DXGI_MATRIX_3X2_F {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_MATRIX_3X2_F {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DXGI_MAX_SWAP_CHAIN_BUFFERS: u32 = 16u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -716,10 +671,6 @@ impl Default for DXGI_MODE_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for DXGI_MODE_DESC1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DXGI_MSG_DXGIGetDebugInterface1_InvalidFlags: DXGI_Message_Id = DXGI_Message_Id(231i32);
 pub const DXGI_MSG_DXGIGetDebugInterface1_NULL_ppDebug: DXGI_Message_Id = DXGI_Message_Id(230i32);
@@ -1192,10 +1143,6 @@ impl Default for DXGI_OUTDUPL_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for DXGI_OUTDUPL_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_FLAG(pub i32);
@@ -1249,9 +1196,6 @@ impl Default for DXGI_OUTDUPL_FRAME_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_OUTDUPL_FRAME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_OUTDUPL_MOVE_RECT {
@@ -1263,9 +1207,6 @@ impl Default for DXGI_OUTDUPL_MOVE_RECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_OUTDUPL_MOVE_RECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_POSITION {
@@ -1276,9 +1217,6 @@ impl Default for DXGI_OUTDUPL_POINTER_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_OUTDUPL_POINTER_POSITION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1293,9 +1231,6 @@ impl Default for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1318,10 +1253,6 @@ impl Default for DXGI_OUTPUT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for DXGI_OUTPUT_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1347,10 +1278,6 @@ impl Default for DXGI_OUTPUT_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for DXGI_OUTPUT_DESC1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1479,9 +1406,6 @@ impl Default for DXGI_PRESENT_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_PRESENT_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DXGI_PRESENT_RESTART: DXGI_PRESENT = DXGI_PRESENT(4u32);
 pub const DXGI_PRESENT_RESTRICT_TO_OUTPUT: DXGI_PRESENT = DXGI_PRESENT(64u32);
 pub const DXGI_PRESENT_STEREO_PREFER_RIGHT: DXGI_PRESENT = DXGI_PRESENT(16u32);
@@ -1500,9 +1424,6 @@ impl Default for DXGI_QUERY_VIDEO_MEMORY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_QUERY_VIDEO_MEMORY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1537,9 +1458,6 @@ impl Default for DXGI_RGBA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGI_RGBA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SCALING(pub i32);
@@ -1555,9 +1473,6 @@ impl Default for DXGI_SHARED_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGI_SHARED_RESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DXGI_SHARED_RESOURCE_READ: DXGI_SHARED_RESOURCE_RW = DXGI_SHARED_RESOURCE_RW(2147483648u32);
 #[repr(transparent)]
@@ -1611,10 +1526,6 @@ impl Default for DXGI_SURFACE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for DXGI_SURFACE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1673,10 +1584,6 @@ impl Default for DXGI_SWAP_CHAIN_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for DXGI_SWAP_CHAIN_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1698,10 +1605,6 @@ impl Default for DXGI_SWAP_CHAIN_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for DXGI_SWAP_CHAIN_DESC1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1766,10 +1669,6 @@ impl Default for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

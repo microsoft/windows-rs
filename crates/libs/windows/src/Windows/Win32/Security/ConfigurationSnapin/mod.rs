@@ -152,9 +152,6 @@ impl Default for SCESVC_ANALYSIS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCESVC_ANALYSIS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCESVC_ANALYSIS_LINE {
@@ -166,9 +163,6 @@ impl Default for SCESVC_ANALYSIS_LINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCESVC_ANALYSIS_LINE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -184,9 +178,6 @@ impl Default for SCESVC_CALLBACK_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCESVC_CALLBACK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCESVC_CONFIGURATION_INFO {
@@ -197,9 +188,6 @@ impl Default for SCESVC_CONFIGURATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCESVC_CONFIGURATION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -212,9 +200,6 @@ impl Default for SCESVC_CONFIGURATION_LINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCESVC_CONFIGURATION_LINE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
 #[repr(transparent)]

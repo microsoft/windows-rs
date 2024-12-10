@@ -82,9 +82,6 @@ impl Default for IEEE1394_API_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IEEE1394_API_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IEEE1394_API_REQUEST_0 {
@@ -95,9 +92,6 @@ impl Default for IEEE1394_API_REQUEST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IEEE1394_API_REQUEST_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IEEE1394_API_SET_LOCAL_NODE_PROPERTIES: u32 = 4u32;
 pub const IEEE1394_REQUEST_FLAG_PERSISTENT: u32 = 2u32;
@@ -115,8 +109,5 @@ impl Default for IEEE1394_VDEV_PNP_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IEEE1394_VDEV_PNP_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IOCTL_IEEE1394_API_REQUEST: u32 = 2229248u32;

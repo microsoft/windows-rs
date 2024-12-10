@@ -228,9 +228,6 @@ impl Default for AssemblyBindInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AssemblyBindInfo {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BucketParamLength: u32 = 255u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -246,9 +243,6 @@ impl Default for BucketParameters {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BucketParameters {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BucketParamsCount: u32 = 10u32;
 pub type CLRCreateInstanceFnPtr = Option<unsafe extern "system" fn(clsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
@@ -276,9 +270,6 @@ impl Default for CLR_DEBUGGING_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLR_DEBUGGING_VERSION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLR_MAJOR_VERSION: u32 = 4u32;
 pub const CLR_MINOR_VERSION: u32 = 0u32;
@@ -315,9 +306,6 @@ impl Default for COR_GC_STATS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COR_GC_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_GC_STAT_TYPES(pub i32);
@@ -332,9 +320,6 @@ impl Default for COR_GC_THREAD_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COR_GC_THREAD_STATS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -356,9 +341,6 @@ impl Default for CustomDumpItem {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CustomDumpItem {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CustomDumpItem_0 {
@@ -368,9 +350,6 @@ impl Default for CustomDumpItem_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CustomDumpItem_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEPRECATED_CLR_API_MESG: windows_core::PCSTR = windows_core::s!("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.");
 pub const DUMP_FLAVOR_CriticalCLRState: ECustomDumpFlavor = ECustomDumpFlavor(1i32);
@@ -5860,9 +5839,6 @@ impl Default for MDAInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MDAInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct METAHOST_CONFIG_FLAGS(pub i32);
@@ -5895,9 +5871,6 @@ impl Default for ModuleBindInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ModuleBindInfo {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OPR_AppDomainRudeUnload: EClrOperation = EClrOperation(4i32);
 pub const OPR_AppDomainUnload: EClrOperation = EClrOperation(3i32);
@@ -5963,10 +5936,6 @@ impl Default for StackOverflowInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for StackOverflowInfo {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

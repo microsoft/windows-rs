@@ -240,9 +240,6 @@ impl Default for EAPHOST_AUTH_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAPHOST_AUTH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAPHOST_AUTH_STATUS(pub i32);
@@ -266,9 +263,6 @@ impl Default for EAPHOST_IDENTITY_UI_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAPHOST_IDENTITY_UI_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
@@ -284,9 +278,6 @@ impl Default for EAPHOST_INTERACTIVE_UI_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAPHOST_INTERACTIVE_UI_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EAPHOST_METHOD_API_VERSION: u32 = 1u32;
 pub const EAPHOST_PEER_API_VERSION: u32 = 1u32;
 #[repr(C)]
@@ -301,9 +292,6 @@ impl Default for EAP_ATTRIBUTE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_ATTRIBUTES {
@@ -314,9 +302,6 @@ impl Default for EAP_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EAP_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -342,9 +327,6 @@ impl Default for EAP_AUTHENTICATOR_METHOD_ROUTINES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_AUTHENTICATOR_METHOD_ROUTINES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_AUTHENTICATOR_SEND_TIMEOUT(pub i32);
@@ -368,9 +350,6 @@ impl Default for EAP_CONFIG_INPUT_FIELD_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_CONFIG_INPUT_FIELD_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_DATA {
@@ -386,9 +365,6 @@ impl Default for EAP_CONFIG_INPUT_FIELD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EAP_CONFIG_INPUT_FIELD_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1u32;
@@ -408,9 +384,6 @@ impl Default for EAP_CRED_EXPIRY_REQ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_CRED_EXPIRY_REQ {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EAP_EMPTY_CREDENTIAL: EapCredentialType = EapCredentialType(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -428,9 +401,6 @@ impl Default for EAP_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EAP_ERROR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EAP_E_AUTHENTICATION_FAILED: u32 = 2151809045u32;
 pub const EAP_E_CERT_STORE_INACCESSIBLE: u32 = 2151809040u32;
@@ -513,9 +483,6 @@ impl Default for EAP_INTERACTIVE_UI_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_INTERACTIVE_UI_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_INTERACTIVE_UI_DATA_TYPE(pub i32);
@@ -549,9 +516,6 @@ impl Default for EAP_METHOD_AUTHENTICATOR_RESULT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_AUTHENTICATOR_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_INFO {
@@ -566,9 +530,6 @@ impl Default for EAP_METHOD_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY {
@@ -580,9 +541,6 @@ impl Default for EAP_METHOD_INFO_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_INFO_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY_EX {
@@ -593,9 +551,6 @@ impl Default for EAP_METHOD_INFO_ARRAY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EAP_METHOD_INFO_ARRAY_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -611,9 +566,6 @@ impl Default for EAP_METHOD_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EAP_METHOD_INVALID_PACKET: u32 = 2151809047u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -627,9 +579,6 @@ impl Default for EAP_METHOD_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_ARRAY {
@@ -640,9 +589,6 @@ impl Default for EAP_METHOD_PROPERTY_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -659,9 +605,6 @@ impl Default for EAP_METHOD_PROPERTY_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL {
@@ -672,9 +615,6 @@ impl Default for EAP_METHOD_PROPERTY_VALUE_BOOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_BOOL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -687,9 +627,6 @@ impl Default for EAP_METHOD_PROPERTY_VALUE_DWORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_DWORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING {
@@ -700,9 +637,6 @@ impl Default for EAP_METHOD_PROPERTY_VALUE_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -717,9 +651,6 @@ impl Default for EAP_METHOD_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EAP_METHOD_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EAP_PEER_FLAG_GUEST_ACCESS: u32 = 64u32;
 pub const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: u32 = 32768u32;
@@ -747,9 +678,6 @@ impl Default for EAP_PEER_METHOD_ROUTINES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_PEER_METHOD_ROUTINES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EAP_PEER_VALUENAME_CONFIGUI: windows_core::PCWSTR = windows_core::w!("PeerConfigUIPath");
 pub const EAP_PEER_VALUENAME_DLL_PATH: windows_core::PCWSTR = windows_core::w!("PeerDllPath");
 pub const EAP_PEER_VALUENAME_FRIENDLY_NAME: windows_core::PCWSTR = windows_core::w!("PeerFriendlyName");
@@ -773,9 +701,6 @@ impl Default for EAP_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union EAP_UI_DATA_FORMAT {
@@ -787,9 +712,6 @@ impl Default for EAP_UI_DATA_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EAP_UI_DATA_FORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EAP_UI_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
 pub const EAP_UI_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1u32;
@@ -808,9 +730,6 @@ impl Default for EapCertificateCredential {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EapCertificateCredential {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -847,9 +766,6 @@ impl Default for EapCredential {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EapCredential {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EapCredentialType(pub i32);
@@ -864,9 +780,6 @@ impl Default for EapCredentialTypeData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EapCredentialTypeData {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EapHostAuthFailed: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(6i32);
 pub const EapHostAuthIdentityExchange: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(2i32);
@@ -903,9 +816,6 @@ impl Default for EapHostPeerMethodResult {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EapHostPeerMethodResult {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EapHostPeerMethodResultAltSuccessReceived: EapHostPeerMethodResultReason = EapHostPeerMethodResultReason(1i32);
 pub const EapHostPeerMethodResultFromMethod: EapHostPeerMethodResultReason = EapHostPeerMethodResultReason(3i32);
 #[repr(transparent)]
@@ -935,9 +845,6 @@ impl Default for EapPacket {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EapPacket {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EapPeerMethodOutput {
@@ -948,9 +855,6 @@ impl Default for EapPeerMethodOutput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EapPeerMethodOutput {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -984,10 +888,6 @@ impl Default for EapPeerMethodResult {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for EapPeerMethodResult {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EapPeerMethodResultFailure: EapPeerMethodResultReason = EapPeerMethodResultReason(3i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1004,9 +904,6 @@ impl Default for EapSimCredential {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EapSimCredential {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EapUsernamePasswordCredential {
@@ -1017,9 +914,6 @@ impl Default for EapUsernamePasswordCredential {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EapUsernamePasswordCredential {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FACILITY_EAP_MESSAGE: u32 = 2114u32;
 pub const GUID_EapHost_Cause_CertStoreInaccessible: windows_core::GUID = windows_core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000004);
@@ -1478,9 +1372,6 @@ impl Default for LEGACY_IDENTITY_UI_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LEGACY_IDENTITY_UI_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LEGACY_INTERACTIVE_UI_PARAMS {
@@ -1495,9 +1386,6 @@ impl Default for LEGACY_INTERACTIVE_UI_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LEGACY_INTERACTIVE_UI_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MAXEAPCODE: u32 = 4u32;
 pub const MAX_EAP_CONFIG_INPUT_FIELD_LENGTH: u32 = 256u32;
@@ -1517,10 +1405,6 @@ impl Default for NgcTicketContext {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for NgcTicketContext {
-    type TypeKind = windows_core::CopyType;
-}
 pub type NotificationHandler = Option<unsafe extern "system" fn(connectionid: windows_core::GUID, pcontextdata: *mut core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1539,9 +1423,6 @@ impl Default for PPP_EAP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PPP_EAP_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1573,9 +1454,6 @@ impl Default for PPP_EAP_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPP_EAP_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1602,10 +1480,6 @@ impl Default for PPP_EAP_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for PPP_EAP_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PPP_EAP_PACKET {
@@ -1619,9 +1493,6 @@ impl Default for PPP_EAP_PACKET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPP_EAP_PACKET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RAS_AUTH_ATTRIBUTE {
@@ -1633,9 +1504,6 @@ impl Default for RAS_AUTH_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAS_AUTH_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

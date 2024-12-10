@@ -200,9 +200,6 @@ impl Default for DebugStackFrameDescriptor {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DebugStackFrameDescriptor {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct DebugStackFrameDescriptor64 {
@@ -216,9 +213,6 @@ impl Default for DebugStackFrameDescriptor64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DebugStackFrameDescriptor64 {
-    type TypeKind = windows_core::CloneType;
 }
 pub const DefaultDebugSessionProvider: windows_core::GUID = windows_core::GUID::from_u128(0x834128a2_51f4_11d0_8f20_00805f2cd064);
 #[repr(transparent)]
@@ -9301,9 +9295,6 @@ impl Default for JS_NATIVE_FRAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JS_NATIVE_FRAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JS_PROPERTY_ATTRIBUTES(pub i32);
@@ -9334,9 +9325,6 @@ impl Default for JsDebugPropertyInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JsDebugPropertyInfo {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9446,9 +9434,6 @@ impl Default for PROFILER_HEAP_OBJECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROFILER_HEAP_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROFILER_HEAP_OBJECT_0 {
@@ -9459,9 +9444,6 @@ impl Default for PROFILER_HEAP_OBJECT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9524,9 +9506,6 @@ impl Default for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
@@ -9548,9 +9527,6 @@ impl Default for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_ATTRIBUTES_SIZE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(7i32);
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_TEXT_CHILDREN_SIZE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(8i32);
@@ -9585,9 +9561,6 @@ impl Default for PROFILER_HEAP_OBJECT_RELATIONSHIP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_RELATIONSHIP {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 pub union PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     pub numberValue: f64,
@@ -9606,9 +9579,6 @@ impl Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9666,9 +9636,6 @@ impl Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROFILER_HEAP_OBJECT_SCOPE_LIST {
@@ -9680,9 +9647,6 @@ impl Default for PROFILER_HEAP_OBJECT_SCOPE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_SCOPE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROFILER_HEAP_SUMMARY {
@@ -9693,9 +9657,6 @@ impl Default for PROFILER_HEAP_SUMMARY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROFILER_HEAP_SUMMARY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9717,9 +9678,6 @@ impl Default for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9919,9 +9877,6 @@ impl Default for TEXT_DOCUMENT_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TEXT_DOCUMENT_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TEXT_DOC_ATTR_READONLY: u32 = 1u32;
 pub const TEXT_DOC_ATTR_TYPE_PRIMARY: u32 = 2u32;

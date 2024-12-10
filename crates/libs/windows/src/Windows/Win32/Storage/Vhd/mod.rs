@@ -213,9 +213,6 @@ impl Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
@@ -225,9 +222,6 @@ impl Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -239,9 +233,6 @@ impl Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -307,9 +298,6 @@ impl Default for ATTACH_VIRTUAL_DISK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ATTACH_VIRTUAL_DISK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
@@ -321,9 +309,6 @@ impl Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -333,9 +318,6 @@ impl Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -347,9 +329,6 @@ impl Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -407,9 +386,6 @@ impl Default for COMPACT_VIRTUAL_DISK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMPACT_VIRTUAL_DISK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
@@ -420,9 +396,6 @@ impl Default for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -432,9 +405,6 @@ impl Default for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -500,9 +470,6 @@ impl Default for CREATE_VIRTUAL_DISK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CREATE_VIRTUAL_DISK_PARAMETERS_0 {
@@ -515,9 +482,6 @@ impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -533,9 +497,6 @@ impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -556,9 +517,6 @@ impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -581,9 +539,6 @@ impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -608,9 +563,6 @@ impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0u32;
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: u32 = 0u32;
@@ -671,9 +623,6 @@ impl Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
@@ -684,9 +633,6 @@ impl Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
@@ -696,9 +642,6 @@ impl Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -842,9 +785,6 @@ impl Default for EXPAND_VIRTUAL_DISK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXPAND_VIRTUAL_DISK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
@@ -855,9 +795,6 @@ impl Default for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -867,9 +804,6 @@ impl Default for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -925,9 +859,6 @@ impl Default for FORK_VIRTUAL_DISK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FORK_VIRTUAL_DISK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FORK_VIRTUAL_DISK_PARAMETERS_0 {
@@ -938,9 +869,6 @@ impl Default for FORK_VIRTUAL_DISK_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FORK_VIRTUAL_DISK_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -950,9 +878,6 @@ impl Default for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1009,9 +934,6 @@ impl Default for GET_VIRTUAL_DISK_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union GET_VIRTUAL_DISK_INFO_0 {
@@ -1036,9 +958,6 @@ impl Default for GET_VIRTUAL_DISK_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
@@ -1051,9 +970,6 @@ impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_1 {
@@ -1064,9 +980,6 @@ impl Default for GET_VIRTUAL_DISK_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1080,9 +993,6 @@ impl Default for GET_VIRTUAL_DISK_INFO_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_0 {
@@ -1095,9 +1005,6 @@ impl Default for GET_VIRTUAL_DISK_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE: GET_VIRTUAL_DISK_INFO_VERSION = GET_VIRTUAL_DISK_INFO_VERSION(15i32);
 pub const GET_VIRTUAL_DISK_INFO_FRAGMENTATION: GET_VIRTUAL_DISK_INFO_VERSION = GET_VIRTUAL_DISK_INFO_VERSION(12i32);
@@ -1167,9 +1074,6 @@ impl Default for MERGE_VIRTUAL_DISK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MERGE_VIRTUAL_DISK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MERGE_VIRTUAL_DISK_PARAMETERS_0 {
@@ -1181,9 +1085,6 @@ impl Default for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -1193,9 +1094,6 @@ impl Default for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1207,9 +1105,6 @@ impl Default for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1269,9 +1164,6 @@ impl Default for MIRROR_VIRTUAL_DISK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIRROR_VIRTUAL_DISK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
@@ -1282,9 +1174,6 @@ impl Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -1294,9 +1183,6 @@ impl Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1353,9 +1239,6 @@ impl Default for MODIFY_VHDSET_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODIFY_VHDSET_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MODIFY_VHDSET_PARAMETERS_0 {
@@ -1368,9 +1251,6 @@ impl Default for MODIFY_VHDSET_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODIFY_VHDSET_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODIFY_VHDSET_PARAMETERS_0_0 {
@@ -1381,9 +1261,6 @@ impl Default for MODIFY_VHDSET_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MODIFY_VHDSET_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MODIFY_VHDSET_REMOVE_SNAPSHOT: MODIFY_VHDSET_VERSION = MODIFY_VHDSET_VERSION(2i32);
 pub const MODIFY_VHDSET_SNAPSHOT_PATH: MODIFY_VHDSET_VERSION = MODIFY_VHDSET_VERSION(1i32);
@@ -1451,9 +1328,6 @@ impl Default for OPEN_VIRTUAL_DISK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union OPEN_VIRTUAL_DISK_PARAMETERS_0 {
@@ -1466,9 +1340,6 @@ impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -1478,9 +1349,6 @@ impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1494,9 +1362,6 @@ impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
@@ -1509,9 +1374,6 @@ impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1u32;
 #[repr(transparent)]
@@ -1570,9 +1432,6 @@ impl Default for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAW_SCSI_VIRTUAL_DISK_FLAG(pub i32);
@@ -1621,9 +1480,6 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
@@ -1633,9 +1489,6 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1655,9 +1508,6 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE {
@@ -1669,9 +1519,6 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
@@ -1681,9 +1528,6 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1696,9 +1540,6 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1755,9 +1596,6 @@ impl Default for RESIZE_VIRTUAL_DISK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESIZE_VIRTUAL_DISK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
@@ -1768,9 +1606,6 @@ impl Default for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -1780,9 +1615,6 @@ impl Default for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1800,9 +1632,6 @@ impl Default for SET_VIRTUAL_DISK_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SET_VIRTUAL_DISK_INFO_0 {
@@ -1819,9 +1648,6 @@ impl Default for SET_VIRTUAL_DISK_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SET_VIRTUAL_DISK_INFO_0_1 {
@@ -1833,9 +1659,6 @@ impl Default for SET_VIRTUAL_DISK_INFO_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SET_VIRTUAL_DISK_INFO_0_0 {
@@ -1846,9 +1669,6 @@ impl Default for SET_VIRTUAL_DISK_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE: SET_VIRTUAL_DISK_INFO_VERSION = SET_VIRTUAL_DISK_INFO_VERSION(6i32);
 pub const SET_VIRTUAL_DISK_INFO_IDENTIFIER: SET_VIRTUAL_DISK_INFO_VERSION = SET_VIRTUAL_DISK_INFO_VERSION(2i32);
@@ -1873,9 +1693,6 @@ impl Default for STORAGE_DEPENDENCY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_DEPENDENCY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_DEPENDENCY_INFO_0 {
@@ -1886,9 +1703,6 @@ impl Default for STORAGE_DEPENDENCY_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEPENDENCY_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1901,9 +1715,6 @@ impl Default for STORAGE_DEPENDENCY_INFO_TYPE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEPENDENCY_INFO_TYPE_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1921,9 +1732,6 @@ impl Default for STORAGE_DEPENDENCY_INFO_TYPE_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEPENDENCY_INFO_TYPE_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1980,9 +1788,6 @@ impl Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
@@ -1993,9 +1798,6 @@ impl Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
@@ -2005,9 +1807,6 @@ impl Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2073,9 +1872,6 @@ impl Default for VIRTUAL_DISK_PROGRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_DISK_PROGRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIRTUAL_STORAGE_TYPE {
@@ -2086,9 +1882,6 @@ impl Default for VIRTUAL_STORAGE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIRTUAL_STORAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: u32 = 1u32;
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: u32 = 0u32;

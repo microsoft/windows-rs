@@ -7915,9 +7915,6 @@ impl Default for MI_Application {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Application {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ApplicationFT {
@@ -7938,9 +7935,6 @@ impl Default for MI_ApplicationFT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ApplicationFT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Array {
@@ -7951,9 +7945,6 @@ impl Default for MI_Array {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Array {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7966,9 +7957,6 @@ impl Default for MI_ArrayField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ArrayField {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MI_BOOLEAN: MI_Type = MI_Type(0i32);
 pub const MI_BOOLEANA: MI_Type = MI_Type(16i32);
@@ -7983,9 +7971,6 @@ impl Default for MI_BooleanA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_BooleanA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_BooleanAField {
@@ -7998,9 +7983,6 @@ impl Default for MI_BooleanAField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_BooleanAField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_BooleanField {
@@ -8012,9 +7994,6 @@ impl Default for MI_BooleanField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_BooleanField {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MI_CALLBACKMODE_IGNORE: MI_CallbackMode = MI_CallbackMode(2i32);
 pub const MI_CALLBACKMODE_INQUIRE: MI_CallbackMode = MI_CallbackMode(1i32);
@@ -8041,9 +8020,6 @@ impl Default for MI_Char16A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Char16A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Char16AField {
@@ -8056,9 +8032,6 @@ impl Default for MI_Char16AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Char16AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Char16Field {
@@ -8070,9 +8043,6 @@ impl Default for MI_Char16Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Char16Field {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8087,9 +8057,6 @@ impl Default for MI_Class {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Class {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8115,9 +8082,6 @@ impl Default for MI_ClassDecl {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ClassDecl {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ClassFT {
@@ -8141,9 +8105,6 @@ impl Default for MI_ClassFT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ClassFT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ClientFT_V1 {
@@ -8163,9 +8124,6 @@ impl Default for MI_ClientFT_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ClientFT_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstBooleanA {
@@ -8176,9 +8134,6 @@ impl Default for MI_ConstBooleanA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstBooleanA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8192,9 +8147,6 @@ impl Default for MI_ConstBooleanAField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstBooleanAField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstBooleanField {
@@ -8207,9 +8159,6 @@ impl Default for MI_ConstBooleanField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstBooleanField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstChar16A {
@@ -8220,9 +8169,6 @@ impl Default for MI_ConstChar16A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstChar16A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8236,9 +8182,6 @@ impl Default for MI_ConstChar16AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstChar16AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstChar16Field {
@@ -8251,9 +8194,6 @@ impl Default for MI_ConstChar16Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstChar16Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstDatetimeA {
@@ -8264,9 +8204,6 @@ impl Default for MI_ConstDatetimeA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstDatetimeA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8280,9 +8217,6 @@ impl Default for MI_ConstDatetimeAField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstDatetimeAField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_ConstDatetimeField {
@@ -8295,9 +8229,6 @@ impl Default for MI_ConstDatetimeField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstDatetimeField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstInstanceA {
@@ -8308,9 +8239,6 @@ impl Default for MI_ConstInstanceA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstInstanceA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8324,9 +8252,6 @@ impl Default for MI_ConstInstanceAField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstInstanceAField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstInstanceField {
@@ -8339,9 +8264,6 @@ impl Default for MI_ConstInstanceField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstInstanceField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReal32A {
@@ -8352,9 +8274,6 @@ impl Default for MI_ConstReal32A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstReal32A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8368,9 +8287,6 @@ impl Default for MI_ConstReal32AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstReal32AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReal32Field {
@@ -8383,9 +8299,6 @@ impl Default for MI_ConstReal32Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstReal32Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReal64A {
@@ -8396,9 +8309,6 @@ impl Default for MI_ConstReal64A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstReal64A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8412,9 +8322,6 @@ impl Default for MI_ConstReal64AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstReal64AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReal64Field {
@@ -8427,9 +8334,6 @@ impl Default for MI_ConstReal64Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstReal64Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReferenceA {
@@ -8440,9 +8344,6 @@ impl Default for MI_ConstReferenceA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstReferenceA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8456,9 +8357,6 @@ impl Default for MI_ConstReferenceAField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstReferenceAField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReferenceField {
@@ -8471,9 +8369,6 @@ impl Default for MI_ConstReferenceField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstReferenceField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint16A {
@@ -8484,9 +8379,6 @@ impl Default for MI_ConstSint16A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstSint16A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8500,9 +8392,6 @@ impl Default for MI_ConstSint16AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstSint16AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint16Field {
@@ -8515,9 +8404,6 @@ impl Default for MI_ConstSint16Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstSint16Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint32A {
@@ -8528,9 +8414,6 @@ impl Default for MI_ConstSint32A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstSint32A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8544,9 +8427,6 @@ impl Default for MI_ConstSint32AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstSint32AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint32Field {
@@ -8559,9 +8439,6 @@ impl Default for MI_ConstSint32Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstSint32Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint64A {
@@ -8572,9 +8449,6 @@ impl Default for MI_ConstSint64A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstSint64A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8588,9 +8462,6 @@ impl Default for MI_ConstSint64AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstSint64AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint64Field {
@@ -8603,9 +8474,6 @@ impl Default for MI_ConstSint64Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstSint64Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint8A {
@@ -8616,9 +8484,6 @@ impl Default for MI_ConstSint8A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstSint8A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8632,9 +8497,6 @@ impl Default for MI_ConstSint8AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstSint8AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint8Field {
@@ -8647,9 +8509,6 @@ impl Default for MI_ConstSint8Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstSint8Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstStringA {
@@ -8660,9 +8519,6 @@ impl Default for MI_ConstStringA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstStringA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8676,9 +8532,6 @@ impl Default for MI_ConstStringAField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstStringAField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstStringField {
@@ -8691,9 +8544,6 @@ impl Default for MI_ConstStringField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstStringField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint16A {
@@ -8704,9 +8554,6 @@ impl Default for MI_ConstUint16A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstUint16A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8720,9 +8567,6 @@ impl Default for MI_ConstUint16AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstUint16AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint16Field {
@@ -8735,9 +8579,6 @@ impl Default for MI_ConstUint16Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstUint16Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint32A {
@@ -8748,9 +8589,6 @@ impl Default for MI_ConstUint32A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstUint32A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8764,9 +8602,6 @@ impl Default for MI_ConstUint32AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstUint32AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint32Field {
@@ -8779,9 +8614,6 @@ impl Default for MI_ConstUint32Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstUint32Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint64A {
@@ -8792,9 +8624,6 @@ impl Default for MI_ConstUint64A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstUint64A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8808,9 +8637,6 @@ impl Default for MI_ConstUint64AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstUint64AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint64Field {
@@ -8823,9 +8649,6 @@ impl Default for MI_ConstUint64Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstUint64Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint8A {
@@ -8836,9 +8659,6 @@ impl Default for MI_ConstUint8A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ConstUint8A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8852,9 +8672,6 @@ impl Default for MI_ConstUint8AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstUint8AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint8Field {
@@ -8867,9 +8684,6 @@ impl Default for MI_ConstUint8Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ConstUint8Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Context {
@@ -8880,9 +8694,6 @@ impl Default for MI_Context {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Context {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8923,9 +8734,6 @@ impl Default for MI_ContextFT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ContextFT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MI_DATETIME: MI_Type = MI_Type(12i32);
 pub const MI_DATETIMEA: MI_Type = MI_Type(28i32);
 #[repr(C)]
@@ -8939,9 +8747,6 @@ impl Default for MI_Datetime {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Datetime {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MI_Datetime_0 {
@@ -8953,9 +8758,6 @@ impl Default for MI_Datetime_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Datetime_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_DatetimeA {
@@ -8966,9 +8768,6 @@ impl Default for MI_DatetimeA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_DatetimeA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8982,9 +8781,6 @@ impl Default for MI_DatetimeAField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_DatetimeAField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_DatetimeField {
@@ -8997,9 +8793,6 @@ impl Default for MI_DatetimeField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_DatetimeField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Deserializer {
@@ -9010,9 +8803,6 @@ impl Default for MI_Deserializer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Deserializer {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9029,9 +8819,6 @@ impl Default for MI_DeserializerFT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_DeserializerFT {
-    type TypeKind = windows_core::CopyType;
-}
 pub type MI_Deserializer_ClassObjectNeeded = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, servername: *const u16, namespacename: *const u16, classname: *const u16, requestedclassobject: *mut *mut MI_Class) -> MI_Result>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9044,9 +8831,6 @@ impl Default for MI_DestinationOptions {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_DestinationOptions {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9071,9 +8855,6 @@ impl Default for MI_DestinationOptionsFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_DestinationOptionsFT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9161,9 +8942,6 @@ impl Default for MI_FeatureDecl {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_FeatureDecl {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Filter {
@@ -9175,9 +8953,6 @@ impl Default for MI_Filter {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Filter {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_FilterFT {
@@ -9188,9 +8963,6 @@ impl Default for MI_FilterFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_FilterFT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9204,9 +8976,6 @@ impl Default for MI_HostedProvider {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_HostedProvider {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_HostedProviderFT {
@@ -9217,9 +8986,6 @@ impl Default for MI_HostedProviderFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_HostedProviderFT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MI_INSTANCE: MI_Type = MI_Type(15i32);
 pub const MI_INSTANCEA: MI_Type = MI_Type(31i32);
@@ -9237,9 +9003,6 @@ impl Default for MI_Instance {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Instance {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_InstanceA {
@@ -9250,9 +9013,6 @@ impl Default for MI_InstanceA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_InstanceA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9266,9 +9026,6 @@ impl Default for MI_InstanceAField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_InstanceAField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_InstanceExFT {
@@ -9279,9 +9036,6 @@ impl Default for MI_InstanceExFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_InstanceExFT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9310,9 +9064,6 @@ impl Default for MI_InstanceFT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_InstanceFT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_InstanceField {
@@ -9324,9 +9075,6 @@ impl Default for MI_InstanceField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_InstanceField {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9344,9 +9092,6 @@ impl Default for MI_Interval {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Interval {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MI_LOCALE_TYPE_CLOSEST_DATA: MI_LocaleType = MI_LocaleType(3i32);
 pub const MI_LOCALE_TYPE_CLOSEST_UI: MI_LocaleType = MI_LocaleType(2i32);
@@ -9387,9 +9132,6 @@ impl Default for MI_MethodDecl {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_MethodDecl {
-    type TypeKind = windows_core::CopyType;
-}
 pub type MI_MethodDecl_Invoke = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, parameters: *const MI_Instance)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9407,9 +9149,6 @@ impl Default for MI_Module {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Module {
-    type TypeKind = windows_core::CopyType;
 }
 pub type MI_Module_Load = Option<unsafe extern "system" fn(self_: *mut *mut MI_Module_Self, context: *const MI_Context)>;
 #[repr(transparent)]
@@ -9447,9 +9186,6 @@ impl Default for MI_ObjectDecl {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ObjectDecl {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Operation {
@@ -9461,9 +9197,6 @@ impl Default for MI_Operation {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Operation {
-    type TypeKind = windows_core::CopyType;
 }
 pub type MI_OperationCallback_Class = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, classresult: *const MI_Class, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
 pub type MI_OperationCallback_Indication = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, instance: *const MI_Instance, bookmark: *const u16, machineid: *const u16, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
@@ -9498,9 +9231,6 @@ impl Default for MI_OperationCallbacks {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_OperationCallbacks {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_OperationFT {
@@ -9516,9 +9246,6 @@ impl Default for MI_OperationFT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_OperationFT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_OperationOptions {
@@ -9530,9 +9257,6 @@ impl Default for MI_OperationOptions {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_OperationOptions {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9556,9 +9280,6 @@ impl Default for MI_OperationOptionsFT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_OperationOptionsFT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MI_PROMPTTYPE_CRITICAL: MI_PromptType = MI_PromptType(1i32);
 pub const MI_PROMPTTYPE_NORMAL: MI_PromptType = MI_PromptType(0i32);
 pub const MI_PROVIDER_ARCHITECTURE_32BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(0i32);
@@ -9581,9 +9302,6 @@ impl Default for MI_ParameterDecl {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ParameterDecl {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ParameterSet {
@@ -9595,9 +9313,6 @@ impl Default for MI_ParameterSet {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ParameterSet {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9611,9 +9326,6 @@ impl Default for MI_ParameterSetFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ParameterSetFT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9639,9 +9351,6 @@ impl Default for MI_PropertyDecl {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_PropertyDecl {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_PropertySet {
@@ -9652,9 +9361,6 @@ impl Default for MI_PropertySet {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_PropertySet {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9672,9 +9378,6 @@ impl Default for MI_PropertySetFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_PropertySetFT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9701,9 +9404,6 @@ impl Default for MI_ProviderFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ProviderFT {
-    type TypeKind = windows_core::CopyType;
 }
 pub type MI_ProviderFT_AssociatorInstances = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, resultclass: *const u16, role: *const u16, resultrole: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
 pub type MI_ProviderFT_CreateInstance = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, newinstance: *const MI_Instance)>;
@@ -9732,9 +9432,6 @@ impl Default for MI_Qualifier {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Qualifier {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_QualifierDecl {
@@ -9750,9 +9447,6 @@ impl Default for MI_QualifierDecl {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_QualifierDecl {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_QualifierSet {
@@ -9765,9 +9459,6 @@ impl Default for MI_QualifierSet {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_QualifierSet {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_QualifierSetFT {
@@ -9779,9 +9470,6 @@ impl Default for MI_QualifierSetFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_QualifierSetFT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MI_REAL32: MI_Type = MI_Type(9i32);
 pub const MI_REAL32A: MI_Type = MI_Type(25i32);
@@ -9831,9 +9519,6 @@ impl Default for MI_Real32A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Real32A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Real32AField {
@@ -9845,9 +9530,6 @@ impl Default for MI_Real32AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Real32AField {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9861,9 +9543,6 @@ impl Default for MI_Real32Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Real32Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Real64A {
@@ -9874,9 +9553,6 @@ impl Default for MI_Real64A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Real64A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9890,9 +9566,6 @@ impl Default for MI_Real64AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Real64AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Real64Field {
@@ -9905,9 +9578,6 @@ impl Default for MI_Real64Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Real64Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ReferenceA {
@@ -9918,9 +9588,6 @@ impl Default for MI_ReferenceA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ReferenceA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9934,9 +9601,6 @@ impl Default for MI_ReferenceAField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_ReferenceAField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ReferenceField {
@@ -9948,9 +9612,6 @@ impl Default for MI_ReferenceField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ReferenceField {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9982,9 +9643,6 @@ impl Default for MI_SchemaDecl {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_SchemaDecl {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Serializer {
@@ -9995,9 +9653,6 @@ impl Default for MI_Serializer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Serializer {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10010,9 +9665,6 @@ impl Default for MI_SerializerFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_SerializerFT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10028,9 +9680,6 @@ impl Default for MI_Server {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Server {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ServerFT {
@@ -10041,9 +9690,6 @@ impl Default for MI_ServerFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_ServerFT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10057,9 +9703,6 @@ impl Default for MI_Session {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Session {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_SessionCallbacks {
@@ -10071,9 +9714,6 @@ impl Default for MI_SessionCallbacks {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_SessionCallbacks {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10099,9 +9739,6 @@ impl Default for MI_SessionFT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_SessionFT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint16A {
@@ -10112,9 +9749,6 @@ impl Default for MI_Sint16A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Sint16A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10128,9 +9762,6 @@ impl Default for MI_Sint16AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Sint16AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint16Field {
@@ -10143,9 +9774,6 @@ impl Default for MI_Sint16Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Sint16Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint32A {
@@ -10156,9 +9784,6 @@ impl Default for MI_Sint32A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Sint32A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10172,9 +9797,6 @@ impl Default for MI_Sint32AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Sint32AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint32Field {
@@ -10187,9 +9809,6 @@ impl Default for MI_Sint32Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Sint32Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint64A {
@@ -10200,9 +9819,6 @@ impl Default for MI_Sint64A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Sint64A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10216,9 +9832,6 @@ impl Default for MI_Sint64AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Sint64AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint64Field {
@@ -10231,9 +9844,6 @@ impl Default for MI_Sint64Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Sint64Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint8A {
@@ -10244,9 +9854,6 @@ impl Default for MI_Sint8A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Sint8A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10260,9 +9867,6 @@ impl Default for MI_Sint8AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Sint8AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint8Field {
@@ -10275,9 +9879,6 @@ impl Default for MI_Sint8Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Sint8Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_StringA {
@@ -10288,9 +9889,6 @@ impl Default for MI_StringA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_StringA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10304,9 +9902,6 @@ impl Default for MI_StringAField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_StringAField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_StringField {
@@ -10319,9 +9914,6 @@ impl Default for MI_StringField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_StringField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_SubscriptionDeliveryOptions {
@@ -10333,9 +9925,6 @@ impl Default for MI_SubscriptionDeliveryOptions {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_SubscriptionDeliveryOptions {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10363,9 +9952,6 @@ impl Default for MI_SubscriptionDeliveryOptionsFT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_SubscriptionDeliveryOptionsFT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_SubscriptionDeliveryType(pub i32);
@@ -10387,9 +9973,6 @@ impl Default for MI_Timestamp {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Timestamp {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10413,9 +9996,6 @@ impl Default for MI_Uint16A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Uint16A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint16AField {
@@ -10427,9 +10007,6 @@ impl Default for MI_Uint16AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Uint16AField {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10443,9 +10020,6 @@ impl Default for MI_Uint16Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Uint16Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint32A {
@@ -10456,9 +10030,6 @@ impl Default for MI_Uint32A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Uint32A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10472,9 +10043,6 @@ impl Default for MI_Uint32AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Uint32AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint32Field {
@@ -10487,9 +10055,6 @@ impl Default for MI_Uint32Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Uint32Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint64A {
@@ -10500,9 +10065,6 @@ impl Default for MI_Uint64A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Uint64A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10516,9 +10078,6 @@ impl Default for MI_Uint64AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Uint64AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint64Field {
@@ -10531,9 +10090,6 @@ impl Default for MI_Uint64Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Uint64Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint8A {
@@ -10544,9 +10100,6 @@ impl Default for MI_Uint8A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_Uint8A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10560,9 +10113,6 @@ impl Default for MI_Uint8AField {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Uint8AField {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint8Field {
@@ -10575,9 +10125,6 @@ impl Default for MI_Uint8Field {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Uint8Field {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_UserCredentials {
@@ -10589,9 +10136,6 @@ impl Default for MI_UserCredentials {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_UserCredentials {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MI_UserCredentials_0 {
@@ -10602,9 +10146,6 @@ impl Default for MI_UserCredentials_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_UserCredentials_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10618,9 +10159,6 @@ impl Default for MI_UsernamePasswordCreds {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_UsernamePasswordCreds {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_UtilitiesFT {
@@ -10631,9 +10169,6 @@ impl Default for MI_UtilitiesFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MI_UtilitiesFT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10677,9 +10212,6 @@ impl Default for MI_Value {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MI_Value {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MI_WRITEMESSAGE_CHANNEL_DEBUG: u32 = 2u32;
 pub const MI_WRITEMESSAGE_CHANNEL_VERBOSE: u32 = 1u32;
 pub const MI_WRITEMESSAGE_CHANNEL_WARNING: u32 = 0u32;
@@ -10700,9 +10232,6 @@ impl Default for SWbemAnalysisMatrix {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SWbemAnalysisMatrix {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SWbemAnalysisMatrixList {
@@ -10715,9 +10244,6 @@ impl Default for SWbemAnalysisMatrixList {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SWbemAnalysisMatrixList {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -10739,9 +10265,6 @@ impl Default for SWbemAssocQueryInf {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SWbemAssocQueryInf {
-    type TypeKind = windows_core::CloneType;
 }
 pub const SWbemDateTime: windows_core::GUID = windows_core::GUID::from_u128(0x47dfbe54_cf76_11d3_b38f_00105a1f473a);
 pub const SWbemEventSource: windows_core::GUID = windows_core::GUID::from_u128(0x04b83d58_21ae_11d2_8b33_00600806d9b6);
@@ -10777,9 +10300,6 @@ impl Default for SWbemQueryQualifiedName {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SWbemQueryQualifiedName {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SWbemRefreshableItem: windows_core::GUID = windows_core::GUID::from_u128(0x8c6854bc_de4b_11d3_b390_00105a1f473a);
 pub const SWbemRefresher: windows_core::GUID = windows_core::GUID::from_u128(0xd269bf5c_d9c1_11d3_b38f_00105a1f473a);
 #[repr(C)]
@@ -10797,9 +10317,6 @@ impl Default for SWbemRpnConst {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SWbemRpnConst {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10828,9 +10345,6 @@ impl Default for SWbemRpnEncodedQuery {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SWbemRpnEncodedQuery {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SWbemRpnQueryToken {
@@ -10852,9 +10366,6 @@ impl Default for SWbemRpnQueryToken {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SWbemRpnQueryToken {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SWbemRpnTokenList {
@@ -10866,9 +10377,6 @@ impl Default for SWbemRpnTokenList {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SWbemRpnTokenList {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SWbemSecurity: windows_core::GUID = windows_core::GUID::from_u128(0xb54d66e9_2287_11d2_8b33_00600806d9b6);
 pub const SWbemServices: windows_core::GUID = windows_core::GUID::from_u128(0x04b83d63_21ae_11d2_8b33_00600806d9b6);
@@ -11002,9 +10510,6 @@ impl Default for WBEM_COMPILE_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WBEM_COMPILE_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

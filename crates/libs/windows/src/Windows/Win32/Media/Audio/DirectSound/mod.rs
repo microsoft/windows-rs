@@ -94,10 +94,6 @@ impl Default for DS3DBUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for DS3DBUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -116,10 +112,6 @@ impl Default for DS3DLISTENER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for DS3DLISTENER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DS3DMODE_DISABLE: u32 = 2u32;
 pub const DS3DMODE_HEADRELATIVE: u32 = 1u32;
@@ -152,9 +144,6 @@ impl Default for DSBCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSBCAPS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSBCAPS_CTRL3D: u32 = 16u32;
 pub const DSBCAPS_CTRLFREQUENCY: u32 = 32u32;
@@ -199,9 +188,6 @@ impl Default for DSBPOSITIONNOTIFY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSBPOSITIONNOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSBSIZE_FX_MIN: u32 = 150u32;
 pub const DSBSIZE_MAX: u32 = 268435455u32;
 pub const DSBSIZE_MIN: u32 = 4u32;
@@ -226,9 +212,6 @@ impl Default for DSBUFFERDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSBUFFERDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSBUFFERDESC1 {
@@ -242,9 +225,6 @@ impl Default for DSBUFFERDESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSBUFFERDESC1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSBVOLUME_MAX: u32 = 0u32;
 pub const DSBVOLUME_MIN: i32 = -10000i32;
@@ -281,9 +261,6 @@ impl Default for DSCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSCAPS_CERTIFIED: u32 = 64u32;
 pub const DSCAPS_CONTINUOUSRATE: u32 = 16u32;
 pub const DSCAPS_EMULDRIVER: u32 = 32u32;
@@ -308,9 +285,6 @@ impl Default for DSCBCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSCBCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSCBCAPS_CTRLFX: u32 = 512u32;
 pub const DSCBCAPS_WAVEMAPPED: u32 = 2147483648u32;
 pub const DSCBLOCK_ENTIREBUFFER: u32 = 1u32;
@@ -333,9 +307,6 @@ impl Default for DSCBUFFERDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSCBUFFERDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSCBUFFERDESC1 {
@@ -350,9 +321,6 @@ impl Default for DSCBUFFERDESC1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSCBUFFERDESC1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSCCAPS {
@@ -365,9 +333,6 @@ impl Default for DSCCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSCCAPS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSCCAPS_CERTIFIED: u32 = 64u32;
 pub const DSCCAPS_EMULDRIVER: u32 = 32u32;
@@ -387,9 +352,6 @@ impl Default for DSCEFFECTDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSCEFFECTDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSCFXAec {
@@ -402,9 +364,6 @@ impl Default for DSCFXAec {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSCFXAec {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSCFXNoiseSuppress {
@@ -414,9 +373,6 @@ impl Default for DSCFXNoiseSuppress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSCFXNoiseSuppress {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSCFXR_LOCHARDWARE: u32 = 16u32;
 pub const DSCFXR_LOCSOFTWARE: u32 = 32u32;
@@ -446,9 +402,6 @@ impl Default for DSEFFECTDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSEFFECTDESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSFXCHORUS_DELAY_MAX: f32 = 20f32;
 pub const DSFXCHORUS_DELAY_MIN: f32 = 0f32;
@@ -497,9 +450,6 @@ impl Default for DSFXChorus {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSFXChorus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSFXCompressor {
@@ -514,9 +464,6 @@ impl Default for DSFXCompressor {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSFXCompressor {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSFXDISTORTION_EDGE_MAX: f32 = 100f32;
 pub const DSFXDISTORTION_EDGE_MIN: f32 = 0f32;
@@ -542,9 +489,6 @@ impl Default for DSFXDistortion {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSFXDistortion {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSFXECHO_FEEDBACK_MAX: f32 = 100f32;
 pub const DSFXECHO_FEEDBACK_MIN: f32 = 0f32;
 pub const DSFXECHO_LEFTDELAY_MAX: f32 = 2000f32;
@@ -568,9 +512,6 @@ impl Default for DSFXEcho {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSFXEcho {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSFXFLANGER_DELAY_MAX: f32 = 4f32;
 pub const DSFXFLANGER_DELAY_MIN: f32 = 0f32;
@@ -607,9 +548,6 @@ impl Default for DSFXFlanger {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSFXFlanger {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSFXGARGLE_RATEHZ_MAX: u32 = 1000u32;
 pub const DSFXGARGLE_RATEHZ_MIN: u32 = 1u32;
 pub const DSFXGARGLE_WAVE_SQUARE: u32 = 1u32;
@@ -624,9 +562,6 @@ impl Default for DSFXGargle {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSFXGargle {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -649,9 +584,6 @@ impl Default for DSFXI3DL2Reverb {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSFXI3DL2Reverb {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSFXPARAMEQ_BANDWIDTH_MAX: f32 = 36f32;
 pub const DSFXPARAMEQ_BANDWIDTH_MIN: f32 = 1f32;
 pub const DSFXPARAMEQ_CENTER_MAX: f32 = 16000f32;
@@ -669,9 +601,6 @@ impl Default for DSFXParamEq {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSFXParamEq {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSFXR_FAILED: i32 = 4i32;
 pub const DSFXR_LOCHARDWARE: i32 = 1i32;
@@ -692,9 +621,6 @@ impl Default for DSFXWavesReverb {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSFXWavesReverb {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_DEFAULT: f32 = 0.83f32;
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_MAX: f32 = 2f32;

@@ -32,9 +32,6 @@ impl Default for D3D11_RESOURCE_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D11_RESOURCE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 windows_core::imp::define_interface!(ID3D11On12Device, ID3D11On12Device_Vtbl, 0x85611e73_70a9_490e_9614_a9e302777904);
 windows_core::imp::interface_hierarchy!(ID3D11On12Device, windows_core::IUnknown);
 impl ID3D11On12Device {

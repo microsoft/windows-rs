@@ -517,9 +517,6 @@ impl Default for DispatcherQueueOptions {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DispatcherQueueOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EventRegistrationToken {
@@ -529,9 +526,6 @@ impl Default for EventRegistrationToken {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EventRegistrationToken {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FullTrust: TrustLevel = TrustLevel(2i32);
 #[repr(transparent)]
@@ -572,9 +566,6 @@ impl Default for HSTRING_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HSTRING_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IAccountsSettingsPaneInterop, IAccountsSettingsPaneInterop_Vtbl, 0xd3ee12ad_3865_4362_9746_b75a682df0e6);
 windows_core::imp::interface_hierarchy!(IAccountsSettingsPaneInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -2354,9 +2345,6 @@ impl Default for ServerInformation {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ServerInformation {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

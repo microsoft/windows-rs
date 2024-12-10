@@ -52,9 +52,6 @@ impl Default for CSTRING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CSTRING {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CommunicationServer: SUITE_TYPE = SUITE_TYPE(3i32);
 pub const ComputeServer: SUITE_TYPE = SUITE_TYPE(14i32);
 pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(1i32);
@@ -77,10 +74,6 @@ impl Default for EXCEPTION_REGISTRATION_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for EXCEPTION_REGISTRATION_RECORD {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const core::ffi::c_void) -> EXCEPTION_DISPOSITION>;
@@ -111,10 +104,6 @@ impl Default for FLOATING_SAVE_AREA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FLOATING_SAVE_AREA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -135,10 +124,6 @@ impl Default for FLOATING_SAVE_AREA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FLOATING_SAVE_AREA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIST_ENTRY {
@@ -149,9 +134,6 @@ impl Default for LIST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LIST_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -164,9 +146,6 @@ impl Default for LIST_ENTRY32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LIST_ENTRY32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIST_ENTRY64 {
@@ -177,9 +156,6 @@ impl Default for LIST_ENTRY64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LIST_ENTRY64 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MAXUCHAR: u32 = 255u32;
 pub const MAXULONG: u32 = 4294967295u32;
@@ -207,10 +183,6 @@ impl Default for NT_TIB {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for NT_TIB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
@@ -223,10 +195,6 @@ impl Default for NT_TIB_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for NT_TIB_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NULL64: u32 = 0u32;
 pub const NotificationEvent: EVENT_TYPE = EVENT_TYPE(0i32);
@@ -245,9 +213,6 @@ impl Default for OBJECTID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OBJECTID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const OBJ_HANDLE_TAGBITS: i32 = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -261,9 +226,6 @@ impl Default for PROCESSOR_NUMBER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESSOR_NUMBER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const Personal: SUITE_TYPE = SUITE_TYPE(9i32);
 pub const PhoneNT: SUITE_TYPE = SUITE_TYPE(16i32);
 #[repr(C)]
@@ -276,9 +238,6 @@ impl Default for QUAD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union QUAD_0 {
@@ -289,9 +248,6 @@ impl Default for QUAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for QUAD_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -304,9 +260,6 @@ impl Default for RTL_BALANCED_NODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_BALANCED_NODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RTL_BALANCED_NODE_0 {
@@ -317,9 +270,6 @@ impl Default for RTL_BALANCED_NODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RTL_BALANCED_NODE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -332,9 +282,6 @@ impl Default for RTL_BALANCED_NODE_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_BALANCED_NODE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RTL_BALANCED_NODE_1 {
@@ -345,9 +292,6 @@ impl Default for RTL_BALANCED_NODE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RTL_BALANCED_NODE_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3u32;
 #[repr(C)]
@@ -360,9 +304,6 @@ impl Default for SINGLE_LIST_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SINGLE_LIST_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SINGLE_LIST_ENTRY32 {
@@ -373,9 +314,6 @@ impl Default for SINGLE_LIST_ENTRY32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SINGLE_LIST_ENTRY32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLIST_ENTRY {
@@ -385,9 +323,6 @@ impl Default for SLIST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SLIST_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -401,10 +336,6 @@ impl Default for SLIST_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SLIST_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -420,10 +351,6 @@ impl Default for SLIST_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SLIST_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -436,10 +363,6 @@ impl Default for SLIST_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SLIST_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -454,10 +377,6 @@ impl Default for SLIST_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SLIST_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -470,10 +389,6 @@ impl Default for SLIST_HEADER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SLIST_HEADER_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
@@ -488,10 +403,6 @@ impl Default for SLIST_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for SLIST_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -504,10 +415,6 @@ impl Default for SLIST_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for SLIST_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
@@ -522,10 +429,6 @@ impl Default for SLIST_HEADER_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for SLIST_HEADER_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STRING {
@@ -537,9 +440,6 @@ impl Default for STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STRING {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -553,9 +453,6 @@ impl Default for STRING32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STRING32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STRING64 {
@@ -567,9 +464,6 @@ impl Default for STRING64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STRING64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -599,9 +493,6 @@ impl Default for WNF_STATE_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WNF_STATE_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WaitAll: WAIT_TYPE = WAIT_TYPE(0i32);
 pub const WaitAny: WAIT_TYPE = WAIT_TYPE(1i32);

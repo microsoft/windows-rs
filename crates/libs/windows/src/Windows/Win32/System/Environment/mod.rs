@@ -268,9 +268,6 @@ impl Default for ENCLAVE_IDENTITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENCLAVE_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(1i32);
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_INVALID: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(0i32);
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(5i32);
@@ -290,9 +287,6 @@ impl Default for ENCLAVE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ENCLAVE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64u32;
 pub const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2u32;
@@ -318,9 +312,6 @@ impl Default for ENCLAVE_VBS_BASIC_KEY_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ENCLAVE_VBS_BASIC_KEY_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize, sourceaddress: *const core::ffi::c_void, pageprotection: u32) -> i32>;
 #[cfg(target_arch = "x86")]
@@ -364,9 +355,6 @@ impl Default for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
@@ -389,9 +377,6 @@ impl Default for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
@@ -406,9 +391,6 @@ impl Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -425,9 +407,6 @@ impl Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct VBS_ENCLAVE_REPORT {
@@ -440,9 +419,6 @@ impl Default for VBS_ENCLAVE_REPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VBS_ENCLAVE_REPORT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -460,9 +436,6 @@ impl Default for VBS_ENCLAVE_REPORT_MODULE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VBS_ENCLAVE_REPORT_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
@@ -478,9 +451,6 @@ impl Default for VBS_ENCLAVE_REPORT_PKG_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VBS_ENCLAVE_REPORT_PKG_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1u32;
 pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1u32;
 #[repr(C, packed(1))]
@@ -493,9 +463,6 @@ impl Default for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;
 pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;

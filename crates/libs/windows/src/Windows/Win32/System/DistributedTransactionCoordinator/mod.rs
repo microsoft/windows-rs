@@ -50,9 +50,6 @@ impl Default for BOID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BOID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLSID_MSDtcTransaction: windows_core::GUID = windows_core::GUID::from_u128(0x39f8d76b_0928_11d1_97df_00c04fb9618a);
 pub const CLSID_MSDtcTransactionManager: windows_core::GUID = windows_core::GUID::from_u128(0x5b18ab61_091d_11d1_97df_00c04fb9618a);
 pub const CLUSTERRESOURCE_APPLICATIONTYPE: APPLICATIONTYPE = APPLICATIONTYPE(1i32);
@@ -3766,9 +3763,6 @@ impl Default for OLE_TM_CONFIG_PARAMS_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLE_TM_CONFIG_PARAMS_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OLE_TM_CONFIG_PARAMS_V2 {
@@ -3781,9 +3775,6 @@ impl Default for OLE_TM_CONFIG_PARAMS_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OLE_TM_CONFIG_PARAMS_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OLE_TM_CONFIG_VERSION_1: u32 = 1u32;
 pub const OLE_TM_CONFIG_VERSION_2: u32 = 2u32;
@@ -3801,9 +3792,6 @@ impl Default for PROXY_CONFIG_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROXY_CONFIG_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RMNAMESZ: u32 = 32u32;
 pub const TMASYNC: i32 = -2147483648i32;
@@ -3853,9 +3841,6 @@ impl Default for XACTOPT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XACTOPT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACTRM(pub i32);
@@ -3880,9 +3865,6 @@ impl Default for XACTSTATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XACTSTATS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const XACTSTAT_ABORTED: XACTSTAT = XACTSTAT(512i32);
 pub const XACTSTAT_ABORTING: XACTSTAT = XACTSTAT(256i32);
@@ -3931,9 +3913,6 @@ impl Default for XACTTRANSINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XACTTRANSINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4012,9 +3991,6 @@ impl Default for XID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const XIDDATASIZE: u32 = 128u32;
 pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(65535i32);
 #[repr(C)]
@@ -4038,7 +4014,4 @@ impl Default for xa_switch_t {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for xa_switch_t {
-    type TypeKind = windows_core::CopyType;
 }

@@ -102,9 +102,6 @@ impl Default for FW_DYNAMIC_KEYWORD_ADDRESS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
@@ -117,9 +114,6 @@ impl Default for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1066,9 +1060,6 @@ impl Default for INET_FIREWALL_AC_BINARIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INET_FIREWALL_AC_BINARIES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(2i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1082,10 +1073,6 @@ impl Default for INET_FIREWALL_AC_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for INET_FIREWALL_AC_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1104,10 +1091,6 @@ impl Default for INET_FIREWALL_AC_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for INET_FIREWALL_AC_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1120,10 +1103,6 @@ impl Default for INET_FIREWALL_AC_CHANGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for INET_FIREWALL_AC_CHANGE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INET_FIREWALL_AC_CHANGE_CREATE: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(1i32);
 pub const INET_FIREWALL_AC_CHANGE_DELETE: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(2i32);
@@ -1157,10 +1136,6 @@ impl Default for INET_FIREWALL_APP_CONTAINER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for INET_FIREWALL_APP_CONTAINER {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(INetConnection, INetConnection_Vtbl, 0xc08956a1_1cd3_11d1_b1c5_00805fc1270e);
 windows_core::imp::interface_hierarchy!(INetConnection, windows_core::IUnknown);
@@ -6204,9 +6179,6 @@ impl Default for NETCON_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NETCON_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

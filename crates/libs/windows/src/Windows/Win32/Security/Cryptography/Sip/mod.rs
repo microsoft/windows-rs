@@ -94,9 +94,6 @@ impl Default for MS_ADDINFO_BLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MS_ADDINFO_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MS_ADDINFO_FLAT {
@@ -107,9 +104,6 @@ impl Default for MS_ADDINFO_FLAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MS_ADDINFO_FLAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -132,9 +126,6 @@ impl Default for SIP_ADD_NEWPROVIDER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIP_ADD_NEWPROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SIP_CAP_FLAG_SEALING: u32 = 1u32;
 pub const SIP_CAP_SET_CUR_VER: u32 = 3u32;
 #[repr(C)]
@@ -150,9 +141,6 @@ impl Default for SIP_CAP_SET_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIP_CAP_SET_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SIP_CAP_SET_V3 {
@@ -166,9 +154,6 @@ impl Default for SIP_CAP_SET_V3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIP_CAP_SET_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SIP_CAP_SET_V3_0 {
@@ -179,9 +164,6 @@ impl Default for SIP_CAP_SET_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SIP_CAP_SET_V3_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SIP_CAP_SET_VERSION_2: u32 = 2u32;
 pub const SIP_CAP_SET_VERSION_3: u32 = 3u32;
@@ -203,10 +185,6 @@ impl Default for SIP_DISPATCH_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl windows_core::TypeKind for SIP_DISPATCH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SIP_INDIRECT_DATA {
@@ -218,9 +196,6 @@ impl Default for SIP_INDIRECT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SIP_INDIRECT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SIP_MAX_MAGIC_NUMBER: u32 = 4u32;
 #[repr(C)]
@@ -252,10 +227,6 @@ impl Default for SIP_SUBJECTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl windows_core::TypeKind for SIP_SUBJECTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[derive(Clone, Copy)]
@@ -269,10 +240,6 @@ impl Default for SIP_SUBJECTINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl windows_core::TypeKind for SIP_SUBJECTINFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1u32;
 pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1u32;

@@ -97,9 +97,6 @@ impl Default for RM_FILTER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RM_FILTER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RM_FILTER_INFO_0 {
@@ -111,9 +108,6 @@ impl Default for RM_FILTER_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RM_FILTER_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -136,9 +130,6 @@ impl Default for RM_PROCESS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RM_PROCESS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_REBOOT_REASON(pub i32);
@@ -155,9 +146,6 @@ impl Default for RM_UNIQUE_PROCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RM_UNIQUE_PROCESS {
-    type TypeKind = windows_core::CopyType;
 }
 pub type RM_WRITE_STATUS_CALLBACK = Option<unsafe extern "system" fn(npercentcomplete: u32)>;
 pub const RmConsole: RM_APP_TYPE = RM_APP_TYPE(5i32);

@@ -9,9 +9,6 @@ impl Default for FindSimilarFileIndexResults {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FindSimilarFileIndexResults {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FindSimilarResults: windows_core::GUID = windows_core::GUID::from_u128(0x96236a93_9dbc_11da_9e3f_0011114ae311);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1363,9 +1360,6 @@ impl Default for RdcBufferPointer {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RdcBufferPointer {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RdcComparator: windows_core::GUID = windows_core::GUID::from_u128(0x96236a8b_9dbc_11da_9e3f_0011114ae311);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1390,9 +1384,6 @@ impl Default for RdcNeed {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RdcNeed {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RdcNeedPointer {
@@ -1404,9 +1395,6 @@ impl Default for RdcNeedPointer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RdcNeedPointer {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1422,9 +1410,6 @@ impl Default for RdcSignature {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RdcSignature {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RdcSignaturePointer {
@@ -1436,9 +1421,6 @@ impl Default for RdcSignaturePointer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RdcSignaturePointer {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RdcSignatureReader: windows_core::GUID = windows_core::GUID::from_u128(0x96236a8a_9dbc_11da_9e3f_0011114ae311);
 pub const RdcSimilarityGenerator: windows_core::GUID = windows_core::GUID::from_u128(0x96236a92_9dbc_11da_9e3f_0011114ae311);
@@ -1453,9 +1435,6 @@ impl Default for SimilarityData {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SimilarityData {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SimilarityDumpData {
@@ -1467,9 +1446,6 @@ impl Default for SimilarityDumpData {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SimilarityDumpData {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SimilarityFileId {
@@ -1479,9 +1455,6 @@ impl Default for SimilarityFileId {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SimilarityFileId {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SimilarityFileIdMaxSize: u32 = 32u32;
 pub const SimilarityFileIdMinSize: u32 = 4u32;
@@ -1496,9 +1469,6 @@ impl Default for SimilarityMappedViewInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SimilarityMappedViewInfo {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SimilarityReportProgress: windows_core::GUID = windows_core::GUID::from_u128(0x96236a8d_9dbc_11da_9e3f_0011114ae311);
 pub const SimilarityTableDumpState: windows_core::GUID = windows_core::GUID::from_u128(0x96236a8e_9dbc_11da_9e3f_0011114ae311);

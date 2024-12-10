@@ -897,9 +897,6 @@ impl Default for BINARY_BLOB_CREDENTIAL_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BINARY_BLOB_CREDENTIAL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(3i32);
 pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(5i32);
 #[repr(C)]
@@ -912,9 +909,6 @@ impl Default for CERT_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CERT_CREDENTIAL_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CERT_HASH_LENGTH: u32 = 20u32;
 #[repr(C)]
@@ -938,9 +932,6 @@ impl Default for CREDENTIALA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREDENTIALA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREDENTIALW {
@@ -962,9 +953,6 @@ impl Default for CREDENTIALW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREDENTIALW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREDENTIAL_ATTRIBUTEA {
@@ -978,9 +966,6 @@ impl Default for CREDENTIAL_ATTRIBUTEA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREDENTIAL_ATTRIBUTEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREDENTIAL_ATTRIBUTEW {
@@ -993,9 +978,6 @@ impl Default for CREDENTIAL_ATTRIBUTEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREDENTIAL_ATTRIBUTEW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1016,9 +998,6 @@ impl Default for CREDENTIAL_TARGET_INFORMATIONA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREDENTIAL_TARGET_INFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREDENTIAL_TARGET_INFORMATIONW {
@@ -1038,9 +1017,6 @@ impl Default for CREDENTIAL_TARGET_INFORMATIONW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREDENTIAL_TARGET_INFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDSPP_SUBMIT_TYPE(pub i32);
@@ -1056,9 +1032,6 @@ impl Default for CREDSSP_CRED {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREDSSP_CRED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREDSSP_CRED_EX {
@@ -1072,9 +1045,6 @@ impl Default for CREDSSP_CRED_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREDSSP_CRED_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CREDSSP_CRED_EX_VERSION: u32 = 0u32;
 pub const CREDSSP_FLAG_REDIRECT: u32 = 1u32;
@@ -1198,10 +1168,6 @@ impl Default for CREDUI_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CREDUI_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1217,10 +1183,6 @@ impl Default for CREDUI_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CREDUI_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
 pub const CREDUI_MAX_DOMAIN_TARGET_LENGTH: u32 = 337u32;
@@ -1457,9 +1419,6 @@ impl Default for KeyCredentialManagerInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KeyCredentialManagerInfo {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(4i32);
 pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(1i32);
 pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(32i32);
@@ -1548,9 +1507,6 @@ impl Default for OPENCARDNAMEA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OPENCARDNAMEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPENCARDNAMEW {
@@ -1583,9 +1539,6 @@ impl Default for OPENCARDNAMEW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OPENCARDNAMEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1614,10 +1567,6 @@ impl Default for OPENCARDNAME_EXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for OPENCARDNAME_EXA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -1648,10 +1597,6 @@ impl Default for OPENCARDNAME_EXW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for OPENCARDNAME_EXW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPENCARD_SEARCH_CRITERIAA {
@@ -1673,9 +1618,6 @@ impl Default for OPENCARD_SEARCH_CRITERIAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OPENCARD_SEARCH_CRITERIAA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1699,9 +1641,6 @@ impl Default for OPENCARD_SEARCH_CRITERIAW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OPENCARD_SEARCH_CRITERIAW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct READER_SEL_REQUEST {
@@ -1715,9 +1654,6 @@ impl Default for READER_SEL_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for READER_SEL_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union READER_SEL_REQUEST_0 {
@@ -1728,9 +1664,6 @@ impl Default for READER_SEL_REQUEST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for READER_SEL_REQUEST_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1747,9 +1680,6 @@ impl Default for READER_SEL_REQUEST_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for READER_SEL_REQUEST_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct READER_SEL_REQUEST_0_1 {
@@ -1761,9 +1691,6 @@ impl Default for READER_SEL_REQUEST_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for READER_SEL_REQUEST_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1781,9 +1708,6 @@ impl Default for READER_SEL_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for READER_SEL_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(3i32);
 pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(1i32);
 pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(2i32);
@@ -1800,9 +1724,6 @@ impl Default for SCARD_ATRMASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCARD_ATRMASK {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCARD_ATR_LENGTH: u32 = 33u32;
 pub const SCARD_AUDIT_CHV_FAILURE: u32 = 0u32;
@@ -1831,9 +1752,6 @@ impl Default for SCARD_IO_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCARD_IO_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCARD_LEAVE_CARD: u32 = 0u32;
 pub const SCARD_LOCAL_READERS: windows_core::PCWSTR = windows_core::w!("SCard$LocalReaders\u{0}00");
@@ -1865,9 +1783,6 @@ impl Default for SCARD_READERSTATEA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCARD_READERSTATEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCARD_READERSTATEW {
@@ -1882,9 +1797,6 @@ impl Default for SCARD_READERSTATEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCARD_READERSTATEW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCARD_READER_CONFISCATES: u32 = 4u32;
 pub const SCARD_READER_CONTACTLESS: u32 = 8u32;
@@ -1946,9 +1858,6 @@ impl Default for SCARD_T0_COMMAND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCARD_T0_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SCARD_T0_HEADER_LENGTH: u32 = 7u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1963,9 +1872,6 @@ impl Default for SCARD_T0_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCARD_T0_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SCARD_T0_REQUEST_0 {
@@ -1976,9 +1882,6 @@ impl Default for SCARD_T0_REQUEST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCARD_T0_REQUEST_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCARD_T1_EPILOGUE_LENGTH: u32 = 2u32;
 pub const SCARD_T1_EPILOGUE_LENGTH_LRC: u32 = 1u32;
@@ -1993,9 +1896,6 @@ impl Default for SCARD_T1_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCARD_T1_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCARD_UNKNOWN: u32 = 0u32;
 pub const SCARD_UNPOWER_CARD: u32 = 2u32;
@@ -2031,9 +1931,6 @@ impl Default for SecHandle {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecHandle {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgContext_ClientCreds {
@@ -2044,9 +1941,6 @@ impl Default for SecPkgContext_ClientCreds {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SecPkgContext_ClientCreds {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TS_SSP_NAME: windows_core::PCWSTR = windows_core::w!("TSSSP");
 pub const TS_SSP_NAME_A: windows_core::PCSTR = windows_core::s!("TSSSP");
@@ -2059,9 +1953,6 @@ impl Default for USERNAME_TARGET_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for USERNAME_TARGET_CREDENTIAL_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(4i32);
 pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(2i32);

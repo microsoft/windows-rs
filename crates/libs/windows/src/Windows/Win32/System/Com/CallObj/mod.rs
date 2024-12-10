@@ -36,9 +36,6 @@ impl Default for CALLFRAMEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CALLFRAMEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CALLFRAMEPARAMINFO {
@@ -51,9 +48,6 @@ impl Default for CALLFRAMEPARAMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CALLFRAMEPARAMINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -83,9 +77,6 @@ impl Default for CALLFRAME_MARSHALCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CALLFRAME_MARSHALCONTEXT {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

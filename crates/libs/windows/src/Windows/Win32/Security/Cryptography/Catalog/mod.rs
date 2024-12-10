@@ -254,9 +254,6 @@ impl Default for CATALOG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CATALOG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRYPTCATATTRIBUTE {
@@ -271,9 +268,6 @@ impl Default for CRYPTCATATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPTCATATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -327,9 +321,6 @@ impl Default for CRYPTCATCDF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTCATCDF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -352,10 +343,6 @@ impl Default for CRYPTCATMEMBER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Sip")]
-impl windows_core::TypeKind for CRYPTCATMEMBER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRYPTCATSTORE {
@@ -374,9 +361,6 @@ impl Default for CRYPTCATSTORE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPTCATSTORE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1u32;
 pub const CRYPTCAT_ADDCATALOG_NONE: u32 = 0u32;
@@ -466,10 +450,6 @@ impl Default for MS_ADDINFO_CATALOGMEMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography_Sip")]
-impl windows_core::TypeKind for MS_ADDINFO_CATALOGMEMBER {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PFN_CDF_PARSE_ERROR_CALLBACK = Option<unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: windows_core::PCWSTR)>;
 pub const szOID_CATALOG_LIST: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.1.1");

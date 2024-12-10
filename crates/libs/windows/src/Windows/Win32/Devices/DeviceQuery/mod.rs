@@ -219,10 +219,6 @@ impl Default for DEVPROP_FILTER_EXPRESSION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl windows_core::TypeKind for DEVPROP_FILTER_EXPRESSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_OPERATOR(pub u32);
@@ -316,10 +312,6 @@ impl Default for DEV_OBJECT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl windows_core::TypeKind for DEV_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_OBJECT_TYPE(pub i32);
@@ -341,10 +333,6 @@ impl Default for DEV_QUERY_PARAMETER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl windows_core::TypeKind for DEV_QUERY_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_QUERY_RESULT_ACTION(pub i32);
@@ -361,10 +349,6 @@ impl Default for DEV_QUERY_RESULT_ACTION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl windows_core::TypeKind for DEV_QUERY_RESULT_ACTION_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[derive(Clone, Copy)]
@@ -377,10 +361,6 @@ impl Default for DEV_QUERY_RESULT_ACTION_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl windows_core::TypeKind for DEV_QUERY_RESULT_ACTION_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -3132,10 +3132,6 @@ impl Default for ARRAYDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for ARRAYDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BINDSPEED(pub i32);
@@ -3193,9 +3189,6 @@ impl Default for CADWORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CADWORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CALPOLESTR {
@@ -3207,9 +3200,6 @@ impl Default for CALPOLESTR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CALPOLESTR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAUUID {
@@ -3220,9 +3210,6 @@ impl Default for CAUUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CAUUID {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CF_BITMAP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(2u16);
 pub const CF_CONVERTONLY: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(256u32);
@@ -3360,9 +3347,6 @@ impl Default for CLEANLOCALSTORAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLEANLOCALSTORAGE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLIPBOARD_FORMAT(pub u16);
@@ -3395,10 +3379,6 @@ impl Default for CONTROLINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for CONTROLINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CSF_EXPLORER: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(8u32);
 pub const CSF_ONLYGETSOURCE: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(4u32);
@@ -3597,9 +3577,6 @@ impl Default for DVASPECTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVASPECTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVASPECTINFOFLAG(pub i32);
@@ -3615,9 +3592,6 @@ impl Default for DVEXTENTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVEXTENTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3762,10 +3736,6 @@ impl Default for FONTDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for FONTDESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GCW_WCH_SIBLING: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(1u32);
 pub const GC_WCH_ALL: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(4u32);
@@ -6313,10 +6283,6 @@ impl Default for INTERFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for INTERFACEDATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IOF_CHECKDISPLAYASICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(16u32);
 pub const IOF_CHECKLINK: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(8u32);
@@ -12398,9 +12364,6 @@ impl Default for LICINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LICINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOAD_PICTURE_FLAGS(pub u32);
@@ -12472,10 +12435,6 @@ impl Default for METHODDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for METHODDATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MK_ALT: u32 = 32u32;
 pub const MSOCMDERR_E_CANCELED: i32 = -2147221245i32;
 pub const MSOCMDERR_E_DISABLED: i32 = -2147221247i32;
@@ -12504,9 +12463,6 @@ impl Default for NUMPARSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NUMPARSE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12577,9 +12533,6 @@ impl Default for OBJECTDESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OBJECTDESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECT_PROPERTIES_FLAGS(pub u32);
@@ -12637,9 +12590,6 @@ impl Default for OCPFIPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCPFIPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const OF_GET: u32 = 2u32;
 pub const OF_HANDLER: u32 = 4u32;
 pub const OF_SET: u32 = 1u32;
@@ -12659,9 +12609,6 @@ impl Default for OLECMD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OLECMD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: u32 = 2u32;
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME: u32 = 1u32;
@@ -12885,9 +12832,6 @@ impl Default for OLECMDTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLECMDTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMDTEXTF(pub i32);
@@ -12937,10 +12881,6 @@ impl Default for OLEINPLACEFRAMEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for OLEINPLACEFRAMEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEIVERB(pub i32);
@@ -12965,9 +12905,6 @@ impl Default for OLEMENUGROUPWIDTHS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OLEMENUGROUPWIDTHS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13027,10 +12964,6 @@ impl Default for OLEUIBUSYA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media")]
-impl windows_core::TypeKind for OLEUIBUSYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Media")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13052,10 +12985,6 @@ impl Default for OLEUIBUSYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media")]
-impl windows_core::TypeKind for OLEUIBUSYW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13079,9 +13008,6 @@ impl Default for OLEUICHANGEICONA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLEUICHANGEICONA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OLEUICHANGEICONW {
@@ -13103,9 +13029,6 @@ impl Default for OLEUICHANGEICONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OLEUICHANGEICONW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
@@ -13135,10 +13058,6 @@ impl Default for OLEUICHANGESOURCEA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
-impl windows_core::TypeKind for OLEUICHANGESOURCEA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 #[derive(Clone, Debug, PartialEq)]
@@ -13166,10 +13085,6 @@ impl Default for OLEUICHANGESOURCEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
-impl windows_core::TypeKind for OLEUICHANGESOURCEW {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13202,9 +13117,6 @@ impl Default for OLEUICONVERTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLEUICONVERTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OLEUICONVERTW {
@@ -13236,9 +13148,6 @@ impl Default for OLEUICONVERTW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLEUICONVERTW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct OLEUIEDITLINKSA {
@@ -13257,9 +13166,6 @@ impl Default for OLEUIEDITLINKSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OLEUIEDITLINKSA {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -13280,9 +13186,6 @@ impl Default for OLEUIEDITLINKSW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLEUIEDITLINKSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13301,10 +13204,6 @@ impl Default for OLEUIGNRLPROPSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUIGNRLPROPSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13322,10 +13221,6 @@ impl Default for OLEUIGNRLPROPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUIGNRLPROPSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -13360,10 +13255,6 @@ impl Default for OLEUIINSERTOBJECTA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::TypeKind for OLEUIINSERTOBJECTA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[derive(Clone, Debug, PartialEq)]
@@ -13397,10 +13288,6 @@ impl Default for OLEUIINSERTOBJECTW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::TypeKind for OLEUIINSERTOBJECTW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13419,10 +13306,6 @@ impl Default for OLEUILINKPROPSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUILINKPROPSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13440,10 +13323,6 @@ impl Default for OLEUILINKPROPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUILINKPROPSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -13466,10 +13345,6 @@ impl Default for OLEUIOBJECTPROPSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUIOBJECTPROPSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -13491,10 +13366,6 @@ impl Default for OLEUIOBJECTPROPSW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUIOBJECTPROPSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13511,10 +13382,6 @@ impl Default for OLEUIPASTEENTRYA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for OLEUIPASTEENTRYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13530,10 +13397,6 @@ impl Default for OLEUIPASTEENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for OLEUIPASTEENTRYW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13569,10 +13432,6 @@ impl Default for OLEUIPASTESPECIALA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for OLEUIPASTESPECIALA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, PartialEq)]
@@ -13603,10 +13462,6 @@ impl Default for OLEUIPASTESPECIALW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for OLEUIPASTESPECIALW {
-    type TypeKind = windows_core::CloneType;
 }
 pub const OLEUIPASTE_ENABLEICON: OLEUIPASTEFLAG = OLEUIPASTEFLAG(2048i32);
 pub const OLEUIPASTE_LINKANYTYPE: OLEUIPASTEFLAG = OLEUIPASTEFLAG(1024i32);
@@ -13640,10 +13495,6 @@ impl Default for OLEUIVIEWPROPSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUIVIEWPROPSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13663,10 +13514,6 @@ impl Default for OLEUIVIEWPROPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUIVIEWPROPSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OLEUI_BZERR_HTASKINVALID: u32 = 116u32;
 pub const OLEUI_BZ_CALLUNBLOCKED: u32 = 119u32;
@@ -13771,10 +13618,6 @@ impl Default for OLEVERB {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for OLEVERB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEVERBATTRIB(pub i32);
@@ -13826,9 +13669,6 @@ impl Default for PAGERANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PAGERANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PAGESET {
@@ -13843,9 +13683,6 @@ impl Default for PAGESET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PAGESET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13859,10 +13696,6 @@ impl Default for PARAMDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for PARAMDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13875,10 +13708,6 @@ impl Default for PARAMDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for PARAMDESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
@@ -13897,10 +13726,6 @@ impl Default for PARAMDESCEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for PARAMDESCEX {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -14001,10 +13826,6 @@ impl Default for PICTDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -14020,10 +13841,6 @@ impl Default for PICTDESC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14037,10 +13854,6 @@ impl Default for PICTDESC_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14053,10 +13866,6 @@ impl Default for PICTDESC_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14068,10 +13877,6 @@ impl Default for PICTDESC_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14086,10 +13891,6 @@ impl Default for PICTDESC_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -14121,9 +13922,6 @@ impl Default for POINTF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POINTF {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -14193,9 +13991,6 @@ impl Default for PROPPAGEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROPPAGEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPPAGESTATUS(pub i32);
@@ -14239,10 +14034,6 @@ impl Default for QACONTAINER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-impl windows_core::TypeKind for QACONTAINER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QACONTAINERFLAGS(pub i32);
@@ -14268,9 +14059,6 @@ impl Default for QACONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for QACONTROL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -14299,10 +14087,6 @@ impl Default for SAFEARRAYUNION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SAFEARRAYUNION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -14324,10 +14108,6 @@ impl Default for SAFEARRAYUNION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SAFEARRAYUNION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAFEARR_BRECORD {
@@ -14338,9 +14118,6 @@ impl Default for SAFEARR_BRECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SAFEARR_BRECORD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -14355,10 +14132,6 @@ impl Default for SAFEARR_BSTR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SAFEARR_BSTR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14372,10 +14145,6 @@ impl Default for SAFEARR_DISPATCH {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SAFEARR_DISPATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAFEARR_HAVEIID {
@@ -14388,9 +14157,6 @@ impl Default for SAFEARR_HAVEIID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SAFEARR_HAVEIID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAFEARR_UNKNOWN {
@@ -14401,9 +14167,6 @@ impl Default for SAFEARR_UNKNOWN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SAFEARR_UNKNOWN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -14417,10 +14180,6 @@ impl Default for SAFEARR_VARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SAFEARR_VARIANT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SELFREG_E_CLASS: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
 pub const SELFREG_E_FIRST: i32 = -2147220992i32;
@@ -14498,9 +14257,6 @@ impl Default for UDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UDATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -14730,9 +14486,6 @@ impl Default for _wireBRECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for _wireBRECORD {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -14749,10 +14502,6 @@ impl Default for _wireSAFEARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for _wireSAFEARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -14776,10 +14525,6 @@ impl Default for _wireVARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for _wireVARIANT {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -14840,10 +14585,6 @@ impl Default for _wireVARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for _wireVARIANT_0 {
-    type TypeKind = windows_core::CloneType;
 }
 pub const fdexEnumAll: i32 = 2i32;
 pub const fdexEnumDefault: i32 = 1i32;

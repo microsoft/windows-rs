@@ -680,10 +680,6 @@ impl Default for VARIANT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl windows_core::TypeKind for VARIANT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub union VARIANT_0 {
@@ -701,10 +697,6 @@ impl Default for VARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl windows_core::TypeKind for VARIANT_0 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -726,10 +718,6 @@ impl Default for VARIANT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl windows_core::TypeKind for VARIANT_0_0 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -793,10 +781,6 @@ impl Default for VARIANT_0_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl windows_core::TypeKind for VARIANT_0_0_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -809,10 +793,6 @@ impl Default for VARIANT_0_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl windows_core::TypeKind for VARIANT_0_0_0_0 {
-    type TypeKind = windows_core::CloneType;
 }
 pub const VARIANT_ALPHABOOL: VAR_CHANGE_FLAGS = VAR_CHANGE_FLAGS(2u16);
 pub const VARIANT_CALENDAR_GREGORIAN: VAR_CHANGE_FLAGS = VAR_CHANGE_FLAGS(64u16);

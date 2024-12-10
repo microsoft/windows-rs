@@ -21,9 +21,6 @@ impl Default for ASYNC_DUPLICATE_EXTENTS_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ASYNC_DUPLICATE_EXTENTS_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ATAPI_ID_CMD: u32 = 161u32;
 pub const AVATAR_F2: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(78i32);
 pub const AllElements: ELEMENT_TYPE = ELEMENT_TYPE(0i32);
@@ -41,9 +38,6 @@ impl Default for BIN_COUNT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BIN_COUNT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BIN_RANGE {
@@ -55,9 +49,6 @@ impl Default for BIN_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BIN_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BIN_RESULTS {
@@ -68,9 +59,6 @@ impl Default for BIN_RESULTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BIN_RESULTS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -86,9 +74,6 @@ impl Default for BOOT_AREA_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BOOT_AREA_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BOOT_AREA_INFO_0 {
@@ -98,9 +83,6 @@ impl Default for BOOT_AREA_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BOOT_AREA_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -112,9 +94,6 @@ impl Default for BULK_SECURITY_TEST_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BULK_SECURITY_TEST_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CAP_ATAPI_ID_CMD: u32 = 2u32;
 pub const CAP_ATA_ID_CMD: u32 = 1u32;
@@ -147,9 +126,6 @@ impl Default for CHANGER_ELEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGER_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGER_ELEMENT_LIST {
@@ -160,9 +136,6 @@ impl Default for CHANGER_ELEMENT_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CHANGER_ELEMENT_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -181,9 +154,6 @@ impl Default for CHANGER_ELEMENT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CHANGER_ELEMENT_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -205,9 +175,6 @@ impl Default for CHANGER_ELEMENT_STATUS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CHANGER_ELEMENT_STATUS_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -261,9 +228,6 @@ impl Default for CHANGER_EXCHANGE_MEDIUM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGER_EXCHANGE_MEDIUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGER_FEATURES(pub u32);
@@ -313,9 +277,6 @@ impl Default for CHANGER_INITIALIZE_ELEMENT_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGER_INITIALIZE_ELEMENT_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CHANGER_INIT_ELEM_STAT_WITH_RANGE: CHANGER_FEATURES = CHANGER_FEATURES(2u32);
 pub const CHANGER_KEYPAD_ENABLE_DISABLE: CHANGER_FEATURES = CHANGER_FEATURES(268435456u32);
 pub const CHANGER_LOCK_UNLOCK: CHANGER_FEATURES = CHANGER_FEATURES(128u32);
@@ -333,9 +294,6 @@ impl Default for CHANGER_MOVE_MEDIUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CHANGER_MOVE_MEDIUM {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CHANGER_MOVE_RETRACTS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147484672u32);
 pub const CHANGER_OPEN_IEPORT: CHANGER_FEATURES = CHANGER_FEATURES(8u32);
@@ -358,9 +316,6 @@ impl Default for CHANGER_PRODUCT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGER_PRODUCT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGER_READ_ELEMENT_STATUS {
@@ -371,9 +326,6 @@ impl Default for CHANGER_READ_ELEMENT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CHANGER_READ_ELEMENT_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CHANGER_REPORT_IEPORT_STATE: CHANGER_FEATURES = CHANGER_FEATURES(2048u32);
 pub const CHANGER_RESERVED_BIT: u32 = 2147483648u32;
@@ -390,9 +342,6 @@ impl Default for CHANGER_SEND_VOLUME_TAG_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGER_SEND_VOLUME_TAG_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CHANGER_SERIAL_NUMBER_VALID: CHANGER_FEATURES = CHANGER_FEATURES(67108864u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -405,9 +354,6 @@ impl Default for CHANGER_SET_ACCESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGER_SET_ACCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGER_SET_POSITION {
@@ -419,9 +365,6 @@ impl Default for CHANGER_SET_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CHANGER_SET_POSITION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CHANGER_SLOTS_USE_TRAYS: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483664u32);
 pub const CHANGER_STATUS_NON_VOLATILE: CHANGER_FEATURES = CHANGER_FEATURES(16u32);
@@ -456,9 +399,6 @@ impl Default for CLASS_MEDIA_CHANGE_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLASS_MEDIA_CHANGE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLEANER_CARTRIDGE: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(50i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -470,9 +410,6 @@ impl Default for CLUSTER_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CONTAINER_ROOT_INFO_FLAG_BIND_DO_NOT_MAP_NAME: u32 = 256u32;
 pub const CONTAINER_ROOT_INFO_FLAG_BIND_EXCEPTION_ROOT: u32 = 128u32;
@@ -494,9 +431,6 @@ impl Default for CONTAINER_ROOT_INFO_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONTAINER_ROOT_INFO_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONTAINER_ROOT_INFO_OUTPUT {
@@ -508,9 +442,6 @@ impl Default for CONTAINER_ROOT_INFO_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONTAINER_ROOT_INFO_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CONTAINER_ROOT_INFO_VALID_FLAGS: u32 = 1023u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -521,9 +452,6 @@ impl Default for CONTAINER_VOLUME_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONTAINER_VOLUME_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CONTAINER_VOLUME_STATE_HOSTING_CONTAINER: u32 = 1u32;
 pub const COPYFILE_SIS_FLAGS: u32 = 3u32;
@@ -540,9 +468,6 @@ impl Default for CREATE_DISK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREATE_DISK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CREATE_DISK_0 {
@@ -553,9 +478,6 @@ impl Default for CREATE_DISK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREATE_DISK_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -568,9 +490,6 @@ impl Default for CREATE_DISK_GPT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREATE_DISK_GPT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREATE_DISK_MBR {
@@ -580,9 +499,6 @@ impl Default for CREATE_DISK_MBR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREATE_DISK_MBR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -594,9 +510,6 @@ impl Default for CREATE_USN_JOURNAL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREATE_USN_JOURNAL_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -615,9 +528,6 @@ impl Default for CSV_CONTROL_PARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CSV_CONTROL_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CSV_INVALID_DEVICE_NUMBER: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -629,9 +539,6 @@ impl Default for CSV_IS_OWNED_BY_CSVFS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CSV_IS_OWNED_BY_CSVFS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CSV_MGMTLOCK_CHECK_VOLUME_REDIRECTED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -642,9 +549,6 @@ impl Default for CSV_MGMT_LOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CSV_MGMT_LOCK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -659,9 +563,6 @@ impl Default for CSV_NAMESPACE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CSV_NAMESPACE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSV_QUERY_FILE_REVISION {
@@ -672,9 +573,6 @@ impl Default for CSV_QUERY_FILE_REVISION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CSV_QUERY_FILE_REVISION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -689,10 +587,6 @@ impl Default for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSV_QUERY_MDS_PATH {
@@ -705,9 +599,6 @@ impl Default for CSV_QUERY_MDS_PATH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CSV_QUERY_MDS_PATH {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CSV_QUERY_MDS_PATH_FLAG_CSV_DIRECT_IO_ENABLED: u32 = 2u32;
 pub const CSV_QUERY_MDS_PATH_FLAG_SMB_BYPASS_CSV_ENABLED: u32 = 4u32;
@@ -732,9 +623,6 @@ impl Default for CSV_QUERY_MDS_PATH_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CSV_QUERY_MDS_PATH_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CSV_QUERY_MDS_PATH_V2_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -748,9 +636,6 @@ impl Default for CSV_QUERY_REDIRECT_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CSV_QUERY_REDIRECT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
@@ -763,9 +648,6 @@ impl Default for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSV_QUERY_VOLUME_ID {
@@ -775,9 +657,6 @@ impl Default for CSV_QUERY_VOLUME_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CSV_QUERY_VOLUME_ID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -793,9 +672,6 @@ impl Default for CSV_QUERY_VOLUME_REDIRECT_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CSV_QUERY_VOLUME_REDIRECT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSV_SET_VOLUME_ID {
@@ -805,9 +681,6 @@ impl Default for CSV_SET_VOLUME_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CSV_SET_VOLUME_ID {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CYGNET_12_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(69i32);
 pub const ChangerDoor: ELEMENT_TYPE = ELEMENT_TYPE(5i32);
@@ -853,9 +726,6 @@ impl Default for DECRYPTION_STATUS_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DECRYPTION_STATUS_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DELETE_USN_JOURNAL_DATA {
@@ -866,9 +736,6 @@ impl Default for DELETE_USN_JOURNAL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DELETE_USN_JOURNAL_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -891,9 +758,6 @@ impl Default for DEVICEDUMP_PRIVATE_SUBSECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICEDUMP_PRIVATE_SUBSECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_PUBLIC_SUBSECTION {
@@ -907,9 +771,6 @@ impl Default for DEVICEDUMP_PUBLIC_SUBSECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICEDUMP_PUBLIC_SUBSECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICEDUMP_RESTRICTED_SUBSECTION {
@@ -919,9 +780,6 @@ impl Default for DEVICEDUMP_RESTRICTED_SUBSECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICEDUMP_RESTRICTED_SUBSECTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -941,9 +799,6 @@ impl Default for DEVICEDUMP_SECTION_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICEDUMP_SECTION_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_STORAGEDEVICE_DATA {
@@ -960,9 +815,6 @@ impl Default for DEVICEDUMP_STORAGEDEVICE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICEDUMP_STORAGEDEVICE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
@@ -976,9 +828,6 @@ impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -996,9 +845,6 @@ impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
@@ -1011,9 +857,6 @@ impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
@@ -1023,9 +866,6 @@ impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1037,9 +877,6 @@ impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
@@ -1049,9 +886,6 @@ impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1065,9 +899,6 @@ impl Default for DEVICEDUMP_STRUCTURE_VERSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICEDUMP_STRUCTURE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEVICEDUMP_STRUCTURE_VERSION_V1: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1080,9 +911,6 @@ impl Default for DEVICEDUMP_SUBSECTION_POINTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICEDUMP_SUBSECTION_POINTER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1104,9 +932,6 @@ impl Default for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
@@ -1119,9 +944,6 @@ impl Default for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEVICE_DATA_SET_LBP_STATE_PARAMETERS_VERSION_V1: u32 = 1u32;
 #[repr(C)]
@@ -1140,9 +962,6 @@ impl Default for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
@@ -1159,9 +978,6 @@ impl Default for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DATA_SET_RANGE {
@@ -1173,9 +989,6 @@ impl Default for DEVICE_DATA_SET_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_DATA_SET_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DATA_SET_REPAIR_OUTPUT {
@@ -1185,9 +998,6 @@ impl Default for DEVICE_DATA_SET_REPAIR_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DATA_SET_REPAIR_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1200,9 +1010,6 @@ impl Default for DEVICE_DATA_SET_REPAIR_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DATA_SET_REPAIR_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1218,9 +1025,6 @@ impl Default for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DATA_SET_SCRUB_OUTPUT {
@@ -1233,9 +1037,6 @@ impl Default for DEVICE_DATA_SET_SCRUB_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_DATA_SET_SCRUB_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
@@ -1247,9 +1048,6 @@ impl Default for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DSM_CONVERSION_OUTPUT {
@@ -1260,9 +1058,6 @@ impl Default for DEVICE_DSM_CONVERSION_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DSM_CONVERSION_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1279,9 +1074,6 @@ impl Default for DEVICE_DSM_DEFINITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DSM_DEFINITION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEVICE_DSM_FLAG_ALLOCATION_CONSOLIDATEABLE_ONLY: u32 = 1073741824u32;
 pub const DEVICE_DSM_FLAG_ENTIRE_DATA_SET_RANGE: u32 = 1u32;
@@ -1303,9 +1095,6 @@ impl Default for DEVICE_DSM_FREE_SPACE_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_DSM_FREE_SPACE_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DSM_LOST_QUERY_OUTPUT {
@@ -1320,9 +1109,6 @@ impl Default for DEVICE_DSM_LOST_QUERY_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_DSM_LOST_QUERY_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DSM_LOST_QUERY_PARAMETERS {
@@ -1333,9 +1119,6 @@ impl Default for DEVICE_DSM_LOST_QUERY_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DSM_LOST_QUERY_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1349,9 +1132,6 @@ impl Default for DEVICE_DSM_NOTIFICATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DSM_NOTIFICATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEVICE_DSM_NOTIFY_FLAG_BEGIN: u32 = 1u32;
 pub const DEVICE_DSM_NOTIFY_FLAG_END: u32 = 2u32;
@@ -1367,9 +1147,6 @@ impl Default for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
@@ -1381,9 +1158,6 @@ impl Default for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1397,9 +1171,6 @@ impl Default for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEVICE_DSM_PARAMETERS_V1: u32 = 1u32;
 #[repr(C)]
@@ -1415,9 +1186,6 @@ impl Default for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_V1: u32 = 1u32;
 pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_VERSION_V1: u32 = 1u32;
@@ -1435,9 +1203,6 @@ impl Default for DEVICE_DSM_RANGE_ERROR_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_DSM_RANGE_ERROR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEVICE_DSM_RANGE_ERROR_INFO_VERSION_V1: u32 = 1u32;
 pub const DEVICE_DSM_RANGE_ERROR_OUTPUT_V1: u32 = 1u32;
 #[repr(C)]
@@ -1454,9 +1219,6 @@ impl Default for DEVICE_DSM_REPORT_ZONES_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_DSM_REPORT_ZONES_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DSM_REPORT_ZONES_PARAMETERS {
@@ -1469,9 +1231,6 @@ impl Default for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1486,9 +1245,6 @@ impl Default for DEVICE_DSM_TIERING_QUERY_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DSM_TIERING_QUERY_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1506,9 +1262,6 @@ impl Default for DEVICE_DSM_TIERING_QUERY_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_DSM_TIERING_QUERY_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1530,9 +1283,6 @@ impl Default for DEVICE_INTERNAL_STATUS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_INTERNAL_STATUS_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1557,9 +1307,6 @@ impl Default for DEVICE_LB_PROVISIONING_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_LB_PROVISIONING_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_LOCATION {
@@ -1574,9 +1321,6 @@ impl Default for DEVICE_LOCATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_LOCATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVICE_LOCATION_0 {
@@ -1587,9 +1331,6 @@ impl Default for DEVICE_LOCATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_LOCATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1602,9 +1343,6 @@ impl Default for DEVICE_LOCATION_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_LOCATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_LOCATION_0_1 {
@@ -1615,9 +1353,6 @@ impl Default for DEVICE_LOCATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_LOCATION_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1634,9 +1369,6 @@ impl Default for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1656,9 +1388,6 @@ impl Default for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
@@ -1670,10 +1399,6 @@ impl Default for DEVICE_MEDIA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for DEVICE_MEDIA_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -1688,10 +1413,6 @@ impl Default for DEVICE_MEDIA_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for DEVICE_MEDIA_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -1711,10 +1432,6 @@ impl Default for DEVICE_MEDIA_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for DEVICE_MEDIA_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1733,10 +1450,6 @@ impl Default for DEVICE_MEDIA_INFO_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for DEVICE_MEDIA_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
@@ -1753,10 +1466,6 @@ impl Default for DEVICE_MEDIA_INFO_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for DEVICE_MEDIA_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
@@ -1768,10 +1477,6 @@ impl Default for DEVICE_MEDIA_INFO_0_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for DEVICE_MEDIA_INFO_0_2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -1785,10 +1490,6 @@ impl Default for DEVICE_MEDIA_INFO_0_2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for DEVICE_MEDIA_INFO_0_2_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1809,9 +1510,6 @@ impl Default for DEVICE_POWER_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_POWER_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
@@ -1824,9 +1522,6 @@ impl Default for DEVICE_SEEK_PENALTY_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_SEEK_PENALTY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_STORAGE_ADDRESS_RANGE {
@@ -1837,9 +1532,6 @@ impl Default for DEVICE_STORAGE_ADDRESS_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_STORAGE_ADDRESS_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEVICE_STORAGE_NO_ERRORS: u32 = 1u32;
 #[repr(C)]
@@ -1854,9 +1546,6 @@ impl Default for DEVICE_STORAGE_RANGE_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_STORAGE_RANGE_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
@@ -1868,9 +1557,6 @@ impl Default for DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
@@ -1880,9 +1566,6 @@ impl Default for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1896,9 +1579,6 @@ impl Default for DEVICE_TRIM_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_TRIM_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
@@ -1910,9 +1590,6 @@ impl Default for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEVPKEY_Storage_Disk_Number: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 5 };
 pub const DEVPKEY_Storage_Gpt_Name: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 9 };
@@ -1943,9 +1620,6 @@ impl Default for DISK_CACHE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_CACHE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISK_CACHE_INFORMATION_0 {
@@ -1956,9 +1630,6 @@ impl Default for DISK_CACHE_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISK_CACHE_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1971,9 +1642,6 @@ impl Default for DISK_CACHE_INFORMATION_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_CACHE_INFORMATION_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISK_CACHE_INFORMATION_0_0 {
@@ -1985,9 +1653,6 @@ impl Default for DISK_CACHE_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISK_CACHE_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2003,9 +1668,6 @@ impl Default for DISK_CONTROLLER_NUMBER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_CONTROLLER_NUMBER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISK_DETECTION_INFO {
@@ -2018,9 +1680,6 @@ impl Default for DISK_DETECTION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_DETECTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISK_DETECTION_INFO_0 {
@@ -2030,9 +1689,6 @@ impl Default for DISK_DETECTION_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISK_DETECTION_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2045,9 +1701,6 @@ impl Default for DISK_DETECTION_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_DETECTION_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISK_EXTENT {
@@ -2059,9 +1712,6 @@ impl Default for DISK_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISK_EXTENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2080,9 +1730,6 @@ impl Default for DISK_EX_INT13_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_EX_INT13_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISK_GEOMETRY {
@@ -2097,9 +1744,6 @@ impl Default for DISK_GEOMETRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_GEOMETRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISK_GEOMETRY_EX {
@@ -2112,9 +1756,6 @@ impl Default for DISK_GEOMETRY_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_GEOMETRY_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISK_GROW_PARTITION {
@@ -2125,9 +1766,6 @@ impl Default for DISK_GROW_PARTITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISK_GROW_PARTITION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2149,9 +1787,6 @@ impl Default for DISK_HISTOGRAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_HISTOGRAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISK_INT13_INFO {
@@ -2166,9 +1801,6 @@ impl Default for DISK_INT13_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_INT13_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISK_LOGGING {
@@ -2180,9 +1812,6 @@ impl Default for DISK_LOGGING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISK_LOGGING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DISK_LOGGING_DUMP: u32 = 2u32;
 pub const DISK_LOGGING_START: u32 = 0u32;
@@ -2199,9 +1828,6 @@ impl Default for DISK_PARTITION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_PARTITION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISK_PARTITION_INFO_0 {
@@ -2213,9 +1839,6 @@ impl Default for DISK_PARTITION_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_PARTITION_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISK_PARTITION_INFO_0_1 {
@@ -2225,9 +1848,6 @@ impl Default for DISK_PARTITION_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISK_PARTITION_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2239,9 +1859,6 @@ impl Default for DISK_PARTITION_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISK_PARTITION_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2264,9 +1881,6 @@ impl Default for DISK_PERFORMANCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_PERFORMANCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISK_RECORD {
@@ -2283,9 +1897,6 @@ impl Default for DISK_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DLT: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(39i32);
 pub const DMI: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(48i32);
 #[repr(C, packed(1))]
@@ -2301,9 +1912,6 @@ impl Default for DRIVERSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVERSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRIVE_LAYOUT_INFORMATION {
@@ -2315,9 +1923,6 @@ impl Default for DRIVE_LAYOUT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRIVE_LAYOUT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2332,9 +1937,6 @@ impl Default for DRIVE_LAYOUT_INFORMATION_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVE_LAYOUT_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DRIVE_LAYOUT_INFORMATION_EX_0 {
@@ -2345,9 +1947,6 @@ impl Default for DRIVE_LAYOUT_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRIVE_LAYOUT_INFORMATION_EX_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2362,9 +1961,6 @@ impl Default for DRIVE_LAYOUT_INFORMATION_GPT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVE_LAYOUT_INFORMATION_GPT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRIVE_LAYOUT_INFORMATION_MBR {
@@ -2375,9 +1971,6 @@ impl Default for DRIVE_LAYOUT_INFORMATION_MBR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRIVE_LAYOUT_INFORMATION_MBR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DST_L: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(82i32);
 pub const DST_M: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(81i32);
@@ -2395,9 +1988,6 @@ impl Default for DUPLICATE_EXTENTS_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DUPLICATE_EXTENTS_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2413,10 +2003,6 @@ impl Default for DUPLICATE_EXTENTS_DATA32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DUPLICATE_EXTENTS_DATA32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DUPLICATE_EXTENTS_DATA_EX {
@@ -2431,9 +2017,6 @@ impl Default for DUPLICATE_EXTENTS_DATA_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DUPLICATE_EXTENTS_DATA_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2451,10 +2034,6 @@ impl Default for DUPLICATE_EXTENTS_DATA_EX32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DUPLICATE_EXTENTS_DATA_EX32 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DUPLICATE_EXTENTS_DATA_EX_ASYNC: u32 = 2u32;
 pub const DUPLICATE_EXTENTS_DATA_EX_SOURCE_ATOMIC: u32 = 1u32;
@@ -2571,9 +2150,6 @@ impl Default for ENCRYPTED_DATA_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENCRYPTED_DATA_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ENCRYPTED_DATA_INFO_SPARSE_FILE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2585,9 +2161,6 @@ impl Default for ENCRYPTION_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ENCRYPTION_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ENCRYPTION_FORMAT_DEFAULT: u32 = 1u32;
 #[repr(C)]
@@ -2605,9 +2178,6 @@ impl Default for ENCRYPTION_KEY_CTRL_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ENCRYPTION_KEY_CTRL_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ERROR_DRIVE_NOT_INSTALLED: u32 = 8u32;
 pub const ERROR_HISTORY_DIRECTORY_ENTRY_DEFAULT_COUNT: u32 = 8u32;
@@ -2636,9 +2206,6 @@ impl Default for EXFAT_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXFAT_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTENDED_ENCRYPTED_DATA_INFO {
@@ -2651,9 +2218,6 @@ impl Default for EXTENDED_ENCRYPTED_DATA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EXTENDED_ENCRYPTED_DATA_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EXTEND_IEPORT: u32 = 2u32;
 pub const EqualPriority: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(0i32);
@@ -2698,9 +2262,6 @@ impl Default for FAT_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAT_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILESYSTEM_STATISTICS {
@@ -2724,9 +2285,6 @@ impl Default for FILESYSTEM_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILESYSTEM_STATISTICS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2752,9 +2310,6 @@ impl Default for FILESYSTEM_STATISTICS_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILESYSTEM_STATISTICS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILESYSTEM_STATISTICS_TYPE(pub u16);
@@ -2773,9 +2328,6 @@ impl Default for FILE_ALLOCATED_RANGE_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_ALLOCATED_RANGE_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FILE_ANY_ACCESS: u32 = 0u32;
 pub const FILE_CLEAR_ENCRYPTION: u32 = 2u32;
 #[repr(C)]
@@ -2788,9 +2340,6 @@ impl Default for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FILE_DEVICE_8042_PORT: u32 = 39u32;
 pub const FILE_DEVICE_ACPI: u32 = 50u32;
@@ -2889,9 +2438,6 @@ impl Default for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NON_RESIDENT: u64 = 137438953472u64;
 pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NOT_FOUND: u64 = 4096u64;
 pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_TOO_SMALL: u64 = 68719476736u64;
@@ -2948,9 +2494,6 @@ impl Default for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_LAYOUT_ENTRY {
@@ -2969,9 +2512,6 @@ impl Default for FILE_LAYOUT_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_LAYOUT_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_LAYOUT_INFO_ENTRY {
@@ -2986,9 +2526,6 @@ impl Default for FILE_LAYOUT_INFO_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_LAYOUT_INFO_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_LAYOUT_INFO_ENTRY_0 {
@@ -3002,9 +2539,6 @@ impl Default for FILE_LAYOUT_INFO_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_LAYOUT_INFO_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3021,9 +2555,6 @@ impl Default for FILE_LAYOUT_NAME_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_LAYOUT_NAME_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FILE_LAYOUT_NAME_ENTRY_DOS: u32 = 2u32;
 pub const FILE_LAYOUT_NAME_ENTRY_PRIMARY: u32 = 1u32;
 #[repr(C)]
@@ -3038,9 +2569,6 @@ impl Default for FILE_LEVEL_TRIM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_LEVEL_TRIM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_LEVEL_TRIM_OUTPUT {
@@ -3050,9 +2578,6 @@ impl Default for FILE_LEVEL_TRIM_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_LEVEL_TRIM_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3065,9 +2590,6 @@ impl Default for FILE_LEVEL_TRIM_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_LEVEL_TRIM_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_MAKE_COMPATIBLE_BUFFER {
@@ -3077,9 +2599,6 @@ impl Default for FILE_MAKE_COMPATIBLE_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_MAKE_COMPATIBLE_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3092,9 +2611,6 @@ impl Default for FILE_OBJECTID_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_OBJECTID_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FILE_OBJECTID_BUFFER_0 {
@@ -3105,9 +2621,6 @@ impl Default for FILE_OBJECTID_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_OBJECTID_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3121,9 +2634,6 @@ impl Default for FILE_OBJECTID_BUFFER_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_OBJECTID_BUFFER_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_PREFETCH {
@@ -3135,9 +2645,6 @@ impl Default for FILE_PREFETCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_PREFETCH {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3151,9 +2658,6 @@ impl Default for FILE_PREFETCH_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_PREFETCH_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FILE_PREFETCH_TYPE_FOR_CREATE: u32 = 1u32;
 pub const FILE_PREFETCH_TYPE_FOR_CREATE_EX: u32 = 3u32;
@@ -3173,9 +2677,6 @@ impl Default for FILE_PROVIDER_EXTERNAL_INFO_V0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PROVIDER_EXTERNAL_INFO_V0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_PROVIDER_EXTERNAL_INFO_V1 {
@@ -3187,9 +2688,6 @@ impl Default for FILE_PROVIDER_EXTERNAL_INFO_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_PROVIDER_EXTERNAL_INFO_V1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FILE_PROVIDER_FLAG_COMPRESS_ON_WRITE: u32 = 1u32;
 pub const FILE_PROVIDER_SINGLE_FILE: u32 = 1u32;
@@ -3213,9 +2711,6 @@ impl Default for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_QUERY_SPARING_BUFFER {
@@ -3229,9 +2724,6 @@ impl Default for FILE_QUERY_SPARING_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_QUERY_SPARING_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FILE_READ_ACCESS: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3243,9 +2735,6 @@ impl Default for FILE_REFERENCE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_REFERENCE_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3260,9 +2749,6 @@ impl Default for FILE_REGION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_REGION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_REGION_INPUT {
@@ -3274,9 +2760,6 @@ impl Default for FILE_REGION_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_REGION_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3291,9 +2774,6 @@ impl Default for FILE_REGION_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_REGION_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FILE_REGION_USAGE_HUGE_PAGE_ALIGNMENT: u32 = 16u32;
 pub const FILE_REGION_USAGE_LARGE_PAGE_ALIGNMENT: u32 = 8u32;
@@ -3311,9 +2791,6 @@ impl Default for FILE_SET_DEFECT_MGMT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_SET_DEFECT_MGMT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FILE_SET_ENCRYPTION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3324,9 +2801,6 @@ impl Default for FILE_SET_SPARSE_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_SET_SPARSE_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FILE_SPECIAL_ACCESS: u32 = 0u32;
 #[repr(C)]
@@ -3344,9 +2818,6 @@ impl Default for FILE_STORAGE_TIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_STORAGE_TIER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3409,9 +2880,6 @@ impl Default for FILE_STORAGE_TIER_REGION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_STORAGE_TIER_REGION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_SYSTEM_RECOGNITION_INFORMATION {
@@ -3421,9 +2889,6 @@ impl Default for FILE_SYSTEM_RECOGNITION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_SYSTEM_RECOGNITION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: u32 = 1u32;
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: u32 = 2u32;
@@ -3442,9 +2907,6 @@ impl Default for FILE_TYPE_NOTIFICATION_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_TYPE_NOTIFICATION_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FILE_WRITE_ACCESS: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3457,9 +2919,6 @@ impl Default for FILE_ZERO_DATA_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_ZERO_DATA_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ZERO_DATA_INFORMATION_EX {
@@ -3471,9 +2930,6 @@ impl Default for FILE_ZERO_DATA_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILE_ZERO_DATA_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA: u32 = 1u32;
 #[repr(C)]
@@ -3489,10 +2945,6 @@ impl Default for FIND_BY_SID_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FIND_BY_SID_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FIND_BY_SID_OUTPUT {
@@ -3505,9 +2957,6 @@ impl Default for FIND_BY_SID_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FIND_BY_SID_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FLAG_USN_TRACK_MODIFIED_RANGES_ENABLE: u32 = 1u32;
 #[repr(C)]
@@ -3527,9 +2976,6 @@ impl Default for FORMAT_EX_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FORMAT_EX_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FORMAT_PARAMETERS {
@@ -3543,9 +2989,6 @@ impl Default for FORMAT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FORMAT_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FSBPIO_INFL_None: FS_BPIO_INFLAGS = FS_BPIO_INFLAGS(0i32);
 pub const FSBPIO_INFL_SKIP_STORAGE_STACK_QUERY: FS_BPIO_INFLAGS = FS_BPIO_INFLAGS(1i32);
@@ -3620,9 +3063,6 @@ impl Default for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FSCTL_GET_NTFS_FILE_RECORD: u32 = 589928u32;
 pub const FSCTL_GET_NTFS_VOLUME_DATA: u32 = 589924u32;
 pub const FSCTL_GET_OBJECT_ID: u32 = 589980u32;
@@ -3676,9 +3116,6 @@ impl Default for FSCTL_OFFLOAD_READ_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSCTL_OFFLOAD_READ_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSCTL_OFFLOAD_READ_OUTPUT {
@@ -3691,9 +3128,6 @@ impl Default for FSCTL_OFFLOAD_READ_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FSCTL_OFFLOAD_READ_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FSCTL_OFFLOAD_WRITE: u32 = 623208u32;
 #[repr(C)]
@@ -3711,9 +3145,6 @@ impl Default for FSCTL_OFFLOAD_WRITE_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSCTL_OFFLOAD_WRITE_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSCTL_OFFLOAD_WRITE_OUTPUT {
@@ -3725,9 +3156,6 @@ impl Default for FSCTL_OFFLOAD_WRITE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FSCTL_OFFLOAD_WRITE_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FSCTL_OPBATCH_ACK_CLOSE_PENDING: u32 = 589840u32;
 pub const FSCTL_OPLOCK_BREAK_ACKNOWLEDGE: u32 = 589836u32;
@@ -3750,9 +3178,6 @@ impl Default for FSCTL_QUERY_FAT_BPB_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FSCTL_QUERY_FAT_BPB_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FSCTL_QUERY_FILE_LAYOUT: u32 = 590455u32;
 pub const FSCTL_QUERY_FILE_METADATA_OPTIMIZATION: u32 = 590688u32;
@@ -3780,9 +3205,6 @@ impl Default for FSCTL_QUERY_REGION_INFO_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSCTL_QUERY_REGION_INFO_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSCTL_QUERY_REGION_INFO_OUTPUT {
@@ -3799,9 +3221,6 @@ impl Default for FSCTL_QUERY_REGION_INFO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FSCTL_QUERY_REGION_INFO_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FSCTL_QUERY_RETRIEVAL_POINTERS: u32 = 589883u32;
 pub const FSCTL_QUERY_SHARED_VIRTUAL_DISK_SUPPORT: u32 = 590592u32;
@@ -3821,9 +3240,6 @@ impl Default for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FSCTL_QUERY_USN_JOURNAL: u32 = 590068u32;
 pub const FSCTL_QUERY_VOLUME_CONTAINER_STATE: u32 = 590736u32;
@@ -3879,9 +3295,6 @@ impl Default for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
@@ -3896,9 +3309,6 @@ impl Default for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FSCTL_SET_INTEGRITY_INFORMATION_EX: u32 = 590720u32;
 pub const FSCTL_SET_LAYER_ROOT: u32 = 590740u32;
@@ -4011,9 +3421,6 @@ impl Default for FS_BPIO_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FS_BPIO_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FS_BPIO_INPUT {
@@ -4026,9 +3433,6 @@ impl Default for FS_BPIO_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FS_BPIO_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4092,9 +3496,6 @@ impl Default for FS_BPIO_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FS_BPIO_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FS_BPIO_OUTPUT_0 {
@@ -4109,9 +3510,6 @@ impl Default for FS_BPIO_OUTPUT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FS_BPIO_OUTPUT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FS_BPIO_RESULTS {
@@ -4125,9 +3523,6 @@ impl Default for FS_BPIO_RESULTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FS_BPIO_RESULTS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FW_ISSUEID_NO_ISSUE: u32 = 0u32;
 pub const FW_ISSUEID_UNKNOWN: u32 = 4294967295u32;
@@ -4170,9 +3565,6 @@ impl Default for GETVERSIONINPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GETVERSIONINPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_CHANGER_PARAMETERS {
@@ -4209,9 +3601,6 @@ impl Default for GET_CHANGER_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GET_CHANGER_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4262,9 +3651,6 @@ impl Default for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_DISK_ATTRIBUTES {
@@ -4277,9 +3663,6 @@ impl Default for GET_DISK_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GET_DISK_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_FILTER_FILE_IDENTIFIER_INPUT {
@@ -4290,9 +3673,6 @@ impl Default for GET_FILTER_FILE_IDENTIFIER_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GET_FILTER_FILE_IDENTIFIER_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4305,9 +3685,6 @@ impl Default for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_LENGTH_INFORMATION {
@@ -4317,9 +3694,6 @@ impl Default for GET_LENGTH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GET_LENGTH_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -4334,10 +3708,6 @@ impl Default for GET_MEDIA_TYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for GET_MEDIA_TYPES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GET_VOLUME_BITMAP_FLAG_MASK_METADATA: u32 = 1u32;
 #[repr(transparent)]
@@ -4398,9 +3768,6 @@ impl Default for GP_LOG_PAGE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GP_LOG_PAGE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: windows_core::GUID = windows_core::GUID::from_u128(0xda82441d_7142_4bc1_b844_0807c5a4b67f);
 pub const GUID_DEVICEDUMP_STORAGE_DEVICE: windows_core::GUID = windows_core::GUID::from_u128(0xd8e2592f_1aab_4d56_a746_1f7585df40f4);
 pub const GUID_DEVINTERFACE_CDCHANGER: windows_core::GUID = windows_core::GUID::from_u128(0x53f56312_b6bf_11d0_94f2_00a0c91efb8b);
@@ -4435,9 +3802,6 @@ impl Default for HISTOGRAM_BUCKET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HISTOGRAM_BUCKET {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HIST_NO_OF_BUCKETS: u32 = 24u32;
 pub const HITACHI_12_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(68i32);
 pub const HealthStatusDisabled: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(4i32);
@@ -4467,9 +3831,6 @@ impl Default for IDEREGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IDEREGS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ID_CMD: u32 = 236u32;
 pub const IOCTL_CHANGER_BASE: u32 = 48u32;
@@ -4632,9 +3993,6 @@ impl Default for IO_IRP_EXT_TRACK_OFFSET_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_IRP_EXT_TRACK_OFFSET_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KODAK_14_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(70i32);
 pub const KeepPrefetchedData: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(1i32);
 pub const KeepReadData: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(2i32);
@@ -4652,9 +4010,6 @@ impl Default for LMR_QUERY_INFO_PARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LMR_QUERY_INFO_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LMR_QUERY_SESSION_INFO {
@@ -4664,9 +4019,6 @@ impl Default for LMR_QUERY_SESSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LMR_QUERY_SESSION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LOCK_ELEMENT: u32 = 0u32;
 pub const LOCK_UNLOCK_DOOR: u32 = 2u32;
@@ -4685,9 +4037,6 @@ impl Default for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_DATA: u32 = 16777216u32;
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_INDEX: u32 = 33554432u32;
@@ -4709,9 +4058,6 @@ impl Default for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
@@ -4723,9 +4069,6 @@ impl Default for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LTO_Accelis: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(87i32);
 pub const LTO_Ultrium: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(86i32);
@@ -4746,9 +4089,6 @@ impl Default for MARK_HANDLE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MARK_HANDLE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MARK_HANDLE_INFO_0 {
@@ -4759,9 +4099,6 @@ impl Default for MARK_HANDLE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MARK_HANDLE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -4777,10 +4114,6 @@ impl Default for MARK_HANDLE_INFO32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MARK_HANDLE_INFO32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -4793,10 +4126,6 @@ impl Default for MARK_HANDLE_INFO32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MARK_HANDLE_INFO32_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MARK_HANDLE_NOT_READ_COPY: u32 = 256u32;
 pub const MARK_HANDLE_NOT_REALTIME: u32 = 64u32;
@@ -4840,9 +4169,6 @@ impl Default for MFT_ENUM_DATA_V0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MFT_ENUM_DATA_V0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFT_ENUM_DATA_V1 {
@@ -4857,9 +4183,6 @@ impl Default for MFT_ENUM_DATA_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MFT_ENUM_DATA_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MOVE_FILE_DATA {
@@ -4872,9 +4195,6 @@ impl Default for MOVE_FILE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MOVE_FILE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -4891,10 +4211,6 @@ impl Default for MOVE_FILE_DATA32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MOVE_FILE_DATA32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MOVE_FILE_RECORD_DATA {
@@ -4906,9 +4222,6 @@ impl Default for MOVE_FILE_RECORD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MOVE_FILE_RECORD_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MO_3_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(57i32);
 pub const MO_5_LIMDOW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(60i32);
@@ -4939,9 +4252,6 @@ impl Default for NTFS_EXTENDED_VOLUME_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NTFS_EXTENDED_VOLUME_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTFS_FILE_RECORD_INPUT_BUFFER {
@@ -4951,9 +4261,6 @@ impl Default for NTFS_FILE_RECORD_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NTFS_FILE_RECORD_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4966,9 +4273,6 @@ impl Default for NTFS_FILE_RECORD_OUTPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NTFS_FILE_RECORD_OUTPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5025,9 +4329,6 @@ impl Default for NTFS_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NTFS_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTFS_STATISTICS_4 {
@@ -5047,9 +4348,6 @@ impl Default for NTFS_STATISTICS_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NTFS_STATISTICS_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTFS_STATISTICS_2 {
@@ -5061,9 +4359,6 @@ impl Default for NTFS_STATISTICS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NTFS_STATISTICS_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5078,9 +4373,6 @@ impl Default for NTFS_STATISTICS_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NTFS_STATISTICS_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTFS_STATISTICS_3 {
@@ -5094,9 +4386,6 @@ impl Default for NTFS_STATISTICS_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NTFS_STATISTICS_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTFS_STATISTICS_0 {
@@ -5109,9 +4398,6 @@ impl Default for NTFS_STATISTICS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NTFS_STATISTICS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5179,9 +4465,6 @@ impl Default for NTFS_STATISTICS_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NTFS_STATISTICS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTFS_STATISTICS_EX_4 {
@@ -5201,9 +4484,6 @@ impl Default for NTFS_STATISTICS_EX_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NTFS_STATISTICS_EX_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTFS_STATISTICS_EX_2 {
@@ -5216,9 +4496,6 @@ impl Default for NTFS_STATISTICS_EX_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NTFS_STATISTICS_EX_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5233,9 +4510,6 @@ impl Default for NTFS_STATISTICS_EX_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NTFS_STATISTICS_EX_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTFS_STATISTICS_EX_3 {
@@ -5249,9 +4523,6 @@ impl Default for NTFS_STATISTICS_EX_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NTFS_STATISTICS_EX_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTFS_STATISTICS_EX_0 {
@@ -5264,9 +4535,6 @@ impl Default for NTFS_STATISTICS_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NTFS_STATISTICS_EX_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5290,9 +4558,6 @@ impl Default for NTFS_VOLUME_DATA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NTFS_VOLUME_DATA_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVMeDataTypeFeature: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(3i32);
 pub const NVMeDataTypeIdentify: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(1i32);
@@ -5336,9 +4601,6 @@ impl Default for PARTITION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PARTITION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PARTITION_INFORMATION_EX {
@@ -5355,9 +4617,6 @@ impl Default for PARTITION_INFORMATION_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PARTITION_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PARTITION_INFORMATION_EX_0 {
@@ -5368,9 +4627,6 @@ impl Default for PARTITION_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PARTITION_INFORMATION_EX_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5385,9 +4641,6 @@ impl Default for PARTITION_INFORMATION_GPT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PARTITION_INFORMATION_GPT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PARTITION_INFORMATION_MBR {
@@ -5401,9 +4654,6 @@ impl Default for PARTITION_INFORMATION_MBR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PARTITION_INFORMATION_MBR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PARTITION_LDM: u32 = 66u32;
 pub const PARTITION_MAIN_OS: u32 = 40u32;
@@ -5438,9 +4688,6 @@ impl Default for PATHNAME_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PATHNAME_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PC_5_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(62i32);
 pub const PC_5_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(61i32);
 pub const PD_5_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(63i32);
@@ -5456,9 +4703,6 @@ impl Default for PERF_BIN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERF_BIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PERSISTENT_RESERVE_COMMAND {
@@ -5471,9 +4715,6 @@ impl Default for PERSISTENT_RESERVE_COMMAND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERSISTENT_RESERVE_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PERSISTENT_RESERVE_COMMAND_0 {
@@ -5484,9 +4725,6 @@ impl Default for PERSISTENT_RESERVE_COMMAND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERSISTENT_RESERVE_COMMAND_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5499,9 +4737,6 @@ impl Default for PERSISTENT_RESERVE_COMMAND_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERSISTENT_RESERVE_COMMAND_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERSISTENT_RESERVE_COMMAND_0_1 {
@@ -5513,9 +4748,6 @@ impl Default for PERSISTENT_RESERVE_COMMAND_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERSISTENT_RESERVE_COMMAND_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PERSISTENT_VOLUME_STATE_BACKED_BY_WIM: u32 = 64u32;
 pub const PERSISTENT_VOLUME_STATE_CHKDSK_RAN_ONCE: u32 = 1024u32;
@@ -5549,9 +4781,6 @@ impl Default for PHYSICAL_ELEMENT_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_ELEMENT_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
@@ -5569,9 +4798,6 @@ impl Default for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL_ELEMENT_STATUS_REQUEST {
@@ -5587,9 +4813,6 @@ impl Default for PHYSICAL_ELEMENT_STATUS_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_ELEMENT_STATUS_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PINNACLE_APEX_5_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(65i32);
 pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = Option<unsafe extern "system" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: i64)>;
 #[repr(C)]
@@ -5604,9 +4827,6 @@ impl Default for PLEX_READ_DATA_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PLEX_READ_DATA_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PREVENT_MEDIA_REMOVAL {
@@ -5616,9 +4836,6 @@ impl Default for PREVENT_MEDIA_REMOVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PREVENT_MEDIA_REMOVAL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRODUCT_ID_LENGTH: u32 = 16u32;
 pub const PROJFS_PROTOCOL_VERSION: u32 = 3u32;
@@ -5650,9 +4867,6 @@ impl Default for QUERY_BAD_RANGES_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_BAD_RANGES_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QUERY_BAD_RANGES_INPUT_RANGE {
@@ -5663,9 +4877,6 @@ impl Default for QUERY_BAD_RANGES_INPUT_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for QUERY_BAD_RANGES_INPUT_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5680,9 +4891,6 @@ impl Default for QUERY_BAD_RANGES_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_BAD_RANGES_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QUERY_BAD_RANGES_OUTPUT_RANGE {
@@ -5695,9 +4903,6 @@ impl Default for QUERY_BAD_RANGES_OUTPUT_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for QUERY_BAD_RANGES_OUTPUT_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_GUEST_VOLUMES: u32 = 2u32;
 pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_HOST_VOLUMES: u32 = 1u32;
@@ -5737,9 +4942,6 @@ impl Default for QUERY_FILE_LAYOUT_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_FILE_LAYOUT_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union QUERY_FILE_LAYOUT_INPUT_0 {
@@ -5750,9 +4952,6 @@ impl Default for QUERY_FILE_LAYOUT_INPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for QUERY_FILE_LAYOUT_INPUT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5765,9 +4964,6 @@ impl Default for QUERY_FILE_LAYOUT_INPUT_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for QUERY_FILE_LAYOUT_INPUT_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const QUERY_FILE_LAYOUT_NUM_FILTER_TYPES: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(4i32);
 #[repr(C)]
@@ -5782,9 +4978,6 @@ impl Default for QUERY_FILE_LAYOUT_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for QUERY_FILE_LAYOUT_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const QUERY_FILE_LAYOUT_REPARSE_DATA_INVALID: u32 = 1u32;
 pub const QUERY_FILE_LAYOUT_REPARSE_TAG_INVALID: u32 = 2u32;
@@ -5809,9 +5002,6 @@ impl Default for READ_ELEMENT_ADDRESS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for READ_ELEMENT_ADDRESS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct READ_FILE_USN_DATA {
@@ -5822,9 +5012,6 @@ impl Default for READ_FILE_USN_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for READ_FILE_USN_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const READ_THRESHOLDS: u32 = 209u32;
 pub const READ_THRESHOLD_BUFFER_SIZE: u32 = 512u32;
@@ -5843,9 +5030,6 @@ impl Default for READ_USN_JOURNAL_DATA_V0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for READ_USN_JOURNAL_DATA_V0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct READ_USN_JOURNAL_DATA_V1 {
@@ -5863,9 +5047,6 @@ impl Default for READ_USN_JOURNAL_DATA_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for READ_USN_JOURNAL_DATA_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REASSIGN_BLOCKS {
@@ -5878,9 +5059,6 @@ impl Default for REASSIGN_BLOCKS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REASSIGN_BLOCKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct REASSIGN_BLOCKS_EX {
@@ -5892,9 +5070,6 @@ impl Default for REASSIGN_BLOCKS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REASSIGN_BLOCKS_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RECOVERED_READS_VALID: u32 = 4u32;
 pub const RECOVERED_WRITES_VALID: u32 = 1u32;
@@ -5920,9 +5095,6 @@ impl Default for REFS_SMR_VOLUME_GC_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_SMR_VOLUME_GC_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const REFS_SMR_VOLUME_GC_PARAMETERS_VERSION_V1: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5946,9 +5118,6 @@ impl Default for REFS_SMR_VOLUME_INFO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REFS_SMR_VOLUME_INFO_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V0: u32 = 0u32;
 pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V1: u32 = 1u32;
@@ -5979,9 +5148,6 @@ impl Default for REFS_VOLUME_DATA_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_VOLUME_DATA_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
@@ -5995,9 +5161,6 @@ impl Default for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6015,9 +5178,6 @@ impl Default for REPAIR_COPIES_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REPAIR_COPIES_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REPAIR_COPIES_OUTPUT {
@@ -6029,9 +5189,6 @@ impl Default for REPAIR_COPIES_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REPAIR_COPIES_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const REPLACE_ALTERNATE: u32 = 11u32;
 pub const REPLACE_PRIMARY: u32 = 10u32;
@@ -6048,9 +5205,6 @@ impl Default for REQUEST_OPLOCK_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REQUEST_OPLOCK_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const REQUEST_OPLOCK_INPUT_FLAG_ACK: u32 = 2u32;
 pub const REQUEST_OPLOCK_INPUT_FLAG_COMPLETE_ACK_ON_CLOSE: u32 = 4u32;
@@ -6071,9 +5225,6 @@ impl Default for REQUEST_OPLOCK_OUTPUT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REQUEST_OPLOCK_OUTPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_ACK_REQUIRED: u32 = 1u32;
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_MODES_PROVIDED: u32 = 2u32;
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_WRITABLE_SECTION_PRESENT: u32 = 4u32;
@@ -6088,9 +5239,6 @@ impl Default for REQUEST_RAW_ENCRYPTED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REQUEST_RAW_ENCRYPTED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RETRACT_IEPORT: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6104,9 +5252,6 @@ impl Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
@@ -6118,9 +5263,6 @@ impl Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6134,9 +5276,6 @@ impl Default for RETRIEVAL_POINTERS_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RETRIEVAL_POINTERS_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RETRIEVAL_POINTERS_BUFFER_0 {
@@ -6148,9 +5287,6 @@ impl Default for RETRIEVAL_POINTERS_BUFFER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RETRIEVAL_POINTERS_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RETRIEVAL_POINTER_BASE {
@@ -6161,9 +5297,6 @@ impl Default for RETRIEVAL_POINTER_BASE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RETRIEVAL_POINTER_BASE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RETRIEVAL_POINTER_COUNT {
@@ -6173,9 +5306,6 @@ impl Default for RETRIEVAL_POINTER_COUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RETRIEVAL_POINTER_COUNT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RETURN_SMART_STATUS: u32 = 218u32;
 pub const REVISION_LENGTH: u32 = 4u32;
@@ -6197,9 +5327,6 @@ impl Default for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
@@ -6213,9 +5340,6 @@ impl Default for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
@@ -6226,9 +5350,6 @@ impl Default for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_BUS_DEDICATED_MEMORY_STATE {
@@ -6238,9 +5359,6 @@ impl Default for SCM_BUS_DEDICATED_MEMORY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_BUS_DEDICATED_MEMORY_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6262,9 +5380,6 @@ impl Default for SCM_BUS_PROPERTY_QUERY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_BUS_PROPERTY_QUERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_BUS_PROPERTY_SET {
@@ -6278,9 +5393,6 @@ impl Default for SCM_BUS_PROPERTY_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_BUS_PROPERTY_SET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6303,9 +5415,6 @@ impl Default for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
@@ -6315,9 +5424,6 @@ impl Default for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6333,9 +5439,6 @@ impl Default for SCM_INTERLEAVED_PD_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_INTERLEAVED_PD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_LD_INTERLEAVE_SET_INFO {
@@ -6348,9 +5451,6 @@ impl Default for SCM_LD_INTERLEAVE_SET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_LD_INTERLEAVE_SET_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6365,9 +5465,6 @@ impl Default for SCM_LOGICAL_DEVICES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_LOGICAL_DEVICES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_LOGICAL_DEVICE_INSTANCE {
@@ -6381,9 +5478,6 @@ impl Default for SCM_LOGICAL_DEVICE_INSTANCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_LOGICAL_DEVICE_INSTANCE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SCM_MAX_SYMLINK_LEN_IN_CHARS: u32 = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6395,9 +5489,6 @@ impl Default for SCM_PD_DESCRIPTOR_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_DESCRIPTOR_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6411,9 +5502,6 @@ impl Default for SCM_PD_DEVICE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_DEVICE_HANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6446,9 +5534,6 @@ impl Default for SCM_PD_DEVICE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_PD_DEVICE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_DEVICE_SPECIFIC_INFO {
@@ -6462,9 +5547,6 @@ impl Default for SCM_PD_DEVICE_SPECIFIC_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_PD_DEVICE_SPECIFIC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_DEVICE_SPECIFIC_PROPERTY {
@@ -6475,9 +5557,6 @@ impl Default for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6491,9 +5570,6 @@ impl Default for SCM_PD_FIRMWARE_ACTIVATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_FIRMWARE_ACTIVATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6515,9 +5591,6 @@ impl Default for SCM_PD_FIRMWARE_DOWNLOAD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_PD_FIRMWARE_DOWNLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_FIRMWARE_INFO {
@@ -6532,9 +5605,6 @@ impl Default for SCM_PD_FIRMWARE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_FIRMWARE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCM_PD_FIRMWARE_LAST_DOWNLOAD: u32 = 1u32;
 pub const SCM_PD_FIRMWARE_REVISION_LENGTH_BYTES: u32 = 32u32;
@@ -6553,9 +5623,6 @@ impl Default for SCM_PD_FIRMWARE_SLOT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_PD_FIRMWARE_SLOT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_FRU_ID_STRING {
@@ -6569,9 +5636,6 @@ impl Default for SCM_PD_FRU_ID_STRING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_PD_FRU_ID_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_HEALTH_NOTIFICATION_DATA {
@@ -6581,9 +5645,6 @@ impl Default for SCM_PD_HEALTH_NOTIFICATION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_HEALTH_NOTIFICATION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6603,9 +5664,6 @@ impl Default for SCM_PD_LOCATION_STRING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_PD_LOCATION_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_MANAGEMENT_STATUS {
@@ -6621,9 +5679,6 @@ impl Default for SCM_PD_MANAGEMENT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_MANAGEMENT_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCM_PD_MAX_OPERATIONAL_STATUS: u32 = 16u32;
 #[repr(transparent)]
@@ -6649,9 +5704,6 @@ impl Default for SCM_PD_PASSTHROUGH_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_PD_PASSTHROUGH_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
@@ -6663,9 +5715,6 @@ impl Default for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6680,9 +5729,6 @@ impl Default for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_PASSTHROUGH_OUTPUT {
@@ -6696,9 +5742,6 @@ impl Default for SCM_PD_PASSTHROUGH_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_PASSTHROUGH_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6718,9 +5761,6 @@ impl Default for SCM_PD_PROPERTY_QUERY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_PD_PROPERTY_QUERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_PROPERTY_SET {
@@ -6734,9 +5774,6 @@ impl Default for SCM_PD_PROPERTY_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_PROPERTY_SET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6753,9 +5790,6 @@ impl Default for SCM_PD_REINITIALIZE_MEDIA_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_PD_REINITIALIZE_MEDIA_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
@@ -6765,9 +5799,6 @@ impl Default for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6781,9 +5812,6 @@ impl Default for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
@@ -6793,9 +5821,6 @@ impl Default for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6809,9 +5834,6 @@ impl Default for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6829,9 +5851,6 @@ impl Default for SCM_PHYSICAL_DEVICES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_PHYSICAL_DEVICES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PHYSICAL_DEVICE_INSTANCE {
@@ -6844,9 +5863,6 @@ impl Default for SCM_PHYSICAL_DEVICE_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_PHYSICAL_DEVICE_INSTANCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6869,9 +5885,6 @@ impl Default for SCM_REGION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCM_REGION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_REGIONS {
@@ -6884,9 +5897,6 @@ impl Default for SCM_REGIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCM_REGIONS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6904,9 +5914,6 @@ impl Default for SD_CHANGE_MACHINE_SID_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SD_CHANGE_MACHINE_SID_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SD_CHANGE_MACHINE_SID_OUTPUT {
@@ -6923,9 +5930,6 @@ impl Default for SD_CHANGE_MACHINE_SID_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SD_CHANGE_MACHINE_SID_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SD_ENUM_SDS_ENTRY {
@@ -6940,9 +5944,6 @@ impl Default for SD_ENUM_SDS_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SD_ENUM_SDS_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SD_ENUM_SDS_INPUT {
@@ -6953,9 +5954,6 @@ impl Default for SD_ENUM_SDS_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SD_ENUM_SDS_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6970,9 +5968,6 @@ impl Default for SD_ENUM_SDS_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SD_ENUM_SDS_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SD_GLOBAL_CHANGE_INPUT {
@@ -6984,9 +5979,6 @@ impl Default for SD_GLOBAL_CHANGE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SD_GLOBAL_CHANGE_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7000,9 +5992,6 @@ impl Default for SD_GLOBAL_CHANGE_INPUT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SD_GLOBAL_CHANGE_INPUT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SD_GLOBAL_CHANGE_OUTPUT {
@@ -7014,9 +6003,6 @@ impl Default for SD_GLOBAL_CHANGE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SD_GLOBAL_CHANGE_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7030,9 +6016,6 @@ impl Default for SD_GLOBAL_CHANGE_OUTPUT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SD_GLOBAL_CHANGE_OUTPUT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SD_GLOBAL_CHANGE_TYPE_ENUM_SDS: u32 = 131072u32;
 pub const SD_GLOBAL_CHANGE_TYPE_MACHINE_SID: u32 = 1u32;
 pub const SD_GLOBAL_CHANGE_TYPE_QUERY_STATS: u32 = 65536u32;
@@ -7045,9 +6028,6 @@ impl Default for SD_QUERY_STATS_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SD_QUERY_STATS_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7065,9 +6045,6 @@ impl Default for SD_QUERY_STATS_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SD_QUERY_STATS_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SEARCH_ALL: u32 = 0u32;
 pub const SEARCH_ALL_NO_SEQ: u32 = 4u32;
@@ -7090,9 +6067,6 @@ impl Default for SENDCMDINPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SENDCMDINPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SENDCMDOUTPARAMS {
@@ -7104,9 +6078,6 @@ impl Default for SENDCMDOUTPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SENDCMDOUTPARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERIAL_IOC_FCR_DMA_MODE: u32 = 8u32;
 pub const SERIAL_IOC_FCR_FIFO_ENABLE: u32 = 1u32;
@@ -7135,9 +6106,6 @@ impl Default for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SET_DISK_ATTRIBUTES {
@@ -7153,9 +6121,6 @@ impl Default for SET_DISK_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SET_DISK_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SET_PARTITION_INFORMATION {
@@ -7165,9 +6130,6 @@ impl Default for SET_PARTITION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SET_PARTITION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7180,9 +6142,6 @@ impl Default for SET_PARTITION_INFORMATION_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SET_PARTITION_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SET_PARTITION_INFORMATION_EX_0 {
@@ -7193,9 +6152,6 @@ impl Default for SET_PARTITION_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SET_PARTITION_INFORMATION_EX_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SET_PURGE_FAILURE_MODE_DISABLED: u32 = 2u32;
 pub const SET_PURGE_FAILURE_MODE_ENABLED: u32 = 1u32;
@@ -7208,9 +6164,6 @@ impl Default for SET_PURGE_FAILURE_MODE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SET_PURGE_FAILURE_MODE_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SET_REPAIR_DISABLED_AND_BUGCHECK_ON_CORRUPT: u32 = 16u32;
 pub const SET_REPAIR_ENABLED: u32 = 1u32;
@@ -7228,9 +6181,6 @@ impl Default for SHRINK_VOLUME_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SHRINK_VOLUME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHRINK_VOLUME_REQUEST_TYPES(pub i32);
@@ -7246,9 +6196,6 @@ impl Default for SI_COPYFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SI_COPYFILE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SMART_ABORT_OFFLINE_SELFTEST: u32 = 127u32;
 pub const SMART_CMD: u32 = 176u32;
@@ -7287,9 +6234,6 @@ impl Default for SMB_SHARE_FLUSH_AND_PURGE_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SMB_SHARE_FLUSH_AND_PURGE_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
@@ -7299,9 +6243,6 @@ impl Default for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SONY_12_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(66i32);
 pub const SONY_D2: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(49i32);
@@ -7319,9 +6260,6 @@ impl Default for STARTING_LCN_INPUT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STARTING_LCN_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STARTING_LCN_INPUT_BUFFER_EX {
@@ -7333,9 +6271,6 @@ impl Default for STARTING_LCN_INPUT_BUFFER_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STARTING_LCN_INPUT_BUFFER_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STARTING_VCN_INPUT_BUFFER {
@@ -7345,9 +6280,6 @@ impl Default for STARTING_VCN_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STARTING_VCN_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STK_9840: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(85i32);
 pub const STK_9940: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(92i32);
@@ -7367,9 +6299,6 @@ impl Default for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7394,9 +6323,6 @@ impl Default for STORAGE_ADAPTER_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_ADAPTER_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_ADAPTER_SERIAL_NUMBER {
@@ -7408,9 +6334,6 @@ impl Default for STORAGE_ADAPTER_SERIAL_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_ADAPTER_SERIAL_NUMBER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_MAX_LENGTH: u32 = 128u32;
 pub const STORAGE_ADDRESS_TYPE_BTL8: u32 = 0u32;
@@ -7431,9 +6354,6 @@ impl Default for STORAGE_ALLOCATE_BC_STREAM_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_ALLOCATE_BC_STREAM_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
@@ -7444,9 +6364,6 @@ impl Default for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7468,9 +6385,6 @@ impl Default for STORAGE_ATTRIBUTE_MGMT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_ATTRIBUTE_MGMT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ATTRIBUTE_MGMT_ACTION(pub i32);
@@ -7490,9 +6404,6 @@ impl Default for STORAGE_BREAK_RESERVATION_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_BREAK_RESERVATION_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_BUS_RESET_REQUEST {
@@ -7502,9 +6413,6 @@ impl Default for STORAGE_BUS_RESET_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_BUS_RESET_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7523,9 +6431,6 @@ impl Default for STORAGE_COUNTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_COUNTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_COUNTER_0 {
@@ -7537,9 +6442,6 @@ impl Default for STORAGE_COUNTER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_COUNTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_COUNTER_0_0 {
@@ -7550,9 +6452,6 @@ impl Default for STORAGE_COUNTER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_COUNTER_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7566,9 +6465,6 @@ impl Default for STORAGE_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_COUNTERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7592,9 +6488,6 @@ impl Default for STORAGE_CRYPTO_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_CRYPTO_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STORAGE_CRYPTO_CAPABILITY_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7609,9 +6502,6 @@ impl Default for STORAGE_CRYPTO_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_CRYPTO_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_CRYPTO_DESCRIPTOR_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -7628,9 +6518,6 @@ impl Default for STORAGE_DESCRIPTOR_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_DESCRIPTOR_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
@@ -7642,9 +6529,6 @@ impl Default for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -7670,10 +6554,6 @@ impl Default for STORAGE_DEVICE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for STORAGE_DEVICE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
@@ -7686,9 +6566,6 @@ impl Default for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_DEVICE_FLAGS_PAGE_83_DEVICEGUID: u32 = 4u32;
 pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_CONFLICT: u32 = 1u32;
@@ -7709,9 +6586,6 @@ impl Default for STORAGE_DEVICE_ID_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_DEVICE_ID_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
@@ -7725,9 +6599,6 @@ impl Default for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
@@ -7739,9 +6610,6 @@ impl Default for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7755,9 +6623,6 @@ impl Default for STORAGE_DEVICE_LOCATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEVICE_LOCATION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7775,9 +6640,6 @@ impl Default for STORAGE_DEVICE_MANAGEMENT_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_DEVICE_MANAGEMENT_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STORAGE_DEVICE_MAX_OPERATIONAL_STATUS: u32 = 16u32;
 pub const STORAGE_DEVICE_NUMA_NODE_UNKNOWN: u32 = 4294967295u32;
 #[repr(C)]
@@ -7792,9 +6654,6 @@ impl Default for STORAGE_DEVICE_NUMA_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_DEVICE_NUMA_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DEVICE_NUMBER {
@@ -7806,9 +6665,6 @@ impl Default for STORAGE_DEVICE_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEVICE_NUMBER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7822,9 +6678,6 @@ impl Default for STORAGE_DEVICE_NUMBERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEVICE_NUMBERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7842,9 +6695,6 @@ impl Default for STORAGE_DEVICE_NUMBER_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_DEVICE_NUMBER_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DEVICE_POWER_CAP {
@@ -7857,9 +6707,6 @@ impl Default for STORAGE_DEVICE_POWER_CAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEVICE_POWER_CAP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7882,9 +6729,6 @@ impl Default for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
@@ -7896,9 +6740,6 @@ impl Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7912,9 +6753,6 @@ impl Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_DEVICE_TELEMETRY_REGKEY: windows_core::PCWSTR = windows_core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry");
 #[repr(C)]
@@ -7932,9 +6770,6 @@ impl Default for STORAGE_DEVICE_TIERING_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_DEVICE_TIERING_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
@@ -7946,9 +6781,6 @@ impl Default for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7964,9 +6796,6 @@ impl Default for STORAGE_DIAGNOSTIC_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DIAGNOSTIC_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: u32 = 1u32;
 #[repr(transparent)]
@@ -7985,9 +6814,6 @@ impl Default for STORAGE_DIAGNOSTIC_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_DIAGNOSTIC_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8016,9 +6842,6 @@ impl Default for STORAGE_EVENT_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_EVENT_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STORAGE_EVENT_NOTIFICATION_VERSION_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8034,9 +6857,6 @@ impl Default for STORAGE_FAILURE_PREDICTION_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_FAILURE_PREDICTION_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STORAGE_FAILURE_PREDICTION_CONFIG_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8050,9 +6870,6 @@ impl Default for STORAGE_FRU_ID_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_FRU_ID_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8069,9 +6886,6 @@ impl Default for STORAGE_GET_BC_PROPERTIES_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_GET_BC_PROPERTIES_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_HOTPLUG_INFO {
@@ -8086,9 +6900,6 @@ impl Default for STORAGE_HOTPLUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_HOTPLUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
@@ -8100,9 +6911,6 @@ impl Default for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8119,9 +6927,6 @@ impl Default for STORAGE_HW_ENDURANCE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_HW_ENDURANCE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_HW_ENDURANCE_INFO_0 {
@@ -8131,9 +6936,6 @@ impl Default for STORAGE_HW_ENDURANCE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_HW_ENDURANCE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8148,9 +6950,6 @@ impl Default for STORAGE_HW_FIRMWARE_ACTIVATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_HW_FIRMWARE_ACTIVATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8168,9 +6967,6 @@ impl Default for STORAGE_HW_FIRMWARE_DOWNLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_HW_FIRMWARE_DOWNLOAD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8190,9 +6986,6 @@ impl Default for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8214,9 +7007,6 @@ impl Default for STORAGE_HW_FIRMWARE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_HW_FIRMWARE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_HW_FIRMWARE_INFO_QUERY {
@@ -8229,9 +7019,6 @@ impl Default for STORAGE_HW_FIRMWARE_INFO_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_HW_FIRMWARE_INFO_QUERY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_HW_FIRMWARE_INVALID_SLOT: u32 = 255u32;
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_CONTROLLER: u32 = 1u32;
@@ -8255,9 +7042,6 @@ impl Default for STORAGE_HW_FIRMWARE_SLOT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_HW_FIRMWARE_SLOT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_IDENTIFIER {
@@ -8272,9 +7056,6 @@ impl Default for STORAGE_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8295,9 +7076,6 @@ impl Default for STORAGE_IDLE_POWER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_IDLE_POWER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_IDLE_POWERUP_REASON {
@@ -8309,9 +7087,6 @@ impl Default for STORAGE_IDLE_POWERUP_REASON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_IDLE_POWERUP_REASON {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_IDLE_POWERUP_REASON_VERSION_V1: u32 = 1u32;
 #[repr(transparent)]
@@ -8334,9 +7109,6 @@ impl Default for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_MEDIA_SERIAL_NUMBER_DATA {
@@ -8348,9 +7120,6 @@ impl Default for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8366,9 +7135,6 @@ impl Default for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8389,9 +7155,6 @@ impl Default for STORAGE_MINIPORT_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_MINIPORT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_MINIPORT_DESCRIPTOR_0 {
@@ -8403,9 +7166,6 @@ impl Default for STORAGE_MINIPORT_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_MINIPORT_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
@@ -8415,9 +7175,6 @@ impl Default for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_OFFLOAD_MAX_TOKEN_LENGTH: u32 = 512u32;
 #[repr(C)]
@@ -8434,9 +7191,6 @@ impl Default for STORAGE_OFFLOAD_READ_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_OFFLOAD_READ_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STORAGE_OFFLOAD_READ_RANGE_TRUNCATED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8451,9 +7205,6 @@ impl Default for STORAGE_OFFLOAD_TOKEN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_OFFLOAD_TOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_OFFLOAD_TOKEN_0 {
@@ -8465,9 +7216,6 @@ impl Default for STORAGE_OFFLOAD_TOKEN_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_OFFLOAD_TOKEN_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_OFFLOAD_TOKEN_0_0 {
@@ -8477,9 +7225,6 @@ impl Default for STORAGE_OFFLOAD_TOKEN_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_OFFLOAD_TOKEN_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_OFFLOAD_TOKEN_ID_LENGTH: u32 = 504u32;
 pub const STORAGE_OFFLOAD_TOKEN_INVALID: u32 = 2u32;
@@ -8496,9 +7241,6 @@ impl Default for STORAGE_OFFLOAD_WRITE_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_OFFLOAD_WRITE_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STORAGE_OFFLOAD_WRITE_RANGE_TRUNCATED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8513,9 +7255,6 @@ impl Default for STORAGE_OPERATIONAL_REASON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_OPERATIONAL_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_OPERATIONAL_REASON_0 {
@@ -8527,9 +7266,6 @@ impl Default for STORAGE_OPERATIONAL_REASON_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_OPERATIONAL_REASON_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8543,9 +7279,6 @@ impl Default for STORAGE_OPERATIONAL_REASON_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_OPERATIONAL_REASON_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_OPERATIONAL_REASON_0_0 {
@@ -8558,9 +7291,6 @@ impl Default for STORAGE_OPERATIONAL_REASON_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_OPERATIONAL_REASON_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8585,9 +7315,6 @@ impl Default for STORAGE_PHYSICAL_ADAPTER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_PHYSICAL_ADAPTER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_PHYSICAL_DEVICE_DATA {
@@ -8609,9 +7336,6 @@ impl Default for STORAGE_PHYSICAL_DEVICE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_PHYSICAL_DEVICE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_PHYSICAL_NODE_DATA {
@@ -8629,9 +7353,6 @@ impl Default for STORAGE_PHYSICAL_NODE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_PHYSICAL_NODE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
@@ -8645,9 +7366,6 @@ impl Default for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8666,9 +7384,6 @@ impl Default for STORAGE_PREDICT_FAILURE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_PREDICT_FAILURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_PRIORITY_HINT_SUPPORT {
@@ -8678,9 +7393,6 @@ impl Default for STORAGE_PRIORITY_HINT_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_PRIORITY_HINT_SUPPORT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_PRIORITY_HINT_SUPPORTED: u32 = 1u32;
 #[repr(transparent)]
@@ -8698,9 +7410,6 @@ impl Default for STORAGE_PROPERTY_QUERY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_PROPERTY_QUERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_PROPERTY_SET {
@@ -8712,9 +7421,6 @@ impl Default for STORAGE_PROPERTY_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_PROPERTY_SET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8747,9 +7453,6 @@ impl Default for STORAGE_PROTOCOL_COMMAND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_PROTOCOL_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STORAGE_PROTOCOL_COMMAND_FLAG_ADAPTER_REQUEST: u32 = 2147483648u32;
 pub const STORAGE_PROTOCOL_COMMAND_LENGTH_NVME: u32 = 64u32;
 #[repr(C)]
@@ -8764,9 +7467,6 @@ impl Default for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
@@ -8779,9 +7479,6 @@ impl Default for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
@@ -8793,9 +7490,6 @@ impl Default for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
@@ -8805,9 +7499,6 @@ impl Default for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8831,9 +7522,6 @@ impl Default for STORAGE_PROTOCOL_SPECIFIC_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_PROTOCOL_SPECIFIC_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
@@ -8854,9 +7542,6 @@ impl Default for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_PROTOCOL_SPECIFIC_NVME_ADMIN_COMMAND: u32 = 1u32;
 pub const STORAGE_PROTOCOL_SPECIFIC_NVME_NVM_COMMAND: u32 = 2u32;
@@ -8892,10 +7577,6 @@ impl Default for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_Vhd")]
-impl windows_core::TypeKind for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8920,10 +7601,6 @@ impl Default for STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_Vhd")]
-impl windows_core::TypeKind for STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
@@ -8934,9 +7611,6 @@ impl Default for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
@@ -8952,10 +7626,6 @@ impl Default for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_Vhd")]
-impl windows_core::TypeKind for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
 #[derive(Clone, Copy)]
@@ -8968,10 +7638,6 @@ impl Default for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_Vhd")]
-impl windows_core::TypeKind for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8990,9 +7656,6 @@ impl Default for STORAGE_READ_CAPACITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_READ_CAPACITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_REINITIALIZE_MEDIA {
@@ -9006,9 +7669,6 @@ impl Default for STORAGE_REINITIALIZE_MEDIA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_REINITIALIZE_MEDIA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_REINITIALIZE_MEDIA_0 {
@@ -9018,9 +7678,6 @@ impl Default for STORAGE_REINITIALIZE_MEDIA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_REINITIALIZE_MEDIA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9046,9 +7703,6 @@ impl Default for STORAGE_RPMB_DATA_FRAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_RPMB_DATA_FRAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_RPMB_DESCRIPTOR {
@@ -9062,9 +7716,6 @@ impl Default for STORAGE_RPMB_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_RPMB_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_RPMB_DESCRIPTOR_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -9088,9 +7739,6 @@ impl Default for STORAGE_SPEC_VERSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_SPEC_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_SPEC_VERSION_0 {
@@ -9101,9 +7749,6 @@ impl Default for STORAGE_SPEC_VERSION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_SPEC_VERSION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9116,9 +7761,6 @@ impl Default for STORAGE_SPEC_VERSION_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_SPEC_VERSION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_SPEC_VERSION_0_0_0 {
@@ -9129,9 +7771,6 @@ impl Default for STORAGE_SPEC_VERSION_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_SPEC_VERSION_0_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_SUPPORTED_FEATURES_BYPASS_IO: u32 = 1u32;
 pub const STORAGE_SUPPORTED_FEATURES_MASK: u32 = 1u32;
@@ -9152,9 +7791,6 @@ impl Default for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_TEMPERATURE_INFO {
@@ -9173,9 +7809,6 @@ impl Default for STORAGE_TEMPERATURE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_TEMPERATURE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_TEMPERATURE_THRESHOLD {
@@ -9191,9 +7824,6 @@ impl Default for STORAGE_TEMPERATURE_THRESHOLD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_TEMPERATURE_THRESHOLD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_TEMPERATURE_THRESHOLD_FLAG_ADAPTER_REQUEST: u32 = 1u32;
 pub const STORAGE_TEMPERATURE_VALUE_NOT_REPORTED: u32 = 32768u32;
@@ -9212,9 +7842,6 @@ impl Default for STORAGE_TIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_TIER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9241,9 +7868,6 @@ impl Default for STORAGE_TIER_REGION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_TIER_REGION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_WRITE_CACHE_PROPERTY {
@@ -9262,9 +7886,6 @@ impl Default for STORAGE_WRITE_CACHE_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_WRITE_CACHE_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
@@ -9281,9 +7902,6 @@ impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_ZONED_DEVICE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
@@ -9294,9 +7912,6 @@ impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9309,9 +7924,6 @@ impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
@@ -9323,9 +7935,6 @@ impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9352,9 +7961,6 @@ impl Default for STORAGE_ZONE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STORAGE_ZONE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_ZONE_GROUP {
@@ -9366,9 +7972,6 @@ impl Default for STORAGE_ZONE_GROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_ZONE_GROUP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9387,9 +7990,6 @@ impl Default for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STREAMS_ASSOCIATE_ID_SET: u32 = 2u32;
 pub const STREAMS_INVALID_ID: u32 = 0u32;
 pub const STREAMS_MAX_ID: u32 = 65535u32;
@@ -9402,9 +8002,6 @@ impl Default for STREAMS_QUERY_ID_OUTPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STREAMS_QUERY_ID_OUTPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9419,9 +8016,6 @@ impl Default for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STREAM_CLEAR_ENCRYPTION: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9434,9 +8028,6 @@ impl Default for STREAM_EXTENT_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STREAM_EXTENT_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STREAM_EXTENT_ENTRY_0 {
@@ -9446,9 +8037,6 @@ impl Default for STREAM_EXTENT_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STREAM_EXTENT_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STREAM_EXTENT_ENTRY_ALL_EXTENTS: u32 = 2u32;
 pub const STREAM_EXTENT_ENTRY_AS_RETRIEVAL_POINTERS: u32 = 1u32;
@@ -9464,9 +8052,6 @@ impl Default for STREAM_INFORMATION_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STREAM_INFORMATION_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STREAM_INFORMATION_ENTRY_0 {
@@ -9479,9 +8064,6 @@ impl Default for STREAM_INFORMATION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STREAM_INFORMATION_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9496,9 +8078,6 @@ impl Default for STREAM_INFORMATION_ENTRY_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STREAM_INFORMATION_ENTRY_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STREAM_INFORMATION_ENTRY_0_0 {
@@ -9509,9 +8088,6 @@ impl Default for STREAM_INFORMATION_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STREAM_INFORMATION_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9526,9 +8102,6 @@ impl Default for STREAM_INFORMATION_ENTRY_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STREAM_INFORMATION_ENTRY_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STREAM_INFORMATION_ENTRY_0_2 {
@@ -9541,9 +8114,6 @@ impl Default for STREAM_INFORMATION_ENTRY_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STREAM_INFORMATION_ENTRY_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9564,9 +8134,6 @@ impl Default for STREAM_LAYOUT_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STREAM_LAYOUT_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STREAM_LAYOUT_ENTRY_HAS_INFORMATION: u32 = 16u32;
 pub const STREAM_LAYOUT_ENTRY_IMMOVABLE: u32 = 1u32;
@@ -9826,9 +8393,6 @@ impl Default for TAPE_GET_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TAPE_GET_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TAPE_RESET_STATISTICS: i32 = 2i32;
 pub const TAPE_RETURN_ENV_INFO: i32 = 1i32;
 pub const TAPE_RETURN_STATISTICS: i32 = 0i32;
@@ -9848,9 +8412,6 @@ impl Default for TAPE_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TAPE_STATISTICS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TCCollectionApplicationRequested: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE(2i32);
 pub const TCCollectionBugCheck: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE(1i32);
@@ -9875,9 +8436,6 @@ impl Default for TXFS_CREATE_MINIVERSION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TXFS_CREATE_MINIVERSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TXFS_GET_METADATA_INFO_OUT {
@@ -9891,9 +8449,6 @@ impl Default for TXFS_GET_METADATA_INFO_OUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TXFS_GET_METADATA_INFO_OUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TXFS_GET_METADATA_INFO_OUT_0 {
@@ -9904,9 +8459,6 @@ impl Default for TXFS_GET_METADATA_INFO_OUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TXFS_GET_METADATA_INFO_OUT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9922,9 +8474,6 @@ impl Default for TXFS_GET_TRANSACTED_VERSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TXFS_GET_TRANSACTED_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TXFS_LIST_TRANSACTIONS {
@@ -9935,9 +8484,6 @@ impl Default for TXFS_LIST_TRANSACTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TXFS_LIST_TRANSACTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9953,9 +8499,6 @@ impl Default for TXFS_LIST_TRANSACTIONS_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TXFS_LIST_TRANSACTIONS_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES {
@@ -9968,9 +8511,6 @@ impl Default for TXFS_LIST_TRANSACTION_LOCKED_FILES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TXFS_LIST_TRANSACTION_LOCKED_FILES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9987,9 +8527,6 @@ impl Default for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_CREATED: u32 = 1u32;
 pub const TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_DELETED: u32 = 2u32;
@@ -10011,9 +8548,6 @@ impl Default for TXFS_MODIFY_RM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TXFS_MODIFY_RM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10050,9 +8584,6 @@ impl Default for TXFS_QUERY_RM_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TXFS_QUERY_RM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TXFS_READ_BACKUP_INFORMATION_OUT {
@@ -10062,9 +8593,6 @@ impl Default for TXFS_READ_BACKUP_INFORMATION_OUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TXFS_READ_BACKUP_INFORMATION_OUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10076,9 +8604,6 @@ impl Default for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10152,9 +8677,6 @@ impl Default for TXFS_ROLLFORWARD_REDO_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TXFS_ROLLFORWARD_REDO_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TXFS_SAVEPOINT_CLEAR: u32 = 4u32;
 pub const TXFS_SAVEPOINT_CLEAR_ALL: u32 = 16u32;
 #[repr(C)]
@@ -10168,9 +8690,6 @@ impl Default for TXFS_SAVEPOINT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TXFS_SAVEPOINT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TXFS_SAVEPOINT_ROLLBACK: u32 = 2u32;
 pub const TXFS_SAVEPOINT_SET: u32 = 1u32;
@@ -10208,9 +8727,6 @@ impl Default for TXFS_START_RM_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TXFS_START_RM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TXFS_TRANSACTED_VERSION_NONTRANSACTED: u32 = 4294967294u32;
 pub const TXFS_TRANSACTED_VERSION_UNCOMMITTED: u32 = 4294967295u32;
 #[repr(C)]
@@ -10222,9 +8738,6 @@ impl Default for TXFS_TRANSACTION_ACTIVE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TXFS_TRANSACTION_ACTIVE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TXFS_TRANSACTION_STATE_ACTIVE: u32 = 1u32;
 pub const TXFS_TRANSACTION_STATE_NONE: u32 = 0u32;
@@ -10239,9 +8752,6 @@ impl Default for TXFS_WRITE_BACKUP_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TXFS_WRITE_BACKUP_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const Travan: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(34i32);
 pub const UNDEFINE_ALTERNATE: u32 = 13u32;
@@ -10304,9 +8814,6 @@ impl Default for USN_JOURNAL_DATA_V0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for USN_JOURNAL_DATA_V0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USN_JOURNAL_DATA_V1 {
@@ -10324,9 +8831,6 @@ impl Default for USN_JOURNAL_DATA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for USN_JOURNAL_DATA_V1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10349,9 +8853,6 @@ impl Default for USN_JOURNAL_DATA_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for USN_JOURNAL_DATA_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const USN_PAGE_SIZE: u32 = 4096u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10362,9 +8863,6 @@ impl Default for USN_RANGE_TRACK_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for USN_RANGE_TRACK_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const USN_REASON_BASIC_INFO_CHANGE: u32 = 32768u32;
 pub const USN_REASON_CLOSE: u32 = 2147483648u32;
@@ -10402,9 +8900,6 @@ impl Default for USN_RECORD_COMMON_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for USN_RECORD_COMMON_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USN_RECORD_EXTENT {
@@ -10415,9 +8910,6 @@ impl Default for USN_RECORD_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for USN_RECORD_EXTENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -10433,10 +8925,6 @@ impl Default for USN_RECORD_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for USN_RECORD_UNION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10460,9 +8948,6 @@ impl Default for USN_RECORD_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for USN_RECORD_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -10489,10 +8974,6 @@ impl Default for USN_RECORD_V3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for USN_RECORD_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10514,10 +8995,6 @@ impl Default for USN_RECORD_V4 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for USN_RECORD_V4 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const USN_SOURCE_AUXILIARY_DATA: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(2u32);
 pub const USN_SOURCE_CLIENT_REPLICATION_MANAGEMENT: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(8u32);
 pub const USN_SOURCE_DATA_MANAGEMENT: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(1u32);
@@ -10537,9 +9014,6 @@ impl Default for USN_TRACK_MODIFIED_RANGES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for USN_TRACK_MODIFIED_RANGES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UfsDataTypeMax: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(6i32);
 pub const UfsDataTypeQueryAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(2i32);
@@ -10562,9 +9036,6 @@ impl Default for VERIFY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VERIFY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT {
@@ -10575,9 +9046,6 @@ impl Default for VIRTUALIZATION_INSTANCE_INFO_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIRTUALIZATION_INSTANCE_INFO_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10593,9 +9061,6 @@ impl Default for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
@@ -10605,9 +9070,6 @@ impl Default for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10623,9 +9085,6 @@ impl Default for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_BITMAP_BUFFER {
@@ -10638,9 +9097,6 @@ impl Default for VOLUME_BITMAP_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VOLUME_BITMAP_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_DISK_EXTENTS {
@@ -10652,9 +9108,6 @@ impl Default for VOLUME_DISK_EXTENTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VOLUME_DISK_EXTENTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
@@ -10664,9 +9117,6 @@ impl Default for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VOLUME_IS_DIRTY: u32 = 1u32;
 pub const VOLUME_SESSION_OPEN: u32 = 4u32;
@@ -10692,9 +9142,6 @@ impl Default for WIM_PROVIDER_ADD_OVERLAY_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIM_PROVIDER_ADD_OVERLAY_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WIM_PROVIDER_CURRENT_VERSION: u32 = 1u32;
 pub const WIM_PROVIDER_EXTERNAL_FLAG_NOT_ACTIVE: u32 = 1u32;
 pub const WIM_PROVIDER_EXTERNAL_FLAG_SUSPENDED: u32 = 2u32;
@@ -10710,9 +9157,6 @@ impl Default for WIM_PROVIDER_EXTERNAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIM_PROVIDER_EXTERNAL_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10730,9 +9174,6 @@ impl Default for WIM_PROVIDER_OVERLAY_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIM_PROVIDER_OVERLAY_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
@@ -10743,9 +9184,6 @@ impl Default for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
@@ -10755,9 +9193,6 @@ impl Default for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10770,9 +9205,6 @@ impl Default for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WMI_DISK_GEOMETRY_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x25007f51_57c2_11d1_a528_00a0c9062910);
 pub const WOF_CURRENT_VERSION: u32 = 1u32;
@@ -10788,10 +9220,6 @@ impl Default for WOF_EXTERNAL_FILE_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for WOF_EXTERNAL_FILE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WOF_EXTERNAL_INFO {
@@ -10803,9 +9231,6 @@ impl Default for WOF_EXTERNAL_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WOF_EXTERNAL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WOF_PROVIDER_CLOUD: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10816,9 +9241,6 @@ impl Default for WOF_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WOF_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10843,9 +9265,6 @@ impl Default for WRITE_USN_REASON_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WRITE_USN_REASON_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WriteCacheChangeUnknown: WRITE_CACHE_CHANGE = WRITE_CACHE_CHANGE(0i32);
 pub const WriteCacheChangeable: WRITE_CACHE_CHANGE = WRITE_CACHE_CHANGE(2i32);

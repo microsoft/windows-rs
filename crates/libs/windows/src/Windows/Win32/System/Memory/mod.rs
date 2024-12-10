@@ -620,9 +620,6 @@ impl Default for CFG_CALL_TARGET_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CFG_CALL_TARGET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FILE_CACHE_MAX_HARD_DISABLE: u32 = 2u32;
 pub const FILE_CACHE_MAX_HARD_ENABLE: u32 = 1u32;
 pub const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8u32;
@@ -779,9 +776,6 @@ impl Default for HEAP_SUMMARY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HEAP_SUMMARY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HEAP_TAG_SHIFT: HEAP_FLAGS = HEAP_FLAGS(18u32);
 pub const HEAP_TAIL_CHECKING_ENABLED: HEAP_FLAGS = HEAP_FLAGS(32u32);
 pub const HEAP_ZERO_MEMORY: HEAP_FLAGS = HEAP_FLAGS(8u32);
@@ -851,10 +845,6 @@ impl Default for MEMORY_BASIC_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for MEMORY_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -874,10 +864,6 @@ impl Default for MEMORY_BASIC_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MEMORY_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION32 {
@@ -893,9 +879,6 @@ impl Default for MEMORY_BASIC_INFORMATION32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MEMORY_BASIC_INFORMATION32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -915,9 +898,6 @@ impl Default for MEMORY_BASIC_INFORMATION64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEMORY_BASIC_INFORMATION64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORY_MAPPED_VIEW_ADDRESS {
@@ -927,9 +907,6 @@ impl Default for MEMORY_MAPPED_VIEW_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MEMORY_MAPPED_VIEW_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -942,9 +919,6 @@ impl Default for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -962,9 +936,6 @@ impl Default for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_RESOURCE_NOTIFICATION_TYPE(pub i32);
@@ -979,9 +950,6 @@ impl Default for MEM_ADDRESS_REQUIREMENTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MEM_ADDRESS_REQUIREMENTS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MEM_COMMIT: VIRTUAL_ALLOCATION_TYPE = VIRTUAL_ALLOCATION_TYPE(4096u32);
 pub const MEM_DECOMMIT: VIRTUAL_FREE_TYPE = VIRTUAL_FREE_TYPE(16384u32);
@@ -999,9 +967,6 @@ impl Default for MEM_EXTENDED_PARAMETER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEM_EXTENDED_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEM_EXTENDED_PARAMETER_0 {
@@ -1011,9 +976,6 @@ impl Default for MEM_EXTENDED_PARAMETER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MEM_EXTENDED_PARAMETER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1028,9 +990,6 @@ impl Default for MEM_EXTENDED_PARAMETER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MEM_EXTENDED_PARAMETER_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1194,9 +1153,6 @@ impl Default for PROCESS_HEAP_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_HEAP_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_HEAP_ENTRY_0 {
@@ -1208,9 +1164,6 @@ impl Default for PROCESS_HEAP_ENTRY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_HEAP_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_HEAP_ENTRY_0_0 {
@@ -1221,9 +1174,6 @@ impl Default for PROCESS_HEAP_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESS_HEAP_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1237,9 +1187,6 @@ impl Default for PROCESS_HEAP_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESS_HEAP_ENTRY_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: *const core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN>;
 pub const QUOTA_LIMITS_HARDWS_MAX_DISABLE: SETPROCESSWORKINGSETSIZEEX_FLAGS = SETPROCESSWORKINGSETSIZEEX_FLAGS(8u32);
@@ -1411,9 +1358,6 @@ impl Default for WIN32_MEMORY_PARTITION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIN32_MEMORY_PARTITION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION_CLASS(pub i32);
@@ -1427,9 +1371,6 @@ impl Default for WIN32_MEMORY_RANGE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIN32_MEMORY_RANGE_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1445,9 +1386,6 @@ impl Default for WIN32_MEMORY_REGION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIN32_MEMORY_REGION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WIN32_MEMORY_REGION_INFORMATION_0 {
@@ -1459,9 +1397,6 @@ impl Default for WIN32_MEMORY_REGION_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIN32_MEMORY_REGION_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_MEMORY_REGION_INFORMATION_0_0 {
@@ -1471,7 +1406,4 @@ impl Default for WIN32_MEMORY_REGION_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIN32_MEMORY_REGION_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }

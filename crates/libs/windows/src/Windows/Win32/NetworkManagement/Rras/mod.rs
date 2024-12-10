@@ -1741,9 +1741,6 @@ impl Default for AUTH_VALIDATION_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTH_VALIDATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DO_NOT_ALLOW_NO_AUTH: u32 = 0u32;
 pub const ERROR_ACCESSING_TCPCFGDLL: u32 = 727u32;
 pub const ERROR_ACCT_DISABLED: u32 = 647u32;
@@ -2036,9 +2033,6 @@ impl Default for GRE_CONFIG_PARAMS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GRE_CONFIG_PARAMS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRASCONN(pub *mut core::ffi::c_void);
@@ -2069,10 +2063,6 @@ impl Default for IKEV2_CONFIG_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for IKEV2_CONFIG_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2114,9 +2104,6 @@ impl Default for IKEV2_PROJECTION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEV2_PROJECTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEV2_PROJECTION_INFO2 {
@@ -2142,9 +2129,6 @@ impl Default for IKEV2_PROJECTION_INFO2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEV2_PROJECTION_INFO2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2165,10 +2149,6 @@ impl Default for IKEV2_TUNNEL_CONFIG_PARAMS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for IKEV2_TUNNEL_CONFIG_PARAMS2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2193,10 +2173,6 @@ impl Default for IKEV2_TUNNEL_CONFIG_PARAMS3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for IKEV2_TUNNEL_CONFIG_PARAMS3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2223,10 +2199,6 @@ impl Default for IKEV2_TUNNEL_CONFIG_PARAMS4 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for IKEV2_TUNNEL_CONFIG_PARAMS4 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const IPADDRESSLEN: u32 = 15u32;
 pub const IPV6_ADDRESS_LEN_IN_BYTES: u32 = 16u32;
 pub const IPXADDRESSLEN: u32 = 22u32;
@@ -2241,9 +2213,6 @@ impl Default for L2TP_CONFIG_PARAMS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for L2TP_CONFIG_PARAMS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct L2TP_CONFIG_PARAMS1 {
@@ -2256,9 +2225,6 @@ impl Default for L2TP_CONFIG_PARAMS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for L2TP_CONFIG_PARAMS1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2274,9 +2240,6 @@ impl Default for L2TP_TUNNEL_CONFIG_PARAMS1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for L2TP_TUNNEL_CONFIG_PARAMS1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
@@ -2291,9 +2254,6 @@ impl Default for L2TP_TUNNEL_CONFIG_PARAMS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for L2TP_TUNNEL_CONFIG_PARAMS2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MAXIPADRESSLEN: u32 = 64u32;
 pub const MAX_SSTP_HASH_SIZE: u32 = 32u32;
@@ -2323,9 +2283,6 @@ impl Default for MGM_IF_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MGM_IF_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MGM_JOIN_STATE_FLAG: u32 = 1u32;
 pub const MGM_MFE_STATS_0: u32 = 1u32;
 pub const MGM_MFE_STATS_1: u32 = 2u32;
@@ -2352,10 +2309,6 @@ impl Default for MPRAPI_ADMIN_DLL_CALLBACKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MPRAPI_ADMIN_DLL_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MPRAPI_ADMIN_DLL_VERSION_1: u32 = 1u32;
 pub const MPRAPI_ADMIN_DLL_VERSION_2: u32 = 2u32;
@@ -2390,9 +2343,6 @@ impl Default for MPRAPI_OBJECT_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MPRAPI_OBJECT_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPRAPI_OBJECT_TYPE(pub i32);
@@ -2425,10 +2375,6 @@ impl Default for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2444,10 +2390,6 @@ impl Default for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MPRDM_DialAll: MPR_INTERFACE_DIAL_MODE = MPR_INTERFACE_DIAL_MODE(1u32);
 pub const MPRDM_DialAsNeeded: MPR_INTERFACE_DIAL_MODE = MPR_INTERFACE_DIAL_MODE(2u32);
@@ -2508,9 +2450,6 @@ impl Default for MPR_CERT_EKU {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MPR_CERT_EKU {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MPR_CREDENTIALSEX_0 {
@@ -2521,9 +2460,6 @@ impl Default for MPR_CREDENTIALSEX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MPR_CREDENTIALSEX_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2536,9 +2472,6 @@ impl Default for MPR_CREDENTIALSEX_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MPR_CREDENTIALSEX_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MPR_DEVICE_0 {
@@ -2549,9 +2482,6 @@ impl Default for MPR_DEVICE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MPR_DEVICE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2565,9 +2495,6 @@ impl Default for MPR_DEVICE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MPR_DEVICE_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1u32;
 pub const MPR_ENABLE_ROUTING_ON_DEVICE: u32 = 2u32;
@@ -2588,9 +2515,6 @@ impl Default for MPR_FILTER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MPR_FILTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MPR_IFTRANSPORT_0 {
@@ -2602,9 +2526,6 @@ impl Default for MPR_IFTRANSPORT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MPR_IFTRANSPORT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2620,10 +2541,6 @@ impl Default for MPR_IF_CUSTOMINFOEX0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for MPR_IF_CUSTOMINFOEX0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2638,10 +2555,6 @@ impl Default for MPR_IF_CUSTOMINFOEX1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for MPR_IF_CUSTOMINFOEX1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2655,10 +2568,6 @@ impl Default for MPR_IF_CUSTOMINFOEX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl windows_core::TypeKind for MPR_IF_CUSTOMINFOEX2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2676,9 +2585,6 @@ impl Default for MPR_INTERFACE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MPR_INTERFACE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MPR_INTERFACE_1 {
@@ -2695,9 +2601,6 @@ impl Default for MPR_INTERFACE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MPR_INTERFACE_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2744,9 +2647,6 @@ impl Default for MPR_INTERFACE_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MPR_INTERFACE_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -2800,10 +2700,6 @@ impl Default for MPR_INTERFACE_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MPR_INTERFACE_3 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MPR_INTERFACE_ADMIN_DISABLED: u32 = 2u32;
 pub const MPR_INTERFACE_CONNECTION_FAILURE: u32 = 4u32;
 pub const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: u32 = 16u32;
@@ -2824,9 +2720,6 @@ impl Default for MPR_IPINIP_INTERFACE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MPR_IPINIP_INTERFACE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MPR_MaxAreaCode: u32 = 10u32;
 pub const MPR_MaxCallbackNumber: u32 = 128u32;
@@ -2853,9 +2746,6 @@ impl Default for MPR_SERVER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MPR_SERVER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MPR_SERVER_1 {
@@ -2868,9 +2758,6 @@ impl Default for MPR_SERVER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MPR_SERVER_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2886,9 +2773,6 @@ impl Default for MPR_SERVER_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MPR_SERVER_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2908,10 +2792,6 @@ impl Default for MPR_SERVER_EX0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for MPR_SERVER_EX0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2930,10 +2810,6 @@ impl Default for MPR_SERVER_EX1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for MPR_SERVER_EX1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2947,10 +2823,6 @@ impl Default for MPR_SERVER_SET_CONFIG_EX0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for MPR_SERVER_SET_CONFIG_EX0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2966,10 +2838,6 @@ impl Default for MPR_SERVER_SET_CONFIG_EX1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for MPR_SERVER_SET_CONFIG_EX1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MPR_TRANSPORT_0 {
@@ -2981,9 +2849,6 @@ impl Default for MPR_TRANSPORT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MPR_TRANSPORT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -3003,10 +2868,6 @@ impl Default for MPR_VPN_TRAFFIC_SELECTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MPR_VPN_TRAFFIC_SELECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3021,10 +2882,6 @@ impl Default for MPR_VPN_TRAFFIC_SELECTORS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MPR_VPN_TRAFFIC_SELECTORS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = MPR_VPN_TS_TYPE(7i32);
 pub const MPR_VPN_TS_IPv6_ADDR_RANGE: MPR_VPN_TS_TYPE = MPR_VPN_TS_TYPE(8i32);
@@ -3095,9 +2952,6 @@ impl Default for PPP_ATCP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPP_ATCP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PPP_CCP_COMPRESSION: u32 = 1u32;
 pub const PPP_CCP_ENCRYPTION128BIT: u32 = 64u32;
 pub const PPP_CCP_ENCRYPTION40BIT: u32 = 32u32;
@@ -3118,9 +2972,6 @@ impl Default for PPP_CCP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPP_CCP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PPP_INFO {
@@ -3133,9 +2984,6 @@ impl Default for PPP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PPP_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3152,9 +3000,6 @@ impl Default for PPP_INFO_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPP_INFO_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PPP_INFO_3 {
@@ -3169,9 +3014,6 @@ impl Default for PPP_INFO_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPP_INFO_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PPP_IPCP_INFO {
@@ -3183,9 +3025,6 @@ impl Default for PPP_IPCP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PPP_IPCP_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3200,9 +3039,6 @@ impl Default for PPP_IPCP_INFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PPP_IPCP_INFO2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PPP_IPCP_VJ: u32 = 1u32;
 #[repr(C)]
@@ -3223,9 +3059,6 @@ impl Default for PPP_IPV6_CP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPP_IPV6_CP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PPP_IPXCP_INFO {
@@ -3236,9 +3069,6 @@ impl Default for PPP_IPXCP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PPP_IPXCP_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3277,9 +3107,6 @@ impl Default for PPP_LCP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPP_LCP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPP_LCP_INFO_AUTH_DATA(pub u32);
@@ -3298,9 +3125,6 @@ impl Default for PPP_NBFCP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PPP_NBFCP_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3338,9 +3162,6 @@ impl Default for PPP_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PPP_PROJECTION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3380,9 +3201,6 @@ impl Default for PPP_PROJECTION_INFO2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPP_PROJECTION_INFO2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PPTP_CONFIG_PARAMS {
@@ -3393,9 +3211,6 @@ impl Default for PPTP_CONFIG_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PPTP_CONFIG_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3408,9 +3223,6 @@ impl Default for PROJECTION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROJECTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROJECTION_INFO_0 {
@@ -3421,9 +3233,6 @@ impl Default for PROJECTION_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROJECTION_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3436,9 +3245,6 @@ impl Default for PROJECTION_INFO2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROJECTION_INFO2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROJECTION_INFO2_0 {
@@ -3449,9 +3255,6 @@ impl Default for PROJECTION_INFO2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROJECTION_INFO2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = RASPROJECTION_INFO_TYPE(2i32);
 pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = RASPROJECTION_INFO_TYPE(1i32);
@@ -3472,9 +3275,6 @@ impl Default for RASADPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASADPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RASADP_ConnectionQueryTimeout: u32 = 4u32;
 pub const RASADP_DisableConnectionQuery: u32 = 0u32;
 pub const RASADP_FailedConnectionTimeout: u32 = 3u32;
@@ -3493,9 +3293,6 @@ impl Default for RASAMBA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASAMBA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASAMBW {
@@ -3508,9 +3305,6 @@ impl Default for RASAMBW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASAMBW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3532,9 +3326,6 @@ impl Default for RASAUTODIALENTRYA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASAUTODIALENTRYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASAUTODIALENTRYW {
@@ -3547,9 +3338,6 @@ impl Default for RASAUTODIALENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASAUTODIALENTRYW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RASBASE: u32 = 600u32;
 pub const RASBASEEND: u32 = 877u32;
@@ -3592,9 +3380,6 @@ impl Default for RASCOMMSETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASCOMMSETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3617,10 +3402,6 @@ impl Default for RASCONNA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for RASCONNA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -3642,10 +3423,6 @@ impl Default for RASCONNA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for RASCONNA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3670,10 +3447,6 @@ impl Default for RASCONNSTATUSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RASCONNSTATUSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -3693,10 +3466,6 @@ impl Default for RASCONNSTATUSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RASCONNSTATUSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3723,10 +3492,6 @@ impl Default for RASCONNW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for RASCONNW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -3749,10 +3514,6 @@ impl Default for RASCONNW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for RASCONNW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASCREDENTIALSA {
@@ -3767,9 +3528,6 @@ impl Default for RASCREDENTIALSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASCREDENTIALSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASCREDENTIALSW {
@@ -3783,9 +3541,6 @@ impl Default for RASCREDENTIALSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASCREDENTIALSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RASCSS_DONE: u32 = 8192u32;
 pub const RASCSS_Dormant: RASCONNSUBSTATE = RASCONNSUBSTATE(1i32);
@@ -3840,9 +3595,6 @@ impl Default for RASCTRYINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASCTRYINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct RASCUSTOMSCRIPTEXTENSIONS {
@@ -3853,9 +3605,6 @@ impl Default for RASCUSTOMSCRIPTEXTENSIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASCUSTOMSCRIPTEXTENSIONS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RASDDFLAG_AoacRedial: u32 = 4u32;
 pub const RASDDFLAG_LinkFailure: u32 = 2147483648u32;
@@ -3873,9 +3622,6 @@ impl Default for RASDEVINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASDEVINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASDEVINFOW {
@@ -3887,9 +3633,6 @@ impl Default for RASDEVINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASDEVINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -3903,10 +3646,6 @@ impl Default for RASDEVSPECIFICINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for RASDEVSPECIFICINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3920,10 +3659,6 @@ impl Default for RASDEVSPECIFICINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for RASDEVSPECIFICINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -3943,9 +3678,6 @@ impl Default for RASDIALDLG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASDIALDLG {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RASDIALEVENT: windows_core::PCSTR = windows_core::s!("RasDialEvent");
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -3963,9 +3695,6 @@ impl Default for RASDIALEXTENSIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASDIALEXTENSIONS {
-    type TypeKind = windows_core::CopyType;
 }
 pub type RASDIALFUNC = Option<unsafe extern "system" fn(param0: u32, param1: RASCONNSTATE, param2: u32)>;
 pub type RASDIALFUNC1 = Option<unsafe extern "system" fn(param0: HRASCONN, param1: u32, param2: RASCONNSTATE, param3: u32, param4: u32)>;
@@ -3992,10 +3721,6 @@ impl Default for RASDIALPARAMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for RASDIALPARAMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -4017,10 +3742,6 @@ impl Default for RASDIALPARAMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for RASDIALPARAMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -4044,10 +3765,6 @@ impl Default for RASDIALPARAMSW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for RASDIALPARAMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -4069,10 +3786,6 @@ impl Default for RASDIALPARAMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for RASDIALPARAMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RASDT_Atm: windows_core::PCWSTR = windows_core::w!("ATM");
 pub const RASDT_FrameRelay: windows_core::PCWSTR = windows_core::w!("FRAMERELAY");
@@ -4102,9 +3815,6 @@ impl Default for RASEAPINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASEAPINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASEAPUSERIDENTITYA {
@@ -4117,9 +3827,6 @@ impl Default for RASEAPUSERIDENTITYA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASEAPUSERIDENTITYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASEAPUSERIDENTITYW {
@@ -4131,9 +3838,6 @@ impl Default for RASEAPUSERIDENTITYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASEAPUSERIDENTITYW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RASEDFLAG_CloneEntry: u32 = 4u32;
 pub const RASEDFLAG_IncomingConnection: u32 = 1024u32;
@@ -4221,10 +3925,6 @@ impl Default for RASENTRYA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RASENTRYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4244,10 +3944,6 @@ impl Default for RASENTRYDLGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for RASENTRYDLGA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -4269,10 +3965,6 @@ impl Default for RASENTRYDLGA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for RASENTRYDLGA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4293,10 +3985,6 @@ impl Default for RASENTRYDLGW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for RASENTRYDLGW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -4316,10 +4004,6 @@ impl Default for RASENTRYDLGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for RASENTRYDLGW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4334,9 +4018,6 @@ impl Default for RASENTRYNAMEA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASENTRYNAMEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASENTRYNAMEW {
@@ -4349,9 +4030,6 @@ impl Default for RASENTRYNAMEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASENTRYNAMEW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -4424,10 +4102,6 @@ impl Default for RASENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RASENTRYW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4533,11 +4207,6 @@ impl Default for RASIKEV2_PROJECTION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RASIKEV2_PROJECTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -4565,11 +4234,6 @@ impl Default for RASIKEV2_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RASIKEV2_PROJECTION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4626,9 +4290,6 @@ impl Default for RASIPADDR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASIPADDR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RASIPO_VJ: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4641,9 +4302,6 @@ impl Default for RASIPXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASIPXW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RASLCPAD_CHAP_MD5: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(5u32);
 pub const RASLCPAD_CHAP_MS: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(128u32);
@@ -4679,9 +4337,6 @@ impl Default for RASNOUSERA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASNOUSERA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASNOUSERW {
@@ -4696,9 +4351,6 @@ impl Default for RASNOUSERW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASNOUSERW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RASNOUSER_SmartCard: u32 = 1u32;
 pub const RASNP_Ip: u32 = 4u32;
@@ -4737,10 +4389,6 @@ impl Default for RASPBDLGA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for RASPBDLGA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -4761,10 +4409,6 @@ impl Default for RASPBDLGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for RASPBDLGA {
-    type TypeKind = windows_core::CopyType;
 }
 pub type RASPBDLGFUNCA = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void)>;
 pub type RASPBDLGFUNCW = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_core::PCWSTR, param3: *mut core::ffi::c_void)>;
@@ -4789,10 +4433,6 @@ impl Default for RASPBDLGW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for RASPBDLGW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -4814,10 +4454,6 @@ impl Default for RASPBDLGW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for RASPBDLGW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASPPPCCP {
@@ -4832,9 +4468,6 @@ impl Default for RASPPPCCP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASPPPCCP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4851,9 +4484,6 @@ impl Default for RASPPPIPA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASPPPIPA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASPPPIPV6 {
@@ -4868,9 +4498,6 @@ impl Default for RASPPPIPV6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASPPPIPV6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4887,9 +4514,6 @@ impl Default for RASPPPIPW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASPPPIPW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASPPPIPXA {
@@ -4901,9 +4525,6 @@ impl Default for RASPPPIPXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASPPPIPXA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4929,9 +4550,6 @@ impl Default for RASPPPLCPA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASPPPLCPA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASPPPLCPW {
@@ -4956,9 +4574,6 @@ impl Default for RASPPPLCPW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASPPPLCPW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASPPPNBFA {
@@ -4974,9 +4589,6 @@ impl Default for RASPPPNBFA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASPPPNBFA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASPPPNBFW {
@@ -4991,9 +4603,6 @@ impl Default for RASPPPNBFW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RASPPPNBFW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -5028,10 +4637,6 @@ impl Default for RASPPP_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RASPPP_PROJECTION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5073,9 +4678,6 @@ impl Default for RASSUBENTRYA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASSUBENTRYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASSUBENTRYW {
@@ -5091,9 +4693,6 @@ impl Default for RASSUBENTRYW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RASSUBENTRYW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -5107,10 +4706,6 @@ impl Default for RASTUNNELENDPOINT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RASTUNNELENDPOINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -5123,10 +4718,6 @@ impl Default for RASTUNNELENDPOINT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RASTUNNELENDPOINT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RASTUNNELENDPOINT_IPv4: u32 = 1u32;
 pub const RASTUNNELENDPOINT_IPv6: u32 = 2u32;
@@ -5148,10 +4739,6 @@ impl Default for RASUPDATECONN {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RASUPDATECONN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RAS_CONNECTION_0 {
@@ -5169,9 +4756,6 @@ impl Default for RAS_CONNECTION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAS_CONNECTION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5197,9 +4781,6 @@ impl Default for RAS_CONNECTION_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RAS_CONNECTION_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RAS_CONNECTION_2 {
@@ -5213,9 +4794,6 @@ impl Default for RAS_CONNECTION_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAS_CONNECTION_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5234,9 +4812,6 @@ impl Default for RAS_CONNECTION_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAS_CONNECTION_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5277,9 +4852,6 @@ impl Default for RAS_CONNECTION_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RAS_CONNECTION_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAS_CONNECTION_EX {
@@ -5317,9 +4889,6 @@ impl Default for RAS_CONNECTION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAS_CONNECTION_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5369,9 +4938,6 @@ impl Default for RAS_PORT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RAS_PORT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RAS_PORT_1 {
@@ -5396,9 +4962,6 @@ impl Default for RAS_PORT_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAS_PORT_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5436,9 +4999,6 @@ impl Default for RAS_PORT_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RAS_PORT_2 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RAS_PORT_AUTHENTICATED: RAS_PORT_CONDITION = RAS_PORT_CONDITION(5i32);
 pub const RAS_PORT_AUTHENTICATING: RAS_PORT_CONDITION = RAS_PORT_CONDITION(4i32);
 pub const RAS_PORT_CALLING_BACK: RAS_PORT_CONDITION = RAS_PORT_CONDITION(2i32);
@@ -5463,10 +5023,6 @@ impl Default for RAS_PROJECTION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RAS_PROJECTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -5479,10 +5035,6 @@ impl Default for RAS_PROJECTION_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RAS_PROJECTION_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5502,9 +5054,6 @@ impl Default for RAS_SECURITY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAS_SECURITY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5530,9 +5079,6 @@ impl Default for RAS_STATS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RAS_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RAS_UPDATE_CONNECTION {
@@ -5546,9 +5092,6 @@ impl Default for RAS_UPDATE_CONNECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RAS_UPDATE_CONNECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RAS_USER_0 {
@@ -5559,9 +5102,6 @@ impl Default for RAS_USER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAS_USER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5574,9 +5114,6 @@ impl Default for RAS_USER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAS_USER_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RCD_AllUsers: u32 = 1u32;
 pub const RCD_Eap: u32 = 2u32;
@@ -5618,9 +5155,6 @@ impl Default for ROUTER_CUSTOM_IKEv2_POLICY0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ROUTER_CUSTOM_IKEv2_POLICY0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ROUTER_IF_STATE_CONNECTED: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(3i32);
 pub const ROUTER_IF_STATE_CONNECTING: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(2i32);
 pub const ROUTER_IF_STATE_DISCONNECTED: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(1i32);
@@ -5649,10 +5183,6 @@ impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5668,10 +5198,6 @@ impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -5690,10 +5216,6 @@ impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl windows_core::TypeKind for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5716,9 +5238,6 @@ impl Default for ROUTING_PROTOCOL_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ROUTING_PROTOCOL_CONFIG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RRAS_SERVICE_NAME: windows_core::PCWSTR = windows_core::w!("RemoteAccess");
 pub const RTM_BLOCK_METHODS: u32 = 1u32;
@@ -5744,9 +5263,6 @@ impl Default for RTM_DEST_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTM_DEST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RTM_DEST_INFO_0 {
@@ -5762,9 +5278,6 @@ impl Default for RTM_DEST_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTM_DEST_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RTM_ENTITY_DEREGISTERED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(1i32);
 pub type RTM_ENTITY_EXPORT_METHOD = Option<unsafe extern "system" fn(callerhandle: isize, calleehandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, output: *mut RTM_ENTITY_METHOD_OUTPUT)>;
 #[repr(C)]
@@ -5778,9 +5291,6 @@ impl Default for RTM_ENTITY_EXPORT_METHODS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTM_ENTITY_EXPORT_METHODS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTM_ENTITY_ID {
@@ -5790,9 +5300,6 @@ impl Default for RTM_ENTITY_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RTM_ENTITY_ID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5805,9 +5312,6 @@ impl Default for RTM_ENTITY_ID_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTM_ENTITY_ID_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RTM_ENTITY_ID_0_0 {
@@ -5818,9 +5322,6 @@ impl Default for RTM_ENTITY_ID_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RTM_ENTITY_ID_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5834,9 +5335,6 @@ impl Default for RTM_ENTITY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTM_ENTITY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RTM_ENTITY_METHOD_INPUT {
@@ -5848,9 +5346,6 @@ impl Default for RTM_ENTITY_METHOD_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RTM_ENTITY_METHOD_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5864,9 +5359,6 @@ impl Default for RTM_ENTITY_METHOD_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RTM_ENTITY_METHOD_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RTM_ENTITY_REGISTERED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(0i32);
 pub const RTM_ENUM_ALL_DESTS: u32 = 0u32;
@@ -5901,9 +5393,6 @@ impl Default for RTM_NET_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTM_NET_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RTM_NEXTHOP_CHANGE_NEW: u32 = 1u32;
 pub const RTM_NEXTHOP_FLAGS_DOWN: u32 = 2u32;
 pub const RTM_NEXTHOP_FLAGS_REMOTE: u32 = 1u32;
@@ -5923,9 +5412,6 @@ impl Default for RTM_NEXTHOP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTM_NEXTHOP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RTM_NEXTHOP_LIST {
@@ -5936,9 +5422,6 @@ impl Default for RTM_NEXTHOP_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RTM_NEXTHOP_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RTM_NEXTHOP_STATE_CREATED: u32 = 0u32;
 pub const RTM_NEXTHOP_STATE_DELETED: u32 = 1u32;
@@ -5955,9 +5438,6 @@ impl Default for RTM_PREF_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTM_PREF_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RTM_REGN_PROFILE {
@@ -5970,9 +5450,6 @@ impl Default for RTM_REGN_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RTM_REGN_PROFILE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RTM_RESUME_METHODS: u32 = 0u32;
 pub const RTM_ROUTE_CHANGE_BEST: u32 = 65536u32;
@@ -6013,9 +5490,6 @@ impl Default for RTM_ROUTE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTM_ROUTE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RTM_ROUTE_STATE_CREATED: u32 = 0u32;
 pub const RTM_ROUTE_STATE_DELETED: u32 = 2u32;
 pub const RTM_ROUTE_STATE_DELETING: u32 = 1u32;
@@ -6050,9 +5524,6 @@ impl Default for SECURITY_MESSAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURITY_MESSAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_MESSAGE_MSG_ID(pub u32);
@@ -6069,9 +5540,6 @@ impl Default for SOURCE_GROUP_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SOURCE_GROUP_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6084,10 +5552,6 @@ impl Default for SSTP_CERT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SSTP_CERT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -6105,10 +5569,6 @@ impl Default for SSTP_CONFIG_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SSTP_CONFIG_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -6122,10 +5582,6 @@ impl Default for VPN_TS_IP_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for VPN_TS_IP_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -6138,10 +5594,6 @@ impl Default for VPN_TS_IP_ADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for VPN_TS_IP_ADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VS_Default: u32 = 0u32;
 pub const VS_GREOnly: u32 = 9u32;

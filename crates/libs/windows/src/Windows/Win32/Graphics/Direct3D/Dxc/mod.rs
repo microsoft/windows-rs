@@ -83,9 +83,6 @@ impl Default for DxcArgPair {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DxcArgPair {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DxcBuffer {
@@ -97,9 +94,6 @@ impl Default for DxcBuffer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DxcBuffer {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 pub type DxcCreateInstance2Proc = Option<unsafe extern "system" fn(pmalloc: Option<super::super::super::System::Com::IMalloc>, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
@@ -115,9 +109,6 @@ impl Default for DxcDefine {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DxcDefine {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DxcShaderHash {
@@ -128,9 +119,6 @@ impl Default for DxcShaderHash {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DxcShaderHash {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DxcValidatorFlags_Default: u32 = 0u32;
 pub const DxcValidatorFlags_InPlaceEdit: u32 = 1u32;

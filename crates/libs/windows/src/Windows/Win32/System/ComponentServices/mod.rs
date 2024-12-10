@@ -70,9 +70,6 @@ impl Default for APPDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APPDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPSTATISTICS {
@@ -85,9 +82,6 @@ impl Default for APPSTATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for APPSTATISTICS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = COMPLUS_APPTYPE(0i32);
 pub const APPTYPE_SERVER: COMPLUS_APPTYPE = COMPLUS_APPTYPE(1i32);
@@ -117,9 +111,6 @@ impl Default for ApplicationProcessRecycleInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ApplicationProcessRecycleInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ApplicationProcessStatistics {
@@ -136,9 +127,6 @@ impl Default for ApplicationProcessStatistics {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ApplicationProcessStatistics {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -158,9 +146,6 @@ impl Default for ApplicationProcessSummary {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ApplicationProcessSummary {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ApplicationSummary {
@@ -176,9 +161,6 @@ impl Default for ApplicationSummary {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ApplicationSummary {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -201,9 +183,6 @@ impl Default for CLSIDDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLSIDDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLSIDDATA2 {
@@ -225,9 +204,6 @@ impl Default for CLSIDDATA2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLSIDDATA2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COMAdmin32BitComponent: COMAdminComponentType = COMAdminComponentType(1i32);
 pub const COMAdmin64BitComponent: COMAdminComponentType = COMAdminComponentType(2i32);
@@ -530,9 +506,6 @@ impl Default for COMSVCSEVENTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMSVCSEVENTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CRMClerk: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -634,9 +607,6 @@ impl Default for ComponentHangMonitorInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ComponentHangMonitorInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ComponentStatistics {
@@ -659,9 +629,6 @@ impl Default for ComponentStatistics {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ComponentStatistics {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ComponentSummary {
@@ -676,9 +643,6 @@ impl Default for ComponentSummary {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ComponentSummary {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ContextInfo, ContextInfo_Vtbl, 0x19a5a02c_0ac8_11d2_b286_00c04f8ef934);
@@ -900,10 +864,6 @@ impl Default for CrmLogRecordRead {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for CrmLogRecordRead {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CrmTransactionState(pub i32);
@@ -941,9 +901,6 @@ impl Default for HANG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HANG_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAppDomainHelper, IAppDomainHelper_Vtbl, 0xc7b67079_8255_42c6_9ec0_6994a3548780);
@@ -10496,9 +10453,6 @@ impl Default for RECYCLE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RECYCLE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

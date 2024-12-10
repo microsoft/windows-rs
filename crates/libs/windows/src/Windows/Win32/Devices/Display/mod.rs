@@ -691,9 +691,6 @@ impl Default for Adapter {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for Adapter {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Adapters {
@@ -704,9 +701,6 @@ impl Default for Adapters {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for Adapters {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -723,9 +717,6 @@ impl Default for BACKLIGHT_REDUCTION_GAMMA_RAMP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BACKLIGHT_REDUCTION_GAMMA_RAMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BANK_POSITION {
@@ -736,9 +727,6 @@ impl Default for BANK_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BANK_POSITION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BITMAP_ARRAY_BYTE: u32 = 3u32;
 pub const BITMAP_BITS_BYTE_ALIGN: u32 = 8u32;
@@ -756,10 +744,6 @@ impl Default for BLENDOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for BLENDOBJ {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BMF_16BPP: i32 = 4i32;
 pub const BMF_1BPP: i32 = 1i32;
@@ -800,9 +784,6 @@ impl Default for BRIGHTNESS_LEVEL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BRIGHTNESS_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BRIGHTNESS_MAX_LEVEL_COUNT: u32 = 103u32;
 pub const BRIGHTNESS_MAX_NIT_RANGE_COUNT: u32 = 16u32;
 #[repr(C)]
@@ -817,9 +798,6 @@ impl Default for BRIGHTNESS_NIT_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BRIGHTNESS_NIT_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BRIGHTNESS_NIT_RANGES {
@@ -833,9 +811,6 @@ impl Default for BRIGHTNESS_NIT_RANGES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BRIGHTNESS_NIT_RANGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BRUSHOBJ {
@@ -847,9 +822,6 @@ impl Default for BRUSHOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BRUSHOBJ {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BR_CMYKCOLOR: u32 = 4u32;
 pub const BR_DEVICE_ICM: u32 = 1u32;
@@ -884,9 +856,6 @@ impl Default for CDDDXGK_REDIRBITMAPPRESENTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDDDXGK_REDIRBITMAPPRESENTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CD_ANY: i32 = 4i32;
 pub const CD_LEFTDOWN: i32 = 1i32;
 pub const CD_LEFTUP: i32 = 3i32;
@@ -907,10 +876,6 @@ impl Default for CHAR_IMAGE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Console")]
-impl windows_core::TypeKind for CHAR_IMAGE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CHAR_TYPE_LEADING: u32 = 2u32;
 pub const CHAR_TYPE_SBCS: u32 = 0u32;
 pub const CHAR_TYPE_TRAILING: u32 = 3u32;
@@ -925,9 +890,6 @@ impl Default for CHROMATICITY_COORDINATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHROMATICITY_COORDINATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CIECHROMA {
@@ -939,9 +901,6 @@ impl Default for CIECHROMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CIECHROMA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -957,9 +916,6 @@ impl Default for CLIPLINE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLIPLINE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLIPOBJ {
@@ -974,9 +930,6 @@ impl Default for CLIPOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLIPOBJ {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1003,9 +956,6 @@ impl Default for COLORINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COLORINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COLORSPACE_TRANSFORM {
@@ -1016,9 +966,6 @@ impl Default for COLORSPACE_TRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1033,9 +980,6 @@ impl Default for COLORSPACE_TRANSFORM_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COLORSPACE_TRANSFORM_1DLUT_CAP {
@@ -1046,9 +990,6 @@ impl Default for COLORSPACE_TRANSFORM_1DLUT_CAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_1DLUT_CAP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1061,9 +1002,6 @@ impl Default for COLORSPACE_TRANSFORM_3x4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_3x4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1078,9 +1016,6 @@ impl Default for COLORSPACE_TRANSFORM_DATA_CAP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_DATA_CAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union COLORSPACE_TRANSFORM_DATA_CAP_0 {
@@ -1093,9 +1028,6 @@ impl Default for COLORSPACE_TRANSFORM_DATA_CAP_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_DATA_CAP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
@@ -1106,9 +1038,6 @@ impl Default for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
@@ -1118,9 +1047,6 @@ impl Default for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1138,9 +1064,6 @@ impl Default for COLORSPACE_TRANSFORM_MATRIX_CAP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_MATRIX_CAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
@@ -1152,9 +1075,6 @@ impl Default for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
@@ -1164,9 +1084,6 @@ impl Default for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1183,9 +1100,6 @@ impl Default for COLORSPACE_TRANSFORM_MATRIX_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_MATRIX_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COLORSPACE_TRANSFORM_SET_INPUT {
@@ -1197,9 +1111,6 @@ impl Default for COLORSPACE_TRANSFORM_SET_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_SET_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1216,9 +1127,6 @@ impl Default for COLORSPACE_TRANSFORM_TARGET_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_TARGET_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1269,9 +1177,6 @@ impl Default for DEVHTADJDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVHTADJDATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEVHTADJF_ADDITIVE_DEVICE: u32 = 2u32;
 pub const DEVHTADJF_COLOR_DEVICE: u32 = 1u32;
 #[repr(C)]
@@ -1286,9 +1191,6 @@ impl Default for DEVHTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVHTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1310,10 +1212,6 @@ impl Default for DEVINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DEVINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEVPKEY_Device_ActivityId: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4 };
 pub const DEVPKEY_Device_AdapterLuid: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3 };
@@ -1362,9 +1260,6 @@ impl Default for DISPLAYCONFIG_2DREGION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_2DREGION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPLAYCONFIG_ADAPTER_NAME {
@@ -1375,9 +1270,6 @@ impl Default for DISPLAYCONFIG_ADAPTER_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_ADAPTER_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1390,9 +1282,6 @@ impl Default for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(4i32);
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(9i32);
@@ -1416,9 +1305,6 @@ impl Default for DISPLAYCONFIG_DEVICE_INFO_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_DEVICE_INFO_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(10i32);
 pub const DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(13i32);
 pub const DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(8i32);
@@ -1441,10 +1327,6 @@ impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -1458,10 +1340,6 @@ impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1474,10 +1352,6 @@ impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
@@ -1488,9 +1362,6 @@ impl Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1503,9 +1374,6 @@ impl Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
@@ -1515,9 +1383,6 @@ impl Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1532,9 +1397,6 @@ impl Default for DISPLAYCONFIG_MODE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_MODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_MODE_INFO_0 {
@@ -1546,9 +1408,6 @@ impl Default for DISPLAYCONFIG_MODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_MODE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1588,9 +1447,6 @@ impl Default for DISPLAYCONFIG_PATH_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_PATH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO {
@@ -1604,9 +1460,6 @@ impl Default for DISPLAYCONFIG_PATH_SOURCE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_PATH_SOURCE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
@@ -1618,9 +1471,6 @@ impl Default for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
@@ -1630,9 +1480,6 @@ impl Default for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1653,9 +1500,6 @@ impl Default for DISPLAYCONFIG_PATH_TARGET_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_PATH_TARGET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_PATH_TARGET_INFO_0 {
@@ -1667,9 +1511,6 @@ impl Default for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
@@ -1679,9 +1520,6 @@ impl Default for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1701,9 +1539,6 @@ impl Default for DISPLAYCONFIG_RATIONAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_RATIONAL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1740,9 +1575,6 @@ impl Default for DISPLAYCONFIG_SDR_WHITE_LEVEL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_SDR_WHITE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
@@ -1753,9 +1585,6 @@ impl Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1768,9 +1597,6 @@ impl Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
@@ -1780,9 +1606,6 @@ impl Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1798,9 +1621,6 @@ impl Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
@@ -1812,9 +1632,6 @@ impl Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
@@ -1824,9 +1641,6 @@ impl Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1839,9 +1653,6 @@ impl Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
@@ -1853,9 +1664,6 @@ impl Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
@@ -1865,9 +1673,6 @@ impl Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1879,9 +1684,6 @@ impl Default for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1896,9 +1698,6 @@ impl Default for DISPLAYCONFIG_SOURCE_MODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_SOURCE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
@@ -1909,9 +1708,6 @@ impl Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1924,9 +1720,6 @@ impl Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
@@ -1936,9 +1729,6 @@ impl Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1950,9 +1740,6 @@ impl Default for DISPLAYCONFIG_TARGET_BASE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_TARGET_BASE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1971,9 +1758,6 @@ impl Default for DISPLAYCONFIG_TARGET_DEVICE_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_TARGET_DEVICE_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
@@ -1983,9 +1767,6 @@ impl Default for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1998,9 +1779,6 @@ impl Default for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
@@ -2011,9 +1789,6 @@ impl Default for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_TARGET_MODE {
@@ -2023,9 +1798,6 @@ impl Default for DISPLAYCONFIG_TARGET_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_TARGET_MODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2039,9 +1811,6 @@ impl Default for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DISPLAYCONFIG_TOPOLOGY_CLONE: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(2i32);
 pub const DISPLAYCONFIG_TOPOLOGY_EXTEND: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(4i32);
@@ -2069,9 +1838,6 @@ impl Default for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
@@ -2083,9 +1849,6 @@ impl Default for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
@@ -2095,9 +1858,6 @@ impl Default for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DISPLAYPOLICY_AC: u32 = 1u32;
 pub const DISPLAYPOLICY_DC: u32 = 2u32;
@@ -2112,9 +1872,6 @@ impl Default for DISPLAY_BRIGHTNESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAY_BRIGHTNESS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DM_DEFAULT: u32 = 1u32;
 pub const DM_MONOCHROME: u32 = 2u32;
@@ -2140,9 +1897,6 @@ impl Default for DRH_APIBITMAPDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRH_APIBITMAPDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRIVEROBJ {
@@ -2156,9 +1910,6 @@ impl Default for DRIVEROBJ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVEROBJ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRVENABLEDATA {
@@ -2171,9 +1922,6 @@ impl Default for DRVENABLEDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRVENABLEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRVFN {
@@ -2184,9 +1932,6 @@ impl Default for DRVFN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRVFN {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DRVQUERY_USERMODE: u32 = 1u32;
 pub const DSI_CHECKSUM_ERROR_CORRECTED: u32 = 256u32;
@@ -2228,9 +1973,6 @@ impl Default for DXGK_WIN32K_PARAM_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGK_WIN32K_PARAM_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DXGK_WIN32K_PARAM_FLAG_DISABLEVIEW: u32 = 4u32;
 pub const DXGK_WIN32K_PARAM_FLAG_MODESWITCH: u32 = 2u32;
 pub const DXGK_WIN32K_PARAM_FLAG_UPDATEREGISTRY: u32 = 1u32;
@@ -2247,10 +1989,6 @@ impl Default for DisplayMode {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DisplayMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -2263,10 +2001,6 @@ impl Default for DisplayModes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DisplayModes {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ECS_REDRAW: u32 = 2u32;
 pub const ECS_TEARDOWN: u32 = 1u32;
@@ -2288,10 +2022,6 @@ impl Default for EMFINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for EMFINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ENDCAP_BUTT: i32 = 2i32;
 pub const ENDCAP_ROUND: i32 = 0i32;
 pub const ENDCAP_SQUARE: i32 = 1i32;
@@ -2306,9 +2036,6 @@ impl Default for ENGSAFESEMAPHORE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENGSAFESEMAPHORE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENG_DEVICE_ATTRIBUTE(pub i32);
@@ -2322,9 +2049,6 @@ impl Default for ENG_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ENG_EVENT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ENG_FNT_CACHE_READ_FAULT: u32 = 1u32;
 pub const ENG_FNT_CACHE_WRITE_FAULT: u32 = 2u32;
@@ -2348,9 +2072,6 @@ impl Default for ENG_TIME_FIELDS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENG_TIME_FIELDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENUMRECTS {
@@ -2361,9 +2082,6 @@ impl Default for ENUMRECTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ENUMRECTS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EngNumberOfProcessors: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(2i32);
 pub const EngOptimumAvailableSystemMemory: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(4i32);
@@ -2408,9 +2126,6 @@ impl Default for FD_DEVICEMETRICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FD_DEVICEMETRICS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FD_ERROR: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2424,9 +2139,6 @@ impl Default for FD_GLYPHATTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FD_GLYPHATTR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2442,9 +2154,6 @@ impl Default for FD_GLYPHSET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FD_GLYPHSET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FD_KERNINGPAIR {
@@ -2456,9 +2165,6 @@ impl Default for FD_KERNINGPAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FD_KERNINGPAIR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2472,9 +2178,6 @@ impl Default for FD_LIGATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FD_LIGATURE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FD_NEGATIVE_FONT: i32 = 1i32;
 #[repr(C)]
@@ -2492,10 +2195,6 @@ impl Default for FD_XFORM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FD_XFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2511,10 +2210,6 @@ impl Default for FD_XFORM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FD_XFORM {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FF_IGNORED_SIGNATURE: u32 = 2u32;
 pub const FF_SIGNATURE_VERIFIED: u32 = 1u32;
 #[repr(C)]
@@ -2529,10 +2224,6 @@ impl Default for FLOATOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FLOATOBJ {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -2551,10 +2242,6 @@ impl Default for FLOATOBJ_XFORM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FLOATOBJ_XFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2572,10 +2259,6 @@ impl Default for FLOATOBJ_XFORM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FLOATOBJ_XFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -2589,10 +2272,6 @@ impl Default for FLOAT_LONG {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FLOAT_LONG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2605,10 +2284,6 @@ impl Default for FLOAT_LONG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FLOAT_LONG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FL_NONPAGED_MEMORY: u32 = 2u32;
 pub const FL_NON_SESSION: u32 = 4u32;
@@ -2676,9 +2351,6 @@ impl Default for FONTDIFF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FONTDIFF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FONTINFO {
@@ -2694,9 +2366,6 @@ impl Default for FONTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FONTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2717,9 +2386,6 @@ impl Default for FONTOBJ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FONTOBJ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FONTSIM {
@@ -2731,9 +2397,6 @@ impl Default for FONTSIM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FONTSIM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
@@ -2747,10 +2410,6 @@ impl Default for FONT_IMAGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Console")]
-impl windows_core::TypeKind for FONT_IMAGE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FO_ATTR_MODE_ROTATE: u32 = 1u32;
 pub const FO_CFF: u32 = 1048576u32;
@@ -2791,10 +2450,6 @@ impl Default for FSCNTL_SCREEN_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Console")]
-impl windows_core::TypeKind for FSCNTL_SCREEN_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2808,10 +2463,6 @@ impl Default for FSVIDEO_COPY_FRAME_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Console")]
-impl windows_core::TypeKind for FSVIDEO_COPY_FRAME_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSVIDEO_CURSOR_POSITION {
@@ -2823,9 +2474,6 @@ impl Default for FSVIDEO_CURSOR_POSITION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSVIDEO_CURSOR_POSITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSVIDEO_MODE_INFORMATION {
@@ -2836,9 +2484,6 @@ impl Default for FSVIDEO_MODE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FSVIDEO_MODE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
@@ -2853,10 +2498,6 @@ impl Default for FSVIDEO_REVERSE_MOUSE_POINTER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Console")]
-impl windows_core::TypeKind for FSVIDEO_REVERSE_MOUSE_POINTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2869,10 +2510,6 @@ impl Default for FSVIDEO_SCREEN_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Console")]
-impl windows_core::TypeKind for FSVIDEO_SCREEN_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
@@ -2887,10 +2524,6 @@ impl Default for FSVIDEO_WRITE_TO_FRAME_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Console")]
-impl windows_core::TypeKind for FSVIDEO_WRITE_TO_FRAME_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GAMMARAMP {
@@ -2902,9 +2535,6 @@ impl Default for GAMMARAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GAMMARAMP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2918,9 +2548,6 @@ impl Default for GAMMA_RAMP_DXGI_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GAMMA_RAMP_DXGI_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GAMMA_RAMP_RGB {
@@ -2933,9 +2560,6 @@ impl Default for GAMMA_RAMP_RGB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GAMMA_RAMP_RGB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GAMMA_RAMP_RGB256x3x16 {
@@ -2947,9 +2571,6 @@ impl Default for GAMMA_RAMP_RGB256x3x16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GAMMA_RAMP_RGB256x3x16 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GCAPS2_ACC_DRIVER: u32 = 32768u32;
 pub const GCAPS2_ALPHACURSOR: u32 = 32u32;
@@ -3052,9 +2673,6 @@ impl Default for GDIINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GDIINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GDI_DRIVER_VERSION: u32 = 16384u32;
 pub const GETCONNECTEDIDS_SOURCE: u32 = 1u32;
 pub const GETCONNECTEDIDS_TARGET: u32 = 0u32;
@@ -3069,9 +2687,6 @@ impl Default for GLYPHBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GLYPHBITS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3091,9 +2706,6 @@ impl Default for GLYPHDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GLYPHDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union GLYPHDEF {
@@ -3104,9 +2716,6 @@ impl Default for GLYPHDEF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GLYPHDEF {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3119,9 +2728,6 @@ impl Default for GLYPHPOS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GLYPHPOS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GS_16BIT_HANDLES: u32 = 4u32;
 pub const GS_8BIT_HANDLES: u32 = 2u32;
@@ -3408,9 +3014,6 @@ impl Default for IFIEXTRA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IFIEXTRA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3482,11 +3085,6 @@ impl Default for IFIMETRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for IFIMETRICS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3560,11 +3158,6 @@ impl Default for IFIMETRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for IFIMETRICS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IGRF_RGB_256BYTES: u32 = 0u32;
 pub const IGRF_RGB_256WORDS: u32 = 1u32;
@@ -3680,9 +3273,6 @@ impl Default for INDIRECT_DISPLAY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INDIRECT_DISPLAY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INDIRECT_DISPLAY_INFO_FLAGS_CREATED_IDDCX_ADAPTER: u32 = 1u32;
 pub const IOCTL_COLORSPACE_TRANSFORM_QUERY_TARGET_CAPS: u32 = 2297856u32;
@@ -3886,9 +3476,6 @@ impl Default for LIGATURE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LIGATURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -3908,10 +3495,6 @@ impl Default for LINEATTRS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for LINEATTRS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -3930,10 +3513,6 @@ impl Default for LINEATTRS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for LINEATTRS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MAXCHARSETS: u32 = 16u32;
 pub const MAX_PACKET_COUNT: u32 = 128u32;
@@ -4017,9 +3596,6 @@ impl Default for MC_TIMING_REPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MC_TIMING_REPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MC_VCP_CODE_TYPE(pub i32);
@@ -4052,9 +3628,6 @@ impl Default for MIPI_DSI_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIPI_DSI_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIPI_DSI_PACKET {
@@ -4068,9 +3641,6 @@ impl Default for MIPI_DSI_PACKET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIPI_DSI_PACKET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MIPI_DSI_PACKET_0 {
@@ -4082,9 +3652,6 @@ impl Default for MIPI_DSI_PACKET_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIPI_DSI_PACKET_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIPI_DSI_PACKET_0_0 {
@@ -4094,9 +3661,6 @@ impl Default for MIPI_DSI_PACKET_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MIPI_DSI_PACKET_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4109,9 +3673,6 @@ impl Default for MIPI_DSI_PACKET_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIPI_DSI_PACKET_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIPI_DSI_PACKET_1_0 {
@@ -4122,9 +3683,6 @@ impl Default for MIPI_DSI_PACKET_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MIPI_DSI_PACKET_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4137,9 +3695,6 @@ impl Default for MIPI_DSI_RESET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIPI_DSI_RESET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MIPI_DSI_RESET_0 {
@@ -4151,9 +3706,6 @@ impl Default for MIPI_DSI_RESET_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIPI_DSI_RESET_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIPI_DSI_RESET_0_0 {
@@ -4163,9 +3715,6 @@ impl Default for MIPI_DSI_RESET_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MIPI_DSI_RESET_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4185,9 +3734,6 @@ impl Default for MIPI_DSI_TRANSMISSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIPI_DSI_TRANSMISSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIPI_DSI_TRANSMISSION_0 {
@@ -4197,9 +3743,6 @@ impl Default for MIPI_DSI_TRANSMISSION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MIPI_DSI_TRANSMISSION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MS_CDDDEVICEBITMAP: u32 = 4u32;
 pub const MS_NOTSYSTEMMEMORY: u32 = 1u32;
@@ -4279,9 +3822,6 @@ impl Default for OUTPUT_WIRE_FORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OUTPUT_WIRE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PALOBJ {
@@ -4291,9 +3831,6 @@ impl Default for PALOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PALOBJ {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PAL_BGR: u32 = 8u32;
 pub const PAL_BITFIELDS: u32 = 2u32;
@@ -4313,9 +3850,6 @@ impl Default for PANEL_BRIGHTNESS_SENSOR_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PANEL_BRIGHTNESS_SENSOR_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PANEL_BRIGHTNESS_SENSOR_DATA_0 {
@@ -4327,9 +3861,6 @@ impl Default for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
@@ -4339,9 +3870,6 @@ impl Default for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4355,9 +3883,6 @@ impl Default for PANEL_GET_BACKLIGHT_REDUCTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PANEL_GET_BACKLIGHT_REDUCTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PANEL_GET_BRIGHTNESS {
@@ -4368,9 +3893,6 @@ impl Default for PANEL_GET_BRIGHTNESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PANEL_GET_BRIGHTNESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4383,9 +3905,6 @@ impl Default for PANEL_GET_BRIGHTNESS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PANEL_GET_BRIGHTNESS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PANEL_GET_BRIGHTNESS_0_0 {
@@ -4396,9 +3915,6 @@ impl Default for PANEL_GET_BRIGHTNESS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PANEL_GET_BRIGHTNESS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4411,9 +3927,6 @@ impl Default for PANEL_QUERY_BRIGHTNESS_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PANEL_QUERY_BRIGHTNESS_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PANEL_QUERY_BRIGHTNESS_CAPS_0 {
@@ -4425,9 +3938,6 @@ impl Default for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
@@ -4437,9 +3947,6 @@ impl Default for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4452,9 +3959,6 @@ impl Default for PANEL_QUERY_BRIGHTNESS_RANGES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PANEL_QUERY_BRIGHTNESS_RANGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PANEL_QUERY_BRIGHTNESS_RANGES_0 {
@@ -4466,9 +3970,6 @@ impl Default for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PANEL_SET_BACKLIGHT_OPTIMIZATION {
@@ -4478,9 +3979,6 @@ impl Default for PANEL_SET_BACKLIGHT_OPTIMIZATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PANEL_SET_BACKLIGHT_OPTIMIZATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4493,9 +3991,6 @@ impl Default for PANEL_SET_BRIGHTNESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PANEL_SET_BRIGHTNESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PANEL_SET_BRIGHTNESS_0 {
@@ -4506,9 +4001,6 @@ impl Default for PANEL_SET_BRIGHTNESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PANEL_SET_BRIGHTNESS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4522,9 +4014,6 @@ impl Default for PANEL_SET_BRIGHTNESS_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PANEL_SET_BRIGHTNESS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PANEL_SET_BRIGHTNESS_STATE {
@@ -4534,9 +4023,6 @@ impl Default for PANEL_SET_BRIGHTNESS_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PANEL_SET_BRIGHTNESS_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4549,9 +4035,6 @@ impl Default for PANEL_SET_BRIGHTNESS_STATE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PANEL_SET_BRIGHTNESS_STATE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PANEL_SET_BRIGHTNESS_STATE_0_0 {
@@ -4561,9 +4044,6 @@ impl Default for PANEL_SET_BRIGHTNESS_STATE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PANEL_SET_BRIGHTNESS_STATE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4577,9 +4057,6 @@ impl Default for PATHDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PATHDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PATHOBJ {
@@ -4590,9 +4067,6 @@ impl Default for PATHOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PATHOBJ {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PD_BEGINSUBPATH: u32 = 1u32;
 pub const PD_BEZIERS: u32 = 16u32;
@@ -4611,9 +4085,6 @@ impl Default for PERBANDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERBANDINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PFN = Option<unsafe extern "system" fn() -> isize>;
 pub type PFN_DrvAccumulateD3DDirtyRect = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO) -> super::super::Foundation::BOOL>;
@@ -4738,9 +4209,6 @@ impl Default for PHYSICAL_MONITOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_MONITOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
 pub const PLANAR_HC: u32 = 1u32;
 #[repr(C)]
@@ -4756,10 +4224,6 @@ impl Default for POINTE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for POINTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4773,10 +4237,6 @@ impl Default for POINTE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for POINTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTFIX {
@@ -4788,9 +4248,6 @@ impl Default for POINTFIX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POINTFIX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTQF {
@@ -4801,9 +4258,6 @@ impl Default for POINTQF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POINTQF {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PO_ALL_INTEGERS: u32 = 4u32;
 pub const PO_BEZIERS: u32 = 1u32;
@@ -4910,9 +4364,6 @@ impl Default for RECTFX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RECTFX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RUN {
@@ -4923,9 +4374,6 @@ impl Default for RUN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RUN {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SDC_ALLOW_CHANGES: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(1024u32);
 pub const SDC_ALLOW_PATH_ORDER_CHANGES: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(8192u32);
@@ -4956,9 +4404,6 @@ impl Default for SET_ACTIVE_COLOR_PROFILE_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SET_ACTIVE_COLOR_PROFILE_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5044,9 +4489,6 @@ impl Default for STROBJ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STROBJ {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STYPE_BITMAP: i32 = 0i32;
 pub const STYPE_DEVBITMAP: i32 = 3i32;
 #[repr(C)]
@@ -5071,9 +4513,6 @@ impl Default for SURFOBJ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SURFOBJ {
-    type TypeKind = windows_core::CopyType;
-}
 pub const S_INIT: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5086,9 +4525,6 @@ impl Default for Sources {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for Sources {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TC_PATHOBJ: u32 = 2u32;
 pub const TC_RECTANGLES: u32 = 0u32;
@@ -5107,9 +4543,6 @@ impl Default for TYPE1_FONT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TYPE1_FONT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VGA_CHAR {
@@ -5120,9 +4553,6 @@ impl Default for VGA_CHAR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VGA_CHAR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5156,9 +4586,6 @@ impl Default for VIDEOPARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEOPARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_BANK_SELECT {
@@ -5181,9 +4608,6 @@ impl Default for VIDEO_BANK_SELECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_BANK_SELECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIDEO_BANK_TYPE(pub i32);
@@ -5199,9 +4623,6 @@ impl Default for VIDEO_BRIGHTNESS_POLICY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_BRIGHTNESS_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_BRIGHTNESS_POLICY_0 {
@@ -5212,9 +4633,6 @@ impl Default for VIDEO_BRIGHTNESS_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_BRIGHTNESS_POLICY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5228,9 +4646,6 @@ impl Default for VIDEO_CLUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_CLUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIDEO_CLUT_0 {
@@ -5241,9 +4656,6 @@ impl Default for VIDEO_CLUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_CLUT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5257,9 +4669,6 @@ impl Default for VIDEO_CLUTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_CLUTDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5288,9 +4697,6 @@ impl Default for VIDEO_COLOR_CAPABILITIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_COLOR_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_COLOR_LUT_DATA {
@@ -5302,9 +4708,6 @@ impl Default for VIDEO_COLOR_LUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_COLOR_LUT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_PRIVATEFORMAT: u32 = 2147483648u32;
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_RGB256WORDS: u32 = 1u32;
@@ -5323,9 +4726,6 @@ impl Default for VIDEO_CURSOR_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_CURSOR_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_CURSOR_POSITION {
@@ -5336,9 +4736,6 @@ impl Default for VIDEO_CURSOR_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_CURSOR_POSITION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VIDEO_DEVICE_COLOR: u32 = 1u32;
 pub const VIDEO_DEVICE_NAME: windows_core::PCSTR = windows_core::s!("DISPLAY%d");
@@ -5352,9 +4749,6 @@ impl Default for VIDEO_DEVICE_SESSION_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_DEVICE_SESSION_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VIDEO_DUALVIEW_PRIMARY: u32 = 2147483648u32;
 pub const VIDEO_DUALVIEW_REMOVABLE: u32 = 1u32;
@@ -5370,9 +4764,6 @@ impl Default for VIDEO_HARDWARE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_HARDWARE_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5413,9 +4804,6 @@ impl Default for VIDEO_HARDWARE_STATE_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_HARDWARE_STATE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_LOAD_FONT_INFORMATION {
@@ -5429,9 +4817,6 @@ impl Default for VIDEO_LOAD_FONT_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_LOAD_FONT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_LUT_RGB256WORDS {
@@ -5444,9 +4829,6 @@ impl Default for VIDEO_LUT_RGB256WORDS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_LUT_RGB256WORDS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VIDEO_MAX_REASON: u32 = 9u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5457,9 +4839,6 @@ impl Default for VIDEO_MEMORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_MEMORY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5474,9 +4853,6 @@ impl Default for VIDEO_MEMORY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_MEMORY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_MODE {
@@ -5486,9 +4862,6 @@ impl Default for VIDEO_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_MODE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VIDEO_MODE_ANIMATE_START: u32 = 8u32;
 pub const VIDEO_MODE_ANIMATE_UPDATE: u32 = 16u32;
@@ -5526,9 +4899,6 @@ impl Default for VIDEO_MODE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_MODE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VIDEO_MODE_INTERLACED: u32 = 16u32;
 pub const VIDEO_MODE_LINEAR: u32 = 256u32;
 pub const VIDEO_MODE_MANAGED_PALETTE: u32 = 8u32;
@@ -5549,9 +4919,6 @@ impl Default for VIDEO_MONITOR_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_MONITOR_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_NUM_MODES {
@@ -5562,9 +4929,6 @@ impl Default for VIDEO_NUM_MODES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_NUM_MODES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VIDEO_OPTIONAL_GAMMET_TABLE: u32 = 2u32;
 #[repr(C)]
@@ -5578,9 +4942,6 @@ impl Default for VIDEO_PALETTE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_PALETTE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5612,9 +4973,6 @@ impl Default for VIDEO_PERFORMANCE_COUNTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_PERFORMANCE_COUNTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_POINTER_ATTRIBUTES {
@@ -5632,9 +4990,6 @@ impl Default for VIDEO_POINTER_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_POINTER_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_POINTER_CAPABILITIES {
@@ -5649,9 +5004,6 @@ impl Default for VIDEO_POINTER_CAPABILITIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_POINTER_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_POINTER_POSITION {
@@ -5662,9 +5014,6 @@ impl Default for VIDEO_POINTER_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_POINTER_POSITION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5677,9 +5026,6 @@ impl Default for VIDEO_POWER_MANAGEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_POWER_MANAGEMENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5696,9 +5042,6 @@ impl Default for VIDEO_PUBLIC_ACCESS_RANGES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_PUBLIC_ACCESS_RANGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_QUERY_PERFORMANCE_COUNTER {
@@ -5709,9 +5052,6 @@ impl Default for VIDEO_QUERY_PERFORMANCE_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_QUERY_PERFORMANCE_COUNTER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VIDEO_REASON_ALLOCATION: u32 = 6u32;
 pub const VIDEO_REASON_CONFIGURATION: u32 = 9u32;
@@ -5733,9 +5073,6 @@ impl Default for VIDEO_REGISTER_VDM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_REGISTER_VDM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_SHARE_MEMORY {
@@ -5749,9 +5086,6 @@ impl Default for VIDEO_SHARE_MEMORY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_SHARE_MEMORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_SHARE_MEMORY_INFORMATION {
@@ -5763,9 +5097,6 @@ impl Default for VIDEO_SHARE_MEMORY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_SHARE_MEMORY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VIDEO_STATE_NON_STANDARD_VGA: u32 = 1u32;
 pub const VIDEO_STATE_PACKED_CHAIN4_MODE: u32 = 4u32;
@@ -5780,9 +5111,6 @@ impl Default for VIDEO_VDM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEO_VDM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_WIN32K_CALLBACKS {
@@ -5796,9 +5124,6 @@ impl Default for VIDEO_WIN32K_CALLBACKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_WIN32K_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5816,9 +5141,6 @@ impl Default for VIDEO_WIN32K_CALLBACKS_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEO_WIN32K_CALLBACKS_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5859,9 +5181,6 @@ impl Default for WCRUN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WCRUN {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WINDDI_MAXSETPALETTECOLORINDEX: u32 = 255u32;
 pub const WINDDI_MAXSETPALETTECOLORS: u32 = 256u32;
 pub const WINDDI_MAX_BROADCAST_CONTEXT: u32 = 64u32;
@@ -5877,9 +5196,6 @@ impl Default for WNDOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WNDOBJ {
-    type TypeKind = windows_core::CopyType;
 }
 pub type WNDOBJCHANGEPROC = Option<unsafe extern "system" fn(pwo: *mut WNDOBJ, fl: u32)>;
 pub const WNDOBJ_SETUP: u32 = 4354u32;
@@ -5921,10 +5237,6 @@ impl Default for XFORML {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for XFORML {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5942,10 +5254,6 @@ impl Default for XFORML {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for XFORML {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XFORMOBJ {
@@ -5955,9 +5263,6 @@ impl Default for XFORMOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XFORMOBJ {
-    type TypeKind = windows_core::CopyType;
 }
 pub const XF_INV_FXTOL: i32 = 3i32;
 pub const XF_INV_LTOL: i32 = 1i32;
@@ -5977,9 +5282,6 @@ impl Default for XLATEOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XLATEOBJ {
-    type TypeKind = windows_core::CopyType;
 }
 pub const XO_DESTBITFIELDS: u32 = 5u32;
 pub const XO_DESTDCPALETTE: u32 = 3u32;

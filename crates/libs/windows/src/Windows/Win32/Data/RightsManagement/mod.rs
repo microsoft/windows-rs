@@ -674,9 +674,6 @@ impl Default for DRMBOUNDLICENSEPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRMBOUNDLICENSEPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
 pub type DRMCALLBACK = Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: windows_core::HRESULT, param2: *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub const DRMCALLBACKVERSION: u32 = 1u32;
@@ -709,9 +706,6 @@ impl Default for DRMID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRMID {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DRMIDVERSION: u32 = 0u32;
 pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
@@ -750,9 +744,6 @@ impl Default for DRM_ACTSERV_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRM_ACTSERV_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DRM_ADD_LICENSE_NOPERSIST: u32 = 0u32;
 pub const DRM_ADD_LICENSE_PERSIST: u32 = 1u32;
 pub const DRM_AILT_CANCEL: u32 = 4u32;
@@ -777,9 +768,6 @@ impl Default for DRM_CLIENT_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRM_CLIENT_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DRM_DEFAULTGROUPIDTYPE_PASSPORT: windows_core::PCWSTR = windows_core::w!("PassportAuthProvider");
 pub const DRM_DEFAULTGROUPIDTYPE_WINDOWSAUTH: windows_core::PCWSTR = windows_core::w!("WindowsAuthProvider");
@@ -819,9 +807,6 @@ impl Default for DRM_LICENSE_ACQ_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRM_LICENSE_ACQ_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2u32;
 pub const DRM_LOCKBOXTYPE_DEFAULT: u32 = 2u32;

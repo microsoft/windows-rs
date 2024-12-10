@@ -17,9 +17,6 @@ impl Default for CONNECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONNECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONNECTIONLIST {
@@ -30,9 +27,6 @@ impl Default for CONNECTIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONNECTIONLIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CONN_DST_ATTENUATION: u32 = 1u32;
 pub const CONN_DST_CENTER: u32 = 18u32;
@@ -130,9 +124,6 @@ impl Default for DLSHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DLSHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DLSID {
@@ -145,9 +136,6 @@ impl Default for DLSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DLSID {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DLSID_GMInHardware: windows_core::GUID = windows_core::GUID::from_u128(0x178f2f24_c364_11d1_a760_0000f875ac12);
 pub const DLSID_GSInHardware: windows_core::GUID = windows_core::GUID::from_u128(0x178f2f25_c364_11d1_a760_0000f875ac12);
@@ -168,9 +156,6 @@ impl Default for DLSVERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DLSVERSION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DLS_CDL_ADD: u32 = 4u32;
 pub const DLS_CDL_AND: u32 = 1u32;
@@ -203,9 +188,6 @@ impl Default for DMUS_ARTICPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_ARTICPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_ARTICULATION {
@@ -216,9 +198,6 @@ impl Default for DMUS_ARTICULATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_ARTICULATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -232,9 +211,6 @@ impl Default for DMUS_ARTICULATION2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_ARTICULATION2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_BUFFERDESC {
@@ -247,9 +223,6 @@ impl Default for DMUS_BUFFERDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_BUFFERDESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DMUS_CLOCKF_GLOBAL: u32 = 1u32;
 #[repr(C)]
@@ -265,9 +238,6 @@ impl Default for DMUS_CLOCKINFO7 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_CLOCKINFO7 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_CLOCKINFO8 {
@@ -281,9 +251,6 @@ impl Default for DMUS_CLOCKINFO8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_CLOCKINFO8 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -301,9 +268,6 @@ impl Default for DMUS_COPYRIGHT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_COPYRIGHT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DMUS_DEFAULT_SIZE_OFFSETTABLE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -317,9 +281,6 @@ impl Default for DMUS_DOWNLOADINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_DOWNLOADINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DMUS_DOWNLOADINFO_INSTRUMENT: u32 = 1u32;
 pub const DMUS_DOWNLOADINFO_INSTRUMENT2: u32 = 3u32;
@@ -344,9 +305,6 @@ impl Default for DMUS_EVENTHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_EVENTHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DMUS_EVENT_STRUCTURED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -360,9 +318,6 @@ impl Default for DMUS_EXTENSIONCHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_EXTENSIONCHUNK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -378,9 +333,6 @@ impl Default for DMUS_INSTRUMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_INSTRUMENT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DMUS_INSTRUMENT_GM_INSTRUMENT: u32 = 1u32;
 #[repr(C)]
@@ -398,9 +350,6 @@ impl Default for DMUS_LFOPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_LFOPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DMUS_MAX_DESCRIPTION: u32 = 128u32;
 pub const DMUS_MAX_DRIVER: u32 = 128u32;
 pub const DMUS_MIN_DATA_SIZE: u32 = 4u32;
@@ -414,9 +363,6 @@ impl Default for DMUS_MSCPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_MSCPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_NOTERANGE {
@@ -428,9 +374,6 @@ impl Default for DMUS_NOTERANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_NOTERANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_OFFSETTABLE {
@@ -440,9 +383,6 @@ impl Default for DMUS_OFFSETTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_OFFSETTABLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DMUS_PC_AUDIOPATH: u32 = 1024u32;
 pub const DMUS_PC_DIRECTSOUND: u32 = 128u32;
@@ -475,9 +415,6 @@ impl Default for DMUS_PEGPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_PEGPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_PORTCAPS {
@@ -498,9 +435,6 @@ impl Default for DMUS_PORTCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_PORTCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_PORTPARAMS7 {
@@ -517,9 +451,6 @@ impl Default for DMUS_PORTPARAMS7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_PORTPARAMS7 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -538,9 +469,6 @@ impl Default for DMUS_PORTPARAMS8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_PORTPARAMS8 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DMUS_PORTPARAMS_AUDIOCHANNELS: u32 = 4u32;
 pub const DMUS_PORTPARAMS_CHANNELGROUPS: u32 = 2u32;
@@ -573,9 +501,6 @@ impl Default for DMUS_REGION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_REGION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_SYNTHSTATS {
@@ -592,9 +517,6 @@ impl Default for DMUS_SYNTHSTATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_SYNTHSTATS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -613,9 +535,6 @@ impl Default for DMUS_SYNTHSTATS8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_SYNTHSTATS8 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DMUS_SYNTHSTATS_CPU_PER_VOICE: u32 = 4u32;
 pub const DMUS_SYNTHSTATS_FREE_MEMORY: u32 = 32u32;
@@ -639,9 +558,6 @@ impl Default for DMUS_VEGPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_VEGPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_VOICE_STATE {
@@ -652,9 +568,6 @@ impl Default for DMUS_VOICE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_VOICE_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DMUS_VOLUME_MAX: u32 = 2000u32;
 pub const DMUS_VOLUME_MIN: i32 = -20000i32;
@@ -671,9 +584,6 @@ impl Default for DMUS_WAVE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_WAVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_WAVEARTDL {
@@ -688,9 +598,6 @@ impl Default for DMUS_WAVEARTDL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_WAVEARTDL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_WAVEDATA {
@@ -702,9 +609,6 @@ impl Default for DMUS_WAVEDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMUS_WAVEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_WAVEDL {
@@ -714,9 +618,6 @@ impl Default for DMUS_WAVEDL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_WAVEDL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -730,9 +631,6 @@ impl Default for DMUS_WAVES_REVERB_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMUS_WAVES_REVERB_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSBUSID_BACK_CENTER: u32 = 8u32;
 pub const DSBUSID_BACK_LEFT: u32 = 4u32;
@@ -782,9 +680,6 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(5i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -801,9 +696,6 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(6i32);
 #[repr(C)]
@@ -822,9 +714,6 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -836,9 +725,6 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(7i32);
 #[repr(C)]
@@ -852,9 +738,6 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(8i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -866,9 +749,6 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(1i32);
 #[repr(C)]
@@ -883,9 +763,6 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -898,9 +775,6 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DSPROPSETID_DirectSoundDevice: windows_core::GUID = windows_core::GUID::from_u128(0x84624f82_25ec_11d1_a4d8_00c04fc28aca);
 #[repr(C)]
@@ -918,9 +792,6 @@ impl Default for DVAudInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVAudInfo {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DV_AUDIOMODE: u32 = 3840u32;
 pub const DV_AUDIOQU: u32 = 117440512u32;
@@ -2200,9 +2071,6 @@ impl Default for INSTHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INSTHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 = Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA, param1: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA = Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA, param1: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW = Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA, param1: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
@@ -2217,9 +2085,6 @@ impl Default for MDEVICECAPSEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MDEVICECAPSEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIDILOCALE {
@@ -2230,9 +2095,6 @@ impl Default for MIDILOCALE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MIDILOCALE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Multimedia")]
@@ -2251,10 +2113,6 @@ impl Default for MIDIOPENDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
-impl windows_core::TypeKind for MIDIOPENDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POOLCUE {
@@ -2264,9 +2122,6 @@ impl Default for POOLCUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POOLCUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2278,9 +2133,6 @@ impl Default for POOLTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POOLTABLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const POOL_CUE_NULL: i32 = -1i32;
 pub const REFRESH_F_LASTBUFFER: u32 = 1u32;
@@ -2298,9 +2150,6 @@ impl Default for RGNHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RGNHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RGNRANGE {
@@ -2311,9 +2160,6 @@ impl Default for RGNRANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RGNRANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SIZE_DVINFO: u32 = 32u32;
 #[repr(C)]
@@ -2329,9 +2175,6 @@ impl Default for WAVELINK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WAVELINK {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WAVELINK_CHANNEL_LEFT: i32 = 1i32;
 pub const WAVELINK_CHANNEL_RIGHT: i32 = 2i32;
 #[repr(C)]
@@ -2346,9 +2189,6 @@ impl Default for WLOOP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLOOP {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WLOOP_TYPE_FORWARD: u32 = 0u32;
 pub const WLOOP_TYPE_RELEASE: u32 = 2u32;
@@ -2366,7 +2206,4 @@ impl Default for WSMPL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMPL {
-    type TypeKind = windows_core::CopyType;
 }

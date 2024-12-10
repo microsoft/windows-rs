@@ -78,9 +78,6 @@ impl Default for NET_INTERFACE_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NET_INTERFACE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NET_INTERFACE_CONTEXT_TABLE {
@@ -92,9 +89,6 @@ impl Default for NET_INTERFACE_CONTEXT_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NET_INTERFACE_CONTEXT_TABLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
@@ -113,9 +107,6 @@ impl Default for WCM_BILLING_CYCLE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WCM_BILLING_CYCLE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCM_CONNECTION_COST(pub i32);
@@ -131,9 +122,6 @@ impl Default for WCM_CONNECTION_COST_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WCM_CONNECTION_COST_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WCM_CONNECTION_COST_FIXED: WCM_CONNECTION_COST = WCM_CONNECTION_COST(2i32);
 pub const WCM_CONNECTION_COST_OVERDATALIMIT: WCM_CONNECTION_COST = WCM_CONNECTION_COST(65536i32);
@@ -164,9 +152,6 @@ impl Default for WCM_DATAPLAN_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WCM_DATAPLAN_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WCM_MAX_PROFILE_NAME: u32 = 256u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -182,9 +167,6 @@ impl Default for WCM_POLICY_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WCM_POLICY_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WCM_PROFILE_INFO {
@@ -197,9 +179,6 @@ impl Default for WCM_PROFILE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WCM_PROFILE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WCM_PROFILE_INFO_LIST {
@@ -210,9 +189,6 @@ impl Default for WCM_PROFILE_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WCM_PROFILE_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -233,9 +209,6 @@ impl Default for WCM_TIME_INTERVAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WCM_TIME_INTERVAL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -247,9 +220,6 @@ impl Default for WCM_USAGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WCM_USAGE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const wcm_global_property_domain_policy: WCM_PROPERTY = WCM_PROPERTY(0i32);
 pub const wcm_global_property_minimize_policy: WCM_PROPERTY = WCM_PROPERTY(1i32);

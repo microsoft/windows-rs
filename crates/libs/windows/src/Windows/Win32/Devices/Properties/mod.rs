@@ -208,9 +208,6 @@ impl Default for DEVPROPCOMPKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVPROPCOMPKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVPROPERTY {
@@ -223,9 +220,6 @@ impl Default for DEVPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVPROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
 #[repr(transparent)]

@@ -473,10 +473,6 @@ impl Default for CONVCONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for CONVCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -503,10 +499,6 @@ impl Default for CONVINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for CONVINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -559,9 +551,6 @@ impl Default for COPYDATASTRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COPYDATASTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CP_WINANSI: i32 = 1004i32;
 pub const CP_WINNEUTRAL: i32 = 1200i32;
 pub const CP_WINUNICODE: i32 = 1200i32;
@@ -575,9 +564,6 @@ impl Default for DDEACK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DDEACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEADVISE {
@@ -588,9 +574,6 @@ impl Default for DDEADVISE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DDEADVISE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -604,9 +587,6 @@ impl Default for DDEDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DDEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDELN {
@@ -617,9 +597,6 @@ impl Default for DDELN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DDELN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -634,9 +611,6 @@ impl Default for DDEML_MSG_HOOK_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DDEML_MSG_HOOK_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEPOKE {
@@ -649,9 +623,6 @@ impl Default for DDEPOKE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DDEPOKE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEUP {
@@ -663,9 +634,6 @@ impl Default for DDEUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DDEUP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -852,9 +820,6 @@ impl Default for HSZPAIR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HSZPAIR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MAX_MONITORS: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -870,10 +835,6 @@ impl Default for METAFILEPICT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for METAFILEPICT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MF_CALLBACKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(134217728u32);
 pub const MF_CONV: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1073741824u32);
@@ -913,10 +874,6 @@ impl Default for MONCBSTRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for MONCBSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONCONVSTRUCT {
@@ -934,9 +891,6 @@ impl Default for MONCONVSTRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MONCONVSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONERRSTRUCT {
@@ -949,9 +903,6 @@ impl Default for MONERRSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MONERRSTRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -968,9 +919,6 @@ impl Default for MONHSZSTRUCTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MONHSZSTRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONHSZSTRUCTW {
@@ -985,9 +933,6 @@ impl Default for MONHSZSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MONHSZSTRUCTW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1010,9 +955,6 @@ impl Default for MONLINKSTRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MONLINKSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONMSGSTRUCT {
@@ -1029,9 +971,6 @@ impl Default for MONMSGSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MONMSGSTRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MSGF_DDEMGR: u32 = 32769u32;
 pub type PFNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;

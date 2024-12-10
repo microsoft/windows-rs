@@ -42,7 +42,3 @@ impl Default for UAL_DATA_BLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for UAL_DATA_BLOB {
-    type TypeKind = windows_core::CopyType;
-}

@@ -12725,9 +12725,6 @@ impl Default for TF_DA_COLOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TF_DA_COLOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TF_DA_COLOR_0 {
@@ -12738,9 +12735,6 @@ impl Default for TF_DA_COLOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TF_DA_COLOR_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12769,9 +12763,6 @@ impl Default for TF_DISPLAYATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TF_DISPLAYATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(0u32);
 pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(1u32);
@@ -12822,9 +12813,6 @@ impl Default for TF_HALTCOND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TF_HALTCOND {
-    type TypeKind = windows_core::CloneType;
-}
 pub const TF_HF_OBJECT: u32 = 1u32;
 pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
 pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2147483648u32);
@@ -12849,10 +12837,6 @@ impl Default for TF_INPUTPROCESSORPROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-impl windows_core::TypeKind for TF_INPUTPROCESSORPROFILE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
 pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
@@ -12887,9 +12871,6 @@ impl Default for TF_LANGBARITEMINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TF_LANGBARITEMINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TF_LANGUAGEPROFILE {
@@ -12904,9 +12885,6 @@ impl Default for TF_LANGUAGEPROFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TF_LANGUAGEPROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct TF_LBBALLOONINFO {
@@ -12917,9 +12895,6 @@ impl Default for TF_LBBALLOONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TF_LBBALLOONINFO {
-    type TypeKind = windows_core::CloneType;
 }
 pub const TF_LBI_BALLOON: u32 = 16u32;
 pub const TF_LBI_BITMAP: u32 = 8u32;
@@ -12973,9 +12948,6 @@ impl Default for TF_LMLATTELEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TF_LMLATTELEMENT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TF_LMLATTELEMENT_0 {
@@ -12985,9 +12957,6 @@ impl Default for TF_LMLATTELEMENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TF_LMLATTELEMENT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TF_LS_DASH: TF_DA_LINESTYLE = TF_DA_LINESTYLE(3i32);
 pub const TF_LS_DOT: TF_DA_LINESTYLE = TF_DA_LINESTYLE(2i32);
@@ -13021,9 +12990,6 @@ impl Default for TF_PERSISTENT_PROPERTY_HEADER_ACP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TF_POPF_ALL: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13035,9 +13001,6 @@ impl Default for TF_PRESERVEDKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TF_PRESERVEDKEY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TF_PROCESS_ATOM: windows_core::PCWSTR = windows_core::w!("_CTF_PROCESS_ATOM_");
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
@@ -13074,10 +13037,6 @@ impl Default for TF_PROPERTYVAL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for TF_PROPERTYVAL {
-    type TypeKind = windows_core::CloneType;
-}
 pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
 pub const TF_RCM_COMLESS: u32 = 1u32;
 pub const TF_RCM_HINT_COLLISION: u32 = 8u32;
@@ -13108,9 +13067,6 @@ impl Default for TF_SELECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TF_SELECTION {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TF_SELECTIONSTYLE {
@@ -13121,9 +13077,6 @@ impl Default for TF_SELECTIONSTYLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TF_SELECTIONSTYLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
 pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16u32;
@@ -13306,10 +13259,6 @@ impl Default for TS_ATTRVAL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for TS_ATTRVAL {
-    type TypeKind = windows_core::CloneType;
-}
 pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
 pub const TS_ATTR_FIND_HIDDEN: u32 = 32u32;
 pub const TS_ATTR_FIND_UPDATESTART: u32 = 4u32;
@@ -13361,9 +13310,6 @@ impl Default for TS_RUNINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TS_RUNINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TS_SD_BACKWARD: TsShiftDir = TsShiftDir(0i32);
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256u32;
@@ -13386,9 +13332,6 @@ impl Default for TS_SELECTIONSTYLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TS_SELECTIONSTYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TS_SELECTION_ACP {
@@ -13401,9 +13344,6 @@ impl Default for TS_SELECTION_ACP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TS_SELECTION_ACP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct TS_SELECTION_ANCHOR {
@@ -13415,9 +13355,6 @@ impl Default for TS_SELECTION_ANCHOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TS_SELECTION_ANCHOR {
-    type TypeKind = windows_core::CloneType;
 }
 pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
 pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
@@ -13441,9 +13378,6 @@ impl Default for TS_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TS_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TS_STRF_END: u32 = 2u32;
 pub const TS_STRF_MID: u32 = 1u32;
 pub const TS_STRF_START: u32 = 0u32;
@@ -13463,9 +13397,6 @@ impl Default for TS_TEXTCHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TS_TEXTCHANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
 #[repr(transparent)]

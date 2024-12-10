@@ -100,9 +100,6 @@ impl Default for ASSEMBLYMETADATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ASSEMBLYMETADATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ASSEMBLY_METADATA_TYPE: windows_core::PCSTR = windows_core::s!("System.Reflection.AssemblyMetadataAttribute");
 pub const ASSEMBLY_METADATA_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Reflection.AssemblyMetadataAttribute");
 pub const CLSID_CLR_v1_MetaData: windows_core::GUID = windows_core::GUID::from_u128(0x005023ca_72b1_11d3_9fc4_00c04f79a0a3);
@@ -162,9 +159,6 @@ impl Default for COR_FIELD_OFFSET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COR_FIELD_OFFSET {
-    type TypeKind = windows_core::CopyType;
-}
 pub const COR_ILEXCEPTION_CLAUSE_DEPRECATED: CorExceptionFlag = CorExceptionFlag(0i32);
 pub const COR_ILEXCEPTION_CLAUSE_DUPLICATED: CorExceptionFlag = CorExceptionFlag(8i32);
 pub const COR_ILEXCEPTION_CLAUSE_FAULT: CorExceptionFlag = CorExceptionFlag(4i32);
@@ -184,9 +178,6 @@ impl Default for COR_NATIVE_LINK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COR_NATIVE_LINK {
-    type TypeKind = windows_core::CopyType;
-}
 pub const COR_NATIVE_LINK_CUSTOM_VALUE: windows_core::PCWSTR = windows_core::w!("COMPLUS_NativeLink");
 pub const COR_NATIVE_LINK_CUSTOM_VALUE_ANSI: windows_core::PCSTR = windows_core::s!("COMPLUS_NativeLink");
 pub const COR_NATIVE_LINK_CUSTOM_VALUE_CC: u32 = 18u32;
@@ -203,9 +194,6 @@ impl Default for COR_SECATTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COR_SECATTR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COR_SUPPRESS_UNMANAGED_CODE_CHECK_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("System.Security.SuppressUnmanagedCodeSecurityAttribute");
 pub const COR_SUPPRESS_UNMANAGED_CODE_CHECK_ATTRIBUTE_ANSI: windows_core::PCSTR = windows_core::s!("System.Security.SuppressUnmanagedCodeSecurityAttribute");
@@ -231,9 +219,6 @@ impl Default for CVStruct {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CVStruct {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CeeSectionAttr(pub i64);
@@ -246,9 +231,6 @@ impl Default for CeeSectionRelocExtra {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CeeSectionRelocExtra {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -719,9 +701,6 @@ impl Default for IMAGE_COR_ILMETHOD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGE_COR_ILMETHOD_FAT {
@@ -734,9 +713,6 @@ impl Default for IMAGE_COR_ILMETHOD_FAT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_FAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_COR_ILMETHOD_SECT_EH {
@@ -747,9 +723,6 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_EH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -766,9 +739,6 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT_0 {
@@ -779,9 +749,6 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -797,10 +764,6 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -813,10 +776,6 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -832,10 +791,6 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -849,10 +804,6 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_COR_ILMETHOD_SECT_EH_FAT {
@@ -863,9 +814,6 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_EH_FAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_FAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -879,9 +827,6 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_EH_SMALL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_SMALL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGE_COR_ILMETHOD_SECT_FAT {
@@ -891,9 +836,6 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_FAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_FAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -906,9 +848,6 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_SMALL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_SMALL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGE_COR_ILMETHOD_TINY {
@@ -918,9 +857,6 @@ impl Default for IMAGE_COR_ILMETHOD_TINY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_TINY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -933,9 +869,6 @@ impl Default for IMAGE_COR_VTABLEFIXUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_COR_VTABLEFIXUP {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IMAGE_DIRECTORY_ENTRY_COMHEADER: ReplacesGeneralNumericDefines = ReplacesGeneralNumericDefines(14i32);
 windows_core::imp::define_interface!(IMapToken, IMapToken_Vtbl, 0x06a3ea8b_0225_11d1_bf72_00c04fc31e12);
@@ -4005,9 +3938,6 @@ impl Default for OSINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OSINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

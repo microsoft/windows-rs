@@ -17,9 +17,6 @@ impl Default for POINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SIZE {
@@ -30,7 +27,4 @@ impl Default for SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SIZE {
-    type TypeKind = windows_core::CopyType;
 }

@@ -30,9 +30,6 @@ impl Default for DXCoreAdapterMemoryBudget {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXCoreAdapterMemoryBudget {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
@@ -43,9 +40,6 @@ impl Default for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -69,9 +63,6 @@ impl Default for DXCoreHardwareID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXCoreHardwareID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXCoreHardwareIDParts {
@@ -85,9 +76,6 @@ impl Default for DXCoreHardwareIDParts {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXCoreHardwareIDParts {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

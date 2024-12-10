@@ -1310,9 +1310,6 @@ impl Default for RADIUS_ATTRIBUTE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RADIUS_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RADIUS_ATTRIBUTE_0 {
@@ -1323,9 +1320,6 @@ impl Default for RADIUS_ATTRIBUTE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RADIUS_ATTRIBUTE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RADIUS_ATTRIBUTE_ACCT_AUTHENTIC: ATTRIBUTEID = ATTRIBUTEID(45u32);
 pub const RADIUS_ATTRIBUTE_ACCT_DELAY_TIME: ATTRIBUTEID = ATTRIBUTEID(41u32);
@@ -1362,9 +1356,6 @@ impl Default for RADIUS_ATTRIBUTE_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RADIUS_ATTRIBUTE_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RADIUS_ATTRIBUTE_CALLBACK_ID: ATTRIBUTEID = ATTRIBUTEID(20u32);
 pub const RADIUS_ATTRIBUTE_CALLBACK_NUMBER: ATTRIBUTEID = ATTRIBUTEID(19u32);
@@ -1458,9 +1449,6 @@ impl Default for RADIUS_EXTENSION_CONTROL_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RADIUS_EXTENSION_CONTROL_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RADIUS_EXTENSION_FREE_ATTRIBUTES: windows_core::PCSTR = windows_core::s!("RadiusExtensionFreeAttributes");
 pub const RADIUS_EXTENSION_INIT: windows_core::PCSTR = windows_core::s!("RadiusExtensionInit");
 #[repr(transparent)]
@@ -1486,9 +1474,6 @@ impl Default for RADIUS_VSA_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RADIUS_VSA_FORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RAS_ATTRIBUTE_BAP_LINE_DOWN_LIMIT: ATTRIBUTEID = ATTRIBUTEID(4294967210u32);
 pub const RAS_ATTRIBUTE_BAP_LINE_DOWN_TIME: ATTRIBUTEID = ATTRIBUTEID(4294967209u32);

@@ -370,9 +370,6 @@ impl Default for WER_DUMP_CUSTOM_OPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WER_DUMP_CUSTOM_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
@@ -394,9 +391,6 @@ impl Default for WER_DUMP_CUSTOM_OPTIONS_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WER_DUMP_CUSTOM_OPTIONS_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -423,9 +417,6 @@ impl Default for WER_DUMP_CUSTOM_OPTIONS_V3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WER_DUMP_CUSTOM_OPTIONS_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WER_DUMP_MASK_START: u32 = 1u32;
 pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
 #[repr(transparent)]
@@ -443,10 +434,6 @@ impl Default for WER_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for WER_EXCEPTION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -585,9 +572,6 @@ impl Default for WER_REPORT_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WER_REPORT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WER_REPORT_INFORMATION_V3 {
@@ -606,9 +590,6 @@ impl Default for WER_REPORT_INFORMATION_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WER_REPORT_INFORMATION_V3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -631,9 +612,6 @@ impl Default for WER_REPORT_INFORMATION_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WER_REPORT_INFORMATION_V4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -658,9 +636,6 @@ impl Default for WER_REPORT_INFORMATION_V5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WER_REPORT_INFORMATION_V5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WER_REPORT_METADATA_V1 {
@@ -674,9 +649,6 @@ impl Default for WER_REPORT_METADATA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WER_REPORT_METADATA_V1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -697,9 +669,6 @@ impl Default for WER_REPORT_METADATA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WER_REPORT_METADATA_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -727,9 +696,6 @@ impl Default for WER_REPORT_METADATA_V3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WER_REPORT_METADATA_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WER_REPORT_PARAMETER {
@@ -741,9 +707,6 @@ impl Default for WER_REPORT_PARAMETER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WER_REPORT_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WER_REPORT_SIGNATURE {
@@ -754,9 +717,6 @@ impl Default for WER_REPORT_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WER_REPORT_SIGNATURE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -785,10 +745,6 @@ impl Default for WER_RUNTIME_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for WER_RUNTIME_EXCEPTION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WER_SUBMIT_ADD_REGISTERED_DATA: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(16u32);
 pub const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(4096u32);

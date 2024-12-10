@@ -101,9 +101,6 @@ impl Default for BG_AUTH_CREDENTIALS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BG_AUTH_CREDENTIALS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BG_AUTH_CREDENTIALS_UNION {
@@ -113,9 +110,6 @@ impl Default for BG_AUTH_CREDENTIALS_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BG_AUTH_CREDENTIALS_UNION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -140,9 +134,6 @@ impl Default for BG_BASIC_CREDENTIALS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BG_BASIC_CREDENTIALS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -313,9 +304,6 @@ impl Default for BG_FILE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BG_FILE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BG_FILE_PROGRESS {
@@ -328,9 +316,6 @@ impl Default for BG_FILE_PROGRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BG_FILE_PROGRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BG_FILE_RANGE {
@@ -341,9 +326,6 @@ impl Default for BG_FILE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BG_FILE_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_HTTPS_TO_HTTP: u32 = 2048u32;
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_REPORT: u32 = 256u32;
@@ -374,9 +356,6 @@ impl Default for BG_JOB_PROGRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BG_JOB_PROGRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_JOB_PROXY_USAGE(pub i32);
@@ -394,9 +373,6 @@ impl Default for BG_JOB_REPLY_PROGRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BG_JOB_REPLY_PROGRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -421,9 +397,6 @@ impl Default for BG_JOB_TIMES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BG_JOB_TIMES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -477,9 +450,6 @@ impl Default for BITS_FILE_PROPERTY_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BITS_FILE_PROPERTY_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BITS_JOB_PROPERTY_DYNAMIC_CONTENT: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(3i32);
 pub const BITS_JOB_PROPERTY_HIGH_PERFORMANCE: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(4i32);
 #[repr(transparent)]
@@ -504,9 +474,6 @@ impl Default for BITS_JOB_PROPERTY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BITS_JOB_PROPERTY_VALUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -550,9 +517,6 @@ impl Default for FILESETINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILESETINFO {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

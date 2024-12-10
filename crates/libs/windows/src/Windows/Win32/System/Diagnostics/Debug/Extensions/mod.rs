@@ -55,9 +55,6 @@ impl Default for ArrayDimension {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ArrayDimension {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BUSDATA {
@@ -73,9 +70,6 @@ impl Default for BUSDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BUSDATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CANNOT_ALLOCATE_MEMORY: u32 = 9u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -89,9 +83,6 @@ impl Default for CKCL_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CKCL_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CKCL_LISTHEAD {
@@ -102,9 +93,6 @@ impl Default for CKCL_LISTHEAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CKCL_LISTHEAD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLSID_DebugFailureAnalysisBasic: windows_core::GUID = windows_core::GUID::from_u128(0xb74eed7f_1c7d_4c1b_959f_b96dd9175aa4);
 pub const CLSID_DebugFailureAnalysisKernel: windows_core::GUID = windows_core::GUID::from_u128(0xee433078_64af_4c33_ab2f_ecad7f2a002d);
@@ -126,9 +114,6 @@ impl Default for CPU_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CPU_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CPU_INFO_v1 {
@@ -143,9 +128,6 @@ impl Default for CPU_INFO_v1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CPU_INFO_v1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CPU_INFO_v2 {
@@ -159,9 +141,6 @@ impl Default for CPU_INFO_v2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CPU_INFO_v2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CROSS_PLATFORM_MAXIMUM_PROCESSORS: u32 = 2048u32;
 pub const CURRENT_KD_SECONDARY_VERSION: u32 = 2u32;
@@ -188,10 +167,6 @@ impl Default for DBGKD_DEBUG_DATA_HEADER32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for DBGKD_DEBUG_DATA_HEADER32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -205,10 +180,6 @@ impl Default for DBGKD_DEBUG_DATA_HEADER64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for DBGKD_DEBUG_DATA_HEADER64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -233,9 +204,6 @@ impl Default for DBGKD_GET_VERSION32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DBGKD_GET_VERSION32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DBGKD_GET_VERSION64 {
@@ -258,9 +226,6 @@ impl Default for DBGKD_GET_VERSION64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DBGKD_GET_VERSION64 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DBGKD_MAJOR_BIG: DBGKD_MAJOR_TYPES = DBGKD_MAJOR_TYPES(2i32);
 pub const DBGKD_MAJOR_CE: DBGKD_MAJOR_TYPES = DBGKD_MAJOR_TYPES(10i32);
@@ -341,9 +306,6 @@ impl Default for DBG_THREAD_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DBG_THREAD_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEBUG_ADDSYNTHMOD_DEFAULT: u32 = 0u32;
 pub const DEBUG_ADDSYNTHMOD_ZEROBASE: u32 = 1u32;
 pub const DEBUG_ADDSYNTHSYM_DEFAULT: u32 = 0u32;
@@ -370,9 +332,6 @@ impl Default for DEBUG_ANALYSIS_PROCESSOR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_ANALYSIS_PROCESSOR_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_ANY_ID: u32 = 4294967295u32;
 pub const DEBUG_ASMOPT_DEFAULT: u32 = 0u32;
@@ -420,9 +379,6 @@ impl Default for DEBUG_BREAKPOINT_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_BREAKPOINT_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEBUG_BREAKPOINT_TIME: u32 = 2u32;
 pub const DEBUG_BREAK_EXECUTE: u32 = 4u32;
 pub const DEBUG_BREAK_IO: u32 = 8u32;
@@ -441,9 +397,6 @@ impl Default for DEBUG_CACHED_SYMBOL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_CACHED_SYMBOL_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_CDS_ALL: u32 = 4294967295u32;
 pub const DEBUG_CDS_DATA: u32 = 2u32;
@@ -498,9 +451,6 @@ impl Default for DEBUG_CLIENT_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_CLIENT_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEBUG_CLIENT_KD: u32 = 5u32;
 pub const DEBUG_CLIENT_NTKD: u32 = 3u32;
 pub const DEBUG_CLIENT_NTSD: u32 = 2u32;
@@ -531,9 +481,6 @@ impl Default for DEBUG_CPU_MICROCODE_VERSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_CPU_MICROCODE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_CPU_SPEED_INFO {
@@ -547,9 +494,6 @@ impl Default for DEBUG_CPU_SPEED_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_CPU_SPEED_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_CREATE_PROCESS_OPTIONS {
@@ -562,9 +506,6 @@ impl Default for DEBUG_CREATE_PROCESS_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_CREATE_PROCESS_OPTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_CSS_ALL: u32 = 4294967295u32;
 pub const DEBUG_CSS_COLLAPSE_CHILDREN: u32 = 64u32;
@@ -723,9 +664,6 @@ impl Default for DEBUG_DECODE_ERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_DECODE_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_DEVICE_OBJECT_INFO {
@@ -742,9 +680,6 @@ impl Default for DEBUG_DEVICE_OBJECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_DEVICE_OBJECT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_DISASM_EFFECTIVE_ADDRESS: u32 = 1u32;
 pub const DEBUG_DISASM_MATCHING_SYMBOLS: u32 = 2u32;
@@ -766,9 +701,6 @@ impl Default for DEBUG_DRIVER_OBJECT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_DRIVER_OBJECT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_DRIVER_OBJECT_INFO_0 {
@@ -780,9 +712,6 @@ impl Default for DEBUG_DRIVER_OBJECT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_DRIVER_OBJECT_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_DUMP_ACTIVE: u32 = 1030u32;
 pub const DEBUG_DUMP_DEFAULT: u32 = 1025u32;
@@ -850,9 +779,6 @@ impl Default for DEBUG_EVENT_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_EVENT_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEBUG_EVENT_CREATE_PROCESS: u32 = 16u32;
 pub const DEBUG_EVENT_CREATE_THREAD: u32 = 4u32;
 pub const DEBUG_EVENT_EXCEPTION: u32 = 2u32;
@@ -877,9 +803,6 @@ impl Default for DEBUG_EXCEPTION_FILTER_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_EXCEPTION_FILTER_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_EXECUTE_DEFAULT: u32 = 0u32;
 pub const DEBUG_EXECUTE_ECHO: u32 = 1u32;
@@ -1796,9 +1719,6 @@ impl Default for DEBUG_GET_TEXT_COMPLETIONS_IN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_GET_TEXT_COMPLETIONS_IN {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEBUG_GET_TEXT_COMPLETIONS_IS_DOT_COMMAND: u32 = 1u32;
 pub const DEBUG_GET_TEXT_COMPLETIONS_IS_EXTENSION_COMMAND: u32 = 2u32;
 pub const DEBUG_GET_TEXT_COMPLETIONS_IS_SYMBOL: u32 = 4u32;
@@ -1818,9 +1738,6 @@ impl Default for DEBUG_GET_TEXT_COMPLETIONS_OUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_GET_TEXT_COMPLETIONS_OUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_GSEL_ALLOW_HIGHER: u32 = 4u32;
 pub const DEBUG_GSEL_ALLOW_LOWER: u32 = 2u32;
@@ -1842,9 +1759,6 @@ impl Default for DEBUG_HANDLE_DATA_BASIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_HANDLE_DATA_BASIC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_HANDLE_DATA_TYPE_ALL_HANDLE_OPERATIONS: u32 = 10u32;
 pub const DEBUG_HANDLE_DATA_TYPE_BASIC: u32 = 0u32;
@@ -1889,9 +1803,6 @@ impl Default for DEBUG_IRP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_IRP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_IRP_STACK_INFO {
@@ -1906,9 +1817,6 @@ impl Default for DEBUG_IRP_STACK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_IRP_STACK_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_KERNEL_ACTIVE_DUMP: u32 = 1030u32;
 pub const DEBUG_KERNEL_CONNECTION: u32 = 0u32;
@@ -1934,9 +1842,6 @@ impl Default for DEBUG_LAST_EVENT_INFO_BREAKPOINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_BREAKPOINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
@@ -1948,9 +1853,6 @@ impl Default for DEBUG_LAST_EVENT_INFO_EXCEPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_EXCEPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
@@ -1960,9 +1862,6 @@ impl Default for DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1974,9 +1873,6 @@ impl Default for DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
@@ -1986,9 +1882,6 @@ impl Default for DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2002,9 +1895,6 @@ impl Default for DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
@@ -2016,9 +1906,6 @@ impl Default for DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
@@ -2028,9 +1915,6 @@ impl Default for DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_LEVEL_ASSEMBLY: u32 = 1u32;
 pub const DEBUG_LEVEL_SOURCE: u32 = 0u32;
@@ -2063,9 +1947,6 @@ impl Default for DEBUG_MODULE_AND_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_MODULE_AND_ID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEBUG_MODULE_EXE_MODULE: u32 = 4u32;
 pub const DEBUG_MODULE_EXPLICIT: u32 = 8u32;
 pub const DEBUG_MODULE_LOADED: u32 = 0u32;
@@ -2090,9 +1971,6 @@ impl Default for DEBUG_MODULE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_MODULE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEBUG_MODULE_SECONDARY: u32 = 16u32;
 pub const DEBUG_MODULE_SYM_BAD_CHECKSUM: u32 = 65536u32;
 pub const DEBUG_MODULE_SYNTHETIC: u32 = 32u32;
@@ -2112,9 +1990,6 @@ impl Default for DEBUG_OFFSET_REGION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_OFFSET_REGION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_OFFSINFO_VIRTUAL_SOURCE: u32 = 1u32;
 pub const DEBUG_OUTCBF_COMBINED_EXPLICIT_FLUSH: u32 = 1u32;
@@ -2205,9 +2080,6 @@ impl Default for DEBUG_PNP_TRIAGE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_PNP_TRIAGE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_POOLTAG_DESCRIPTION {
@@ -2221,9 +2093,6 @@ impl Default for DEBUG_POOLTAG_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_POOLTAG_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2244,9 +2113,6 @@ impl Default for DEBUG_POOL_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_POOL_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEBUG_POOL_DATA_0 {
@@ -2258,9 +2124,6 @@ impl Default for DEBUG_POOL_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_POOL_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_POOL_DATA_0_0 {
@@ -2270,9 +2133,6 @@ impl Default for DEBUG_POOL_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_POOL_DATA_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2292,9 +2152,6 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
@@ -2305,9 +2162,6 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2322,9 +2176,6 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
@@ -2337,9 +2188,6 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
@@ -2351,9 +2199,6 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2369,9 +2214,6 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
@@ -2384,9 +2226,6 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_PROCESS_DETACH_ON_EXIT: u32 = 1u32;
 pub const DEBUG_PROCESS_ONLY_THIS_PROCESS: u32 = 2u32;
@@ -2414,9 +2253,6 @@ impl Default for DEBUG_READ_USER_MINIDUMP_STREAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_READ_USER_MINIDUMP_STREAM {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEBUG_REGISTERS_ALL: u32 = 7u32;
 pub const DEBUG_REGISTERS_DEFAULT: u32 = 0u32;
 pub const DEBUG_REGISTERS_FLOAT: u32 = 4u32;
@@ -2437,9 +2273,6 @@ impl Default for DEBUG_REGISTER_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_REGISTER_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_REGISTER_SUB_REGISTER: u32 = 1u32;
 pub const DEBUG_REGSRC_DEBUGGEE: u32 = 0u32;
@@ -2528,9 +2361,6 @@ impl Default for DEBUG_SMBIOS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_SMBIOS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEBUG_SOURCE_IS_STATEMENT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2545,9 +2375,6 @@ impl Default for DEBUG_SPECIFIC_FILTER_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_SPECIFIC_FILTER_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_SRCFILE_SYMBOL_CHECKSUMINFO: u32 = 2u32;
 pub const DEBUG_SRCFILE_SYMBOL_TOKEN: u32 = 0u32;
@@ -2573,9 +2400,6 @@ impl Default for DEBUG_STACK_FRAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_STACK_FRAME {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEBUG_STACK_FRAME_ADDRESSES: u32 = 8u32;
 pub const DEBUG_STACK_FRAME_ADDRESSES_RA_ONLY: u32 = 256u32;
 pub const DEBUG_STACK_FRAME_ARCH: u32 = 16384u32;
@@ -2598,9 +2422,6 @@ impl Default for DEBUG_STACK_FRAME_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_STACK_FRAME_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_STACK_FRAME_MEMORY_USAGE: u32 = 512u32;
 pub const DEBUG_STACK_FRAME_NUMBERS: u32 = 64u32;
@@ -2653,9 +2474,6 @@ impl Default for DEBUG_SYMBOL_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_SYMBOL_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEBUG_SYMBOL_EXPANDED: u32 = 16u32;
 pub const DEBUG_SYMBOL_EXPANSION_LEVEL_MASK: u32 = 15u32;
 pub const DEBUG_SYMBOL_IS_ARGUMENT: u32 = 256u32;
@@ -2676,9 +2494,6 @@ impl Default for DEBUG_SYMBOL_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_SYMBOL_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_SYMBOL_READ_ONLY: u32 = 32u32;
 #[repr(C)]
@@ -2701,9 +2516,6 @@ impl Default for DEBUG_SYMBOL_SOURCE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_SYMBOL_SOURCE_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_SYMENT_IS_CODE: u32 = 1u32;
 pub const DEBUG_SYMENT_IS_DATA: u32 = 2u32;
@@ -2754,9 +2566,6 @@ impl Default for DEBUG_THREAD_BASIC_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_THREAD_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_TRIAGE_FOLLOWUP_INFO {
@@ -2768,9 +2577,6 @@ impl Default for DEBUG_TRIAGE_FOLLOWUP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_TRIAGE_FOLLOWUP_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2785,9 +2591,6 @@ impl Default for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2808,9 +2611,6 @@ impl Default for DEBUG_TYPED_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_TYPED_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_TYPED_DATA_IS_IN_MEMORY: u32 = 1u32;
 pub const DEBUG_TYPED_DATA_PHYSICAL_CACHED: u32 = 4u32;
@@ -2841,9 +2641,6 @@ impl Default for DEBUG_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEBUG_VALUE_0 {
@@ -2871,9 +2668,6 @@ impl Default for DEBUG_VALUE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_VALUE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_VALUE_0_0 {
@@ -2884,9 +2678,6 @@ impl Default for DEBUG_VALUE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_VALUE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2899,9 +2690,6 @@ impl Default for DEBUG_VALUE_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_VALUE_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_VALUE_0_1 {
@@ -2912,9 +2700,6 @@ impl Default for DEBUG_VALUE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEBUG_VALUE_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_VALUE_FLOAT128: u32 = 9u32;
 pub const DEBUG_VALUE_FLOAT32: u32 = 5u32;
@@ -3022,9 +2807,6 @@ impl Default for EXTSTACKTRACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXTSTACKTRACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTSTACKTRACE32 {
@@ -3038,9 +2820,6 @@ impl Default for EXTSTACKTRACE32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXTSTACKTRACE32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTSTACKTRACE64 {
@@ -3053,9 +2832,6 @@ impl Default for EXTSTACKTRACE64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EXTSTACKTRACE64 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type EXTS_JOB_PROCESS_CALLBACK = Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
 pub type EXTS_TABLE_ENTRY_CALLBACK = Option<unsafe extern "system" fn(entry: u64, context: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
@@ -3076,9 +2852,6 @@ impl Default for EXT_API_VERSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXT_API_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EXT_API_VERSION_NUMBER: u32 = 5u32;
 pub const EXT_API_VERSION_NUMBER32: u32 = 5u32;
 pub const EXT_API_VERSION_NUMBER64: u32 = 6u32;
@@ -3095,9 +2868,6 @@ impl Default for EXT_CAB_XML_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXT_CAB_XML_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXT_CAB_XML_DATA_0 {
@@ -3112,9 +2882,6 @@ impl Default for EXT_CAB_XML_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EXT_CAB_XML_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type EXT_DECODE_ERROR = Option<unsafe extern "system" fn(pdecodeerror: *mut DEBUG_DECODE_ERROR)>;
 #[repr(C)]
@@ -3138,9 +2905,6 @@ impl Default for EXT_FIND_FILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXT_FIND_FILE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EXT_FIND_FILE_ALLOW_GIVEN_PATH: u32 = 1u32;
 pub type EXT_GET_DEBUG_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: Option<IDebugClient4>, flags: u32, classid: windows_core::GUID, ppanalysis: *mut Option<IDebugFailureAnalysis2>) -> windows_core::HRESULT>;
 pub type EXT_GET_ENVIRONMENT_VARIABLE = Option<unsafe extern "system" fn(peb: u64, variable: windows_core::PCSTR, buffer: windows_core::PCSTR, buffersize: u32) -> windows_core::HRESULT>;
@@ -3158,9 +2922,6 @@ impl Default for EXT_MATCH_PATTERN_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EXT_MATCH_PATTERN_A {
-    type TypeKind = windows_core::CopyType;
 }
 pub type EXT_RELOAD_TRIAGER = Option<unsafe extern "system" fn(client: Option<IDebugClient4>) -> windows_core::HRESULT>;
 pub type EXT_TARGET_INFO = Option<unsafe extern "system" fn(client: Option<IDebugClient4>, ptargetinfo: *mut TARGET_DEBUG_INFO) -> windows_core::HRESULT>;
@@ -3219,9 +2980,6 @@ impl Default for EXT_TYPED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXT_TYPED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub type EXT_XML_DATA = Option<unsafe extern "system" fn(client: Option<IDebugClient4>, pxmpdata: *mut EXT_CAB_XML_DATA) -> windows_core::HRESULT>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3269,9 +3027,6 @@ impl Default for FA_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FA_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FA_ENTRY_TYPE(pub i32);
@@ -3303,9 +3058,6 @@ impl Default for FIELD_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FIELD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FIELD_INFO_0 {
@@ -3317,9 +3069,6 @@ impl Default for FIELD_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FIELD_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FIELD_INFO_1 {
@@ -3330,9 +3079,6 @@ impl Default for FIELD_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FIELD_INFO_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FormatBSTRString: PreferredFormat = PreferredFormat(8i32);
 pub const FormatEnumNameOnly: PreferredFormat = PreferredFormat(12i32);
@@ -3362,9 +3108,6 @@ impl Default for GET_CONTEXT_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GET_CONTEXT_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_CURRENT_PROCESS_ADDRESS {
@@ -3377,9 +3120,6 @@ impl Default for GET_CURRENT_PROCESS_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GET_CURRENT_PROCESS_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_CURRENT_THREAD_ADDRESS {
@@ -3390,9 +3130,6 @@ impl Default for GET_CURRENT_THREAD_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GET_CURRENT_THREAD_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3405,9 +3142,6 @@ impl Default for GET_EXPRESSION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GET_EXPRESSION_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3422,9 +3156,6 @@ impl Default for GET_INPUT_LINE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GET_INPUT_LINE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_PEB_ADDRESS {
@@ -3435,9 +3166,6 @@ impl Default for GET_PEB_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GET_PEB_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3451,9 +3179,6 @@ impl Default for GET_SET_SYMPATH {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GET_SET_SYMPATH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_TEB_ADDRESS {
@@ -3463,9 +3188,6 @@ impl Default for GET_TEB_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GET_TEB_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(ICodeAddressConcept, ICodeAddressConcept_Vtbl, 0xc7371568_5c78_4a00_a4ab_6ef8823184cb);
 windows_core::imp::interface_hierarchy!(ICodeAddressConcept, windows_core::IUnknown);
@@ -44925,9 +44647,6 @@ impl Default for INLINE_FRAME_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INLINE_FRAME_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INLINE_FRAME_CONTEXT_0 {
@@ -44939,9 +44658,6 @@ impl Default for INLINE_FRAME_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INLINE_FRAME_CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INSUFFICIENT_SPACE_TO_COPY: u32 = 10u32;
 #[repr(C)]
@@ -44956,9 +44672,6 @@ impl Default for IOSPACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOSPACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IOSPACE32 {
@@ -44971,9 +44684,6 @@ impl Default for IOSPACE32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOSPACE32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IOSPACE64 {
@@ -44985,9 +44695,6 @@ impl Default for IOSPACE64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IOSPACE64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -45004,9 +44711,6 @@ impl Default for IOSPACE_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOSPACE_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IOSPACE_EX32 {
@@ -45022,9 +44726,6 @@ impl Default for IOSPACE_EX32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOSPACE_EX32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IOSPACE_EX64 {
@@ -45039,9 +44740,6 @@ impl Default for IOSPACE_EX64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IOSPACE_EX64 {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IPreferredRuntimeTypeConcept, IPreferredRuntimeTypeConcept_Vtbl, 0x9d6c1d7b_a76f_4618_8068_5f76bd9a4e8a);
 windows_core::imp::interface_hierarchy!(IPreferredRuntimeTypeConcept, windows_core::IUnknown);
@@ -45250,10 +44948,6 @@ impl Default for KDDEBUGGER_DATA32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KDDEBUGGER_DATA32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -45428,10 +45122,6 @@ impl Default for KDDEBUGGER_DATA64 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KDDEBUGGER_DATA64 {
-    type TypeKind = windows_core::CopyType;
-}
 pub type KDEXTS_LOCK_CALLBACKROUTINE = Option<unsafe extern "system" fn(plock: *mut KDEXTS_LOCK_INFO, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub const KDEXTS_LOCK_CALLBACKROUTINE_DEFINED: u32 = 2u32;
 #[repr(C)]
@@ -45453,9 +45143,6 @@ impl Default for KDEXTS_LOCK_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KDEXTS_LOCK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDEXTS_PTE_INFO {
@@ -45474,9 +45161,6 @@ impl Default for KDEXTS_PTE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KDEXTS_PTE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub type KDEXT_DUMP_HANDLE_CALLBACK = Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -45492,9 +45176,6 @@ impl Default for KDEXT_FILELOCK_OWNER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KDEXT_FILELOCK_OWNER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -45512,9 +45193,6 @@ impl Default for KDEXT_HANDLE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KDEXT_HANDLE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDEXT_PROCESS_FIND_PARAMS {
@@ -45528,9 +45206,6 @@ impl Default for KDEXT_PROCESS_FIND_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KDEXT_PROCESS_FIND_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDEXT_THREAD_FIND_PARAMS {
@@ -45543,9 +45218,6 @@ impl Default for KDEXT_THREAD_FIND_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KDEXT_THREAD_FIND_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KD_SECONDARY_VERSION_AMD64_CONTEXT: u32 = 2u32;
 pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: u32 = 0u32;
@@ -45569,9 +45241,6 @@ impl Default for Location {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for Location {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LocationConstant: LocationKind = LocationKind(2i32);
 #[repr(transparent)]
@@ -45619,9 +45288,6 @@ impl Default for OS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OS_INFO_0 {
@@ -45631,9 +45297,6 @@ impl Default for OS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OS_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -45653,9 +45316,6 @@ impl Default for OS_INFO_v1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OS_INFO_v1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union OS_INFO_v1_0 {
@@ -45666,9 +45326,6 @@ impl Default for OS_INFO_v1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OS_INFO_v1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -45681,9 +45338,6 @@ impl Default for OS_INFO_v1_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OS_INFO_v1_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OS_INFO_v1_1 {
@@ -45693,9 +45347,6 @@ impl Default for OS_INFO_v1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OS_INFO_v1_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -45755,9 +45406,6 @@ impl Default for PHYSICAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL_TO_VIRTUAL {
@@ -45769,9 +45417,6 @@ impl Default for PHYSICAL_TO_VIRTUAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PHYSICAL_TO_VIRTUAL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -45785,9 +45430,6 @@ impl Default for PHYSICAL_WITH_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PHYSICAL_WITH_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PHYS_FLAG_CACHED: u32 = 1u32;
 pub const PHYS_FLAG_DEFAULT: u32 = 0u32;
@@ -45811,9 +45453,6 @@ impl Default for POINTER_SEARCH_PHYSICAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POINTER_SEARCH_PHYSICAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESSORINFO {
@@ -45824,9 +45463,6 @@ impl Default for PROCESSORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESSORINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -45844,9 +45480,6 @@ impl Default for PROCESS_COMMIT_USAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_COMMIT_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PROCESS_END: TANALYZE_RETURN = TANALYZE_RETURN(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -45860,9 +45493,6 @@ impl Default for PROCESS_NAME_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESS_NAME_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PSYM_DUMP_FIELD_CALLBACK = Option<unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut core::ffi::c_void) -> u32>;
 pub const PTR_SEARCH_NO_SYMBOL_CHECK: u32 = 2147483648u32;
@@ -45935,9 +45565,6 @@ impl Default for READCONTROLSPACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for READCONTROLSPACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct READCONTROLSPACE32 {
@@ -45950,9 +45577,6 @@ impl Default for READCONTROLSPACE32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for READCONTROLSPACE32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -45967,9 +45591,6 @@ impl Default for READCONTROLSPACE64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for READCONTROLSPACE64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct READ_WRITE_MSR {
@@ -45980,9 +45601,6 @@ impl Default for READ_WRITE_MSR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for READ_WRITE_MSR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -46002,9 +45620,6 @@ impl Default for SEARCHMEMORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEARCHMEMORY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STACK_FRAME_TYPE_IGNORE: u32 = 255u32;
 pub const STACK_FRAME_TYPE_INIT: u32 = 0u32;
@@ -46026,9 +45641,6 @@ impl Default for STACK_SRC_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STACK_SRC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STACK_SYM_FRAME_INFO {
@@ -46039,9 +45651,6 @@ impl Default for STACK_SYM_FRAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STACK_SYM_FRAME_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -46057,9 +45666,6 @@ impl Default for SYMBOL_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYMBOL_INFO_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SYMBOL_TYPE_INDEX_NOT_FOUND: u32 = 2u32;
 pub const SYMBOL_TYPE_INFO_NOT_FOUND: u32 = 3u32;
@@ -46086,9 +45692,6 @@ impl Default for SYM_DUMP_PARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYM_DUMP_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SYM_DUMP_PARAM_0 {
@@ -46099,9 +45702,6 @@ impl Default for SYM_DUMP_PARAM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYM_DUMP_PARAM_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -46132,9 +45732,6 @@ impl Default for ScriptDebugEventInformation {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ScriptDebugEventInformation {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ScriptDebugEventInformation_0 {
@@ -46146,9 +45743,6 @@ impl Default for ScriptDebugEventInformation_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ScriptDebugEventInformation_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ScriptDebugEventInformation_0_1 {
@@ -46159,9 +45753,6 @@ impl Default for ScriptDebugEventInformation_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ScriptDebugEventInformation_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ScriptDebugEventInformation_0_0 {
@@ -46171,9 +45762,6 @@ impl Default for ScriptDebugEventInformation_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ScriptDebugEventInformation_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ScriptDebugException: ScriptDebugEvent = ScriptDebugEvent(2i32);
 pub const ScriptDebugExecuting: ScriptDebugState = ScriptDebugState(2i32);
@@ -46189,9 +45777,6 @@ impl Default for ScriptDebugPosition {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ScriptDebugPosition {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -46247,9 +45832,6 @@ impl Default for TARGET_DEBUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TARGET_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TARGET_DEBUG_INFO_v1 {
@@ -46272,9 +45854,6 @@ impl Default for TARGET_DEBUG_INFO_v1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TARGET_DEBUG_INFO_v1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TARGET_DEBUG_INFO_v2 {
@@ -46293,9 +45872,6 @@ impl Default for TARGET_DEBUG_INFO_v2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TARGET_DEBUG_INFO_v2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSLATE_VIRTUAL_TO_PHYSICAL {
@@ -46306,9 +45882,6 @@ impl Default for TRANSLATE_VIRTUAL_TO_PHYSICAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TRANSLATE_VIRTUAL_TO_PHYSICAL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TRIAGE_FOLLOWUP_DEFAULT: u32 = 2u32;
 pub const TRIAGE_FOLLOWUP_FAIL: u32 = 0u32;
@@ -46342,9 +45915,6 @@ impl Default for VIRTUAL_TO_PHYSICAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_TO_PHYSICAL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VarArgsCStyle: VarArgsKind = VarArgsKind(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -46365,9 +45935,6 @@ impl Default for WDBGEXTS_CLR_DATA_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WDBGEXTS_CLR_DATA_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WDBGEXTS_DISASSEMBLE_BUFFER {
@@ -46386,9 +45953,6 @@ impl Default for WDBGEXTS_DISASSEMBLE_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WDBGEXTS_DISASSEMBLE_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WDBGEXTS_MODULE_IN_RANGE {
@@ -46402,9 +45966,6 @@ impl Default for WDBGEXTS_MODULE_IN_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WDBGEXTS_MODULE_IN_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WDBGEXTS_QUERY_INTERFACE {
@@ -46415,9 +45976,6 @@ impl Default for WDBGEXTS_QUERY_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WDBGEXTS_QUERY_INTERFACE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -46437,9 +45995,6 @@ impl Default for WDBGEXTS_THREAD_OS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WDBGEXTS_THREAD_OS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -46464,10 +46019,6 @@ impl Default for WINDBG_EXTENSION_APIS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for WINDBG_EXTENSION_APIS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -46490,10 +46041,6 @@ impl Default for WINDBG_EXTENSION_APIS32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for WINDBG_EXTENSION_APIS32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -46518,10 +46065,6 @@ impl Default for WINDBG_EXTENSION_APIS64 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for WINDBG_EXTENSION_APIS64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDBG_OLDKD_EXTENSION_APIS {
@@ -46541,9 +46084,6 @@ impl Default for WINDBG_OLDKD_EXTENSION_APIS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINDBG_OLDKD_EXTENSION_APIS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDBG_OLD_EXTENSION_APIS {
@@ -46558,9 +46098,6 @@ impl Default for WINDBG_OLD_EXTENSION_APIS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINDBG_OLD_EXTENSION_APIS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WIN_95: OS_TYPE = OS_TYPE(0i32);
 pub const WIN_98: OS_TYPE = OS_TYPE(1i32);
@@ -46588,9 +46125,6 @@ impl Default for XML_DRIVER_NODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XML_DRIVER_NODE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const _EXTSAPI_VER_: u32 = 10u32;
 pub type fnDebugFailureAnalysisCreateInstance = Option<unsafe extern "system" fn(client: Option<IDebugClient>, args: windows_core::PCWSTR, flags: u32, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;

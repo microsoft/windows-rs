@@ -240,9 +240,6 @@ impl Default for COMMCONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMMCONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMMPROP {
@@ -269,9 +266,6 @@ impl Default for COMMPROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COMMPROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -323,9 +317,6 @@ impl Default for COMMTIMEOUTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMMTIMEOUTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMM_EVENT_MASK(pub u32);
@@ -374,9 +365,6 @@ impl Default for COMSTAT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMSTAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DCB {
@@ -400,9 +388,6 @@ impl Default for DCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DCB {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -565,9 +550,6 @@ impl Default for MODEMDEVCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODEMDEVCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
@@ -696,9 +678,6 @@ impl Default for MODEMSETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MODEMSETTINGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

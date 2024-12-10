@@ -92,9 +92,6 @@ impl Default for AM_WMT_EVENT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AM_WMT_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLSID_ClientNetManager: windows_core::GUID = windows_core::GUID::from_u128(0xcd12a3ce_9c42_11d2_beed_0060082f2054);
 pub const CLSID_WMBandwidthSharing_Exclusive: windows_core::GUID = windows_core::GUID::from_u128(0xaf6060aa_5197_11d2_b6af_00c04fd908e9);
 pub const CLSID_WMBandwidthSharing_Partial: windows_core::GUID = windows_core::GUID::from_u128(0xaf6060ab_5197_11d2_b6af_00c04fd908e9);
@@ -114,9 +111,6 @@ impl Default for DRM_COPY_OPL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRM_COPY_OPL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
@@ -131,9 +125,6 @@ impl Default for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRM_OPL_OUTPUT_IDS {
@@ -144,9 +135,6 @@ impl Default for DRM_OPL_OUTPUT_IDS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRM_OPL_OUTPUT_IDS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DRM_OPL_TYPES: u32 = 1u32;
 #[repr(C)]
@@ -160,9 +148,6 @@ impl Default for DRM_OUTPUT_PROTECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRM_OUTPUT_PROTECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRM_PLAY_OPL {
@@ -175,9 +160,6 @@ impl Default for DRM_PLAY_OPL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRM_PLAY_OPL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRM_VAL16 {
@@ -187,9 +169,6 @@ impl Default for DRM_VAL16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRM_VAL16 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -201,9 +180,6 @@ impl Default for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(INSNetSourceCreator, INSNetSourceCreator_Vtbl, 0x0c0e4080_9081_11d2_beec_0060082f2054);
 windows_core::imp::interface_hierarchy!(INSNetSourceCreator, windows_core::IUnknown);
@@ -9473,9 +9449,6 @@ impl Default for WMDRM_IMPORT_INIT_STRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WMDRM_IMPORT_INIT_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1u32;
 pub const WMFORMAT_MPEG2Video: windows_core::GUID = windows_core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
 pub const WMFORMAT_Script: windows_core::GUID = windows_core::GUID::from_u128(0x5c8510f2_debe_4ca7_bba5_f07a104f8dff);
@@ -9548,10 +9521,6 @@ impl Default for WMMPEG2VIDEOINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for WMMPEG2VIDEOINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMSCRIPTFORMAT {
@@ -9561,9 +9530,6 @@ impl Default for WMSCRIPTFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WMSCRIPTFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WMSCRIPTTYPE_TwoStrings: windows_core::GUID = windows_core::GUID::from_u128(0x82f38a70_c29f_11d1_97ad_00a0c95ea850);
 pub const WMT_ACQUIRE_LICENSE: WMT_STATUS = WMT_STATUS(23i32);
@@ -9591,9 +9557,6 @@ impl Default for WMT_BUFFER_SEGMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WMT_BUFFER_SEGMENT {
-    type TypeKind = windows_core::CloneType;
-}
 pub const WMT_CLEANPOINT_ONLY: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(1i32);
 pub const WMT_CLIENT_CONNECT: WMT_STATUS = WMT_STATUS(32i32);
 pub const WMT_CLIENT_CONNECT_EX: WMT_STATUS = WMT_STATUS(37i32);
@@ -9618,9 +9581,6 @@ impl Default for WMT_COLORSPACEINFO_EXTENSION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WMT_COLORSPACEINFO_EXTENSION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WMT_CONNECTING: WMT_STATUS = WMT_STATUS(8i32);
 pub const WMT_CONTENT_ENABLER: WMT_STATUS = WMT_STATUS(51i32);
@@ -9659,9 +9619,6 @@ impl Default for WMT_FILESINK_DATA_UNIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WMT_FILESINK_DATA_UNIT {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9734,9 +9691,6 @@ impl Default for WMT_PAYLOAD_FRAGMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WMT_PAYLOAD_FRAGMENT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_PLAY_MODE(pub i32);
@@ -9804,9 +9758,6 @@ impl Default for WMT_TIMECODE_EXTENSION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WMT_TIMECODE_EXTENSION_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_TIMECODE_FRAMERATE(pub i32);
@@ -9871,9 +9822,6 @@ impl Default for WMT_VIDEOIMAGE_SAMPLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WMT_VIDEOIMAGE_SAMPLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMT_VIDEOIMAGE_SAMPLE2 {
@@ -9909,9 +9857,6 @@ impl Default for WMT_VIDEOIMAGE_SAMPLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WMT_VIDEOIMAGE_SAMPLE2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: u32 = 8u32;
 pub const WMT_VIDEOIMAGE_SAMPLE_BLENDING: u32 = 4u32;
@@ -9951,9 +9896,6 @@ impl Default for WMT_WATERMARK_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WMT_WATERMARK_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_WATERMARK_ENTRY_TYPE(pub i32);
@@ -9970,9 +9912,6 @@ impl Default for WMT_WEBSTREAM_FORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WMT_WEBSTREAM_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMT_WEBSTREAM_SAMPLE_HEADER {
@@ -9986,9 +9925,6 @@ impl Default for WMT_WEBSTREAM_SAMPLE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WMT_WEBSTREAM_SAMPLE_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WMT_WMETYPE_AUDIO: WMT_WATERMARK_ENTRY_TYPE = WMT_WATERMARK_ENTRY_TYPE(1i32);
 pub const WMT_WMETYPE_VIDEO: WMT_WATERMARK_ENTRY_TYPE = WMT_WATERMARK_ENTRY_TYPE(2i32);
@@ -10008,10 +9944,6 @@ impl Default for WMVIDEOINFOHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for WMVIDEOINFOHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -10036,10 +9968,6 @@ impl Default for WMVIDEOINFOHEADER2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for WMVIDEOINFOHEADER2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WM_ADDRESS_ACCESSENTRY {
@@ -10050,9 +9978,6 @@ impl Default for WM_ADDRESS_ACCESSENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WM_ADDRESS_ACCESSENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10070,9 +9995,6 @@ impl Default for WM_CLIENT_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WM_CLIENT_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WM_CLIENT_PROPERTIES_EX {
@@ -10085,9 +10007,6 @@ impl Default for WM_CLIENT_PROPERTIES_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WM_CLIENT_PROPERTIES_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WM_CL_INTERLACED420: u32 = 0u32;
 pub const WM_CL_PROGRESSIVE420: u32 = 1u32;
@@ -10129,9 +10048,6 @@ impl Default for WM_LEAKY_BUCKET_PAIR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WM_LEAKY_BUCKET_PAIR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WM_MAX_STREAMS: u32 = 63u32;
 pub const WM_MAX_VIDEO_STREAMS: u32 = 63u32;
 #[repr(C)]
@@ -10152,9 +10068,6 @@ impl Default for WM_MEDIA_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WM_MEDIA_TYPE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WM_PICTURE {
@@ -10168,9 +10081,6 @@ impl Default for WM_PICTURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WM_PICTURE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WM_PLAYBACK_DRC_HIGH: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(0i32);
 #[repr(transparent)]
@@ -10188,9 +10098,6 @@ impl Default for WM_PORT_NUMBER_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WM_PORT_NUMBER_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10210,9 +10117,6 @@ impl Default for WM_READER_CLIENTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WM_READER_CLIENTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WM_READER_STATISTICS {
@@ -10227,9 +10131,6 @@ impl Default for WM_READER_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WM_READER_STATISTICS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WM_SFEX_DATALOSS: WM_SFEX_TYPE = WM_SFEX_TYPE(4i32);
 pub const WM_SFEX_NOTASYNCPOINT: WM_SFEX_TYPE = WM_SFEX_TYPE(2i32);
@@ -10253,9 +10154,6 @@ impl Default for WM_STREAM_PRIORITY_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WM_STREAM_PRIORITY_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WM_STREAM_TYPE_INFO {
@@ -10266,9 +10164,6 @@ impl Default for WM_STREAM_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WM_STREAM_TYPE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -10283,9 +10178,6 @@ impl Default for WM_SYNCHRONISED_LYRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WM_SYNCHRONISED_LYRICS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WM_SampleExtensionGUID_ChromaLocation: windows_core::GUID = windows_core::GUID::from_u128(0x4c5acca0_9276_4b2c_9e4c_a0edefdd217e);
 pub const WM_SampleExtensionGUID_ColorSpaceInfo: windows_core::GUID = windows_core::GUID::from_u128(0xf79ada56_30eb_4f2b_9f7a_f24b139a1157);
@@ -10314,9 +10206,6 @@ impl Default for WM_USER_TEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WM_USER_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WM_USER_WEB_URL {
@@ -10327,9 +10216,6 @@ impl Default for WM_USER_WEB_URL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WM_USER_WEB_URL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10350,9 +10236,6 @@ impl Default for WM_WRITER_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WM_WRITER_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WM_WRITER_STATISTICS_EX {
@@ -10368,9 +10251,6 @@ impl Default for WM_WRITER_STATISTICS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WM_WRITER_STATISTICS_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

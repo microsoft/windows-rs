@@ -210,9 +210,6 @@ impl Default for CAINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CAPATHLENGTH_INFINITE: u32 = 4294967295u32;
 pub const CAPropCertificate: EnrollmentCAProperty = EnrollmentCAProperty(7i32);
 pub const CAPropCertificateTypes: EnrollmentCAProperty = EnrollmentCAProperty(6i32);
@@ -343,9 +340,6 @@ impl Default for CERTTRANSBLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERTTRANSBLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CERTVIEWRESTRICTION {
@@ -359,9 +353,6 @@ impl Default for CERTVIEWRESTRICTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CERTVIEWRESTRICTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -624,9 +615,6 @@ impl Default for CSEDB_RSTMAPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CSEDB_RSTMAPW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CSRESTORE_TYPE_CATCHUP: u32 = 4u32;
 pub const CSRESTORE_TYPE_FULL: u32 = 1u32;

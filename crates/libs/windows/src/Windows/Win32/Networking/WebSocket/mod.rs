@@ -101,9 +101,6 @@ impl Default for WEB_SOCKET_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEB_SOCKET_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WEB_SOCKET_BUFFER_1 {
@@ -116,9 +113,6 @@ impl Default for WEB_SOCKET_BUFFER_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEB_SOCKET_BUFFER_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WEB_SOCKET_BUFFER_0 {
@@ -129,9 +123,6 @@ impl Default for WEB_SOCKET_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEB_SOCKET_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -182,9 +173,6 @@ impl Default for WEB_SOCKET_HTTP_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEB_SOCKET_HTTP_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WEB_SOCKET_INDICATE_RECEIVE_COMPLETE_ACTION: WEB_SOCKET_ACTION = WEB_SOCKET_ACTION(4i32);
 pub const WEB_SOCKET_INDICATE_SEND_COMPLETE_ACTION: WEB_SOCKET_ACTION = WEB_SOCKET_ACTION(2i32);
 pub const WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1003i32);
@@ -206,9 +194,6 @@ impl Default for WEB_SOCKET_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEB_SOCKET_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

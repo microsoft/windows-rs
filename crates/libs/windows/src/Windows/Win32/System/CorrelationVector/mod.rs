@@ -29,9 +29,6 @@ impl Default for CORRELATION_VECTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CORRELATION_VECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: u32 = 129u32;
 pub const RTL_CORRELATION_VECTOR_V1_LENGTH: u32 = 64u32;
 pub const RTL_CORRELATION_VECTOR_V1_PREFIX_LENGTH: u32 = 16u32;

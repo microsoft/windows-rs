@@ -1193,9 +1193,6 @@ impl Default for MLOperatorAttribute {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MLOperatorAttribute {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MLOperatorAttributeNameValue {
@@ -1209,9 +1206,6 @@ impl Default for MLOperatorAttributeNameValue {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MLOperatorAttributeNameValue {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MLOperatorAttributeNameValue_0 {
@@ -1224,9 +1218,6 @@ impl Default for MLOperatorAttributeNameValue_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MLOperatorAttributeNameValue_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1251,9 +1242,6 @@ impl Default for MLOperatorEdgeDescription {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MLOperatorEdgeDescription {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MLOperatorEdgeDescription_0 {
@@ -1264,9 +1252,6 @@ impl Default for MLOperatorEdgeDescription_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MLOperatorEdgeDescription_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1286,9 +1271,6 @@ impl Default for MLOperatorEdgeTypeConstraint {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MLOperatorEdgeTypeConstraint {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1316,9 +1298,6 @@ impl Default for MLOperatorKernelDescription {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MLOperatorKernelDescription {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1422,9 +1401,6 @@ impl Default for MLOperatorSchemaDescription {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MLOperatorSchemaDescription {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MLOperatorSchemaEdgeDescription {
@@ -1437,9 +1413,6 @@ impl Default for MLOperatorSchemaEdgeDescription {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MLOperatorSchemaEdgeDescription {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MLOperatorSchemaEdgeDescription_0 {
@@ -1451,9 +1424,6 @@ impl Default for MLOperatorSchemaEdgeDescription_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MLOperatorSchemaEdgeDescription_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1472,9 +1442,6 @@ impl Default for MLOperatorSetId {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MLOperatorSetId {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1516,10 +1483,6 @@ impl Default for WINML_BINDING_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl windows_core::TypeKind for WINML_BINDING_DESC {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub union WINML_BINDING_DESC_0 {
@@ -1540,10 +1503,6 @@ impl Default for WINML_BINDING_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl windows_core::TypeKind for WINML_BINDING_DESC_0 {
-    type TypeKind = windows_core::CloneType;
 }
 pub const WINML_BINDING_IMAGE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(4i32);
 pub const WINML_BINDING_MAP: WINML_BINDING_TYPE = WINML_BINDING_TYPE(3i32);
@@ -1576,9 +1535,6 @@ impl Default for WINML_IMAGE_BINDING_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINML_IMAGE_BINDING_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINML_IMAGE_VARIABLE_DESC {
@@ -1590,9 +1546,6 @@ impl Default for WINML_IMAGE_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINML_IMAGE_VARIABLE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1608,9 +1561,6 @@ impl Default for WINML_MAP_BINDING_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINML_MAP_BINDING_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WINML_MAP_BINDING_DESC_0 {
@@ -1621,9 +1571,6 @@ impl Default for WINML_MAP_BINDING_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINML_MAP_BINDING_DESC_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1638,9 +1585,6 @@ impl Default for WINML_MAP_BINDING_DESC_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINML_MAP_BINDING_DESC_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINML_MAP_VARIABLE_DESC {
@@ -1651,9 +1595,6 @@ impl Default for WINML_MAP_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINML_MAP_VARIABLE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1669,9 +1610,6 @@ impl Default for WINML_MODEL_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINML_MODEL_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[derive(Clone, Debug, PartialEq)]
@@ -1686,10 +1624,6 @@ impl Default for WINML_RESOURCE_BINDING_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl windows_core::TypeKind for WINML_RESOURCE_BINDING_DESC {
-    type TypeKind = windows_core::CloneType;
 }
 pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = WINML_RUNTIME_TYPE(0i32);
 #[repr(transparent)]
@@ -1707,9 +1641,6 @@ impl Default for WINML_SEQUENCE_BINDING_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINML_SEQUENCE_BINDING_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WINML_SEQUENCE_BINDING_DESC_0 {
@@ -1723,9 +1654,6 @@ impl Default for WINML_SEQUENCE_BINDING_DESC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINML_SEQUENCE_BINDING_DESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINML_SEQUENCE_VARIABLE_DESC {
@@ -1735,9 +1663,6 @@ impl Default for WINML_SEQUENCE_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINML_SEQUENCE_VARIABLE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1752,9 +1677,6 @@ impl Default for WINML_TENSOR_BINDING_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINML_TENSOR_BINDING_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WINML_TENSOR_BOOLEAN: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(9i32);
 pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(15i32);
@@ -1788,9 +1710,6 @@ impl Default for WINML_TENSOR_VARIABLE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINML_TENSOR_VARIABLE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINML_VARIABLE_DESC {
@@ -1805,9 +1724,6 @@ impl Default for WINML_VARIABLE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINML_VARIABLE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WINML_VARIABLE_DESC_0 {
@@ -1820,7 +1736,4 @@ impl Default for WINML_VARIABLE_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINML_VARIABLE_DESC_0 {
-    type TypeKind = windows_core::CopyType;
 }

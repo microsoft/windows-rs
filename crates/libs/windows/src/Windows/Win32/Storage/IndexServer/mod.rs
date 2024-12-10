@@ -84,9 +84,6 @@ impl Default for CI_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CI_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CI_STATE_ANNEALING_MERGE: u32 = 8u32;
 pub const CI_STATE_BATTERY_POLICY: u32 = 262144u32;
 pub const CI_STATE_BATTERY_POWER: u32 = 2048u32;
@@ -124,10 +121,6 @@ impl Default for DBID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -141,10 +134,6 @@ impl Default for DBID_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBID_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -157,10 +146,6 @@ impl Default for DBID_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBID_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -176,10 +161,6 @@ impl Default for DBID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -193,10 +174,6 @@ impl Default for DBID_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBID_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -209,10 +186,6 @@ impl Default for DBID_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBID_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -270,9 +243,6 @@ impl Default for FILTERREGION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILTERREGION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FILTER_E_ACCESS: windows_core::HRESULT = windows_core::HRESULT(0x80041703_u32 as _);
 pub const FILTER_E_EMBEDDING_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80041707_u32 as _);
 pub const FILTER_E_END_OF_CHUNKS: windows_core::HRESULT = windows_core::HRESULT(0x80041700_u32 as _);
@@ -298,10 +268,6 @@ impl Default for FULLPROPSPEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::TypeKind for FULLPROPSPEC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GENERATE_METHOD_EXACT: u32 = 0u32;
 pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
@@ -521,10 +487,6 @@ impl Default for STAT_CHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::TypeKind for STAT_CHUNK {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STAT_COALESCE_COMP_ALL_NOISE: u32 = 8192u32;
 pub const STAT_CONTENT_OUT_OF_DATE: u32 = 32u32;

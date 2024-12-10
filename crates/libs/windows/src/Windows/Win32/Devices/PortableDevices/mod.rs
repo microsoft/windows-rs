@@ -4123,9 +4123,6 @@ impl Default for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WPD_COMMAND_ACCESS_READ: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(1i32);
 pub const WPD_COMMAND_ACCESS_READWRITE: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(3i32);
 #[repr(transparent)]

@@ -214,9 +214,6 @@ impl Default for CROSS_SLIDE_PARAMETER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CROSS_SLIDE_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CROSS_SLIDE_THRESHOLD(pub i32);
@@ -279,9 +276,6 @@ impl Default for INTERACTION_ARGUMENTS_CROSS_SLIDE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERACTION_ARGUMENTS_CROSS_SLIDE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERACTION_ARGUMENTS_MANIPULATION {
@@ -295,9 +289,6 @@ impl Default for INTERACTION_ARGUMENTS_MANIPULATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERACTION_ARGUMENTS_MANIPULATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERACTION_ARGUMENTS_TAP {
@@ -307,9 +298,6 @@ impl Default for INTERACTION_ARGUMENTS_TAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERACTION_ARGUMENTS_TAP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -386,9 +374,6 @@ impl Default for INTERACTION_CONTEXT_CONFIGURATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERACTION_CONTEXT_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -406,10 +391,6 @@ impl Default for INTERACTION_CONTEXT_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for INTERACTION_CONTEXT_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -423,10 +404,6 @@ impl Default for INTERACTION_CONTEXT_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for INTERACTION_CONTEXT_OUTPUT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -447,10 +424,6 @@ impl Default for INTERACTION_CONTEXT_OUTPUT2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for INTERACTION_CONTEXT_OUTPUT2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -464,10 +437,6 @@ impl Default for INTERACTION_CONTEXT_OUTPUT2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for INTERACTION_CONTEXT_OUTPUT2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = Option<unsafe extern "system" fn(clientdata: *const core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT)>;
@@ -561,9 +530,6 @@ impl Default for MANIPULATION_TRANSFORM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MANIPULATION_TRANSFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MANIPULATION_VELOCITY {
@@ -576,9 +542,6 @@ impl Default for MANIPULATION_VELOCITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MANIPULATION_VELOCITY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

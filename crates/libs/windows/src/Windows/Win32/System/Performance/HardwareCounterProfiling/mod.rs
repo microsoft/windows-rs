@@ -30,9 +30,6 @@ impl Default for HARDWARE_COUNTER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HARDWARE_COUNTER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HARDWARE_COUNTER_TYPE(pub i32);
@@ -54,8 +51,5 @@ impl Default for PERFORMANCE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERFORMANCE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);

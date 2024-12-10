@@ -142,9 +142,6 @@ impl Default for MANAGEMENT_REGISTRATION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MANAGEMENT_REGISTRATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MANAGEMENT_SERVICE_INFO {
@@ -155,9 +152,6 @@ impl Default for MANAGEMENT_SERVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MANAGEMENT_SERVICE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: windows_core::HRESULT = windows_core::HRESULT(0x80180028_u32 as _);

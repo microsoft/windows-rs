@@ -70,9 +70,6 @@ impl Default for DWRITE_BITMAP_DATA_BGRA32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_BITMAP_DATA_BGRA32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_BREAK_CONDITION(pub i32);
@@ -92,9 +89,6 @@ impl Default for DWRITE_CARET_METRICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_CARET_METRICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_CLUSTER_METRICS {
@@ -106,9 +100,6 @@ impl Default for DWRITE_CLUSTER_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_CLUSTER_METRICS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DWRITE_COLOR_COMPOSITE_CLEAR: DWRITE_COLOR_COMPOSITE_MODE = DWRITE_COLOR_COMPOSITE_MODE(0i32);
 pub const DWRITE_COLOR_COMPOSITE_COLOR_BURN: DWRITE_COLOR_COMPOSITE_MODE = DWRITE_COLOR_COMPOSITE_MODE(18i32);
@@ -154,9 +145,6 @@ impl Default for DWRITE_COLOR_F {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_COLOR_F {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct DWRITE_COLOR_GLYPH_RUN {
@@ -172,9 +160,6 @@ impl Default for DWRITE_COLOR_GLYPH_RUN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_COLOR_GLYPH_RUN {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct DWRITE_COLOR_GLYPH_RUN1 {
@@ -186,9 +171,6 @@ impl Default for DWRITE_COLOR_GLYPH_RUN1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_COLOR_GLYPH_RUN1 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -216,9 +198,6 @@ impl Default for DWRITE_FILE_FRAGMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_FILE_FRAGMENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -278,9 +257,6 @@ impl Default for DWRITE_FONT_AXIS_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_FONT_AXIS_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_AXIS_TAG(pub u32);
@@ -299,9 +275,6 @@ impl Default for DWRITE_FONT_AXIS_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_FONT_AXIS_VALUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -330,9 +303,6 @@ impl Default for DWRITE_FONT_FEATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_FONT_FEATURE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -455,9 +425,6 @@ impl Default for DWRITE_FONT_METRICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_FONT_METRICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_FONT_METRICS1 {
@@ -481,9 +448,6 @@ impl Default for DWRITE_FONT_METRICS1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_FONT_METRICS1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_FONT_PROPERTY {
@@ -495,9 +459,6 @@ impl Default for DWRITE_FONT_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_FONT_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -628,10 +589,6 @@ impl Default for DWRITE_GLYPH_IMAGE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_GLYPH_IMAGE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_GLYPH_IMAGE_FORMATS(pub i32);
@@ -694,9 +651,6 @@ impl Default for DWRITE_GLYPH_METRICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_GLYPH_METRICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_GLYPH_OFFSET {
@@ -707,9 +661,6 @@ impl Default for DWRITE_GLYPH_OFFSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_GLYPH_OFFSET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -735,9 +686,6 @@ impl Default for DWRITE_GLYPH_RUN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_GLYPH_RUN {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
@@ -751,9 +699,6 @@ impl Default for DWRITE_GLYPH_RUN_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_GLYPH_RUN_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -778,9 +723,6 @@ impl Default for DWRITE_HIT_TEST_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_HIT_TEST_METRICS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DWRITE_INFORMATIONAL_STRING_COPYRIGHT_NOTICE: DWRITE_INFORMATIONAL_STRING_ID = DWRITE_INFORMATIONAL_STRING_ID(1i32);
 pub const DWRITE_INFORMATIONAL_STRING_DESCRIPTION: DWRITE_INFORMATIONAL_STRING_ID = DWRITE_INFORMATIONAL_STRING_ID(7i32);
@@ -823,9 +765,6 @@ impl Default for DWRITE_INLINE_OBJECT_METRICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_INLINE_OBJECT_METRICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_JUSTIFICATION_OPPORTUNITY {
@@ -839,9 +778,6 @@ impl Default for DWRITE_JUSTIFICATION_OPPORTUNITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_JUSTIFICATION_OPPORTUNITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_LINE_BREAKPOINT {
@@ -851,9 +787,6 @@ impl Default for DWRITE_LINE_BREAKPOINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_LINE_BREAKPOINT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -870,9 +803,6 @@ impl Default for DWRITE_LINE_METRICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_LINE_METRICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_LINE_METRICS1 {
@@ -884,9 +814,6 @@ impl Default for DWRITE_LINE_METRICS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_LINE_METRICS1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -901,9 +828,6 @@ impl Default for DWRITE_LINE_SPACING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_LINE_SPACING {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -931,9 +855,6 @@ impl Default for DWRITE_MATRIX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_MATRIX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -972,9 +893,6 @@ impl Default for DWRITE_OVERHANG_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_OVERHANG_METRICS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1028,9 +946,6 @@ impl Default for DWRITE_PAINT_COLOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_PAINT_COLOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy)]
@@ -1043,10 +958,6 @@ impl Default for DWRITE_PAINT_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1069,10 +980,6 @@ impl Default for DWRITE_PAINT_ELEMENT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1086,10 +993,6 @@ impl Default for DWRITE_PAINT_ELEMENT_0_6 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1101,10 +1004,6 @@ impl Default for DWRITE_PAINT_ELEMENT_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_7 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1118,10 +1017,6 @@ impl Default for DWRITE_PAINT_ELEMENT_0_5 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1133,10 +1028,6 @@ impl Default for DWRITE_PAINT_ELEMENT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1157,10 +1048,6 @@ impl Default for DWRITE_PAINT_ELEMENT_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1180,10 +1067,6 @@ impl Default for DWRITE_PAINT_ELEMENT_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1196,10 +1079,6 @@ impl Default for DWRITE_PAINT_ELEMENT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1217,10 +1096,6 @@ impl Default for DWRITE_PAINT_ELEMENT_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1257,9 +1132,6 @@ impl Default for DWRITE_PANOSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_PANOSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_PANOSE_2 {
@@ -1278,9 +1150,6 @@ impl Default for DWRITE_PANOSE_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_PANOSE_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1301,9 +1170,6 @@ impl Default for DWRITE_PANOSE_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_PANOSE_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_PANOSE_3 {
@@ -1323,9 +1189,6 @@ impl Default for DWRITE_PANOSE_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_PANOSE_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_PANOSE_0 {
@@ -1344,9 +1207,6 @@ impl Default for DWRITE_PANOSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_PANOSE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1763,9 +1623,6 @@ impl Default for DWRITE_SCRIPT_ANALYSIS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_SCRIPT_ANALYSIS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_SCRIPT_PROPERTIES {
@@ -1779,9 +1636,6 @@ impl Default for DWRITE_SCRIPT_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_SCRIPT_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1831,9 +1685,6 @@ impl Default for DWRITE_SHAPING_GLYPH_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_SHAPING_GLYPH_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_SHAPING_TEXT_PROPERTIES {
@@ -1843,9 +1694,6 @@ impl Default for DWRITE_SHAPING_TEXT_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_SHAPING_TEXT_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DWRITE_STANDARD_FONT_AXIS_COUNT: u32 = 5u32;
 #[repr(C)]
@@ -1863,9 +1711,6 @@ impl Default for DWRITE_STRIKETHROUGH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_STRIKETHROUGH {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DWRITE_TEXTURE_ALIASED_1x1: DWRITE_TEXTURE_TYPE = DWRITE_TEXTURE_TYPE(0i32);
 pub const DWRITE_TEXTURE_CLEARTYPE_3x1: DWRITE_TEXTURE_TYPE = DWRITE_TEXTURE_TYPE(1i32);
@@ -1902,9 +1747,6 @@ impl Default for DWRITE_TEXT_METRICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_TEXT_METRICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_TEXT_METRICS1 {
@@ -1915,9 +1757,6 @@ impl Default for DWRITE_TEXT_METRICS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_TEXT_METRICS1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1930,9 +1769,6 @@ impl Default for DWRITE_TEXT_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_TEXT_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_TRIMMING {
@@ -1944,9 +1780,6 @@ impl Default for DWRITE_TRIMMING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_TRIMMING {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1965,9 +1798,6 @@ impl Default for DWRITE_TYPOGRAPHIC_FEATURES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_TYPOGRAPHIC_FEATURES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_UNDERLINE {
@@ -1985,9 +1815,6 @@ impl Default for DWRITE_UNDERLINE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DWRITE_UNDERLINE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_UNICODE_RANGE {
@@ -1998,9 +1825,6 @@ impl Default for DWRITE_UNICODE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWRITE_UNICODE_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

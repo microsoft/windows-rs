@@ -8,9 +8,6 @@ impl Default for ACTIVE_LATENCY_CONFIGURATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACTIVE_LATENCY_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union ACTIVE_LATENCY_CONFIGURATION_0 {
@@ -22,9 +19,6 @@ impl Default for ACTIVE_LATENCY_CONFIGURATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACTIVE_LATENCY_CONFIGURATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ACTIVE_LATENCY_CONFIGURATION_0_0 {
@@ -34,9 +28,6 @@ impl Default for ACTIVE_LATENCY_CONFIGURATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ACTIVE_LATENCY_CONFIGURATION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -51,9 +42,6 @@ impl Default for BUCKET_COUNTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BUCKET_COUNTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEBUG_BIT_FIELD {
@@ -64,9 +52,6 @@ impl Default for DEBUG_BIT_FIELD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_BIT_FIELD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSSD_POWER_STATE_DESCRIPTOR {
@@ -76,9 +61,6 @@ impl Default for DSSD_POWER_STATE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DSSD_POWER_STATE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -101,9 +83,6 @@ impl Default for FIRMWARE_ACTIVATION_HISTORY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FIRMWARE_ACTIVATION_HISTORY_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FIRMWARE_ACTIVATION_HISTORY_ENTRY_VERSION_1: u32 = 1u32;
 pub const GUID_MFND_CHILD_CONTROLLER_EVENT_LOG_PAGE: windows_core::GUID = windows_core::GUID::from_u128(0x98bcce18_a5f0_bf35_a544_d97f259d669c);
@@ -138,9 +117,6 @@ impl Default for LATENCY_MONITOR_FEATURE_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LATENCY_MONITOR_FEATURE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union LATENCY_MONITOR_FEATURE_STATUS_0 {
@@ -152,9 +128,6 @@ impl Default for LATENCY_MONITOR_FEATURE_STATUS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LATENCY_MONITOR_FEATURE_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LATENCY_MONITOR_FEATURE_STATUS_0_0 {
@@ -164,9 +137,6 @@ impl Default for LATENCY_MONITOR_FEATURE_STATUS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LATENCY_MONITOR_FEATURE_STATUS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -189,9 +159,6 @@ impl Default for LATENCY_STAMP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LATENCY_STAMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LATENCY_STAMP_UNITS {
@@ -201,9 +168,6 @@ impl Default for LATENCY_STAMP_UNITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LATENCY_STAMP_UNITS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -225,9 +189,6 @@ impl Default for MEASURED_LATENCY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MEASURED_LATENCY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -257,9 +218,6 @@ impl Default for NVME_ACTIVE_NAMESPACE_ID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_ACTIVE_NAMESPACE_ID_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -302,9 +260,6 @@ impl Default for NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS_0 {
@@ -314,9 +269,6 @@ impl Default for NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -329,9 +281,6 @@ impl Default for NVME_ADMIN_QUEUE_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_ADMIN_QUEUE_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_ADMIN_QUEUE_ATTRIBUTES_0 {
@@ -341,9 +290,6 @@ impl Default for NVME_ADMIN_QUEUE_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_ADMIN_QUEUE_ATTRIBUTES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -356,9 +302,6 @@ impl Default for NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS_0 {
@@ -368,9 +311,6 @@ impl Default for NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -433,9 +373,6 @@ impl Default for NVME_AUTO_POWER_STATE_TRANSITION_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_AUTO_POWER_STATE_TRANSITION_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const NVME_CC_SHN_ABRUPT_SHUTDOWN: NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS = NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS(2i32);
 pub const NVME_CC_SHN_NORMAL_SHUTDOWN: NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS = NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS(1i32);
 pub const NVME_CC_SHN_NO_NOTIFICATION: NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS = NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS(0i32);
@@ -453,9 +390,6 @@ impl Default for NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO_0 {
@@ -465,9 +399,6 @@ impl Default for NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -480,9 +411,6 @@ impl Default for NVME_CDW0_FEATURE_ERROR_INJECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW0_FEATURE_ERROR_INJECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW0_FEATURE_ERROR_INJECTION_0 {
@@ -492,9 +420,6 @@ impl Default for NVME_CDW0_FEATURE_ERROR_INJECTION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW0_FEATURE_ERROR_INJECTION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -507,9 +432,6 @@ impl Default for NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
@@ -520,9 +442,6 @@ impl Default for NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW0_RESERVATION_PERSISTENCE {
@@ -532,9 +451,6 @@ impl Default for NVME_CDW0_RESERVATION_PERSISTENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW0_RESERVATION_PERSISTENCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -547,9 +463,6 @@ impl Default for NVME_CDW10_ABORT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_ABORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_ABORT_0 {
@@ -559,9 +472,6 @@ impl Default for NVME_CDW10_ABORT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_ABORT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -574,9 +484,6 @@ impl Default for NVME_CDW10_CREATE_IO_QUEUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_CREATE_IO_QUEUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_CREATE_IO_QUEUE_0 {
@@ -586,9 +493,6 @@ impl Default for NVME_CDW10_CREATE_IO_QUEUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_CREATE_IO_QUEUE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -601,9 +505,6 @@ impl Default for NVME_CDW10_DATASET_MANAGEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_DATASET_MANAGEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_DATASET_MANAGEMENT_0 {
@@ -613,9 +514,6 @@ impl Default for NVME_CDW10_DATASET_MANAGEMENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_DATASET_MANAGEMENT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -627,9 +525,6 @@ impl Default for NVME_CDW10_DIRECTIVE_RECEIVE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_DIRECTIVE_RECEIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_DIRECTIVE_SEND {
@@ -639,9 +534,6 @@ impl Default for NVME_CDW10_DIRECTIVE_SEND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_DIRECTIVE_SEND {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -654,9 +546,6 @@ impl Default for NVME_CDW10_FIRMWARE_ACTIVATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_FIRMWARE_ACTIVATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_FIRMWARE_ACTIVATE_0 {
@@ -667,9 +556,6 @@ impl Default for NVME_CDW10_FIRMWARE_ACTIVATE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_FIRMWARE_ACTIVATE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_FIRMWARE_DOWNLOAD {
@@ -679,9 +565,6 @@ impl Default for NVME_CDW10_FIRMWARE_DOWNLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_FIRMWARE_DOWNLOAD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -694,9 +577,6 @@ impl Default for NVME_CDW10_FORMAT_NVM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_FORMAT_NVM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_FORMAT_NVM_0 {
@@ -706,9 +586,6 @@ impl Default for NVME_CDW10_FORMAT_NVM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_FORMAT_NVM_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -721,9 +598,6 @@ impl Default for NVME_CDW10_GET_FEATURES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_GET_FEATURES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_GET_FEATURES_0 {
@@ -733,9 +607,6 @@ impl Default for NVME_CDW10_GET_FEATURES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_GET_FEATURES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -748,9 +619,6 @@ impl Default for NVME_CDW10_GET_LOG_PAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_GET_LOG_PAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_GET_LOG_PAGE_0 {
@@ -760,9 +628,6 @@ impl Default for NVME_CDW10_GET_LOG_PAGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_GET_LOG_PAGE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -775,9 +640,6 @@ impl Default for NVME_CDW10_GET_LOG_PAGE_V13 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_GET_LOG_PAGE_V13 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_GET_LOG_PAGE_V13_0 {
@@ -787,9 +649,6 @@ impl Default for NVME_CDW10_GET_LOG_PAGE_V13_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_GET_LOG_PAGE_V13_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -802,9 +661,6 @@ impl Default for NVME_CDW10_IDENTIFY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_IDENTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_IDENTIFY_0 {
@@ -814,9 +670,6 @@ impl Default for NVME_CDW10_IDENTIFY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_IDENTIFY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -829,9 +682,6 @@ impl Default for NVME_CDW10_RESERVATION_ACQUIRE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_RESERVATION_ACQUIRE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_RESERVATION_ACQUIRE_0 {
@@ -841,9 +691,6 @@ impl Default for NVME_CDW10_RESERVATION_ACQUIRE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_RESERVATION_ACQUIRE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -856,9 +703,6 @@ impl Default for NVME_CDW10_RESERVATION_REGISTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_RESERVATION_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_RESERVATION_REGISTER_0 {
@@ -868,9 +712,6 @@ impl Default for NVME_CDW10_RESERVATION_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_RESERVATION_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -883,9 +724,6 @@ impl Default for NVME_CDW10_RESERVATION_RELEASE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_RESERVATION_RELEASE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_RESERVATION_RELEASE_0 {
@@ -895,9 +733,6 @@ impl Default for NVME_CDW10_RESERVATION_RELEASE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_RESERVATION_RELEASE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -910,9 +745,6 @@ impl Default for NVME_CDW10_RESERVATION_REPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_RESERVATION_REPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_RESERVATION_REPORT_0 {
@@ -922,9 +754,6 @@ impl Default for NVME_CDW10_RESERVATION_REPORT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_RESERVATION_REPORT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -937,9 +766,6 @@ impl Default for NVME_CDW10_SANITIZE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_SANITIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_SANITIZE_0 {
@@ -949,9 +775,6 @@ impl Default for NVME_CDW10_SANITIZE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_SANITIZE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -964,9 +787,6 @@ impl Default for NVME_CDW10_SECURITY_SEND_RECEIVE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_SECURITY_SEND_RECEIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_SECURITY_SEND_RECEIVE_0 {
@@ -976,9 +796,6 @@ impl Default for NVME_CDW10_SECURITY_SEND_RECEIVE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_SECURITY_SEND_RECEIVE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -991,9 +808,6 @@ impl Default for NVME_CDW10_SET_FEATURES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_SET_FEATURES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_SET_FEATURES_0 {
@@ -1003,9 +817,6 @@ impl Default for NVME_CDW10_SET_FEATURES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_SET_FEATURES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1017,9 +828,6 @@ impl Default for NVME_CDW10_ZONE_APPEND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_ZONE_APPEND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_ZONE_MANAGEMENT_RECEIVE {
@@ -1030,9 +838,6 @@ impl Default for NVME_CDW10_ZONE_MANAGEMENT_RECEIVE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW10_ZONE_MANAGEMENT_RECEIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW10_ZONE_MANAGEMENT_SEND {
@@ -1042,9 +847,6 @@ impl Default for NVME_CDW10_ZONE_MANAGEMENT_SEND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW10_ZONE_MANAGEMENT_SEND {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1057,9 +859,6 @@ impl Default for NVME_CDW11_CREATE_IO_CQ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_CREATE_IO_CQ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_CREATE_IO_CQ_0 {
@@ -1069,9 +868,6 @@ impl Default for NVME_CDW11_CREATE_IO_CQ_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_CREATE_IO_CQ_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1084,9 +880,6 @@ impl Default for NVME_CDW11_CREATE_IO_SQ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_CREATE_IO_SQ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_CREATE_IO_SQ_0 {
@@ -1096,9 +889,6 @@ impl Default for NVME_CDW11_CREATE_IO_SQ_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_CREATE_IO_SQ_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1111,9 +901,6 @@ impl Default for NVME_CDW11_DATASET_MANAGEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_DATASET_MANAGEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_DATASET_MANAGEMENT_0 {
@@ -1123,9 +910,6 @@ impl Default for NVME_CDW11_DATASET_MANAGEMENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_DATASET_MANAGEMENT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1138,9 +922,6 @@ impl Default for NVME_CDW11_DIRECTIVE_RECEIVE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_DIRECTIVE_RECEIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_DIRECTIVE_RECEIVE_0 {
@@ -1150,9 +931,6 @@ impl Default for NVME_CDW11_DIRECTIVE_RECEIVE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_DIRECTIVE_RECEIVE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1165,9 +943,6 @@ impl Default for NVME_CDW11_DIRECTIVE_SEND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_DIRECTIVE_SEND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_DIRECTIVE_SEND_0 {
@@ -1177,9 +952,6 @@ impl Default for NVME_CDW11_DIRECTIVE_SEND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_DIRECTIVE_SEND_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1212,9 +984,6 @@ impl Default for NVME_CDW11_FEATURES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ARBITRATION {
@@ -1226,9 +995,6 @@ impl Default for NVME_CDW11_FEATURE_ARBITRATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_ARBITRATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_ARBITRATION_0 {
@@ -1238,9 +1004,6 @@ impl Default for NVME_CDW11_FEATURE_ARBITRATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_ARBITRATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1253,9 +1016,6 @@ impl Default for NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG_0 {
@@ -1265,9 +1025,6 @@ impl Default for NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1280,9 +1037,6 @@ impl Default for NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION_0 {
@@ -1292,9 +1046,6 @@ impl Default for NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1307,9 +1058,6 @@ impl Default for NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY_0 {
@@ -1319,9 +1067,6 @@ impl Default for NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1334,9 +1079,6 @@ impl Default for NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS_0 {
@@ -1346,9 +1088,6 @@ impl Default for NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1361,9 +1100,6 @@ impl Default for NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO_0 {
@@ -1373,9 +1109,6 @@ impl Default for NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1388,9 +1121,6 @@ impl Default for NVME_CDW11_FEATURE_ERROR_RECOVERY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_ERROR_RECOVERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_ERROR_RECOVERY_0 {
@@ -1400,9 +1130,6 @@ impl Default for NVME_CDW11_FEATURE_ERROR_RECOVERY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_ERROR_RECOVERY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1415,9 +1142,6 @@ impl Default for NVME_CDW11_FEATURE_GET_HOST_METADATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_GET_HOST_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_GET_HOST_METADATA_0 {
@@ -1428,9 +1152,6 @@ impl Default for NVME_CDW11_FEATURE_GET_HOST_METADATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_GET_HOST_METADATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_HOST_IDENTIFIER {
@@ -1440,9 +1161,6 @@ impl Default for NVME_CDW11_FEATURE_HOST_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_HOST_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1455,9 +1173,6 @@ impl Default for NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER_0 {
@@ -1467,9 +1182,6 @@ impl Default for NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1482,9 +1194,6 @@ impl Default for NVME_CDW11_FEATURE_INTERRUPT_COALESCING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_INTERRUPT_COALESCING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_INTERRUPT_COALESCING_0 {
@@ -1494,9 +1203,6 @@ impl Default for NVME_CDW11_FEATURE_INTERRUPT_COALESCING_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_INTERRUPT_COALESCING_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1509,9 +1215,6 @@ impl Default for NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG_0 {
@@ -1521,9 +1224,6 @@ impl Default for NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1536,9 +1236,6 @@ impl Default for NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE_0 {
@@ -1548,9 +1245,6 @@ impl Default for NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1563,9 +1257,6 @@ impl Default for NVME_CDW11_FEATURE_LBA_RANGE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_LBA_RANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_LBA_RANGE_TYPE_0 {
@@ -1575,9 +1266,6 @@ impl Default for NVME_CDW11_FEATURE_LBA_RANGE_TYPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_LBA_RANGE_TYPE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1590,9 +1278,6 @@ impl Default for NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE_0 {
@@ -1602,9 +1287,6 @@ impl Default for NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1617,9 +1299,6 @@ impl Default for NVME_CDW11_FEATURE_NUMBER_OF_QUEUES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_NUMBER_OF_QUEUES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_NUMBER_OF_QUEUES_0 {
@@ -1629,9 +1308,6 @@ impl Default for NVME_CDW11_FEATURE_NUMBER_OF_QUEUES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_NUMBER_OF_QUEUES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1644,9 +1320,6 @@ impl Default for NVME_CDW11_FEATURE_POWER_MANAGEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_POWER_MANAGEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_POWER_MANAGEMENT_0 {
@@ -1656,9 +1329,6 @@ impl Default for NVME_CDW11_FEATURE_POWER_MANAGEMENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_POWER_MANAGEMENT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1671,9 +1341,6 @@ impl Default for NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
@@ -1683,9 +1350,6 @@ impl Default for NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1697,9 +1361,6 @@ impl Default for NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE {
@@ -1709,9 +1370,6 @@ impl Default for NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1724,9 +1382,6 @@ impl Default for NVME_CDW11_FEATURE_SET_HOST_METADATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_SET_HOST_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_SET_HOST_METADATA_0 {
@@ -1736,9 +1391,6 @@ impl Default for NVME_CDW11_FEATURE_SET_HOST_METADATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_SET_HOST_METADATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1751,9 +1403,6 @@ impl Default for NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY_0 {
@@ -1763,9 +1412,6 @@ impl Default for NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1778,9 +1424,6 @@ impl Default for NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD_0 {
@@ -1790,9 +1433,6 @@ impl Default for NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1805,9 +1445,6 @@ impl Default for NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE_0 {
@@ -1817,9 +1454,6 @@ impl Default for NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1832,9 +1466,6 @@ impl Default for NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL_0 {
@@ -1845,9 +1476,6 @@ impl Default for NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_FIRMWARE_DOWNLOAD {
@@ -1857,9 +1485,6 @@ impl Default for NVME_CDW11_FIRMWARE_DOWNLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_FIRMWARE_DOWNLOAD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1872,9 +1497,6 @@ impl Default for NVME_CDW11_GET_LOG_PAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_GET_LOG_PAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_GET_LOG_PAGE_0 {
@@ -1884,9 +1506,6 @@ impl Default for NVME_CDW11_GET_LOG_PAGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_GET_LOG_PAGE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1900,9 +1519,6 @@ impl Default for NVME_CDW11_IDENTIFY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_IDENTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_IDENTIFY_0 {
@@ -1914,9 +1530,6 @@ impl Default for NVME_CDW11_IDENTIFY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_IDENTIFY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_IDENTIFY_1 {
@@ -1926,9 +1539,6 @@ impl Default for NVME_CDW11_IDENTIFY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_IDENTIFY_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1941,9 +1551,6 @@ impl Default for NVME_CDW11_RESERVATION_REPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_RESERVATION_REPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_RESERVATION_REPORT_0 {
@@ -1953,9 +1560,6 @@ impl Default for NVME_CDW11_RESERVATION_REPORT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_RESERVATION_REPORT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1968,9 +1572,6 @@ impl Default for NVME_CDW11_SANITIZE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_SANITIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_SANITIZE_0 {
@@ -1980,9 +1581,6 @@ impl Default for NVME_CDW11_SANITIZE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_SANITIZE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1994,9 +1592,6 @@ impl Default for NVME_CDW11_SECURITY_RECEIVE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW11_SECURITY_RECEIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW11_SECURITY_SEND {
@@ -2006,9 +1601,6 @@ impl Default for NVME_CDW11_SECURITY_SEND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW11_SECURITY_SEND {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2021,9 +1613,6 @@ impl Default for NVME_CDW12_DIRECTIVE_RECEIVE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW12_DIRECTIVE_RECEIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
@@ -2035,9 +1624,6 @@ impl Default for NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
@@ -2047,9 +1633,6 @@ impl Default for NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2062,9 +1645,6 @@ impl Default for NVME_CDW12_DIRECTIVE_SEND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW12_DIRECTIVE_SEND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE {
@@ -2076,9 +1656,6 @@ impl Default for NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE_0 {
@@ -2088,9 +1665,6 @@ impl Default for NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2103,9 +1677,6 @@ impl Default for NVME_CDW12_FEATURES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW12_FEATURES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER {
@@ -2117,9 +1688,6 @@ impl Default for NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER_0 {
@@ -2130,9 +1698,6 @@ impl Default for NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW12_GET_LOG_PAGE {
@@ -2142,9 +1707,6 @@ impl Default for NVME_CDW12_GET_LOG_PAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW12_GET_LOG_PAGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2157,9 +1719,6 @@ impl Default for NVME_CDW12_READ_WRITE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW12_READ_WRITE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW12_READ_WRITE_0 {
@@ -2169,9 +1728,6 @@ impl Default for NVME_CDW12_READ_WRITE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW12_READ_WRITE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2184,9 +1740,6 @@ impl Default for NVME_CDW12_ZONE_APPEND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW12_ZONE_APPEND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW12_ZONE_APPEND_0 {
@@ -2196,9 +1749,6 @@ impl Default for NVME_CDW12_ZONE_APPEND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW12_ZONE_APPEND_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2211,9 +1761,6 @@ impl Default for NVME_CDW13_FEATURES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW13_FEATURES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER {
@@ -2225,9 +1772,6 @@ impl Default for NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER_0 {
@@ -2237,9 +1781,6 @@ impl Default for NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2251,9 +1792,6 @@ impl Default for NVME_CDW13_GET_LOG_PAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW13_GET_LOG_PAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW13_READ_WRITE {
@@ -2264,9 +1802,6 @@ impl Default for NVME_CDW13_READ_WRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW13_READ_WRITE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2280,9 +1815,6 @@ impl Default for NVME_CDW13_READ_WRITE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW13_READ_WRITE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW13_READ_WRITE_0_0 {
@@ -2292,9 +1824,6 @@ impl Default for NVME_CDW13_READ_WRITE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW13_READ_WRITE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2307,9 +1836,6 @@ impl Default for NVME_CDW13_ZONE_MANAGEMENT_RECEIVE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW13_ZONE_MANAGEMENT_RECEIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW13_ZONE_MANAGEMENT_RECEIVE_0 {
@@ -2319,9 +1845,6 @@ impl Default for NVME_CDW13_ZONE_MANAGEMENT_RECEIVE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW13_ZONE_MANAGEMENT_RECEIVE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2334,9 +1857,6 @@ impl Default for NVME_CDW13_ZONE_MANAGEMENT_SEND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW13_ZONE_MANAGEMENT_SEND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW13_ZONE_MANAGEMENT_SEND_0 {
@@ -2346,9 +1866,6 @@ impl Default for NVME_CDW13_ZONE_MANAGEMENT_SEND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW13_ZONE_MANAGEMENT_SEND_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2361,9 +1878,6 @@ impl Default for NVME_CDW14_FEATURES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW14_FEATURES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER {
@@ -2375,9 +1889,6 @@ impl Default for NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER_0 {
@@ -2387,9 +1898,6 @@ impl Default for NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2402,9 +1910,6 @@ impl Default for NVME_CDW14_GET_LOG_PAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW14_GET_LOG_PAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW14_GET_LOG_PAGE_0 {
@@ -2414,9 +1919,6 @@ impl Default for NVME_CDW14_GET_LOG_PAGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW14_GET_LOG_PAGE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2429,9 +1931,6 @@ impl Default for NVME_CDW15_FEATURES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW15_FEATURES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER {
@@ -2443,9 +1942,6 @@ impl Default for NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER_0 {
@@ -2455,9 +1951,6 @@ impl Default for NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2470,9 +1963,6 @@ impl Default for NVME_CDW15_READ_WRITE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW15_READ_WRITE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW15_READ_WRITE_0 {
@@ -2482,9 +1972,6 @@ impl Default for NVME_CDW15_READ_WRITE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CDW15_READ_WRITE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2497,9 +1984,6 @@ impl Default for NVME_CDW15_ZONE_APPEND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW15_ZONE_APPEND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CDW15_ZONE_APPEND_0 {
@@ -2510,9 +1994,6 @@ impl Default for NVME_CDW15_ZONE_APPEND_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CDW15_ZONE_APPEND_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CHANGED_NAMESPACE_LIST_LOG {
@@ -2522,9 +2003,6 @@ impl Default for NVME_CHANGED_NAMESPACE_LIST_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CHANGED_NAMESPACE_LIST_LOG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2537,9 +2015,6 @@ impl Default for NVME_CHANGED_ZONE_LIST_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CHANGED_ZONE_LIST_LOG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2566,9 +2041,6 @@ impl Default for NVME_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2604,9 +2076,6 @@ impl Default for NVME_COMMAND_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_2 {
@@ -2621,9 +2090,6 @@ impl Default for NVME_COMMAND_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2640,9 +2106,6 @@ impl Default for NVME_COMMAND_0_6 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_7 {
@@ -2657,9 +2120,6 @@ impl Default for NVME_COMMAND_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_0_7 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2676,9 +2136,6 @@ impl Default for NVME_COMMAND_0_8 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_14 {
@@ -2693,9 +2150,6 @@ impl Default for NVME_COMMAND_0_14 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_0_14 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2712,9 +2166,6 @@ impl Default for NVME_COMMAND_0_15 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_15 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_12 {
@@ -2729,9 +2180,6 @@ impl Default for NVME_COMMAND_0_12 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_0_12 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2748,9 +2196,6 @@ impl Default for NVME_COMMAND_0_11 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_11 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_13 {
@@ -2765,9 +2210,6 @@ impl Default for NVME_COMMAND_0_13 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_0_13 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2784,9 +2226,6 @@ impl Default for NVME_COMMAND_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_3 {
@@ -2801,9 +2240,6 @@ impl Default for NVME_COMMAND_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2820,9 +2256,6 @@ impl Default for NVME_COMMAND_0_5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_COMMAND_0_5_0 {
@@ -2833,9 +2266,6 @@ impl Default for NVME_COMMAND_0_5_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_0_5_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2852,9 +2282,6 @@ impl Default for NVME_COMMAND_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_17 {
@@ -2869,9 +2296,6 @@ impl Default for NVME_COMMAND_0_17 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_0_17 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2888,9 +2312,6 @@ impl Default for NVME_COMMAND_0_18 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_18 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_19 {
@@ -2905,9 +2326,6 @@ impl Default for NVME_COMMAND_0_19 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_0_19 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2924,9 +2342,6 @@ impl Default for NVME_COMMAND_0_20 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_20 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_21 {
@@ -2941,9 +2356,6 @@ impl Default for NVME_COMMAND_0_21 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_0_21 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2960,9 +2372,6 @@ impl Default for NVME_COMMAND_0_16 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_16 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_10 {
@@ -2977,9 +2386,6 @@ impl Default for NVME_COMMAND_0_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_0_10 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2996,9 +2402,6 @@ impl Default for NVME_COMMAND_0_9 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_4 {
@@ -3014,9 +2417,6 @@ impl Default for NVME_COMMAND_0_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_24 {
@@ -3030,9 +2430,6 @@ impl Default for NVME_COMMAND_0_24 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_0_24 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3048,9 +2445,6 @@ impl Default for NVME_COMMAND_0_23 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_23 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_22 {
@@ -3065,9 +2459,6 @@ impl Default for NVME_COMMAND_0_22 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_0_22 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_COMMAND_DWORD0 {
@@ -3079,9 +2470,6 @@ impl Default for NVME_COMMAND_DWORD0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_DWORD0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_COMMAND_DWORD0_0 {
@@ -3091,9 +2479,6 @@ impl Default for NVME_COMMAND_DWORD0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_DWORD0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3106,9 +2491,6 @@ impl Default for NVME_COMMAND_EFFECTS_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_EFFECTS_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_COMMAND_EFFECTS_DATA_0 {
@@ -3118,9 +2500,6 @@ impl Default for NVME_COMMAND_EFFECTS_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_EFFECTS_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3133,9 +2512,6 @@ impl Default for NVME_COMMAND_EFFECTS_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMMAND_EFFECTS_LOG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3160,9 +2536,6 @@ impl Default for NVME_COMMAND_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_COMMAND_STATUS_0 {
@@ -3173,9 +2546,6 @@ impl Default for NVME_COMMAND_STATUS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMMAND_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST {
@@ -3185,9 +2555,6 @@ impl Default for NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3200,9 +2567,6 @@ impl Default for NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCE
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
@@ -3212,9 +2576,6 @@ impl Default for NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCE
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3229,9 +2590,6 @@ impl Default for NVME_COMPLETION_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMPLETION_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_COMPLETION_ENTRY_0 {
@@ -3242,9 +2600,6 @@ impl Default for NVME_COMPLETION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMPLETION_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3257,9 +2612,6 @@ impl Default for NVME_COMPLETION_ENTRY_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMPLETION_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_COMPLETION_ENTRY_1 {
@@ -3270,9 +2622,6 @@ impl Default for NVME_COMPLETION_ENTRY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMPLETION_ENTRY_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3285,9 +2634,6 @@ impl Default for NVME_COMPLETION_ENTRY_1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMPLETION_ENTRY_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_COMPLETION_QUEUE_HEAD_DOORBELL {
@@ -3299,9 +2645,6 @@ impl Default for NVME_COMPLETION_QUEUE_HEAD_DOORBELL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_COMPLETION_QUEUE_HEAD_DOORBELL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_COMPLETION_QUEUE_HEAD_DOORBELL_0 {
@@ -3311,9 +2654,6 @@ impl Default for NVME_COMPLETION_QUEUE_HEAD_DOORBELL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_COMPLETION_QUEUE_HEAD_DOORBELL_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3326,9 +2666,6 @@ impl Default for NVME_CONTEXT_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CONTEXT_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CONTEXT_ATTRIBUTES_0 {
@@ -3338,9 +2675,6 @@ impl Default for NVME_CONTEXT_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CONTEXT_ATTRIBUTES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3353,9 +2687,6 @@ impl Default for NVME_CONTROLLER_CAPABILITIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CONTROLLER_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CONTROLLER_CAPABILITIES_0 {
@@ -3365,9 +2696,6 @@ impl Default for NVME_CONTROLLER_CAPABILITIES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CONTROLLER_CAPABILITIES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3380,9 +2708,6 @@ impl Default for NVME_CONTROLLER_CONFIGURATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CONTROLLER_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CONTROLLER_CONFIGURATION_0 {
@@ -3392,9 +2717,6 @@ impl Default for NVME_CONTROLLER_CONFIGURATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CONTROLLER_CONFIGURATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3407,9 +2729,6 @@ impl Default for NVME_CONTROLLER_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CONTROLLER_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_MEMORY_BUFFER_LOCATION {
@@ -3421,9 +2740,6 @@ impl Default for NVME_CONTROLLER_MEMORY_BUFFER_LOCATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CONTROLLER_MEMORY_BUFFER_LOCATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CONTROLLER_MEMORY_BUFFER_LOCATION_0 {
@@ -3433,9 +2749,6 @@ impl Default for NVME_CONTROLLER_MEMORY_BUFFER_LOCATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CONTROLLER_MEMORY_BUFFER_LOCATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3448,9 +2761,6 @@ impl Default for NVME_CONTROLLER_MEMORY_BUFFER_SIZE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CONTROLLER_MEMORY_BUFFER_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CONTROLLER_MEMORY_BUFFER_SIZE_0 {
@@ -3460,9 +2770,6 @@ impl Default for NVME_CONTROLLER_MEMORY_BUFFER_SIZE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CONTROLLER_MEMORY_BUFFER_SIZE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_CONTROLLER_METADATA_CHIPSET_DRIVER_NAME: NVME_CONTROLLER_METADATA_ELEMENT_TYPES = NVME_CONTROLLER_METADATA_ELEMENT_TYPES(8i32);
 pub const NVME_CONTROLLER_METADATA_CHIPSET_DRIVER_VERSION: NVME_CONTROLLER_METADATA_ELEMENT_TYPES = NVME_CONTROLLER_METADATA_ELEMENT_TYPES(9i32);
@@ -3508,9 +2815,6 @@ impl Default for NVME_CONTROLLER_REGISTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CONTROLLER_REGISTERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_STATUS {
@@ -3522,9 +2826,6 @@ impl Default for NVME_CONTROLLER_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_CONTROLLER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_CONTROLLER_STATUS_0 {
@@ -3534,9 +2835,6 @@ impl Default for NVME_CONTROLLER_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_CONTROLLER_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_CSS_ADMIN_COMMAND_SET_ONLY: NVME_CSS_COMMAND_SETS = NVME_CSS_COMMAND_SETS(7i32);
 pub const NVME_CSS_ALL_SUPPORTED_IO_COMMAND_SET: NVME_CSS_COMMAND_SETS = NVME_CSS_COMMAND_SETS(6i32);
@@ -3563,9 +2861,6 @@ impl Default for NVME_DEVICE_SELF_TEST_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_DEVICE_SELF_TEST_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_LOG_1 {
@@ -3576,9 +2871,6 @@ impl Default for NVME_DEVICE_SELF_TEST_LOG_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_DEVICE_SELF_TEST_LOG_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_LOG_0 {
@@ -3588,9 +2880,6 @@ impl Default for NVME_DEVICE_SELF_TEST_LOG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_DEVICE_SELF_TEST_LOG_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -3611,9 +2900,6 @@ impl Default for NVME_DEVICE_SELF_TEST_RESULT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_DEVICE_SELF_TEST_RESULT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_2 {
@@ -3623,9 +2909,6 @@ impl Default for NVME_DEVICE_SELF_TEST_RESULT_DATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_DEVICE_SELF_TEST_RESULT_DATA_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3637,9 +2920,6 @@ impl Default for NVME_DEVICE_SELF_TEST_RESULT_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_DEVICE_SELF_TEST_RESULT_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_1 {
@@ -3649,9 +2929,6 @@ impl Default for NVME_DEVICE_SELF_TEST_RESULT_DATA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_DEVICE_SELF_TEST_RESULT_DATA_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3664,9 +2941,6 @@ impl Default for NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR {
@@ -3677,9 +2951,6 @@ impl Default for NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3711,9 +2982,6 @@ impl Default for NVME_DIRECTIVE_STREAMS_GET_STATUS_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_DIRECTIVE_STREAMS_GET_STATUS_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS {
@@ -3731,9 +2999,6 @@ impl Default for NVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3758,9 +3023,6 @@ impl Default for NVME_ENDURANCE_GROUP_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_ENDURANCE_GROUP_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_ERROR_INFO_LOG {
@@ -3781,9 +3043,6 @@ impl Default for NVME_ERROR_INFO_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_ERROR_INFO_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_ERROR_INFO_LOG_0 {
@@ -3793,9 +3052,6 @@ impl Default for NVME_ERROR_INFO_LOG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_ERROR_INFO_LOG_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3810,9 +3066,6 @@ impl Default for NVME_ERROR_INJECTION_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_ERROR_INJECTION_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_ERROR_INJECTION_ENTRY_0 {
@@ -3824,9 +3077,6 @@ impl Default for NVME_ERROR_INJECTION_ENTRY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_ERROR_INJECTION_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_ERROR_INJECTION_ENTRY_0_0 {
@@ -3836,9 +3086,6 @@ impl Default for NVME_ERROR_INJECTION_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_ERROR_INJECTION_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3868,9 +3115,6 @@ impl Default for NVME_EXTENDED_REPORT_ZONE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_EXTENDED_REPORT_ZONE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_FEATURES(pub i32);
@@ -3897,9 +3141,6 @@ impl Default for NVME_FEATURE_HOST_IDENTIFIER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_FEATURE_HOST_IDENTIFIER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const NVME_FEATURE_HOST_MEMORY_BUFFER: NVME_FEATURES = NVME_FEATURES(13i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3912,9 +3153,6 @@ impl Default for NVME_FEATURE_HOST_METADATA_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_FEATURE_HOST_METADATA_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_FEATURE_INTERRUPT_COALESCING: NVME_FEATURES = NVME_FEATURES(8i32);
 pub const NVME_FEATURE_INTERRUPT_VECTOR_CONFIG: NVME_FEATURES = NVME_FEATURES(9i32);
@@ -3968,9 +3206,6 @@ impl Default for NVME_FIRMWARE_SLOT_INFO_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_FIRMWARE_SLOT_INFO_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_FIRMWARE_SLOT_INFO_LOG_0 {
@@ -3980,9 +3215,6 @@ impl Default for NVME_FIRMWARE_SLOT_INFO_LOG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_FIRMWARE_SLOT_INFO_LOG_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4026,9 +3258,6 @@ impl Default for NVME_HEALTH_INFO_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_HEALTH_INFO_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_HEALTH_INFO_LOG_0 {
@@ -4040,9 +3269,6 @@ impl Default for NVME_HEALTH_INFO_LOG_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_HEALTH_INFO_LOG_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_HEALTH_INFO_LOG_0_0 {
@@ -4052,9 +3278,6 @@ impl Default for NVME_HEALTH_INFO_LOG_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_HEALTH_INFO_LOG_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_HOST_IDENTIFIER_SIZE: u32 = 8u32;
 #[repr(C)]
@@ -4068,9 +3291,6 @@ impl Default for NVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_HOST_METADATA_ADD_ENTRY_MULTIPLE: NVME_HOST_METADATA_ELEMENT_ACTIONS = NVME_HOST_METADATA_ELEMENT_ACTIONS(2i32);
 pub const NVME_HOST_METADATA_ADD_REPLACE_ENTRY: NVME_HOST_METADATA_ELEMENT_ACTIONS = NVME_HOST_METADATA_ELEMENT_ACTIONS(0i32);
@@ -4088,9 +3308,6 @@ impl Default for NVME_HOST_METADATA_ELEMENT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_HOST_METADATA_ELEMENT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4221,9 +3438,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_12 {
@@ -4233,9 +3447,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_12 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_12 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4247,9 +3458,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_8 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_8 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_7 {
@@ -4259,9 +3467,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_7 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4273,9 +3478,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_14 {
@@ -4285,9 +3487,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_14 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_14 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4299,9 +3498,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_17 {
@@ -4311,9 +3507,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_17 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_17 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4325,9 +3518,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_16 {
@@ -4337,9 +3527,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_16 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4351,9 +3538,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_10 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_10 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_6 {
@@ -4363,9 +3547,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4377,9 +3558,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_19 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_19 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_20 {
@@ -4389,9 +3567,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_20 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_20 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4403,9 +3578,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_1 {
@@ -4415,9 +3587,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4429,9 +3598,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_15 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_15 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_9 {
@@ -4441,9 +3607,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_9 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4455,9 +3618,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_11 {
@@ -4467,9 +3627,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_11 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4481,9 +3638,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_21 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_21 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_13 {
@@ -4493,9 +3647,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_13 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_13 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4507,9 +3658,6 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA_18 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_CONTROLLER_DATA_18 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_IO_COMMAND_SET {
@@ -4519,9 +3667,6 @@ impl Default for NVME_IDENTIFY_IO_COMMAND_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_IO_COMMAND_SET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4572,9 +3717,6 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_NAMESPACE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_7 {
@@ -4584,9 +3726,6 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DATA_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_NAMESPACE_DATA_7 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4598,9 +3737,6 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DATA_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_NAMESPACE_DATA_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_4 {
@@ -4610,9 +3746,6 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DATA_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_NAMESPACE_DATA_4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4624,9 +3757,6 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DATA_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_NAMESPACE_DATA_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_6 {
@@ -4636,9 +3766,6 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DATA_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_NAMESPACE_DATA_6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4650,9 +3777,6 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DATA_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_NAMESPACE_DATA_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_5 {
@@ -4662,9 +3786,6 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DATA_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_NAMESPACE_DATA_5 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4676,9 +3797,6 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DATA_8 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_NAMESPACE_DATA_8 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_0 {
@@ -4688,9 +3806,6 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_NAMESPACE_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4704,9 +3819,6 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_NAMESPACE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4723,9 +3835,6 @@ impl Default for NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4746,9 +3855,6 @@ impl Default for NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1 {
@@ -4758,9 +3864,6 @@ impl Default for NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4772,9 +3875,6 @@ impl Default for NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
@@ -4785,9 +3885,6 @@ impl Default for NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_IO_COMMAND_SET_COMBINATION_REJECTED: NVME_STATUS_COMMAND_SPECIFIC_CODES = NVME_STATUS_COMMAND_SPECIFIC_CODES(43i32);
 pub const NVME_IO_COMMAND_SET_INVALID: NVME_STATUS_COMMAND_SPECIFIC_CODES = NVME_STATUS_COMMAND_SPECIFIC_CODES(44i32);
@@ -4804,9 +3901,6 @@ impl Default for NVME_LBA_FORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_LBA_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_LBA_FORMAT_0 {
@@ -4819,9 +3913,6 @@ impl Default for NVME_LBA_FORMAT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_LBA_FORMAT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_LBA_RANGE {
@@ -4833,9 +3924,6 @@ impl Default for NVME_LBA_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_LBA_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4853,9 +3941,6 @@ impl Default for NVME_LBA_RANGET_TYPE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_LBA_RANGET_TYPE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_LBA_RANGET_TYPE_ENTRY_0 {
@@ -4865,9 +3950,6 @@ impl Default for NVME_LBA_RANGET_TYPE_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_LBA_RANGET_TYPE_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4888,9 +3970,6 @@ impl Default for NVME_LBA_ZONE_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_LBA_ZONE_FORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4973,9 +4052,6 @@ impl Default for NVME_NVM_SUBSYSTEM_RESET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_NVM_SUBSYSTEM_RESET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG {
@@ -4998,9 +4074,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_3 {
@@ -5012,9 +4085,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0 {
@@ -5024,9 +4094,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5039,9 +4106,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0 {
@@ -5051,9 +4115,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5066,9 +4127,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0 {
@@ -5078,9 +4136,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5093,9 +4148,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0 {
@@ -5105,9 +4157,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5120,9 +4169,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0 {
@@ -5132,9 +4178,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5147,9 +4190,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0 {
@@ -5159,9 +4199,6 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_OCP_DEVICE_CAPABILITIES_LOG_VERSION_1: u32 = 1u32;
 #[repr(C, packed(1))]
@@ -5188,9 +4225,6 @@ impl Default for NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_VERSION_2: u32 = 2u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5207,9 +4241,6 @@ impl Default for NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG_VERSION_1: u32 = 1u32;
 #[repr(C, packed(1))]
@@ -5257,9 +4288,6 @@ impl Default for NVME_OCP_DEVICE_LATENCY_MONITOR_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_LATENCY_MONITOR_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0 {
@@ -5271,9 +4299,6 @@ impl Default for NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0 {
@@ -5283,9 +4308,6 @@ impl Default for NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_VERSION_1: u32 = 1u32;
 #[repr(C, packed(1))]
@@ -5328,9 +4350,6 @@ impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1 {
@@ -5341,9 +4360,6 @@ impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5356,9 +4372,6 @@ impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_2 {
@@ -5369,9 +4382,6 @@ impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5384,9 +4394,6 @@ impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_3 {
@@ -5397,9 +4404,6 @@ impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_3 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_OCP_DEVICE_SMART_INFORMATION_LOG_VERSION_3: u32 = 3u32;
 #[repr(C, packed(1))]
@@ -5432,9 +4436,6 @@ impl Default for NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0 {
@@ -5446,9 +4447,6 @@ impl Default for NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0 {
@@ -5458,9 +4456,6 @@ impl Default for NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_VERSION_1: u32 = 1u32;
 #[repr(C, packed(1))]
@@ -5479,9 +4474,6 @@ impl Default for NVME_OCP_DEVICE_TCG_HISTORY_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_OCP_DEVICE_TCG_HISTORY_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 pub const NVME_OCP_DEVICE_TCG_HISTORY_LOG_VERSION_1: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5497,9 +4489,6 @@ impl Default for NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG_VERSION_1: u32 = 1u32;
 #[repr(C, packed(1))]
@@ -5519,9 +4508,6 @@ impl Default for NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5551,9 +4537,6 @@ impl Default for NVME_PERSISTENT_EVENT_LOG_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_PERSISTENT_EVENT_LOG_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_PERSISTENT_EVENT_TYPE_CHANGE_NAMESPACE: NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES = NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES(6i32);
 pub const NVME_PERSISTENT_EVENT_TYPE_FIRMWARE_COMMIT: NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES = NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES(2i32);
@@ -5600,9 +4583,6 @@ impl Default for NVME_POWER_STATE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_POWER_STATE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const NVME_PROTECTION_INFORMATION_NOT_ENABLED: NVME_PROTECTION_INFORMATION_TYPES = NVME_PROTECTION_INFORMATION_TYPES(0i32);
 pub const NVME_PROTECTION_INFORMATION_TYPE1: NVME_PROTECTION_INFORMATION_TYPES = NVME_PROTECTION_INFORMATION_TYPES(1i32);
 pub const NVME_PROTECTION_INFORMATION_TYPE2: NVME_PROTECTION_INFORMATION_TYPES = NVME_PROTECTION_INFORMATION_TYPES(2i32);
@@ -5621,9 +4601,6 @@ impl Default for NVME_PRP_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_PRP_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_PRP_ENTRY_0 {
@@ -5633,9 +4610,6 @@ impl Default for NVME_PRP_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_PRP_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5651,9 +4625,6 @@ impl Default for NVME_REGISTERED_CONTROLLER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_REGISTERED_CONTROLLER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_REGISTERED_CONTROLLER_DATA_0 {
@@ -5663,9 +4634,6 @@ impl Default for NVME_REGISTERED_CONTROLLER_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_REGISTERED_CONTROLLER_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5682,9 +4650,6 @@ impl Default for NVME_REGISTERED_CONTROLLER_EXTENDED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_REGISTERED_CONTROLLER_EXTENDED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0 {
@@ -5694,9 +4659,6 @@ impl Default for NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5709,9 +4671,6 @@ impl Default for NVME_REPORT_ZONE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_REPORT_ZONE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5730,9 +4689,6 @@ impl Default for NVME_RESERVATION_ACQUIRE_DATA_STRUCTURE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_RESERVATION_ACQUIRE_DATA_STRUCTURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_RESERVATION_NOTIFICATION_LOG {
@@ -5747,9 +4703,6 @@ impl Default for NVME_RESERVATION_NOTIFICATION_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_RESERVATION_NOTIFICATION_LOG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5775,9 +4728,6 @@ impl Default for NVME_RESERVATION_REGISTER_DATA_STRUCTURE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_RESERVATION_REGISTER_DATA_STRUCTURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES(pub i32);
@@ -5800,9 +4750,6 @@ impl Default for NVME_RESERVATION_RELEASE_DATA_STRUCTURE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_RESERVATION_RELEASE_DATA_STRUCTURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE {
@@ -5813,9 +4760,6 @@ impl Default for NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5828,9 +4772,6 @@ impl Default for NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5846,9 +4787,6 @@ impl Default for NVME_RESERVATION_REPORT_STATUS_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_RESERVATION_REPORT_STATUS_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5886,9 +4824,6 @@ impl Default for NVME_SANITIZE_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_SANITIZE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_SANITIZE_STATUS_LOG {
@@ -5908,9 +4843,6 @@ impl Default for NVME_SANITIZE_STATUS_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_SANITIZE_STATUS_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_SCSI_NAME_STRING {
@@ -5923,9 +4855,6 @@ impl Default for NVME_SCSI_NAME_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_SCSI_NAME_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_SECURE_ERASE_CRYPTOGRAPHIC: NVME_SECURE_ERASE_SETTINGS = NVME_SECURE_ERASE_SETTINGS(2i32);
 pub const NVME_SECURE_ERASE_NONE: NVME_SECURE_ERASE_SETTINGS = NVME_SECURE_ERASE_SETTINGS(0i32);
@@ -5949,9 +4878,6 @@ impl Default for NVME_SET_ATTRIBUTES_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_SET_ATTRIBUTES_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_STATE_ZSC: ZONE_STATE = ZONE_STATE(4i32);
 pub const NVME_STATE_ZSE: ZONE_STATE = ZONE_STATE(1i32);
@@ -6086,9 +5012,6 @@ impl Default for NVME_SUBMISSION_QUEUE_TAIL_DOORBELL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_SUBMISSION_QUEUE_TAIL_DOORBELL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0 {
@@ -6098,9 +5021,6 @@ impl Default for NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6122,9 +5042,6 @@ impl Default for NVME_TELEMETRY_CONTROLLER_INITIATED_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_TELEMETRY_CONTROLLER_INITIATED_LOG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_TELEMETRY_DATA_BLOCK_SIZE: u32 = 512u32;
 #[repr(C)]
@@ -6149,9 +5066,6 @@ impl Default for NVME_TELEMETRY_HOST_INITIATED_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_TELEMETRY_HOST_INITIATED_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 pub const NVME_TEMPERATURE_OVER_THRESHOLD: NVME_TEMPERATURE_THRESHOLD_TYPES = NVME_TEMPERATURE_THRESHOLD_TYPES(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6171,9 +5085,6 @@ impl Default for NVME_VERSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_VERSION_0 {
@@ -6184,9 +5095,6 @@ impl Default for NVME_VERSION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_VERSION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_CAPABILITIES {
@@ -6196,9 +5104,6 @@ impl Default for NVME_WCS_DEVICE_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_WCS_DEVICE_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6211,9 +5116,6 @@ impl Default for NVME_WCS_DEVICE_CAPABILITIES_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_WCS_DEVICE_CAPABILITIES_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_WCS_DEVICE_CAPABILITIES_0_0 {
@@ -6223,9 +5125,6 @@ impl Default for NVME_WCS_DEVICE_CAPABILITIES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_WCS_DEVICE_CAPABILITIES_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -6248,9 +5147,6 @@ impl Default for NVME_WCS_DEVICE_ERROR_RECOVERY_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_WCS_DEVICE_ERROR_RECOVERY_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 pub const NVME_WCS_DEVICE_ERROR_RECOVERY_LOG_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6268,9 +5164,6 @@ impl Default for NVME_WCS_DEVICE_RESET_ACTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_WCS_DEVICE_RESET_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_WCS_DEVICE_RESET_ACTION_0 {
@@ -6282,9 +5175,6 @@ impl Default for NVME_WCS_DEVICE_RESET_ACTION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_WCS_DEVICE_RESET_ACTION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_WCS_DEVICE_RESET_ACTION_0_0 {
@@ -6294,9 +5184,6 @@ impl Default for NVME_WCS_DEVICE_RESET_ACTION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_WCS_DEVICE_RESET_ACTION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -6309,9 +5196,6 @@ impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -6350,9 +5234,6 @@ impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1 {
@@ -6363,9 +5244,6 @@ impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6378,9 +5256,6 @@ impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_2 {
@@ -6391,9 +5266,6 @@ impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6406,9 +5278,6 @@ impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_3 {
@@ -6419,9 +5288,6 @@ impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_3 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_VERSION_2: u32 = 2u32;
 #[repr(C)]
@@ -6441,9 +5307,6 @@ impl Default for NVME_ZONE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_ZONE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_ZONE_DESCRIPTOR_0 {
@@ -6453,9 +5316,6 @@ impl Default for NVME_ZONE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_ZONE_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6467,9 +5327,6 @@ impl Default for NVME_ZONE_DESCRIPTOR_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_ZONE_DESCRIPTOR_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_ZONE_DESCRIPTOR_2 {
@@ -6479,9 +5336,6 @@ impl Default for NVME_ZONE_DESCRIPTOR_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_ZONE_DESCRIPTOR_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6493,9 +5347,6 @@ impl Default for NVME_ZONE_DESCRIPTOR_EXTENSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVME_ZONE_DESCRIPTOR_EXTENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVME_ZONE_EXTENDED_REPORT_ZONE_DESC {
@@ -6506,9 +5357,6 @@ impl Default for NVME_ZONE_EXTENDED_REPORT_ZONE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVME_ZONE_EXTENDED_REPORT_ZONE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6546,9 +5394,6 @@ impl Default for NVM_RESERVATION_CAPABILITIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NVM_RESERVATION_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NVM_RESERVATION_CAPABILITIES_0 {
@@ -6558,9 +5403,6 @@ impl Default for NVM_RESERVATION_CAPABILITIES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVM_RESERVATION_CAPABILITIES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6573,9 +5415,6 @@ impl Default for NVM_SET_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NVM_SET_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NVMeDeviceRecovery1Max: NVME_WCS_DEVICE_RECOVERY_ACTION1 = NVME_WCS_DEVICE_RECOVERY_ACTION1(15i32);
 pub const NVMeDeviceRecovery2Max: NVME_WCS_DEVICE_RECOVERY_ACTION2 = NVME_WCS_DEVICE_RECOVERY_ACTION2(15i32);
@@ -6601,9 +5440,6 @@ impl Default for TCG_ACTIVATE_METHOD_SPECIFIC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCG_ACTIVATE_METHOD_SPECIFIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct TCG_ASSIGN_METHOD_SPECIFIC {
@@ -6613,9 +5449,6 @@ impl Default for TCG_ASSIGN_METHOD_SPECIFIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TCG_ASSIGN_METHOD_SPECIFIC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -6628,9 +5461,6 @@ impl Default for TCG_AUTH_METHOD_SPECIFIC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCG_AUTH_METHOD_SPECIFIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TCG_BLOCKSID_METHOD_SPECIFIC {
@@ -6640,9 +5470,6 @@ impl Default for TCG_BLOCKSID_METHOD_SPECIFIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TCG_BLOCKSID_METHOD_SPECIFIC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -6665,9 +5492,6 @@ impl Default for TCG_HISTORY_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCG_HISTORY_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TCG_HISTORY_ENTRY_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6679,9 +5503,6 @@ impl Default for TCG_REACTIVATE_METHOD_SPECIFIC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCG_REACTIVATE_METHOD_SPECIFIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UNSUPPORTED_REQUIREMENT {
@@ -6691,9 +5512,6 @@ impl Default for UNSUPPORTED_REQUIREMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UNSUPPORTED_REQUIREMENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

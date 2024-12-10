@@ -387,9 +387,6 @@ impl Default for ENUMUILANG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENUMUILANG {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024u32;
 pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512u32;
 pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256u32;
@@ -460,9 +457,6 @@ impl Default for REDIRECTION_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REDIRECTION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REDIRECTION_FUNCTION_DESCRIPTOR {
@@ -474,9 +468,6 @@ impl Default for REDIRECTION_FUNCTION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REDIRECTION_FUNCTION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RESOURCE_ENUM_LN: u32 = 1u32;
 pub const RESOURCE_ENUM_MODULE_EXACT: u32 = 16u32;

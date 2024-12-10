@@ -39,9 +39,6 @@ impl Default for COLUMNSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COLUMNSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CProperty {
@@ -56,9 +53,6 @@ impl Default for CProperty {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CProperty {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CProperty_0 {
@@ -70,9 +64,6 @@ impl Default for CProperty_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CProperty_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const E_ALL_WILD: windows_core::HRESULT = windows_core::HRESULT(0x80001055_u32 as _);
 pub const E_ALREADYINIT: windows_core::HRESULT = windows_core::HRESULT(0x80001083_u32 as _);
@@ -175,10 +166,6 @@ impl Default for HHNTRACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for HHNTRACK {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HHN_FIRST: u32 = 4294966436u32;
 pub const HHN_LAST: u32 = 4294966417u32;
 pub const HHN_NAVCOMPLETE: u32 = 4294966436u32;
@@ -194,10 +181,6 @@ impl Default for HHN_NOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for HHN_NOTIFY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HHN_TRACK: u32 = 4294966435u32;
 pub const HHN_WINDOW_CREATE: u32 = 4294966434u32;
@@ -292,9 +275,6 @@ impl Default for HH_AKLINK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HH_AKLINK {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HH_ALINK_LOOKUP: HTML_HELP_COMMAND = HTML_HELP_COMMAND(19i32);
 pub const HH_CLOSE_ALL: HTML_HELP_COMMAND = HTML_HELP_COMMAND(18i32);
 pub const HH_DISPLAY_INDEX: HTML_HELP_COMMAND = HTML_HELP_COMMAND(2i32);
@@ -314,9 +294,6 @@ impl Default for HH_ENUM_CAT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HH_ENUM_CAT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HH_ENUM_CATEGORY: HTML_HELP_COMMAND = HTML_HELP_COMMAND(21i32);
 pub const HH_ENUM_CATEGORY_IT: HTML_HELP_COMMAND = HTML_HELP_COMMAND(22i32);
 pub const HH_ENUM_INFO_TYPE: HTML_HELP_COMMAND = HTML_HELP_COMMAND(7i32);
@@ -333,9 +310,6 @@ impl Default for HH_ENUM_IT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HH_ENUM_IT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HH_FTS_DEFAULT_PROXIMITY: HTML_HELP_COMMAND = HTML_HELP_COMMAND(-1i32);
 #[repr(C)]
@@ -354,9 +328,6 @@ impl Default for HH_FTS_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HH_FTS_QUERY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HH_GET_LAST_ERROR: HTML_HELP_COMMAND = HTML_HELP_COMMAND(20i32);
 pub const HH_GET_WIN_HANDLE: HTML_HELP_COMMAND = HTML_HELP_COMMAND(6i32);
@@ -378,10 +349,6 @@ impl Default for HH_GLOBAL_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for HH_GLOBAL_PROPERTY {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -415,9 +382,6 @@ impl Default for HH_POPUP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HH_POPUP {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HH_PRETRANSLATEMESSAGE: HTML_HELP_COMMAND = HTML_HELP_COMMAND(253i32);
 pub const HH_RESERVED1: HTML_HELP_COMMAND = HTML_HELP_COMMAND(10i32);
 pub const HH_RESERVED2: HTML_HELP_COMMAND = HTML_HELP_COMMAND(11i32);
@@ -438,9 +402,6 @@ impl Default for HH_SET_INFOTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HH_SET_INFOTYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HH_SET_INFO_TYPE: HTML_HELP_COMMAND = HTML_HELP_COMMAND(8i32);
 pub const HH_SET_QUERYSERVICE: HTML_HELP_COMMAND = HTML_HELP_COMMAND(30i32);
@@ -501,9 +462,6 @@ impl Default for HH_WINTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HH_WINTYPE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1471,9 +1429,6 @@ impl Default for ROWSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ROWSTATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STDPROP_DISPLAYKEY: u32 = 101u32;
 pub const STDPROP_INDEX_BREAK: u32 = 204u32;

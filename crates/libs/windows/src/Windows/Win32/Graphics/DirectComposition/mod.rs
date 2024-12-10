@@ -104,9 +104,6 @@ impl Default for COMPOSITION_FRAME_STATS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMPOSITION_FRAME_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMPOSITION_STATS {
@@ -119,9 +116,6 @@ impl Default for COMPOSITION_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COMPOSITION_STATS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256u32;
 #[repr(C)]
@@ -138,9 +132,6 @@ impl Default for COMPOSITION_TARGET_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMPOSITION_TARGET_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMPOSITION_TARGET_STATS {
@@ -154,9 +145,6 @@ impl Default for COMPOSITION_TARGET_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COMPOSITION_TARGET_STATS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -206,10 +194,6 @@ impl Default for DCOMPOSITION_FRAME_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for DCOMPOSITION_FRAME_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -228,9 +212,6 @@ impl Default for DCompositionInkTrailPoint {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DCompositionInkTrailPoint {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IDCompositionAffineTransform2DEffect, IDCompositionAffineTransform2DEffect_Vtbl, 0x0b74b9e8_cdd6_492f_bbbc_5ed32157026d);
 impl core::ops::Deref for IDCompositionAffineTransform2DEffect {

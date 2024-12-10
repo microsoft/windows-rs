@@ -2575,9 +2575,6 @@ impl Default for ACCEL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACCEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCEL_VIRT_FLAGS(pub u8);
@@ -2632,9 +2629,6 @@ impl Default for ALTTABINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ALTTABINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ANIMATE_WINDOW_FLAGS(pub u32);
@@ -2682,9 +2676,6 @@ impl Default for ANIMATIONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ANIMATIONINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(0i32);
 pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(1i32);
 pub const ARW_DOWN: i32 = 4i32;
@@ -2709,9 +2700,6 @@ impl Default for AUDIODESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUDIODESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AW_ACTIVATE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(131072u32);
 pub const AW_BLEND: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(524288u32);
@@ -2850,9 +2838,6 @@ impl Default for CBTACTIVATESTRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CBTACTIVATESTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CBT_CREATEWNDA {
@@ -2864,9 +2849,6 @@ impl Default for CBT_CREATEWNDA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CBT_CREATEWNDA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CBT_CREATEWNDW {
@@ -2877,9 +2859,6 @@ impl Default for CBT_CREATEWNDW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CBT_CREATEWNDW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CB_ADDSTRING: u32 = 323u32;
 pub const CB_DELETESTRING: u32 = 324u32;
@@ -2934,9 +2913,6 @@ impl Default for CHANGEFILTERSTRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGEFILTERSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(pub u32);
@@ -2951,9 +2927,6 @@ impl Default for CLIENTCREATESTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLIENTCREATESTRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CONSOLE_APPLICATION_16BIT: u32 = 0u32;
 pub const CONSOLE_CARET_SELECTION: u32 = 1u32;
@@ -2983,9 +2956,6 @@ impl Default for CREATESTRUCTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREATESTRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREATESTRUCTW {
@@ -3006,9 +2976,6 @@ impl Default for CREATESTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREATESTRUCTW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CSOUND_SYSTEM: u32 = 16u32;
 pub const CS_BYTEALIGNCLIENT: WNDCLASS_STYLES = WNDCLASS_STYLES(4096u32);
@@ -3045,9 +3012,6 @@ impl Default for CURSORINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CURSORINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CURSORINFO_FLAGS(pub u32);
@@ -3066,9 +3030,6 @@ impl Default for CURSORSHAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CURSORSHAPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CURSOR_CREATION_SCALING_DEFAULT: u32 = 2u32;
 pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
@@ -3089,9 +3050,6 @@ impl Default for CWPRETSTRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CWPRETSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CWPSTRUCT {
@@ -3104,9 +3062,6 @@ impl Default for CWPSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CWPSTRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CWP_ALL: CWP_FLAGS = CWP_FLAGS(0u32);
 #[repr(transparent)]
@@ -3205,9 +3160,6 @@ impl Default for DEBUGHOOKINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUGHOOKINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_EVENT_BECOMING_READY {
@@ -3219,9 +3171,6 @@ impl Default for DEVICE_EVENT_BECOMING_READY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_EVENT_BECOMING_READY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3237,9 +3186,6 @@ impl Default for DEVICE_EVENT_EXTERNAL_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_EVENT_EXTERNAL_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_EVENT_GENERIC_DATA {
@@ -3249,9 +3195,6 @@ impl Default for DEVICE_EVENT_GENERIC_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_EVENT_GENERIC_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3265,9 +3208,6 @@ impl Default for DEVICE_EVENT_MOUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_EVENT_MOUNT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3283,9 +3223,6 @@ impl Default for DEVICE_EVENT_RBC_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_EVENT_RBC_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(4u32);
 pub const DEVICE_NOTIFY_CALLBACK: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(2u32);
@@ -3305,9 +3242,6 @@ impl Default for DEV_BROADCAST_DEVICEINTERFACE_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEV_BROADCAST_DEVICEINTERFACE_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
@@ -3322,9 +3256,6 @@ impl Default for DEV_BROADCAST_DEVICEINTERFACE_W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEV_BROADCAST_DEVICEINTERFACE_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEV_BROADCAST_DEVNODE {
@@ -3337,9 +3268,6 @@ impl Default for DEV_BROADCAST_DEVNODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_DEVNODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3358,9 +3286,6 @@ impl Default for DEV_BROADCAST_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEV_BROADCAST_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEV_BROADCAST_HANDLE32 {
@@ -3377,9 +3302,6 @@ impl Default for DEV_BROADCAST_HANDLE32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_HANDLE32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3398,9 +3320,6 @@ impl Default for DEV_BROADCAST_HANDLE64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEV_BROADCAST_HANDLE64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEV_BROADCAST_HDR {
@@ -3412,9 +3331,6 @@ impl Default for DEV_BROADCAST_HDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_HDR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3433,9 +3349,6 @@ impl Default for DEV_BROADCAST_NET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEV_BROADCAST_NET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEV_BROADCAST_OEM {
@@ -3450,9 +3363,6 @@ impl Default for DEV_BROADCAST_OEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEV_BROADCAST_OEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEV_BROADCAST_PORT_A {
@@ -3466,9 +3376,6 @@ impl Default for DEV_BROADCAST_PORT_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEV_BROADCAST_PORT_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEV_BROADCAST_PORT_W {
@@ -3481,9 +3388,6 @@ impl Default for DEV_BROADCAST_PORT_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_PORT_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3499,9 +3403,6 @@ impl Default for DEV_BROADCAST_VOLUME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEV_BROADCAST_VOLUME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_BROADCAST_VOLUME_FLAGS(pub u16);
@@ -3515,9 +3416,6 @@ impl Default for DISK_HEALTH_NOTIFICATION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISK_HEALTH_NOTIFICATION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DI_COMPAT: DI_FLAGS = DI_FLAGS(4u32);
 pub const DI_DEFAULTSIZE: DI_FLAGS = DI_FLAGS(8u32);
@@ -3588,9 +3486,6 @@ impl Default for DLGITEMTEMPLATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DLGITEMTEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -3607,9 +3502,6 @@ impl Default for DLGTEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DLGTEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DLGWINDOWEXTRA: u32 = 30u32;
 pub const DM_GETDEFID: u32 = 1024u32;
@@ -3638,9 +3530,6 @@ impl Default for DROPSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DROPSTRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DS_3DLOOK: i32 = 4i32;
 pub const DS_ABSALIGN: i32 = 1i32;
@@ -3716,9 +3605,6 @@ impl Default for EVENTMSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EVENTMSG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EVENT_AIA_END: u32 = 45055u32;
 pub const EVENT_AIA_START: u32 = 40960u32;
@@ -3837,9 +3723,6 @@ impl Default for FLASHWINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FLASHWINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLASHWINFO_FLAGS(pub u32);
@@ -3933,9 +3816,6 @@ impl Default for GETCLIPBMETADATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GETCLIPBMETADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_ANCESTOR_FLAGS(pub u32);
@@ -4004,9 +3884,6 @@ impl Default for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GUID_IO_DISK_HEALTH_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0x0f1bd644_3916_49c5_b063_991940118fb2);
 pub const GUID_IO_DISK_LAYOUT_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x11dff54c_8469_41f9_b3de_ef836487c54a);
 pub const GUID_IO_DRIVE_REQUIRES_CLEANING: windows_core::GUID = windows_core::GUID::from_u128(0x7207877c_90ed_44e5_a000_81428d4c79bb);
@@ -4051,9 +3928,6 @@ impl Default for GUITHREADINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GUITHREADINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4160,9 +4034,6 @@ impl Default for HARDWAREHOOKSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HARDWAREHOOKSTRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(-1i32 as _);
@@ -4445,10 +4316,6 @@ impl Default for ICONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICONINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4468,10 +4335,6 @@ impl Default for ICONINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICONINFOEXA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4493,10 +4356,6 @@ impl Default for ICONINFOEXW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICONINFOEXW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4513,10 +4372,6 @@ impl Default for ICONMETRICSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICONMETRICSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4532,10 +4387,6 @@ impl Default for ICONMETRICSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICONMETRICSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ICON_BIG: u32 = 1u32;
 pub const ICON_SMALL: u32 = 0u32;
@@ -4657,9 +4508,6 @@ impl Default for IndexedResourceQualifier {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IndexedResourceQualifier {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KBDLLHOOKSTRUCT {
@@ -4673,9 +4521,6 @@ impl Default for KBDLLHOOKSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KBDLLHOOKSTRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4922,9 +4767,6 @@ impl Default for MDICREATESTRUCTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MDICREATESTRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MDICREATESTRUCTW {
@@ -4943,9 +4785,6 @@ impl Default for MDICREATESTRUCTW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MDICREATESTRUCTW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MDINEXTMENU {
@@ -4957,9 +4796,6 @@ impl Default for MDINEXTMENU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MDINEXTMENU {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MDIS_ALLCHILDSTYLES: u32 = 1u32;
 pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(1u32);
@@ -4980,9 +4816,6 @@ impl Default for MENUBARINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MENUBARINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MENUEX_TEMPLATE_HEADER {
@@ -4994,9 +4827,6 @@ impl Default for MENUEX_TEMPLATE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MENUEX_TEMPLATE_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5012,9 +4842,6 @@ impl Default for MENUEX_TEMPLATE_ITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MENUEX_TEMPLATE_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MENUGETOBJECTINFO {
@@ -5028,9 +4855,6 @@ impl Default for MENUGETOBJECTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MENUGETOBJECTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5052,10 +4876,6 @@ impl Default for MENUINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MENUINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5152,10 +4972,6 @@ impl Default for MENUITEMINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MENUITEMINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5179,10 +4995,6 @@ impl Default for MENUITEMINFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MENUITEMINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MENUITEMTEMPLATE {
@@ -5195,9 +5007,6 @@ impl Default for MENUITEMTEMPLATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MENUITEMTEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MENUITEMTEMPLATEHEADER {
@@ -5209,9 +5018,6 @@ impl Default for MENUITEMTEMPLATEHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MENUITEMTEMPLATEHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MENUTEMPLATEEX {
@@ -5221,9 +5027,6 @@ impl Default for MENUTEMPLATEEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MENUTEMPLATEEX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5236,9 +5039,6 @@ impl Default for MENUTEMPLATEEX_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MENUTEMPLATEEX_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MENUTEMPLATEEX_0_1 {
@@ -5250,9 +5050,6 @@ impl Default for MENUTEMPLATEEX_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MENUTEMPLATEEX_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MENUTEMPLATEEX_0_0 {
@@ -5263,9 +5060,6 @@ impl Default for MENUTEMPLATEEX_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MENUTEMPLATEEX_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5462,9 +5256,6 @@ impl Default for MESSAGE_RESOURCE_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MESSAGE_RESOURCE_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MESSAGE_RESOURCE_DATA {
@@ -5475,9 +5266,6 @@ impl Default for MESSAGE_RESOURCE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MESSAGE_RESOURCE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5490,9 +5278,6 @@ impl Default for MESSAGE_RESOURCE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MESSAGE_RESOURCE_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const METRICS_USEDEFAULT: i32 = -1i32;
 pub const MFS_CHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(8u32);
@@ -5569,9 +5354,6 @@ impl Default for MINIMIZEDMETRICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIMIZEDMETRICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIMIZEDMETRICS_ARRANGE(pub i32);
@@ -5589,9 +5371,6 @@ impl Default for MINMAXINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINMAXINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MIN_LOGICALDPIOVERRIDE: i32 = -2i32;
 pub const MKF_AVAILABLE: u32 = 2u32;
@@ -5638,9 +5417,6 @@ impl Default for MOUSEHOOKSTRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MOUSEHOOKSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MOUSEHOOKSTRUCTEX {
@@ -5651,9 +5427,6 @@ impl Default for MOUSEHOOKSTRUCTEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MOUSEHOOKSTRUCTEX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
 pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
@@ -5672,9 +5445,6 @@ impl Default for MSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MSG {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_UI_Shell")]
 pub type MSGBOXCALLBACK = Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
@@ -5699,10 +5469,6 @@ impl Default for MSGBOXPARAMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_Shell")]
-impl windows_core::TypeKind for MSGBOXPARAMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5723,10 +5489,6 @@ impl Default for MSGBOXPARAMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_Shell")]
-impl windows_core::TypeKind for MSGBOXPARAMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(3u32);
 pub const MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(1u32);
@@ -5797,9 +5559,6 @@ impl Default for MSLLHOOKSTRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MSLLHOOKSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MWMO_ALERTABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(2u32);
 pub const MWMO_INPUTAVAILABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(4u32);
 pub const MWMO_NONE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(0u32);
@@ -5844,9 +5603,6 @@ impl Default for MrmResourceIndexerHandle {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MrmResourceIndexerHandle {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MrmResourceIndexerMessage {
@@ -5858,9 +5614,6 @@ impl Default for MrmResourceIndexerMessage {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MrmResourceIndexerMessage {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5881,9 +5634,6 @@ impl Default for NCCALCSIZE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NCCALCSIZE_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NFR_ANSI: u32 = 1u32;
 pub const NFR_UNICODE: u32 = 2u32;
@@ -5922,10 +5672,6 @@ impl Default for NONCLIENTMETRICSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NONCLIENTMETRICSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5952,10 +5698,6 @@ impl Default for NONCLIENTMETRICSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NONCLIENTMETRICSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6359,9 +6101,6 @@ impl Default for SCROLLBARINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCROLLBARINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCROLLBAR_COMMAND(pub i32);
@@ -6416,9 +6155,6 @@ impl Default for SCROLLINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCROLLINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6596,9 +6332,6 @@ impl Default for SHELLHOOKINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SHELLHOOKINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SHOW_FULLSCREEN: u32 = 3u32;
 pub const SHOW_ICONWINDOW: u32 = 2u32;
@@ -7050,9 +6783,6 @@ impl Default for STYLESTRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STYLESTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SWP_ASYNCWINDOWPOS: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(16384u32);
 pub const SWP_DEFERERASE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(8192u32);
 pub const SWP_DRAWFRAME: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(32u32);
@@ -7191,9 +6921,6 @@ impl Default for TITLEBARINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TITLEBARINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TITLEBARINFOEX {
@@ -7206,9 +6933,6 @@ impl Default for TITLEBARINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TITLEBARINFOEX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TKF_AVAILABLE: u32 = 2u32;
 pub const TKF_CONFIRMHOTKEY: u32 = 8u32;
@@ -7231,9 +6955,6 @@ impl Default for TOUCHPREDICTIONPARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOUCHPREDICTIONPARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_LATENCY: u32 = 8u32;
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_DELTA: f32 = 0.001f32;
@@ -7263,9 +6984,6 @@ impl Default for TPMPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TPMPARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TPM_BOTTOMALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(32u32);
 pub const TPM_CENTERALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(4u32);
@@ -7356,10 +7074,6 @@ impl Default for UPDATELAYEREDWINDOWINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for UPDATELAYEREDWINDOWINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UPDATE_LAYERED_WINDOW_FLAGS(pub u32);
@@ -7380,9 +7094,6 @@ impl Default for VolLockBroadcast {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VolLockBroadcast {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WA_ACTIVE: u32 = 1u32;
 pub const WA_CLICKACTIVE: u32 = 2u32;
@@ -7430,9 +7141,6 @@ impl Default for WINDOWINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINDOWINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDOWPLACEMENT {
@@ -7447,9 +7155,6 @@ impl Default for WINDOWPLACEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINDOWPLACEMENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7502,9 +7207,6 @@ impl Default for WINDOWPOS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINDOWPOS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7888,10 +7590,6 @@ impl Default for WNDCLASSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for WNDCLASSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7914,10 +7612,6 @@ impl Default for WNDCLASSEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for WNDCLASSEXA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7942,10 +7636,6 @@ impl Default for WNDCLASSEXW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for WNDCLASSEXW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7966,10 +7656,6 @@ impl Default for WNDCLASSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for WNDCLASSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8101,9 +7787,6 @@ impl Default for _DEV_BROADCAST_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for _DEV_BROADCAST_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _DEV_BROADCAST_USERDEFINED {
@@ -8114,9 +7797,6 @@ impl Default for _DEV_BROADCAST_USERDEFINED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for _DEV_BROADCAST_USERDEFINED {
-    type TypeKind = windows_core::CopyType;
 }
 pub const __WARNING_BANNED_API_USAGE: u32 = 28719u32;
 pub const __WARNING_CYCLOMATIC_COMPLEXITY: u32 = 28734u32;

@@ -10,9 +10,6 @@ impl Default for DAILY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DAILY {
-    type TypeKind = windows_core::CopyType;
-}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAction, IAction_Vtbl, 0xbae54997_48b1_4cbe_9965_d6be263ebea4);
 #[cfg(feature = "Win32_System_Com")]
@@ -6191,9 +6188,6 @@ impl Default for MONTHLYDATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MONTHLYDATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONTHLYDOW {
@@ -6205,9 +6199,6 @@ impl Default for MONTHLYDOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MONTHLYDOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6367,9 +6358,6 @@ impl Default for TASK_TRIGGER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TASK_TRIGGER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TASK_TRIGGER_BOOT: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(8i32);
 pub const TASK_TRIGGER_CUSTOM_TRIGGER_01: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(12i32);
 pub const TASK_TRIGGER_DAILY: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(2i32);
@@ -6408,9 +6396,6 @@ impl Default for TRIGGER_TYPE_UNION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRIGGER_TYPE_UNION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TaskHandlerPS: windows_core::GUID = windows_core::GUID::from_u128(0xf2a69db7_da2c_4352_9066_86fee6dacac9);
 pub const TaskHandlerStatusPS: windows_core::GUID = windows_core::GUID::from_u128(0x9f15266d_d7ba_48f0_93c1_e6895f6fe5ac);
 pub const TaskScheduler: windows_core::GUID = windows_core::GUID::from_u128(0x0f87369f_a4e5_4cfc_bd3e_73e6154572dd);
@@ -6424,7 +6409,4 @@ impl Default for WEEKLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEEKLY {
-    type TypeKind = windows_core::CopyType;
 }

@@ -3331,9 +3331,6 @@ impl Default for REQUESTBODY_GetStatus {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REQUESTBODY_GetStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REQUESTBODY_Renew {
@@ -3344,9 +3341,6 @@ impl Default for REQUESTBODY_Renew {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REQUESTBODY_Renew {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3362,9 +3356,6 @@ impl Default for REQUESTBODY_Subscribe {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REQUESTBODY_Subscribe {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REQUESTBODY_Unsubscribe {
@@ -3375,9 +3366,6 @@ impl Default for REQUESTBODY_Unsubscribe {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REQUESTBODY_Unsubscribe {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESPONSEBODY_GetMetadata {
@@ -3387,9 +3375,6 @@ impl Default for RESPONSEBODY_GetMetadata {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RESPONSEBODY_GetMetadata {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3402,9 +3387,6 @@ impl Default for RESPONSEBODY_GetStatus {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESPONSEBODY_GetStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESPONSEBODY_Renew {
@@ -3415,9 +3397,6 @@ impl Default for RESPONSEBODY_Renew {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RESPONSEBODY_Renew {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3431,9 +3410,6 @@ impl Default for RESPONSEBODY_Subscribe {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESPONSEBODY_Subscribe {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESPONSEBODY_SubscriptionEnd {
@@ -3446,9 +3422,6 @@ impl Default for RESPONSEBODY_SubscriptionEnd {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RESPONSEBODY_SubscriptionEnd {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SecureDirectedDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(2i32);
 pub const TWO_WAY: WSDUdpMessageType = WSDUdpMessageType(1i32);
@@ -3489,9 +3462,6 @@ impl Default for WSDUdpRetransmitParams {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSDUdpRetransmitParams {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSDXML_ATTRIBUTE {
@@ -3504,9 +3474,6 @@ impl Default for WSDXML_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSDXML_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3522,9 +3489,6 @@ impl Default for WSDXML_ELEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSDXML_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSDXML_ELEMENT_LIST {
@@ -3536,9 +3500,6 @@ impl Default for WSDXML_ELEMENT_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSDXML_ELEMENT_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSDXML_NAME {
@@ -3549,9 +3510,6 @@ impl Default for WSDXML_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSDXML_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3566,9 +3524,6 @@ impl Default for WSDXML_NAMESPACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSDXML_NAMESPACE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3586,9 +3541,6 @@ impl Default for WSDXML_NODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSDXML_NODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSDXML_OP(pub i32);
@@ -3605,9 +3557,6 @@ impl Default for WSDXML_PREFIX_MAPPING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSDXML_PREFIX_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSDXML_TEXT {
@@ -3619,9 +3568,6 @@ impl Default for WSDXML_TEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSDXML_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSDXML_TYPE {
@@ -3632,9 +3578,6 @@ impl Default for WSDXML_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSDXML_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3648,9 +3591,6 @@ impl Default for WSD_APP_SEQUENCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_APP_SEQUENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_BYE {
@@ -3662,9 +3602,6 @@ impl Default for WSD_BYE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_BYE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_CONFIG_ADDRESSES {
@@ -3675,9 +3612,6 @@ impl Default for WSD_CONFIG_ADDRESSES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_CONFIG_ADDRESSES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WSD_CONFIG_DEVICE_ADDRESSES: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(10i32);
 pub const WSD_CONFIG_HOSTING_ADDRESSES: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(9i32);
@@ -3694,9 +3628,6 @@ impl Default for WSD_CONFIG_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_CONFIG_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3722,9 +3653,6 @@ impl Default for WSD_DATETIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_DATETIME {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WSD_DEFAULT_EVENTING_ADDRESS: windows_core::PCWSTR = windows_core::w!("http://*:5357/");
 pub const WSD_DEFAULT_HOSTING_ADDRESS: windows_core::PCWSTR = windows_core::w!("http://*:5357/");
 pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: windows_core::PCWSTR = windows_core::w!("https://*:5358/");
@@ -3745,9 +3673,6 @@ impl Default for WSD_DURATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_DURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_ENDPOINT_REFERENCE {
@@ -3763,9 +3688,6 @@ impl Default for WSD_ENDPOINT_REFERENCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_ENDPOINT_REFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_ENDPOINT_REFERENCE_LIST {
@@ -3776,9 +3698,6 @@ impl Default for WSD_ENDPOINT_REFERENCE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_ENDPOINT_REFERENCE_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -3796,9 +3715,6 @@ impl Default for WSD_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_EVENT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_EVENTING_DELIVERY_MODE {
@@ -3811,9 +3727,6 @@ impl Default for WSD_EVENTING_DELIVERY_MODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_EVENTING_DELIVERY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_EVENTING_DELIVERY_MODE_PUSH {
@@ -3823,9 +3736,6 @@ impl Default for WSD_EVENTING_DELIVERY_MODE_PUSH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_EVENTING_DELIVERY_MODE_PUSH {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3837,9 +3747,6 @@ impl Default for WSD_EVENTING_EXPIRES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_EVENTING_EXPIRES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3853,9 +3760,6 @@ impl Default for WSD_EVENTING_FILTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_EVENTING_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_EVENTING_FILTER_ACTION {
@@ -3865,9 +3769,6 @@ impl Default for WSD_EVENTING_FILTER_ACTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_EVENTING_FILTER_ACTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -3881,9 +3782,6 @@ impl Default for WSD_HANDLER_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_HANDLER_CONTEXT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_HEADER_RELATESTO {
@@ -3894,9 +3792,6 @@ impl Default for WSD_HEADER_RELATESTO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_HEADER_RELATESTO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3913,9 +3808,6 @@ impl Default for WSD_HELLO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_HELLO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_HOST_METADATA {
@@ -3926,9 +3818,6 @@ impl Default for WSD_HOST_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_HOST_METADATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3941,9 +3830,6 @@ impl Default for WSD_LOCALIZED_STRING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_LOCALIZED_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_LOCALIZED_STRING_LIST {
@@ -3954,9 +3840,6 @@ impl Default for WSD_LOCALIZED_STRING_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_LOCALIZED_STRING_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3973,9 +3856,6 @@ impl Default for WSD_METADATA_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_METADATA_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_METADATA_SECTION_LIST {
@@ -3986,9 +3866,6 @@ impl Default for WSD_METADATA_SECTION_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_METADATA_SECTION_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4001,9 +3878,6 @@ impl Default for WSD_NAME_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_NAME_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_OPERATION {
@@ -4015,9 +3889,6 @@ impl Default for WSD_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_OPERATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4032,9 +3903,6 @@ impl Default for WSD_PORT_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_PORT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_PROBE {
@@ -4046,9 +3914,6 @@ impl Default for WSD_PROBE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_PROBE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4065,9 +3930,6 @@ impl Default for WSD_PROBE_MATCH {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_PROBE_MATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_PROBE_MATCHES {
@@ -4079,9 +3941,6 @@ impl Default for WSD_PROBE_MATCHES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_PROBE_MATCHES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_PROBE_MATCH_LIST {
@@ -4092,9 +3951,6 @@ impl Default for WSD_PROBE_MATCH_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_PROBE_MATCH_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4114,9 +3970,6 @@ impl Default for WSD_REFERENCE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_REFERENCE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_REFERENCE_PROPERTIES {
@@ -4126,9 +3979,6 @@ impl Default for WSD_REFERENCE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_REFERENCE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4142,9 +3992,6 @@ impl Default for WSD_RELATIONSHIP_METADATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_RELATIONSHIP_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_RESOLVE {
@@ -4155,9 +4002,6 @@ impl Default for WSD_RESOLVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_RESOLVE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4174,9 +4018,6 @@ impl Default for WSD_RESOLVE_MATCH {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_RESOLVE_MATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_RESOLVE_MATCHES {
@@ -4188,9 +4029,6 @@ impl Default for WSD_RESOLVE_MATCHES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_RESOLVE_MATCHES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_SCOPES {
@@ -4201,9 +4039,6 @@ impl Default for WSD_SCOPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_SCOPES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -4224,10 +4059,6 @@ impl Default for WSD_SECURITY_CERT_VALIDATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WSD_SECURITY_CERT_VALIDATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4243,10 +4074,6 @@ impl Default for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WSD_SECURITY_CERT_VALIDATION_V1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(7i32);
 pub const WSD_SECURITY_COMPACTSIG_VALIDATION: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(8i32);
@@ -4269,10 +4096,6 @@ impl Default for WSD_SECURITY_SIGNATURE_VALIDATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WSD_SECURITY_SIGNATURE_VALIDATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(3i32);
 pub const WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(5i32);
 pub const WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(6i32);
@@ -4291,9 +4114,6 @@ impl Default for WSD_SERVICE_METADATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_SERVICE_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_SERVICE_METADATA_LIST {
@@ -4304,9 +4124,6 @@ impl Default for WSD_SERVICE_METADATA_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_SERVICE_METADATA_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4322,9 +4139,6 @@ impl Default for WSD_SOAP_FAULT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_SOAP_FAULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_SOAP_FAULT_CODE {
@@ -4336,9 +4150,6 @@ impl Default for WSD_SOAP_FAULT_CODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_SOAP_FAULT_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_SOAP_FAULT_REASON {
@@ -4348,9 +4159,6 @@ impl Default for WSD_SOAP_FAULT_REASON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_SOAP_FAULT_REASON {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4362,9 +4170,6 @@ impl Default for WSD_SOAP_FAULT_SUBCODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_SOAP_FAULT_SUBCODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4384,9 +4189,6 @@ impl Default for WSD_SOAP_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_SOAP_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_SOAP_MESSAGE {
@@ -4398,9 +4200,6 @@ impl Default for WSD_SOAP_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_SOAP_MESSAGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub type WSD_STUB_FUNCTION = Option<unsafe extern "system" fn(server: Option<windows_core::IUnknown>, session: Option<IWSDServiceMessaging>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
 #[repr(C)]
@@ -4416,9 +4215,6 @@ impl Default for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_THIS_DEVICE_METADATA {
@@ -4431,9 +4227,6 @@ impl Default for WSD_THIS_DEVICE_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_THIS_DEVICE_METADATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4451,9 +4244,6 @@ impl Default for WSD_THIS_MODEL_METADATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSD_THIS_MODEL_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_UNKNOWN_LOOKUP {
@@ -4463,9 +4253,6 @@ impl Default for WSD_UNKNOWN_LOOKUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_UNKNOWN_LOOKUP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4477,7 +4264,4 @@ impl Default for WSD_URI_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSD_URI_LIST {
-    type TypeKind = windows_core::CopyType;
 }

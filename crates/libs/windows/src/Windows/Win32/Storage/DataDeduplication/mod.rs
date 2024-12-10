@@ -9,9 +9,6 @@ impl Default for DDP_FILE_EXTENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DDP_FILE_EXTENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEDUP_BACKUP_SUPPORT_PARAM_TYPE(pub i32);
@@ -29,9 +26,6 @@ impl Default for DEDUP_CHUNK_INFO_HASH32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEDUP_CHUNK_INFO_HASH32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEDUP_CONTAINER_EXTENT {
@@ -43,9 +37,6 @@ impl Default for DEDUP_CONTAINER_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEDUP_CONTAINER_EXTENT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEDUP_PT_AvgChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(3i32);
 pub const DEDUP_PT_DisableStrongHashComputation: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(5i32);
@@ -70,9 +61,6 @@ impl Default for DedupChunk {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DedupChunk {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -125,9 +113,6 @@ impl Default for DedupHash {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DedupHash {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupHashingAlgorithm(pub i32);
@@ -146,9 +131,6 @@ impl Default for DedupStream {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DedupStream {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DedupStreamEntry {
@@ -160,9 +142,6 @@ impl Default for DedupStreamEntry {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DedupStreamEntry {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IDedupBackupSupport, IDedupBackupSupport_Vtbl, 0xc719d963_2b2d_415e_acf7_7eb7ca596ff4);
 windows_core::imp::interface_hierarchy!(IDedupBackupSupport, windows_core::IUnknown);

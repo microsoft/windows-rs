@@ -429,9 +429,6 @@ impl Default for ENUM_SERVICE_STATUSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENUM_SERVICE_STATUSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENUM_SERVICE_STATUSW {
@@ -443,9 +440,6 @@ impl Default for ENUM_SERVICE_STATUSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ENUM_SERVICE_STATUSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -459,9 +453,6 @@ impl Default for ENUM_SERVICE_STATUS_PROCESSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENUM_SERVICE_STATUS_PROCESSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENUM_SERVICE_STATUS_PROCESSW {
@@ -473,9 +464,6 @@ impl Default for ENUM_SERVICE_STATUS_PROCESSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ENUM_SERVICE_STATUS_PROCESSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -552,9 +540,6 @@ impl Default for QUERY_SERVICE_CONFIGA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_SERVICE_CONFIGA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QUERY_SERVICE_CONFIGW {
@@ -573,9 +558,6 @@ impl Default for QUERY_SERVICE_CONFIGW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_SERVICE_CONFIGW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QUERY_SERVICE_LOCK_STATUSA {
@@ -587,9 +569,6 @@ impl Default for QUERY_SERVICE_LOCK_STATUSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for QUERY_SERVICE_LOCK_STATUSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -603,9 +582,6 @@ impl Default for QUERY_SERVICE_LOCK_STATUSW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_SERVICE_LOCK_STATUSW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RPC_INTERFACE_EVENT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -617,9 +593,6 @@ impl Default for SC_ACTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SC_ACTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SC_ACTION_NONE: SC_ACTION_TYPE = SC_ACTION_TYPE(0i32);
 pub const SC_ACTION_OWN_RESTART: SC_ACTION_TYPE = SC_ACTION_TYPE(4i32);
@@ -744,9 +717,6 @@ impl Default for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW {
@@ -758,9 +728,6 @@ impl Default for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERVICE_CONTROL_STOP: u32 = 1u32;
 pub const SERVICE_CONTROL_SYSTEMLOWRESOURCES: u32 = 97u32;
@@ -776,9 +743,6 @@ impl Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
@@ -789,9 +753,6 @@ impl Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -804,9 +765,6 @@ impl Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_DELAYED_AUTO_START_INFO {
@@ -816,9 +774,6 @@ impl Default for SERVICE_DELAYED_AUTO_START_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_DELAYED_AUTO_START_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERVICE_DEMAND_START: SERVICE_START_TYPE = SERVICE_START_TYPE(3u32);
 #[repr(C)]
@@ -831,9 +786,6 @@ impl Default for SERVICE_DESCRIPTIONA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_DESCRIPTIONA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_DESCRIPTIONW {
@@ -843,9 +795,6 @@ impl Default for SERVICE_DESCRIPTIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_DESCRIPTIONW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -875,9 +824,6 @@ impl Default for SERVICE_FAILURE_ACTIONSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_FAILURE_ACTIONSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONSW {
@@ -892,9 +838,6 @@ impl Default for SERVICE_FAILURE_ACTIONSW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_FAILURE_ACTIONSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONS_FLAG {
@@ -904,9 +847,6 @@ impl Default for SERVICE_FAILURE_ACTIONS_FLAG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_FAILURE_ACTIONS_FLAG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERVICE_FILE_SYSTEM_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(2u32);
 pub const SERVICE_INACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(2u32);
@@ -922,9 +862,6 @@ impl Default for SERVICE_LAUNCH_PROTECTED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_LAUNCH_PROTECTED_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERVICE_LAUNCH_PROTECTED_NONE: u32 = 0u32;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1u32;
@@ -981,9 +918,6 @@ impl Default for SERVICE_NOTIFY_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_NOTIFY_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_NOTIFY_2A {
@@ -1000,9 +934,6 @@ impl Default for SERVICE_NOTIFY_2A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_NOTIFY_2A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_NOTIFY_2W {
@@ -1018,9 +949,6 @@ impl Default for SERVICE_NOTIFY_2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_NOTIFY_2W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERVICE_NOTIFY_CONTINUE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(16u32);
 pub const SERVICE_NOTIFY_CREATED: SERVICE_NOTIFY = SERVICE_NOTIFY(128u32);
@@ -1050,9 +978,6 @@ impl Default for SERVICE_PREFERRED_NODE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_PREFERRED_NODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_PRESHUTDOWN_INFO {
@@ -1062,9 +987,6 @@ impl Default for SERVICE_PRESHUTDOWN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_PRESHUTDOWN_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERVICE_QUERY_CONFIG: u32 = 1u32;
 pub const SERVICE_QUERY_STATUS: u32 = 4u32;
@@ -1082,9 +1004,6 @@ impl Default for SERVICE_REQUIRED_PRIVILEGES_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOW {
@@ -1094,9 +1013,6 @@ impl Default for SERVICE_REQUIRED_PRIVILEGES_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERVICE_RUNNING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(4u32);
 pub const SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(0u32);
@@ -1120,9 +1036,6 @@ impl Default for SERVICE_SID_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_SID_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SERVICE_SID_TYPE_NONE: u32 = 0u32;
 pub const SERVICE_SID_TYPE_UNRESTRICTED: u32 = 1u32;
 pub const SERVICE_START: u32 = 16u32;
@@ -1136,9 +1049,6 @@ impl Default for SERVICE_START_REASON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_START_REASON {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERVICE_START_REASON_AUTO: u32 = 2u32;
 pub const SERVICE_START_REASON_DELAYEDAUTO: u32 = 16u32;
@@ -1164,9 +1074,6 @@ impl Default for SERVICE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1204,9 +1111,6 @@ impl Default for SERVICE_STATUS_PROCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_STATUS_PROCESS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERVICE_STOP: u32 = 32u32;
 pub const SERVICE_STOPPED: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(1u32);
@@ -1266,9 +1170,6 @@ impl Default for SERVICE_TABLE_ENTRYA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_TABLE_ENTRYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_TABLE_ENTRYW {
@@ -1280,9 +1181,6 @@ impl Default for SERVICE_TABLE_ENTRYW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_TABLE_ENTRYW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_TIMECHANGE_INFO {
@@ -1293,9 +1191,6 @@ impl Default for SERVICE_TIMECHANGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_TIMECHANGE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1311,9 +1206,6 @@ impl Default for SERVICE_TRIGGER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_TRIGGER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_ACTION(pub u32);
@@ -1328,9 +1220,6 @@ impl Default for SERVICE_TRIGGER_CUSTOM_STATE_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_TRIGGER_CUSTOM_STATE_ID {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERVICE_TRIGGER_DATA_TYPE_BINARY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(1u32);
 pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ALL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(5u32);
@@ -1349,9 +1238,6 @@ impl Default for SERVICE_TRIGGER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_TRIGGER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
@@ -1363,9 +1249,6 @@ impl Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

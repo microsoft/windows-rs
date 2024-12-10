@@ -26,9 +26,6 @@ impl Default for D2D1_BEZIER_SEGMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_BEZIER_SEGMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BLEND_MODE(pub i32);
@@ -81,9 +78,6 @@ impl Default for D2D1_COLOR_F {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_COLOR_F {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COMPOSITE_MODE(pub i32);
@@ -125,9 +119,6 @@ impl Default for D2D1_GRADIENT_STOP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D1_GRADIENT_STOP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -181,10 +172,6 @@ impl Default for D2D1_PIXEL_FORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D2D1_PIXEL_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_TURBULENCE_NOISE(pub i32);
@@ -203,9 +190,6 @@ impl Default for D2D_COLOR_F {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D_COLOR_F {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D2D_MATRIX_4X3_F {
@@ -215,9 +199,6 @@ impl Default for D2D_MATRIX_4X3_F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D_MATRIX_4X3_F {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -229,9 +210,6 @@ impl Default for D2D_MATRIX_4X3_F_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D_MATRIX_4X3_F_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -254,9 +232,6 @@ impl Default for D2D_MATRIX_4X3_F_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D_MATRIX_4X3_F_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D2D_MATRIX_4X4_F {
@@ -266,9 +241,6 @@ impl Default for D2D_MATRIX_4X4_F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D_MATRIX_4X4_F {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -280,9 +252,6 @@ impl Default for D2D_MATRIX_4X4_F_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D_MATRIX_4X4_F_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -309,9 +278,6 @@ impl Default for D2D_MATRIX_4X4_F_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D_MATRIX_4X4_F_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D2D_MATRIX_5X4_F {
@@ -321,9 +287,6 @@ impl Default for D2D_MATRIX_5X4_F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D_MATRIX_5X4_F {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -335,9 +298,6 @@ impl Default for D2D_MATRIX_5X4_F_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D_MATRIX_5X4_F_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -368,9 +328,6 @@ impl Default for D2D_MATRIX_5X4_F_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D_MATRIX_5X4_F_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_POINT_2F {
@@ -382,9 +339,6 @@ impl Default for D2D_POINT_2F {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D_POINT_2F {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_POINT_2U {
@@ -395,9 +349,6 @@ impl Default for D2D_POINT_2U {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D_POINT_2U {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -412,9 +363,6 @@ impl Default for D2D_RECT_F {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D_RECT_F {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_RECT_U {
@@ -428,9 +376,6 @@ impl Default for D2D_RECT_U {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D_RECT_U {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_SIZE_F {
@@ -441,9 +386,6 @@ impl Default for D2D_SIZE_F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D_SIZE_F {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -456,9 +398,6 @@ impl Default for D2D_SIZE_U {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D_SIZE_U {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_VECTOR_2F {
@@ -469,9 +408,6 @@ impl Default for D2D_VECTOR_2F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D_VECTOR_2F {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -485,9 +421,6 @@ impl Default for D2D_VECTOR_3F {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D_VECTOR_3F {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_VECTOR_4F {
@@ -500,9 +433,6 @@ impl Default for D2D_VECTOR_4F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D_VECTOR_4F {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(ID2D1SimplifiedGeometrySink, ID2D1SimplifiedGeometrySink_Vtbl, 0x2cd9069e_12e2_11dc_9fed_001143a055f9);
 windows_core::imp::interface_hierarchy!(ID2D1SimplifiedGeometrySink, windows_core::IUnknown);

@@ -1074,9 +1074,6 @@ impl Default for MATRIX3X3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MATRIX3X3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MATRIX3X3_0 {
@@ -1088,9 +1085,6 @@ impl Default for MATRIX3X3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MATRIX3X3_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1110,9 +1104,6 @@ impl Default for MATRIX3X3_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MATRIX3X3_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MATRIX3X3_0_1 {
@@ -1124,9 +1115,6 @@ impl Default for MATRIX3X3_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MATRIX3X3_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1172,9 +1160,6 @@ impl Default for QUATERNION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUATERNION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SENSOR_CATEGORY_ALL: windows_core::GUID = windows_core::GUID::from_u128(0xc317c286_c468_4288_9975_d4c4587c442c);
 pub const SENSOR_CATEGORY_BIOMETRIC: windows_core::GUID = windows_core::GUID::from_u128(0xca19690f_a2c7_477d_a99e_99ec6e2b5648);
 pub const SENSOR_CATEGORY_ELECTRICAL: windows_core::GUID = windows_core::GUID::from_u128(0xfb73fcd8_fc4a_483c_ac58_27b691c6beff);
@@ -1205,10 +1190,6 @@ impl Default for SENSOR_COLLECTION_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for SENSOR_COLLECTION_LIST {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1389,9 +1370,6 @@ impl Default for SENSOR_PROPERTY_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SENSOR_PROPERTY_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SENSOR_PROPERTY_LIST_HEADER_SIZE: u32 = 8u32;
 pub const SENSOR_PROPERTY_LOCATION_DESIRED_ACCURACY: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 19 };
 pub const SENSOR_PROPERTY_MANUFACTURER: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 6 };
@@ -1492,10 +1470,6 @@ impl Default for SENSOR_VALUE_PAIR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for SENSOR_VALUE_PAIR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIMPLE_DEVICE_ORIENTATION(pub i32);
@@ -1542,7 +1516,4 @@ impl Default for VEC3D {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VEC3D {
-    type TypeKind = windows_core::CopyType;
 }

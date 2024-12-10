@@ -23,9 +23,6 @@ impl Default for APOInitBaseStruct {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APOInitBaseStruct {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[derive(Clone, Debug, PartialEq)]
@@ -41,10 +38,6 @@ impl Default for APOInitSystemEffects {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl windows_core::TypeKind for APOInitSystemEffects {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -66,10 +59,6 @@ impl Default for APOInitSystemEffects2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl windows_core::TypeKind for APOInitSystemEffects2 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -88,10 +77,6 @@ impl Default for APOInitSystemEffects3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl windows_core::TypeKind for APOInitSystemEffects3 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -116,9 +101,6 @@ impl Default for APO_CONNECTION_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APO_CONNECTION_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APO_CONNECTION_PROPERTY {
@@ -132,9 +114,6 @@ impl Default for APO_CONNECTION_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APO_CONNECTION_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APO_CONNECTION_PROPERTY_V2 {
@@ -145,9 +124,6 @@ impl Default for APO_CONNECTION_PROPERTY_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for APO_CONNECTION_PROPERTY_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -186,10 +162,6 @@ impl Default for APO_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl windows_core::TypeKind for APO_NOTIFICATION {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub union APO_NOTIFICATION_0 {
@@ -212,10 +184,6 @@ impl Default for APO_NOTIFICATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl windows_core::TypeKind for APO_NOTIFICATION_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 pub struct APO_NOTIFICATION_DESCRIPTOR {
     pub r#type: APO_NOTIFICATION_TYPE,
@@ -230,9 +198,6 @@ impl Default for APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for APO_NOTIFICATION_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 pub union APO_NOTIFICATION_DESCRIPTOR_0 {
@@ -250,9 +215,6 @@ impl Default for APO_NOTIFICATION_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for APO_NOTIFICATION_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -286,9 +248,6 @@ impl Default for APO_REG_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APO_REG_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8u32;
@@ -301,9 +260,6 @@ impl Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -319,10 +275,6 @@ impl Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl windows_core::TypeKind for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
@@ -332,9 +284,6 @@ impl Default for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -347,9 +296,6 @@ impl Default for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
@@ -360,9 +306,6 @@ impl Default for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
-    type TypeKind = windows_core::CloneType;
 }
 pub const AUDIO_FLOW_PULL: AUDIO_FLOW_TYPE = AUDIO_FLOW_TYPE(0i32);
 pub const AUDIO_FLOW_PUSH: AUDIO_FLOW_TYPE = AUDIO_FLOW_TYPE(1i32);
@@ -380,9 +323,6 @@ impl Default for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -402,9 +342,6 @@ impl Default for AUDIO_MICROPHONE_BOOST_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUDIO_MICROPHONE_BOOST_NOTIFICATION {
-    type TypeKind = windows_core::CloneType;
-}
 pub const AUDIO_MIN_CHANNELS: u32 = 1u32;
 pub const AUDIO_MIN_FRAMERATE: f64 = 10f64;
 #[repr(C)]
@@ -419,9 +356,6 @@ impl Default for AUDIO_SYSTEMEFFECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUDIO_SYSTEMEFFECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
@@ -432,9 +366,6 @@ impl Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -451,10 +382,6 @@ impl Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl windows_core::TypeKind for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -478,9 +405,6 @@ impl Default for AUDIO_VOLUME_NOTIFICATION_DATA2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUDIO_VOLUME_NOTIFICATION_DATA2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[derive(Clone, Debug, PartialEq)]
@@ -494,10 +418,6 @@ impl Default for AudioFXExtensionParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl windows_core::TypeKind for AudioFXExtensionParams {
-    type TypeKind = windows_core::CloneType;
 }
 pub const BUFFER_INVALID: APO_BUFFER_FLAGS = APO_BUFFER_FLAGS(0i32);
 pub const BUFFER_SILENT: APO_BUFFER_FLAGS = APO_BUFFER_FLAGS(2i32);
@@ -1391,9 +1311,6 @@ impl Default for UNCOMPRESSEDAUDIOFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UNCOMPRESSEDAUDIOFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const eAudioConstriction14_14: EAudioConstriction = EAudioConstriction(3i32);
 pub const eAudioConstriction44_16: EAudioConstriction = EAudioConstriction(2i32);

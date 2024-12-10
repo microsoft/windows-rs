@@ -279,9 +279,6 @@ impl Default for MMTIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MMTIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MMTIME_0 {
@@ -297,9 +294,6 @@ impl Default for MMTIME_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MMTIME_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MMTIME_0_1 {
@@ -309,9 +303,6 @@ impl Default for MMTIME_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMTIME_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -328,9 +319,6 @@ impl Default for MMTIME_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMTIME_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MM_ADLIB: u32 = 9u32;
 pub const MM_DRVM_CLOSE: u32 = 977u32;
@@ -392,9 +380,6 @@ impl Default for TIMECAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TIMECAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TIMECODE {
@@ -405,9 +390,6 @@ impl Default for TIMECODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TIMECODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -421,9 +403,6 @@ impl Default for TIMECODE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TIMECODE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TIMECODE_SAMPLE {
@@ -436,9 +415,6 @@ impl Default for TIMECODE_SAMPLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TIMECODE_SAMPLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

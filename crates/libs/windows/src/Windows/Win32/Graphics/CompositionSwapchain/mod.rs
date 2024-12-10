@@ -27,10 +27,6 @@ impl Default for CompositionFrameDisplayInstance {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for CompositionFrameDisplayInstance {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionFrameInstanceKind(pub i32);
@@ -757,9 +753,6 @@ impl Default for PresentationTransform {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PresentationTransform {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SystemInterruptTime {
@@ -769,7 +762,4 @@ impl Default for SystemInterruptTime {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SystemInterruptTime {
-    type TypeKind = windows_core::CopyType;
 }
