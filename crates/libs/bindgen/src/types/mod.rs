@@ -166,6 +166,7 @@ impl Type {
             TypeName::BSTR => Remap::Type(Self::BSTR),
             TypeName::IInspectable => Remap::Type(Self::Object),
             TypeName::CHAR => Remap::Type(Self::I8),
+            TypeName::BOOLEAN => Remap::Type(Self::Bool),
             TypeName::IUnknown => Remap::Type(Self::IUnknown),
             TypeName::Type => Remap::Type(Self::Type),
 
