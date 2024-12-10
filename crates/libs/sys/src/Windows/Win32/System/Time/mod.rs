@@ -24,7 +24,7 @@ pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub DaylightDate: super::super::Foundation::SYSTEMTIME,
     pub DaylightBias: i32,
     pub TimeZoneKeyName: [u16; 128],
-    pub DynamicDaylightTimeDisabled: super::super::Foundation::BOOLEAN,
+    pub DynamicDaylightTimeDisabled: bool,
 }
 pub const TIME_ZONE_ID_INVALID: u32 = 4294967295u32;
 #[repr(C)]

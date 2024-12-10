@@ -220,8 +220,8 @@ pub struct CHANGER_EXCHANGE_MEDIUM {
     pub Source: CHANGER_ELEMENT,
     pub Destination1: CHANGER_ELEMENT,
     pub Destination2: CHANGER_ELEMENT,
-    pub Flip1: super::super::Foundation::BOOLEAN,
-    pub Flip2: super::super::Foundation::BOOLEAN,
+    pub Flip1: bool,
+    pub Flip2: bool,
 }
 impl Default for CHANGER_EXCHANGE_MEDIUM {
     fn default() -> Self {
@@ -270,7 +270,7 @@ pub const CHANGER_IEPORT_USER_CONTROL_OPEN: GET_CHANGER_PARAMETERS_FEATURES1 = G
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGER_INITIALIZE_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
-    pub BarCodeScan: super::super::Foundation::BOOLEAN,
+    pub BarCodeScan: bool,
 }
 impl Default for CHANGER_INITIALIZE_ELEMENT_STATUS {
     fn default() -> Self {
@@ -288,7 +288,7 @@ pub struct CHANGER_MOVE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
     pub Source: CHANGER_ELEMENT,
     pub Destination: CHANGER_ELEMENT,
-    pub Flip: super::super::Foundation::BOOLEAN,
+    pub Flip: bool,
 }
 impl Default for CHANGER_MOVE_MEDIUM {
     fn default() -> Self {
@@ -320,7 +320,7 @@ impl Default for CHANGER_PRODUCT_DATA {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGER_READ_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
-    pub VolumeTagInfo: super::super::Foundation::BOOLEAN,
+    pub VolumeTagInfo: bool,
 }
 impl Default for CHANGER_READ_ELEMENT_STATUS {
     fn default() -> Self {
@@ -359,7 +359,7 @@ impl Default for CHANGER_SET_ACCESS {
 pub struct CHANGER_SET_POSITION {
     pub Transport: CHANGER_ELEMENT,
     pub Destination: CHANGER_ELEMENT,
-    pub Flip: super::super::Foundation::BOOLEAN,
+    pub Flip: bool,
 }
 impl Default for CHANGER_SET_POSITION {
     fn default() -> Self {
@@ -532,7 +532,7 @@ pub const CSV_INVALID_DEVICE_NUMBER: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSV_IS_OWNED_BY_CSVFS {
-    pub OwnedByCSVFS: super::super::Foundation::BOOLEAN,
+    pub OwnedByCSVFS: bool,
 }
 impl Default for CSV_IS_OWNED_BY_CSVFS {
     fn default() -> Self {
@@ -629,7 +629,7 @@ pub const CSV_QUERY_MDS_PATH_V2_VERSION_1: u32 = 1u32;
 pub struct CSV_QUERY_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
-    pub FileRedirected: super::super::Foundation::BOOLEAN,
+    pub FileRedirected: bool,
 }
 impl Default for CSV_QUERY_REDIRECT_STATE {
     fn default() -> Self {
@@ -663,8 +663,8 @@ impl Default for CSV_QUERY_VOLUME_ID {
 pub struct CSV_QUERY_VOLUME_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
-    pub IsDiskConnected: super::super::Foundation::BOOLEAN,
-    pub ClusterEnableDirectIo: super::super::Foundation::BOOLEAN,
+    pub IsDiskConnected: bool,
+    pub ClusterEnableDirectIo: bool,
     pub DiskConnectivity: CSVFS_DISK_CONNECTIVITY,
 }
 impl Default for CSV_QUERY_VOLUME_REDIRECT_STATE {
@@ -719,7 +719,7 @@ pub const DDUMP_FLAG_DATA_READ_FROM_DEVICE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DECRYPTION_STATUS_BUFFER {
-    pub NoEncryptedStreams: super::super::Foundation::BOOLEAN,
+    pub NoEncryptedStreams: bool,
 }
 impl Default for DECRYPTION_STATUS_BUFFER {
     fn default() -> Self {
@@ -1063,10 +1063,10 @@ impl Default for DEVICE_DSM_CONVERSION_OUTPUT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DSM_DEFINITION {
     pub Action: u32,
-    pub SingleRange: super::super::Foundation::BOOLEAN,
+    pub SingleRange: bool,
     pub ParameterBlockAlignment: u32,
     pub ParameterBlockLength: u32,
-    pub HasOutput: super::super::Foundation::BOOLEAN,
+    pub HasOutput: bool,
     pub OutputBlockAlignment: u32,
     pub OutputBlockLength: u32,
 }
@@ -1496,12 +1496,12 @@ impl Default for DEVICE_MEDIA_INFO_0_2_0_0 {
 pub struct DEVICE_POWER_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
-    pub DeviceAttentionSupported: super::super::Foundation::BOOLEAN,
-    pub AsynchronousNotificationSupported: super::super::Foundation::BOOLEAN,
-    pub IdlePowerManagementEnabled: super::super::Foundation::BOOLEAN,
-    pub D3ColdEnabled: super::super::Foundation::BOOLEAN,
-    pub D3ColdSupported: super::super::Foundation::BOOLEAN,
-    pub NoVerifyDuringIdlePower: super::super::Foundation::BOOLEAN,
+    pub DeviceAttentionSupported: bool,
+    pub AsynchronousNotificationSupported: bool,
+    pub IdlePowerManagementEnabled: bool,
+    pub D3ColdEnabled: bool,
+    pub D3ColdSupported: bool,
+    pub NoVerifyDuringIdlePower: bool,
     pub Reserved: [u8; 2],
     pub IdleTimeoutInMS: u32,
 }
@@ -1515,7 +1515,7 @@ impl Default for DEVICE_POWER_DESCRIPTOR {
 pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
-    pub IncursSeekPenalty: super::super::Foundation::BOOLEAN,
+    pub IncursSeekPenalty: bool,
 }
 impl Default for DEVICE_SEEK_PENALTY_DESCRIPTOR {
     fn default() -> Self {
@@ -1572,7 +1572,7 @@ impl Default for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
 pub struct DEVICE_TRIM_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
-    pub TrimEnabled: super::super::Foundation::BOOLEAN,
+    pub TrimEnabled: bool,
 }
 impl Default for DEVICE_TRIM_DESCRIPTOR {
     fn default() -> Self {
@@ -1584,7 +1584,7 @@ impl Default for DEVICE_TRIM_DESCRIPTOR {
 pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
-    pub BenefitsFromWriteAggregation: super::super::Foundation::BOOLEAN,
+    pub BenefitsFromWriteAggregation: bool,
 }
 impl Default for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     fn default() -> Self {
@@ -1606,13 +1606,13 @@ pub const DISK_BINNING: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISK_CACHE_INFORMATION {
-    pub ParametersSavable: super::super::Foundation::BOOLEAN,
-    pub ReadCacheEnabled: super::super::Foundation::BOOLEAN,
-    pub WriteCacheEnabled: super::super::Foundation::BOOLEAN,
+    pub ParametersSavable: bool,
+    pub ReadCacheEnabled: bool,
+    pub WriteCacheEnabled: bool,
     pub ReadRetentionPriority: DISK_CACHE_RETENTION_PRIORITY,
     pub WriteRetentionPriority: DISK_CACHE_RETENTION_PRIORITY,
     pub DisablePrefetchTransferLength: u16,
-    pub PrefetchScalar: super::super::Foundation::BOOLEAN,
+    pub PrefetchScalar: bool,
     pub Anonymous: DISK_CACHE_INFORMATION_0,
 }
 impl Default for DISK_CACHE_INFORMATION {
@@ -1890,7 +1890,7 @@ pub struct DISK_RECORD {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: u32,
     pub DeviceNumber: u8,
-    pub ReadRequest: super::super::Foundation::BOOLEAN,
+    pub ReadRequest: bool,
 }
 impl Default for DISK_RECORD {
     fn default() -> Self {
@@ -2593,7 +2593,7 @@ impl Default for FILE_LEVEL_TRIM_RANGE {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_MAKE_COMPATIBLE_BUFFER {
-    pub CloseDisc: super::super::Foundation::BOOLEAN,
+    pub CloseDisc: bool,
 }
 impl Default for FILE_MAKE_COMPATIBLE_BUFFER {
     fn default() -> Self {
@@ -2715,7 +2715,7 @@ impl Default for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_QUERY_SPARING_BUFFER {
     pub SparingUnitBytes: u32,
-    pub SoftwareSparing: super::super::Foundation::BOOLEAN,
+    pub SoftwareSparing: bool,
     pub TotalSpareBlocks: u32,
     pub FreeSpareBlocks: u32,
 }
@@ -2784,7 +2784,7 @@ pub const FILE_REGION_USAGE_VALID_NONCACHED_DATA: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_SET_DEFECT_MGMT_BUFFER {
-    pub Disable: super::super::Foundation::BOOLEAN,
+    pub Disable: bool,
 }
 impl Default for FILE_SET_DEFECT_MGMT_BUFFER {
     fn default() -> Self {
@@ -2795,7 +2795,7 @@ pub const FILE_SET_ENCRYPTION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_SET_SPARSE_BUFFER {
-    pub SetSparse: super::super::Foundation::BOOLEAN,
+    pub SetSparse: bool,
 }
 impl Default for FILE_SET_SPARSE_BUFFER {
     fn default() -> Self {
@@ -4592,9 +4592,9 @@ pub struct PARTITION_INFORMATION {
     pub HiddenSectors: u32,
     pub PartitionNumber: u32,
     pub PartitionType: u8,
-    pub BootIndicator: super::super::Foundation::BOOLEAN,
-    pub RecognizedPartition: super::super::Foundation::BOOLEAN,
-    pub RewritePartition: super::super::Foundation::BOOLEAN,
+    pub BootIndicator: bool,
+    pub RecognizedPartition: bool,
+    pub RewritePartition: bool,
 }
 impl Default for PARTITION_INFORMATION {
     fn default() -> Self {
@@ -4608,8 +4608,8 @@ pub struct PARTITION_INFORMATION_EX {
     pub StartingOffset: i64,
     pub PartitionLength: i64,
     pub PartitionNumber: u32,
-    pub RewritePartition: super::super::Foundation::BOOLEAN,
-    pub IsServicePartition: super::super::Foundation::BOOLEAN,
+    pub RewritePartition: bool,
+    pub IsServicePartition: bool,
     pub Anonymous: PARTITION_INFORMATION_EX_0,
 }
 impl Default for PARTITION_INFORMATION_EX {
@@ -4645,8 +4645,8 @@ impl Default for PARTITION_INFORMATION_GPT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PARTITION_INFORMATION_MBR {
     pub PartitionType: u8,
-    pub BootIndicator: super::super::Foundation::BOOLEAN,
-    pub RecognizedPartition: super::super::Foundation::BOOLEAN,
+    pub BootIndicator: bool,
+    pub RecognizedPartition: bool,
     pub HiddenSectors: u32,
     pub PartitionId: windows_core::GUID,
 }
@@ -4830,7 +4830,7 @@ impl Default for PLEX_READ_DATA_REQUEST {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PREVENT_MEDIA_REMOVAL {
-    pub PreventMediaRemoval: super::super::Foundation::BOOLEAN,
+    pub PreventMediaRemoval: bool,
 }
 impl Default for PREVENT_MEDIA_REMOVAL {
     fn default() -> Self {
@@ -5353,7 +5353,7 @@ impl Default for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_BUS_DEDICATED_MEMORY_STATE {
-    pub ActivateState: super::super::Foundation::BOOLEAN,
+    pub ActivateState: bool,
 }
 impl Default for SCM_BUS_DEDICATED_MEMORY_STATE {
     fn default() -> Self {
@@ -5402,7 +5402,7 @@ pub struct SCM_BUS_QUERY_TYPE(pub i32);
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub Version: u32,
     pub Size: u32,
-    pub RuntimeFwActivationSupported: super::super::Foundation::BOOLEAN,
+    pub RuntimeFwActivationSupported: bool,
     pub FirmwareActivationState: SCM_BUS_FIRMWARE_ACTIVATION_STATE,
     pub FirmwareActivationCapability: SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0,
     pub EstimatedFirmwareActivationTimeInUSecs: u64,
@@ -5815,7 +5815,7 @@ impl Default for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
-    pub ArmState: super::super::Foundation::BOOLEAN,
+    pub ArmState: bool,
 }
 impl Default for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     fn default() -> Self {
@@ -6110,7 +6110,7 @@ impl Default for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SET_DISK_ATTRIBUTES {
     pub Version: u32,
-    pub Persist: super::super::Foundation::BOOLEAN,
+    pub Persist: bool,
     pub Reserved1: [u8; 3],
     pub Attributes: u64,
     pub AttributesMask: u64,
@@ -6308,10 +6308,10 @@ pub struct STORAGE_ADAPTER_DESCRIPTOR {
     pub MaximumTransferLength: u32,
     pub MaximumPhysicalPages: u32,
     pub AlignmentMask: u32,
-    pub AdapterUsesPio: super::super::Foundation::BOOLEAN,
-    pub AdapterScansDown: super::super::Foundation::BOOLEAN,
-    pub CommandQueueing: super::super::Foundation::BOOLEAN,
-    pub AcceleratedTransfer: super::super::Foundation::BOOLEAN,
+    pub AdapterUsesPio: bool,
+    pub AdapterScansDown: bool,
+    pub CommandQueueing: bool,
+    pub AcceleratedTransfer: bool,
     pub BusType: u8,
     pub BusMajorVersion: u16,
     pub BusMinorVersion: u16,
@@ -6343,9 +6343,9 @@ pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
     pub Period: u32,
-    pub RetryFailures: super::super::Foundation::BOOLEAN,
-    pub Discardable: super::super::Foundation::BOOLEAN,
-    pub Reserved1: [super::super::Foundation::BOOLEAN; 2],
+    pub RetryFailures: bool,
+    pub Discardable: bool,
+    pub Reserved1: [bool; 2],
     pub AccessType: u32,
     pub AccessMode: u32,
 }
@@ -6538,8 +6538,8 @@ pub struct STORAGE_DEVICE_DESCRIPTOR {
     pub Size: u32,
     pub DeviceType: u8,
     pub DeviceTypeModifier: u8,
-    pub RemovableMedia: super::super::Foundation::BOOLEAN,
-    pub CommandQueueing: super::super::Foundation::BOOLEAN,
+    pub RemovableMedia: bool,
+    pub CommandQueueing: bool,
     pub VendorIdOffset: u32,
     pub ProductIdOffset: u32,
     pub ProductRevisionOffset: u32,
@@ -6734,7 +6734,7 @@ impl Default for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     pub Version: u32,
     pub Size: u32,
-    pub SupportsSelfEncryption: super::super::Foundation::BOOLEAN,
+    pub SupportsSelfEncryption: bool,
 }
 impl Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     fn default() -> Self {
@@ -6746,7 +6746,7 @@ impl Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     pub Version: u32,
     pub Size: u32,
-    pub SupportsSelfEncryption: super::super::Foundation::BOOLEAN,
+    pub SupportsSelfEncryption: bool,
     pub EncryptionType: STORAGE_ENCRYPTION_TYPE,
 }
 impl Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
@@ -6848,8 +6848,8 @@ pub const STORAGE_EVENT_NOTIFICATION_VERSION_V1: u32 = 1u32;
 pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
     pub Version: u32,
     pub Size: u32,
-    pub Set: super::super::Foundation::BOOLEAN,
-    pub Enabled: super::super::Foundation::BOOLEAN,
+    pub Set: bool,
+    pub Enabled: bool,
     pub Reserved: u16,
 }
 impl Default for STORAGE_FAILURE_PREDICTION_CONFIG {
@@ -6890,10 +6890,10 @@ impl Default for STORAGE_GET_BC_PROPERTIES_OUTPUT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_HOTPLUG_INFO {
     pub Size: u32,
-    pub MediaRemovable: super::super::Foundation::BOOLEAN,
-    pub MediaHotplug: super::super::Foundation::BOOLEAN,
-    pub DeviceHotplug: super::super::Foundation::BOOLEAN,
-    pub WriteCacheEnableOverride: super::super::Foundation::BOOLEAN,
+    pub MediaRemovable: bool,
+    pub MediaHotplug: bool,
+    pub DeviceHotplug: bool,
+    pub WriteCacheEnableOverride: bool,
 }
 impl Default for STORAGE_HOTPLUG_INFO {
     fn default() -> Self {
@@ -6996,7 +6996,7 @@ pub struct STORAGE_HW_FIRMWARE_INFO {
     pub SlotCount: u8,
     pub ActiveSlot: u8,
     pub PendingActivateSlot: u8,
-    pub FirmwareShared: super::super::Foundation::BOOLEAN,
+    pub FirmwareShared: bool,
     pub Reserved: [u8; 3],
     pub ImagePayloadAlignment: u32,
     pub ImagePayloadMaxSize: u32,
@@ -7142,10 +7142,10 @@ pub struct STORAGE_MINIPORT_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub Portdriver: STORAGE_PORT_CODE_SET,
-    pub LUNResetSupported: super::super::Foundation::BOOLEAN,
-    pub TargetResetSupported: super::super::Foundation::BOOLEAN,
+    pub LUNResetSupported: bool,
+    pub TargetResetSupported: bool,
     pub IoTimeoutValue: u16,
-    pub ExtraIoInfoSupported: super::super::Foundation::BOOLEAN,
+    pub ExtraIoInfoSupported: bool,
     pub Flags: STORAGE_MINIPORT_DESCRIPTOR_0,
     pub Reserved0: [u8; 2],
     pub Reserved1: u32,
@@ -7306,7 +7306,7 @@ pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
     pub Model: [u8; 40],
     pub FirmwareRevision: [u8; 16],
     pub PhysicalLocation: [u8; 32],
-    pub ExpanderConnected: super::super::Foundation::BOOLEAN,
+    pub ExpanderConnected: bool,
     pub Reserved0: [u8; 3],
     pub Reserved1: [u32; 3],
 }
@@ -7798,9 +7798,9 @@ pub struct STORAGE_TEMPERATURE_INFO {
     pub Temperature: i16,
     pub OverThreshold: i16,
     pub UnderThreshold: i16,
-    pub OverThresholdChangable: super::super::Foundation::BOOLEAN,
-    pub UnderThresholdChangable: super::super::Foundation::BOOLEAN,
-    pub EventGenerated: super::super::Foundation::BOOLEAN,
+    pub OverThresholdChangable: bool,
+    pub UnderThresholdChangable: bool,
+    pub EventGenerated: bool,
     pub Reserved0: u8,
     pub Reserved1: u32,
 }
@@ -7817,7 +7817,7 @@ pub struct STORAGE_TEMPERATURE_THRESHOLD {
     pub Flags: u16,
     pub Index: u16,
     pub Threshold: i16,
-    pub OverThreshold: super::super::Foundation::BOOLEAN,
+    pub OverThreshold: bool,
     pub Reserved: u8,
 }
 impl Default for STORAGE_TEMPERATURE_THRESHOLD {
@@ -7877,9 +7877,9 @@ pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub WriteCacheEnabled: WRITE_CACHE_ENABLE,
     pub WriteCacheChangeable: WRITE_CACHE_CHANGE,
     pub WriteThroughSupported: WRITE_THROUGH,
-    pub FlushCacheSupported: super::super::Foundation::BOOLEAN,
-    pub UserDefinedPowerProtection: super::super::Foundation::BOOLEAN,
-    pub NVCacheEnabled: super::super::Foundation::BOOLEAN,
+    pub FlushCacheSupported: bool,
+    pub UserDefinedPowerProtection: bool,
+    pub NVCacheEnabled: bool,
 }
 impl Default for STORAGE_WRITE_CACHE_PROPERTY {
     fn default() -> Self {
@@ -7928,7 +7928,7 @@ impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub MaxOpenZoneCount: u32,
-    pub UnrestrictedRead: super::super::Foundation::BOOLEAN,
+    pub UnrestrictedRead: bool,
     pub Reserved: [u8; 3],
 }
 impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
@@ -7951,7 +7951,7 @@ pub struct STORAGE_ZONE_DESCRIPTOR {
     pub Size: u32,
     pub ZoneType: STORAGE_ZONE_TYPES,
     pub ZoneCondition: STORAGE_ZONE_CONDITION,
-    pub ResetWritePointerRecommend: super::super::Foundation::BOOLEAN,
+    pub ResetWritePointerRecommend: bool,
     pub Reserved0: [u8; 3],
     pub ZoneSize: u64,
     pub WritePointerOffset: u64,
@@ -8732,7 +8732,7 @@ pub const TXFS_TRANSACTED_VERSION_UNCOMMITTED: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TXFS_TRANSACTION_ACTIVE_INFO {
-    pub TransactionsActiveAtSnapshot: super::super::Foundation::BOOLEAN,
+    pub TransactionsActiveAtSnapshot: bool,
 }
 impl Default for TXFS_TRANSACTION_ACTIVE_INFO {
     fn default() -> Self {

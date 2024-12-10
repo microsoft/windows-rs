@@ -162,8 +162,7 @@ impl CppMethod {
                         || param.has_attribute("ReservedAttribute"))
                 {
                     *hint = ParamHint::Optional;
-                } else if !flags.contains(ParamAttributes::Out)
-                    && matches!(ty.type_name(), TypeName::BOOL | TypeName::BOOLEAN)
+                } else if !flags.contains(ParamAttributes::Out) && ty.type_name() == TypeName::BOOL
                 {
                     *hint = ParamHint::Bool;
                 } else if ty.is_primitive() && (!ty.is_pointer() || ty.deref().is_copyable()) {

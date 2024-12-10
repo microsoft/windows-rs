@@ -1913,7 +1913,7 @@ pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(3i32);
 pub struct ADS_SORTKEY {
     pub pszAttrType: windows_core::PWSTR,
     pub pszReserved: windows_core::PWSTR,
-    pub fReverseorder: super::super::Foundation::BOOLEAN,
+    pub fReverseorder: bool,
 }
 impl Default for ADS_SORTKEY {
     fn default() -> Self {

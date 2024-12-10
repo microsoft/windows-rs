@@ -65,7 +65,7 @@ pub type PIBIO_ENGINE_ACTIVATE_FN = Option<unsafe extern "system" fn(pipeline: *
 #[cfg(feature = "Win32_System_IO")]
 pub type PIBIO_ENGINE_ATTACH_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, duplicate: *mut super::super::Foundation::BOOLEAN) -> windows_sys::core::HRESULT>;
+pub type PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, duplicate: *mut bool) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
 pub type PIBIO_ENGINE_CLEAR_CONTEXT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
@@ -107,7 +107,7 @@ pub type PIBIO_ENGINE_PIPELINE_CLEANUP_FN = Option<unsafe extern "system" fn(pip
 #[cfg(feature = "Win32_System_IO")]
 pub type PIBIO_ENGINE_PIPELINE_INIT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, discardandrepeatcapture: *mut super::super::Foundation::BOOLEAN, calibrationbuffer: *mut u8, calibrationbuffersize: *mut usize, maxbuffersize: usize) -> windows_sys::core::HRESULT>;
+pub type PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, discardandrepeatcapture: *mut bool, calibrationbuffer: *mut u8, calibrationbuffersize: *mut usize, maxbuffersize: usize) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
 pub type PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, enrollmentstatus: *mut WINBIO_EXTENDED_ENROLLMENT_STATUS, enrollmentstatussize: usize) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
@@ -137,7 +137,7 @@ pub type PIBIO_ENGINE_SET_HASH_ALGORITHM_FN = Option<unsafe extern "system" fn(p
 #[cfg(feature = "Win32_System_IO")]
 pub type PIBIO_ENGINE_UPDATE_ENROLLMENT_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_ENGINE_VERIFY_FEATURE_SET_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8, r#match: *mut super::super::Foundation::BOOLEAN, payloadblob: *mut *mut u8, payloadblobsize: *mut usize, hashvalue: *mut *mut u8, hashsize: *mut usize, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PIBIO_ENGINE_VERIFY_FEATURE_SET_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8, r#match: *mut bool, payloadblob: *mut *mut u8, payloadblobsize: *mut usize, hashvalue: *mut *mut u8, hashsize: *mut usize, rejectdetail: *mut u32) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
 pub type PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, allocationsize: usize, address: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
@@ -273,7 +273,7 @@ pub type PIBIO_STORAGE_GET_RECORD_COUNT_FN = Option<unsafe extern "system" fn(pi
 #[cfg(feature = "Win32_System_IO")]
 pub type PIBIO_STORAGE_NEXT_RECORD_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
-pub type PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, recordsadded: super::super::Foundation::BOOLEAN) -> windows_sys::core::HRESULT>;
+pub type PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, recordsadded: bool) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
 pub type PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, powereventtype: u32) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
@@ -308,7 +308,7 @@ pub type PWINBIO_QUERY_ENGINE_INTERFACE_FN = Option<unsafe extern "system" fn(en
 pub type PWINBIO_QUERY_SENSOR_INTERFACE_FN = Option<unsafe extern "system" fn(sensorinterface: *mut *mut WINBIO_SENSOR_INTERFACE) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
 pub type PWINBIO_QUERY_STORAGE_INTERFACE_FN = Option<unsafe extern "system" fn(storageinterface: *mut *mut WINBIO_STORAGE_INTERFACE) -> windows_sys::core::HRESULT>;
-pub type PWINBIO_VERIFY_CALLBACK = Option<unsafe extern "system" fn(verifycallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: u32, r#match: super::super::Foundation::BOOLEAN, rejectdetail: u32)>;
+pub type PWINBIO_VERIFY_CALLBACK = Option<unsafe extern "system" fn(verifycallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: u32, r#match: bool, rejectdetail: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ACCOUNT_POLICY {
@@ -427,7 +427,7 @@ pub struct WINBIO_ASYNC_RESULT_0_3 {
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_4 {
     pub Identity: WINBIO_IDENTITY,
-    pub IsNewTemplate: super::super::Foundation::BOOLEAN,
+    pub IsNewTemplate: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -520,14 +520,14 @@ pub struct WINBIO_ASYNC_RESULT_0_9 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_15 {
-    pub Match: super::super::Foundation::BOOLEAN,
+    pub Match: bool,
     pub RejectDetail: u32,
     pub Ticket: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_0 {
-    pub Match: super::super::Foundation::BOOLEAN,
+    pub Match: bool,
     pub RejectDetail: u32,
 }
 #[repr(C)]

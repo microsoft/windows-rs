@@ -135,8 +135,8 @@ pub unsafe fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY) -> win
     CfQuerySyncProviderStatus(core::mem::transmute(connectionkey), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn CfReferenceProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("cldapi.dll" "system" fn CfReferenceProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn CfReferenceProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> bool {
+    windows_targets::link!("cldapi.dll" "system" fn CfReferenceProtectedHandle(protectedhandle : super::super::Foundation:: HANDLE) -> bool);
     CfReferenceProtectedHandle(core::mem::transmute(protectedhandle))
 }
 #[inline]

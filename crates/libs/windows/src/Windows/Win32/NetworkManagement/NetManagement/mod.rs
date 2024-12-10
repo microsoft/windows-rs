@@ -5652,7 +5652,7 @@ impl core::ops::Not for NET_USER_ENUM_FILTER_FLAGS {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-    pub PasswordMatched: super::super::Foundation::BOOLEAN,
+    pub PasswordMatched: bool,
 }
 impl Default for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     fn default() -> Self {
@@ -5680,7 +5680,7 @@ pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     pub ClearPassword: windows_core::PWSTR,
     pub UserAccountName: windows_core::PWSTR,
     pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
-    pub PasswordMatch: super::super::Foundation::BOOLEAN,
+    pub PasswordMatch: bool,
 }
 impl Default for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     fn default() -> Self {
@@ -5708,8 +5708,8 @@ pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     pub ClearPassword: windows_core::PWSTR,
     pub UserAccountName: windows_core::PWSTR,
     pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
-    pub PasswordMustChangeAtNextLogon: super::super::Foundation::BOOLEAN,
-    pub ClearLockout: super::super::Foundation::BOOLEAN,
+    pub PasswordMustChangeAtNextLogon: bool,
+    pub ClearLockout: bool,
 }
 impl Default for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     fn default() -> Self {
@@ -7119,7 +7119,7 @@ impl Default for SERVER_INFO_1598 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1599 {
-    pub sv1598_enforcekerberosreauthentication: super::super::Foundation::BOOLEAN,
+    pub sv1598_enforcekerberosreauthentication: bool,
 }
 impl Default for SERVER_INFO_1599 {
     fn default() -> Self {
@@ -7129,7 +7129,7 @@ impl Default for SERVER_INFO_1599 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1600 {
-    pub sv1598_disabledos: super::super::Foundation::BOOLEAN,
+    pub sv1598_disabledos: bool,
 }
 impl Default for SERVER_INFO_1600 {
     fn default() -> Self {
@@ -7706,7 +7706,7 @@ pub const SHPWLEN: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SMB_COMPRESSION_INFO {
-    pub Switch: super::super::Foundation::BOOLEAN,
+    pub Switch: bool,
     pub Reserved1: u8,
     pub Reserved2: u16,
     pub Reserved3: u32,
@@ -8004,7 +8004,7 @@ pub const TRACE_USE_MSEC: u32 = 4u32;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSPORT_INFO {
     pub Type: TRANSPORT_TYPE,
-    pub SkipCertificateCheck: super::super::Foundation::BOOLEAN,
+    pub SkipCertificateCheck: bool,
 }
 impl Default for TRANSPORT_INFO {
     fn default() -> Self {

@@ -258,7 +258,7 @@ pub struct CDDDXGK_REDIRBITMAPPRESENTINFO {
     pub DirtyRect: *mut super::super::Foundation::RECT,
     pub NumContexts: u32,
     pub hContext: [super::super::Foundation::HANDLE; 65],
-    pub bDoNotSynchronizeWithDxContent: super::super::Foundation::BOOLEAN,
+    pub bDoNotSynchronizeWithDxContent: bool,
 }
 pub const CD_ANY: i32 = 4i32;
 pub const CD_LEFTDOWN: i32 = 1i32;
@@ -2659,7 +2659,7 @@ pub type VIDEO_BANK_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIDEO_BRIGHTNESS_POLICY {
-    pub DefaultToBiosPolicy: super::super::Foundation::BOOLEAN,
+    pub DefaultToBiosPolicy: bool,
     pub LevelCount: u8,
     pub Level: [VIDEO_BRIGHTNESS_POLICY_0; 1],
 }
@@ -3010,10 +3010,10 @@ pub struct VIDEO_WIN32K_CALLBACKS_PARAMS {
     pub PhysDisp: *mut core::ffi::c_void,
     pub Param: usize,
     pub Status: i32,
-    pub LockUserSession: super::super::Foundation::BOOLEAN,
-    pub IsPostDevice: super::super::Foundation::BOOLEAN,
-    pub SurpriseRemoval: super::super::Foundation::BOOLEAN,
-    pub WaitForQueueReady: super::super::Foundation::BOOLEAN,
+    pub LockUserSession: bool,
+    pub IsPostDevice: bool,
+    pub SurpriseRemoval: bool,
+    pub WaitForQueueReady: bool,
 }
 pub type VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = i32;
 pub const VideoBanked1R1W: VIDEO_BANK_TYPE = 2i32;

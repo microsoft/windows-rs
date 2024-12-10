@@ -220,18 +220,18 @@ windows_targets::link!("iphlpapi.dll" "system" fn NhpAllocateAndGetInterfaceInfo
 windows_targets::link!("iphlpapi.dll" "system" fn NotifyAddrChange(handle : *mut super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
 windows_targets::link!("iphlpapi.dll" "system" fn NotifyIfTimestampConfigChange(callercontext : *const core::ffi::c_void, callback : PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, notificationhandle : *mut HIFTIMESTAMPCHANGE) -> u32);
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-windows_targets::link!("iphlpapi.dll" "system" fn NotifyIpInterfaceChange(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PIPINTERFACE_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("iphlpapi.dll" "system" fn NotifyIpInterfaceChange(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PIPINTERFACE_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Networking_WinSock")]
-windows_targets::link!("iphlpapi.dll" "system" fn NotifyNetworkConnectivityHintChange(callback : PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("iphlpapi.dll" "system" fn NotifyNetworkConnectivityHintChange(callback : PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("iphlpapi.dll" "system" fn NotifyRouteChange(handle : *mut super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-windows_targets::link!("iphlpapi.dll" "system" fn NotifyRouteChange2(addressfamily : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PIPFORWARD_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("iphlpapi.dll" "system" fn NotifyRouteChange2(addressfamily : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PIPFORWARD_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 windows_targets::link!("iphlpapi.dll" "system" fn NotifyStableUnicastIpAddressTable(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, table : *mut *mut MIB_UNICASTIPADDRESS_TABLE, callercallback : PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext : *const core::ffi::c_void, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("iphlpapi.dll" "system" fn NotifyTeredoPortChange(callback : PTEREDO_PORT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("iphlpapi.dll" "system" fn NotifyTeredoPortChange(callback : PTEREDO_PORT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-windows_targets::link!("iphlpapi.dll" "system" fn NotifyUnicastIpAddressChange(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("iphlpapi.dll" "system" fn NotifyUnicastIpAddressChange(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Networking_WinSock")]
 windows_targets::link!("iphlpapi.dll" "system" fn ParseNetworkString(networkstring : windows_sys::core::PCWSTR, types : u32, addressinfo : *mut NET_ADDRESS_INFO, portnumber : *mut u16, prefixlength : *mut u8) -> u32);
 windows_targets::link!("iphlpapi.dll" "system" fn PfAddFiltersToInterface(ih : *mut core::ffi::c_void, cinfilters : u32, pfiltin : *mut PF_FILTER_DESCRIPTOR, coutfilters : u32, pfiltout : *mut PF_FILTER_DESCRIPTOR, pfhandle : *mut *mut core::ffi::c_void) -> u32);
@@ -779,30 +779,30 @@ pub const INTERFACE_HARDWARE_CROSSTIMESTAMP_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
-    pub PtpV2OverUdpIPv4EventMessageReceive: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv4AllMessageReceive: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv4EventMessageTransmit: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv4AllMessageTransmit: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6EventMessageReceive: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6AllMessageReceive: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6EventMessageTransmit: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6AllMessageTransmit: super::super::Foundation::BOOLEAN,
-    pub AllReceive: super::super::Foundation::BOOLEAN,
-    pub AllTransmit: super::super::Foundation::BOOLEAN,
-    pub TaggedTransmit: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv4EventMessageReceive: bool,
+    pub PtpV2OverUdpIPv4AllMessageReceive: bool,
+    pub PtpV2OverUdpIPv4EventMessageTransmit: bool,
+    pub PtpV2OverUdpIPv4AllMessageTransmit: bool,
+    pub PtpV2OverUdpIPv6EventMessageReceive: bool,
+    pub PtpV2OverUdpIPv6AllMessageReceive: bool,
+    pub PtpV2OverUdpIPv6EventMessageTransmit: bool,
+    pub PtpV2OverUdpIPv6AllMessageTransmit: bool,
+    pub AllReceive: bool,
+    pub AllTransmit: bool,
+    pub TaggedTransmit: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
-    pub AllReceive: super::super::Foundation::BOOLEAN,
-    pub AllTransmit: super::super::Foundation::BOOLEAN,
-    pub TaggedTransmit: super::super::Foundation::BOOLEAN,
+    pub AllReceive: bool,
+    pub AllTransmit: bool,
+    pub TaggedTransmit: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INTERFACE_TIMESTAMP_CAPABILITIES {
     pub HardwareClockFrequencyHz: u64,
-    pub SupportsCrossTimestamp: super::super::Foundation::BOOLEAN,
+    pub SupportsCrossTimestamp: bool,
     pub HardwareCapabilities: INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES,
     pub SoftwareCapabilities: INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES,
 }
@@ -1684,10 +1684,10 @@ pub struct MIB_IPFORWARD_ROW2 {
     pub PreferredLifetime: u32,
     pub Metric: u32,
     pub Protocol: super::super::Networking::WinSock::NL_ROUTE_PROTOCOL,
-    pub Loopback: super::super::Foundation::BOOLEAN,
-    pub AutoconfigureAddress: super::super::Foundation::BOOLEAN,
-    pub Publish: super::super::Foundation::BOOLEAN,
-    pub Immortal: super::super::Foundation::BOOLEAN,
+    pub Loopback: bool,
+    pub AutoconfigureAddress: bool,
+    pub Publish: bool,
+    pub Immortal: bool,
     pub Age: u32,
     pub Origin: super::super::Networking::WinSock::NL_ROUTE_ORIGIN,
 }
@@ -1710,15 +1710,15 @@ pub struct MIB_IPINTERFACE_ROW {
     pub InterfaceIdentifier: u64,
     pub MinRouterAdvertisementInterval: u32,
     pub MaxRouterAdvertisementInterval: u32,
-    pub AdvertisingEnabled: super::super::Foundation::BOOLEAN,
-    pub ForwardingEnabled: super::super::Foundation::BOOLEAN,
-    pub WeakHostSend: super::super::Foundation::BOOLEAN,
-    pub WeakHostReceive: super::super::Foundation::BOOLEAN,
-    pub UseAutomaticMetric: super::super::Foundation::BOOLEAN,
-    pub UseNeighborUnreachabilityDetection: super::super::Foundation::BOOLEAN,
-    pub ManagedAddressConfigurationSupported: super::super::Foundation::BOOLEAN,
-    pub OtherStatefulConfigurationSupported: super::super::Foundation::BOOLEAN,
-    pub AdvertiseDefaultRoute: super::super::Foundation::BOOLEAN,
+    pub AdvertisingEnabled: bool,
+    pub ForwardingEnabled: bool,
+    pub WeakHostSend: bool,
+    pub WeakHostReceive: bool,
+    pub UseAutomaticMetric: bool,
+    pub UseNeighborUnreachabilityDetection: bool,
+    pub ManagedAddressConfigurationSupported: bool,
+    pub OtherStatefulConfigurationSupported: bool,
+    pub AdvertiseDefaultRoute: bool,
     pub RouterDiscoveryBehavior: super::super::Networking::WinSock::NL_ROUTER_DISCOVERY_BEHAVIOR,
     pub DadTransmits: u32,
     pub BaseReachableTime: u32,
@@ -1730,14 +1730,14 @@ pub struct MIB_IPINTERFACE_ROW {
     pub SitePrefixLength: u32,
     pub Metric: u32,
     pub NlMtu: u32,
-    pub Connected: super::super::Foundation::BOOLEAN,
-    pub SupportsWakeUpPatterns: super::super::Foundation::BOOLEAN,
-    pub SupportsNeighborDiscovery: super::super::Foundation::BOOLEAN,
-    pub SupportsRouterDiscovery: super::super::Foundation::BOOLEAN,
+    pub Connected: bool,
+    pub SupportsWakeUpPatterns: bool,
+    pub SupportsNeighborDiscovery: bool,
+    pub SupportsRouterDiscovery: bool,
     pub ReachableTime: u32,
     pub TransmitOffload: super::super::Networking::WinSock::NL_INTERFACE_OFFLOAD_ROD,
     pub ReceiveOffload: super::super::Networking::WinSock::NL_INTERFACE_OFFLOAD_ROD,
-    pub DisableDefaultRoutes: super::super::Foundation::BOOLEAN,
+    pub DisableDefaultRoutes: bool,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -1982,7 +1982,7 @@ pub struct MIB_IPPATH_ROW {
     pub RttMean: u32,
     pub RttDeviation: u32,
     pub Anonymous: MIB_IPPATH_ROW_0,
-    pub IsReachable: super::super::Foundation::BOOLEAN,
+    pub IsReachable: bool,
     pub LinkTransmitSpeed: u64,
     pub LinkReceiveSpeed: u64,
 }
@@ -2585,7 +2585,7 @@ pub struct MIB_UNICASTIPADDRESS_ROW {
     pub ValidLifetime: u32,
     pub PreferredLifetime: u32,
     pub OnLinkPrefixLength: u8,
-    pub SkipAsSource: super::super::Foundation::BOOLEAN,
+    pub SkipAsSource: bool,
     pub DadState: super::super::Networking::WinSock::NL_DAD_STATE,
     pub ScopeId: super::super::Networking::WinSock::SCOPE_ID,
     pub CreationTimeStamp: i64,
@@ -2767,8 +2767,8 @@ pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
     pub InboundBandwidth: u64,
     pub OutboundInstability: u64,
     pub InboundInstability: u64,
-    pub OutboundBandwidthPeaked: super::super::Foundation::BOOLEAN,
-    pub InboundBandwidthPeaked: super::super::Foundation::BOOLEAN,
+    pub OutboundBandwidthPeaked: bool,
+    pub InboundBandwidthPeaked: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2797,7 +2797,7 @@ pub struct TCP_ESTATS_DATA_ROD_v0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCP_ESTATS_DATA_RW_v0 {
-    pub EnableCollection: super::super::Foundation::BOOLEAN,
+    pub EnableCollection: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2810,7 +2810,7 @@ pub struct TCP_ESTATS_FINE_RTT_ROD_v0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCP_ESTATS_FINE_RTT_RW_v0 {
-    pub EnableCollection: super::super::Foundation::BOOLEAN,
+    pub EnableCollection: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2823,7 +2823,7 @@ pub struct TCP_ESTATS_OBS_REC_ROD_v0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCP_ESTATS_OBS_REC_RW_v0 {
-    pub EnableCollection: super::super::Foundation::BOOLEAN,
+    pub EnableCollection: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2872,7 +2872,7 @@ pub struct TCP_ESTATS_PATH_ROD_v0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCP_ESTATS_PATH_RW_v0 {
-    pub EnableCollection: super::super::Foundation::BOOLEAN,
+    pub EnableCollection: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2895,7 +2895,7 @@ pub struct TCP_ESTATS_REC_ROD_v0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCP_ESTATS_REC_RW_v0 {
-    pub EnableCollection: super::super::Foundation::BOOLEAN,
+    pub EnableCollection: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2908,7 +2908,7 @@ pub struct TCP_ESTATS_SEND_BUFF_ROD_v0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCP_ESTATS_SEND_BUFF_RW_v0 {
-    pub EnableCollection: super::super::Foundation::BOOLEAN,
+    pub EnableCollection: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2940,12 +2940,12 @@ pub struct TCP_ESTATS_SND_CONG_ROS_v0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCP_ESTATS_SND_CONG_RW_v0 {
-    pub EnableCollection: super::super::Foundation::BOOLEAN,
+    pub EnableCollection: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCP_ESTATS_SYN_OPTS_ROS_v0 {
-    pub ActiveOpen: super::super::Foundation::BOOLEAN,
+    pub ActiveOpen: bool,
     pub MssRcvd: u32,
     pub MssSent: u32,
 }

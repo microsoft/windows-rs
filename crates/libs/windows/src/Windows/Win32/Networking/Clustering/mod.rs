@@ -4791,7 +4791,7 @@ pub const CLUSTER_SET_ACCESS_TYPE_DENIED: u32 = 1u32;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTER_SET_PASSWORD_STATUS {
     pub NodeId: u32,
-    pub SetAttempted: super::super::Foundation::BOOLEAN,
+    pub SetAttempted: bool,
     pub ReturnStatus: u32,
 }
 impl Default for CLUSTER_SET_PASSWORD_STATUS {
@@ -5564,7 +5564,7 @@ pub struct CREATE_CLUSTER_CONFIG {
     pub ppszNodeNames: *const windows_core::PCWSTR,
     pub cIpEntries: u32,
     pub pIpEntries: *mut CLUSTER_IP_ENTRY,
-    pub fEmptyCluster: super::super::Foundation::BOOLEAN,
+    pub fEmptyCluster: bool,
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
 }
@@ -5585,7 +5585,7 @@ pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub pszDomain: windows_core::PCWSTR,
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
-    pub bUpgradeVCOs: super::super::Foundation::BOOLEAN,
+    pub bUpgradeVCOs: bool,
 }
 impl Default for CREATE_CLUSTER_NAME_ACCOUNT {
     fn default() -> Self {
@@ -13796,9 +13796,9 @@ pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     pub LogType: u16,
     pub ReplicationMode: u32,
     pub MinimumPartnersInSync: u32,
-    pub EnableWriteConsistency: super::super::Foundation::BOOLEAN,
-    pub EnableEncryption: super::super::Foundation::BOOLEAN,
-    pub EnableCompression: super::super::Foundation::BOOLEAN,
+    pub EnableWriteConsistency: bool,
+    pub EnableEncryption: bool,
+    pub EnableCompression: bool,
     pub CertificateThumbprint: [u16; 260],
     pub VolumeNameCount: u32,
     pub VolumeNames: [u16; 260],
@@ -13845,7 +13845,7 @@ impl Default for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     pub DataDiskGuid: windows_core::GUID,
-    pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
+    pub IncludeOfflineDisks: bool,
 }
 impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     fn default() -> Self {
@@ -13856,7 +13856,7 @@ impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     pub DataDiskGuid: windows_core::GUID,
-    pub IncludeAvailableStoargeDisks: super::super::Foundation::BOOLEAN,
+    pub IncludeAvailableStoargeDisks: bool,
 }
 impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     fn default() -> Self {
@@ -13868,8 +13868,8 @@ impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     pub SourceDataDiskGuid: windows_core::GUID,
     pub TargetReplicationGroupGuid: windows_core::GUID,
-    pub SkipConnectivityCheck: super::super::Foundation::BOOLEAN,
-    pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
+    pub SkipConnectivityCheck: bool,
+    pub IncludeOfflineDisks: bool,
 }
 impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     fn default() -> Self {

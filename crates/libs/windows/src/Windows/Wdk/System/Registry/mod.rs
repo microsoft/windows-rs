@@ -49,7 +49,7 @@ pub unsafe fn NtFlushKey(keyhandle: super::super::super::Win32::Foundation::HAND
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn NtNotifyChangeMultipleKeys(masterkeyhandle: super::super::super::Win32::Foundation::HANDLE, subordinateobjects: Option<&[super::super::Foundation::OBJECT_ATTRIBUTES]>, event: Option<super::super::super::Win32::Foundation::HANDLE>, apcroutine: Option<super::super::super::Win32::System::IO::PIO_APC_ROUTINE>, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, completionfilter: u32, watchtree: bool, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, asynchronous: bool) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn NtNotifyChangeMultipleKeys(masterkeyhandle : super::super::super::Win32::Foundation:: HANDLE, count : u32, subordinateobjects : *const super::super::Foundation:: OBJECT_ATTRIBUTES, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, completionfilter : u32, watchtree : super::super::super::Win32::Foundation:: BOOLEAN, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    windows_targets::link!("ntdll.dll" "system" fn NtNotifyChangeMultipleKeys(masterkeyhandle : super::super::super::Win32::Foundation:: HANDLE, count : u32, subordinateobjects : *const super::super::Foundation:: OBJECT_ATTRIBUTES, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, completionfilter : u32, watchtree : bool, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : bool) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtNotifyChangeMultipleKeys(
         core::mem::transmute(masterkeyhandle),
         subordinateobjects.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -59,10 +59,10 @@ pub unsafe fn NtNotifyChangeMultipleKeys(masterkeyhandle: super::super::super::W
         core::mem::transmute(apccontext.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(iostatusblock),
         core::mem::transmute(completionfilter),
-        watchtree.into(),
+        core::mem::transmute(watchtree),
         core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(buffersize),
-        asynchronous.into(),
+        core::mem::transmute(asynchronous),
     )
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
@@ -196,7 +196,7 @@ pub unsafe fn ZwFlushKey(keyhandle: super::super::super::Win32::Foundation::HAND
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ZwNotifyChangeMultipleKeys(masterkeyhandle: super::super::super::Win32::Foundation::HANDLE, subordinateobjects: Option<&[super::super::Foundation::OBJECT_ATTRIBUTES]>, event: Option<super::super::super::Win32::Foundation::HANDLE>, apcroutine: Option<super::super::super::Win32::System::IO::PIO_APC_ROUTINE>, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, completionfilter: u32, watchtree: bool, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, asynchronous: bool) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn ZwNotifyChangeMultipleKeys(masterkeyhandle : super::super::super::Win32::Foundation:: HANDLE, count : u32, subordinateobjects : *const super::super::Foundation:: OBJECT_ATTRIBUTES, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, completionfilter : u32, watchtree : super::super::super::Win32::Foundation:: BOOLEAN, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    windows_targets::link!("ntdll.dll" "system" fn ZwNotifyChangeMultipleKeys(masterkeyhandle : super::super::super::Win32::Foundation:: HANDLE, count : u32, subordinateobjects : *const super::super::Foundation:: OBJECT_ATTRIBUTES, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, completionfilter : u32, watchtree : bool, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : bool) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwNotifyChangeMultipleKeys(
         core::mem::transmute(masterkeyhandle),
         subordinateobjects.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -206,10 +206,10 @@ pub unsafe fn ZwNotifyChangeMultipleKeys(masterkeyhandle: super::super::super::W
         core::mem::transmute(apccontext.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(iostatusblock),
         core::mem::transmute(completionfilter),
-        watchtree.into(),
+        core::mem::transmute(watchtree),
         core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(buffersize),
-        asynchronous.into(),
+        core::mem::transmute(asynchronous),
     )
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]

@@ -154,8 +154,8 @@ where
 }
 #[inline]
 pub unsafe fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const windows_core::GUID, notifychange: bool, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32 {
-    windows_targets::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const windows_core::GUID, notifychange : super::super::Foundation:: BOOLEAN, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
-    TcQueryInterface(core::mem::transmute(ifchandle), core::mem::transmute(pguidparam), notifychange.into(), core::mem::transmute(pbuffersize), core::mem::transmute(buffer))
+    windows_targets::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const windows_core::GUID, notifychange : bool, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+    TcQueryInterface(core::mem::transmute(ifchandle), core::mem::transmute(pguidparam), core::mem::transmute(notifychange), core::mem::transmute(pbuffersize), core::mem::transmute(buffer))
 }
 #[inline]
 pub unsafe fn TcRegisterClient(tciversion: u32, clregctx: super::super::Foundation::HANDLE, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32 {

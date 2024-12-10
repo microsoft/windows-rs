@@ -247,8 +247,8 @@ pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: Option<*mut u64>, puldevic
     RtlGetDeviceFamilyInfoEnum(core::mem::transmute(pulluapinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(puldevicefamily.unwrap_or(core::mem::zeroed())), core::mem::transmute(puldeviceform.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: *mut u32) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("ntdll.dll" "system" fn RtlGetProductInfo(osmajorversion : u32, osminorversion : u32, spmajorversion : u32, spminorversion : u32, returnedproducttype : *mut u32) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: *mut u32) -> bool {
+    windows_targets::link!("ntdll.dll" "system" fn RtlGetProductInfo(osmajorversion : u32, osminorversion : u32, spmajorversion : u32, spminorversion : u32, returnedproducttype : *mut u32) -> bool);
     RtlGetProductInfo(core::mem::transmute(osmajorversion), core::mem::transmute(osminorversion), core::mem::transmute(spmajorversion), core::mem::transmute(spminorversion), core::mem::transmute(returnedproducttype))
 }
 #[inline]
@@ -1126,7 +1126,7 @@ impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_POOL_ZEROING_INFORMATION {
-    pub PoolZeroingSupportPresent: super::super::Foundation::BOOLEAN,
+    pub PoolZeroingSupportPresent: bool,
 }
 impl Default for SYSTEM_POOL_ZEROING_INFORMATION {
     fn default() -> Self {

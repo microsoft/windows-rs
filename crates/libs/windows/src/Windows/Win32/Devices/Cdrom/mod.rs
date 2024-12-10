@@ -72,7 +72,7 @@ impl Default for CDROM_EXCLUSIVE_LOCK {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_EXCLUSIVE_LOCK_STATE {
-    pub LockState: super::super::Foundation::BOOLEAN,
+    pub LockState: bool,
     pub CallerName: [u8; 64],
 }
 impl Default for CDROM_EXCLUSIVE_LOCK_STATE {
@@ -209,10 +209,10 @@ pub struct CDROM_SET_STREAMING {
     pub StartLba: u32,
     pub EndLba: u32,
     pub RotationControl: WRITE_ROTATION,
-    pub RestoreDefaults: super::super::Foundation::BOOLEAN,
-    pub SetExact: super::super::Foundation::BOOLEAN,
-    pub RandomAccess: super::super::Foundation::BOOLEAN,
-    pub Persistent: super::super::Foundation::BOOLEAN,
+    pub RestoreDefaults: bool,
+    pub SetExact: bool,
+    pub RandomAccess: bool,
+    pub Persistent: bool,
 }
 impl Default for CDROM_SET_STREAMING {
     fn default() -> Self {
@@ -223,8 +223,8 @@ impl Default for CDROM_SET_STREAMING {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_SIMPLE_OPC_INFO {
     pub RequestType: CDROM_OPC_INFO_TYPE,
-    pub Exclude0: super::super::Foundation::BOOLEAN,
-    pub Exclude1: super::super::Foundation::BOOLEAN,
+    pub Exclude0: bool,
+    pub Exclude1: bool,
 }
 impl Default for CDROM_SIMPLE_OPC_INFO {
     fn default() -> Self {

@@ -958,7 +958,7 @@ pub const SERVICE_PAUSE_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_C
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_PREFERRED_NODE_INFO {
     pub usPreferredNode: u16,
-    pub fDelete: super::super::Foundation::BOOLEAN,
+    pub fDelete: bool,
 }
 impl Default for SERVICE_PREFERRED_NODE_INFO {
     fn default() -> Self {

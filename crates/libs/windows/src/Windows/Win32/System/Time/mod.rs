@@ -84,7 +84,7 @@ pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub DaylightDate: super::super::Foundation::SYSTEMTIME,
     pub DaylightBias: i32,
     pub TimeZoneKeyName: [u16; 128],
-    pub DynamicDaylightTimeDisabled: super::super::Foundation::BOOLEAN,
+    pub DynamicDaylightTimeDisabled: bool,
 }
 impl Default for DYNAMIC_TIME_ZONE_INFORMATION {
     fn default() -> Self {

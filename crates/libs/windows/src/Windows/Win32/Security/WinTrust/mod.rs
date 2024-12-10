@@ -177,7 +177,7 @@ pub struct CONFIG_CI_PROV_INFO_RESULT {
     pub hr: windows_core::HRESULT,
     pub dwResult: u32,
     pub dwPolicyIndex: u32,
-    pub fIsExplicitDeny: super::super::Foundation::BOOLEAN,
+    pub fIsExplicitDeny: bool,
 }
 impl Default for CONFIG_CI_PROV_INFO_RESULT {
     fn default() -> Self {
@@ -191,7 +191,7 @@ pub struct CONFIG_CI_PROV_INFO_RESULT2 {
     pub hr: windows_core::HRESULT,
     pub dwResult: u32,
     pub dwPolicyIndex: u32,
-    pub fIsExplicitDeny: super::super::Foundation::BOOLEAN,
+    pub fIsExplicitDeny: bool,
     pub cbCalculatedFileHash: u32,
     pub pbCalculatedFileHash: *mut u8,
 }
@@ -520,7 +520,7 @@ pub const HTTPS_FINALPOLICY_FUNCTION: windows_core::PCWSTR = windows_core::w!("H
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTENT_TO_SEAL_ATTRIBUTE {
     pub version: u32,
-    pub seal: super::super::Foundation::BOOLEAN,
+    pub seal: bool,
 }
 impl Default for INTENT_TO_SEAL_ATTRIBUTE {
     fn default() -> Self {

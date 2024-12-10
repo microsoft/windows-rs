@@ -906,14 +906,14 @@ pub struct BTH_LE_GATT_CHARACTERISTIC {
     pub CharacteristicUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
     pub CharacteristicValueHandle: u16,
-    pub IsBroadcastable: super::super::Foundation::BOOLEAN,
-    pub IsReadable: super::super::Foundation::BOOLEAN,
-    pub IsWritable: super::super::Foundation::BOOLEAN,
-    pub IsWritableWithoutResponse: super::super::Foundation::BOOLEAN,
-    pub IsSignedWritable: super::super::Foundation::BOOLEAN,
-    pub IsNotifiable: super::super::Foundation::BOOLEAN,
-    pub IsIndicatable: super::super::Foundation::BOOLEAN,
-    pub HasExtendedProperties: super::super::Foundation::BOOLEAN,
+    pub IsBroadcastable: bool,
+    pub IsReadable: bool,
+    pub IsWritable: bool,
+    pub IsWritableWithoutResponse: bool,
+    pub IsSignedWritable: bool,
+    pub IsNotifiable: bool,
+    pub IsIndicatable: bool,
+    pub HasExtendedProperties: bool,
 }
 impl Default for BTH_LE_GATT_CHARACTERISTIC {
     fn default() -> Self {
@@ -991,8 +991,8 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
-    pub IsReliableWriteEnabled: super::super::Foundation::BOOLEAN,
-    pub IsAuxiliariesWritable: super::super::Foundation::BOOLEAN,
+    pub IsReliableWriteEnabled: bool,
+    pub IsAuxiliariesWritable: bool,
 }
 impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     fn default() -> Self {
@@ -1016,8 +1016,8 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
-    pub IsSubscribeToNotification: super::super::Foundation::BOOLEAN,
-    pub IsSubscribeToIndication: super::super::Foundation::BOOLEAN,
+    pub IsSubscribeToNotification: bool,
+    pub IsSubscribeToIndication: bool,
 }
 impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     fn default() -> Self {
@@ -1027,7 +1027,7 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    pub IsBroadcast: super::super::Foundation::BOOLEAN,
+    pub IsBroadcast: bool,
 }
 impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     fn default() -> Self {
@@ -1053,7 +1053,7 @@ pub const BTH_LE_SERVICE_GATT: u32 = 6145u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_UUID {
-    pub IsShortUuid: super::super::Foundation::BOOLEAN,
+    pub IsShortUuid: bool,
     pub Value: BTH_LE_UUID_0,
 }
 impl Default for BTH_LE_UUID {

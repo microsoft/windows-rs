@@ -378,8 +378,8 @@ pub unsafe fn CheckTokenMembershipEx(tokenhandle: Option<super::Foundation::HAND
 }
 #[inline]
 pub unsafe fn ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor: Option<PSECURITY_DESCRIPTOR>, currentsecuritydescriptor: PSECURITY_DESCRIPTOR, newsecuritydescriptor: *mut PSECURITY_DESCRIPTOR, objecttype: Option<*const windows_core::GUID>, isdirectoryobject: bool, genericmapping: *const GENERIC_MAPPING) -> windows_core::Result<()> {
-    windows_targets::link!("advapi32.dll" "system" fn ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor : PSECURITY_DESCRIPTOR, currentsecuritydescriptor : PSECURITY_DESCRIPTOR, newsecuritydescriptor : *mut PSECURITY_DESCRIPTOR, objecttype : *const windows_core::GUID, isdirectoryobject : super::Foundation:: BOOLEAN, genericmapping : *const GENERIC_MAPPING) -> super::Foundation:: BOOL);
-    ConvertToAutoInheritPrivateObjectSecurity(core::mem::transmute(parentdescriptor.unwrap_or(core::mem::zeroed())), core::mem::transmute(currentsecuritydescriptor), core::mem::transmute(newsecuritydescriptor), core::mem::transmute(objecttype.unwrap_or(core::mem::zeroed())), isdirectoryobject.into(), core::mem::transmute(genericmapping)).ok()
+    windows_targets::link!("advapi32.dll" "system" fn ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor : PSECURITY_DESCRIPTOR, currentsecuritydescriptor : PSECURITY_DESCRIPTOR, newsecuritydescriptor : *mut PSECURITY_DESCRIPTOR, objecttype : *const windows_core::GUID, isdirectoryobject : bool, genericmapping : *const GENERIC_MAPPING) -> super::Foundation:: BOOL);
+    ConvertToAutoInheritPrivateObjectSecurity(core::mem::transmute(parentdescriptor.unwrap_or(core::mem::zeroed())), core::mem::transmute(currentsecuritydescriptor), core::mem::transmute(newsecuritydescriptor), core::mem::transmute(objecttype.unwrap_or(core::mem::zeroed())), core::mem::transmute(isdirectoryobject), core::mem::transmute(genericmapping)).ok()
 }
 #[inline]
 pub unsafe fn CopySid(ndestinationsidlength: u32, pdestinationsid: PSID, psourcesid: PSID) -> windows_core::Result<()> {
@@ -945,13 +945,13 @@ pub unsafe fn RevertToSelf() -> windows_core::Result<()> {
 }
 #[inline]
 pub unsafe fn RtlConvertSidToUnicodeString(unicodestring: *mut super::Foundation::UNICODE_STRING, sid: PSID, allocatedestinationstring: bool) -> super::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn RtlConvertSidToUnicodeString(unicodestring : *mut super::Foundation:: UNICODE_STRING, sid : PSID, allocatedestinationstring : super::Foundation:: BOOLEAN) -> super::Foundation:: NTSTATUS);
-    RtlConvertSidToUnicodeString(core::mem::transmute(unicodestring), core::mem::transmute(sid), allocatedestinationstring.into())
+    windows_targets::link!("ntdll.dll" "system" fn RtlConvertSidToUnicodeString(unicodestring : *mut super::Foundation:: UNICODE_STRING, sid : PSID, allocatedestinationstring : bool) -> super::Foundation:: NTSTATUS);
+    RtlConvertSidToUnicodeString(core::mem::transmute(unicodestring), core::mem::transmute(sid), core::mem::transmute(allocatedestinationstring))
 }
 #[inline]
-pub unsafe fn RtlNormalizeSecurityDescriptor(securitydescriptor: *mut PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: Option<*mut PSECURITY_DESCRIPTOR>, newsecuritydescriptorlength: Option<*mut u32>, checkonly: bool) -> super::Foundation::BOOLEAN {
-    windows_targets::link!("ntdll.dll" "system" fn RtlNormalizeSecurityDescriptor(securitydescriptor : *mut PSECURITY_DESCRIPTOR, securitydescriptorlength : u32, newsecuritydescriptor : *mut PSECURITY_DESCRIPTOR, newsecuritydescriptorlength : *mut u32, checkonly : super::Foundation:: BOOLEAN) -> super::Foundation:: BOOLEAN);
-    RtlNormalizeSecurityDescriptor(core::mem::transmute(securitydescriptor), core::mem::transmute(securitydescriptorlength), core::mem::transmute(newsecuritydescriptor.unwrap_or(core::mem::zeroed())), core::mem::transmute(newsecuritydescriptorlength.unwrap_or(core::mem::zeroed())), checkonly.into())
+pub unsafe fn RtlNormalizeSecurityDescriptor(securitydescriptor: *mut PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: Option<*mut PSECURITY_DESCRIPTOR>, newsecuritydescriptorlength: Option<*mut u32>, checkonly: bool) -> bool {
+    windows_targets::link!("ntdll.dll" "system" fn RtlNormalizeSecurityDescriptor(securitydescriptor : *mut PSECURITY_DESCRIPTOR, securitydescriptorlength : u32, newsecuritydescriptor : *mut PSECURITY_DESCRIPTOR, newsecuritydescriptorlength : *mut u32, checkonly : bool) -> bool);
+    RtlNormalizeSecurityDescriptor(core::mem::transmute(securitydescriptor), core::mem::transmute(securitydescriptorlength), core::mem::transmute(newsecuritydescriptor.unwrap_or(core::mem::zeroed())), core::mem::transmute(newsecuritydescriptorlength.unwrap_or(core::mem::zeroed())), core::mem::transmute(checkonly))
 }
 #[inline]
 pub unsafe fn SetAclInformation(pacl: *mut ACL, paclinformation: *const core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> windows_core::Result<()> {
@@ -1830,7 +1830,7 @@ impl Default for SECURITY_DESCRIPTOR_RELATIVE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SECURITY_DYNAMIC_TRACKING: super::Foundation::BOOLEAN = super::Foundation::BOOLEAN(1u8);
+pub const SECURITY_DYNAMIC_TRACKING: bool = true;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_IMPERSONATION_LEVEL(pub i32);
@@ -1847,7 +1847,7 @@ pub struct SECURITY_QUALITY_OF_SERVICE {
     pub Length: u32,
     pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
     pub ContextTrackingMode: u8,
-    pub EffectiveOnly: super::Foundation::BOOLEAN,
+    pub EffectiveOnly: bool,
 }
 impl Default for SECURITY_QUALITY_OF_SERVICE {
     fn default() -> Self {
@@ -1856,7 +1856,7 @@ impl Default for SECURITY_QUALITY_OF_SERVICE {
 }
 pub const SECURITY_RESOURCE_MANAGER_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 9] };
 pub const SECURITY_SCOPED_POLICY_ID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 17] };
-pub const SECURITY_STATIC_TRACKING: super::Foundation::BOOLEAN = super::Foundation::BOOLEAN(0u8);
+pub const SECURITY_STATIC_TRACKING: bool = false;
 pub const SECURITY_WORLD_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 1] };
 pub type SEC_THREAD_START = Option<unsafe extern "system" fn(lpthreadparameter: *mut core::ffi::c_void) -> u32>;
 pub const SEF_AVOID_OWNER_CHECK: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(16u32);
@@ -1925,8 +1925,8 @@ pub const SE_IMPERSONATE_NAME: windows_core::PCWSTR = windows_core::w!("SeImpers
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SE_IMPERSONATION_STATE {
     pub Token: *mut core::ffi::c_void,
-    pub CopyOnOpen: super::Foundation::BOOLEAN,
-    pub EffectiveOnly: super::Foundation::BOOLEAN,
+    pub CopyOnOpen: bool,
+    pub EffectiveOnly: bool,
     pub Level: SECURITY_IMPERSONATION_LEVEL,
 }
 impl Default for SE_IMPERSONATION_STATE {

@@ -473,8 +473,8 @@ pub unsafe fn RtlCrc64(buffer: *const core::ffi::c_void, size: usize, initialcrc
     RtlCrc64(core::mem::transmute(buffer), core::mem::transmute(size), core::mem::transmute(initialcrc))
 }
 #[inline]
-pub unsafe fn RtlIsZeroMemory(buffer: *const core::ffi::c_void, length: usize) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("ntdll.dll" "system" fn RtlIsZeroMemory(buffer : *const core::ffi::c_void, length : usize) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn RtlIsZeroMemory(buffer: *const core::ffi::c_void, length: usize) -> bool {
+    windows_targets::link!("ntdll.dll" "system" fn RtlIsZeroMemory(buffer : *const core::ffi::c_void, length : usize) -> bool);
     RtlIsZeroMemory(core::mem::transmute(buffer), core::mem::transmute(length))
 }
 #[inline]
@@ -1179,7 +1179,7 @@ impl Default for PROCESS_HEAP_ENTRY_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: *const core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN>;
+pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: *const core::ffi::c_void, range: usize) -> bool>;
 pub const QUOTA_LIMITS_HARDWS_MAX_DISABLE: SETPROCESSWORKINGSETSIZEEX_FLAGS = SETPROCESSWORKINGSETSIZEEX_FLAGS(8u32);
 pub const QUOTA_LIMITS_HARDWS_MAX_ENABLE: SETPROCESSWORKINGSETSIZEEX_FLAGS = SETPROCESSWORKINGSETSIZEEX_FLAGS(4u32);
 pub const QUOTA_LIMITS_HARDWS_MIN_DISABLE: SETPROCESSWORKINGSETSIZEEX_FLAGS = SETPROCESSWORKINGSETSIZEEX_FLAGS(2u32);

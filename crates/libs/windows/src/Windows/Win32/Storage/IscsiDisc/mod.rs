@@ -46,8 +46,8 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiStaticTargetA(targetname : windows_core::PCSTR, targetalias : windows_core::PCSTR, targetflags : u32, persist : super::super::Foundation:: BOOLEAN, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32);
-    AddIScsiStaticTargetA(targetname.param().abi(), targetalias.param().abi(), core::mem::transmute(targetflags), persist.into(), core::mem::transmute(mappings), core::mem::transmute(loginoptions), core::mem::transmute(portalgroup))
+    windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiStaticTargetA(targetname : windows_core::PCSTR, targetalias : windows_core::PCSTR, targetflags : u32, persist : bool, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32);
+    AddIScsiStaticTargetA(targetname.param().abi(), targetalias.param().abi(), core::mem::transmute(targetflags), core::mem::transmute(persist), core::mem::transmute(mappings), core::mem::transmute(loginoptions), core::mem::transmute(portalgroup))
 }
 #[inline]
 pub unsafe fn AddIScsiStaticTargetW<P0, P1>(targetname: P0, targetalias: P1, targetflags: u32, persist: bool, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32
@@ -55,8 +55,8 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiStaticTargetW(targetname : windows_core::PCWSTR, targetalias : windows_core::PCWSTR, targetflags : u32, persist : super::super::Foundation:: BOOLEAN, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32);
-    AddIScsiStaticTargetW(targetname.param().abi(), targetalias.param().abi(), core::mem::transmute(targetflags), persist.into(), core::mem::transmute(mappings), core::mem::transmute(loginoptions), core::mem::transmute(portalgroup))
+    windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiStaticTargetW(targetname : windows_core::PCWSTR, targetalias : windows_core::PCWSTR, targetflags : u32, persist : bool, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32);
+    AddIScsiStaticTargetW(targetname.param().abi(), targetalias.param().abi(), core::mem::transmute(targetflags), core::mem::transmute(persist), core::mem::transmute(mappings), core::mem::transmute(loginoptions), core::mem::transmute(portalgroup))
 }
 #[inline]
 pub unsafe fn AddPersistentIScsiDeviceA<P0>(devicepath: P0) -> u32
@@ -177,10 +177,10 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("iscsidsc.dll" "system" fn LoginIScsiTargetA(targetname : windows_core::PCSTR, isinformationalsession : super::super::Foundation:: BOOLEAN, initiatorinstance : windows_core::PCSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALA, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_core::PCSTR, ispersistent : super::super::Foundation:: BOOLEAN, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
+    windows_targets::link!("iscsidsc.dll" "system" fn LoginIScsiTargetA(targetname : windows_core::PCSTR, isinformationalsession : bool, initiatorinstance : windows_core::PCSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALA, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_core::PCSTR, ispersistent : bool, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
     LoginIScsiTargetA(
         targetname.param().abi(),
-        isinformationalsession.into(),
+        core::mem::transmute(isinformationalsession),
         initiatorinstance.param().abi(),
         core::mem::transmute(initiatorportnumber),
         core::mem::transmute(targetportal),
@@ -189,7 +189,7 @@ where
         core::mem::transmute(loginoptions),
         key.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(key.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        ispersistent.into(),
+        core::mem::transmute(ispersistent),
         core::mem::transmute(uniquesessionid),
         core::mem::transmute(uniqueconnectionid),
     )
@@ -200,10 +200,10 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("iscsidsc.dll" "system" fn LoginIScsiTargetW(targetname : windows_core::PCWSTR, isinformationalsession : super::super::Foundation:: BOOLEAN, initiatorinstance : windows_core::PCWSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALW, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_core::PCSTR, ispersistent : super::super::Foundation:: BOOLEAN, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
+    windows_targets::link!("iscsidsc.dll" "system" fn LoginIScsiTargetW(targetname : windows_core::PCWSTR, isinformationalsession : bool, initiatorinstance : windows_core::PCWSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALW, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_core::PCSTR, ispersistent : bool, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
     LoginIScsiTargetW(
         targetname.param().abi(),
-        isinformationalsession.into(),
+        core::mem::transmute(isinformationalsession),
         initiatorinstance.param().abi(),
         core::mem::transmute(initiatorportnumber),
         core::mem::transmute(targetportal),
@@ -212,7 +212,7 @@ where
         core::mem::transmute(loginoptions),
         key.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(key.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        ispersistent.into(),
+        core::mem::transmute(ispersistent),
         core::mem::transmute(uniquesessionid),
         core::mem::transmute(uniqueconnectionid),
     )
@@ -437,13 +437,13 @@ where
 }
 #[inline]
 pub unsafe fn ReportIScsiTargetsA(forceupdate: bool, buffersize: *mut u32, buffer: Option<windows_core::PSTR>) -> u32 {
-    windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetsA(forceupdate : super::super::Foundation:: BOOLEAN, buffersize : *mut u32, buffer : windows_core::PSTR) -> u32);
-    ReportIScsiTargetsA(forceupdate.into(), core::mem::transmute(buffersize), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
+    windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetsA(forceupdate : bool, buffersize : *mut u32, buffer : windows_core::PSTR) -> u32);
+    ReportIScsiTargetsA(core::mem::transmute(forceupdate), core::mem::transmute(buffersize), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ReportIScsiTargetsW(forceupdate: bool, buffersize: *mut u32, buffer: Option<windows_core::PWSTR>) -> u32 {
-    windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetsW(forceupdate : super::super::Foundation:: BOOLEAN, buffersize : *mut u32, buffer : windows_core::PWSTR) -> u32);
-    ReportIScsiTargetsW(forceupdate.into(), core::mem::transmute(buffersize), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
+    windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetsW(forceupdate : bool, buffersize : *mut u32, buffer : windows_core::PWSTR) -> u32);
+    ReportIScsiTargetsW(core::mem::transmute(forceupdate), core::mem::transmute(buffersize), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ReportPersistentIScsiDevicesA(buffersizeinchar: *mut u32, buffer: Option<windows_core::PSTR>) -> u32 {
@@ -482,24 +482,24 @@ pub unsafe fn SendScsiReportLuns(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, 
 }
 #[inline]
 pub unsafe fn SetIScsiGroupPresharedKey(keylength: u32, key: *mut u8, persist: bool) -> u32 {
-    windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiGroupPresharedKey(keylength : u32, key : *mut u8, persist : super::super::Foundation:: BOOLEAN) -> u32);
-    SetIScsiGroupPresharedKey(core::mem::transmute(keylength), core::mem::transmute(key), persist.into())
+    windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiGroupPresharedKey(keylength : u32, key : *mut u8, persist : bool) -> u32);
+    SetIScsiGroupPresharedKey(core::mem::transmute(keylength), core::mem::transmute(key), core::mem::transmute(persist))
 }
 #[inline]
 pub unsafe fn SetIScsiIKEInfoA<P0>(initiatorname: P0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiIKEInfoA(initiatorname : windows_core::PCSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : super::super::Foundation:: BOOLEAN) -> u32);
-    SetIScsiIKEInfoA(initiatorname.param().abi(), core::mem::transmute(initiatorportnumber), core::mem::transmute(authinfo), persist.into())
+    windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiIKEInfoA(initiatorname : windows_core::PCSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : bool) -> u32);
+    SetIScsiIKEInfoA(initiatorname.param().abi(), core::mem::transmute(initiatorportnumber), core::mem::transmute(authinfo), core::mem::transmute(persist))
 }
 #[inline]
 pub unsafe fn SetIScsiIKEInfoW<P0>(initiatorname: P0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiIKEInfoW(initiatorname : windows_core::PCWSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : super::super::Foundation:: BOOLEAN) -> u32);
-    SetIScsiIKEInfoW(initiatorname.param().abi(), core::mem::transmute(initiatorportnumber), core::mem::transmute(authinfo), persist.into())
+    windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiIKEInfoW(initiatorname : windows_core::PCWSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : bool) -> u32);
+    SetIScsiIKEInfoW(initiatorname.param().abi(), core::mem::transmute(initiatorportnumber), core::mem::transmute(authinfo), core::mem::transmute(persist))
 }
 #[inline]
 pub unsafe fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32 {
@@ -534,8 +534,8 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiTunnelModeOuterAddressA(initiatorname : windows_core::PCSTR, initiatorportnumber : u32, destinationaddress : windows_core::PCSTR, outermodeaddress : windows_core::PCSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
-    SetIScsiTunnelModeOuterAddressA(initiatorname.param().abi(), core::mem::transmute(initiatorportnumber), destinationaddress.param().abi(), outermodeaddress.param().abi(), persist.into())
+    windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiTunnelModeOuterAddressA(initiatorname : windows_core::PCSTR, initiatorportnumber : u32, destinationaddress : windows_core::PCSTR, outermodeaddress : windows_core::PCSTR, persist : bool) -> u32);
+    SetIScsiTunnelModeOuterAddressA(initiatorname.param().abi(), core::mem::transmute(initiatorportnumber), destinationaddress.param().abi(), outermodeaddress.param().abi(), core::mem::transmute(persist))
 }
 #[inline]
 pub unsafe fn SetIScsiTunnelModeOuterAddressW<P0, P2, P3>(initiatorname: P0, initiatorportnumber: u32, destinationaddress: P2, outermodeaddress: P3, persist: bool) -> u32
@@ -544,8 +544,8 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiTunnelModeOuterAddressW(initiatorname : windows_core::PCWSTR, initiatorportnumber : u32, destinationaddress : windows_core::PCWSTR, outermodeaddress : windows_core::PCWSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
-    SetIScsiTunnelModeOuterAddressW(initiatorname.param().abi(), core::mem::transmute(initiatorportnumber), destinationaddress.param().abi(), outermodeaddress.param().abi(), persist.into())
+    windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiTunnelModeOuterAddressW(initiatorname : windows_core::PCWSTR, initiatorportnumber : u32, destinationaddress : windows_core::PCWSTR, outermodeaddress : windows_core::PCWSTR, persist : bool) -> u32);
+    SetIScsiTunnelModeOuterAddressW(initiatorname.param().abi(), core::mem::transmute(initiatorportnumber), destinationaddress.param().abi(), outermodeaddress.param().abi(), core::mem::transmute(persist))
 }
 #[inline]
 pub unsafe fn SetupPersistentIScsiDevices() -> u32 {
@@ -707,8 +707,8 @@ pub struct DUMP_POINTERS {
     pub CommonBufferVa: *mut core::ffi::c_void,
     pub CommonBufferPa: i64,
     pub CommonBufferSize: u32,
-    pub AllocateCommonBuffers: super::super::Foundation::BOOLEAN,
-    pub UseDiskDump: super::super::Foundation::BOOLEAN,
+    pub AllocateCommonBuffers: bool,
+    pub UseDiskDump: bool,
     pub Spare1: [u8; 2],
     pub DeviceObject: *mut core::ffi::c_void,
 }
@@ -724,7 +724,7 @@ pub struct DUMP_POINTERS_EX {
     pub DumpData: *mut core::ffi::c_void,
     pub CommonBufferVa: *mut core::ffi::c_void,
     pub CommonBufferSize: u32,
-    pub AllocateCommonBuffers: super::super::Foundation::BOOLEAN,
+    pub AllocateCommonBuffers: bool,
     pub DeviceObject: *mut core::ffi::c_void,
     pub DriverList: *mut core::ffi::c_void,
     pub dwPortFlags: u32,
@@ -733,7 +733,7 @@ pub struct DUMP_POINTERS_EX {
     pub MaxTransferSize: u32,
     pub AdapterObject: *mut core::ffi::c_void,
     pub MappedRegisterBase: *mut core::ffi::c_void,
-    pub DeviceReady: *mut super::super::Foundation::BOOLEAN,
+    pub DeviceReady: *mut bool,
     pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
     pub DumpDevicePowerOnContext: *mut core::ffi::c_void,
 }
@@ -841,7 +841,7 @@ pub const HYBRID_FUNCTION_SET_DIRTY_THRESHOLD: u32 = 18u32;
 pub struct HYBRID_INFORMATION {
     pub Version: u32,
     pub Size: u32,
-    pub HybridSupported: super::super::Foundation::BOOLEAN,
+    pub HybridSupported: bool,
     pub Status: NVCACHE_STATUS,
     pub CacheTypeEffective: NVCACHE_TYPE,
     pub CacheTypeDefault: NVCACHE_TYPE,
@@ -869,7 +869,7 @@ impl Default for HYBRID_INFORMATION_0 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HYBRID_INFORMATION_1 {
     pub PriorityLevelCount: u8,
-    pub MaxPriorityBehavior: super::super::Foundation::BOOLEAN,
+    pub MaxPriorityBehavior: bool,
     pub OptimalWriteGranularity: u8,
     pub Reserved: u8,
     pub DirtyThresholdLow: u32,
@@ -1016,9 +1016,9 @@ pub struct IO_SCSI_CAPABILITIES {
     pub MaximumPhysicalPages: u32,
     pub SupportedAsynchronousEvents: u32,
     pub AlignmentMask: u32,
-    pub TaggedQueuing: super::super::Foundation::BOOLEAN,
-    pub AdapterScansDown: super::super::Foundation::BOOLEAN,
-    pub AdapterUsesPio: super::super::Foundation::BOOLEAN,
+    pub TaggedQueuing: bool,
+    pub AdapterScansDown: bool,
+    pub AdapterUsesPio: bool,
 }
 impl Default for IO_SCSI_CAPABILITIES {
     fn default() -> Self {
@@ -1204,11 +1204,11 @@ impl Default for ISCSI_SESSION_INFOW {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ISCSI_SESSION_INFO_EX {
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
-    pub InitialR2t: super::super::Foundation::BOOLEAN,
-    pub ImmediateData: super::super::Foundation::BOOLEAN,
+    pub InitialR2t: bool,
+    pub ImmediateData: bool,
     pub Type: u8,
-    pub DataSequenceInOrder: super::super::Foundation::BOOLEAN,
-    pub DataPduInOrder: super::super::Foundation::BOOLEAN,
+    pub DataSequenceInOrder: bool,
+    pub DataPduInOrder: bool,
     pub ErrorRecoveryLevel: u8,
     pub MaxOutstandingR2t: u32,
     pub FirstBurstLength: u32,
@@ -1735,7 +1735,7 @@ pub type PDUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "system" fn(context
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOA {
     pub TargetName: [i8; 224],
-    pub IsInformationalSession: super::super::Foundation::BOOLEAN,
+    pub IsInformationalSession: bool,
     pub InitiatorInstance: [i8; 256],
     pub InitiatorPortNumber: u32,
     pub TargetPortal: ISCSI_TARGET_PORTALA,
@@ -1752,7 +1752,7 @@ impl Default for PERSISTENT_ISCSI_LOGIN_INFOA {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOW {
     pub TargetName: [u16; 224],
-    pub IsInformationalSession: super::super::Foundation::BOOLEAN,
+    pub IsInformationalSession: bool,
     pub InitiatorInstance: [u16; 256],
     pub InitiatorPortNumber: u32,
     pub TargetPortal: ISCSI_TARGET_PORTALW,
@@ -1811,7 +1811,7 @@ pub struct SCSI_INQUIRY_DATA {
     pub PathId: u8,
     pub TargetId: u8,
     pub Lun: u8,
-    pub DeviceClaimed: super::super::Foundation::BOOLEAN,
+    pub DeviceClaimed: bool,
     pub InquiryDataLength: u32,
     pub NextInquiryDataOffset: u32,
     pub InquiryData: [u8; 1],
@@ -2160,7 +2160,7 @@ impl Default for STORAGE_FIRMWARE_DOWNLOAD_V2 {
 pub struct STORAGE_FIRMWARE_INFO {
     pub Version: u32,
     pub Size: u32,
-    pub UpgradeSupport: super::super::Foundation::BOOLEAN,
+    pub UpgradeSupport: bool,
     pub SlotCount: u8,
     pub ActiveSlot: u8,
     pub PendingActivateSlot: u8,
@@ -2180,11 +2180,11 @@ pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: u32 = 2u32;
 pub struct STORAGE_FIRMWARE_INFO_V2 {
     pub Version: u32,
     pub Size: u32,
-    pub UpgradeSupport: super::super::Foundation::BOOLEAN,
+    pub UpgradeSupport: bool,
     pub SlotCount: u8,
     pub ActiveSlot: u8,
     pub PendingActivateSlot: u8,
-    pub FirmwareShared: super::super::Foundation::BOOLEAN,
+    pub FirmwareShared: bool,
     pub Reserved: [u8; 3],
     pub ImagePayloadAlignment: u32,
     pub ImagePayloadMaxSize: u32,
@@ -2199,7 +2199,7 @@ impl Default for STORAGE_FIRMWARE_INFO_V2 {
 #[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_SLOT_INFO {
     pub SlotNumber: u8,
-    pub ReadOnly: super::super::Foundation::BOOLEAN,
+    pub ReadOnly: bool,
     pub Reserved: [u8; 6],
     pub Revision: STORAGE_FIRMWARE_SLOT_INFO_0,
 }
@@ -2223,7 +2223,7 @@ impl Default for STORAGE_FIRMWARE_SLOT_INFO_0 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_FIRMWARE_SLOT_INFO_V2 {
     pub SlotNumber: u8,
-    pub ReadOnly: super::super::Foundation::BOOLEAN,
+    pub ReadOnly: bool,
     pub Reserved: [u8; 6],
     pub Revision: [u8; 16],
 }

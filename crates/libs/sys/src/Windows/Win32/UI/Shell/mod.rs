@@ -4079,9 +4079,9 @@ pub const PANE_PRIVACY: u32 = 7u32;
 pub const PANE_PROGRESS: u32 = 6u32;
 pub const PANE_SSL: u32 = 4u32;
 pub const PANE_ZONE: u32 = 1u32;
-pub type PAPPCONSTRAIN_CHANGE_ROUTINE = Option<unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const core::ffi::c_void)>;
+pub type PAPPCONSTRAIN_CHANGE_ROUTINE = Option<unsafe extern "system" fn(constrained: bool, context: *const core::ffi::c_void)>;
 pub type PAPPCONSTRAIN_REGISTRATION = isize;
-pub type PAPPSTATE_CHANGE_ROUTINE = Option<unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const core::ffi::c_void)>;
+pub type PAPPSTATE_CHANGE_ROUTINE = Option<unsafe extern "system" fn(quiesced: bool, context: *const core::ffi::c_void)>;
 pub type PAPPSTATE_REGISTRATION = isize;
 #[repr(C)]
 #[derive(Clone, Copy)]

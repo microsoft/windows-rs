@@ -681,17 +681,17 @@ where
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
-pub unsafe fn StgConvertPropertyToVariant<P3>(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: P3) -> super::super::super::Foundation::BOOLEAN
+pub unsafe fn StgConvertPropertyToVariant<P3>(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: P3) -> bool
 where
     P3: windows_core::Param<IMemoryAllocator>,
 {
-    windows_targets::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut PROPVARIANT, pma : * mut core::ffi::c_void) -> super::super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut PROPVARIANT, pma : * mut core::ffi::c_void) -> bool);
     StgConvertPropertyToVariant(core::mem::transmute(pprop), core::mem::transmute(codepage), core::mem::transmute(pvar), pma.param().abi())
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
-pub unsafe fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, codepage: u16, pprop: Option<*mut SERIALIZEDPROPERTYVALUE>, pcb: *mut u32, pid: u32, freserved: Option<super::super::super::Foundation::BOOLEAN>, pcindirect: Option<*mut u32>) -> *mut SERIALIZEDPROPERTYVALUE {
-    windows_targets::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : u32, freserved : super::super::super::Foundation:: BOOLEAN, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
+pub unsafe fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, codepage: u16, pprop: Option<*mut SERIALIZEDPROPERTYVALUE>, pcb: *mut u32, pid: u32, freserved: Option<bool>, pcindirect: Option<*mut u32>) -> *mut SERIALIZEDPROPERTYVALUE {
+    windows_targets::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : u32, freserved : bool, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
     StgConvertVariantToProperty(core::mem::transmute(pvar), core::mem::transmute(codepage), core::mem::transmute(pprop.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcb), core::mem::transmute(pid), core::mem::transmute(freserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcindirect.unwrap_or(core::mem::zeroed())))
 }
 #[inline]

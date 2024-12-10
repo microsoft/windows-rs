@@ -9,8 +9,8 @@ pub unsafe fn EnableThreadProfiling(threadhandle: super::super::super::Foundatio
     EnableThreadProfiling(core::mem::transmute(threadhandle), core::mem::transmute(flags), core::mem::transmute(hardwarecounters), core::mem::transmute(performancedatahandle))
 }
 #[inline]
-pub unsafe fn QueryThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, enabled: *mut super::super::super::Foundation::BOOLEAN) -> u32 {
-    windows_targets::link!("kernel32.dll" "system" fn QueryThreadProfiling(threadhandle : super::super::super::Foundation:: HANDLE, enabled : *mut super::super::super::Foundation:: BOOLEAN) -> u32);
+pub unsafe fn QueryThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, enabled: *mut bool) -> u32 {
+    windows_targets::link!("kernel32.dll" "system" fn QueryThreadProfiling(threadhandle : super::super::super::Foundation:: HANDLE, enabled : *mut bool) -> u32);
     QueryThreadProfiling(core::mem::transmute(threadhandle), core::mem::transmute(enabled))
 }
 #[inline]

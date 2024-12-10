@@ -2215,7 +2215,7 @@ pub const CLUSTER_SET_ACCESS_TYPE_DENIED: u32 = 1u32;
 #[derive(Clone, Copy)]
 pub struct CLUSTER_SET_PASSWORD_STATUS {
     pub NodeId: u32,
-    pub SetAttempted: super::super::Foundation::BOOLEAN,
+    pub SetAttempted: bool,
     pub ReturnStatus: u32,
 }
 pub const CLUSTER_SHARED_VOLUMES_ROOT: windows_sys::core::PCWSTR = windows_sys::core::w!("SharedVolumesRoot");
@@ -2717,7 +2717,7 @@ pub struct CREATE_CLUSTER_CONFIG {
     pub ppszNodeNames: *const windows_sys::core::PCWSTR,
     pub cIpEntries: u32,
     pub pIpEntries: *mut CLUSTER_IP_ENTRY,
-    pub fEmptyCluster: super::super::Foundation::BOOLEAN,
+    pub fEmptyCluster: bool,
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
 }
@@ -2733,7 +2733,7 @@ pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub pszDomain: windows_sys::core::PCWSTR,
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
-    pub bUpgradeVCOs: super::super::Foundation::BOOLEAN,
+    pub bUpgradeVCOs: bool,
 }
 pub const CREATE_CLUSTER_VERSION: u32 = 1536u32;
 pub const CTCTL_GET_FAULT_DOMAIN_STATE: CLCTL_CODES = 789i32;
@@ -3760,9 +3760,9 @@ pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     pub LogType: u16,
     pub ReplicationMode: u32,
     pub MinimumPartnersInSync: u32,
-    pub EnableWriteConsistency: super::super::Foundation::BOOLEAN,
-    pub EnableEncryption: super::super::Foundation::BOOLEAN,
-    pub EnableCompression: super::super::Foundation::BOOLEAN,
+    pub EnableWriteConsistency: bool,
+    pub EnableEncryption: bool,
+    pub EnableCompression: bool,
     pub CertificateThumbprint: [u16; 260],
     pub VolumeNameCount: u32,
     pub VolumeNames: [u16; 260],
@@ -3789,21 +3789,21 @@ pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
 #[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     pub DataDiskGuid: windows_sys::core::GUID,
-    pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
+    pub IncludeOfflineDisks: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     pub DataDiskGuid: windows_sys::core::GUID,
-    pub IncludeAvailableStoargeDisks: super::super::Foundation::BOOLEAN,
+    pub IncludeAvailableStoargeDisks: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     pub SourceDataDiskGuid: windows_sys::core::GUID,
     pub TargetReplicationGroupGuid: windows_sys::core::GUID,
-    pub SkipConnectivityCheck: super::super::Foundation::BOOLEAN,
-    pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
+    pub SkipConnectivityCheck: bool,
+    pub IncludeOfflineDisks: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

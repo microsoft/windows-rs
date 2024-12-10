@@ -99,13 +99,13 @@ pub const NFCRMDDI_IOCTL_BASE: u32 = 80u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFCRM_RADIO_STATE {
-    pub MediaRadioOn: super::super::Foundation::BOOLEAN,
+    pub MediaRadioOn: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFCRM_SET_RADIO_STATE {
-    pub SystemStateUpdate: super::super::Foundation::BOOLEAN,
-    pub MediaRadioOn: super::super::Foundation::BOOLEAN,
+    pub SystemStateUpdate: bool,
+    pub MediaRadioOn: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -121,7 +121,7 @@ pub struct NFC_LLCP_CONFIG {
     pub uWKS: u16,
     pub bLTO: u8,
     pub bOptions: u8,
-    pub fAutoActivate: super::super::Foundation::BOOLEAN,
+    pub fAutoActivate: bool,
 }
 pub type NFC_LLCP_LINK_STATUS = i32;
 #[repr(C)]
@@ -208,8 +208,8 @@ pub type NFC_LLCP_SOCKET_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFC_NDEF_INFO {
-    pub fIsNdefFormatted: super::super::Foundation::BOOLEAN,
-    pub fIsReadOnly: super::super::Foundation::BOOLEAN,
+    pub fIsNdefFormatted: bool,
+    pub fIsReadOnly: bool,
     pub dwActualMessageLength: u32,
     pub dwMaxMessageLength: u32,
 }
@@ -256,9 +256,9 @@ pub struct NFC_REMOTE_DEV_SEND_INFO {
 pub struct NFC_RF_DISCOVERY_CONFIG {
     pub usTotalDuration: u16,
     pub ulPollConfig: u32,
-    pub fDisableCardEmulation: super::super::Foundation::BOOLEAN,
+    pub fDisableCardEmulation: bool,
     pub ucNfcIPMode: u8,
-    pub fNfcIPTgtModeDisable: super::super::Foundation::BOOLEAN,
+    pub fNfcIPTgtModeDisable: bool,
     pub ucNfcIPTgtMode: u8,
     pub ucNfcCEMode: u8,
     pub ucBailoutConfig: u8,
@@ -465,9 +465,9 @@ pub struct SECURE_ELEMENT_HCE_DATA_PACKET {
 #[derive(Clone, Copy)]
 pub struct SECURE_ELEMENT_NFCC_CAPABILITIES {
     pub cbMaxRoutingTableSize: u16,
-    pub IsAidRoutingSupported: super::super::Foundation::BOOLEAN,
-    pub IsProtocolRoutingSupported: super::super::Foundation::BOOLEAN,
-    pub IsTechRoutingSupported: super::super::Foundation::BOOLEAN,
+    pub IsAidRoutingSupported: bool,
+    pub IsProtocolRoutingSupported: bool,
+    pub IsTechRoutingSupported: bool,
 }
 pub type SECURE_ELEMENT_POWER_MODE = i32;
 #[repr(C)]

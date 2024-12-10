@@ -84,11 +84,17 @@ impl CppConst {
                             value = format!("0x{:X}_u32 as _", signed).into();
                         }
                     }
+                } else if field_ty == Type::Bool {
+                    value = match constant.value() {
+                        Value::U8(1) => quote! { true },
+                        Value::U8(0) => quote! { false },
+                        _ => panic!(),
+                    };
                 } else {
                     value = quote! { #value as _ };
                 }
 
-                if writer.config.sys {
+                if writer.config.sys || field_ty == Type::Bool {
                     quote! {
                         #cfg
                         pub const #name: #ty = #value;

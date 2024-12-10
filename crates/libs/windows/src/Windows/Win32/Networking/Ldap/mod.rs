@@ -649,13 +649,13 @@ where
 }
 #[inline]
 pub unsafe fn ldap_encode_sort_controlA(externalhandle: *mut LDAP, sortkeys: *mut *mut LDAPSortKeyA, control: *mut LDAPControlA, criticality: bool) -> u32 {
-    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_encode_sort_controlA(externalhandle : *mut LDAP, sortkeys : *mut *mut LDAPSortKeyA, control : *mut LDAPControlA, criticality : super::super::Foundation:: BOOLEAN) -> u32);
-    ldap_encode_sort_controlA(core::mem::transmute(externalhandle), core::mem::transmute(sortkeys), core::mem::transmute(control), criticality.into())
+    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_encode_sort_controlA(externalhandle : *mut LDAP, sortkeys : *mut *mut LDAPSortKeyA, control : *mut LDAPControlA, criticality : bool) -> u32);
+    ldap_encode_sort_controlA(core::mem::transmute(externalhandle), core::mem::transmute(sortkeys), core::mem::transmute(control), core::mem::transmute(criticality))
 }
 #[inline]
 pub unsafe fn ldap_encode_sort_controlW(externalhandle: *mut LDAP, sortkeys: *mut *mut LDAPSortKeyW, control: *mut LDAPControlW, criticality: bool) -> u32 {
-    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_encode_sort_controlW(externalhandle : *mut LDAP, sortkeys : *mut *mut LDAPSortKeyW, control : *mut LDAPControlW, criticality : super::super::Foundation:: BOOLEAN) -> u32);
-    ldap_encode_sort_controlW(core::mem::transmute(externalhandle), core::mem::transmute(sortkeys), core::mem::transmute(control), criticality.into())
+    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_encode_sort_controlW(externalhandle : *mut LDAP, sortkeys : *mut *mut LDAPSortKeyW, control : *mut LDAPControlW, criticality : bool) -> u32);
+    ldap_encode_sort_controlW(core::mem::transmute(externalhandle), core::mem::transmute(sortkeys), core::mem::transmute(control), core::mem::transmute(criticality))
 }
 #[inline]
 pub unsafe fn ldap_err2string(err: u32) -> windows_core::PSTR {
@@ -1187,13 +1187,13 @@ where
 }
 #[inline]
 pub unsafe fn ldap_parse_extended_resultA(connection: *mut LDAP, resultmessage: *mut LDAPMessage, resultoid: Option<*mut windows_core::PSTR>, resultdata: *mut *mut LDAP_BERVAL, freeit: bool) -> u32 {
-    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_parse_extended_resultA(connection : *mut LDAP, resultmessage : *mut LDAPMessage, resultoid : *mut windows_core::PSTR, resultdata : *mut *mut LDAP_BERVAL, freeit : super::super::Foundation:: BOOLEAN) -> u32);
-    ldap_parse_extended_resultA(core::mem::transmute(connection), core::mem::transmute(resultmessage), core::mem::transmute(resultoid.unwrap_or(core::mem::zeroed())), core::mem::transmute(resultdata), freeit.into())
+    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_parse_extended_resultA(connection : *mut LDAP, resultmessage : *mut LDAPMessage, resultoid : *mut windows_core::PSTR, resultdata : *mut *mut LDAP_BERVAL, freeit : bool) -> u32);
+    ldap_parse_extended_resultA(core::mem::transmute(connection), core::mem::transmute(resultmessage), core::mem::transmute(resultoid.unwrap_or(core::mem::zeroed())), core::mem::transmute(resultdata), core::mem::transmute(freeit))
 }
 #[inline]
 pub unsafe fn ldap_parse_extended_resultW(connection: *mut LDAP, resultmessage: *mut LDAPMessage, resultoid: Option<*mut windows_core::PWSTR>, resultdata: *mut *mut LDAP_BERVAL, freeit: bool) -> u32 {
-    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_parse_extended_resultW(connection : *mut LDAP, resultmessage : *mut LDAPMessage, resultoid : *mut windows_core::PWSTR, resultdata : *mut *mut LDAP_BERVAL, freeit : super::super::Foundation:: BOOLEAN) -> u32);
-    ldap_parse_extended_resultW(core::mem::transmute(connection), core::mem::transmute(resultmessage), core::mem::transmute(resultoid.unwrap_or(core::mem::zeroed())), core::mem::transmute(resultdata), freeit.into())
+    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_parse_extended_resultW(connection : *mut LDAP, resultmessage : *mut LDAPMessage, resultoid : *mut windows_core::PWSTR, resultdata : *mut *mut LDAP_BERVAL, freeit : bool) -> u32);
+    ldap_parse_extended_resultW(core::mem::transmute(connection), core::mem::transmute(resultmessage), core::mem::transmute(resultoid.unwrap_or(core::mem::zeroed())), core::mem::transmute(resultdata), core::mem::transmute(freeit))
 }
 #[inline]
 pub unsafe fn ldap_parse_page_control(externalhandle: *mut LDAP, servercontrols: *mut *mut LDAPControlA, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32 {
@@ -1227,18 +1227,18 @@ pub unsafe fn ldap_parse_referenceW(connection: *mut LDAP, resultmessage: *mut L
 }
 #[inline]
 pub unsafe fn ldap_parse_result(connection: *mut LDAP, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: Option<*mut windows_core::PSTR>, errormessage: Option<*mut windows_core::PSTR>, referrals: Option<*mut *mut windows_core::PSTR>, servercontrols: *mut *mut *mut LDAPControlA, freeit: bool) -> u32 {
-    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_parse_result(connection : *mut LDAP, resultmessage : *mut LDAPMessage, returncode : *mut u32, matcheddns : *mut windows_core::PSTR, errormessage : *mut windows_core::PSTR, referrals : *mut *mut windows_core::PSTR, servercontrols : *mut *mut *mut LDAPControlA, freeit : super::super::Foundation:: BOOLEAN) -> u32);
-    ldap_parse_result(core::mem::transmute(connection), core::mem::transmute(resultmessage), core::mem::transmute(returncode), core::mem::transmute(matcheddns.unwrap_or(core::mem::zeroed())), core::mem::transmute(errormessage.unwrap_or(core::mem::zeroed())), core::mem::transmute(referrals.unwrap_or(core::mem::zeroed())), core::mem::transmute(servercontrols), freeit.into())
+    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_parse_result(connection : *mut LDAP, resultmessage : *mut LDAPMessage, returncode : *mut u32, matcheddns : *mut windows_core::PSTR, errormessage : *mut windows_core::PSTR, referrals : *mut *mut windows_core::PSTR, servercontrols : *mut *mut *mut LDAPControlA, freeit : bool) -> u32);
+    ldap_parse_result(core::mem::transmute(connection), core::mem::transmute(resultmessage), core::mem::transmute(returncode), core::mem::transmute(matcheddns.unwrap_or(core::mem::zeroed())), core::mem::transmute(errormessage.unwrap_or(core::mem::zeroed())), core::mem::transmute(referrals.unwrap_or(core::mem::zeroed())), core::mem::transmute(servercontrols), core::mem::transmute(freeit))
 }
 #[inline]
 pub unsafe fn ldap_parse_resultA(connection: *mut LDAP, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: Option<*mut windows_core::PSTR>, errormessage: Option<*mut windows_core::PSTR>, referrals: Option<*mut *mut *mut i8>, servercontrols: *mut *mut *mut LDAPControlA, freeit: bool) -> u32 {
-    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_parse_resultA(connection : *mut LDAP, resultmessage : *mut LDAPMessage, returncode : *mut u32, matcheddns : *mut windows_core::PSTR, errormessage : *mut windows_core::PSTR, referrals : *mut *mut *mut i8, servercontrols : *mut *mut *mut LDAPControlA, freeit : super::super::Foundation:: BOOLEAN) -> u32);
-    ldap_parse_resultA(core::mem::transmute(connection), core::mem::transmute(resultmessage), core::mem::transmute(returncode), core::mem::transmute(matcheddns.unwrap_or(core::mem::zeroed())), core::mem::transmute(errormessage.unwrap_or(core::mem::zeroed())), core::mem::transmute(referrals.unwrap_or(core::mem::zeroed())), core::mem::transmute(servercontrols), freeit.into())
+    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_parse_resultA(connection : *mut LDAP, resultmessage : *mut LDAPMessage, returncode : *mut u32, matcheddns : *mut windows_core::PSTR, errormessage : *mut windows_core::PSTR, referrals : *mut *mut *mut i8, servercontrols : *mut *mut *mut LDAPControlA, freeit : bool) -> u32);
+    ldap_parse_resultA(core::mem::transmute(connection), core::mem::transmute(resultmessage), core::mem::transmute(returncode), core::mem::transmute(matcheddns.unwrap_or(core::mem::zeroed())), core::mem::transmute(errormessage.unwrap_or(core::mem::zeroed())), core::mem::transmute(referrals.unwrap_or(core::mem::zeroed())), core::mem::transmute(servercontrols), core::mem::transmute(freeit))
 }
 #[inline]
 pub unsafe fn ldap_parse_resultW(connection: *mut LDAP, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: Option<*mut windows_core::PWSTR>, errormessage: Option<*mut windows_core::PWSTR>, referrals: Option<*mut *mut *mut u16>, servercontrols: *mut *mut *mut LDAPControlW, freeit: bool) -> u32 {
-    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_parse_resultW(connection : *mut LDAP, resultmessage : *mut LDAPMessage, returncode : *mut u32, matcheddns : *mut windows_core::PWSTR, errormessage : *mut windows_core::PWSTR, referrals : *mut *mut *mut u16, servercontrols : *mut *mut *mut LDAPControlW, freeit : super::super::Foundation:: BOOLEAN) -> u32);
-    ldap_parse_resultW(core::mem::transmute(connection), core::mem::transmute(resultmessage), core::mem::transmute(returncode), core::mem::transmute(matcheddns.unwrap_or(core::mem::zeroed())), core::mem::transmute(errormessage.unwrap_or(core::mem::zeroed())), core::mem::transmute(referrals.unwrap_or(core::mem::zeroed())), core::mem::transmute(servercontrols), freeit.into())
+    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_parse_resultW(connection : *mut LDAP, resultmessage : *mut LDAPMessage, returncode : *mut u32, matcheddns : *mut windows_core::PWSTR, errormessage : *mut windows_core::PWSTR, referrals : *mut *mut *mut u16, servercontrols : *mut *mut *mut LDAPControlW, freeit : bool) -> u32);
+    ldap_parse_resultW(core::mem::transmute(connection), core::mem::transmute(resultmessage), core::mem::transmute(returncode), core::mem::transmute(matcheddns.unwrap_or(core::mem::zeroed())), core::mem::transmute(errormessage.unwrap_or(core::mem::zeroed())), core::mem::transmute(referrals.unwrap_or(core::mem::zeroed())), core::mem::transmute(servercontrols), core::mem::transmute(freeit))
 }
 #[inline]
 pub unsafe fn ldap_parse_sort_control(externalhandle: *mut LDAP, control: *mut *mut LDAPControlA, result: *mut u32, attribute: *mut windows_core::PSTR) -> u32 {
@@ -1660,8 +1660,8 @@ pub unsafe fn ldap_startup(version: *mut LDAP_VERSION_INFO, instance: *mut super
     ldap_startup(core::mem::transmute(version), core::mem::transmute(instance))
 }
 #[inline]
-pub unsafe fn ldap_stop_tls_s(externalhandle: *mut LDAP) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_stop_tls_s(externalhandle : *mut LDAP) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn ldap_stop_tls_s(externalhandle: *mut LDAP) -> bool {
+    windows_targets::link!("wldap32.dll" "cdecl" fn ldap_stop_tls_s(externalhandle : *mut LDAP) -> bool);
     ldap_stop_tls_s(core::mem::transmute(externalhandle))
 }
 #[inline]
@@ -1834,7 +1834,7 @@ impl Default for LDAPAPIInfoW {
 pub struct LDAPControlA {
     pub ldctl_oid: windows_core::PSTR,
     pub ldctl_value: LDAP_BERVAL,
-    pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
+    pub ldctl_iscritical: bool,
 }
 impl Default for LDAPControlA {
     fn default() -> Self {
@@ -1846,7 +1846,7 @@ impl Default for LDAPControlA {
 pub struct LDAPControlW {
     pub ldctl_oid: windows_core::PWSTR,
     pub ldctl_value: LDAP_BERVAL,
-    pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
+    pub ldctl_iscritical: bool,
 }
 impl Default for LDAPControlW {
     fn default() -> Self {
@@ -1866,9 +1866,9 @@ pub struct LDAPMessage {
     pub Request: *mut core::ffi::c_void,
     pub lm_returncode: u32,
     pub lm_referral: u16,
-    pub lm_chased: super::super::Foundation::BOOLEAN,
-    pub lm_eom: super::super::Foundation::BOOLEAN,
-    pub ConnectionReferenced: super::super::Foundation::BOOLEAN,
+    pub lm_chased: bool,
+    pub lm_eom: bool,
+    pub ConnectionReferenced: bool,
 }
 impl Default for LDAPMessage {
     fn default() -> Self {
@@ -1926,7 +1926,7 @@ impl Default for LDAPModW_0 {
 pub struct LDAPSortKeyA {
     pub sk_attrtype: windows_core::PSTR,
     pub sk_matchruleoid: windows_core::PSTR,
-    pub sk_reverseorder: super::super::Foundation::BOOLEAN,
+    pub sk_reverseorder: bool,
 }
 impl Default for LDAPSortKeyA {
     fn default() -> Self {
@@ -1938,7 +1938,7 @@ impl Default for LDAPSortKeyA {
 pub struct LDAPSortKeyW {
     pub sk_attrtype: windows_core::PWSTR,
     pub sk_matchruleoid: windows_core::PWSTR,
-    pub sk_reverseorder: super::super::Foundation::BOOLEAN,
+    pub sk_reverseorder: bool,
 }
 impl Default for LDAPSortKeyW {
     fn default() -> Self {
@@ -2390,14 +2390,14 @@ pub const LDAP_VERSION_MAX: u32 = 3u32;
 pub const LDAP_VERSION_MIN: u32 = 2u32;
 pub const LDAP_VIRTUAL_LIST_VIEW_ERROR: LDAP_RETCODE = LDAP_RETCODE(76i32);
 pub const LDAP_VLVINFO_VERSION: u32 = 1u32;
-pub type NOTIFYOFNEWCONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: windows_core::PCWSTR, hostname: windows_core::PCSTR, newconnection: *mut LDAP, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentuser: *mut core::ffi::c_void, errorcodefrombind: u32) -> super::super::Foundation::BOOLEAN>;
+pub type NOTIFYOFNEWCONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: windows_core::PCWSTR, hostname: windows_core::PCSTR, newconnection: *mut LDAP, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentuser: *mut core::ffi::c_void, errorcodefrombind: u32) -> bool>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PLDAPSearch(pub isize);
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-pub type QUERYCLIENTCERT = Option<unsafe extern "system" fn(connection: *mut LDAP, trusted_cas: *mut super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertificate: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN>;
+pub type QUERYCLIENTCERT = Option<unsafe extern "system" fn(connection: *mut LDAP, trusted_cas: *mut super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertificate: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> bool>;
 pub type QUERYFORCONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: windows_core::PCWSTR, hostname: windows_core::PCSTR, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentusertoken: *mut core::ffi::c_void, connectiontouse: *mut *mut LDAP) -> u32>;
 pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
 #[cfg(feature = "Win32_Security_Cryptography")]
-pub type VERIFYSERVERCERT = Option<unsafe extern "system" fn(connection: *mut LDAP, pservercert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN>;
+pub type VERIFYSERVERCERT = Option<unsafe extern "system" fn(connection: *mut LDAP, pservercert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> bool>;

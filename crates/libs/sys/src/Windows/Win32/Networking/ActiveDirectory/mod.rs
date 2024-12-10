@@ -662,7 +662,7 @@ pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = 3i32;
 pub struct ADS_SORTKEY {
     pub pszAttrType: windows_sys::core::PWSTR,
     pub pszReserved: windows_sys::core::PWSTR,
-    pub fReverseorder: super::super::Foundation::BOOLEAN,
+    pub fReverseorder: bool,
 }
 pub type ADS_STATUSENUM = i32;
 pub const ADS_STATUS_INVALID_SEARCHPREF: ADS_STATUSENUM = 1i32;

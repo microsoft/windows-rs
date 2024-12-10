@@ -30,8 +30,8 @@ pub unsafe fn D3DKMTChangeVideoMemoryReservation(param0: *const D3DKMT_CHANGEVID
     D3DKMTChangeVideoMemoryReservation(core::mem::transmute(param0))
 }
 #[inline]
-pub unsafe fn D3DKMTCheckExclusiveOwnership() -> super::super::super::Win32::Foundation::BOOLEAN {
-    windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckExclusiveOwnership() -> super::super::super::Win32::Foundation:: BOOLEAN);
+pub unsafe fn D3DKMTCheckExclusiveOwnership() -> bool {
+    windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckExclusiveOwnership() -> bool);
     D3DKMTCheckExclusiveOwnership()
 }
 #[inline]
@@ -4983,7 +4983,7 @@ pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
     pub VideoOutputTechnology: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY,
     pub VideoOutputHpdAwareness: DXGK_CHILD_DEVICE_HPD_AWARENESS,
     pub MonitorOrientationAwareness: D3DKMDT_MONITOR_ORIENTATION_AWARENESS,
-    pub SupportsSdtvModes: super::super::super::Win32::Foundation::BOOLEAN,
+    pub SupportsSdtvModes: bool,
 }
 impl Default for D3DKMDT_VIDEO_PRESENT_TARGET {
     fn default() -> Self {
@@ -5579,7 +5579,7 @@ pub const D3DKMT_AllocationPriorityClassNormal: D3DKMT_QUERYSTATISTICS_ALLOCATIO
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_BDDFALLBACK_CTL {
-    pub ForceBddHeadlessNextFallback: super::super::super::Win32::Foundation::BOOLEAN,
+    pub ForceBddHeadlessNextFallback: bool,
 }
 impl Default for D3DKMT_BDDFALLBACK_CTL {
     fn default() -> Self {
@@ -5631,7 +5631,7 @@ pub union D3DKMT_BRIGHTNESS_INFO_0 {
     pub BrightnessState: DXGK_BRIGHTNESS_STATE,
     pub OptimizationLevel: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL,
     pub ReductionInfo: DXGK_BACKLIGHT_INFO,
-    pub VerboseLogging: super::super::super::Win32::Foundation::BOOLEAN,
+    pub VerboseLogging: bool,
     pub NitRanges: DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT,
     pub GetBrightnessMillinits: DXGK_BRIGHTNESS_GET_OUT,
     pub SetBrightnessMillinits: DXGK_BRIGHTNESS_SET_IN,
@@ -5971,9 +5971,9 @@ impl Default for D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
 pub struct D3DKMT_CONFIGURESHAREDRESOURCE {
     pub hDevice: u32,
     pub hResource: u32,
-    pub IsDwm: super::super::super::Win32::Foundation::BOOLEAN,
+    pub IsDwm: bool,
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
-    pub AllowAccess: super::super::super::Win32::Foundation::BOOLEAN,
+    pub AllowAccess: bool,
 }
 impl Default for D3DKMT_CONFIGURESHAREDRESOURCE {
     fn default() -> Self {
@@ -6712,7 +6712,7 @@ impl Default for D3DKMT_DEVICEPAGEFAULT_STATE {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     pub VidPnSourceId: u32,
-    pub bQueuedPresentLimitReached: super::super::super::Win32::Foundation::BOOLEAN,
+    pub bQueuedPresentLimitReached: bool,
 }
 impl Default for D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     fn default() -> Self {
@@ -7143,7 +7143,7 @@ pub const D3DKMT_ESCAPE_VIDSCH: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(3i32);
 pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     pub Type: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE,
     pub VidPnSourceId: u32,
-    pub ProcessBoostEligible: super::super::super::Win32::Foundation::BOOLEAN,
+    pub ProcessBoostEligible: bool,
     pub VSyncMultiplier: u32,
     pub BaseDesktopDuration: u32,
     pub Reserved: [u8; 16],
@@ -7583,7 +7583,7 @@ impl Default for D3DKMT_GETMULTISAMPLEMETHODLIST {
 pub struct D3DKMT_GETOVERLAYSTATE {
     pub hDevice: u32,
     pub hOverlay: u32,
-    pub OverlayEnabled: super::super::super::Win32::Foundation::BOOLEAN,
+    pub OverlayEnabled: bool,
 }
 impl Default for D3DKMT_GETOVERLAYSTATE {
     fn default() -> Self {
@@ -7610,7 +7610,7 @@ pub const D3DKMT_GETPRESENTHISTORY_MAXTOKENS: u32 = 2048u32;
 pub struct D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
-    pub Support: super::super::super::Win32::Foundation::BOOLEAN,
+    pub Support: bool,
 }
 impl Default for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     fn default() -> Self {
@@ -7635,7 +7635,7 @@ impl Default for D3DKMT_GETRUNTIMEDATA {
 pub struct D3DKMT_GETSCANLINE {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
-    pub InVerticalBlank: super::super::super::Win32::Foundation::BOOLEAN,
+    pub InVerticalBlank: bool,
     pub ScanLine: u32,
 }
 impl Default for D3DKMT_GETSCANLINE {
@@ -7684,7 +7684,7 @@ impl Default for D3DKMT_GETVERTICALBLANKEVENT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     pub hDevice: u32,
-    pub bFailedDwmAcquireVidPn: super::super::super::Win32::Foundation::BOOLEAN,
+    pub bFailedDwmAcquireVidPn: bool,
 }
 impl Default for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     fn default() -> Self {
@@ -7738,7 +7738,7 @@ pub struct D3DKMT_GET_PTE {
     pub PhysicalAdapterIndex: u32,
     pub PageTableLevel: u32,
     pub PageTableIndex: [u32; 6],
-    pub b64KBPte: super::super::super::Win32::Foundation::BOOLEAN,
+    pub b64KBPte: bool,
     pub NumPtes: u32,
     pub Pte: [DXGK_PTE; 64],
     pub NumValidEntries: u32,
@@ -7824,7 +7824,7 @@ pub const D3DKMT_GPU_PREFERENCE_TYPE_USER_PREFERENCE: D3DKMT_GPU_PREFERENCE_QUER
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_HISTORY_BUFFER_STATUS {
-    pub Enabled: super::super::super::Win32::Foundation::BOOLEAN,
+    pub Enabled: bool,
     pub Reserved: u32,
 }
 impl Default for D3DKMT_HISTORY_BUFFER_STATUS {
@@ -7835,7 +7835,7 @@ impl Default for D3DKMT_HISTORY_BUFFER_STATUS {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_HWDRM_SUPPORT {
-    pub Supported: super::super::super::Win32::Foundation::BOOLEAN,
+    pub Supported: bool,
 }
 impl Default for D3DKMT_HWDRM_SUPPORT {
     fn default() -> Self {
@@ -8027,9 +8027,9 @@ pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_PAIRING: D3DKMT_MIRACAST_DEVICE_S
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
-    pub HdcpSupported: super::super::super::Win32::Foundation::BOOLEAN,
+    pub HdcpSupported: bool,
     pub DefaultControlPort: u32,
-    pub UsesIhvSolution: super::super::super::Win32::Foundation::BOOLEAN,
+    pub UsesIhvSolution: bool,
 }
 impl Default for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     fn default() -> Self {
@@ -9057,7 +9057,7 @@ impl Default for D3DKMT_PANELFITTER_SUPPORT {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_PARAVIRTUALIZATION {
-    pub SecureContainer: super::super::super::Win32::Foundation::BOOLEAN,
+    pub SecureContainer: bool,
 }
 impl Default for D3DKMT_PARAVIRTUALIZATION {
     fn default() -> Self {
@@ -9201,7 +9201,7 @@ pub struct D3DKMT_PRESENT {
     pub BroadcastDstAllocation: *mut u32,
     pub PrivateDriverDataSize: u32,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub bOptimizeForComposition: super::super::super::Win32::Foundation::BOOLEAN,
+    pub bOptimizeForComposition: bool,
 }
 impl Default for D3DKMT_PRESENT {
     fn default() -> Self {
@@ -10856,8 +10856,8 @@ pub struct D3DKMT_SEGMENT_CAPS {
     pub Size: u64,
     pub PageSize: u32,
     pub SegmentId: u32,
-    pub bAperture: super::super::super::Win32::Foundation::BOOLEAN,
-    pub bReservedSysMem: super::super::super::Win32::Foundation::BOOLEAN,
+    pub bAperture: bool,
+    pub bReservedSysMem: bool,
     pub BudgetGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
 }
 impl Default for D3DKMT_SEGMENT_CAPS {
@@ -15496,13 +15496,13 @@ pub const DXGK_ENGINE_TYPE_VIDEO_PROCESSING: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGK_ESCAPE_GPUMMUCAPS {
-    pub ReadOnlyMemorySupported: super::super::super::Win32::Foundation::BOOLEAN,
-    pub NoExecuteMemorySupported: super::super::super::Win32::Foundation::BOOLEAN,
-    pub ZeroInPteSupported: super::super::super::Win32::Foundation::BOOLEAN,
-    pub CacheCoherentMemorySupported: super::super::super::Win32::Foundation::BOOLEAN,
-    pub LargePageSupported: super::super::super::Win32::Foundation::BOOLEAN,
-    pub DualPteSupported: super::super::super::Win32::Foundation::BOOLEAN,
-    pub AllowNonAlignedLargePageAddress: super::super::super::Win32::Foundation::BOOLEAN,
+    pub ReadOnlyMemorySupported: bool,
+    pub NoExecuteMemorySupported: bool,
+    pub ZeroInPteSupported: bool,
+    pub CacheCoherentMemorySupported: bool,
+    pub LargePageSupported: bool,
+    pub DualPteSupported: bool,
+    pub AllowNonAlignedLargePageAddress: bool,
     pub VirtualAddressBitCount: u32,
     pub PageTableLevelCount: u32,
     pub PageTableLevelDesk: [D3DKMT_PAGE_TABLE_LEVEL_DESC; 6],
@@ -15745,8 +15745,8 @@ pub struct DXGK_NODEMETADATA {
     pub EngineType: DXGK_ENGINE_TYPE,
     pub FriendlyName: [u16; 32],
     pub Flags: DXGK_NODEMETADATA_FLAGS,
-    pub GpuMmuSupported: super::super::super::Win32::Foundation::BOOLEAN,
-    pub IoMmuSupported: super::super::super::Win32::Foundation::BOOLEAN,
+    pub GpuMmuSupported: bool,
+    pub IoMmuSupported: bool,
 }
 impl Default for DXGK_NODEMETADATA {
     fn default() -> Self {
@@ -16094,13 +16094,13 @@ pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_ACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATU
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_INACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(0i32);
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_PENDING_DESTROY: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(2i32);
 pub const OUTPUTDUPL_CREATE_MAX_KEYEDMUTXES: u32 = 3u32;
-pub type PDXGK_FSTATE_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, componentindex: u32, newfstate: u32, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut core::ffi::c_void)>;
+pub type PDXGK_FSTATE_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, componentindex: u32, newfstate: u32, prenotification: bool, privatehandle: *mut core::ffi::c_void)>;
 pub type PDXGK_GRAPHICSPOWER_UNREGISTER = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PDXGK_INITIAL_COMPONENT_STATE = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, isblockingtype: super::super::super::Win32::Foundation::BOOLEAN, initialfstate: u32, componentguid: windows_core::GUID, powercomponentmappingflag: u32)>;
+pub type PDXGK_INITIAL_COMPONENT_STATE = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, isblockingtype: bool, initialfstate: u32, componentguid: windows_core::GUID, powercomponentmappingflag: u32)>;
 #[cfg(feature = "Win32_System_Power")]
-pub type PDXGK_POWER_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, newgrfxpowerstate: super::super::super::Win32::System::Power::DEVICE_POWER_STATE, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut core::ffi::c_void)>;
+pub type PDXGK_POWER_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, newgrfxpowerstate: super::super::super::Win32::System::Power::DEVICE_POWER_STATE, prenotification: bool, privatehandle: *mut core::ffi::c_void)>;
 pub type PDXGK_REMOVAL_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void)>;
-pub type PDXGK_SET_SHARED_POWER_COMPONENT_STATE = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, active: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PDXGK_SET_SHARED_POWER_COMPONENT_STATE = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, active: bool) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_ACQUIREKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_ACQUIREKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_ADJUSTFULLSCREENGAMMA = Option<unsafe extern "system" fn(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -16109,7 +16109,7 @@ pub type PFND3DKMT_CANCELPRESENTS = Option<unsafe extern "system" fn(param0: *co
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFND3DKMT_CHANGESURFACEPOINTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn() -> bool>;
 pub type PFND3DKMT_CHECKMONITORPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::super::super::Win32::Foundation::NTSTATUS>;

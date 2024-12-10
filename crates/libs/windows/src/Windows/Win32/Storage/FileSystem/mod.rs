@@ -466,39 +466,39 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateSymbolicLinkA<P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN
+pub unsafe fn CreateSymbolicLinkA<P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS) -> bool
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn CreateSymbolicLinkA(lpsymlinkfilename : windows_core::PCSTR, lptargetfilename : windows_core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("kernel32.dll" "system" fn CreateSymbolicLinkA(lpsymlinkfilename : windows_core::PCSTR, lptargetfilename : windows_core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> bool);
     CreateSymbolicLinkA(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn CreateSymbolicLinkTransactedA<P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN
+pub unsafe fn CreateSymbolicLinkTransactedA<P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> bool
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedA(lpsymlinkfilename : windows_core::PCSTR, lptargetfilename : windows_core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedA(lpsymlinkfilename : windows_core::PCSTR, lptargetfilename : windows_core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> bool);
     CreateSymbolicLinkTransactedA(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(htransaction))
 }
 #[inline]
-pub unsafe fn CreateSymbolicLinkTransactedW<P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN
+pub unsafe fn CreateSymbolicLinkTransactedW<P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> bool
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedW(lpsymlinkfilename : windows_core::PCWSTR, lptargetfilename : windows_core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedW(lpsymlinkfilename : windows_core::PCWSTR, lptargetfilename : windows_core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> bool);
     CreateSymbolicLinkTransactedW(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(htransaction))
 }
 #[inline]
-pub unsafe fn CreateSymbolicLinkW<P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN
+pub unsafe fn CreateSymbolicLinkW<P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS) -> bool
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn CreateSymbolicLinkW(lpsymlinkfilename : windows_core::PCWSTR, lptargetfilename : windows_core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("kernel32.dll" "system" fn CreateSymbolicLinkW(lpsymlinkfilename : windows_core::PCWSTR, lptargetfilename : windows_core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> bool);
     CreateSymbolicLinkW(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), core::mem::transmute(dwflags))
 }
 #[inline]
@@ -1668,13 +1668,13 @@ pub unsafe fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_L
     LsnCreate(core::mem::transmute(cidcontainer), core::mem::transmute(offblock), core::mem::transmute(crecord))
 }
 #[inline]
-pub unsafe fn LsnEqual(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("clfsw32.dll" "system" fn LsnEqual(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn LsnEqual(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> bool {
+    windows_targets::link!("clfsw32.dll" "system" fn LsnEqual(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> bool);
     LsnEqual(core::mem::transmute(plsn1), core::mem::transmute(plsn2))
 }
 #[inline]
-pub unsafe fn LsnGreater(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("clfsw32.dll" "system" fn LsnGreater(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn LsnGreater(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> bool {
+    windows_targets::link!("clfsw32.dll" "system" fn LsnGreater(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> bool);
     LsnGreater(core::mem::transmute(plsn1), core::mem::transmute(plsn2))
 }
 #[inline]
@@ -1683,18 +1683,18 @@ pub unsafe fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN {
     LsnIncrement(core::mem::transmute(plsn))
 }
 #[inline]
-pub unsafe fn LsnInvalid(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("clfsw32.dll" "system" fn LsnInvalid(plsn : *const CLS_LSN) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn LsnInvalid(plsn: *const CLS_LSN) -> bool {
+    windows_targets::link!("clfsw32.dll" "system" fn LsnInvalid(plsn : *const CLS_LSN) -> bool);
     LsnInvalid(core::mem::transmute(plsn))
 }
 #[inline]
-pub unsafe fn LsnLess(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("clfsw32.dll" "system" fn LsnLess(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn LsnLess(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> bool {
+    windows_targets::link!("clfsw32.dll" "system" fn LsnLess(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> bool);
     LsnLess(core::mem::transmute(plsn1), core::mem::transmute(plsn2))
 }
 #[inline]
-pub unsafe fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("clfsw32.dll" "system" fn LsnNull(plsn : *const CLS_LSN) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn LsnNull(plsn: *const CLS_LSN) -> bool {
+    windows_targets::link!("clfsw32.dll" "system" fn LsnNull(plsn : *const CLS_LSN) -> bool);
     LsnNull(core::mem::transmute(plsn))
 }
 #[inline]
@@ -2873,9 +2873,9 @@ pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut core::ffi::c_vo
     Wow64DisableWow64FsRedirection(core::mem::transmute(oldvalue)).ok()
 }
 #[inline]
-pub unsafe fn Wow64EnableWow64FsRedirection(wow64fsenableredirection: bool) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("kernel32.dll" "system" fn Wow64EnableWow64FsRedirection(wow64fsenableredirection : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOLEAN);
-    Wow64EnableWow64FsRedirection(wow64fsenableredirection.into())
+pub unsafe fn Wow64EnableWow64FsRedirection(wow64fsenableredirection: bool) -> bool {
+    windows_targets::link!("kernel32.dll" "system" fn Wow64EnableWow64FsRedirection(wow64fsenableredirection : bool) -> bool);
+    Wow64EnableWow64FsRedirection(core::mem::transmute(wow64fsenableredirection))
 }
 #[inline]
 pub unsafe fn Wow64RevertWow64FsRedirection(olvalue: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -4330,7 +4330,7 @@ pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: FILE_DISPOSITION_INFO_EX_FLAGS 
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_DISPOSITION_INFO {
-    pub DeleteFile: super::super::Foundation::BOOLEAN,
+    pub DeleteFile: bool,
 }
 impl Default for FILE_DISPOSITION_INFO {
     fn default() -> Self {
@@ -4820,7 +4820,7 @@ impl Default for FILE_RENAME_INFO {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FILE_RENAME_INFO_0 {
-    pub ReplaceIfExists: super::super::Foundation::BOOLEAN,
+    pub ReplaceIfExists: bool,
     pub Flags: u32,
 }
 impl Default for FILE_RENAME_INFO_0 {
@@ -4885,8 +4885,8 @@ pub struct FILE_STANDARD_INFO {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
     pub NumberOfLinks: u32,
-    pub DeletePending: super::super::Foundation::BOOLEAN,
-    pub Directory: super::super::Foundation::BOOLEAN,
+    pub DeletePending: bool,
+    pub Directory: bool,
 }
 impl Default for FILE_STANDARD_INFO {
     fn default() -> Self {
@@ -7745,7 +7745,7 @@ pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_
 pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_alias: windows_core::PWSTR,
     pub srvai0_target: windows_core::PWSTR,
-    pub srvai0_default: super::super::Foundation::BOOLEAN,
+    pub srvai0_default: bool,
     pub srvai0_reserved: u32,
 }
 impl Default for SERVER_ALIAS_INFO_0 {
@@ -8228,7 +8228,7 @@ pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(0u32);
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_ERASE {
     pub Type: ERASE_TAPE_TYPE,
-    pub Immediate: super::super::Foundation::BOOLEAN,
+    pub Immediate: bool,
 }
 impl Default for TAPE_ERASE {
     fn default() -> Self {
@@ -8271,7 +8271,7 @@ pub struct TAPE_POSITION_TYPE(pub u32);
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_PREPARE {
     pub Operation: PREPARE_TAPE_OPERATION,
-    pub Immediate: super::super::Foundation::BOOLEAN,
+    pub Immediate: bool,
 }
 impl Default for TAPE_PREPARE {
     fn default() -> Self {
@@ -8287,7 +8287,7 @@ pub struct TAPE_SET_POSITION {
     pub Method: TAPE_POSITION_METHOD,
     pub Partition: u32,
     pub Offset: i64,
-    pub Immediate: super::super::Foundation::BOOLEAN,
+    pub Immediate: bool,
 }
 impl Default for TAPE_SET_POSITION {
     fn default() -> Self {
@@ -8309,7 +8309,7 @@ pub const TAPE_UNLOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(4u32);
 pub struct TAPE_WRITE_MARKS {
     pub Type: TAPEMARK_TYPE,
     pub Count: u32,
-    pub Immediate: super::super::Foundation::BOOLEAN,
+    pub Immediate: bool,
 }
 impl Default for TAPE_WRITE_MARKS {
     fn default() -> Self {
@@ -8669,9 +8669,9 @@ pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
     pub Period: u32,
-    pub RetryFailures: super::super::Foundation::BOOLEAN,
-    pub Discardable: super::super::Foundation::BOOLEAN,
-    pub Reserved1: [super::super::Foundation::BOOLEAN; 2],
+    pub RetryFailures: bool,
+    pub Discardable: bool,
+    pub Reserved1: [bool; 2],
     pub LowestByteOffset: u64,
     pub HighestByteOffset: u64,
     pub AccessType: u32,
@@ -8831,8 +8831,8 @@ impl Default for VOLUME_READ_PLEX_INPUT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: u64,
-    pub RevertOnClose: super::super::Foundation::BOOLEAN,
-    pub ApplyToAllConnectedVolumes: super::super::Foundation::BOOLEAN,
+    pub RevertOnClose: bool,
+    pub ApplyToAllConnectedVolumes: bool,
     pub Reserved1: u16,
     pub Reserved2: u32,
 }

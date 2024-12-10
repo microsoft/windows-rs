@@ -580,14 +580,14 @@ pub struct BTH_LE_GATT_CHARACTERISTIC {
     pub CharacteristicUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
     pub CharacteristicValueHandle: u16,
-    pub IsBroadcastable: super::super::Foundation::BOOLEAN,
-    pub IsReadable: super::super::Foundation::BOOLEAN,
-    pub IsWritable: super::super::Foundation::BOOLEAN,
-    pub IsWritableWithoutResponse: super::super::Foundation::BOOLEAN,
-    pub IsSignedWritable: super::super::Foundation::BOOLEAN,
-    pub IsNotifiable: super::super::Foundation::BOOLEAN,
-    pub IsIndicatable: super::super::Foundation::BOOLEAN,
-    pub HasExtendedProperties: super::super::Foundation::BOOLEAN,
+    pub IsBroadcastable: bool,
+    pub IsReadable: bool,
+    pub IsWritable: bool,
+    pub IsWritableWithoutResponse: bool,
+    pub IsSignedWritable: bool,
+    pub IsNotifiable: bool,
+    pub IsIndicatable: bool,
+    pub HasExtendedProperties: bool,
 }
 pub const BTH_LE_GATT_CHARACTERISTIC_DESCRIPTOR_AGGREGATE_FORMAT: u32 = 10501u32;
 pub const BTH_LE_GATT_CHARACTERISTIC_DESCRIPTOR_CLIENT_CONFIGURATION: u32 = 10498u32;
@@ -638,8 +638,8 @@ pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
-    pub IsReliableWriteEnabled: super::super::Foundation::BOOLEAN,
-    pub IsAuxiliariesWritable: super::super::Foundation::BOOLEAN,
+    pub IsReliableWriteEnabled: bool,
+    pub IsAuxiliariesWritable: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -653,13 +653,13 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
-    pub IsSubscribeToNotification: super::super::Foundation::BOOLEAN,
-    pub IsSubscribeToIndication: super::super::Foundation::BOOLEAN,
+    pub IsSubscribeToNotification: bool,
+    pub IsSubscribeToIndication: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    pub IsBroadcast: super::super::Foundation::BOOLEAN,
+    pub IsBroadcast: bool,
 }
 pub type BTH_LE_GATT_EVENT_TYPE = i32;
 #[repr(C)]
@@ -673,7 +673,7 @@ pub const BTH_LE_SERVICE_GATT: u32 = 6145u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_UUID {
-    pub IsShortUuid: super::super::Foundation::BOOLEAN,
+    pub IsShortUuid: bool,
     pub Value: BTH_LE_UUID_0,
 }
 #[repr(C)]
