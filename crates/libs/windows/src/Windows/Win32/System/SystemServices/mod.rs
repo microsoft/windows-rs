@@ -1517,7 +1517,7 @@ pub const IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines = ReplacesCorHdr
 pub struct IMAGE_DEBUG_MISC {
     pub DataType: u32,
     pub Length: u32,
-    pub Unicode: super::super::Foundation::BOOLEAN,
+    pub Unicode: bool,
     pub Reserved: [u8; 3],
     pub Data: [u8; 1],
 }
@@ -1927,7 +1927,7 @@ impl Default for IMAGE_POLICY_ENTRY {
 #[derive(Clone, Copy)]
 pub union IMAGE_POLICY_ENTRY_0 {
     pub None: *const core::ffi::c_void,
-    pub BoolValue: super::super::Foundation::BOOLEAN,
+    pub BoolValue: bool,
     pub Int8Value: i8,
     pub UInt8Value: u8,
     pub Int16Value: i16,
@@ -3632,7 +3632,7 @@ impl Default for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_DEP_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0,
-    pub Permanent: super::super::Foundation::BOOLEAN,
+    pub Permanent: bool,
 }
 impl Default for PROCESS_MITIGATION_DEP_POLICY {
     fn default() -> Self {
@@ -4144,9 +4144,9 @@ pub const PRODUCT_XBOX_KEYSTONE: u32 = 198u32;
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut core::ffi::c_void)>;
+pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: bool, establisherframe: *mut core::ffi::c_void)>;
 #[cfg(target_arch = "aarch64")]
-pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64)>;
+pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: bool, establisherframe: u64)>;
 pub type PUMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const core::ffi::c_void)>;
 pub const PcTeb: u32 = 24u32;
 pub const PdataCrChained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(3i32);
@@ -4760,7 +4760,7 @@ pub struct SERVERSILO_BASIC_INFORMATION {
     pub ServiceSessionId: u32,
     pub State: SERVERSILO_STATE,
     pub ExitStatus: u32,
-    pub IsDownlevelContainer: super::super::Foundation::BOOLEAN,
+    pub IsDownlevelContainer: bool,
     pub ApiSetSchema: *mut core::ffi::c_void,
     pub HostApiSetSchema: *mut core::ffi::c_void,
 }
@@ -4984,7 +4984,7 @@ pub struct SILOOBJECT_BASIC_INFORMATION {
     pub SiloId: u32,
     pub SiloParentId: u32,
     pub NumberOfProcesses: u32,
-    pub IsInServerSilo: super::super::Foundation::BOOLEAN,
+    pub IsInServerSilo: bool,
     pub Reserved: [u8; 3],
 }
 impl Default for SILOOBJECT_BASIC_INFORMATION {
@@ -5426,10 +5426,10 @@ pub const TAPE_DRIVE_WRITE_SHORT_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_GET_DRIVE_PARAMETERS {
-    pub ECC: super::super::Foundation::BOOLEAN,
-    pub Compression: super::super::Foundation::BOOLEAN,
-    pub DataPadding: super::super::Foundation::BOOLEAN,
-    pub ReportSetmarks: super::super::Foundation::BOOLEAN,
+    pub ECC: bool,
+    pub Compression: bool,
+    pub DataPadding: bool,
+    pub ReportSetmarks: bool,
     pub DefaultBlockSize: u32,
     pub MaximumBlockSize: u32,
     pub MinimumBlockSize: u32,
@@ -5486,7 +5486,7 @@ pub struct TAPE_GET_MEDIA_PARAMETERS {
     pub Remaining: i64,
     pub BlockSize: u32,
     pub PartitionCount: u32,
-    pub WriteProtected: super::super::Foundation::BOOLEAN,
+    pub WriteProtected: bool,
 }
 impl Default for TAPE_GET_MEDIA_PARAMETERS {
     fn default() -> Self {
@@ -5502,10 +5502,10 @@ pub const TAPE_QUERY_MEDIA_CAPACITY: i32 = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_SET_DRIVE_PARAMETERS {
-    pub ECC: super::super::Foundation::BOOLEAN,
-    pub Compression: super::super::Foundation::BOOLEAN,
-    pub DataPadding: super::super::Foundation::BOOLEAN,
-    pub ReportSetmarks: super::super::Foundation::BOOLEAN,
+    pub ECC: bool,
+    pub Compression: bool,
+    pub DataPadding: bool,
+    pub ReportSetmarks: bool,
     pub EOTWarningZoneSize: u32,
 }
 impl Default for TAPE_SET_DRIVE_PARAMETERS {
@@ -5549,7 +5549,7 @@ pub const TLS_MINIMUM_AVAILABLE: u32 = 64u32;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOKEN_BNO_ISOLATION_INFORMATION {
     pub IsolationPrefix: windows_core::PWSTR,
-    pub IsolationEnabled: super::super::Foundation::BOOLEAN,
+    pub IsolationEnabled: bool,
 }
 impl Default for TOKEN_BNO_ISOLATION_INFORMATION {
     fn default() -> Self {

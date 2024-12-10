@@ -22,11 +22,11 @@ where
     PrjDeleteFile(core::mem::transmute(namespacevirtualizationcontext), destinationfilename.param().abi(), core::mem::transmute(updateflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(failurereason.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn PrjDoesNameContainWildCards<P0>(filename: P0) -> super::super::Foundation::BOOLEAN
+pub unsafe fn PrjDoesNameContainWildCards<P0>(filename: P0) -> bool
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("projectedfslib.dll" "system" fn PrjDoesNameContainWildCards(filename : windows_core::PCWSTR) -> super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("projectedfslib.dll" "system" fn PrjDoesNameContainWildCards(filename : windows_core::PCWSTR) -> bool);
     PrjDoesNameContainWildCards(filename.param().abi())
 }
 #[inline]
@@ -39,12 +39,12 @@ where
     PrjFileNameCompare(filename1.param().abi(), filename2.param().abi())
 }
 #[inline]
-pub unsafe fn PrjFileNameMatch<P0, P1>(filenametocheck: P0, pattern: P1) -> super::super::Foundation::BOOLEAN
+pub unsafe fn PrjFileNameMatch<P0, P1>(filenametocheck: P0, pattern: P1) -> bool
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("projectedfslib.dll" "system" fn PrjFileNameMatch(filenametocheck : windows_core::PCWSTR, pattern : windows_core::PCWSTR) -> super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("projectedfslib.dll" "system" fn PrjFileNameMatch(filenametocheck : windows_core::PCWSTR, pattern : windows_core::PCWSTR) -> bool);
     PrjFileNameMatch(filenametocheck.param().abi(), pattern.param().abi())
 }
 #[inline]
@@ -277,7 +277,7 @@ pub const PRJ_EXT_INFO_TYPE_SYMLINK: PRJ_EXT_INFO_TYPE = PRJ_EXT_INFO_TYPE(1i32)
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRJ_FILE_BASIC_INFO {
-    pub IsDirectory: super::super::Foundation::BOOLEAN,
+    pub IsDirectory: bool,
     pub FileSize: i64,
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -352,7 +352,7 @@ impl Default for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRJ_NOTIFICATION(pub i32);
-pub type PRJ_NOTIFICATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: windows_core::PCWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> windows_core::HRESULT>;
+pub type PRJ_NOTIFICATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: bool, notification: PRJ_NOTIFICATION, destinationfilename: windows_core::PCWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> windows_core::HRESULT>;
 pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_DELETED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(2048i32);
 pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_MODIFIED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(1024i32);
 pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_NO_MODIFICATION: PRJ_NOTIFICATION = PRJ_NOTIFICATION(512i32);
@@ -388,7 +388,7 @@ impl Default for PRJ_NOTIFICATION_PARAMETERS {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
-    pub IsFileModified: super::super::Foundation::BOOLEAN,
+    pub IsFileModified: bool,
 }
 impl Default for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn default() -> Self {

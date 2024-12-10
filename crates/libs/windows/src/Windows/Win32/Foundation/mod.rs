@@ -167,9 +167,6 @@ pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct BOOL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BOOLEAN(pub u8);
 pub const BT_E_SPURIOUS_ACTIVATION: windows_core::HRESULT = windows_core::HRESULT(0x80080300_u32 as _);
 pub const CACHE_E_FIRST: i32 = -2147221136i32;
 pub const CACHE_E_LAST: i32 = -2147221121i32;

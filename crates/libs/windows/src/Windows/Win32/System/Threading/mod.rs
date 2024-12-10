@@ -145,8 +145,8 @@ pub unsafe fn ChangeTimerQueueTimer(timerqueue: Option<super::super::Foundation:
     ChangeTimerQueueTimer(core::mem::transmute(timerqueue.unwrap_or(core::mem::zeroed())), core::mem::transmute(timer), core::mem::transmute(duetime), core::mem::transmute(period)).ok()
 }
 #[inline]
-pub unsafe fn ClosePrivateNamespace(handle: super::super::Foundation::HANDLE, flags: u32) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("kernel32.dll" "system" fn ClosePrivateNamespace(handle : super::super::Foundation:: HANDLE, flags : u32) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn ClosePrivateNamespace(handle: super::super::Foundation::HANDLE, flags: u32) -> bool {
+    windows_targets::link!("kernel32.dll" "system" fn ClosePrivateNamespace(handle : super::super::Foundation:: HANDLE, flags : u32) -> bool);
     ClosePrivateNamespace(core::mem::transmute(handle), core::mem::transmute(flags))
 }
 #[inline]
@@ -1888,13 +1888,13 @@ pub unsafe fn TlsSetValue(dwtlsindex: u32, lptlsvalue: Option<*const core::ffi::
     TlsSetValue(core::mem::transmute(dwtlsindex), core::mem::transmute(lptlsvalue.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn TryAcquireSRWLockExclusive(srwlock: *mut SRWLOCK) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("kernel32.dll" "system" fn TryAcquireSRWLockExclusive(srwlock : *mut SRWLOCK) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn TryAcquireSRWLockExclusive(srwlock: *mut SRWLOCK) -> bool {
+    windows_targets::link!("kernel32.dll" "system" fn TryAcquireSRWLockExclusive(srwlock : *mut SRWLOCK) -> bool);
     TryAcquireSRWLockExclusive(core::mem::transmute(srwlock))
 }
 #[inline]
-pub unsafe fn TryAcquireSRWLockShared(srwlock: *mut SRWLOCK) -> super::super::Foundation::BOOLEAN {
-    windows_targets::link!("kernel32.dll" "system" fn TryAcquireSRWLockShared(srwlock : *mut SRWLOCK) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn TryAcquireSRWLockShared(srwlock: *mut SRWLOCK) -> bool {
+    windows_targets::link!("kernel32.dll" "system" fn TryAcquireSRWLockShared(srwlock : *mut SRWLOCK) -> bool);
     TryAcquireSRWLockShared(core::mem::transmute(srwlock))
 }
 #[cfg(feature = "Win32_System_Kernel")]
@@ -3651,7 +3651,7 @@ pub const UmsThreadPriority: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(2i32)
 pub const UmsThreadTeb: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(4i32);
 pub const UmsThreadUserContext: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(1i32);
 pub const UserEnabled: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(1i32);
-pub type WAITORTIMERCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::super::Foundation::BOOLEAN)>;
+pub type WAITORTIMERCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: bool)>;
 pub type WORKERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

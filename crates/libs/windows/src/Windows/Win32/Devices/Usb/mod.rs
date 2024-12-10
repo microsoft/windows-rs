@@ -915,8 +915,8 @@ impl Default for USBD_VERSION_INFORMATION {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USBFN_BUS_CONFIGURATION_INFO {
     pub ConfigurationName: [u16; 40],
-    pub IsCurrent: super::super::Foundation::BOOLEAN,
-    pub IsActive: super::super::Foundation::BOOLEAN,
+    pub IsCurrent: bool,
+    pub IsActive: bool,
 }
 impl Default for USBFN_BUS_CONFIGURATION_INFO {
     fn default() -> Self {
@@ -933,7 +933,7 @@ pub struct USBFN_CLASS_INFORMATION_PACKET {
     pub HighSpeedClassInterface: USBFN_CLASS_INTERFACE,
     pub InterfaceName: [u16; 40],
     pub InterfaceGuid: [u16; 39],
-    pub HasInterfaceGuid: super::super::Foundation::BOOLEAN,
+    pub HasInterfaceGuid: bool,
     pub SuperSpeedClassInterface: USBFN_CLASS_INTERFACE,
 }
 impl Default for USBFN_CLASS_INFORMATION_PACKET {
@@ -949,7 +949,7 @@ pub struct USBFN_CLASS_INFORMATION_PACKET_EX {
     pub SuperSpeedClassInterfaceEx: USBFN_CLASS_INTERFACE_EX,
     pub InterfaceName: [u16; 40],
     pub InterfaceGuid: [u16; 39],
-    pub HasInterfaceGuid: super::super::Foundation::BOOLEAN,
+    pub HasInterfaceGuid: bool,
 }
 impl Default for USBFN_CLASS_INFORMATION_PACKET_EX {
     fn default() -> Self {
@@ -1503,7 +1503,7 @@ pub struct USB_BUS_STATISTICS_0 {
     pub WorkerSignalCount: u32,
     pub CommonBufferBytes: u32,
     pub WorkerIdleTimeMs: u32,
-    pub RootHubEnabled: super::super::Foundation::BOOLEAN,
+    pub RootHubEnabled: bool,
     pub RootHubDevicePowerState: u8,
     pub Unused: u8,
     pub NameIndex: u8,
@@ -1571,7 +1571,7 @@ pub struct USB_COMPOSITE_FUNCTION_INFO {
     pub FunctionNumber: u8,
     pub BaseInterfaceNumber: u8,
     pub NumberOfInterfaces: u8,
-    pub FunctionIsIdle: super::super::Foundation::BOOLEAN,
+    pub FunctionIsIdle: bool,
 }
 impl Default for USB_COMPOSITE_FUNCTION_INFO {
     fn default() -> Self {
@@ -2363,8 +2363,8 @@ pub struct USB_DRIVER_VERSION_PARAMETERS {
     pub DriverTrackingCode: u32,
     pub USBDI_Version: u32,
     pub USBUSER_Version: u32,
-    pub CheckedPortDriver: super::super::Foundation::BOOLEAN,
-    pub CheckedMiniportDriver: super::super::Foundation::BOOLEAN,
+    pub CheckedPortDriver: bool,
+    pub CheckedMiniportDriver: bool,
     pub USB_Version: u16,
 }
 impl Default for USB_DRIVER_VERSION_PARAMETERS {
@@ -2668,8 +2668,8 @@ pub struct USB_HUB_DEVICE_INFO {
     pub HubDescriptor: USB_HUB_DESCRIPTOR,
     pub HubNumber: u32,
     pub DeviceAddress: u16,
-    pub HubIsSelfPowered: super::super::Foundation::BOOLEAN,
-    pub HubIsRootHub: super::super::Foundation::BOOLEAN,
+    pub HubIsSelfPowered: bool,
+    pub HubIsRootHub: bool,
     pub HubCapabilities: USB_HUB_CAPABILITIES,
     pub NumberOfHubPorts: u32,
     pub PortInfo: [USB_HUB_PORT_INFORMATION; 1],
@@ -2699,7 +2699,7 @@ impl Default for USB_HUB_DEVICE_UXD_SETTINGS {
 #[derive(Clone, Copy)]
 pub struct USB_HUB_INFORMATION {
     pub HubDescriptor: USB_HUB_DESCRIPTOR,
-    pub HubIsBusPowered: super::super::Foundation::BOOLEAN,
+    pub HubIsBusPowered: bool,
 }
 impl Default for USB_HUB_INFORMATION {
     fn default() -> Self {
@@ -2951,8 +2951,8 @@ pub struct USB_NODE_CONNECTION_INFORMATION {
     pub ConnectionIndex: u32,
     pub DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
     pub CurrentConfigurationValue: u8,
-    pub LowSpeed: super::super::Foundation::BOOLEAN,
-    pub DeviceIsHub: super::super::Foundation::BOOLEAN,
+    pub LowSpeed: bool,
+    pub DeviceIsHub: bool,
     pub DeviceAddress: u16,
     pub NumberOfOpenPipes: u32,
     pub ConnectionStatus: USB_CONNECTION_STATUS,
@@ -2970,7 +2970,7 @@ pub struct USB_NODE_CONNECTION_INFORMATION_EX {
     pub DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
     pub CurrentConfigurationValue: u8,
     pub Speed: u8,
-    pub DeviceIsHub: super::super::Foundation::BOOLEAN,
+    pub DeviceIsHub: bool,
     pub DeviceAddress: u16,
     pub NumberOfOpenPipes: u32,
     pub ConnectionStatus: USB_CONNECTION_STATUS,
@@ -3259,8 +3259,8 @@ pub struct USB_POWER_INFO {
     pub RhDeviceWake: WDMUSB_POWER_STATE,
     pub RhSystemWake: WDMUSB_POWER_STATE,
     pub LastSystemSleepState: WDMUSB_POWER_STATE,
-    pub CanWakeup: super::super::Foundation::BOOLEAN,
-    pub IsPowered: super::super::Foundation::BOOLEAN,
+    pub CanWakeup: bool,
+    pub IsPowered: bool,
 }
 impl Default for USB_POWER_INFO {
     fn default() -> Self {
@@ -3358,7 +3358,7 @@ pub const USB_START_TRACKING_FOR_TIME_SYNC: u32 = 285u32;
 #[derive(Clone, Copy)]
 pub struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
-    pub IsStartupDelayTolerable: super::super::Foundation::BOOLEAN,
+    pub IsStartupDelayTolerable: bool,
 }
 impl Default for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     fn default() -> Self {

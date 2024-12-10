@@ -10,8 +10,8 @@ pub unsafe fn VhfCreate(vhfconfig: *const VHF_CONFIG, vhfhandle: *mut *mut core:
 }
 #[inline]
 pub unsafe fn VhfDelete(vhfhandle: *const core::ffi::c_void, wait: bool) {
-    windows_targets::link!("vhfum.dll" "system" fn VhfDelete(vhfhandle : *const core::ffi::c_void, wait : super::super::super::Win32::Foundation:: BOOLEAN));
-    VhfDelete(core::mem::transmute(vhfhandle), wait.into())
+    windows_targets::link!("vhfum.dll" "system" fn VhfDelete(vhfhandle : *const core::ffi::c_void, wait : bool));
+    VhfDelete(core::mem::transmute(vhfhandle), core::mem::transmute(wait))
 }
 #[inline]
 pub unsafe fn VhfReadReportSubmit(vhfhandle: *const core::ffi::c_void, hidtransferpacket: *const HID_XFER_PACKET) -> super::super::super::Win32::Foundation::NTSTATUS {

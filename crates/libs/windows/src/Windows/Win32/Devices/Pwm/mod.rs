@@ -88,7 +88,7 @@ impl Default for PWM_PIN_GET_POLARITY_OUTPUT {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PWM_PIN_IS_STARTED_OUTPUT {
-    pub IsStarted: super::super::Foundation::BOOLEAN,
+    pub IsStarted: bool,
 }
 impl Default for PWM_PIN_IS_STARTED_OUTPUT {
     fn default() -> Self {

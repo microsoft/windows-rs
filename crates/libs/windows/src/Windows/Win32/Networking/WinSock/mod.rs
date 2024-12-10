@@ -242,32 +242,32 @@ pub unsafe fn RtlIpv4StringToAddressA<P0>(s: P0, strict: bool, terminator: *mut 
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressA(s : windows_core::PCSTR, strict : super::super::Foundation:: BOOLEAN, terminator : *mut windows_core::PCSTR, addr : *mut IN_ADDR) -> i32);
-    RtlIpv4StringToAddressA(s.param().abi(), strict.into(), core::mem::transmute(terminator), core::mem::transmute(addr))
+    windows_targets::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressA(s : windows_core::PCSTR, strict : bool, terminator : *mut windows_core::PCSTR, addr : *mut IN_ADDR) -> i32);
+    RtlIpv4StringToAddressA(s.param().abi(), core::mem::transmute(strict), core::mem::transmute(terminator), core::mem::transmute(addr))
 }
 #[inline]
 pub unsafe fn RtlIpv4StringToAddressExA<P0>(addressstring: P0, strict: bool, address: *mut IN_ADDR, port: *mut u16) -> i32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExA(addressstring : windows_core::PCSTR, strict : super::super::Foundation:: BOOLEAN, address : *mut IN_ADDR, port : *mut u16) -> i32);
-    RtlIpv4StringToAddressExA(addressstring.param().abi(), strict.into(), core::mem::transmute(address), core::mem::transmute(port))
+    windows_targets::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExA(addressstring : windows_core::PCSTR, strict : bool, address : *mut IN_ADDR, port : *mut u16) -> i32);
+    RtlIpv4StringToAddressExA(addressstring.param().abi(), core::mem::transmute(strict), core::mem::transmute(address), core::mem::transmute(port))
 }
 #[inline]
 pub unsafe fn RtlIpv4StringToAddressExW<P0>(addressstring: P0, strict: bool, address: *mut IN_ADDR, port: *mut u16) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExW(addressstring : windows_core::PCWSTR, strict : super::super::Foundation:: BOOLEAN, address : *mut IN_ADDR, port : *mut u16) -> i32);
-    RtlIpv4StringToAddressExW(addressstring.param().abi(), strict.into(), core::mem::transmute(address), core::mem::transmute(port))
+    windows_targets::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExW(addressstring : windows_core::PCWSTR, strict : bool, address : *mut IN_ADDR, port : *mut u16) -> i32);
+    RtlIpv4StringToAddressExW(addressstring.param().abi(), core::mem::transmute(strict), core::mem::transmute(address), core::mem::transmute(port))
 }
 #[inline]
 pub unsafe fn RtlIpv4StringToAddressW<P0>(s: P0, strict: bool, terminator: *mut windows_core::PCWSTR, addr: *mut IN_ADDR) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressW(s : windows_core::PCWSTR, strict : super::super::Foundation:: BOOLEAN, terminator : *mut windows_core::PCWSTR, addr : *mut IN_ADDR) -> i32);
-    RtlIpv4StringToAddressW(s.param().abi(), strict.into(), core::mem::transmute(terminator), core::mem::transmute(addr))
+    windows_targets::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressW(s : windows_core::PCWSTR, strict : bool, terminator : *mut windows_core::PCWSTR, addr : *mut IN_ADDR) -> i32);
+    RtlIpv4StringToAddressW(s.param().abi(), core::mem::transmute(strict), core::mem::transmute(terminator), core::mem::transmute(addr))
 }
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringA(addr: *const IN6_ADDR, s: &mut [u8; 46]) -> windows_core::PSTR {
@@ -3462,8 +3462,8 @@ pub struct IPX_ADDRESS_DATA {
     pub adapternum: i32,
     pub netnum: [u8; 4],
     pub nodenum: [u8; 6],
-    pub wan: super::super::Foundation::BOOLEAN,
-    pub status: super::super::Foundation::BOOLEAN,
+    pub wan: bool,
+    pub status: bool,
     pub maxpkt: i32,
     pub linkspeed: u32,
 }
@@ -4539,7 +4539,7 @@ pub struct NL_BANDWIDTH_FLAG(pub i32);
 pub struct NL_BANDWIDTH_INFORMATION {
     pub Bandwidth: u64,
     pub Instability: u64,
-    pub BandwidthPeaked: super::super::Foundation::BOOLEAN,
+    pub BandwidthPeaked: bool,
 }
 impl Default for NL_BANDWIDTH_INFORMATION {
     fn default() -> Self {
@@ -4579,9 +4579,9 @@ pub struct NL_NETWORK_CONNECTIVITY_COST_HINT(pub i32);
 pub struct NL_NETWORK_CONNECTIVITY_HINT {
     pub ConnectivityLevel: NL_NETWORK_CONNECTIVITY_LEVEL_HINT,
     pub ConnectivityCost: NL_NETWORK_CONNECTIVITY_COST_HINT,
-    pub ApproachingDataLimit: super::super::Foundation::BOOLEAN,
-    pub OverDataLimit: super::super::Foundation::BOOLEAN,
-    pub Roaming: super::super::Foundation::BOOLEAN,
+    pub ApproachingDataLimit: bool,
+    pub OverDataLimit: bool,
+    pub Roaming: bool,
 }
 impl Default for NL_NETWORK_CONNECTIVITY_HINT {
     fn default() -> Self {
@@ -4596,7 +4596,7 @@ pub struct NL_NETWORK_CONNECTIVITY_LEVEL_HINT(pub i32);
 pub struct NL_PATH_BANDWIDTH_ROD {
     pub Bandwidth: u64,
     pub Instability: u64,
-    pub BandwidthPeaked: super::super::Foundation::BOOLEAN,
+    pub BandwidthPeaked: bool,
 }
 impl Default for NL_PATH_BANDWIDTH_ROD {
     fn default() -> Self {
@@ -5041,7 +5041,7 @@ impl Default for REAL_TIME_NOTIFICATION_SETTING_INPUT {
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
     pub BrokerEventGuid: windows_core::GUID,
-    pub Unmark: super::super::Foundation::BOOLEAN,
+    pub Unmark: bool,
 }
 impl Default for REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
     fn default() -> Self {
@@ -5208,7 +5208,7 @@ pub struct RM_FEC_INFO {
     pub FECBlockSize: u16,
     pub FECProActivePackets: u16,
     pub FECGroupSize: u8,
-    pub fFECOnDemandParityEnabled: super::super::Foundation::BOOLEAN,
+    pub fFECOnDemandParityEnabled: bool,
 }
 impl Default for RM_FEC_INFO {
     fn default() -> Self {
@@ -5295,7 +5295,7 @@ pub const RNRSERVICE_REGISTER: WSAESETSERVICEOP = WSAESETSERVICEOP(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RSS_SCALABILITY_INFO {
-    pub RssEnabled: super::super::Foundation::BOOLEAN,
+    pub RssEnabled: bool,
 }
 impl Default for RSS_SCALABILITY_INFO {
     fn default() -> Self {
@@ -6322,7 +6322,7 @@ pub struct TCP_INFO_v0 {
     pub State: TCPSTATE,
     pub Mss: u32,
     pub ConnectionTimeMs: u64,
-    pub TimestampsEnabled: super::super::Foundation::BOOLEAN,
+    pub TimestampsEnabled: bool,
     pub RttUs: u32,
     pub MinRttUs: u32,
     pub BytesInFlight: u32,
@@ -6350,7 +6350,7 @@ pub struct TCP_INFO_v1 {
     pub State: TCPSTATE,
     pub Mss: u32,
     pub ConnectionTimeMs: u64,
-    pub TimestampsEnabled: super::super::Foundation::BOOLEAN,
+    pub TimestampsEnabled: bool,
     pub RttUs: u32,
     pub MinRttUs: u32,
     pub BytesInFlight: u32,

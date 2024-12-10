@@ -646,7 +646,7 @@ impl Default for HTTP_KNOWN_HEADER {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_LISTEN_ENDPOINT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub EnableSharing: super::super::Foundation::BOOLEAN,
+    pub EnableSharing: bool,
 }
 impl Default for HTTP_LISTEN_ENDPOINT_INFO {
     fn default() -> Self {
@@ -1235,9 +1235,9 @@ impl Default for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
 pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub AuthSchemes: u32,
-    pub ReceiveMutualAuth: super::super::Foundation::BOOLEAN,
-    pub ReceiveContextHandle: super::super::Foundation::BOOLEAN,
-    pub DisableNTLMCredentialCaching: super::super::Foundation::BOOLEAN,
+    pub ReceiveMutualAuth: bool,
+    pub ReceiveContextHandle: bool,
+    pub DisableNTLMCredentialCaching: bool,
     pub ExFlags: u8,
     pub DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
     pub BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
@@ -1686,7 +1686,7 @@ pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub CertEncodedSize: u32,
     pub pCertEncoded: *mut u8,
     pub Token: super::super::Foundation::HANDLE,
-    pub CertDeniedByMapper: super::super::Foundation::BOOLEAN,
+    pub CertDeniedByMapper: bool,
 }
 impl Default for HTTP_SSL_CLIENT_CERT_INFO {
     fn default() -> Self {

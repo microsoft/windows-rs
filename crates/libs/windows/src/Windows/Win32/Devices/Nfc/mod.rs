@@ -99,7 +99,7 @@ pub const NFCRMDDI_IOCTL_BASE: u32 = 80u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFCRM_RADIO_STATE {
-    pub MediaRadioOn: super::super::Foundation::BOOLEAN,
+    pub MediaRadioOn: bool,
 }
 impl Default for NFCRM_RADIO_STATE {
     fn default() -> Self {
@@ -109,8 +109,8 @@ impl Default for NFCRM_RADIO_STATE {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFCRM_SET_RADIO_STATE {
-    pub SystemStateUpdate: super::super::Foundation::BOOLEAN,
-    pub MediaRadioOn: super::super::Foundation::BOOLEAN,
+    pub SystemStateUpdate: bool,
+    pub MediaRadioOn: bool,
 }
 impl Default for NFCRM_SET_RADIO_STATE {
     fn default() -> Self {
@@ -138,7 +138,7 @@ pub struct NFC_LLCP_CONFIG {
     pub uWKS: u16,
     pub bLTO: u8,
     pub bOptions: u8,
-    pub fAutoActivate: super::super::Foundation::BOOLEAN,
+    pub fAutoActivate: bool,
 }
 impl Default for NFC_LLCP_CONFIG {
     fn default() -> Self {
@@ -298,8 +298,8 @@ pub struct NFC_LLCP_SOCKET_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_NDEF_INFO {
-    pub fIsNdefFormatted: super::super::Foundation::BOOLEAN,
-    pub fIsReadOnly: super::super::Foundation::BOOLEAN,
+    pub fIsNdefFormatted: bool,
+    pub fIsReadOnly: bool,
     pub dwActualMessageLength: u32,
     pub dwMaxMessageLength: u32,
 }
@@ -380,9 +380,9 @@ impl Default for NFC_REMOTE_DEV_SEND_INFO {
 pub struct NFC_RF_DISCOVERY_CONFIG {
     pub usTotalDuration: u16,
     pub ulPollConfig: u32,
-    pub fDisableCardEmulation: super::super::Foundation::BOOLEAN,
+    pub fDisableCardEmulation: bool,
     pub ucNfcIPMode: u8,
-    pub fNfcIPTgtModeDisable: super::super::Foundation::BOOLEAN,
+    pub fNfcIPTgtModeDisable: bool,
     pub ucNfcIPTgtMode: u8,
     pub ucNfcCEMode: u8,
     pub ucBailoutConfig: u8,
@@ -726,9 +726,9 @@ impl Default for SECURE_ELEMENT_HCE_DATA_PACKET {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_NFCC_CAPABILITIES {
     pub cbMaxRoutingTableSize: u16,
-    pub IsAidRoutingSupported: super::super::Foundation::BOOLEAN,
-    pub IsProtocolRoutingSupported: super::super::Foundation::BOOLEAN,
-    pub IsTechRoutingSupported: super::super::Foundation::BOOLEAN,
+    pub IsAidRoutingSupported: bool,
+    pub IsProtocolRoutingSupported: bool,
+    pub IsTechRoutingSupported: bool,
 }
 impl Default for SECURE_ELEMENT_NFCC_CAPABILITIES {
     fn default() -> Self {

@@ -380,13 +380,13 @@ pub unsafe fn ImageAddCertificate(filehandle: super::super::super::Foundation::H
 }
 #[inline]
 pub unsafe fn ImageDirectoryEntryToData(base: *const core::ffi::c_void, mappedasimage: bool, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32) -> *mut core::ffi::c_void {
-    windows_targets::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToData(base : *const core::ffi::c_void, mappedasimage : super::super::super::Foundation:: BOOLEAN, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32) -> *mut core::ffi::c_void);
-    ImageDirectoryEntryToData(core::mem::transmute(base), mappedasimage.into(), core::mem::transmute(directoryentry), core::mem::transmute(size))
+    windows_targets::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToData(base : *const core::ffi::c_void, mappedasimage : bool, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32) -> *mut core::ffi::c_void);
+    ImageDirectoryEntryToData(core::mem::transmute(base), core::mem::transmute(mappedasimage), core::mem::transmute(directoryentry), core::mem::transmute(size))
 }
 #[inline]
 pub unsafe fn ImageDirectoryEntryToDataEx(base: *const core::ffi::c_void, mappedasimage: bool, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32, foundheader: Option<*mut *mut IMAGE_SECTION_HEADER>) -> *mut core::ffi::c_void {
-    windows_targets::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToDataEx(base : *const core::ffi::c_void, mappedasimage : super::super::super::Foundation:: BOOLEAN, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32, foundheader : *mut *mut IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
-    ImageDirectoryEntryToDataEx(core::mem::transmute(base), mappedasimage.into(), core::mem::transmute(directoryentry), core::mem::transmute(size), core::mem::transmute(foundheader.unwrap_or(core::mem::zeroed())))
+    windows_targets::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToDataEx(base : *const core::ffi::c_void, mappedasimage : bool, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32, foundheader : *mut *mut IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
+    ImageDirectoryEntryToDataEx(core::mem::transmute(base), core::mem::transmute(mappedasimage), core::mem::transmute(directoryentry), core::mem::transmute(size), core::mem::transmute(foundheader.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ImageEnumerateCertificates(filehandle: super::super::super::Foundation::HANDLE, typefilter: u16, certificatecount: *mut u32, indices: Option<&mut [u32]>) -> windows_core::Result<()> {
@@ -676,14 +676,14 @@ where
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: u64) -> super::super::super::Foundation::BOOLEAN {
-    windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : u64) -> super::super::super::Foundation:: BOOLEAN);
+pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: u64) -> bool {
+    windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : u64) -> bool);
     RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), core::mem::transmute(baseaddress))
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
-pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], baseaddress: usize) -> super::super::super::Foundation::BOOLEAN {
-    windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : usize) -> super::super::super::Foundation:: BOOLEAN);
+pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], baseaddress: usize) -> bool {
+    windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : usize) -> bool);
     RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), core::mem::transmute(baseaddress))
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -718,14 +718,14 @@ pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut 
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
-    windows_targets::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation:: BOOLEAN);
+pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> bool {
+    windows_targets::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> bool);
     RtlDeleteFunctionTable(core::mem::transmute(functiontable))
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
-pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
-    windows_targets::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation:: BOOLEAN);
+pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> bool {
+    windows_targets::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> bool);
     RtlDeleteFunctionTable(core::mem::transmute(functiontable))
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -742,20 +742,20 @@ pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut core::ffi::c_void, newentr
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P5) -> super::super::super::Foundation::BOOLEAN
+pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P5) -> bool
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> bool);
     RtlInstallFunctionTableCallback(core::mem::transmute(tableidentifier), core::mem::transmute(baseaddress), core::mem::transmute(length), core::mem::transmute(callback), core::mem::transmute(context.unwrap_or(core::mem::zeroed())), outofprocesscallbackdll.param().abi())
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
-pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P5) -> super::super::super::Foundation::BOOLEAN
+pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P5) -> bool
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> bool);
     RtlInstallFunctionTableCallback(core::mem::transmute(tableidentifier), core::mem::transmute(baseaddress), core::mem::transmute(length), core::mem::transmute(callback), core::mem::transmute(context.unwrap_or(core::mem::zeroed())), outofprocesscallbackdll.param().abi())
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3150,7 +3150,7 @@ pub struct DISPATCHER_CONTEXT {
     pub HandlerData: *mut core::ffi::c_void,
     pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
     pub ScopeIndex: u32,
-    pub ControlPcIsUnwound: super::super::super::Foundation::BOOLEAN,
+    pub ControlPcIsUnwound: bool,
     pub NonVolatileRegisters: *mut u8,
 }
 #[cfg(target_arch = "aarch64")]
@@ -4288,7 +4288,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub CheckSum: u32,
     pub TimeDateStamp: u32,
     pub FileName: [i8; 260],
-    pub Reparse: super::super::super::Foundation::BOOLEAN,
+    pub Reparse: bool,
     pub hFile: super::super::super::Foundation::HANDLE,
 }
 #[cfg(target_arch = "x86")]
@@ -4305,7 +4305,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub CheckSum: u32,
     pub TimeDateStamp: u32,
     pub FileName: [i8; 260],
-    pub Reparse: super::super::super::Foundation::BOOLEAN,
+    pub Reparse: bool,
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
 }
@@ -4322,7 +4322,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     pub CheckSum: u32,
     pub TimeDateStamp: u32,
     pub FileName: [u16; 261],
-    pub Reparse: super::super::super::Foundation::BOOLEAN,
+    pub Reparse: bool,
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
 }
@@ -6074,9 +6074,9 @@ pub struct LOADED_IMAGE {
     pub NumberOfSections: u32,
     pub Sections: *mut IMAGE_SECTION_HEADER,
     pub Characteristics: IMAGE_FILE_CHARACTERISTICS2,
-    pub fSystemImage: super::super::super::Foundation::BOOLEAN,
-    pub fDOSImage: super::super::super::Foundation::BOOLEAN,
-    pub fReadOnly: super::super::super::Foundation::BOOLEAN,
+    pub fSystemImage: bool,
+    pub fDOSImage: bool,
+    pub fReadOnly: bool,
     pub Version: u8,
     pub Links: super::super::Kernel::LIST_ENTRY,
     pub SizeOfImage: u32,
@@ -6101,9 +6101,9 @@ pub struct LOADED_IMAGE {
     pub NumberOfSections: u32,
     pub Sections: *mut IMAGE_SECTION_HEADER,
     pub Characteristics: IMAGE_FILE_CHARACTERISTICS2,
-    pub fSystemImage: super::super::super::Foundation::BOOLEAN,
-    pub fDOSImage: super::super::super::Foundation::BOOLEAN,
-    pub fReadOnly: super::super::super::Foundation::BOOLEAN,
+    pub fSystemImage: bool,
+    pub fDOSImage: bool,
+    pub fReadOnly: bool,
     pub Version: u8,
     pub Links: super::super::Kernel::LIST_ENTRY,
     pub SizeOfImage: u32,
@@ -8948,7 +8948,7 @@ pub const WFP_INVALID_OPERATION: BUGCHECK_ERROR = BUGCHECK_ERROR(467u32);
 #[derive(Clone, Copy)]
 pub struct WHEA_AER_BRIDGE_DESCRIPTOR {
     pub Type: u16,
-    pub Enabled: super::super::super::Foundation::BOOLEAN,
+    pub Enabled: bool,
     pub Reserved: u8,
     pub BusNumber: u32,
     pub Slot: WHEA_PCI_SLOT_NUMBER,
@@ -8971,7 +8971,7 @@ impl Default for WHEA_AER_BRIDGE_DESCRIPTOR {
 #[derive(Clone, Copy)]
 pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
     pub Type: u16,
-    pub Enabled: super::super::super::Foundation::BOOLEAN,
+    pub Enabled: bool,
     pub Reserved: u8,
     pub BusNumber: u32,
     pub Slot: WHEA_PCI_SLOT_NUMBER,
@@ -8991,7 +8991,7 @@ impl Default for WHEA_AER_ENDPOINT_DESCRIPTOR {
 #[derive(Clone, Copy)]
 pub struct WHEA_AER_ROOTPORT_DESCRIPTOR {
     pub Type: u16,
-    pub Enabled: super::super::super::Foundation::BOOLEAN,
+    pub Enabled: bool,
     pub Reserved: u8,
     pub BusNumber: u32,
     pub Slot: WHEA_PCI_SLOT_NUMBER,
@@ -9024,7 +9024,7 @@ pub const WHEA_DEVICE_DRIVER_CONFIG_V2: u32 = 2u32;
 #[derive(Clone, Copy)]
 pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
     pub Type: u16,
-    pub Enabled: super::super::super::Foundation::BOOLEAN,
+    pub Enabled: bool,
     pub Reserved: u8,
     pub SourceGuid: windows_core::GUID,
     pub LogTag: u16,
@@ -9488,7 +9488,7 @@ pub const WHEA_UNCORRECTABLE_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(292u32);
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_CMC_DESCRIPTOR {
     pub Type: u16,
-    pub Enabled: super::super::super::Foundation::BOOLEAN,
+    pub Enabled: bool,
     pub NumberOfBanks: u8,
     pub Reserved: u32,
     pub Notify: WHEA_NOTIFICATION_DESCRIPTOR,
@@ -9519,7 +9519,7 @@ impl Default for WHEA_XPF_MCE_DESCRIPTOR {
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_MC_BANK_DESCRIPTOR {
     pub BankNumber: u8,
-    pub ClearOnInitialization: super::super::super::Foundation::BOOLEAN,
+    pub ClearOnInitialization: bool,
     pub StatusDataFormat: u8,
     pub Flags: XPF_MC_BANK_FLAGS,
     pub ControlMsr: u32,
@@ -9540,7 +9540,7 @@ pub const WHEA_XPF_MC_BANK_STATUSFORMAT_Intel64MCA: u32 = 1u32;
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_NMI_DESCRIPTOR {
     pub Type: u16,
-    pub Enabled: super::super::super::Foundation::BOOLEAN,
+    pub Enabled: bool,
 }
 impl Default for WHEA_XPF_NMI_DESCRIPTOR {
     fn default() -> Self {

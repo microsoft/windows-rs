@@ -52,8 +52,8 @@ pub unsafe fn SaferiIsExecutableFileType<P0>(szfullpathname: P0, bfromshellexecu
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : windows_core::PCWSTR, bfromshellexecute : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOL);
-    SaferiIsExecutableFileType(szfullpathname.param().abi(), bfromshellexecute.into())
+    windows_targets::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : windows_core::PCWSTR, bfromshellexecute : bool) -> super::super::Foundation:: BOOL);
+    SaferiIsExecutableFileType(szfullpathname.param().abi(), core::mem::transmute(bfromshellexecute))
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]

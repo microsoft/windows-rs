@@ -349,13 +349,13 @@ pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptime
 }
 #[inline]
 pub unsafe fn PdhGetCounterInfoA(hcounter: PDH_HCOUNTER, bretrieveexplaintext: bool, pdwbuffersize: *mut u32, lpbuffer: Option<*mut PDH_COUNTER_INFO_A>) -> u32 {
-    windows_targets::link!("pdh.dll" "system" fn PdhGetCounterInfoA(hcounter : PDH_HCOUNTER, bretrieveexplaintext : super::super::Foundation:: BOOLEAN, pdwbuffersize : *mut u32, lpbuffer : *mut PDH_COUNTER_INFO_A) -> u32);
-    PdhGetCounterInfoA(core::mem::transmute(hcounter), bretrieveexplaintext.into(), core::mem::transmute(pdwbuffersize), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())))
+    windows_targets::link!("pdh.dll" "system" fn PdhGetCounterInfoA(hcounter : PDH_HCOUNTER, bretrieveexplaintext : bool, pdwbuffersize : *mut u32, lpbuffer : *mut PDH_COUNTER_INFO_A) -> u32);
+    PdhGetCounterInfoA(core::mem::transmute(hcounter), core::mem::transmute(bretrieveexplaintext), core::mem::transmute(pdwbuffersize), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn PdhGetCounterInfoW(hcounter: PDH_HCOUNTER, bretrieveexplaintext: bool, pdwbuffersize: *mut u32, lpbuffer: Option<*mut PDH_COUNTER_INFO_W>) -> u32 {
-    windows_targets::link!("pdh.dll" "system" fn PdhGetCounterInfoW(hcounter : PDH_HCOUNTER, bretrieveexplaintext : super::super::Foundation:: BOOLEAN, pdwbuffersize : *mut u32, lpbuffer : *mut PDH_COUNTER_INFO_W) -> u32);
-    PdhGetCounterInfoW(core::mem::transmute(hcounter), bretrieveexplaintext.into(), core::mem::transmute(pdwbuffersize), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())))
+    windows_targets::link!("pdh.dll" "system" fn PdhGetCounterInfoW(hcounter : PDH_HCOUNTER, bretrieveexplaintext : bool, pdwbuffersize : *mut u32, lpbuffer : *mut PDH_COUNTER_INFO_W) -> u32);
+    PdhGetCounterInfoW(core::mem::transmute(hcounter), core::mem::transmute(bretrieveexplaintext), core::mem::transmute(pdwbuffersize), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn PdhGetCounterTimeBase(hcounter: PDH_HCOUNTER, ptimebase: *mut i64) -> u32 {

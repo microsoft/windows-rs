@@ -76,7 +76,7 @@ pub struct PDF_RENDER_PARAMS {
     pub DestinationWidth: u32,
     pub DestinationHeight: u32,
     pub BackgroundColor: super::super::super::Graphics::Direct2D::Common::D2D_COLOR_F,
-    pub IgnoreHighContrast: super::super::super::Foundation::BOOLEAN,
+    pub IgnoreHighContrast: bool,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for PDF_RENDER_PARAMS {

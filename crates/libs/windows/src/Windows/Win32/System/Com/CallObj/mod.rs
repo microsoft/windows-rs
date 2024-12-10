@@ -39,8 +39,8 @@ impl Default for CALLFRAMEINFO {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CALLFRAMEPARAMINFO {
-    pub fIn: super::super::super::Foundation::BOOLEAN,
-    pub fOut: super::super::super::Foundation::BOOLEAN,
+    pub fIn: bool,
+    pub fOut: bool,
     pub stackOffset: u32,
     pub cbParam: u32,
 }
@@ -67,7 +67,7 @@ pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = CALLFRAME_FREE(16i32);
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct CALLFRAME_MARSHALCONTEXT {
-    pub fIn: super::super::super::Foundation::BOOLEAN,
+    pub fIn: bool,
     pub dwDestContext: u32,
     pub pvDestContext: *mut core::ffi::c_void,
     pub punkReserved: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
