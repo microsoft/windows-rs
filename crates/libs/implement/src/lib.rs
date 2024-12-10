@@ -27,10 +27,8 @@ use quote::{quote, ToTokens};
 ///     }
 /// }
 ///
-/// fn main() {
-///     let object: IValue = Value(123).into();
-///     // Call interface methods...
-/// }
+/// let object: IValue = Value(123).into();
+/// // Call interface methods...
 /// ```
 #[proc_macro_attribute]
 pub fn implement(
