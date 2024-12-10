@@ -1,7 +1,7 @@
-windows_targets::link!("ndis.sys" "system" fn NdisAcquireReadWriteLock(lock : *mut NDIS_RW_LOCK, fwrite : super::super::super::Win32::Foundation:: BOOLEAN, lockstate : *mut LOCK_STATE));
+windows_targets::link!("ndis.sys" "system" fn NdisAcquireReadWriteLock(lock : *mut NDIS_RW_LOCK, fwrite : bool, lockstate : *mut LOCK_STATE));
 windows_targets::link!("ndis.sys" "system" fn NdisAllocateMemoryWithTag(virtualaddress : *mut *mut core::ffi::c_void, length : u32, tag : u32) -> i32);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-windows_targets::link!("ndis.sys" "system" fn NdisCancelTimer(timer : *const NDIS_TIMER, timercancelled : *mut super::super::super::Win32::Foundation:: BOOLEAN));
+windows_targets::link!("ndis.sys" "system" fn NdisCancelTimer(timer : *const NDIS_TIMER, timercancelled : *mut bool));
 windows_targets::link!("ndis.sys" "system" fn NdisClAddParty(ndisvchandle : *const core::ffi::c_void, protocolpartycontext : *const core::ffi::c_void, callparameters : *mut CO_CALL_PARAMETERS, ndispartyhandle : *mut *mut core::ffi::c_void) -> i32);
 windows_targets::link!("ndis.sys" "system" fn NdisClCloseAddressFamily(ndisafhandle : *const core::ffi::c_void) -> i32);
 windows_targets::link!("ndis.sys" "system" fn NdisClCloseCall(ndisvchandle : *const core::ffi::c_void, ndispartyhandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32) -> i32);
@@ -35,7 +35,7 @@ windows_targets::link!("ndis.sys" "system" fn NdisCoCreateVc(ndisbindinghandle :
 windows_targets::link!("ndis.sys" "system" fn NdisCoDeleteVc(ndisvchandle : *const core::ffi::c_void) -> i32);
 windows_targets::link!("ndis.sys" "system" fn NdisCoGetTapiCallId(ndisvchandle : *const core::ffi::c_void, tapicallid : *mut VAR_STRING) -> i32);
 #[cfg(feature = "Wdk_Foundation")]
-windows_targets::link!("ndis.sys" "system" fn NdisCompleteDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN));
+windows_targets::link!("ndis.sys" "system" fn NdisCompleteDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : bool));
 #[cfg(feature = "Wdk_Foundation")]
 windows_targets::link!("ndis.sys" "system" fn NdisCopyBuffer(status : *mut i32, buffer : *mut *mut super::super::Foundation:: MDL, poolhandle : *const core::ffi::c_void, memorydescriptor : *const core::ffi::c_void, offset : u32, length : u32));
 windows_targets::link!("ndis.sys" "system" fn NdisDeregisterTdiCallBack());
@@ -57,10 +57,10 @@ windows_targets::link!("ndis.sys" "system" fn NdisInitializeReadWriteLock(lock :
 windows_targets::link!("ndis.sys" "system" fn NdisInitializeString(destination : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, source : *const u8));
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 windows_targets::link!("ndis.sys" "system" fn NdisInitializeTimer(timer : *mut NDIS_TIMER, timerfunction : PNDIS_TIMER_FUNCTION, functioncontext : *const core::ffi::c_void));
-windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemory(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, virtualaddress : *mut *mut core::ffi::c_void, physicaladdress : *mut i64));
-windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemoryAsync(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, context : *const core::ffi::c_void) -> i32);
+windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemory(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : bool, virtualaddress : *mut *mut core::ffi::c_void, physicaladdress : *mut i64));
+windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemoryAsync(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : bool, context : *const core::ffi::c_void) -> i32);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-windows_targets::link!("ndis.sys" "system" fn NdisMCancelTimer(timer : *const NDIS_MINIPORT_TIMER, timercancelled : *mut super::super::super::Win32::Foundation:: BOOLEAN));
+windows_targets::link!("ndis.sys" "system" fn NdisMCancelTimer(timer : *const NDIS_MINIPORT_TIMER, timercancelled : *mut bool));
 windows_targets::link!("ndis.sys" "system" fn NdisMCloseLog(loghandle : *const core::ffi::c_void));
 windows_targets::link!("ndis.sys" "system" fn NdisMCmActivateVc(ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS) -> i32);
 windows_targets::link!("ndis.sys" "system" fn NdisMCmCreateVc(miniportadapterhandle : *const core::ffi::c_void, ndisafhandle : *const core::ffi::c_void, miniportvccontext : *const core::ffi::c_void, ndisvchandle : *mut *mut core::ffi::c_void) -> i32);
@@ -73,7 +73,7 @@ windows_targets::link!("ndis.sys" "system" fn NdisMCreateLog(miniportadapterhand
 windows_targets::link!("ndis.sys" "system" fn NdisMDeregisterDmaChannel(miniportdmahandle : *const core::ffi::c_void));
 windows_targets::link!("ndis.sys" "system" fn NdisMDeregisterIoPortRange(miniportadapterhandle : *const core::ffi::c_void, initialport : u32, numberofports : u32, portoffset : *const core::ffi::c_void));
 windows_targets::link!("ndis.sys" "system" fn NdisMFlushLog(loghandle : *const core::ffi::c_void));
-windows_targets::link!("ndis.sys" "system" fn NdisMFreeSharedMemory(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, virtualaddress : *const core::ffi::c_void, physicaladdress : i64));
+windows_targets::link!("ndis.sys" "system" fn NdisMFreeSharedMemory(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : bool, virtualaddress : *const core::ffi::c_void, physicaladdress : i64));
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 windows_targets::link!("ndis.sys" "system" fn NdisMGetDeviceProperty(miniportadapterhandle : *const core::ffi::c_void, physicaldeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, functionaldeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, nextdeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, allocatedresources : *mut *mut super::super::System::SystemServices:: CM_RESOURCE_LIST, allocatedresourcestranslated : *mut *mut super::super::System::SystemServices:: CM_RESOURCE_LIST));
 windows_targets::link!("ndis.sys" "system" fn NdisMGetDmaAlignment(miniportadapterhandle : *const core::ffi::c_void) -> u32);
@@ -83,7 +83,7 @@ windows_targets::link!("ndis.sys" "system" fn NdisMMapIoSpace(virtualaddress : *
 windows_targets::link!("ndis.sys" "system" fn NdisMQueryAdapterInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, miniporthandle : *const core::ffi::c_void) -> i32);
 windows_targets::link!("ndis.sys" "system" fn NdisMReadDmaCounter(miniportdmahandle : *const core::ffi::c_void) -> u32);
 #[cfg(feature = "Wdk_System_SystemServices")]
-windows_targets::link!("ndis.sys" "system" fn NdisMRegisterDmaChannel(miniportdmahandle : *mut *mut core::ffi::c_void, miniportadapterhandle : *const core::ffi::c_void, dmachannel : u32, dma32bitaddresses : super::super::super::Win32::Foundation:: BOOLEAN, dmadescription : *const NDIS_DMA_DESCRIPTION, maximumlength : u32) -> i32);
+windows_targets::link!("ndis.sys" "system" fn NdisMRegisterDmaChannel(miniportdmahandle : *mut *mut core::ffi::c_void, miniportadapterhandle : *const core::ffi::c_void, dmachannel : u32, dma32bitaddresses : bool, dmadescription : *const NDIS_DMA_DESCRIPTION, maximumlength : u32) -> i32);
 windows_targets::link!("ndis.sys" "system" fn NdisMRegisterIoPortRange(portoffset : *mut *mut core::ffi::c_void, miniportadapterhandle : *const core::ffi::c_void, initialport : u32, numberofports : u32) -> i32);
 windows_targets::link!("ndis.sys" "system" fn NdisMRemoveMiniport(miniporthandle : *const core::ffi::c_void) -> i32);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
@@ -113,12 +113,12 @@ windows_targets::link!("ndis.sys" "system" fn NdisSetTimer(timer : *const NDIS_T
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 windows_targets::link!("ndis.sys" "system" fn NdisSetTimerEx(ndistimer : *const NDIS_TIMER, millisecondstodelay : u32, functioncontext : *const core::ffi::c_void));
 #[cfg(feature = "Wdk_Foundation")]
-windows_targets::link!("ndis.sys" "system" fn NdisSetupDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN));
+windows_targets::link!("ndis.sys" "system" fn NdisSetupDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : bool));
 windows_targets::link!("ndis.sys" "system" fn NdisSystemProcessorCount() -> i8);
 windows_targets::link!("ndis.sys" "system" fn NdisUnmapFile(filehandle : *const core::ffi::c_void));
 windows_targets::link!("ndis.sys" "system" fn NdisUpdateSharedMemory(ndisadapterhandle : *mut core::ffi::c_void, length : u32, virtualaddress : *mut core::ffi::c_void, physicaladdress : i64));
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-windows_targets::link!("ndis.sys" "system" fn NdisWaitEvent(event : *const NDIS_EVENT, mstowait : u32) -> super::super::super::Win32::Foundation:: BOOLEAN);
+windows_targets::link!("ndis.sys" "system" fn NdisWaitEvent(event : *const NDIS_EVENT, mstowait : u32) -> bool);
 windows_targets::link!("ndis.sys" "system" fn NdisWriteConfiguration(status : *mut i32, configurationhandle : *const core::ffi::c_void, keyword : *const super::super::super::Win32::Foundation:: UNICODE_STRING, parametervalue : *const NDIS_CONFIGURATION_PARAMETER));
 windows_targets::link!("ndis.sys" "cdecl" fn NdisWriteErrorLogEntry(ndisadapterhandle : *const core::ffi::c_void, errorcode : u32, numberoferrorvalues : u32, ...));
 windows_targets::link!("ndis.sys" "system" fn NdisWriteEventLogEntry(loghandle : *const core::ffi::c_void, eventcode : i32, uniqueeventvalue : u32, numstrings : u16, stringslist : *const core::ffi::c_void, datasize : u32, data : *const core::ffi::c_void) -> i32);
@@ -664,15 +664,15 @@ pub struct NDIS_DMA_BLOCK {
     pub AllocationEvent: super::super::Foundation::KEVENT,
     pub SystemAdapterObject: *mut core::ffi::c_void,
     pub Miniport: *mut core::ffi::c_void,
-    pub InProgress: super::super::super::Win32::Foundation::BOOLEAN,
+    pub InProgress: bool,
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_System_SystemServices")]
 #[derive(Clone, Copy)]
 pub struct NDIS_DMA_DESCRIPTION {
-    pub DemandMode: super::super::super::Win32::Foundation::BOOLEAN,
-    pub AutoInitialize: super::super::super::Win32::Foundation::BOOLEAN,
-    pub DmaChannelSpecified: super::super::super::Win32::Foundation::BOOLEAN,
+    pub DemandMode: bool,
+    pub AutoInitialize: bool,
+    pub DmaChannelSpecified: bool,
     pub DmaWidth: super::super::System::SystemServices::DMA_WIDTH,
     pub DmaSpeed: super::super::System::SystemServices::DMA_SPEED,
     pub DmaPort: u32,
@@ -1917,7 +1917,7 @@ pub union NDIS_RW_LOCK_1 {
 pub struct NDIS_RW_LOCK_1_0 {
     pub RefCountLock: usize,
     pub SharedRefCount: u32,
-    pub WriterWaiting: super::super::super::Win32::Foundation::BOOLEAN,
+    pub WriterWaiting: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2253,7 +2253,7 @@ pub type NDIS_TIMER_FUNCTION = Option<unsafe extern "system" fn(systemspecific1:
 pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub HardwareClockFrequencyHz: u64,
-    pub CrossTimestamp: super::super::super::Win32::Foundation::BOOLEAN,
+    pub CrossTimestamp: bool,
     pub Reserved1: u64,
     pub Reserved2: u64,
     pub TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
@@ -2262,20 +2262,20 @@ pub const NDIS_TIMESTAMP_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    pub PtpV2OverUdpIPv4EventMsgReceiveHw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv4AllMsgReceiveHw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv4EventMsgTransmitHw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv4AllMsgTransmitHw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6EventMsgReceiveHw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6AllMsgReceiveHw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6EventMsgTransmitHw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6AllMsgTransmitHw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub AllReceiveHw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub AllTransmitHw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub TaggedTransmitHw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub AllReceiveSw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub AllTransmitSw: super::super::super::Win32::Foundation::BOOLEAN,
-    pub TaggedTransmitSw: super::super::super::Win32::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv4EventMsgReceiveHw: bool,
+    pub PtpV2OverUdpIPv4AllMsgReceiveHw: bool,
+    pub PtpV2OverUdpIPv4EventMsgTransmitHw: bool,
+    pub PtpV2OverUdpIPv4AllMsgTransmitHw: bool,
+    pub PtpV2OverUdpIPv6EventMsgReceiveHw: bool,
+    pub PtpV2OverUdpIPv6AllMsgReceiveHw: bool,
+    pub PtpV2OverUdpIPv6EventMsgTransmitHw: bool,
+    pub PtpV2OverUdpIPv6AllMsgTransmitHw: bool,
+    pub AllReceiveHw: bool,
+    pub AllTransmitHw: bool,
+    pub TaggedTransmitHw: bool,
+    pub AllReceiveSw: bool,
+    pub AllTransmitSw: bool,
+    pub TaggedTransmitSw: bool,
 }
 pub const NDIS_UDP_SEGMENTATION_OFFLOAD_IPV4: u32 = 0u32;
 pub const NDIS_UDP_SEGMENTATION_OFFLOAD_IPV6: u32 = 1u32;
@@ -3834,7 +3834,7 @@ pub const RECEIVE_VC: u32 = 8u32;
 pub struct REFERENCE {
     pub SpinLock: usize,
     pub ReferenceCount: u16,
-    pub Closing: super::super::super::Win32::Foundation::BOOLEAN,
+    pub Closing: bool,
 }
 pub const RESERVE_RESOURCES_VC: u32 = 64u32;
 pub const ROUND_DOWN_FLOW: u32 = 128u32;

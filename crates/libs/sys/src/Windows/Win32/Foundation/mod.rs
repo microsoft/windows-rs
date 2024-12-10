@@ -61,7 +61,6 @@ pub struct APP_LOCAL_DEVICE_ID {
 }
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
 pub type BOOL = i32;
-pub type BOOLEAN = u8;
 pub const BT_E_SPURIOUS_ACTIVATION: windows_sys::core::HRESULT = 0x80080300_u32 as _;
 pub const CACHE_E_FIRST: i32 = -2147221136i32;
 pub const CACHE_E_LAST: i32 = -2147221121i32;

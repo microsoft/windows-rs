@@ -45,7 +45,7 @@ windows_targets::link!("kernel32.dll" "system" fn IsUserCetAvailableInEnvironmen
 windows_targets::link!("kernel32.dll" "system" fn IsWow64GuestMachineSupported(wowguestmachine : IMAGE_FILE_MACHINE, machineissupported : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("ntdll.dll" "system" fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize : *mut u32, puldeviceformbuffersize : *mut u32, devicefamily : windows_sys::core::PWSTR, deviceform : windows_sys::core::PWSTR) -> u32);
 windows_targets::link!("ntdll.dll" "system" fn RtlGetDeviceFamilyInfoEnum(pulluapinfo : *mut u64, puldevicefamily : *mut DEVICEFAMILYINFOENUM, puldeviceform : *mut DEVICEFAMILYDEVICEFORM));
-windows_targets::link!("ntdll.dll" "system" fn RtlGetProductInfo(osmajorversion : u32, osminorversion : u32, spmajorversion : u32, spminorversion : u32, returnedproducttype : *mut u32) -> super::super::Foundation:: BOOLEAN);
+windows_targets::link!("ntdll.dll" "system" fn RtlGetProductInfo(osmajorversion : u32, osminorversion : u32, spmajorversion : u32, spminorversion : u32, returnedproducttype : *mut u32) -> bool);
 windows_targets::link!("ntdllk.dll" "system" fn RtlGetSystemGlobalData(dataid : RTL_SYSTEM_GLOBAL_DATA_ID, buffer : *mut core::ffi::c_void, size : u32) -> u32);
 windows_targets::link!("ntdll.dll" "system" fn RtlOsDeploymentState(flags : u32) -> OS_DEPLOYEMENT_STATE_VALUES);
 windows_targets::link!("ntdll.dll" "system" fn RtlSwitchedVVI(versioninfo : *const OSVERSIONINFOEXW, typemask : u32, conditionmask : u64) -> u32);
@@ -666,7 +666,7 @@ pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_POOL_ZEROING_INFORMATION {
-    pub PoolZeroingSupportPresent: super::super::Foundation::BOOLEAN,
+    pub PoolZeroingSupportPresent: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

@@ -253,7 +253,7 @@ pub struct HTTP_KNOWN_HEADER {
 #[derive(Clone, Copy)]
 pub struct HTTP_LISTEN_ENDPOINT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub EnableSharing: super::super::Foundation::BOOLEAN,
+    pub EnableSharing: bool,
 }
 pub const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: u32 = 1u32;
 pub const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: u32 = 4u32;
@@ -651,9 +651,9 @@ pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
 pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub AuthSchemes: u32,
-    pub ReceiveMutualAuth: super::super::Foundation::BOOLEAN,
-    pub ReceiveContextHandle: super::super::Foundation::BOOLEAN,
-    pub DisableNTLMCredentialCaching: super::super::Foundation::BOOLEAN,
+    pub ReceiveMutualAuth: bool,
+    pub ReceiveContextHandle: bool,
+    pub DisableNTLMCredentialCaching: bool,
     pub ExFlags: u8,
     pub DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
     pub BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
@@ -910,7 +910,7 @@ pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub CertEncodedSize: u32,
     pub pCertEncoded: *mut u8,
     pub Token: super::super::Foundation::HANDLE,
-    pub CertDeniedByMapper: super::super::Foundation::BOOLEAN,
+    pub CertDeniedByMapper: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

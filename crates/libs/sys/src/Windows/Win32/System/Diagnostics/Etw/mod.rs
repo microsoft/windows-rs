@@ -9,13 +9,13 @@ windows_targets::link!("advapi32.dll" "system" fn EnableTraceEx2(tracehandle : C
 windows_targets::link!("advapi32.dll" "system" fn EnumerateTraceGuids(guidpropertiesarray : *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount : u32, guidcount : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn EnumerateTraceGuidsEx(tracequeryinfoclass : TRACE_QUERY_INFO_CLASS, inbuffer : *const core::ffi::c_void, inbuffersize : u32, outbuffer : *mut core::ffi::c_void, outbuffersize : u32, returnlength : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Security")]
-windows_targets::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_sys::core::GUID, operation : u32, sid : super::super::super::Security:: PSID, rights : u32, allowordeny : super::super::super::Foundation:: BOOLEAN) -> u32);
+windows_targets::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_sys::core::GUID, operation : u32, sid : super::super::super::Security:: PSID, rights : u32, allowordeny : bool) -> u32);
 #[cfg(feature = "Win32_Security")]
 windows_targets::link!("advapi32.dll" "system" fn EventAccessQuery(guid : *const windows_sys::core::GUID, buffer : super::super::super::Security:: PSECURITY_DESCRIPTOR, buffersize : *mut u32) -> u32);
 windows_targets::link!("advapi32.dll" "system" fn EventAccessRemove(guid : *const windows_sys::core::GUID) -> u32);
 windows_targets::link!("advapi32.dll" "system" fn EventActivityIdControl(controlcode : u32, activityid : *mut windows_sys::core::GUID) -> u32);
-windows_targets::link!("advapi32.dll" "system" fn EventEnabled(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
-windows_targets::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : u8, keyword : u64) -> super::super::super::Foundation:: BOOLEAN);
+windows_targets::link!("advapi32.dll" "system" fn EventEnabled(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR) -> bool);
+windows_targets::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : u8, keyword : u64) -> bool);
 windows_targets::link!("advapi32.dll" "system" fn EventRegister(providerid : *const windows_sys::core::GUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : *mut REGHANDLE) -> u32);
 windows_targets::link!("advapi32.dll" "system" fn EventSetInformation(reghandle : REGHANDLE, informationclass : EVENT_INFO_CLASS, eventinformation : *const core::ffi::c_void, informationlength : u32) -> u32);
 windows_targets::link!("advapi32.dll" "system" fn EventUnregister(reghandle : REGHANDLE) -> u32);
@@ -57,10 +57,10 @@ windows_targets::link!("advapi32.dll" "system" fn StartTraceA(tracehandle : *mut
 windows_targets::link!("advapi32.dll" "system" fn StartTraceW(tracehandle : *mut CONTROLTRACE_HANDLE, instancename : windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn StopTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn StopTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("tdh.dll" "system" fn TdhAggregatePayloadFilters(payloadfiltercount : u32, payloadfilterptrs : *const *const core::ffi::c_void, eventmatchallflags : *const super::super::super::Foundation:: BOOLEAN, eventfilterdescriptor : *mut EVENT_FILTER_DESCRIPTOR) -> u32);
+windows_targets::link!("tdh.dll" "system" fn TdhAggregatePayloadFilters(payloadfiltercount : u32, payloadfilterptrs : *const *const core::ffi::c_void, eventmatchallflags : *const bool, eventfilterdescriptor : *mut EVENT_FILTER_DESCRIPTOR) -> u32);
 windows_targets::link!("tdh.dll" "system" fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor : *mut EVENT_FILTER_DESCRIPTOR) -> u32);
 windows_targets::link!("tdh.dll" "system" fn TdhCloseDecodingHandle(handle : TDH_HANDLE) -> u32);
-windows_targets::link!("tdh.dll" "system" fn TdhCreatePayloadFilter(providerguid : *const windows_sys::core::GUID, eventdescriptor : *const EVENT_DESCRIPTOR, eventmatchany : super::super::super::Foundation:: BOOLEAN, payloadpredicatecount : u32, payloadpredicates : *const PAYLOAD_FILTER_PREDICATE, payloadfilter : *mut *mut core::ffi::c_void) -> u32);
+windows_targets::link!("tdh.dll" "system" fn TdhCreatePayloadFilter(providerguid : *const windows_sys::core::GUID, eventdescriptor : *const EVENT_DESCRIPTOR, eventmatchany : bool, payloadpredicatecount : u32, payloadpredicates : *const PAYLOAD_FILTER_PREDICATE, payloadfilter : *mut *mut core::ffi::c_void) -> u32);
 windows_targets::link!("tdh.dll" "system" fn TdhDeletePayloadFilter(payloadfilter : *mut *mut core::ffi::c_void) -> u32);
 windows_targets::link!("tdh.dll" "system" fn TdhEnumerateManifestProviderEvents(providerguid : *const windows_sys::core::GUID, buffer : *mut PROVIDER_EVENT_INFO, buffersize : *mut u32) -> u32);
 windows_targets::link!("tdh.dll" "system" fn TdhEnumerateProviderFieldInformation(pguid : *const windows_sys::core::GUID, eventfieldtype : EVENT_FIELD_TYPE, pbuffer : *mut PROVIDER_FIELD_INFOARRAY, pbuffersize : *mut u32) -> u32);
@@ -407,7 +407,7 @@ pub struct EVENT_FILTER_DESCRIPTOR {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EVENT_FILTER_EVENT_ID {
-    pub FilterIn: super::super::super::Foundation::BOOLEAN,
+    pub FilterIn: bool,
     pub Reserved: u8,
     pub Count: u16,
     pub Events: [u16; 1],
@@ -418,7 +418,7 @@ pub struct EVENT_FILTER_EVENT_NAME {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
     pub Level: u8,
-    pub FilterIn: super::super::super::Foundation::BOOLEAN,
+    pub FilterIn: bool,
     pub NameCount: u16,
     pub Names: [u8; 1],
 }
@@ -438,7 +438,7 @@ pub struct EVENT_FILTER_LEVEL_KW {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
     pub Level: u8,
-    pub FilterIn: super::super::super::Foundation::BOOLEAN,
+    pub FilterIn: bool,
 }
 pub const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416u32;
 pub const EVENT_FILTER_TYPE_EVENT_ID: u32 = 2147484160u32;
@@ -1580,7 +1580,7 @@ pub struct TRACE_GUID_PROPERTIES {
     pub LoggerId: u32,
     pub EnableLevel: u32,
     pub EnableFlags: u32,
-    pub IsEnable: super::super::super::Foundation::BOOLEAN,
+    pub IsEnable: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1813,7 +1813,7 @@ pub type TRACE_QUERY_INFO_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TRACE_STACK_CACHING_INFO {
-    pub Enabled: super::super::super::Foundation::BOOLEAN,
+    pub Enabled: bool,
     pub CacheSize: u32,
     pub BucketCount: u32,
 }
