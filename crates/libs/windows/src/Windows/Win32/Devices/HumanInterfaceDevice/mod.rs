@@ -6953,9 +6953,6 @@ pub type PHIDP_INSERT_SCANCODES = Option<unsafe extern "system" fn(context: *con
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PHIDP_PREPARSED_DATA(pub isize);
-impl windows_core::TypeKind for PHIDP_PREPARSED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USAGE_AND_PAGE {

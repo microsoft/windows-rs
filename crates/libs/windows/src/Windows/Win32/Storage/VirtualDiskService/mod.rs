@@ -260,12 +260,8 @@ impl IVdsAdvancedDisk {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreatePartition)(windows_core::Interface::as_raw(self), core::mem::transmute(ulloffset), core::mem::transmute(ullsize), core::mem::transmute(para), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn DeletePartition<P1, P2>(&self, ulloffset: u64, bforce: P1, bforceprotected: P2) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).DeletePartition)(windows_core::Interface::as_raw(self), core::mem::transmute(ulloffset), bforce.param().abi(), bforceprotected.param().abi()).ok()
+    pub unsafe fn DeletePartition(&self, ulloffset: u64, bforce: bool, bforceprotected: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DeletePartition)(windows_core::Interface::as_raw(self), core::mem::transmute(ulloffset), bforce.into(), bforceprotected.into()).ok()
     }
     pub unsafe fn ChangeAttributes(&self, ulloffset: u64, para: *const CHANGE_ATTRIBUTES_PARAMETERS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ChangeAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(ulloffset), core::mem::transmute(para)).ok()
@@ -279,24 +275,16 @@ impl IVdsAdvancedDisk {
     pub unsafe fn GetDriveLetter(&self, ulloffset: u64, pwcletter: windows_core::PWSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDriveLetter)(windows_core::Interface::as_raw(self), core::mem::transmute(ulloffset), core::mem::transmute(pwcletter)).ok()
     }
-    pub unsafe fn FormatPartition<P2, P4, P5, P6>(&self, ulloffset: u64, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P2, dwunitallocationsize: u32, bforce: P4, bquickformat: P5, benablecompression: P6) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn FormatPartition<P2>(&self, ulloffset: u64, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P2, dwunitallocationsize: u32, bforce: bool, bquickformat: bool, benablecompression: bool) -> windows_core::Result<IVdsAsync>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
-        P4: windows_core::Param<super::super::Foundation::BOOL>,
-        P5: windows_core::Param<super::super::Foundation::BOOL>,
-        P6: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FormatPartition)(windows_core::Interface::as_raw(self), core::mem::transmute(ulloffset), core::mem::transmute(r#type), pwszlabel.param().abi(), core::mem::transmute(dwunitallocationsize), bforce.param().abi(), bquickformat.param().abi(), benablecompression.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FormatPartition)(windows_core::Interface::as_raw(self), core::mem::transmute(ulloffset), core::mem::transmute(r#type), pwszlabel.param().abi(), core::mem::transmute(dwunitallocationsize), bforce.into(), bquickformat.into(), benablecompression.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Clean<P0, P1, P2>(&self, bforce: P0, bforceoem: P1, bfullclean: P2) -> windows_core::Result<IVdsAsync>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn Clean(&self, bforce: bool, bforceoem: bool, bfullclean: bool) -> windows_core::Result<IVdsAsync> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clean)(windows_core::Interface::as_raw(self), bforce.param().abi(), bforceoem.param().abi(), bfullclean.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Clean)(windows_core::Interface::as_raw(self), bforce.into(), bforceoem.into(), bfullclean.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -407,11 +395,8 @@ impl windows_core::RuntimeName for IVdsAdvancedDisk {}
 windows_core::imp::define_interface!(IVdsAdvancedDisk2, IVdsAdvancedDisk2_Vtbl, 0x9723f420_9355_42de_ab66_e31bb15beeac);
 windows_core::imp::interface_hierarchy!(IVdsAdvancedDisk2, windows_core::IUnknown);
 impl IVdsAdvancedDisk2 {
-    pub unsafe fn ChangePartitionType<P1>(&self, ulloffset: u64, bforce: P1, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ChangePartitionType)(windows_core::Interface::as_raw(self), core::mem::transmute(ulloffset), bforce.param().abi(), core::mem::transmute(para)).ok()
+    pub unsafe fn ChangePartitionType(&self, ulloffset: u64, bforce: bool, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ChangePartitionType)(windows_core::Interface::as_raw(self), core::mem::transmute(ulloffset), bforce.into(), core::mem::transmute(para)).ok()
     }
 }
 #[repr(C)]
@@ -933,11 +918,8 @@ impl windows_core::RuntimeName for IVdsDisk {}
 windows_core::imp::define_interface!(IVdsDisk2, IVdsDisk2_Vtbl, 0x40f73c8b_687d_4a13_8d96_3d7f2e683936);
 windows_core::imp::interface_hierarchy!(IVdsDisk2, windows_core::IUnknown);
 impl IVdsDisk2 {
-    pub unsafe fn SetSANMode<P0>(&self, benable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSANMode)(windows_core::Interface::as_raw(self), benable.param().abi()).ok()
+    pub unsafe fn SetSANMode(&self, benable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSANMode)(windows_core::Interface::as_raw(self), benable.into()).ok()
     }
 }
 #[repr(C)]
@@ -1052,16 +1034,13 @@ impl IVdsDiskPartitionMF {
     pub unsafe fn QueryPartitionFileSystemFormatSupport(&self, ulloffset: u64, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).QueryPartitionFileSystemFormatSupport)(windows_core::Interface::as_raw(self), core::mem::transmute(ulloffset), core::mem::transmute(ppfilesystemsupportprops), core::mem::transmute(plnumberoffilesystems)).ok()
     }
-    pub unsafe fn FormatPartitionEx<P1, P4, P5, P6, P7>(&self, ulloffset: u64, pwszfilesystemtypename: P1, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P4, bforce: P5, bquickformat: P6, benablecompression: P7) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn FormatPartitionEx<P1, P4>(&self, ulloffset: u64, pwszfilesystemtypename: P1, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P4, bforce: bool, bquickformat: bool, benablecompression: bool) -> windows_core::Result<IVdsAsync>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
-        P5: windows_core::Param<super::super::Foundation::BOOL>,
-        P6: windows_core::Param<super::super::Foundation::BOOL>,
-        P7: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FormatPartitionEx)(windows_core::Interface::as_raw(self), core::mem::transmute(ulloffset), pwszfilesystemtypename.param().abi(), core::mem::transmute(usfilesystemrevision), core::mem::transmute(uldesiredunitallocationsize), pwszlabel.param().abi(), bforce.param().abi(), bquickformat.param().abi(), benablecompression.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FormatPartitionEx)(windows_core::Interface::as_raw(self), core::mem::transmute(ulloffset), pwszfilesystemtypename.param().abi(), core::mem::transmute(usfilesystemrevision), core::mem::transmute(uldesiredunitallocationsize), pwszlabel.param().abi(), bforce.into(), bquickformat.into(), benablecompression.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1596,13 +1575,9 @@ impl IVdsIscsiInitiatorAdapter {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).QueryInitiatorPortals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn LoginToTarget<P5, P6>(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: windows_core::GUID, targetportalid: windows_core::GUID, initiatorportalid: windows_core::GUID, ulloginflags: u32, bheaderdigest: P5, bdatadigest: P6, authtype: VDS_ISCSI_AUTH_TYPE) -> windows_core::Result<IVdsAsync>
-    where
-        P5: windows_core::Param<super::super::Foundation::BOOL>,
-        P6: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: windows_core::GUID, targetportalid: windows_core::GUID, initiatorportalid: windows_core::GUID, ulloginflags: u32, bheaderdigest: bool, bdatadigest: bool, authtype: VDS_ISCSI_AUTH_TYPE) -> windows_core::Result<IVdsAsync> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).LoginToTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(logintype), core::mem::transmute(targetid), core::mem::transmute(targetportalid), core::mem::transmute(initiatorportalid), core::mem::transmute(ulloginflags), bheaderdigest.param().abi(), bdatadigest.param().abi(), core::mem::transmute(authtype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).LoginToTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(logintype), core::mem::transmute(targetid), core::mem::transmute(targetportalid), core::mem::transmute(initiatorportalid), core::mem::transmute(ulloginflags), bheaderdigest.into(), bdatadigest.into(), core::mem::transmute(authtype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LogoutFromTarget(&self, targetid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
         let mut result__ = core::mem::zeroed();
@@ -2996,18 +2971,11 @@ impl IVdsPack {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateVolume)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len().try_into().unwrap(), core::mem::transmute(ulstripesize), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn AddDisk<P2>(&self, diskid: windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).AddDisk)(windows_core::Interface::as_raw(self), core::mem::transmute(diskid), core::mem::transmute(partitionstyle), bashotspare.param().abi()).ok()
+    pub unsafe fn AddDisk(&self, diskid: windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).AddDisk)(windows_core::Interface::as_raw(self), core::mem::transmute(diskid), core::mem::transmute(partitionstyle), bashotspare.into()).ok()
     }
-    pub unsafe fn MigrateDisks<P3, P4>(&self, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: windows_core::GUID, bforce: P3, bqueryonly: P4, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
-        P4: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).MigrateDisks)(windows_core::Interface::as_raw(self), core::mem::transmute(pdiskarray), core::mem::transmute(lnumberofdisks), core::mem::transmute(targetpack), bforce.param().abi(), bqueryonly.param().abi(), core::mem::transmute(presults), core::mem::transmute(pbrebootneeded)).ok()
+    pub unsafe fn MigrateDisks(&self, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: windows_core::GUID, bforce: bool, bqueryonly: bool, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).MigrateDisks)(windows_core::Interface::as_raw(self), core::mem::transmute(pdiskarray), core::mem::transmute(lnumberofdisks), core::mem::transmute(targetpack), bforce.into(), bqueryonly.into(), core::mem::transmute(presults), core::mem::transmute(pbrebootneeded)).ok()
     }
     pub unsafe fn ReplaceDisk(&self, olddiskid: windows_core::GUID, newdiskid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
         let mut result__ = core::mem::zeroed();
@@ -3221,11 +3189,8 @@ impl IVdsProviderPrivate {
     {
         (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), pwszmachinename.param().abi(), pcallbackobject.param().abi()).ok()
     }
-    pub unsafe fn OnUnload<P0>(&self, bforceunload: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).OnUnload)(windows_core::Interface::as_raw(self), bforceunload.param().abi()).ok()
+    pub unsafe fn OnUnload(&self, bforceunload: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).OnUnload)(windows_core::Interface::as_raw(self), bforceunload.into()).ok()
     }
 }
 #[repr(C)]
@@ -3882,11 +3847,8 @@ impl IVdsServiceUninstallDisk {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDiskIdFromLunInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pluninfo), &mut result__).map(|| result__)
     }
-    pub unsafe fn UninstallDisks<P2>(&self, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: P2, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
-    {
-        (windows_core::Interface::vtable(self).UninstallDisks)(windows_core::Interface::as_raw(self), core::mem::transmute(pdiskidarray), core::mem::transmute(ulcount), bforce.param().abi(), core::mem::transmute(pbreboot), core::mem::transmute(presults)).ok()
+    pub unsafe fn UninstallDisks(&self, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: bool, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).UninstallDisks)(windows_core::Interface::as_raw(self), core::mem::transmute(pdiskidarray), core::mem::transmute(ulcount), bforce.into(), core::mem::transmute(pbreboot), core::mem::transmute(presults)).ok()
     }
 }
 #[repr(C)]
@@ -4807,17 +4769,11 @@ impl IVdsVolume {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RemovePlex)(windows_core::Interface::as_raw(self), core::mem::transmute(plexid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Delete<P0>(&self, bforce: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), bforce.param().abi()).ok()
+    pub unsafe fn Delete(&self, bforce: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), bforce.into()).ok()
     }
-    pub unsafe fn SetFlags<P1>(&self, ulflags: u32, brevertonclose: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(ulflags), brevertonclose.param().abi()).ok()
+    pub unsafe fn SetFlags(&self, ulflags: u32, brevertonclose: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(ulflags), brevertonclose.into()).ok()
     }
     pub unsafe fn ClearFlags(&self, ulflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ClearFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(ulflags)).ok()
@@ -4993,15 +4949,12 @@ impl IVdsVolumeMF {
     pub unsafe fn GetFileSystemProperties(&self, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFileSystemProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(pfilesystemprop)).ok()
     }
-    pub unsafe fn Format<P1, P3, P4, P5>(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P1, dwunitallocationsize: u32, bforce: P3, bquickformat: P4, benablecompression: P5) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn Format<P1>(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P1, dwunitallocationsize: u32, bforce: bool, bquickformat: bool, benablecompression: bool) -> windows_core::Result<IVdsAsync>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
-        P4: windows_core::Param<super::super::Foundation::BOOL>,
-        P5: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), pwszlabel.param().abi(), core::mem::transmute(dwunitallocationsize), bforce.param().abi(), bquickformat.param().abi(), benablecompression.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), pwszlabel.param().abi(), core::mem::transmute(dwunitallocationsize), bforce.into(), bquickformat.into(), benablecompression.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddAccessPath<P0>(&self, pwszpath: P0) -> windows_core::Result<()>
     where
@@ -5015,22 +4968,17 @@ impl IVdsVolumeMF {
     pub unsafe fn QueryReparsePoints(&self, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).QueryReparsePoints)(windows_core::Interface::as_raw(self), core::mem::transmute(ppreparsepointprops), core::mem::transmute(plnumberofreparsepointprops)).ok()
     }
-    pub unsafe fn DeleteAccessPath<P0, P1>(&self, pwszpath: P0, bforce: P1) -> windows_core::Result<()>
+    pub unsafe fn DeleteAccessPath<P0>(&self, pwszpath: P0, bforce: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).DeleteAccessPath)(windows_core::Interface::as_raw(self), pwszpath.param().abi(), bforce.param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteAccessPath)(windows_core::Interface::as_raw(self), pwszpath.param().abi(), bforce.into()).ok()
     }
     pub unsafe fn Mount(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Mount)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Dismount<P0, P1>(&self, bforce: P0, bpermanent: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Dismount)(windows_core::Interface::as_raw(self), bforce.param().abi(), bpermanent.param().abi()).ok()
+    pub unsafe fn Dismount(&self, bforce: bool, bpermanent: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Dismount)(windows_core::Interface::as_raw(self), bforce.into(), bpermanent.into()).ok()
     }
     pub unsafe fn SetFileSystemFlags(&self, ulflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetFileSystemFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(ulflags)).ok()
@@ -5142,16 +5090,13 @@ impl IVdsVolumeMF2 {
     pub unsafe fn QueryFileSystemFormatSupport(&self, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).QueryFileSystemFormatSupport)(windows_core::Interface::as_raw(self), core::mem::transmute(ppfilesystemsupportprops), core::mem::transmute(plnumberoffilesystems)).ok()
     }
-    pub unsafe fn FormatEx<P0, P3, P4, P5, P6>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P3, bforce: P4, bquickformat: P5, benablecompression: P6) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn FormatEx<P0, P3>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P3, bforce: bool, bquickformat: bool, benablecompression: bool) -> windows_core::Result<IVdsAsync>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
-        P4: windows_core::Param<super::super::Foundation::BOOL>,
-        P5: windows_core::Param<super::super::Foundation::BOOL>,
-        P6: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FormatEx)(windows_core::Interface::as_raw(self), pwszfilesystemtypename.param().abi(), core::mem::transmute(usfilesystemrevision), core::mem::transmute(uldesiredunitallocationsize), pwszlabel.param().abi(), bforce.param().abi(), bquickformat.param().abi(), benablecompression.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FormatEx)(windows_core::Interface::as_raw(self), pwszfilesystemtypename.param().abi(), core::mem::transmute(usfilesystemrevision), core::mem::transmute(uldesiredunitallocationsize), pwszlabel.param().abi(), bforce.into(), bquickformat.into(), benablecompression.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

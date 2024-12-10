@@ -3933,11 +3933,8 @@ impl IDiscRecorder2Ex {
     pub unsafe fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTrackInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(address), core::mem::transmute(addresstype), core::mem::transmute(trackinformation), core::mem::transmute(bytesize)).ok()
     }
-    pub unsafe fn GetFeaturePage<P1>(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: P1, featuredata: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
-    {
-        (windows_core::Interface::vtable(self).GetFeaturePage)(windows_core::Interface::as_raw(self), core::mem::transmute(requestedfeature), currentfeatureonly.param().abi(), core::mem::transmute(featuredata), core::mem::transmute(bytesize)).ok()
+    pub unsafe fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: bool, featuredata: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetFeaturePage)(windows_core::Interface::as_raw(self), core::mem::transmute(requestedfeature), currentfeatureonly.into(), core::mem::transmute(featuredata), core::mem::transmute(bytesize)).ok()
     }
     pub unsafe fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModePage)(windows_core::Interface::as_raw(self), core::mem::transmute(requestedmodepage), core::mem::transmute(requesttype), core::mem::transmute(modepagedata), core::mem::transmute(bytesize)).ok()
@@ -3945,17 +3942,11 @@ impl IDiscRecorder2Ex {
     pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: &[u8]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetModePage)(windows_core::Interface::as_raw(self), core::mem::transmute(requesttype), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
-    pub unsafe fn GetSupportedFeaturePages<P0>(&self, currentfeatureonly: P0, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
-    {
-        (windows_core::Interface::vtable(self).GetSupportedFeaturePages)(windows_core::Interface::as_raw(self), currentfeatureonly.param().abi(), core::mem::transmute(featuredata), core::mem::transmute(bytesize)).ok()
+    pub unsafe fn GetSupportedFeaturePages(&self, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetSupportedFeaturePages)(windows_core::Interface::as_raw(self), currentfeatureonly.into(), core::mem::transmute(featuredata), core::mem::transmute(bytesize)).ok()
     }
-    pub unsafe fn GetSupportedProfiles<P0>(&self, currentonly: P0, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
-    {
-        (windows_core::Interface::vtable(self).GetSupportedProfiles)(windows_core::Interface::as_raw(self), currentonly.param().abi(), core::mem::transmute(profiletypes), core::mem::transmute(validprofiles)).ok()
+    pub unsafe fn GetSupportedProfiles(&self, currentonly: bool, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetSupportedProfiles)(windows_core::Interface::as_raw(self), currentonly.into(), core::mem::transmute(profiletypes), core::mem::transmute(validprofiles)).ok()
     }
     pub unsafe fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSupportedModePages)(windows_core::Interface::as_raw(self), core::mem::transmute(requesttype), core::mem::transmute(modepagetypes), core::mem::transmute(validpages)).ok()
@@ -8919,9 +8910,6 @@ impl windows_core::RuntimeName for IWriteSpeedDescriptor {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMSGSESS(pub isize);
-impl windows_core::TypeKind for LPMSGSESS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MEDIA_BLANK: MEDIA_FLAGS = MEDIA_FLAGS(1i32);
 pub const MEDIA_CDDA_CDROM: MEDIA_TYPES = MEDIA_TYPES(1i32);
 pub const MEDIA_CD_EXTRA: MEDIA_TYPES = MEDIA_TYPES(4i32);

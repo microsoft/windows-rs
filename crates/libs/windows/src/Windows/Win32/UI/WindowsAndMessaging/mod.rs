@@ -1,18 +1,12 @@
 #[inline]
-pub unsafe fn AdjustWindowRect<P2>(lprect: *mut super::super::Foundation::RECT, dwstyle: WINDOW_STYLE, bmenu: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn AdjustWindowRect(lprect: *mut super::super::Foundation::RECT, dwstyle: WINDOW_STYLE, bmenu: bool) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn AdjustWindowRect(lprect : *mut super::super::Foundation:: RECT, dwstyle : WINDOW_STYLE, bmenu : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    AdjustWindowRect(core::mem::transmute(lprect), core::mem::transmute(dwstyle), bmenu.param().abi()).ok()
+    AdjustWindowRect(core::mem::transmute(lprect), core::mem::transmute(dwstyle), bmenu.into()).ok()
 }
 #[inline]
-pub unsafe fn AdjustWindowRectEx<P2>(lprect: *mut super::super::Foundation::RECT, dwstyle: WINDOW_STYLE, bmenu: P2, dwexstyle: WINDOW_EX_STYLE) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn AdjustWindowRectEx(lprect: *mut super::super::Foundation::RECT, dwstyle: WINDOW_STYLE, bmenu: bool, dwexstyle: WINDOW_EX_STYLE) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn AdjustWindowRectEx(lprect : *mut super::super::Foundation:: RECT, dwstyle : WINDOW_STYLE, bmenu : super::super::Foundation:: BOOL, dwexstyle : WINDOW_EX_STYLE) -> super::super::Foundation:: BOOL);
-    AdjustWindowRectEx(core::mem::transmute(lprect), core::mem::transmute(dwstyle), bmenu.param().abi(), core::mem::transmute(dwexstyle)).ok()
+    AdjustWindowRectEx(core::mem::transmute(lprect), core::mem::transmute(dwstyle), bmenu.into(), core::mem::transmute(dwexstyle)).ok()
 }
 #[inline]
 pub unsafe fn AllowSetForegroundWindow(dwprocessid: u32) -> windows_core::Result<()> {
@@ -363,21 +357,15 @@ pub unsafe fn CreateIcon(hinstance: Option<super::super::Foundation::HINSTANCE>,
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateIconFromResource<P2>(presbits: &[u8], ficon: P2, dwver: u32) -> windows_core::Result<HICON>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn CreateIconFromResource(presbits: &[u8], ficon: bool, dwver: u32) -> windows_core::Result<HICON> {
     windows_targets::link!("user32.dll" "system" fn CreateIconFromResource(presbits : *const u8, dwressize : u32, ficon : super::super::Foundation:: BOOL, dwver : u32) -> HICON);
-    let result__ = CreateIconFromResource(core::mem::transmute(presbits.as_ptr()), presbits.len().try_into().unwrap(), ficon.param().abi(), core::mem::transmute(dwver));
+    let result__ = CreateIconFromResource(core::mem::transmute(presbits.as_ptr()), presbits.len().try_into().unwrap(), ficon.into(), core::mem::transmute(dwver));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateIconFromResourceEx<P2>(presbits: &[u8], ficon: P2, dwver: u32, cxdesired: i32, cydesired: i32, flags: IMAGE_FLAGS) -> windows_core::Result<HICON>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn CreateIconFromResourceEx(presbits: &[u8], ficon: bool, dwver: u32, cxdesired: i32, cydesired: i32, flags: IMAGE_FLAGS) -> windows_core::Result<HICON> {
     windows_targets::link!("user32.dll" "system" fn CreateIconFromResourceEx(presbits : *const u8, dwressize : u32, ficon : super::super::Foundation:: BOOL, dwver : u32, cxdesired : i32, cydesired : i32, flags : IMAGE_FLAGS) -> HICON);
-    let result__ = CreateIconFromResourceEx(core::mem::transmute(presbits.as_ptr()), presbits.len().try_into().unwrap(), ficon.param().abi(), core::mem::transmute(dwver), core::mem::transmute(cxdesired), core::mem::transmute(cydesired), core::mem::transmute(flags));
+    let result__ = CreateIconFromResourceEx(core::mem::transmute(presbits.as_ptr()), presbits.len().try_into().unwrap(), ficon.into(), core::mem::transmute(dwver), core::mem::transmute(cxdesired), core::mem::transmute(cydesired), core::mem::transmute(flags));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -706,12 +694,9 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FlashWindow<P1>(hwnd: super::super::Foundation::HWND, binvert: P1) -> super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn FlashWindow(hwnd: super::super::Foundation::HWND, binvert: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn FlashWindow(hwnd : super::super::Foundation:: HWND, binvert : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    FlashWindow(core::mem::transmute(hwnd), binvert.param().abi())
+    FlashWindow(core::mem::transmute(hwnd), binvert.into())
 }
 #[inline]
 pub unsafe fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation::BOOL {
@@ -863,12 +848,9 @@ pub unsafe fn GetDlgItem(hdlg: Option<super::super::Foundation::HWND>, niddlgite
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn GetDlgItemInt<P3>(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lptranslated: Option<*mut super::super::Foundation::BOOL>, bsigned: P3) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetDlgItemInt(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lptranslated: Option<*mut super::super::Foundation::BOOL>, bsigned: bool) -> u32 {
     windows_targets::link!("user32.dll" "system" fn GetDlgItemInt(hdlg : super::super::Foundation:: HWND, niddlgitem : i32, lptranslated : *mut super::super::Foundation:: BOOL, bsigned : super::super::Foundation:: BOOL) -> u32);
-    GetDlgItemInt(core::mem::transmute(hdlg), core::mem::transmute(niddlgitem), core::mem::transmute(lptranslated.unwrap_or(core::mem::zeroed())), bsigned.param().abi())
+    GetDlgItemInt(core::mem::transmute(hdlg), core::mem::transmute(niddlgitem), core::mem::transmute(lptranslated.unwrap_or(core::mem::zeroed())), bsigned.into())
 }
 #[inline]
 pub unsafe fn GetDlgItemTextA(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: &mut [u8]) -> u32 {
@@ -961,21 +943,15 @@ pub unsafe fn GetMenuItemID(hmenu: HMENU, npos: i32) -> u32 {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetMenuItemInfoA<P2>(hmenu: HMENU, item: u32, fbyposition: P2, lpmii: *mut MENUITEMINFOA) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetMenuItemInfoA(hmenu: HMENU, item: u32, fbyposition: bool, lpmii: *mut MENUITEMINFOA) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn GetMenuItemInfoA(hmenu : HMENU, item : u32, fbyposition : super::super::Foundation:: BOOL, lpmii : *mut MENUITEMINFOA) -> super::super::Foundation:: BOOL);
-    GetMenuItemInfoA(core::mem::transmute(hmenu), core::mem::transmute(item), fbyposition.param().abi(), core::mem::transmute(lpmii)).ok()
+    GetMenuItemInfoA(core::mem::transmute(hmenu), core::mem::transmute(item), fbyposition.into(), core::mem::transmute(lpmii)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetMenuItemInfoW<P2>(hmenu: HMENU, item: u32, fbyposition: P2, lpmii: *mut MENUITEMINFOW) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetMenuItemInfoW(hmenu: HMENU, item: u32, fbyposition: bool, lpmii: *mut MENUITEMINFOW) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn GetMenuItemInfoW(hmenu : HMENU, item : u32, fbyposition : super::super::Foundation:: BOOL, lpmii : *mut MENUITEMINFOW) -> super::super::Foundation:: BOOL);
-    GetMenuItemInfoW(core::mem::transmute(hmenu), core::mem::transmute(item), fbyposition.param().abi(), core::mem::transmute(lpmii)).ok()
+    GetMenuItemInfoW(core::mem::transmute(hmenu), core::mem::transmute(item), fbyposition.into(), core::mem::transmute(lpmii)).ok()
 }
 #[inline]
 pub unsafe fn GetMenuItemRect(hwnd: Option<super::super::Foundation::HWND>, hmenu: HMENU, uitem: u32, lprcitem: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
@@ -1023,21 +999,15 @@ pub unsafe fn GetMessageW(lpmsg: *mut MSG, hwnd: Option<super::super::Foundation
     GetMessageW(core::mem::transmute(lpmsg), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(wmsgfiltermin), core::mem::transmute(wmsgfiltermax))
 }
 #[inline]
-pub unsafe fn GetNextDlgGroupItem<P2>(hdlg: super::super::Foundation::HWND, hctl: Option<super::super::Foundation::HWND>, bprevious: P2) -> windows_core::Result<super::super::Foundation::HWND>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetNextDlgGroupItem(hdlg: super::super::Foundation::HWND, hctl: Option<super::super::Foundation::HWND>, bprevious: bool) -> windows_core::Result<super::super::Foundation::HWND> {
     windows_targets::link!("user32.dll" "system" fn GetNextDlgGroupItem(hdlg : super::super::Foundation:: HWND, hctl : super::super::Foundation:: HWND, bprevious : super::super::Foundation:: BOOL) -> super::super::Foundation:: HWND);
-    let result__ = GetNextDlgGroupItem(core::mem::transmute(hdlg), core::mem::transmute(hctl.unwrap_or(core::mem::zeroed())), bprevious.param().abi());
+    let result__ = GetNextDlgGroupItem(core::mem::transmute(hdlg), core::mem::transmute(hctl.unwrap_or(core::mem::zeroed())), bprevious.into());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn GetNextDlgTabItem<P2>(hdlg: super::super::Foundation::HWND, hctl: Option<super::super::Foundation::HWND>, bprevious: P2) -> windows_core::Result<super::super::Foundation::HWND>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetNextDlgTabItem(hdlg: super::super::Foundation::HWND, hctl: Option<super::super::Foundation::HWND>, bprevious: bool) -> windows_core::Result<super::super::Foundation::HWND> {
     windows_targets::link!("user32.dll" "system" fn GetNextDlgTabItem(hdlg : super::super::Foundation:: HWND, hctl : super::super::Foundation:: HWND, bprevious : super::super::Foundation:: BOOL) -> super::super::Foundation:: HWND);
-    let result__ = GetNextDlgTabItem(core::mem::transmute(hdlg), core::mem::transmute(hctl.unwrap_or(core::mem::zeroed())), bprevious.param().abi());
+    let result__ = GetNextDlgTabItem(core::mem::transmute(hdlg), core::mem::transmute(hctl.unwrap_or(core::mem::zeroed())), bprevious.into());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1108,12 +1078,9 @@ pub unsafe fn GetSubMenu(hmenu: HMENU, npos: i32) -> HMENU {
     GetSubMenu(core::mem::transmute(hmenu), core::mem::transmute(npos))
 }
 #[inline]
-pub unsafe fn GetSystemMenu<P1>(hwnd: super::super::Foundation::HWND, brevert: P1) -> HMENU
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetSystemMenu(hwnd: super::super::Foundation::HWND, brevert: bool) -> HMENU {
     windows_targets::link!("user32.dll" "system" fn GetSystemMenu(hwnd : super::super::Foundation:: HWND, brevert : super::super::Foundation:: BOOL) -> HMENU);
-    GetSystemMenu(core::mem::transmute(hwnd), brevert.param().abi())
+    GetSystemMenu(core::mem::transmute(hwnd), brevert.into())
 }
 #[inline]
 pub unsafe fn GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX) -> i32 {
@@ -1266,21 +1233,15 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn InsertMenuItemA<P2>(hmenu: HMENU, item: u32, fbyposition: P2, lpmi: *const MENUITEMINFOA) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn InsertMenuItemA(hmenu: HMENU, item: u32, fbyposition: bool, lpmi: *const MENUITEMINFOA) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn InsertMenuItemA(hmenu : HMENU, item : u32, fbyposition : super::super::Foundation:: BOOL, lpmi : *const MENUITEMINFOA) -> super::super::Foundation:: BOOL);
-    InsertMenuItemA(core::mem::transmute(hmenu), core::mem::transmute(item), fbyposition.param().abi(), core::mem::transmute(lpmi)).ok()
+    InsertMenuItemA(core::mem::transmute(hmenu), core::mem::transmute(item), fbyposition.into(), core::mem::transmute(lpmi)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn InsertMenuItemW<P2>(hmenu: HMENU, item: u32, fbyposition: P2, lpmi: *const MENUITEMINFOW) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn InsertMenuItemW(hmenu: HMENU, item: u32, fbyposition: bool, lpmi: *const MENUITEMINFOW) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn InsertMenuItemW(hmenu : HMENU, item : u32, fbyposition : super::super::Foundation:: BOOL, lpmi : *const MENUITEMINFOW) -> super::super::Foundation:: BOOL);
-    InsertMenuItemW(core::mem::transmute(hmenu), core::mem::transmute(item), fbyposition.param().abi(), core::mem::transmute(lpmi)).ok()
+    InsertMenuItemW(core::mem::transmute(hmenu), core::mem::transmute(item), fbyposition.into(), core::mem::transmute(lpmi)).ok()
 }
 #[inline]
 pub unsafe fn InsertMenuW<P4>(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: P4) -> windows_core::Result<()>
@@ -1346,12 +1307,9 @@ pub unsafe fn IsDialogMessageW(hdlg: super::super::Foundation::HWND, lpmsg: *con
     IsDialogMessageW(core::mem::transmute(hdlg), core::mem::transmute(lpmsg))
 }
 #[inline]
-pub unsafe fn IsGUIThread<P0>(bconvert: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn IsGUIThread(bconvert: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn IsGUIThread(bconvert : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    IsGUIThread(bconvert.param().abi())
+    IsGUIThread(bconvert.into())
 }
 #[inline]
 pub unsafe fn IsHungAppWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
@@ -1549,20 +1507,14 @@ pub unsafe fn LogicalToPhysicalPoint(hwnd: super::super::Foundation::HWND, lppoi
     LogicalToPhysicalPoint(core::mem::transmute(hwnd), core::mem::transmute(lppoint))
 }
 #[inline]
-pub unsafe fn LookupIconIdFromDirectory<P1>(presbits: *const u8, ficon: P1) -> i32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn LookupIconIdFromDirectory(presbits: *const u8, ficon: bool) -> i32 {
     windows_targets::link!("user32.dll" "system" fn LookupIconIdFromDirectory(presbits : *const u8, ficon : super::super::Foundation:: BOOL) -> i32);
-    LookupIconIdFromDirectory(core::mem::transmute(presbits), ficon.param().abi())
+    LookupIconIdFromDirectory(core::mem::transmute(presbits), ficon.into())
 }
 #[inline]
-pub unsafe fn LookupIconIdFromDirectoryEx<P1>(presbits: *const u8, ficon: P1, cxdesired: i32, cydesired: i32, flags: IMAGE_FLAGS) -> i32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn LookupIconIdFromDirectoryEx(presbits: *const u8, ficon: bool, cxdesired: i32, cydesired: i32, flags: IMAGE_FLAGS) -> i32 {
     windows_targets::link!("user32.dll" "system" fn LookupIconIdFromDirectoryEx(presbits : *const u8, ficon : super::super::Foundation:: BOOL, cxdesired : i32, cydesired : i32, flags : IMAGE_FLAGS) -> i32);
-    LookupIconIdFromDirectoryEx(core::mem::transmute(presbits), ficon.param().abi(), core::mem::transmute(cxdesired), core::mem::transmute(cydesired), core::mem::transmute(flags))
+    LookupIconIdFromDirectoryEx(core::mem::transmute(presbits), ficon.into(), core::mem::transmute(cxdesired), core::mem::transmute(cydesired), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn MapDialogRect(hdlg: super::super::Foundation::HWND, lprect: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
@@ -1639,12 +1591,9 @@ where
     ModifyMenuW(core::mem::transmute(hmnu), core::mem::transmute(uposition), core::mem::transmute(uflags), core::mem::transmute(uidnewitem), lpnewitem.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn MoveWindow<P5>(hwnd: super::super::Foundation::HWND, x: i32, y: i32, nwidth: i32, nheight: i32, brepaint: P5) -> windows_core::Result<()>
-where
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn MoveWindow(hwnd: super::super::Foundation::HWND, x: i32, y: i32, nwidth: i32, nheight: i32, brepaint: bool) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn MoveWindow(hwnd : super::super::Foundation:: HWND, x : i32, y : i32, nwidth : i32, nheight : i32, brepaint : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    MoveWindow(core::mem::transmute(hwnd), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(nwidth), core::mem::transmute(nheight), brepaint.param().abi()).ok()
+    MoveWindow(core::mem::transmute(hwnd), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(nwidth), core::mem::transmute(nheight), brepaint.into()).ok()
 }
 #[inline]
 pub unsafe fn MrmCreateConfig<P1, P2>(platformversion: MrmPlatformVersion, defaultqualifiers: P1, outputxmlfile: P2) -> windows_core::Result<()>
@@ -1836,12 +1785,9 @@ pub unsafe fn MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, m
     MrmPeekResourceIndexerMessages(core::mem::transmute(handle), core::mem::transmute(messages), core::mem::transmute(nummsgs)).ok()
 }
 #[inline]
-pub unsafe fn MsgWaitForMultipleObjects<P2>(phandles: Option<&[super::super::Foundation::HANDLE]>, fwaitall: P2, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS) -> super::super::Foundation::WAIT_EVENT
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn MsgWaitForMultipleObjects(phandles: Option<&[super::super::Foundation::HANDLE]>, fwaitall: bool, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS) -> super::super::Foundation::WAIT_EVENT {
     windows_targets::link!("user32.dll" "system" fn MsgWaitForMultipleObjects(ncount : u32, phandles : *const super::super::Foundation:: HANDLE, fwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS) -> super::super::Foundation:: WAIT_EVENT);
-    MsgWaitForMultipleObjects(phandles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(phandles.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fwaitall.param().abi(), core::mem::transmute(dwmilliseconds), core::mem::transmute(dwwakemask))
+    MsgWaitForMultipleObjects(phandles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(phandles.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fwaitall.into(), core::mem::transmute(dwmilliseconds), core::mem::transmute(dwwakemask))
 }
 #[inline]
 pub unsafe fn MsgWaitForMultipleObjectsEx(phandles: Option<&[super::super::Foundation::HANDLE]>, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS, dwflags: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> super::super::Foundation::WAIT_EVENT {
@@ -2170,12 +2116,9 @@ pub unsafe fn SetDebugErrorLevel(dwlevel: u32) {
     SetDebugErrorLevel(core::mem::transmute(dwlevel))
 }
 #[inline]
-pub unsafe fn SetDlgItemInt<P3>(hdlg: super::super::Foundation::HWND, niddlgitem: i32, uvalue: u32, bsigned: P3) -> windows_core::Result<()>
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetDlgItemInt(hdlg: super::super::Foundation::HWND, niddlgitem: i32, uvalue: u32, bsigned: bool) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn SetDlgItemInt(hdlg : super::super::Foundation:: HWND, niddlgitem : i32, uvalue : u32, bsigned : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetDlgItemInt(core::mem::transmute(hdlg), core::mem::transmute(niddlgitem), core::mem::transmute(uvalue), bsigned.param().abi()).ok()
+    SetDlgItemInt(core::mem::transmute(hdlg), core::mem::transmute(niddlgitem), core::mem::transmute(uvalue), bsigned.into()).ok()
 }
 #[inline]
 pub unsafe fn SetDlgItemTextA<P2>(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: P2) -> windows_core::Result<()>
@@ -2227,21 +2170,15 @@ pub unsafe fn SetMenuItemBitmaps(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetMenuItemInfoA<P2>(hmenu: HMENU, item: u32, fbypositon: P2, lpmii: *const MENUITEMINFOA) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetMenuItemInfoA(hmenu: HMENU, item: u32, fbypositon: bool, lpmii: *const MENUITEMINFOA) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn SetMenuItemInfoA(hmenu : HMENU, item : u32, fbypositon : super::super::Foundation:: BOOL, lpmii : *const MENUITEMINFOA) -> super::super::Foundation:: BOOL);
-    SetMenuItemInfoA(core::mem::transmute(hmenu), core::mem::transmute(item), fbypositon.param().abi(), core::mem::transmute(lpmii)).ok()
+    SetMenuItemInfoA(core::mem::transmute(hmenu), core::mem::transmute(item), fbypositon.into(), core::mem::transmute(lpmii)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetMenuItemInfoW<P2>(hmenu: HMENU, item: u32, fbypositon: P2, lpmii: *const MENUITEMINFOW) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetMenuItemInfoW(hmenu: HMENU, item: u32, fbypositon: bool, lpmii: *const MENUITEMINFOW) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn SetMenuItemInfoW(hmenu : HMENU, item : u32, fbypositon : super::super::Foundation:: BOOL, lpmii : *const MENUITEMINFOW) -> super::super::Foundation:: BOOL);
-    SetMenuItemInfoW(core::mem::transmute(hmenu), core::mem::transmute(item), fbypositon.param().abi(), core::mem::transmute(lpmii)).ok()
+    SetMenuItemInfoW(core::mem::transmute(hmenu), core::mem::transmute(item), fbypositon.into(), core::mem::transmute(lpmii)).ok()
 }
 #[inline]
 pub unsafe fn SetMessageExtraInfo(lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LPARAM {
@@ -2390,20 +2327,14 @@ pub unsafe fn ShowCaret(hwnd: Option<super::super::Foundation::HWND>) -> windows
     ShowCaret(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn ShowCursor<P0>(bshow: P0) -> i32
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ShowCursor(bshow: bool) -> i32 {
     windows_targets::link!("user32.dll" "system" fn ShowCursor(bshow : super::super::Foundation:: BOOL) -> i32);
-    ShowCursor(bshow.param().abi())
+    ShowCursor(bshow.into())
 }
 #[inline]
-pub unsafe fn ShowOwnedPopups<P1>(hwnd: super::super::Foundation::HWND, fshow: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ShowOwnedPopups(hwnd: super::super::Foundation::HWND, fshow: bool) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn ShowOwnedPopups(hwnd : super::super::Foundation:: HWND, fshow : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    ShowOwnedPopups(core::mem::transmute(hwnd), fshow.param().abi()).ok()
+    ShowOwnedPopups(core::mem::transmute(hwnd), fshow.into()).ok()
 }
 #[inline]
 pub unsafe fn ShowWindow(hwnd: super::super::Foundation::HWND, ncmdshow: SHOW_WINDOW_CMD) -> super::super::Foundation::BOOL {
@@ -2421,12 +2352,9 @@ pub unsafe fn SoundSentry() -> super::super::Foundation::BOOL {
     SoundSentry()
 }
 #[inline]
-pub unsafe fn SwitchToThisWindow<P1>(hwnd: super::super::Foundation::HWND, funknown: P1)
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SwitchToThisWindow(hwnd: super::super::Foundation::HWND, funknown: bool) {
     windows_targets::link!("user32.dll" "system" fn SwitchToThisWindow(hwnd : super::super::Foundation:: HWND, funknown : super::super::Foundation:: BOOL));
-    SwitchToThisWindow(core::mem::transmute(hwnd), funknown.param().abi())
+    SwitchToThisWindow(core::mem::transmute(hwnd), funknown.into())
 }
 #[inline]
 pub unsafe fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: Option<*mut core::ffi::c_void>, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> windows_core::Result<()> {
@@ -3995,9 +3923,6 @@ pub const GW_OWNER: GET_WINDOW_CMD = GET_WINDOW_CMD(4u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACCEL(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HACCEL {
-    type TypeKind = windows_core::CopyType;
-}
 impl HACCEL {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -4072,9 +3997,6 @@ pub const HCF_LOGONDESKTOP: u32 = 256u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCURSOR(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCURSOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCURSOR {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -4110,9 +4032,6 @@ pub const HC_SYSMODALON: u32 = 4u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDEVNOTIFY(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDEVNOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDEVNOTIFY {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -4135,9 +4054,6 @@ impl Default for HDEVNOTIFY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDWP(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDWP {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDWP {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -4172,9 +4088,6 @@ pub const HELP_WM_HELP: u32 = 12u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HHOOK(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HHOOK {
-    type TypeKind = windows_core::CopyType;
-}
 impl HHOOK {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -4197,9 +4110,6 @@ impl Default for HHOOK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HICON(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HICON {
-    type TypeKind = windows_core::CopyType;
-}
 impl HICON {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -4225,9 +4135,6 @@ pub const HKL_PREV: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMENU(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMENU {
-    type TypeKind = windows_core::CopyType;
-}
 impl HMENU {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

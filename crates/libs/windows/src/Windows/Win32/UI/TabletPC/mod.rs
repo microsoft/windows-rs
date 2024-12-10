@@ -13,12 +13,9 @@ where
     AddWordsToWordList(core::mem::transmute(hwl), pwcwords.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn AdviseInkChange<P1>(hrc: HRECOCONTEXT, bnewstroke: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: bool) -> windows_core::Result<()> {
     windows_targets::link!("inkobjcore.dll" "system" fn AdviseInkChange(hrc : HRECOCONTEXT, bnewstroke : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    AdviseInkChange(core::mem::transmute(hrc), bnewstroke.param().abi()).ok()
+    AdviseInkChange(core::mem::transmute(hrc), bnewstroke.into()).ok()
 }
 #[inline]
 pub unsafe fn CreateContext(hrec: HRECOGNIZER, phrc: *mut HRECOCONTEXT) -> windows_core::Result<()> {
@@ -1073,9 +1070,6 @@ pub const GestureRecognizer: windows_core::GUID = windows_core::GUID::from_u128(
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRECOALT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HRECOALT {
-    type TypeKind = windows_core::CopyType;
-}
 impl HRECOALT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1089,9 +1083,6 @@ impl Default for HRECOALT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRECOCONTEXT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HRECOCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 impl HRECOCONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1114,9 +1105,6 @@ impl Default for HRECOCONTEXT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRECOGNIZER(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HRECOGNIZER {
-    type TypeKind = windows_core::CopyType;
-}
 impl HRECOGNIZER {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1139,9 +1127,6 @@ impl Default for HRECOGNIZER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRECOLATTICE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HRECOLATTICE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HRECOLATTICE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1155,9 +1140,6 @@ impl Default for HRECOLATTICE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRECOWORDLIST(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HRECOWORDLIST {
-    type TypeKind = windows_core::CopyType;
-}
 impl HRECOWORDLIST {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1279,11 +1261,8 @@ impl IDynamicRenderer {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, benabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benabled.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, benabled: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benabled.into()).ok()
     }
     pub unsafe fn HWND(&self) -> windows_core::Result<super::super::Foundation::HANDLE_PTR> {
         let mut result__ = core::mem::zeroed();
@@ -1322,11 +1301,8 @@ impl IDynamicRenderer {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DataCacheEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetDataCacheEnabled<P0>(&self, fcachedata: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDataCacheEnabled)(windows_core::Interface::as_raw(self), fcachedata.param().abi()).ok()
+    pub unsafe fn SetDataCacheEnabled(&self, fcachedata: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDataCacheEnabled)(windows_core::Interface::as_raw(self), fcachedata.into()).ok()
     }
     pub unsafe fn ReleaseCachedData(&self, strokeid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ReleaseCachedData)(windows_core::Interface::as_raw(self), core::mem::transmute(strokeid)).ok()
@@ -1575,11 +1551,8 @@ impl IGestureRecognizer {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, fenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, fenabled: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenabled.into()).ok()
     }
     pub unsafe fn MaxStrokeCount(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -1670,19 +1643,15 @@ windows_core::imp::define_interface!(IHandwrittenTextInsertion, IHandwrittenText
 windows_core::imp::interface_hierarchy!(IHandwrittenTextInsertion, windows_core::IUnknown);
 impl IHandwrittenTextInsertion {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InsertRecognitionResultsArray<P2>(&self, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).InsertRecognitionResultsArray)(windows_core::Interface::as_raw(self), core::mem::transmute(psaalternates), core::mem::transmute(locale), falternatecontainsautospacinginformation.param().abi()).ok()
+    pub unsafe fn InsertRecognitionResultsArray(&self, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).InsertRecognitionResultsArray)(windows_core::Interface::as_raw(self), core::mem::transmute(psaalternates), core::mem::transmute(locale), falternatecontainsautospacinginformation.into()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InsertInkRecognitionResult<P0, P2>(&self, piinkrecoresult: P0, locale: u32, falternatecontainsautospacinginformation: P2) -> windows_core::Result<()>
+    pub unsafe fn InsertInkRecognitionResult<P0>(&self, piinkrecoresult: P0, locale: u32, falternatecontainsautospacinginformation: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkRecognitionResult>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).InsertInkRecognitionResult)(windows_core::Interface::as_raw(self), piinkrecoresult.param().abi(), core::mem::transmute(locale), falternatecontainsautospacinginformation.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertInkRecognitionResult)(windows_core::Interface::as_raw(self), piinkrecoresult.param().abi(), core::mem::transmute(locale), falternatecontainsautospacinginformation.into()).ok()
     }
 }
 #[repr(C)]
@@ -11835,11 +11804,8 @@ impl IRealTimeStylus {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, fenable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn HWND(&self) -> windows_core::Result<super::super::Foundation::HANDLE_PTR> {
         let mut result__ = core::mem::zeroed();
@@ -11911,11 +11877,8 @@ impl IRealTimeStylus {
     pub unsafe fn ClearStylusQueues(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ClearStylusQueues)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetAllTabletsMode<P0>(&self, fusemouseforinput: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), fusemouseforinput.param().abi()).ok()
+    pub unsafe fn SetAllTabletsMode(&self, fusemouseforinput: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), fusemouseforinput.into()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSingleTabletMode<P0>(&self, pitablet: P0) -> windows_core::Result<()>
@@ -12305,11 +12268,8 @@ impl IRealTimeStylus2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FlicksEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetFlicksEnabled<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetFlicksEnabled)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
+    pub unsafe fn SetFlicksEnabled(&self, fenable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetFlicksEnabled)(windows_core::Interface::as_raw(self), fenable.into()).ok()
     }
 }
 #[repr(C)]
@@ -12356,11 +12316,8 @@ impl IRealTimeStylus3 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MultiTouchEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetMultiTouchEnabled<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMultiTouchEnabled)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
+    pub unsafe fn SetMultiTouchEnabled(&self, fenable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMultiTouchEnabled)(windows_core::Interface::as_raw(self), fenable.into()).ok()
     }
 }
 #[repr(C)]
@@ -12952,21 +12909,15 @@ impl ITextInputPanel {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ExpandPostInsertionCorrection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetExpandPostInsertionCorrection<P0>(&self, expand: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetExpandPostInsertionCorrection)(windows_core::Interface::as_raw(self), expand.param().abi()).ok()
+    pub unsafe fn SetExpandPostInsertionCorrection(&self, expand: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetExpandPostInsertionCorrection)(windows_core::Interface::as_raw(self), expand.into()).ok()
     }
     pub unsafe fn InPlaceVisibleOnFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InPlaceVisibleOnFocus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetInPlaceVisibleOnFocus<P0>(&self, visible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetInPlaceVisibleOnFocus)(windows_core::Interface::as_raw(self), visible.param().abi()).ok()
+    pub unsafe fn SetInPlaceVisibleOnFocus(&self, visible: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetInPlaceVisibleOnFocus)(windows_core::Interface::as_raw(self), visible.into()).ok()
     }
     pub unsafe fn InPlaceBoundingRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = core::mem::zeroed();
@@ -12983,11 +12934,8 @@ impl ITextInputPanel {
     pub unsafe fn CommitPendingInput(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CommitPendingInput)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetInPlaceVisibility<P0>(&self, visible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetInPlaceVisibility)(windows_core::Interface::as_raw(self), visible.param().abi()).ok()
+    pub unsafe fn SetInPlaceVisibility(&self, visible: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetInPlaceVisibility)(windows_core::Interface::as_raw(self), visible.into()).ok()
     }
     pub unsafe fn SetInPlacePosition(&self, xposition: i32, yposition: i32, position: CorrectionPosition) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetInPlacePosition)(windows_core::Interface::as_raw(self), core::mem::transmute(xposition), core::mem::transmute(yposition), core::mem::transmute(position)).ok()
@@ -13305,19 +13253,11 @@ impl ITextInputPanelEventSink {
     pub unsafe fn CorrectionModeChanged(&self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CorrectionModeChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(oldcorrectionmode), core::mem::transmute(newcorrectionmode)).ok()
     }
-    pub unsafe fn InPlaceVisibilityChanging<P0, P1>(&self, oldvisible: P0, newvisible: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).InPlaceVisibilityChanging)(windows_core::Interface::as_raw(self), oldvisible.param().abi(), newvisible.param().abi()).ok()
+    pub unsafe fn InPlaceVisibilityChanging(&self, oldvisible: bool, newvisible: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).InPlaceVisibilityChanging)(windows_core::Interface::as_raw(self), oldvisible.into(), newvisible.into()).ok()
     }
-    pub unsafe fn InPlaceVisibilityChanged<P0, P1>(&self, oldvisible: P0, newvisible: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).InPlaceVisibilityChanged)(windows_core::Interface::as_raw(self), oldvisible.param().abi(), newvisible.param().abi()).ok()
+    pub unsafe fn InPlaceVisibilityChanged(&self, oldvisible: bool, newvisible: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).InPlaceVisibilityChanged)(windows_core::Interface::as_raw(self), oldvisible.into(), newvisible.into()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TextInserting(&self, ink: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
@@ -13563,11 +13503,8 @@ impl ITipAutoCompleteProvider {
     pub unsafe fn UpdatePendingText(&self, bstrpendingtext: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UpdatePendingText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpendingtext)).ok()
     }
-    pub unsafe fn Show<P0>(&self, fshow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
+    pub unsafe fn Show(&self, fshow: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), fshow.into()).ok()
     }
 }
 #[repr(C)]

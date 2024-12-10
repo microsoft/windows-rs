@@ -9154,9 +9154,6 @@ pub type MI_Module_Load = Option<unsafe extern "system" fn(self_: *mut *mut MI_M
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct MI_Module_Self(pub isize);
-impl windows_core::TypeKind for MI_Module_Self {
-    type TypeKind = windows_core::CopyType;
-}
 pub type MI_Module_Unload = Option<unsafe extern "system" fn(self_: *const MI_Module_Self, context: *const MI_Context)>;
 pub const MI_OPERATIONFLAGS_BASIC_RTTI: u32 = 2u32;
 pub const MI_OPERATIONFLAGS_DEFAULT_RTTI: u32 = 0u32;

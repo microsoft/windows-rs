@@ -21,13 +21,12 @@ pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINT
     ReportFault(core::mem::transmute(pep), core::mem::transmute(dwopt))
 }
 #[inline]
-pub unsafe fn WerAddExcludedApplication<P0, P1>(pwzexename: P0, ballusers: P1) -> windows_core::Result<()>
+pub unsafe fn WerAddExcludedApplication<P0>(pwzexename: P0, ballusers: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wer.dll" "system" fn WerAddExcludedApplication(pwzexename : windows_core::PCWSTR, ballusers : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    WerAddExcludedApplication(pwzexename.param().abi(), ballusers.param().abi()).ok()
+    WerAddExcludedApplication(pwzexename.param().abi(), ballusers.into()).ok()
 }
 #[inline]
 pub unsafe fn WerFreeString<P0>(pwszstr: P0)
@@ -92,13 +91,12 @@ where
     WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.param().abi(), core::mem::transmute(pcontext)).ok()
 }
 #[inline]
-pub unsafe fn WerRemoveExcludedApplication<P0, P1>(pwzexename: P0, ballusers: P1) -> windows_core::Result<()>
+pub unsafe fn WerRemoveExcludedApplication<P0>(pwzexename: P0, ballusers: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wer.dll" "system" fn WerRemoveExcludedApplication(pwzexename : windows_core::PCWSTR, ballusers : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    WerRemoveExcludedApplication(pwzexename.param().abi(), ballusers.param().abi()).ok()
+    WerRemoveExcludedApplication(pwzexename.param().abi(), ballusers.into()).ok()
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -289,9 +287,6 @@ pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HREPORT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HREPORT {
-    type TypeKind = windows_core::CopyType;
-}
 impl HREPORT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -314,9 +309,6 @@ impl Default for HREPORT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HREPORTSTORE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HREPORTSTORE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HREPORTSTORE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

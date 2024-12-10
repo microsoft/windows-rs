@@ -545,12 +545,9 @@ where
     DRMParseUnboundLicense(wszcertificate.param().abi(), core::mem::transmute(phqueryroot)).ok()
 }
 #[inline]
-pub unsafe fn DRMRegisterContent<P0>(fregister: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn DRMRegisterContent(fregister: bool) -> windows_core::Result<()> {
     windows_targets::link!("msdrm.dll" "system" fn DRMRegisterContent(fregister : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    DRMRegisterContent(fregister.param().abi()).ok()
+    DRMRegisterContent(fregister.into()).ok()
 }
 #[inline]
 pub unsafe fn DRMRegisterProtectedWindow(henv: u32, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
@@ -571,14 +568,13 @@ pub unsafe fn DRMRepair() -> windows_core::Result<()> {
     DRMRepair().ok()
 }
 #[inline]
-pub unsafe fn DRMSetApplicationSpecificData<P1, P2, P3>(hissuancelicense: u32, fdelete: P1, wszname: P2, wszvalue: P3) -> windows_core::Result<()>
+pub unsafe fn DRMSetApplicationSpecificData<P2, P3>(hissuancelicense: u32, fdelete: bool, wszname: P2, wszvalue: P3) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msdrm.dll" "system" fn DRMSetApplicationSpecificData(hissuancelicense : u32, fdelete : super::super::Foundation:: BOOL, wszname : windows_core::PCWSTR, wszvalue : windows_core::PCWSTR) -> windows_core::HRESULT);
-    DRMSetApplicationSpecificData(core::mem::transmute(hissuancelicense), fdelete.param().abi(), wszname.param().abi(), wszvalue.param().abi()).ok()
+    DRMSetApplicationSpecificData(core::mem::transmute(hissuancelicense), fdelete.into(), wszname.param().abi(), wszvalue.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn DRMSetGlobalOptions(eglobaloptions: DRMGLOBALOPTIONS, pvdata: *mut core::ffi::c_void, dwlen: u32) -> windows_core::Result<()> {
@@ -604,19 +600,17 @@ where
     DRMSetMetaData(core::mem::transmute(hissuancelicense), wszcontentid.param().abi(), wszcontentidtype.param().abi(), wszskuid.param().abi(), wszskuidtype.param().abi(), wszcontenttype.param().abi(), wszcontentname.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn DRMSetNameAndDescription<P1, P3, P4>(hissuancelicense: u32, fdelete: P1, lcid: u32, wszname: P3, wszdescription: P4) -> windows_core::Result<()>
+pub unsafe fn DRMSetNameAndDescription<P3, P4>(hissuancelicense: u32, fdelete: bool, lcid: u32, wszname: P3, wszdescription: P4) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msdrm.dll" "system" fn DRMSetNameAndDescription(hissuancelicense : u32, fdelete : super::super::Foundation:: BOOL, lcid : u32, wszname : windows_core::PCWSTR, wszdescription : windows_core::PCWSTR) -> windows_core::HRESULT);
-    DRMSetNameAndDescription(core::mem::transmute(hissuancelicense), fdelete.param().abi(), core::mem::transmute(lcid), wszname.param().abi(), wszdescription.param().abi()).ok()
+    DRMSetNameAndDescription(core::mem::transmute(hissuancelicense), fdelete.into(), core::mem::transmute(lcid), wszname.param().abi(), wszdescription.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn DRMSetRevocationPoint<P1, P2, P3, P4, P6, P7>(hissuancelicense: u32, fdelete: P1, wszid: P2, wszidtype: P3, wszurl: P4, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, wszname: P6, wszpublickey: P7) -> windows_core::Result<()>
+pub unsafe fn DRMSetRevocationPoint<P2, P3, P4, P6, P7>(hissuancelicense: u32, fdelete: bool, wszid: P2, wszidtype: P3, wszurl: P4, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, wszname: P6, wszpublickey: P7) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
@@ -624,13 +618,11 @@ where
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msdrm.dll" "system" fn DRMSetRevocationPoint(hissuancelicense : u32, fdelete : super::super::Foundation:: BOOL, wszid : windows_core::PCWSTR, wszidtype : windows_core::PCWSTR, wszurl : windows_core::PCWSTR, pstfrequency : *mut super::super::Foundation:: SYSTEMTIME, wszname : windows_core::PCWSTR, wszpublickey : windows_core::PCWSTR) -> windows_core::HRESULT);
-    DRMSetRevocationPoint(core::mem::transmute(hissuancelicense), fdelete.param().abi(), wszid.param().abi(), wszidtype.param().abi(), wszurl.param().abi(), core::mem::transmute(pstfrequency), wszname.param().abi(), wszpublickey.param().abi()).ok()
+    DRMSetRevocationPoint(core::mem::transmute(hissuancelicense), fdelete.into(), wszid.param().abi(), wszidtype.param().abi(), wszurl.param().abi(), core::mem::transmute(pstfrequency), wszname.param().abi(), wszpublickey.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn DRMSetUsagePolicy<P2, P3, P4, P5, P6, P7, P8>(hissuancelicense: u32, eusagepolicytype: DRM_USAGEPOLICY_TYPE, fdelete: P2, fexclusion: P3, wszname: P4, wszminversion: P5, wszmaxversion: P6, wszpublickey: P7, wszdigestalgorithm: P8, pbdigest: *mut u8, cbdigest: u32) -> windows_core::Result<()>
+pub unsafe fn DRMSetUsagePolicy<P4, P5, P6, P7, P8>(hissuancelicense: u32, eusagepolicytype: DRM_USAGEPOLICY_TYPE, fdelete: bool, fexclusion: bool, wszname: P4, wszminversion: P5, wszmaxversion: P6, wszpublickey: P7, wszdigestalgorithm: P8, pbdigest: *mut u8, cbdigest: u32) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
     P6: windows_core::Param<windows_core::PCWSTR>,
@@ -638,7 +630,7 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msdrm.dll" "system" fn DRMSetUsagePolicy(hissuancelicense : u32, eusagepolicytype : DRM_USAGEPOLICY_TYPE, fdelete : super::super::Foundation:: BOOL, fexclusion : super::super::Foundation:: BOOL, wszname : windows_core::PCWSTR, wszminversion : windows_core::PCWSTR, wszmaxversion : windows_core::PCWSTR, wszpublickey : windows_core::PCWSTR, wszdigestalgorithm : windows_core::PCWSTR, pbdigest : *mut u8, cbdigest : u32) -> windows_core::HRESULT);
-    DRMSetUsagePolicy(core::mem::transmute(hissuancelicense), core::mem::transmute(eusagepolicytype), fdelete.param().abi(), fexclusion.param().abi(), wszname.param().abi(), wszminversion.param().abi(), wszmaxversion.param().abi(), wszpublickey.param().abi(), wszdigestalgorithm.param().abi(), core::mem::transmute(pbdigest), core::mem::transmute(cbdigest)).ok()
+    DRMSetUsagePolicy(core::mem::transmute(hissuancelicense), core::mem::transmute(eusagepolicytype), fdelete.into(), fexclusion.into(), wszname.param().abi(), wszminversion.param().abi(), wszmaxversion.param().abi(), wszpublickey.param().abi(), wszdigestalgorithm.param().abi(), core::mem::transmute(pbdigest), core::mem::transmute(cbdigest)).ok()
 }
 #[inline]
 pub unsafe fn DRMVerify<P0>(wszdata: P0, pcattesteddata: *mut u32, wszattesteddata: Option<windows_core::PWSTR>, petype: *mut DRMATTESTTYPE, pcprincipal: *mut u32, wszprincipal: Option<windows_core::PWSTR>, pcmanifest: *mut u32, wszmanifest: Option<windows_core::PWSTR>) -> windows_core::Result<()>

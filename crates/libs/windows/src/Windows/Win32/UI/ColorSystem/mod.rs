@@ -164,14 +164,12 @@ pub unsafe fn ColorMatchToTarget(hdc: super::super::Graphics::Gdi::HDC, hdctarge
     ColorMatchToTarget(core::mem::transmute(hdc), core::mem::transmute(hdctarget), core::mem::transmute(action))
 }
 #[inline]
-pub unsafe fn ColorProfileAddDisplayAssociation<P1, P4, P5>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P1, targetadapterid: super::super::Foundation::LUID, sourceid: u32, setasdefault: P4, associateasadvancedcolor: P5) -> windows_core::Result<()>
+pub unsafe fn ColorProfileAddDisplayAssociation<P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P1, targetadapterid: super::super::Foundation::LUID, sourceid: u32, setasdefault: bool, associateasadvancedcolor: bool) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mscms.dll" "system" fn ColorProfileAddDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_core::PCWSTR, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, setasdefault : super::super::Foundation:: BOOL, associateasadvancedcolor : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    ColorProfileAddDisplayAssociation(core::mem::transmute(scope), profilename.param().abi(), core::mem::transmute(targetadapterid), core::mem::transmute(sourceid), setasdefault.param().abi(), associateasadvancedcolor.param().abi()).ok()
+    ColorProfileAddDisplayAssociation(core::mem::transmute(scope), profilename.param().abi(), core::mem::transmute(targetadapterid), core::mem::transmute(sourceid), setasdefault.into(), associateasadvancedcolor.into()).ok()
 }
 #[inline]
 pub unsafe fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE) -> windows_core::Result<windows_core::PWSTR> {
@@ -191,13 +189,12 @@ pub unsafe fn ColorProfileGetDisplayUserScope(targetadapterid: super::super::Fou
     ColorProfileGetDisplayUserScope(core::mem::transmute(targetadapterid), core::mem::transmute(sourceid), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn ColorProfileRemoveDisplayAssociation<P1, P4>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P1, targetadapterid: super::super::Foundation::LUID, sourceid: u32, dissociateadvancedcolor: P4) -> windows_core::Result<()>
+pub unsafe fn ColorProfileRemoveDisplayAssociation<P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P1, targetadapterid: super::super::Foundation::LUID, sourceid: u32, dissociateadvancedcolor: bool) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mscms.dll" "system" fn ColorProfileRemoveDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_core::PCWSTR, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, dissociateadvancedcolor : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    ColorProfileRemoveDisplayAssociation(core::mem::transmute(scope), profilename.param().abi(), core::mem::transmute(targetadapterid), core::mem::transmute(sourceid), dissociateadvancedcolor.param().abi()).ok()
+    ColorProfileRemoveDisplayAssociation(core::mem::transmute(scope), profilename.param().abi(), core::mem::transmute(targetadapterid), core::mem::transmute(sourceid), dissociateadvancedcolor.into()).ok()
 }
 #[inline]
 pub unsafe fn ColorProfileSetDisplayDefaultAssociation<P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P1, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> windows_core::Result<()>
@@ -599,24 +596,22 @@ pub unsafe fn TranslateColors(hcolortransform: isize, painputcolors: *const COLO
     TranslateColors(core::mem::transmute(hcolortransform), core::mem::transmute(painputcolors), core::mem::transmute(ncolors), core::mem::transmute(ctinput), core::mem::transmute(paoutputcolors), core::mem::transmute(ctoutput))
 }
 #[inline]
-pub unsafe fn UninstallColorProfileA<P0, P1, P2>(pmachinename: P0, pprofilename: P1, bdelete: P2) -> super::super::Foundation::BOOL
+pub unsafe fn UninstallColorProfileA<P0, P1>(pmachinename: P0, pprofilename: P1, bdelete: bool) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mscms.dll" "system" fn UninstallColorProfileA(pmachinename : windows_core::PCSTR, pprofilename : windows_core::PCSTR, bdelete : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    UninstallColorProfileA(pmachinename.param().abi(), pprofilename.param().abi(), bdelete.param().abi())
+    UninstallColorProfileA(pmachinename.param().abi(), pprofilename.param().abi(), bdelete.into())
 }
 #[inline]
-pub unsafe fn UninstallColorProfileW<P0, P1, P2>(pmachinename: P0, pprofilename: P1, bdelete: P2) -> super::super::Foundation::BOOL
+pub unsafe fn UninstallColorProfileW<P0, P1>(pmachinename: P0, pprofilename: P1, bdelete: bool) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mscms.dll" "system" fn UninstallColorProfileW(pmachinename : windows_core::PCWSTR, pprofilename : windows_core::PCWSTR, bdelete : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    UninstallColorProfileW(pmachinename.param().abi(), pprofilename.param().abi(), bdelete.param().abi())
+    UninstallColorProfileW(pmachinename.param().abi(), pprofilename.param().abi(), bdelete.into())
 }
 #[inline]
 pub unsafe fn UnregisterCMMA<P0>(pmachinename: P0, cmmid: u32) -> super::super::Foundation::BOOL
@@ -735,12 +730,9 @@ pub unsafe fn WcsOpenColorProfileW(pcdmpprofile: *const PROFILE, pcampprofile: O
     WcsOpenColorProfileW(core::mem::transmute(pcdmpprofile), core::mem::transmute(pcampprofile.unwrap_or(core::mem::zeroed())), core::mem::transmute(pgmmpprofile.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwdesireaccess), core::mem::transmute(dwsharemode), core::mem::transmute(dwcreationmode), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn WcsSetCalibrationManagementState<P0>(bisenabled: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WcsSetCalibrationManagementState(bisenabled: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("mscms.dll" "system" fn WcsSetCalibrationManagementState(bisenabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    WcsSetCalibrationManagementState(bisenabled.param().abi())
+    WcsSetCalibrationManagementState(bisenabled.into())
 }
 #[inline]
 pub unsafe fn WcsSetDefaultColorProfile<P1, P5>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: P1, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pprofilename: P5) -> super::super::Foundation::BOOL
@@ -757,13 +749,12 @@ pub unsafe fn WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, 
     WcsSetDefaultRenderingIntent(core::mem::transmute(scope), core::mem::transmute(dwrenderingintent))
 }
 #[inline]
-pub unsafe fn WcsSetUsePerUserProfiles<P0, P2>(pdevicename: P0, dwdeviceclass: u32, useperuserprofiles: P2) -> super::super::Foundation::BOOL
+pub unsafe fn WcsSetUsePerUserProfiles<P0>(pdevicename: P0, dwdeviceclass: u32, useperuserprofiles: bool) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mscms.dll" "system" fn WcsSetUsePerUserProfiles(pdevicename : windows_core::PCWSTR, dwdeviceclass : u32, useperuserprofiles : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    WcsSetUsePerUserProfiles(pdevicename.param().abi(), core::mem::transmute(dwdeviceclass), useperuserprofiles.param().abi())
+    WcsSetUsePerUserProfiles(pdevicename.param().abi(), core::mem::transmute(dwdeviceclass), useperuserprofiles.into())
 }
 #[inline]
 pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const core::ffi::c_void, noutputchannels: u32, cdtoutput: COLORDATATYPE, cboutput: u32, poutputdata: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -1196,9 +1187,6 @@ impl Default for GamutShellTriangle {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCOLORSPACE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCOLORSPACE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCOLORSPACE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

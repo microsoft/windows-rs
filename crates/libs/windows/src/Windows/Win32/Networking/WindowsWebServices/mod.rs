@@ -347,12 +347,9 @@ pub unsafe fn WsFillReader(reader: *const WS_XML_READER, minsize: u32, asynccont
     WsFillReader(core::mem::transmute(reader), core::mem::transmute(minsize), core::mem::transmute(asynccontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn WsFindAttribute<P3>(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: P3, attributeindex: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WsFindAttribute(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: bool, attributeindex: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsFindAttribute(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, attributeindex : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsFindAttribute(core::mem::transmute(reader), core::mem::transmute(localname), core::mem::transmute(ns), required.param().abi(), core::mem::transmute(attributeindex), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
+    WsFindAttribute(core::mem::transmute(reader), core::mem::transmute(localname), core::mem::transmute(ns), required.into(), core::mem::transmute(attributeindex), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WsFlushBody(message: *const WS_MESSAGE, minsize: u32, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
@@ -501,12 +498,9 @@ pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, 
     WsGetMissingMetadataDocumentAddress(core::mem::transmute(metadata), core::mem::transmute(address), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn WsGetNamespaceFromPrefix<P2>(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: P2, ns: *mut *mut WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WsGetNamespaceFromPrefix(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: bool, ns: *mut *mut WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetNamespaceFromPrefix(reader : *const WS_XML_READER, prefix : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, ns : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetNamespaceFromPrefix(core::mem::transmute(reader), core::mem::transmute(prefix), required.param().abi(), core::mem::transmute(ns), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
+    WsGetNamespaceFromPrefix(core::mem::transmute(reader), core::mem::transmute(prefix), required.into(), core::mem::transmute(ns), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetOperationContextProperty(context: *const WS_OPERATION_CONTEXT, id: WS_OPERATION_CONTEXT_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
@@ -524,12 +518,9 @@ pub unsafe fn WsGetPolicyProperty(policy: *const WS_POLICY, id: WS_POLICY_PROPER
     WsGetPolicyProperty(core::mem::transmute(policy), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn WsGetPrefixFromNamespace<P2>(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: P2, prefix: *mut *mut WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WsGetPrefixFromNamespace(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: bool, prefix: *mut *mut WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetPrefixFromNamespace(writer : *const WS_XML_WRITER, ns : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, prefix : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetPrefixFromNamespace(core::mem::transmute(writer), core::mem::transmute(ns), required.param().abi(), core::mem::transmute(prefix), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
+    WsGetPrefixFromNamespace(core::mem::transmute(writer), core::mem::transmute(ns), required.into(), core::mem::transmute(prefix), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetReaderNode(xmlreader: *const WS_XML_READER, node: *mut *mut WS_XML_NODE, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
@@ -592,12 +583,9 @@ pub unsafe fn WsMarkHeaderAsUnderstood(message: *const WS_MESSAGE, headerpositio
     WsMarkHeaderAsUnderstood(core::mem::transmute(message), core::mem::transmute(headerposition), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn WsMatchPolicyAlternative<P3>(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: P3, heap: *const WS_HEAP, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WsMatchPolicyAlternative(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: bool, heap: *const WS_HEAP, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsMatchPolicyAlternative(policy : *const WS_POLICY, alternativeindex : u32, policyconstraints : *const WS_POLICY_CONSTRAINTS, matchrequired : super::super::Foundation:: BOOL, heap : *const WS_HEAP, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsMatchPolicyAlternative(core::mem::transmute(policy), core::mem::transmute(alternativeindex), core::mem::transmute(policyconstraints), matchrequired.param().abi(), core::mem::transmute(heap), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
+    WsMatchPolicyAlternative(core::mem::transmute(policy), core::mem::transmute(alternativeindex), core::mem::transmute(policyconstraints), matchrequired.into(), core::mem::transmute(heap), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WsMoveReader(reader: *const WS_XML_READER, moveto: WS_MOVE_TO, found: Option<*mut super::super::Foundation::BOOL>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
@@ -1070,12 +1058,9 @@ pub unsafe fn WsWriteQualifiedName(writer: *const WS_XML_WRITER, prefix: Option<
     WsWriteQualifiedName(core::mem::transmute(writer), core::mem::transmute(prefix.unwrap_or(core::mem::zeroed())), core::mem::transmute(localname), core::mem::transmute(ns.unwrap_or(core::mem::zeroed())), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn WsWriteStartAttribute<P4>(writer: *const WS_XML_WRITER, prefix: Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: P4, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
-where
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WsWriteStartAttribute(writer: *const WS_XML_WRITER, prefix: Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: bool, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteStartAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : super::super::Foundation:: BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteStartAttribute(core::mem::transmute(writer), core::mem::transmute(prefix.unwrap_or(core::mem::zeroed())), core::mem::transmute(localname), core::mem::transmute(ns), singlequote.param().abi(), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
+    WsWriteStartAttribute(core::mem::transmute(writer), core::mem::transmute(prefix.unwrap_or(core::mem::zeroed())), core::mem::transmute(localname), core::mem::transmute(ns), singlequote.into(), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteStartCData(writer: *const WS_XML_WRITER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
@@ -1113,12 +1098,9 @@ pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *
     WsWriteXmlBufferToBytes(core::mem::transmute(writer), core::mem::transmute(xmlbuffer), core::mem::transmute(encoding.unwrap_or(core::mem::zeroed())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(heap), core::mem::transmute(bytes), core::mem::transmute(bytecount), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn WsWriteXmlnsAttribute<P3>(writer: *const WS_XML_WRITER, prefix: Option<*const WS_XML_STRING>, ns: *const WS_XML_STRING, singlequote: P3, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WsWriteXmlnsAttribute(writer: *const WS_XML_WRITER, prefix: Option<*const WS_XML_STRING>, ns: *const WS_XML_STRING, singlequote: bool, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteXmlnsAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : super::super::Foundation:: BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteXmlnsAttribute(core::mem::transmute(writer), core::mem::transmute(prefix.unwrap_or(core::mem::zeroed())), core::mem::transmute(ns), singlequote.param().abi(), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
+    WsWriteXmlnsAttribute(core::mem::transmute(writer), core::mem::transmute(prefix.unwrap_or(core::mem::zeroed())), core::mem::transmute(ns), singlequote.into(), core::mem::transmute(error.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WsXmlStringEquals(string1: *const WS_XML_STRING, string2: *const WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
@@ -1967,9 +1949,6 @@ pub const WS_CERT_SIGNED_SAML_AUTHENTICATOR_TYPE: WS_SAML_AUTHENTICATOR_TYPE = W
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_CHANNEL(pub isize);
-impl windows_core::TypeKind for WS_CHANNEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_CHANNEL_BINDING(pub i32);
@@ -2526,9 +2505,6 @@ pub const WS_ENVELOPE_VERSION_SOAP_1_2: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSIO
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_ERROR(pub isize);
-impl windows_core::TypeKind for WS_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_ERROR_PROPERTY {
@@ -2705,9 +2681,6 @@ pub struct WS_HEADER_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_HEAP(pub isize);
-impl windows_core::TypeKind for WS_HEAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_HEAP_PROPERTIES {
@@ -3247,9 +3220,6 @@ pub const WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_T
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_LISTENER(pub isize);
-impl windows_core::TypeKind for WS_LISTENER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_LISTENER_PROPERTIES {
@@ -3317,9 +3287,6 @@ pub const WS_MATCH_URL_THIS_HOST: i32 = 31i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_MESSAGE(pub isize);
-impl windows_core::TypeKind for WS_MESSAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_MESSAGE_DESCRIPTION {
@@ -3398,9 +3365,6 @@ pub const WS_MESSAGE_STATE_WRITING: WS_MESSAGE_STATE = WS_MESSAGE_STATE(4i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_METADATA(pub isize);
-impl windows_core::TypeKind for WS_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_METADATA_ENDPOINT {
@@ -3560,9 +3524,6 @@ pub type WS_OPERATION_CANCEL_CALLBACK = Option<unsafe extern "system" fn(reason:
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_OPERATION_CONTEXT(pub isize);
-impl windows_core::TypeKind for WS_OPERATION_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_OPERATION_CONTEXT_PROPERTY_CHANNEL: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(0i32);
 pub const WS_OPERATION_CONTEXT_PROPERTY_CHANNEL_USER_STATE: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(3i32);
 pub const WS_OPERATION_CONTEXT_PROPERTY_CONTRACT_DESCRIPTION: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(1i32);
@@ -3619,9 +3580,6 @@ pub const WS_PARAMETER_TYPE_NORMAL: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_POLICY(pub isize);
-impl windows_core::TypeKind for WS_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_POLICY_CONSTRAINTS {
@@ -4079,9 +4037,6 @@ impl Default for WS_SECURITY_CONSTRAINTS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_SECURITY_CONTEXT(pub isize);
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
@@ -4290,9 +4245,6 @@ pub const WS_SECURITY_TIMESTAMP_USAGE_REQUESTS_ONLY: WS_SECURITY_TIMESTAMP_USAGE
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_SECURITY_TOKEN(pub isize);
-impl windows_core::TypeKind for WS_SECURITY_TOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_SECURITY_TOKEN_PROPERTY_ATTACHED_REFERENCE_XML: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(5i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4392,9 +4344,6 @@ pub const WS_SERVICE_ENDPOINT_PROPERTY_METADATA_EXCHANGE_URL_SUFFIX: WS_SERVICE_
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_SERVICE_HOST(pub isize);
-impl windows_core::TypeKind for WS_SERVICE_HOST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_SERVICE_HOST_ABORT: WS_SERVICE_CANCEL_REASON = WS_SERVICE_CANCEL_REASON(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4475,9 +4424,6 @@ pub const WS_SERVICE_PROPERTY_METADATA: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROP
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_SERVICE_PROXY(pub isize);
-impl windows_core::TypeKind for WS_SERVICE_PROXY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SERVICE_PROXY_STATE(pub i32);
@@ -5460,9 +5406,6 @@ impl Default for WS_XML_BOOL_TEXT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_XML_BUFFER(pub isize);
-impl windows_core::TypeKind for WS_XML_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_BUFFER_PROPERTY {
@@ -5714,9 +5657,6 @@ pub const WS_XML_QNAME_TYPE: WS_TYPE = WS_TYPE(20i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_XML_READER(pub isize);
-impl windows_core::TypeKind for WS_XML_READER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_READER_BINARY_ENCODING {
@@ -6018,9 +5958,6 @@ impl Default for WS_XML_UTF8_TEXT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_XML_WRITER(pub isize);
-impl windows_core::TypeKind for WS_XML_WRITER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_WRITER_BINARY_ENCODING {

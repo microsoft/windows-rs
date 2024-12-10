@@ -93,25 +93,23 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D10DisassembleEffect<P0, P1>(peffect: P0, enablecolorcode: P1) -> windows_core::Result<super::Direct3D::ID3DBlob>
+pub unsafe fn D3D10DisassembleEffect<P0>(peffect: P0, enablecolorcode: bool) -> windows_core::Result<super::Direct3D::ID3DBlob>
 where
     P0: windows_core::Param<ID3D10Effect>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("d3d10.dll" "system" fn D3D10DisassembleEffect(peffect : * mut core::ffi::c_void, enablecolorcode : super::super::Foundation:: BOOL, ppdisassembly : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    D3D10DisassembleEffect(peffect.param().abi(), enablecolorcode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    D3D10DisassembleEffect(peffect.param().abi(), enablecolorcode.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D10DisassembleShader<P2, P3>(pshader: *const core::ffi::c_void, bytecodelength: usize, enablecolorcode: P2, pcomments: P3) -> windows_core::Result<super::Direct3D::ID3DBlob>
+pub unsafe fn D3D10DisassembleShader<P3>(pshader: *const core::ffi::c_void, bytecodelength: usize, enablecolorcode: bool, pcomments: P3) -> windows_core::Result<super::Direct3D::ID3DBlob>
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("d3d10.dll" "system" fn D3D10DisassembleShader(pshader : *const core::ffi::c_void, bytecodelength : usize, enablecolorcode : super::super::Foundation:: BOOL, pcomments : windows_core::PCSTR, ppdisassembly : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    D3D10DisassembleShader(core::mem::transmute(pshader), core::mem::transmute(bytecodelength), enablecolorcode.param().abi(), pcomments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    D3D10DisassembleShader(core::mem::transmute(pshader), core::mem::transmute(bytecodelength), enablecolorcode.into(), pcomments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn D3D10GetGeometryShaderProfile<P0>(pdevice: P0) -> windows_core::PCSTR
@@ -3219,12 +3217,11 @@ impl ID3D10Device {
     pub unsafe fn VSSetSamplers(&self, startslot: u32, ppsamplers: Option<&[Option<ID3D10SamplerState>]>) {
         (windows_core::Interface::vtable(self).VSSetSamplers)(windows_core::Interface::as_raw(self), core::mem::transmute(startslot), ppsamplers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
     }
-    pub unsafe fn SetPredication<P0, P1>(&self, ppredicate: P0, predicatevalue: P1)
+    pub unsafe fn SetPredication<P0>(&self, ppredicate: P0, predicatevalue: bool)
     where
         P0: windows_core::Param<ID3D10Predicate>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), ppredicate.param().abi(), predicatevalue.param().abi())
+        (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), ppredicate.param().abi(), predicatevalue.into())
     }
     pub unsafe fn GSSetShaderResources(&self, startslot: u32, ppshaderresourceviews: Option<&[Option<ID3D10ShaderResourceView>]>) {
         (windows_core::Interface::vtable(self).GSSetShaderResources)(windows_core::Interface::as_raw(self), core::mem::transmute(startslot), ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
@@ -5468,11 +5465,8 @@ impl ID3D10EffectScalarVariable {
     pub unsafe fn GetIntArray(&self, pdata: &mut [i32], offset: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIntArray)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), core::mem::transmute(offset), pdata.len().try_into().unwrap()).ok()
     }
-    pub unsafe fn SetBool<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBool)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
+    pub unsafe fn SetBool(&self, value: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBool)(windows_core::Interface::as_raw(self), value.into()).ok()
     }
     pub unsafe fn GetBool(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -6738,23 +6732,14 @@ impl ID3D10InfoQueue {
     {
         (windows_core::Interface::vtable(self).AddApplicationMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(severity), pdescription.param().abi()).ok()
     }
-    pub unsafe fn SetBreakOnCategory<P1>(&self, category: D3D10_MESSAGE_CATEGORY, benable: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(category), benable.param().abi()).ok()
+    pub unsafe fn SetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY, benable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(category), benable.into()).ok()
     }
-    pub unsafe fn SetBreakOnSeverity<P1>(&self, severity: D3D10_MESSAGE_SEVERITY, benable: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBreakOnSeverity)(windows_core::Interface::as_raw(self), core::mem::transmute(severity), benable.param().abi()).ok()
+    pub unsafe fn SetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY, benable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBreakOnSeverity)(windows_core::Interface::as_raw(self), core::mem::transmute(severity), benable.into()).ok()
     }
-    pub unsafe fn SetBreakOnID<P1>(&self, id: D3D10_MESSAGE_ID, benable: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(id), benable.param().abi()).ok()
+    pub unsafe fn SetBreakOnID(&self, id: D3D10_MESSAGE_ID, benable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(id), benable.into()).ok()
     }
     pub unsafe fn GetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).GetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(category))
@@ -6765,11 +6750,8 @@ impl ID3D10InfoQueue {
     pub unsafe fn GetBreakOnID(&self, id: D3D10_MESSAGE_ID) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).GetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(id))
     }
-    pub unsafe fn SetMuteDebugOutput<P0>(&self, bmute: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), bmute.param().abi())
+    pub unsafe fn SetMuteDebugOutput(&self, bmute: bool) {
+        (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), bmute.into())
     }
     pub unsafe fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).GetMuteDebugOutput)(windows_core::Interface::as_raw(self))
@@ -7072,11 +7054,8 @@ impl ID3D10Multithread {
     pub unsafe fn Leave(&self) {
         (windows_core::Interface::vtable(self).Leave)(windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn SetMultithreadProtected<P0>(&self, bmtprotect: P0) -> super::super::Foundation::BOOL
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMultithreadProtected)(windows_core::Interface::as_raw(self), bmtprotect.param().abi())
+    pub unsafe fn SetMultithreadProtected(&self, bmtprotect: bool) -> super::super::Foundation::BOOL {
+        (windows_core::Interface::vtable(self).SetMultithreadProtected)(windows_core::Interface::as_raw(self), bmtprotect.into())
     }
     pub unsafe fn GetMultithreadProtected(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).GetMultithreadProtected)(windows_core::Interface::as_raw(self))
@@ -8124,11 +8103,8 @@ unsafe impl Sync for ID3D10StateBlock {}
 windows_core::imp::define_interface!(ID3D10SwitchToRef, ID3D10SwitchToRef_Vtbl, 0x9b7e4e02_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10SwitchToRef, windows_core::IUnknown);
 impl ID3D10SwitchToRef {
-    pub unsafe fn SetUseRef<P0>(&self, useref: P0) -> super::super::Foundation::BOOL
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetUseRef)(windows_core::Interface::as_raw(self), useref.param().abi())
+    pub unsafe fn SetUseRef(&self, useref: bool) -> super::super::Foundation::BOOL {
+        (windows_core::Interface::vtable(self).SetUseRef)(windows_core::Interface::as_raw(self), useref.into())
     }
     pub unsafe fn GetUseRef(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).GetUseRef)(windows_core::Interface::as_raw(self))

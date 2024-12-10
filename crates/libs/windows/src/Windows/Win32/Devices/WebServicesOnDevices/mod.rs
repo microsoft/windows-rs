@@ -245,11 +245,8 @@ pub const DirectedDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism
 windows_core::imp::define_interface!(IWSDAddress, IWSDAddress_Vtbl, 0xb9574c6c_12a6_4f74_93a1_3318ff605759);
 windows_core::imp::interface_hierarchy!(IWSDAddress, windows_core::IUnknown);
 impl IWSDAddress {
-    pub unsafe fn Serialize<P2>(&self, pszbuffer: &mut [u16], fsafe: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.param().abi()).ok()
+    pub unsafe fn Serialize(&self, pszbuffer: &mut [u16], fsafe: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.into()).ok()
     }
     pub unsafe fn Deserialize<P0>(&self, pszbuffer: P0) -> windows_core::Result<()>
     where
@@ -501,12 +498,11 @@ impl IWSDDeviceHost {
     {
         (windows_core::Interface::vtable(self).RemoveDynamicService)(windows_core::Interface::as_raw(self), pszserviceid.param().abi()).ok()
     }
-    pub unsafe fn SetServiceDiscoverable<P0, P1>(&self, pszserviceid: P0, fdiscoverable: P1) -> windows_core::Result<()>
+    pub unsafe fn SetServiceDiscoverable<P0>(&self, pszserviceid: P0, fdiscoverable: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetServiceDiscoverable)(windows_core::Interface::as_raw(self), pszserviceid.param().abi(), fdiscoverable.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetServiceDiscoverable)(windows_core::Interface::as_raw(self), pszserviceid.param().abi(), fdiscoverable.into()).ok()
     }
     pub unsafe fn SignalEvent<P0>(&self, pszserviceid: P0, pbody: Option<*const core::ffi::c_void>, poperation: *const WSD_OPERATION) -> windows_core::Result<()>
     where
@@ -1035,11 +1031,8 @@ impl IWSDHttpAddress {
     pub unsafe fn GetSecure(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSecure)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetSecure<P0>(&self, fsecure: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSecure)(windows_core::Interface::as_raw(self), fsecure.param().abi()).ok()
+    pub unsafe fn SetSecure(&self, fsecure: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSecure)(windows_core::Interface::as_raw(self), fsecure.into()).ok()
     }
     pub unsafe fn GetPath(&self) -> windows_core::Result<windows_core::PCWSTR> {
         let mut result__ = core::mem::zeroed();
@@ -2169,12 +2162,9 @@ impl IWSDTransportAddress {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransportAddress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetTransportAddressEx<P0>(&self, fsafe: P0) -> windows_core::Result<windows_core::PCWSTR>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn GetTransportAddressEx(&self, fsafe: bool) -> windows_core::Result<windows_core::PCWSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTransportAddressEx)(windows_core::Interface::as_raw(self), fsafe.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetTransportAddressEx)(windows_core::Interface::as_raw(self), fsafe.into(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTransportAddress<P0>(&self, pszaddress: P0) -> windows_core::Result<()>
     where
@@ -2270,11 +2260,8 @@ impl IWSDUdpAddress {
     pub unsafe fn GetSockaddr(&self, psockaddr: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSockaddr)(windows_core::Interface::as_raw(self), core::mem::transmute(psockaddr)).ok()
     }
-    pub unsafe fn SetExclusive<P0>(&self, fexclusive: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetExclusive)(windows_core::Interface::as_raw(self), fexclusive.param().abi()).ok()
+    pub unsafe fn SetExclusive(&self, fexclusive: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetExclusive)(windows_core::Interface::as_raw(self), fexclusive.into()).ok()
     }
     pub unsafe fn GetExclusive(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExclusive)(windows_core::Interface::as_raw(self)).ok()

@@ -3031,12 +3031,9 @@ impl IAtscPsipParser {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMGT)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetVCT<P1>(&self, tableid: u8, fgetnexttable: P1) -> windows_core::Result<IATSC_VCT>
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn GetVCT(&self, tableid: u8, fgetnexttable: bool) -> windows_core::Result<IATSC_VCT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetVCT)(windows_core::Interface::as_raw(self), core::mem::transmute(tableid), fgetnexttable.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetVCT)(windows_core::Interface::as_raw(self), core::mem::transmute(tableid), fgetnexttable.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetEIT(&self, pid: u16, pwsourceid: *const u16, dwtimeout: u32) -> windows_core::Result<IATSC_EIT> {
         let mut result__ = core::mem::zeroed();
@@ -5017,11 +5014,8 @@ impl IDTFilter {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BlockUnRated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetBlockUnRated<P0>(&self, fblockunratedshows: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBlockUnRated)(windows_core::Interface::as_raw(self), fblockunratedshows.param().abi()).ok()
+    pub unsafe fn SetBlockUnRated(&self, fblockunratedshows: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBlockUnRated)(windows_core::Interface::as_raw(self), fblockunratedshows.into()).ok()
     }
     pub unsafe fn BlockUnRatedDelay(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -13207,11 +13201,8 @@ impl IETFilter {
     pub unsafe fn GetLastErrorCode(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLastErrorCode)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetRecordingOn<P0>(&self, frecstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetRecordingOn)(windows_core::Interface::as_raw(self), frecstate.param().abi()).ok()
+    pub unsafe fn SetRecordingOn(&self, frecstate: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetRecordingOn)(windows_core::Interface::as_raw(self), frecstate.into()).ok()
     }
 }
 #[repr(C)]
@@ -13890,11 +13881,8 @@ impl IEvalRat {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BlockUnRated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetBlockUnRated<P0>(&self, fblockunratedshows: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBlockUnRated)(windows_core::Interface::as_raw(self), fblockunratedshows.param().abi()).ok()
+    pub unsafe fn SetBlockUnRated(&self, fblockunratedshows: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBlockUnRated)(windows_core::Interface::as_raw(self), fblockunratedshows.into()).ok()
     }
     pub unsafe fn MostRestrictiveRating(&self, ensystem1: EnTvRat_System, enenlevel1: EnTvRat_GenericLevel, lbfenattr1: i32, ensystem2: EnTvRat_System, enenlevel2: EnTvRat_GenericLevel, lbfenattr2: i32, pensystem: *mut EnTvRat_System, penenlevel: *mut EnTvRat_GenericLevel, plbfenattr: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).MostRestrictiveRating)(windows_core::Interface::as_raw(self), core::mem::transmute(ensystem1), core::mem::transmute(enenlevel1), core::mem::transmute(lbfenattr1), core::mem::transmute(ensystem2), core::mem::transmute(enenlevel2), core::mem::transmute(lbfenattr2), core::mem::transmute(pensystem), core::mem::transmute(penenlevel), core::mem::transmute(plbfenattr)).ok()
@@ -29392,13 +29380,12 @@ impl windows_core::RuntimeName for IPSITables {}
 windows_core::imp::define_interface!(IPTFilterLicenseRenewal, IPTFilterLicenseRenewal_Vtbl, 0x26d836a5_0c15_44c7_ac59_b0da8728f240);
 windows_core::imp::interface_hierarchy!(IPTFilterLicenseRenewal, windows_core::IUnknown);
 impl IPTFilterLicenseRenewal {
-    pub unsafe fn RenewLicenses<P0, P1, P3>(&self, wszfilename: P0, wszexpiredkid: P1, dwcallersid: u32, bhighpriority: P3) -> windows_core::Result<()>
+    pub unsafe fn RenewLicenses<P0, P1>(&self, wszfilename: P0, wszexpiredkid: P1, dwcallersid: u32, bhighpriority: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RenewLicenses)(windows_core::Interface::as_raw(self), wszfilename.param().abi(), wszexpiredkid.param().abi(), core::mem::transmute(dwcallersid), bhighpriority.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RenewLicenses)(windows_core::Interface::as_raw(self), wszfilename.param().abi(), wszexpiredkid.param().abi(), core::mem::transmute(dwcallersid), bhighpriority.into()).ok()
     }
     pub unsafe fn CancelLicenseRenewal(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CancelLicenseRenewal)(windows_core::Interface::as_raw(self)).ok()
@@ -31245,11 +31232,8 @@ impl core::ops::Deref for IStreamBufferConfigure3 {
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferConfigure3, windows_core::IUnknown, IStreamBufferConfigure, IStreamBufferConfigure2);
 impl IStreamBufferConfigure3 {
-    pub unsafe fn SetStartRecConfig<P0>(&self, fstartstopscur: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetStartRecConfig)(windows_core::Interface::as_raw(self), fstartstopscur.param().abi()).ok()
+    pub unsafe fn SetStartRecConfig(&self, fstartstopscur: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetStartRecConfig)(windows_core::Interface::as_raw(self), fstartstopscur.into()).ok()
     }
     pub unsafe fn GetStartRecConfig(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();

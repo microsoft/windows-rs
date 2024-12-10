@@ -45,12 +45,9 @@ pub unsafe fn HasExpandedResources() -> windows_core::Result<super::Foundation::
     HasExpandedResources(&mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn ProcessPendingGameUI<P0>(waitforcompletion: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::Foundation::BOOL>,
-{
+pub unsafe fn ProcessPendingGameUI(waitforcompletion: bool) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ProcessPendingGameUI(waitforcompletion : super::Foundation:: BOOL) -> windows_core::HRESULT);
-    ProcessPendingGameUI(waitforcompletion.param().abi()).ok()
+    ProcessPendingGameUI(waitforcompletion.into()).ok()
 }
 #[inline]
 pub unsafe fn ReleaseExclusiveCpuSets() -> windows_core::Result<()> {
@@ -442,11 +439,8 @@ impl IGameStatistics {
     {
         (windows_core::Interface::vtable(self).SetStatistic)(windows_core::Interface::as_raw(self), core::mem::transmute(categoryindex), core::mem::transmute(statindex), name.param().abi(), value.param().abi()).ok()
     }
-    pub unsafe fn Save<P0>(&self, trackchanges: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), trackchanges.param().abi()).ok()
+    pub unsafe fn Save(&self, trackchanges: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), trackchanges.into()).ok()
     }
     pub unsafe fn SetLastPlayedCategory(&self, categoryindex: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLastPlayedCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(categoryindex)).ok()
@@ -674,7 +668,7 @@ impl IXblIdpAuthManager {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSandbox)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetTokenAndSignatureWithTokenResult<P0, P1, P2, P3, P4, P5, P6, P9>(&self, msaaccountid: P0, appsid: P1, msatarget: P2, msapolicy: P3, httpmethod: P4, uri: P5, headers: P6, body: &[u8], forcerefresh: P9) -> windows_core::Result<IXblIdpAuthTokenResult>
+    pub unsafe fn GetTokenAndSignatureWithTokenResult<P0, P1, P2, P3, P4, P5, P6>(&self, msaaccountid: P0, appsid: P1, msatarget: P2, msapolicy: P3, httpmethod: P4, uri: P5, headers: P6, body: &[u8], forcerefresh: bool) -> windows_core::Result<IXblIdpAuthTokenResult>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -683,10 +677,9 @@ impl IXblIdpAuthManager {
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
         P6: windows_core::Param<windows_core::PCWSTR>,
-        P9: windows_core::Param<super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTokenAndSignatureWithTokenResult)(windows_core::Interface::as_raw(self), msaaccountid.param().abi(), appsid.param().abi(), msatarget.param().abi(), msapolicy.param().abi(), httpmethod.param().abi(), uri.param().abi(), headers.param().abi(), core::mem::transmute(body.as_ptr()), body.len().try_into().unwrap(), forcerefresh.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetTokenAndSignatureWithTokenResult)(windows_core::Interface::as_raw(self), msaaccountid.param().abi(), appsid.param().abi(), msatarget.param().abi(), msapolicy.param().abi(), httpmethod.param().abi(), uri.param().abi(), headers.param().abi(), core::mem::transmute(body.as_ptr()), body.len().try_into().unwrap(), forcerefresh.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -769,7 +762,7 @@ impl windows_core::RuntimeName for IXblIdpAuthManager {}
 windows_core::imp::define_interface!(IXblIdpAuthManager2, IXblIdpAuthManager2_Vtbl, 0xbf8c0950_8389_43dd_9a76_a19728ec5dc5);
 windows_core::imp::interface_hierarchy!(IXblIdpAuthManager2, windows_core::IUnknown);
 impl IXblIdpAuthManager2 {
-    pub unsafe fn GetUserlessTokenAndSignatureWithTokenResult<P0, P1, P2, P3, P4, P5, P8>(&self, appsid: P0, msatarget: P1, msapolicy: P2, httpmethod: P3, uri: P4, headers: P5, body: &[u8], forcerefresh: P8) -> windows_core::Result<IXblIdpAuthTokenResult>
+    pub unsafe fn GetUserlessTokenAndSignatureWithTokenResult<P0, P1, P2, P3, P4, P5>(&self, appsid: P0, msatarget: P1, msapolicy: P2, httpmethod: P3, uri: P4, headers: P5, body: &[u8], forcerefresh: bool) -> windows_core::Result<IXblIdpAuthTokenResult>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -777,10 +770,9 @@ impl IXblIdpAuthManager2 {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
-        P8: windows_core::Param<super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetUserlessTokenAndSignatureWithTokenResult)(windows_core::Interface::as_raw(self), appsid.param().abi(), msatarget.param().abi(), msapolicy.param().abi(), httpmethod.param().abi(), uri.param().abi(), headers.param().abi(), core::mem::transmute(body.as_ptr()), body.len().try_into().unwrap(), forcerefresh.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetUserlessTokenAndSignatureWithTokenResult)(windows_core::Interface::as_raw(self), appsid.param().abi(), msatarget.param().abi(), msapolicy.param().abi(), httpmethod.param().abi(), uri.param().abi(), headers.param().abi(), core::mem::transmute(body.as_ptr()), body.len().try_into().unwrap(), forcerefresh.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

@@ -95,23 +95,21 @@ pub unsafe fn PSGetImageReferenceForValue(propkey: *const super::super::super::F
     PSGetImageReferenceForValue(core::mem::transmute(propkey), core::mem::transmute(propvar), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn PSGetItemPropertyHandler<P0, P1>(punkitem: P0, freadwrite: P1, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PSGetItemPropertyHandler<P0>(punkitem: P0, freadwrite: bool, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    P1: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("propsys.dll" "system" fn PSGetItemPropertyHandler(punkitem : * mut core::ffi::c_void, freadwrite : super::super::super::Foundation:: BOOL, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    PSGetItemPropertyHandler(punkitem.param().abi(), freadwrite.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
+    PSGetItemPropertyHandler(punkitem.param().abi(), freadwrite.into(), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
 }
 #[inline]
-pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<P0, P1, P2>(punkitem: P0, freadwrite: P1, punkcreateobject: P2, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<P0, P2>(punkitem: P0, freadwrite: bool, punkcreateobject: P2, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("propsys.dll" "system" fn PSGetItemPropertyHandlerWithCreateObject(punkitem : * mut core::ffi::c_void, freadwrite : super::super::super::Foundation:: BOOL, punkcreateobject : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    PSGetItemPropertyHandlerWithCreateObject(punkitem.param().abi(), freadwrite.param().abi(), punkcreateobject.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
+    PSGetItemPropertyHandlerWithCreateObject(punkitem.param().abi(), freadwrite.into(), punkcreateobject.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
 }
 #[inline]
 pub unsafe fn PSGetNameFromPropertyKey(propkey: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<windows_core::PWSTR> {
@@ -385,14 +383,13 @@ where
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn PSPropertyBag_WriteBOOL<P0, P1, P2>(propbag: P0, propname: P1, value: P2) -> windows_core::Result<()>
+pub unsafe fn PSPropertyBag_WriteBOOL<P0, P1>(propbag: P0, propname: P1, value: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::System::Com::StructuredStorage::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_WriteBOOL(propbag : * mut core::ffi::c_void, propname : windows_core::PCWSTR, value : super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    PSPropertyBag_WriteBOOL(propbag.param().abi(), propname.param().abi(), value.param().abi()).ok()
+    PSPropertyBag_WriteBOOL(propbag.param().abi(), propname.param().abi(), value.into()).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
@@ -1331,12 +1328,9 @@ impl IPropertyDescription {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSortDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetSortDescriptionLabel<P0>(&self, fdescending: P0) -> windows_core::Result<windows_core::PWSTR>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn GetSortDescriptionLabel(&self, fdescending: bool) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSortDescriptionLabel)(windows_core::Interface::as_raw(self), fdescending.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetSortDescriptionLabel)(windows_core::Interface::as_raw(self), fdescending.into(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAggregationType(&self) -> windows_core::Result<PROPDESC_AGGREGATION_TYPE> {
         let mut result__ = core::mem::zeroed();
@@ -2758,9 +2752,6 @@ pub const InMemoryPropertyStoreMarshalByValue: windows_core::GUID = windows_core
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PCUSERIALIZEDPROPSTORAGE(pub isize);
-impl windows_core::TypeKind for PCUSERIALIZEDPROPSTORAGE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PDAT_AVERAGE: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(3i32);
 pub const PDAT_DATERANGE: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(4i32);
 pub const PDAT_DEFAULT: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(0i32);
@@ -3283,9 +3274,6 @@ pub const PropertySystem: windows_core::GUID = windows_core::GUID::from_u128(0xb
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SERIALIZEDPROPSTORAGE(pub isize);
-impl windows_core::TypeKind for SERIALIZEDPROPSTORAGE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SESF_ALL_FLAGS: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(511i32);
 pub const SESF_AUTHENTICATION_ERROR: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(4i32);
 pub const SESF_NONE: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(0i32);

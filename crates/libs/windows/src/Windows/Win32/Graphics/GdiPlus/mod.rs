@@ -109,12 +109,9 @@ pub unsafe fn GdipAddPathLineI(path: *mut GpPath, x1: i32, y1: i32, x2: i32, y2:
     GdipAddPathLineI(core::mem::transmute(path), core::mem::transmute(x1), core::mem::transmute(y1), core::mem::transmute(x2), core::mem::transmute(y2))
 }
 #[inline]
-pub unsafe fn GdipAddPathPath<P2>(path: *mut GpPath, addingpath: *const GpPath, connect: P2) -> Status
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipAddPathPath(path: *mut GpPath, addingpath: *const GpPath, connect: bool) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPath(path : *mut GpPath, addingpath : *const GpPath, connect : super::super::Foundation:: BOOL) -> Status);
-    GdipAddPathPath(core::mem::transmute(path), core::mem::transmute(addingpath), connect.param().abi())
+    GdipAddPathPath(core::mem::transmute(path), core::mem::transmute(addingpath), connect.into())
 }
 #[inline]
 pub unsafe fn GdipAddPathPie(path: *mut GpPath, x: f32, y: f32, width: f32, height: f32, startangle: f32, sweepangle: f32) -> Status {
@@ -193,12 +190,9 @@ pub unsafe fn GdipBeginContainerI(graphics: *mut GpGraphics, dstrect: *const Rec
     GdipBeginContainerI(core::mem::transmute(graphics), core::mem::transmute(dstrect), core::mem::transmute(srcrect), core::mem::transmute(unit), core::mem::transmute(state))
 }
 #[inline]
-pub unsafe fn GdipBitmapApplyEffect<P3>(bitmap: *mut GpBitmap, effect: *mut CGpEffect, roi: *mut super::super::Foundation::RECT, useauxdata: P3, auxdata: *mut *mut core::ffi::c_void, auxdatasize: *mut i32) -> Status
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipBitmapApplyEffect(bitmap: *mut GpBitmap, effect: *mut CGpEffect, roi: *mut super::super::Foundation::RECT, useauxdata: bool, auxdata: *mut *mut core::ffi::c_void, auxdatasize: *mut i32) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapApplyEffect(bitmap : *mut GpBitmap, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut core::ffi::c_void, auxdatasize : *mut i32) -> Status);
-    GdipBitmapApplyEffect(core::mem::transmute(bitmap), core::mem::transmute(effect), core::mem::transmute(roi), useauxdata.param().abi(), core::mem::transmute(auxdata), core::mem::transmute(auxdatasize))
+    GdipBitmapApplyEffect(core::mem::transmute(bitmap), core::mem::transmute(effect), core::mem::transmute(roi), useauxdata.into(), core::mem::transmute(auxdata), core::mem::transmute(auxdatasize))
 }
 #[inline]
 pub unsafe fn GdipBitmapConvertFormat(pinputbitmap: *mut GpBitmap, format: i32, dithertype: DitherType, palettetype: PaletteType, palette: *mut ColorPalette, alphathresholdpercent: f32) -> Status {
@@ -206,12 +200,9 @@ pub unsafe fn GdipBitmapConvertFormat(pinputbitmap: *mut GpBitmap, format: i32, 
     GdipBitmapConvertFormat(core::mem::transmute(pinputbitmap), core::mem::transmute(format), core::mem::transmute(dithertype), core::mem::transmute(palettetype), core::mem::transmute(palette), core::mem::transmute(alphathresholdpercent))
 }
 #[inline]
-pub unsafe fn GdipBitmapCreateApplyEffect<P6>(inputbitmaps: *mut *mut GpBitmap, numinputs: i32, effect: *mut CGpEffect, roi: *mut super::super::Foundation::RECT, outputrect: *mut super::super::Foundation::RECT, outputbitmap: *mut *mut GpBitmap, useauxdata: P6, auxdata: *mut *mut core::ffi::c_void, auxdatasize: *mut i32) -> Status
-where
-    P6: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipBitmapCreateApplyEffect(inputbitmaps: *mut *mut GpBitmap, numinputs: i32, effect: *mut CGpEffect, roi: *mut super::super::Foundation::RECT, outputrect: *mut super::super::Foundation::RECT, outputbitmap: *mut *mut GpBitmap, useauxdata: bool, auxdata: *mut *mut core::ffi::c_void, auxdatasize: *mut i32) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapCreateApplyEffect(inputbitmaps : *mut *mut GpBitmap, numinputs : i32, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, outputrect : *mut super::super::Foundation:: RECT, outputbitmap : *mut *mut GpBitmap, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut core::ffi::c_void, auxdatasize : *mut i32) -> Status);
-    GdipBitmapCreateApplyEffect(core::mem::transmute(inputbitmaps), core::mem::transmute(numinputs), core::mem::transmute(effect), core::mem::transmute(roi), core::mem::transmute(outputrect), core::mem::transmute(outputbitmap), useauxdata.param().abi(), core::mem::transmute(auxdata), core::mem::transmute(auxdatasize))
+    GdipBitmapCreateApplyEffect(core::mem::transmute(inputbitmaps), core::mem::transmute(numinputs), core::mem::transmute(effect), core::mem::transmute(roi), core::mem::transmute(outputrect), core::mem::transmute(outputbitmap), useauxdata.into(), core::mem::transmute(auxdata), core::mem::transmute(auxdatasize))
 }
 #[inline]
 pub unsafe fn GdipBitmapGetHistogram(bitmap: *mut GpBitmap, format: HistogramFormat, numberofentries: u32, channel0: *mut u32, channel1: *mut u32, channel2: *mut u32, channel3: *mut u32) -> Status {
@@ -381,12 +372,9 @@ where
     GdipConvertToEmfPlusToStream(core::mem::transmute(refgraphics), core::mem::transmute(metafile), core::mem::transmute(conversionfailureflag), stream.param().abi(), core::mem::transmute(emftype), description.param().abi(), core::mem::transmute(out_metafile))
 }
 #[inline]
-pub unsafe fn GdipCreateAdjustableArrowCap<P2>(height: f32, width: f32, isfilled: P2, cap: *mut *mut GpAdjustableArrowCap) -> Status
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipCreateAdjustableArrowCap(height: f32, width: f32, isfilled: bool, cap: *mut *mut GpAdjustableArrowCap) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipCreateAdjustableArrowCap(height : f32, width : f32, isfilled : super::super::Foundation:: BOOL, cap : *mut *mut GpAdjustableArrowCap) -> Status);
-    GdipCreateAdjustableArrowCap(core::mem::transmute(height), core::mem::transmute(width), isfilled.param().abi(), core::mem::transmute(cap))
+    GdipCreateAdjustableArrowCap(core::mem::transmute(height), core::mem::transmute(width), isfilled.into(), core::mem::transmute(cap))
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 #[inline]
@@ -579,20 +567,14 @@ pub unsafe fn GdipCreateLineBrushFromRectI(rect: *const Rect, color1: u32, color
     GdipCreateLineBrushFromRectI(core::mem::transmute(rect), core::mem::transmute(color1), core::mem::transmute(color2), core::mem::transmute(mode), core::mem::transmute(wrapmode), core::mem::transmute(linegradient))
 }
 #[inline]
-pub unsafe fn GdipCreateLineBrushFromRectWithAngle<P4>(rect: *const RectF, color1: u32, color2: u32, angle: f32, isanglescalable: P4, wrapmode: WrapMode, linegradient: *mut *mut GpLineGradient) -> Status
-where
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipCreateLineBrushFromRectWithAngle(rect: *const RectF, color1: u32, color2: u32, angle: f32, isanglescalable: bool, wrapmode: WrapMode, linegradient: *mut *mut GpLineGradient) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRectWithAngle(rect : *const RectF, color1 : u32, color2 : u32, angle : f32, isanglescalable : super::super::Foundation:: BOOL, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
-    GdipCreateLineBrushFromRectWithAngle(core::mem::transmute(rect), core::mem::transmute(color1), core::mem::transmute(color2), core::mem::transmute(angle), isanglescalable.param().abi(), core::mem::transmute(wrapmode), core::mem::transmute(linegradient))
+    GdipCreateLineBrushFromRectWithAngle(core::mem::transmute(rect), core::mem::transmute(color1), core::mem::transmute(color2), core::mem::transmute(angle), isanglescalable.into(), core::mem::transmute(wrapmode), core::mem::transmute(linegradient))
 }
 #[inline]
-pub unsafe fn GdipCreateLineBrushFromRectWithAngleI<P4>(rect: *const Rect, color1: u32, color2: u32, angle: f32, isanglescalable: P4, wrapmode: WrapMode, linegradient: *mut *mut GpLineGradient) -> Status
-where
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipCreateLineBrushFromRectWithAngleI(rect: *const Rect, color1: u32, color2: u32, angle: f32, isanglescalable: bool, wrapmode: WrapMode, linegradient: *mut *mut GpLineGradient) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRectWithAngleI(rect : *const Rect, color1 : u32, color2 : u32, angle : f32, isanglescalable : super::super::Foundation:: BOOL, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
-    GdipCreateLineBrushFromRectWithAngleI(core::mem::transmute(rect), core::mem::transmute(color1), core::mem::transmute(color2), core::mem::transmute(angle), isanglescalable.param().abi(), core::mem::transmute(wrapmode), core::mem::transmute(linegradient))
+    GdipCreateLineBrushFromRectWithAngleI(core::mem::transmute(rect), core::mem::transmute(color1), core::mem::transmute(color2), core::mem::transmute(angle), isanglescalable.into(), core::mem::transmute(wrapmode), core::mem::transmute(linegradient))
 }
 #[inline]
 pub unsafe fn GdipCreateLineBrushI(point1: *const Point, point2: *const Point, color1: u32, color2: u32, wrapmode: WrapMode, linegradient: *mut *mut GpLineGradient) -> Status {
@@ -621,12 +603,9 @@ pub unsafe fn GdipCreateMatrix3I(rect: *const Rect, dstplg: *const Point, matrix
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GdipCreateMetafileFromEmf<P1>(hemf: super::Gdi::HENHMETAFILE, deleteemf: P1, metafile: *mut *mut GpMetafile) -> Status
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipCreateMetafileFromEmf(hemf: super::Gdi::HENHMETAFILE, deleteemf: bool, metafile: *mut *mut GpMetafile) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromEmf(hemf : super::Gdi:: HENHMETAFILE, deleteemf : super::super::Foundation:: BOOL, metafile : *mut *mut GpMetafile) -> Status);
-    GdipCreateMetafileFromEmf(core::mem::transmute(hemf), deleteemf.param().abi(), core::mem::transmute(metafile))
+    GdipCreateMetafileFromEmf(core::mem::transmute(hemf), deleteemf.into(), core::mem::transmute(metafile))
 }
 #[inline]
 pub unsafe fn GdipCreateMetafileFromFile<P0>(file: P0, metafile: *mut *mut GpMetafile) -> Status
@@ -647,12 +626,9 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GdipCreateMetafileFromWmf<P1>(hwmf: super::Gdi::HMETAFILE, deletewmf: P1, wmfplaceablefileheader: *const WmfPlaceableFileHeader, metafile: *mut *mut GpMetafile) -> Status
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipCreateMetafileFromWmf(hwmf: super::Gdi::HMETAFILE, deletewmf: bool, wmfplaceablefileheader: *const WmfPlaceableFileHeader, metafile: *mut *mut GpMetafile) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmf(hwmf : super::Gdi:: HMETAFILE, deletewmf : super::super::Foundation:: BOOL, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
-    GdipCreateMetafileFromWmf(core::mem::transmute(hwmf), deletewmf.param().abi(), core::mem::transmute(wmfplaceablefileheader), core::mem::transmute(metafile))
+    GdipCreateMetafileFromWmf(core::mem::transmute(hwmf), deletewmf.into(), core::mem::transmute(wmfplaceablefileheader), core::mem::transmute(metafile))
 }
 #[inline]
 pub unsafe fn GdipCreateMetafileFromWmfFile<P0>(file: P0, wmfplaceablefileheader: *const WmfPlaceableFileHeader, metafile: *mut *mut GpMetafile) -> Status
@@ -2189,12 +2165,9 @@ where
     GdipImageSetAbort(core::mem::transmute(pimage), piabort.param().abi())
 }
 #[inline]
-pub unsafe fn GdipInitializePalette<P3>(palette: *mut ColorPalette, palettetype: PaletteType, optimalcolors: i32, usetransparentcolor: P3, bitmap: *mut GpBitmap) -> Status
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipInitializePalette(palette: *mut ColorPalette, palettetype: PaletteType, optimalcolors: i32, usetransparentcolor: bool, bitmap: *mut GpBitmap) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipInitializePalette(palette : *mut ColorPalette, palettetype : PaletteType, optimalcolors : i32, usetransparentcolor : super::super::Foundation:: BOOL, bitmap : *mut GpBitmap) -> Status);
-    GdipInitializePalette(core::mem::transmute(palette), core::mem::transmute(palettetype), core::mem::transmute(optimalcolors), usetransparentcolor.param().abi(), core::mem::transmute(bitmap))
+    GdipInitializePalette(core::mem::transmute(palette), core::mem::transmute(palettetype), core::mem::transmute(optimalcolors), usetransparentcolor.into(), core::mem::transmute(bitmap))
 }
 #[inline]
 pub unsafe fn GdipInvertMatrix(matrix: *mut Matrix) -> Status {
@@ -2696,12 +2669,9 @@ pub unsafe fn GdipScaleWorldTransform(graphics: *mut GpGraphics, sx: f32, sy: f3
     GdipScaleWorldTransform(core::mem::transmute(graphics), core::mem::transmute(sx), core::mem::transmute(sy), core::mem::transmute(order))
 }
 #[inline]
-pub unsafe fn GdipSetAdjustableArrowCapFillState<P1>(cap: *mut GpAdjustableArrowCap, fillstate: P1) -> Status
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipSetAdjustableArrowCapFillState(cap: *mut GpAdjustableArrowCap, fillstate: bool) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapFillState(cap : *mut GpAdjustableArrowCap, fillstate : super::super::Foundation:: BOOL) -> Status);
-    GdipSetAdjustableArrowCapFillState(core::mem::transmute(cap), fillstate.param().abi())
+    GdipSetAdjustableArrowCapFillState(core::mem::transmute(cap), fillstate.into())
 }
 #[inline]
 pub unsafe fn GdipSetAdjustableArrowCapHeight(cap: *mut GpAdjustableArrowCap, height: f32) -> Status {
@@ -2795,77 +2765,52 @@ pub unsafe fn GdipSetEmpty(region: *mut GpRegion) -> Status {
     GdipSetEmpty(core::mem::transmute(region))
 }
 #[inline]
-pub unsafe fn GdipSetImageAttributesCachedBackground<P1>(imageattr: *mut GpImageAttributes, enableflag: P1) -> Status
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipSetImageAttributesCachedBackground(imageattr: *mut GpImageAttributes, enableflag: bool) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesCachedBackground(imageattr : *mut GpImageAttributes, enableflag : super::super::Foundation:: BOOL) -> Status);
-    GdipSetImageAttributesCachedBackground(core::mem::transmute(imageattr), enableflag.param().abi())
+    GdipSetImageAttributesCachedBackground(core::mem::transmute(imageattr), enableflag.into())
 }
 #[inline]
-pub unsafe fn GdipSetImageAttributesColorKeys<P2>(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: P2, colorlow: u32, colorhigh: u32) -> Status
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipSetImageAttributesColorKeys(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: bool, colorlow: u32, colorhigh: u32) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesColorKeys(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorlow : u32, colorhigh : u32) -> Status);
-    GdipSetImageAttributesColorKeys(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.param().abi(), core::mem::transmute(colorlow), core::mem::transmute(colorhigh))
+    GdipSetImageAttributesColorKeys(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.into(), core::mem::transmute(colorlow), core::mem::transmute(colorhigh))
 }
 #[inline]
-pub unsafe fn GdipSetImageAttributesColorMatrix<P2>(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: P2, colormatrix: *const ColorMatrix, graymatrix: *const ColorMatrix, flags: ColorMatrixFlags) -> Status
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipSetImageAttributesColorMatrix(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: bool, colormatrix: *const ColorMatrix, graymatrix: *const ColorMatrix, flags: ColorMatrixFlags) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesColorMatrix(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colormatrix : *const ColorMatrix, graymatrix : *const ColorMatrix, flags : ColorMatrixFlags) -> Status);
-    GdipSetImageAttributesColorMatrix(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.param().abi(), core::mem::transmute(colormatrix), core::mem::transmute(graymatrix), core::mem::transmute(flags))
+    GdipSetImageAttributesColorMatrix(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.into(), core::mem::transmute(colormatrix), core::mem::transmute(graymatrix), core::mem::transmute(flags))
 }
 #[inline]
-pub unsafe fn GdipSetImageAttributesGamma<P2>(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: P2, gamma: f32) -> Status
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipSetImageAttributesGamma(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: bool, gamma: f32) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesGamma(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, gamma : f32) -> Status);
-    GdipSetImageAttributesGamma(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.param().abi(), core::mem::transmute(gamma))
+    GdipSetImageAttributesGamma(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.into(), core::mem::transmute(gamma))
 }
 #[inline]
-pub unsafe fn GdipSetImageAttributesNoOp<P2>(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: P2) -> Status
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipSetImageAttributesNoOp(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: bool) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesNoOp(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL) -> Status);
-    GdipSetImageAttributesNoOp(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.param().abi())
+    GdipSetImageAttributesNoOp(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.into())
 }
 #[inline]
-pub unsafe fn GdipSetImageAttributesOutputChannel<P2>(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: P2, channelflags: ColorChannelFlags) -> Status
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipSetImageAttributesOutputChannel(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: bool, channelflags: ColorChannelFlags) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesOutputChannel(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, channelflags : ColorChannelFlags) -> Status);
-    GdipSetImageAttributesOutputChannel(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.param().abi(), core::mem::transmute(channelflags))
+    GdipSetImageAttributesOutputChannel(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.into(), core::mem::transmute(channelflags))
 }
 #[inline]
-pub unsafe fn GdipSetImageAttributesOutputChannelColorProfile<P2, P3>(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: P2, colorprofilefilename: P3) -> Status
+pub unsafe fn GdipSetImageAttributesOutputChannelColorProfile<P3>(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: bool, colorprofilefilename: P3) -> Status
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesOutputChannelColorProfile(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorprofilefilename : windows_core::PCWSTR) -> Status);
-    GdipSetImageAttributesOutputChannelColorProfile(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.param().abi(), colorprofilefilename.param().abi())
+    GdipSetImageAttributesOutputChannelColorProfile(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.into(), colorprofilefilename.param().abi())
 }
 #[inline]
-pub unsafe fn GdipSetImageAttributesRemapTable<P2>(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: P2, mapsize: u32, map: *const ColorMap) -> Status
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipSetImageAttributesRemapTable(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: bool, mapsize: u32, map: *const ColorMap) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesRemapTable(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, mapsize : u32, map : *const ColorMap) -> Status);
-    GdipSetImageAttributesRemapTable(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.param().abi(), core::mem::transmute(mapsize), core::mem::transmute(map))
+    GdipSetImageAttributesRemapTable(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.into(), core::mem::transmute(mapsize), core::mem::transmute(map))
 }
 #[inline]
-pub unsafe fn GdipSetImageAttributesThreshold<P2>(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: P2, threshold: f32) -> Status
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipSetImageAttributesThreshold(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableflag: bool, threshold: f32) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesThreshold(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, threshold : f32) -> Status);
-    GdipSetImageAttributesThreshold(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.param().abi(), core::mem::transmute(threshold))
+    GdipSetImageAttributesThreshold(core::mem::transmute(imageattr), core::mem::transmute(r#type), enableflag.into(), core::mem::transmute(threshold))
 }
 #[inline]
 pub unsafe fn GdipSetImageAttributesToIdentity(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType) -> Status {
@@ -2873,12 +2818,9 @@ pub unsafe fn GdipSetImageAttributesToIdentity(imageattr: *mut GpImageAttributes
     GdipSetImageAttributesToIdentity(core::mem::transmute(imageattr), core::mem::transmute(r#type))
 }
 #[inline]
-pub unsafe fn GdipSetImageAttributesWrapMode<P3>(imageattr: *mut GpImageAttributes, wrap: WrapMode, argb: u32, clamp: P3) -> Status
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipSetImageAttributesWrapMode(imageattr: *mut GpImageAttributes, wrap: WrapMode, argb: u32, clamp: bool) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesWrapMode(imageattr : *mut GpImageAttributes, wrap : WrapMode, argb : u32, clamp : super::super::Foundation:: BOOL) -> Status);
-    GdipSetImageAttributesWrapMode(core::mem::transmute(imageattr), core::mem::transmute(wrap), core::mem::transmute(argb), clamp.param().abi())
+    GdipSetImageAttributesWrapMode(core::mem::transmute(imageattr), core::mem::transmute(wrap), core::mem::transmute(argb), clamp.into())
 }
 #[inline]
 pub unsafe fn GdipSetImagePalette(image: *mut GpImage, palette: *const ColorPalette) -> Status {
@@ -2906,12 +2848,9 @@ pub unsafe fn GdipSetLineColors(brush: *mut GpLineGradient, color1: u32, color2:
     GdipSetLineColors(core::mem::transmute(brush), core::mem::transmute(color1), core::mem::transmute(color2))
 }
 #[inline]
-pub unsafe fn GdipSetLineGammaCorrection<P1>(brush: *mut GpLineGradient, usegammacorrection: P1) -> Status
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipSetLineGammaCorrection(brush: *mut GpLineGradient, usegammacorrection: bool) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineGammaCorrection(brush : *mut GpLineGradient, usegammacorrection : super::super::Foundation:: BOOL) -> Status);
-    GdipSetLineGammaCorrection(core::mem::transmute(brush), usegammacorrection.param().abi())
+    GdipSetLineGammaCorrection(core::mem::transmute(brush), usegammacorrection.into())
 }
 #[inline]
 pub unsafe fn GdipSetLineLinearBlend(brush: *mut GpLineGradient, focus: f32, scale: f32) -> Status {
@@ -2989,12 +2928,9 @@ pub unsafe fn GdipSetPathGradientFocusScales(brush: *mut GpPathGradient, xscale:
     GdipSetPathGradientFocusScales(core::mem::transmute(brush), core::mem::transmute(xscale), core::mem::transmute(yscale))
 }
 #[inline]
-pub unsafe fn GdipSetPathGradientGammaCorrection<P1>(brush: *mut GpPathGradient, usegammacorrection: P1) -> Status
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GdipSetPathGradientGammaCorrection(brush: *mut GpPathGradient, usegammacorrection: bool) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientGammaCorrection(brush : *mut GpPathGradient, usegammacorrection : super::super::Foundation:: BOOL) -> Status);
-    GdipSetPathGradientGammaCorrection(core::mem::transmute(brush), usegammacorrection.param().abi())
+    GdipSetPathGradientGammaCorrection(core::mem::transmute(brush), usegammacorrection.into())
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientLinearBlend(brush: *mut GpPathGradient, focus: f32, scale: f32) -> Status {
@@ -3381,9 +3317,6 @@ pub const BLUE_SHIFT: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct Bitmap(pub isize);
-impl windows_core::TypeKind for Bitmap {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BitmapData {
@@ -3454,15 +3387,9 @@ pub const BrushTypeTextureFill: BrushType = BrushType(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CGpEffect(pub isize);
-impl windows_core::TypeKind for CGpEffect {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CachedBitmap(pub isize);
-impl windows_core::TypeKind for CachedBitmap {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CharacterRange {
@@ -3828,9 +3755,6 @@ pub const CurveChannelRed: CurveChannel = CurveChannel(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CustomLineCap(pub isize);
-impl windows_core::TypeKind for CustomLineCap {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CustomLineCapType(pub i32);
@@ -4213,21 +4137,12 @@ pub const FlushIntentionSync: FlushIntention = FlushIntention(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct Font(pub isize);
-impl windows_core::TypeKind for Font {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FontCollection(pub isize);
-impl windows_core::TypeKind for FontCollection {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FontFamily(pub isize);
-impl windows_core::TypeKind for FontFamily {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FontFamilyNotFound: Status = Status(14i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4682,9 +4597,6 @@ impl windows_core::RuntimeName for IImageBytes {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct Image(pub isize);
-impl windows_core::TypeKind for Image {
-    type TypeKind = windows_core::CopyType;
-}
 pub type ImageAbort = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4781,9 +4693,6 @@ pub const ImageTypeUnknown: ImageType = ImageType(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct InstalledFontCollection(pub isize);
-impl windows_core::TypeKind for InstalledFontCollection {
-    type TypeKind = windows_core::CopyType;
-}
 pub const InsufficientBuffer: Status = Status(5i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4858,9 +4767,6 @@ pub const LinearGradientModeVertical: LinearGradientMode = LinearGradientMode(1i
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct Matrix(pub isize);
-impl windows_core::TypeKind for Matrix {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MatrixOrder(pub i32);
@@ -4869,9 +4775,6 @@ pub const MatrixOrderPrepend: MatrixOrder = MatrixOrder(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct Metafile(pub isize);
-impl windows_core::TypeKind for Metafile {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MetafileFrameUnit(pub i32);
@@ -4986,9 +4889,6 @@ pub const PaletteTypeOptimal: PaletteType = PaletteType(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PathData(pub isize);
-impl windows_core::TypeKind for PathData {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PathPointType(pub i32);
@@ -5057,9 +4957,6 @@ impl Default for PointF {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PrivateFontCollection(pub isize);
-impl windows_core::TypeKind for PrivateFontCollection {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ProfileNotFound: Status = Status(21i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5378,9 +5275,6 @@ impl Default for RedEyeCorrectionParams {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct Region(pub isize);
-impl windows_core::TypeKind for Region {
-    type TypeKind = windows_core::CopyType;
-}
 pub const Rotate180FlipNone: RotateFlipType = RotateFlipType(2i32);
 pub const Rotate180FlipX: RotateFlipType = RotateFlipType(6i32);
 pub const Rotate180FlipXY: RotateFlipType = RotateFlipType(0i32);

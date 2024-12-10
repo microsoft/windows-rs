@@ -248,12 +248,9 @@ windows_core::imp::define_interface!(ICompositorDesktopInterop, ICompositorDeskt
 windows_core::imp::interface_hierarchy!(ICompositorDesktopInterop, windows_core::IUnknown);
 impl ICompositorDesktopInterop {
     #[cfg(feature = "UI_Composition_Desktop")]
-    pub unsafe fn CreateDesktopWindowTarget<P1>(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: P1) -> windows_core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn CreateDesktopWindowTarget(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: bool) -> windows_core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndtarget), istopmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndtarget), istopmost.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnsureOnThread(&self, threadid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnsureOnThread)(windows_core::Interface::as_raw(self), core::mem::transmute(threadid)).ok()

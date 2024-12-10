@@ -231,9 +231,6 @@ pub struct DEVPROPTYPE(pub u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DEVPROP_BOOLEAN(pub u8);
-impl windows_core::TypeKind for DEVPROP_BOOLEAN {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEVPROP_FALSE: DEVPROP_BOOLEAN = DEVPROP_BOOLEAN(0u8);
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;

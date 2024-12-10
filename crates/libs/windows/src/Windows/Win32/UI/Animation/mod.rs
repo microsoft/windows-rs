@@ -609,12 +609,11 @@ impl IUIAnimationManager2 {
     pub unsafe fn Resume(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetManagerEventHandler<P0, P1>(&self, handler: P0, fregisterfornextanimationevent: P1) -> windows_core::Result<()>
+    pub unsafe fn SetManagerEventHandler<P0>(&self, handler: P0, fregisterfornextanimationevent: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAnimationManagerEventHandler2>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetManagerEventHandler)(windows_core::Interface::as_raw(self), handler.param().abi(), fregisterfornextanimationevent.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetManagerEventHandler)(windows_core::Interface::as_raw(self), handler.param().abi(), fregisterfornextanimationevent.into()).ok()
     }
     pub unsafe fn SetCancelPriorityComparison<P0>(&self, comparison: P0) -> windows_core::Result<()>
     where
@@ -1292,12 +1291,11 @@ impl IUIAnimationStoryboard2 {
     {
         (windows_core::Interface::vtable(self).AddTransitionBetweenKeyframes)(windows_core::Interface::as_raw(self), variable.param().abi(), transition.param().abi(), core::mem::transmute(startkeyframe), core::mem::transmute(endkeyframe)).ok()
     }
-    pub unsafe fn RepeatBetweenKeyframes<P4, P6>(&self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: P4, id: usize, fregisterfornextanimationevent: P6) -> windows_core::Result<()>
+    pub unsafe fn RepeatBetweenKeyframes<P4>(&self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: P4, id: usize, fregisterfornextanimationevent: bool) -> windows_core::Result<()>
     where
         P4: windows_core::Param<IUIAnimationLoopIterationChangeHandler2>,
-        P6: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RepeatBetweenKeyframes)(windows_core::Interface::as_raw(self), core::mem::transmute(startkeyframe), core::mem::transmute(endkeyframe), core::mem::transmute(crepetition), core::mem::transmute(repeatmode), piterationchangehandler.param().abi(), core::mem::transmute(id), fregisterfornextanimationevent.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RepeatBetweenKeyframes)(windows_core::Interface::as_raw(self), core::mem::transmute(startkeyframe), core::mem::transmute(endkeyframe), core::mem::transmute(crepetition), core::mem::transmute(repeatmode), piterationchangehandler.param().abi(), core::mem::transmute(id), fregisterfornextanimationevent.into()).ok()
     }
     pub unsafe fn HoldVariable<P0>(&self, variable: P0) -> windows_core::Result<()>
     where
@@ -1340,13 +1338,11 @@ impl IUIAnimationStoryboard2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetElapsedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetStoryboardEventHandler<P0, P1, P2>(&self, handler: P0, fregisterstatuschangefornextanimationevent: P1, fregisterupdatefornextanimationevent: P2) -> windows_core::Result<()>
+    pub unsafe fn SetStoryboardEventHandler<P0>(&self, handler: P0, fregisterstatuschangefornextanimationevent: bool, fregisterupdatefornextanimationevent: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAnimationStoryboardEventHandler2>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetStoryboardEventHandler)(windows_core::Interface::as_raw(self), handler.param().abi(), fregisterstatuschangefornextanimationevent.param().abi(), fregisterupdatefornextanimationevent.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetStoryboardEventHandler)(windows_core::Interface::as_raw(self), handler.param().abi(), fregisterstatuschangefornextanimationevent.into(), fregisterupdatefornextanimationevent.into()).ok()
     }
 }
 #[repr(C)]
@@ -2979,19 +2975,17 @@ impl IUIAnimationVariable2 {
     pub unsafe fn GetTag(&self, object: Option<*mut Option<windows_core::IUnknown>>, id: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object.unwrap_or(core::mem::zeroed())), core::mem::transmute(id.unwrap_or(core::mem::zeroed()))).ok()
     }
-    pub unsafe fn SetVariableChangeHandler<P0, P1>(&self, handler: P0, fregisterfornextanimationevent: P1) -> windows_core::Result<()>
+    pub unsafe fn SetVariableChangeHandler<P0>(&self, handler: P0, fregisterfornextanimationevent: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAnimationVariableChangeHandler2>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetVariableChangeHandler)(windows_core::Interface::as_raw(self), handler.param().abi(), fregisterfornextanimationevent.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetVariableChangeHandler)(windows_core::Interface::as_raw(self), handler.param().abi(), fregisterfornextanimationevent.into()).ok()
     }
-    pub unsafe fn SetVariableIntegerChangeHandler<P0, P1>(&self, handler: P0, fregisterfornextanimationevent: P1) -> windows_core::Result<()>
+    pub unsafe fn SetVariableIntegerChangeHandler<P0>(&self, handler: P0, fregisterfornextanimationevent: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAnimationVariableIntegerChangeHandler2>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetVariableIntegerChangeHandler)(windows_core::Interface::as_raw(self), handler.param().abi(), fregisterfornextanimationevent.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetVariableIntegerChangeHandler)(windows_core::Interface::as_raw(self), handler.param().abi(), fregisterfornextanimationevent.into()).ok()
     }
     pub unsafe fn SetVariableCurveChangeHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
@@ -3471,9 +3465,6 @@ pub const UI_ANIMATION_IDLE_BEHAVIOR_DISABLE: UI_ANIMATION_IDLE_BEHAVIOR = UI_AN
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UI_ANIMATION_KEYFRAME(pub isize);
-impl windows_core::TypeKind for UI_ANIMATION_KEYFRAME {
-    type TypeKind = windows_core::CopyType;
-}
 pub const UI_ANIMATION_MANAGER_BUSY: UI_ANIMATION_MANAGER_STATUS = UI_ANIMATION_MANAGER_STATUS(1i32);
 pub const UI_ANIMATION_MANAGER_IDLE: UI_ANIMATION_MANAGER_STATUS = UI_ANIMATION_MANAGER_STATUS(0i32);
 #[repr(transparent)]

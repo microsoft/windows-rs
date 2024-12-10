@@ -1,12 +1,11 @@
 #[inline]
-pub unsafe fn FCIAddFile<P1, P2, P3>(hfci: *const core::ffi::c_void, pszsourcefile: P1, pszfilename: P2, fexecute: P3, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS, pfnfcigoi: PFNFCIGETOPENINFO, typecompress: u16) -> super::super::Foundation::BOOL
+pub unsafe fn FCIAddFile<P1, P2>(hfci: *const core::ffi::c_void, pszsourcefile: P1, pszfilename: P2, fexecute: bool, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS, pfnfcigoi: PFNFCIGETOPENINFO, typecompress: u16) -> super::super::Foundation::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("cabinet.dll" "cdecl" fn FCIAddFile(hfci : *const core::ffi::c_void, pszsourcefile : windows_core::PCSTR, pszfilename : windows_core::PCSTR, fexecute : super::super::Foundation:: BOOL, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS, pfnfcigoi : PFNFCIGETOPENINFO, typecompress : u16) -> super::super::Foundation:: BOOL);
-    FCIAddFile(core::mem::transmute(hfci), pszsourcefile.param().abi(), pszfilename.param().abi(), fexecute.param().abi(), core::mem::transmute(pfnfcignc), core::mem::transmute(pfnfcis), core::mem::transmute(pfnfcigoi), core::mem::transmute(typecompress))
+    FCIAddFile(core::mem::transmute(hfci), pszsourcefile.param().abi(), pszfilename.param().abi(), fexecute.into(), core::mem::transmute(pfnfcignc), core::mem::transmute(pfnfcis), core::mem::transmute(pfnfcigoi), core::mem::transmute(typecompress))
 }
 #[inline]
 pub unsafe fn FCICreate(perf: *const ERF, pfnfcifp: PFNFCIFILEPLACED, pfna: PFNFCIALLOC, pfnf: PFNFCIFREE, pfnopen: PFNFCIOPEN, pfnread: PFNFCIREAD, pfnwrite: PFNFCIWRITE, pfnclose: PFNFCICLOSE, pfnseek: PFNFCISEEK, pfndelete: PFNFCIDELETE, pfnfcigtf: PFNFCIGETTEMPFILE, pccab: *const CCAB, pv: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
@@ -19,12 +18,9 @@ pub unsafe fn FCIDestroy(hfci: *const core::ffi::c_void) -> super::super::Founda
     FCIDestroy(core::mem::transmute(hfci))
 }
 #[inline]
-pub unsafe fn FCIFlushCabinet<P1>(hfci: *const core::ffi::c_void, fgetnextcab: P1, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn FCIFlushCabinet(hfci: *const core::ffi::c_void, fgetnextcab: bool, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL {
     windows_targets::link!("cabinet.dll" "cdecl" fn FCIFlushCabinet(hfci : *const core::ffi::c_void, fgetnextcab : super::super::Foundation:: BOOL, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS) -> super::super::Foundation:: BOOL);
-    FCIFlushCabinet(core::mem::transmute(hfci), fgetnextcab.param().abi(), core::mem::transmute(pfnfcignc), core::mem::transmute(pfnfcis))
+    FCIFlushCabinet(core::mem::transmute(hfci), fgetnextcab.into(), core::mem::transmute(pfnfcignc), core::mem::transmute(pfnfcis))
 }
 #[inline]
 pub unsafe fn FCIFlushFolder(hfci: *const core::ffi::c_void, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL {

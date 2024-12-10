@@ -25,12 +25,9 @@ pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> windows_core::Res
     DwmEnableComposition(core::mem::transmute(ucompositionaction)).ok()
 }
 #[inline]
-pub unsafe fn DwmEnableMMCSS<P0>(fenablemmcss: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn DwmEnableMMCSS(fenablemmcss: bool) -> windows_core::Result<()> {
     windows_targets::link!("dwmapi.dll" "system" fn DwmEnableMMCSS(fenablemmcss : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    DwmEnableMMCSS(fenablemmcss.param().abi()).ok()
+    DwmEnableMMCSS(fenablemmcss.into()).ok()
 }
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
@@ -92,12 +89,9 @@ pub unsafe fn DwmIsCompositionEnabled() -> windows_core::Result<super::super::Fo
     DwmIsCompositionEnabled(&mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn DwmModifyPreviousDxFrameDuration<P2>(hwnd: super::super::Foundation::HWND, crefreshes: i32, frelative: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn DwmModifyPreviousDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32, frelative: bool) -> windows_core::Result<()> {
     windows_targets::link!("dwmapi.dll" "system" fn DwmModifyPreviousDxFrameDuration(hwnd : super::super::Foundation:: HWND, crefreshes : i32, frelative : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    DwmModifyPreviousDxFrameDuration(core::mem::transmute(hwnd), core::mem::transmute(crefreshes), frelative.param().abi()).ok()
+    DwmModifyPreviousDxFrameDuration(core::mem::transmute(hwnd), core::mem::transmute(crefreshes), frelative.into()).ok()
 }
 #[inline]
 pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> windows_core::Result<super::super::Foundation::SIZE> {
@@ -149,12 +143,9 @@ pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) ->
     DwmShowContact(core::mem::transmute(dwpointerid), core::mem::transmute(eshowcontact)).ok()
 }
 #[inline]
-pub unsafe fn DwmTetherContact<P1>(dwpointerid: u32, fenable: P1, pttether: super::super::Foundation::POINT) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn DwmTetherContact(dwpointerid: u32, fenable: bool, pttether: super::super::Foundation::POINT) -> windows_core::Result<()> {
     windows_targets::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u32, fenable : super::super::Foundation:: BOOL, pttether : super::super::Foundation:: POINT) -> windows_core::HRESULT);
-    DwmTetherContact(core::mem::transmute(dwpointerid), fenable.param().abi(), core::mem::transmute(pttether)).ok()
+    DwmTetherContact(core::mem::transmute(dwpointerid), fenable.into(), core::mem::transmute(pttether)).ok()
 }
 #[inline]
 pub unsafe fn DwmTransitionOwnedWindow(hwnd: super::super::Foundation::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> windows_core::Result<()> {

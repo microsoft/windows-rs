@@ -80,14 +80,13 @@ pub const FunctionInstanceCollection: windows_core::GUID = windows_core::GUID::f
 windows_core::imp::define_interface!(IFunctionDiscovery, IFunctionDiscovery_Vtbl, 0x4df99b70_e148_4432_b004_4c9eeb535a5e);
 windows_core::imp::interface_hierarchy!(IFunctionDiscovery, windows_core::IUnknown);
 impl IFunctionDiscovery {
-    pub unsafe fn GetInstanceCollection<P0, P1, P2>(&self, pszcategory: P0, pszsubcategory: P1, fincludeallsubcategories: P2) -> windows_core::Result<IFunctionInstanceCollection>
+    pub unsafe fn GetInstanceCollection<P0, P1>(&self, pszcategory: P0, pszsubcategory: P1, fincludeallsubcategories: bool) -> windows_core::Result<IFunctionInstanceCollection>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetInstanceCollection)(windows_core::Interface::as_raw(self), pszcategory.param().abi(), pszsubcategory.param().abi(), fincludeallsubcategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetInstanceCollection)(windows_core::Interface::as_raw(self), pszcategory.param().abi(), pszsubcategory.param().abi(), fincludeallsubcategories.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInstance<P0>(&self, pszfunctioninstanceidentity: P0) -> windows_core::Result<IFunctionInstance>
@@ -97,15 +96,14 @@ impl IFunctionDiscovery {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetInstance)(windows_core::Interface::as_raw(self), pszfunctioninstanceidentity.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateInstanceCollectionQuery<P0, P1, P2, P3>(&self, pszcategory: P0, pszsubcategory: P1, fincludeallsubcategories: P2, pifunctiondiscoverynotification: P3, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceCollectionQuery>
+    pub unsafe fn CreateInstanceCollectionQuery<P0, P1, P3>(&self, pszcategory: P0, pszsubcategory: P1, fincludeallsubcategories: bool, pifunctiondiscoverynotification: P3, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceCollectionQuery>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
         P3: windows_core::Param<IFunctionDiscoveryNotification>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateInstanceCollectionQuery)(windows_core::Interface::as_raw(self), pszcategory.param().abi(), pszsubcategory.param().abi(), fincludeallsubcategories.param().abi(), pifunctiondiscoverynotification.param().abi(), core::mem::transmute(pfdqcquerycontext), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateInstanceCollectionQuery)(windows_core::Interface::as_raw(self), pszcategory.param().abi(), pszsubcategory.param().abi(), fincludeallsubcategories.into(), pifunctiondiscoverynotification.param().abi(), core::mem::transmute(pfdqcquerycontext), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateInstanceQuery<P0, P1>(&self, pszfunctioninstanceidentity: P0, pifunctiondiscoverynotification: P1, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceQuery>
     where

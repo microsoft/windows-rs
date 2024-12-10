@@ -227,9 +227,6 @@ pub const PRJ_COMPLETE_COMMAND_TYPE_NOTIFICATION: PRJ_COMPLETE_COMMAND_TYPE = PR
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for PRJ_DIR_ENTRY_BUFFER_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl PRJ_DIR_ENTRY_BUFFER_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -342,9 +339,6 @@ pub type PRJ_GET_PLACEHOLDER_INFO_CB = Option<unsafe extern "system" fn(callback
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 impl PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

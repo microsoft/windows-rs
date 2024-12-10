@@ -45,22 +45,20 @@ where
     FaxConnectFaxServerW(machinename.param().abi(), core::mem::transmute(faxhandle)).ok()
 }
 #[inline]
-pub unsafe fn FaxEnableRoutingMethodA<P1, P2>(faxporthandle: super::super::Foundation::HANDLE, routingguid: P1, enabled: P2) -> windows_core::Result<()>
+pub unsafe fn FaxEnableRoutingMethodA<P1>(faxporthandle: super::super::Foundation::HANDLE, routingguid: P1, enabled: bool) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxEnableRoutingMethodA(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCSTR, enabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    FaxEnableRoutingMethodA(core::mem::transmute(faxporthandle), routingguid.param().abi(), enabled.param().abi()).ok()
+    FaxEnableRoutingMethodA(core::mem::transmute(faxporthandle), routingguid.param().abi(), enabled.into()).ok()
 }
 #[inline]
-pub unsafe fn FaxEnableRoutingMethodW<P1, P2>(faxporthandle: super::super::Foundation::HANDLE, routingguid: P1, enabled: P2) -> windows_core::Result<()>
+pub unsafe fn FaxEnableRoutingMethodW<P1>(faxporthandle: super::super::Foundation::HANDLE, routingguid: P1, enabled: bool) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxEnableRoutingMethodW(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCWSTR, enabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    FaxEnableRoutingMethodW(core::mem::transmute(faxporthandle), routingguid.param().abi(), enabled.param().abi()).ok()
+    FaxEnableRoutingMethodW(core::mem::transmute(faxporthandle), routingguid.param().abi(), enabled.into()).ok()
 }
 #[inline]
 pub unsafe fn FaxEnumGlobalRoutingInfoA(faxhandle: super::super::Foundation::HANDLE, routinginfo: *mut *mut FAX_GLOBAL_ROUTING_INFOA, methodsreturned: *mut u32) -> windows_core::Result<()> {
@@ -12716,12 +12714,11 @@ impl IStillImageW {
     {
         (windows_core::Interface::vtable(self).UnregisterLaunchApplication)(windows_core::Interface::as_raw(self), pwszappname.param().abi()).ok()
     }
-    pub unsafe fn EnableHwNotifications<P0, P1>(&self, pwszdevicename: P0, bnewstate: P1) -> windows_core::Result<()>
+    pub unsafe fn EnableHwNotifications<P0>(&self, pwszdevicename: P0, bnewstate: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).EnableHwNotifications)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), bnewstate.param().abi()).ok()
+        (windows_core::Interface::vtable(self).EnableHwNotifications)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), bnewstate.into()).ok()
     }
     pub unsafe fn GetHwNotificationState<P0>(&self, pwszdevicename: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where

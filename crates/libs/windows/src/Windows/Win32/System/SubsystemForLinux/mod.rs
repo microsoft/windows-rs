@@ -23,26 +23,24 @@ where
     WslIsDistributionRegistered(distributionname.param().abi())
 }
 #[inline]
-pub unsafe fn WslLaunch<P0, P1, P2>(distributionname: P0, command: P1, usecurrentworkingdirectory: P2, stdin: super::super::Foundation::HANDLE, stdout: super::super::Foundation::HANDLE, stderr: super::super::Foundation::HANDLE) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WslLaunch<P0, P1>(distributionname: P0, command: P1, usecurrentworkingdirectory: bool, stdin: super::super::Foundation::HANDLE, stdout: super::super::Foundation::HANDLE, stderr: super::super::Foundation::HANDLE) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslLaunch(distributionname : windows_core::PCWSTR, command : windows_core::PCWSTR, usecurrentworkingdirectory : super::super::Foundation:: BOOL, stdin : super::super::Foundation:: HANDLE, stdout : super::super::Foundation:: HANDLE, stderr : super::super::Foundation:: HANDLE, process : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WslLaunch(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.param().abi(), core::mem::transmute(stdin), core::mem::transmute(stdout), core::mem::transmute(stderr), &mut result__).map(|| core::mem::transmute(result__))
+    WslLaunch(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.into(), core::mem::transmute(stdin), core::mem::transmute(stdout), core::mem::transmute(stderr), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn WslLaunchInteractive<P0, P1, P2>(distributionname: P0, command: P1, usecurrentworkingdirectory: P2) -> windows_core::Result<u32>
+pub unsafe fn WslLaunchInteractive<P0, P1>(distributionname: P0, command: P1, usecurrentworkingdirectory: bool) -> windows_core::Result<u32>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslLaunchInteractive(distributionname : windows_core::PCWSTR, command : windows_core::PCWSTR, usecurrentworkingdirectory : super::super::Foundation:: BOOL, exitcode : *mut u32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WslLaunchInteractive(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    WslLaunchInteractive(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.into(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WslRegisterDistribution<P0, P1>(distributionname: P0, targzfilename: P1) -> windows_core::Result<()>

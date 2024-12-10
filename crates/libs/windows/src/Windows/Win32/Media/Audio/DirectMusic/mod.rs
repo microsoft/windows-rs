@@ -862,11 +862,8 @@ impl IDirectMusic {
     pub unsafe fn SetMasterClock(&self, rguidclock: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMasterClock)(windows_core::Interface::as_raw(self), core::mem::transmute(rguidclock)).ok()
     }
-    pub unsafe fn Activate<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
+    pub unsafe fn Activate(&self, fenable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn GetDefaultPort(&self, pguidport: *mut windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDefaultPort)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidport)).ok()
@@ -1341,11 +1338,8 @@ impl IDirectMusicPort {
     pub unsafe fn GetNumChannelGroups(&self, pdwchannelgroups: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNumChannelGroups)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwchannelgroups)).ok()
     }
-    pub unsafe fn Activate<P0>(&self, factive: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), factive.param().abi()).ok()
+    pub unsafe fn Activate(&self, factive: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), factive.into()).ok()
     }
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetChannelPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(dwchannelgroup), core::mem::transmute(dwchannel), core::mem::transmute(dwpriority)).ok()
@@ -1654,11 +1648,8 @@ impl IDirectMusicSynth {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLatencyClock)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Activate<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
+    pub unsafe fn Activate(&self, fenable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn SetSynthSink<P0>(&self, psynthsink: P0) -> windows_core::Result<()>
     where
@@ -1920,11 +1911,8 @@ impl IDirectMusicSynthSink {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLatencyClock)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Activate<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
+    pub unsafe fn Activate(&self, fenable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn SampleToRefTime(&self, llsampletime: i64, prftime: *mut i64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SampleToRefTime)(windows_core::Interface::as_raw(self), core::mem::transmute(llsampletime), core::mem::transmute(prftime)).ok()

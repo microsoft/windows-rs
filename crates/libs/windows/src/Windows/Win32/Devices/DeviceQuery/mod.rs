@@ -393,9 +393,6 @@ pub const DevQueryStateInitialized: DEV_QUERY_STATE = DEV_QUERY_STATE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDEVQUERY(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDEVQUERY {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDEVQUERY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()

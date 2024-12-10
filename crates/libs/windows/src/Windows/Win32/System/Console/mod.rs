@@ -280,20 +280,14 @@ pub unsafe fn GetConsoleWindow() -> super::super::Foundation::HWND {
     GetConsoleWindow()
 }
 #[inline]
-pub unsafe fn GetCurrentConsoleFont<P1>(hconsoleoutput: super::super::Foundation::HANDLE, bmaximumwindow: P1, lpconsolecurrentfont: *mut CONSOLE_FONT_INFO) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetCurrentConsoleFont(hconsoleoutput: super::super::Foundation::HANDLE, bmaximumwindow: bool, lpconsolecurrentfont: *mut CONSOLE_FONT_INFO) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetCurrentConsoleFont(hconsoleoutput : super::super::Foundation:: HANDLE, bmaximumwindow : super::super::Foundation:: BOOL, lpconsolecurrentfont : *mut CONSOLE_FONT_INFO) -> super::super::Foundation:: BOOL);
-    GetCurrentConsoleFont(core::mem::transmute(hconsoleoutput), bmaximumwindow.param().abi(), core::mem::transmute(lpconsolecurrentfont)).ok()
+    GetCurrentConsoleFont(core::mem::transmute(hconsoleoutput), bmaximumwindow.into(), core::mem::transmute(lpconsolecurrentfont)).ok()
 }
 #[inline]
-pub unsafe fn GetCurrentConsoleFontEx<P1>(hconsoleoutput: super::super::Foundation::HANDLE, bmaximumwindow: P1, lpconsolecurrentfontex: *mut CONSOLE_FONT_INFOEX) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetCurrentConsoleFontEx(hconsoleoutput: super::super::Foundation::HANDLE, bmaximumwindow: bool, lpconsolecurrentfontex: *mut CONSOLE_FONT_INFOEX) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetCurrentConsoleFontEx(hconsoleoutput : super::super::Foundation:: HANDLE, bmaximumwindow : super::super::Foundation:: BOOL, lpconsolecurrentfontex : *mut CONSOLE_FONT_INFOEX) -> super::super::Foundation:: BOOL);
-    GetCurrentConsoleFontEx(core::mem::transmute(hconsoleoutput), bmaximumwindow.param().abi(), core::mem::transmute(lpconsolecurrentfontex)).ok()
+    GetCurrentConsoleFontEx(core::mem::transmute(hconsoleoutput), bmaximumwindow.into(), core::mem::transmute(lpconsolecurrentfontex)).ok()
 }
 #[inline]
 pub unsafe fn GetLargestConsoleWindowSize(hconsoleoutput: super::super::Foundation::HANDLE) -> COORD {
@@ -397,12 +391,9 @@ pub unsafe fn SetConsoleCP(wcodepageid: u32) -> windows_core::Result<()> {
     SetConsoleCP(core::mem::transmute(wcodepageid)).ok()
 }
 #[inline]
-pub unsafe fn SetConsoleCtrlHandler<P1>(handlerroutine: Option<PHANDLER_ROUTINE>, add: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetConsoleCtrlHandler(handlerroutine: Option<PHANDLER_ROUTINE>, add: bool) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetConsoleCtrlHandler(handlerroutine : PHANDLER_ROUTINE, add : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetConsoleCtrlHandler(core::mem::transmute(handlerroutine.unwrap_or(core::mem::zeroed())), add.param().abi()).ok()
+    SetConsoleCtrlHandler(core::mem::transmute(handlerroutine.unwrap_or(core::mem::zeroed())), add.into()).ok()
 }
 #[inline]
 pub unsafe fn SetConsoleCursorInfo(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolecursorinfo: *const CONSOLE_CURSOR_INFO) -> windows_core::Result<()> {
@@ -482,20 +473,14 @@ where
     SetConsoleTitleW(lpconsoletitle.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetConsoleWindowInfo<P1>(hconsoleoutput: super::super::Foundation::HANDLE, babsolute: P1, lpconsolewindow: *const SMALL_RECT) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetConsoleWindowInfo(hconsoleoutput: super::super::Foundation::HANDLE, babsolute: bool, lpconsolewindow: *const SMALL_RECT) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetConsoleWindowInfo(hconsoleoutput : super::super::Foundation:: HANDLE, babsolute : super::super::Foundation:: BOOL, lpconsolewindow : *const SMALL_RECT) -> super::super::Foundation:: BOOL);
-    SetConsoleWindowInfo(core::mem::transmute(hconsoleoutput), babsolute.param().abi(), core::mem::transmute(lpconsolewindow)).ok()
+    SetConsoleWindowInfo(core::mem::transmute(hconsoleoutput), babsolute.into(), core::mem::transmute(lpconsolewindow)).ok()
 }
 #[inline]
-pub unsafe fn SetCurrentConsoleFontEx<P1>(hconsoleoutput: super::super::Foundation::HANDLE, bmaximumwindow: P1, lpconsolecurrentfontex: *const CONSOLE_FONT_INFOEX) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetCurrentConsoleFontEx(hconsoleoutput: super::super::Foundation::HANDLE, bmaximumwindow: bool, lpconsolecurrentfontex: *const CONSOLE_FONT_INFOEX) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetCurrentConsoleFontEx(hconsoleoutput : super::super::Foundation:: HANDLE, bmaximumwindow : super::super::Foundation:: BOOL, lpconsolecurrentfontex : *const CONSOLE_FONT_INFOEX) -> super::super::Foundation:: BOOL);
-    SetCurrentConsoleFontEx(core::mem::transmute(hconsoleoutput), bmaximumwindow.param().abi(), core::mem::transmute(lpconsolecurrentfontex)).ok()
+    SetCurrentConsoleFontEx(core::mem::transmute(hconsoleoutput), bmaximumwindow.into(), core::mem::transmute(lpconsolecurrentfontex)).ok()
 }
 #[inline]
 pub unsafe fn SetStdHandle(nstdhandle: STD_HANDLE, hhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -900,9 +885,6 @@ pub const HISTORY_NO_DUP_FLAG: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HPCON(pub isize);
-impl windows_core::TypeKind for HPCON {
-    type TypeKind = windows_core::CopyType;
-}
 impl HPCON {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0

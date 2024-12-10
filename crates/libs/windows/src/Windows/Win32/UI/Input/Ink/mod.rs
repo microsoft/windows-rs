@@ -29,13 +29,12 @@ impl windows_core::RuntimeName for IInkCommitRequestHandler {}
 windows_core::imp::define_interface!(IInkD2DRenderer, IInkD2DRenderer_Vtbl, 0x407fb1de_f85a_4150_97cf_b7fb274fb4f8);
 windows_core::imp::interface_hierarchy!(IInkD2DRenderer, windows_core::IUnknown);
 impl IInkD2DRenderer {
-    pub unsafe fn Draw<P0, P1, P2>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, fhighcontrast: P2) -> windows_core::Result<()>
+    pub unsafe fn Draw<P0, P1>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, fhighcontrast: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
-        P2: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pd2d1devicecontext.param().abi(), pinkstrokeiterable.param().abi(), fhighcontrast.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pd2d1devicecontext.param().abi(), pinkstrokeiterable.param().abi(), fhighcontrast.into()).ok()
     }
 }
 #[repr(C)]

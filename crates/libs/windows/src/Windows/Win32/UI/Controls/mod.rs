@@ -426,36 +426,24 @@ pub unsafe fn EnableThemeDialogTexture(hwnd: super::super::Foundation::HWND, dwf
     EnableThemeDialogTexture(core::mem::transmute(hwnd), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn EnableTheming<P0>(fenable: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn EnableTheming(fenable: bool) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn EnableTheming(fenable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    EnableTheming(fenable.param().abi()).ok()
+    EnableTheming(fenable.into()).ok()
 }
 #[inline]
-pub unsafe fn EndBufferedAnimation<P1>(hbpanimation: isize, fupdatetarget: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn EndBufferedAnimation(hbpanimation: isize, fupdatetarget: bool) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn EndBufferedAnimation(hbpanimation : isize, fupdatetarget : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    EndBufferedAnimation(core::mem::transmute(hbpanimation), fupdatetarget.param().abi()).ok()
+    EndBufferedAnimation(core::mem::transmute(hbpanimation), fupdatetarget.into()).ok()
 }
 #[inline]
-pub unsafe fn EndBufferedPaint<P1>(hbufferedpaint: isize, fupdatetarget: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn EndBufferedPaint(hbufferedpaint: isize, fupdatetarget: bool) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn EndBufferedPaint(hbufferedpaint : isize, fupdatetarget : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    EndBufferedPaint(core::mem::transmute(hbufferedpaint), fupdatetarget.param().abi()).ok()
+    EndBufferedPaint(core::mem::transmute(hbufferedpaint), fupdatetarget.into()).ok()
 }
 #[inline]
-pub unsafe fn EndPanningFeedback<P1>(hwnd: super::super::Foundation::HWND, fanimateback: P1) -> super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn EndPanningFeedback(hwnd: super::super::Foundation::HWND, fanimateback: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("uxtheme.dll" "system" fn EndPanningFeedback(hwnd : super::super::Foundation:: HWND, fanimateback : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    EndPanningFeedback(core::mem::transmute(hwnd), fanimateback.param().abi())
+    EndPanningFeedback(core::mem::transmute(hwnd), fanimateback.into())
 }
 #[inline]
 pub unsafe fn EvaluateProximityToPolygon(controlpolygon: &[super::super::Foundation::POINT], phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> windows_core::Result<()> {
@@ -497,47 +485,32 @@ pub unsafe fn FlatSB_GetScrollRange(param0: super::super::Foundation::HWND, code
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_SetScrollInfo<P3>(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, psi: *mut super::WindowsAndMessaging::SCROLLINFO, fredraw: P3) -> i32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn FlatSB_SetScrollInfo(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, psi: *mut super::WindowsAndMessaging::SCROLLINFO, fredraw: bool) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollInfo(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, psi : *mut super::WindowsAndMessaging:: SCROLLINFO, fredraw : super::super::Foundation:: BOOL) -> i32);
-    FlatSB_SetScrollInfo(core::mem::transmute(param0), core::mem::transmute(code), core::mem::transmute(psi), fredraw.param().abi())
+    FlatSB_SetScrollInfo(core::mem::transmute(param0), core::mem::transmute(code), core::mem::transmute(psi), fredraw.into())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_SetScrollPos<P3>(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, pos: i32, fredraw: P3) -> i32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn FlatSB_SetScrollPos(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, pos: i32, fredraw: bool) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollPos(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, pos : i32, fredraw : super::super::Foundation:: BOOL) -> i32);
-    FlatSB_SetScrollPos(core::mem::transmute(param0), core::mem::transmute(code), core::mem::transmute(pos), fredraw.param().abi())
+    FlatSB_SetScrollPos(core::mem::transmute(param0), core::mem::transmute(code), core::mem::transmute(pos), fredraw.into())
 }
 #[inline]
-pub unsafe fn FlatSB_SetScrollProp<P3>(param0: super::super::Foundation::HWND, index: WSB_PROP, newvalue: isize, param3: P3) -> super::super::Foundation::BOOL
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn FlatSB_SetScrollProp(param0: super::super::Foundation::HWND, index: WSB_PROP, newvalue: isize, param3: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollProp(param0 : super::super::Foundation:: HWND, index : u32, newvalue : isize, param3 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    FlatSB_SetScrollProp(core::mem::transmute(param0), index.0 as _, core::mem::transmute(newvalue), param3.param().abi())
+    FlatSB_SetScrollProp(core::mem::transmute(param0), index.0 as _, core::mem::transmute(newvalue), param3.into())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_SetScrollRange<P4>(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, min: i32, max: i32, fredraw: P4) -> i32
-where
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn FlatSB_SetScrollRange(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, min: i32, max: i32, fredraw: bool) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollRange(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, min : i32, max : i32, fredraw : super::super::Foundation:: BOOL) -> i32);
-    FlatSB_SetScrollRange(core::mem::transmute(param0), core::mem::transmute(code), core::mem::transmute(min), core::mem::transmute(max), fredraw.param().abi())
+    FlatSB_SetScrollRange(core::mem::transmute(param0), core::mem::transmute(code), core::mem::transmute(min), core::mem::transmute(max), fredraw.into())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_ShowScrollBar<P2>(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: P2) -> super::super::Foundation::BOOL
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn FlatSB_ShowScrollBar(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_ShowScrollBar(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    FlatSB_ShowScrollBar(core::mem::transmute(param0), core::mem::transmute(code), param2.param().abi())
+    FlatSB_ShowScrollBar(core::mem::transmute(param0), core::mem::transmute(code), param2.into())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -871,12 +844,9 @@ pub unsafe fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BO
     ImageList_DragMove(core::mem::transmute(x), core::mem::transmute(y))
 }
 #[inline]
-pub unsafe fn ImageList_DragShowNolock<P0>(fshow: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ImageList_DragShowNolock(fshow: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_DragShowNolock(fshow : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    ImageList_DragShowNolock(fshow.param().abi())
+    ImageList_DragShowNolock(fshow.into())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1100,12 +1070,9 @@ pub unsafe fn IsThemePartDefined(htheme: HTHEME, ipartid: i32, istateid: i32) ->
     IsThemePartDefined(core::mem::transmute(htheme), core::mem::transmute(ipartid), core::mem::transmute(istateid))
 }
 #[inline]
-pub unsafe fn LBItemFromPt<P2>(hlb: super::super::Foundation::HWND, pt: super::super::Foundation::POINT, bautoscroll: P2) -> i32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn LBItemFromPt(hlb: super::super::Foundation::HWND, pt: super::super::Foundation::POINT, bautoscroll: bool) -> i32 {
     windows_targets::link!("comctl32.dll" "system" fn LBItemFromPt(hlb : super::super::Foundation:: HWND, pt : super::super::Foundation:: POINT, bautoscroll : super::super::Foundation:: BOOL) -> i32);
-    LBItemFromPt(core::mem::transmute(hlb), core::mem::transmute(pt), bautoscroll.param().abi())
+    LBItemFromPt(core::mem::transmute(hlb), core::mem::transmute(pt), bautoscroll.into())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -1172,12 +1139,9 @@ pub unsafe fn PropertySheetW(param0: *mut PROPSHEETHEADERW_V2) -> isize {
     PropertySheetW(core::mem::transmute(param0))
 }
 #[inline]
-pub unsafe fn RegisterPointerDeviceNotifications<P1>(window: super::super::Foundation::HWND, notifyrange: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RegisterPointerDeviceNotifications(window: super::super::Foundation::HWND, notifyrange: bool) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn RegisterPointerDeviceNotifications(window : super::super::Foundation:: HWND, notifyrange : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    RegisterPointerDeviceNotifications(core::mem::transmute(window), notifyrange.param().abi()).ok()
+    RegisterPointerDeviceNotifications(core::mem::transmute(window), notifyrange.into()).ok()
 }
 #[inline]
 pub unsafe fn RegisterTouchHitTestingWindow(hwnd: super::super::Foundation::HWND, value: u32) -> windows_core::Result<()> {
@@ -1186,30 +1150,21 @@ pub unsafe fn RegisterTouchHitTestingWindow(hwnd: super::super::Foundation::HWND
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn SetScrollInfo<P3>(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, lpsi: *const super::WindowsAndMessaging::SCROLLINFO, redraw: P3) -> i32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetScrollInfo(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, lpsi: *const super::WindowsAndMessaging::SCROLLINFO, redraw: bool) -> i32 {
     windows_targets::link!("user32.dll" "system" fn SetScrollInfo(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, lpsi : *const super::WindowsAndMessaging:: SCROLLINFO, redraw : super::super::Foundation:: BOOL) -> i32);
-    SetScrollInfo(core::mem::transmute(hwnd), core::mem::transmute(nbar), core::mem::transmute(lpsi), redraw.param().abi())
+    SetScrollInfo(core::mem::transmute(hwnd), core::mem::transmute(nbar), core::mem::transmute(lpsi), redraw.into())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn SetScrollPos<P3>(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, npos: i32, bredraw: P3) -> i32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetScrollPos(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, npos: i32, bredraw: bool) -> i32 {
     windows_targets::link!("user32.dll" "system" fn SetScrollPos(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, npos : i32, bredraw : super::super::Foundation:: BOOL) -> i32);
-    SetScrollPos(core::mem::transmute(hwnd), core::mem::transmute(nbar), core::mem::transmute(npos), bredraw.param().abi())
+    SetScrollPos(core::mem::transmute(hwnd), core::mem::transmute(nbar), core::mem::transmute(npos), bredraw.into())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn SetScrollRange<P4>(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, nminpos: i32, nmaxpos: i32, bredraw: P4) -> windows_core::Result<()>
-where
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetScrollRange(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, nminpos: i32, nmaxpos: i32, bredraw: bool) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn SetScrollRange(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, nminpos : i32, nmaxpos : i32, bredraw : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetScrollRange(core::mem::transmute(hwnd), core::mem::transmute(nbar), core::mem::transmute(nminpos), core::mem::transmute(nmaxpos), bredraw.param().abi()).ok()
+    SetScrollRange(core::mem::transmute(hwnd), core::mem::transmute(nbar), core::mem::transmute(nminpos), core::mem::transmute(nmaxpos), bredraw.into()).ok()
 }
 #[inline]
 pub unsafe fn SetThemeAppProperties(dwflags: SET_THEME_APP_PROPERTIES_FLAGS) {
@@ -1242,12 +1197,9 @@ pub unsafe fn ShowHideMenuCtl(hwnd: super::super::Foundation::HWND, uflags: usiz
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn ShowScrollBar<P2>(hwnd: super::super::Foundation::HWND, wbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, bshow: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ShowScrollBar(hwnd: super::super::Foundation::HWND, wbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, bshow: bool) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn ShowScrollBar(hwnd : super::super::Foundation:: HWND, wbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, bshow : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    ShowScrollBar(core::mem::transmute(hwnd), core::mem::transmute(wbar), bshow.param().abi()).ok()
+    ShowScrollBar(core::mem::transmute(hwnd), core::mem::transmute(wbar), bshow.into()).ok()
 }
 #[inline]
 pub unsafe fn Str_SetPtrW<P1>(ppsz: *mut windows_core::PWSTR, psz: P1) -> super::super::Foundation::BOOL
@@ -1280,12 +1232,9 @@ pub unsafe fn UninitializeFlatSB(param0: super::super::Foundation::HWND) -> wind
     UninitializeFlatSB(core::mem::transmute(param0)).ok()
 }
 #[inline]
-pub unsafe fn UpdatePanningFeedback<P3>(hwnd: super::super::Foundation::HWND, ltotaloverpanoffsetx: i32, ltotaloverpanoffsety: i32, fininertia: P3) -> super::super::Foundation::BOOL
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn UpdatePanningFeedback(hwnd: super::super::Foundation::HWND, ltotaloverpanoffsetx: i32, ltotaloverpanoffsety: i32, fininertia: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("uxtheme.dll" "system" fn UpdatePanningFeedback(hwnd : super::super::Foundation:: HWND, ltotaloverpanoffsetx : i32, ltotaloverpanoffsety : i32, fininertia : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    UpdatePanningFeedback(core::mem::transmute(hwnd), core::mem::transmute(ltotaloverpanoffsetx), core::mem::transmute(ltotaloverpanoffsety), fininertia.param().abi())
+    UpdatePanningFeedback(core::mem::transmute(hwnd), core::mem::transmute(ltotaloverpanoffsetx), core::mem::transmute(ltotaloverpanoffsety), fininertia.into())
 }
 pub const ABS_DOWNDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(8i32);
 pub const ABS_DOWNHOT: ARROWBTNSTATES = ARROWBTNSTATES(6i32);
@@ -3115,9 +3064,6 @@ pub const HDN_TRACKW: u32 = 4294966968u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HDPA(pub isize);
-impl windows_core::TypeKind for HDPA {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDPA {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -3135,9 +3081,6 @@ impl windows_core::Free for HDPA {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HDSA(pub isize);
-impl windows_core::TypeKind for HDSA {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDSA {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -3311,9 +3254,6 @@ pub const HILS_PRESSED: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(3i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HIMAGELIST(pub isize);
-impl windows_core::TypeKind for HIMAGELIST {
-    type TypeKind = windows_core::CopyType;
-}
 impl HIMAGELIST {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -3389,9 +3329,6 @@ pub const HOVER_DEFAULT: u32 = 4294967295u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPROPSHEETPAGE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HPROPSHEETPAGE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HPROPSHEETPAGE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -3427,9 +3364,6 @@ pub const HSS_PUSHED: HORZSCROLLSTATES = HORZSCROLLSTATES(3i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSYNTHETICPOINTERDEVICE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HSYNTHETICPOINTERDEVICE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HSYNTHETICPOINTERDEVICE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -3452,9 +3386,6 @@ impl Default for HSYNTHETICPOINTERDEVICE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HTHEME(pub isize);
-impl windows_core::TypeKind for HTHEME {
-    type TypeKind = windows_core::CopyType;
-}
 impl HTHEME {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
@@ -3472,9 +3403,6 @@ impl windows_core::Free for HTHEME {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HTREEITEM(pub isize);
-impl windows_core::TypeKind for HTREEITEM {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HTS_DISABLED: HORZTHUMBSTATES = HORZTHUMBSTATES(4i32);
 pub const HTS_HOT: HORZTHUMBSTATES = HORZTHUMBSTATES(2i32);
 pub const HTS_NORMAL: HORZTHUMBSTATES = HORZTHUMBSTATES(1i32);
@@ -3637,11 +3565,8 @@ impl IImageList {
     {
         (windows_core::Interface::vtable(self).SetDragCursorImage)(windows_core::Interface::as_raw(self), punk.param().abi(), core::mem::transmute(idrag), core::mem::transmute(dxhotspot), core::mem::transmute(dyhotspot)).ok()
     }
-    pub unsafe fn DragShowNolock<P0>(&self, fshow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).DragShowNolock)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
+    pub unsafe fn DragShowNolock(&self, fshow: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DragShowNolock)(windows_core::Interface::as_raw(self), fshow.into()).ok()
     }
     pub unsafe fn GetDragImage(&self, ppt: Option<*mut super::super::Foundation::POINT>, ppthotspot: Option<*mut super::super::Foundation::POINT>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDragImage)(windows_core::Interface::as_raw(self), core::mem::transmute(ppt.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppthotspot.unwrap_or(core::mem::zeroed())), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()

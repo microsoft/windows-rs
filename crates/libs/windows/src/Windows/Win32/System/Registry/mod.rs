@@ -371,13 +371,9 @@ where
     RegLoadMUIStringW(core::mem::transmute(hkey), pszvalue.param().abi(), core::mem::transmute(pszoutbuf.unwrap_or(core::mem::zeroed())), core::mem::transmute(cboutbuf), core::mem::transmute(pcbdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags), pszdirectory.param().abi())
 }
 #[inline]
-pub unsafe fn RegNotifyChangeKeyValue<P1, P4>(hkey: HKEY, bwatchsubtree: P1, dwnotifyfilter: REG_NOTIFY_FILTER, hevent: Option<super::super::Foundation::HANDLE>, fasynchronous: P4) -> super::super::Foundation::WIN32_ERROR
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RegNotifyChangeKeyValue(hkey: HKEY, bwatchsubtree: bool, dwnotifyfilter: REG_NOTIFY_FILTER, hevent: Option<super::super::Foundation::HANDLE>, fasynchronous: bool) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("advapi32.dll" "system" fn RegNotifyChangeKeyValue(hkey : HKEY, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : REG_NOTIFY_FILTER, hevent : super::super::Foundation:: HANDLE, fasynchronous : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
-    RegNotifyChangeKeyValue(core::mem::transmute(hkey), bwatchsubtree.param().abi(), core::mem::transmute(dwnotifyfilter), core::mem::transmute(hevent.unwrap_or(core::mem::zeroed())), fasynchronous.param().abi())
+    RegNotifyChangeKeyValue(core::mem::transmute(hkey), bwatchsubtree.into(), core::mem::transmute(dwnotifyfilter), core::mem::transmute(hevent.unwrap_or(core::mem::zeroed())), fasynchronous.into())
 }
 #[inline]
 pub unsafe fn RegOpenCurrentUser(samdesired: u32, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR {
@@ -740,9 +736,6 @@ pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HKEY(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HKEY {
-    type TypeKind = windows_core::CopyType;
-}
 impl HKEY {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

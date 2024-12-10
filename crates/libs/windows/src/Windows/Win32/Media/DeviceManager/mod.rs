@@ -3020,11 +3020,8 @@ impl IWMDMLogger {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Enable<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
+    pub unsafe fn Enable(&self, fenable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn GetLogFileName(&self, pszfilename: windows_core::PSTR, nmaxchars: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFileName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfilename), core::mem::transmute(nmaxchars)).ok()

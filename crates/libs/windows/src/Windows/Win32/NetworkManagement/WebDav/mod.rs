@@ -9,13 +9,12 @@ where
     DavAddConnection(core::mem::transmute(connectionhandle), remotename.param().abi(), username.param().abi(), password.param().abi(), core::mem::transmute(clientcert.as_ptr()), clientcert.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn DavCancelConnectionsToServer<P0, P1>(lpname: P0, fforce: P1) -> u32
+pub unsafe fn DavCancelConnectionsToServer<P0>(lpname: P0, fforce: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("davclnt.dll" "system" fn DavCancelConnectionsToServer(lpname : windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
-    DavCancelConnectionsToServer(lpname.param().abi(), fforce.param().abi())
+    DavCancelConnectionsToServer(lpname.param().abi(), fforce.into())
 }
 #[inline]
 pub unsafe fn DavDeleteConnection(connectionhandle: super::super::Foundation::HANDLE) -> u32 {

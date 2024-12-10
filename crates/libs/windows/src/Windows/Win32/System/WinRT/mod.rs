@@ -451,9 +451,6 @@ pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceO
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    type TypeKind = windows_core::CopyType;
-}
 impl APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -531,9 +528,6 @@ pub const FullTrust: TrustLevel = TrustLevel(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSTRING_BUFFER(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HSTRING_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 impl HSTRING_BUFFER {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2331,9 +2325,6 @@ pub struct RO_INIT_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct RO_REGISTRATION_COOKIE(pub isize);
-impl windows_core::TypeKind for RO_REGISTRATION_COOKIE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ServerInformation {

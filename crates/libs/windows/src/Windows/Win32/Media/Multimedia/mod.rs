@@ -1,18 +1,12 @@
 #[inline]
-pub unsafe fn AVIBuildFilterA<P2>(lpszfilter: &mut [u8], fsaving: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn AVIBuildFilterA(lpszfilter: &mut [u8], fsaving: bool) -> windows_core::Result<()> {
     windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : windows_core::PSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    AVIBuildFilterA(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.param().abi()).ok()
+    AVIBuildFilterA(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into()).ok()
 }
 #[inline]
-pub unsafe fn AVIBuildFilterW<P2>(lpszfilter: &mut [u16], fsaving: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn AVIBuildFilterW(lpszfilter: &mut [u16], fsaving: bool) -> windows_core::Result<()> {
     windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterW(lpszfilter : windows_core::PWSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    AVIBuildFilterW(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.param().abi()).ok()
+    AVIBuildFilterW(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into()).ok()
 }
 #[inline]
 pub unsafe fn AVIClearClipboard() -> windows_core::Result<()> {
@@ -455,12 +449,9 @@ pub unsafe fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BI
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibRealize<P2>(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, fbackground: P2) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn DrawDibRealize(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, fbackground: bool) -> u32 {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibRealize(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, fbackground : super::super::Foundation:: BOOL) -> u32);
-    DrawDibRealize(core::mem::transmute(hdd), core::mem::transmute(hdc), fbackground.param().abi())
+    DrawDibRealize(core::mem::transmute(hdd), core::mem::transmute(hdc), fbackground.into())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -846,12 +837,9 @@ pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
     joyReleaseCapture(core::mem::transmute(ujoyid))
 }
 #[inline]
-pub unsafe fn joySetCapture<P3>(hwnd: super::super::Foundation::HWND, ujoyid: u32, uperiod: u32, fchanged: P3) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn joySetCapture(hwnd: super::super::Foundation::HWND, ujoyid: u32, uperiod: u32, fchanged: bool) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn joySetCapture(hwnd : super::super::Foundation:: HWND, ujoyid : u32, uperiod : u32, fchanged : super::super::Foundation:: BOOL) -> u32);
-    joySetCapture(core::mem::transmute(hwnd), core::mem::transmute(ujoyid), core::mem::transmute(uperiod), fchanged.param().abi())
+    joySetCapture(core::mem::transmute(hwnd), core::mem::transmute(ujoyid), core::mem::transmute(uperiod), fchanged.into())
 }
 #[inline]
 pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
@@ -1976,9 +1964,6 @@ impl Default for GSM610WAVEFORMAT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVR(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVR {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDRVR {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1992,9 +1977,6 @@ impl Default for HDRVR {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIC(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HIC {
-    type TypeKind = windows_core::CopyType;
-}
 impl HIC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2017,9 +1999,6 @@ impl Default for HIC {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMMIO(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMMIO {
-    type TypeKind = windows_core::CopyType;
-}
 impl HMMIO {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2033,9 +2012,6 @@ impl Default for HMMIO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HVIDEO(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HVIDEO {
-    type TypeKind = windows_core::CopyType;
-}
 impl HVIDEO {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

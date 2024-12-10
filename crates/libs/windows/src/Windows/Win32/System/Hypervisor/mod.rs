@@ -36,12 +36,9 @@ pub unsafe fn ForceArchitecture(vmsavedstatedumphandle: *mut core::ffi::c_void, 
     ForceArchitecture(core::mem::transmute(vmsavedstatedumphandle), core::mem::transmute(vpid), core::mem::transmute(architecture)).ok()
 }
 #[inline]
-pub unsafe fn ForceNestedHostMode<P2>(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, hostmode: P2, oldmode: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ForceNestedHostMode(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, hostmode: bool, oldmode: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
     windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceNestedHostMode(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, hostmode : super::super::Foundation:: BOOL, oldmode : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    ForceNestedHostMode(core::mem::transmute(vmsavedstatedumphandle), core::mem::transmute(vpid), hostmode.param().abi(), core::mem::transmute(oldmode.unwrap_or(core::mem::zeroed()))).ok()
+    ForceNestedHostMode(core::mem::transmute(vmsavedstatedumphandle), core::mem::transmute(vpid), hostmode.into(), core::mem::transmute(oldmode.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn ForcePagingMode(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, pagingmode: PAGING_MODE) -> windows_core::Result<()> {
@@ -145,12 +142,9 @@ pub unsafe fn HdvCreateDeviceInstance(devicehosthandle: *const core::ffi::c_void
     HdvCreateDeviceInstance(core::mem::transmute(devicehosthandle), core::mem::transmute(devicetype), core::mem::transmute(deviceclassid), core::mem::transmute(deviceinstanceid), core::mem::transmute(deviceinterface), core::mem::transmute(devicecontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(devicehandle)).ok()
 }
 #[inline]
-pub unsafe fn HdvCreateGuestMemoryAperture<P3>(requestor: *const core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, writeprotected: P3, mappedaddress: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn HdvCreateGuestMemoryAperture(requestor: *const core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, writeprotected: bool, mappedaddress: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateGuestMemoryAperture(requestor : *const core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, writeprotected : super::super::Foundation:: BOOL, mappedaddress : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    HdvCreateGuestMemoryAperture(core::mem::transmute(requestor), core::mem::transmute(guestphysicaladdress), core::mem::transmute(bytecount), writeprotected.param().abi(), core::mem::transmute(mappedaddress)).ok()
+    HdvCreateGuestMemoryAperture(core::mem::transmute(requestor), core::mem::transmute(guestphysicaladdress), core::mem::transmute(bytecount), writeprotected.into(), core::mem::transmute(mappedaddress)).ok()
 }
 #[inline]
 pub unsafe fn HdvCreateSectionBackedMmioRange(requestor: *const core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64, lengthinpages: u64, mappingflags: HDV_MMIO_MAPPING_FLAGS, sectionhandle: super::super::Foundation::HANDLE, sectionoffsetinpages: u64) -> windows_core::Result<()> {
@@ -260,13 +254,12 @@ where
     LoadSavedStateModuleSymbolsEx(core::mem::transmute(vmsavedstatedumphandle), imagename.param().abi(), core::mem::transmute(imagetimestamp), modulename.param().abi(), core::mem::transmute(baseaddress), core::mem::transmute(sizeofbase)).ok()
 }
 #[inline]
-pub unsafe fn LoadSavedStateSymbolProvider<P1, P2>(vmsavedstatedumphandle: *mut core::ffi::c_void, usersymbols: P1, force: P2) -> windows_core::Result<()>
+pub unsafe fn LoadSavedStateSymbolProvider<P1>(vmsavedstatedumphandle: *mut core::ffi::c_void, usersymbols: P1, force: bool) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle : *mut core::ffi::c_void, usersymbols : windows_core::PCWSTR, force : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    LoadSavedStateSymbolProvider(core::mem::transmute(vmsavedstatedumphandle), usersymbols.param().abi(), force.param().abi()).ok()
+    LoadSavedStateSymbolProvider(core::mem::transmute(vmsavedstatedumphandle), usersymbols.param().abi(), force.into()).ok()
 }
 #[inline]
 pub unsafe fn LocateSavedStateFiles<P0, P1>(vmname: P0, snapshotname: P1, binpath: *mut windows_core::PWSTR, vsvpath: *mut windows_core::PWSTR, vmrspath: *mut windows_core::PWSTR) -> windows_core::Result<()>
@@ -1797,9 +1790,6 @@ pub struct WHV_PARTITION_COUNTER_SET(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WHV_PARTITION_HANDLE(pub isize);
-impl windows_core::TypeKind for WHV_PARTITION_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl WHV_PARTITION_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0

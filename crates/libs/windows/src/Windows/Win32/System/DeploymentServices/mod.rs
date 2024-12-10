@@ -29,12 +29,9 @@ pub unsafe fn PxeDhcpInitialize(precvpacket: *const core::ffi::c_void, urecvpack
     PxeDhcpInitialize(core::mem::transmute(precvpacket), core::mem::transmute(urecvpacketlen), core::mem::transmute(preplypacket), core::mem::transmute(umaxreplypacketlen), core::mem::transmute(pureplypacketlen))
 }
 #[inline]
-pub unsafe fn PxeDhcpIsValid<P2>(ppacket: *const core::ffi::c_void, upacketlen: u32, brequestpacket: P2, pbpxeoptionpresent: Option<*mut super::super::Foundation::BOOL>) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn PxeDhcpIsValid(ppacket: *const core::ffi::c_void, upacketlen: u32, brequestpacket: bool, pbpxeoptionpresent: Option<*mut super::super::Foundation::BOOL>) -> u32 {
     windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpIsValid(ppacket : *const core::ffi::c_void, upacketlen : u32, brequestpacket : super::super::Foundation:: BOOL, pbpxeoptionpresent : *mut super::super::Foundation:: BOOL) -> u32);
-    PxeDhcpIsValid(core::mem::transmute(ppacket), core::mem::transmute(upacketlen), brequestpacket.param().abi(), core::mem::transmute(pbpxeoptionpresent.unwrap_or(core::mem::zeroed())))
+    PxeDhcpIsValid(core::mem::transmute(ppacket), core::mem::transmute(upacketlen), brequestpacket.into(), core::mem::transmute(pbpxeoptionpresent.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn PxeDhcpv6AppendOption(preply: *mut core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, woptiontype: u16, cboption: u16, poption: *const core::ffi::c_void) -> u32 {
@@ -67,12 +64,9 @@ pub unsafe fn PxeDhcpv6Initialize(prequest: *const core::ffi::c_void, cbrequest:
     PxeDhcpv6Initialize(core::mem::transmute(prequest), core::mem::transmute(cbrequest), core::mem::transmute(preply), core::mem::transmute(cbreply), core::mem::transmute(pcbreplyused))
 }
 #[inline]
-pub unsafe fn PxeDhcpv6IsValid<P2>(ppacket: *const core::ffi::c_void, upacketlen: u32, brequestpacket: P2, pbpxeoptionpresent: Option<*mut super::super::Foundation::BOOL>) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn PxeDhcpv6IsValid(ppacket: *const core::ffi::c_void, upacketlen: u32, brequestpacket: bool, pbpxeoptionpresent: Option<*mut super::super::Foundation::BOOL>) -> u32 {
     windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6IsValid(ppacket : *const core::ffi::c_void, upacketlen : u32, brequestpacket : super::super::Foundation:: BOOL, pbpxeoptionpresent : *mut super::super::Foundation:: BOOL) -> u32);
-    PxeDhcpv6IsValid(core::mem::transmute(ppacket), core::mem::transmute(upacketlen), brequestpacket.param().abi(), core::mem::transmute(pbpxeoptionpresent.unwrap_or(core::mem::zeroed())))
+    PxeDhcpv6IsValid(core::mem::transmute(ppacket), core::mem::transmute(upacketlen), brequestpacket.into(), core::mem::transmute(pbpxeoptionpresent.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const core::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: &mut [PXE_DHCPV6_NESTED_RELAY_MESSAGE], pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32 {
@@ -129,14 +123,13 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PxeProviderRegister<P0, P1, P3>(pszprovidername: P0, pszmodulepath: P1, index: u32, biscritical: P3, phproviderkey: Option<*mut super::Registry::HKEY>) -> u32
+pub unsafe fn PxeProviderRegister<P0, P1>(pszprovidername: P0, pszmodulepath: P1, index: u32, biscritical: bool, phproviderkey: Option<*mut super::Registry::HKEY>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wdspxe.dll" "system" fn PxeProviderRegister(pszprovidername : windows_core::PCWSTR, pszmodulepath : windows_core::PCWSTR, index : u32, biscritical : super::super::Foundation:: BOOL, phproviderkey : *mut super::Registry:: HKEY) -> u32);
-    PxeProviderRegister(pszprovidername.param().abi(), pszmodulepath.param().abi(), core::mem::transmute(index), biscritical.param().abi(), core::mem::transmute(phproviderkey.unwrap_or(core::mem::zeroed())))
+    PxeProviderRegister(pszprovidername.param().abi(), pszmodulepath.param().abi(), core::mem::transmute(index), biscritical.into(), core::mem::transmute(phproviderkey.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn PxeProviderSetAttribute(hprovider: super::super::Foundation::HANDLE, attribute: u32, pparameterbuffer: *const core::ffi::c_void, uparamlen: u32) -> u32 {

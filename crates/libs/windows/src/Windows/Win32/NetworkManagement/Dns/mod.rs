@@ -367,22 +367,20 @@ where
     DnsValidateName_W(pszname.param().abi(), core::mem::transmute(format))
 }
 #[inline]
-pub unsafe fn DnsWriteQuestionToBuffer_UTF8<P2, P5>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: P2, wtype: u16, xid: u16, frecursiondesired: P5) -> super::super::Foundation::BOOL
+pub unsafe fn DnsWriteQuestionToBuffer_UTF8<P2>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: P2, wtype: u16, xid: u16, frecursiondesired: bool) -> super::super::Foundation::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_UTF8(pdnsbuffer : *mut DNS_MESSAGE_BUFFER, pdwbuffersize : *mut u32, pszname : windows_core::PCSTR, wtype : u16, xid : u16, frecursiondesired : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    DnsWriteQuestionToBuffer_UTF8(core::mem::transmute(pdnsbuffer), core::mem::transmute(pdwbuffersize), pszname.param().abi(), core::mem::transmute(wtype), core::mem::transmute(xid), frecursiondesired.param().abi())
+    DnsWriteQuestionToBuffer_UTF8(core::mem::transmute(pdnsbuffer), core::mem::transmute(pdwbuffersize), pszname.param().abi(), core::mem::transmute(wtype), core::mem::transmute(xid), frecursiondesired.into())
 }
 #[inline]
-pub unsafe fn DnsWriteQuestionToBuffer_W<P2, P5>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: P2, wtype: u16, xid: u16, frecursiondesired: P5) -> super::super::Foundation::BOOL
+pub unsafe fn DnsWriteQuestionToBuffer_W<P2>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: P2, wtype: u16, xid: u16, frecursiondesired: bool) -> super::super::Foundation::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_W(pdnsbuffer : *mut DNS_MESSAGE_BUFFER, pdwbuffersize : *mut u32, pszname : windows_core::PCWSTR, wtype : u16, xid : u16, frecursiondesired : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    DnsWriteQuestionToBuffer_W(core::mem::transmute(pdnsbuffer), core::mem::transmute(pdwbuffersize), pszname.param().abi(), core::mem::transmute(wtype), core::mem::transmute(xid), frecursiondesired.param().abi())
+    DnsWriteQuestionToBuffer_W(core::mem::transmute(pdnsbuffer), core::mem::transmute(pdwbuffersize), pszname.param().abi(), core::mem::transmute(wtype), core::mem::transmute(xid), frecursiondesired.into())
 }
 pub const DDR_MAX_IP_HINTS: u32 = 4u32;
 pub const DNSREC_ADDITIONAL: u32 = 3u32;

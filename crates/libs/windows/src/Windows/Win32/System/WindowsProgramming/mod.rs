@@ -41,12 +41,9 @@ where
     AdvInstallFileW(core::mem::transmute(hwnd), lpszsourcedir.param().abi(), lpszsourcefile.param().abi(), lpszdestdir.param().abi(), lpszdestfile.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(dwreserved)).ok()
 }
 #[inline]
-pub unsafe fn ApphelpCheckShellObject<P1>(objectclsid: *const windows_core::GUID, bshimifnecessary: P1, pullflags: *mut u64) -> super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ApphelpCheckShellObject(objectclsid: *const windows_core::GUID, bshimifnecessary: bool, pullflags: *mut u64) -> super::super::Foundation::BOOL {
     windows_targets::link!("apphelp.dll" "system" fn ApphelpCheckShellObject(objectclsid : *const windows_core::GUID, bshimifnecessary : super::super::Foundation:: BOOL, pullflags : *mut u64) -> super::super::Foundation:: BOOL);
-    ApphelpCheckShellObject(core::mem::transmute(objectclsid), bshimifnecessary.param().abi(), core::mem::transmute(pullflags))
+    ApphelpCheckShellObject(core::mem::transmute(objectclsid), bshimifnecessary.into(), core::mem::transmute(pullflags))
 }
 #[inline]
 pub unsafe fn CancelDeviceWakeupRequest(hdevice: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
@@ -527,40 +524,36 @@ pub unsafe fn GetUserNameW(lpbuffer: Option<windows_core::PWSTR>, pcbbuffer: *mu
     GetUserNameW(core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbbuffer)).ok()
 }
 #[inline]
-pub unsafe fn GetVersionFromFileA<P0, P3>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: P3) -> windows_core::Result<()>
+pub unsafe fn GetVersionFromFileA<P0>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileA(lpszfilename : windows_core::PCSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    GetVersionFromFileA(lpszfilename.param().abi(), core::mem::transmute(pdwmsver), core::mem::transmute(pdwlsver), bversion.param().abi()).ok()
+    GetVersionFromFileA(lpszfilename.param().abi(), core::mem::transmute(pdwmsver), core::mem::transmute(pdwlsver), bversion.into()).ok()
 }
 #[inline]
-pub unsafe fn GetVersionFromFileExA<P0, P3>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: P3) -> windows_core::Result<()>
+pub unsafe fn GetVersionFromFileExA<P0>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileExA(lpszfilename : windows_core::PCSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    GetVersionFromFileExA(lpszfilename.param().abi(), core::mem::transmute(pdwmsver), core::mem::transmute(pdwlsver), bversion.param().abi()).ok()
+    GetVersionFromFileExA(lpszfilename.param().abi(), core::mem::transmute(pdwmsver), core::mem::transmute(pdwlsver), bversion.into()).ok()
 }
 #[inline]
-pub unsafe fn GetVersionFromFileExW<P0, P3>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: P3) -> windows_core::Result<()>
+pub unsafe fn GetVersionFromFileExW<P0>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileExW(lpszfilename : windows_core::PCWSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    GetVersionFromFileExW(lpszfilename.param().abi(), core::mem::transmute(pdwmsver), core::mem::transmute(pdwlsver), bversion.param().abi()).ok()
+    GetVersionFromFileExW(lpszfilename.param().abi(), core::mem::transmute(pdwmsver), core::mem::transmute(pdwlsver), bversion.into()).ok()
 }
 #[inline]
-pub unsafe fn GetVersionFromFileW<P0, P3>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: P3) -> windows_core::Result<()>
+pub unsafe fn GetVersionFromFileW<P0>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileW(lpszfilename : windows_core::PCWSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    GetVersionFromFileW(lpszfilename.param().abi(), core::mem::transmute(pdwmsver), core::mem::transmute(pdwlsver), bversion.param().abi()).ok()
+    GetVersionFromFileW(lpszfilename.param().abi(), core::mem::transmute(pdwmsver), core::mem::transmute(pdwlsver), bversion.into()).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -713,22 +706,20 @@ where
     OpenINFEngineW(pszinffilename.param().abi(), pszinstallsection.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(phinf), core::mem::transmute(pvreserved)).ok()
 }
 #[inline]
-pub unsafe fn OpenMutexA<P1, P2>(dwdesiredaccess: u32, binherithandle: P1, lpname: P2) -> super::super::Foundation::HANDLE
+pub unsafe fn OpenMutexA<P2>(dwdesiredaccess: u32, binherithandle: bool, lpname: P2) -> super::super::Foundation::HANDLE
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn OpenMutexA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    OpenMutexA(core::mem::transmute(dwdesiredaccess), binherithandle.param().abi(), lpname.param().abi())
+    OpenMutexA(core::mem::transmute(dwdesiredaccess), binherithandle.into(), lpname.param().abi())
 }
 #[inline]
-pub unsafe fn OpenSemaphoreA<P1, P2>(dwdesiredaccess: u32, binherithandle: P1, lpname: P2) -> super::super::Foundation::HANDLE
+pub unsafe fn OpenSemaphoreA<P2>(dwdesiredaccess: u32, binherithandle: bool, lpname: P2) -> super::super::Foundation::HANDLE
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn OpenSemaphoreA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    OpenSemaphoreA(core::mem::transmute(dwdesiredaccess), binherithandle.param().abi(), lpname.param().abi())
+    OpenSemaphoreA(core::mem::transmute(dwdesiredaccess), binherithandle.into(), lpname.param().abi())
 }
 #[inline]
 pub unsafe fn QueryAuxiliaryCounterFrequency() -> windows_core::Result<u64> {
@@ -914,12 +905,9 @@ pub unsafe fn RequestDeviceWakeup(hdevice: super::super::Foundation::HANDLE) -> 
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlAnsiStringToUnicodeString<P2>(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: *mut super::Kernel::STRING, allocatedestinationstring: P2) -> super::super::Foundation::NTSTATUS
-where
-    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn RtlAnsiStringToUnicodeString(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: *mut super::Kernel::STRING, allocatedestinationstring: bool) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn RtlAnsiStringToUnicodeString(destinationstring : *mut super::super::Foundation:: UNICODE_STRING, sourcestring : *mut super::Kernel:: STRING, allocatedestinationstring : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: NTSTATUS);
-    RtlAnsiStringToUnicodeString(core::mem::transmute(destinationstring), core::mem::transmute(sourcestring), allocatedestinationstring.param().abi())
+    RtlAnsiStringToUnicodeString(core::mem::transmute(destinationstring), core::mem::transmute(sourcestring), allocatedestinationstring.into())
 }
 #[inline]
 pub unsafe fn RtlCharToInteger(string: *mut i8, base: u32, value: *mut u32) -> super::super::Foundation::NTSTATUS {
@@ -1003,21 +991,15 @@ pub unsafe fn RtlTimeToSecondsSince1970(time: *mut i64, elapsedseconds: *mut u32
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlUnicodeStringToAnsiString<P2>(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: P2) -> super::super::Foundation::NTSTATUS
-where
-    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn RtlUnicodeStringToAnsiString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: bool) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeStringToAnsiString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut super::super::Foundation:: UNICODE_STRING, allocatedestinationstring : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: NTSTATUS);
-    RtlUnicodeStringToAnsiString(core::mem::transmute(destinationstring), core::mem::transmute(sourcestring), allocatedestinationstring.param().abi())
+    RtlUnicodeStringToAnsiString(core::mem::transmute(destinationstring), core::mem::transmute(sourcestring), allocatedestinationstring.into())
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlUnicodeStringToOemString<P2>(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: P2) -> super::super::Foundation::NTSTATUS
-where
-    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn RtlUnicodeStringToOemString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: bool) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeStringToOemString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut super::super::Foundation:: UNICODE_STRING, allocatedestinationstring : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: NTSTATUS);
-    RtlUnicodeStringToOemString(core::mem::transmute(destinationstring), core::mem::transmute(sourcestring), allocatedestinationstring.param().abi())
+    RtlUnicodeStringToOemString(core::mem::transmute(destinationstring), core::mem::transmute(sourcestring), allocatedestinationstring.into())
 }
 #[inline]
 pub unsafe fn RtlUnicodeToMultiByteSize<P1>(bytesinmultibytestring: *mut u32, unicodestring: P1, bytesinunicodestring: u32) -> super::super::Foundation::NTSTATUS
@@ -1213,12 +1195,9 @@ where
     UserUnInstStubWrapperW(core::mem::transmute(hwnd), core::mem::transmute(hinstance), pszparms.param().abi(), core::mem::transmute(nshow)).ok()
 }
 #[inline]
-pub unsafe fn WINNLSEnableIME<P1>(param0: super::super::Foundation::HWND, param1: P1) -> super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WINNLSEnableIME(param0: super::super::Foundation::HWND, param1: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn WINNLSEnableIME(param0 : super::super::Foundation:: HWND, param1 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    WINNLSEnableIME(core::mem::transmute(param0), param1.param().abi())
+    WINNLSEnableIME(core::mem::transmute(param0), param1.into())
 }
 #[inline]
 pub unsafe fn WINNLSGetEnableStatus(param0: super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
@@ -2102,9 +2081,6 @@ impl Default for FEATURE_ERROR {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct FEATURE_STATE_CHANGE_SUBSCRIPTION(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 impl FEATURE_STATE_CHANGE_SUBSCRIPTION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2196,9 +2172,6 @@ pub const HINSTANCE_ERROR: u32 = 32u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWINWATCH(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HWINWATCH {
-    type TypeKind = windows_core::CopyType;
-}
 impl HWINWATCH {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2237,13 +2210,12 @@ impl Default for HW_PROFILE_INFOW {
 windows_core::imp::define_interface!(ICameraUIControl, ICameraUIControl_Vtbl, 0xb8733adf_3d68_4b8f_bb08_e28a0bed0376);
 windows_core::imp::interface_hierarchy!(ICameraUIControl, windows_core::IUnknown);
 impl ICameraUIControl {
-    pub unsafe fn Show<P0, P6, P7>(&self, pwindow: P0, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: P6, peventcallback: P7) -> windows_core::Result<()>
+    pub unsafe fn Show<P0, P7>(&self, pwindow: P0, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: bool, peventcallback: P7) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        P6: windows_core::Param<super::super::Foundation::BOOL>,
         P7: windows_core::Param<ICameraUIControlEventCallback>,
     {
-        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), pwindow.param().abi(), core::mem::transmute(mode), core::mem::transmute(selectionmode), core::mem::transmute(capturemode), core::mem::transmute(photoformat), core::mem::transmute(videoformat), bhasclosebutton.param().abi(), peventcallback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), pwindow.param().abi(), core::mem::transmute(mode), core::mem::transmute(selectionmode), core::mem::transmute(capturemode), core::mem::transmute(photoformat), core::mem::transmute(videoformat), bhasclosebutton.into(), peventcallback.param().abi()).ok()
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()

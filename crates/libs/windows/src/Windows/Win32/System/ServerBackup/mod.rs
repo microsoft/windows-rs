@@ -85,23 +85,21 @@ impl windows_core::RuntimeName for IWsbApplicationBackupSupport {}
 windows_core::imp::define_interface!(IWsbApplicationRestoreSupport, IWsbApplicationRestoreSupport_Vtbl, 0x8d3bdb38_4ee8_4718_85f9_c7dbc4ab77aa);
 windows_core::imp::interface_hierarchy!(IWsbApplicationRestoreSupport, windows_core::IUnknown);
 impl IWsbApplicationRestoreSupport {
-    pub unsafe fn PreRestore<P0, P1, P2, P3>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: P3) -> windows_core::Result<()>
+    pub unsafe fn PreRestore<P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
     {
-        (windows_core::Interface::vtable(self).PreRestore)(windows_core::Interface::as_raw(self), wszwritermetadata.param().abi(), wszcomponentname.param().abi(), wszcomponentlogicalpath.param().abi(), bnorollforward.param().abi()).ok()
+        (windows_core::Interface::vtable(self).PreRestore)(windows_core::Interface::as_raw(self), wszwritermetadata.param().abi(), wszcomponentname.param().abi(), wszcomponentlogicalpath.param().abi(), bnorollforward.into()).ok()
     }
-    pub unsafe fn PostRestore<P0, P1, P2, P3>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: P3) -> windows_core::Result<()>
+    pub unsafe fn PostRestore<P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
     {
-        (windows_core::Interface::vtable(self).PostRestore)(windows_core::Interface::as_raw(self), wszwritermetadata.param().abi(), wszcomponentname.param().abi(), wszcomponentlogicalpath.param().abi(), bnorollforward.param().abi()).ok()
+        (windows_core::Interface::vtable(self).PostRestore)(windows_core::Interface::as_raw(self), wszwritermetadata.param().abi(), wszcomponentname.param().abi(), wszcomponentlogicalpath.param().abi(), bnorollforward.into()).ok()
     }
     pub unsafe fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const windows_core::PCWSTR, rgcomponentlogicalpaths: *const windows_core::PCWSTR, prgcomponentname: *mut *mut windows_core::PWSTR, prgcomponentlogicalpath: *mut *mut windows_core::PWSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OrderComponents)(windows_core::Interface::as_raw(self), core::mem::transmute(ccomponents), core::mem::transmute(rgcomponentname), core::mem::transmute(rgcomponentlogicalpaths), core::mem::transmute(prgcomponentname), core::mem::transmute(prgcomponentlogicalpath)).ok()

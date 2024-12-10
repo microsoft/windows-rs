@@ -153,12 +153,9 @@ where
     TcQueryFlowW(pflowname.param().abi(), core::mem::transmute(pguidparam), core::mem::transmute(pbuffersize), core::mem::transmute(buffer))
 }
 #[inline]
-pub unsafe fn TcQueryInterface<P2>(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const windows_core::GUID, notifychange: P2, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const windows_core::GUID, notifychange: bool, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const windows_core::GUID, notifychange : super::super::Foundation:: BOOLEAN, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
-    TcQueryInterface(core::mem::transmute(ifchandle), core::mem::transmute(pguidparam), notifychange.param().abi(), core::mem::transmute(pbuffersize), core::mem::transmute(buffer))
+    TcQueryInterface(core::mem::transmute(ifchandle), core::mem::transmute(pguidparam), notifychange.into(), core::mem::transmute(pbuffersize), core::mem::transmute(buffer))
 }
 #[inline]
 pub unsafe fn TcRegisterClient(tciversion: u32, clregctx: super::super::Foundation::HANDLE, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -912,9 +909,6 @@ pub const LPM_API_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPM_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for LPM_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl LPM_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1370,9 +1364,6 @@ impl Default for RESV_STYLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct RHANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for RHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl RHANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

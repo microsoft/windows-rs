@@ -9,12 +9,9 @@ pub unsafe fn VhfCreate(vhfconfig: *const VHF_CONFIG, vhfhandle: *mut *mut core:
     VhfCreate(core::mem::transmute(vhfconfig), core::mem::transmute(vhfhandle))
 }
 #[inline]
-pub unsafe fn VhfDelete<P1>(vhfhandle: *const core::ffi::c_void, wait: P1)
-where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-{
+pub unsafe fn VhfDelete(vhfhandle: *const core::ffi::c_void, wait: bool) {
     windows_targets::link!("vhfum.dll" "system" fn VhfDelete(vhfhandle : *const core::ffi::c_void, wait : super::super::super::Win32::Foundation:: BOOLEAN));
-    VhfDelete(core::mem::transmute(vhfhandle), wait.param().abi())
+    VhfDelete(core::mem::transmute(vhfhandle), wait.into())
 }
 #[inline]
 pub unsafe fn VhfReadReportSubmit(vhfhandle: *const core::ffi::c_void, hidtransferpacket: *const HID_XFER_PACKET) -> super::super::super::Win32::Foundation::NTSTATUS {

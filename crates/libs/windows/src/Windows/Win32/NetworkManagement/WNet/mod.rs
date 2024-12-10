@@ -32,22 +32,20 @@ pub unsafe fn NPAddConnection4(hwndowner: Option<super::super::Foundation::HWND>
     NPAddConnection4(core::mem::transmute(hwndowner.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpnetresource), core::mem::transmute(lpauthbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbauthbuffer), core::mem::transmute(dwflags), core::mem::transmute(lpuseoptions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn NPCancelConnection<P0, P1>(lpname: P0, fforce: P1) -> u32
+pub unsafe fn NPCancelConnection<P0>(lpname: P0, fforce: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("davclnt.dll" "system" fn NPCancelConnection(lpname : windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
-    NPCancelConnection(lpname.param().abi(), fforce.param().abi())
+    NPCancelConnection(lpname.param().abi(), fforce.into())
 }
 #[inline]
-pub unsafe fn NPCancelConnection2<P0, P1>(lpname: P0, fforce: P1, dwflags: u32) -> u32
+pub unsafe fn NPCancelConnection2<P0>(lpname: P0, fforce: bool, dwflags: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("ntlanman.dll" "system" fn NPCancelConnection2(lpname : windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL, dwflags : u32) -> u32);
-    NPCancelConnection2(lpname.param().abi(), fforce.param().abi(), core::mem::transmute(dwflags))
+    NPCancelConnection2(lpname.param().abi(), fforce.into(), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn NPCloseEnum(henum: super::super::Foundation::HANDLE) -> u32 {
@@ -202,40 +200,36 @@ where
     WNetAddConnectionW(lpremotename.param().abi(), lppassword.param().abi(), lplocalname.param().abi())
 }
 #[inline]
-pub unsafe fn WNetCancelConnection2A<P0, P2>(lpname: P0, dwflags: NET_CONNECT_FLAGS, fforce: P2) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn WNetCancelConnection2A<P0>(lpname: P0, dwflags: NET_CONNECT_FLAGS, fforce: bool) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2A(lpname : windows_core::PCSTR, dwflags : NET_CONNECT_FLAGS, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
-    WNetCancelConnection2A(lpname.param().abi(), core::mem::transmute(dwflags), fforce.param().abi())
+    WNetCancelConnection2A(lpname.param().abi(), core::mem::transmute(dwflags), fforce.into())
 }
 #[inline]
-pub unsafe fn WNetCancelConnection2W<P0, P2>(lpname: P0, dwflags: NET_CONNECT_FLAGS, fforce: P2) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn WNetCancelConnection2W<P0>(lpname: P0, dwflags: NET_CONNECT_FLAGS, fforce: bool) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2W(lpname : windows_core::PCWSTR, dwflags : NET_CONNECT_FLAGS, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
-    WNetCancelConnection2W(lpname.param().abi(), core::mem::transmute(dwflags), fforce.param().abi())
+    WNetCancelConnection2W(lpname.param().abi(), core::mem::transmute(dwflags), fforce.into())
 }
 #[inline]
-pub unsafe fn WNetCancelConnectionA<P0, P1>(lpname: P0, fforce: P1) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn WNetCancelConnectionA<P0>(lpname: P0, fforce: bool) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetCancelConnectionA(lpname : windows_core::PCSTR, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
-    WNetCancelConnectionA(lpname.param().abi(), fforce.param().abi())
+    WNetCancelConnectionA(lpname.param().abi(), fforce.into())
 }
 #[inline]
-pub unsafe fn WNetCancelConnectionW<P0, P1>(lpname: P0, fforce: P1) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn WNetCancelConnectionW<P0>(lpname: P0, fforce: bool) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetCancelConnectionW(lpname : windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
-    WNetCancelConnectionW(lpname.param().abi(), fforce.param().abi())
+    WNetCancelConnectionW(lpname.param().abi(), fforce.into())
 }
 #[inline]
 pub unsafe fn WNetCloseEnum(henum: super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR {

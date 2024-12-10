@@ -165,9 +165,6 @@ pub unsafe fn ORStart() -> super::super::super::Win32::Foundation::WIN32_ERROR {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ORHKEY(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for ORHKEY {
-    type TypeKind = windows_core::CopyType;
-}
 impl ORHKEY {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

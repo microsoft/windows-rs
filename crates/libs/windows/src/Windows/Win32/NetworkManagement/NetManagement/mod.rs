@@ -1309,22 +1309,20 @@ pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
     TraceDeregisterW(core::mem::transmute(dwtraceid))
 }
 #[inline]
-pub unsafe fn TraceDumpExA<P5, P6>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: P5, lpszprefix: P6) -> u32
+pub unsafe fn TraceDumpExA<P6>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: bool, lpszprefix: P6) -> u32
 where
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
     P6: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("rtutils.dll" "system" fn TraceDumpExA(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : super::super::Foundation:: BOOL, lpszprefix : windows_core::PCSTR) -> u32);
-    TraceDumpExA(core::mem::transmute(dwtraceid), core::mem::transmute(dwflags), core::mem::transmute(lpbbytes), core::mem::transmute(dwbytecount), core::mem::transmute(dwgroupsize), baddressprefix.param().abi(), lpszprefix.param().abi())
+    TraceDumpExA(core::mem::transmute(dwtraceid), core::mem::transmute(dwflags), core::mem::transmute(lpbbytes), core::mem::transmute(dwbytecount), core::mem::transmute(dwgroupsize), baddressprefix.into(), lpszprefix.param().abi())
 }
 #[inline]
-pub unsafe fn TraceDumpExW<P5, P6>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: P5, lpszprefix: P6) -> u32
+pub unsafe fn TraceDumpExW<P6>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: bool, lpszprefix: P6) -> u32
 where
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("rtutils.dll" "system" fn TraceDumpExW(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : super::super::Foundation:: BOOL, lpszprefix : windows_core::PCWSTR) -> u32);
-    TraceDumpExW(core::mem::transmute(dwtraceid), core::mem::transmute(dwflags), core::mem::transmute(lpbbytes), core::mem::transmute(dwbytecount), core::mem::transmute(dwgroupsize), baddressprefix.param().abi(), lpszprefix.param().abi())
+    TraceDumpExW(core::mem::transmute(dwtraceid), core::mem::transmute(dwflags), core::mem::transmute(lpbbytes), core::mem::transmute(dwbytecount), core::mem::transmute(dwgroupsize), baddressprefix.into(), lpszprefix.param().abi())
 }
 #[inline]
 pub unsafe fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -3064,11 +3062,8 @@ impl INetCfgBindingPath {
     pub unsafe fn IsEnabled(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).IsEnabled)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Enable<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
+    pub unsafe fn Enable(&self, fenable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn GetPathToken(&self, ppszwpathtoken: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPathToken)(windows_core::Interface::as_raw(self), core::mem::transmute(ppszwpathtoken.unwrap_or(core::mem::zeroed()))).ok()
@@ -3598,13 +3593,12 @@ impl windows_core::RuntimeName for INetCfgComponentBindings {}
 windows_core::imp::define_interface!(INetCfgComponentControl, INetCfgComponentControl_Vtbl, 0x932238df_bea1_11d0_9298_00c04fc99dcf);
 windows_core::imp::interface_hierarchy!(INetCfgComponentControl, windows_core::IUnknown);
 impl INetCfgComponentControl {
-    pub unsafe fn Initialize<P0, P1, P2>(&self, picomp: P0, pinetcfg: P1, finstalling: P2) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0, P1>(&self, picomp: P0, pinetcfg: P1, finstalling: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<INetCfgComponent>,
         P1: windows_core::Param<INetCfg>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), picomp.param().abi(), pinetcfg.param().abi(), finstalling.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), picomp.param().abi(), pinetcfg.param().abi(), finstalling.into()).ok()
     }
     pub unsafe fn ApplyRegistryChanges(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ApplyRegistryChanges)(windows_core::Interface::as_raw(self)).ok()
@@ -4153,13 +4147,12 @@ impl INetCfgSysPrep {
     {
         (windows_core::Interface::vtable(self).HrSetupSetFirstString)(windows_core::Interface::as_raw(self), pwszsection.param().abi(), pwszkey.param().abi(), pwszvalue.param().abi()).ok()
     }
-    pub unsafe fn HrSetupSetFirstStringAsBool<P0, P1, P2>(&self, pwszsection: P0, pwszkey: P1, fvalue: P2) -> windows_core::Result<()>
+    pub unsafe fn HrSetupSetFirstStringAsBool<P0, P1>(&self, pwszsection: P0, pwszkey: P1, fvalue: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).HrSetupSetFirstStringAsBool)(windows_core::Interface::as_raw(self), pwszsection.param().abi(), pwszkey.param().abi(), fvalue.param().abi()).ok()
+        (windows_core::Interface::vtable(self).HrSetupSetFirstStringAsBool)(windows_core::Interface::as_raw(self), pwszsection.param().abi(), pwszkey.param().abi(), fvalue.into()).ok()
     }
     pub unsafe fn HrSetupSetFirstMultiSzField<P0, P1, P2>(&self, pwszsection: P0, pwszkey: P1, pmszvalue: P2) -> windows_core::Result<()>
     where

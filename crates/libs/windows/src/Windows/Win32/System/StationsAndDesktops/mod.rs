@@ -141,52 +141,45 @@ pub unsafe fn GetUserObjectInformationW(hobj: super::super::Foundation::HANDLE, 
     GetUserObjectInformationW(core::mem::transmute(hobj), core::mem::transmute(nindex), core::mem::transmute(pvinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(nlength), core::mem::transmute(lpnlengthneeded.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn OpenDesktopA<P0, P2>(lpszdesktop: P0, dwflags: DESKTOP_CONTROL_FLAGS, finherit: P2, dwdesiredaccess: u32) -> windows_core::Result<HDESK>
+pub unsafe fn OpenDesktopA<P0>(lpszdesktop: P0, dwflags: DESKTOP_CONTROL_FLAGS, finherit: bool, dwdesiredaccess: u32) -> windows_core::Result<HDESK>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn OpenDesktopA(lpszdesktop : windows_core::PCSTR, dwflags : DESKTOP_CONTROL_FLAGS, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HDESK);
-    let result__ = OpenDesktopA(lpszdesktop.param().abi(), core::mem::transmute(dwflags), finherit.param().abi(), core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenDesktopA(lpszdesktop.param().abi(), core::mem::transmute(dwflags), finherit.into(), core::mem::transmute(dwdesiredaccess));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn OpenDesktopW<P0, P2>(lpszdesktop: P0, dwflags: DESKTOP_CONTROL_FLAGS, finherit: P2, dwdesiredaccess: u32) -> windows_core::Result<HDESK>
+pub unsafe fn OpenDesktopW<P0>(lpszdesktop: P0, dwflags: DESKTOP_CONTROL_FLAGS, finherit: bool, dwdesiredaccess: u32) -> windows_core::Result<HDESK>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn OpenDesktopW(lpszdesktop : windows_core::PCWSTR, dwflags : DESKTOP_CONTROL_FLAGS, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HDESK);
-    let result__ = OpenDesktopW(lpszdesktop.param().abi(), core::mem::transmute(dwflags), finherit.param().abi(), core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenDesktopW(lpszdesktop.param().abi(), core::mem::transmute(dwflags), finherit.into(), core::mem::transmute(dwdesiredaccess));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn OpenInputDesktop<P1>(dwflags: DESKTOP_CONTROL_FLAGS, finherit: P1, dwdesiredaccess: DESKTOP_ACCESS_FLAGS) -> windows_core::Result<HDESK>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn OpenInputDesktop(dwflags: DESKTOP_CONTROL_FLAGS, finherit: bool, dwdesiredaccess: DESKTOP_ACCESS_FLAGS) -> windows_core::Result<HDESK> {
     windows_targets::link!("user32.dll" "system" fn OpenInputDesktop(dwflags : DESKTOP_CONTROL_FLAGS, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : DESKTOP_ACCESS_FLAGS) -> HDESK);
-    let result__ = OpenInputDesktop(core::mem::transmute(dwflags), finherit.param().abi(), core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenInputDesktop(core::mem::transmute(dwflags), finherit.into(), core::mem::transmute(dwdesiredaccess));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn OpenWindowStationA<P0, P1>(lpszwinsta: P0, finherit: P1, dwdesiredaccess: u32) -> windows_core::Result<HWINSTA>
+pub unsafe fn OpenWindowStationA<P0>(lpszwinsta: P0, finherit: bool, dwdesiredaccess: u32) -> windows_core::Result<HWINSTA>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn OpenWindowStationA(lpszwinsta : windows_core::PCSTR, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HWINSTA);
-    let result__ = OpenWindowStationA(lpszwinsta.param().abi(), finherit.param().abi(), core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenWindowStationA(lpszwinsta.param().abi(), finherit.into(), core::mem::transmute(dwdesiredaccess));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn OpenWindowStationW<P0, P1>(lpszwinsta: P0, finherit: P1, dwdesiredaccess: u32) -> windows_core::Result<HWINSTA>
+pub unsafe fn OpenWindowStationW<P0>(lpszwinsta: P0, finherit: bool, dwdesiredaccess: u32) -> windows_core::Result<HWINSTA>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn OpenWindowStationW(lpszwinsta : windows_core::PCWSTR, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HWINSTA);
-    let result__ = OpenWindowStationW(lpszwinsta.param().abi(), finherit.param().abi(), core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenWindowStationW(lpszwinsta.param().abi(), finherit.into(), core::mem::transmute(dwdesiredaccess));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -339,9 +332,6 @@ pub const DF_ALLOWOTHERACCOUNTHOOK: DESKTOP_CONTROL_FLAGS = DESKTOP_CONTROL_FLAG
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDESK(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDESK {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDESK {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -364,9 +354,6 @@ impl Default for HDESK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWINSTA(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HWINSTA {
-    type TypeKind = windows_core::CopyType;
-}
 impl HWINSTA {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

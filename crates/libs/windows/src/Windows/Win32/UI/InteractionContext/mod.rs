@@ -226,9 +226,6 @@ pub const CROSS_SLIDE_THRESHOLD_SPEED_BUMP_START: CROSS_SLIDE_THRESHOLD = CROSS_
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HINTERACTIONCONTEXT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HINTERACTIONCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 impl HINTERACTIONCONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

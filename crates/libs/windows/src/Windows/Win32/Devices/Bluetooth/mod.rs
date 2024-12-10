@@ -19,20 +19,14 @@ pub unsafe fn BluetoothDisplayDeviceProperties(hwndparent: Option<super::super::
     BluetoothDisplayDeviceProperties(core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbtdi)).ok()
 }
 #[inline]
-pub unsafe fn BluetoothEnableDiscovery<P1>(hradio: Option<super::super::Foundation::HANDLE>, fenabled: P1) -> super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn BluetoothEnableDiscovery(hradio: Option<super::super::Foundation::HANDLE>, fenabled: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothEnableDiscovery(hradio : super::super::Foundation:: HANDLE, fenabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    BluetoothEnableDiscovery(core::mem::transmute(hradio.unwrap_or(core::mem::zeroed())), fenabled.param().abi())
+    BluetoothEnableDiscovery(core::mem::transmute(hradio.unwrap_or(core::mem::zeroed())), fenabled.into())
 }
 #[inline]
-pub unsafe fn BluetoothEnableIncomingConnections<P1>(hradio: Option<super::super::Foundation::HANDLE>, fenabled: P1) -> super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn BluetoothEnableIncomingConnections(hradio: Option<super::super::Foundation::HANDLE>, fenabled: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothEnableIncomingConnections(hradio : super::super::Foundation:: HANDLE, fenabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    BluetoothEnableIncomingConnections(core::mem::transmute(hradio.unwrap_or(core::mem::zeroed())), fenabled.param().abi())
+    BluetoothEnableIncomingConnections(core::mem::transmute(hradio.unwrap_or(core::mem::zeroed())), fenabled.into())
 }
 #[inline]
 pub unsafe fn BluetoothEnumerateInstalledServices(hradio: Option<super::super::Foundation::HANDLE>, pbtdi: *const BLUETOOTH_DEVICE_INFO, pcserviceinout: *mut u32, pguidservices: Option<*mut windows_core::GUID>) -> u32 {
@@ -1371,9 +1365,6 @@ pub const GenericTelephonyServiceClassID_UUID16: u32 = 4612u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HANDLE_SDP_TYPE(pub u64);
-impl windows_core::TypeKind for HANDLE_SDP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HANDLE_SDP_TYPE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0
@@ -1382,9 +1373,6 @@ impl HANDLE_SDP_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HBLUETOOTH_DEVICE_FIND(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HBLUETOOTH_DEVICE_FIND {
-    type TypeKind = windows_core::CopyType;
-}
 impl HBLUETOOTH_DEVICE_FIND {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1407,9 +1395,6 @@ impl Default for HBLUETOOTH_DEVICE_FIND {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HBLUETOOTH_RADIO_FIND(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HBLUETOOTH_RADIO_FIND {
-    type TypeKind = windows_core::CopyType;
-}
 impl HBLUETOOTH_RADIO_FIND {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

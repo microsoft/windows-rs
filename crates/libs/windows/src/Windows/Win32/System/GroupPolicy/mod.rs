@@ -12,14 +12,13 @@ where
     CommandLineFromMsiDescriptor(descriptor.param().abi(), core::mem::transmute(commandline), core::mem::transmute(commandlinelength))
 }
 #[inline]
-pub unsafe fn CreateGPOLink<P0, P1, P2>(lpgpo: P0, lpcontainer: P1, fhighpriority: P2) -> windows_core::Result<()>
+pub unsafe fn CreateGPOLink<P0, P1>(lpgpo: P0, lpcontainer: P1, fhighpriority: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("gpedit.dll" "system" fn CreateGPOLink(lpgpo : windows_core::PCWSTR, lpcontainer : windows_core::PCWSTR, fhighpriority : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    CreateGPOLink(lpgpo.param().abi(), lpcontainer.param().abi(), fhighpriority.param().abi()).ok()
+    CreateGPOLink(lpgpo.param().abi(), lpcontainer.param().abi(), fhighpriority.into()).ok()
 }
 #[inline]
 pub unsafe fn DeleteAllGPOLinks<P0>(lpcontainer: P0) -> windows_core::Result<()>
@@ -39,12 +38,9 @@ where
     DeleteGPOLink(lpgpo.param().abi(), lpcontainer.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn EnterCriticalPolicySection<P0>(bmachine: P0) -> windows_core::Result<super::super::Foundation::HANDLE>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn EnterCriticalPolicySection(bmachine: bool) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_targets::link!("userenv.dll" "system" fn EnterCriticalPolicySection(bmachine : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
-    let result__ = EnterCriticalPolicySection(bmachine.param().abi());
+    let result__ = EnterCriticalPolicySection(bmachine.into());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -67,13 +63,12 @@ pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> windows_cor
     FreeGPOListW(core::mem::transmute(pgpolist)).ok()
 }
 #[inline]
-pub unsafe fn GenerateGPNotification<P0, P1>(bmachine: P0, lpwszmgmtproduct: P1, dwmgmtproductoptions: u32) -> u32
+pub unsafe fn GenerateGPNotification<P1>(bmachine: bool, lpwszmgmtproduct: P1, dwmgmtproductoptions: u32) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("userenv.dll" "system" fn GenerateGPNotification(bmachine : super::super::Foundation:: BOOL, lpwszmgmtproduct : windows_core::PCWSTR, dwmgmtproductoptions : u32) -> u32);
-    GenerateGPNotification(bmachine.param().abi(), lpwszmgmtproduct.param().abi(), core::mem::transmute(dwmgmtproductoptions))
+    GenerateGPNotification(bmachine.into(), lpwszmgmtproduct.param().abi(), core::mem::transmute(dwmgmtproductoptions))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -122,12 +117,9 @@ where
     GetLocalManagedApplicationData(productcode.param().abi(), core::mem::transmute(displayname), core::mem::transmute(supporturl))
 }
 #[inline]
-pub unsafe fn GetLocalManagedApplications<P0>(buserapps: P0, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetLocalManagedApplications(buserapps: bool, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn GetLocalManagedApplications(buserapps : super::super::Foundation:: BOOL, pdwapps : *mut u32, prglocalapps : *mut *mut LOCALMANAGEDAPPLICATION) -> u32);
-    GetLocalManagedApplications(buserapps.param().abi(), core::mem::transmute(pdwapps), core::mem::transmute(prglocalapps))
+    GetLocalManagedApplications(buserapps.into(), core::mem::transmute(pdwapps), core::mem::transmute(prglocalapps))
 }
 #[cfg(feature = "Win32_UI_Shell")]
 #[inline]
@@ -170,28 +162,19 @@ pub unsafe fn ProcessGroupPolicyCompletedEx(extensionid: *const windows_core::GU
     ProcessGroupPolicyCompletedEx(core::mem::transmute(extensionid), core::mem::transmute(pasynchandle), core::mem::transmute(dwstatus), core::mem::transmute(rsopstatus))
 }
 #[inline]
-pub unsafe fn RefreshPolicy<P0>(bmachine: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RefreshPolicy(bmachine: bool) -> windows_core::Result<()> {
     windows_targets::link!("userenv.dll" "system" fn RefreshPolicy(bmachine : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    RefreshPolicy(bmachine.param().abi()).ok()
+    RefreshPolicy(bmachine.into()).ok()
 }
 #[inline]
-pub unsafe fn RefreshPolicyEx<P0>(bmachine: P0, dwoptions: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RefreshPolicyEx(bmachine: bool, dwoptions: u32) -> windows_core::Result<()> {
     windows_targets::link!("userenv.dll" "system" fn RefreshPolicyEx(bmachine : super::super::Foundation:: BOOL, dwoptions : u32) -> super::super::Foundation:: BOOL);
-    RefreshPolicyEx(bmachine.param().abi(), core::mem::transmute(dwoptions)).ok()
+    RefreshPolicyEx(bmachine.into(), core::mem::transmute(dwoptions)).ok()
 }
 #[inline]
-pub unsafe fn RegisterGPNotification<P1>(hevent: super::super::Foundation::HANDLE, bmachine: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RegisterGPNotification(hevent: super::super::Foundation::HANDLE, bmachine: bool) -> windows_core::Result<()> {
     windows_targets::link!("userenv.dll" "system" fn RegisterGPNotification(hevent : super::super::Foundation:: HANDLE, bmachine : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    RegisterGPNotification(core::mem::transmute(hevent), bmachine.param().abi()).ok()
+    RegisterGPNotification(core::mem::transmute(hevent), bmachine.into()).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -551,12 +534,8 @@ impl IGPEInformation {
     pub unsafe fn GetHint(&self, gphint: *mut GROUP_POLICY_HINT_TYPE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetHint)(windows_core::Interface::as_raw(self), core::mem::transmute(gphint)).ok()
     }
-    pub unsafe fn PolicyChanged<P0, P1>(&self, bmachine: P0, badd: P1, pguidextension: *mut windows_core::GUID, pguidsnapin: *mut windows_core::GUID) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).PolicyChanged)(windows_core::Interface::as_raw(self), bmachine.param().abi(), badd.param().abi(), core::mem::transmute(pguidextension), core::mem::transmute(pguidsnapin)).ok()
+    pub unsafe fn PolicyChanged(&self, bmachine: bool, badd: bool, pguidextension: *mut windows_core::GUID, pguidsnapin: *mut windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).PolicyChanged)(windows_core::Interface::as_raw(self), bmachine.into(), badd.into(), core::mem::transmute(pguidextension), core::mem::transmute(pguidsnapin)).ok()
     }
 }
 #[repr(C)]
@@ -7644,12 +7623,8 @@ impl IGroupPolicyObject {
     {
         (windows_core::Interface::vtable(self).OpenRemoteMachineGPO)(windows_core::Interface::as_raw(self), pszcomputername.param().abi(), core::mem::transmute(dwflags)).ok()
     }
-    pub unsafe fn Save<P0, P1>(&self, bmachine: P0, badd: P1, pguidextension: *mut windows_core::GUID, pguid: *mut windows_core::GUID) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), bmachine.param().abi(), badd.param().abi(), core::mem::transmute(pguidextension), core::mem::transmute(pguid)).ok()
+    pub unsafe fn Save(&self, bmachine: bool, badd: bool, pguidextension: *mut windows_core::GUID, pguid: *mut windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), bmachine.into(), badd.into(), core::mem::transmute(pguidextension), core::mem::transmute(pguid)).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok()

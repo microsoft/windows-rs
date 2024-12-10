@@ -17,12 +17,9 @@ where
     CompareStringEx(lplocalename.param().abi(), core::mem::transmute(dwcmpflags), core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap(), core::mem::transmute(lpversioninformation.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(lparam.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn CompareStringOrdinal<P4>(lpstring1: &[u16], lpstring2: &[u16], bignorecase: P4) -> COMPARESTRING_RESULT
-where
-    P4: windows_core::Param<super::Foundation::BOOL>,
-{
+pub unsafe fn CompareStringOrdinal(lpstring1: &[u16], lpstring2: &[u16], bignorecase: bool) -> COMPARESTRING_RESULT {
     windows_targets::link!("kernel32.dll" "system" fn CompareStringOrdinal(lpstring1 : windows_core::PCWSTR, cchcount1 : i32, lpstring2 : windows_core::PCWSTR, cchcount2 : i32, bignorecase : super::Foundation:: BOOL) -> COMPARESTRING_RESULT);
-    CompareStringOrdinal(core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap(), bignorecase.param().abi())
+    CompareStringOrdinal(core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap(), bignorecase.into())
 }
 #[inline]
 pub unsafe fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: &[u16], lpstring2: &[u16]) -> COMPARESTRING_RESULT {
@@ -209,12 +206,9 @@ where
     )
 }
 #[inline]
-pub unsafe fn FindStringOrdinal<P5>(dwfindstringordinalflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], bignorecase: P5) -> i32
-where
-    P5: windows_core::Param<super::Foundation::BOOL>,
-{
+pub unsafe fn FindStringOrdinal(dwfindstringordinalflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], bignorecase: bool) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn FindStringOrdinal(dwfindstringordinalflags : u32, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, bignorecase : super::Foundation:: BOOL) -> i32);
-    FindStringOrdinal(core::mem::transmute(dwfindstringordinalflags), core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), bignorecase.param().abi())
+    FindStringOrdinal(core::mem::transmute(dwfindstringordinalflags), core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), bignorecase.into())
 }
 #[inline]
 pub unsafe fn FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: &[u8], lpdeststr: Option<&mut [u8]>) -> i32 {
@@ -807,12 +801,9 @@ where
     ScriptBreak(pwcchars.param().abi(), core::mem::transmute(cchars), core::mem::transmute(psa), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn ScriptCPtoX<P1>(icp: i32, ftrailing: P1, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::Foundation::BOOL>,
-{
+pub unsafe fn ScriptCPtoX(icp: i32, ftrailing: bool, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptCPtoX(icp : i32, ftrailing : super::Foundation:: BOOL, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pix : *mut i32) -> windows_core::HRESULT);
-    ScriptCPtoX(core::mem::transmute(icp), ftrailing.param().abi(), pwlogclust.len().try_into().unwrap(), core::mem::transmute(cglyphs), core::mem::transmute(pwlogclust.as_ptr()), core::mem::transmute(psva), core::mem::transmute(piadvance), core::mem::transmute(psa), core::mem::transmute(pix)).ok()
+    ScriptCPtoX(core::mem::transmute(icp), ftrailing.into(), pwlogclust.len().try_into().unwrap(), core::mem::transmute(cglyphs), core::mem::transmute(pwlogclust.as_ptr()), core::mem::transmute(psva), core::mem::transmute(piadvance), core::mem::transmute(psa), core::mem::transmute(pix)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1011,13 +1002,10 @@ pub unsafe fn ScriptStringAnalyse(hdc: super::Graphics::Gdi::HDC, pstring: *cons
     .ok()
 }
 #[inline]
-pub unsafe fn ScriptStringCPtoX<P2>(ssa: *const core::ffi::c_void, icp: i32, ftrailing: P2) -> windows_core::Result<i32>
-where
-    P2: windows_core::Param<super::Foundation::BOOL>,
-{
+pub unsafe fn ScriptStringCPtoX(ssa: *const core::ffi::c_void, icp: i32, ftrailing: bool) -> windows_core::Result<i32> {
     windows_targets::link!("usp10.dll" "system" fn ScriptStringCPtoX(ssa : *const core::ffi::c_void, icp : i32, ftrailing : super::Foundation:: BOOL, px : *mut i32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    ScriptStringCPtoX(core::mem::transmute(ssa), core::mem::transmute(icp), ftrailing.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    ScriptStringCPtoX(core::mem::transmute(ssa), core::mem::transmute(icp), ftrailing.into(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn ScriptStringFree(pssa: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -1036,12 +1024,9 @@ pub unsafe fn ScriptStringGetOrder(ssa: *const core::ffi::c_void, puorder: *mut 
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptStringOut<P7>(ssa: *const core::ffi::c_void, ix: i32, iy: i32, uoptions: super::Graphics::Gdi::ETO_OPTIONS, prc: Option<*const super::Foundation::RECT>, iminsel: i32, imaxsel: i32, fdisabled: P7) -> windows_core::Result<()>
-where
-    P7: windows_core::Param<super::Foundation::BOOL>,
-{
+pub unsafe fn ScriptStringOut(ssa: *const core::ffi::c_void, ix: i32, iy: i32, uoptions: super::Graphics::Gdi::ETO_OPTIONS, prc: Option<*const super::Foundation::RECT>, iminsel: i32, imaxsel: i32, fdisabled: bool) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptStringOut(ssa : *const core::ffi::c_void, ix : i32, iy : i32, uoptions : super::Graphics::Gdi:: ETO_OPTIONS, prc : *const super::Foundation:: RECT, iminsel : i32, imaxsel : i32, fdisabled : super::Foundation:: BOOL) -> windows_core::HRESULT);
-    ScriptStringOut(core::mem::transmute(ssa), core::mem::transmute(ix), core::mem::transmute(iy), core::mem::transmute(uoptions), core::mem::transmute(prc.unwrap_or(core::mem::zeroed())), core::mem::transmute(iminsel), core::mem::transmute(imaxsel), fdisabled.param().abi()).ok()
+    ScriptStringOut(core::mem::transmute(ssa), core::mem::transmute(ix), core::mem::transmute(iy), core::mem::transmute(uoptions), core::mem::transmute(prc.unwrap_or(core::mem::zeroed())), core::mem::transmute(iminsel), core::mem::transmute(imaxsel), fdisabled.into()).ok()
 }
 #[inline]
 pub unsafe fn ScriptStringValidate(ssa: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -7680,9 +7665,6 @@ pub const HIGH_SURROGATE_START: u32 = 55296u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSAVEDUILANGUAGES(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HSAVEDUILANGUAGES {
-    type TypeKind = windows_core::CopyType;
-}
 impl HSAVEDUILANGUAGES {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -8409,11 +8391,8 @@ impl windows_core::RuntimeName for IMLangLineBreakConsole {}
 windows_core::imp::define_interface!(IMLangString, IMLangString_Vtbl, 0xc04d65ce_b70d_11d0_b188_00aa0038c969);
 windows_core::imp::interface_hierarchy!(IMLangString, windows_core::IUnknown);
 impl IMLangString {
-    pub unsafe fn Sync<P0>(&self, fnoaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Sync)(windows_core::Interface::as_raw(self), fnoaccess.param().abi()).ok()
+    pub unsafe fn Sync(&self, fnoaccess: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Sync)(windows_core::Interface::as_raw(self), fnoaccess.into()).ok()
     }
     pub unsafe fn GetLength(&self, pllen: Option<*mut i32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), core::mem::transmute(pllen.unwrap_or(core::mem::zeroed()))).ok()
@@ -11853,9 +11832,6 @@ pub const UBRK_WORD_NUMBER_LIMIT: UWordBreak = UWordBreak(200i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UBiDi(pub isize);
-impl windows_core::TypeKind for UBiDi {
-    type TypeKind = windows_core::CopyType;
-}
 pub type UBiDiClassCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, c: i32) -> UCharDirection>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11875,9 +11851,6 @@ pub struct UBiDiReorderingOption(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UBiDiTransform(pub isize);
-impl windows_core::TypeKind for UBiDiTransform {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UBidiPairedBracketType(pub i32);
@@ -11887,9 +11860,6 @@ pub struct UBlockCode(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UBreakIterator(pub isize);
-impl windows_core::TypeKind for UBreakIterator {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UBreakIteratorType(pub i32);
@@ -12215,9 +12185,6 @@ pub const UCPMAP_RANGE_NORMAL: UCPMapRangeOption = UCPMapRangeOption(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UCPMap(pub isize);
-impl windows_core::TypeKind for UCPMap {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UCPMapRangeOption(pub i32);
@@ -12319,9 +12286,6 @@ pub struct UCalendarWeekdayType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UCaseMap(pub isize);
-impl windows_core::TypeKind for UCaseMap {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UCharCategory(pub i32);
@@ -12373,15 +12337,9 @@ pub struct UCharNameChoice(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UCharsetDetector(pub isize);
-impl windows_core::TypeKind for UCharsetDetector {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UCharsetMatch(pub isize);
-impl windows_core::TypeKind for UCharsetMatch {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UColAttribute(pub i32);
@@ -12400,30 +12358,18 @@ pub struct UColRuleOption(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UCollationElements(pub isize);
-impl windows_core::TypeKind for UCollationElements {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UCollationResult(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UCollator(pub isize);
-impl windows_core::TypeKind for UCollator {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UConstrainedFieldPosition(pub isize);
-impl windows_core::TypeKind for UConstrainedFieldPosition {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UConverter(pub isize);
-impl windows_core::TypeKind for UConverter {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UConverterCallbackReason(pub i32);
@@ -12451,9 +12397,6 @@ pub struct UConverterPlatform(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UConverterSelector(pub isize);
-impl windows_core::TypeKind for UConverterSelector {
-    type TypeKind = windows_core::CopyType;
-}
 pub type UConverterToUCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: windows_core::PCSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12732,15 +12675,9 @@ pub struct UDateFormatSymbolType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UDateFormatSymbols(pub isize);
-impl windows_core::TypeKind for UDateFormatSymbols {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UDateIntervalFormat(pub isize);
-impl windows_core::TypeKind for UDateIntervalFormat {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UDateRelativeDateTimeFormatterStyle(pub i32);
@@ -12781,9 +12718,6 @@ pub type UEnumCharNamesFn = Option<unsafe extern "system" fn(context: *mut core:
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UEnumeration(pub isize);
-impl windows_core::TypeKind for UEnumeration {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UErrorCode(pub i32);
@@ -12820,48 +12754,27 @@ impl Default for UFieldPosition {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UFieldPositionIterator(pub isize);
-impl windows_core::TypeKind for UFieldPositionIterator {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UFormattableType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UFormattedDateInterval(pub isize);
-impl windows_core::TypeKind for UFormattedDateInterval {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UFormattedList(pub isize);
-impl windows_core::TypeKind for UFormattedList {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UFormattedNumber(pub isize);
-impl windows_core::TypeKind for UFormattedNumber {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UFormattedNumberRange(pub isize);
-impl windows_core::TypeKind for UFormattedNumberRange {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UFormattedRelativeDateTime(pub isize);
-impl windows_core::TypeKind for UFormattedRelativeDateTime {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UFormattedValue(pub isize);
-impl windows_core::TypeKind for UFormattedValue {
-    type TypeKind = windows_core::CopyType;
-}
 pub const UGENDER_FEMALE: UGender = UGender(1i32);
 pub const UGENDER_MALE: UGender = UGender(0i32);
 pub const UGENDER_OTHER: UGender = UGender(2i32);
@@ -12871,9 +12784,6 @@ pub struct UGender(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UGenderInfo(pub isize);
-impl windows_core::TypeKind for UGenderInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UGraphemeClusterBreak(pub i32);
@@ -12883,15 +12793,9 @@ pub struct UHangulSyllableType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UHashtable(pub isize);
-impl windows_core::TypeKind for UHashtable {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UIDNA(pub isize);
-impl windows_core::TypeKind for UIDNA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UIDNAInfo {
@@ -13022,9 +12926,6 @@ pub struct ULineBreakTag(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UListFormatter(pub isize);
-impl windows_core::TypeKind for UListFormatter {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UListFormatterField(pub i32);
@@ -13043,9 +12944,6 @@ pub struct ULocDataLocaleType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ULocaleData(pub isize);
-impl windows_core::TypeKind for ULocaleData {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ULocaleDataDelimiterType(pub i32);
@@ -13055,9 +12953,6 @@ pub struct ULocaleDataExemplarSetType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ULocaleDisplayNames(pub isize);
-impl windows_core::TypeKind for ULocaleDisplayNames {
-    type TypeKind = windows_core::CopyType;
-}
 pub const UMEASFMT_WIDTH_COUNT: UMeasureFormatWidth = UMeasureFormatWidth(4i32);
 pub const UMEASFMT_WIDTH_NARROW: UMeasureFormatWidth = UMeasureFormatWidth(2i32);
 pub const UMEASFMT_WIDTH_NUMERIC: UMeasureFormatWidth = UMeasureFormatWidth(3i32);
@@ -13111,9 +13006,6 @@ pub struct UMessagePatternPartType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UMutableCPTrie(pub isize);
-impl windows_core::TypeKind for UMutableCPTrie {
-    type TypeKind = windows_core::CopyType;
-}
 pub type UNESCAPE_CHAR_AT = Option<unsafe extern "system" fn(offset: i32, context: *mut core::ffi::c_void) -> u16>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13304,9 +13196,6 @@ pub struct UNormalizationMode(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UNormalizer2(pub isize);
-impl windows_core::TypeKind for UNormalizer2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNumberCompactStyle(pub i32);
@@ -13340,9 +13229,6 @@ pub struct UNumberFormatTextAttribute(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UNumberFormatter(pub isize);
-impl windows_core::TypeKind for UNumberFormatter {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNumberGroupingStrategy(pub i32);
@@ -13364,9 +13250,6 @@ pub struct UNumberUnitWidth(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UNumberingSystem(pub isize);
-impl windows_core::TypeKind for UNumberingSystem {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNumericType(pub i32);
@@ -13388,9 +13271,6 @@ impl Default for UParseError {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UPluralRules(pub isize);
-impl windows_core::TypeKind for UPluralRules {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UPluralType(pub i32);
@@ -13431,24 +13311,15 @@ pub struct URegexpFlag(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct URegion(pub isize);
-impl windows_core::TypeKind for URegion {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URegionType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct URegularExpression(pub isize);
-impl windows_core::TypeKind for URegularExpression {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct URelativeDateTimeFormatter(pub isize);
-impl windows_core::TypeKind for URelativeDateTimeFormatter {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URelativeDateTimeFormatterField(pub i32);
@@ -13476,9 +13347,6 @@ pub struct UResType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UResourceBundle(pub isize);
-impl windows_core::TypeKind for UResourceBundle {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URestrictionLevel(pub i32);
@@ -13753,9 +13621,6 @@ pub struct UScriptUsage(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct USearch(pub isize);
-impl windows_core::TypeKind for USearch {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USearchAttribute(pub i32);
@@ -13784,24 +13649,15 @@ impl Default for USerializedSet {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct USet(pub isize);
-impl windows_core::TypeKind for USet {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USetSpanCondition(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct USpoofCheckResult(pub isize);
-impl windows_core::TypeKind for USpoofCheckResult {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct USpoofChecker(pub isize);
-impl windows_core::TypeKind for USpoofChecker {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USpoofChecks(pub i32);
@@ -13809,18 +13665,12 @@ pub type UStringCaseMapper = Option<unsafe extern "system" fn(csm: *const UCaseM
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UStringPrepProfile(pub isize);
-impl windows_core::TypeKind for UStringPrepProfile {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UStringPrepProfileType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UStringSearch(pub isize);
-impl windows_core::TypeKind for UStringSearch {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UStringTrieBuildOption(pub i32);

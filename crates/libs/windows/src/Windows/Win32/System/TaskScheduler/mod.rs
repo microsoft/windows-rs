@@ -1895,12 +1895,9 @@ windows_core::imp::define_interface!(IProvideTaskPage, IProvideTaskPage_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IProvideTaskPage, windows_core::IUnknown);
 impl IProvideTaskPage {
     #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn GetPage<P1>(&self, tptype: TASKPAGE, fpersistchanges: P1) -> windows_core::Result<super::super::UI::Controls::HPROPSHEETPAGE>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn GetPage(&self, tptype: TASKPAGE, fpersistchanges: bool) -> windows_core::Result<super::super::UI::Controls::HPROPSHEETPAGE> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPage)(windows_core::Interface::as_raw(self), core::mem::transmute(tptype), fpersistchanges.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetPage)(windows_core::Interface::as_raw(self), core::mem::transmute(tptype), fpersistchanges.into(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

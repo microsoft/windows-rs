@@ -36,14 +36,13 @@ windows_core::imp::define_interface!(IAudioFrameNativeFactory, IAudioFrameNative
 windows_core::imp::interface_hierarchy!(IAudioFrameNativeFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IAudioFrameNativeFactory {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub unsafe fn CreateFromMFSample<P0, P1, T>(&self, data: P0, forcereadonly: P1) -> windows_core::Result<T>
+    pub unsafe fn CreateFromMFSample<P0, T>(&self, data: P0, forcereadonly: bool) -> windows_core::Result<T>
     where
         P0: windows_core::Param<super::super::super::Media::MediaFoundation::IMFSample>,
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateFromMFSample)(windows_core::Interface::as_raw(self), data.param().abi(), forcereadonly.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateFromMFSample)(windows_core::Interface::as_raw(self), data.param().abi(), forcereadonly.into(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -129,15 +128,14 @@ windows_core::imp::define_interface!(IVideoFrameNativeFactory, IVideoFrameNative
 windows_core::imp::interface_hierarchy!(IVideoFrameNativeFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IVideoFrameNativeFactory {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub unsafe fn CreateFromMFSample<P0, P4, P6, T>(&self, data: P0, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: P4, mindisplayaperture: Option<*const super::super::super::Media::MediaFoundation::MFVideoArea>, device: P6) -> windows_core::Result<T>
+    pub unsafe fn CreateFromMFSample<P0, P6, T>(&self, data: P0, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: bool, mindisplayaperture: Option<*const super::super::super::Media::MediaFoundation::MFVideoArea>, device: P6) -> windows_core::Result<T>
     where
         P0: windows_core::Param<super::super::super::Media::MediaFoundation::IMFSample>,
-        P4: windows_core::Param<super::super::super::Foundation::BOOL>,
         P6: windows_core::Param<super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateFromMFSample)(windows_core::Interface::as_raw(self), data.param().abi(), core::mem::transmute(subtype), core::mem::transmute(width), core::mem::transmute(height), forcereadonly.param().abi(), core::mem::transmute(mindisplayaperture.unwrap_or(core::mem::zeroed())), device.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateFromMFSample)(windows_core::Interface::as_raw(self), data.param().abi(), core::mem::transmute(subtype), core::mem::transmute(width), core::mem::transmute(height), forcereadonly.into(), core::mem::transmute(mindisplayaperture.unwrap_or(core::mem::zeroed())), device.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

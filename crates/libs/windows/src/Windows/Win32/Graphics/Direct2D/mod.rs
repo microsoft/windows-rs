@@ -4262,11 +4262,8 @@ impl ID2D1ConcreteTransform {
     pub unsafe fn SetOutputBuffer(&self, bufferprecision: D2D1_BUFFER_PRECISION, channeldepth: D2D1_CHANNEL_DEPTH) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOutputBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(bufferprecision), core::mem::transmute(channeldepth)).ok()
     }
-    pub unsafe fn SetCached<P0>(&self, iscached: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetCached)(windows_core::Interface::as_raw(self), iscached.param().abi())
+    pub unsafe fn SetCached(&self, iscached: bool) {
+        (windows_core::Interface::vtable(self).SetCached)(windows_core::Interface::as_raw(self), iscached.into())
     }
 }
 #[repr(C)]
@@ -5955,22 +5952,20 @@ impl ID2D1DeviceContext4 {
         (windows_core::Interface::vtable(self).DrawSvgGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), core::mem::transmute(glyphrun), defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), core::mem::transmute(colorpaletteindex), core::mem::transmute(measuringmode))
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn GetColorBitmapGlyphImage<P2, P5>(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: Common::D2D_POINT_2F, fontface: P2, fontemsize: f32, glyphindex: u16, issideways: P5, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, dpix: f32, dpiy: f32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut Option<ID2D1Image>) -> windows_core::Result<()>
+    pub unsafe fn GetColorBitmapGlyphImage<P2>(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: Common::D2D_POINT_2F, fontface: P2, fontemsize: f32, glyphindex: u16, issideways: bool, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, dpix: f32, dpiy: f32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut Option<ID2D1Image>) -> windows_core::Result<()>
     where
         P2: windows_core::Param<super::DirectWrite::IDWriteFontFace>,
-        P5: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetColorBitmapGlyphImage)(windows_core::Interface::as_raw(self), core::mem::transmute(glyphimageformat), core::mem::transmute(glyphorigin), fontface.param().abi(), core::mem::transmute(fontemsize), core::mem::transmute(glyphindex), issideways.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::mem::zeroed())), core::mem::transmute(dpix), core::mem::transmute(dpiy), core::mem::transmute(glyphtransform), core::mem::transmute(glyphimage)).ok()
+        (windows_core::Interface::vtable(self).GetColorBitmapGlyphImage)(windows_core::Interface::as_raw(self), core::mem::transmute(glyphimageformat), core::mem::transmute(glyphorigin), fontface.param().abi(), core::mem::transmute(fontemsize), core::mem::transmute(glyphindex), issideways.into(), core::mem::transmute(worldtransform.unwrap_or(core::mem::zeroed())), core::mem::transmute(dpix), core::mem::transmute(dpiy), core::mem::transmute(glyphtransform), core::mem::transmute(glyphimage)).ok()
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn GetSvgGlyphImage<P1, P4, P6, P7>(&self, glyphorigin: Common::D2D_POINT_2F, fontface: P1, fontemsize: f32, glyphindex: u16, issideways: P4, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, defaultfillbrush: P6, svgglyphstyle: P7, colorpaletteindex: u32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut Option<ID2D1CommandList>) -> windows_core::Result<()>
+    pub unsafe fn GetSvgGlyphImage<P1, P6, P7>(&self, glyphorigin: Common::D2D_POINT_2F, fontface: P1, fontemsize: f32, glyphindex: u16, issideways: bool, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, defaultfillbrush: P6, svgglyphstyle: P7, colorpaletteindex: u32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut Option<ID2D1CommandList>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<super::DirectWrite::IDWriteFontFace>,
-        P4: windows_core::Param<super::super::Foundation::BOOL>,
         P6: windows_core::Param<ID2D1Brush>,
         P7: windows_core::Param<ID2D1SvgGlyphStyle>,
     {
-        (windows_core::Interface::vtable(self).GetSvgGlyphImage)(windows_core::Interface::as_raw(self), core::mem::transmute(glyphorigin), fontface.param().abi(), core::mem::transmute(fontemsize), core::mem::transmute(glyphindex), issideways.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::mem::zeroed())), defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), core::mem::transmute(colorpaletteindex), core::mem::transmute(glyphtransform), core::mem::transmute(glyphimage)).ok()
+        (windows_core::Interface::vtable(self).GetSvgGlyphImage)(windows_core::Interface::as_raw(self), core::mem::transmute(glyphorigin), fontface.param().abi(), core::mem::transmute(fontemsize), core::mem::transmute(glyphindex), issideways.into(), core::mem::transmute(worldtransform.unwrap_or(core::mem::zeroed())), defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), core::mem::transmute(colorpaletteindex), core::mem::transmute(glyphtransform), core::mem::transmute(glyphimage)).ok()
     }
 }
 #[repr(C)]
@@ -6604,12 +6599,11 @@ impl core::ops::Deref for ID2D1Effect {
 }
 windows_core::imp::interface_hierarchy!(ID2D1Effect, windows_core::IUnknown, ID2D1Properties);
 impl ID2D1Effect {
-    pub unsafe fn SetInput<P1, P2>(&self, index: u32, input: P1, invalidate: P2)
+    pub unsafe fn SetInput<P1>(&self, index: u32, input: P1, invalidate: bool)
     where
         P1: windows_core::Param<ID2D1Image>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetInput)(windows_core::Interface::as_raw(self), core::mem::transmute(index), input.param().abi(), invalidate.param().abi())
+        (windows_core::Interface::vtable(self).SetInput)(windows_core::Interface::as_raw(self), core::mem::transmute(index), input.param().abi(), invalidate.into())
     }
     pub unsafe fn SetInputCount(&self, inputcount: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetInputCount)(windows_core::Interface::as_raw(self), core::mem::transmute(inputcount)).ok()
@@ -10621,11 +10615,8 @@ impl ID2D1RenderInfo {
     pub unsafe fn SetOutputBuffer(&self, bufferprecision: D2D1_BUFFER_PRECISION, channeldepth: D2D1_CHANNEL_DEPTH) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOutputBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(bufferprecision), core::mem::transmute(channeldepth)).ok()
     }
-    pub unsafe fn SetCached<P0>(&self, iscached: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetCached)(windows_core::Interface::as_raw(self), iscached.param().abi())
+    pub unsafe fn SetCached(&self, iscached: bool) {
+        (windows_core::Interface::vtable(self).SetCached)(windows_core::Interface::as_raw(self), iscached.into())
     }
     pub unsafe fn SetInstructionCountHint(&self, instructioncount: u32) {
         (windows_core::Interface::vtable(self).SetInstructionCountHint)(windows_core::Interface::as_raw(self), core::mem::transmute(instructioncount))

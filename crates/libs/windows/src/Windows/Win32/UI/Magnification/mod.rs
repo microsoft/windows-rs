@@ -66,12 +66,9 @@ pub unsafe fn MagSetImageScalingCallback(hwnd: super::super::Foundation::HWND, c
     MagSetImageScalingCallback(core::mem::transmute(hwnd), core::mem::transmute(callback))
 }
 #[inline]
-pub unsafe fn MagSetInputTransform<P0>(fenabled: P0, prectsource: *const super::super::Foundation::RECT, prectdest: *const super::super::Foundation::RECT) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn MagSetInputTransform(fenabled: bool, prectsource: *const super::super::Foundation::RECT, prectdest: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
     windows_targets::link!("magnification.dll" "system" fn MagSetInputTransform(fenabled : super::super::Foundation:: BOOL, prectsource : *const super::super::Foundation:: RECT, prectdest : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    MagSetInputTransform(fenabled.param().abi(), core::mem::transmute(prectsource), core::mem::transmute(prectdest)).ok()
+    MagSetInputTransform(fenabled.into(), core::mem::transmute(prectsource), core::mem::transmute(prectdest)).ok()
 }
 #[inline]
 pub unsafe fn MagSetWindowFilterList(hwnd: super::super::Foundation::HWND, dwfiltermode: MW_FILTERMODE, count: i32, phwnd: *mut super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
@@ -89,12 +86,9 @@ pub unsafe fn MagSetWindowTransform(hwnd: super::super::Foundation::HWND, ptrans
     MagSetWindowTransform(core::mem::transmute(hwnd), core::mem::transmute(ptransform))
 }
 #[inline]
-pub unsafe fn MagShowSystemCursor<P0>(fshowcursor: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn MagShowSystemCursor(fshowcursor: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("magnification.dll" "system" fn MagShowSystemCursor(fshowcursor : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    MagShowSystemCursor(fshowcursor.param().abi())
+    MagShowSystemCursor(fshowcursor.into())
 }
 #[inline]
 pub unsafe fn MagUninitialize() -> super::super::Foundation::BOOL {

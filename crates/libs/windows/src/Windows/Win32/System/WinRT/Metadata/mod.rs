@@ -3942,9 +3942,6 @@ impl Default for OSINFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ROPARAMIIDHANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for ROPARAMIIDHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl ROPARAMIIDHANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

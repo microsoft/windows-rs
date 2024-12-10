@@ -4524,21 +4524,17 @@ impl windows_core::RuntimeName for IWICMetadataWriterInfo {}
 windows_core::imp::define_interface!(IWICPalette, IWICPalette_Vtbl, 0x00000040_a8f2_4877_ba0a_fd2b6645fb94);
 windows_core::imp::interface_hierarchy!(IWICPalette, windows_core::IUnknown);
 impl IWICPalette {
-    pub unsafe fn InitializePredefined<P1>(&self, epalettetype: WICBitmapPaletteType, faddtransparentcolor: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).InitializePredefined)(windows_core::Interface::as_raw(self), core::mem::transmute(epalettetype), faddtransparentcolor.param().abi()).ok()
+    pub unsafe fn InitializePredefined(&self, epalettetype: WICBitmapPaletteType, faddtransparentcolor: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).InitializePredefined)(windows_core::Interface::as_raw(self), core::mem::transmute(epalettetype), faddtransparentcolor.into()).ok()
     }
     pub unsafe fn InitializeCustom(&self, pcolors: &[u32]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InitializeCustom)(windows_core::Interface::as_raw(self), core::mem::transmute(pcolors.as_ptr()), pcolors.len().try_into().unwrap()).ok()
     }
-    pub unsafe fn InitializeFromBitmap<P0, P2>(&self, pisurface: P0, ccount: u32, faddtransparentcolor: P2) -> windows_core::Result<()>
+    pub unsafe fn InitializeFromBitmap<P0>(&self, pisurface: P0, ccount: u32, faddtransparentcolor: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IWICBitmapSource>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).InitializeFromBitmap)(windows_core::Interface::as_raw(self), pisurface.param().abi(), core::mem::transmute(ccount), faddtransparentcolor.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InitializeFromBitmap)(windows_core::Interface::as_raw(self), pisurface.param().abi(), core::mem::transmute(ccount), faddtransparentcolor.into()).ok()
     }
     pub unsafe fn InitializeFromPalette<P0>(&self, pipalette: P0) -> windows_core::Result<()>
     where
@@ -4708,12 +4704,11 @@ impl IWICPersistStream {
         (windows_core::Interface::vtable(self).LoadEx)(windows_core::Interface::as_raw(self), pistream.param().abi(), core::mem::transmute(pguidpreferredvendor), core::mem::transmute(dwpersistoptions)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SaveEx<P0, P2>(&self, pistream: P0, dwpersistoptions: u32, fcleardirty: P2) -> windows_core::Result<()>
+    pub unsafe fn SaveEx<P0>(&self, pistream: P0, dwpersistoptions: u32, fcleardirty: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SaveEx)(windows_core::Interface::as_raw(self), pistream.param().abi(), core::mem::transmute(dwpersistoptions), fcleardirty.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SaveEx)(windows_core::Interface::as_raw(self), pistream.param().abi(), core::mem::transmute(dwpersistoptions), fcleardirty.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

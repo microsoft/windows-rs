@@ -7,23 +7,21 @@ where
     AddDllDirectory(newdirectory.param().abi())
 }
 #[inline]
-pub unsafe fn BeginUpdateResourceA<P0, P1>(pfilename: P0, bdeleteexistingresources: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn BeginUpdateResourceA<P0>(pfilename: P0, bdeleteexistingresources: bool) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn BeginUpdateResourceA(pfilename : windows_core::PCSTR, bdeleteexistingresources : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
-    let result__ = BeginUpdateResourceA(pfilename.param().abi(), bdeleteexistingresources.param().abi());
+    let result__ = BeginUpdateResourceA(pfilename.param().abi(), bdeleteexistingresources.into());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn BeginUpdateResourceW<P0, P1>(pfilename: P0, bdeleteexistingresources: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn BeginUpdateResourceW<P0>(pfilename: P0, bdeleteexistingresources: bool) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn BeginUpdateResourceW(pfilename : windows_core::PCWSTR, bdeleteexistingresources : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
-    let result__ = BeginUpdateResourceW(pfilename.param().abi(), bdeleteexistingresources.param().abi());
+    let result__ = BeginUpdateResourceW(pfilename.param().abi(), bdeleteexistingresources.into());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -32,20 +30,14 @@ pub unsafe fn DisableThreadLibraryCalls(hlibmodule: super::super::Foundation::HM
     DisableThreadLibraryCalls(core::mem::transmute(hlibmodule)).ok()
 }
 #[inline]
-pub unsafe fn EndUpdateResourceA<P1>(hupdate: super::super::Foundation::HANDLE, fdiscard: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn EndUpdateResourceA(hupdate: super::super::Foundation::HANDLE, fdiscard: bool) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EndUpdateResourceA(hupdate : super::super::Foundation:: HANDLE, fdiscard : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    EndUpdateResourceA(core::mem::transmute(hupdate), fdiscard.param().abi()).ok()
+    EndUpdateResourceA(core::mem::transmute(hupdate), fdiscard.into()).ok()
 }
 #[inline]
-pub unsafe fn EndUpdateResourceW<P1>(hupdate: super::super::Foundation::HANDLE, fdiscard: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn EndUpdateResourceW(hupdate: super::super::Foundation::HANDLE, fdiscard: bool) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EndUpdateResourceW(hupdate : super::super::Foundation:: HANDLE, fdiscard : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    EndUpdateResourceW(core::mem::transmute(hupdate), fdiscard.param().abi()).ok()
+    EndUpdateResourceW(core::mem::transmute(hupdate), fdiscard.into()).ok()
 }
 #[inline]
 pub unsafe fn EnumResourceLanguagesA<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCA, lparam: isize) -> windows_core::Result<()>

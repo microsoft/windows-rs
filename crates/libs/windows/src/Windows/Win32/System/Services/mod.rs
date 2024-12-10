@@ -209,12 +209,9 @@ pub unsafe fn LockServiceDatabase(hscmanager: SC_HANDLE) -> *mut core::ffi::c_vo
     LockServiceDatabase(core::mem::transmute(hscmanager))
 }
 #[inline]
-pub unsafe fn NotifyBootConfigStatus<P0>(bootacceptable: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn NotifyBootConfigStatus(bootacceptable: bool) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn NotifyBootConfigStatus(bootacceptable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    NotifyBootConfigStatus(bootacceptable.param().abi()).ok()
+    NotifyBootConfigStatus(bootacceptable.into()).ok()
 }
 #[inline]
 pub unsafe fn NotifyServiceStatusChangeA(hservice: SC_HANDLE, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2A) -> u32 {
@@ -352,13 +349,9 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetServiceBits<P2, P3>(hservicestatus: SERVICE_STATUS_HANDLE, dwservicebits: u32, bsetbitson: P2, bupdateimmediately: P3) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetServiceBits(hservicestatus: SERVICE_STATUS_HANDLE, dwservicebits: u32, bsetbitson: bool, bupdateimmediately: bool) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn SetServiceBits(hservicestatus : SERVICE_STATUS_HANDLE, dwservicebits : u32, bsetbitson : super::super::Foundation:: BOOL, bupdateimmediately : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetServiceBits(core::mem::transmute(hservicestatus), core::mem::transmute(dwservicebits), bsetbitson.param().abi(), bupdateimmediately.param().abi()).ok()
+    SetServiceBits(core::mem::transmute(hservicestatus), core::mem::transmute(dwservicebits), bsetbitson.into(), bupdateimmediately.into()).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -519,9 +512,6 @@ pub type PSC_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(dwnotify: 
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PSC_NOTIFICATION_REGISTRATION(pub isize);
-impl windows_core::TypeKind for PSC_NOTIFICATION_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QUERY_SERVICE_CONFIGA {
@@ -616,9 +606,6 @@ pub struct SC_EVENT_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SC_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for SC_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl SC_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1081,9 +1068,6 @@ pub struct SERVICE_STATUS_CURRENT_STATE(pub u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SERVICE_STATUS_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for SERVICE_STATUS_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl SERVICE_STATUS_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

@@ -426,23 +426,21 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn MsiAdvertiseScriptA<P0, P3>(szscriptfile: P0, dwflags: u32, phregdata: Option<*const super::Registry::HKEY>, fremoveitems: P3) -> u32
+pub unsafe fn MsiAdvertiseScriptA<P0>(szscriptfile: P0, dwflags: u32, phregdata: Option<*const super::Registry::HKEY>, fremoveitems: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("msi.dll" "system" fn MsiAdvertiseScriptA(szscriptfile : windows_core::PCSTR, dwflags : u32, phregdata : *const super::Registry:: HKEY, fremoveitems : super::super::Foundation:: BOOL) -> u32);
-    MsiAdvertiseScriptA(szscriptfile.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(phregdata.unwrap_or(core::mem::zeroed())), fremoveitems.param().abi())
+    MsiAdvertiseScriptA(szscriptfile.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(phregdata.unwrap_or(core::mem::zeroed())), fremoveitems.into())
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn MsiAdvertiseScriptW<P0, P3>(szscriptfile: P0, dwflags: u32, phregdata: Option<*const super::Registry::HKEY>, fremoveitems: P3) -> u32
+pub unsafe fn MsiAdvertiseScriptW<P0>(szscriptfile: P0, dwflags: u32, phregdata: Option<*const super::Registry::HKEY>, fremoveitems: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("msi.dll" "system" fn MsiAdvertiseScriptW(szscriptfile : windows_core::PCWSTR, dwflags : u32, phregdata : *const super::Registry:: HKEY, fremoveitems : super::super::Foundation:: BOOL) -> u32);
-    MsiAdvertiseScriptW(szscriptfile.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(phregdata.unwrap_or(core::mem::zeroed())), fremoveitems.param().abi())
+    MsiAdvertiseScriptW(szscriptfile.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(phregdata.unwrap_or(core::mem::zeroed())), fremoveitems.into())
 }
 #[inline]
 pub unsafe fn MsiApplyMultiplePatchesA<P0, P1, P2>(szpatchpackages: P0, szproductcode: P1, szpropertieslist: P2) -> u32
@@ -1744,27 +1742,23 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn MsiProcessAdvertiseScriptA<P0, P1, P3, P4>(szscriptfile: P0, sziconfolder: P1, hregdata: Option<super::Registry::HKEY>, fshortcuts: P3, fremoveitems: P4) -> u32
+pub unsafe fn MsiProcessAdvertiseScriptA<P0, P1>(szscriptfile: P0, sziconfolder: P1, hregdata: Option<super::Registry::HKEY>, fshortcuts: bool, fremoveitems: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptA(szscriptfile : windows_core::PCSTR, sziconfolder : windows_core::PCSTR, hregdata : super::Registry:: HKEY, fshortcuts : super::super::Foundation:: BOOL, fremoveitems : super::super::Foundation:: BOOL) -> u32);
-    MsiProcessAdvertiseScriptA(szscriptfile.param().abi(), sziconfolder.param().abi(), core::mem::transmute(hregdata.unwrap_or(core::mem::zeroed())), fshortcuts.param().abi(), fremoveitems.param().abi())
+    MsiProcessAdvertiseScriptA(szscriptfile.param().abi(), sziconfolder.param().abi(), core::mem::transmute(hregdata.unwrap_or(core::mem::zeroed())), fshortcuts.into(), fremoveitems.into())
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn MsiProcessAdvertiseScriptW<P0, P1, P3, P4>(szscriptfile: P0, sziconfolder: P1, hregdata: Option<super::Registry::HKEY>, fshortcuts: P3, fremoveitems: P4) -> u32
+pub unsafe fn MsiProcessAdvertiseScriptW<P0, P1>(szscriptfile: P0, sziconfolder: P1, hregdata: Option<super::Registry::HKEY>, fshortcuts: bool, fremoveitems: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptW(szscriptfile : windows_core::PCWSTR, sziconfolder : windows_core::PCWSTR, hregdata : super::Registry:: HKEY, fshortcuts : super::super::Foundation:: BOOL, fremoveitems : super::super::Foundation:: BOOL) -> u32);
-    MsiProcessAdvertiseScriptW(szscriptfile.param().abi(), sziconfolder.param().abi(), core::mem::transmute(hregdata.unwrap_or(core::mem::zeroed())), fshortcuts.param().abi(), fremoveitems.param().abi())
+    MsiProcessAdvertiseScriptW(szscriptfile.param().abi(), sziconfolder.param().abi(), core::mem::transmute(hregdata.unwrap_or(core::mem::zeroed())), fshortcuts.into(), fremoveitems.into())
 }
 #[inline]
 pub unsafe fn MsiProcessMessage(hinstall: MSIHANDLE, emessagetype: INSTALLMESSAGE, hrecord: MSIHANDLE) -> i32 {
@@ -2142,12 +2136,9 @@ pub unsafe fn MsiSetInternalUI(dwuilevel: INSTALLUILEVEL, phwnd: Option<*mut sup
     MsiSetInternalUI(core::mem::transmute(dwuilevel), core::mem::transmute(phwnd.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn MsiSetMode<P2>(hinstall: MSIHANDLE, erunmode: MSIRUNMODE, fstate: P2) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn MsiSetMode(hinstall: MSIHANDLE, erunmode: MSIRUNMODE, fstate: bool) -> u32 {
     windows_targets::link!("msi.dll" "system" fn MsiSetMode(hinstall : MSIHANDLE, erunmode : MSIRUNMODE, fstate : super::super::Foundation:: BOOL) -> u32);
-    MsiSetMode(core::mem::transmute(hinstall), core::mem::transmute(erunmode), fstate.param().abi())
+    MsiSetMode(core::mem::transmute(hinstall), core::mem::transmute(erunmode), fstate.into())
 }
 #[inline]
 pub unsafe fn MsiSetPropertyA<P1, P2>(hinstall: MSIHANDLE, szname: P1, szvalue: P2) -> u32
@@ -4691,26 +4682,17 @@ impl IPMApplicationInfo {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AppPlatMinorVersionLightUp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn set_UpdateAvailable<P0>(&self, isupdateavailable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_UpdateAvailable)(windows_core::Interface::as_raw(self), isupdateavailable.param().abi()).ok()
+    pub unsafe fn set_UpdateAvailable(&self, isupdateavailable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_UpdateAvailable)(windows_core::Interface::as_raw(self), isupdateavailable.into()).ok()
     }
-    pub unsafe fn set_NotificationState<P0>(&self, isnotified: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_NotificationState)(windows_core::Interface::as_raw(self), isnotified.param().abi()).ok()
+    pub unsafe fn set_NotificationState(&self, isnotified: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_NotificationState)(windows_core::Interface::as_raw(self), isnotified.into()).ok()
     }
     pub unsafe fn set_IconPath(&self, appiconpath: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).set_IconPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(appiconpath)).ok()
     }
-    pub unsafe fn set_UninstallableState<P0>(&self, isuninstallable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_UninstallableState)(windows_core::Interface::as_raw(self), isuninstallable.param().abi()).ok()
+    pub unsafe fn set_UninstallableState(&self, isuninstallable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_UninstallableState)(windows_core::Interface::as_raw(self), isuninstallable.into()).ok()
     }
     pub unsafe fn IsPinableOnKidZone(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -4732,17 +4714,11 @@ impl IPMApplicationInfo {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsOptoutBackupRestore)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn set_EnterpriseDisabled<P0>(&self, isdisabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_EnterpriseDisabled)(windows_core::Interface::as_raw(self), isdisabled.param().abi()).ok()
+    pub unsafe fn set_EnterpriseDisabled(&self, isdisabled: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_EnterpriseDisabled)(windows_core::Interface::as_raw(self), isdisabled.into()).ok()
     }
-    pub unsafe fn set_EnterpriseUninstallable<P0>(&self, isuninstallable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_EnterpriseUninstallable)(windows_core::Interface::as_raw(self), isuninstallable.param().abi()).ok()
+    pub unsafe fn set_EnterpriseUninstallable(&self, isuninstallable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_EnterpriseUninstallable)(windows_core::Interface::as_raw(self), isuninstallable.into()).ok()
     }
     pub unsafe fn EnterpriseDisabled(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -4791,11 +4767,8 @@ impl IPMApplicationInfo {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsFullyPreInstall)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn set_IsMdilMaintenanceNeeded<P0>(&self, fismdilmaintenanceneeded: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_IsMdilMaintenanceNeeded)(windows_core::Interface::as_raw(self), fismdilmaintenanceneeded.param().abi()).ok()
+    pub unsafe fn set_IsMdilMaintenanceNeeded(&self, fismdilmaintenanceneeded: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_IsMdilMaintenanceNeeded)(windows_core::Interface::as_raw(self), fismdilmaintenanceneeded.into()).ok()
     }
     pub unsafe fn set_Title(&self, apptitle: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).set_Title)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(apptitle)).ok()
@@ -5493,17 +5466,11 @@ impl IPMBackgroundServiceAgentInfo {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsLaunchOnBoot)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn set_IsScheduled<P0>(&self, isscheduled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_IsScheduled)(windows_core::Interface::as_raw(self), isscheduled.param().abi()).ok()
+    pub unsafe fn set_IsScheduled(&self, isscheduled: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_IsScheduled)(windows_core::Interface::as_raw(self), isscheduled.into()).ok()
     }
-    pub unsafe fn set_IsScheduleAllowed<P0>(&self, isscheduleallowed: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_IsScheduleAllowed)(windows_core::Interface::as_raw(self), isscheduleallowed.param().abi()).ok()
+    pub unsafe fn set_IsScheduleAllowed(&self, isscheduleallowed: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_IsScheduleAllowed)(windows_core::Interface::as_raw(self), isscheduleallowed.into()).ok()
     }
 }
 #[repr(C)]
@@ -7040,11 +7007,8 @@ impl IPMLiveTileJobInfo {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RunForever)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn set_RunForever<P0>(&self, frunforever: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_RunForever)(windows_core::Interface::as_raw(self), frunforever.param().abi()).ok()
+    pub unsafe fn set_RunForever(&self, frunforever: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_RunForever)(windows_core::Interface::as_raw(self), frunforever.into()).ok()
     }
     pub unsafe fn MaxRunCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -7783,17 +7747,11 @@ impl IPMTileInfo {
     pub unsafe fn set_HubPosition(&self, hubtype: PM_TILE_HUBTYPE, position: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).set_HubPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(hubtype), core::mem::transmute(position)).ok()
     }
-    pub unsafe fn set_NotifiedState<P0>(&self, notified: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_NotifiedState)(windows_core::Interface::as_raw(self), notified.param().abi()).ok()
+    pub unsafe fn set_NotifiedState(&self, notified: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_NotifiedState)(windows_core::Interface::as_raw(self), notified.into()).ok()
     }
-    pub unsafe fn set_HubPinnedState<P1>(&self, hubtype: PM_TILE_HUBTYPE, pinned: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_HubPinnedState)(windows_core::Interface::as_raw(self), core::mem::transmute(hubtype), pinned.param().abi()).ok()
+    pub unsafe fn set_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE, pinned: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_HubPinnedState)(windows_core::Interface::as_raw(self), core::mem::transmute(hubtype), pinned.into()).ok()
     }
     pub unsafe fn set_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).set_HubTileSize)(windows_core::Interface::as_raw(self), core::mem::transmute(hubtype), core::mem::transmute(size)).ok()
@@ -7812,17 +7770,11 @@ impl IPMTileInfo {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsAutoRestoreDisabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn set_IsRestoring<P0>(&self, restoring: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_IsRestoring)(windows_core::Interface::as_raw(self), restoring.param().abi()).ok()
+    pub unsafe fn set_IsRestoring(&self, restoring: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_IsRestoring)(windows_core::Interface::as_raw(self), restoring.into()).ok()
     }
-    pub unsafe fn set_IsAutoRestoreDisabled<P0>(&self, autorestoredisabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).set_IsAutoRestoreDisabled)(windows_core::Interface::as_raw(self), autorestoredisabled.param().abi()).ok()
+    pub unsafe fn set_IsAutoRestoreDisabled(&self, autorestoredisabled: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).set_IsAutoRestoreDisabled)(windows_core::Interface::as_raw(self), autorestoredisabled.into()).ok()
     }
 }
 #[repr(C)]
@@ -8653,9 +8605,6 @@ impl Default for MSIFILEHASHINFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct MSIHANDLE(pub u32);
-impl windows_core::TypeKind for MSIHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl MSIHANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0

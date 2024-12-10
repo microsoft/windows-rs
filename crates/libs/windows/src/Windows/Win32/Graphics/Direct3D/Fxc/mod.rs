@@ -188,14 +188,13 @@ pub unsafe fn D3DStripShader(pshaderbytecode: *const core::ffi::c_void, bytecode
     D3DStripShader(core::mem::transmute(pshaderbytecode), core::mem::transmute(bytecodelength), core::mem::transmute(ustripflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
-pub unsafe fn D3DWriteBlobToFile<P0, P1, P2>(pblob: P0, pfilename: P1, boverwrite: P2) -> windows_core::Result<()>
+pub unsafe fn D3DWriteBlobToFile<P0, P1>(pblob: P0, pfilename: P1, boverwrite: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::ID3DBlob>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("d3dcompiler_47.dll" "system" fn D3DWriteBlobToFile(pblob : * mut core::ffi::c_void, pfilename : windows_core::PCWSTR, boverwrite : super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    D3DWriteBlobToFile(pblob.param().abi(), pfilename.param().abi(), boverwrite.param().abi()).ok()
+    D3DWriteBlobToFile(pblob.param().abi(), pfilename.param().abi(), boverwrite.into()).ok()
 }
 pub const D3DCOMPILER_DLL_A: windows_core::PCSTR = windows_core::s!("d3dcompiler_47.dll");
 pub const D3DCOMPILER_DLL_W: windows_core::PCWSTR = windows_core::w!("d3dcompiler_47.dll");

@@ -330,21 +330,19 @@ impl IVssComponent {
     pub unsafe fn GetFileRestoreStatus(&self, pstatus: *mut VSS_FILE_RESTORE_STATUS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFileRestoreStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(pstatus)).ok()
     }
-    pub unsafe fn AddDifferencedFilesByLastModifyTime<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, ftlastmodifytime: super::super::Foundation::FILETIME) -> windows_core::Result<()>
+    pub unsafe fn AddDifferencedFilesByLastModifyTime<P0, P1>(&self, wszpath: P0, wszfilespec: P1, brecursive: bool, ftlastmodifytime: super::super::Foundation::FILETIME) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).AddDifferencedFilesByLastModifyTime)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive.param().abi(), core::mem::transmute(ftlastmodifytime)).ok()
+        (windows_core::Interface::vtable(self).AddDifferencedFilesByLastModifyTime)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive.into(), core::mem::transmute(ftlastmodifytime)).ok()
     }
-    pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: &windows_core::BSTR) -> windows_core::Result<()>
+    pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1>(&self, wszpath: P0, wszfilespec: P1, brecursive: bool, bstrlsnstring: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).AddDifferencedFilesByLastModifyLSN)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive.param().abi(), core::mem::transmute_copy(bstrlsnstring)).ok()
+        (windows_core::Interface::vtable(self).AddDifferencedFilesByLastModifyLSN)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive.into(), core::mem::transmute_copy(bstrlsnstring)).ok()
     }
     pub unsafe fn GetDifferencedFilesCount(&self, pcdifferencedfiles: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDifferencedFilesCount)(windows_core::Interface::as_raw(self), core::mem::transmute(pcdifferencedfiles)).ok()
@@ -1288,11 +1286,8 @@ impl core::ops::Deref for IVssDifferentialSoftwareSnapshotMgmt2 {
 }
 windows_core::imp::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt2, windows_core::IUnknown, IVssDifferentialSoftwareSnapshotMgmt);
 impl IVssDifferentialSoftwareSnapshotMgmt2 {
-    pub unsafe fn ChangeDiffAreaMaximumSizeEx<P3>(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ChangeDiffAreaMaximumSizeEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszvolumename), core::mem::transmute(pwszdiffareavolumename), core::mem::transmute(llmaximumdiffspace), bvolatile.param().abi()).ok()
+    pub unsafe fn ChangeDiffAreaMaximumSizeEx(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ChangeDiffAreaMaximumSizeEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszvolumename), core::mem::transmute(pwszdiffareavolumename), core::mem::transmute(llmaximumdiffspace), bvolatile.into()).ok()
     }
     pub unsafe fn MigrateDiffAreas(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, pwsznewdiffareavolumename: *const u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).MigrateDiffAreas)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszvolumename), core::mem::transmute(pwszdiffareavolumename), core::mem::transmute(pwsznewdiffareavolumename)).ok()
@@ -1642,11 +1637,8 @@ impl IVssFileShareSnapshotProvider {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), core::mem::transmute(queriedobjectid), core::mem::transmute(equeriedobjecttype), core::mem::transmute(ereturnedobjectstype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn DeleteSnapshots<P2>(&self, sourceobjectid: windows_core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: P2, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut windows_core::GUID) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).DeleteSnapshots)(windows_core::Interface::as_raw(self), core::mem::transmute(sourceobjectid), core::mem::transmute(esourceobjecttype), bforcedelete.param().abi(), core::mem::transmute(pldeletedsnapshots), core::mem::transmute(pnondeletedsnapshotid)).ok()
+    pub unsafe fn DeleteSnapshots(&self, sourceobjectid: windows_core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: bool, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DeleteSnapshots)(windows_core::Interface::as_raw(self), core::mem::transmute(sourceobjectid), core::mem::transmute(esourceobjecttype), bforcedelete.into(), core::mem::transmute(pldeletedsnapshots), core::mem::transmute(pnondeletedsnapshotid)).ok()
     }
     pub unsafe fn BeginPrepareSnapshot(&self, snapshotsetid: windows_core::GUID, snapshotid: windows_core::GUID, pwszsharepath: *const u16, lnewcontext: i32, providerid: windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).BeginPrepareSnapshot)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotsetid), core::mem::transmute(snapshotid), core::mem::transmute(pwszsharepath), core::mem::transmute(lnewcontext), core::mem::transmute(providerid)).ok()
@@ -2058,11 +2050,8 @@ impl IVssProviderNotifications {
     {
         (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), pcallback.param().abi()).ok()
     }
-    pub unsafe fn OnUnload<P0>(&self, bforceunload: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).OnUnload)(windows_core::Interface::as_raw(self), bforceunload.param().abi()).ok()
+    pub unsafe fn OnUnload(&self, bforceunload: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).OnUnload)(windows_core::Interface::as_raw(self), bforceunload.into()).ok()
     }
 }
 #[repr(C)]
@@ -2212,11 +2201,8 @@ impl IVssSoftwareSnapshotProvider {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), core::mem::transmute(queriedobjectid), core::mem::transmute(equeriedobjecttype), core::mem::transmute(ereturnedobjectstype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn DeleteSnapshots<P2>(&self, sourceobjectid: windows_core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: P2, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut windows_core::GUID) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).DeleteSnapshots)(windows_core::Interface::as_raw(self), core::mem::transmute(sourceobjectid), core::mem::transmute(esourceobjecttype), bforcedelete.param().abi(), core::mem::transmute(pldeletedsnapshots), core::mem::transmute(pnondeletedsnapshotid)).ok()
+    pub unsafe fn DeleteSnapshots(&self, sourceobjectid: windows_core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: bool, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DeleteSnapshots)(windows_core::Interface::as_raw(self), core::mem::transmute(sourceobjectid), core::mem::transmute(esourceobjecttype), bforcedelete.into(), core::mem::transmute(pldeletedsnapshots), core::mem::transmute(pnondeletedsnapshotid)).ok()
     }
     pub unsafe fn BeginPrepareSnapshot(&self, snapshotsetid: windows_core::GUID, snapshotid: windows_core::GUID, pwszvolumename: *const u16, lnewcontext: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).BeginPrepareSnapshot)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotsetid), core::mem::transmute(snapshotid), core::mem::transmute(pwszvolumename), core::mem::transmute(lnewcontext)).ok()

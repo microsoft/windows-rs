@@ -549,9 +549,6 @@ pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: windows_core::GUID = windows_co
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCONN(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCONN {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCONN {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -1710,14 +1707,12 @@ impl IMSAdminBaseW {
     {
         (windows_core::Interface::vtable(self).EnumKeys)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(pszmdname.as_ptr()), core::mem::transmute(dwmdenumobjectindex)).ok()
     }
-    pub unsafe fn CopyKey<P1, P3, P4, P5>(&self, hmdsourcehandle: u32, pszmdsourcepath: P1, hmddesthandle: u32, pszmddestpath: P3, bmdoverwriteflag: P4, bmdcopyflag: P5) -> windows_core::Result<()>
+    pub unsafe fn CopyKey<P1, P3>(&self, hmdsourcehandle: u32, pszmdsourcepath: P1, hmddesthandle: u32, pszmddestpath: P3, bmdoverwriteflag: bool, bmdcopyflag: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
-        P4: windows_core::Param<super::super::Foundation::BOOL>,
-        P5: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CopyKey)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdsourcehandle), pszmdsourcepath.param().abi(), core::mem::transmute(hmddesthandle), pszmddestpath.param().abi(), bmdoverwriteflag.param().abi(), bmdcopyflag.param().abi()).ok()
+        (windows_core::Interface::vtable(self).CopyKey)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdsourcehandle), pszmdsourcepath.param().abi(), core::mem::transmute(hmddesthandle), pszmddestpath.param().abi(), bmdoverwriteflag.into(), bmdcopyflag.into()).ok()
     }
     pub unsafe fn RenameKey<P1, P2>(&self, hmdhandle: u32, pszmdpath: P1, pszmdnewname: P2) -> windows_core::Result<()>
     where
@@ -1762,13 +1757,12 @@ impl IMSAdminBaseW {
     {
         (windows_core::Interface::vtable(self).DeleteAllData)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(dwmdusertype), core::mem::transmute(dwmddatatype)).ok()
     }
-    pub unsafe fn CopyData<P1, P3, P7>(&self, hmdsourcehandle: u32, pszmdsourcepath: P1, hmddesthandle: u32, pszmddestpath: P3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: P7) -> windows_core::Result<()>
+    pub unsafe fn CopyData<P1, P3>(&self, hmdsourcehandle: u32, pszmdsourcepath: P1, hmddesthandle: u32, pszmddestpath: P3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
-        P7: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CopyData)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdsourcehandle), pszmdsourcepath.param().abi(), core::mem::transmute(hmddesthandle), pszmddestpath.param().abi(), core::mem::transmute(dwmdattributes), core::mem::transmute(dwmdusertype), core::mem::transmute(dwmddatatype), bmdcopyflag.param().abi()).ok()
+        (windows_core::Interface::vtable(self).CopyData)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdsourcehandle), pszmdsourcepath.param().abi(), core::mem::transmute(hmddesthandle), pszmddestpath.param().abi(), core::mem::transmute(dwmdattributes), core::mem::transmute(dwmdusertype), core::mem::transmute(dwmddatatype), bmdcopyflag.into()).ok()
     }
     pub unsafe fn GetDataPaths<P1>(&self, hmdhandle: u32, pszmdpath: P1, dwmdidentifier: u32, dwmddatatype: u32, pszbuffer: &mut [u16], pdwmdrequiredbuffersize: *mut u32) -> windows_core::Result<()>
     where
@@ -1807,19 +1801,17 @@ impl IMSAdminBaseW {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDataSetNumber)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetLastChangeTime<P1, P3>(&self, hmdhandle: u32, pszmdpath: P1, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: P3) -> windows_core::Result<()>
+    pub unsafe fn SetLastChangeTime<P1>(&self, hmdhandle: u32, pszmdpath: P1, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetLastChangeTime)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(pftmdlastchangetime), blocaltime.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLastChangeTime)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(pftmdlastchangetime), blocaltime.into()).ok()
     }
-    pub unsafe fn GetLastChangeTime<P1, P3>(&self, hmdhandle: u32, pszmdpath: P1, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: P3) -> windows_core::Result<()>
+    pub unsafe fn GetLastChangeTime<P1>(&self, hmdhandle: u32, pszmdpath: P1, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetLastChangeTime)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(pftmdlastchangetime), blocaltime.param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetLastChangeTime)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(pftmdlastchangetime), blocaltime.into()).ok()
     }
     pub unsafe fn KeyExchangePhase1(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).KeyExchangePhase1)(windows_core::Interface::as_raw(self)).ok()

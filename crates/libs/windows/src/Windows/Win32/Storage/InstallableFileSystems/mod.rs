@@ -408,9 +408,6 @@ pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = FIL
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HFILTER(pub isize);
-impl windows_core::TypeKind for HFILTER {
-    type TypeKind = windows_core::CopyType;
-}
 impl HFILTER {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -428,9 +425,6 @@ impl windows_core::Free for HFILTER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HFILTER_INSTANCE(pub isize);
-impl windows_core::TypeKind for HFILTER_INSTANCE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HFILTER_INSTANCE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0

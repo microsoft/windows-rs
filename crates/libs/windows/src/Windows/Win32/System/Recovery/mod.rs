@@ -1,10 +1,7 @@
 #[inline]
-pub unsafe fn ApplicationRecoveryFinished<P0>(bsuccess: P0)
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ApplicationRecoveryFinished(bsuccess: bool) {
     windows_targets::link!("kernel32.dll" "system" fn ApplicationRecoveryFinished(bsuccess : super::super::Foundation:: BOOL));
-    ApplicationRecoveryFinished(bsuccess.param().abi())
+    ApplicationRecoveryFinished(bsuccess.into())
 }
 #[inline]
 pub unsafe fn ApplicationRecoveryInProgress() -> windows_core::Result<super::super::Foundation::BOOL> {

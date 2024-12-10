@@ -34,12 +34,9 @@ pub unsafe fn WTHelperGetProvPrivateDataFromChain(pprovdata: *mut CRYPT_PROVIDER
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
-pub unsafe fn WTHelperGetProvSignerFromChain<P2>(pprovdata: *mut CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: P2, idxcountersigner: u32) -> *mut CRYPT_PROVIDER_SGNR
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WTHelperGetProvSignerFromChain(pprovdata: *mut CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: bool, idxcountersigner: u32) -> *mut CRYPT_PROVIDER_SGNR {
     windows_targets::link!("wintrust.dll" "system" fn WTHelperGetProvSignerFromChain(pprovdata : *mut CRYPT_PROVIDER_DATA, idxsigner : u32, fcountersigner : super::super::Foundation:: BOOL, idxcountersigner : u32) -> *mut CRYPT_PROVIDER_SGNR);
-    WTHelperGetProvSignerFromChain(core::mem::transmute(pprovdata), core::mem::transmute(idxsigner), fcountersigner.param().abi(), core::mem::transmute(idxcountersigner))
+    WTHelperGetProvSignerFromChain(core::mem::transmute(pprovdata), core::mem::transmute(idxsigner), fcountersigner.into(), core::mem::transmute(idxcountersigner))
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
@@ -96,12 +93,9 @@ pub unsafe fn WintrustRemoveActionID(pgactionid: *const windows_core::GUID) -> s
     WintrustRemoveActionID(core::mem::transmute(pgactionid))
 }
 #[inline]
-pub unsafe fn WintrustSetDefaultIncludePEPageHashes<P0>(fincludepepagehashes: P0)
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: bool) {
     windows_targets::link!("wintrust.dll" "system" fn WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes : super::super::Foundation:: BOOL));
-    WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes.param().abi())
+    WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes.into())
 }
 #[inline]
 pub unsafe fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) -> super::super::Foundation::BOOL {

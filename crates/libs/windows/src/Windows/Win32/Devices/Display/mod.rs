@@ -24,12 +24,9 @@ pub unsafe fn CLIPOBJ_bEnum(pco: *mut CLIPOBJ, cj: u32, pul: *mut u32) -> super:
     CLIPOBJ_bEnum(core::mem::transmute(pco), core::mem::transmute(cj), core::mem::transmute(pul))
 }
 #[inline]
-pub unsafe fn CLIPOBJ_cEnumStart<P1>(pco: *mut CLIPOBJ, ball: P1, itype: u32, idirection: u32, climit: u32) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn CLIPOBJ_cEnumStart(pco: *mut CLIPOBJ, ball: bool, itype: u32, idirection: u32, climit: u32) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn CLIPOBJ_cEnumStart(pco : *mut CLIPOBJ, ball : super::super::Foundation:: BOOL, itype : u32, idirection : u32, climit : u32) -> u32);
-    CLIPOBJ_cEnumStart(core::mem::transmute(pco), ball.param().abi(), core::mem::transmute(itype), core::mem::transmute(idirection), core::mem::transmute(climit))
+    CLIPOBJ_cEnumStart(core::mem::transmute(pco), ball.into(), core::mem::transmute(itype), core::mem::transmute(idirection), core::mem::transmute(climit))
 }
 #[inline]
 pub unsafe fn CLIPOBJ_ppoGetPath(pco: *mut CLIPOBJ) -> *mut PATHOBJ {
@@ -472,12 +469,9 @@ pub unsafe fn HT_Get8BPPFormatPalette(ppaletteentry: Option<*mut super::super::G
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn HT_Get8BPPMaskPalette<P1>(ppaletteentry: Option<*mut super::super::Graphics::Gdi::PALETTEENTRY>, use8bppmaskpal: P1, cmymask: u8, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn HT_Get8BPPMaskPalette(ppaletteentry: Option<*mut super::super::Graphics::Gdi::PALETTEENTRY>, use8bppmaskpal: bool, cmymask: u8, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn HT_Get8BPPMaskPalette(ppaletteentry : *mut super::super::Graphics::Gdi:: PALETTEENTRY, use8bppmaskpal : super::super::Foundation:: BOOL, cmymask : u8, redgamma : u16, greengamma : u16, bluegamma : u16) -> i32);
-    HT_Get8BPPMaskPalette(core::mem::transmute(ppaletteentry.unwrap_or(core::mem::zeroed())), use8bppmaskpal.param().abi(), core::mem::transmute(cmymask), core::mem::transmute(redgamma), core::mem::transmute(greengamma), core::mem::transmute(bluegamma))
+    HT_Get8BPPMaskPalette(core::mem::transmute(ppaletteentry.unwrap_or(core::mem::zeroed())), use8bppmaskpal.into(), core::mem::transmute(cmymask), core::mem::transmute(redgamma), core::mem::transmute(greengamma), core::mem::transmute(bluegamma))
 }
 #[inline]
 pub unsafe fn PATHOBJ_bEnum(ppo: *mut PATHOBJ, ppd: *mut PATHDATA) -> super::super::Foundation::BOOL {
@@ -1220,9 +1214,6 @@ pub const DEVPKEY_IndirectDisplay: super::super::Foundation::DEVPROPKEY = super:
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DHPDEV(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for DHPDEV {
-    type TypeKind = windows_core::CopyType;
-}
 impl DHPDEV {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1236,9 +1227,6 @@ impl Default for DHPDEV {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DHSURF(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for DHSURF {
-    type TypeKind = windows_core::CopyType;
-}
 impl DHSURF {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2744,9 +2732,6 @@ pub const GX_SCALE: i32 = 2i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HBM(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HBM {
-    type TypeKind = windows_core::CopyType;
-}
 impl HBM {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2760,9 +2745,6 @@ impl Default for HBM {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDEV(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDEV {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDEV {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2776,9 +2758,6 @@ impl Default for HDEV {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVOBJ(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVOBJ {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDRVOBJ {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2792,9 +2771,6 @@ impl Default for HDRVOBJ {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HFASTMUTEX(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HFASTMUTEX {
-    type TypeKind = windows_core::CopyType;
-}
 impl HFASTMUTEX {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2836,9 +2812,6 @@ pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSEMAPHORE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HSEMAPHORE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HSEMAPHORE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2861,9 +2834,6 @@ impl Default for HSEMAPHORE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSURF(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HSURF {
-    type TypeKind = windows_core::CopyType;
-}
 impl HSURF {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2947,11 +2917,8 @@ impl ICloneViewHelper {
     {
         (windows_core::Interface::vtable(self).SetActiveTopology)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), core::mem::transmute(ulsourceid), core::mem::transmute(ulcount), core::mem::transmute(pultargetid)).ok()
     }
-    pub unsafe fn Commit<P0>(&self, ffinalcall: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), ffinalcall.param().abi()).ok()
+    pub unsafe fn Commit(&self, ffinalcall: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), ffinalcall.into()).ok()
     }
 }
 #[repr(C)]

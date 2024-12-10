@@ -1,10 +1,7 @@
 #[inline]
-pub unsafe fn EnableMouseInPointer<P0>(fenable: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-{
+pub unsafe fn EnableMouseInPointer(fenable: bool) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn EnableMouseInPointer(fenable : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    EnableMouseInPointer(fenable.param().abi()).ok()
+    EnableMouseInPointer(fenable.into()).ok()
 }
 #[inline]
 pub unsafe fn GetPointerCursorId(pointerid: u32, cursorid: *mut u32) -> windows_core::Result<()> {

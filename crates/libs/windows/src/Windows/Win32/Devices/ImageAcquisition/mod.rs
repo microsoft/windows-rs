@@ -3075,11 +3075,8 @@ impl IWiaVideo {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PreviewVisible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetPreviewVisible<P0>(&self, bpreviewvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetPreviewVisible)(windows_core::Interface::as_raw(self), bpreviewvisible.param().abi()).ok()
+    pub unsafe fn SetPreviewVisible(&self, bpreviewvisible: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetPreviewVisible)(windows_core::Interface::as_raw(self), bpreviewvisible.into()).ok()
     }
     pub unsafe fn ImagesDirectory(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -3088,26 +3085,14 @@ impl IWiaVideo {
     pub unsafe fn SetImagesDirectory(&self, bstrimagedirectory: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetImagesDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrimagedirectory)).ok()
     }
-    pub unsafe fn CreateVideoByWiaDevID<P2, P3>(&self, bstrwiadeviceid: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: P2, bautobeginplayback: P3) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).CreateVideoByWiaDevID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrwiadeviceid), core::mem::transmute(hwndparent), bstretchtofitparent.param().abi(), bautobeginplayback.param().abi()).ok()
+    pub unsafe fn CreateVideoByWiaDevID(&self, bstrwiadeviceid: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: bool, bautobeginplayback: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CreateVideoByWiaDevID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrwiadeviceid), core::mem::transmute(hwndparent), bstretchtofitparent.into(), bautobeginplayback.into()).ok()
     }
-    pub unsafe fn CreateVideoByDevNum<P2, P3>(&self, uidevicenumber: u32, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: P2, bautobeginplayback: P3) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).CreateVideoByDevNum)(windows_core::Interface::as_raw(self), core::mem::transmute(uidevicenumber), core::mem::transmute(hwndparent), bstretchtofitparent.param().abi(), bautobeginplayback.param().abi()).ok()
+    pub unsafe fn CreateVideoByDevNum(&self, uidevicenumber: u32, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: bool, bautobeginplayback: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CreateVideoByDevNum)(windows_core::Interface::as_raw(self), core::mem::transmute(uidevicenumber), core::mem::transmute(hwndparent), bstretchtofitparent.into(), bautobeginplayback.into()).ok()
     }
-    pub unsafe fn CreateVideoByName<P2, P3>(&self, bstrfriendlyname: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: P2, bautobeginplayback: P3) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).CreateVideoByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfriendlyname), core::mem::transmute(hwndparent), bstretchtofitparent.param().abi(), bautobeginplayback.param().abi()).ok()
+    pub unsafe fn CreateVideoByName(&self, bstrfriendlyname: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: bool, bautobeginplayback: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CreateVideoByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfriendlyname), core::mem::transmute(hwndparent), bstretchtofitparent.into(), bautobeginplayback.into()).ok()
     }
     pub unsafe fn DestroyVideo(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DestroyVideo)(windows_core::Interface::as_raw(self)).ok()
@@ -3122,11 +3107,8 @@ impl IWiaVideo {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).TakePicture)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn ResizeVideo<P0>(&self, bstretchtofitparent: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ResizeVideo)(windows_core::Interface::as_raw(self), bstretchtofitparent.param().abi()).ok()
+    pub unsafe fn ResizeVideo(&self, bstretchtofitparent: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ResizeVideo)(windows_core::Interface::as_raw(self), bstretchtofitparent.into()).ok()
     }
     pub unsafe fn GetCurrentState(&self) -> windows_core::Result<WIAVIDEO_STATE> {
         let mut result__ = core::mem::zeroed();

@@ -139,9 +139,6 @@ pub const GID_ZOOM: GESTURECONFIG_ID = GESTURECONFIG_ID(3u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGESTUREINFO(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HGESTUREINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl HGESTUREINFO {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -164,9 +161,6 @@ impl Default for HGESTUREINFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTOUCHINPUT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HTOUCHINPUT {
-    type TypeKind = windows_core::CopyType;
-}
 impl HTOUCHINPUT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

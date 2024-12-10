@@ -1061,25 +1061,9 @@ pub unsafe fn FltLockUserBuffer(callbackdata: *const FLT_CALLBACK_DATA) -> super
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltNotifyFilterChangeDirectory<P4, P5>(notifysync: super::super::super::Foundation::PNOTIFY_SYNC, notifylist: *mut super::super::super::super::Win32::System::Kernel::LIST_ENTRY, fscontext: *const core::ffi::c_void, fulldirectoryname: *const super::super::super::super::Win32::System::Kernel::STRING, watchtree: P4, ignorebuffer: P5, completionfilter: u32, notifycallbackdata: *const FLT_CALLBACK_DATA, traversecallback: Option<super::PCHECK_FOR_TRAVERSE_ACCESS>, subjectcontext: Option<*const super::super::super::Foundation::SECURITY_SUBJECT_CONTEXT>, filtercallback: Option<super::PFILTER_REPORT_CHANGE>)
-where
-    P4: windows_core::Param<super::super::super::super::Win32::Foundation::BOOLEAN>,
-    P5: windows_core::Param<super::super::super::super::Win32::Foundation::BOOLEAN>,
-{
+pub unsafe fn FltNotifyFilterChangeDirectory(notifysync: super::super::super::Foundation::PNOTIFY_SYNC, notifylist: *mut super::super::super::super::Win32::System::Kernel::LIST_ENTRY, fscontext: *const core::ffi::c_void, fulldirectoryname: *const super::super::super::super::Win32::System::Kernel::STRING, watchtree: bool, ignorebuffer: bool, completionfilter: u32, notifycallbackdata: *const FLT_CALLBACK_DATA, traversecallback: Option<super::PCHECK_FOR_TRAVERSE_ACCESS>, subjectcontext: Option<*const super::super::super::Foundation::SECURITY_SUBJECT_CONTEXT>, filtercallback: Option<super::PFILTER_REPORT_CHANGE>) {
     windows_targets::link!("fltmgr.sys" "system" fn FltNotifyFilterChangeDirectory(notifysync : super::super::super::Foundation:: PNOTIFY_SYNC, notifylist : *mut super::super::super::super::Win32::System::Kernel:: LIST_ENTRY, fscontext : *const core::ffi::c_void, fulldirectoryname : *const super::super::super::super::Win32::System::Kernel:: STRING, watchtree : super::super::super::super::Win32::Foundation:: BOOLEAN, ignorebuffer : super::super::super::super::Win32::Foundation:: BOOLEAN, completionfilter : u32, notifycallbackdata : *const FLT_CALLBACK_DATA, traversecallback : super:: PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext : *const super::super::super::Foundation:: SECURITY_SUBJECT_CONTEXT, filtercallback : super:: PFILTER_REPORT_CHANGE));
-    FltNotifyFilterChangeDirectory(
-        core::mem::transmute(notifysync),
-        core::mem::transmute(notifylist),
-        core::mem::transmute(fscontext),
-        core::mem::transmute(fulldirectoryname),
-        watchtree.param().abi(),
-        ignorebuffer.param().abi(),
-        core::mem::transmute(completionfilter),
-        core::mem::transmute(notifycallbackdata),
-        core::mem::transmute(traversecallback.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(subjectcontext.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(filtercallback.unwrap_or(core::mem::zeroed())),
-    )
+    FltNotifyFilterChangeDirectory(core::mem::transmute(notifysync), core::mem::transmute(notifylist), core::mem::transmute(fscontext), core::mem::transmute(fulldirectoryname), watchtree.into(), ignorebuffer.into(), core::mem::transmute(completionfilter), core::mem::transmute(notifycallbackdata), core::mem::transmute(traversecallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(subjectcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(filtercallback.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn FltObjectDereference(fltobject: *mut core::ffi::c_void) {
@@ -1209,13 +1193,9 @@ pub unsafe fn FltPurgeFileNameInformationCache(instance: PFLT_INSTANCE, fileobje
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltQueryDirectoryFile<P5, P7>(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: super::FILE_INFORMATION_CLASS, returnsingleentry: P5, filename: Option<*const super::super::super::super::Win32::Foundation::UNICODE_STRING>, restartscan: P7, lengthreturned: Option<*mut u32>) -> super::super::super::super::Win32::Foundation::NTSTATUS
-where
-    P5: windows_core::Param<super::super::super::super::Win32::Foundation::BOOLEAN>,
-    P7: windows_core::Param<super::super::super::super::Win32::Foundation::BOOLEAN>,
-{
+pub unsafe fn FltQueryDirectoryFile(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: super::FILE_INFORMATION_CLASS, returnsingleentry: bool, filename: Option<*const super::super::super::super::Win32::Foundation::UNICODE_STRING>, restartscan: bool, lengthreturned: Option<*mut u32>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("fltmgr.sys" "system" fn FltQueryDirectoryFile(instance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation:: FILE_OBJECT, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super:: FILE_INFORMATION_CLASS, returnsingleentry : super::super::super::super::Win32::Foundation:: BOOLEAN, filename : *const super::super::super::super::Win32::Foundation:: UNICODE_STRING, restartscan : super::super::super::super::Win32::Foundation:: BOOLEAN, lengthreturned : *mut u32) -> super::super::super::super::Win32::Foundation:: NTSTATUS);
-    FltQueryDirectoryFile(core::mem::transmute(instance), core::mem::transmute(fileobject), core::mem::transmute(fileinformation), core::mem::transmute(length), core::mem::transmute(fileinformationclass), returnsingleentry.param().abi(), core::mem::transmute(filename.unwrap_or(core::mem::zeroed())), restartscan.param().abi(), core::mem::transmute(lengthreturned.unwrap_or(core::mem::zeroed())))
+    FltQueryDirectoryFile(core::mem::transmute(instance), core::mem::transmute(fileobject), core::mem::transmute(fileinformation), core::mem::transmute(length), core::mem::transmute(fileinformationclass), returnsingleentry.into(), core::mem::transmute(filename.unwrap_or(core::mem::zeroed())), restartscan.into(), core::mem::transmute(lengthreturned.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
@@ -1225,13 +1205,9 @@ pub unsafe fn FltQueryDirectoryFileEx(instance: PFLT_INSTANCE, fileobject: *cons
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltQueryEaFile<P4, P8>(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, returnedeadata: *mut core::ffi::c_void, length: u32, returnsingleentry: P4, ealist: Option<*const core::ffi::c_void>, ealistlength: u32, eaindex: Option<*const u32>, restartscan: P8, lengthreturned: Option<*mut u32>) -> super::super::super::super::Win32::Foundation::NTSTATUS
-where
-    P4: windows_core::Param<super::super::super::super::Win32::Foundation::BOOLEAN>,
-    P8: windows_core::Param<super::super::super::super::Win32::Foundation::BOOLEAN>,
-{
+pub unsafe fn FltQueryEaFile(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, returnedeadata: *mut core::ffi::c_void, length: u32, returnsingleentry: bool, ealist: Option<*const core::ffi::c_void>, ealistlength: u32, eaindex: Option<*const u32>, restartscan: bool, lengthreturned: Option<*mut u32>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("fltmgr.sys" "system" fn FltQueryEaFile(instance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation:: FILE_OBJECT, returnedeadata : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::super::Win32::Foundation:: BOOLEAN, ealist : *const core::ffi::c_void, ealistlength : u32, eaindex : *const u32, restartscan : super::super::super::super::Win32::Foundation:: BOOLEAN, lengthreturned : *mut u32) -> super::super::super::super::Win32::Foundation:: NTSTATUS);
-    FltQueryEaFile(core::mem::transmute(instance), core::mem::transmute(fileobject), core::mem::transmute(returnedeadata), core::mem::transmute(length), returnsingleentry.param().abi(), core::mem::transmute(ealist.unwrap_or(core::mem::zeroed())), core::mem::transmute(ealistlength), core::mem::transmute(eaindex.unwrap_or(core::mem::zeroed())), restartscan.param().abi(), core::mem::transmute(lengthreturned.unwrap_or(core::mem::zeroed())))
+    FltQueryEaFile(core::mem::transmute(instance), core::mem::transmute(fileobject), core::mem::transmute(returnedeadata), core::mem::transmute(length), returnsingleentry.into(), core::mem::transmute(ealist.unwrap_or(core::mem::zeroed())), core::mem::transmute(ealistlength), core::mem::transmute(eaindex.unwrap_or(core::mem::zeroed())), restartscan.into(), core::mem::transmute(lengthreturned.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
@@ -1247,13 +1223,9 @@ pub unsafe fn FltQueryInformationFile(instance: PFLT_INSTANCE, fileobject: *cons
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltQueryQuotaInformationFile<P5, P9>(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, iostatusblock: *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P5, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: Option<*const u32>, restartscan: P9, lengthreturned: Option<*mut u32>) -> super::super::super::super::Win32::Foundation::NTSTATUS
-where
-    P5: windows_core::Param<super::super::super::super::Win32::Foundation::BOOLEAN>,
-    P9: windows_core::Param<super::super::super::super::Win32::Foundation::BOOLEAN>,
-{
+pub unsafe fn FltQueryQuotaInformationFile(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, iostatusblock: *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: bool, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: Option<*const u32>, restartscan: bool, lengthreturned: Option<*mut u32>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("fltmgr.sys" "system" fn FltQueryQuotaInformationFile(instance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation:: FILE_OBJECT, iostatusblock : *mut super::super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::super::Win32::Foundation:: BOOLEAN, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : *const u32, restartscan : super::super::super::super::Win32::Foundation:: BOOLEAN, lengthreturned : *mut u32) -> super::super::super::super::Win32::Foundation:: NTSTATUS);
-    FltQueryQuotaInformationFile(core::mem::transmute(instance), core::mem::transmute(fileobject), core::mem::transmute(iostatusblock), core::mem::transmute(buffer), core::mem::transmute(length), returnsingleentry.param().abi(), core::mem::transmute(sidlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(sidlistlength), core::mem::transmute(startsid.unwrap_or(core::mem::zeroed())), restartscan.param().abi(), core::mem::transmute(lengthreturned.unwrap_or(core::mem::zeroed())))
+    FltQueryQuotaInformationFile(core::mem::transmute(instance), core::mem::transmute(fileobject), core::mem::transmute(iostatusblock), core::mem::transmute(buffer), core::mem::transmute(length), returnsingleentry.into(), core::mem::transmute(sidlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(sidlistlength), core::mem::transmute(startsid.unwrap_or(core::mem::zeroed())), restartscan.into(), core::mem::transmute(lengthreturned.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
@@ -3046,9 +3018,6 @@ pub type PFLT_CONNECT_NOTIFY = Option<unsafe extern "system" fn(clientport: PFLT
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PFLT_CONTEXT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for PFLT_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 impl PFLT_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -3066,36 +3035,24 @@ pub type PFLT_CONTEXT_FREE_CALLBACK = Option<unsafe extern "system" fn(pool: *co
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PFLT_DEFERRED_IO_WORKITEM(pub isize);
-impl windows_core::TypeKind for PFLT_DEFERRED_IO_WORKITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_DEFERRED_IO_WORKITEM_ROUTINE = Option<unsafe extern "system" fn(fltworkitem: PFLT_DEFERRED_IO_WORKITEM, callbackdata: *const FLT_CALLBACK_DATA, context: *const core::ffi::c_void)>;
 pub type PFLT_DISCONNECT_NOTIFY = Option<unsafe extern "system" fn(connectioncookie: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PFLT_FILTER(pub isize);
-impl windows_core::TypeKind for PFLT_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 pub type PFLT_FILTER_UNLOAD_CALLBACK = Option<unsafe extern "system" fn(flags: u32) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_GENERATE_FILE_NAME = Option<unsafe extern "system" fn(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, callbackdata: *const FLT_CALLBACK_DATA, nameoptions: u32, cachefilenameinformation: *mut super::super::super::super::Win32::Foundation::BOOLEAN, filename: *mut FLT_NAME_CONTROL) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PFLT_GENERIC_WORKITEM(pub isize);
-impl windows_core::TypeKind for PFLT_GENERIC_WORKITEM {
-    type TypeKind = windows_core::CopyType;
-}
 pub type PFLT_GENERIC_WORKITEM_ROUTINE = Option<unsafe extern "system" fn(fltworkitem: PFLT_GENERIC_WORKITEM, fltobject: *const core::ffi::c_void, context: *const core::ffi::c_void)>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_GET_OPERATION_STATUS_CALLBACK = Option<unsafe extern "system" fn(fltobjects: *const FLT_RELATED_OBJECTS, iopbsnapshot: *const FLT_IO_PARAMETER_BLOCK, operationstatus: super::super::super::super::Win32::Foundation::NTSTATUS, requestercontext: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PFLT_INSTANCE(pub isize);
-impl windows_core::TypeKind for PFLT_INSTANCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_INSTANCE_QUERY_TEARDOWN_CALLBACK = Option<unsafe extern "system" fn(fltobjects: *const FLT_RELATED_OBJECTS, flags: u32) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_Storage_InstallableFileSystems", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -3110,9 +3067,6 @@ pub type PFLT_NORMALIZE_NAME_COMPONENT_EX = Option<unsafe extern "system" fn(ins
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PFLT_PORT(pub isize);
-impl windows_core::TypeKind for PFLT_PORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLT_POST_OPERATION_CALLBACK = Option<unsafe extern "system" fn(data: *mut FLT_CALLBACK_DATA, fltobjects: *const FLT_RELATED_OBJECTS, completioncontext: *const core::ffi::c_void, flags: u32) -> FLT_POSTOP_CALLBACK_STATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -3124,7 +3078,4 @@ pub type PFLT_TRANSACTION_NOTIFICATION_CALLBACK = Option<unsafe extern "system" 
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PFLT_VOLUME(pub isize);
-impl windows_core::TypeKind for PFLT_VOLUME {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VOL_PROP_FL_DAX_VOLUME: u32 = 1u32;

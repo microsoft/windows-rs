@@ -140,11 +140,8 @@ impl Column {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Hidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetHidden<P0>(&self, hidden: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetHidden)(windows_core::Interface::as_raw(self), hidden.param().abi()).ok()
+    pub unsafe fn SetHidden(&self, hidden: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetHidden)(windows_core::Interface::as_raw(self), hidden.into()).ok()
     }
     pub unsafe fn SetAsSortColumn(&self, sortorder: _ColumnSortOrder) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetAsSortColumn)(windows_core::Interface::as_raw(self), core::mem::transmute(sortorder)).ok()
@@ -467,11 +464,8 @@ impl Document {
     pub unsafe fn SaveAs(&self, filename: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SaveAs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filename)).ok()
     }
-    pub unsafe fn Close<P0>(&self, savechanges: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), savechanges.param().abi()).ok()
+    pub unsafe fn Close(&self, savechanges: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), savechanges.into()).ok()
     }
     pub unsafe fn Views(&self) -> windows_core::Result<Views> {
         let mut result__ = core::mem::zeroed();
@@ -765,17 +759,11 @@ impl Extension {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SnapinCLSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn EnableAllExtensions<P0>(&self, enable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).EnableAllExtensions)(windows_core::Interface::as_raw(self), enable.param().abi()).ok()
+    pub unsafe fn EnableAllExtensions(&self, enable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).EnableAllExtensions)(windows_core::Interface::as_raw(self), enable.into()).ok()
     }
-    pub unsafe fn Enable<P0>(&self, enable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), enable.param().abi()).ok()
+    pub unsafe fn Enable(&self, enable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), enable.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1789,11 +1777,8 @@ impl core::ops::Deref for IConsole2 {
 }
 windows_core::imp::interface_hierarchy!(IConsole2, windows_core::IUnknown, IConsole);
 impl IConsole2 {
-    pub unsafe fn Expand<P1>(&self, hitem: isize, bexpand: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), core::mem::transmute(hitem), bexpand.param().abi()).ok()
+    pub unsafe fn Expand(&self, hitem: isize, bexpand: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), core::mem::transmute(hitem), bexpand.into()).ok()
     }
     pub unsafe fn IsTaskpadViewPreferred(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).IsTaskpadViewPreferred)(windows_core::Interface::as_raw(self)).ok()
@@ -2100,11 +2085,8 @@ impl IConsoleVerb {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVerbState)(windows_core::Interface::as_raw(self), core::mem::transmute(ecmdid), core::mem::transmute(nstate), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetVerbState<P2>(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE, bstate: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetVerbState)(windows_core::Interface::as_raw(self), core::mem::transmute(ecmdid), core::mem::transmute(nstate), bstate.param().abi()).ok()
+    pub unsafe fn SetVerbState(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE, bstate: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetVerbState)(windows_core::Interface::as_raw(self), core::mem::transmute(ecmdid), core::mem::transmute(nstate), bstate.into()).ok()
     }
     pub unsafe fn SetDefaultVerb(&self, ecmdid: MMC_CONSOLE_VERB) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDefaultVerb)(windows_core::Interface::as_raw(self), core::mem::transmute(ecmdid)).ok()
@@ -3122,11 +3104,8 @@ impl IMenuButton {
     {
         (windows_core::Interface::vtable(self).SetButton)(windows_core::Interface::as_raw(self), core::mem::transmute(idcommand), lpbuttontext.param().abi(), lptooltiptext.param().abi()).ok()
     }
-    pub unsafe fn SetButtonState<P2>(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetButtonState)(windows_core::Interface::as_raw(self), core::mem::transmute(idcommand), core::mem::transmute(nstate), bstate.param().abi()).ok()
+    pub unsafe fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetButtonState)(windows_core::Interface::as_raw(self), core::mem::transmute(idcommand), core::mem::transmute(nstate), bstate.into()).ok()
     }
 }
 #[repr(C)]
@@ -3347,13 +3326,11 @@ impl IPropertySheetProvider {
     {
         (windows_core::Interface::vtable(self).FindPropertySheet)(windows_core::Interface::as_raw(self), core::mem::transmute(hitem), lpcomponent.param().abi(), lpdataobject.param().abi()).ok()
     }
-    pub unsafe fn AddPrimaryPages<P0, P1, P3>(&self, lpunknown: P0, bcreatehandle: P1, hnotifywindow: super::super::Foundation::HWND, bscopepane: P3) -> windows_core::Result<()>
+    pub unsafe fn AddPrimaryPages<P0>(&self, lpunknown: P0, bcreatehandle: bool, hnotifywindow: super::super::Foundation::HWND, bscopepane: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).AddPrimaryPages)(windows_core::Interface::as_raw(self), lpunknown.param().abi(), bcreatehandle.param().abi(), core::mem::transmute(hnotifywindow), bscopepane.param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPrimaryPages)(windows_core::Interface::as_raw(self), lpunknown.param().abi(), bcreatehandle.into(), core::mem::transmute(hnotifywindow), bscopepane.into()).ok()
     }
     pub unsafe fn AddExtensionPages(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddExtensionPages)(windows_core::Interface::as_raw(self)).ok()
@@ -4268,11 +4245,8 @@ impl IToolbar {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetButtonState)(windows_core::Interface::as_raw(self), core::mem::transmute(idcommand), core::mem::transmute(nstate), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetButtonState<P2>(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetButtonState)(windows_core::Interface::as_raw(self), core::mem::transmute(idcommand), core::mem::transmute(nstate), bstate.param().abi()).ok()
+    pub unsafe fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetButtonState)(windows_core::Interface::as_raw(self), core::mem::transmute(idcommand), core::mem::transmute(nstate), bstate.into()).ok()
     }
 }
 #[repr(C)]
@@ -5701,11 +5675,8 @@ impl SnapIn {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn EnableAllExtensions<P0>(&self, enable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).EnableAllExtensions)(windows_core::Interface::as_raw(self), enable.param().abi()).ok()
+    pub unsafe fn EnableAllExtensions(&self, enable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).EnableAllExtensions)(windows_core::Interface::as_raw(self), enable.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6075,11 +6046,8 @@ impl View {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ScopeTreeVisible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetScopeTreeVisible<P0>(&self, visible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetScopeTreeVisible)(windows_core::Interface::as_raw(self), visible.param().abi()).ok()
+    pub unsafe fn SetScopeTreeVisible(&self, visible: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetScopeTreeVisible)(windows_core::Interface::as_raw(self), visible.into()).ok()
     }
     pub unsafe fn Back(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Back)(windows_core::Interface::as_raw(self)).ok()
@@ -6687,12 +6655,11 @@ impl _AppEvents {
     {
         (windows_core::Interface::vtable(self).OnQuit)(windows_core::Interface::as_raw(self), application.param().abi()).ok()
     }
-    pub unsafe fn OnDocumentOpen<P0, P1>(&self, document: P0, new: P1) -> windows_core::Result<()>
+    pub unsafe fn OnDocumentOpen<P0>(&self, document: P0, new: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<Document>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OnDocumentOpen)(windows_core::Interface::as_raw(self), document.param().abi(), new.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnDocumentOpen)(windows_core::Interface::as_raw(self), document.param().abi(), new.into()).ok()
     }
     pub unsafe fn OnDocumentClose<P0>(&self, document: P0) -> windows_core::Result<()>
     where
@@ -6905,11 +6872,8 @@ impl _Application {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).UserControl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetUserControl<P0>(&self, usercontrol: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetUserControl)(windows_core::Interface::as_raw(self), usercontrol.param().abi()).ok()
+    pub unsafe fn SetUserControl(&self, usercontrol: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetUserControl)(windows_core::Interface::as_raw(self), usercontrol.into()).ok()
     }
     pub unsafe fn VersionMajor(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();

@@ -178,12 +178,9 @@ pub unsafe fn PropKeyFindKeyGetNthUshort(plist: *const SENSOR_COLLECTION_LIST, p
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn PropKeyFindKeyGetPropVariant<P2>(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::Foundation::PROPERTYKEY, typecheck: P2, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS
-where
-    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn PropKeyFindKeyGetPropVariant(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::Foundation::PROPERTYKEY, typecheck: bool, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetPropVariant(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::Foundation:: PROPERTYKEY, typecheck : super::super::Foundation:: BOOLEAN, pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> super::super::Foundation:: NTSTATUS);
-    PropKeyFindKeyGetPropVariant(core::mem::transmute(plist), core::mem::transmute(pkey), typecheck.param().abi(), core::mem::transmute(pvalue))
+    PropKeyFindKeyGetPropVariant(core::mem::transmute(plist), core::mem::transmute(pkey), typecheck.into(), core::mem::transmute(pvalue))
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
@@ -199,12 +196,9 @@ pub unsafe fn PropKeyFindKeyGetUshort(plist: *const SENSOR_COLLECTION_LIST, pkey
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn PropKeyFindKeySetPropVariant<P2>(plist: *mut SENSOR_COLLECTION_LIST, pkey: *const super::super::Foundation::PROPERTYKEY, typecheck: P2, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS
-where
-    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn PropKeyFindKeySetPropVariant(plist: *mut SENSOR_COLLECTION_LIST, pkey: *const super::super::Foundation::PROPERTYKEY, typecheck: bool, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeySetPropVariant(plist : *mut SENSOR_COLLECTION_LIST, pkey : *const super::super::Foundation:: PROPERTYKEY, typecheck : super::super::Foundation:: BOOLEAN, pvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT) -> super::super::Foundation:: NTSTATUS);
-    PropKeyFindKeySetPropVariant(core::mem::transmute(plist), core::mem::transmute(pkey), typecheck.param().abi(), core::mem::transmute(pvalue))
+    PropKeyFindKeySetPropVariant(core::mem::transmute(plist), core::mem::transmute(pkey), typecheck.into(), core::mem::transmute(pvalue))
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
@@ -935,12 +929,11 @@ impl ISensorManager {
     {
         (windows_core::Interface::vtable(self).SetEventSink)(windows_core::Interface::as_raw(self), pevents.param().abi()).ok()
     }
-    pub unsafe fn RequestPermissions<P1, P2>(&self, hparent: super::super::Foundation::HWND, psensors: P1, fmodal: P2) -> windows_core::Result<()>
+    pub unsafe fn RequestPermissions<P1>(&self, hparent: super::super::Foundation::HWND, psensors: P1, fmodal: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<ISensorCollection>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), core::mem::transmute(hparent), psensors.param().abi(), fmodal.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), core::mem::transmute(hparent), psensors.param().abi(), fmodal.into()).ok()
     }
 }
 #[repr(C)]

@@ -473,9 +473,6 @@ pub struct EVT_FORMAT_MESSAGE_FLAGS(pub u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct EVT_HANDLE(pub isize);
-impl windows_core::TypeKind for EVT_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl EVT_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0

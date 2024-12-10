@@ -242,21 +242,19 @@ impl ISettingsEngine {
         (windows_core::Interface::vtable(self).UnloadStore)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RegisterNamespace<P0, P1, P2>(&self, settingsid: P0, stream: P1, pushsettings: P2) -> windows_core::Result<super::Variant::VARIANT>
+    pub unsafe fn RegisterNamespace<P0, P1>(&self, settingsid: P0, stream: P1, pushsettings: bool) -> windows_core::Result<super::Variant::VARIANT>
     where
         P0: windows_core::Param<ISettingsIdentity>,
         P1: windows_core::Param<super::Com::IStream>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterNamespace)(windows_core::Interface::as_raw(self), settingsid.param().abi(), stream.param().abi(), pushsettings.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).RegisterNamespace)(windows_core::Interface::as_raw(self), settingsid.param().abi(), stream.param().abi(), pushsettings.into(), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn UnregisterNamespace<P0, P1>(&self, settingsid: P0, removesettings: P1) -> windows_core::Result<()>
+    pub unsafe fn UnregisterNamespace<P0>(&self, settingsid: P0, removesettings: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISettingsIdentity>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).UnregisterNamespace)(windows_core::Interface::as_raw(self), settingsid.param().abi(), removesettings.param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterNamespace)(windows_core::Interface::as_raw(self), settingsid.param().abi(), removesettings.into()).ok()
     }
     pub unsafe fn CreateTargetInfo(&self) -> windows_core::Result<ITargetInfo> {
         let mut result__ = core::mem::zeroed();
@@ -1000,12 +998,9 @@ impl ISettingsNamespace {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Save<P0>(&self, pushsettings: P0) -> windows_core::Result<ISettingsResult>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn Save(&self, pushsettings: bool) -> windows_core::Result<ISettingsResult> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pushsettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pushsettings.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSettingByPath<P0>(&self, path: P0) -> windows_core::Result<ISettingsItem>
     where
@@ -1304,41 +1299,37 @@ impl ITargetInfo {
     {
         (windows_core::Interface::vtable(self).SetTargetProcessorArchitecture)(windows_core::Interface::as_raw(self), processorarchitecture.param().abi()).ok()
     }
-    pub unsafe fn GetProperty<P0, P1>(&self, offline: P0, property: P1) -> windows_core::Result<windows_core::BSTR>
+    pub unsafe fn GetProperty<P1>(&self, offline: bool, property: P1) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), offline.param().abi(), property.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), offline.into(), property.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn SetProperty<P0, P1, P2>(&self, offline: P0, property: P1, value: P2) -> windows_core::Result<()>
+    pub unsafe fn SetProperty<P1, P2>(&self, offline: bool, property: P1, value: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), offline.param().abi(), property.param().abi(), value.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), offline.into(), property.param().abi(), value.param().abi()).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IItemEnumerator> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEnumerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn ExpandTarget<P0, P1>(&self, offline: P0, location: P1) -> windows_core::Result<windows_core::BSTR>
+    pub unsafe fn ExpandTarget<P1>(&self, offline: bool, location: P1) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ExpandTarget)(windows_core::Interface::as_raw(self), offline.param().abi(), location.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).ExpandTarget)(windows_core::Interface::as_raw(self), offline.into(), location.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn ExpandTargetPath<P0, P1>(&self, offline: P0, location: P1) -> windows_core::Result<windows_core::BSTR>
+    pub unsafe fn ExpandTargetPath<P1>(&self, offline: bool, location: P1) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ExpandTargetPath)(windows_core::Interface::as_raw(self), offline.param().abi(), location.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).ExpandTargetPath)(windows_core::Interface::as_raw(self), offline.into(), location.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetModulePath<P0, P1>(&self, module: P0, path: P1) -> windows_core::Result<()>
     where

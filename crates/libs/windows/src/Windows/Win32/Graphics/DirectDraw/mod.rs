@@ -10209,9 +10209,6 @@ pub type LPDDENUMVIDEOCALLBACK = Option<unsafe extern "system" fn(param0: *mut D
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPDDFXROP(pub isize);
-impl windows_core::TypeKind for LPDDFXROP {
-    type TypeKind = windows_core::CopyType;
-}
 pub type LPDDGAMMACALIBRATORPROC = Option<unsafe extern "system" fn(param0: *mut DDGAMMARAMP, param1: *mut u8) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type LPDDHALCOLORCB_COLORCONTROL = Option<unsafe extern "system" fn(param0: *mut DDHAL_COLORCONTROLDATA) -> u32>;
@@ -10385,9 +10382,6 @@ pub type PDD_DESTROYDRIVER = Option<unsafe extern "system" fn(param0: PDD_DESTRO
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PDD_DESTROYDRIVERDATA(pub isize);
-impl windows_core::TypeKind for PDD_DESTROYDRIVERDATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub type PDD_FLIPTOGDISURFACE = Option<unsafe extern "system" fn(param0: *mut DD_FLIPTOGDISURFACEDATA) -> u32>;
 pub type PDD_FREEDRIVERMEMORY = Option<unsafe extern "system" fn(param0: *mut DD_FREEDRIVERMEMORYDATA) -> u32>;
 pub type PDD_GETAVAILDRIVERMEMORY = Option<unsafe extern "system" fn(param0: *mut DD_GETAVAILDRIVERMEMORYDATA) -> u32>;
@@ -10397,9 +10391,6 @@ pub type PDD_GETSCANLINE = Option<unsafe extern "system" fn(param0: *mut DD_GETS
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PDD_GETVPORTAUTOFLIPSURFACEDATA(pub isize);
-impl windows_core::TypeKind for PDD_GETVPORTAUTOFLIPSURFACEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub type PDD_KERNELCB_SYNCSURFACE = Option<unsafe extern "system" fn(param0: *mut DD_SYNCSURFACEDATA) -> u32>;
 pub type PDD_KERNELCB_SYNCVIDEOPORT = Option<unsafe extern "system" fn(param0: *mut DD_SYNCVIDEOPORTDATA) -> u32>;
 pub type PDD_MAPMEMORY = Option<unsafe extern "system" fn(param0: *mut DD_MAPMEMORYDATA) -> u32>;
@@ -10422,9 +10413,6 @@ pub type PDD_SETMODE = Option<unsafe extern "system" fn(param0: PDD_SETMODEDATA)
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PDD_SETMODEDATA(pub isize);
-impl windows_core::TypeKind for PDD_SETMODEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub type PDD_SURFCB_ADDATTACHEDSURFACE = Option<unsafe extern "system" fn(param0: *mut DD_ADDATTACHEDSURFACEDATA) -> u32>;
 pub type PDD_SURFCB_BLT = Option<unsafe extern "system" fn(param0: *mut DD_BLTDATA) -> u32>;
 pub type PDD_SURFCB_DESTROYSURFACE = Option<unsafe extern "system" fn(param0: *mut DD_DESTROYSURFACEDATA) -> u32>;
