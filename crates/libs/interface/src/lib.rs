@@ -10,7 +10,9 @@ use syn::spanned::Spanned;
 /// Defines a COM interface to call or implement.
 ///
 /// # Example
-/// ```rust,ignore
+/// ```rust,no_run
+/// use windows_core::*;
+///
 /// #[interface("094d70d6-5202-44b8-abb8-43860da5aca2")]
 /// unsafe trait IValue: IUnknown {
 ///     fn GetValue(&self, value: *mut i32) -> HRESULT;
@@ -19,7 +21,7 @@ use syn::spanned::Spanned;
 /// #[implement(IValue)]
 /// struct Value(i32);
 ///
-/// impl IValue_Impl for Value {
+/// impl IValue_Impl for Value_Impl {
 ///     unsafe fn GetValue(&self, value: *mut i32) -> HRESULT {
 ///         *value = self.0;
 ///         HRESULT(0)

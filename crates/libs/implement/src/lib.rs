@@ -9,10 +9,9 @@ use quote::{quote, ToTokens};
 /// Implements one or more COM interfaces.
 ///
 /// # Example
+/// ```rust,no_run
+/// use windows_core::*;
 ///
-/// Here is a [more complete tutorial](https://kennykerr.ca/rust-getting-started/how-to-implement-com-interface.html).
-///
-/// ```rust,ignore
 /// #[interface("094d70d6-5202-44b8-abb8-43860da5aca2")]
 /// unsafe trait IValue: IUnknown {
 ///     fn GetValue(&self, value: *mut i32) -> HRESULT;
@@ -21,7 +20,7 @@ use quote::{quote, ToTokens};
 /// #[implement(IValue)]
 /// struct Value(i32);
 ///
-/// impl IValue_Impl for Value {
+/// impl IValue_Impl for Value_Impl {
 ///     unsafe fn GetValue(&self, value: *mut i32) -> HRESULT {
 ///         *value = self.0;
 ///         HRESULT(0)
@@ -29,9 +28,8 @@ use quote::{quote, ToTokens};
 /// }
 ///
 /// fn main() {
-///     let rust_instance = Value(123);
-///     let com_object: IValue = rust_instance.into();
-///     // You can now call interface methods on com_object.
+///     let object: IValue = Value(123).into();
+///     // Call interface methods...
 /// }
 /// ```
 #[proc_macro_attribute]
