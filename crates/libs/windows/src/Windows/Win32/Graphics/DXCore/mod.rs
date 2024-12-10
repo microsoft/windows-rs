@@ -99,29 +99,29 @@ impl IDXCoreAdapter {
         (windows_core::Interface::vtable(self).IsValid)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn IsAttributeSupported(&self, attributeguid: *const windows_core::GUID) -> bool {
-        (windows_core::Interface::vtable(self).IsAttributeSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(attributeguid))
+        (windows_core::Interface::vtable(self).IsAttributeSupported)(windows_core::Interface::as_raw(self), attributeguid)
     }
     pub unsafe fn IsPropertySupported(&self, property: DXCoreAdapterProperty) -> bool {
-        (windows_core::Interface::vtable(self).IsPropertySupported)(windows_core::Interface::as_raw(self), core::mem::transmute(property))
+        (windows_core::Interface::vtable(self).IsPropertySupported)(windows_core::Interface::as_raw(self), property)
     }
     pub unsafe fn GetProperty(&self, property: DXCoreAdapterProperty, buffersize: usize, propertydata: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(property), core::mem::transmute(buffersize), core::mem::transmute(propertydata)).ok()
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), property, buffersize, core::mem::transmute(propertydata)).ok()
     }
     pub unsafe fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> windows_core::Result<usize> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPropertySize)(windows_core::Interface::as_raw(self), core::mem::transmute(property), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetPropertySize)(windows_core::Interface::as_raw(self), property, &mut result__).map(|| result__)
     }
     pub unsafe fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool {
-        (windows_core::Interface::vtable(self).IsQueryStateSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(property))
+        (windows_core::Interface::vtable(self).IsQueryStateSupported)(windows_core::Interface::as_raw(self), property)
     }
     pub unsafe fn QueryState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: Option<*const core::ffi::c_void>, outputbuffersize: usize, outputbuffer: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).QueryState)(windows_core::Interface::as_raw(self), core::mem::transmute(state), core::mem::transmute(inputstatedetailssize), core::mem::transmute(inputstatedetails.unwrap_or(core::mem::zeroed())), core::mem::transmute(outputbuffersize), core::mem::transmute(outputbuffer)).ok()
+        (windows_core::Interface::vtable(self).QueryState)(windows_core::Interface::as_raw(self), state, inputstatedetailssize, core::mem::transmute(inputstatedetails.unwrap_or(core::mem::zeroed())), outputbuffersize, core::mem::transmute(outputbuffer)).ok()
     }
     pub unsafe fn IsSetStateSupported(&self, property: DXCoreAdapterState) -> bool {
-        (windows_core::Interface::vtable(self).IsSetStateSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(property))
+        (windows_core::Interface::vtable(self).IsSetStateSupported)(windows_core::Interface::as_raw(self), property)
     }
     pub unsafe fn SetState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: Option<*const core::ffi::c_void>, inputdatasize: usize, inputdata: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), core::mem::transmute(state), core::mem::transmute(inputstatedetailssize), core::mem::transmute(inputstatedetails.unwrap_or(core::mem::zeroed())), core::mem::transmute(inputdatasize), core::mem::transmute(inputdata)).ok()
+        (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), state, inputstatedetailssize, core::mem::transmute(inputstatedetails.unwrap_or(core::mem::zeroed())), inputdatasize, inputdata).ok()
     }
     pub unsafe fn GetFactory<T>(&self) -> windows_core::Result<T>
     where
@@ -239,20 +239,20 @@ impl IDXCoreAdapterFactory {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetAdapterByLuid)(windows_core::Interface::as_raw(self), core::mem::transmute(adapterluid), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAdapterByLuid)(windows_core::Interface::as_raw(self), adapterluid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsNotificationTypeSupported(&self, notificationtype: DXCoreNotificationType) -> bool {
-        (windows_core::Interface::vtable(self).IsNotificationTypeSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(notificationtype))
+        (windows_core::Interface::vtable(self).IsNotificationTypeSupported)(windows_core::Interface::as_raw(self), notificationtype)
     }
     pub unsafe fn RegisterEventNotification<P0>(&self, dxcoreobject: P0, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterEventNotification)(windows_core::Interface::as_raw(self), dxcoreobject.param().abi(), core::mem::transmute(notificationtype), core::mem::transmute(callbackfunction), core::mem::transmute(callbackcontext.unwrap_or(core::mem::zeroed())), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).RegisterEventNotification)(windows_core::Interface::as_raw(self), dxcoreobject.param().abi(), notificationtype, callbackfunction, core::mem::transmute(callbackcontext.unwrap_or(core::mem::zeroed())), &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterEventNotification(&self, eventcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnregisterEventNotification)(windows_core::Interface::as_raw(self), core::mem::transmute(eventcookie)).ok()
+        (windows_core::Interface::vtable(self).UnregisterEventNotification)(windows_core::Interface::as_raw(self), eventcookie).ok()
     }
 }
 #[repr(C)]
@@ -321,7 +321,7 @@ impl IDXCoreAdapterList {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetAdapter)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAdapter)(windows_core::Interface::as_raw(self), index, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAdapterCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetAdapterCount)(windows_core::Interface::as_raw(self))
@@ -340,7 +340,7 @@ impl IDXCoreAdapterList {
         (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), preferences.len().try_into().unwrap(), core::mem::transmute(preferences.as_ptr())).ok()
     }
     pub unsafe fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool {
-        (windows_core::Interface::vtable(self).IsAdapterPreferenceSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(preference))
+        (windows_core::Interface::vtable(self).IsAdapterPreferenceSupported)(windows_core::Interface::as_raw(self), preference)
     }
 }
 #[repr(C)]

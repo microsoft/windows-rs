@@ -33,7 +33,7 @@ where
 {
     windows_targets::link!("userenv.dll" "system" fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid : super:: PSID, pszrestrictedappcontainername : windows_core::PCWSTR, ppsidrestrictedappcontainersid : *mut super:: PSID) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(core::mem::transmute(psidappcontainersid), pszrestrictedappcontainername.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid, pszrestrictedappcontainername.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetAppContainerFolderPath<P0>(pszappcontainersid: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -54,7 +54,7 @@ pub unsafe fn GetAppContainerNamedObjectPath(token: Option<super::super::Foundat
 pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> windows_core::Result<super::super::System::Registry::HKEY> {
     windows_targets::link!("userenv.dll" "system" fn GetAppContainerRegistryLocation(desiredaccess : u32, phappcontainerkey : *mut super::super::System::Registry:: HKEY) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetAppContainerRegistryLocation(core::mem::transmute(desiredaccess), &mut result__).map(|| core::mem::transmute(result__))
+    GetAppContainerRegistryLocation(desiredaccess, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn IsCrossIsolatedEnvironmentClipboardContent() -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -78,7 +78,7 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> windows_core::Result<su
 pub unsafe fn IsProcessInWDAGContainer(reserved: *const core::ffi::c_void) -> windows_core::Result<super::super::Foundation::BOOL> {
     windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-1.dll" "system" fn IsProcessInWDAGContainer(reserved : *const core::ffi::c_void, isprocessinwdagcontainer : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    IsProcessInWDAGContainer(core::mem::transmute(reserved), &mut result__).map(|| core::mem::transmute(result__))
+    IsProcessInWDAGContainer(reserved, &mut result__).map(|| core::mem::transmute(result__))
 }
 windows_core::imp::define_interface!(IIsolatedAppLauncher, IIsolatedAppLauncher_Vtbl, 0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
 windows_core::imp::interface_hierarchy!(IIsolatedAppLauncher, windows_core::IUnknown);
@@ -88,7 +88,7 @@ impl IIsolatedAppLauncher {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Launch)(windows_core::Interface::as_raw(self), appusermodelid.param().abi(), arguments.param().abi(), core::mem::transmute(telemetryparameters)).ok()
+        (windows_core::Interface::vtable(self).Launch)(windows_core::Interface::as_raw(self), appusermodelid.param().abi(), arguments.param().abi(), telemetryparameters).ok()
     }
 }
 #[repr(C)]
@@ -135,7 +135,7 @@ impl IIsolatedProcessLauncher {
         (windows_core::Interface::vtable(self).GetContainerGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AllowSetForegroundAccess(&self, pid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AllowSetForegroundAccess)(windows_core::Interface::as_raw(self), core::mem::transmute(pid)).ok()
+        (windows_core::Interface::vtable(self).AllowSetForegroundAccess)(windows_core::Interface::as_raw(self), pid).ok()
     }
     pub unsafe fn IsContainerRunning(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -221,7 +221,7 @@ impl IIsolatedProcessLauncher2 {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LaunchProcess2)(windows_core::Interface::as_raw(self), process.param().abi(), arguments.param().abi(), workingdirectory.param().abi(), core::mem::transmute(correlationguid)).ok()
+        (windows_core::Interface::vtable(self).LaunchProcess2)(windows_core::Interface::as_raw(self), process.param().abi(), arguments.param().abi(), workingdirectory.param().abi(), correlationguid).ok()
     }
 }
 #[repr(C)]

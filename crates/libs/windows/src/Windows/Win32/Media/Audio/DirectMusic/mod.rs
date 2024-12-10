@@ -839,7 +839,7 @@ windows_core::imp::define_interface!(IDirectMusic, IDirectMusic_Vtbl, 0x6536115a
 windows_core::imp::interface_hierarchy!(IDirectMusic, windows_core::IUnknown);
 impl IDirectMusic {
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EnumPort)(windows_core::Interface::as_raw(self), core::mem::transmute(dwindex), core::mem::transmute(pportcaps)).ok()
+        (windows_core::Interface::vtable(self).EnumPort)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pportcaps)).ok()
     }
     pub unsafe fn CreateMusicBuffer<P2>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut Option<IDirectMusicBuffer>, punkouter: P2) -> windows_core::Result<()>
     where
@@ -851,16 +851,16 @@ impl IDirectMusic {
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).CreatePort)(windows_core::Interface::as_raw(self), core::mem::transmute(rclsidport), core::mem::transmute(pportparams), core::mem::transmute(ppport), punkouter.param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreatePort)(windows_core::Interface::as_raw(self), rclsidport, core::mem::transmute(pportparams), core::mem::transmute(ppport), punkouter.param().abi()).ok()
     }
     pub unsafe fn EnumMasterClock(&self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EnumMasterClock)(windows_core::Interface::as_raw(self), core::mem::transmute(dwindex), core::mem::transmute(lpclockinfo)).ok()
+        (windows_core::Interface::vtable(self).EnumMasterClock)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(lpclockinfo)).ok()
     }
     pub unsafe fn GetMasterClock(&self, pguidclock: *mut windows_core::GUID, ppreferenceclock: *mut Option<super::super::IReferenceClock>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetMasterClock)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidclock), core::mem::transmute(ppreferenceclock)).ok()
     }
     pub unsafe fn SetMasterClock(&self, rguidclock: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMasterClock)(windows_core::Interface::as_raw(self), core::mem::transmute(rguidclock)).ok()
+        (windows_core::Interface::vtable(self).SetMasterClock)(windows_core::Interface::as_raw(self), rguidclock).ok()
     }
     pub unsafe fn Activate(&self, fenable: bool) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), fenable.into()).ok()
@@ -873,7 +873,7 @@ impl IDirectMusic {
     where
         P0: windows_core::Param<super::DirectSound::IDirectSound>,
     {
-        (windows_core::Interface::vtable(self).SetDirectSound)(windows_core::Interface::as_raw(self), pdirectsound.param().abi(), core::mem::transmute(hwnd)).ok()
+        (windows_core::Interface::vtable(self).SetDirectSound)(windows_core::Interface::as_raw(self), pdirectsound.param().abi(), hwnd).ok()
     }
 }
 #[repr(C)]
@@ -1012,10 +1012,10 @@ impl IDirectMusicBuffer {
         (windows_core::Interface::vtable(self).TotalTime)(windows_core::Interface::as_raw(self), core::mem::transmute(prttime)).ok()
     }
     pub unsafe fn PackStructured(&self, rt: i64, dwchannelgroup: u32, dwchannelmessage: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).PackStructured)(windows_core::Interface::as_raw(self), core::mem::transmute(rt), core::mem::transmute(dwchannelgroup), core::mem::transmute(dwchannelmessage)).ok()
+        (windows_core::Interface::vtable(self).PackStructured)(windows_core::Interface::as_raw(self), rt, dwchannelgroup, dwchannelmessage).ok()
     }
     pub unsafe fn PackUnstructured(&self, rt: i64, dwchannelgroup: u32, cb: u32, lpb: *mut u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).PackUnstructured)(windows_core::Interface::as_raw(self), core::mem::transmute(rt), core::mem::transmute(dwchannelgroup), core::mem::transmute(cb), core::mem::transmute(lpb)).ok()
+        (windows_core::Interface::vtable(self).PackUnstructured)(windows_core::Interface::as_raw(self), rt, dwchannelgroup, cb, core::mem::transmute(lpb)).ok()
     }
     pub unsafe fn ResetReadPtr(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ResetReadPtr)(windows_core::Interface::as_raw(self)).ok()
@@ -1039,10 +1039,10 @@ impl IDirectMusicBuffer {
         (windows_core::Interface::vtable(self).GetBufferFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidformat)).ok()
     }
     pub unsafe fn SetStartTime(&self, rt: i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), core::mem::transmute(rt)).ok()
+        (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), rt).ok()
     }
     pub unsafe fn SetUsedBytes(&self, cb: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetUsedBytes)(windows_core::Interface::as_raw(self), core::mem::transmute(cb)).ok()
+        (windows_core::Interface::vtable(self).SetUsedBytes)(windows_core::Interface::as_raw(self), cb).ok()
     }
 }
 #[repr(C)]
@@ -1158,13 +1158,13 @@ windows_core::imp::interface_hierarchy!(IDirectMusicCollection, windows_core::IU
 impl IDirectMusicCollection {
     pub unsafe fn GetInstrument(&self, dwpatch: u32) -> windows_core::Result<IDirectMusicInstrument> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetInstrument)(windows_core::Interface::as_raw(self), core::mem::transmute(dwpatch), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetInstrument)(windows_core::Interface::as_raw(self), dwpatch, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumInstrument<P2>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: P2, dwnamelen: u32) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).EnumInstrument)(windows_core::Interface::as_raw(self), core::mem::transmute(dwindex), core::mem::transmute(pdwpatch), pwszname.param().abi(), core::mem::transmute(dwnamelen)).ok()
+        (windows_core::Interface::vtable(self).EnumInstrument)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pdwpatch), pwszname.param().abi(), dwnamelen).ok()
     }
 }
 #[repr(C)]
@@ -1255,7 +1255,7 @@ impl IDirectMusicInstrument {
         (windows_core::Interface::vtable(self).GetPatch)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwpatch)).ok()
     }
     pub unsafe fn SetPatch(&self, dwpatch: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPatch)(windows_core::Interface::as_raw(self), core::mem::transmute(dwpatch)).ok()
+        (windows_core::Interface::vtable(self).SetPatch)(windows_core::Interface::as_raw(self), dwpatch).ok()
     }
 }
 #[repr(C)]
@@ -1295,7 +1295,7 @@ impl IDirectMusicPort {
         (windows_core::Interface::vtable(self).PlayBuffer)(windows_core::Interface::as_raw(self), pbuffer.param().abi()).ok()
     }
     pub unsafe fn SetReadNotificationHandle(&self, hevent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetReadNotificationHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(hevent)).ok()
+        (windows_core::Interface::vtable(self).SetReadNotificationHandle)(windows_core::Interface::as_raw(self), hevent).ok()
     }
     pub unsafe fn Read<P0>(&self, pbuffer: P0) -> windows_core::Result<()>
     where
@@ -1307,7 +1307,7 @@ impl IDirectMusicPort {
     where
         P0: windows_core::Param<IDirectMusicInstrument>,
     {
-        (windows_core::Interface::vtable(self).DownloadInstrument)(windows_core::Interface::as_raw(self), pinstrument.param().abi(), core::mem::transmute(ppdownloadedinstrument), core::mem::transmute(pnoteranges), core::mem::transmute(dwnumnoteranges)).ok()
+        (windows_core::Interface::vtable(self).DownloadInstrument)(windows_core::Interface::as_raw(self), pinstrument.param().abi(), core::mem::transmute(ppdownloadedinstrument), core::mem::transmute(pnoteranges), dwnumnoteranges).ok()
     }
     pub unsafe fn UnloadInstrument<P0>(&self, pdownloadedinstrument: P0) -> windows_core::Result<()>
     where
@@ -1330,10 +1330,10 @@ impl IDirectMusicPort {
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *mut core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeviceIoControl)(windows_core::Interface::as_raw(self), core::mem::transmute(dwiocontrolcode), core::mem::transmute(lpinbuffer), core::mem::transmute(ninbuffersize), core::mem::transmute(lpoutbuffer), core::mem::transmute(noutbuffersize), core::mem::transmute(lpbytesreturned), core::mem::transmute(lpoverlapped)).ok()
+        (windows_core::Interface::vtable(self).DeviceIoControl)(windows_core::Interface::as_raw(self), dwiocontrolcode, core::mem::transmute(lpinbuffer), ninbuffersize, core::mem::transmute(lpoutbuffer), noutbuffersize, core::mem::transmute(lpbytesreturned), core::mem::transmute(lpoverlapped)).ok()
     }
     pub unsafe fn SetNumChannelGroups(&self, dwchannelgroups: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetNumChannelGroups)(windows_core::Interface::as_raw(self), core::mem::transmute(dwchannelgroups)).ok()
+        (windows_core::Interface::vtable(self).SetNumChannelGroups)(windows_core::Interface::as_raw(self), dwchannelgroups).ok()
     }
     pub unsafe fn GetNumChannelGroups(&self, pdwchannelgroups: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNumChannelGroups)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwchannelgroups)).ok()
@@ -1342,10 +1342,10 @@ impl IDirectMusicPort {
         (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), factive.into()).ok()
     }
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetChannelPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(dwchannelgroup), core::mem::transmute(dwchannel), core::mem::transmute(dwpriority)).ok()
+        (windows_core::Interface::vtable(self).SetChannelPriority)(windows_core::Interface::as_raw(self), dwchannelgroup, dwchannel, dwpriority).ok()
     }
     pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetChannelPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(dwchannelgroup), core::mem::transmute(dwchannel), core::mem::transmute(pdwpriority)).ok()
+        (windows_core::Interface::vtable(self).GetChannelPriority)(windows_core::Interface::as_raw(self), dwchannelgroup, dwchannel, core::mem::transmute(pdwpriority)).ok()
     }
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, pdirectsoundbuffer: P1) -> windows_core::Result<()>
@@ -1515,14 +1515,14 @@ windows_core::imp::interface_hierarchy!(IDirectMusicPortDownload, windows_core::
 impl IDirectMusicPortDownload {
     pub unsafe fn GetBuffer(&self, dwdlid: u32) -> windows_core::Result<IDirectMusicDownload> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(dwdlid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), dwdlid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AllocateBuffer(&self, dwsize: u32) -> windows_core::Result<IDirectMusicDownload> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AllocateBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsize), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AllocateBuffer)(windows_core::Interface::as_raw(self), dwsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDLId(&self, pdwstartdlid: *mut u32, dwcount: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDLId)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwstartdlid), core::mem::transmute(dwcount)).ok()
+        (windows_core::Interface::vtable(self).GetDLId)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwstartdlid), dwcount).ok()
     }
     pub unsafe fn GetAppend(&self, pdwappend: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAppend)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwappend)).ok()
@@ -1621,16 +1621,16 @@ impl IDirectMusicSynth {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetNumChannelGroups(&self, dwgroups: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetNumChannelGroups)(windows_core::Interface::as_raw(self), core::mem::transmute(dwgroups)).ok()
+        (windows_core::Interface::vtable(self).SetNumChannelGroups)(windows_core::Interface::as_raw(self), dwgroups).ok()
     }
     pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut core::ffi::c_void, pbfree: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), core::mem::transmute(phdownload), core::mem::transmute(pvdata), core::mem::transmute(pbfree)).ok()
     }
     pub unsafe fn Unload(&self, hdownload: super::super::super::Foundation::HANDLE, lpfreehandle: isize, huserdata: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Unload)(windows_core::Interface::as_raw(self), core::mem::transmute(hdownload), core::mem::transmute(lpfreehandle), core::mem::transmute(huserdata)).ok()
+        (windows_core::Interface::vtable(self).Unload)(windows_core::Interface::as_raw(self), hdownload, lpfreehandle, huserdata).ok()
     }
     pub unsafe fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).PlayBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(rt), core::mem::transmute(pbbuffer), core::mem::transmute(cbbuffer)).ok()
+        (windows_core::Interface::vtable(self).PlayBuffer)(windows_core::Interface::as_raw(self), rt, core::mem::transmute(pbbuffer), cbbuffer).ok()
     }
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningStats)(windows_core::Interface::as_raw(self), core::mem::transmute(pstats)).ok()
@@ -1658,13 +1658,13 @@ impl IDirectMusicSynth {
         (windows_core::Interface::vtable(self).SetSynthSink)(windows_core::Interface::as_raw(self), psynthsink.param().abi()).ok()
     }
     pub unsafe fn Render(&self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Render)(windows_core::Interface::as_raw(self), core::mem::transmute(pbuffer), core::mem::transmute(dwlength), core::mem::transmute(llposition)).ok()
+        (windows_core::Interface::vtable(self).Render)(windows_core::Interface::as_raw(self), core::mem::transmute(pbuffer), dwlength, llposition).ok()
     }
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetChannelPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(dwchannelgroup), core::mem::transmute(dwchannel), core::mem::transmute(dwpriority)).ok()
+        (windows_core::Interface::vtable(self).SetChannelPriority)(windows_core::Interface::as_raw(self), dwchannelgroup, dwchannel, dwpriority).ok()
     }
     pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetChannelPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(dwchannelgroup), core::mem::transmute(dwchannel), core::mem::transmute(pdwpriority)).ok()
+        (windows_core::Interface::vtable(self).GetChannelPriority)(windows_core::Interface::as_raw(self), dwchannelgroup, dwchannel, core::mem::transmute(pdwpriority)).ok()
     }
     pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(pwaveformatex), core::mem::transmute(pdwwaveformatexsize)).ok()
@@ -1825,19 +1825,19 @@ impl core::ops::Deref for IDirectMusicSynth8 {
 windows_core::imp::interface_hierarchy!(IDirectMusicSynth8, windows_core::IUnknown, IDirectMusicSynth);
 impl IDirectMusicSynth8 {
     pub unsafe fn PlayVoice(&self, rt: i64, dwvoiceid: u32, dwchannelgroup: u32, dwchannel: u32, dwdlid: u32, prpitch: i32, vrvolume: i32, stvoicestart: u64, stloopstart: u64, stloopend: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).PlayVoice)(windows_core::Interface::as_raw(self), core::mem::transmute(rt), core::mem::transmute(dwvoiceid), core::mem::transmute(dwchannelgroup), core::mem::transmute(dwchannel), core::mem::transmute(dwdlid), core::mem::transmute(prpitch), core::mem::transmute(vrvolume), core::mem::transmute(stvoicestart), core::mem::transmute(stloopstart), core::mem::transmute(stloopend)).ok()
+        (windows_core::Interface::vtable(self).PlayVoice)(windows_core::Interface::as_raw(self), rt, dwvoiceid, dwchannelgroup, dwchannel, dwdlid, prpitch, vrvolume, stvoicestart, stloopstart, stloopend).ok()
     }
     pub unsafe fn StopVoice(&self, rt: i64, dwvoiceid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).StopVoice)(windows_core::Interface::as_raw(self), core::mem::transmute(rt), core::mem::transmute(dwvoiceid)).ok()
+        (windows_core::Interface::vtable(self).StopVoice)(windows_core::Interface::as_raw(self), rt, dwvoiceid).ok()
     }
     pub unsafe fn GetVoiceState(&self, dwvoice: *mut u32, cbvoice: u32, dwvoicestate: *mut DMUS_VOICE_STATE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetVoiceState)(windows_core::Interface::as_raw(self), core::mem::transmute(dwvoice), core::mem::transmute(cbvoice), core::mem::transmute(dwvoicestate)).ok()
+        (windows_core::Interface::vtable(self).GetVoiceState)(windows_core::Interface::as_raw(self), core::mem::transmute(dwvoice), cbvoice, core::mem::transmute(dwvoicestate)).ok()
     }
     pub unsafe fn Refresh(&self, dwdownloadid: u32, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self), core::mem::transmute(dwdownloadid), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self), dwdownloadid, dwflags).ok()
     }
     pub unsafe fn AssignChannelToBuses(&self, dwchannelgroup: u32, dwchannel: u32, pdwbuses: *mut u32, cbuses: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AssignChannelToBuses)(windows_core::Interface::as_raw(self), core::mem::transmute(dwchannelgroup), core::mem::transmute(dwchannel), core::mem::transmute(pdwbuses), core::mem::transmute(cbuses)).ok()
+        (windows_core::Interface::vtable(self).AssignChannelToBuses)(windows_core::Interface::as_raw(self), dwchannelgroup, dwchannel, core::mem::transmute(pdwbuses), cbuses).ok()
     }
 }
 #[repr(C)]
@@ -1915,10 +1915,10 @@ impl IDirectMusicSynthSink {
         (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn SampleToRefTime(&self, llsampletime: i64, prftime: *mut i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SampleToRefTime)(windows_core::Interface::as_raw(self), core::mem::transmute(llsampletime), core::mem::transmute(prftime)).ok()
+        (windows_core::Interface::vtable(self).SampleToRefTime)(windows_core::Interface::as_raw(self), llsampletime, core::mem::transmute(prftime)).ok()
     }
     pub unsafe fn RefTimeToSample(&self, rftime: i64, pllsampletime: *mut i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RefTimeToSample)(windows_core::Interface::as_raw(self), core::mem::transmute(rftime), core::mem::transmute(pllsampletime)).ok()
+        (windows_core::Interface::vtable(self).RefTimeToSample)(windows_core::Interface::as_raw(self), rftime, core::mem::transmute(pllsampletime)).ok()
     }
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, pdirectsoundbuffer: P1) -> windows_core::Result<()>
@@ -2024,7 +2024,7 @@ impl IDirectMusicThru {
     where
         P4: windows_core::Param<IDirectMusicPort>,
     {
-        (windows_core::Interface::vtable(self).ThruChannel)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsourcechannelgroup), core::mem::transmute(dwsourcechannel), core::mem::transmute(dwdestinationchannelgroup), core::mem::transmute(dwdestinationchannel), pdestinationport.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ThruChannel)(windows_core::Interface::as_raw(self), dwsourcechannelgroup, dwsourcechannel, dwdestinationchannelgroup, dwdestinationchannel, pdestinationport.param().abi()).ok()
     }
 }
 #[repr(C)]

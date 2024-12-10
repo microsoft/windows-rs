@@ -33,7 +33,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    LoadIFilterEx(pwcspath.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(riid), core::mem::transmute(ppiunk)).ok()
+    LoadIFilterEx(pwcspath.param().abi(), dwflags, riid, core::mem::transmute(ppiunk)).ok()
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -297,7 +297,7 @@ windows_core::imp::interface_hierarchy!(IFilter, windows_core::IUnknown);
 impl IFilter {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Init(&self, grfflags: u32, aattributes: &[FULLPROPSPEC], pflags: *mut u32) -> i32 {
-        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), core::mem::transmute(grfflags), aattributes.len().try_into().unwrap(), core::mem::transmute(aattributes.as_ptr()), core::mem::transmute(pflags))
+        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), grfflags, aattributes.len().try_into().unwrap(), core::mem::transmute(aattributes.as_ptr()), core::mem::transmute(pflags))
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32 {
@@ -311,7 +311,7 @@ impl IFilter {
         (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pppropvalue))
     }
     pub unsafe fn BindRegion(&self, origpos: FILTERREGION, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> i32 {
-        (windows_core::Interface::vtable(self).BindRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(origpos), core::mem::transmute(riid), core::mem::transmute(ppunk))
+        (windows_core::Interface::vtable(self).BindRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(origpos), riid, core::mem::transmute(ppunk))
     }
 }
 #[repr(C)]
@@ -386,13 +386,13 @@ impl IPhraseSink {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), core::mem::transmute(cwcnoun), pwcmodifier.param().abi(), core::mem::transmute(cwcmodifier), core::mem::transmute(ulattachmenttype)).ok()
+        (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), cwcnoun, pwcmodifier.param().abi(), cwcmodifier, ulattachmenttype).ok()
     }
     pub unsafe fn PutPhrase<P0>(&self, pwcphrase: P0, cwcphrase: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PutPhrase)(windows_core::Interface::as_raw(self), pwcphrase.param().abi(), core::mem::transmute(cwcphrase)).ok()
+        (windows_core::Interface::vtable(self).PutPhrase)(windows_core::Interface::as_raw(self), pwcphrase.param().abi(), cwcphrase).ok()
     }
 }
 #[repr(C)]

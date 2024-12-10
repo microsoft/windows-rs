@@ -1,27 +1,27 @@
 #[inline]
 pub unsafe fn VhfAsyncOperationComplete(vhfoperationhandle: *const core::ffi::c_void, completionstatus: super::super::super::Win32::Foundation::NTSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("vhfum.dll" "system" fn VhfAsyncOperationComplete(vhfoperationhandle : *const core::ffi::c_void, completionstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    VhfAsyncOperationComplete(core::mem::transmute(vhfoperationhandle), core::mem::transmute(completionstatus))
+    VhfAsyncOperationComplete(vhfoperationhandle, completionstatus)
 }
 #[inline]
 pub unsafe fn VhfCreate(vhfconfig: *const VHF_CONFIG, vhfhandle: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("vhfum.dll" "system" fn VhfCreate(vhfconfig : *const VHF_CONFIG, vhfhandle : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    VhfCreate(core::mem::transmute(vhfconfig), core::mem::transmute(vhfhandle))
+    VhfCreate(vhfconfig, core::mem::transmute(vhfhandle))
 }
 #[inline]
 pub unsafe fn VhfDelete(vhfhandle: *const core::ffi::c_void, wait: bool) {
     windows_targets::link!("vhfum.dll" "system" fn VhfDelete(vhfhandle : *const core::ffi::c_void, wait : bool));
-    VhfDelete(core::mem::transmute(vhfhandle), core::mem::transmute(wait))
+    VhfDelete(vhfhandle, wait)
 }
 #[inline]
 pub unsafe fn VhfReadReportSubmit(vhfhandle: *const core::ffi::c_void, hidtransferpacket: *const HID_XFER_PACKET) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("vhfum.dll" "system" fn VhfReadReportSubmit(vhfhandle : *const core::ffi::c_void, hidtransferpacket : *const HID_XFER_PACKET) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    VhfReadReportSubmit(core::mem::transmute(vhfhandle), core::mem::transmute(hidtransferpacket))
+    VhfReadReportSubmit(vhfhandle, hidtransferpacket)
 }
 #[inline]
 pub unsafe fn VhfStart(vhfhandle: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("vhfum.dll" "system" fn VhfStart(vhfhandle : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    VhfStart(core::mem::transmute(vhfhandle))
+    VhfStart(vhfhandle)
 }
 pub type EVT_VHF_ASYNC_OPERATION = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void, vhfoperationhandle: *const core::ffi::c_void, vhfoperationcontext: *const core::ffi::c_void, hidtransferpacket: *const HID_XFER_PACKET)>;
 pub type EVT_VHF_CLEANUP = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void)>;

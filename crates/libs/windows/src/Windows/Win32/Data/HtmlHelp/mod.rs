@@ -4,7 +4,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("hhctrl.ocx" "system" fn HtmlHelpA(hwndcaller : super::super::Foundation:: HWND, pszfile : windows_core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
-    HtmlHelpA(core::mem::transmute(hwndcaller.unwrap_or(core::mem::zeroed())), pszfile.param().abi(), ucommand.0 as _, core::mem::transmute(dwdata))
+    HtmlHelpA(core::mem::transmute(hwndcaller.unwrap_or(core::mem::zeroed())), pszfile.param().abi(), ucommand.0 as _, dwdata)
 }
 #[inline]
 pub unsafe fn HtmlHelpW<P1>(hwndcaller: Option<super::super::Foundation::HWND>, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
@@ -12,7 +12,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("hhctrl.ocx" "system" fn HtmlHelpW(hwndcaller : super::super::Foundation:: HWND, pszfile : windows_core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
-    HtmlHelpW(core::mem::transmute(hwndcaller.unwrap_or(core::mem::zeroed())), pszfile.param().abi(), ucommand.0 as _, core::mem::transmute(dwdata))
+    HtmlHelpW(core::mem::transmute(hwndcaller.unwrap_or(core::mem::zeroed())), pszfile.param().abi(), ucommand.0 as _, dwdata)
 }
 pub const CLSID_IITCmdInt: windows_core::GUID = windows_core::GUID::from_u128(0x4662daa2_d393_11d0_9a56_00c04fb68bf7);
 pub const CLSID_IITDatabase: windows_core::GUID = windows_core::GUID::from_u128(0x66673452_8c23_11d0_a84e_00aa006c7d01);
@@ -498,22 +498,22 @@ impl IITDatabase {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), lpszhost.param().abi(), lpszmoniker.param().abi(), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), lpszhost.param().abi(), lpszmoniker.param().abi(), dwflags).ok()
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn CreateObject(&self, rclsid: *const windows_core::GUID, pdwobjinstance: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CreateObject)(windows_core::Interface::as_raw(self), core::mem::transmute(rclsid), core::mem::transmute(pdwobjinstance)).ok()
+        (windows_core::Interface::vtable(self).CreateObject)(windows_core::Interface::as_raw(self), rclsid, core::mem::transmute(pdwobjinstance)).ok()
     }
     pub unsafe fn GetObject(&self, dwobjinstance: u32, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(dwobjinstance), core::mem::transmute(riid), core::mem::transmute(ppvobj)).ok()
+        (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), dwobjinstance, riid, core::mem::transmute(ppvobj)).ok()
     }
     pub unsafe fn GetObjectPersistence<P0>(&self, lpwszobject: P0, dwobjinstance: u32, ppvpersistence: *mut *mut core::ffi::c_void, fstream: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetObjectPersistence)(windows_core::Interface::as_raw(self), lpwszobject.param().abi(), core::mem::transmute(dwobjinstance), core::mem::transmute(ppvpersistence), fstream.into()).ok()
+        (windows_core::Interface::vtable(self).GetObjectPersistence)(windows_core::Interface::as_raw(self), lpwszobject.param().abi(), dwobjinstance, core::mem::transmute(ppvpersistence), fstream.into()).ok()
     }
 }
 #[repr(C)]
@@ -585,19 +585,19 @@ impl IITPropList {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Set)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), lpszwstring.param().abi(), core::mem::transmute(dwoperation)).ok()
+        (windows_core::Interface::vtable(self).Set)(windows_core::Interface::as_raw(self), propid, lpszwstring.param().abi(), dwoperation).ok()
     }
     pub unsafe fn Set2(&self, propid: u32, lpvdata: *mut core::ffi::c_void, cbdata: u32, dwoperation: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Set2)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), core::mem::transmute(lpvdata), core::mem::transmute(cbdata), core::mem::transmute(dwoperation)).ok()
+        (windows_core::Interface::vtable(self).Set2)(windows_core::Interface::as_raw(self), propid, core::mem::transmute(lpvdata), cbdata, dwoperation).ok()
     }
     pub unsafe fn Set3(&self, propid: u32, dwdata: u32, dwoperation: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Set3)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), core::mem::transmute(dwdata), core::mem::transmute(dwoperation)).ok()
+        (windows_core::Interface::vtable(self).Set3)(windows_core::Interface::as_raw(self), propid, dwdata, dwoperation).ok()
     }
     pub unsafe fn Add(&self, prop: *mut CProperty) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(prop)).ok()
     }
     pub unsafe fn Get(&self, propid: u32, property: *mut CProperty) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), core::mem::transmute(property)).ok()
+        (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), propid, core::mem::transmute(property)).ok()
     }
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok()
@@ -606,7 +606,7 @@ impl IITPropList {
         (windows_core::Interface::vtable(self).SetPersist)(windows_core::Interface::as_raw(self), fpersist.into()).ok()
     }
     pub unsafe fn SetPersist2(&self, propid: u32, fpersist: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPersist2)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), fpersist.into()).ok()
+        (windows_core::Interface::vtable(self).SetPersist2)(windows_core::Interface::as_raw(self), propid, fpersist.into()).ok()
     }
     pub unsafe fn GetFirst(&self, property: *mut CProperty) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFirst)(windows_core::Interface::as_raw(self), core::mem::transmute(property)).ok()
@@ -618,29 +618,29 @@ impl IITPropList {
         (windows_core::Interface::vtable(self).GetPropCount)(windows_core::Interface::as_raw(self), core::mem::transmute(cprop)).ok()
     }
     pub unsafe fn SaveHeader(&self, lpvdata: *mut core::ffi::c_void, dwhdrsize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SaveHeader)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvdata), core::mem::transmute(dwhdrsize)).ok()
+        (windows_core::Interface::vtable(self).SaveHeader)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvdata), dwhdrsize).ok()
     }
     pub unsafe fn SaveData(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SaveData)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvheader), core::mem::transmute(dwhdrsize), core::mem::transmute(lpvdata), core::mem::transmute(dwbufsize)).ok()
+        (windows_core::Interface::vtable(self).SaveData)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvheader), dwhdrsize, core::mem::transmute(lpvdata), dwbufsize).ok()
     }
     pub unsafe fn GetHeaderSize(&self, dwhdrsize: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetHeaderSize)(windows_core::Interface::as_raw(self), core::mem::transmute(dwhdrsize)).ok()
     }
     pub unsafe fn GetDataSize(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDataSize)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvheader), core::mem::transmute(dwhdrsize), core::mem::transmute(dwdatasize)).ok()
+        (windows_core::Interface::vtable(self).GetDataSize)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvheader), dwhdrsize, core::mem::transmute(dwdatasize)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveDataToStream<P2>(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, pstream: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).SaveDataToStream)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvheader), core::mem::transmute(dwhdrsize), pstream.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SaveDataToStream)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvheader), dwhdrsize, pstream.param().abi()).ok()
     }
     pub unsafe fn LoadFromMem(&self, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LoadFromMem)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvdata), core::mem::transmute(dwbufsize)).ok()
+        (windows_core::Interface::vtable(self).LoadFromMem)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvdata), dwbufsize).ok()
     }
     pub unsafe fn SaveToMem(&self, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SaveToMem)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvdata), core::mem::transmute(dwbufsize)).ok()
+        (windows_core::Interface::vtable(self).SaveToMem)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvdata), dwbufsize).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -797,25 +797,25 @@ windows_core::imp::define_interface!(IITResultSet, IITResultSet_Vtbl, 0x3bb91d41
 windows_core::imp::interface_hierarchy!(IITResultSet, windows_core::IUnknown);
 impl IITResultSet {
     pub unsafe fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetColumnPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(lcolumnindex), core::mem::transmute(columnpriority)).ok()
+        (windows_core::Interface::vtable(self).SetColumnPriority)(windows_core::Interface::as_raw(self), lcolumnindex, columnpriority).ok()
     }
     pub unsafe fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut core::ffi::c_void, pfncolheapfree: PFNCOLHEAPFREE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetColumnHeap)(windows_core::Interface::as_raw(self), core::mem::transmute(lcolumnindex), core::mem::transmute(lpvheap), core::mem::transmute(pfncolheapfree)).ok()
+        (windows_core::Interface::vtable(self).SetColumnHeap)(windows_core::Interface::as_raw(self), lcolumnindex, core::mem::transmute(lpvheap), pfncolheapfree).ok()
     }
     pub unsafe fn SetKeyProp(&self, propid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetKeyProp)(windows_core::Interface::as_raw(self), core::mem::transmute(propid)).ok()
+        (windows_core::Interface::vtable(self).SetKeyProp)(windows_core::Interface::as_raw(self), propid).ok()
     }
     pub unsafe fn Add(&self, propid: u32, dwdefaultdata: u32, priority: PRIORITY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), core::mem::transmute(dwdefaultdata), core::mem::transmute(priority)).ok()
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), propid, dwdefaultdata, priority).ok()
     }
     pub unsafe fn Add2<P1>(&self, propid: u32, lpszwdefault: P1, priority: PRIORITY) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Add2)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), lpszwdefault.param().abi(), core::mem::transmute(priority)).ok()
+        (windows_core::Interface::vtable(self).Add2)(windows_core::Interface::as_raw(self), propid, lpszwdefault.param().abi(), priority).ok()
     }
     pub unsafe fn Add3(&self, propid: u32, lpvdefaultdata: *mut core::ffi::c_void, cbdata: u32, priority: PRIORITY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Add3)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), core::mem::transmute(lpvdefaultdata), core::mem::transmute(cbdata), core::mem::transmute(priority)).ok()
+        (windows_core::Interface::vtable(self).Add3)(windows_core::Interface::as_raw(self), propid, core::mem::transmute(lpvdefaultdata), cbdata, priority).ok()
     }
     pub unsafe fn Add4(&self, lpvhdr: *mut core::ffi::c_void) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Add4)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvhdr)).ok()
@@ -824,19 +824,19 @@ impl IITResultSet {
         (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), core::mem::transmute(lpvhdr), core::mem::transmute(lpvdata)).ok()
     }
     pub unsafe fn Set(&self, lrowindex: i32, lcolumnindex: i32, lpvdata: *mut core::ffi::c_void, cbdata: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Set)(windows_core::Interface::as_raw(self), core::mem::transmute(lrowindex), core::mem::transmute(lcolumnindex), core::mem::transmute(lpvdata), core::mem::transmute(cbdata)).ok()
+        (windows_core::Interface::vtable(self).Set)(windows_core::Interface::as_raw(self), lrowindex, lcolumnindex, core::mem::transmute(lpvdata), cbdata).ok()
     }
     pub unsafe fn Set2<P2>(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Set2)(windows_core::Interface::as_raw(self), core::mem::transmute(lrowindex), core::mem::transmute(lcolumnindex), lpwstr.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Set2)(windows_core::Interface::as_raw(self), lrowindex, lcolumnindex, lpwstr.param().abi()).ok()
     }
     pub unsafe fn Set3(&self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Set3)(windows_core::Interface::as_raw(self), core::mem::transmute(lrowindex), core::mem::transmute(lcolumnindex), core::mem::transmute(dwdata)).ok()
+        (windows_core::Interface::vtable(self).Set3)(windows_core::Interface::as_raw(self), lrowindex, lcolumnindex, dwdata).ok()
     }
     pub unsafe fn Set4(&self, lrowindex: i32, lpvhdr: *mut core::ffi::c_void, lpvdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Set4)(windows_core::Interface::as_raw(self), core::mem::transmute(lrowindex), core::mem::transmute(lpvhdr), core::mem::transmute(lpvdata)).ok()
+        (windows_core::Interface::vtable(self).Set4)(windows_core::Interface::as_raw(self), lrowindex, core::mem::transmute(lpvhdr), core::mem::transmute(lpvdata)).ok()
     }
     pub unsafe fn Copy<P0>(&self, prscopy: P0) -> windows_core::Result<()>
     where
@@ -848,16 +848,16 @@ impl IITResultSet {
     where
         P0: windows_core::Param<IITResultSet>,
     {
-        (windows_core::Interface::vtable(self).AppendRows)(windows_core::Interface::as_raw(self), pressrc.param().abi(), core::mem::transmute(lrowsrcfirst), core::mem::transmute(csrcrows), core::mem::transmute(lrowfirstdest)).ok()
+        (windows_core::Interface::vtable(self).AppendRows)(windows_core::Interface::as_raw(self), pressrc.param().abi(), lrowsrcfirst, csrcrows, core::mem::transmute(lrowfirstdest)).ok()
     }
     pub unsafe fn Get(&self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), core::mem::transmute(lrowindex), core::mem::transmute(lcolumnindex), core::mem::transmute(prop)).ok()
+        (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), lrowindex, lcolumnindex, core::mem::transmute(prop)).ok()
     }
     pub unsafe fn GetKeyProp(&self, keypropid: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKeyProp)(windows_core::Interface::as_raw(self), core::mem::transmute(keypropid)).ok()
     }
     pub unsafe fn GetColumnPriority(&self, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetColumnPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(lcolumnindex), core::mem::transmute(columnpriority)).ok()
+        (windows_core::Interface::vtable(self).GetColumnPriority)(windows_core::Interface::as_raw(self), lcolumnindex, core::mem::transmute(columnpriority)).ok()
     }
     pub unsafe fn GetRowCount(&self, lnumberofrows: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRowCount)(windows_core::Interface::as_raw(self), core::mem::transmute(lnumberofrows)).ok()
@@ -866,13 +866,13 @@ impl IITResultSet {
         (windows_core::Interface::vtable(self).GetColumnCount)(windows_core::Interface::as_raw(self), core::mem::transmute(lnumberofcolumns)).ok()
     }
     pub unsafe fn GetColumn(&self, lcolumnindex: i32, propid: *mut u32, dwtype: *mut u32, lpvdefaultvalue: *mut *mut core::ffi::c_void, cbsize: *mut u32, columnpriority: *mut PRIORITY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetColumn)(windows_core::Interface::as_raw(self), core::mem::transmute(lcolumnindex), core::mem::transmute(propid), core::mem::transmute(dwtype), core::mem::transmute(lpvdefaultvalue), core::mem::transmute(cbsize), core::mem::transmute(columnpriority)).ok()
+        (windows_core::Interface::vtable(self).GetColumn)(windows_core::Interface::as_raw(self), lcolumnindex, core::mem::transmute(propid), core::mem::transmute(dwtype), core::mem::transmute(lpvdefaultvalue), core::mem::transmute(cbsize), core::mem::transmute(columnpriority)).ok()
     }
     pub unsafe fn GetColumn2(&self, lcolumnindex: i32, propid: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetColumn2)(windows_core::Interface::as_raw(self), core::mem::transmute(lcolumnindex), core::mem::transmute(propid)).ok()
+        (windows_core::Interface::vtable(self).GetColumn2)(windows_core::Interface::as_raw(self), lcolumnindex, core::mem::transmute(propid)).ok()
     }
     pub unsafe fn GetColumnFromPropID(&self, propid: u32, lcolumnindex: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetColumnFromPropID)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), core::mem::transmute(lcolumnindex)).ok()
+        (windows_core::Interface::vtable(self).GetColumnFromPropID)(windows_core::Interface::as_raw(self), propid, core::mem::transmute(lcolumnindex)).ok()
     }
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok()
@@ -893,7 +893,7 @@ impl IITResultSet {
         (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self), fpause.into()).ok()
     }
     pub unsafe fn GetRowStatus(&self, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetRowStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(lrowfirst), core::mem::transmute(crows), core::mem::transmute(lprowstatus)).ok()
+        (windows_core::Interface::vtable(self).GetRowStatus)(windows_core::Interface::as_raw(self), lrowfirst, crows, core::mem::transmute(lprowstatus)).ok()
     }
     pub unsafe fn GetColumnStatus(&self, lpcolstatus: *mut COLUMNSTATUS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetColumnStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(lpcolstatus)).ok()
@@ -1135,13 +1135,13 @@ impl IStemSink {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PutAltWord)(windows_core::Interface::as_raw(self), pwcinbuf.param().abi(), core::mem::transmute(cwc)).ok()
+        (windows_core::Interface::vtable(self).PutAltWord)(windows_core::Interface::as_raw(self), pwcinbuf.param().abi(), cwc).ok()
     }
     pub unsafe fn PutWord<P0>(&self, pwcinbuf: P0, cwc: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PutWord)(windows_core::Interface::as_raw(self), pwcinbuf.param().abi(), core::mem::transmute(cwc)).ok()
+        (windows_core::Interface::vtable(self).PutWord)(windows_core::Interface::as_raw(self), pwcinbuf.param().abi(), cwc).ok()
     }
 }
 #[repr(C)]
@@ -1175,13 +1175,13 @@ windows_core::imp::define_interface!(IStemmerConfig, IStemmerConfig_Vtbl, 0x8fa0
 windows_core::imp::interface_hierarchy!(IStemmerConfig, windows_core::IUnknown);
 impl IStemmerConfig {
     pub unsafe fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLocaleInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(dwcodepageid), core::mem::transmute(lcid)).ok()
+        (windows_core::Interface::vtable(self).SetLocaleInfo)(windows_core::Interface::as_raw(self), dwcodepageid, lcid).ok()
     }
     pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLocaleInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwcodepageid), core::mem::transmute(plcid)).ok()
     }
     pub unsafe fn SetControlInfo(&self, grfstemflags: u32, dwreserved: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetControlInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(grfstemflags), core::mem::transmute(dwreserved)).ok()
+        (windows_core::Interface::vtable(self).SetControlInfo)(windows_core::Interface::as_raw(self), grfstemflags, dwreserved).ok()
     }
     pub unsafe fn GetControlInfo(&self, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetControlInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pgrfstemflags), core::mem::transmute(pdwreserved)).ok()
@@ -1191,7 +1191,7 @@ impl IStemmerConfig {
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).LoadExternalStemmerData)(windows_core::Interface::as_raw(self), pstream.param().abi(), core::mem::transmute(dwextdatatype)).ok()
+        (windows_core::Interface::vtable(self).LoadExternalStemmerData)(windows_core::Interface::as_raw(self), pstream.param().abi(), dwextdatatype).ok()
     }
 }
 #[repr(C)]
@@ -1261,19 +1261,19 @@ windows_core::imp::define_interface!(IWordBreakerConfig, IWordBreakerConfig_Vtbl
 windows_core::imp::interface_hierarchy!(IWordBreakerConfig, windows_core::IUnknown);
 impl IWordBreakerConfig {
     pub unsafe fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLocaleInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(dwcodepageid), core::mem::transmute(lcid)).ok()
+        (windows_core::Interface::vtable(self).SetLocaleInfo)(windows_core::Interface::as_raw(self), dwcodepageid, lcid).ok()
     }
     pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLocaleInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwcodepageid), core::mem::transmute(plcid)).ok()
     }
     pub unsafe fn SetBreakWordType(&self, dwbreakwordtype: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBreakWordType)(windows_core::Interface::as_raw(self), core::mem::transmute(dwbreakwordtype)).ok()
+        (windows_core::Interface::vtable(self).SetBreakWordType)(windows_core::Interface::as_raw(self), dwbreakwordtype).ok()
     }
     pub unsafe fn GetBreakWordType(&self, pdwbreakwordtype: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetBreakWordType)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwbreakwordtype)).ok()
     }
     pub unsafe fn SetControlInfo(&self, grfbreakflags: u32, dwreserved: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetControlInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(grfbreakflags), core::mem::transmute(dwreserved)).ok()
+        (windows_core::Interface::vtable(self).SetControlInfo)(windows_core::Interface::as_raw(self), grfbreakflags, dwreserved).ok()
     }
     pub unsafe fn GetControlInfo(&self, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetControlInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pgrfbreakflags), core::mem::transmute(pdwreserved)).ok()
@@ -1283,14 +1283,14 @@ impl IWordBreakerConfig {
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).LoadExternalBreakerData)(windows_core::Interface::as_raw(self), pstream.param().abi(), core::mem::transmute(dwextdatatype)).ok()
+        (windows_core::Interface::vtable(self).LoadExternalBreakerData)(windows_core::Interface::as_raw(self), pstream.param().abi(), dwextdatatype).ok()
     }
     #[cfg(feature = "Win32_System_Search")]
     pub unsafe fn SetWordStemmer<P1>(&self, rclsid: *const windows_core::GUID, pstemmer: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<super::super::System::Search::IStemmer>,
     {
-        (windows_core::Interface::vtable(self).SetWordStemmer)(windows_core::Interface::as_raw(self), core::mem::transmute(rclsid), pstemmer.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetWordStemmer)(windows_core::Interface::as_raw(self), rclsid, pstemmer.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Search")]
     pub unsafe fn GetWordStemmer(&self) -> windows_core::Result<super::super::System::Search::IStemmer> {

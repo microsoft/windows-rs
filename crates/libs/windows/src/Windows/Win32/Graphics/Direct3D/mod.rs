@@ -799,10 +799,10 @@ windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, windows_core::I
 impl ID3DDestructionNotifier {
     pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterDestructionCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(callbackfn), core::mem::transmute(pdata), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).RegisterDestructionCallback)(windows_core::Interface::as_raw(self), callbackfn, pdata, &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnregisterDestructionCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(callbackid)).ok()
+        (windows_core::Interface::vtable(self).UnregisterDestructionCallback)(windows_core::Interface::as_raw(self), callbackid).ok()
     }
 }
 #[repr(C)]
@@ -850,10 +850,10 @@ impl ID3DInclude {
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute(includetype), pfilename.param().abi(), core::mem::transmute(pparentdata), core::mem::transmute(ppdata), core::mem::transmute(pbytes)).ok()
+        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), includetype, pfilename.param().abi(), pparentdata, core::mem::transmute(ppdata), core::mem::transmute(pbytes)).ok()
     }
     pub unsafe fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata)).ok()
+        (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), pdata).ok()
     }
 }
 #[repr(C)]

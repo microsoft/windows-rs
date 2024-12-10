@@ -20,7 +20,7 @@ impl IEnumNetworkConnections {
         (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -123,7 +123,7 @@ impl IEnumNetworks {
         (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -263,7 +263,7 @@ impl INetwork {
         (windows_core::Interface::vtable(self).GetCategory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(newcategory)).ok()
+        (windows_core::Interface::vtable(self).SetCategory)(windows_core::Interface::as_raw(self), newcategory).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -447,7 +447,7 @@ windows_core::imp::interface_hierarchy!(INetwork2, windows_core::IUnknown, super
 impl INetwork2 {
     pub unsafe fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsDomainAuthenticatedBy)(windows_core::Interface::as_raw(self), core::mem::transmute(domainauthenticationkind), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsDomainAuthenticatedBy)(windows_core::Interface::as_raw(self), domainauthenticationkind, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -650,7 +650,7 @@ windows_core::imp::interface_hierarchy!(INetworkConnection2, windows_core::IUnkn
 impl INetworkConnection2 {
     pub unsafe fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsDomainAuthenticatedBy)(windows_core::Interface::as_raw(self), core::mem::transmute(domainauthenticationkind), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsDomainAuthenticatedBy)(windows_core::Interface::as_raw(self), domainauthenticationkind, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -736,7 +736,7 @@ windows_core::imp::define_interface!(INetworkConnectionCostEvents, INetworkConne
 windows_core::imp::interface_hierarchy!(INetworkConnectionCostEvents, windows_core::IUnknown);
 impl INetworkConnectionCostEvents {
     pub unsafe fn ConnectionCostChanged(&self, connectionid: windows_core::GUID, newcost: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConnectionCostChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid), core::mem::transmute(newcost)).ok()
+        (windows_core::Interface::vtable(self).ConnectionCostChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid), newcost).ok()
     }
     pub unsafe fn ConnectionDataPlanStatusChanged(&self, connectionid: windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConnectionDataPlanStatusChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid)).ok()
@@ -777,10 +777,10 @@ windows_core::imp::define_interface!(INetworkConnectionEvents, INetworkConnectio
 windows_core::imp::interface_hierarchy!(INetworkConnectionEvents, windows_core::IUnknown);
 impl INetworkConnectionEvents {
     pub unsafe fn NetworkConnectionConnectivityChanged(&self, connectionid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).NetworkConnectionConnectivityChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid), core::mem::transmute(newconnectivity)).ok()
+        (windows_core::Interface::vtable(self).NetworkConnectionConnectivityChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid), newconnectivity).ok()
     }
     pub unsafe fn NetworkConnectionPropertyChanged(&self, connectionid: windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).NetworkConnectionPropertyChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid), core::mem::transmute(flags)).ok()
+        (windows_core::Interface::vtable(self).NetworkConnectionPropertyChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid), flags).ok()
     }
 }
 #[repr(C)]
@@ -818,13 +818,13 @@ windows_core::imp::define_interface!(INetworkCostManager, INetworkCostManager_Vt
 windows_core::imp::interface_hierarchy!(INetworkCostManager, windows_core::IUnknown);
 impl INetworkCostManager {
     pub unsafe fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCost)(windows_core::Interface::as_raw(self), core::mem::transmute(pcost), core::mem::transmute(pdestipaddr)).ok()
+        (windows_core::Interface::vtable(self).GetCost)(windows_core::Interface::as_raw(self), core::mem::transmute(pcost), pdestipaddr).ok()
     }
     pub unsafe fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDataPlanStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(pdataplanstatus), core::mem::transmute(pdestipaddr)).ok()
+        (windows_core::Interface::vtable(self).GetDataPlanStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(pdataplanstatus), pdestipaddr).ok()
     }
     pub unsafe fn SetDestinationAddresses(&self, pdestipaddrlist: &[NLM_SOCKADDR], bappend: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDestinationAddresses)(windows_core::Interface::as_raw(self), pdestipaddrlist.len().try_into().unwrap(), core::mem::transmute(pdestipaddrlist.as_ptr()), core::mem::transmute(bappend)).ok()
+        (windows_core::Interface::vtable(self).SetDestinationAddresses)(windows_core::Interface::as_raw(self), pdestipaddrlist.len().try_into().unwrap(), core::mem::transmute(pdestipaddrlist.as_ptr()), bappend).ok()
     }
 }
 #[repr(C)]
@@ -869,10 +869,10 @@ windows_core::imp::define_interface!(INetworkCostManagerEvents, INetworkCostMana
 windows_core::imp::interface_hierarchy!(INetworkCostManagerEvents, windows_core::IUnknown);
 impl INetworkCostManagerEvents {
     pub unsafe fn CostChanged(&self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CostChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(newcost), core::mem::transmute(pdestaddr)).ok()
+        (windows_core::Interface::vtable(self).CostChanged)(windows_core::Interface::as_raw(self), newcost, pdestaddr).ok()
     }
     pub unsafe fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DataPlanStatusChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(pdestaddr)).ok()
+        (windows_core::Interface::vtable(self).DataPlanStatusChanged)(windows_core::Interface::as_raw(self), pdestaddr).ok()
     }
 }
 #[repr(C)]
@@ -916,10 +916,10 @@ impl INetworkEvents {
         (windows_core::Interface::vtable(self).NetworkDeleted)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid)).ok()
     }
     pub unsafe fn NetworkConnectivityChanged(&self, networkid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).NetworkConnectivityChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid), core::mem::transmute(newconnectivity)).ok()
+        (windows_core::Interface::vtable(self).NetworkConnectivityChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid), newconnectivity).ok()
     }
     pub unsafe fn NetworkPropertyChanged(&self, networkid: windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).NetworkPropertyChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid), core::mem::transmute(flags)).ok()
+        (windows_core::Interface::vtable(self).NetworkPropertyChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid), flags).ok()
     }
 }
 #[repr(C)]
@@ -982,7 +982,7 @@ windows_core::imp::interface_hierarchy!(INetworkListManager, windows_core::IUnkn
 impl INetworkListManager {
     pub unsafe fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> windows_core::Result<IEnumNetworks> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetNetworks)(windows_core::Interface::as_raw(self), core::mem::transmute(flags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetNetworks)(windows_core::Interface::as_raw(self), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNetwork(&self, gdnetworkid: windows_core::GUID) -> windows_core::Result<INetwork> {
         let mut result__ = core::mem::zeroed();
@@ -1009,7 +1009,7 @@ impl INetworkListManager {
         (windows_core::Interface::vtable(self).GetConnectivity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSimulatedProfileInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(psimulatedinfo)).ok()
+        (windows_core::Interface::vtable(self).SetSimulatedProfileInfo)(windows_core::Interface::as_raw(self), psimulatedinfo).ok()
     }
     pub unsafe fn ClearSimulatedProfileInfo(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ClearSimulatedProfileInfo)(windows_core::Interface::as_raw(self)).ok()
@@ -1145,7 +1145,7 @@ windows_core::imp::define_interface!(INetworkListManagerEvents, INetworkListMana
 windows_core::imp::interface_hierarchy!(INetworkListManagerEvents, windows_core::IUnknown);
 impl INetworkListManagerEvents {
     pub unsafe fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConnectivityChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(newconnectivity)).ok()
+        (windows_core::Interface::vtable(self).ConnectivityChanged)(windows_core::Interface::as_raw(self), newconnectivity).ok()
     }
 }
 #[repr(C)]

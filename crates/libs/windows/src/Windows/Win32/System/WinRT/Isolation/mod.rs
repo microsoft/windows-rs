@@ -3,7 +3,7 @@ windows_core::imp::interface_hierarchy!(IIsolatedEnvironmentInterop, windows_cor
 impl IIsolatedEnvironmentInterop {
     pub unsafe fn GetHostHwndInterop(&self, containerhwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetHostHwndInterop)(windows_core::Interface::as_raw(self), core::mem::transmute(containerhwnd), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetHostHwndInterop)(windows_core::Interface::as_raw(self), containerhwnd, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

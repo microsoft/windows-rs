@@ -22,7 +22,7 @@ where
 #[inline]
 pub unsafe fn FilterClose(hfilter: HFILTER) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterClose(hfilter : HFILTER) -> windows_core::HRESULT);
-    FilterClose(core::mem::transmute(hfilter)).ok()
+    FilterClose(hfilter).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -32,7 +32,7 @@ where
 {
     windows_targets::link!("fltlib.dll" "system" fn FilterConnectCommunicationPort(lpportname : windows_core::PCWSTR, dwoptions : u32, lpcontext : *const core::ffi::c_void, wsizeofcontext : u16, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, hport : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    FilterConnectCommunicationPort(lpportname.param().abi(), core::mem::transmute(dwoptions), core::mem::transmute(lpcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(wsizeofcontext), core::mem::transmute(lpsecurityattributes.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
+    FilterConnectCommunicationPort(lpportname.param().abi(), dwoptions, core::mem::transmute(lpcontext.unwrap_or(core::mem::zeroed())), wsizeofcontext, core::mem::transmute(lpsecurityattributes.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn FilterCreate<P0>(lpfiltername: P0) -> windows_core::Result<HFILTER>
@@ -56,17 +56,17 @@ where
 #[inline]
 pub unsafe fn FilterFindClose(hfilterfind: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterFindClose(hfilterfind : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    FilterFindClose(core::mem::transmute(hfilterfind)).ok()
+    FilterFindClose(hfilterfind).ok()
 }
 #[inline]
 pub unsafe fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterfind: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterFindFirst(dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterfind : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    FilterFindFirst(core::mem::transmute(dwinformationclass), core::mem::transmute(lpbuffer), core::mem::transmute(dwbuffersize), core::mem::transmute(lpbytesreturned), core::mem::transmute(lpfilterfind)).ok()
+    FilterFindFirst(dwinformationclass, core::mem::transmute(lpbuffer), dwbuffersize, core::mem::transmute(lpbytesreturned), core::mem::transmute(lpfilterfind)).ok()
 }
 #[inline]
 pub unsafe fn FilterFindNext(hfilterfind: super::super::Foundation::HANDLE, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterFindNext(hfilterfind : super::super::Foundation:: HANDLE, dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> windows_core::HRESULT);
-    FilterFindNext(core::mem::transmute(hfilterfind), core::mem::transmute(dwinformationclass), core::mem::transmute(lpbuffer), core::mem::transmute(dwbuffersize), core::mem::transmute(lpbytesreturned)).ok()
+    FilterFindNext(hfilterfind, dwinformationclass, core::mem::transmute(lpbuffer), dwbuffersize, core::mem::transmute(lpbytesreturned)).ok()
 }
 #[inline]
 pub unsafe fn FilterGetDosName<P0>(lpvolumename: P0, lpdosname: &mut [u16]) -> windows_core::Result<()>
@@ -79,18 +79,18 @@ where
 #[inline]
 pub unsafe fn FilterGetInformation(hfilter: HFILTER, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterGetInformation(hfilter : HFILTER, dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> windows_core::HRESULT);
-    FilterGetInformation(core::mem::transmute(hfilter), core::mem::transmute(dwinformationclass), core::mem::transmute(lpbuffer), core::mem::transmute(dwbuffersize), core::mem::transmute(lpbytesreturned)).ok()
+    FilterGetInformation(hfilter, dwinformationclass, core::mem::transmute(lpbuffer), dwbuffersize, core::mem::transmute(lpbytesreturned)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn FilterGetMessage(hport: super::super::Foundation::HANDLE, lpmessagebuffer: *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize: u32, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterGetMessage(hport : super::super::Foundation:: HANDLE, lpmessagebuffer : *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    FilterGetMessage(core::mem::transmute(hport), core::mem::transmute(lpmessagebuffer), core::mem::transmute(dwmessagebuffersize), core::mem::transmute(lpoverlapped.unwrap_or(core::mem::zeroed()))).ok()
+    FilterGetMessage(hport, core::mem::transmute(lpmessagebuffer), dwmessagebuffersize, core::mem::transmute(lpoverlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn FilterInstanceClose(hinstance: HFILTER_INSTANCE) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterInstanceClose(hinstance : HFILTER_INSTANCE) -> windows_core::HRESULT);
-    FilterInstanceClose(core::mem::transmute(hinstance)).ok()
+    FilterInstanceClose(hinstance).ok()
 }
 #[inline]
 pub unsafe fn FilterInstanceCreate<P0, P1, P2>(lpfiltername: P0, lpvolumename: P1, lpinstancename: P2) -> windows_core::Result<HFILTER_INSTANCE>
@@ -106,7 +106,7 @@ where
 #[inline]
 pub unsafe fn FilterInstanceFindClose(hfilterinstancefind: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterInstanceFindClose(hfilterinstancefind : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    FilterInstanceFindClose(core::mem::transmute(hfilterinstancefind)).ok()
+    FilterInstanceFindClose(hfilterinstancefind).ok()
 }
 #[inline]
 pub unsafe fn FilterInstanceFindFirst<P0>(lpfiltername: P0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterinstancefind: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -114,17 +114,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("fltlib.dll" "system" fn FilterInstanceFindFirst(lpfiltername : windows_core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterinstancefind : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    FilterInstanceFindFirst(lpfiltername.param().abi(), core::mem::transmute(dwinformationclass), core::mem::transmute(lpbuffer), core::mem::transmute(dwbuffersize), core::mem::transmute(lpbytesreturned), core::mem::transmute(lpfilterinstancefind)).ok()
+    FilterInstanceFindFirst(lpfiltername.param().abi(), dwinformationclass, core::mem::transmute(lpbuffer), dwbuffersize, core::mem::transmute(lpbytesreturned), core::mem::transmute(lpfilterinstancefind)).ok()
 }
 #[inline]
 pub unsafe fn FilterInstanceFindNext(hfilterinstancefind: super::super::Foundation::HANDLE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterInstanceFindNext(hfilterinstancefind : super::super::Foundation:: HANDLE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> windows_core::HRESULT);
-    FilterInstanceFindNext(core::mem::transmute(hfilterinstancefind), core::mem::transmute(dwinformationclass), core::mem::transmute(lpbuffer), core::mem::transmute(dwbuffersize), core::mem::transmute(lpbytesreturned)).ok()
+    FilterInstanceFindNext(hfilterinstancefind, dwinformationclass, core::mem::transmute(lpbuffer), dwbuffersize, core::mem::transmute(lpbytesreturned)).ok()
 }
 #[inline]
 pub unsafe fn FilterInstanceGetInformation(hinstance: HFILTER_INSTANCE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterInstanceGetInformation(hinstance : HFILTER_INSTANCE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> windows_core::HRESULT);
-    FilterInstanceGetInformation(core::mem::transmute(hinstance), core::mem::transmute(dwinformationclass), core::mem::transmute(lpbuffer), core::mem::transmute(dwbuffersize), core::mem::transmute(lpbytesreturned)).ok()
+    FilterInstanceGetInformation(hinstance, dwinformationclass, core::mem::transmute(lpbuffer), dwbuffersize, core::mem::transmute(lpbytesreturned)).ok()
 }
 #[inline]
 pub unsafe fn FilterLoad<P0>(lpfiltername: P0) -> windows_core::Result<()>
@@ -137,12 +137,12 @@ where
 #[inline]
 pub unsafe fn FilterReplyMessage(hport: super::super::Foundation::HANDLE, lpreplybuffer: *const FILTER_REPLY_HEADER, dwreplybuffersize: u32) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterReplyMessage(hport : super::super::Foundation:: HANDLE, lpreplybuffer : *const FILTER_REPLY_HEADER, dwreplybuffersize : u32) -> windows_core::HRESULT);
-    FilterReplyMessage(core::mem::transmute(hport), core::mem::transmute(lpreplybuffer), core::mem::transmute(dwreplybuffersize)).ok()
+    FilterReplyMessage(hport, lpreplybuffer, dwreplybuffersize).ok()
 }
 #[inline]
 pub unsafe fn FilterSendMessage(hport: super::super::Foundation::HANDLE, lpinbuffer: *const core::ffi::c_void, dwinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, dwoutbuffersize: u32, lpbytesreturned: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterSendMessage(hport : super::super::Foundation:: HANDLE, lpinbuffer : *const core::ffi::c_void, dwinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, dwoutbuffersize : u32, lpbytesreturned : *mut u32) -> windows_core::HRESULT);
-    FilterSendMessage(core::mem::transmute(hport), core::mem::transmute(lpinbuffer), core::mem::transmute(dwinbuffersize), core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwoutbuffersize), core::mem::transmute(lpbytesreturned)).ok()
+    FilterSendMessage(hport, lpinbuffer, dwinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), dwoutbuffersize, core::mem::transmute(lpbytesreturned)).ok()
 }
 #[inline]
 pub unsafe fn FilterUnload<P0>(lpfiltername: P0) -> windows_core::Result<()>
@@ -155,22 +155,22 @@ where
 #[inline]
 pub unsafe fn FilterVolumeFindClose(hvolumefind: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterVolumeFindClose(hvolumefind : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    FilterVolumeFindClose(core::mem::transmute(hvolumefind)).ok()
+    FilterVolumeFindClose(hvolumefind).ok()
 }
 #[inline]
 pub unsafe fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumefind: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterVolumeFindFirst(dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumefind : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    FilterVolumeFindFirst(core::mem::transmute(dwinformationclass), core::mem::transmute(lpbuffer), core::mem::transmute(dwbuffersize), core::mem::transmute(lpbytesreturned), core::mem::transmute(lpvolumefind)).ok()
+    FilterVolumeFindFirst(dwinformationclass, core::mem::transmute(lpbuffer), dwbuffersize, core::mem::transmute(lpbytesreturned), core::mem::transmute(lpvolumefind)).ok()
 }
 #[inline]
 pub unsafe fn FilterVolumeFindNext(hvolumefind: super::super::Foundation::HANDLE, dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterVolumeFindNext(hvolumefind : super::super::Foundation:: HANDLE, dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> windows_core::HRESULT);
-    FilterVolumeFindNext(core::mem::transmute(hvolumefind), core::mem::transmute(dwinformationclass), core::mem::transmute(lpbuffer), core::mem::transmute(dwbuffersize), core::mem::transmute(lpbytesreturned)).ok()
+    FilterVolumeFindNext(hvolumefind, dwinformationclass, core::mem::transmute(lpbuffer), dwbuffersize, core::mem::transmute(lpbytesreturned)).ok()
 }
 #[inline]
 pub unsafe fn FilterVolumeInstanceFindClose(hvolumeinstancefind: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterVolumeInstanceFindClose(hvolumeinstancefind : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    FilterVolumeInstanceFindClose(core::mem::transmute(hvolumeinstancefind)).ok()
+    FilterVolumeInstanceFindClose(hvolumeinstancefind).ok()
 }
 #[inline]
 pub unsafe fn FilterVolumeInstanceFindFirst<P0>(lpvolumename: P0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumeinstancefind: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -178,12 +178,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("fltlib.dll" "system" fn FilterVolumeInstanceFindFirst(lpvolumename : windows_core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumeinstancefind : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    FilterVolumeInstanceFindFirst(lpvolumename.param().abi(), core::mem::transmute(dwinformationclass), core::mem::transmute(lpbuffer), core::mem::transmute(dwbuffersize), core::mem::transmute(lpbytesreturned), core::mem::transmute(lpvolumeinstancefind)).ok()
+    FilterVolumeInstanceFindFirst(lpvolumename.param().abi(), dwinformationclass, core::mem::transmute(lpbuffer), dwbuffersize, core::mem::transmute(lpbytesreturned), core::mem::transmute(lpvolumeinstancefind)).ok()
 }
 #[inline]
 pub unsafe fn FilterVolumeInstanceFindNext(hvolumeinstancefind: super::super::Foundation::HANDLE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("fltlib.dll" "system" fn FilterVolumeInstanceFindNext(hvolumeinstancefind : super::super::Foundation:: HANDLE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> windows_core::HRESULT);
-    FilterVolumeInstanceFindNext(core::mem::transmute(hvolumeinstancefind), core::mem::transmute(dwinformationclass), core::mem::transmute(lpbuffer), core::mem::transmute(dwbuffersize), core::mem::transmute(lpbytesreturned)).ok()
+    FilterVolumeInstanceFindNext(hvolumeinstancefind, dwinformationclass, core::mem::transmute(lpbuffer), dwbuffersize, core::mem::transmute(lpbytesreturned)).ok()
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

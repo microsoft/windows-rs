@@ -19,17 +19,17 @@ where
 #[inline]
 pub unsafe fn DavDeleteConnection(connectionhandle: super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("netapi32.dll" "system" fn DavDeleteConnection(connectionhandle : super::super::Foundation:: HANDLE) -> u32);
-    DavDeleteConnection(core::mem::transmute(connectionhandle))
+    DavDeleteConnection(connectionhandle)
 }
 #[inline]
 pub unsafe fn DavFlushFile(hfile: super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("netapi32.dll" "system" fn DavFlushFile(hfile : super::super::Foundation:: HANDLE) -> u32);
-    DavFlushFile(core::mem::transmute(hfile))
+    DavFlushFile(hfile)
 }
 #[inline]
 pub unsafe fn DavGetExtendedError(hfile: super::super::Foundation::HANDLE, exterror: *mut u32, exterrorstring: windows_core::PWSTR, cchsize: *mut u32) -> u32 {
     windows_targets::link!("netapi32.dll" "system" fn DavGetExtendedError(hfile : super::super::Foundation:: HANDLE, exterror : *mut u32, exterrorstring : windows_core::PWSTR, cchsize : *mut u32) -> u32);
-    DavGetExtendedError(core::mem::transmute(hfile), core::mem::transmute(exterror), core::mem::transmute(exterrorstring), core::mem::transmute(cchsize))
+    DavGetExtendedError(hfile, core::mem::transmute(exterror), core::mem::transmute(exterrorstring), core::mem::transmute(cchsize))
 }
 #[inline]
 pub unsafe fn DavGetHTTPFromUNCPath<P0>(uncpath: P0, url: Option<windows_core::PWSTR>, lpsize: *mut u32) -> u32
@@ -66,12 +66,12 @@ where
 #[inline]
 pub unsafe fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32) -> u32 {
     windows_targets::link!("davclnt.dll" "system" fn DavRegisterAuthCallback(callback : PFNDAVAUTHCALLBACK, version : u32) -> u32);
-    DavRegisterAuthCallback(core::mem::transmute(callback), core::mem::transmute(version))
+    DavRegisterAuthCallback(callback, version)
 }
 #[inline]
 pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
     windows_targets::link!("davclnt.dll" "system" fn DavUnregisterAuthCallback(hcallback : u32));
-    DavUnregisterAuthCallback(core::mem::transmute(hcallback))
+    DavUnregisterAuthCallback(hcallback)
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

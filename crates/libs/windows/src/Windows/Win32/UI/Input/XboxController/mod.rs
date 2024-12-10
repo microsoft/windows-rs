@@ -6,32 +6,32 @@ pub unsafe fn XInputEnable(enable: bool) {
 #[inline]
 pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: Option<windows_core::PWSTR>, prendercount: Option<*mut u32>, pcapturedeviceid: Option<windows_core::PWSTR>, pcapturecount: Option<*mut u32>) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputGetAudioDeviceIds(dwuserindex : u32, prenderdeviceid : windows_core::PWSTR, prendercount : *mut u32, pcapturedeviceid : windows_core::PWSTR, pcapturecount : *mut u32) -> u32);
-    XInputGetAudioDeviceIds(core::mem::transmute(dwuserindex), core::mem::transmute(prenderdeviceid.unwrap_or(core::mem::zeroed())), core::mem::transmute(prendercount.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcapturedeviceid.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcapturecount.unwrap_or(core::mem::zeroed())))
+    XInputGetAudioDeviceIds(dwuserindex, core::mem::transmute(prenderdeviceid.unwrap_or(core::mem::zeroed())), core::mem::transmute(prendercount.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcapturedeviceid.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcapturecount.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn XInputGetBatteryInformation(dwuserindex: u32, devtype: BATTERY_DEVTYPE, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputGetBatteryInformation(dwuserindex : u32, devtype : BATTERY_DEVTYPE, pbatteryinformation : *mut XINPUT_BATTERY_INFORMATION) -> u32);
-    XInputGetBatteryInformation(core::mem::transmute(dwuserindex), core::mem::transmute(devtype), core::mem::transmute(pbatteryinformation))
+    XInputGetBatteryInformation(dwuserindex, devtype, core::mem::transmute(pbatteryinformation))
 }
 #[inline]
 pub unsafe fn XInputGetCapabilities(dwuserindex: u32, dwflags: XINPUT_FLAG, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputGetCapabilities(dwuserindex : u32, dwflags : XINPUT_FLAG, pcapabilities : *mut XINPUT_CAPABILITIES) -> u32);
-    XInputGetCapabilities(core::mem::transmute(dwuserindex), core::mem::transmute(dwflags), core::mem::transmute(pcapabilities))
+    XInputGetCapabilities(dwuserindex, dwflags, core::mem::transmute(pcapabilities))
 }
 #[inline]
 pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: Option<u32>, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputGetKeystroke(dwuserindex : u32, dwreserved : u32, pkeystroke : *mut XINPUT_KEYSTROKE) -> u32);
-    XInputGetKeystroke(core::mem::transmute(dwuserindex), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pkeystroke))
+    XInputGetKeystroke(dwuserindex, core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pkeystroke))
 }
 #[inline]
 pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputGetState(dwuserindex : u32, pstate : *mut XINPUT_STATE) -> u32);
-    XInputGetState(core::mem::transmute(dwuserindex), core::mem::transmute(pstate))
+    XInputGetState(dwuserindex, core::mem::transmute(pstate))
 }
 #[inline]
 pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputSetState(dwuserindex : u32, pvibration : *const XINPUT_VIBRATION) -> u32);
-    XInputSetState(core::mem::transmute(dwuserindex), core::mem::transmute(pvibration))
+    XInputSetState(dwuserindex, pvibration)
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

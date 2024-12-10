@@ -5,17 +5,17 @@ impl IUIApplication {
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnViewChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(viewid), core::mem::transmute(typeid), view.param().abi(), core::mem::transmute(verb), core::mem::transmute(ureasoncode)).ok()
+        (windows_core::Interface::vtable(self).OnViewChanged)(windows_core::Interface::as_raw(self), viewid, typeid, view.param().abi(), verb, ureasoncode).ok()
     }
     pub unsafe fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> windows_core::Result<IUICommandHandler> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnCreateUICommand)(windows_core::Interface::as_raw(self), core::mem::transmute(commandid), core::mem::transmute(typeid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OnCreateUICommand)(windows_core::Interface::as_raw(self), commandid, typeid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OnDestroyUICommand<P2>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<IUICommandHandler>,
     {
-        (windows_core::Interface::vtable(self).OnDestroyUICommand)(windows_core::Interface::as_raw(self), core::mem::transmute(commandid), core::mem::transmute(typeid), commandhandler.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnDestroyUICommand)(windows_core::Interface::as_raw(self), commandid, typeid, commandhandler.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -71,7 +71,7 @@ impl IUICollection {
     }
     pub unsafe fn GetItem(&self, index: u32) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Add<P0>(&self, item: P0) -> windows_core::Result<()>
     where
@@ -83,16 +83,16 @@ impl IUICollection {
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), core::mem::transmute(index), item.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), index, item.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
     }
     pub unsafe fn Replace<P1>(&self, indexreplaced: u32, itemreplacewith: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), core::mem::transmute(indexreplaced), itemreplacewith.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), indexreplaced, itemreplacewith.param().abi()).ok()
     }
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok()
@@ -184,7 +184,7 @@ impl IUICollectionChangedEvent {
         P2: windows_core::Param<windows_core::IUnknown>,
         P4: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(action), core::mem::transmute(oldindex), olditem.param().abi(), core::mem::transmute(newindex), newitem.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnChanged)(windows_core::Interface::as_raw(self), action, oldindex, olditem.param().abi(), newindex, newitem.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -216,12 +216,12 @@ impl IUICommandHandler {
     where
         P4: windows_core::Param<IUISimplePropertySet>,
     {
-        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), core::mem::transmute(commandid), core::mem::transmute(verb), core::mem::transmute(key.unwrap_or(core::mem::zeroed())), core::mem::transmute(currentvalue.unwrap_or(core::mem::zeroed())), commandexecutionproperties.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), commandid, verb, core::mem::transmute(key.unwrap_or(core::mem::zeroed())), core::mem::transmute(currentvalue.unwrap_or(core::mem::zeroed())), commandexecutionproperties.param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn UpdateProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).UpdateProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(commandid), core::mem::transmute(key), core::mem::transmute(currentvalue.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).UpdateProperty)(windows_core::Interface::as_raw(self), commandid, key, core::mem::transmute(currentvalue.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[repr(C)]
@@ -274,7 +274,7 @@ windows_core::imp::define_interface!(IUIContextualUI, IUIContextualUI_Vtbl, 0xee
 windows_core::imp::interface_hierarchy!(IUIContextualUI, windows_core::IUnknown);
 impl IUIContextualUI {
     pub unsafe fn ShowAtLocation(&self, x: i32, y: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ShowAtLocation)(windows_core::Interface::as_raw(self), core::mem::transmute(x), core::mem::transmute(y)).ok()
+        (windows_core::Interface::vtable(self).ShowAtLocation)(windows_core::Interface::as_raw(self), x, y).ok()
     }
 }
 #[repr(C)]
@@ -302,7 +302,7 @@ windows_core::imp::define_interface!(IUIEventLogger, IUIEventLogger_Vtbl, 0xec3e
 windows_core::imp::interface_hierarchy!(IUIEventLogger, windows_core::IUnknown);
 impl IUIEventLogger {
     pub unsafe fn OnUIEvent(&self, peventparams: *const UI_EVENTPARAMS) {
-        (windows_core::Interface::vtable(self).OnUIEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(peventparams))
+        (windows_core::Interface::vtable(self).OnUIEvent)(windows_core::Interface::as_raw(self), peventparams)
     }
 }
 #[repr(C)]
@@ -364,7 +364,7 @@ impl IUIFramework {
     where
         P1: windows_core::Param<IUIApplication>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(framewnd), application.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), framewnd, application.param().abi()).ok()
     }
     pub unsafe fn Destroy(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self)).ok()
@@ -373,28 +373,28 @@ impl IUIFramework {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LoadUI)(windows_core::Interface::as_raw(self), core::mem::transmute(instance), resourcename.param().abi()).ok()
+        (windows_core::Interface::vtable(self).LoadUI)(windows_core::Interface::as_raw(self), instance, resourcename.param().abi()).ok()
     }
     pub unsafe fn GetView(&self, viewid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), core::mem::transmute(viewid), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
+        (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), viewid, riid, core::mem::transmute(ppv)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetUICommandProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(commandid), core::mem::transmute(key), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetUICommandProperty)(windows_core::Interface::as_raw(self), commandid, key, &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetUICommandProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(commandid), core::mem::transmute(key), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetUICommandProperty)(windows_core::Interface::as_raw(self), commandid, key, core::mem::transmute(value)).ok()
     }
     pub unsafe fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: Option<*const super::super::Foundation::PROPERTYKEY>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InvalidateUICommand)(windows_core::Interface::as_raw(self), core::mem::transmute(commandid), core::mem::transmute(flags), core::mem::transmute(key.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).InvalidateUICommand)(windows_core::Interface::as_raw(self), commandid, flags, core::mem::transmute(key.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn FlushPendingInvalidations(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FlushPendingInvalidations)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetModes(&self, imodes: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetModes)(windows_core::Interface::as_raw(self), core::mem::transmute(imodes)).ok()
+        (windows_core::Interface::vtable(self).SetModes)(windows_core::Interface::as_raw(self), imodes).ok()
     }
 }
 #[repr(C)]
@@ -540,7 +540,7 @@ impl IUIImageFromBitmap {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreateImage(&self, bitmap: super::super::Graphics::Gdi::HBITMAP, options: UI_OWNERSHIP) -> windows_core::Result<IUIImage> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateImage)(windows_core::Interface::as_raw(self), core::mem::transmute(bitmap), core::mem::transmute(options), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateImage)(windows_core::Interface::as_raw(self), bitmap, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -657,7 +657,7 @@ impl IUISimplePropertySet {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(key), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[repr(C)]

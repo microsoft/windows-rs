@@ -220,19 +220,19 @@ windows_core::imp::interface_hierarchy!(ISdo, windows_core::IUnknown, super::sup
 impl ISdo {
     pub unsafe fn GetPropertyInfo(&self, id: i32) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperty(&self, id: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(id), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), id, &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutProperty(&self, id: i32, pvalue: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).PutProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(id), core::mem::transmute(pvalue)).ok()
+        (windows_core::Interface::vtable(self).PutProperty)(windows_core::Interface::as_raw(self), id, core::mem::transmute(pvalue)).ok()
     }
     pub unsafe fn ResetProperty(&self, id: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ResetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(id)).ok()
+        (windows_core::Interface::vtable(self).ResetProperty)(windows_core::Interface::as_raw(self), id).ok()
     }
     pub unsafe fn Apply(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Apply)(windows_core::Interface::as_raw(self)).ok()
@@ -510,16 +510,16 @@ impl ISdoDictionaryOld {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAttributeInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(id), core::mem::transmute(pinfoids), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetAttributeInfo)(windows_core::Interface::as_raw(self), id, core::mem::transmute(pinfoids), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumAttributeValues)(windows_core::Interface::as_raw(self), core::mem::transmute(id), core::mem::transmute(pvalueids), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).EnumAttributeValues)(windows_core::Interface::as_raw(self), id, core::mem::transmute(pvalueids), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn CreateAttribute(&self, id: ATTRIBUTEID) -> windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateAttribute)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAttributeID(&self, bstrattributename: &windows_core::BSTR) -> windows_core::Result<ATTRIBUTEID> {
         let mut result__ = core::mem::zeroed();
@@ -643,11 +643,11 @@ impl ISdoMachine {
     }
     pub unsafe fn GetServiceSDO(&self, edatastore: IASDATASTORE, bstrservicename: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetServiceSDO)(windows_core::Interface::as_raw(self), core::mem::transmute(edatastore), core::mem::transmute_copy(bstrservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetServiceSDO)(windows_core::Interface::as_raw(self), edatastore, core::mem::transmute_copy(bstrservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetUserSDO(&self, edatastore: IASDATASTORE, bstrusername: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetUserSDO)(windows_core::Interface::as_raw(self), core::mem::transmute(edatastore), core::mem::transmute_copy(bstrusername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetUserSDO)(windows_core::Interface::as_raw(self), edatastore, core::mem::transmute_copy(bstrusername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetOSType(&self) -> windows_core::Result<IASOSTYPE> {
         let mut result__ = core::mem::zeroed();
@@ -823,7 +823,7 @@ impl ISdoMachine2 {
         (windows_core::Interface::vtable(self).EnableTemplates)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SyncConfigAgainstTemplates(&self, bstrservicename: &windows_core::BSTR, ppconfigroot: *mut Option<windows_core::IUnknown>, pptemplatesroot: *mut Option<windows_core::IUnknown>, bforcedsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SyncConfigAgainstTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrservicename), core::mem::transmute(ppconfigroot), core::mem::transmute(pptemplatesroot), core::mem::transmute(bforcedsync)).ok()
+        (windows_core::Interface::vtable(self).SyncConfigAgainstTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrservicename), core::mem::transmute(ppconfigroot), core::mem::transmute(pptemplatesroot), bforcedsync).ok()
     }
     pub unsafe fn ImportRemoteTemplates<P0>(&self, plocaltemplatesroot: P0, bstrremotemachinename: &windows_core::BSTR) -> windows_core::Result<()>
     where
@@ -1008,7 +1008,7 @@ impl ITemplateSdo {
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).AddToSdoAsProperty)(windows_core::Interface::as_raw(self), psdotarget.param().abi(), core::mem::transmute(id)).ok()
+        (windows_core::Interface::vtable(self).AddToSdoAsProperty)(windows_core::Interface::as_raw(self), psdotarget.param().abi(), id).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

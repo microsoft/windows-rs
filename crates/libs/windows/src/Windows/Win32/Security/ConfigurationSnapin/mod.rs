@@ -4,7 +4,7 @@ windows_core::imp::define_interface!(ISceSvcAttachmentData, ISceSvcAttachmentDat
 windows_core::imp::interface_hierarchy!(ISceSvcAttachmentData, windows_core::IUnknown);
 impl ISceSvcAttachmentData {
     pub unsafe fn GetData(&self, scesvchandle: *mut core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut core::ffi::c_void, psceenumhandle: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), core::mem::transmute(scesvchandle), core::mem::transmute(scetype), core::mem::transmute(ppvdata), core::mem::transmute(psceenumhandle)).ok()
+        (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), core::mem::transmute(scesvchandle), scetype, core::mem::transmute(ppvdata), core::mem::transmute(psceenumhandle)).ok()
     }
     pub unsafe fn Initialize<P2>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: P2, pscesvchandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
     where

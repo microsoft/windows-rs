@@ -6,7 +6,7 @@ impl IGraphicsCaptureItemInterop {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(window), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), window, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreateForMonitor<T>(&self, monitor: super::super::super::super::Graphics::Gdi::HMONITOR) -> windows_core::Result<T>
@@ -14,7 +14,7 @@ impl IGraphicsCaptureItemInterop {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateForMonitor)(windows_core::Interface::as_raw(self), core::mem::transmute(monitor), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateForMonitor)(windows_core::Interface::as_raw(self), monitor, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

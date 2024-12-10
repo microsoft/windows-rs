@@ -24,7 +24,7 @@ impl AsyncIBackgroundCopyCallback {
     where
         P0: windows_core::Param<IBackgroundCopyJob>,
     {
-        (windows_core::Interface::vtable(self).Begin_JobModification)(windows_core::Interface::as_raw(self), pjob.param().abi(), core::mem::transmute(dwreserved)).ok()
+        (windows_core::Interface::vtable(self).Begin_JobModification)(windows_core::Interface::as_raw(self), pjob.param().abi(), dwreserved).ok()
     }
     pub unsafe fn Finish_JobModification(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Finish_JobModification)(windows_core::Interface::as_raw(self)).ok()
@@ -559,7 +559,7 @@ impl IBITSExtensionSetup {
     }
     pub unsafe fn GetCleanupTask(&self, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCleanupTask)(windows_core::Interface::as_raw(self), core::mem::transmute(riid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetCleanupTask)(windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -692,7 +692,7 @@ impl IBackgroundCopyCallback {
     where
         P0: windows_core::Param<IBackgroundCopyJob>,
     {
-        (windows_core::Interface::vtable(self).JobModification)(windows_core::Interface::as_raw(self), pjob.param().abi(), core::mem::transmute(dwreserved)).ok()
+        (windows_core::Interface::vtable(self).JobModification)(windows_core::Interface::as_raw(self), pjob.param().abi(), dwreserved).ok()
     }
 }
 #[repr(C)]
@@ -741,21 +741,21 @@ impl IBackgroundCopyCallback1 {
         P0: windows_core::Param<IBackgroundCopyGroup>,
         P1: windows_core::Param<IBackgroundCopyJob1>,
     {
-        (windows_core::Interface::vtable(self).OnStatus)(windows_core::Interface::as_raw(self), pgroup.param().abi(), pjob.param().abi(), core::mem::transmute(dwfileindex), core::mem::transmute(dwstatus), core::mem::transmute(dwnumofretries), core::mem::transmute(dwwin32result), core::mem::transmute(dwtransportresult)).ok()
+        (windows_core::Interface::vtable(self).OnStatus)(windows_core::Interface::as_raw(self), pgroup.param().abi(), pjob.param().abi(), dwfileindex, dwstatus, dwnumofretries, dwwin32result, dwtransportresult).ok()
     }
     pub unsafe fn OnProgress<P1, P2>(&self, progresstype: u32, pgroup: P1, pjob: P2, dwfileindex: u32, dwprogressvalue: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IBackgroundCopyGroup>,
         P2: windows_core::Param<IBackgroundCopyJob1>,
     {
-        (windows_core::Interface::vtable(self).OnProgress)(windows_core::Interface::as_raw(self), core::mem::transmute(progresstype), pgroup.param().abi(), pjob.param().abi(), core::mem::transmute(dwfileindex), core::mem::transmute(dwprogressvalue)).ok()
+        (windows_core::Interface::vtable(self).OnProgress)(windows_core::Interface::as_raw(self), progresstype, pgroup.param().abi(), pjob.param().abi(), dwfileindex, dwprogressvalue).ok()
     }
     pub unsafe fn OnProgressEx<P1, P2>(&self, progresstype: u32, pgroup: P1, pjob: P2, dwfileindex: u32, dwprogressvalue: u32, pbyte: &[u8]) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IBackgroundCopyGroup>,
         P2: windows_core::Param<IBackgroundCopyJob1>,
     {
-        (windows_core::Interface::vtable(self).OnProgressEx)(windows_core::Interface::as_raw(self), core::mem::transmute(progresstype), pgroup.param().abi(), pjob.param().abi(), core::mem::transmute(dwfileindex), core::mem::transmute(dwprogressvalue), pbyte.len().try_into().unwrap(), core::mem::transmute(pbyte.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).OnProgressEx)(windows_core::Interface::as_raw(self), progresstype, pgroup.param().abi(), pjob.param().abi(), dwfileindex, dwprogressvalue, pbyte.len().try_into().unwrap(), core::mem::transmute(pbyte.as_ptr())).ok()
     }
 }
 #[repr(C)]
@@ -884,11 +884,11 @@ impl IBackgroundCopyError {
     }
     pub unsafe fn GetErrorDescription(&self, languageid: u32) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetErrorDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(languageid), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetErrorDescription)(windows_core::Interface::as_raw(self), languageid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetErrorContextDescription(&self, languageid: u32) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetErrorContextDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(languageid), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetErrorContextDescription)(windows_core::Interface::as_raw(self), languageid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetProtocol(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
@@ -1218,11 +1218,11 @@ impl core::ops::Deref for IBackgroundCopyFile5 {
 windows_core::imp::interface_hierarchy!(IBackgroundCopyFile5, windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4);
 impl IBackgroundCopyFile5 {
     pub unsafe fn SetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyid), core::mem::transmute(propertyvalue)).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), propertyid, core::mem::transmute(propertyvalue)).ok()
     }
     pub unsafe fn GetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID) -> windows_core::Result<BITS_FILE_PROPERTY_VALUE> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyid), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1272,7 +1272,7 @@ impl core::ops::Deref for IBackgroundCopyFile6 {
 windows_core::imp::interface_hierarchy!(IBackgroundCopyFile6, windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4, IBackgroundCopyFile5);
 impl IBackgroundCopyFile6 {
     pub unsafe fn UpdateDownloadPosition(&self, offset: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UpdateDownloadPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(offset)).ok()
+        (windows_core::Interface::vtable(self).UpdateDownloadPosition)(windows_core::Interface::as_raw(self), offset).ok()
     }
     pub unsafe fn RequestFileRanges(&self, ranges: &[BG_FILE_RANGE]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RequestFileRanges)(windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr())).ok()
@@ -1325,15 +1325,15 @@ impl IBackgroundCopyGroup {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProp(&self, propid: GROUPPROP) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProp)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetProp)(windows_core::Interface::as_raw(self), propid, &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProp(&self, propid: GROUPPROP, pvarval: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProp)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), core::mem::transmute(pvarval)).ok()
+        (windows_core::Interface::vtable(self).SetProp)(windows_core::Interface::as_raw(self), propid, core::mem::transmute(pvarval)).ok()
     }
     pub unsafe fn GetProgress(&self, dwflags: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), dwflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetStatus(&self, pdwstatus: *mut u32, pdwjobindex: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwstatus), core::mem::transmute(pdwjobindex)).ok()
@@ -1365,20 +1365,20 @@ impl IBackgroundCopyGroup {
     }
     pub unsafe fn EnumJobs(&self, dwflags: u32) -> windows_core::Result<IEnumBackgroundCopyJobs1> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumJobs)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumJobs)(windows_core::Interface::as_raw(self), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SwitchToForeground(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SwitchToForeground)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn QueryNewJobInterface(&self, iid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).QueryNewJobInterface)(windows_core::Interface::as_raw(self), core::mem::transmute(iid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).QueryNewJobInterface)(windows_core::Interface::as_raw(self), iid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetNotificationPointer<P1>(&self, iid: *const windows_core::GUID, punk: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetNotificationPointer)(windows_core::Interface::as_raw(self), core::mem::transmute(iid), punk.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNotificationPointer)(windows_core::Interface::as_raw(self), iid, punk.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1636,14 +1636,14 @@ impl IBackgroundCopyJob {
         (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPriority(&self, val: BG_JOB_PRIORITY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(val)).ok()
+        (windows_core::Interface::vtable(self).SetPriority)(windows_core::Interface::as_raw(self), val).ok()
     }
     pub unsafe fn GetPriority(&self) -> windows_core::Result<BG_JOB_PRIORITY> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNotifyFlags(&self, val: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetNotifyFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(val)).ok()
+        (windows_core::Interface::vtable(self).SetNotifyFlags)(windows_core::Interface::as_raw(self), val).ok()
     }
     pub unsafe fn GetNotifyFlags(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -1660,14 +1660,14 @@ impl IBackgroundCopyJob {
         (windows_core::Interface::vtable(self).GetNotifyInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMinimumRetryDelay(&self, seconds: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMinimumRetryDelay)(windows_core::Interface::as_raw(self), core::mem::transmute(seconds)).ok()
+        (windows_core::Interface::vtable(self).SetMinimumRetryDelay)(windows_core::Interface::as_raw(self), seconds).ok()
     }
     pub unsafe fn GetMinimumRetryDelay(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMinimumRetryDelay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNoProgressTimeout(&self, seconds: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetNoProgressTimeout)(windows_core::Interface::as_raw(self), core::mem::transmute(seconds)).ok()
+        (windows_core::Interface::vtable(self).SetNoProgressTimeout)(windows_core::Interface::as_raw(self), seconds).ok()
     }
     pub unsafe fn GetNoProgressTimeout(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -1682,7 +1682,7 @@ impl IBackgroundCopyJob {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetProxySettings)(windows_core::Interface::as_raw(self), core::mem::transmute(proxyusage), proxylist.param().abi(), proxybypasslist.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist.param().abi(), proxybypasslist.param().abi()).ok()
     }
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut windows_core::PWSTR, pproxybypasslist: *mut windows_core::PWSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetProxySettings)(windows_core::Interface::as_raw(self), core::mem::transmute(pproxyusage), core::mem::transmute(pproxylist), core::mem::transmute(pproxybypasslist)).ok()
@@ -2024,7 +2024,7 @@ impl IBackgroundCopyJob1 {
     }
     pub unsafe fn GetProgress(&self, dwflags: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), dwflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetStatus(&self, pdwstatus: *mut u32, pdwwin32result: *mut u32, pdwtransportresult: *mut u32, pdwnumofretries: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwstatus), core::mem::transmute(pdwwin32result), core::mem::transmute(pdwtransportresult), core::mem::transmute(pdwnumofretries)).ok()
@@ -2034,7 +2034,7 @@ impl IBackgroundCopyJob1 {
     }
     pub unsafe fn GetFile(&self, cfileindex: u32) -> windows_core::Result<FILESETINFO> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFile)(windows_core::Interface::as_raw(self), core::mem::transmute(cfileindex), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetFile)(windows_core::Interface::as_raw(self), cfileindex, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn GetFileCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -2181,10 +2181,10 @@ impl IBackgroundCopyJob2 {
         (windows_core::Interface::vtable(self).GetReplyFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCredentials(&self, credentials: *const BG_AUTH_CREDENTIALS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), core::mem::transmute(credentials)).ok()
+        (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), credentials).ok()
     }
     pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveCredentials)(windows_core::Interface::as_raw(self), core::mem::transmute(target), core::mem::transmute(scheme)).ok()
+        (windows_core::Interface::vtable(self).RemoveCredentials)(windows_core::Interface::as_raw(self), target, scheme).ok()
     }
 }
 #[repr(C)]
@@ -2290,7 +2290,7 @@ impl IBackgroundCopyJob3 {
         (windows_core::Interface::vtable(self).AddFileWithRanges)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi(), ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFileACLFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(flags)).ok()
+        (windows_core::Interface::vtable(self).SetFileACLFlags)(windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetFileACLFlags(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -2358,7 +2358,7 @@ impl core::ops::Deref for IBackgroundCopyJob4 {
 windows_core::imp::interface_hierarchy!(IBackgroundCopyJob4, windows_core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3);
 impl IBackgroundCopyJob4 {
     pub unsafe fn SetPeerCachingFlags(&self, flags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPeerCachingFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(flags)).ok()
+        (windows_core::Interface::vtable(self).SetPeerCachingFlags)(windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetPeerCachingFlags(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -2373,7 +2373,7 @@ impl IBackgroundCopyJob4 {
         (windows_core::Interface::vtable(self).GetOwnerElevationState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaximumDownloadTime(&self, timeout: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMaximumDownloadTime)(windows_core::Interface::as_raw(self), core::mem::transmute(timeout)).ok()
+        (windows_core::Interface::vtable(self).SetMaximumDownloadTime)(windows_core::Interface::as_raw(self), timeout).ok()
     }
     pub unsafe fn GetMaximumDownloadTime(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -2473,11 +2473,11 @@ impl core::ops::Deref for IBackgroundCopyJob5 {
 windows_core::imp::interface_hierarchy!(IBackgroundCopyJob5, windows_core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3, IBackgroundCopyJob4);
 impl IBackgroundCopyJob5 {
     pub unsafe fn SetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: BITS_JOB_PROPERTY_VALUE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyid), core::mem::transmute(propertyvalue)).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), propertyid, core::mem::transmute(propertyvalue)).ok()
     }
     pub unsafe fn GetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID) -> windows_core::Result<BITS_JOB_PROPERTY_VALUE> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyid), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -2524,14 +2524,14 @@ impl IBackgroundCopyJobHttpOptions {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetClientCertificateByID)(windows_core::Interface::as_raw(self), core::mem::transmute(storelocation), storename.param().abi(), core::mem::transmute(pcerthashblob.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).SetClientCertificateByID)(windows_core::Interface::as_raw(self), storelocation, storename.param().abi(), core::mem::transmute(pcerthashblob.as_ptr())).ok()
     }
     pub unsafe fn SetClientCertificateByName<P1, P2>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P1, subjectname: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetClientCertificateByName)(windows_core::Interface::as_raw(self), core::mem::transmute(storelocation), storename.param().abi(), subjectname.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetClientCertificateByName)(windows_core::Interface::as_raw(self), storelocation, storename.param().abi(), subjectname.param().abi()).ok()
     }
     pub unsafe fn RemoveClientCertificate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveClientCertificate)(windows_core::Interface::as_raw(self)).ok()
@@ -2550,7 +2550,7 @@ impl IBackgroundCopyJobHttpOptions {
         (windows_core::Interface::vtable(self).GetCustomHeaders)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSecurityFlags(&self, flags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSecurityFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(flags)).ok()
+        (windows_core::Interface::vtable(self).SetSecurityFlags)(windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetSecurityFlags(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -2756,19 +2756,19 @@ impl IBackgroundCopyManager {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateJob)(windows_core::Interface::as_raw(self), displayname.param().abi(), core::mem::transmute(r#type), core::mem::transmute(pjobid), core::mem::transmute(ppjob)).ok()
+        (windows_core::Interface::vtable(self).CreateJob)(windows_core::Interface::as_raw(self), displayname.param().abi(), r#type, core::mem::transmute(pjobid), core::mem::transmute(ppjob)).ok()
     }
     pub unsafe fn GetJob(&self, jobid: *const windows_core::GUID) -> windows_core::Result<IBackgroundCopyJob> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), core::mem::transmute(jobid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), jobid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumJobs(&self, dwflags: u32) -> windows_core::Result<IEnumBackgroundCopyJobs> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumJobs)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumJobs)(windows_core::Interface::as_raw(self), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetErrorDescription(&self, hresult: windows_core::HRESULT, languageid: u32) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetErrorDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(hresult), core::mem::transmute(languageid), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetErrorDescription)(windows_core::Interface::as_raw(self), hresult, languageid, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -2847,7 +2847,7 @@ impl IBackgroundCopyQMgr {
     }
     pub unsafe fn EnumGroups(&self, dwflags: u32) -> windows_core::Result<IEnumBackgroundCopyGroups> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumGroups)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumGroups)(windows_core::Interface::as_raw(self), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -2914,7 +2914,7 @@ impl IBackgroundCopyServerCertificateValidationCallback {
         P0: windows_core::Param<IBackgroundCopyJob>,
         P1: windows_core::Param<IBackgroundCopyFile>,
     {
-        (windows_core::Interface::vtable(self).ValidateServerCertificate)(windows_core::Interface::as_raw(self), job.param().abi(), file.param().abi(), certdata.len().try_into().unwrap(), core::mem::transmute(certdata.as_ptr()), core::mem::transmute(certencodingtype), certstoredata.len().try_into().unwrap(), core::mem::transmute(certstoredata.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).ValidateServerCertificate)(windows_core::Interface::as_raw(self), job.param().abi(), file.param().abi(), certdata.len().try_into().unwrap(), core::mem::transmute(certdata.as_ptr()), certencodingtype, certstoredata.len().try_into().unwrap(), core::mem::transmute(certstoredata.as_ptr())).ok()
     }
 }
 #[repr(C)]
@@ -3018,21 +3018,21 @@ impl IBitsPeerCacheAdministration {
         (windows_core::Interface::vtable(self).GetMaximumCacheSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaximumCacheSize(&self, bytes: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMaximumCacheSize)(windows_core::Interface::as_raw(self), core::mem::transmute(bytes)).ok()
+        (windows_core::Interface::vtable(self).SetMaximumCacheSize)(windows_core::Interface::as_raw(self), bytes).ok()
     }
     pub unsafe fn GetMaximumContentAge(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMaximumContentAge)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaximumContentAge(&self, seconds: u32) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).SetMaximumContentAge)(windows_core::Interface::as_raw(self), core::mem::transmute(seconds))
+        (windows_core::Interface::vtable(self).SetMaximumContentAge)(windows_core::Interface::as_raw(self), seconds)
     }
     pub unsafe fn GetConfigurationFlags(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetConfigurationFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetConfigurationFlags(&self, flags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetConfigurationFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(flags)).ok()
+        (windows_core::Interface::vtable(self).SetConfigurationFlags)(windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn EnumRecords(&self) -> windows_core::Result<IEnumBitsPeerCacheRecords> {
         let mut result__ = core::mem::zeroed();
@@ -3040,13 +3040,13 @@ impl IBitsPeerCacheAdministration {
     }
     pub unsafe fn GetRecord(&self, id: *const windows_core::GUID) -> windows_core::Result<IBitsPeerCacheRecord> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRecord)(windows_core::Interface::as_raw(self), core::mem::transmute(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetRecord)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ClearRecords(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ClearRecords)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn DeleteRecord(&self, id: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeleteRecord)(windows_core::Interface::as_raw(self), core::mem::transmute(id)).ok()
+        (windows_core::Interface::vtable(self).DeleteRecord)(windows_core::Interface::as_raw(self), id).ok()
     }
     pub unsafe fn DeleteUrl<P0>(&self, url: P0) -> windows_core::Result<()>
     where
@@ -3346,7 +3346,7 @@ windows_core::imp::define_interface!(IBitsTokenOptions, IBitsTokenOptions_Vtbl, 
 windows_core::imp::interface_hierarchy!(IBitsTokenOptions, windows_core::IUnknown);
 impl IBitsTokenOptions {
     pub unsafe fn SetHelperTokenFlags(&self, usageflags: BG_TOKEN) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetHelperTokenFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(usageflags)).ok()
+        (windows_core::Interface::vtable(self).SetHelperTokenFlags)(windows_core::Interface::as_raw(self), usageflags).ok()
     }
     pub unsafe fn GetHelperTokenFlags(&self) -> windows_core::Result<BG_TOKEN> {
         let mut result__ = core::mem::zeroed();
@@ -3434,7 +3434,7 @@ impl IEnumBackgroundCopyFiles {
         (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3519,7 +3519,7 @@ impl IEnumBackgroundCopyGroups {
         (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3604,7 +3604,7 @@ impl IEnumBackgroundCopyJobs {
         (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3689,7 +3689,7 @@ impl IEnumBackgroundCopyJobs1 {
         (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3774,7 +3774,7 @@ impl IEnumBitsPeerCacheRecords {
         (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3859,7 +3859,7 @@ impl IEnumBitsPeers {
         (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()

@@ -1,12 +1,12 @@
 #[inline]
 pub unsafe fn AdjustCalendarDate(lpcaldatetime: *mut CALDATETIME, calunit: CALDATETIME_DATEUNIT, amount: i32) -> super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn AdjustCalendarDate(lpcaldatetime : *mut CALDATETIME, calunit : CALDATETIME_DATEUNIT, amount : i32) -> super::Foundation:: BOOL);
-    AdjustCalendarDate(core::mem::transmute(lpcaldatetime), core::mem::transmute(calunit), core::mem::transmute(amount))
+    AdjustCalendarDate(core::mem::transmute(lpcaldatetime), calunit, amount)
 }
 #[inline]
 pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: &[i8], lpstring2: &[i8]) -> COMPARESTRING_RESULT {
     windows_targets::link!("kernel32.dll" "system" fn CompareStringA(locale : u32, dwcmpflags : u32, lpstring1 : *const i8, cchcount1 : i32, lpstring2 : *const i8, cchcount2 : i32) -> COMPARESTRING_RESULT);
-    CompareStringA(core::mem::transmute(locale), core::mem::transmute(dwcmpflags), core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap())
+    CompareStringA(locale, dwcmpflags, core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn CompareStringEx<P0>(lplocalename: P0, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: &[u16], lpstring2: &[u16], lpversioninformation: Option<*const NLSVERSIONINFO>, lpreserved: Option<*const core::ffi::c_void>, lparam: Option<super::Foundation::LPARAM>) -> COMPARESTRING_RESULT
@@ -14,7 +14,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CompareStringEx(lplocalename : windows_core::PCWSTR, dwcmpflags : COMPARE_STRING_FLAGS, lpstring1 : windows_core::PCWSTR, cchcount1 : i32, lpstring2 : windows_core::PCWSTR, cchcount2 : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, lparam : super::Foundation:: LPARAM) -> COMPARESTRING_RESULT);
-    CompareStringEx(lplocalename.param().abi(), core::mem::transmute(dwcmpflags), core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap(), core::mem::transmute(lpversioninformation.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(lparam.unwrap_or(core::mem::zeroed())))
+    CompareStringEx(lplocalename.param().abi(), dwcmpflags, core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap(), core::mem::transmute(lpversioninformation.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(lparam.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CompareStringOrdinal(lpstring1: &[u16], lpstring2: &[u16], bignorecase: bool) -> COMPARESTRING_RESULT {
@@ -24,32 +24,32 @@ pub unsafe fn CompareStringOrdinal(lpstring1: &[u16], lpstring2: &[u16], bignore
 #[inline]
 pub unsafe fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: &[u16], lpstring2: &[u16]) -> COMPARESTRING_RESULT {
     windows_targets::link!("kernel32.dll" "system" fn CompareStringW(locale : u32, dwcmpflags : u32, lpstring1 : windows_core::PCWSTR, cchcount1 : i32, lpstring2 : windows_core::PCWSTR, cchcount2 : i32) -> COMPARESTRING_RESULT);
-    CompareStringW(core::mem::transmute(locale), core::mem::transmute(dwcmpflags), core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap())
+    CompareStringW(locale, dwcmpflags, core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn ConvertCalDateTimeToSystemTime(lpcaldatetime: *const CALDATETIME, lpsystime: *mut super::Foundation::SYSTEMTIME) -> super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn ConvertCalDateTimeToSystemTime(lpcaldatetime : *const CALDATETIME, lpsystime : *mut super::Foundation:: SYSTEMTIME) -> super::Foundation:: BOOL);
-    ConvertCalDateTimeToSystemTime(core::mem::transmute(lpcaldatetime), core::mem::transmute(lpsystime))
+    ConvertCalDateTimeToSystemTime(lpcaldatetime, core::mem::transmute(lpsystime))
 }
 #[inline]
 pub unsafe fn ConvertDefaultLocale(locale: u32) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn ConvertDefaultLocale(locale : u32) -> u32);
-    ConvertDefaultLocale(core::mem::transmute(locale))
+    ConvertDefaultLocale(locale)
 }
 #[inline]
 pub unsafe fn ConvertSystemTimeToCalDateTime(lpsystime: *const super::Foundation::SYSTEMTIME, calid: u32, lpcaldatetime: *mut CALDATETIME) -> super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn ConvertSystemTimeToCalDateTime(lpsystime : *const super::Foundation:: SYSTEMTIME, calid : u32, lpcaldatetime : *mut CALDATETIME) -> super::Foundation:: BOOL);
-    ConvertSystemTimeToCalDateTime(core::mem::transmute(lpsystime), core::mem::transmute(calid), core::mem::transmute(lpcaldatetime))
+    ConvertSystemTimeToCalDateTime(lpsystime, calid, core::mem::transmute(lpcaldatetime))
 }
 #[inline]
 pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u32, calendar: u32, caltype: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoA(lpcalinfoenumproc : CALINFO_ENUMPROCA, locale : u32, calendar : u32, caltype : u32) -> super::Foundation:: BOOL);
-    EnumCalendarInfoA(core::mem::transmute(lpcalinfoenumproc), core::mem::transmute(locale), core::mem::transmute(calendar), core::mem::transmute(caltype)).ok()
+    EnumCalendarInfoA(lpcalinfoenumproc, locale, calendar, caltype).ok()
 }
 #[inline]
 pub unsafe fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: u32, calendar: u32, caltype: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoExA(lpcalinfoenumprocex : CALINFO_ENUMPROCEXA, locale : u32, calendar : u32, caltype : u32) -> super::Foundation:: BOOL);
-    EnumCalendarInfoExA(core::mem::transmute(lpcalinfoenumprocex), core::mem::transmute(locale), core::mem::transmute(calendar), core::mem::transmute(caltype)).ok()
+    EnumCalendarInfoExA(lpcalinfoenumprocex, locale, calendar, caltype).ok()
 }
 #[inline]
 pub unsafe fn EnumCalendarInfoExEx<P1, P3>(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: P1, calendar: u32, lpreserved: P3, caltype: u32, lparam: super::Foundation::LPARAM) -> windows_core::Result<()>
@@ -58,27 +58,27 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoExEx(pcalinfoenumprocexex : CALINFO_ENUMPROCEXEX, lplocalename : windows_core::PCWSTR, calendar : u32, lpreserved : windows_core::PCWSTR, caltype : u32, lparam : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
-    EnumCalendarInfoExEx(core::mem::transmute(pcalinfoenumprocexex), lplocalename.param().abi(), core::mem::transmute(calendar), lpreserved.param().abi(), core::mem::transmute(caltype), core::mem::transmute(lparam)).ok()
+    EnumCalendarInfoExEx(pcalinfoenumprocexex, lplocalename.param().abi(), calendar, lpreserved.param().abi(), caltype, lparam).ok()
 }
 #[inline]
 pub unsafe fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: u32, calendar: u32, caltype: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoExW(lpcalinfoenumprocex : CALINFO_ENUMPROCEXW, locale : u32, calendar : u32, caltype : u32) -> super::Foundation:: BOOL);
-    EnumCalendarInfoExW(core::mem::transmute(lpcalinfoenumprocex), core::mem::transmute(locale), core::mem::transmute(calendar), core::mem::transmute(caltype)).ok()
+    EnumCalendarInfoExW(lpcalinfoenumprocex, locale, calendar, caltype).ok()
 }
 #[inline]
 pub unsafe fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: u32, calendar: u32, caltype: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoW(lpcalinfoenumproc : CALINFO_ENUMPROCW, locale : u32, calendar : u32, caltype : u32) -> super::Foundation:: BOOL);
-    EnumCalendarInfoW(core::mem::transmute(lpcalinfoenumproc), core::mem::transmute(locale), core::mem::transmute(calendar), core::mem::transmute(caltype)).ok()
+    EnumCalendarInfoW(lpcalinfoenumproc, locale, calendar, caltype).ok()
 }
 #[inline]
 pub unsafe fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsA(lpdatefmtenumproc : DATEFMT_ENUMPROCA, locale : u32, dwflags : u32) -> super::Foundation:: BOOL);
-    EnumDateFormatsA(core::mem::transmute(lpdatefmtenumproc), core::mem::transmute(locale), core::mem::transmute(dwflags)).ok()
+    EnumDateFormatsA(lpdatefmtenumproc, locale, dwflags).ok()
 }
 #[inline]
 pub unsafe fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsExA(lpdatefmtenumprocex : DATEFMT_ENUMPROCEXA, locale : u32, dwflags : u32) -> super::Foundation:: BOOL);
-    EnumDateFormatsExA(core::mem::transmute(lpdatefmtenumprocex), core::mem::transmute(locale), core::mem::transmute(dwflags)).ok()
+    EnumDateFormatsExA(lpdatefmtenumprocex, locale, dwflags).ok()
 }
 #[inline]
 pub unsafe fn EnumDateFormatsExEx<P1>(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: P1, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: super::Foundation::LPARAM) -> windows_core::Result<()>
@@ -86,77 +86,77 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsExEx(lpdatefmtenumprocexex : DATEFMT_ENUMPROCEXEX, lplocalename : windows_core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lparam : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
-    EnumDateFormatsExEx(core::mem::transmute(lpdatefmtenumprocexex), lplocalename.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(lparam)).ok()
+    EnumDateFormatsExEx(lpdatefmtenumprocexex, lplocalename.param().abi(), dwflags, lparam).ok()
 }
 #[inline]
 pub unsafe fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsExW(lpdatefmtenumprocex : DATEFMT_ENUMPROCEXW, locale : u32, dwflags : u32) -> super::Foundation:: BOOL);
-    EnumDateFormatsExW(core::mem::transmute(lpdatefmtenumprocex), core::mem::transmute(locale), core::mem::transmute(dwflags)).ok()
+    EnumDateFormatsExW(lpdatefmtenumprocex, locale, dwflags).ok()
 }
 #[inline]
 pub unsafe fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsW(lpdatefmtenumproc : DATEFMT_ENUMPROCW, locale : u32, dwflags : u32) -> super::Foundation:: BOOL);
-    EnumDateFormatsW(core::mem::transmute(lpdatefmtenumproc), core::mem::transmute(locale), core::mem::transmute(dwflags)).ok()
+    EnumDateFormatsW(lpdatefmtenumproc, locale, dwflags).ok()
 }
 #[inline]
 pub unsafe fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: u32, dwflags: u32, lparam: isize) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCA, languagegroup : u32, dwflags : u32, lparam : isize) -> super::Foundation:: BOOL);
-    EnumLanguageGroupLocalesA(core::mem::transmute(lplanggrouplocaleenumproc), core::mem::transmute(languagegroup), core::mem::transmute(dwflags), core::mem::transmute(lparam)).ok()
+    EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc, languagegroup, dwflags, lparam).ok()
 }
 #[inline]
 pub unsafe fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: u32, dwflags: u32, lparam: isize) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCW, languagegroup : u32, dwflags : u32, lparam : isize) -> super::Foundation:: BOOL);
-    EnumLanguageGroupLocalesW(core::mem::transmute(lplanggrouplocaleenumproc), core::mem::transmute(languagegroup), core::mem::transmute(dwflags), core::mem::transmute(lparam)).ok()
+    EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc, languagegroup, dwflags, lparam).ok()
 }
 #[inline]
 pub unsafe fn EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumSystemCodePagesA(lpcodepageenumproc : CODEPAGE_ENUMPROCA, dwflags : ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation:: BOOL);
-    EnumSystemCodePagesA(core::mem::transmute(lpcodepageenumproc), core::mem::transmute(dwflags)).ok()
+    EnumSystemCodePagesA(lpcodepageenumproc, dwflags).ok()
 }
 #[inline]
 pub unsafe fn EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumSystemCodePagesW(lpcodepageenumproc : CODEPAGE_ENUMPROCW, dwflags : ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation:: BOOL);
-    EnumSystemCodePagesW(core::mem::transmute(lpcodepageenumproc), core::mem::transmute(dwflags)).ok()
+    EnumSystemCodePagesW(lpcodepageenumproc, dwflags).ok()
 }
 #[inline]
 pub unsafe fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GEO_ENUMPROC) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumSystemGeoID(geoclass : u32, parentgeoid : i32, lpgeoenumproc : GEO_ENUMPROC) -> super::Foundation:: BOOL);
-    EnumSystemGeoID(core::mem::transmute(geoclass), core::mem::transmute(parentgeoid), core::mem::transmute(lpgeoenumproc)).ok()
+    EnumSystemGeoID(geoclass, parentgeoid, lpgeoenumproc).ok()
 }
 #[inline]
 pub unsafe fn EnumSystemGeoNames(geoclass: u32, geoenumproc: GEO_ENUMNAMEPROC, data: super::Foundation::LPARAM) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumSystemGeoNames(geoclass : u32, geoenumproc : GEO_ENUMNAMEPROC, data : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
-    EnumSystemGeoNames(core::mem::transmute(geoclass), core::mem::transmute(geoenumproc), core::mem::transmute(data)).ok()
+    EnumSystemGeoNames(geoclass, geoenumproc, data).ok()
 }
 #[inline]
 pub unsafe fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc : LANGUAGEGROUP_ENUMPROCA, dwflags : ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam : isize) -> super::Foundation:: BOOL);
-    EnumSystemLanguageGroupsA(core::mem::transmute(lplanguagegroupenumproc), core::mem::transmute(dwflags), core::mem::transmute(lparam)).ok()
+    EnumSystemLanguageGroupsA(lplanguagegroupenumproc, dwflags, lparam).ok()
 }
 #[inline]
 pub unsafe fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCW, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc : LANGUAGEGROUP_ENUMPROCW, dwflags : ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam : isize) -> super::Foundation:: BOOL);
-    EnumSystemLanguageGroupsW(core::mem::transmute(lplanguagegroupenumproc), core::mem::transmute(dwflags), core::mem::transmute(lparam)).ok()
+    EnumSystemLanguageGroupsW(lplanguagegroupenumproc, dwflags, lparam).ok()
 }
 #[inline]
 pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumSystemLocalesA(lplocaleenumproc : LOCALE_ENUMPROCA, dwflags : u32) -> super::Foundation:: BOOL);
-    EnumSystemLocalesA(core::mem::transmute(lplocaleenumproc), core::mem::transmute(dwflags)).ok()
+    EnumSystemLocalesA(lplocaleenumproc, dwflags).ok()
 }
 #[inline]
 pub unsafe fn EnumSystemLocalesEx(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: u32, lparam: super::Foundation::LPARAM, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumSystemLocalesEx(lplocaleenumprocex : LOCALE_ENUMPROCEX, dwflags : u32, lparam : super::Foundation:: LPARAM, lpreserved : *const core::ffi::c_void) -> super::Foundation:: BOOL);
-    EnumSystemLocalesEx(core::mem::transmute(lplocaleenumprocex), core::mem::transmute(dwflags), core::mem::transmute(lparam), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok()
+    EnumSystemLocalesEx(lplocaleenumprocex, dwflags, lparam, core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumSystemLocalesW(lplocaleenumproc : LOCALE_ENUMPROCW, dwflags : u32) -> super::Foundation:: BOOL);
-    EnumSystemLocalesW(core::mem::transmute(lplocaleenumproc), core::mem::transmute(dwflags)).ok()
+    EnumSystemLocalesW(lplocaleenumproc, dwflags).ok()
 }
 #[inline]
 pub unsafe fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumTimeFormatsA(lptimefmtenumproc : TIMEFMT_ENUMPROCA, locale : u32, dwflags : TIME_FORMAT_FLAGS) -> super::Foundation:: BOOL);
-    EnumTimeFormatsA(core::mem::transmute(lptimefmtenumproc), core::mem::transmute(locale), core::mem::transmute(dwflags)).ok()
+    EnumTimeFormatsA(lptimefmtenumproc, locale, dwflags).ok()
 }
 #[inline]
 pub unsafe fn EnumTimeFormatsEx<P1>(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: P1, dwflags: u32, lparam: super::Foundation::LPARAM) -> windows_core::Result<()>
@@ -164,27 +164,27 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumTimeFormatsEx(lptimefmtenumprocex : TIMEFMT_ENUMPROCEX, lplocalename : windows_core::PCWSTR, dwflags : u32, lparam : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
-    EnumTimeFormatsEx(core::mem::transmute(lptimefmtenumprocex), lplocalename.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(lparam)).ok()
+    EnumTimeFormatsEx(lptimefmtenumprocex, lplocalename.param().abi(), dwflags, lparam).ok()
 }
 #[inline]
 pub unsafe fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumTimeFormatsW(lptimefmtenumproc : TIMEFMT_ENUMPROCW, locale : u32, dwflags : TIME_FORMAT_FLAGS) -> super::Foundation:: BOOL);
-    EnumTimeFormatsW(core::mem::transmute(lptimefmtenumproc), core::mem::transmute(locale), core::mem::transmute(dwflags)).ok()
+    EnumTimeFormatsW(lptimefmtenumproc, locale, dwflags).ok()
 }
 #[inline]
 pub unsafe fn EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwflags: u32, lparam: isize) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumUILanguagesA(lpuilanguageenumproc : UILANGUAGE_ENUMPROCA, dwflags : u32, lparam : isize) -> super::Foundation:: BOOL);
-    EnumUILanguagesA(core::mem::transmute(lpuilanguageenumproc), core::mem::transmute(dwflags), core::mem::transmute(lparam)).ok()
+    EnumUILanguagesA(lpuilanguageenumproc, dwflags, lparam).ok()
 }
 #[inline]
 pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwflags: u32, lparam: isize) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn EnumUILanguagesW(lpuilanguageenumproc : UILANGUAGE_ENUMPROCW, dwflags : u32, lparam : isize) -> super::Foundation:: BOOL);
-    EnumUILanguagesW(core::mem::transmute(lpuilanguageenumproc), core::mem::transmute(dwflags), core::mem::transmute(lparam)).ok()
+    EnumUILanguagesW(lpuilanguageenumproc, dwflags, lparam).ok()
 }
 #[inline]
 pub unsafe fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: Option<*mut i32>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn FindNLSString(locale : u32, dwfindnlsstringflags : u32, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, pcchfound : *mut i32) -> i32);
-    FindNLSString(core::mem::transmute(locale), core::mem::transmute(dwfindnlsstringflags), core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), core::mem::transmute(pcchfound.unwrap_or(core::mem::zeroed())))
+    FindNLSString(locale, dwfindnlsstringflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), core::mem::transmute(pcchfound.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn FindNLSStringEx<P0>(lplocalename: P0, dwfindnlsstringflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: Option<*mut i32>, lpversioninformation: Option<*const NLSVERSIONINFO>, lpreserved: Option<*const core::ffi::c_void>, sorthandle: super::Foundation::LPARAM) -> i32
@@ -192,33 +192,22 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindNLSStringEx(lplocalename : windows_core::PCWSTR, dwfindnlsstringflags : u32, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, pcchfound : *mut i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::Foundation:: LPARAM) -> i32);
-    FindNLSStringEx(
-        lplocalename.param().abi(),
-        core::mem::transmute(dwfindnlsstringflags),
-        core::mem::transmute(lpstringsource.as_ptr()),
-        lpstringsource.len().try_into().unwrap(),
-        core::mem::transmute(lpstringvalue.as_ptr()),
-        lpstringvalue.len().try_into().unwrap(),
-        core::mem::transmute(pcchfound.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(lpversioninformation.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(sorthandle),
-    )
+    FindNLSStringEx(lplocalename.param().abi(), dwfindnlsstringflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), core::mem::transmute(pcchfound.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpversioninformation.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed())), sorthandle)
 }
 #[inline]
 pub unsafe fn FindStringOrdinal(dwfindstringordinalflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], bignorecase: bool) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn FindStringOrdinal(dwfindstringordinalflags : u32, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, bignorecase : super::Foundation:: BOOL) -> i32);
-    FindStringOrdinal(core::mem::transmute(dwfindstringordinalflags), core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), bignorecase.into())
+    FindStringOrdinal(dwfindstringordinalflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), bignorecase.into())
 }
 #[inline]
 pub unsafe fn FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: &[u8], lpdeststr: Option<&mut [u8]>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn FoldStringA(dwmapflags : FOLD_STRING_MAP_FLAGS, lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpdeststr : windows_core::PSTR, cchdest : i32) -> i32);
-    FoldStringA(core::mem::transmute(dwmapflags), core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    FoldStringA(dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn FoldStringW(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: &[u16], lpdeststr: Option<&mut [u16]>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn FoldStringW(dwmapflags : FOLD_STRING_MAP_FLAGS, lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32) -> i32);
-    FoldStringW(core::mem::transmute(dwmapflags), core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    FoldStringW(dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetACP() -> u32 {
@@ -228,17 +217,17 @@ pub unsafe fn GetACP() -> u32 {
 #[inline]
 pub unsafe fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetCPInfo(codepage : u32, lpcpinfo : *mut CPINFO) -> super::Foundation:: BOOL);
-    GetCPInfo(core::mem::transmute(codepage), core::mem::transmute(lpcpinfo)).ok()
+    GetCPInfo(codepage, core::mem::transmute(lpcpinfo)).ok()
 }
 #[inline]
 pub unsafe fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXA) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetCPInfoExA(codepage : u32, dwflags : u32, lpcpinfoex : *mut CPINFOEXA) -> super::Foundation:: BOOL);
-    GetCPInfoExA(core::mem::transmute(codepage), core::mem::transmute(dwflags), core::mem::transmute(lpcpinfoex)).ok()
+    GetCPInfoExA(codepage, dwflags, core::mem::transmute(lpcpinfoex)).ok()
 }
 #[inline]
 pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXW) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetCPInfoExW(codepage : u32, dwflags : u32, lpcpinfoex : *mut CPINFOEXW) -> super::Foundation:: BOOL);
-    GetCPInfoExW(core::mem::transmute(codepage), core::mem::transmute(dwflags), core::mem::transmute(lpcpinfoex)).ok()
+    GetCPInfoExW(codepage, dwflags, core::mem::transmute(lpcpinfoex)).ok()
 }
 #[inline]
 pub unsafe fn GetCalendarDateFormatEx<P0, P3>(lpszlocale: P0, dwflags: u32, lpcaldatetime: *const CALDATETIME, lpformat: P3, lpdatestr: windows_core::PWSTR, cchdate: i32) -> super::Foundation::BOOL
@@ -247,12 +236,12 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetCalendarDateFormatEx(lpszlocale : windows_core::PCWSTR, dwflags : u32, lpcaldatetime : *const CALDATETIME, lpformat : windows_core::PCWSTR, lpdatestr : windows_core::PWSTR, cchdate : i32) -> super::Foundation:: BOOL);
-    GetCalendarDateFormatEx(lpszlocale.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(lpcaldatetime), lpformat.param().abi(), core::mem::transmute(lpdatestr), core::mem::transmute(cchdate))
+    GetCalendarDateFormatEx(lpszlocale.param().abi(), dwflags, lpcaldatetime, lpformat.param().abi(), core::mem::transmute(lpdatestr), cchdate)
 }
 #[inline]
 pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: Option<&mut [u8]>, lpvalue: Option<*mut u32>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoA(locale : u32, calendar : u32, caltype : u32, lpcaldata : windows_core::PSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
-    GetCalendarInfoA(core::mem::transmute(locale), core::mem::transmute(calendar), core::mem::transmute(caltype), core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpvalue.unwrap_or(core::mem::zeroed())))
+    GetCalendarInfoA(locale, calendar, caltype, core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpvalue.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn GetCalendarInfoEx<P0, P2>(lplocalename: P0, calendar: u32, lpreserved: P2, caltype: u32, lpcaldata: Option<&mut [u16]>, lpvalue: Option<*mut u32>) -> i32
@@ -261,17 +250,17 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoEx(lplocalename : windows_core::PCWSTR, calendar : u32, lpreserved : windows_core::PCWSTR, caltype : u32, lpcaldata : windows_core::PWSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
-    GetCalendarInfoEx(lplocalename.param().abi(), core::mem::transmute(calendar), lpreserved.param().abi(), core::mem::transmute(caltype), core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpvalue.unwrap_or(core::mem::zeroed())))
+    GetCalendarInfoEx(lplocalename.param().abi(), calendar, lpreserved.param().abi(), caltype, core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpvalue.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: Option<&mut [u16]>, lpvalue: Option<*mut u32>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoW(locale : u32, calendar : u32, caltype : u32, lpcaldata : windows_core::PWSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
-    GetCalendarInfoW(core::mem::transmute(locale), core::mem::transmute(calendar), core::mem::transmute(caltype), core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpvalue.unwrap_or(core::mem::zeroed())))
+    GetCalendarInfoW(locale, calendar, caltype, core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpvalue.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn GetCalendarSupportedDateRange(calendar: u32, lpcalmindatetime: *mut CALDATETIME, lpcalmaxdatetime: *mut CALDATETIME) -> super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn GetCalendarSupportedDateRange(calendar : u32, lpcalmindatetime : *mut CALDATETIME, lpcalmaxdatetime : *mut CALDATETIME) -> super::Foundation:: BOOL);
-    GetCalendarSupportedDateRange(core::mem::transmute(calendar), core::mem::transmute(lpcalmindatetime), core::mem::transmute(lpcalmaxdatetime))
+    GetCalendarSupportedDateRange(calendar, core::mem::transmute(lpcalmindatetime), core::mem::transmute(lpcalmaxdatetime))
 }
 #[inline]
 pub unsafe fn GetCurrencyFormatA<P2>(locale: u32, dwflags: u32, lpvalue: P2, lpformat: Option<*const CURRENCYFMTA>, lpcurrencystr: Option<&mut [u8]>) -> i32
@@ -279,7 +268,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatA(locale : u32, dwflags : u32, lpvalue : windows_core::PCSTR, lpformat : *const CURRENCYFMTA, lpcurrencystr : windows_core::PSTR, cchcurrency : i32) -> i32);
-    GetCurrencyFormatA(core::mem::transmute(locale), core::mem::transmute(dwflags), lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetCurrencyFormatA(locale, dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetCurrencyFormatEx<P0, P2>(lplocalename: P0, dwflags: u32, lpvalue: P2, lpformat: Option<*const CURRENCYFMTW>, lpcurrencystr: Option<&mut [u16]>) -> i32
@@ -288,7 +277,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatEx(lplocalename : windows_core::PCWSTR, dwflags : u32, lpvalue : windows_core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : windows_core::PWSTR, cchcurrency : i32) -> i32);
-    GetCurrencyFormatEx(lplocalename.param().abi(), core::mem::transmute(dwflags), lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetCurrencyFormatEx(lplocalename.param().abi(), dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetCurrencyFormatW<P2>(locale: u32, dwflags: u32, lpvalue: P2, lpformat: Option<*const CURRENCYFMTW>, lpcurrencystr: Option<&mut [u16]>) -> i32
@@ -296,7 +285,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatW(locale : u32, dwflags : u32, lpvalue : windows_core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : windows_core::PWSTR, cchcurrency : i32) -> i32);
-    GetCurrencyFormatW(core::mem::transmute(locale), core::mem::transmute(dwflags), lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetCurrencyFormatW(locale, dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetDateFormatA<P3>(locale: u32, dwflags: u32, lpdate: Option<*const super::Foundation::SYSTEMTIME>, lpformat: P3, lpdatestr: Option<&mut [u8]>) -> i32
@@ -304,7 +293,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetDateFormatA(locale : u32, dwflags : u32, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCSTR, lpdatestr : windows_core::PSTR, cchdate : i32) -> i32);
-    GetDateFormatA(core::mem::transmute(locale), core::mem::transmute(dwflags), core::mem::transmute(lpdate.unwrap_or(core::mem::zeroed())), lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetDateFormatA(locale, dwflags, core::mem::transmute(lpdate.unwrap_or(core::mem::zeroed())), lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetDateFormatEx<P0, P3, P6>(lplocalename: P0, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: Option<*const super::Foundation::SYSTEMTIME>, lpformat: P3, lpdatestr: Option<&mut [u16]>, lpcalendar: P6) -> i32
@@ -314,7 +303,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetDateFormatEx(lplocalename : windows_core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCWSTR, lpdatestr : windows_core::PWSTR, cchdate : i32, lpcalendar : windows_core::PCWSTR) -> i32);
-    GetDateFormatEx(lplocalename.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(lpdate.unwrap_or(core::mem::zeroed())), lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcalendar.param().abi())
+    GetDateFormatEx(lplocalename.param().abi(), dwflags, core::mem::transmute(lpdate.unwrap_or(core::mem::zeroed())), lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcalendar.param().abi())
 }
 #[inline]
 pub unsafe fn GetDateFormatW<P3>(locale: u32, dwflags: u32, lpdate: Option<*const super::Foundation::SYSTEMTIME>, lpformat: P3, lpdatestr: Option<&mut [u16]>) -> i32
@@ -322,7 +311,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetDateFormatW(locale : u32, dwflags : u32, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCWSTR, lpdatestr : windows_core::PWSTR, cchdate : i32) -> i32);
-    GetDateFormatW(core::mem::transmute(locale), core::mem::transmute(dwflags), core::mem::transmute(lpdate.unwrap_or(core::mem::zeroed())), lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetDateFormatW(locale, dwflags, core::mem::transmute(lpdate.unwrap_or(core::mem::zeroed())), lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetDistanceOfClosestLanguageInList<P0, P1>(pszlanguage: P0, pszlanguageslist: P1, wchlistdelimiter: u16) -> windows_core::Result<f64>
@@ -332,7 +321,7 @@ where
 {
     windows_targets::link!("bcp47mrm.dll" "system" fn GetDistanceOfClosestLanguageInList(pszlanguage : windows_core::PCWSTR, pszlanguageslist : windows_core::PCWSTR, wchlistdelimiter : u16, pclosestdistance : *mut f64) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetDistanceOfClosestLanguageInList(pszlanguage.param().abi(), pszlanguageslist.param().abi(), core::mem::transmute(wchlistdelimiter), &mut result__).map(|| core::mem::transmute(result__))
+    GetDistanceOfClosestLanguageInList(pszlanguage.param().abi(), pszlanguageslist.param().abi(), wchlistdelimiter, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetDurationFormat<P4>(locale: u32, dwflags: u32, lpduration: Option<*const super::Foundation::SYSTEMTIME>, ullduration: u64, lpformat: P4, lpdurationstr: Option<&mut [u16]>) -> i32
@@ -340,7 +329,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetDurationFormat(locale : u32, dwflags : u32, lpduration : *const super::Foundation:: SYSTEMTIME, ullduration : u64, lpformat : windows_core::PCWSTR, lpdurationstr : windows_core::PWSTR, cchduration : i32) -> i32);
-    GetDurationFormat(core::mem::transmute(locale), core::mem::transmute(dwflags), core::mem::transmute(lpduration.unwrap_or(core::mem::zeroed())), core::mem::transmute(ullduration), lpformat.param().abi(), core::mem::transmute(lpdurationstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetDurationFormat(locale, dwflags, core::mem::transmute(lpduration.unwrap_or(core::mem::zeroed())), ullduration, lpformat.param().abi(), core::mem::transmute(lpdurationstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetDurationFormatEx<P0, P4>(lplocalename: P0, dwflags: u32, lpduration: Option<*const super::Foundation::SYSTEMTIME>, ullduration: u64, lpformat: P4, lpdurationstr: Option<&mut [u16]>) -> i32
@@ -349,7 +338,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetDurationFormatEx(lplocalename : windows_core::PCWSTR, dwflags : u32, lpduration : *const super::Foundation:: SYSTEMTIME, ullduration : u64, lpformat : windows_core::PCWSTR, lpdurationstr : windows_core::PWSTR, cchduration : i32) -> i32);
-    GetDurationFormatEx(lplocalename.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(lpduration.unwrap_or(core::mem::zeroed())), core::mem::transmute(ullduration), lpformat.param().abi(), core::mem::transmute(lpdurationstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetDurationFormatEx(lplocalename.param().abi(), dwflags, core::mem::transmute(lpduration.unwrap_or(core::mem::zeroed())), ullduration, lpformat.param().abi(), core::mem::transmute(lpdurationstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetFileMUIInfo<P1>(dwflags: u32, pcwszfilepath: P1, pfilemuiinfo: Option<*mut FILEMUIINFO>, pcbfilemuiinfo: *mut u32) -> windows_core::Result<()>
@@ -357,7 +346,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFileMUIInfo(dwflags : u32, pcwszfilepath : windows_core::PCWSTR, pfilemuiinfo : *mut FILEMUIINFO, pcbfilemuiinfo : *mut u32) -> super::Foundation:: BOOL);
-    GetFileMUIInfo(core::mem::transmute(dwflags), pcwszfilepath.param().abi(), core::mem::transmute(pfilemuiinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbfilemuiinfo)).ok()
+    GetFileMUIInfo(dwflags, pcwszfilepath.param().abi(), core::mem::transmute(pfilemuiinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbfilemuiinfo)).ok()
 }
 #[inline]
 pub unsafe fn GetFileMUIPath<P1>(dwflags: u32, pcwszfilepath: P1, pwszlanguage: Option<windows_core::PWSTR>, pcchlanguage: *mut u32, pwszfilemuipath: Option<windows_core::PWSTR>, pcchfilemuipath: *mut u32, pululenumerator: *mut u64) -> windows_core::Result<()>
@@ -365,12 +354,12 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFileMUIPath(dwflags : u32, pcwszfilepath : windows_core::PCWSTR, pwszlanguage : windows_core::PWSTR, pcchlanguage : *mut u32, pwszfilemuipath : windows_core::PWSTR, pcchfilemuipath : *mut u32, pululenumerator : *mut u64) -> super::Foundation:: BOOL);
-    GetFileMUIPath(core::mem::transmute(dwflags), pcwszfilepath.param().abi(), core::mem::transmute(pwszlanguage.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchlanguage), core::mem::transmute(pwszfilemuipath.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchfilemuipath), core::mem::transmute(pululenumerator)).ok()
+    GetFileMUIPath(dwflags, pcwszfilepath.param().abi(), core::mem::transmute(pwszlanguage.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchlanguage), core::mem::transmute(pwszfilemuipath.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchfilemuipath), core::mem::transmute(pululenumerator)).ok()
 }
 #[inline]
 pub unsafe fn GetGeoInfoA(location: i32, geotype: SYSGEOTYPE, lpgeodata: Option<&mut [u8]>, langid: u16) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoA(location : i32, geotype : SYSGEOTYPE, lpgeodata : windows_core::PSTR, cchdata : i32, langid : u16) -> i32);
-    GetGeoInfoA(core::mem::transmute(location), core::mem::transmute(geotype), core::mem::transmute(lpgeodata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpgeodata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(langid))
+    GetGeoInfoA(location, geotype, core::mem::transmute(lpgeodata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpgeodata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), langid)
 }
 #[inline]
 pub unsafe fn GetGeoInfoEx<P0>(location: P0, geotype: SYSGEOTYPE, geodata: Option<&mut [u16]>) -> i32
@@ -378,17 +367,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoEx(location : windows_core::PCWSTR, geotype : SYSGEOTYPE, geodata : windows_core::PWSTR, geodatacount : i32) -> i32);
-    GetGeoInfoEx(location.param().abi(), core::mem::transmute(geotype), core::mem::transmute(geodata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), geodata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetGeoInfoEx(location.param().abi(), geotype, core::mem::transmute(geodata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), geodata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetGeoInfoW(location: i32, geotype: SYSGEOTYPE, lpgeodata: Option<&mut [u16]>, langid: u16) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoW(location : i32, geotype : SYSGEOTYPE, lpgeodata : windows_core::PWSTR, cchdata : i32, langid : u16) -> i32);
-    GetGeoInfoW(core::mem::transmute(location), core::mem::transmute(geotype), core::mem::transmute(lpgeodata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpgeodata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(langid))
+    GetGeoInfoW(location, geotype, core::mem::transmute(lpgeodata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpgeodata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), langid)
 }
 #[inline]
 pub unsafe fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: Option<&mut [u8]>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoA(locale : u32, lctype : u32, lplcdata : windows_core::PSTR, cchdata : i32) -> i32);
-    GetLocaleInfoA(core::mem::transmute(locale), core::mem::transmute(lctype), core::mem::transmute(lplcdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lplcdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetLocaleInfoA(locale, lctype, core::mem::transmute(lplcdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lplcdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetLocaleInfoEx<P0>(lplocalename: P0, lctype: u32, lplcdata: Option<&mut [u16]>) -> i32
@@ -396,17 +385,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoEx(lplocalename : windows_core::PCWSTR, lctype : u32, lplcdata : windows_core::PWSTR, cchdata : i32) -> i32);
-    GetLocaleInfoEx(lplocalename.param().abi(), core::mem::transmute(lctype), core::mem::transmute(lplcdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lplcdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetLocaleInfoEx(lplocalename.param().abi(), lctype, core::mem::transmute(lplcdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lplcdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: Option<&mut [u16]>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoW(locale : u32, lctype : u32, lplcdata : windows_core::PWSTR, cchdata : i32) -> i32);
-    GetLocaleInfoW(core::mem::transmute(locale), core::mem::transmute(lctype), core::mem::transmute(lplcdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lplcdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetLocaleInfoW(locale, lctype, core::mem::transmute(lplcdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lplcdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *mut NLSVERSIONINFO) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetNLSVersion(function : u32, locale : u32, lpversioninformation : *mut NLSVERSIONINFO) -> super::Foundation:: BOOL);
-    GetNLSVersion(core::mem::transmute(function), core::mem::transmute(locale), core::mem::transmute(lpversioninformation)).ok()
+    GetNLSVersion(function, locale, core::mem::transmute(lpversioninformation)).ok()
 }
 #[inline]
 pub unsafe fn GetNLSVersionEx<P1>(function: u32, lplocalename: P1, lpversioninformation: *mut NLSVERSIONINFOEX) -> windows_core::Result<()>
@@ -414,7 +403,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetNLSVersionEx(function : u32, lplocalename : windows_core::PCWSTR, lpversioninformation : *mut NLSVERSIONINFOEX) -> super::Foundation:: BOOL);
-    GetNLSVersionEx(core::mem::transmute(function), lplocalename.param().abi(), core::mem::transmute(lpversioninformation)).ok()
+    GetNLSVersionEx(function, lplocalename.param().abi(), core::mem::transmute(lpversioninformation)).ok()
 }
 #[inline]
 pub unsafe fn GetNumberFormatA<P2>(locale: u32, dwflags: u32, lpvalue: P2, lpformat: Option<*const NUMBERFMTA>, lpnumberstr: Option<&mut [u8]>) -> i32
@@ -422,7 +411,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetNumberFormatA(locale : u32, dwflags : u32, lpvalue : windows_core::PCSTR, lpformat : *const NUMBERFMTA, lpnumberstr : windows_core::PSTR, cchnumber : i32) -> i32);
-    GetNumberFormatA(core::mem::transmute(locale), core::mem::transmute(dwflags), lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetNumberFormatA(locale, dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetNumberFormatEx<P0, P2>(lplocalename: P0, dwflags: u32, lpvalue: P2, lpformat: Option<*const NUMBERFMTW>, lpnumberstr: Option<&mut [u16]>) -> i32
@@ -431,7 +420,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetNumberFormatEx(lplocalename : windows_core::PCWSTR, dwflags : u32, lpvalue : windows_core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : windows_core::PWSTR, cchnumber : i32) -> i32);
-    GetNumberFormatEx(lplocalename.param().abi(), core::mem::transmute(dwflags), lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetNumberFormatEx(lplocalename.param().abi(), dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetNumberFormatW<P2>(locale: u32, dwflags: u32, lpvalue: P2, lpformat: Option<*const NUMBERFMTW>, lpnumberstr: Option<&mut [u16]>) -> i32
@@ -439,7 +428,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetNumberFormatW(locale : u32, dwflags : u32, lpvalue : windows_core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : windows_core::PWSTR, cchnumber : i32) -> i32);
-    GetNumberFormatW(core::mem::transmute(locale), core::mem::transmute(dwflags), lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetNumberFormatW(locale, dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetOEMCP() -> u32 {
@@ -449,7 +438,7 @@ pub unsafe fn GetOEMCP() -> u32 {
 #[inline]
 pub unsafe fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: Option<windows_core::PWSTR>, pcchlanguagesbuffer: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetProcessPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : windows_core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
-    GetProcessPreferredUILanguages(core::mem::transmute(dwflags), core::mem::transmute(pulnumlanguages), core::mem::transmute(pwszlanguagesbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchlanguagesbuffer)).ok()
+    GetProcessPreferredUILanguages(dwflags, core::mem::transmute(pulnumlanguages), core::mem::transmute(pwszlanguagesbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchlanguagesbuffer)).ok()
 }
 #[inline]
 pub unsafe fn GetStringScripts<P1>(dwflags: u32, lpstring: P1, cchstring: i32, lpscripts: Option<&mut [u16]>) -> i32
@@ -457,12 +446,12 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetStringScripts(dwflags : u32, lpstring : windows_core::PCWSTR, cchstring : i32, lpscripts : windows_core::PWSTR, cchscripts : i32) -> i32);
-    GetStringScripts(core::mem::transmute(dwflags), lpstring.param().abi(), core::mem::transmute(cchstring), core::mem::transmute(lpscripts.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpscripts.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetStringScripts(dwflags, lpstring.param().abi(), cchstring, core::mem::transmute(lpscripts.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpscripts.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: &[u8], lpchartype: *mut u16) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetStringTypeA(locale : u32, dwinfotype : u32, lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
-    GetStringTypeA(core::mem::transmute(locale), core::mem::transmute(dwinfotype), core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpchartype)).ok()
+    GetStringTypeA(locale, dwinfotype, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpchartype)).ok()
 }
 #[inline]
 pub unsafe fn GetStringTypeExA<P2>(locale: u32, dwinfotype: u32, lpsrcstr: P2, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL
@@ -470,7 +459,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetStringTypeExA(locale : u32, dwinfotype : u32, lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
-    GetStringTypeExA(core::mem::transmute(locale), core::mem::transmute(dwinfotype), lpsrcstr.param().abi(), core::mem::transmute(cchsrc), core::mem::transmute(lpchartype))
+    GetStringTypeExA(locale, dwinfotype, lpsrcstr.param().abi(), cchsrc, core::mem::transmute(lpchartype))
 }
 #[inline]
 pub unsafe fn GetStringTypeExW<P2>(locale: u32, dwinfotype: u32, lpsrcstr: P2, cchsrc: i32, lpchartype: *mut u16) -> windows_core::Result<()>
@@ -478,12 +467,12 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetStringTypeExW(locale : u32, dwinfotype : u32, lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
-    GetStringTypeExW(core::mem::transmute(locale), core::mem::transmute(dwinfotype), lpsrcstr.param().abi(), core::mem::transmute(cchsrc), core::mem::transmute(lpchartype)).ok()
+    GetStringTypeExW(locale, dwinfotype, lpsrcstr.param().abi(), cchsrc, core::mem::transmute(lpchartype)).ok()
 }
 #[inline]
 pub unsafe fn GetStringTypeW(dwinfotype: u32, lpsrcstr: &[u16], lpchartype: *mut u16) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetStringTypeW(dwinfotype : u32, lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
-    GetStringTypeW(core::mem::transmute(dwinfotype), core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpchartype)).ok()
+    GetStringTypeW(dwinfotype, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpchartype)).ok()
 }
 #[inline]
 pub unsafe fn GetSystemDefaultLCID() -> u32 {
@@ -508,19 +497,19 @@ pub unsafe fn GetSystemDefaultUILanguage() -> u16 {
 #[inline]
 pub unsafe fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: Option<windows_core::PWSTR>, pcchlanguagesbuffer: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetSystemPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : windows_core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
-    GetSystemPreferredUILanguages(core::mem::transmute(dwflags), core::mem::transmute(pulnumlanguages), core::mem::transmute(pwszlanguagesbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchlanguagesbuffer)).ok()
+    GetSystemPreferredUILanguages(dwflags, core::mem::transmute(pulnumlanguages), core::mem::transmute(pwszlanguagesbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchlanguagesbuffer)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetTextCharset(hdc: super::Graphics::Gdi::HDC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetTextCharset(hdc : super::Graphics::Gdi:: HDC) -> i32);
-    GetTextCharset(core::mem::transmute(hdc))
+    GetTextCharset(hdc)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetTextCharsetInfo(hdc: super::Graphics::Gdi::HDC, lpsig: Option<*mut FONTSIGNATURE>, dwflags: u32) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetTextCharsetInfo(hdc : super::Graphics::Gdi:: HDC, lpsig : *mut FONTSIGNATURE, dwflags : u32) -> i32);
-    GetTextCharsetInfo(core::mem::transmute(hdc), core::mem::transmute(lpsig.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags))
+    GetTextCharsetInfo(hdc, core::mem::transmute(lpsig.unwrap_or(core::mem::zeroed())), dwflags)
 }
 #[inline]
 pub unsafe fn GetThreadLocale() -> u32 {
@@ -530,7 +519,7 @@ pub unsafe fn GetThreadLocale() -> u32 {
 #[inline]
 pub unsafe fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: Option<windows_core::PWSTR>, pcchlanguagesbuffer: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetThreadPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : windows_core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
-    GetThreadPreferredUILanguages(core::mem::transmute(dwflags), core::mem::transmute(pulnumlanguages), core::mem::transmute(pwszlanguagesbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchlanguagesbuffer)).ok()
+    GetThreadPreferredUILanguages(dwflags, core::mem::transmute(pulnumlanguages), core::mem::transmute(pwszlanguagesbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchlanguagesbuffer)).ok()
 }
 #[inline]
 pub unsafe fn GetThreadUILanguage() -> u16 {
@@ -543,7 +532,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatA(locale : u32, dwflags : u32, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCSTR, lptimestr : windows_core::PSTR, cchtime : i32) -> i32);
-    GetTimeFormatA(core::mem::transmute(locale), core::mem::transmute(dwflags), core::mem::transmute(lptime.unwrap_or(core::mem::zeroed())), lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetTimeFormatA(locale, dwflags, core::mem::transmute(lptime.unwrap_or(core::mem::zeroed())), lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetTimeFormatEx<P0, P3>(lplocalename: P0, dwflags: TIME_FORMAT_FLAGS, lptime: Option<*const super::Foundation::SYSTEMTIME>, lpformat: P3, lptimestr: Option<&mut [u16]>) -> i32
@@ -552,7 +541,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatEx(lplocalename : windows_core::PCWSTR, dwflags : TIME_FORMAT_FLAGS, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCWSTR, lptimestr : windows_core::PWSTR, cchtime : i32) -> i32);
-    GetTimeFormatEx(lplocalename.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(lptime.unwrap_or(core::mem::zeroed())), lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetTimeFormatEx(lplocalename.param().abi(), dwflags, core::mem::transmute(lptime.unwrap_or(core::mem::zeroed())), lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetTimeFormatW<P3>(locale: u32, dwflags: u32, lptime: Option<*const super::Foundation::SYSTEMTIME>, lpformat: P3, lptimestr: Option<&mut [u16]>) -> i32
@@ -560,7 +549,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatW(locale : u32, dwflags : u32, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCWSTR, lptimestr : windows_core::PWSTR, cchtime : i32) -> i32);
-    GetTimeFormatW(core::mem::transmute(locale), core::mem::transmute(dwflags), core::mem::transmute(lptime.unwrap_or(core::mem::zeroed())), lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetTimeFormatW(locale, dwflags, core::mem::transmute(lptime.unwrap_or(core::mem::zeroed())), lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetUILanguageInfo<P1>(dwflags: u32, pwmszlanguage: P1, pwszfallbacklanguages: Option<windows_core::PWSTR>, pcchfallbacklanguages: Option<*mut u32>, pattributes: *mut u32) -> windows_core::Result<()>
@@ -568,7 +557,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetUILanguageInfo(dwflags : u32, pwmszlanguage : windows_core::PCWSTR, pwszfallbacklanguages : windows_core::PWSTR, pcchfallbacklanguages : *mut u32, pattributes : *mut u32) -> super::Foundation:: BOOL);
-    GetUILanguageInfo(core::mem::transmute(dwflags), pwmszlanguage.param().abi(), core::mem::transmute(pwszfallbacklanguages.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchfallbacklanguages.unwrap_or(core::mem::zeroed())), core::mem::transmute(pattributes)).ok()
+    GetUILanguageInfo(dwflags, pwmszlanguage.param().abi(), core::mem::transmute(pwszfallbacklanguages.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchfallbacklanguages.unwrap_or(core::mem::zeroed())), core::mem::transmute(pattributes)).ok()
 }
 #[inline]
 pub unsafe fn GetUserDefaultGeoName(geoname: &mut [u16]) -> i32 {
@@ -598,72 +587,72 @@ pub unsafe fn GetUserDefaultUILanguage() -> u16 {
 #[inline]
 pub unsafe fn GetUserGeoID(geoclass: SYSGEOCLASS) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn GetUserGeoID(geoclass : SYSGEOCLASS) -> i32);
-    GetUserGeoID(core::mem::transmute(geoclass))
+    GetUserGeoID(geoclass)
 }
 #[inline]
 pub unsafe fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: Option<windows_core::PWSTR>, pcchlanguagesbuffer: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetUserPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : windows_core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
-    GetUserPreferredUILanguages(core::mem::transmute(dwflags), core::mem::transmute(pulnumlanguages), core::mem::transmute(pwszlanguagesbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchlanguagesbuffer)).ok()
+    GetUserPreferredUILanguages(dwflags, core::mem::transmute(pulnumlanguages), core::mem::transmute(pwszlanguagesbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchlanguagesbuffer)).ok()
 }
 #[inline]
 pub unsafe fn IdnToAscii(dwflags: u32, lpunicodecharstr: &[u16], lpasciicharstr: Option<&mut [u16]>) -> i32 {
     windows_targets::link!("normaliz.dll" "system" fn IdnToAscii(dwflags : u32, lpunicodecharstr : windows_core::PCWSTR, cchunicodechar : i32, lpasciicharstr : windows_core::PWSTR, cchasciichar : i32) -> i32);
-    IdnToAscii(core::mem::transmute(dwflags), core::mem::transmute(lpunicodecharstr.as_ptr()), lpunicodecharstr.len().try_into().unwrap(), core::mem::transmute(lpasciicharstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpasciicharstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    IdnToAscii(dwflags, core::mem::transmute(lpunicodecharstr.as_ptr()), lpunicodecharstr.len().try_into().unwrap(), core::mem::transmute(lpasciicharstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpasciicharstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn IdnToNameprepUnicode(dwflags: u32, lpunicodecharstr: &[u16], lpnameprepcharstr: Option<&mut [u16]>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn IdnToNameprepUnicode(dwflags : u32, lpunicodecharstr : windows_core::PCWSTR, cchunicodechar : i32, lpnameprepcharstr : windows_core::PWSTR, cchnameprepchar : i32) -> i32);
-    IdnToNameprepUnicode(core::mem::transmute(dwflags), core::mem::transmute(lpunicodecharstr.as_ptr()), lpunicodecharstr.len().try_into().unwrap(), core::mem::transmute(lpnameprepcharstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnameprepcharstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    IdnToNameprepUnicode(dwflags, core::mem::transmute(lpunicodecharstr.as_ptr()), lpunicodecharstr.len().try_into().unwrap(), core::mem::transmute(lpnameprepcharstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnameprepcharstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn IdnToUnicode(dwflags: u32, lpasciicharstr: &[u16], lpunicodecharstr: Option<&mut [u16]>) -> i32 {
     windows_targets::link!("normaliz.dll" "system" fn IdnToUnicode(dwflags : u32, lpasciicharstr : windows_core::PCWSTR, cchasciichar : i32, lpunicodecharstr : windows_core::PWSTR, cchunicodechar : i32) -> i32);
-    IdnToUnicode(core::mem::transmute(dwflags), core::mem::transmute(lpasciicharstr.as_ptr()), lpasciicharstr.len().try_into().unwrap(), core::mem::transmute(lpunicodecharstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpunicodecharstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    IdnToUnicode(dwflags, core::mem::transmute(lpasciicharstr.as_ptr()), lpasciicharstr.len().try_into().unwrap(), core::mem::transmute(lpunicodecharstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpunicodecharstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn IsCalendarLeapYear(calid: u32, year: u32, era: u32) -> super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn IsCalendarLeapYear(calid : u32, year : u32, era : u32) -> super::Foundation:: BOOL);
-    IsCalendarLeapYear(core::mem::transmute(calid), core::mem::transmute(year), core::mem::transmute(era))
+    IsCalendarLeapYear(calid, year, era)
 }
 #[inline]
 pub unsafe fn IsDBCSLeadByte(testchar: u8) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn IsDBCSLeadByte(testchar : u8) -> super::Foundation:: BOOL);
-    IsDBCSLeadByte(core::mem::transmute(testchar)).ok()
+    IsDBCSLeadByte(testchar).ok()
 }
 #[inline]
 pub unsafe fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn IsDBCSLeadByteEx(codepage : u32, testchar : u8) -> super::Foundation:: BOOL);
-    IsDBCSLeadByteEx(core::mem::transmute(codepage), core::mem::transmute(testchar)).ok()
+    IsDBCSLeadByteEx(codepage, testchar).ok()
 }
 #[inline]
 pub unsafe fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformation: *const NLSVERSIONINFO, lpstring: &[u16]) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn IsNLSDefinedString(function : u32, dwflags : u32, lpversioninformation : *const NLSVERSIONINFO, lpstring : windows_core::PCWSTR, cchstr : i32) -> super::Foundation:: BOOL);
-    IsNLSDefinedString(core::mem::transmute(function), core::mem::transmute(dwflags), core::mem::transmute(lpversioninformation), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()).ok()
+    IsNLSDefinedString(function, dwflags, lpversioninformation, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()).ok()
 }
 #[inline]
 pub unsafe fn IsNormalizedString(normform: NORM_FORM, lpstring: &[u16]) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn IsNormalizedString(normform : NORM_FORM, lpstring : windows_core::PCWSTR, cwlength : i32) -> super::Foundation:: BOOL);
-    IsNormalizedString(core::mem::transmute(normform), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()).ok()
+    IsNormalizedString(normform, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()).ok()
 }
 #[inline]
 pub unsafe fn IsTextUnicode(lpv: *const core::ffi::c_void, isize: i32, lpiresult: Option<*mut IS_TEXT_UNICODE_RESULT>) -> super::Foundation::BOOL {
     windows_targets::link!("advapi32.dll" "system" fn IsTextUnicode(lpv : *const core::ffi::c_void, isize : i32, lpiresult : *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation:: BOOL);
-    IsTextUnicode(core::mem::transmute(lpv), core::mem::transmute(isize), core::mem::transmute(lpiresult.unwrap_or(core::mem::zeroed())))
+    IsTextUnicode(lpv, isize, core::mem::transmute(lpiresult.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn IsValidCodePage(codepage : u32) -> super::Foundation:: BOOL);
-    IsValidCodePage(core::mem::transmute(codepage))
+    IsValidCodePage(codepage)
 }
 #[inline]
 pub unsafe fn IsValidLanguageGroup(languagegroup: u32, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS) -> super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn IsValidLanguageGroup(languagegroup : u32, dwflags : ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS) -> super::Foundation:: BOOL);
-    IsValidLanguageGroup(core::mem::transmute(languagegroup), core::mem::transmute(dwflags))
+    IsValidLanguageGroup(languagegroup, dwflags)
 }
 #[inline]
 pub unsafe fn IsValidLocale(locale: u32, dwflags: IS_VALID_LOCALE_FLAGS) -> super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn IsValidLocale(locale : u32, dwflags : IS_VALID_LOCALE_FLAGS) -> super::Foundation:: BOOL);
-    IsValidLocale(core::mem::transmute(locale), core::mem::transmute(dwflags))
+    IsValidLocale(locale, dwflags)
 }
 #[inline]
 pub unsafe fn IsValidLocaleName<P0>(lplocalename: P0) -> super::Foundation::BOOL
@@ -679,7 +668,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn IsValidNLSVersion(function : u32, lplocalename : windows_core::PCWSTR, lpversioninformation : *const NLSVERSIONINFOEX) -> u32);
-    IsValidNLSVersion(core::mem::transmute(function), lplocalename.param().abi(), core::mem::transmute(lpversioninformation))
+    IsValidNLSVersion(function, lplocalename.param().abi(), lpversioninformation)
 }
 #[inline]
 pub unsafe fn IsWellFormedTag<P0>(psztag: P0) -> u8
@@ -692,12 +681,12 @@ where
 #[inline]
 pub unsafe fn LCIDToLocaleName(locale: u32, lpname: Option<&mut [u16]>, dwflags: u32) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn LCIDToLocaleName(locale : u32, lpname : windows_core::PWSTR, cchname : i32, dwflags : u32) -> i32);
-    LCIDToLocaleName(core::mem::transmute(locale), core::mem::transmute(lpname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(dwflags))
+    LCIDToLocaleName(locale, core::mem::transmute(lpname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwflags)
 }
 #[inline]
 pub unsafe fn LCMapStringA(locale: u32, dwmapflags: u32, lpsrcstr: &[u8], lpdeststr: Option<windows_core::PSTR>, cchdest: i32) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn LCMapStringA(locale : u32, dwmapflags : u32, lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpdeststr : windows_core::PSTR, cchdest : i32) -> i32);
-    LCMapStringA(core::mem::transmute(locale), core::mem::transmute(dwmapflags), core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(cchdest))
+    LCMapStringA(locale, dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.unwrap_or(core::mem::zeroed())), cchdest)
 }
 #[inline]
 pub unsafe fn LCMapStringEx<P0>(lplocalename: P0, dwmapflags: u32, lpsrcstr: &[u16], lpdeststr: Option<&mut [u16]>, lpversioninformation: Option<*const NLSVERSIONINFO>, lpreserved: Option<*const core::ffi::c_void>, sorthandle: super::Foundation::LPARAM) -> i32
@@ -705,12 +694,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn LCMapStringEx(lplocalename : windows_core::PCWSTR, dwmapflags : u32, lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::Foundation:: LPARAM) -> i32);
-    LCMapStringEx(lplocalename.param().abi(), core::mem::transmute(dwmapflags), core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpversioninformation.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(sorthandle))
+    LCMapStringEx(lplocalename.param().abi(), dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpversioninformation.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed())), sorthandle)
 }
 #[inline]
 pub unsafe fn LCMapStringW(locale: u32, dwmapflags: u32, lpsrcstr: &[u16], lpdeststr: Option<windows_core::PWSTR>, cchdest: i32) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn LCMapStringW(locale : u32, dwmapflags : u32, lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32) -> i32);
-    LCMapStringW(core::mem::transmute(locale), core::mem::transmute(dwmapflags), core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(cchdest))
+    LCMapStringW(locale, dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.unwrap_or(core::mem::zeroed())), cchdest)
 }
 #[inline]
 pub unsafe fn LocaleNameToLCID<P0>(lpname: P0, dwflags: u32) -> u32
@@ -718,7 +707,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn LocaleNameToLCID(lpname : windows_core::PCWSTR, dwflags : u32) -> u32);
-    LocaleNameToLCID(lpname.param().abi(), core::mem::transmute(dwflags))
+    LocaleNameToLCID(lpname.param().abi(), dwflags)
 }
 #[inline]
 pub unsafe fn MappingDoAction<P2>(pbag: *mut MAPPING_PROPERTY_BAG, dwrangeindex: u32, pszactionid: P2) -> windows_core::Result<()>
@@ -726,17 +715,17 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("elscore.dll" "system" fn MappingDoAction(pbag : *mut MAPPING_PROPERTY_BAG, dwrangeindex : u32, pszactionid : windows_core::PCWSTR) -> windows_core::HRESULT);
-    MappingDoAction(core::mem::transmute(pbag), core::mem::transmute(dwrangeindex), pszactionid.param().abi()).ok()
+    MappingDoAction(core::mem::transmute(pbag), dwrangeindex, pszactionid.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn MappingFreePropertyBag(pbag: *const MAPPING_PROPERTY_BAG) -> windows_core::Result<()> {
     windows_targets::link!("elscore.dll" "system" fn MappingFreePropertyBag(pbag : *const MAPPING_PROPERTY_BAG) -> windows_core::HRESULT);
-    MappingFreePropertyBag(core::mem::transmute(pbag)).ok()
+    MappingFreePropertyBag(pbag).ok()
 }
 #[inline]
 pub unsafe fn MappingFreeServices(pserviceinfo: *const MAPPING_SERVICE_INFO) -> windows_core::Result<()> {
     windows_targets::link!("elscore.dll" "system" fn MappingFreeServices(pserviceinfo : *const MAPPING_SERVICE_INFO) -> windows_core::HRESULT);
-    MappingFreeServices(core::mem::transmute(pserviceinfo)).ok()
+    MappingFreeServices(pserviceinfo).ok()
 }
 #[inline]
 pub unsafe fn MappingGetServices(poptions: Option<*const MAPPING_ENUM_OPTIONS>, prgservices: *mut *mut MAPPING_SERVICE_INFO, pdwservicescount: *mut u32) -> windows_core::Result<()> {
@@ -746,17 +735,17 @@ pub unsafe fn MappingGetServices(poptions: Option<*const MAPPING_ENUM_OPTIONS>, 
 #[inline]
 pub unsafe fn MappingRecognizeText(pserviceinfo: *const MAPPING_SERVICE_INFO, psztext: &[u16], dwindex: u32, poptions: Option<*const MAPPING_OPTIONS>, pbag: *mut MAPPING_PROPERTY_BAG) -> windows_core::Result<()> {
     windows_targets::link!("elscore.dll" "system" fn MappingRecognizeText(pserviceinfo : *const MAPPING_SERVICE_INFO, psztext : windows_core::PCWSTR, dwlength : u32, dwindex : u32, poptions : *const MAPPING_OPTIONS, pbag : *mut MAPPING_PROPERTY_BAG) -> windows_core::HRESULT);
-    MappingRecognizeText(core::mem::transmute(pserviceinfo), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(dwindex), core::mem::transmute(poptions.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbag)).ok()
+    MappingRecognizeText(pserviceinfo, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwindex, core::mem::transmute(poptions.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbag)).ok()
 }
 #[inline]
 pub unsafe fn MultiByteToWideChar(codepage: u32, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: &[u8], lpwidecharstr: Option<&mut [u16]>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn MultiByteToWideChar(codepage : u32, dwflags : MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr : windows_core::PCSTR, cbmultibyte : i32, lpwidecharstr : windows_core::PWSTR, cchwidechar : i32) -> i32);
-    MultiByteToWideChar(core::mem::transmute(codepage), core::mem::transmute(dwflags), core::mem::transmute(lpmultibytestr.as_ptr()), lpmultibytestr.len().try_into().unwrap(), core::mem::transmute(lpwidecharstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpwidecharstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    MultiByteToWideChar(codepage, dwflags, core::mem::transmute(lpmultibytestr.as_ptr()), lpmultibytestr.len().try_into().unwrap(), core::mem::transmute(lpwidecharstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpwidecharstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn NormalizeString(normform: NORM_FORM, lpsrcstring: &[u16], lpdststring: Option<&mut [u16]>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn NormalizeString(normform : NORM_FORM, lpsrcstring : windows_core::PCWSTR, cwsrclength : i32, lpdststring : windows_core::PWSTR, cwdstlength : i32) -> i32);
-    NormalizeString(core::mem::transmute(normform), core::mem::transmute(lpsrcstring.as_ptr()), lpsrcstring.len().try_into().unwrap(), core::mem::transmute(lpdststring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdststring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    NormalizeString(normform, core::mem::transmute(lpsrcstring.as_ptr()), lpsrcstring.len().try_into().unwrap(), core::mem::transmute(lpdststring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdststring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn NotifyUILanguageChange<P1, P2>(dwflags: u32, pcwstrnewlanguage: P1, pcwstrpreviouslanguage: P2, dwreserved: Option<u32>, pdwstatusrtrn: Option<*mut u32>) -> super::Foundation::BOOL
@@ -765,7 +754,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn NotifyUILanguageChange(dwflags : u32, pcwstrnewlanguage : windows_core::PCWSTR, pcwstrpreviouslanguage : windows_core::PCWSTR, dwreserved : u32, pdwstatusrtrn : *mut u32) -> super::Foundation:: BOOL);
-    NotifyUILanguageChange(core::mem::transmute(dwflags), pcwstrnewlanguage.param().abi(), pcwstrpreviouslanguage.param().abi(), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwstatusrtrn.unwrap_or(core::mem::zeroed())))
+    NotifyUILanguageChange(dwflags, pcwstrnewlanguage.param().abi(), pcwstrpreviouslanguage.param().abi(), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwstatusrtrn.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ResolveLocaleName<P0>(lpnametoresolve: P0, lplocalename: Option<&mut [u16]>) -> i32
@@ -778,18 +767,18 @@ where
 #[inline]
 pub unsafe fn RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES) {
     windows_targets::link!("kernel32.dll" "system" fn RestoreThreadPreferredUILanguages(snapshot : HSAVEDUILANGUAGES));
-    RestoreThreadPreferredUILanguages(core::mem::transmute(snapshot))
+    RestoreThreadPreferredUILanguages(snapshot)
 }
 #[inline]
 pub unsafe fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, psc: *mut SCRIPT_CONTROL, pss: *mut SCRIPT_STATE) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptApplyDigitSubstitution(psds : *const SCRIPT_DIGITSUBSTITUTE, psc : *mut SCRIPT_CONTROL, pss : *mut SCRIPT_STATE) -> windows_core::HRESULT);
-    ScriptApplyDigitSubstitution(core::mem::transmute(psds), core::mem::transmute(psc), core::mem::transmute(pss)).ok()
+    ScriptApplyDigitSubstitution(psds, core::mem::transmute(psc), core::mem::transmute(pss)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: Option<*mut super::Graphics::Gdi::ABC>, pijustify: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptApplyLogicalWidth(pidx : *const i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pabc : *mut super::Graphics::Gdi:: ABC, pijustify : *mut i32) -> windows_core::HRESULT);
-    ScriptApplyLogicalWidth(core::mem::transmute(pidx), core::mem::transmute(cchars), core::mem::transmute(cglyphs), core::mem::transmute(pwlogclust), core::mem::transmute(psva), core::mem::transmute(piadvance), core::mem::transmute(psa), core::mem::transmute(pabc.unwrap_or(core::mem::zeroed())), core::mem::transmute(pijustify)).ok()
+    ScriptApplyLogicalWidth(pidx, cchars, cglyphs, pwlogclust, psva, piadvance, psa, core::mem::transmute(pabc.unwrap_or(core::mem::zeroed())), core::mem::transmute(pijustify)).ok()
 }
 #[inline]
 pub unsafe fn ScriptBreak<P0>(pwcchars: P0, cchars: i32, psa: *const SCRIPT_ANALYSIS) -> windows_core::Result<SCRIPT_LOGATTR>
@@ -798,18 +787,18 @@ where
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptBreak(pwcchars : windows_core::PCWSTR, cchars : i32, psa : *const SCRIPT_ANALYSIS, psla : *mut SCRIPT_LOGATTR) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    ScriptBreak(pwcchars.param().abi(), core::mem::transmute(cchars), core::mem::transmute(psa), &mut result__).map(|| core::mem::transmute(result__))
+    ScriptBreak(pwcchars.param().abi(), cchars, psa, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn ScriptCPtoX(icp: i32, ftrailing: bool, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptCPtoX(icp : i32, ftrailing : super::Foundation:: BOOL, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pix : *mut i32) -> windows_core::HRESULT);
-    ScriptCPtoX(core::mem::transmute(icp), ftrailing.into(), pwlogclust.len().try_into().unwrap(), core::mem::transmute(cglyphs), core::mem::transmute(pwlogclust.as_ptr()), core::mem::transmute(psva), core::mem::transmute(piadvance), core::mem::transmute(psa), core::mem::transmute(pix)).ok()
+    ScriptCPtoX(icp, ftrailing.into(), pwlogclust.len().try_into().unwrap(), cglyphs, core::mem::transmute(pwlogclust.as_ptr()), psva, piadvance, psa, core::mem::transmute(pix)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptCacheGetHeight(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut core::ffi::c_void, tmheight: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptCacheGetHeight(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, tmheight : *mut i32) -> windows_core::HRESULT);
-    ScriptCacheGetHeight(core::mem::transmute(hdc), core::mem::transmute(psc), core::mem::transmute(tmheight)).ok()
+    ScriptCacheGetHeight(hdc, core::mem::transmute(psc), core::mem::transmute(tmheight)).ok()
 }
 #[inline]
 pub unsafe fn ScriptFreeCache(psc: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -823,31 +812,31 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptGetCMap(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, pwcinchars : windows_core::PCWSTR, cchars : i32, dwflags : u32, pwoutglyphs : *mut u16) -> windows_core::HRESULT);
-    ScriptGetCMap(core::mem::transmute(hdc), core::mem::transmute(psc), pwcinchars.param().abi(), core::mem::transmute(cchars), core::mem::transmute(dwflags), core::mem::transmute(pwoutglyphs)).ok()
+    ScriptGetCMap(hdc, core::mem::transmute(psc), pwcinchars.param().abi(), cchars, dwflags, core::mem::transmute(pwoutglyphs)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontAlternateGlyphs(hdc: Option<super::Graphics::Gdi::HDC>, psc: *mut *mut core::ffi::c_void, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, tagfeature: u32, wglyphid: u16, palternateglyphs: &mut [u16], pcalternates: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptGetFontAlternateGlyphs(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, wglyphid : u16, cmaxalternates : i32, palternateglyphs : *mut u16, pcalternates : *mut i32) -> windows_core::HRESULT);
-    ScriptGetFontAlternateGlyphs(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(psc), core::mem::transmute(psa.unwrap_or(core::mem::zeroed())), core::mem::transmute(tagscript), core::mem::transmute(taglangsys), core::mem::transmute(tagfeature), core::mem::transmute(wglyphid), palternateglyphs.len().try_into().unwrap(), core::mem::transmute(palternateglyphs.as_ptr()), core::mem::transmute(pcalternates)).ok()
+    ScriptGetFontAlternateGlyphs(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(psc), core::mem::transmute(psa.unwrap_or(core::mem::zeroed())), tagscript, taglangsys, tagfeature, wglyphid, palternateglyphs.len().try_into().unwrap(), core::mem::transmute(palternateglyphs.as_ptr()), core::mem::transmute(pcalternates)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontFeatureTags(hdc: Option<super::Graphics::Gdi::HDC>, psc: *mut *mut core::ffi::c_void, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, pfeaturetags: &mut [u32], pctags: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptGetFontFeatureTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, cmaxtags : i32, pfeaturetags : *mut u32, pctags : *mut i32) -> windows_core::HRESULT);
-    ScriptGetFontFeatureTags(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(psc), core::mem::transmute(psa.unwrap_or(core::mem::zeroed())), core::mem::transmute(tagscript), core::mem::transmute(taglangsys), pfeaturetags.len().try_into().unwrap(), core::mem::transmute(pfeaturetags.as_ptr()), core::mem::transmute(pctags)).ok()
+    ScriptGetFontFeatureTags(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(psc), core::mem::transmute(psa.unwrap_or(core::mem::zeroed())), tagscript, taglangsys, pfeaturetags.len().try_into().unwrap(), core::mem::transmute(pfeaturetags.as_ptr()), core::mem::transmute(pctags)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontLanguageTags(hdc: Option<super::Graphics::Gdi::HDC>, psc: *mut *mut core::ffi::c_void, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: u32, plangsystags: &mut [u32], pctags: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptGetFontLanguageTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, cmaxtags : i32, plangsystags : *mut u32, pctags : *mut i32) -> windows_core::HRESULT);
-    ScriptGetFontLanguageTags(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(psc), core::mem::transmute(psa.unwrap_or(core::mem::zeroed())), core::mem::transmute(tagscript), plangsystags.len().try_into().unwrap(), core::mem::transmute(plangsystags.as_ptr()), core::mem::transmute(pctags)).ok()
+    ScriptGetFontLanguageTags(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(psc), core::mem::transmute(psa.unwrap_or(core::mem::zeroed())), tagscript, plangsystags.len().try_into().unwrap(), core::mem::transmute(plangsystags.as_ptr()), core::mem::transmute(pctags)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontProperties(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut core::ffi::c_void, sfp: *mut SCRIPT_FONTPROPERTIES) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptGetFontProperties(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, sfp : *mut SCRIPT_FONTPROPERTIES) -> windows_core::HRESULT);
-    ScriptGetFontProperties(core::mem::transmute(hdc), core::mem::transmute(psc), core::mem::transmute(sfp)).ok()
+    ScriptGetFontProperties(hdc, core::mem::transmute(psc), core::mem::transmute(sfp)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -859,12 +848,12 @@ pub unsafe fn ScriptGetFontScriptTags(hdc: Option<super::Graphics::Gdi::HDC>, ps
 #[inline]
 pub unsafe fn ScriptGetGlyphABCWidth(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut core::ffi::c_void, wglyph: u16, pabc: *mut super::Graphics::Gdi::ABC) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptGetGlyphABCWidth(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, wglyph : u16, pabc : *mut super::Graphics::Gdi:: ABC) -> windows_core::HRESULT);
-    ScriptGetGlyphABCWidth(core::mem::transmute(hdc), core::mem::transmute(psc), core::mem::transmute(wglyph), core::mem::transmute(pabc)).ok()
+    ScriptGetGlyphABCWidth(hdc, core::mem::transmute(psc), wglyph, core::mem::transmute(pabc)).ok()
 }
 #[inline]
 pub unsafe fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptGetLogicalWidths(psa : *const SCRIPT_ANALYSIS, cchars : i32, cglyphs : i32, piglyphwidth : *const i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, pidx : *const i32) -> windows_core::HRESULT);
-    ScriptGetLogicalWidths(core::mem::transmute(psa), core::mem::transmute(cchars), core::mem::transmute(cglyphs), core::mem::transmute(piglyphwidth), core::mem::transmute(pwlogclust), core::mem::transmute(psva), core::mem::transmute(pidx)).ok()
+    ScriptGetLogicalWidths(psa, cchars, cglyphs, piglyphwidth, pwlogclust, psva, pidx).ok()
 }
 #[inline]
 pub unsafe fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinumscripts: *mut i32) -> windows_core::Result<()> {
@@ -874,7 +863,7 @@ pub unsafe fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinums
 #[inline]
 pub unsafe fn ScriptIsComplex(pwcinchars: &[u16], dwflags: SCRIPT_IS_COMPLEX_FLAGS) -> windows_core::HRESULT {
     windows_targets::link!("usp10.dll" "system" fn ScriptIsComplex(pwcinchars : windows_core::PCWSTR, cinchars : i32, dwflags : SCRIPT_IS_COMPLEX_FLAGS) -> windows_core::HRESULT);
-    ScriptIsComplex(core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len().try_into().unwrap(), core::mem::transmute(dwflags))
+    ScriptIsComplex(core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len().try_into().unwrap(), dwflags)
 }
 #[inline]
 pub unsafe fn ScriptItemize(pwcinchars: &[u16], pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pitems: &mut [SCRIPT_ITEM], pcitems: *mut i32) -> windows_core::Result<()> {
@@ -884,24 +873,24 @@ pub unsafe fn ScriptItemize(pwcinchars: &[u16], pscontrol: Option<*const SCRIPT_
 #[inline]
 pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[u16], cmaxitems: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pitems: *mut SCRIPT_ITEM, pscripttags: *mut u32, pcitems: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptItemizeOpenType(pwcinchars : windows_core::PCWSTR, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pscripttags : *mut u32, pcitems : *mut i32) -> windows_core::HRESULT);
-    ScriptItemizeOpenType(core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len().try_into().unwrap(), core::mem::transmute(cmaxitems), core::mem::transmute(pscontrol.unwrap_or(core::mem::zeroed())), core::mem::transmute(psstate.unwrap_or(core::mem::zeroed())), core::mem::transmute(pitems), core::mem::transmute(pscripttags), core::mem::transmute(pcitems)).ok()
+    ScriptItemizeOpenType(core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len().try_into().unwrap(), cmaxitems, core::mem::transmute(pscontrol.unwrap_or(core::mem::zeroed())), core::mem::transmute(psstate.unwrap_or(core::mem::zeroed())), core::mem::transmute(pitems), core::mem::transmute(pscripttags), core::mem::transmute(pcitems)).ok()
 }
 #[inline]
 pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32) -> windows_core::Result<i32> {
     windows_targets::link!("usp10.dll" "system" fn ScriptJustify(psva : *const SCRIPT_VISATTR, piadvance : *const i32, cglyphs : i32, idx : i32, iminkashida : i32, pijustify : *mut i32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    ScriptJustify(core::mem::transmute(psva), core::mem::transmute(piadvance), core::mem::transmute(cglyphs), core::mem::transmute(idx), core::mem::transmute(iminkashida), &mut result__).map(|| core::mem::transmute(result__))
+    ScriptJustify(psva, piadvance, cglyphs, idx, iminkashida, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: Option<*mut i32>, pilogicaltovisual: Option<*mut i32>) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptLayout(cruns : i32, pblevel : *const u8, pivisualtological : *mut i32, pilogicaltovisual : *mut i32) -> windows_core::HRESULT);
-    ScriptLayout(core::mem::transmute(cruns), core::mem::transmute(pblevel), core::mem::transmute(pivisualtological.unwrap_or(core::mem::zeroed())), core::mem::transmute(pilogicaltovisual.unwrap_or(core::mem::zeroed()))).ok()
+    ScriptLayout(cruns, pblevel, core::mem::transmute(pivisualtological.unwrap_or(core::mem::zeroed())), core::mem::transmute(pilogicaltovisual.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptPlace(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: Option<*mut GOFFSET>, pabc: *mut super::Graphics::Gdi::ABC) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptPlace(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, pwglyphs : *const u16, cglyphs : i32, psva : *const SCRIPT_VISATTR, psa : *mut SCRIPT_ANALYSIS, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi:: ABC) -> windows_core::HRESULT);
-    ScriptPlace(core::mem::transmute(hdc), core::mem::transmute(psc), core::mem::transmute(pwglyphs), core::mem::transmute(cglyphs), core::mem::transmute(psva), core::mem::transmute(psa), core::mem::transmute(piadvance), core::mem::transmute(pgoffset.unwrap_or(core::mem::zeroed())), core::mem::transmute(pabc)).ok()
+    ScriptPlace(hdc, core::mem::transmute(psc), pwglyphs, cglyphs, psva, core::mem::transmute(psa), core::mem::transmute(piadvance), core::mem::transmute(pgoffset.unwrap_or(core::mem::zeroed())), core::mem::transmute(pabc)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -914,18 +903,18 @@ where
         core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(psc),
         core::mem::transmute(psa),
-        core::mem::transmute(tagscript),
-        core::mem::transmute(taglangsys),
+        tagscript,
+        taglangsys,
         core::mem::transmute(rcrangechars.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(rprangeproperties.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(cranges),
+        cranges,
         pwcchars.param().abi(),
-        core::mem::transmute(pwlogclust),
-        core::mem::transmute(pcharprops),
-        core::mem::transmute(cchars),
-        core::mem::transmute(pwglyphs),
-        core::mem::transmute(pglyphprops),
-        core::mem::transmute(cglyphs),
+        pwlogclust,
+        pcharprops,
+        cchars,
+        pwglyphs,
+        pglyphprops,
+        cglyphs,
         core::mem::transmute(piadvance),
         core::mem::transmute(pgoffset),
         core::mem::transmute(pabc.unwrap_or(core::mem::zeroed())),
@@ -936,13 +925,13 @@ where
 #[inline]
 pub unsafe fn ScriptPositionSingleGlyph(hdc: Option<super::Graphics::Gdi::HDC>, psc: *mut *mut core::ffi::c_void, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: GOFFSET, pioutadvance: *mut i32, poutgoffset: *mut GOFFSET) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptPositionSingleGlyph(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, iadvance : i32, goffset : GOFFSET, pioutadvance : *mut i32, poutgoffset : *mut GOFFSET) -> windows_core::HRESULT);
-    ScriptPositionSingleGlyph(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(psc), core::mem::transmute(psa.unwrap_or(core::mem::zeroed())), core::mem::transmute(tagscript), core::mem::transmute(taglangsys), core::mem::transmute(tagfeature), core::mem::transmute(lparameter), core::mem::transmute(wglyphid), core::mem::transmute(iadvance), core::mem::transmute(goffset), core::mem::transmute(pioutadvance), core::mem::transmute(poutgoffset)).ok()
+    ScriptPositionSingleGlyph(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(psc), core::mem::transmute(psa.unwrap_or(core::mem::zeroed())), tagscript, taglangsys, tagfeature, lparameter, wglyphid, iadvance, core::mem::transmute(goffset), core::mem::transmute(pioutadvance), core::mem::transmute(poutgoffset)).ok()
 }
 #[inline]
 pub unsafe fn ScriptRecordDigitSubstitution(locale: u32) -> windows_core::Result<SCRIPT_DIGITSUBSTITUTE> {
     windows_targets::link!("usp10.dll" "system" fn ScriptRecordDigitSubstitution(locale : u32, psds : *mut SCRIPT_DIGITSUBSTITUTE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    ScriptRecordDigitSubstitution(core::mem::transmute(locale), &mut result__).map(|| core::mem::transmute(result__))
+    ScriptRecordDigitSubstitution(locale, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -951,7 +940,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptShape(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, pwcchars : windows_core::PCWSTR, cchars : i32, cmaxglyphs : i32, psa : *mut SCRIPT_ANALYSIS, pwoutglyphs : *mut u16, pwlogclust : *mut u16, psva : *mut SCRIPT_VISATTR, pcglyphs : *mut i32) -> windows_core::HRESULT);
-    ScriptShape(core::mem::transmute(hdc), core::mem::transmute(psc), pwcchars.param().abi(), core::mem::transmute(cchars), core::mem::transmute(cmaxglyphs), core::mem::transmute(psa), core::mem::transmute(pwoutglyphs), core::mem::transmute(pwlogclust), core::mem::transmute(psva), core::mem::transmute(pcglyphs)).ok()
+    ScriptShape(hdc, core::mem::transmute(psc), pwcchars.param().abi(), cchars, cmaxglyphs, core::mem::transmute(psa), core::mem::transmute(pwoutglyphs), core::mem::transmute(pwlogclust), core::mem::transmute(psva), core::mem::transmute(pcglyphs)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -964,14 +953,14 @@ where
         core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(psc),
         core::mem::transmute(psa),
-        core::mem::transmute(tagscript),
-        core::mem::transmute(taglangsys),
+        tagscript,
+        taglangsys,
         core::mem::transmute(rcrangechars.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(rprangeproperties.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(cranges),
+        cranges,
         pwcchars.param().abi(),
-        core::mem::transmute(cchars),
-        core::mem::transmute(cmaxglyphs),
+        cchars,
+        cmaxglyphs,
         core::mem::transmute(pwlogclust),
         core::mem::transmute(pcharprops),
         core::mem::transmute(pwoutglyphs),
@@ -984,28 +973,13 @@ where
 #[inline]
 pub unsafe fn ScriptStringAnalyse(hdc: super::Graphics::Gdi::HDC, pstring: *const core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pidx: Option<*const i32>, ptabdef: Option<*const SCRIPT_TABDEF>, pbinclass: *const u8, pssa: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptStringAnalyse(hdc : super::Graphics::Gdi:: HDC, pstring : *const core::ffi::c_void, cstring : i32, cglyphs : i32, icharset : i32, dwflags : u32, ireqwidth : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pidx : *const i32, ptabdef : *const SCRIPT_TABDEF, pbinclass : *const u8, pssa : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    ScriptStringAnalyse(
-        core::mem::transmute(hdc),
-        core::mem::transmute(pstring),
-        core::mem::transmute(cstring),
-        core::mem::transmute(cglyphs),
-        core::mem::transmute(icharset),
-        core::mem::transmute(dwflags),
-        core::mem::transmute(ireqwidth),
-        core::mem::transmute(pscontrol.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(psstate.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(pidx.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(ptabdef.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(pbinclass),
-        core::mem::transmute(pssa),
-    )
-    .ok()
+    ScriptStringAnalyse(hdc, pstring, cstring, cglyphs, icharset, dwflags, ireqwidth, core::mem::transmute(pscontrol.unwrap_or(core::mem::zeroed())), core::mem::transmute(psstate.unwrap_or(core::mem::zeroed())), core::mem::transmute(pidx.unwrap_or(core::mem::zeroed())), core::mem::transmute(ptabdef.unwrap_or(core::mem::zeroed())), pbinclass, core::mem::transmute(pssa)).ok()
 }
 #[inline]
 pub unsafe fn ScriptStringCPtoX(ssa: *const core::ffi::c_void, icp: i32, ftrailing: bool) -> windows_core::Result<i32> {
     windows_targets::link!("usp10.dll" "system" fn ScriptStringCPtoX(ssa : *const core::ffi::c_void, icp : i32, ftrailing : super::Foundation:: BOOL, px : *mut i32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    ScriptStringCPtoX(core::mem::transmute(ssa), core::mem::transmute(icp), ftrailing.into(), &mut result__).map(|| core::mem::transmute(result__))
+    ScriptStringCPtoX(ssa, icp, ftrailing.into(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn ScriptStringFree(pssa: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -1015,49 +989,49 @@ pub unsafe fn ScriptStringFree(pssa: *mut *mut core::ffi::c_void) -> windows_cor
 #[inline]
 pub unsafe fn ScriptStringGetLogicalWidths(ssa: *const core::ffi::c_void, pidx: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptStringGetLogicalWidths(ssa : *const core::ffi::c_void, pidx : *mut i32) -> windows_core::HRESULT);
-    ScriptStringGetLogicalWidths(core::mem::transmute(ssa), core::mem::transmute(pidx)).ok()
+    ScriptStringGetLogicalWidths(ssa, core::mem::transmute(pidx)).ok()
 }
 #[inline]
 pub unsafe fn ScriptStringGetOrder(ssa: *const core::ffi::c_void, puorder: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptStringGetOrder(ssa : *const core::ffi::c_void, puorder : *mut u32) -> windows_core::HRESULT);
-    ScriptStringGetOrder(core::mem::transmute(ssa), core::mem::transmute(puorder)).ok()
+    ScriptStringGetOrder(ssa, core::mem::transmute(puorder)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptStringOut(ssa: *const core::ffi::c_void, ix: i32, iy: i32, uoptions: super::Graphics::Gdi::ETO_OPTIONS, prc: Option<*const super::Foundation::RECT>, iminsel: i32, imaxsel: i32, fdisabled: bool) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptStringOut(ssa : *const core::ffi::c_void, ix : i32, iy : i32, uoptions : super::Graphics::Gdi:: ETO_OPTIONS, prc : *const super::Foundation:: RECT, iminsel : i32, imaxsel : i32, fdisabled : super::Foundation:: BOOL) -> windows_core::HRESULT);
-    ScriptStringOut(core::mem::transmute(ssa), core::mem::transmute(ix), core::mem::transmute(iy), core::mem::transmute(uoptions), core::mem::transmute(prc.unwrap_or(core::mem::zeroed())), core::mem::transmute(iminsel), core::mem::transmute(imaxsel), fdisabled.into()).ok()
+    ScriptStringOut(ssa, ix, iy, uoptions, core::mem::transmute(prc.unwrap_or(core::mem::zeroed())), iminsel, imaxsel, fdisabled.into()).ok()
 }
 #[inline]
 pub unsafe fn ScriptStringValidate(ssa: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptStringValidate(ssa : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ScriptStringValidate(core::mem::transmute(ssa)).ok()
+    ScriptStringValidate(ssa).ok()
 }
 #[inline]
 pub unsafe fn ScriptStringXtoCP(ssa: *const core::ffi::c_void, ix: i32, pich: *mut i32, pitrailing: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptStringXtoCP(ssa : *const core::ffi::c_void, ix : i32, pich : *mut i32, pitrailing : *mut i32) -> windows_core::HRESULT);
-    ScriptStringXtoCP(core::mem::transmute(ssa), core::mem::transmute(ix), core::mem::transmute(pich), core::mem::transmute(pitrailing)).ok()
+    ScriptStringXtoCP(ssa, ix, core::mem::transmute(pich), core::mem::transmute(pitrailing)).ok()
 }
 #[inline]
 pub unsafe fn ScriptString_pLogAttr(ssa: *const core::ffi::c_void) -> *mut SCRIPT_LOGATTR {
     windows_targets::link!("usp10.dll" "system" fn ScriptString_pLogAttr(ssa : *const core::ffi::c_void) -> *mut SCRIPT_LOGATTR);
-    ScriptString_pLogAttr(core::mem::transmute(ssa))
+    ScriptString_pLogAttr(ssa)
 }
 #[inline]
 pub unsafe fn ScriptString_pSize(ssa: *const core::ffi::c_void) -> *mut super::Foundation::SIZE {
     windows_targets::link!("usp10.dll" "system" fn ScriptString_pSize(ssa : *const core::ffi::c_void) -> *mut super::Foundation:: SIZE);
-    ScriptString_pSize(core::mem::transmute(ssa))
+    ScriptString_pSize(ssa)
 }
 #[inline]
 pub unsafe fn ScriptString_pcOutChars(ssa: *const core::ffi::c_void) -> *mut i32 {
     windows_targets::link!("usp10.dll" "system" fn ScriptString_pcOutChars(ssa : *const core::ffi::c_void) -> *mut i32);
-    ScriptString_pcOutChars(core::mem::transmute(ssa))
+    ScriptString_pcOutChars(ssa)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptSubstituteSingleGlyph(hdc: Option<super::Graphics::Gdi::HDC>, psc: *mut *mut core::ffi::c_void, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, pwoutglyphid: *mut u16) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptSubstituteSingleGlyph(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, pwoutglyphid : *mut u16) -> windows_core::HRESULT);
-    ScriptSubstituteSingleGlyph(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(psc), core::mem::transmute(psa.unwrap_or(core::mem::zeroed())), core::mem::transmute(tagscript), core::mem::transmute(taglangsys), core::mem::transmute(tagfeature), core::mem::transmute(lparameter), core::mem::transmute(wglyphid), core::mem::transmute(pwoutglyphid)).ok()
+    ScriptSubstituteSingleGlyph(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(psc), core::mem::transmute(psa.unwrap_or(core::mem::zeroed())), tagscript, taglangsys, tagfeature, lparameter, wglyphid, core::mem::transmute(pwoutglyphid)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1066,28 +1040,12 @@ where
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptTextOut(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, x : i32, y : i32, fuoptions : u32, lprc : *const super::Foundation:: RECT, psa : *const SCRIPT_ANALYSIS, pwcreserved : windows_core::PCWSTR, ireserved : i32, pwglyphs : *const u16, cglyphs : i32, piadvance : *const i32, pijustify : *const i32, pgoffset : *const GOFFSET) -> windows_core::HRESULT);
-    ScriptTextOut(
-        core::mem::transmute(hdc),
-        core::mem::transmute(psc),
-        core::mem::transmute(x),
-        core::mem::transmute(y),
-        core::mem::transmute(fuoptions),
-        core::mem::transmute(lprc.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(psa),
-        pwcreserved.param().abi(),
-        core::mem::transmute(ireserved.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(pwglyphs),
-        core::mem::transmute(cglyphs),
-        core::mem::transmute(piadvance),
-        core::mem::transmute(pijustify.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(pgoffset),
-    )
-    .ok()
+    ScriptTextOut(hdc, core::mem::transmute(psc), x, y, fuoptions, core::mem::transmute(lprc.unwrap_or(core::mem::zeroed())), psa, pwcreserved.param().abi(), core::mem::transmute(ireserved.unwrap_or(core::mem::zeroed())), pwglyphs, cglyphs, piadvance, core::mem::transmute(pijustify.unwrap_or(core::mem::zeroed())), pgoffset).ok()
 }
 #[inline]
 pub unsafe fn ScriptXtoCP(ix: i32, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, picp: *mut i32, pitrailing: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptXtoCP(ix : i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, picp : *mut i32, pitrailing : *mut i32) -> windows_core::HRESULT);
-    ScriptXtoCP(core::mem::transmute(ix), pwlogclust.len().try_into().unwrap(), core::mem::transmute(cglyphs), core::mem::transmute(pwlogclust.as_ptr()), core::mem::transmute(psva), core::mem::transmute(piadvance), core::mem::transmute(psa), core::mem::transmute(picp), core::mem::transmute(pitrailing)).ok()
+    ScriptXtoCP(ix, pwlogclust.len().try_into().unwrap(), cglyphs, core::mem::transmute(pwlogclust.as_ptr()), psva, piadvance, psa, core::mem::transmute(picp), core::mem::transmute(pitrailing)).ok()
 }
 #[inline]
 pub unsafe fn SetCalendarInfoA<P3>(locale: u32, calendar: u32, caltype: u32, lpcaldata: P3) -> windows_core::Result<()>
@@ -1095,7 +1053,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetCalendarInfoA(locale : u32, calendar : u32, caltype : u32, lpcaldata : windows_core::PCSTR) -> super::Foundation:: BOOL);
-    SetCalendarInfoA(core::mem::transmute(locale), core::mem::transmute(calendar), core::mem::transmute(caltype), lpcaldata.param().abi()).ok()
+    SetCalendarInfoA(locale, calendar, caltype, lpcaldata.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetCalendarInfoW<P3>(locale: u32, calendar: u32, caltype: u32, lpcaldata: P3) -> windows_core::Result<()>
@@ -1103,7 +1061,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetCalendarInfoW(locale : u32, calendar : u32, caltype : u32, lpcaldata : windows_core::PCWSTR) -> super::Foundation:: BOOL);
-    SetCalendarInfoW(core::mem::transmute(locale), core::mem::transmute(calendar), core::mem::transmute(caltype), lpcaldata.param().abi()).ok()
+    SetCalendarInfoW(locale, calendar, caltype, lpcaldata.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetLocaleInfoA<P2>(locale: u32, lctype: u32, lplcdata: P2) -> windows_core::Result<()>
@@ -1111,7 +1069,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetLocaleInfoA(locale : u32, lctype : u32, lplcdata : windows_core::PCSTR) -> super::Foundation:: BOOL);
-    SetLocaleInfoA(core::mem::transmute(locale), core::mem::transmute(lctype), lplcdata.param().abi()).ok()
+    SetLocaleInfoA(locale, lctype, lplcdata.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetLocaleInfoW<P2>(locale: u32, lctype: u32, lplcdata: P2) -> windows_core::Result<()>
@@ -1119,7 +1077,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetLocaleInfoW(locale : u32, lctype : u32, lplcdata : windows_core::PCWSTR) -> super::Foundation:: BOOL);
-    SetLocaleInfoW(core::mem::transmute(locale), core::mem::transmute(lctype), lplcdata.param().abi()).ok()
+    SetLocaleInfoW(locale, lctype, lplcdata.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetProcessPreferredUILanguages<P1>(dwflags: u32, pwszlanguagesbuffer: P1, pulnumlanguages: Option<*mut u32>) -> windows_core::Result<()>
@@ -1127,12 +1085,12 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetProcessPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : windows_core::PCWSTR, pulnumlanguages : *mut u32) -> super::Foundation:: BOOL);
-    SetProcessPreferredUILanguages(core::mem::transmute(dwflags), pwszlanguagesbuffer.param().abi(), core::mem::transmute(pulnumlanguages.unwrap_or(core::mem::zeroed()))).ok()
+    SetProcessPreferredUILanguages(dwflags, pwszlanguagesbuffer.param().abi(), core::mem::transmute(pulnumlanguages.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn SetThreadLocale(locale : u32) -> super::Foundation:: BOOL);
-    SetThreadLocale(core::mem::transmute(locale))
+    SetThreadLocale(locale)
 }
 #[inline]
 pub unsafe fn SetThreadPreferredUILanguages<P1>(dwflags: u32, pwszlanguagesbuffer: P1, pulnumlanguages: Option<*mut u32>) -> super::Foundation::BOOL
@@ -1140,7 +1098,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : windows_core::PCWSTR, pulnumlanguages : *mut u32) -> super::Foundation:: BOOL);
-    SetThreadPreferredUILanguages(core::mem::transmute(dwflags), pwszlanguagesbuffer.param().abi(), core::mem::transmute(pulnumlanguages.unwrap_or(core::mem::zeroed())))
+    SetThreadPreferredUILanguages(dwflags, pwszlanguagesbuffer.param().abi(), core::mem::transmute(pulnumlanguages.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SetThreadPreferredUILanguages2<P1>(flags: u32, languages: P1, numlanguagesset: Option<*mut u32>, snapshot: Option<*mut HSAVEDUILANGUAGES>) -> super::Foundation::BOOL
@@ -1148,17 +1106,17 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages2(flags : u32, languages : windows_core::PCWSTR, numlanguagesset : *mut u32, snapshot : *mut HSAVEDUILANGUAGES) -> super::Foundation:: BOOL);
-    SetThreadPreferredUILanguages2(core::mem::transmute(flags), languages.param().abi(), core::mem::transmute(numlanguagesset.unwrap_or(core::mem::zeroed())), core::mem::transmute(snapshot.unwrap_or(core::mem::zeroed())))
+    SetThreadPreferredUILanguages2(flags, languages.param().abi(), core::mem::transmute(numlanguagesset.unwrap_or(core::mem::zeroed())), core::mem::transmute(snapshot.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SetThreadUILanguage(langid: u16) -> u16 {
     windows_targets::link!("kernel32.dll" "system" fn SetThreadUILanguage(langid : u16) -> u16);
-    SetThreadUILanguage(core::mem::transmute(langid))
+    SetThreadUILanguage(langid)
 }
 #[inline]
 pub unsafe fn SetUserGeoID(geoid: i32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetUserGeoID(geoid : i32) -> super::Foundation:: BOOL);
-    SetUserGeoID(core::mem::transmute(geoid)).ok()
+    SetUserGeoID(geoid).ok()
 }
 #[inline]
 pub unsafe fn SetUserGeoName<P0>(geoname: P0) -> windows_core::Result<()>
@@ -1171,27 +1129,27 @@ where
 #[inline]
 pub unsafe fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwflags: TRANSLATE_CHARSET_INFO_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("gdi32.dll" "system" fn TranslateCharsetInfo(lpsrc : *mut u32, lpcs : *mut CHARSETINFO, dwflags : TRANSLATE_CHARSET_INFO_FLAGS) -> super::Foundation:: BOOL);
-    TranslateCharsetInfo(core::mem::transmute(lpsrc), core::mem::transmute(lpcs), core::mem::transmute(dwflags)).ok()
+    TranslateCharsetInfo(core::mem::transmute(lpsrc), core::mem::transmute(lpcs), dwflags).ok()
 }
 #[inline]
 pub unsafe fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn UCNV_FROM_U_CALLBACK_ESCAPE(context : *const core::ffi::c_void, fromuargs : *mut UConverterFromUnicodeArgs, codeunits : *const u16, length : i32, codepoint : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-    UCNV_FROM_U_CALLBACK_ESCAPE(core::mem::transmute(context), core::mem::transmute(fromuargs), core::mem::transmute(codeunits), core::mem::transmute(length), core::mem::transmute(codepoint), core::mem::transmute(reason), core::mem::transmute(err))
+    UCNV_FROM_U_CALLBACK_ESCAPE(context, core::mem::transmute(fromuargs), codeunits, length, codepoint, reason, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn UCNV_FROM_U_CALLBACK_SKIP(context: *const core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn UCNV_FROM_U_CALLBACK_SKIP(context : *const core::ffi::c_void, fromuargs : *mut UConverterFromUnicodeArgs, codeunits : *const u16, length : i32, codepoint : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-    UCNV_FROM_U_CALLBACK_SKIP(core::mem::transmute(context), core::mem::transmute(fromuargs), core::mem::transmute(codeunits), core::mem::transmute(length), core::mem::transmute(codepoint), core::mem::transmute(reason), core::mem::transmute(err))
+    UCNV_FROM_U_CALLBACK_SKIP(context, core::mem::transmute(fromuargs), codeunits, length, codepoint, reason, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn UCNV_FROM_U_CALLBACK_STOP(context: *const core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn UCNV_FROM_U_CALLBACK_STOP(context : *const core::ffi::c_void, fromuargs : *mut UConverterFromUnicodeArgs, codeunits : *const u16, length : i32, codepoint : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-    UCNV_FROM_U_CALLBACK_STOP(core::mem::transmute(context), core::mem::transmute(fromuargs), core::mem::transmute(codeunits), core::mem::transmute(length), core::mem::transmute(codepoint), core::mem::transmute(reason), core::mem::transmute(err))
+    UCNV_FROM_U_CALLBACK_STOP(context, core::mem::transmute(fromuargs), codeunits, length, codepoint, reason, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: *const core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context : *const core::ffi::c_void, fromuargs : *mut UConverterFromUnicodeArgs, codeunits : *const u16, length : i32, codepoint : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-    UCNV_FROM_U_CALLBACK_SUBSTITUTE(core::mem::transmute(context), core::mem::transmute(fromuargs), core::mem::transmute(codeunits), core::mem::transmute(length), core::mem::transmute(codepoint), core::mem::transmute(reason), core::mem::transmute(err))
+    UCNV_FROM_U_CALLBACK_SUBSTITUTE(context, core::mem::transmute(fromuargs), codeunits, length, codepoint, reason, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn UCNV_TO_U_CALLBACK_ESCAPE<P2>(context: *const core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: P2, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode)
@@ -1199,7 +1157,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn UCNV_TO_U_CALLBACK_ESCAPE(context : *const core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : windows_core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-    UCNV_TO_U_CALLBACK_ESCAPE(core::mem::transmute(context), core::mem::transmute(touargs), codeunits.param().abi(), core::mem::transmute(length), core::mem::transmute(reason), core::mem::transmute(err))
+    UCNV_TO_U_CALLBACK_ESCAPE(context, core::mem::transmute(touargs), codeunits.param().abi(), length, reason, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn UCNV_TO_U_CALLBACK_SKIP<P2>(context: *const core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: P2, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode)
@@ -1207,7 +1165,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn UCNV_TO_U_CALLBACK_SKIP(context : *const core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : windows_core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-    UCNV_TO_U_CALLBACK_SKIP(core::mem::transmute(context), core::mem::transmute(touargs), codeunits.param().abi(), core::mem::transmute(length), core::mem::transmute(reason), core::mem::transmute(err))
+    UCNV_TO_U_CALLBACK_SKIP(context, core::mem::transmute(touargs), codeunits.param().abi(), length, reason, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn UCNV_TO_U_CALLBACK_STOP<P2>(context: *const core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: P2, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode)
@@ -1215,7 +1173,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn UCNV_TO_U_CALLBACK_STOP(context : *const core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : windows_core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-    UCNV_TO_U_CALLBACK_STOP(core::mem::transmute(context), core::mem::transmute(touargs), codeunits.param().abi(), core::mem::transmute(length), core::mem::transmute(reason), core::mem::transmute(err))
+    UCNV_TO_U_CALLBACK_STOP(context, core::mem::transmute(touargs), codeunits.param().abi(), length, reason, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn UCNV_TO_U_CALLBACK_SUBSTITUTE<P2>(context: *const core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: P2, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode)
@@ -1223,7 +1181,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn UCNV_TO_U_CALLBACK_SUBSTITUTE(context : *const core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : windows_core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-    UCNV_TO_U_CALLBACK_SUBSTITUTE(core::mem::transmute(context), core::mem::transmute(touargs), codeunits.param().abi(), core::mem::transmute(length), core::mem::transmute(reason), core::mem::transmute(err))
+    UCNV_TO_U_CALLBACK_SUBSTITUTE(context, core::mem::transmute(touargs), codeunits.param().abi(), length, reason, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn UpdateCalendarDayOfWeek(lpcaldatetime: *mut CALDATETIME) -> super::Foundation::BOOL {
@@ -1237,7 +1195,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn VerifyScripts(dwflags : u32, lplocalescripts : windows_core::PCWSTR, cchlocalescripts : i32, lptestscripts : windows_core::PCWSTR, cchtestscripts : i32) -> super::Foundation:: BOOL);
-    VerifyScripts(core::mem::transmute(dwflags), lplocalescripts.param().abi(), core::mem::transmute(cchlocalescripts), lptestscripts.param().abi(), core::mem::transmute(cchtestscripts)).ok()
+    VerifyScripts(dwflags, lplocalescripts.param().abi(), cchlocalescripts, lptestscripts.param().abi(), cchtestscripts).ok()
 }
 #[inline]
 pub unsafe fn WideCharToMultiByte<P6>(codepage: u32, dwflags: u32, lpwidecharstr: &[u16], lpmultibytestr: Option<&mut [u8]>, lpdefaultchar: P6, lpuseddefaultchar: Option<*mut super::Foundation::BOOL>) -> i32
@@ -1245,7 +1203,7 @@ where
     P6: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn WideCharToMultiByte(codepage : u32, dwflags : u32, lpwidecharstr : windows_core::PCWSTR, cchwidechar : i32, lpmultibytestr : windows_core::PSTR, cbmultibyte : i32, lpdefaultchar : windows_core::PCSTR, lpuseddefaultchar : *mut super::Foundation:: BOOL) -> i32);
-    WideCharToMultiByte(core::mem::transmute(codepage), core::mem::transmute(dwflags), core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap(), core::mem::transmute(lpmultibytestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpmultibytestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpdefaultchar.param().abi(), core::mem::transmute(lpuseddefaultchar.unwrap_or(core::mem::zeroed())))
+    WideCharToMultiByte(codepage, dwflags, core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap(), core::mem::transmute(lpmultibytestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpmultibytestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpdefaultchar.param().abi(), core::mem::transmute(lpuseddefaultchar.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn lstrcatA<P1>(lpstring1: windows_core::PSTR, lpstring2: P1) -> windows_core::PSTR
@@ -1353,7 +1311,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_UCharsToChars(us : *const u16, cs : windows_core::PCSTR, length : i32));
-    u_UCharsToChars(core::mem::transmute(us), cs.param().abi(), core::mem::transmute(length))
+    u_UCharsToChars(us, cs.param().abi(), length)
 }
 #[inline]
 pub unsafe fn u_austrcpy<P0>(dst: P0, src: *const u16) -> windows_core::PSTR
@@ -1361,7 +1319,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_austrcpy(dst : windows_core::PCSTR, src : *const u16) -> windows_core::PSTR);
-    u_austrcpy(dst.param().abi(), core::mem::transmute(src))
+    u_austrcpy(dst.param().abi(), src)
 }
 #[inline]
 pub unsafe fn u_austrncpy<P0>(dst: P0, src: *const u16, n: i32) -> windows_core::PSTR
@@ -1369,7 +1327,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_austrncpy(dst : windows_core::PCSTR, src : *const u16, n : i32) -> windows_core::PSTR);
-    u_austrncpy(dst.param().abi(), core::mem::transmute(src), core::mem::transmute(n))
+    u_austrncpy(dst.param().abi(), src, n)
 }
 #[inline]
 pub unsafe fn u_catclose(catd: *mut UResourceBundle) {
@@ -1379,7 +1337,7 @@ pub unsafe fn u_catclose(catd: *mut UResourceBundle) {
 #[inline]
 pub unsafe fn u_catgets(catd: *mut UResourceBundle, set_num: i32, msg_num: i32, s: *const u16, len: *mut i32, ec: *mut UErrorCode) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_catgets(catd : *mut UResourceBundle, set_num : i32, msg_num : i32, s : *const u16, len : *mut i32, ec : *mut UErrorCode) -> *mut u16);
-    u_catgets(core::mem::transmute(catd), core::mem::transmute(set_num), core::mem::transmute(msg_num), core::mem::transmute(s), core::mem::transmute(len), core::mem::transmute(ec))
+    u_catgets(core::mem::transmute(catd), set_num, msg_num, s, core::mem::transmute(len), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn u_catopen<P0, P1>(name: P0, locale: P1, ec: *mut UErrorCode) -> *mut UResourceBundle
@@ -1393,17 +1351,17 @@ where
 #[inline]
 pub unsafe fn u_charAge(c: i32, versionarray: *mut u8) {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_charAge(c : i32, versionarray : *mut u8));
-    u_charAge(core::mem::transmute(c), core::mem::transmute(versionarray))
+    u_charAge(c, core::mem::transmute(versionarray))
 }
 #[inline]
 pub unsafe fn u_charDigitValue(c: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_charDigitValue(c : i32) -> i32);
-    u_charDigitValue(core::mem::transmute(c))
+    u_charDigitValue(c)
 }
 #[inline]
 pub unsafe fn u_charDirection(c: i32) -> UCharDirection {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_charDirection(c : i32) -> UCharDirection);
-    u_charDirection(core::mem::transmute(c))
+    u_charDirection(c)
 }
 #[inline]
 pub unsafe fn u_charFromName<P1>(namechoice: UCharNameChoice, name: P1, perrorcode: *mut UErrorCode) -> i32
@@ -1411,12 +1369,12 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_charFromName(namechoice : UCharNameChoice, name : windows_core::PCSTR, perrorcode : *mut UErrorCode) -> i32);
-    u_charFromName(core::mem::transmute(namechoice), name.param().abi(), core::mem::transmute(perrorcode))
+    u_charFromName(namechoice, name.param().abi(), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_charMirror(c: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_charMirror(c : i32) -> i32);
-    u_charMirror(core::mem::transmute(c))
+    u_charMirror(c)
 }
 #[inline]
 pub unsafe fn u_charName<P2>(code: i32, namechoice: UCharNameChoice, buffer: P2, bufferlength: i32, perrorcode: *mut UErrorCode) -> i32
@@ -1424,12 +1382,12 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_charName(code : i32, namechoice : UCharNameChoice, buffer : windows_core::PCSTR, bufferlength : i32, perrorcode : *mut UErrorCode) -> i32);
-    u_charName(core::mem::transmute(code), core::mem::transmute(namechoice), buffer.param().abi(), core::mem::transmute(bufferlength), core::mem::transmute(perrorcode))
+    u_charName(code, namechoice, buffer.param().abi(), bufferlength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_charType(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_charType(c : i32) -> i8);
-    u_charType(core::mem::transmute(c))
+    u_charType(c)
 }
 #[inline]
 pub unsafe fn u_charsToUChars<P0>(cs: P0, us: *mut u16, length: i32)
@@ -1437,7 +1395,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_charsToUChars(cs : windows_core::PCSTR, us : *mut u16, length : i32));
-    u_charsToUChars(cs.param().abi(), core::mem::transmute(us), core::mem::transmute(length))
+    u_charsToUChars(cs.param().abi(), core::mem::transmute(us), length)
 }
 #[inline]
 pub unsafe fn u_cleanup() {
@@ -1447,37 +1405,37 @@ pub unsafe fn u_cleanup() {
 #[inline]
 pub unsafe fn u_countChar32(s: *const u16, length: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_countChar32(s : *const u16, length : i32) -> i32);
-    u_countChar32(core::mem::transmute(s), core::mem::transmute(length))
+    u_countChar32(s, length)
 }
 #[inline]
 pub unsafe fn u_digit(ch: i32, radix: i8) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_digit(ch : i32, radix : i8) -> i32);
-    u_digit(core::mem::transmute(ch), core::mem::transmute(radix))
+    u_digit(ch, radix)
 }
 #[inline]
 pub unsafe fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut UEnumCharNamesFn, context: *mut core::ffi::c_void, namechoice: UCharNameChoice, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_enumCharNames(start : i32, limit : i32, r#fn : *mut UEnumCharNamesFn, context : *mut core::ffi::c_void, namechoice : UCharNameChoice, perrorcode : *mut UErrorCode));
-    u_enumCharNames(core::mem::transmute(start), core::mem::transmute(limit), core::mem::transmute(r#fn), core::mem::transmute(context), core::mem::transmute(namechoice), core::mem::transmute(perrorcode))
+    u_enumCharNames(start, limit, core::mem::transmute(r#fn), core::mem::transmute(context), namechoice, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_enumCharTypes(enumrange: *mut UCharEnumTypeRange, context: *const core::ffi::c_void) {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_enumCharTypes(enumrange : *mut UCharEnumTypeRange, context : *const core::ffi::c_void));
-    u_enumCharTypes(core::mem::transmute(enumrange), core::mem::transmute(context))
+    u_enumCharTypes(core::mem::transmute(enumrange), context)
 }
 #[inline]
 pub unsafe fn u_errorName(code: UErrorCode) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_errorName(code : UErrorCode) -> windows_core::PCSTR);
-    u_errorName(core::mem::transmute(code))
+    u_errorName(code)
 }
 #[inline]
 pub unsafe fn u_foldCase(c: i32, options: u32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_foldCase(c : i32, options : u32) -> i32);
-    u_foldCase(core::mem::transmute(c), core::mem::transmute(options))
+    u_foldCase(c, options)
 }
 #[inline]
 pub unsafe fn u_forDigit(digit: i32, radix: i8) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_forDigit(digit : i32, radix : i8) -> i32);
-    u_forDigit(core::mem::transmute(digit), core::mem::transmute(radix))
+    u_forDigit(digit, radix)
 }
 #[inline]
 pub unsafe fn u_formatMessage<P0>(locale: P0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32
@@ -1485,7 +1443,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn u_formatMessage(locale : windows_core::PCSTR, pattern : *const u16, patternlength : i32, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    u_formatMessage(locale.param().abi(), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    u_formatMessage(locale.param().abi(), pattern, patternlength, core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn u_formatMessageWithError<P0>(locale: P0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32
@@ -1493,22 +1451,22 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn u_formatMessageWithError(locale : windows_core::PCSTR, pattern : *const u16, patternlength : i32, result : *mut u16, resultlength : i32, parseerror : *mut UParseError, status : *mut UErrorCode) -> i32);
-    u_formatMessageWithError(locale.param().abi(), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(parseerror), core::mem::transmute(status))
+    u_formatMessageWithError(locale.param().abi(), pattern, patternlength, core::mem::transmute(result), resultlength, core::mem::transmute(parseerror), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn u_getBidiPairedBracket(c: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_getBidiPairedBracket(c : i32) -> i32);
-    u_getBidiPairedBracket(core::mem::transmute(c))
+    u_getBidiPairedBracket(c)
 }
 #[inline]
 pub unsafe fn u_getBinaryPropertySet(property: UProperty, perrorcode: *mut UErrorCode) -> *mut USet {
     windows_targets::link!("icu.dll" "cdecl" fn u_getBinaryPropertySet(property : UProperty, perrorcode : *mut UErrorCode) -> *mut USet);
-    u_getBinaryPropertySet(core::mem::transmute(property), core::mem::transmute(perrorcode))
+    u_getBinaryPropertySet(property, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_getCombiningClass(c: i32) -> u8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_getCombiningClass(c : i32) -> u8);
-    u_getCombiningClass(core::mem::transmute(c))
+    u_getCombiningClass(c)
 }
 #[inline]
 pub unsafe fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCode) {
@@ -1518,32 +1476,32 @@ pub unsafe fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCo
 #[inline]
 pub unsafe fn u_getFC_NFKC_Closure(c: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_getFC_NFKC_Closure(c : i32, dest : *mut u16, destcapacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    u_getFC_NFKC_Closure(core::mem::transmute(c), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(perrorcode))
+    u_getFC_NFKC_Closure(c, core::mem::transmute(dest), destcapacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCode) -> *mut UCPMap {
     windows_targets::link!("icu.dll" "cdecl" fn u_getIntPropertyMap(property : UProperty, perrorcode : *mut UErrorCode) -> *mut UCPMap);
-    u_getIntPropertyMap(core::mem::transmute(property), core::mem::transmute(perrorcode))
+    u_getIntPropertyMap(property, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_getIntPropertyMaxValue(which: UProperty) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_getIntPropertyMaxValue(which : UProperty) -> i32);
-    u_getIntPropertyMaxValue(core::mem::transmute(which))
+    u_getIntPropertyMaxValue(which)
 }
 #[inline]
 pub unsafe fn u_getIntPropertyMinValue(which: UProperty) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_getIntPropertyMinValue(which : UProperty) -> i32);
-    u_getIntPropertyMinValue(core::mem::transmute(which))
+    u_getIntPropertyMinValue(which)
 }
 #[inline]
 pub unsafe fn u_getIntPropertyValue(c: i32, which: UProperty) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_getIntPropertyValue(c : i32, which : UProperty) -> i32);
-    u_getIntPropertyValue(core::mem::transmute(c), core::mem::transmute(which))
+    u_getIntPropertyValue(c, which)
 }
 #[inline]
 pub unsafe fn u_getNumericValue(c: i32) -> f64 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_getNumericValue(c : i32) -> f64);
-    u_getNumericValue(core::mem::transmute(c))
+    u_getNumericValue(c)
 }
 #[inline]
 pub unsafe fn u_getPropertyEnum<P0>(alias: P0) -> UProperty
@@ -1556,7 +1514,7 @@ where
 #[inline]
 pub unsafe fn u_getPropertyName(property: UProperty, namechoice: UPropertyNameChoice) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_getPropertyName(property : UProperty, namechoice : UPropertyNameChoice) -> windows_core::PCSTR);
-    u_getPropertyName(core::mem::transmute(property), core::mem::transmute(namechoice))
+    u_getPropertyName(property, namechoice)
 }
 #[inline]
 pub unsafe fn u_getPropertyValueEnum<P1>(property: UProperty, alias: P1) -> i32
@@ -1564,12 +1522,12 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_getPropertyValueEnum(property : UProperty, alias : windows_core::PCSTR) -> i32);
-    u_getPropertyValueEnum(core::mem::transmute(property), alias.param().abi())
+    u_getPropertyValueEnum(property, alias.param().abi())
 }
 #[inline]
 pub unsafe fn u_getPropertyValueName(property: UProperty, value: i32, namechoice: UPropertyNameChoice) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_getPropertyValueName(property : UProperty, value : i32, namechoice : UPropertyNameChoice) -> windows_core::PCSTR);
-    u_getPropertyValueName(core::mem::transmute(property), core::mem::transmute(value), core::mem::transmute(namechoice))
+    u_getPropertyValueName(property, value, namechoice)
 }
 #[inline]
 pub unsafe fn u_getUnicodeVersion(versionarray: *mut u8) {
@@ -1584,7 +1542,7 @@ pub unsafe fn u_getVersion(versionarray: *mut u8) {
 #[inline]
 pub unsafe fn u_hasBinaryProperty(c: i32, which: UProperty) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_hasBinaryProperty(c : i32, which : UProperty) -> i8);
-    u_hasBinaryProperty(core::mem::transmute(c), core::mem::transmute(which))
+    u_hasBinaryProperty(c, which)
 }
 #[inline]
 pub unsafe fn u_init(status: *mut UErrorCode) {
@@ -1594,192 +1552,192 @@ pub unsafe fn u_init(status: *mut UErrorCode) {
 #[inline]
 pub unsafe fn u_isIDIgnorable(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isIDIgnorable(c : i32) -> i8);
-    u_isIDIgnorable(core::mem::transmute(c))
+    u_isIDIgnorable(c)
 }
 #[inline]
 pub unsafe fn u_isIDPart(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isIDPart(c : i32) -> i8);
-    u_isIDPart(core::mem::transmute(c))
+    u_isIDPart(c)
 }
 #[inline]
 pub unsafe fn u_isIDStart(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isIDStart(c : i32) -> i8);
-    u_isIDStart(core::mem::transmute(c))
+    u_isIDStart(c)
 }
 #[inline]
 pub unsafe fn u_isISOControl(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isISOControl(c : i32) -> i8);
-    u_isISOControl(core::mem::transmute(c))
+    u_isISOControl(c)
 }
 #[inline]
 pub unsafe fn u_isJavaIDPart(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isJavaIDPart(c : i32) -> i8);
-    u_isJavaIDPart(core::mem::transmute(c))
+    u_isJavaIDPart(c)
 }
 #[inline]
 pub unsafe fn u_isJavaIDStart(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isJavaIDStart(c : i32) -> i8);
-    u_isJavaIDStart(core::mem::transmute(c))
+    u_isJavaIDStart(c)
 }
 #[inline]
 pub unsafe fn u_isJavaSpaceChar(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isJavaSpaceChar(c : i32) -> i8);
-    u_isJavaSpaceChar(core::mem::transmute(c))
+    u_isJavaSpaceChar(c)
 }
 #[inline]
 pub unsafe fn u_isMirrored(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isMirrored(c : i32) -> i8);
-    u_isMirrored(core::mem::transmute(c))
+    u_isMirrored(c)
 }
 #[inline]
 pub unsafe fn u_isUAlphabetic(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isUAlphabetic(c : i32) -> i8);
-    u_isUAlphabetic(core::mem::transmute(c))
+    u_isUAlphabetic(c)
 }
 #[inline]
 pub unsafe fn u_isULowercase(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isULowercase(c : i32) -> i8);
-    u_isULowercase(core::mem::transmute(c))
+    u_isULowercase(c)
 }
 #[inline]
 pub unsafe fn u_isUUppercase(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isUUppercase(c : i32) -> i8);
-    u_isUUppercase(core::mem::transmute(c))
+    u_isUUppercase(c)
 }
 #[inline]
 pub unsafe fn u_isUWhiteSpace(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isUWhiteSpace(c : i32) -> i8);
-    u_isUWhiteSpace(core::mem::transmute(c))
+    u_isUWhiteSpace(c)
 }
 #[inline]
 pub unsafe fn u_isWhitespace(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isWhitespace(c : i32) -> i8);
-    u_isWhitespace(core::mem::transmute(c))
+    u_isWhitespace(c)
 }
 #[inline]
 pub unsafe fn u_isalnum(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isalnum(c : i32) -> i8);
-    u_isalnum(core::mem::transmute(c))
+    u_isalnum(c)
 }
 #[inline]
 pub unsafe fn u_isalpha(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isalpha(c : i32) -> i8);
-    u_isalpha(core::mem::transmute(c))
+    u_isalpha(c)
 }
 #[inline]
 pub unsafe fn u_isbase(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isbase(c : i32) -> i8);
-    u_isbase(core::mem::transmute(c))
+    u_isbase(c)
 }
 #[inline]
 pub unsafe fn u_isblank(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isblank(c : i32) -> i8);
-    u_isblank(core::mem::transmute(c))
+    u_isblank(c)
 }
 #[inline]
 pub unsafe fn u_iscntrl(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_iscntrl(c : i32) -> i8);
-    u_iscntrl(core::mem::transmute(c))
+    u_iscntrl(c)
 }
 #[inline]
 pub unsafe fn u_isdefined(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isdefined(c : i32) -> i8);
-    u_isdefined(core::mem::transmute(c))
+    u_isdefined(c)
 }
 #[inline]
 pub unsafe fn u_isdigit(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isdigit(c : i32) -> i8);
-    u_isdigit(core::mem::transmute(c))
+    u_isdigit(c)
 }
 #[inline]
 pub unsafe fn u_isgraph(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isgraph(c : i32) -> i8);
-    u_isgraph(core::mem::transmute(c))
+    u_isgraph(c)
 }
 #[inline]
 pub unsafe fn u_islower(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_islower(c : i32) -> i8);
-    u_islower(core::mem::transmute(c))
+    u_islower(c)
 }
 #[inline]
 pub unsafe fn u_isprint(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isprint(c : i32) -> i8);
-    u_isprint(core::mem::transmute(c))
+    u_isprint(c)
 }
 #[inline]
 pub unsafe fn u_ispunct(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_ispunct(c : i32) -> i8);
-    u_ispunct(core::mem::transmute(c))
+    u_ispunct(c)
 }
 #[inline]
 pub unsafe fn u_isspace(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isspace(c : i32) -> i8);
-    u_isspace(core::mem::transmute(c))
+    u_isspace(c)
 }
 #[inline]
 pub unsafe fn u_istitle(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_istitle(c : i32) -> i8);
-    u_istitle(core::mem::transmute(c))
+    u_istitle(c)
 }
 #[inline]
 pub unsafe fn u_isupper(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isupper(c : i32) -> i8);
-    u_isupper(core::mem::transmute(c))
+    u_isupper(c)
 }
 #[inline]
 pub unsafe fn u_isxdigit(c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_isxdigit(c : i32) -> i8);
-    u_isxdigit(core::mem::transmute(c))
+    u_isxdigit(c)
 }
 #[inline]
 pub unsafe fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options: u32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_memcasecmp(s1 : *const u16, s2 : *const u16, length : i32, options : u32) -> i32);
-    u_memcasecmp(core::mem::transmute(s1), core::mem::transmute(s2), core::mem::transmute(length), core::mem::transmute(options))
+    u_memcasecmp(s1, s2, length, options)
 }
 #[inline]
 pub unsafe fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_memchr(s : *const u16, c : u16, count : i32) -> *mut u16);
-    u_memchr(core::mem::transmute(s), core::mem::transmute(c), core::mem::transmute(count))
+    u_memchr(s, c, count)
 }
 #[inline]
 pub unsafe fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_memchr32(s : *const u16, c : i32, count : i32) -> *mut u16);
-    u_memchr32(core::mem::transmute(s), core::mem::transmute(c), core::mem::transmute(count))
+    u_memchr32(s, c, count)
 }
 #[inline]
 pub unsafe fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_memcmp(buf1 : *const u16, buf2 : *const u16, count : i32) -> i32);
-    u_memcmp(core::mem::transmute(buf1), core::mem::transmute(buf2), core::mem::transmute(count))
+    u_memcmp(buf1, buf2, count)
 }
 #[inline]
 pub unsafe fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_memcmpCodePointOrder(s1 : *const u16, s2 : *const u16, count : i32) -> i32);
-    u_memcmpCodePointOrder(core::mem::transmute(s1), core::mem::transmute(s2), core::mem::transmute(count))
+    u_memcmpCodePointOrder(s1, s2, count)
 }
 #[inline]
 pub unsafe fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_memcpy(dest : *mut u16, src : *const u16, count : i32) -> *mut u16);
-    u_memcpy(core::mem::transmute(dest), core::mem::transmute(src), core::mem::transmute(count))
+    u_memcpy(core::mem::transmute(dest), src, count)
 }
 #[inline]
 pub unsafe fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_memmove(dest : *mut u16, src : *const u16, count : i32) -> *mut u16);
-    u_memmove(core::mem::transmute(dest), core::mem::transmute(src), core::mem::transmute(count))
+    u_memmove(core::mem::transmute(dest), src, count)
 }
 #[inline]
 pub unsafe fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_memrchr(s : *const u16, c : u16, count : i32) -> *mut u16);
-    u_memrchr(core::mem::transmute(s), core::mem::transmute(c), core::mem::transmute(count))
+    u_memrchr(s, c, count)
 }
 #[inline]
 pub unsafe fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_memrchr32(s : *const u16, c : i32, count : i32) -> *mut u16);
-    u_memrchr32(core::mem::transmute(s), core::mem::transmute(c), core::mem::transmute(count))
+    u_memrchr32(s, c, count)
 }
 #[inline]
 pub unsafe fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_memset(dest : *mut u16, c : u16, count : i32) -> *mut u16);
-    u_memset(core::mem::transmute(dest), core::mem::transmute(c), core::mem::transmute(count))
+    u_memset(core::mem::transmute(dest), c, count)
 }
 #[inline]
 pub unsafe fn u_parseMessage<P0>(locale: P0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, status: *mut UErrorCode)
@@ -1787,7 +1745,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn u_parseMessage(locale : windows_core::PCSTR, pattern : *const u16, patternlength : i32, source : *const u16, sourcelength : i32, status : *mut UErrorCode));
-    u_parseMessage(locale.param().abi(), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(status))
+    u_parseMessage(locale.param().abi(), pattern, patternlength, source, sourcelength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn u_parseMessageWithError<P0>(locale: P0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, parseerror: *mut UParseError, status: *mut UErrorCode)
@@ -1795,47 +1753,47 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn u_parseMessageWithError(locale : windows_core::PCSTR, pattern : *const u16, patternlength : i32, source : *const u16, sourcelength : i32, parseerror : *mut UParseError, status : *mut UErrorCode));
-    u_parseMessageWithError(locale.param().abi(), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(parseerror), core::mem::transmute(status))
+    u_parseMessageWithError(locale.param().abi(), pattern, patternlength, source, sourcelength, core::mem::transmute(parseerror), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn u_setMemoryFunctions(context: *const core::ffi::c_void, a: *mut UMemAllocFn, r: *mut UMemReallocFn, f: *mut UMemFreeFn, status: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_setMemoryFunctions(context : *const core::ffi::c_void, a : *mut UMemAllocFn, r : *mut UMemReallocFn, f : *mut UMemFreeFn, status : *mut UErrorCode));
-    u_setMemoryFunctions(core::mem::transmute(context), core::mem::transmute(a), core::mem::transmute(r), core::mem::transmute(f), core::mem::transmute(status))
+    u_setMemoryFunctions(context, core::mem::transmute(a), core::mem::transmute(r), core::mem::transmute(f), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn u_shapeArabic(source: *const u16, sourcelength: i32, dest: *mut u16, destsize: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_shapeArabic(source : *const u16, sourcelength : i32, dest : *mut u16, destsize : i32, options : u32, perrorcode : *mut UErrorCode) -> i32);
-    u_shapeArabic(core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(dest), core::mem::transmute(destsize), core::mem::transmute(options), core::mem::transmute(perrorcode))
+    u_shapeArabic(source, sourcelength, core::mem::transmute(dest), destsize, options, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strCaseCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strCaseCompare(s1 : *const u16, length1 : i32, s2 : *const u16, length2 : i32, options : u32, perrorcode : *mut UErrorCode) -> i32);
-    u_strCaseCompare(core::mem::transmute(s1), core::mem::transmute(length1), core::mem::transmute(s2), core::mem::transmute(length2), core::mem::transmute(options), core::mem::transmute(perrorcode))
+    u_strCaseCompare(s1, length1, s2, length2, options, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, codepointorder: i8) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strCompare(s1 : *const u16, length1 : i32, s2 : *const u16, length2 : i32, codepointorder : i8) -> i32);
-    u_strCompare(core::mem::transmute(s1), core::mem::transmute(length1), core::mem::transmute(s2), core::mem::transmute(length2), core::mem::transmute(codepointorder))
+    u_strCompare(s1, length1, s2, length2, codepointorder)
 }
 #[inline]
 pub unsafe fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharIterator, codepointorder: i8) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strCompareIter(iter1 : *mut UCharIterator, iter2 : *mut UCharIterator, codepointorder : i8) -> i32);
-    u_strCompareIter(core::mem::transmute(iter1), core::mem::transmute(iter2), core::mem::transmute(codepointorder))
+    u_strCompareIter(core::mem::transmute(iter1), core::mem::transmute(iter2), codepointorder)
 }
 #[inline]
 pub unsafe fn u_strFindFirst(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strFindFirst(s : *const u16, length : i32, substring : *const u16, sublength : i32) -> *mut u16);
-    u_strFindFirst(core::mem::transmute(s), core::mem::transmute(length), core::mem::transmute(substring), core::mem::transmute(sublength))
+    u_strFindFirst(s, length, substring, sublength)
 }
 #[inline]
 pub unsafe fn u_strFindLast(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strFindLast(s : *const u16, length : i32, substring : *const u16, sublength : i32) -> *mut u16);
-    u_strFindLast(core::mem::transmute(s), core::mem::transmute(length), core::mem::transmute(substring), core::mem::transmute(sublength))
+    u_strFindLast(s, length, substring, sublength)
 }
 #[inline]
 pub unsafe fn u_strFoldCase(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strFoldCase(dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, options : u32, perrorcode : *mut UErrorCode) -> i32);
-    u_strFoldCase(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(options), core::mem::transmute(perrorcode))
+    u_strFoldCase(core::mem::transmute(dest), destcapacity, src, srclength, options, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strFromJavaModifiedUTF8WithSub<P3>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: P3, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16
@@ -1843,17 +1801,17 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strFromJavaModifiedUTF8WithSub(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : windows_core::PCSTR, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> *mut u16);
-    u_strFromJavaModifiedUTF8WithSub(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), src.param().abi(), core::mem::transmute(srclength), core::mem::transmute(subchar), core::mem::transmute(pnumsubstitutions), core::mem::transmute(perrorcode))
+    u_strFromJavaModifiedUTF8WithSub(core::mem::transmute(dest), destcapacity, core::mem::transmute(pdestlength), src.param().abi(), srclength, subchar, core::mem::transmute(pnumsubstitutions), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strFromUTF32(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strFromUTF32(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : *const i32, srclength : i32, perrorcode : *mut UErrorCode) -> *mut u16);
-    u_strFromUTF32(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    u_strFromUTF32(core::mem::transmute(dest), destcapacity, core::mem::transmute(pdestlength), src, srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strFromUTF32WithSub(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : *const i32, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> *mut u16);
-    u_strFromUTF32WithSub(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(subchar), core::mem::transmute(pnumsubstitutions), core::mem::transmute(perrorcode))
+    u_strFromUTF32WithSub(core::mem::transmute(dest), destcapacity, core::mem::transmute(pdestlength), src, srclength, subchar, core::mem::transmute(pnumsubstitutions), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strFromUTF8<P3>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: P3, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16
@@ -1861,7 +1819,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strFromUTF8(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : windows_core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> *mut u16);
-    u_strFromUTF8(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), src.param().abi(), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    u_strFromUTF8(core::mem::transmute(dest), destcapacity, core::mem::transmute(pdestlength), src.param().abi(), srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strFromUTF8Lenient<P3>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: P3, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16
@@ -1869,7 +1827,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strFromUTF8Lenient(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : windows_core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> *mut u16);
-    u_strFromUTF8Lenient(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), src.param().abi(), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    u_strFromUTF8Lenient(core::mem::transmute(dest), destcapacity, core::mem::transmute(pdestlength), src.param().abi(), srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strFromUTF8WithSub<P3>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: P3, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16
@@ -1877,7 +1835,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strFromUTF8WithSub(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : windows_core::PCSTR, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> *mut u16);
-    u_strFromUTF8WithSub(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), src.param().abi(), core::mem::transmute(srclength), core::mem::transmute(subchar), core::mem::transmute(pnumsubstitutions), core::mem::transmute(perrorcode))
+    u_strFromUTF8WithSub(core::mem::transmute(dest), destcapacity, core::mem::transmute(pdestlength), src.param().abi(), srclength, subchar, core::mem::transmute(pnumsubstitutions), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strFromWCS<P3>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: P3, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16
@@ -1885,12 +1843,12 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strFromWCS(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : windows_core::PCWSTR, srclength : i32, perrorcode : *mut UErrorCode) -> *mut u16);
-    u_strFromWCS(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), src.param().abi(), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    u_strFromWCS(core::mem::transmute(dest), destcapacity, core::mem::transmute(pdestlength), src.param().abi(), srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strHasMoreChar32Than(s : *const u16, length : i32, number : i32) -> i8);
-    u_strHasMoreChar32Than(core::mem::transmute(s), core::mem::transmute(length), core::mem::transmute(number))
+    u_strHasMoreChar32Than(s, length, number)
 }
 #[inline]
 pub unsafe fn u_strToJavaModifiedUTF8<P0>(dest: P0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> windows_core::PSTR
@@ -1898,7 +1856,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strToJavaModifiedUTF8(dest : windows_core::PCSTR, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> windows_core::PSTR);
-    u_strToJavaModifiedUTF8(dest.param().abi(), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    u_strToJavaModifiedUTF8(dest.param().abi(), destcapacity, core::mem::transmute(pdestlength), src, srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strToLower<P4>(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, locale: P4, perrorcode: *mut UErrorCode) -> i32
@@ -1906,7 +1864,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strToLower(dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, locale : windows_core::PCSTR, perrorcode : *mut UErrorCode) -> i32);
-    u_strToLower(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(src), core::mem::transmute(srclength), locale.param().abi(), core::mem::transmute(perrorcode))
+    u_strToLower(core::mem::transmute(dest), destcapacity, src, srclength, locale.param().abi(), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strToTitle<P5>(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, titleiter: *mut UBreakIterator, locale: P5, perrorcode: *mut UErrorCode) -> i32
@@ -1914,17 +1872,17 @@ where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strToTitle(dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, titleiter : *mut UBreakIterator, locale : windows_core::PCSTR, perrorcode : *mut UErrorCode) -> i32);
-    u_strToTitle(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(titleiter), locale.param().abi(), core::mem::transmute(perrorcode))
+    u_strToTitle(core::mem::transmute(dest), destcapacity, src, srclength, core::mem::transmute(titleiter), locale.param().abi(), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strToUTF32(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> *mut i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strToUTF32(dest : *mut i32, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> *mut i32);
-    u_strToUTF32(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    u_strToUTF32(core::mem::transmute(dest), destcapacity, core::mem::transmute(pdestlength), src, srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strToUTF32WithSub(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strToUTF32WithSub(dest : *mut i32, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> *mut i32);
-    u_strToUTF32WithSub(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(subchar), core::mem::transmute(pnumsubstitutions), core::mem::transmute(perrorcode))
+    u_strToUTF32WithSub(core::mem::transmute(dest), destcapacity, core::mem::transmute(pdestlength), src, srclength, subchar, core::mem::transmute(pnumsubstitutions), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strToUTF8<P0>(dest: P0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> windows_core::PSTR
@@ -1932,7 +1890,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strToUTF8(dest : windows_core::PCSTR, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> windows_core::PSTR);
-    u_strToUTF8(dest.param().abi(), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    u_strToUTF8(dest.param().abi(), destcapacity, core::mem::transmute(pdestlength), src, srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strToUTF8WithSub<P0>(dest: P0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> windows_core::PSTR
@@ -1940,7 +1898,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strToUTF8WithSub(dest : windows_core::PCSTR, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> windows_core::PSTR);
-    u_strToUTF8WithSub(dest.param().abi(), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(subchar), core::mem::transmute(pnumsubstitutions), core::mem::transmute(perrorcode))
+    u_strToUTF8WithSub(dest.param().abi(), destcapacity, core::mem::transmute(pdestlength), src, srclength, subchar, core::mem::transmute(pnumsubstitutions), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strToUpper<P4>(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, locale: P4, perrorcode: *mut UErrorCode) -> i32
@@ -1948,7 +1906,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strToUpper(dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, locale : windows_core::PCSTR, perrorcode : *mut UErrorCode) -> i32);
-    u_strToUpper(core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(src), core::mem::transmute(srclength), locale.param().abi(), core::mem::transmute(perrorcode))
+    u_strToUpper(core::mem::transmute(dest), destcapacity, src, srclength, locale.param().abi(), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strToWCS<P0>(dest: P0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> windows_core::PWSTR
@@ -1956,127 +1914,127 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strToWCS(dest : windows_core::PCWSTR, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> windows_core::PWSTR);
-    u_strToWCS(dest.param().abi(), core::mem::transmute(destcapacity), core::mem::transmute(pdestlength), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    u_strToWCS(dest.param().abi(), destcapacity, core::mem::transmute(pdestlength), src, srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strcasecmp(s1 : *const u16, s2 : *const u16, options : u32) -> i32);
-    u_strcasecmp(core::mem::transmute(s1), core::mem::transmute(s2), core::mem::transmute(options))
+    u_strcasecmp(s1, s2, options)
 }
 #[inline]
 pub unsafe fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strcat(dst : *mut u16, src : *const u16) -> *mut u16);
-    u_strcat(core::mem::transmute(dst), core::mem::transmute(src))
+    u_strcat(core::mem::transmute(dst), src)
 }
 #[inline]
 pub unsafe fn u_strchr(s: *const u16, c: u16) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strchr(s : *const u16, c : u16) -> *mut u16);
-    u_strchr(core::mem::transmute(s), core::mem::transmute(c))
+    u_strchr(s, c)
 }
 #[inline]
 pub unsafe fn u_strchr32(s: *const u16, c: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strchr32(s : *const u16, c : i32) -> *mut u16);
-    u_strchr32(core::mem::transmute(s), core::mem::transmute(c))
+    u_strchr32(s, c)
 }
 #[inline]
 pub unsafe fn u_strcmp(s1: *const u16, s2: *const u16) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strcmp(s1 : *const u16, s2 : *const u16) -> i32);
-    u_strcmp(core::mem::transmute(s1), core::mem::transmute(s2))
+    u_strcmp(s1, s2)
 }
 #[inline]
 pub unsafe fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strcmpCodePointOrder(s1 : *const u16, s2 : *const u16) -> i32);
-    u_strcmpCodePointOrder(core::mem::transmute(s1), core::mem::transmute(s2))
+    u_strcmpCodePointOrder(s1, s2)
 }
 #[inline]
 pub unsafe fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strcpy(dst : *mut u16, src : *const u16) -> *mut u16);
-    u_strcpy(core::mem::transmute(dst), core::mem::transmute(src))
+    u_strcpy(core::mem::transmute(dst), src)
 }
 #[inline]
 pub unsafe fn u_strcspn(string: *const u16, matchset: *const u16) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strcspn(string : *const u16, matchset : *const u16) -> i32);
-    u_strcspn(core::mem::transmute(string), core::mem::transmute(matchset))
+    u_strcspn(string, matchset)
 }
 #[inline]
 pub unsafe fn u_strlen(s: *const u16) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strlen(s : *const u16) -> i32);
-    u_strlen(core::mem::transmute(s))
+    u_strlen(s)
 }
 #[inline]
 pub unsafe fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strncasecmp(s1 : *const u16, s2 : *const u16, n : i32, options : u32) -> i32);
-    u_strncasecmp(core::mem::transmute(s1), core::mem::transmute(s2), core::mem::transmute(n), core::mem::transmute(options))
+    u_strncasecmp(s1, s2, n, options)
 }
 #[inline]
 pub unsafe fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strncat(dst : *mut u16, src : *const u16, n : i32) -> *mut u16);
-    u_strncat(core::mem::transmute(dst), core::mem::transmute(src), core::mem::transmute(n))
+    u_strncat(core::mem::transmute(dst), src, n)
 }
 #[inline]
 pub unsafe fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strncmp(ucs1 : *const u16, ucs2 : *const u16, n : i32) -> i32);
-    u_strncmp(core::mem::transmute(ucs1), core::mem::transmute(ucs2), core::mem::transmute(n))
+    u_strncmp(ucs1, ucs2, n)
 }
 #[inline]
 pub unsafe fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strncmpCodePointOrder(s1 : *const u16, s2 : *const u16, n : i32) -> i32);
-    u_strncmpCodePointOrder(core::mem::transmute(s1), core::mem::transmute(s2), core::mem::transmute(n))
+    u_strncmpCodePointOrder(s1, s2, n)
 }
 #[inline]
 pub unsafe fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strncpy(dst : *mut u16, src : *const u16, n : i32) -> *mut u16);
-    u_strncpy(core::mem::transmute(dst), core::mem::transmute(src), core::mem::transmute(n))
+    u_strncpy(core::mem::transmute(dst), src, n)
 }
 #[inline]
 pub unsafe fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strpbrk(string : *const u16, matchset : *const u16) -> *mut u16);
-    u_strpbrk(core::mem::transmute(string), core::mem::transmute(matchset))
+    u_strpbrk(string, matchset)
 }
 #[inline]
 pub unsafe fn u_strrchr(s: *const u16, c: u16) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strrchr(s : *const u16, c : u16) -> *mut u16);
-    u_strrchr(core::mem::transmute(s), core::mem::transmute(c))
+    u_strrchr(s, c)
 }
 #[inline]
 pub unsafe fn u_strrchr32(s: *const u16, c: i32) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strrchr32(s : *const u16, c : i32) -> *mut u16);
-    u_strrchr32(core::mem::transmute(s), core::mem::transmute(c))
+    u_strrchr32(s, c)
 }
 #[inline]
 pub unsafe fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strrstr(s : *const u16, substring : *const u16) -> *mut u16);
-    u_strrstr(core::mem::transmute(s), core::mem::transmute(substring))
+    u_strrstr(s, substring)
 }
 #[inline]
 pub unsafe fn u_strspn(string: *const u16, matchset: *const u16) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strspn(string : *const u16, matchset : *const u16) -> i32);
-    u_strspn(core::mem::transmute(string), core::mem::transmute(matchset))
+    u_strspn(string, matchset)
 }
 #[inline]
 pub unsafe fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strstr(s : *const u16, substring : *const u16) -> *mut u16);
-    u_strstr(core::mem::transmute(s), core::mem::transmute(substring))
+    u_strstr(s, substring)
 }
 #[inline]
 pub unsafe fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut u16) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_strtok_r(src : *mut u16, delim : *const u16, savestate : *mut *mut u16) -> *mut u16);
-    u_strtok_r(core::mem::transmute(src), core::mem::transmute(delim), core::mem::transmute(savestate))
+    u_strtok_r(core::mem::transmute(src), delim, core::mem::transmute(savestate))
 }
 #[inline]
 pub unsafe fn u_tolower(c: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_tolower(c : i32) -> i32);
-    u_tolower(core::mem::transmute(c))
+    u_tolower(c)
 }
 #[inline]
 pub unsafe fn u_totitle(c: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_totitle(c : i32) -> i32);
-    u_totitle(core::mem::transmute(c))
+    u_totitle(c)
 }
 #[inline]
 pub unsafe fn u_toupper(c: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_toupper(c : i32) -> i32);
-    u_toupper(core::mem::transmute(c))
+    u_toupper(c)
 }
 #[inline]
 pub unsafe fn u_uastrcpy<P1>(dst: *mut u16, src: P1) -> *mut u16
@@ -2092,7 +2050,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_uastrncpy(dst : *mut u16, src : windows_core::PCSTR, n : i32) -> *mut u16);
-    u_uastrncpy(core::mem::transmute(dst), src.param().abi(), core::mem::transmute(n))
+    u_uastrncpy(core::mem::transmute(dst), src.param().abi(), n)
 }
 #[inline]
 pub unsafe fn u_unescape<P0>(src: P0, dest: *mut u16, destcapacity: i32) -> i32
@@ -2100,12 +2058,12 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_unescape(src : windows_core::PCSTR, dest : *mut u16, destcapacity : i32) -> i32);
-    u_unescape(src.param().abi(), core::mem::transmute(dest), core::mem::transmute(destcapacity))
+    u_unescape(src.param().abi(), core::mem::transmute(dest), destcapacity)
 }
 #[inline]
 pub unsafe fn u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: *mut i32, length: i32, context: *mut core::ffi::c_void) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_unescapeAt(charat : UNESCAPE_CHAR_AT, offset : *mut i32, length : i32, context : *mut core::ffi::c_void) -> i32);
-    u_unescapeAt(core::mem::transmute(charat), core::mem::transmute(offset), core::mem::transmute(length), core::mem::transmute(context))
+    u_unescapeAt(charat, core::mem::transmute(offset), length, core::mem::transmute(context))
 }
 #[inline]
 pub unsafe fn u_versionFromString<P1>(versionarray: *mut u8, versionstring: P1)
@@ -2118,7 +2076,7 @@ where
 #[inline]
 pub unsafe fn u_versionFromUString(versionarray: *mut u8, versionstring: *const u16) {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_versionFromUString(versionarray : *mut u8, versionstring : *const u16));
-    u_versionFromUString(core::mem::transmute(versionarray), core::mem::transmute(versionstring))
+    u_versionFromUString(core::mem::transmute(versionarray), versionstring)
 }
 #[inline]
 pub unsafe fn u_versionToString<P1>(versionarray: *const u8, versionstring: P1)
@@ -2126,7 +2084,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn u_versionToString(versionarray : *const u8, versionstring : windows_core::PCSTR));
-    u_versionToString(core::mem::transmute(versionarray), versionstring.param().abi())
+    u_versionToString(versionarray, versionstring.param().abi())
 }
 #[inline]
 pub unsafe fn u_vformatMessage<P0>(locale: P0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32
@@ -2134,7 +2092,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn u_vformatMessage(locale : windows_core::PCSTR, pattern : *const u16, patternlength : i32, result : *mut u16, resultlength : i32, ap : *mut i8, status : *mut UErrorCode) -> i32);
-    u_vformatMessage(locale.param().abi(), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(ap), core::mem::transmute(status))
+    u_vformatMessage(locale.param().abi(), pattern, patternlength, core::mem::transmute(result), resultlength, core::mem::transmute(ap), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn u_vformatMessageWithError<P0>(locale: P0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, parseerror: *mut UParseError, ap: *mut i8, status: *mut UErrorCode) -> i32
@@ -2142,7 +2100,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn u_vformatMessageWithError(locale : windows_core::PCSTR, pattern : *const u16, patternlength : i32, result : *mut u16, resultlength : i32, parseerror : *mut UParseError, ap : *mut i8, status : *mut UErrorCode) -> i32);
-    u_vformatMessageWithError(locale.param().abi(), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(parseerror), core::mem::transmute(ap), core::mem::transmute(status))
+    u_vformatMessageWithError(locale.param().abi(), pattern, patternlength, core::mem::transmute(result), resultlength, core::mem::transmute(parseerror), core::mem::transmute(ap), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn u_vparseMessage<P0>(locale: P0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, ap: *mut i8, status: *mut UErrorCode)
@@ -2150,7 +2108,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn u_vparseMessage(locale : windows_core::PCSTR, pattern : *const u16, patternlength : i32, source : *const u16, sourcelength : i32, ap : *mut i8, status : *mut UErrorCode));
-    u_vparseMessage(locale.param().abi(), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(ap), core::mem::transmute(status))
+    u_vparseMessage(locale.param().abi(), pattern, patternlength, source, sourcelength, core::mem::transmute(ap), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn u_vparseMessageWithError<P0>(locale: P0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, ap: *mut i8, parseerror: *mut UParseError, status: *mut UErrorCode)
@@ -2158,7 +2116,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn u_vparseMessageWithError(locale : windows_core::PCSTR, pattern : *const u16, patternlength : i32, source : *const u16, sourcelength : i32, ap : *mut i8, parseerror : *mut UParseError, status : *mut UErrorCode));
-    u_vparseMessageWithError(locale.param().abi(), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(ap), core::mem::transmute(parseerror), core::mem::transmute(status))
+    u_vparseMessageWithError(locale.param().abi(), pattern, patternlength, source, sourcelength, core::mem::transmute(ap), core::mem::transmute(parseerror), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ubidi_close(pbidi: *mut UBiDi) {
@@ -2178,32 +2136,32 @@ pub unsafe fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) ->
 #[inline]
 pub unsafe fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDirection {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getBaseDirection(text : *const u16, length : i32) -> UBiDiDirection);
-    ubidi_getBaseDirection(core::mem::transmute(text), core::mem::transmute(length))
+    ubidi_getBaseDirection(text, length)
 }
 #[inline]
 pub unsafe fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut UBiDiClassCallback, context: *const *const core::ffi::c_void) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getClassCallback(pbidi : *mut UBiDi, r#fn : *mut UBiDiClassCallback, context : *const *const core::ffi::c_void));
-    ubidi_getClassCallback(core::mem::transmute(pbidi), core::mem::transmute(r#fn), core::mem::transmute(context))
+    ubidi_getClassCallback(core::mem::transmute(pbidi), core::mem::transmute(r#fn), context)
 }
 #[inline]
 pub unsafe fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirection {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getCustomizedClass(pbidi : *mut UBiDi, c : i32) -> UCharDirection);
-    ubidi_getCustomizedClass(core::mem::transmute(pbidi), core::mem::transmute(c))
+    ubidi_getCustomizedClass(core::mem::transmute(pbidi), c)
 }
 #[inline]
 pub unsafe fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getDirection(pbidi : *const UBiDi) -> UBiDiDirection);
-    ubidi_getDirection(core::mem::transmute(pbidi))
+    ubidi_getDirection(pbidi)
 }
 #[inline]
 pub unsafe fn ubidi_getLength(pbidi: *const UBiDi) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getLength(pbidi : *const UBiDi) -> i32);
-    ubidi_getLength(core::mem::transmute(pbidi))
+    ubidi_getLength(pbidi)
 }
 #[inline]
 pub unsafe fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getLevelAt(pbidi : *const UBiDi, charindex : i32) -> u8);
-    ubidi_getLevelAt(core::mem::transmute(pbidi), core::mem::transmute(charindex))
+    ubidi_getLevelAt(pbidi, charindex)
 }
 #[inline]
 pub unsafe fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> *mut u8 {
@@ -2213,7 +2171,7 @@ pub unsafe fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) ->
 #[inline]
 pub unsafe fn ubidi_getLogicalIndex(pbidi: *mut UBiDi, visualindex: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getLogicalIndex(pbidi : *mut UBiDi, visualindex : i32, perrorcode : *mut UErrorCode) -> i32);
-    ubidi_getLogicalIndex(core::mem::transmute(pbidi), core::mem::transmute(visualindex), core::mem::transmute(perrorcode))
+    ubidi_getLogicalIndex(core::mem::transmute(pbidi), visualindex, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ubidi_getLogicalMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode) {
@@ -2223,27 +2181,27 @@ pub unsafe fn ubidi_getLogicalMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorc
 #[inline]
 pub unsafe fn ubidi_getLogicalRun(pbidi: *const UBiDi, logicalposition: i32, plogicallimit: *mut i32, plevel: *mut u8) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getLogicalRun(pbidi : *const UBiDi, logicalposition : i32, plogicallimit : *mut i32, plevel : *mut u8));
-    ubidi_getLogicalRun(core::mem::transmute(pbidi), core::mem::transmute(logicalposition), core::mem::transmute(plogicallimit), core::mem::transmute(plevel))
+    ubidi_getLogicalRun(pbidi, logicalposition, core::mem::transmute(plogicallimit), core::mem::transmute(plevel))
 }
 #[inline]
 pub unsafe fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getParaLevel(pbidi : *const UBiDi) -> u8);
-    ubidi_getParaLevel(core::mem::transmute(pbidi))
+    ubidi_getParaLevel(pbidi)
 }
 #[inline]
 pub unsafe fn ubidi_getParagraph(pbidi: *const UBiDi, charindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getParagraph(pbidi : *const UBiDi, charindex : i32, pparastart : *mut i32, pparalimit : *mut i32, pparalevel : *mut u8, perrorcode : *mut UErrorCode) -> i32);
-    ubidi_getParagraph(core::mem::transmute(pbidi), core::mem::transmute(charindex), core::mem::transmute(pparastart), core::mem::transmute(pparalimit), core::mem::transmute(pparalevel), core::mem::transmute(perrorcode))
+    ubidi_getParagraph(pbidi, charindex, core::mem::transmute(pparastart), core::mem::transmute(pparalimit), core::mem::transmute(pparalevel), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ubidi_getParagraphByIndex(pbidi: *const UBiDi, paraindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getParagraphByIndex(pbidi : *const UBiDi, paraindex : i32, pparastart : *mut i32, pparalimit : *mut i32, pparalevel : *mut u8, perrorcode : *mut UErrorCode));
-    ubidi_getParagraphByIndex(core::mem::transmute(pbidi), core::mem::transmute(paraindex), core::mem::transmute(pparastart), core::mem::transmute(pparalimit), core::mem::transmute(pparalevel), core::mem::transmute(perrorcode))
+    ubidi_getParagraphByIndex(pbidi, paraindex, core::mem::transmute(pparastart), core::mem::transmute(pparalimit), core::mem::transmute(pparalevel), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getProcessedLength(pbidi : *const UBiDi) -> i32);
-    ubidi_getProcessedLength(core::mem::transmute(pbidi))
+    ubidi_getProcessedLength(pbidi)
 }
 #[inline]
 pub unsafe fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode {
@@ -2258,17 +2216,17 @@ pub unsafe fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32 {
 #[inline]
 pub unsafe fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getResultLength(pbidi : *const UBiDi) -> i32);
-    ubidi_getResultLength(core::mem::transmute(pbidi))
+    ubidi_getResultLength(pbidi)
 }
 #[inline]
 pub unsafe fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getText(pbidi : *const UBiDi) -> *mut u16);
-    ubidi_getText(core::mem::transmute(pbidi))
+    ubidi_getText(pbidi)
 }
 #[inline]
 pub unsafe fn ubidi_getVisualIndex(pbidi: *mut UBiDi, logicalindex: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getVisualIndex(pbidi : *mut UBiDi, logicalindex : i32, perrorcode : *mut UErrorCode) -> i32);
-    ubidi_getVisualIndex(core::mem::transmute(pbidi), core::mem::transmute(logicalindex), core::mem::transmute(perrorcode))
+    ubidi_getVisualIndex(core::mem::transmute(pbidi), logicalindex, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ubidi_getVisualMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode) {
@@ -2278,12 +2236,12 @@ pub unsafe fn ubidi_getVisualMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorco
 #[inline]
 pub unsafe fn ubidi_getVisualRun(pbidi: *mut UBiDi, runindex: i32, plogicalstart: *mut i32, plength: *mut i32) -> UBiDiDirection {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_getVisualRun(pbidi : *mut UBiDi, runindex : i32, plogicalstart : *mut i32, plength : *mut i32) -> UBiDiDirection);
-    ubidi_getVisualRun(core::mem::transmute(pbidi), core::mem::transmute(runindex), core::mem::transmute(plogicalstart), core::mem::transmute(plength))
+    ubidi_getVisualRun(core::mem::transmute(pbidi), runindex, core::mem::transmute(plogicalstart), core::mem::transmute(plength))
 }
 #[inline]
 pub unsafe fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_invertMap(srcmap : *const i32, destmap : *mut i32, length : i32));
-    ubidi_invertMap(core::mem::transmute(srcmap), core::mem::transmute(destmap), core::mem::transmute(length))
+    ubidi_invertMap(srcmap, core::mem::transmute(destmap), length)
 }
 #[inline]
 pub unsafe fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8 {
@@ -2303,67 +2261,67 @@ pub unsafe fn ubidi_open() -> *mut UBiDi {
 #[inline]
 pub unsafe fn ubidi_openSized(maxlength: i32, maxruncount: i32, perrorcode: *mut UErrorCode) -> *mut UBiDi {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_openSized(maxlength : i32, maxruncount : i32, perrorcode : *mut UErrorCode) -> *mut UBiDi);
-    ubidi_openSized(core::mem::transmute(maxlength), core::mem::transmute(maxruncount), core::mem::transmute(perrorcode))
+    ubidi_openSized(maxlength, maxruncount, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_orderParagraphsLTR(pbidi : *mut UBiDi, orderparagraphsltr : i8));
-    ubidi_orderParagraphsLTR(core::mem::transmute(pbidi), core::mem::transmute(orderparagraphsltr))
+    ubidi_orderParagraphsLTR(core::mem::transmute(pbidi), orderparagraphsltr)
 }
 #[inline]
 pub unsafe fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mut i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_reorderLogical(levels : *const u8, length : i32, indexmap : *mut i32));
-    ubidi_reorderLogical(core::mem::transmute(levels), core::mem::transmute(length), core::mem::transmute(indexmap))
+    ubidi_reorderLogical(levels, length, core::mem::transmute(indexmap))
 }
 #[inline]
 pub unsafe fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_reorderVisual(levels : *const u8, length : i32, indexmap : *mut i32));
-    ubidi_reorderVisual(core::mem::transmute(levels), core::mem::transmute(length), core::mem::transmute(indexmap))
+    ubidi_reorderVisual(levels, length, core::mem::transmute(indexmap))
 }
 #[inline]
 pub unsafe fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: UBiDiClassCallback, newcontext: *const core::ffi::c_void, oldfn: *mut UBiDiClassCallback, oldcontext: *const *const core::ffi::c_void, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_setClassCallback(pbidi : *mut UBiDi, newfn : UBiDiClassCallback, newcontext : *const core::ffi::c_void, oldfn : *mut UBiDiClassCallback, oldcontext : *const *const core::ffi::c_void, perrorcode : *mut UErrorCode));
-    ubidi_setClassCallback(core::mem::transmute(pbidi), core::mem::transmute(newfn), core::mem::transmute(newcontext), core::mem::transmute(oldfn), core::mem::transmute(oldcontext), core::mem::transmute(perrorcode))
+    ubidi_setClassCallback(core::mem::transmute(pbidi), newfn, newcontext, core::mem::transmute(oldfn), oldcontext, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ubidi_setContext(pbidi: *mut UBiDi, prologue: *const u16, prolength: i32, epilogue: *const u16, epilength: i32, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_setContext(pbidi : *mut UBiDi, prologue : *const u16, prolength : i32, epilogue : *const u16, epilength : i32, perrorcode : *mut UErrorCode));
-    ubidi_setContext(core::mem::transmute(pbidi), core::mem::transmute(prologue), core::mem::transmute(prolength), core::mem::transmute(epilogue), core::mem::transmute(epilength), core::mem::transmute(perrorcode))
+    ubidi_setContext(core::mem::transmute(pbidi), prologue, prolength, epilogue, epilength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_setInverse(pbidi : *mut UBiDi, isinverse : i8));
-    ubidi_setInverse(core::mem::transmute(pbidi), core::mem::transmute(isinverse))
+    ubidi_setInverse(core::mem::transmute(pbidi), isinverse)
 }
 #[inline]
 pub unsafe fn ubidi_setLine(pparabidi: *const UBiDi, start: i32, limit: i32, plinebidi: *mut UBiDi, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_setLine(pparabidi : *const UBiDi, start : i32, limit : i32, plinebidi : *mut UBiDi, perrorcode : *mut UErrorCode));
-    ubidi_setLine(core::mem::transmute(pparabidi), core::mem::transmute(start), core::mem::transmute(limit), core::mem::transmute(plinebidi), core::mem::transmute(perrorcode))
+    ubidi_setLine(pparabidi, start, limit, core::mem::transmute(plinebidi), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ubidi_setPara(pbidi: *mut UBiDi, text: *const u16, length: i32, paralevel: u8, embeddinglevels: *mut u8, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_setPara(pbidi : *mut UBiDi, text : *const u16, length : i32, paralevel : u8, embeddinglevels : *mut u8, perrorcode : *mut UErrorCode));
-    ubidi_setPara(core::mem::transmute(pbidi), core::mem::transmute(text), core::mem::transmute(length), core::mem::transmute(paralevel), core::mem::transmute(embeddinglevels), core::mem::transmute(perrorcode))
+    ubidi_setPara(core::mem::transmute(pbidi), text, length, paralevel, core::mem::transmute(embeddinglevels), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiReorderingMode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_setReorderingMode(pbidi : *mut UBiDi, reorderingmode : UBiDiReorderingMode));
-    ubidi_setReorderingMode(core::mem::transmute(pbidi), core::mem::transmute(reorderingmode))
+    ubidi_setReorderingMode(core::mem::transmute(pbidi), reorderingmode)
 }
 #[inline]
 pub unsafe fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_setReorderingOptions(pbidi : *mut UBiDi, reorderingoptions : u32));
-    ubidi_setReorderingOptions(core::mem::transmute(pbidi), core::mem::transmute(reorderingoptions))
+    ubidi_setReorderingOptions(core::mem::transmute(pbidi), reorderingoptions)
 }
 #[inline]
 pub unsafe fn ubidi_writeReordered(pbidi: *mut UBiDi, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_writeReordered(pbidi : *mut UBiDi, dest : *mut u16, destsize : i32, options : u16, perrorcode : *mut UErrorCode) -> i32);
-    ubidi_writeReordered(core::mem::transmute(pbidi), core::mem::transmute(dest), core::mem::transmute(destsize), core::mem::transmute(options), core::mem::transmute(perrorcode))
+    ubidi_writeReordered(core::mem::transmute(pbidi), core::mem::transmute(dest), destsize, options, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ubidi_writeReverse(src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubidi_writeReverse(src : *const u16, srclength : i32, dest : *mut u16, destsize : i32, options : u16, perrorcode : *mut UErrorCode) -> i32);
-    ubidi_writeReverse(core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(dest), core::mem::transmute(destsize), core::mem::transmute(options), core::mem::transmute(perrorcode))
+    ubidi_writeReverse(src, srclength, core::mem::transmute(dest), destsize, options, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ubiditransform_close(pbiditransform: *mut UBiDiTransform) {
@@ -2378,12 +2336,12 @@ pub unsafe fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTran
 #[inline]
 pub unsafe fn ubiditransform_transform(pbiditransform: *mut UBiDiTransform, src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, inparalevel: u8, inorder: UBiDiOrder, outparalevel: u8, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: u32, perrorcode: *mut UErrorCode) -> u32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubiditransform_transform(pbiditransform : *mut UBiDiTransform, src : *const u16, srclength : i32, dest : *mut u16, destsize : i32, inparalevel : u8, inorder : UBiDiOrder, outparalevel : u8, outorder : UBiDiOrder, domirroring : UBiDiMirroring, shapingoptions : u32, perrorcode : *mut UErrorCode) -> u32);
-    ubiditransform_transform(core::mem::transmute(pbiditransform), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(dest), core::mem::transmute(destsize), core::mem::transmute(inparalevel), core::mem::transmute(inorder), core::mem::transmute(outparalevel), core::mem::transmute(outorder), core::mem::transmute(domirroring), core::mem::transmute(shapingoptions), core::mem::transmute(perrorcode))
+    ubiditransform_transform(core::mem::transmute(pbiditransform), src, srclength, core::mem::transmute(dest), destsize, inparalevel, inorder, outparalevel, outorder, domirroring, shapingoptions, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ublock_getCode(c: i32) -> UBlockCode {
     windows_targets::link!("icuuc.dll" "cdecl" fn ublock_getCode(c : i32) -> UBlockCode);
-    ublock_getCode(core::mem::transmute(c))
+    ublock_getCode(c)
 }
 #[inline]
 pub unsafe fn ubrk_close(bi: *mut UBreakIterator) {
@@ -2398,7 +2356,7 @@ pub unsafe fn ubrk_countAvailable() -> i32 {
 #[inline]
 pub unsafe fn ubrk_current(bi: *const UBreakIterator) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_current(bi : *const UBreakIterator) -> i32);
-    ubrk_current(core::mem::transmute(bi))
+    ubrk_current(bi)
 }
 #[inline]
 pub unsafe fn ubrk_first(bi: *mut UBreakIterator) -> i32 {
@@ -2408,22 +2366,22 @@ pub unsafe fn ubrk_first(bi: *mut UBreakIterator) -> i32 {
 #[inline]
 pub unsafe fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_following(bi : *mut UBreakIterator, offset : i32) -> i32);
-    ubrk_following(core::mem::transmute(bi), core::mem::transmute(offset))
+    ubrk_following(core::mem::transmute(bi), offset)
 }
 #[inline]
 pub unsafe fn ubrk_getAvailable(index: i32) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_getAvailable(index : i32) -> windows_core::PCSTR);
-    ubrk_getAvailable(core::mem::transmute(index))
+    ubrk_getAvailable(index)
 }
 #[inline]
 pub unsafe fn ubrk_getBinaryRules(bi: *mut UBreakIterator, binaryrules: *mut u8, rulescapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_getBinaryRules(bi : *mut UBreakIterator, binaryrules : *mut u8, rulescapacity : i32, status : *mut UErrorCode) -> i32);
-    ubrk_getBinaryRules(core::mem::transmute(bi), core::mem::transmute(binaryrules), core::mem::transmute(rulescapacity), core::mem::transmute(status))
+    ubrk_getBinaryRules(core::mem::transmute(bi), core::mem::transmute(binaryrules), rulescapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ubrk_getLocaleByType(bi: *const UBreakIterator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_getLocaleByType(bi : *const UBreakIterator, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> windows_core::PCSTR);
-    ubrk_getLocaleByType(core::mem::transmute(bi), core::mem::transmute(r#type), core::mem::transmute(status))
+    ubrk_getLocaleByType(bi, r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32 {
@@ -2433,12 +2391,12 @@ pub unsafe fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32 {
 #[inline]
 pub unsafe fn ubrk_getRuleStatusVec(bi: *mut UBreakIterator, fillinvec: *mut i32, capacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_getRuleStatusVec(bi : *mut UBreakIterator, fillinvec : *mut i32, capacity : i32, status : *mut UErrorCode) -> i32);
-    ubrk_getRuleStatusVec(core::mem::transmute(bi), core::mem::transmute(fillinvec), core::mem::transmute(capacity), core::mem::transmute(status))
+    ubrk_getRuleStatusVec(core::mem::transmute(bi), core::mem::transmute(fillinvec), capacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_isBoundary(bi : *mut UBreakIterator, offset : i32) -> i8);
-    ubrk_isBoundary(core::mem::transmute(bi), core::mem::transmute(offset))
+    ubrk_isBoundary(core::mem::transmute(bi), offset)
 }
 #[inline]
 pub unsafe fn ubrk_last(bi: *mut UBreakIterator) -> i32 {
@@ -2456,22 +2414,22 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_open(r#type : UBreakIteratorType, locale : windows_core::PCSTR, text : *const u16, textlength : i32, status : *mut UErrorCode) -> *mut UBreakIterator);
-    ubrk_open(core::mem::transmute(r#type), locale.param().abi(), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(status))
+    ubrk_open(r#type, locale.param().abi(), text, textlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ubrk_openBinaryRules(binaryrules: *const u8, ruleslength: i32, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UBreakIterator {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_openBinaryRules(binaryrules : *const u8, ruleslength : i32, text : *const u16, textlength : i32, status : *mut UErrorCode) -> *mut UBreakIterator);
-    ubrk_openBinaryRules(core::mem::transmute(binaryrules), core::mem::transmute(ruleslength), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(status))
+    ubrk_openBinaryRules(binaryrules, ruleslength, text, textlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ubrk_openRules(rules: *const u16, ruleslength: i32, text: *const u16, textlength: i32, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut UBreakIterator {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_openRules(rules : *const u16, ruleslength : i32, text : *const u16, textlength : i32, parseerr : *mut UParseError, status : *mut UErrorCode) -> *mut UBreakIterator);
-    ubrk_openRules(core::mem::transmute(rules), core::mem::transmute(ruleslength), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(parseerr), core::mem::transmute(status))
+    ubrk_openRules(rules, ruleslength, text, textlength, core::mem::transmute(parseerr), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_preceding(bi : *mut UBreakIterator, offset : i32) -> i32);
-    ubrk_preceding(core::mem::transmute(bi), core::mem::transmute(offset))
+    ubrk_preceding(core::mem::transmute(bi), offset)
 }
 #[inline]
 pub unsafe fn ubrk_previous(bi: *mut UBreakIterator) -> i32 {
@@ -2486,12 +2444,12 @@ pub unsafe fn ubrk_refreshUText(bi: *mut UBreakIterator, text: *mut UText, statu
 #[inline]
 pub unsafe fn ubrk_safeClone(bi: *const UBreakIterator, stackbuffer: *mut core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UBreakIterator {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_safeClone(bi : *const UBreakIterator, stackbuffer : *mut core::ffi::c_void, pbuffersize : *mut i32, status : *mut UErrorCode) -> *mut UBreakIterator);
-    ubrk_safeClone(core::mem::transmute(bi), core::mem::transmute(stackbuffer), core::mem::transmute(pbuffersize), core::mem::transmute(status))
+    ubrk_safeClone(bi, core::mem::transmute(stackbuffer), core::mem::transmute(pbuffersize), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ubrk_setText(bi: *mut UBreakIterator, text: *const u16, textlength: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ubrk_setText(bi : *mut UBreakIterator, text : *const u16, textlength : i32, status : *mut UErrorCode));
-    ubrk_setText(core::mem::transmute(bi), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(status))
+    ubrk_setText(core::mem::transmute(bi), text, textlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode) {
@@ -2501,7 +2459,7 @@ pub unsafe fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *
 #[inline]
 pub unsafe fn ucal_add(cal: *mut *mut core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_add(cal : *mut *mut core::ffi::c_void, field : UCalendarDateFields, amount : i32, status : *mut UErrorCode));
-    ucal_add(core::mem::transmute(cal), core::mem::transmute(field), core::mem::transmute(amount), core::mem::transmute(status))
+    ucal_add(core::mem::transmute(cal), field, amount, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_clear(calendar: *mut *mut core::ffi::c_void) {
@@ -2511,12 +2469,12 @@ pub unsafe fn ucal_clear(calendar: *mut *mut core::ffi::c_void) {
 #[inline]
 pub unsafe fn ucal_clearField(cal: *mut *mut core::ffi::c_void, field: UCalendarDateFields) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_clearField(cal : *mut *mut core::ffi::c_void, field : UCalendarDateFields));
-    ucal_clearField(core::mem::transmute(cal), core::mem::transmute(field))
+    ucal_clearField(core::mem::transmute(cal), field)
 }
 #[inline]
 pub unsafe fn ucal_clone(cal: *const *const core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_clone(cal : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    ucal_clone(core::mem::transmute(cal), core::mem::transmute(status))
+    ucal_clone(cal, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_close(cal: *mut *mut core::ffi::c_void) {
@@ -2531,57 +2489,57 @@ pub unsafe fn ucal_countAvailable() -> i32 {
 #[inline]
 pub unsafe fn ucal_equivalentTo(cal1: *const *const core::ffi::c_void, cal2: *const *const core::ffi::c_void) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_equivalentTo(cal1 : *const *const core::ffi::c_void, cal2 : *const *const core::ffi::c_void) -> i8);
-    ucal_equivalentTo(core::mem::transmute(cal1), core::mem::transmute(cal2))
+    ucal_equivalentTo(cal1, cal2)
 }
 #[inline]
 pub unsafe fn ucal_get(cal: *const *const core::ffi::c_void, field: UCalendarDateFields, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_get(cal : *const *const core::ffi::c_void, field : UCalendarDateFields, status : *mut UErrorCode) -> i32);
-    ucal_get(core::mem::transmute(cal), core::mem::transmute(field), core::mem::transmute(status))
+    ucal_get(cal, field, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getAttribute(cal: *const *const core::ffi::c_void, attr: UCalendarAttribute) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getAttribute(cal : *const *const core::ffi::c_void, attr : UCalendarAttribute) -> i32);
-    ucal_getAttribute(core::mem::transmute(cal), core::mem::transmute(attr))
+    ucal_getAttribute(cal, attr)
 }
 #[inline]
 pub unsafe fn ucal_getAvailable(localeindex: i32) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getAvailable(localeindex : i32) -> windows_core::PCSTR);
-    ucal_getAvailable(core::mem::transmute(localeindex))
+    ucal_getAvailable(localeindex)
 }
 #[inline]
 pub unsafe fn ucal_getCanonicalTimeZoneID(id: *const u16, len: i32, result: *mut u16, resultcapacity: i32, issystemid: *mut i8, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getCanonicalTimeZoneID(id : *const u16, len : i32, result : *mut u16, resultcapacity : i32, issystemid : *mut i8, status : *mut UErrorCode) -> i32);
-    ucal_getCanonicalTimeZoneID(core::mem::transmute(id), core::mem::transmute(len), core::mem::transmute(result), core::mem::transmute(resultcapacity), core::mem::transmute(issystemid), core::mem::transmute(status))
+    ucal_getCanonicalTimeZoneID(id, len, core::mem::transmute(result), resultcapacity, core::mem::transmute(issystemid), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getDSTSavings(zoneid : *const u16, ec : *mut UErrorCode) -> i32);
-    ucal_getDSTSavings(core::mem::transmute(zoneid), core::mem::transmute(ec))
+    ucal_getDSTSavings(zoneid, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucal_getDayOfWeekType(cal: *const *const core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> UCalendarWeekdayType {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getDayOfWeekType(cal : *const *const core::ffi::c_void, dayofweek : UCalendarDaysOfWeek, status : *mut UErrorCode) -> UCalendarWeekdayType);
-    ucal_getDayOfWeekType(core::mem::transmute(cal), core::mem::transmute(dayofweek), core::mem::transmute(status))
+    ucal_getDayOfWeekType(cal, dayofweek, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getDefaultTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getDefaultTimeZone(result : *mut u16, resultcapacity : i32, ec : *mut UErrorCode) -> i32);
-    ucal_getDefaultTimeZone(core::mem::transmute(result), core::mem::transmute(resultcapacity), core::mem::transmute(ec))
+    ucal_getDefaultTimeZone(core::mem::transmute(result), resultcapacity, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucal_getFieldDifference(cal: *mut *mut core::ffi::c_void, target: f64, field: UCalendarDateFields, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getFieldDifference(cal : *mut *mut core::ffi::c_void, target : f64, field : UCalendarDateFields, status : *mut UErrorCode) -> i32);
-    ucal_getFieldDifference(core::mem::transmute(cal), core::mem::transmute(target), core::mem::transmute(field), core::mem::transmute(status))
+    ucal_getFieldDifference(core::mem::transmute(cal), target, field, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getGregorianChange(cal: *const *const core::ffi::c_void, perrorcode: *mut UErrorCode) -> f64 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getGregorianChange(cal : *const *const core::ffi::c_void, perrorcode : *mut UErrorCode) -> f64);
-    ucal_getGregorianChange(core::mem::transmute(cal), core::mem::transmute(perrorcode))
+    ucal_getGregorianChange(cal, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucal_getHostTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn ucal_getHostTimeZone(result : *mut u16, resultcapacity : i32, ec : *mut UErrorCode) -> i32);
-    ucal_getHostTimeZone(core::mem::transmute(result), core::mem::transmute(resultcapacity), core::mem::transmute(ec))
+    ucal_getHostTimeZone(core::mem::transmute(result), resultcapacity, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucal_getKeywordValuesForLocale<P0, P1>(key: P0, locale: P1, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration
@@ -2590,22 +2548,22 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getKeywordValuesForLocale(key : windows_core::PCSTR, locale : windows_core::PCSTR, commonlyused : i8, status : *mut UErrorCode) -> *mut UEnumeration);
-    ucal_getKeywordValuesForLocale(key.param().abi(), locale.param().abi(), core::mem::transmute(commonlyused), core::mem::transmute(status))
+    ucal_getKeywordValuesForLocale(key.param().abi(), locale.param().abi(), commonlyused, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getLimit(cal: *const *const core::ffi::c_void, field: UCalendarDateFields, r#type: UCalendarLimitType, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getLimit(cal : *const *const core::ffi::c_void, field : UCalendarDateFields, r#type : UCalendarLimitType, status : *mut UErrorCode) -> i32);
-    ucal_getLimit(core::mem::transmute(cal), core::mem::transmute(field), core::mem::transmute(r#type), core::mem::transmute(status))
+    ucal_getLimit(cal, field, r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getLocaleByType(cal: *const *const core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getLocaleByType(cal : *const *const core::ffi::c_void, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> windows_core::PCSTR);
-    ucal_getLocaleByType(core::mem::transmute(cal), core::mem::transmute(r#type), core::mem::transmute(status))
+    ucal_getLocaleByType(cal, r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getMillis(cal: *const *const core::ffi::c_void, status: *mut UErrorCode) -> f64 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getMillis(cal : *const *const core::ffi::c_void, status : *mut UErrorCode) -> f64);
-    ucal_getMillis(core::mem::transmute(cal), core::mem::transmute(status))
+    ucal_getMillis(cal, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getNow() -> f64 {
@@ -2623,12 +2581,12 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getTimeZoneDisplayName(cal : *const *const core::ffi::c_void, r#type : UCalendarDisplayNameType, locale : windows_core::PCSTR, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    ucal_getTimeZoneDisplayName(core::mem::transmute(cal), core::mem::transmute(r#type), locale.param().abi(), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    ucal_getTimeZoneDisplayName(cal, r#type, locale.param().abi(), core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getTimeZoneID(cal: *const *const core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getTimeZoneID(cal : *const *const core::ffi::c_void, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    ucal_getTimeZoneID(core::mem::transmute(cal), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    ucal_getTimeZoneID(cal, core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getTimeZoneIDForWindowsID<P2>(winid: *const u16, len: i32, region: P2, id: *mut u16, idcapacity: i32, status: *mut UErrorCode) -> i32
@@ -2636,42 +2594,42 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getTimeZoneIDForWindowsID(winid : *const u16, len : i32, region : windows_core::PCSTR, id : *mut u16, idcapacity : i32, status : *mut UErrorCode) -> i32);
-    ucal_getTimeZoneIDForWindowsID(core::mem::transmute(winid), core::mem::transmute(len), region.param().abi(), core::mem::transmute(id), core::mem::transmute(idcapacity), core::mem::transmute(status))
+    ucal_getTimeZoneIDForWindowsID(winid, len, region.param().abi(), core::mem::transmute(id), idcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getTimeZoneTransitionDate(cal: *const *const core::ffi::c_void, r#type: UTimeZoneTransitionType, transition: *mut f64, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getTimeZoneTransitionDate(cal : *const *const core::ffi::c_void, r#type : UTimeZoneTransitionType, transition : *mut f64, status : *mut UErrorCode) -> i8);
-    ucal_getTimeZoneTransitionDate(core::mem::transmute(cal), core::mem::transmute(r#type), core::mem::transmute(transition), core::mem::transmute(status))
+    ucal_getTimeZoneTransitionDate(cal, r#type, core::mem::transmute(transition), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getType(cal: *const *const core::ffi::c_void, status: *mut UErrorCode) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getType(cal : *const *const core::ffi::c_void, status : *mut UErrorCode) -> windows_core::PCSTR);
-    ucal_getType(core::mem::transmute(cal), core::mem::transmute(status))
+    ucal_getType(cal, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getWeekendTransition(cal: *const *const core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getWeekendTransition(cal : *const *const core::ffi::c_void, dayofweek : UCalendarDaysOfWeek, status : *mut UErrorCode) -> i32);
-    ucal_getWeekendTransition(core::mem::transmute(cal), core::mem::transmute(dayofweek), core::mem::transmute(status))
+    ucal_getWeekendTransition(cal, dayofweek, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_getWindowsTimeZoneID(id: *const u16, len: i32, winid: *mut u16, winidcapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_getWindowsTimeZoneID(id : *const u16, len : i32, winid : *mut u16, winidcapacity : i32, status : *mut UErrorCode) -> i32);
-    ucal_getWindowsTimeZoneID(core::mem::transmute(id), core::mem::transmute(len), core::mem::transmute(winid), core::mem::transmute(winidcapacity), core::mem::transmute(status))
+    ucal_getWindowsTimeZoneID(id, len, core::mem::transmute(winid), winidcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_inDaylightTime(cal: *const *const core::ffi::c_void, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_inDaylightTime(cal : *const *const core::ffi::c_void, status : *mut UErrorCode) -> i8);
-    ucal_inDaylightTime(core::mem::transmute(cal), core::mem::transmute(status))
+    ucal_inDaylightTime(cal, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_isSet(cal: *const *const core::ffi::c_void, field: UCalendarDateFields) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_isSet(cal : *const *const core::ffi::c_void, field : UCalendarDateFields) -> i8);
-    ucal_isSet(core::mem::transmute(cal), core::mem::transmute(field))
+    ucal_isSet(cal, field)
 }
 #[inline]
 pub unsafe fn ucal_isWeekend(cal: *const *const core::ffi::c_void, date: f64, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_isWeekend(cal : *const *const core::ffi::c_void, date : f64, status : *mut UErrorCode) -> i8);
-    ucal_isWeekend(core::mem::transmute(cal), core::mem::transmute(date), core::mem::transmute(status))
+    ucal_isWeekend(cal, date, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_open<P2>(zoneid: *const u16, len: i32, locale: P2, r#type: UCalendarType, status: *mut UErrorCode) -> *mut *mut core::ffi::c_void
@@ -2679,7 +2637,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_open(zoneid : *const u16, len : i32, locale : windows_core::PCSTR, r#type : UCalendarType, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    ucal_open(core::mem::transmute(zoneid), core::mem::transmute(len), locale.param().abi(), core::mem::transmute(r#type), core::mem::transmute(status))
+    ucal_open(zoneid, len, locale.param().abi(), r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_openCountryTimeZones<P0>(country: P0, ec: *mut UErrorCode) -> *mut UEnumeration
@@ -2695,7 +2653,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_openTimeZoneIDEnumeration(zonetype : USystemTimeZoneType, region : windows_core::PCSTR, rawoffset : *const i32, ec : *mut UErrorCode) -> *mut UEnumeration);
-    ucal_openTimeZoneIDEnumeration(core::mem::transmute(zonetype), region.param().abi(), core::mem::transmute(rawoffset), core::mem::transmute(ec))
+    ucal_openTimeZoneIDEnumeration(zonetype, region.param().abi(), rawoffset, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration {
@@ -2705,47 +2663,47 @@ pub unsafe fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration {
 #[inline]
 pub unsafe fn ucal_roll(cal: *mut *mut core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_roll(cal : *mut *mut core::ffi::c_void, field : UCalendarDateFields, amount : i32, status : *mut UErrorCode));
-    ucal_roll(core::mem::transmute(cal), core::mem::transmute(field), core::mem::transmute(amount), core::mem::transmute(status))
+    ucal_roll(core::mem::transmute(cal), field, amount, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_set(cal: *mut *mut core::ffi::c_void, field: UCalendarDateFields, value: i32) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_set(cal : *mut *mut core::ffi::c_void, field : UCalendarDateFields, value : i32));
-    ucal_set(core::mem::transmute(cal), core::mem::transmute(field), core::mem::transmute(value))
+    ucal_set(core::mem::transmute(cal), field, value)
 }
 #[inline]
 pub unsafe fn ucal_setAttribute(cal: *mut *mut core::ffi::c_void, attr: UCalendarAttribute, newvalue: i32) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_setAttribute(cal : *mut *mut core::ffi::c_void, attr : UCalendarAttribute, newvalue : i32));
-    ucal_setAttribute(core::mem::transmute(cal), core::mem::transmute(attr), core::mem::transmute(newvalue))
+    ucal_setAttribute(core::mem::transmute(cal), attr, newvalue)
 }
 #[inline]
 pub unsafe fn ucal_setDate(cal: *mut *mut core::ffi::c_void, year: i32, month: i32, date: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_setDate(cal : *mut *mut core::ffi::c_void, year : i32, month : i32, date : i32, status : *mut UErrorCode));
-    ucal_setDate(core::mem::transmute(cal), core::mem::transmute(year), core::mem::transmute(month), core::mem::transmute(date), core::mem::transmute(status))
+    ucal_setDate(core::mem::transmute(cal), year, month, date, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_setDateTime(cal: *mut *mut core::ffi::c_void, year: i32, month: i32, date: i32, hour: i32, minute: i32, second: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_setDateTime(cal : *mut *mut core::ffi::c_void, year : i32, month : i32, date : i32, hour : i32, minute : i32, second : i32, status : *mut UErrorCode));
-    ucal_setDateTime(core::mem::transmute(cal), core::mem::transmute(year), core::mem::transmute(month), core::mem::transmute(date), core::mem::transmute(hour), core::mem::transmute(minute), core::mem::transmute(second), core::mem::transmute(status))
+    ucal_setDateTime(core::mem::transmute(cal), year, month, date, hour, minute, second, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_setDefaultTimeZone(zoneid : *const u16, ec : *mut UErrorCode));
-    ucal_setDefaultTimeZone(core::mem::transmute(zoneid), core::mem::transmute(ec))
+    ucal_setDefaultTimeZone(zoneid, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucal_setGregorianChange(cal: *mut *mut core::ffi::c_void, date: f64, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_setGregorianChange(cal : *mut *mut core::ffi::c_void, date : f64, perrorcode : *mut UErrorCode));
-    ucal_setGregorianChange(core::mem::transmute(cal), core::mem::transmute(date), core::mem::transmute(perrorcode))
+    ucal_setGregorianChange(core::mem::transmute(cal), date, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucal_setMillis(cal: *mut *mut core::ffi::c_void, datetime: f64, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_setMillis(cal : *mut *mut core::ffi::c_void, datetime : f64, status : *mut UErrorCode));
-    ucal_setMillis(core::mem::transmute(cal), core::mem::transmute(datetime), core::mem::transmute(status))
+    ucal_setMillis(core::mem::transmute(cal), datetime, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucal_setTimeZone(cal: *mut *mut core::ffi::c_void, zoneid: *const u16, len: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucal_setTimeZone(cal : *mut *mut core::ffi::c_void, zoneid : *const u16, len : i32, status : *mut UErrorCode));
-    ucal_setTimeZone(core::mem::transmute(cal), core::mem::transmute(zoneid), core::mem::transmute(len), core::mem::transmute(status))
+    ucal_setTimeZone(core::mem::transmute(cal), zoneid, len, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucasemap_close(csm: *mut UCaseMap) {
@@ -2755,17 +2713,17 @@ pub unsafe fn ucasemap_close(csm: *mut UCaseMap) {
 #[inline]
 pub unsafe fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIterator {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucasemap_getBreakIterator(csm : *const UCaseMap) -> *mut UBreakIterator);
-    ucasemap_getBreakIterator(core::mem::transmute(csm))
+    ucasemap_getBreakIterator(csm)
 }
 #[inline]
 pub unsafe fn ucasemap_getLocale(csm: *const UCaseMap) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucasemap_getLocale(csm : *const UCaseMap) -> windows_core::PCSTR);
-    ucasemap_getLocale(core::mem::transmute(csm))
+    ucasemap_getLocale(csm)
 }
 #[inline]
 pub unsafe fn ucasemap_getOptions(csm: *const UCaseMap) -> u32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucasemap_getOptions(csm : *const UCaseMap) -> u32);
-    ucasemap_getOptions(core::mem::transmute(csm))
+    ucasemap_getOptions(csm)
 }
 #[inline]
 pub unsafe fn ucasemap_open<P0>(locale: P0, options: u32, perrorcode: *mut UErrorCode) -> *mut UCaseMap
@@ -2773,7 +2731,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucasemap_open(locale : windows_core::PCSTR, options : u32, perrorcode : *mut UErrorCode) -> *mut UCaseMap);
-    ucasemap_open(locale.param().abi(), core::mem::transmute(options), core::mem::transmute(perrorcode))
+    ucasemap_open(locale.param().abi(), options, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucasemap_setBreakIterator(csm: *mut UCaseMap, itertoadopt: *mut UBreakIterator, perrorcode: *mut UErrorCode) {
@@ -2791,12 +2749,12 @@ where
 #[inline]
 pub unsafe fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucasemap_setOptions(csm : *mut UCaseMap, options : u32, perrorcode : *mut UErrorCode));
-    ucasemap_setOptions(core::mem::transmute(csm), core::mem::transmute(options), core::mem::transmute(perrorcode))
+    ucasemap_setOptions(core::mem::transmute(csm), options, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucasemap_toTitle(csm: *mut UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucasemap_toTitle(csm : *mut UCaseMap, dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucasemap_toTitle(core::mem::transmute(csm), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    ucasemap_toTitle(core::mem::transmute(csm), core::mem::transmute(dest), destcapacity, src, srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucasemap_utf8FoldCase<P1, P3>(csm: *const UCaseMap, dest: P1, destcapacity: i32, src: P3, srclength: i32, perrorcode: *mut UErrorCode) -> i32
@@ -2805,7 +2763,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucasemap_utf8FoldCase(csm : *const UCaseMap, dest : windows_core::PCSTR, destcapacity : i32, src : windows_core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucasemap_utf8FoldCase(core::mem::transmute(csm), dest.param().abi(), core::mem::transmute(destcapacity), src.param().abi(), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    ucasemap_utf8FoldCase(csm, dest.param().abi(), destcapacity, src.param().abi(), srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucasemap_utf8ToLower<P1, P3>(csm: *const UCaseMap, dest: P1, destcapacity: i32, src: P3, srclength: i32, perrorcode: *mut UErrorCode) -> i32
@@ -2814,7 +2772,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucasemap_utf8ToLower(csm : *const UCaseMap, dest : windows_core::PCSTR, destcapacity : i32, src : windows_core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucasemap_utf8ToLower(core::mem::transmute(csm), dest.param().abi(), core::mem::transmute(destcapacity), src.param().abi(), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    ucasemap_utf8ToLower(csm, dest.param().abi(), destcapacity, src.param().abi(), srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucasemap_utf8ToTitle<P1, P3>(csm: *mut UCaseMap, dest: P1, destcapacity: i32, src: P3, srclength: i32, perrorcode: *mut UErrorCode) -> i32
@@ -2823,7 +2781,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucasemap_utf8ToTitle(csm : *mut UCaseMap, dest : windows_core::PCSTR, destcapacity : i32, src : windows_core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucasemap_utf8ToTitle(core::mem::transmute(csm), dest.param().abi(), core::mem::transmute(destcapacity), src.param().abi(), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    ucasemap_utf8ToTitle(core::mem::transmute(csm), dest.param().abi(), destcapacity, src.param().abi(), srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucasemap_utf8ToUpper<P1, P3>(csm: *const UCaseMap, dest: P1, destcapacity: i32, src: P3, srclength: i32, perrorcode: *mut UErrorCode) -> i32
@@ -2832,7 +2790,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucasemap_utf8ToUpper(csm : *const UCaseMap, dest : windows_core::PCSTR, destcapacity : i32, src : windows_core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucasemap_utf8ToUpper(core::mem::transmute(csm), dest.param().abi(), core::mem::transmute(destcapacity), src.param().abi(), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    ucasemap_utf8ToUpper(csm, dest.param().abi(), destcapacity, src.param().abi(), srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition) {
@@ -2842,37 +2800,37 @@ pub unsafe fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition) {
 #[inline]
 pub unsafe fn ucfpos_constrainCategory(ucfpos: *mut UConstrainedFieldPosition, category: i32, ec: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn ucfpos_constrainCategory(ucfpos : *mut UConstrainedFieldPosition, category : i32, ec : *mut UErrorCode));
-    ucfpos_constrainCategory(core::mem::transmute(ucfpos), core::mem::transmute(category), core::mem::transmute(ec))
+    ucfpos_constrainCategory(core::mem::transmute(ucfpos), category, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucfpos_constrainField(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn ucfpos_constrainField(ucfpos : *mut UConstrainedFieldPosition, category : i32, field : i32, ec : *mut UErrorCode));
-    ucfpos_constrainField(core::mem::transmute(ucfpos), core::mem::transmute(category), core::mem::transmute(field), core::mem::transmute(ec))
+    ucfpos_constrainField(core::mem::transmute(ucfpos), category, field, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucfpos_getCategory(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn ucfpos_getCategory(ucfpos : *const UConstrainedFieldPosition, ec : *mut UErrorCode) -> i32);
-    ucfpos_getCategory(core::mem::transmute(ucfpos), core::mem::transmute(ec))
+    ucfpos_getCategory(ucfpos, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucfpos_getField(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn ucfpos_getField(ucfpos : *const UConstrainedFieldPosition, ec : *mut UErrorCode) -> i32);
-    ucfpos_getField(core::mem::transmute(ucfpos), core::mem::transmute(ec))
+    ucfpos_getField(ucfpos, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucfpos_getIndexes(ucfpos: *const UConstrainedFieldPosition, pstart: *mut i32, plimit: *mut i32, ec: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn ucfpos_getIndexes(ucfpos : *const UConstrainedFieldPosition, pstart : *mut i32, plimit : *mut i32, ec : *mut UErrorCode));
-    ucfpos_getIndexes(core::mem::transmute(ucfpos), core::mem::transmute(pstart), core::mem::transmute(plimit), core::mem::transmute(ec))
+    ucfpos_getIndexes(ucfpos, core::mem::transmute(pstart), core::mem::transmute(plimit), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucfpos_getInt64IterationContext(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i64 {
     windows_targets::link!("icu.dll" "cdecl" fn ucfpos_getInt64IterationContext(ucfpos : *const UConstrainedFieldPosition, ec : *mut UErrorCode) -> i64);
-    ucfpos_getInt64IterationContext(core::mem::transmute(ucfpos), core::mem::transmute(ec))
+    ucfpos_getInt64IterationContext(ucfpos, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucfpos_matchesField(ucfpos: *const UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode) -> i8 {
     windows_targets::link!("icu.dll" "cdecl" fn ucfpos_matchesField(ucfpos : *const UConstrainedFieldPosition, category : i32, field : i32, ec : *mut UErrorCode) -> i8);
-    ucfpos_matchesField(core::mem::transmute(ucfpos), core::mem::transmute(category), core::mem::transmute(field), core::mem::transmute(ec))
+    ucfpos_matchesField(ucfpos, category, field, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition {
@@ -2887,12 +2845,12 @@ pub unsafe fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErr
 #[inline]
 pub unsafe fn ucfpos_setInt64IterationContext(ucfpos: *mut UConstrainedFieldPosition, context: i64, ec: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn ucfpos_setInt64IterationContext(ucfpos : *mut UConstrainedFieldPosition, context : i64, ec : *mut UErrorCode));
-    ucfpos_setInt64IterationContext(core::mem::transmute(ucfpos), core::mem::transmute(context), core::mem::transmute(ec))
+    ucfpos_setInt64IterationContext(core::mem::transmute(ucfpos), context, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucfpos_setState(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, start: i32, limit: i32, ec: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn ucfpos_setState(ucfpos : *mut UConstrainedFieldPosition, category : i32, field : i32, start : i32, limit : i32, ec : *mut UErrorCode));
-    ucfpos_setState(core::mem::transmute(ucfpos), core::mem::transmute(category), core::mem::transmute(field), core::mem::transmute(start), core::mem::transmute(limit), core::mem::transmute(ec))
+    ucfpos_setState(core::mem::transmute(ucfpos), category, field, start, limit, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucnv_cbFromUWriteBytes<P1>(args: *mut UConverterFromUnicodeArgs, source: P1, length: i32, offsetindex: i32, err: *mut UErrorCode)
@@ -2900,27 +2858,27 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_cbFromUWriteBytes(args : *mut UConverterFromUnicodeArgs, source : windows_core::PCSTR, length : i32, offsetindex : i32, err : *mut UErrorCode));
-    ucnv_cbFromUWriteBytes(core::mem::transmute(args), source.param().abi(), core::mem::transmute(length), core::mem::transmute(offsetindex), core::mem::transmute(err))
+    ucnv_cbFromUWriteBytes(core::mem::transmute(args), source.param().abi(), length, offsetindex, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_cbFromUWriteSub(args: *mut UConverterFromUnicodeArgs, offsetindex: i32, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_cbFromUWriteSub(args : *mut UConverterFromUnicodeArgs, offsetindex : i32, err : *mut UErrorCode));
-    ucnv_cbFromUWriteSub(core::mem::transmute(args), core::mem::transmute(offsetindex), core::mem::transmute(err))
+    ucnv_cbFromUWriteSub(core::mem::transmute(args), offsetindex, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, source: *const *const u16, sourcelimit: *const u16, offsetindex: i32, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_cbFromUWriteUChars(args : *mut UConverterFromUnicodeArgs, source : *const *const u16, sourcelimit : *const u16, offsetindex : i32, err : *mut UErrorCode));
-    ucnv_cbFromUWriteUChars(core::mem::transmute(args), core::mem::transmute(source), core::mem::transmute(sourcelimit), core::mem::transmute(offsetindex), core::mem::transmute(err))
+    ucnv_cbFromUWriteUChars(core::mem::transmute(args), source, sourcelimit, offsetindex, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetindex: i32, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_cbToUWriteSub(args : *mut UConverterToUnicodeArgs, offsetindex : i32, err : *mut UErrorCode));
-    ucnv_cbToUWriteSub(core::mem::transmute(args), core::mem::transmute(offsetindex), core::mem::transmute(err))
+    ucnv_cbToUWriteSub(core::mem::transmute(args), offsetindex, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_cbToUWriteUChars(args: *mut UConverterToUnicodeArgs, source: *const u16, length: i32, offsetindex: i32, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_cbToUWriteUChars(args : *mut UConverterToUnicodeArgs, source : *const u16, length : i32, offsetindex : i32, err : *mut UErrorCode));
-    ucnv_cbToUWriteUChars(core::mem::transmute(args), core::mem::transmute(source), core::mem::transmute(length), core::mem::transmute(offsetindex), core::mem::transmute(err))
+    ucnv_cbToUWriteUChars(core::mem::transmute(args), source, length, offsetindex, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_close(converter: *mut UConverter) {
@@ -2945,7 +2903,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_convert(toconvertername : windows_core::PCSTR, fromconvertername : windows_core::PCSTR, target : windows_core::PCSTR, targetcapacity : i32, source : windows_core::PCSTR, sourcelength : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucnv_convert(toconvertername.param().abi(), fromconvertername.param().abi(), target.param().abi(), core::mem::transmute(targetcapacity), source.param().abi(), core::mem::transmute(sourcelength), core::mem::transmute(perrorcode))
+    ucnv_convert(toconvertername.param().abi(), fromconvertername.param().abi(), target.param().abi(), targetcapacity, source.param().abi(), sourcelength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucnv_convertEx<P3, P5>(targetcnv: *mut UConverter, sourcecnv: *mut UConverter, target: *mut *mut i8, targetlimit: P3, source: *const *const i8, sourcelimit: P5, pivotstart: *mut u16, pivotsource: *mut *mut u16, pivottarget: *mut *mut u16, pivotlimit: *const u16, reset: i8, flush: i8, perrorcode: *mut UErrorCode)
@@ -2954,7 +2912,7 @@ where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_convertEx(targetcnv : *mut UConverter, sourcecnv : *mut UConverter, target : *mut *mut i8, targetlimit : windows_core::PCSTR, source : *const *const i8, sourcelimit : windows_core::PCSTR, pivotstart : *mut u16, pivotsource : *mut *mut u16, pivottarget : *mut *mut u16, pivotlimit : *const u16, reset : i8, flush : i8, perrorcode : *mut UErrorCode));
-    ucnv_convertEx(core::mem::transmute(targetcnv), core::mem::transmute(sourcecnv), core::mem::transmute(target), targetlimit.param().abi(), core::mem::transmute(source), sourcelimit.param().abi(), core::mem::transmute(pivotstart), core::mem::transmute(pivotsource), core::mem::transmute(pivottarget), core::mem::transmute(pivotlimit), core::mem::transmute(reset), core::mem::transmute(flush), core::mem::transmute(perrorcode))
+    ucnv_convertEx(core::mem::transmute(targetcnv), core::mem::transmute(sourcecnv), core::mem::transmute(target), targetlimit.param().abi(), source, sourcelimit.param().abi(), core::mem::transmute(pivotstart), core::mem::transmute(pivotsource), core::mem::transmute(pivottarget), pivotlimit, reset, flush, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucnv_countAliases<P0>(alias: P0, perrorcode: *mut UErrorCode) -> u16
@@ -2980,12 +2938,12 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_detectUnicodeSignature(source : windows_core::PCSTR, sourcelength : i32, signaturelength : *mut i32, perrorcode : *mut UErrorCode) -> windows_core::PCSTR);
-    ucnv_detectUnicodeSignature(source.param().abi(), core::mem::transmute(sourcelength), core::mem::transmute(signaturelength), core::mem::transmute(perrorcode))
+    ucnv_detectUnicodeSignature(source.param().abi(), sourcelength, core::mem::transmute(signaturelength), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, sourcelen: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_fixFileSeparator(cnv : *const UConverter, source : *mut u16, sourcelen : i32));
-    ucnv_fixFileSeparator(core::mem::transmute(cnv), core::mem::transmute(source), core::mem::transmute(sourcelen))
+    ucnv_fixFileSeparator(cnv, core::mem::transmute(source), sourcelen)
 }
 #[inline]
 pub unsafe fn ucnv_flushCache() -> i32 {
@@ -2999,7 +2957,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_fromAlgorithmic(cnv : *mut UConverter, algorithmictype : UConverterType, target : windows_core::PCSTR, targetcapacity : i32, source : windows_core::PCSTR, sourcelength : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucnv_fromAlgorithmic(core::mem::transmute(cnv), core::mem::transmute(algorithmictype), target.param().abi(), core::mem::transmute(targetcapacity), source.param().abi(), core::mem::transmute(sourcelength), core::mem::transmute(perrorcode))
+    ucnv_fromAlgorithmic(core::mem::transmute(cnv), algorithmictype, target.param().abi(), targetcapacity, source.param().abi(), sourcelength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucnv_fromUChars<P1>(cnv: *mut UConverter, dest: P1, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32
@@ -3007,12 +2965,12 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_fromUChars(cnv : *mut UConverter, dest : windows_core::PCSTR, destcapacity : i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucnv_fromUChars(core::mem::transmute(cnv), dest.param().abi(), core::mem::transmute(destcapacity), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    ucnv_fromUChars(core::mem::transmute(cnv), dest.param().abi(), destcapacity, src, srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_fromUCountPending(cnv : *const UConverter, status : *mut UErrorCode) -> i32);
-    ucnv_fromUCountPending(core::mem::transmute(cnv), core::mem::transmute(status))
+    ucnv_fromUCountPending(cnv, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucnv_fromUnicode<P2>(converter: *mut UConverter, target: *mut *mut i8, targetlimit: P2, source: *const *const u16, sourcelimit: *const u16, offsets: *mut i32, flush: i8, err: *mut UErrorCode)
@@ -3020,7 +2978,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_fromUnicode(converter : *mut UConverter, target : *mut *mut i8, targetlimit : windows_core::PCSTR, source : *const *const u16, sourcelimit : *const u16, offsets : *mut i32, flush : i8, err : *mut UErrorCode));
-    ucnv_fromUnicode(core::mem::transmute(converter), core::mem::transmute(target), targetlimit.param().abi(), core::mem::transmute(source), core::mem::transmute(sourcelimit), core::mem::transmute(offsets), core::mem::transmute(flush), core::mem::transmute(err))
+    ucnv_fromUnicode(core::mem::transmute(converter), core::mem::transmute(target), targetlimit.param().abi(), source, sourcelimit, core::mem::transmute(offsets), flush, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_getAlias<P0>(alias: P0, n: u16, perrorcode: *mut UErrorCode) -> windows_core::PCSTR
@@ -3028,7 +2986,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getAlias(alias : windows_core::PCSTR, n : u16, perrorcode : *mut UErrorCode) -> windows_core::PCSTR);
-    ucnv_getAlias(alias.param().abi(), core::mem::transmute(n), core::mem::transmute(perrorcode))
+    ucnv_getAlias(alias.param().abi(), n, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucnv_getAliases<P0>(alias: P0, aliases: *const *const i8, perrorcode: *mut UErrorCode)
@@ -3036,17 +2994,17 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getAliases(alias : windows_core::PCSTR, aliases : *const *const i8, perrorcode : *mut UErrorCode));
-    ucnv_getAliases(alias.param().abi(), core::mem::transmute(aliases), core::mem::transmute(perrorcode))
+    ucnv_getAliases(alias.param().abi(), aliases, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucnv_getAvailableName(n: i32) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getAvailableName(n : i32) -> windows_core::PCSTR);
-    ucnv_getAvailableName(core::mem::transmute(n))
+    ucnv_getAvailableName(n)
 }
 #[inline]
 pub unsafe fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getCCSID(converter : *const UConverter, err : *mut UErrorCode) -> i32);
-    ucnv_getCCSID(core::mem::transmute(converter), core::mem::transmute(err))
+    ucnv_getCCSID(converter, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_getCanonicalName<P0, P1>(alias: P0, standard: P1, perrorcode: *mut UErrorCode) -> windows_core::PCSTR
@@ -3068,12 +3026,12 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getDisplayName(converter : *const UConverter, displaylocale : windows_core::PCSTR, displayname : *mut u16, displaynamecapacity : i32, err : *mut UErrorCode) -> i32);
-    ucnv_getDisplayName(core::mem::transmute(converter), displaylocale.param().abi(), core::mem::transmute(displayname), core::mem::transmute(displaynamecapacity), core::mem::transmute(err))
+    ucnv_getDisplayName(converter, displaylocale.param().abi(), core::mem::transmute(displayname), displaynamecapacity, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut UConverterFromUCallback, context: *const *const core::ffi::c_void) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getFromUCallBack(converter : *const UConverter, action : *mut UConverterFromUCallback, context : *const *const core::ffi::c_void));
-    ucnv_getFromUCallBack(core::mem::transmute(converter), core::mem::transmute(action), core::mem::transmute(context))
+    ucnv_getFromUCallBack(converter, core::mem::transmute(action), context)
 }
 #[inline]
 pub unsafe fn ucnv_getInvalidChars<P1>(converter: *const UConverter, errbytes: P1, len: *mut i8, err: *mut UErrorCode)
@@ -3081,27 +3039,27 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getInvalidChars(converter : *const UConverter, errbytes : windows_core::PCSTR, len : *mut i8, err : *mut UErrorCode));
-    ucnv_getInvalidChars(core::mem::transmute(converter), errbytes.param().abi(), core::mem::transmute(len), core::mem::transmute(err))
+    ucnv_getInvalidChars(converter, errbytes.param().abi(), core::mem::transmute(len), core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_getInvalidUChars(converter: *const UConverter, erruchars: *mut u16, len: *mut i8, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getInvalidUChars(converter : *const UConverter, erruchars : *mut u16, len : *mut i8, err : *mut UErrorCode));
-    ucnv_getInvalidUChars(core::mem::transmute(converter), core::mem::transmute(erruchars), core::mem::transmute(len), core::mem::transmute(err))
+    ucnv_getInvalidUChars(converter, core::mem::transmute(erruchars), core::mem::transmute(len), core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getMaxCharSize(converter : *const UConverter) -> i8);
-    ucnv_getMaxCharSize(core::mem::transmute(converter))
+    ucnv_getMaxCharSize(converter)
 }
 #[inline]
 pub unsafe fn ucnv_getMinCharSize(converter: *const UConverter) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getMinCharSize(converter : *const UConverter) -> i8);
-    ucnv_getMinCharSize(core::mem::transmute(converter))
+    ucnv_getMinCharSize(converter)
 }
 #[inline]
 pub unsafe fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getName(converter : *const UConverter, err : *mut UErrorCode) -> windows_core::PCSTR);
-    ucnv_getName(core::mem::transmute(converter), core::mem::transmute(err))
+    ucnv_getName(converter, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_getNextUChar<P2>(converter: *mut UConverter, source: *const *const i8, sourcelimit: P2, err: *mut UErrorCode) -> i32
@@ -3109,17 +3067,17 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getNextUChar(converter : *mut UConverter, source : *const *const i8, sourcelimit : windows_core::PCSTR, err : *mut UErrorCode) -> i32);
-    ucnv_getNextUChar(core::mem::transmute(converter), core::mem::transmute(source), sourcelimit.param().abi(), core::mem::transmute(err))
+    ucnv_getNextUChar(core::mem::transmute(converter), source, sourcelimit.param().abi(), core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCode) -> UConverterPlatform {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getPlatform(converter : *const UConverter, err : *mut UErrorCode) -> UConverterPlatform);
-    ucnv_getPlatform(core::mem::transmute(converter), core::mem::transmute(err))
+    ucnv_getPlatform(converter, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getStandard(n : u16, perrorcode : *mut UErrorCode) -> windows_core::PCSTR);
-    ucnv_getStandard(core::mem::transmute(n), core::mem::transmute(perrorcode))
+    ucnv_getStandard(n, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucnv_getStandardName<P0, P1>(name: P0, standard: P1, perrorcode: *mut UErrorCode) -> windows_core::PCSTR
@@ -3133,7 +3091,7 @@ where
 #[inline]
 pub unsafe fn ucnv_getStarters(converter: *const UConverter, starters: *mut i8, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getStarters(converter : *const UConverter, starters : *mut i8, err : *mut UErrorCode));
-    ucnv_getStarters(core::mem::transmute(converter), core::mem::transmute(starters), core::mem::transmute(err))
+    ucnv_getStarters(converter, core::mem::transmute(starters), core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_getSubstChars<P1>(converter: *const UConverter, subchars: P1, len: *mut i8, err: *mut UErrorCode)
@@ -3141,27 +3099,27 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getSubstChars(converter : *const UConverter, subchars : windows_core::PCSTR, len : *mut i8, err : *mut UErrorCode));
-    ucnv_getSubstChars(core::mem::transmute(converter), subchars.param().abi(), core::mem::transmute(len), core::mem::transmute(err))
+    ucnv_getSubstChars(converter, subchars.param().abi(), core::mem::transmute(len), core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut UConverterToUCallback, context: *const *const core::ffi::c_void) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getToUCallBack(converter : *const UConverter, action : *mut UConverterToUCallback, context : *const *const core::ffi::c_void));
-    ucnv_getToUCallBack(core::mem::transmute(converter), core::mem::transmute(action), core::mem::transmute(context))
+    ucnv_getToUCallBack(converter, core::mem::transmute(action), context)
 }
 #[inline]
 pub unsafe fn ucnv_getType(converter: *const UConverter) -> UConverterType {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getType(converter : *const UConverter) -> UConverterType);
-    ucnv_getType(core::mem::transmute(converter))
+    ucnv_getType(converter)
 }
 #[inline]
 pub unsafe fn ucnv_getUnicodeSet(cnv: *const UConverter, setfillin: *mut USet, whichset: UConverterUnicodeSet, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_getUnicodeSet(cnv : *const UConverter, setfillin : *mut USet, whichset : UConverterUnicodeSet, perrorcode : *mut UErrorCode));
-    ucnv_getUnicodeSet(core::mem::transmute(cnv), core::mem::transmute(setfillin), core::mem::transmute(whichset), core::mem::transmute(perrorcode))
+    ucnv_getUnicodeSet(cnv, core::mem::transmute(setfillin), whichset, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_isAmbiguous(cnv : *const UConverter) -> i8);
-    ucnv_isAmbiguous(core::mem::transmute(cnv))
+    ucnv_isAmbiguous(cnv)
 }
 #[inline]
 pub unsafe fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -> i8 {
@@ -3184,7 +3142,7 @@ pub unsafe fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeratio
 #[inline]
 pub unsafe fn ucnv_openCCSID(codepage: i32, platform: UConverterPlatform, err: *mut UErrorCode) -> *mut UConverter {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_openCCSID(codepage : i32, platform : UConverterPlatform, err : *mut UErrorCode) -> *mut UConverter);
-    ucnv_openCCSID(core::mem::transmute(codepage), core::mem::transmute(platform), core::mem::transmute(err))
+    ucnv_openCCSID(codepage, platform, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_openPackage<P0, P1>(packagename: P0, convertername: P1, err: *mut UErrorCode) -> *mut UConverter
@@ -3207,7 +3165,7 @@ where
 #[inline]
 pub unsafe fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConverter {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_openU(name : *const u16, err : *mut UErrorCode) -> *mut UConverter);
-    ucnv_openU(core::mem::transmute(name), core::mem::transmute(err))
+    ucnv_openU(name, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_reset(converter: *mut UConverter) {
@@ -3227,7 +3185,7 @@ pub unsafe fn ucnv_resetToUnicode(converter: *mut UConverter) {
 #[inline]
 pub unsafe fn ucnv_safeClone(cnv: *const UConverter, stackbuffer: *mut core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UConverter {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_safeClone(cnv : *const UConverter, stackbuffer : *mut core::ffi::c_void, pbuffersize : *mut i32, status : *mut UErrorCode) -> *mut UConverter);
-    ucnv_safeClone(core::mem::transmute(cnv), core::mem::transmute(stackbuffer), core::mem::transmute(pbuffersize), core::mem::transmute(status))
+    ucnv_safeClone(cnv, core::mem::transmute(stackbuffer), core::mem::transmute(pbuffersize), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucnv_setDefaultName<P0>(name: P0)
@@ -3240,12 +3198,12 @@ where
 #[inline]
 pub unsafe fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_setFallback(cnv : *mut UConverter, usesfallback : i8));
-    ucnv_setFallback(core::mem::transmute(cnv), core::mem::transmute(usesfallback))
+    ucnv_setFallback(core::mem::transmute(cnv), usesfallback)
 }
 #[inline]
 pub unsafe fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: UConverterFromUCallback, newcontext: *const core::ffi::c_void, oldaction: *mut UConverterFromUCallback, oldcontext: *const *const core::ffi::c_void, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_setFromUCallBack(converter : *mut UConverter, newaction : UConverterFromUCallback, newcontext : *const core::ffi::c_void, oldaction : *mut UConverterFromUCallback, oldcontext : *const *const core::ffi::c_void, err : *mut UErrorCode));
-    ucnv_setFromUCallBack(core::mem::transmute(converter), core::mem::transmute(newaction), core::mem::transmute(newcontext), core::mem::transmute(oldaction), core::mem::transmute(oldcontext), core::mem::transmute(err))
+    ucnv_setFromUCallBack(core::mem::transmute(converter), newaction, newcontext, core::mem::transmute(oldaction), oldcontext, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_setSubstChars<P1>(converter: *mut UConverter, subchars: P1, len: i8, err: *mut UErrorCode)
@@ -3253,17 +3211,17 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_setSubstChars(converter : *mut UConverter, subchars : windows_core::PCSTR, len : i8, err : *mut UErrorCode));
-    ucnv_setSubstChars(core::mem::transmute(converter), subchars.param().abi(), core::mem::transmute(len), core::mem::transmute(err))
+    ucnv_setSubstChars(core::mem::transmute(converter), subchars.param().abi(), len, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i32, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_setSubstString(cnv : *mut UConverter, s : *const u16, length : i32, err : *mut UErrorCode));
-    ucnv_setSubstString(core::mem::transmute(cnv), core::mem::transmute(s), core::mem::transmute(length), core::mem::transmute(err))
+    ucnv_setSubstString(core::mem::transmute(cnv), s, length, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: UConverterToUCallback, newcontext: *const core::ffi::c_void, oldaction: *mut UConverterToUCallback, oldcontext: *const *const core::ffi::c_void, err: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_setToUCallBack(converter : *mut UConverter, newaction : UConverterToUCallback, newcontext : *const core::ffi::c_void, oldaction : *mut UConverterToUCallback, oldcontext : *const *const core::ffi::c_void, err : *mut UErrorCode));
-    ucnv_setToUCallBack(core::mem::transmute(converter), core::mem::transmute(newaction), core::mem::transmute(newcontext), core::mem::transmute(oldaction), core::mem::transmute(oldcontext), core::mem::transmute(err))
+    ucnv_setToUCallBack(core::mem::transmute(converter), newaction, newcontext, core::mem::transmute(oldaction), oldcontext, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_toAlgorithmic<P2, P4>(algorithmictype: UConverterType, cnv: *mut UConverter, target: P2, targetcapacity: i32, source: P4, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32
@@ -3272,7 +3230,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_toAlgorithmic(algorithmictype : UConverterType, cnv : *mut UConverter, target : windows_core::PCSTR, targetcapacity : i32, source : windows_core::PCSTR, sourcelength : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucnv_toAlgorithmic(core::mem::transmute(algorithmictype), core::mem::transmute(cnv), target.param().abi(), core::mem::transmute(targetcapacity), source.param().abi(), core::mem::transmute(sourcelength), core::mem::transmute(perrorcode))
+    ucnv_toAlgorithmic(algorithmictype, core::mem::transmute(cnv), target.param().abi(), targetcapacity, source.param().abi(), sourcelength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucnv_toUChars<P3>(cnv: *mut UConverter, dest: *mut u16, destcapacity: i32, src: P3, srclength: i32, perrorcode: *mut UErrorCode) -> i32
@@ -3280,12 +3238,12 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_toUChars(cnv : *mut UConverter, dest : *mut u16, destcapacity : i32, src : windows_core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucnv_toUChars(core::mem::transmute(cnv), core::mem::transmute(dest), core::mem::transmute(destcapacity), src.param().abi(), core::mem::transmute(srclength), core::mem::transmute(perrorcode))
+    ucnv_toUChars(core::mem::transmute(cnv), core::mem::transmute(dest), destcapacity, src.param().abi(), srclength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_toUCountPending(cnv : *const UConverter, status : *mut UErrorCode) -> i32);
-    ucnv_toUCountPending(core::mem::transmute(cnv), core::mem::transmute(status))
+    ucnv_toUCountPending(cnv, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucnv_toUnicode<P4>(converter: *mut UConverter, target: *mut *mut u16, targetlimit: *const u16, source: *const *const i8, sourcelimit: P4, offsets: *mut i32, flush: i8, err: *mut UErrorCode)
@@ -3293,12 +3251,12 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_toUnicode(converter : *mut UConverter, target : *mut *mut u16, targetlimit : *const u16, source : *const *const i8, sourcelimit : windows_core::PCSTR, offsets : *mut i32, flush : i8, err : *mut UErrorCode));
-    ucnv_toUnicode(core::mem::transmute(converter), core::mem::transmute(target), core::mem::transmute(targetlimit), core::mem::transmute(source), sourcelimit.param().abi(), core::mem::transmute(offsets), core::mem::transmute(flush), core::mem::transmute(err))
+    ucnv_toUnicode(core::mem::transmute(converter), core::mem::transmute(target), targetlimit, source, sourcelimit.param().abi(), core::mem::transmute(offsets), flush, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn ucnv_usesFallback(cnv: *const UConverter) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnv_usesFallback(cnv : *const UConverter) -> i8);
-    ucnv_usesFallback(core::mem::transmute(cnv))
+    ucnv_usesFallback(cnv)
 }
 #[inline]
 pub unsafe fn ucnvsel_close(sel: *mut UConverterSelector) {
@@ -3308,17 +3266,17 @@ pub unsafe fn ucnvsel_close(sel: *mut UConverterSelector) {
 #[inline]
 pub unsafe fn ucnvsel_open(converterlist: *const *const i8, converterlistsize: i32, excludedcodepoints: *const USet, whichset: UConverterUnicodeSet, status: *mut UErrorCode) -> *mut UConverterSelector {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnvsel_open(converterlist : *const *const i8, converterlistsize : i32, excludedcodepoints : *const USet, whichset : UConverterUnicodeSet, status : *mut UErrorCode) -> *mut UConverterSelector);
-    ucnvsel_open(core::mem::transmute(converterlist), core::mem::transmute(converterlistsize), core::mem::transmute(excludedcodepoints), core::mem::transmute(whichset), core::mem::transmute(status))
+    ucnvsel_open(converterlist, converterlistsize, excludedcodepoints, whichset, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucnvsel_openFromSerialized(buffer: *const core::ffi::c_void, length: i32, status: *mut UErrorCode) -> *mut UConverterSelector {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnvsel_openFromSerialized(buffer : *const core::ffi::c_void, length : i32, status : *mut UErrorCode) -> *mut UConverterSelector);
-    ucnvsel_openFromSerialized(core::mem::transmute(buffer), core::mem::transmute(length), core::mem::transmute(status))
+    ucnvsel_openFromSerialized(buffer, length, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucnvsel_selectForString(sel: *const UConverterSelector, s: *const u16, length: i32, status: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnvsel_selectForString(sel : *const UConverterSelector, s : *const u16, length : i32, status : *mut UErrorCode) -> *mut UEnumeration);
-    ucnvsel_selectForString(core::mem::transmute(sel), core::mem::transmute(s), core::mem::transmute(length), core::mem::transmute(status))
+    ucnvsel_selectForString(sel, s, length, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucnvsel_selectForUTF8<P1>(sel: *const UConverterSelector, s: P1, length: i32, status: *mut UErrorCode) -> *mut UEnumeration
@@ -3326,17 +3284,17 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnvsel_selectForUTF8(sel : *const UConverterSelector, s : windows_core::PCSTR, length : i32, status : *mut UErrorCode) -> *mut UEnumeration);
-    ucnvsel_selectForUTF8(core::mem::transmute(sel), s.param().abi(), core::mem::transmute(length), core::mem::transmute(status))
+    ucnvsel_selectForUTF8(sel, s.param().abi(), length, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucnvsel_serialize(sel: *const UConverterSelector, buffer: *mut core::ffi::c_void, buffercapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucnvsel_serialize(sel : *const UConverterSelector, buffer : *mut core::ffi::c_void, buffercapacity : i32, status : *mut UErrorCode) -> i32);
-    ucnvsel_serialize(core::mem::transmute(sel), core::mem::transmute(buffer), core::mem::transmute(buffercapacity), core::mem::transmute(status))
+    ucnvsel_serialize(sel, core::mem::transmute(buffer), buffercapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_cloneBinary(coll: *const UCollator, buffer: *mut u8, capacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_cloneBinary(coll : *const UCollator, buffer : *mut u8, capacity : i32, status : *mut UErrorCode) -> i32);
-    ucol_cloneBinary(core::mem::transmute(coll), core::mem::transmute(buffer), core::mem::transmute(capacity), core::mem::transmute(status))
+    ucol_cloneBinary(coll, core::mem::transmute(buffer), capacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_close(coll: *mut UCollator) {
@@ -3356,27 +3314,27 @@ pub unsafe fn ucol_countAvailable() -> i32 {
 #[inline]
 pub unsafe fn ucol_equal(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_equal(coll : *const UCollator, source : *const u16, sourcelength : i32, target : *const u16, targetlength : i32) -> i8);
-    ucol_equal(core::mem::transmute(coll), core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(target), core::mem::transmute(targetlength))
+    ucol_equal(coll, source, sourcelength, target, targetlength)
 }
 #[inline]
 pub unsafe fn ucol_getAttribute(coll: *const UCollator, attr: UColAttribute, status: *mut UErrorCode) -> UColAttributeValue {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getAttribute(coll : *const UCollator, attr : UColAttribute, status : *mut UErrorCode) -> UColAttributeValue);
-    ucol_getAttribute(core::mem::transmute(coll), core::mem::transmute(attr), core::mem::transmute(status))
+    ucol_getAttribute(coll, attr, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_getAvailable(localeindex: i32) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getAvailable(localeindex : i32) -> windows_core::PCSTR);
-    ucol_getAvailable(core::mem::transmute(localeindex))
+    ucol_getAvailable(localeindex)
 }
 #[inline]
 pub unsafe fn ucol_getBound(source: *const u8, sourcelength: i32, boundtype: UColBoundMode, nooflevels: u32, result: *mut u8, resultlength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getBound(source : *const u8, sourcelength : i32, boundtype : UColBoundMode, nooflevels : u32, result : *mut u8, resultlength : i32, status : *mut UErrorCode) -> i32);
-    ucol_getBound(core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(boundtype), core::mem::transmute(nooflevels), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    ucol_getBound(source, sourcelength, boundtype, nooflevels, core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_getContractionsAndExpansions(coll: *const UCollator, contractions: *mut USet, expansions: *mut USet, addprefixes: i8, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getContractionsAndExpansions(coll : *const UCollator, contractions : *mut USet, expansions : *mut USet, addprefixes : i8, status : *mut UErrorCode));
-    ucol_getContractionsAndExpansions(core::mem::transmute(coll), core::mem::transmute(contractions), core::mem::transmute(expansions), core::mem::transmute(addprefixes), core::mem::transmute(status))
+    ucol_getContractionsAndExpansions(coll, core::mem::transmute(contractions), core::mem::transmute(expansions), addprefixes, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_getDisplayName<P0, P1>(objloc: P0, disploc: P1, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32
@@ -3385,12 +3343,12 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getDisplayName(objloc : windows_core::PCSTR, disploc : windows_core::PCSTR, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    ucol_getDisplayName(objloc.param().abi(), disploc.param().abi(), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    ucol_getDisplayName(objloc.param().abi(), disploc.param().abi(), core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_getEquivalentReorderCodes(reordercode: i32, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getEquivalentReorderCodes(reordercode : i32, dest : *mut i32, destcapacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucol_getEquivalentReorderCodes(core::mem::transmute(reordercode), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(perrorcode))
+    ucol_getEquivalentReorderCodes(reordercode, core::mem::transmute(dest), destcapacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucol_getFunctionalEquivalent<P0, P2, P3>(result: P0, resultcapacity: i32, keyword: P2, locale: P3, isavailable: *mut i8, status: *mut UErrorCode) -> i32
@@ -3400,7 +3358,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getFunctionalEquivalent(result : windows_core::PCSTR, resultcapacity : i32, keyword : windows_core::PCSTR, locale : windows_core::PCSTR, isavailable : *mut i8, status : *mut UErrorCode) -> i32);
-    ucol_getFunctionalEquivalent(result.param().abi(), core::mem::transmute(resultcapacity), keyword.param().abi(), locale.param().abi(), core::mem::transmute(isavailable), core::mem::transmute(status))
+    ucol_getFunctionalEquivalent(result.param().abi(), resultcapacity, keyword.param().abi(), locale.param().abi(), core::mem::transmute(isavailable), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_getKeywordValues<P0>(keyword: P0, status: *mut UErrorCode) -> *mut UEnumeration
@@ -3417,7 +3375,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getKeywordValuesForLocale(key : windows_core::PCSTR, locale : windows_core::PCSTR, commonlyused : i8, status : *mut UErrorCode) -> *mut UEnumeration);
-    ucol_getKeywordValuesForLocale(key.param().abi(), locale.param().abi(), core::mem::transmute(commonlyused), core::mem::transmute(status))
+    ucol_getKeywordValuesForLocale(key.param().abi(), locale.param().abi(), commonlyused, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration {
@@ -3427,87 +3385,87 @@ pub unsafe fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration {
 #[inline]
 pub unsafe fn ucol_getLocaleByType(coll: *const UCollator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getLocaleByType(coll : *const UCollator, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> windows_core::PCSTR);
-    ucol_getLocaleByType(core::mem::transmute(coll), core::mem::transmute(r#type), core::mem::transmute(status))
+    ucol_getLocaleByType(coll, r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getMaxExpansion(elems : *const UCollationElements, order : i32) -> i32);
-    ucol_getMaxExpansion(core::mem::transmute(elems), core::mem::transmute(order))
+    ucol_getMaxExpansion(elems, order)
 }
 #[inline]
 pub unsafe fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getMaxVariable(coll : *const UCollator) -> UColReorderCode);
-    ucol_getMaxVariable(core::mem::transmute(coll))
+    ucol_getMaxVariable(coll)
 }
 #[inline]
 pub unsafe fn ucol_getOffset(elems: *const UCollationElements) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getOffset(elems : *const UCollationElements) -> i32);
-    ucol_getOffset(core::mem::transmute(elems))
+    ucol_getOffset(elems)
 }
 #[inline]
 pub unsafe fn ucol_getReorderCodes(coll: *const UCollator, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getReorderCodes(coll : *const UCollator, dest : *mut i32, destcapacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucol_getReorderCodes(core::mem::transmute(coll), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(perrorcode))
+    ucol_getReorderCodes(coll, core::mem::transmute(dest), destcapacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u16 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getRules(coll : *const UCollator, length : *mut i32) -> *mut u16);
-    ucol_getRules(core::mem::transmute(coll), core::mem::transmute(length))
+    ucol_getRules(coll, core::mem::transmute(length))
 }
 #[inline]
 pub unsafe fn ucol_getRulesEx(coll: *const UCollator, delta: UColRuleOption, buffer: *mut u16, bufferlen: i32) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getRulesEx(coll : *const UCollator, delta : UColRuleOption, buffer : *mut u16, bufferlen : i32) -> i32);
-    ucol_getRulesEx(core::mem::transmute(coll), core::mem::transmute(delta), core::mem::transmute(buffer), core::mem::transmute(bufferlen))
+    ucol_getRulesEx(coll, delta, core::mem::transmute(buffer), bufferlen)
 }
 #[inline]
 pub unsafe fn ucol_getSortKey(coll: *const UCollator, source: *const u16, sourcelength: i32, result: *mut u8, resultlength: i32) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getSortKey(coll : *const UCollator, source : *const u16, sourcelength : i32, result : *mut u8, resultlength : i32) -> i32);
-    ucol_getSortKey(core::mem::transmute(coll), core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(result), core::mem::transmute(resultlength))
+    ucol_getSortKey(coll, source, sourcelength, core::mem::transmute(result), resultlength)
 }
 #[inline]
 pub unsafe fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getStrength(coll : *const UCollator) -> UColAttributeValue);
-    ucol_getStrength(core::mem::transmute(coll))
+    ucol_getStrength(coll)
 }
 #[inline]
 pub unsafe fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCode) -> *mut USet {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getTailoredSet(coll : *const UCollator, status : *mut UErrorCode) -> *mut USet);
-    ucol_getTailoredSet(core::mem::transmute(coll), core::mem::transmute(status))
+    ucol_getTailoredSet(coll, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getUCAVersion(coll : *const UCollator, info : *mut u8));
-    ucol_getUCAVersion(core::mem::transmute(coll), core::mem::transmute(info))
+    ucol_getUCAVersion(coll, core::mem::transmute(info))
 }
 #[inline]
 pub unsafe fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCode) -> u32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getVariableTop(coll : *const UCollator, status : *mut UErrorCode) -> u32);
-    ucol_getVariableTop(core::mem::transmute(coll), core::mem::transmute(status))
+    ucol_getVariableTop(coll, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_getVersion(coll: *const UCollator, info: *mut u8) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_getVersion(coll : *const UCollator, info : *mut u8));
-    ucol_getVersion(core::mem::transmute(coll), core::mem::transmute(info))
+    ucol_getVersion(coll, core::mem::transmute(info))
 }
 #[inline]
 pub unsafe fn ucol_greater(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_greater(coll : *const UCollator, source : *const u16, sourcelength : i32, target : *const u16, targetlength : i32) -> i8);
-    ucol_greater(core::mem::transmute(coll), core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(target), core::mem::transmute(targetlength))
+    ucol_greater(coll, source, sourcelength, target, targetlength)
 }
 #[inline]
 pub unsafe fn ucol_greaterOrEqual(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_greaterOrEqual(coll : *const UCollator, source : *const u16, sourcelength : i32, target : *const u16, targetlength : i32) -> i8);
-    ucol_greaterOrEqual(core::mem::transmute(coll), core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(target), core::mem::transmute(targetlength))
+    ucol_greaterOrEqual(coll, source, sourcelength, target, targetlength)
 }
 #[inline]
 pub unsafe fn ucol_keyHashCode(key: *const u8, length: i32) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_keyHashCode(key : *const u8, length : i32) -> i32);
-    ucol_keyHashCode(core::mem::transmute(key), core::mem::transmute(length))
+    ucol_keyHashCode(key, length)
 }
 #[inline]
 pub unsafe fn ucol_mergeSortkeys(src1: *const u8, src1length: i32, src2: *const u8, src2length: i32, dest: *mut u8, destcapacity: i32) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_mergeSortkeys(src1 : *const u8, src1length : i32, src2 : *const u8, src2length : i32, dest : *mut u8, destcapacity : i32) -> i32);
-    ucol_mergeSortkeys(core::mem::transmute(src1), core::mem::transmute(src1length), core::mem::transmute(src2), core::mem::transmute(src2length), core::mem::transmute(dest), core::mem::transmute(destcapacity))
+    ucol_mergeSortkeys(src1, src1length, src2, src2length, core::mem::transmute(dest), destcapacity)
 }
 #[inline]
 pub unsafe fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32 {
@@ -3517,7 +3475,7 @@ pub unsafe fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode)
 #[inline]
 pub unsafe fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharIterator, state: *mut u32, dest: *mut u8, count: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_nextSortKeyPart(coll : *const UCollator, iter : *mut UCharIterator, state : *mut u32, dest : *mut u8, count : i32, status : *mut UErrorCode) -> i32);
-    ucol_nextSortKeyPart(core::mem::transmute(coll), core::mem::transmute(iter), core::mem::transmute(state), core::mem::transmute(dest), core::mem::transmute(count), core::mem::transmute(status))
+    ucol_nextSortKeyPart(coll, core::mem::transmute(iter), core::mem::transmute(state), core::mem::transmute(dest), count, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_open<P0>(loc: P0, status: *mut UErrorCode) -> *mut UCollator
@@ -3535,17 +3493,17 @@ pub unsafe fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumer
 #[inline]
 pub unsafe fn ucol_openBinary(bin: *const u8, length: i32, base: *const UCollator, status: *mut UErrorCode) -> *mut UCollator {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_openBinary(bin : *const u8, length : i32, base : *const UCollator, status : *mut UErrorCode) -> *mut UCollator);
-    ucol_openBinary(core::mem::transmute(bin), core::mem::transmute(length), core::mem::transmute(base), core::mem::transmute(status))
+    ucol_openBinary(bin, length, base, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_openElements(coll: *const UCollator, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UCollationElements {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_openElements(coll : *const UCollator, text : *const u16, textlength : i32, status : *mut UErrorCode) -> *mut UCollationElements);
-    ucol_openElements(core::mem::transmute(coll), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(status))
+    ucol_openElements(coll, text, textlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_openRules(rules: *const u16, ruleslength: i32, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut UCollator {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_openRules(rules : *const u16, ruleslength : i32, normalizationmode : UColAttributeValue, strength : UColAttributeValue, parseerror : *mut UParseError, status : *mut UErrorCode) -> *mut UCollator);
-    ucol_openRules(core::mem::transmute(rules), core::mem::transmute(ruleslength), core::mem::transmute(normalizationmode), core::mem::transmute(strength), core::mem::transmute(parseerror), core::mem::transmute(status))
+    ucol_openRules(rules, ruleslength, normalizationmode, strength, core::mem::transmute(parseerror), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32 {
@@ -3555,7 +3513,7 @@ pub unsafe fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorC
 #[inline]
 pub unsafe fn ucol_primaryOrder(order: i32) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_primaryOrder(order : i32) -> i32);
-    ucol_primaryOrder(core::mem::transmute(order))
+    ucol_primaryOrder(order)
 }
 #[inline]
 pub unsafe fn ucol_reset(elems: *mut UCollationElements) {
@@ -3565,52 +3523,52 @@ pub unsafe fn ucol_reset(elems: *mut UCollationElements) {
 #[inline]
 pub unsafe fn ucol_safeClone(coll: *const UCollator, stackbuffer: *mut core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UCollator {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_safeClone(coll : *const UCollator, stackbuffer : *mut core::ffi::c_void, pbuffersize : *mut i32, status : *mut UErrorCode) -> *mut UCollator);
-    ucol_safeClone(core::mem::transmute(coll), core::mem::transmute(stackbuffer), core::mem::transmute(pbuffersize), core::mem::transmute(status))
+    ucol_safeClone(coll, core::mem::transmute(stackbuffer), core::mem::transmute(pbuffersize), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_secondaryOrder(order: i32) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_secondaryOrder(order : i32) -> i32);
-    ucol_secondaryOrder(core::mem::transmute(order))
+    ucol_secondaryOrder(order)
 }
 #[inline]
 pub unsafe fn ucol_setAttribute(coll: *mut UCollator, attr: UColAttribute, value: UColAttributeValue, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_setAttribute(coll : *mut UCollator, attr : UColAttribute, value : UColAttributeValue, status : *mut UErrorCode));
-    ucol_setAttribute(core::mem::transmute(coll), core::mem::transmute(attr), core::mem::transmute(value), core::mem::transmute(status))
+    ucol_setAttribute(core::mem::transmute(coll), attr, value, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_setMaxVariable(coll: *mut UCollator, group: UColReorderCode, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_setMaxVariable(coll : *mut UCollator, group : UColReorderCode, perrorcode : *mut UErrorCode));
-    ucol_setMaxVariable(core::mem::transmute(coll), core::mem::transmute(group), core::mem::transmute(perrorcode))
+    ucol_setMaxVariable(core::mem::transmute(coll), group, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_setOffset(elems : *mut UCollationElements, offset : i32, status : *mut UErrorCode));
-    ucol_setOffset(core::mem::transmute(elems), core::mem::transmute(offset), core::mem::transmute(status))
+    ucol_setOffset(core::mem::transmute(elems), offset, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_setReorderCodes(coll: *mut UCollator, reordercodes: *const i32, reordercodeslength: i32, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_setReorderCodes(coll : *mut UCollator, reordercodes : *const i32, reordercodeslength : i32, perrorcode : *mut UErrorCode));
-    ucol_setReorderCodes(core::mem::transmute(coll), core::mem::transmute(reordercodes), core::mem::transmute(reordercodeslength), core::mem::transmute(perrorcode))
+    ucol_setReorderCodes(core::mem::transmute(coll), reordercodes, reordercodeslength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValue) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_setStrength(coll : *mut UCollator, strength : UColAttributeValue));
-    ucol_setStrength(core::mem::transmute(coll), core::mem::transmute(strength))
+    ucol_setStrength(core::mem::transmute(coll), strength)
 }
 #[inline]
 pub unsafe fn ucol_setText(elems: *mut UCollationElements, text: *const u16, textlength: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_setText(elems : *mut UCollationElements, text : *const u16, textlength : i32, status : *mut UErrorCode));
-    ucol_setText(core::mem::transmute(elems), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(status))
+    ucol_setText(core::mem::transmute(elems), text, textlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_strcoll(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> UCollationResult {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_strcoll(coll : *const UCollator, source : *const u16, sourcelength : i32, target : *const u16, targetlength : i32) -> UCollationResult);
-    ucol_strcoll(core::mem::transmute(coll), core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(target), core::mem::transmute(targetlength))
+    ucol_strcoll(coll, source, sourcelength, target, targetlength)
 }
 #[inline]
 pub unsafe fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator, titer: *mut UCharIterator, status: *mut UErrorCode) -> UCollationResult {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_strcollIter(coll : *const UCollator, siter : *mut UCharIterator, titer : *mut UCharIterator, status : *mut UErrorCode) -> UCollationResult);
-    ucol_strcollIter(core::mem::transmute(coll), core::mem::transmute(siter), core::mem::transmute(titer), core::mem::transmute(status))
+    ucol_strcollIter(coll, core::mem::transmute(siter), core::mem::transmute(titer), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_strcollUTF8<P1, P3>(coll: *const UCollator, source: P1, sourcelength: i32, target: P3, targetlength: i32, status: *mut UErrorCode) -> UCollationResult
@@ -3619,22 +3577,22 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_strcollUTF8(coll : *const UCollator, source : windows_core::PCSTR, sourcelength : i32, target : windows_core::PCSTR, targetlength : i32, status : *mut UErrorCode) -> UCollationResult);
-    ucol_strcollUTF8(core::mem::transmute(coll), source.param().abi(), core::mem::transmute(sourcelength), target.param().abi(), core::mem::transmute(targetlength), core::mem::transmute(status))
+    ucol_strcollUTF8(coll, source.param().abi(), sourcelength, target.param().abi(), targetlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucol_tertiaryOrder(order: i32) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucol_tertiaryOrder(order : i32) -> i32);
-    ucol_tertiaryOrder(core::mem::transmute(order))
+    ucol_tertiaryOrder(order)
 }
 #[inline]
 pub unsafe fn ucpmap_get(map: *const UCPMap, c: i32) -> u32 {
     windows_targets::link!("icu.dll" "cdecl" fn ucpmap_get(map : *const UCPMap, c : i32) -> u32);
-    ucpmap_get(core::mem::transmute(map), core::mem::transmute(c))
+    ucpmap_get(map, c)
 }
 #[inline]
 pub unsafe fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const core::ffi::c_void, pvalue: *mut u32) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn ucpmap_getRange(map : *const UCPMap, start : i32, option : UCPMapRangeOption, surrogatevalue : u32, filter : *mut UCPMapValueFilter, context : *const core::ffi::c_void, pvalue : *mut u32) -> i32);
-    ucpmap_getRange(core::mem::transmute(map), core::mem::transmute(start), core::mem::transmute(option), core::mem::transmute(surrogatevalue), core::mem::transmute(filter), core::mem::transmute(context), core::mem::transmute(pvalue))
+    ucpmap_getRange(map, start, option, surrogatevalue, core::mem::transmute(filter), context, core::mem::transmute(pvalue))
 }
 #[inline]
 pub unsafe fn ucptrie_close(trie: *mut UCPTrie) {
@@ -3644,47 +3602,47 @@ pub unsafe fn ucptrie_close(trie: *mut UCPTrie) {
 #[inline]
 pub unsafe fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32 {
     windows_targets::link!("icu.dll" "cdecl" fn ucptrie_get(trie : *const UCPTrie, c : i32) -> u32);
-    ucptrie_get(core::mem::transmute(trie), core::mem::transmute(c))
+    ucptrie_get(trie, c)
 }
 #[inline]
 pub unsafe fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const core::ffi::c_void, pvalue: *mut u32) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn ucptrie_getRange(trie : *const UCPTrie, start : i32, option : UCPMapRangeOption, surrogatevalue : u32, filter : *mut UCPMapValueFilter, context : *const core::ffi::c_void, pvalue : *mut u32) -> i32);
-    ucptrie_getRange(core::mem::transmute(trie), core::mem::transmute(start), core::mem::transmute(option), core::mem::transmute(surrogatevalue), core::mem::transmute(filter), core::mem::transmute(context), core::mem::transmute(pvalue))
+    ucptrie_getRange(trie, start, option, surrogatevalue, core::mem::transmute(filter), context, core::mem::transmute(pvalue))
 }
 #[inline]
 pub unsafe fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType {
     windows_targets::link!("icu.dll" "cdecl" fn ucptrie_getType(trie : *const UCPTrie) -> UCPTrieType);
-    ucptrie_getType(core::mem::transmute(trie))
+    ucptrie_getType(trie)
 }
 #[inline]
 pub unsafe fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth {
     windows_targets::link!("icu.dll" "cdecl" fn ucptrie_getValueWidth(trie : *const UCPTrie) -> UCPTrieValueWidth);
-    ucptrie_getValueWidth(core::mem::transmute(trie))
+    ucptrie_getValueWidth(trie)
 }
 #[inline]
 pub unsafe fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn ucptrie_internalSmallIndex(trie : *const UCPTrie, c : i32) -> i32);
-    ucptrie_internalSmallIndex(core::mem::transmute(trie), core::mem::transmute(c))
+    ucptrie_internalSmallIndex(trie, c)
 }
 #[inline]
 pub unsafe fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u8, t3: u8) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn ucptrie_internalSmallU8Index(trie : *const UCPTrie, lt1 : i32, t2 : u8, t3 : u8) -> i32);
-    ucptrie_internalSmallU8Index(core::mem::transmute(trie), core::mem::transmute(lt1), core::mem::transmute(t2), core::mem::transmute(t3))
+    ucptrie_internalSmallU8Index(trie, lt1, t2, t3)
 }
 #[inline]
 pub unsafe fn ucptrie_internalU8PrevIndex(trie: *const UCPTrie, c: i32, start: *const u8, src: *const u8) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn ucptrie_internalU8PrevIndex(trie : *const UCPTrie, c : i32, start : *const u8, src : *const u8) -> i32);
-    ucptrie_internalU8PrevIndex(core::mem::transmute(trie), core::mem::transmute(c), core::mem::transmute(start), core::mem::transmute(src))
+    ucptrie_internalU8PrevIndex(trie, c, start, src)
 }
 #[inline]
 pub unsafe fn ucptrie_openFromBinary(r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: *const core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut UCPTrie {
     windows_targets::link!("icu.dll" "cdecl" fn ucptrie_openFromBinary(r#type : UCPTrieType, valuewidth : UCPTrieValueWidth, data : *const core::ffi::c_void, length : i32, pactuallength : *mut i32, perrorcode : *mut UErrorCode) -> *mut UCPTrie);
-    ucptrie_openFromBinary(core::mem::transmute(r#type), core::mem::transmute(valuewidth), core::mem::transmute(data), core::mem::transmute(length), core::mem::transmute(pactuallength), core::mem::transmute(perrorcode))
+    ucptrie_openFromBinary(r#type, valuewidth, data, length, core::mem::transmute(pactuallength), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucptrie_toBinary(trie: *const UCPTrie, data: *mut core::ffi::c_void, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn ucptrie_toBinary(trie : *const UCPTrie, data : *mut core::ffi::c_void, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    ucptrie_toBinary(core::mem::transmute(trie), core::mem::transmute(data), core::mem::transmute(capacity), core::mem::transmute(perrorcode))
+    ucptrie_toBinary(trie, core::mem::transmute(data), capacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucsdet_close(ucsd: *mut UCharsetDetector) {
@@ -3704,37 +3662,37 @@ pub unsafe fn ucsdet_detectAll(ucsd: *mut UCharsetDetector, matchesfound: *mut i
 #[inline]
 pub unsafe fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucsdet_enableInputFilter(ucsd : *mut UCharsetDetector, filter : i8) -> i8);
-    ucsdet_enableInputFilter(core::mem::transmute(ucsd), core::mem::transmute(filter))
+    ucsdet_enableInputFilter(core::mem::transmute(ucsd), filter)
 }
 #[inline]
 pub unsafe fn ucsdet_getAllDetectableCharsets(ucsd: *const UCharsetDetector, status: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icuin.dll" "cdecl" fn ucsdet_getAllDetectableCharsets(ucsd : *const UCharsetDetector, status : *mut UErrorCode) -> *mut UEnumeration);
-    ucsdet_getAllDetectableCharsets(core::mem::transmute(ucsd), core::mem::transmute(status))
+    ucsdet_getAllDetectableCharsets(ucsd, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucsdet_getConfidence(ucsm : *const UCharsetMatch, status : *mut UErrorCode) -> i32);
-    ucsdet_getConfidence(core::mem::transmute(ucsm), core::mem::transmute(status))
+    ucsdet_getConfidence(ucsm, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucsdet_getLanguage(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn ucsdet_getLanguage(ucsm : *const UCharsetMatch, status : *mut UErrorCode) -> windows_core::PCSTR);
-    ucsdet_getLanguage(core::mem::transmute(ucsm), core::mem::transmute(status))
+    ucsdet_getLanguage(ucsm, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucsdet_getName(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn ucsdet_getName(ucsm : *const UCharsetMatch, status : *mut UErrorCode) -> windows_core::PCSTR);
-    ucsdet_getName(core::mem::transmute(ucsm), core::mem::transmute(status))
+    ucsdet_getName(ucsm, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucsdet_getUChars(ucsm: *const UCharsetMatch, buf: *mut u16, cap: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucsdet_getUChars(ucsm : *const UCharsetMatch, buf : *mut u16, cap : i32, status : *mut UErrorCode) -> i32);
-    ucsdet_getUChars(core::mem::transmute(ucsm), core::mem::transmute(buf), core::mem::transmute(cap), core::mem::transmute(status))
+    ucsdet_getUChars(ucsm, core::mem::transmute(buf), cap, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucsdet_isInputFilterEnabled(ucsd : *const UCharsetDetector) -> i8);
-    ucsdet_isInputFilterEnabled(core::mem::transmute(ucsd))
+    ucsdet_isInputFilterEnabled(ucsd)
 }
 #[inline]
 pub unsafe fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector {
@@ -3747,7 +3705,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucsdet_setDeclaredEncoding(ucsd : *mut UCharsetDetector, encoding : windows_core::PCSTR, length : i32, status : *mut UErrorCode));
-    ucsdet_setDeclaredEncoding(core::mem::transmute(ucsd), encoding.param().abi(), core::mem::transmute(length), core::mem::transmute(status))
+    ucsdet_setDeclaredEncoding(core::mem::transmute(ucsd), encoding.param().abi(), length, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucsdet_setText<P1>(ucsd: *mut UCharsetDetector, textin: P1, len: i32, status: *mut UErrorCode)
@@ -3755,7 +3713,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn ucsdet_setText(ucsd : *mut UCharsetDetector, textin : windows_core::PCSTR, len : i32, status : *mut UErrorCode));
-    ucsdet_setText(core::mem::transmute(ucsd), textin.param().abi(), core::mem::transmute(len), core::mem::transmute(status))
+    ucsdet_setText(core::mem::transmute(ucsd), textin.param().abi(), len, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucurr_countCurrencies<P0>(locale: P0, date: f64, ec: *mut UErrorCode) -> i32
@@ -3763,7 +3721,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_countCurrencies(locale : windows_core::PCSTR, date : f64, ec : *mut UErrorCode) -> i32);
-    ucurr_countCurrencies(locale.param().abi(), core::mem::transmute(date), core::mem::transmute(ec))
+    ucurr_countCurrencies(locale.param().abi(), date, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucurr_forLocale<P0>(locale: P0, buff: *mut u16, buffcapacity: i32, ec: *mut UErrorCode) -> i32
@@ -3771,7 +3729,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_forLocale(locale : windows_core::PCSTR, buff : *mut u16, buffcapacity : i32, ec : *mut UErrorCode) -> i32);
-    ucurr_forLocale(locale.param().abi(), core::mem::transmute(buff), core::mem::transmute(buffcapacity), core::mem::transmute(ec))
+    ucurr_forLocale(locale.param().abi(), core::mem::transmute(buff), buffcapacity, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucurr_forLocaleAndDate<P0>(locale: P0, date: f64, index: i32, buff: *mut u16, buffcapacity: i32, ec: *mut UErrorCode) -> i32
@@ -3779,17 +3737,17 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_forLocaleAndDate(locale : windows_core::PCSTR, date : f64, index : i32, buff : *mut u16, buffcapacity : i32, ec : *mut UErrorCode) -> i32);
-    ucurr_forLocaleAndDate(locale.param().abi(), core::mem::transmute(date), core::mem::transmute(index), core::mem::transmute(buff), core::mem::transmute(buffcapacity), core::mem::transmute(ec))
+    ucurr_forLocaleAndDate(locale.param().abi(), date, index, core::mem::transmute(buff), buffcapacity, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_getDefaultFractionDigits(currency : *const u16, ec : *mut UErrorCode) -> i32);
-    ucurr_getDefaultFractionDigits(core::mem::transmute(currency), core::mem::transmute(ec))
+    ucurr_getDefaultFractionDigits(currency, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucurr_getDefaultFractionDigitsForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_getDefaultFractionDigitsForUsage(currency : *const u16, usage : UCurrencyUsage, ec : *mut UErrorCode) -> i32);
-    ucurr_getDefaultFractionDigitsForUsage(core::mem::transmute(currency), core::mem::transmute(usage), core::mem::transmute(ec))
+    ucurr_getDefaultFractionDigitsForUsage(currency, usage, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucurr_getKeywordValuesForLocale<P0, P1>(key: P0, locale: P1, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration
@@ -3798,7 +3756,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_getKeywordValuesForLocale(key : windows_core::PCSTR, locale : windows_core::PCSTR, commonlyused : i8, status : *mut UErrorCode) -> *mut UEnumeration);
-    ucurr_getKeywordValuesForLocale(key.param().abi(), locale.param().abi(), core::mem::transmute(commonlyused), core::mem::transmute(status))
+    ucurr_getKeywordValuesForLocale(key.param().abi(), locale.param().abi(), commonlyused, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucurr_getName<P1>(currency: *const u16, locale: P1, namestyle: UCurrNameStyle, ischoiceformat: *mut i8, len: *mut i32, ec: *mut UErrorCode) -> *mut u16
@@ -3806,12 +3764,12 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_getName(currency : *const u16, locale : windows_core::PCSTR, namestyle : UCurrNameStyle, ischoiceformat : *mut i8, len : *mut i32, ec : *mut UErrorCode) -> *mut u16);
-    ucurr_getName(core::mem::transmute(currency), locale.param().abi(), core::mem::transmute(namestyle), core::mem::transmute(ischoiceformat), core::mem::transmute(len), core::mem::transmute(ec))
+    ucurr_getName(currency, locale.param().abi(), namestyle, core::mem::transmute(ischoiceformat), core::mem::transmute(len), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucurr_getNumericCode(currency: *const u16) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_getNumericCode(currency : *const u16) -> i32);
-    ucurr_getNumericCode(core::mem::transmute(currency))
+    ucurr_getNumericCode(currency)
 }
 #[inline]
 pub unsafe fn ucurr_getPluralName<P1, P3>(currency: *const u16, locale: P1, ischoiceformat: *mut i8, pluralcount: P3, len: *mut i32, ec: *mut UErrorCode) -> *mut u16
@@ -3820,27 +3778,27 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_getPluralName(currency : *const u16, locale : windows_core::PCSTR, ischoiceformat : *mut i8, pluralcount : windows_core::PCSTR, len : *mut i32, ec : *mut UErrorCode) -> *mut u16);
-    ucurr_getPluralName(core::mem::transmute(currency), locale.param().abi(), core::mem::transmute(ischoiceformat), pluralcount.param().abi(), core::mem::transmute(len), core::mem::transmute(ec))
+    ucurr_getPluralName(currency, locale.param().abi(), core::mem::transmute(ischoiceformat), pluralcount.param().abi(), core::mem::transmute(len), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCode) -> f64 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_getRoundingIncrement(currency : *const u16, ec : *mut UErrorCode) -> f64);
-    ucurr_getRoundingIncrement(core::mem::transmute(currency), core::mem::transmute(ec))
+    ucurr_getRoundingIncrement(currency, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucurr_getRoundingIncrementForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> f64 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_getRoundingIncrementForUsage(currency : *const u16, usage : UCurrencyUsage, ec : *mut UErrorCode) -> f64);
-    ucurr_getRoundingIncrementForUsage(core::mem::transmute(currency), core::mem::transmute(usage), core::mem::transmute(ec))
+    ucurr_getRoundingIncrementForUsage(currency, usage, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ucurr_isAvailable(isocode: *const u16, from: f64, to: f64, errorcode: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_isAvailable(isocode : *const u16, from : f64, to : f64, errorcode : *mut UErrorCode) -> i8);
-    ucurr_isAvailable(core::mem::transmute(isocode), core::mem::transmute(from), core::mem::transmute(to), core::mem::transmute(errorcode))
+    ucurr_isAvailable(isocode, from, to, core::mem::transmute(errorcode))
 }
 #[inline]
 pub unsafe fn ucurr_openISOCurrencies(currtype: u32, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_openISOCurrencies(currtype : u32, perrorcode : *mut UErrorCode) -> *mut UEnumeration);
-    ucurr_openISOCurrencies(core::mem::transmute(currtype), core::mem::transmute(perrorcode))
+    ucurr_openISOCurrencies(currtype, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ucurr_register<P1>(isocode: *const u16, locale: P1, status: *mut UErrorCode) -> *mut core::ffi::c_void
@@ -3848,7 +3806,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ucurr_register(isocode : *const u16, locale : windows_core::PCSTR, status : *mut UErrorCode) -> *mut core::ffi::c_void);
-    ucurr_register(core::mem::transmute(isocode), locale.param().abi(), core::mem::transmute(status))
+    ucurr_register(isocode, locale.param().abi(), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ucurr_unregister(key: *mut core::ffi::c_void, status: *mut UErrorCode) -> i8 {
@@ -3863,17 +3821,17 @@ pub unsafe fn udat_adoptNumberFormat(fmt: *mut *mut core::ffi::c_void, numberfor
 #[inline]
 pub unsafe fn udat_adoptNumberFormatForFields(fmt: *mut *mut core::ffi::c_void, fields: *const u16, numberformattoset: *mut *mut core::ffi::c_void, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_adoptNumberFormatForFields(fmt : *mut *mut core::ffi::c_void, fields : *const u16, numberformattoset : *mut *mut core::ffi::c_void, status : *mut UErrorCode));
-    udat_adoptNumberFormatForFields(core::mem::transmute(fmt), core::mem::transmute(fields), core::mem::transmute(numberformattoset), core::mem::transmute(status))
+    udat_adoptNumberFormatForFields(core::mem::transmute(fmt), fields, core::mem::transmute(numberformattoset), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_applyPattern(format: *mut *mut core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32) {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_applyPattern(format : *mut *mut core::ffi::c_void, localized : i8, pattern : *const u16, patternlength : i32));
-    udat_applyPattern(core::mem::transmute(format), core::mem::transmute(localized), core::mem::transmute(pattern), core::mem::transmute(patternlength))
+    udat_applyPattern(core::mem::transmute(format), localized, pattern, patternlength)
 }
 #[inline]
 pub unsafe fn udat_clone(fmt: *const *const core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_clone(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    udat_clone(core::mem::transmute(fmt), core::mem::transmute(status))
+    udat_clone(fmt, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_close(format: *mut *mut core::ffi::c_void) {
@@ -3888,77 +3846,77 @@ pub unsafe fn udat_countAvailable() -> i32 {
 #[inline]
 pub unsafe fn udat_countSymbols(fmt: *const *const core::ffi::c_void, r#type: UDateFormatSymbolType) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_countSymbols(fmt : *const *const core::ffi::c_void, r#type : UDateFormatSymbolType) -> i32);
-    udat_countSymbols(core::mem::transmute(fmt), core::mem::transmute(r#type))
+    udat_countSymbols(fmt, r#type)
 }
 #[inline]
 pub unsafe fn udat_format(format: *const *const core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_format(format : *const *const core::ffi::c_void, datetoformat : f64, result : *mut u16, resultlength : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-    udat_format(core::mem::transmute(format), core::mem::transmute(datetoformat), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(position), core::mem::transmute(status))
+    udat_format(format, datetoformat, core::mem::transmute(result), resultlength, core::mem::transmute(position), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_formatCalendar(format: *const *const core::ffi::c_void, calendar: *mut *mut core::ffi::c_void, result: *mut u16, capacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_formatCalendar(format : *const *const core::ffi::c_void, calendar : *mut *mut core::ffi::c_void, result : *mut u16, capacity : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-    udat_formatCalendar(core::mem::transmute(format), core::mem::transmute(calendar), core::mem::transmute(result), core::mem::transmute(capacity), core::mem::transmute(position), core::mem::transmute(status))
+    udat_formatCalendar(format, core::mem::transmute(calendar), core::mem::transmute(result), capacity, core::mem::transmute(position), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_formatCalendarForFields(format: *const *const core::ffi::c_void, calendar: *mut *mut core::ffi::c_void, result: *mut u16, capacity: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_formatCalendarForFields(format : *const *const core::ffi::c_void, calendar : *mut *mut core::ffi::c_void, result : *mut u16, capacity : i32, fpositer : *mut UFieldPositionIterator, status : *mut UErrorCode) -> i32);
-    udat_formatCalendarForFields(core::mem::transmute(format), core::mem::transmute(calendar), core::mem::transmute(result), core::mem::transmute(capacity), core::mem::transmute(fpositer), core::mem::transmute(status))
+    udat_formatCalendarForFields(format, core::mem::transmute(calendar), core::mem::transmute(result), capacity, core::mem::transmute(fpositer), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_formatForFields(format: *const *const core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_formatForFields(format : *const *const core::ffi::c_void, datetoformat : f64, result : *mut u16, resultlength : i32, fpositer : *mut UFieldPositionIterator, status : *mut UErrorCode) -> i32);
-    udat_formatForFields(core::mem::transmute(format), core::mem::transmute(datetoformat), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(fpositer), core::mem::transmute(status))
+    udat_formatForFields(format, datetoformat, core::mem::transmute(result), resultlength, core::mem::transmute(fpositer), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_get2DigitYearStart(fmt: *const *const core::ffi::c_void, status: *mut UErrorCode) -> f64 {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_get2DigitYearStart(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> f64);
-    udat_get2DigitYearStart(core::mem::transmute(fmt), core::mem::transmute(status))
+    udat_get2DigitYearStart(fmt, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_getAvailable(localeindex: i32) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_getAvailable(localeindex : i32) -> windows_core::PCSTR);
-    udat_getAvailable(core::mem::transmute(localeindex))
+    udat_getAvailable(localeindex)
 }
 #[inline]
 pub unsafe fn udat_getBooleanAttribute(fmt: *const *const core::ffi::c_void, attr: UDateFormatBooleanAttribute, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_getBooleanAttribute(fmt : *const *const core::ffi::c_void, attr : UDateFormatBooleanAttribute, status : *mut UErrorCode) -> i8);
-    udat_getBooleanAttribute(core::mem::transmute(fmt), core::mem::transmute(attr), core::mem::transmute(status))
+    udat_getBooleanAttribute(fmt, attr, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_getCalendar(fmt: *const *const core::ffi::c_void) -> *mut *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_getCalendar(fmt : *const *const core::ffi::c_void) -> *mut *mut core::ffi::c_void);
-    udat_getCalendar(core::mem::transmute(fmt))
+    udat_getCalendar(fmt)
 }
 #[inline]
 pub unsafe fn udat_getContext(fmt: *const *const core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_getContext(fmt : *const *const core::ffi::c_void, r#type : UDisplayContextType, status : *mut UErrorCode) -> UDisplayContext);
-    udat_getContext(core::mem::transmute(fmt), core::mem::transmute(r#type), core::mem::transmute(status))
+    udat_getContext(fmt, r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_getLocaleByType(fmt: *const *const core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_getLocaleByType(fmt : *const *const core::ffi::c_void, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> windows_core::PCSTR);
-    udat_getLocaleByType(core::mem::transmute(fmt), core::mem::transmute(r#type), core::mem::transmute(status))
+    udat_getLocaleByType(fmt, r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_getNumberFormat(fmt: *const *const core::ffi::c_void) -> *mut *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_getNumberFormat(fmt : *const *const core::ffi::c_void) -> *mut *mut core::ffi::c_void);
-    udat_getNumberFormat(core::mem::transmute(fmt))
+    udat_getNumberFormat(fmt)
 }
 #[inline]
 pub unsafe fn udat_getNumberFormatForField(fmt: *const *const core::ffi::c_void, field: u16) -> *mut *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_getNumberFormatForField(fmt : *const *const core::ffi::c_void, field : u16) -> *mut *mut core::ffi::c_void);
-    udat_getNumberFormatForField(core::mem::transmute(fmt), core::mem::transmute(field))
+    udat_getNumberFormatForField(fmt, field)
 }
 #[inline]
 pub unsafe fn udat_getSymbols(fmt: *const *const core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_getSymbols(fmt : *const *const core::ffi::c_void, r#type : UDateFormatSymbolType, symbolindex : i32, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    udat_getSymbols(core::mem::transmute(fmt), core::mem::transmute(r#type), core::mem::transmute(symbolindex), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    udat_getSymbols(fmt, r#type, symbolindex, core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_isLenient(fmt: *const *const core::ffi::c_void) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_isLenient(fmt : *const *const core::ffi::c_void) -> i8);
-    udat_isLenient(core::mem::transmute(fmt))
+    udat_isLenient(fmt)
 }
 #[inline]
 pub unsafe fn udat_open<P2>(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: P2, tzid: *const u16, tzidlength: i32, pattern: *const u16, patternlength: i32, status: *mut UErrorCode) -> *mut *mut core::ffi::c_void
@@ -3966,72 +3924,72 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_open(timestyle : UDateFormatStyle, datestyle : UDateFormatStyle, locale : windows_core::PCSTR, tzid : *const u16, tzidlength : i32, pattern : *const u16, patternlength : i32, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    udat_open(core::mem::transmute(timestyle), core::mem::transmute(datestyle), locale.param().abi(), core::mem::transmute(tzid), core::mem::transmute(tzidlength), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(status))
+    udat_open(timestyle, datestyle, locale.param().abi(), tzid, tzidlength, pattern, patternlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_parse(format: *const *const core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64 {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_parse(format : *const *const core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> f64);
-    udat_parse(core::mem::transmute(format), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(parsepos), core::mem::transmute(status))
+    udat_parse(format, text, textlength, core::mem::transmute(parsepos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_parseCalendar(format: *const *const core::ffi::c_void, calendar: *mut *mut core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_parseCalendar(format : *const *const core::ffi::c_void, calendar : *mut *mut core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode));
-    udat_parseCalendar(core::mem::transmute(format), core::mem::transmute(calendar), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(parsepos), core::mem::transmute(status))
+    udat_parseCalendar(format, core::mem::transmute(calendar), text, textlength, core::mem::transmute(parsepos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_set2DigitYearStart(fmt: *mut *mut core::ffi::c_void, d: f64, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_set2DigitYearStart(fmt : *mut *mut core::ffi::c_void, d : f64, status : *mut UErrorCode));
-    udat_set2DigitYearStart(core::mem::transmute(fmt), core::mem::transmute(d), core::mem::transmute(status))
+    udat_set2DigitYearStart(core::mem::transmute(fmt), d, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_setBooleanAttribute(fmt: *mut *mut core::ffi::c_void, attr: UDateFormatBooleanAttribute, newvalue: i8, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_setBooleanAttribute(fmt : *mut *mut core::ffi::c_void, attr : UDateFormatBooleanAttribute, newvalue : i8, status : *mut UErrorCode));
-    udat_setBooleanAttribute(core::mem::transmute(fmt), core::mem::transmute(attr), core::mem::transmute(newvalue), core::mem::transmute(status))
+    udat_setBooleanAttribute(core::mem::transmute(fmt), attr, newvalue, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_setCalendar(fmt: *mut *mut core::ffi::c_void, calendartoset: *const *const core::ffi::c_void) {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_setCalendar(fmt : *mut *mut core::ffi::c_void, calendartoset : *const *const core::ffi::c_void));
-    udat_setCalendar(core::mem::transmute(fmt), core::mem::transmute(calendartoset))
+    udat_setCalendar(core::mem::transmute(fmt), calendartoset)
 }
 #[inline]
 pub unsafe fn udat_setContext(fmt: *mut *mut core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_setContext(fmt : *mut *mut core::ffi::c_void, value : UDisplayContext, status : *mut UErrorCode));
-    udat_setContext(core::mem::transmute(fmt), core::mem::transmute(value), core::mem::transmute(status))
+    udat_setContext(core::mem::transmute(fmt), value, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_setLenient(fmt: *mut *mut core::ffi::c_void, islenient: i8) {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_setLenient(fmt : *mut *mut core::ffi::c_void, islenient : i8));
-    udat_setLenient(core::mem::transmute(fmt), core::mem::transmute(islenient))
+    udat_setLenient(core::mem::transmute(fmt), islenient)
 }
 #[inline]
 pub unsafe fn udat_setNumberFormat(fmt: *mut *mut core::ffi::c_void, numberformattoset: *const *const core::ffi::c_void) {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_setNumberFormat(fmt : *mut *mut core::ffi::c_void, numberformattoset : *const *const core::ffi::c_void));
-    udat_setNumberFormat(core::mem::transmute(fmt), core::mem::transmute(numberformattoset))
+    udat_setNumberFormat(core::mem::transmute(fmt), numberformattoset)
 }
 #[inline]
 pub unsafe fn udat_setSymbols(format: *mut *mut core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, value: *mut u16, valuelength: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_setSymbols(format : *mut *mut core::ffi::c_void, r#type : UDateFormatSymbolType, symbolindex : i32, value : *mut u16, valuelength : i32, status : *mut UErrorCode));
-    udat_setSymbols(core::mem::transmute(format), core::mem::transmute(r#type), core::mem::transmute(symbolindex), core::mem::transmute(value), core::mem::transmute(valuelength), core::mem::transmute(status))
+    udat_setSymbols(core::mem::transmute(format), r#type, symbolindex, core::mem::transmute(value), valuelength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udat_toCalendarDateField(field: UDateFormatField) -> UCalendarDateFields {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_toCalendarDateField(field : UDateFormatField) -> UCalendarDateFields);
-    udat_toCalendarDateField(core::mem::transmute(field))
+    udat_toCalendarDateField(field)
 }
 #[inline]
 pub unsafe fn udat_toPattern(fmt: *const *const core::ffi::c_void, localized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udat_toPattern(fmt : *const *const core::ffi::c_void, localized : i8, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    udat_toPattern(core::mem::transmute(fmt), core::mem::transmute(localized), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    udat_toPattern(fmt, localized, core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udatpg_addPattern(dtpg: *mut *mut core::ffi::c_void, pattern: *const u16, patternlength: i32, r#override: i8, conflictingpattern: *mut u16, capacity: i32, plength: *mut i32, perrorcode: *mut UErrorCode) -> UDateTimePatternConflict {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_addPattern(dtpg : *mut *mut core::ffi::c_void, pattern : *const u16, patternlength : i32, r#override : i8, conflictingpattern : *mut u16, capacity : i32, plength : *mut i32, perrorcode : *mut UErrorCode) -> UDateTimePatternConflict);
-    udatpg_addPattern(core::mem::transmute(dtpg), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(r#override), core::mem::transmute(conflictingpattern), core::mem::transmute(capacity), core::mem::transmute(plength), core::mem::transmute(perrorcode))
+    udatpg_addPattern(core::mem::transmute(dtpg), pattern, patternlength, r#override, core::mem::transmute(conflictingpattern), capacity, core::mem::transmute(plength), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn udatpg_clone(dtpg: *const *const core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_clone(dtpg : *const *const core::ffi::c_void, perrorcode : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    udatpg_clone(core::mem::transmute(dtpg), core::mem::transmute(perrorcode))
+    udatpg_clone(dtpg, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn udatpg_close(dtpg: *mut *mut core::ffi::c_void) {
@@ -4041,52 +3999,52 @@ pub unsafe fn udatpg_close(dtpg: *mut *mut core::ffi::c_void) {
 #[inline]
 pub unsafe fn udatpg_getAppendItemFormat(dtpg: *const *const core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16 {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_getAppendItemFormat(dtpg : *const *const core::ffi::c_void, field : UDateTimePatternField, plength : *mut i32) -> *mut u16);
-    udatpg_getAppendItemFormat(core::mem::transmute(dtpg), core::mem::transmute(field), core::mem::transmute(plength))
+    udatpg_getAppendItemFormat(dtpg, field, core::mem::transmute(plength))
 }
 #[inline]
 pub unsafe fn udatpg_getAppendItemName(dtpg: *const *const core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16 {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_getAppendItemName(dtpg : *const *const core::ffi::c_void, field : UDateTimePatternField, plength : *mut i32) -> *mut u16);
-    udatpg_getAppendItemName(core::mem::transmute(dtpg), core::mem::transmute(field), core::mem::transmute(plength))
+    udatpg_getAppendItemName(dtpg, field, core::mem::transmute(plength))
 }
 #[inline]
 pub unsafe fn udatpg_getBaseSkeleton(unuseddtpg: *mut *mut core::ffi::c_void, pattern: *const u16, length: i32, baseskeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_getBaseSkeleton(unuseddtpg : *mut *mut core::ffi::c_void, pattern : *const u16, length : i32, baseskeleton : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    udatpg_getBaseSkeleton(core::mem::transmute(unuseddtpg), core::mem::transmute(pattern), core::mem::transmute(length), core::mem::transmute(baseskeleton), core::mem::transmute(capacity), core::mem::transmute(perrorcode))
+    udatpg_getBaseSkeleton(core::mem::transmute(unuseddtpg), pattern, length, core::mem::transmute(baseskeleton), capacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn udatpg_getBestPattern(dtpg: *mut *mut core::ffi::c_void, skeleton: *const u16, length: i32, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_getBestPattern(dtpg : *mut *mut core::ffi::c_void, skeleton : *const u16, length : i32, bestpattern : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    udatpg_getBestPattern(core::mem::transmute(dtpg), core::mem::transmute(skeleton), core::mem::transmute(length), core::mem::transmute(bestpattern), core::mem::transmute(capacity), core::mem::transmute(perrorcode))
+    udatpg_getBestPattern(core::mem::transmute(dtpg), skeleton, length, core::mem::transmute(bestpattern), capacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn udatpg_getBestPatternWithOptions(dtpg: *mut *mut core::ffi::c_void, skeleton: *const u16, length: i32, options: UDateTimePatternMatchOptions, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_getBestPatternWithOptions(dtpg : *mut *mut core::ffi::c_void, skeleton : *const u16, length : i32, options : UDateTimePatternMatchOptions, bestpattern : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    udatpg_getBestPatternWithOptions(core::mem::transmute(dtpg), core::mem::transmute(skeleton), core::mem::transmute(length), core::mem::transmute(options), core::mem::transmute(bestpattern), core::mem::transmute(capacity), core::mem::transmute(perrorcode))
+    udatpg_getBestPatternWithOptions(core::mem::transmute(dtpg), skeleton, length, options, core::mem::transmute(bestpattern), capacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn udatpg_getDateTimeFormat(dtpg: *const *const core::ffi::c_void, plength: *mut i32) -> *mut u16 {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_getDateTimeFormat(dtpg : *const *const core::ffi::c_void, plength : *mut i32) -> *mut u16);
-    udatpg_getDateTimeFormat(core::mem::transmute(dtpg), core::mem::transmute(plength))
+    udatpg_getDateTimeFormat(dtpg, core::mem::transmute(plength))
 }
 #[inline]
 pub unsafe fn udatpg_getDecimal(dtpg: *const *const core::ffi::c_void, plength: *mut i32) -> *mut u16 {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_getDecimal(dtpg : *const *const core::ffi::c_void, plength : *mut i32) -> *mut u16);
-    udatpg_getDecimal(core::mem::transmute(dtpg), core::mem::transmute(plength))
+    udatpg_getDecimal(dtpg, core::mem::transmute(plength))
 }
 #[inline]
 pub unsafe fn udatpg_getFieldDisplayName(dtpg: *const *const core::ffi::c_void, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn udatpg_getFieldDisplayName(dtpg : *const *const core::ffi::c_void, field : UDateTimePatternField, width : UDateTimePGDisplayWidth, fieldname : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    udatpg_getFieldDisplayName(core::mem::transmute(dtpg), core::mem::transmute(field), core::mem::transmute(width), core::mem::transmute(fieldname), core::mem::transmute(capacity), core::mem::transmute(perrorcode))
+    udatpg_getFieldDisplayName(dtpg, field, width, core::mem::transmute(fieldname), capacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn udatpg_getPatternForSkeleton(dtpg: *const *const core::ffi::c_void, skeleton: *const u16, skeletonlength: i32, plength: *mut i32) -> *mut u16 {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_getPatternForSkeleton(dtpg : *const *const core::ffi::c_void, skeleton : *const u16, skeletonlength : i32, plength : *mut i32) -> *mut u16);
-    udatpg_getPatternForSkeleton(core::mem::transmute(dtpg), core::mem::transmute(skeleton), core::mem::transmute(skeletonlength), core::mem::transmute(plength))
+    udatpg_getPatternForSkeleton(dtpg, skeleton, skeletonlength, core::mem::transmute(plength))
 }
 #[inline]
 pub unsafe fn udatpg_getSkeleton(unuseddtpg: *mut *mut core::ffi::c_void, pattern: *const u16, length: i32, skeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_getSkeleton(unuseddtpg : *mut *mut core::ffi::c_void, pattern : *const u16, length : i32, skeleton : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    udatpg_getSkeleton(core::mem::transmute(unuseddtpg), core::mem::transmute(pattern), core::mem::transmute(length), core::mem::transmute(skeleton), core::mem::transmute(capacity), core::mem::transmute(perrorcode))
+    udatpg_getSkeleton(core::mem::transmute(unuseddtpg), pattern, length, core::mem::transmute(skeleton), capacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn udatpg_open<P0>(locale: P0, perrorcode: *mut UErrorCode) -> *mut *mut core::ffi::c_void
@@ -4099,7 +4057,7 @@ where
 #[inline]
 pub unsafe fn udatpg_openBaseSkeletons(dtpg: *const *const core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_openBaseSkeletons(dtpg : *const *const core::ffi::c_void, perrorcode : *mut UErrorCode) -> *mut UEnumeration);
-    udatpg_openBaseSkeletons(core::mem::transmute(dtpg), core::mem::transmute(perrorcode))
+    udatpg_openBaseSkeletons(dtpg, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut core::ffi::c_void {
@@ -4109,37 +4067,37 @@ pub unsafe fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut core::f
 #[inline]
 pub unsafe fn udatpg_openSkeletons(dtpg: *const *const core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_openSkeletons(dtpg : *const *const core::ffi::c_void, perrorcode : *mut UErrorCode) -> *mut UEnumeration);
-    udatpg_openSkeletons(core::mem::transmute(dtpg), core::mem::transmute(perrorcode))
+    udatpg_openSkeletons(dtpg, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn udatpg_replaceFieldTypes(dtpg: *mut *mut core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_replaceFieldTypes(dtpg : *mut *mut core::ffi::c_void, pattern : *const u16, patternlength : i32, skeleton : *const u16, skeletonlength : i32, dest : *mut u16, destcapacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    udatpg_replaceFieldTypes(core::mem::transmute(dtpg), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(skeleton), core::mem::transmute(skeletonlength), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(perrorcode))
+    udatpg_replaceFieldTypes(core::mem::transmute(dtpg), pattern, patternlength, skeleton, skeletonlength, core::mem::transmute(dest), destcapacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, options: UDateTimePatternMatchOptions, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_replaceFieldTypesWithOptions(dtpg : *mut *mut core::ffi::c_void, pattern : *const u16, patternlength : i32, skeleton : *const u16, skeletonlength : i32, options : UDateTimePatternMatchOptions, dest : *mut u16, destcapacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    udatpg_replaceFieldTypesWithOptions(core::mem::transmute(dtpg), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(skeleton), core::mem::transmute(skeletonlength), core::mem::transmute(options), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(perrorcode))
+    udatpg_replaceFieldTypesWithOptions(core::mem::transmute(dtpg), pattern, patternlength, skeleton, skeletonlength, options, core::mem::transmute(dest), destcapacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn udatpg_setAppendItemFormat(dtpg: *mut *mut core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32) {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_setAppendItemFormat(dtpg : *mut *mut core::ffi::c_void, field : UDateTimePatternField, value : *const u16, length : i32));
-    udatpg_setAppendItemFormat(core::mem::transmute(dtpg), core::mem::transmute(field), core::mem::transmute(value), core::mem::transmute(length))
+    udatpg_setAppendItemFormat(core::mem::transmute(dtpg), field, value, length)
 }
 #[inline]
 pub unsafe fn udatpg_setAppendItemName(dtpg: *mut *mut core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32) {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_setAppendItemName(dtpg : *mut *mut core::ffi::c_void, field : UDateTimePatternField, value : *const u16, length : i32));
-    udatpg_setAppendItemName(core::mem::transmute(dtpg), core::mem::transmute(field), core::mem::transmute(value), core::mem::transmute(length))
+    udatpg_setAppendItemName(core::mem::transmute(dtpg), field, value, length)
 }
 #[inline]
 pub unsafe fn udatpg_setDateTimeFormat(dtpg: *const *const core::ffi::c_void, dtformat: *const u16, length: i32) {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_setDateTimeFormat(dtpg : *const *const core::ffi::c_void, dtformat : *const u16, length : i32));
-    udatpg_setDateTimeFormat(core::mem::transmute(dtpg), core::mem::transmute(dtformat), core::mem::transmute(length))
+    udatpg_setDateTimeFormat(dtpg, dtformat, length)
 }
 #[inline]
 pub unsafe fn udatpg_setDecimal(dtpg: *mut *mut core::ffi::c_void, decimal: *const u16, length: i32) {
     windows_targets::link!("icuin.dll" "cdecl" fn udatpg_setDecimal(dtpg : *mut *mut core::ffi::c_void, decimal : *const u16, length : i32));
-    udatpg_setDecimal(core::mem::transmute(dtpg), core::mem::transmute(decimal), core::mem::transmute(length))
+    udatpg_setDecimal(core::mem::transmute(dtpg), decimal, length)
 }
 #[inline]
 pub unsafe fn udtitvfmt_close(formatter: *mut UDateIntervalFormat) {
@@ -4154,7 +4112,7 @@ pub unsafe fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval) {
 #[inline]
 pub unsafe fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromdate: f64, todate: f64, result: *mut u16, resultcapacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn udtitvfmt_format(formatter : *const UDateIntervalFormat, fromdate : f64, todate : f64, result : *mut u16, resultcapacity : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-    udtitvfmt_format(core::mem::transmute(formatter), core::mem::transmute(fromdate), core::mem::transmute(todate), core::mem::transmute(result), core::mem::transmute(resultcapacity), core::mem::transmute(position), core::mem::transmute(status))
+    udtitvfmt_format(formatter, fromdate, todate, core::mem::transmute(result), resultcapacity, core::mem::transmute(position), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udtitvfmt_open<P0>(locale: P0, skeleton: *const u16, skeletonlength: i32, tzid: *const u16, tzidlength: i32, status: *mut UErrorCode) -> *mut UDateIntervalFormat
@@ -4162,7 +4120,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn udtitvfmt_open(locale : windows_core::PCSTR, skeleton : *const u16, skeletonlength : i32, tzid : *const u16, tzidlength : i32, status : *mut UErrorCode) -> *mut UDateIntervalFormat);
-    udtitvfmt_open(locale.param().abi(), core::mem::transmute(skeleton), core::mem::transmute(skeletonlength), core::mem::transmute(tzid), core::mem::transmute(tzidlength), core::mem::transmute(status))
+    udtitvfmt_open(locale.param().abi(), skeleton, skeletonlength, tzid, tzidlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateInterval {
@@ -4172,7 +4130,7 @@ pub unsafe fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateIn
 #[inline]
 pub unsafe fn udtitvfmt_resultAsValue(uresult: *const UFormattedDateInterval, ec: *mut UErrorCode) -> *mut UFormattedValue {
     windows_targets::link!("icu.dll" "cdecl" fn udtitvfmt_resultAsValue(uresult : *const UFormattedDateInterval, ec : *mut UErrorCode) -> *mut UFormattedValue);
-    udtitvfmt_resultAsValue(core::mem::transmute(uresult), core::mem::transmute(ec))
+    udtitvfmt_resultAsValue(uresult, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn uenum_close(en: *mut UEnumeration) {
@@ -4192,12 +4150,12 @@ pub unsafe fn uenum_next(en: *mut UEnumeration, resultlength: *mut i32, status: 
 #[inline]
 pub unsafe fn uenum_openCharStringsEnumeration(strings: *const *const i8, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icuuc.dll" "cdecl" fn uenum_openCharStringsEnumeration(strings : *const *const i8, count : i32, ec : *mut UErrorCode) -> *mut UEnumeration);
-    uenum_openCharStringsEnumeration(core::mem::transmute(strings), core::mem::transmute(count), core::mem::transmute(ec))
+    uenum_openCharStringsEnumeration(strings, count, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn uenum_openUCharStringsEnumeration(strings: *const *const u16, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icuuc.dll" "cdecl" fn uenum_openUCharStringsEnumeration(strings : *const *const u16, count : i32, ec : *mut UErrorCode) -> *mut UEnumeration);
-    uenum_openUCharStringsEnumeration(core::mem::transmute(strings), core::mem::transmute(count), core::mem::transmute(ec))
+    uenum_openUCharStringsEnumeration(strings, count, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode) {
@@ -4232,17 +4190,17 @@ pub unsafe fn ufmt_close(fmt: *mut *mut core::ffi::c_void) {
 #[inline]
 pub unsafe fn ufmt_getArrayItemByIndex(fmt: *mut *mut core::ffi::c_void, n: i32, status: *mut UErrorCode) -> *mut *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn ufmt_getArrayItemByIndex(fmt : *mut *mut core::ffi::c_void, n : i32, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    ufmt_getArrayItemByIndex(core::mem::transmute(fmt), core::mem::transmute(n), core::mem::transmute(status))
+    ufmt_getArrayItemByIndex(core::mem::transmute(fmt), n, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ufmt_getArrayLength(fmt: *const *const core::ffi::c_void, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ufmt_getArrayLength(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> i32);
-    ufmt_getArrayLength(core::mem::transmute(fmt), core::mem::transmute(status))
+    ufmt_getArrayLength(fmt, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ufmt_getDate(fmt: *const *const core::ffi::c_void, status: *mut UErrorCode) -> f64 {
     windows_targets::link!("icuin.dll" "cdecl" fn ufmt_getDate(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> f64);
-    ufmt_getDate(core::mem::transmute(fmt), core::mem::transmute(status))
+    ufmt_getDate(fmt, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ufmt_getDecNumChars(fmt: *mut *mut core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> windows_core::PCSTR {
@@ -4267,12 +4225,12 @@ pub unsafe fn ufmt_getLong(fmt: *mut *mut core::ffi::c_void, status: *mut UError
 #[inline]
 pub unsafe fn ufmt_getObject(fmt: *const *const core::ffi::c_void, status: *mut UErrorCode) -> *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn ufmt_getObject(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut core::ffi::c_void);
-    ufmt_getObject(core::mem::transmute(fmt), core::mem::transmute(status))
+    ufmt_getObject(fmt, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ufmt_getType(fmt: *const *const core::ffi::c_void, status: *mut UErrorCode) -> UFormattableType {
     windows_targets::link!("icuin.dll" "cdecl" fn ufmt_getType(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> UFormattableType);
-    ufmt_getType(core::mem::transmute(fmt), core::mem::transmute(status))
+    ufmt_getType(fmt, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ufmt_getUChars(fmt: *mut *mut core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
@@ -4282,7 +4240,7 @@ pub unsafe fn ufmt_getUChars(fmt: *mut *mut core::ffi::c_void, len: *mut i32, st
 #[inline]
 pub unsafe fn ufmt_isNumeric(fmt: *const *const core::ffi::c_void) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn ufmt_isNumeric(fmt : *const *const core::ffi::c_void) -> i8);
-    ufmt_isNumeric(core::mem::transmute(fmt))
+    ufmt_isNumeric(fmt)
 }
 #[inline]
 pub unsafe fn ufmt_open(status: *mut UErrorCode) -> *mut *mut core::ffi::c_void {
@@ -4292,12 +4250,12 @@ pub unsafe fn ufmt_open(status: *mut UErrorCode) -> *mut *mut core::ffi::c_void 
 #[inline]
 pub unsafe fn ufmtval_getString(ufmtval: *const UFormattedValue, plength: *mut i32, ec: *mut UErrorCode) -> *mut u16 {
     windows_targets::link!("icu.dll" "cdecl" fn ufmtval_getString(ufmtval : *const UFormattedValue, plength : *mut i32, ec : *mut UErrorCode) -> *mut u16);
-    ufmtval_getString(core::mem::transmute(ufmtval), core::mem::transmute(plength), core::mem::transmute(ec))
+    ufmtval_getString(ufmtval, core::mem::transmute(plength), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ufmtval_nextPosition(ufmtval: *const UFormattedValue, ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode) -> i8 {
     windows_targets::link!("icu.dll" "cdecl" fn ufmtval_nextPosition(ufmtval : *const UFormattedValue, ucfpos : *mut UConstrainedFieldPosition, ec : *mut UErrorCode) -> i8);
-    ufmtval_nextPosition(core::mem::transmute(ufmtval), core::mem::transmute(ucfpos), core::mem::transmute(ec))
+    ufmtval_nextPosition(ufmtval, core::mem::transmute(ucfpos), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ugender_getInstance<P0>(locale: P0, status: *mut UErrorCode) -> *mut UGenderInfo
@@ -4310,7 +4268,7 @@ where
 #[inline]
 pub unsafe fn ugender_getListGender(genderinfo: *const UGenderInfo, genders: *const UGender, size: i32, status: *mut UErrorCode) -> UGender {
     windows_targets::link!("icuin.dll" "cdecl" fn ugender_getListGender(genderinfo : *const UGenderInfo, genders : *const UGender, size : i32, status : *mut UErrorCode) -> UGender);
-    ugender_getListGender(core::mem::transmute(genderinfo), core::mem::transmute(genders), core::mem::transmute(size), core::mem::transmute(status))
+    ugender_getListGender(genderinfo, genders, size, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uidna_close(idna: *mut UIDNA) {
@@ -4320,7 +4278,7 @@ pub unsafe fn uidna_close(idna: *mut UIDNA) {
 #[inline]
 pub unsafe fn uidna_labelToASCII(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uidna_labelToASCII(idna : *const UIDNA, label : *const u16, length : i32, dest : *mut u16, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
-    uidna_labelToASCII(core::mem::transmute(idna), core::mem::transmute(label), core::mem::transmute(length), core::mem::transmute(dest), core::mem::transmute(capacity), core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
+    uidna_labelToASCII(idna, label, length, core::mem::transmute(dest), capacity, core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uidna_labelToASCII_UTF8<P1, P3>(idna: *const UIDNA, label: P1, length: i32, dest: P3, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32
@@ -4329,12 +4287,12 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uidna_labelToASCII_UTF8(idna : *const UIDNA, label : windows_core::PCSTR, length : i32, dest : windows_core::PCSTR, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
-    uidna_labelToASCII_UTF8(core::mem::transmute(idna), label.param().abi(), core::mem::transmute(length), dest.param().abi(), core::mem::transmute(capacity), core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
+    uidna_labelToASCII_UTF8(idna, label.param().abi(), length, dest.param().abi(), capacity, core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uidna_labelToUnicode(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uidna_labelToUnicode(idna : *const UIDNA, label : *const u16, length : i32, dest : *mut u16, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
-    uidna_labelToUnicode(core::mem::transmute(idna), core::mem::transmute(label), core::mem::transmute(length), core::mem::transmute(dest), core::mem::transmute(capacity), core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
+    uidna_labelToUnicode(idna, label, length, core::mem::transmute(dest), capacity, core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uidna_labelToUnicodeUTF8<P1, P3>(idna: *const UIDNA, label: P1, length: i32, dest: P3, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32
@@ -4343,12 +4301,12 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uidna_labelToUnicodeUTF8(idna : *const UIDNA, label : windows_core::PCSTR, length : i32, dest : windows_core::PCSTR, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
-    uidna_labelToUnicodeUTF8(core::mem::transmute(idna), label.param().abi(), core::mem::transmute(length), dest.param().abi(), core::mem::transmute(capacity), core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
+    uidna_labelToUnicodeUTF8(idna, label.param().abi(), length, dest.param().abi(), capacity, core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uidna_nameToASCII(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uidna_nameToASCII(idna : *const UIDNA, name : *const u16, length : i32, dest : *mut u16, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
-    uidna_nameToASCII(core::mem::transmute(idna), core::mem::transmute(name), core::mem::transmute(length), core::mem::transmute(dest), core::mem::transmute(capacity), core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
+    uidna_nameToASCII(idna, name, length, core::mem::transmute(dest), capacity, core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uidna_nameToASCII_UTF8<P1, P3>(idna: *const UIDNA, name: P1, length: i32, dest: P3, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32
@@ -4357,12 +4315,12 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uidna_nameToASCII_UTF8(idna : *const UIDNA, name : windows_core::PCSTR, length : i32, dest : windows_core::PCSTR, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
-    uidna_nameToASCII_UTF8(core::mem::transmute(idna), name.param().abi(), core::mem::transmute(length), dest.param().abi(), core::mem::transmute(capacity), core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
+    uidna_nameToASCII_UTF8(idna, name.param().abi(), length, dest.param().abi(), capacity, core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uidna_nameToUnicode(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uidna_nameToUnicode(idna : *const UIDNA, name : *const u16, length : i32, dest : *mut u16, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
-    uidna_nameToUnicode(core::mem::transmute(idna), core::mem::transmute(name), core::mem::transmute(length), core::mem::transmute(dest), core::mem::transmute(capacity), core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
+    uidna_nameToUnicode(idna, name, length, core::mem::transmute(dest), capacity, core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uidna_nameToUnicodeUTF8<P1, P3>(idna: *const UIDNA, name: P1, length: i32, dest: P3, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32
@@ -4371,12 +4329,12 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uidna_nameToUnicodeUTF8(idna : *const UIDNA, name : windows_core::PCSTR, length : i32, dest : windows_core::PCSTR, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
-    uidna_nameToUnicodeUTF8(core::mem::transmute(idna), name.param().abi(), core::mem::transmute(length), dest.param().abi(), core::mem::transmute(capacity), core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
+    uidna_nameToUnicodeUTF8(idna, name.param().abi(), length, dest.param().abi(), capacity, core::mem::transmute(pinfo), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut UIDNA {
     windows_targets::link!("icuuc.dll" "cdecl" fn uidna_openUTS46(options : u32, perrorcode : *mut UErrorCode) -> *mut UIDNA);
-    uidna_openUTS46(core::mem::transmute(options), core::mem::transmute(perrorcode))
+    uidna_openUTS46(options, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uiter_current32(iter: *mut UCharIterator) -> i32 {
@@ -4386,7 +4344,7 @@ pub unsafe fn uiter_current32(iter: *mut UCharIterator) -> i32 {
 #[inline]
 pub unsafe fn uiter_getState(iter: *const UCharIterator) -> u32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uiter_getState(iter : *const UCharIterator) -> u32);
-    uiter_getState(core::mem::transmute(iter))
+    uiter_getState(iter)
 }
 #[inline]
 pub unsafe fn uiter_next32(iter: *mut UCharIterator) -> i32 {
@@ -4401,12 +4359,12 @@ pub unsafe fn uiter_previous32(iter: *mut UCharIterator) -> i32 {
 #[inline]
 pub unsafe fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uiter_setState(iter : *mut UCharIterator, state : u32, perrorcode : *mut UErrorCode));
-    uiter_setState(core::mem::transmute(iter), core::mem::transmute(state), core::mem::transmute(perrorcode))
+    uiter_setState(core::mem::transmute(iter), state, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uiter_setString(iter : *mut UCharIterator, s : *const u16, length : i32));
-    uiter_setString(core::mem::transmute(iter), core::mem::transmute(s), core::mem::transmute(length))
+    uiter_setString(core::mem::transmute(iter), s, length)
 }
 #[inline]
 pub unsafe fn uiter_setUTF16BE<P1>(iter: *mut UCharIterator, s: P1, length: i32)
@@ -4414,7 +4372,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uiter_setUTF16BE(iter : *mut UCharIterator, s : windows_core::PCSTR, length : i32));
-    uiter_setUTF16BE(core::mem::transmute(iter), s.param().abi(), core::mem::transmute(length))
+    uiter_setUTF16BE(core::mem::transmute(iter), s.param().abi(), length)
 }
 #[inline]
 pub unsafe fn uiter_setUTF8<P1>(iter: *mut UCharIterator, s: P1, length: i32)
@@ -4422,7 +4380,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uiter_setUTF8(iter : *mut UCharIterator, s : windows_core::PCSTR, length : i32));
-    uiter_setUTF8(core::mem::transmute(iter), s.param().abi(), core::mem::transmute(length))
+    uiter_setUTF8(core::mem::transmute(iter), s.param().abi(), length)
 }
 #[inline]
 pub unsafe fn uldn_close(ldn: *mut ULocaleDisplayNames) {
@@ -4432,17 +4390,17 @@ pub unsafe fn uldn_close(ldn: *mut ULocaleDisplayNames) {
 #[inline]
 pub unsafe fn uldn_getContext(ldn: *const ULocaleDisplayNames, r#type: UDisplayContextType, perrorcode: *mut UErrorCode) -> UDisplayContext {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_getContext(ldn : *const ULocaleDisplayNames, r#type : UDisplayContextType, perrorcode : *mut UErrorCode) -> UDisplayContext);
-    uldn_getContext(core::mem::transmute(ldn), core::mem::transmute(r#type), core::mem::transmute(perrorcode))
+    uldn_getContext(ldn, r#type, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDialectHandling {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_getDialectHandling(ldn : *const ULocaleDisplayNames) -> UDialectHandling);
-    uldn_getDialectHandling(core::mem::transmute(ldn))
+    uldn_getDialectHandling(ldn)
 }
 #[inline]
 pub unsafe fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_getLocale(ldn : *const ULocaleDisplayNames) -> windows_core::PCSTR);
-    uldn_getLocale(core::mem::transmute(ldn))
+    uldn_getLocale(ldn)
 }
 #[inline]
 pub unsafe fn uldn_keyDisplayName<P1>(ldn: *const ULocaleDisplayNames, key: P1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
@@ -4450,7 +4408,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_keyDisplayName(ldn : *const ULocaleDisplayNames, key : windows_core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-    uldn_keyDisplayName(core::mem::transmute(ldn), key.param().abi(), core::mem::transmute(result), core::mem::transmute(maxresultsize), core::mem::transmute(perrorcode))
+    uldn_keyDisplayName(ldn, key.param().abi(), core::mem::transmute(result), maxresultsize, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uldn_keyValueDisplayName<P1, P2>(ldn: *const ULocaleDisplayNames, key: P1, value: P2, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
@@ -4459,7 +4417,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_keyValueDisplayName(ldn : *const ULocaleDisplayNames, key : windows_core::PCSTR, value : windows_core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-    uldn_keyValueDisplayName(core::mem::transmute(ldn), key.param().abi(), value.param().abi(), core::mem::transmute(result), core::mem::transmute(maxresultsize), core::mem::transmute(perrorcode))
+    uldn_keyValueDisplayName(ldn, key.param().abi(), value.param().abi(), core::mem::transmute(result), maxresultsize, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uldn_languageDisplayName<P1>(ldn: *const ULocaleDisplayNames, lang: P1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
@@ -4467,7 +4425,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_languageDisplayName(ldn : *const ULocaleDisplayNames, lang : windows_core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-    uldn_languageDisplayName(core::mem::transmute(ldn), lang.param().abi(), core::mem::transmute(result), core::mem::transmute(maxresultsize), core::mem::transmute(perrorcode))
+    uldn_languageDisplayName(ldn, lang.param().abi(), core::mem::transmute(result), maxresultsize, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uldn_localeDisplayName<P1>(ldn: *const ULocaleDisplayNames, locale: P1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
@@ -4475,7 +4433,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_localeDisplayName(ldn : *const ULocaleDisplayNames, locale : windows_core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-    uldn_localeDisplayName(core::mem::transmute(ldn), locale.param().abi(), core::mem::transmute(result), core::mem::transmute(maxresultsize), core::mem::transmute(perrorcode))
+    uldn_localeDisplayName(ldn, locale.param().abi(), core::mem::transmute(result), maxresultsize, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uldn_open<P0>(locale: P0, dialecthandling: UDialectHandling, perrorcode: *mut UErrorCode) -> *mut ULocaleDisplayNames
@@ -4483,7 +4441,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_open(locale : windows_core::PCSTR, dialecthandling : UDialectHandling, perrorcode : *mut UErrorCode) -> *mut ULocaleDisplayNames);
-    uldn_open(locale.param().abi(), core::mem::transmute(dialecthandling), core::mem::transmute(perrorcode))
+    uldn_open(locale.param().abi(), dialecthandling, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uldn_openForContext<P0>(locale: P0, contexts: *mut UDisplayContext, length: i32, perrorcode: *mut UErrorCode) -> *mut ULocaleDisplayNames
@@ -4491,7 +4449,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_openForContext(locale : windows_core::PCSTR, contexts : *mut UDisplayContext, length : i32, perrorcode : *mut UErrorCode) -> *mut ULocaleDisplayNames);
-    uldn_openForContext(locale.param().abi(), core::mem::transmute(contexts), core::mem::transmute(length), core::mem::transmute(perrorcode))
+    uldn_openForContext(locale.param().abi(), core::mem::transmute(contexts), length, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uldn_regionDisplayName<P1>(ldn: *const ULocaleDisplayNames, region: P1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
@@ -4499,12 +4457,12 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_regionDisplayName(ldn : *const ULocaleDisplayNames, region : windows_core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-    uldn_regionDisplayName(core::mem::transmute(ldn), region.param().abi(), core::mem::transmute(result), core::mem::transmute(maxresultsize), core::mem::transmute(perrorcode))
+    uldn_regionDisplayName(ldn, region.param().abi(), core::mem::transmute(result), maxresultsize, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uldn_scriptCodeDisplayName(ldn: *const ULocaleDisplayNames, scriptcode: UScriptCode, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_scriptCodeDisplayName(ldn : *const ULocaleDisplayNames, scriptcode : UScriptCode, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-    uldn_scriptCodeDisplayName(core::mem::transmute(ldn), core::mem::transmute(scriptcode), core::mem::transmute(result), core::mem::transmute(maxresultsize), core::mem::transmute(perrorcode))
+    uldn_scriptCodeDisplayName(ldn, scriptcode, core::mem::transmute(result), maxresultsize, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uldn_scriptDisplayName<P1>(ldn: *const ULocaleDisplayNames, script: P1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
@@ -4512,7 +4470,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_scriptDisplayName(ldn : *const ULocaleDisplayNames, script : windows_core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-    uldn_scriptDisplayName(core::mem::transmute(ldn), script.param().abi(), core::mem::transmute(result), core::mem::transmute(maxresultsize), core::mem::transmute(perrorcode))
+    uldn_scriptDisplayName(ldn, script.param().abi(), core::mem::transmute(result), maxresultsize, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uldn_variantDisplayName<P1>(ldn: *const ULocaleDisplayNames, variant: P1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
@@ -4520,7 +4478,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uldn_variantDisplayName(ldn : *const ULocaleDisplayNames, variant : windows_core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-    uldn_variantDisplayName(core::mem::transmute(ldn), variant.param().abi(), core::mem::transmute(result), core::mem::transmute(maxresultsize), core::mem::transmute(perrorcode))
+    uldn_variantDisplayName(ldn, variant.param().abi(), core::mem::transmute(result), maxresultsize, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn ulistfmt_close(listfmt: *mut UListFormatter) {
@@ -4535,12 +4493,12 @@ pub unsafe fn ulistfmt_closeResult(uresult: *mut UFormattedList) {
 #[inline]
 pub unsafe fn ulistfmt_format(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ulistfmt_format(listfmt : *const UListFormatter, strings : *const *const u16, stringlengths : *const i32, stringcount : i32, result : *mut u16, resultcapacity : i32, status : *mut UErrorCode) -> i32);
-    ulistfmt_format(core::mem::transmute(listfmt), core::mem::transmute(strings), core::mem::transmute(stringlengths), core::mem::transmute(stringcount), core::mem::transmute(result), core::mem::transmute(resultcapacity), core::mem::transmute(status))
+    ulistfmt_format(listfmt, strings, stringlengths, stringcount, core::mem::transmute(result), resultcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, uresult: *mut UFormattedList, status: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_formatStringsToResult(listfmt : *const UListFormatter, strings : *const *const u16, stringlengths : *const i32, stringcount : i32, uresult : *mut UFormattedList, status : *mut UErrorCode));
-    ulistfmt_formatStringsToResult(core::mem::transmute(listfmt), core::mem::transmute(strings), core::mem::transmute(stringlengths), core::mem::transmute(stringcount), core::mem::transmute(uresult), core::mem::transmute(status))
+    ulistfmt_formatStringsToResult(listfmt, strings, stringlengths, stringcount, core::mem::transmute(uresult), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ulistfmt_open<P0>(locale: P0, status: *mut UErrorCode) -> *mut UListFormatter
@@ -4556,7 +4514,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_openForType(locale : windows_core::PCSTR, r#type : UListFormatterType, width : UListFormatterWidth, status : *mut UErrorCode) -> *mut UListFormatter);
-    ulistfmt_openForType(locale.param().abi(), core::mem::transmute(r#type), core::mem::transmute(width), core::mem::transmute(status))
+    ulistfmt_openForType(locale.param().abi(), r#type, width, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList {
@@ -4566,7 +4524,7 @@ pub unsafe fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList {
 #[inline]
 pub unsafe fn ulistfmt_resultAsValue(uresult: *const UFormattedList, ec: *mut UErrorCode) -> *mut UFormattedValue {
     windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_resultAsValue(uresult : *const UFormattedList, ec : *mut UErrorCode) -> *mut UFormattedValue);
-    ulistfmt_resultAsValue(core::mem::transmute(uresult), core::mem::transmute(ec))
+    ulistfmt_resultAsValue(uresult, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn uloc_acceptLanguage<P0>(result: P0, resultavailable: i32, outresult: *mut UAcceptResult, acceptlist: *const *const i8, acceptlistcount: i32, availablelocales: *mut UEnumeration, status: *mut UErrorCode) -> i32
@@ -4574,7 +4532,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_acceptLanguage(result : windows_core::PCSTR, resultavailable : i32, outresult : *mut UAcceptResult, acceptlist : *const *const i8, acceptlistcount : i32, availablelocales : *mut UEnumeration, status : *mut UErrorCode) -> i32);
-    uloc_acceptLanguage(result.param().abi(), core::mem::transmute(resultavailable), core::mem::transmute(outresult), core::mem::transmute(acceptlist), core::mem::transmute(acceptlistcount), core::mem::transmute(availablelocales), core::mem::transmute(status))
+    uloc_acceptLanguage(result.param().abi(), resultavailable, core::mem::transmute(outresult), acceptlist, acceptlistcount, core::mem::transmute(availablelocales), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uloc_acceptLanguageFromHTTP<P0, P3>(result: P0, resultavailable: i32, outresult: *mut UAcceptResult, httpacceptlanguage: P3, availablelocales: *mut UEnumeration, status: *mut UErrorCode) -> i32
@@ -4583,7 +4541,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_acceptLanguageFromHTTP(result : windows_core::PCSTR, resultavailable : i32, outresult : *mut UAcceptResult, httpacceptlanguage : windows_core::PCSTR, availablelocales : *mut UEnumeration, status : *mut UErrorCode) -> i32);
-    uloc_acceptLanguageFromHTTP(result.param().abi(), core::mem::transmute(resultavailable), core::mem::transmute(outresult), httpacceptlanguage.param().abi(), core::mem::transmute(availablelocales), core::mem::transmute(status))
+    uloc_acceptLanguageFromHTTP(result.param().abi(), resultavailable, core::mem::transmute(outresult), httpacceptlanguage.param().abi(), core::mem::transmute(availablelocales), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uloc_addLikelySubtags<P0, P1>(localeid: P0, maximizedlocaleid: P1, maximizedlocaleidcapacity: i32, err: *mut UErrorCode) -> i32
@@ -4592,7 +4550,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_addLikelySubtags(localeid : windows_core::PCSTR, maximizedlocaleid : windows_core::PCSTR, maximizedlocaleidcapacity : i32, err : *mut UErrorCode) -> i32);
-    uloc_addLikelySubtags(localeid.param().abi(), maximizedlocaleid.param().abi(), core::mem::transmute(maximizedlocaleidcapacity), core::mem::transmute(err))
+    uloc_addLikelySubtags(localeid.param().abi(), maximizedlocaleid.param().abi(), maximizedlocaleidcapacity, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_canonicalize<P0, P1>(localeid: P0, name: P1, namecapacity: i32, err: *mut UErrorCode) -> i32
@@ -4601,7 +4559,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_canonicalize(localeid : windows_core::PCSTR, name : windows_core::PCSTR, namecapacity : i32, err : *mut UErrorCode) -> i32);
-    uloc_canonicalize(localeid.param().abi(), name.param().abi(), core::mem::transmute(namecapacity), core::mem::transmute(err))
+    uloc_canonicalize(localeid.param().abi(), name.param().abi(), namecapacity, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_countAvailable() -> i32 {
@@ -4615,12 +4573,12 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_forLanguageTag(langtag : windows_core::PCSTR, localeid : windows_core::PCSTR, localeidcapacity : i32, parsedlength : *mut i32, err : *mut UErrorCode) -> i32);
-    uloc_forLanguageTag(langtag.param().abi(), localeid.param().abi(), core::mem::transmute(localeidcapacity), core::mem::transmute(parsedlength), core::mem::transmute(err))
+    uloc_forLanguageTag(langtag.param().abi(), localeid.param().abi(), localeidcapacity, core::mem::transmute(parsedlength), core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_getAvailable(n: i32) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getAvailable(n : i32) -> windows_core::PCSTR);
-    uloc_getAvailable(core::mem::transmute(n))
+    uloc_getAvailable(n)
 }
 #[inline]
 pub unsafe fn uloc_getBaseName<P0, P1>(localeid: P0, name: P1, namecapacity: i32, err: *mut UErrorCode) -> i32
@@ -4629,7 +4587,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getBaseName(localeid : windows_core::PCSTR, name : windows_core::PCSTR, namecapacity : i32, err : *mut UErrorCode) -> i32);
-    uloc_getBaseName(localeid.param().abi(), name.param().abi(), core::mem::transmute(namecapacity), core::mem::transmute(err))
+    uloc_getBaseName(localeid.param().abi(), name.param().abi(), namecapacity, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_getCharacterOrientation<P0>(localeid: P0, status: *mut UErrorCode) -> ULayoutType
@@ -4646,7 +4604,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getCountry(localeid : windows_core::PCSTR, country : windows_core::PCSTR, countrycapacity : i32, err : *mut UErrorCode) -> i32);
-    uloc_getCountry(localeid.param().abi(), country.param().abi(), core::mem::transmute(countrycapacity), core::mem::transmute(err))
+    uloc_getCountry(localeid.param().abi(), country.param().abi(), countrycapacity, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_getDefault() -> windows_core::PCSTR {
@@ -4660,7 +4618,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getDisplayCountry(locale : windows_core::PCSTR, displaylocale : windows_core::PCSTR, country : *mut u16, countrycapacity : i32, status : *mut UErrorCode) -> i32);
-    uloc_getDisplayCountry(locale.param().abi(), displaylocale.param().abi(), core::mem::transmute(country), core::mem::transmute(countrycapacity), core::mem::transmute(status))
+    uloc_getDisplayCountry(locale.param().abi(), displaylocale.param().abi(), core::mem::transmute(country), countrycapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uloc_getDisplayKeyword<P0, P1>(keyword: P0, displaylocale: P1, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32
@@ -4669,7 +4627,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getDisplayKeyword(keyword : windows_core::PCSTR, displaylocale : windows_core::PCSTR, dest : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
-    uloc_getDisplayKeyword(keyword.param().abi(), displaylocale.param().abi(), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(status))
+    uloc_getDisplayKeyword(keyword.param().abi(), displaylocale.param().abi(), core::mem::transmute(dest), destcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uloc_getDisplayKeywordValue<P0, P1, P2>(locale: P0, keyword: P1, displaylocale: P2, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32
@@ -4679,7 +4637,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getDisplayKeywordValue(locale : windows_core::PCSTR, keyword : windows_core::PCSTR, displaylocale : windows_core::PCSTR, dest : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
-    uloc_getDisplayKeywordValue(locale.param().abi(), keyword.param().abi(), displaylocale.param().abi(), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(status))
+    uloc_getDisplayKeywordValue(locale.param().abi(), keyword.param().abi(), displaylocale.param().abi(), core::mem::transmute(dest), destcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uloc_getDisplayLanguage<P0, P1>(locale: P0, displaylocale: P1, language: *mut u16, languagecapacity: i32, status: *mut UErrorCode) -> i32
@@ -4688,7 +4646,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getDisplayLanguage(locale : windows_core::PCSTR, displaylocale : windows_core::PCSTR, language : *mut u16, languagecapacity : i32, status : *mut UErrorCode) -> i32);
-    uloc_getDisplayLanguage(locale.param().abi(), displaylocale.param().abi(), core::mem::transmute(language), core::mem::transmute(languagecapacity), core::mem::transmute(status))
+    uloc_getDisplayLanguage(locale.param().abi(), displaylocale.param().abi(), core::mem::transmute(language), languagecapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uloc_getDisplayName<P0, P1>(localeid: P0, inlocaleid: P1, result: *mut u16, maxresultsize: i32, err: *mut UErrorCode) -> i32
@@ -4697,7 +4655,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getDisplayName(localeid : windows_core::PCSTR, inlocaleid : windows_core::PCSTR, result : *mut u16, maxresultsize : i32, err : *mut UErrorCode) -> i32);
-    uloc_getDisplayName(localeid.param().abi(), inlocaleid.param().abi(), core::mem::transmute(result), core::mem::transmute(maxresultsize), core::mem::transmute(err))
+    uloc_getDisplayName(localeid.param().abi(), inlocaleid.param().abi(), core::mem::transmute(result), maxresultsize, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_getDisplayScript<P0, P1>(locale: P0, displaylocale: P1, script: *mut u16, scriptcapacity: i32, status: *mut UErrorCode) -> i32
@@ -4706,7 +4664,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getDisplayScript(locale : windows_core::PCSTR, displaylocale : windows_core::PCSTR, script : *mut u16, scriptcapacity : i32, status : *mut UErrorCode) -> i32);
-    uloc_getDisplayScript(locale.param().abi(), displaylocale.param().abi(), core::mem::transmute(script), core::mem::transmute(scriptcapacity), core::mem::transmute(status))
+    uloc_getDisplayScript(locale.param().abi(), displaylocale.param().abi(), core::mem::transmute(script), scriptcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uloc_getDisplayVariant<P0, P1>(locale: P0, displaylocale: P1, variant: *mut u16, variantcapacity: i32, status: *mut UErrorCode) -> i32
@@ -4715,7 +4673,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getDisplayVariant(locale : windows_core::PCSTR, displaylocale : windows_core::PCSTR, variant : *mut u16, variantcapacity : i32, status : *mut UErrorCode) -> i32);
-    uloc_getDisplayVariant(locale.param().abi(), displaylocale.param().abi(), core::mem::transmute(variant), core::mem::transmute(variantcapacity), core::mem::transmute(status))
+    uloc_getDisplayVariant(locale.param().abi(), displaylocale.param().abi(), core::mem::transmute(variant), variantcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uloc_getISO3Country<P0>(localeid: P0) -> windows_core::PCSTR
@@ -4751,7 +4709,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getKeywordValue(localeid : windows_core::PCSTR, keywordname : windows_core::PCSTR, buffer : windows_core::PCSTR, buffercapacity : i32, status : *mut UErrorCode) -> i32);
-    uloc_getKeywordValue(localeid.param().abi(), keywordname.param().abi(), buffer.param().abi(), core::mem::transmute(buffercapacity), core::mem::transmute(status))
+    uloc_getKeywordValue(localeid.param().abi(), keywordname.param().abi(), buffer.param().abi(), buffercapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uloc_getLCID<P0>(localeid: P0) -> u32
@@ -4768,7 +4726,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getLanguage(localeid : windows_core::PCSTR, language : windows_core::PCSTR, languagecapacity : i32, err : *mut UErrorCode) -> i32);
-    uloc_getLanguage(localeid.param().abi(), language.param().abi(), core::mem::transmute(languagecapacity), core::mem::transmute(err))
+    uloc_getLanguage(localeid.param().abi(), language.param().abi(), languagecapacity, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_getLineOrientation<P0>(localeid: P0, status: *mut UErrorCode) -> ULayoutType
@@ -4784,7 +4742,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getLocaleForLCID(hostid : u32, locale : windows_core::PCSTR, localecapacity : i32, status : *mut UErrorCode) -> i32);
-    uloc_getLocaleForLCID(core::mem::transmute(hostid), locale.param().abi(), core::mem::transmute(localecapacity), core::mem::transmute(status))
+    uloc_getLocaleForLCID(hostid, locale.param().abi(), localecapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uloc_getName<P0, P1>(localeid: P0, name: P1, namecapacity: i32, err: *mut UErrorCode) -> i32
@@ -4793,7 +4751,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getName(localeid : windows_core::PCSTR, name : windows_core::PCSTR, namecapacity : i32, err : *mut UErrorCode) -> i32);
-    uloc_getName(localeid.param().abi(), name.param().abi(), core::mem::transmute(namecapacity), core::mem::transmute(err))
+    uloc_getName(localeid.param().abi(), name.param().abi(), namecapacity, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_getParent<P0, P1>(localeid: P0, parent: P1, parentcapacity: i32, err: *mut UErrorCode) -> i32
@@ -4802,7 +4760,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getParent(localeid : windows_core::PCSTR, parent : windows_core::PCSTR, parentcapacity : i32, err : *mut UErrorCode) -> i32);
-    uloc_getParent(localeid.param().abi(), parent.param().abi(), core::mem::transmute(parentcapacity), core::mem::transmute(err))
+    uloc_getParent(localeid.param().abi(), parent.param().abi(), parentcapacity, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_getScript<P0, P1>(localeid: P0, script: P1, scriptcapacity: i32, err: *mut UErrorCode) -> i32
@@ -4811,7 +4769,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getScript(localeid : windows_core::PCSTR, script : windows_core::PCSTR, scriptcapacity : i32, err : *mut UErrorCode) -> i32);
-    uloc_getScript(localeid.param().abi(), script.param().abi(), core::mem::transmute(scriptcapacity), core::mem::transmute(err))
+    uloc_getScript(localeid.param().abi(), script.param().abi(), scriptcapacity, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_getVariant<P0, P1>(localeid: P0, variant: P1, variantcapacity: i32, err: *mut UErrorCode) -> i32
@@ -4820,7 +4778,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_getVariant(localeid : windows_core::PCSTR, variant : windows_core::PCSTR, variantcapacity : i32, err : *mut UErrorCode) -> i32);
-    uloc_getVariant(localeid.param().abi(), variant.param().abi(), core::mem::transmute(variantcapacity), core::mem::transmute(err))
+    uloc_getVariant(localeid.param().abi(), variant.param().abi(), variantcapacity, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_isRightToLeft<P0>(locale: P0) -> i8
@@ -4837,12 +4795,12 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_minimizeSubtags(localeid : windows_core::PCSTR, minimizedlocaleid : windows_core::PCSTR, minimizedlocaleidcapacity : i32, err : *mut UErrorCode) -> i32);
-    uloc_minimizeSubtags(localeid.param().abi(), minimizedlocaleid.param().abi(), core::mem::transmute(minimizedlocaleidcapacity), core::mem::transmute(err))
+    uloc_minimizeSubtags(localeid.param().abi(), minimizedlocaleid.param().abi(), minimizedlocaleidcapacity, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_openAvailableByType(r#type: ULocAvailableType, status: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icu.dll" "cdecl" fn uloc_openAvailableByType(r#type : ULocAvailableType, status : *mut UErrorCode) -> *mut UEnumeration);
-    uloc_openAvailableByType(core::mem::transmute(r#type), core::mem::transmute(status))
+    uloc_openAvailableByType(r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uloc_openKeywords<P0>(localeid: P0, status: *mut UErrorCode) -> *mut UEnumeration
@@ -4868,7 +4826,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_setKeywordValue(keywordname : windows_core::PCSTR, keywordvalue : windows_core::PCSTR, buffer : windows_core::PCSTR, buffercapacity : i32, status : *mut UErrorCode) -> i32);
-    uloc_setKeywordValue(keywordname.param().abi(), keywordvalue.param().abi(), buffer.param().abi(), core::mem::transmute(buffercapacity), core::mem::transmute(status))
+    uloc_setKeywordValue(keywordname.param().abi(), keywordvalue.param().abi(), buffer.param().abi(), buffercapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uloc_toLanguageTag<P0, P1>(localeid: P0, langtag: P1, langtagcapacity: i32, strict: i8, err: *mut UErrorCode) -> i32
@@ -4877,7 +4835,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uloc_toLanguageTag(localeid : windows_core::PCSTR, langtag : windows_core::PCSTR, langtagcapacity : i32, strict : i8, err : *mut UErrorCode) -> i32);
-    uloc_toLanguageTag(localeid.param().abi(), langtag.param().abi(), core::mem::transmute(langtagcapacity), core::mem::transmute(strict), core::mem::transmute(err))
+    uloc_toLanguageTag(localeid.param().abi(), langtag.param().abi(), langtagcapacity, strict, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uloc_toLegacyKey<P0>(keyword: P0) -> windows_core::PCSTR
@@ -4926,22 +4884,22 @@ pub unsafe fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UError
 #[inline]
 pub unsafe fn ulocdata_getDelimiter(uld: *mut ULocaleData, r#type: ULocaleDataDelimiterType, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ulocdata_getDelimiter(uld : *mut ULocaleData, r#type : ULocaleDataDelimiterType, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    ulocdata_getDelimiter(core::mem::transmute(uld), core::mem::transmute(r#type), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    ulocdata_getDelimiter(core::mem::transmute(uld), r#type, core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ulocdata_getExemplarSet(uld: *mut ULocaleData, fillin: *mut USet, options: u32, extype: ULocaleDataExemplarSetType, status: *mut UErrorCode) -> *mut USet {
     windows_targets::link!("icuin.dll" "cdecl" fn ulocdata_getExemplarSet(uld : *mut ULocaleData, fillin : *mut USet, options : u32, extype : ULocaleDataExemplarSetType, status : *mut UErrorCode) -> *mut USet);
-    ulocdata_getExemplarSet(core::mem::transmute(uld), core::mem::transmute(fillin), core::mem::transmute(options), core::mem::transmute(extype), core::mem::transmute(status))
+    ulocdata_getExemplarSet(core::mem::transmute(uld), core::mem::transmute(fillin), options, extype, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ulocdata_getLocaleDisplayPattern(uld: *mut ULocaleData, pattern: *mut u16, patterncapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ulocdata_getLocaleDisplayPattern(uld : *mut ULocaleData, pattern : *mut u16, patterncapacity : i32, status : *mut UErrorCode) -> i32);
-    ulocdata_getLocaleDisplayPattern(core::mem::transmute(uld), core::mem::transmute(pattern), core::mem::transmute(patterncapacity), core::mem::transmute(status))
+    ulocdata_getLocaleDisplayPattern(core::mem::transmute(uld), core::mem::transmute(pattern), patterncapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ulocdata_getLocaleSeparator(uld: *mut ULocaleData, separator: *mut u16, separatorcapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ulocdata_getLocaleSeparator(uld : *mut ULocaleData, separator : *mut u16, separatorcapacity : i32, status : *mut UErrorCode) -> i32);
-    ulocdata_getLocaleSeparator(core::mem::transmute(uld), core::mem::transmute(separator), core::mem::transmute(separatorcapacity), core::mem::transmute(status))
+    ulocdata_getLocaleSeparator(core::mem::transmute(uld), core::mem::transmute(separator), separatorcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ulocdata_getMeasurementSystem<P0>(localeid: P0, status: *mut UErrorCode) -> UMeasurementSystem
@@ -4975,22 +4933,22 @@ where
 #[inline]
 pub unsafe fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8) {
     windows_targets::link!("icuin.dll" "cdecl" fn ulocdata_setNoSubstitute(uld : *mut ULocaleData, setting : i8));
-    ulocdata_setNoSubstitute(core::mem::transmute(uld), core::mem::transmute(setting))
+    ulocdata_setNoSubstitute(core::mem::transmute(uld), setting)
 }
 #[inline]
 pub unsafe fn umsg_applyPattern(fmt: *mut *mut core::ffi::c_void, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn umsg_applyPattern(fmt : *mut *mut core::ffi::c_void, pattern : *const u16, patternlength : i32, parseerror : *mut UParseError, status : *mut UErrorCode));
-    umsg_applyPattern(core::mem::transmute(fmt), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(parseerror), core::mem::transmute(status))
+    umsg_applyPattern(core::mem::transmute(fmt), pattern, patternlength, core::mem::transmute(parseerror), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn umsg_autoQuoteApostrophe(pattern: *const u16, patternlength: i32, dest: *mut u16, destcapacity: i32, ec: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn umsg_autoQuoteApostrophe(pattern : *const u16, patternlength : i32, dest : *mut u16, destcapacity : i32, ec : *mut UErrorCode) -> i32);
-    umsg_autoQuoteApostrophe(core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(ec))
+    umsg_autoQuoteApostrophe(pattern, patternlength, core::mem::transmute(dest), destcapacity, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn umsg_clone(fmt: *const *const core::ffi::c_void, status: *mut UErrorCode) -> *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn umsg_clone(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut core::ffi::c_void);
-    umsg_clone(core::mem::transmute(fmt), core::mem::transmute(status))
+    umsg_clone(fmt, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn umsg_close(format: *mut *mut core::ffi::c_void) {
@@ -5000,12 +4958,12 @@ pub unsafe fn umsg_close(format: *mut *mut core::ffi::c_void) {
 #[inline]
 pub unsafe fn umsg_format(fmt: *const *const core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn umsg_format(fmt : *const *const core::ffi::c_void, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    umsg_format(core::mem::transmute(fmt), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    umsg_format(fmt, core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn umsg_getLocale(fmt: *const *const core::ffi::c_void) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn umsg_getLocale(fmt : *const *const core::ffi::c_void) -> windows_core::PCSTR);
-    umsg_getLocale(core::mem::transmute(fmt))
+    umsg_getLocale(fmt)
 }
 #[inline]
 pub unsafe fn umsg_open<P2>(pattern: *const u16, patternlength: i32, locale: P2, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut *mut core::ffi::c_void
@@ -5013,12 +4971,12 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn umsg_open(pattern : *const u16, patternlength : i32, locale : windows_core::PCSTR, parseerror : *mut UParseError, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    umsg_open(core::mem::transmute(pattern), core::mem::transmute(patternlength), locale.param().abi(), core::mem::transmute(parseerror), core::mem::transmute(status))
+    umsg_open(pattern, patternlength, locale.param().abi(), core::mem::transmute(parseerror), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn umsg_parse(fmt: *const *const core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn umsg_parse(fmt : *const *const core::ffi::c_void, source : *const u16, sourcelength : i32, count : *mut i32, status : *mut UErrorCode));
-    umsg_parse(core::mem::transmute(fmt), core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(count), core::mem::transmute(status))
+    umsg_parse(fmt, source, sourcelength, core::mem::transmute(count), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn umsg_setLocale<P1>(fmt: *mut *mut core::ffi::c_void, locale: P1)
@@ -5031,27 +4989,27 @@ where
 #[inline]
 pub unsafe fn umsg_toPattern(fmt: *const *const core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn umsg_toPattern(fmt : *const *const core::ffi::c_void, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    umsg_toPattern(core::mem::transmute(fmt), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    umsg_toPattern(fmt, core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn umsg_vformat(fmt: *const *const core::ffi::c_void, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn umsg_vformat(fmt : *const *const core::ffi::c_void, result : *mut u16, resultlength : i32, ap : *mut i8, status : *mut UErrorCode) -> i32);
-    umsg_vformat(core::mem::transmute(fmt), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(ap), core::mem::transmute(status))
+    umsg_vformat(fmt, core::mem::transmute(result), resultlength, core::mem::transmute(ap), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn umsg_vparse(fmt: *const *const core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, ap: *mut i8, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn umsg_vparse(fmt : *const *const core::ffi::c_void, source : *const u16, sourcelength : i32, count : *mut i32, ap : *mut i8, status : *mut UErrorCode));
-    umsg_vparse(core::mem::transmute(fmt), core::mem::transmute(source), core::mem::transmute(sourcelength), core::mem::transmute(count), core::mem::transmute(ap), core::mem::transmute(status))
+    umsg_vparse(fmt, source, sourcelength, core::mem::transmute(count), core::mem::transmute(ap), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn umutablecptrie_buildImmutable(trie: *mut UMutableCPTrie, r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: *mut UErrorCode) -> *mut UCPTrie {
     windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_buildImmutable(trie : *mut UMutableCPTrie, r#type : UCPTrieType, valuewidth : UCPTrieValueWidth, perrorcode : *mut UErrorCode) -> *mut UCPTrie);
-    umutablecptrie_buildImmutable(core::mem::transmute(trie), core::mem::transmute(r#type), core::mem::transmute(valuewidth), core::mem::transmute(perrorcode))
+    umutablecptrie_buildImmutable(core::mem::transmute(trie), r#type, valuewidth, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn umutablecptrie_clone(other: *const UMutableCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
     windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_clone(other : *const UMutableCPTrie, perrorcode : *mut UErrorCode) -> *mut UMutableCPTrie);
-    umutablecptrie_clone(core::mem::transmute(other), core::mem::transmute(perrorcode))
+    umutablecptrie_clone(other, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn umutablecptrie_close(trie: *mut UMutableCPTrie) {
@@ -5061,42 +5019,42 @@ pub unsafe fn umutablecptrie_close(trie: *mut UMutableCPTrie) {
 #[inline]
 pub unsafe fn umutablecptrie_fromUCPMap(map: *const UCPMap, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
     windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_fromUCPMap(map : *const UCPMap, perrorcode : *mut UErrorCode) -> *mut UMutableCPTrie);
-    umutablecptrie_fromUCPMap(core::mem::transmute(map), core::mem::transmute(perrorcode))
+    umutablecptrie_fromUCPMap(map, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn umutablecptrie_fromUCPTrie(trie: *const UCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
     windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_fromUCPTrie(trie : *const UCPTrie, perrorcode : *mut UErrorCode) -> *mut UMutableCPTrie);
-    umutablecptrie_fromUCPTrie(core::mem::transmute(trie), core::mem::transmute(perrorcode))
+    umutablecptrie_fromUCPTrie(trie, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32 {
     windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_get(trie : *const UMutableCPTrie, c : i32) -> u32);
-    umutablecptrie_get(core::mem::transmute(trie), core::mem::transmute(c))
+    umutablecptrie_get(trie, c)
 }
 #[inline]
 pub unsafe fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const core::ffi::c_void, pvalue: *mut u32) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_getRange(trie : *const UMutableCPTrie, start : i32, option : UCPMapRangeOption, surrogatevalue : u32, filter : *mut UCPMapValueFilter, context : *const core::ffi::c_void, pvalue : *mut u32) -> i32);
-    umutablecptrie_getRange(core::mem::transmute(trie), core::mem::transmute(start), core::mem::transmute(option), core::mem::transmute(surrogatevalue), core::mem::transmute(filter), core::mem::transmute(context), core::mem::transmute(pvalue))
+    umutablecptrie_getRange(trie, start, option, surrogatevalue, core::mem::transmute(filter), context, core::mem::transmute(pvalue))
 }
 #[inline]
 pub unsafe fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
     windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_open(initialvalue : u32, errorvalue : u32, perrorcode : *mut UErrorCode) -> *mut UMutableCPTrie);
-    umutablecptrie_open(core::mem::transmute(initialvalue), core::mem::transmute(errorvalue), core::mem::transmute(perrorcode))
+    umutablecptrie_open(initialvalue, errorvalue, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn umutablecptrie_set(trie: *mut UMutableCPTrie, c: i32, value: u32, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_set(trie : *mut UMutableCPTrie, c : i32, value : u32, perrorcode : *mut UErrorCode));
-    umutablecptrie_set(core::mem::transmute(trie), core::mem::transmute(c), core::mem::transmute(value), core::mem::transmute(perrorcode))
+    umutablecptrie_set(core::mem::transmute(trie), c, value, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn umutablecptrie_setRange(trie: *mut UMutableCPTrie, start: i32, end: i32, value: u32, perrorcode: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_setRange(trie : *mut UMutableCPTrie, start : i32, end : i32, value : u32, perrorcode : *mut UErrorCode));
-    umutablecptrie_setRange(core::mem::transmute(trie), core::mem::transmute(start), core::mem::transmute(end), core::mem::transmute(value), core::mem::transmute(perrorcode))
+    umutablecptrie_setRange(core::mem::transmute(trie), start, end, value, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn unorm2_append(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_append(norm2 : *const UNormalizer2, first : *mut u16, firstlength : i32, firstcapacity : i32, second : *const u16, secondlength : i32, perrorcode : *mut UErrorCode) -> i32);
-    unorm2_append(core::mem::transmute(norm2), core::mem::transmute(first), core::mem::transmute(firstlength), core::mem::transmute(firstcapacity), core::mem::transmute(second), core::mem::transmute(secondlength), core::mem::transmute(perrorcode))
+    unorm2_append(norm2, core::mem::transmute(first), firstlength, firstcapacity, second, secondlength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn unorm2_close(norm2: *mut UNormalizer2) {
@@ -5106,17 +5064,17 @@ pub unsafe fn unorm2_close(norm2: *mut UNormalizer2) {
 #[inline]
 pub unsafe fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_composePair(norm2 : *const UNormalizer2, a : i32, b : i32) -> i32);
-    unorm2_composePair(core::mem::transmute(norm2), core::mem::transmute(a), core::mem::transmute(b))
+    unorm2_composePair(norm2, a, b)
 }
 #[inline]
 pub unsafe fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_getCombiningClass(norm2 : *const UNormalizer2, c : i32) -> u8);
-    unorm2_getCombiningClass(core::mem::transmute(norm2), core::mem::transmute(c))
+    unorm2_getCombiningClass(norm2, c)
 }
 #[inline]
 pub unsafe fn unorm2_getDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_getDecomposition(norm2 : *const UNormalizer2, c : i32, decomposition : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    unorm2_getDecomposition(core::mem::transmute(norm2), core::mem::transmute(c), core::mem::transmute(decomposition), core::mem::transmute(capacity), core::mem::transmute(perrorcode))
+    unorm2_getDecomposition(norm2, c, core::mem::transmute(decomposition), capacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn unorm2_getInstance<P0, P1>(packagename: P0, name: P1, mode: UNormalization2Mode, perrorcode: *mut UErrorCode) -> *mut UNormalizer2
@@ -5125,7 +5083,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_getInstance(packagename : windows_core::PCSTR, name : windows_core::PCSTR, mode : UNormalization2Mode, perrorcode : *mut UErrorCode) -> *mut UNormalizer2);
-    unorm2_getInstance(packagename.param().abi(), name.param().abi(), core::mem::transmute(mode), core::mem::transmute(perrorcode))
+    unorm2_getInstance(packagename.param().abi(), name.param().abi(), mode, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
@@ -5155,67 +5113,67 @@ pub unsafe fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNorma
 #[inline]
 pub unsafe fn unorm2_getRawDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_getRawDecomposition(norm2 : *const UNormalizer2, c : i32, decomposition : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    unorm2_getRawDecomposition(core::mem::transmute(norm2), core::mem::transmute(c), core::mem::transmute(decomposition), core::mem::transmute(capacity), core::mem::transmute(perrorcode))
+    unorm2_getRawDecomposition(norm2, c, core::mem::transmute(decomposition), capacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_hasBoundaryAfter(norm2 : *const UNormalizer2, c : i32) -> i8);
-    unorm2_hasBoundaryAfter(core::mem::transmute(norm2), core::mem::transmute(c))
+    unorm2_hasBoundaryAfter(norm2, c)
 }
 #[inline]
 pub unsafe fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_hasBoundaryBefore(norm2 : *const UNormalizer2, c : i32) -> i8);
-    unorm2_hasBoundaryBefore(core::mem::transmute(norm2), core::mem::transmute(c))
+    unorm2_hasBoundaryBefore(norm2, c)
 }
 #[inline]
 pub unsafe fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_isInert(norm2 : *const UNormalizer2, c : i32) -> i8);
-    unorm2_isInert(core::mem::transmute(norm2), core::mem::transmute(c))
+    unorm2_isInert(norm2, c)
 }
 #[inline]
 pub unsafe fn unorm2_isNormalized(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_isNormalized(norm2 : *const UNormalizer2, s : *const u16, length : i32, perrorcode : *mut UErrorCode) -> i8);
-    unorm2_isNormalized(core::mem::transmute(norm2), core::mem::transmute(s), core::mem::transmute(length), core::mem::transmute(perrorcode))
+    unorm2_isNormalized(norm2, s, length, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn unorm2_normalize(norm2: *const UNormalizer2, src: *const u16, length: i32, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_normalize(norm2 : *const UNormalizer2, src : *const u16, length : i32, dest : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    unorm2_normalize(core::mem::transmute(norm2), core::mem::transmute(src), core::mem::transmute(length), core::mem::transmute(dest), core::mem::transmute(capacity), core::mem::transmute(perrorcode))
+    unorm2_normalize(norm2, src, length, core::mem::transmute(dest), capacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn unorm2_normalizeSecondAndAppend(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_normalizeSecondAndAppend(norm2 : *const UNormalizer2, first : *mut u16, firstlength : i32, firstcapacity : i32, second : *const u16, secondlength : i32, perrorcode : *mut UErrorCode) -> i32);
-    unorm2_normalizeSecondAndAppend(core::mem::transmute(norm2), core::mem::transmute(first), core::mem::transmute(firstlength), core::mem::transmute(firstcapacity), core::mem::transmute(second), core::mem::transmute(secondlength), core::mem::transmute(perrorcode))
+    unorm2_normalizeSecondAndAppend(norm2, core::mem::transmute(first), firstlength, firstcapacity, second, secondlength, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn unorm2_openFiltered(norm2: *const UNormalizer2, filterset: *const USet, perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_openFiltered(norm2 : *const UNormalizer2, filterset : *const USet, perrorcode : *mut UErrorCode) -> *mut UNormalizer2);
-    unorm2_openFiltered(core::mem::transmute(norm2), core::mem::transmute(filterset), core::mem::transmute(perrorcode))
+    unorm2_openFiltered(norm2, filterset, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn unorm2_quickCheck(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> UNormalizationCheckResult {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_quickCheck(norm2 : *const UNormalizer2, s : *const u16, length : i32, perrorcode : *mut UErrorCode) -> UNormalizationCheckResult);
-    unorm2_quickCheck(core::mem::transmute(norm2), core::mem::transmute(s), core::mem::transmute(length), core::mem::transmute(perrorcode))
+    unorm2_quickCheck(norm2, s, length, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn unorm2_spanQuickCheckYes(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm2_spanQuickCheckYes(norm2 : *const UNormalizer2, s : *const u16, length : i32, perrorcode : *mut UErrorCode) -> i32);
-    unorm2_spanQuickCheckYes(core::mem::transmute(norm2), core::mem::transmute(s), core::mem::transmute(length), core::mem::transmute(perrorcode))
+    unorm2_spanQuickCheckYes(norm2, s, length, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn unorm_compare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn unorm_compare(s1 : *const u16, length1 : i32, s2 : *const u16, length2 : i32, options : u32, perrorcode : *mut UErrorCode) -> i32);
-    unorm_compare(core::mem::transmute(s1), core::mem::transmute(length1), core::mem::transmute(s2), core::mem::transmute(length2), core::mem::transmute(options), core::mem::transmute(perrorcode))
+    unorm_compare(s1, length1, s2, length2, options, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn unum_applyPattern(format: *mut *mut core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_applyPattern(format : *mut *mut core::ffi::c_void, localized : i8, pattern : *const u16, patternlength : i32, parseerror : *mut UParseError, status : *mut UErrorCode));
-    unum_applyPattern(core::mem::transmute(format), core::mem::transmute(localized), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(parseerror), core::mem::transmute(status))
+    unum_applyPattern(core::mem::transmute(format), localized, pattern, patternlength, core::mem::transmute(parseerror), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_clone(fmt: *const *const core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_clone(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    unum_clone(core::mem::transmute(fmt), core::mem::transmute(status))
+    unum_clone(fmt, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_close(fmt: *mut *mut core::ffi::c_void) {
@@ -5230,7 +5188,7 @@ pub unsafe fn unum_countAvailable() -> i32 {
 #[inline]
 pub unsafe fn unum_format(fmt: *const *const core::ffi::c_void, number: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_format(fmt : *const *const core::ffi::c_void, number : i32, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-    unum_format(core::mem::transmute(fmt), core::mem::transmute(number), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(pos), core::mem::transmute(status))
+    unum_format(fmt, number, core::mem::transmute(result), resultlength, core::mem::transmute(pos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_formatDecimal<P1>(fmt: *const *const core::ffi::c_void, number: P1, length: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32
@@ -5238,67 +5196,67 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_formatDecimal(fmt : *const *const core::ffi::c_void, number : windows_core::PCSTR, length : i32, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-    unum_formatDecimal(core::mem::transmute(fmt), number.param().abi(), core::mem::transmute(length), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(pos), core::mem::transmute(status))
+    unum_formatDecimal(fmt, number.param().abi(), length, core::mem::transmute(result), resultlength, core::mem::transmute(pos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_formatDouble(fmt: *const *const core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_formatDouble(fmt : *const *const core::ffi::c_void, number : f64, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-    unum_formatDouble(core::mem::transmute(fmt), core::mem::transmute(number), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(pos), core::mem::transmute(status))
+    unum_formatDouble(fmt, number, core::mem::transmute(result), resultlength, core::mem::transmute(pos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_formatDoubleCurrency(fmt: *const *const core::ffi::c_void, number: f64, currency: *mut u16, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_formatDoubleCurrency(fmt : *const *const core::ffi::c_void, number : f64, currency : *mut u16, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-    unum_formatDoubleCurrency(core::mem::transmute(fmt), core::mem::transmute(number), core::mem::transmute(currency), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(pos), core::mem::transmute(status))
+    unum_formatDoubleCurrency(fmt, number, core::mem::transmute(currency), core::mem::transmute(result), resultlength, core::mem::transmute(pos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_formatDoubleForFields(format: *const *const core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_formatDoubleForFields(format : *const *const core::ffi::c_void, number : f64, result : *mut u16, resultlength : i32, fpositer : *mut UFieldPositionIterator, status : *mut UErrorCode) -> i32);
-    unum_formatDoubleForFields(core::mem::transmute(format), core::mem::transmute(number), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(fpositer), core::mem::transmute(status))
+    unum_formatDoubleForFields(format, number, core::mem::transmute(result), resultlength, core::mem::transmute(fpositer), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_formatInt64(fmt: *const *const core::ffi::c_void, number: i64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_formatInt64(fmt : *const *const core::ffi::c_void, number : i64, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-    unum_formatInt64(core::mem::transmute(fmt), core::mem::transmute(number), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(pos), core::mem::transmute(status))
+    unum_formatInt64(fmt, number, core::mem::transmute(result), resultlength, core::mem::transmute(pos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_formatUFormattable(fmt: *const *const core::ffi::c_void, number: *const *const core::ffi::c_void, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_formatUFormattable(fmt : *const *const core::ffi::c_void, number : *const *const core::ffi::c_void, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-    unum_formatUFormattable(core::mem::transmute(fmt), core::mem::transmute(number), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(pos), core::mem::transmute(status))
+    unum_formatUFormattable(fmt, number, core::mem::transmute(result), resultlength, core::mem::transmute(pos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_getAttribute(fmt: *const *const core::ffi::c_void, attr: UNumberFormatAttribute) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_getAttribute(fmt : *const *const core::ffi::c_void, attr : UNumberFormatAttribute) -> i32);
-    unum_getAttribute(core::mem::transmute(fmt), core::mem::transmute(attr))
+    unum_getAttribute(fmt, attr)
 }
 #[inline]
 pub unsafe fn unum_getAvailable(localeindex: i32) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_getAvailable(localeindex : i32) -> windows_core::PCSTR);
-    unum_getAvailable(core::mem::transmute(localeindex))
+    unum_getAvailable(localeindex)
 }
 #[inline]
 pub unsafe fn unum_getContext(fmt: *const *const core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_getContext(fmt : *const *const core::ffi::c_void, r#type : UDisplayContextType, status : *mut UErrorCode) -> UDisplayContext);
-    unum_getContext(core::mem::transmute(fmt), core::mem::transmute(r#type), core::mem::transmute(status))
+    unum_getContext(fmt, r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_getDoubleAttribute(fmt: *const *const core::ffi::c_void, attr: UNumberFormatAttribute) -> f64 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_getDoubleAttribute(fmt : *const *const core::ffi::c_void, attr : UNumberFormatAttribute) -> f64);
-    unum_getDoubleAttribute(core::mem::transmute(fmt), core::mem::transmute(attr))
+    unum_getDoubleAttribute(fmt, attr)
 }
 #[inline]
 pub unsafe fn unum_getLocaleByType(fmt: *const *const core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_getLocaleByType(fmt : *const *const core::ffi::c_void, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> windows_core::PCSTR);
-    unum_getLocaleByType(core::mem::transmute(fmt), core::mem::transmute(r#type), core::mem::transmute(status))
+    unum_getLocaleByType(fmt, r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_getSymbol(fmt: *const *const core::ffi::c_void, symbol: UNumberFormatSymbol, buffer: *mut u16, size: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_getSymbol(fmt : *const *const core::ffi::c_void, symbol : UNumberFormatSymbol, buffer : *mut u16, size : i32, status : *mut UErrorCode) -> i32);
-    unum_getSymbol(core::mem::transmute(fmt), core::mem::transmute(symbol), core::mem::transmute(buffer), core::mem::transmute(size), core::mem::transmute(status))
+    unum_getSymbol(fmt, symbol, core::mem::transmute(buffer), size, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_getTextAttribute(fmt: *const *const core::ffi::c_void, tag: UNumberFormatTextAttribute, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_getTextAttribute(fmt : *const *const core::ffi::c_void, tag : UNumberFormatTextAttribute, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    unum_getTextAttribute(core::mem::transmute(fmt), core::mem::transmute(tag), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    unum_getTextAttribute(fmt, tag, core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_open<P3>(style: UNumberFormatStyle, pattern: *const u16, patternlength: i32, locale: P3, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut *mut core::ffi::c_void
@@ -5306,12 +5264,12 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_open(style : UNumberFormatStyle, pattern : *const u16, patternlength : i32, locale : windows_core::PCSTR, parseerr : *mut UParseError, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    unum_open(core::mem::transmute(style), core::mem::transmute(pattern), core::mem::transmute(patternlength), locale.param().abi(), core::mem::transmute(parseerr), core::mem::transmute(status))
+    unum_open(style, pattern, patternlength, locale.param().abi(), core::mem::transmute(parseerr), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_parse(fmt: *const *const core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_parse(fmt : *const *const core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> i32);
-    unum_parse(core::mem::transmute(fmt), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(parsepos), core::mem::transmute(status))
+    unum_parse(fmt, text, textlength, core::mem::transmute(parsepos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_parseDecimal<P4>(fmt: *const *const core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, outbuf: P4, outbuflength: i32, status: *mut UErrorCode) -> i32
@@ -5319,57 +5277,57 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_parseDecimal(fmt : *const *const core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, outbuf : windows_core::PCSTR, outbuflength : i32, status : *mut UErrorCode) -> i32);
-    unum_parseDecimal(core::mem::transmute(fmt), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(parsepos), outbuf.param().abi(), core::mem::transmute(outbuflength), core::mem::transmute(status))
+    unum_parseDecimal(fmt, text, textlength, core::mem::transmute(parsepos), outbuf.param().abi(), outbuflength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_parseDouble(fmt: *const *const core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_parseDouble(fmt : *const *const core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> f64);
-    unum_parseDouble(core::mem::transmute(fmt), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(parsepos), core::mem::transmute(status))
+    unum_parseDouble(fmt, text, textlength, core::mem::transmute(parsepos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_parseDoubleCurrency(fmt: *const *const core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, currency: *mut u16, status: *mut UErrorCode) -> f64 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_parseDoubleCurrency(fmt : *const *const core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, currency : *mut u16, status : *mut UErrorCode) -> f64);
-    unum_parseDoubleCurrency(core::mem::transmute(fmt), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(parsepos), core::mem::transmute(currency), core::mem::transmute(status))
+    unum_parseDoubleCurrency(fmt, text, textlength, core::mem::transmute(parsepos), core::mem::transmute(currency), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_parseInt64(fmt: *const *const core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i64 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_parseInt64(fmt : *const *const core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> i64);
-    unum_parseInt64(core::mem::transmute(fmt), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(parsepos), core::mem::transmute(status))
+    unum_parseInt64(fmt, text, textlength, core::mem::transmute(parsepos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_parseToUFormattable(fmt: *const *const core::ffi::c_void, result: *mut *mut core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> *mut *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_parseToUFormattable(fmt : *const *const core::ffi::c_void, result : *mut *mut core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    unum_parseToUFormattable(core::mem::transmute(fmt), core::mem::transmute(result), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(parsepos), core::mem::transmute(status))
+    unum_parseToUFormattable(fmt, core::mem::transmute(result), text, textlength, core::mem::transmute(parsepos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_setAttribute(fmt: *mut *mut core::ffi::c_void, attr: UNumberFormatAttribute, newvalue: i32) {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_setAttribute(fmt : *mut *mut core::ffi::c_void, attr : UNumberFormatAttribute, newvalue : i32));
-    unum_setAttribute(core::mem::transmute(fmt), core::mem::transmute(attr), core::mem::transmute(newvalue))
+    unum_setAttribute(core::mem::transmute(fmt), attr, newvalue)
 }
 #[inline]
 pub unsafe fn unum_setContext(fmt: *mut *mut core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_setContext(fmt : *mut *mut core::ffi::c_void, value : UDisplayContext, status : *mut UErrorCode));
-    unum_setContext(core::mem::transmute(fmt), core::mem::transmute(value), core::mem::transmute(status))
+    unum_setContext(core::mem::transmute(fmt), value, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_setDoubleAttribute(fmt: *mut *mut core::ffi::c_void, attr: UNumberFormatAttribute, newvalue: f64) {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_setDoubleAttribute(fmt : *mut *mut core::ffi::c_void, attr : UNumberFormatAttribute, newvalue : f64));
-    unum_setDoubleAttribute(core::mem::transmute(fmt), core::mem::transmute(attr), core::mem::transmute(newvalue))
+    unum_setDoubleAttribute(core::mem::transmute(fmt), attr, newvalue)
 }
 #[inline]
 pub unsafe fn unum_setSymbol(fmt: *mut *mut core::ffi::c_void, symbol: UNumberFormatSymbol, value: *const u16, length: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_setSymbol(fmt : *mut *mut core::ffi::c_void, symbol : UNumberFormatSymbol, value : *const u16, length : i32, status : *mut UErrorCode));
-    unum_setSymbol(core::mem::transmute(fmt), core::mem::transmute(symbol), core::mem::transmute(value), core::mem::transmute(length), core::mem::transmute(status))
+    unum_setSymbol(core::mem::transmute(fmt), symbol, value, length, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_setTextAttribute(fmt: *mut *mut core::ffi::c_void, tag: UNumberFormatTextAttribute, newvalue: *const u16, newvaluelength: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_setTextAttribute(fmt : *mut *mut core::ffi::c_void, tag : UNumberFormatTextAttribute, newvalue : *const u16, newvaluelength : i32, status : *mut UErrorCode));
-    unum_setTextAttribute(core::mem::transmute(fmt), core::mem::transmute(tag), core::mem::transmute(newvalue), core::mem::transmute(newvaluelength), core::mem::transmute(status))
+    unum_setTextAttribute(core::mem::transmute(fmt), tag, newvalue, newvaluelength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unum_toPattern(fmt: *const *const core::ffi::c_void, ispatternlocalized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unum_toPattern(fmt : *const *const core::ffi::c_void, ispatternlocalized : i8, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    unum_toPattern(core::mem::transmute(fmt), core::mem::transmute(ispatternlocalized), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    unum_toPattern(fmt, ispatternlocalized, core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unumf_close(uformatter: *mut UNumberFormatter) {
@@ -5387,17 +5345,17 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icu.dll" "cdecl" fn unumf_formatDecimal(uformatter : *const UNumberFormatter, value : windows_core::PCSTR, valuelen : i32, uresult : *mut UFormattedNumber, ec : *mut UErrorCode));
-    unumf_formatDecimal(core::mem::transmute(uformatter), value.param().abi(), core::mem::transmute(valuelen), core::mem::transmute(uresult), core::mem::transmute(ec))
+    unumf_formatDecimal(uformatter, value.param().abi(), valuelen, core::mem::transmute(uresult), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn unumf_formatDouble(uformatter: *const UNumberFormatter, value: f64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn unumf_formatDouble(uformatter : *const UNumberFormatter, value : f64, uresult : *mut UFormattedNumber, ec : *mut UErrorCode));
-    unumf_formatDouble(core::mem::transmute(uformatter), core::mem::transmute(value), core::mem::transmute(uresult), core::mem::transmute(ec))
+    unumf_formatDouble(uformatter, value, core::mem::transmute(uresult), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn unumf_formatInt(uformatter: *const UNumberFormatter, value: i64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn unumf_formatInt(uformatter : *const UNumberFormatter, value : i64, uresult : *mut UFormattedNumber, ec : *mut UErrorCode));
-    unumf_formatInt(core::mem::transmute(uformatter), core::mem::transmute(value), core::mem::transmute(uresult), core::mem::transmute(ec))
+    unumf_formatInt(uformatter, value, core::mem::transmute(uresult), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn unumf_openForSkeletonAndLocale<P2>(skeleton: *const u16, skeletonlen: i32, locale: P2, ec: *mut UErrorCode) -> *mut UNumberFormatter
@@ -5405,7 +5363,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icu.dll" "cdecl" fn unumf_openForSkeletonAndLocale(skeleton : *const u16, skeletonlen : i32, locale : windows_core::PCSTR, ec : *mut UErrorCode) -> *mut UNumberFormatter);
-    unumf_openForSkeletonAndLocale(core::mem::transmute(skeleton), core::mem::transmute(skeletonlen), locale.param().abi(), core::mem::transmute(ec))
+    unumf_openForSkeletonAndLocale(skeleton, skeletonlen, locale.param().abi(), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn unumf_openForSkeletonAndLocaleWithError<P2>(skeleton: *const u16, skeletonlen: i32, locale: P2, perror: *mut UParseError, ec: *mut UErrorCode) -> *mut UNumberFormatter
@@ -5413,7 +5371,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icu.dll" "cdecl" fn unumf_openForSkeletonAndLocaleWithError(skeleton : *const u16, skeletonlen : i32, locale : windows_core::PCSTR, perror : *mut UParseError, ec : *mut UErrorCode) -> *mut UNumberFormatter);
-    unumf_openForSkeletonAndLocaleWithError(core::mem::transmute(skeleton), core::mem::transmute(skeletonlen), locale.param().abi(), core::mem::transmute(perror), core::mem::transmute(ec))
+    unumf_openForSkeletonAndLocaleWithError(skeleton, skeletonlen, locale.param().abi(), core::mem::transmute(perror), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber {
@@ -5423,22 +5381,22 @@ pub unsafe fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber {
 #[inline]
 pub unsafe fn unumf_resultAsValue(uresult: *const UFormattedNumber, ec: *mut UErrorCode) -> *mut UFormattedValue {
     windows_targets::link!("icu.dll" "cdecl" fn unumf_resultAsValue(uresult : *const UFormattedNumber, ec : *mut UErrorCode) -> *mut UFormattedValue);
-    unumf_resultAsValue(core::mem::transmute(uresult), core::mem::transmute(ec))
+    unumf_resultAsValue(uresult, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn unumf_resultGetAllFieldPositions(uresult: *const UFormattedNumber, ufpositer: *mut UFieldPositionIterator, ec: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn unumf_resultGetAllFieldPositions(uresult : *const UFormattedNumber, ufpositer : *mut UFieldPositionIterator, ec : *mut UErrorCode));
-    unumf_resultGetAllFieldPositions(core::mem::transmute(uresult), core::mem::transmute(ufpositer), core::mem::transmute(ec))
+    unumf_resultGetAllFieldPositions(uresult, core::mem::transmute(ufpositer), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn unumf_resultNextFieldPosition(uresult: *const UFormattedNumber, ufpos: *mut UFieldPosition, ec: *mut UErrorCode) -> i8 {
     windows_targets::link!("icu.dll" "cdecl" fn unumf_resultNextFieldPosition(uresult : *const UFormattedNumber, ufpos : *mut UFieldPosition, ec : *mut UErrorCode) -> i8);
-    unumf_resultNextFieldPosition(core::mem::transmute(uresult), core::mem::transmute(ufpos), core::mem::transmute(ec))
+    unumf_resultNextFieldPosition(uresult, core::mem::transmute(ufpos), core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn unumf_resultToString(uresult: *const UFormattedNumber, buffer: *mut u16, buffercapacity: i32, ec: *mut UErrorCode) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn unumf_resultToString(uresult : *const UFormattedNumber, buffer : *mut u16, buffercapacity : i32, ec : *mut UErrorCode) -> i32);
-    unumf_resultToString(core::mem::transmute(uresult), core::mem::transmute(buffer), core::mem::transmute(buffercapacity), core::mem::transmute(ec))
+    unumf_resultToString(uresult, core::mem::transmute(buffer), buffercapacity, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn unumsys_close(unumsys: *mut UNumberingSystem) {
@@ -5448,22 +5406,22 @@ pub unsafe fn unumsys_close(unumsys: *mut UNumberingSystem) {
 #[inline]
 pub unsafe fn unumsys_getDescription(unumsys: *const UNumberingSystem, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unumsys_getDescription(unumsys : *const UNumberingSystem, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    unumsys_getDescription(core::mem::transmute(unumsys), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    unumsys_getDescription(unumsys, core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn unumsys_getName(unumsys: *const UNumberingSystem) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn unumsys_getName(unumsys : *const UNumberingSystem) -> windows_core::PCSTR);
-    unumsys_getName(core::mem::transmute(unumsys))
+    unumsys_getName(unumsys)
 }
 #[inline]
 pub unsafe fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn unumsys_getRadix(unumsys : *const UNumberingSystem) -> i32);
-    unumsys_getRadix(core::mem::transmute(unumsys))
+    unumsys_getRadix(unumsys)
 }
 #[inline]
 pub unsafe fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn unumsys_isAlgorithmic(unumsys : *const UNumberingSystem) -> i8);
-    unumsys_isAlgorithmic(core::mem::transmute(unumsys))
+    unumsys_isAlgorithmic(unumsys)
 }
 #[inline]
 pub unsafe fn unumsys_open<P0>(locale: P0, status: *mut UErrorCode) -> *mut UNumberingSystem
@@ -5494,7 +5452,7 @@ pub unsafe fn uplrules_close(uplrules: *mut UPluralRules) {
 #[inline]
 pub unsafe fn uplrules_getKeywords(uplrules: *const UPluralRules, status: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icuin.dll" "cdecl" fn uplrules_getKeywords(uplrules : *const UPluralRules, status : *mut UErrorCode) -> *mut UEnumeration);
-    uplrules_getKeywords(core::mem::transmute(uplrules), core::mem::transmute(status))
+    uplrules_getKeywords(uplrules, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uplrules_open<P0>(locale: P0, status: *mut UErrorCode) -> *mut UPluralRules
@@ -5510,22 +5468,22 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn uplrules_openForType(locale : windows_core::PCSTR, r#type : UPluralType, status : *mut UErrorCode) -> *mut UPluralRules);
-    uplrules_openForType(locale.param().abi(), core::mem::transmute(r#type), core::mem::transmute(status))
+    uplrules_openForType(locale.param().abi(), r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uplrules_select(uplrules: *const UPluralRules, number: f64, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uplrules_select(uplrules : *const UPluralRules, number : f64, keyword : *mut u16, capacity : i32, status : *mut UErrorCode) -> i32);
-    uplrules_select(core::mem::transmute(uplrules), core::mem::transmute(number), core::mem::transmute(keyword), core::mem::transmute(capacity), core::mem::transmute(status))
+    uplrules_select(uplrules, number, core::mem::transmute(keyword), capacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uplrules_selectFormatted(uplrules: *const UPluralRules, number: *const UFormattedNumber, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icu.dll" "cdecl" fn uplrules_selectFormatted(uplrules : *const UPluralRules, number : *const UFormattedNumber, keyword : *mut u16, capacity : i32, status : *mut UErrorCode) -> i32);
-    uplrules_selectFormatted(core::mem::transmute(uplrules), core::mem::transmute(number), core::mem::transmute(keyword), core::mem::transmute(capacity), core::mem::transmute(status))
+    uplrules_selectFormatted(uplrules, number, core::mem::transmute(keyword), capacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_appendReplacement(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_appendReplacement(regexp : *mut URegularExpression, replacementtext : *const u16, replacementlength : i32, destbuf : *mut *mut u16, destcapacity : *mut i32, status : *mut UErrorCode) -> i32);
-    uregex_appendReplacement(core::mem::transmute(regexp), core::mem::transmute(replacementtext), core::mem::transmute(replacementlength), core::mem::transmute(destbuf), core::mem::transmute(destcapacity), core::mem::transmute(status))
+    uregex_appendReplacement(core::mem::transmute(regexp), replacementtext, replacementlength, core::mem::transmute(destbuf), core::mem::transmute(destcapacity), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_appendReplacementUText(regexp: *mut URegularExpression, replacementtext: *mut UText, dest: *mut UText, status: *mut UErrorCode) {
@@ -5545,7 +5503,7 @@ pub unsafe fn uregex_appendTailUText(regexp: *mut URegularExpression, dest: *mut
 #[inline]
 pub unsafe fn uregex_clone(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut URegularExpression {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_clone(regexp : *const URegularExpression, status : *mut UErrorCode) -> *mut URegularExpression);
-    uregex_clone(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_clone(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_close(regexp: *mut URegularExpression) {
@@ -5555,22 +5513,22 @@ pub unsafe fn uregex_close(regexp: *mut URegularExpression) {
 #[inline]
 pub unsafe fn uregex_end(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_end(regexp : *mut URegularExpression, groupnum : i32, status : *mut UErrorCode) -> i32);
-    uregex_end(core::mem::transmute(regexp), core::mem::transmute(groupnum), core::mem::transmute(status))
+    uregex_end(core::mem::transmute(regexp), groupnum, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_end64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_end64(regexp : *mut URegularExpression, groupnum : i32, status : *mut UErrorCode) -> i64);
-    uregex_end64(core::mem::transmute(regexp), core::mem::transmute(groupnum), core::mem::transmute(status))
+    uregex_end64(core::mem::transmute(regexp), groupnum, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_find(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_find(regexp : *mut URegularExpression, startindex : i32, status : *mut UErrorCode) -> i8);
-    uregex_find(core::mem::transmute(regexp), core::mem::transmute(startindex), core::mem::transmute(status))
+    uregex_find(core::mem::transmute(regexp), startindex, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_find64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_find64(regexp : *mut URegularExpression, startindex : i64, status : *mut UErrorCode) -> i8);
-    uregex_find64(core::mem::transmute(regexp), core::mem::transmute(startindex), core::mem::transmute(status))
+    uregex_find64(core::mem::transmute(regexp), startindex, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i8 {
@@ -5580,22 +5538,22 @@ pub unsafe fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErr
 #[inline]
 pub unsafe fn uregex_flags(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_flags(regexp : *const URegularExpression, status : *mut UErrorCode) -> i32);
-    uregex_flags(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_flags(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut URegexFindProgressCallback, context: *const *const core::ffi::c_void, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_getFindProgressCallback(regexp : *const URegularExpression, callback : *mut URegexFindProgressCallback, context : *const *const core::ffi::c_void, status : *mut UErrorCode));
-    uregex_getFindProgressCallback(core::mem::transmute(regexp), core::mem::transmute(callback), core::mem::transmute(context), core::mem::transmute(status))
+    uregex_getFindProgressCallback(regexp, core::mem::transmute(callback), context, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut URegexMatchCallback, context: *const *const core::ffi::c_void, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_getMatchCallback(regexp : *const URegularExpression, callback : *mut URegexMatchCallback, context : *const *const core::ffi::c_void, status : *mut UErrorCode));
-    uregex_getMatchCallback(core::mem::transmute(regexp), core::mem::transmute(callback), core::mem::transmute(context), core::mem::transmute(status))
+    uregex_getMatchCallback(regexp, core::mem::transmute(callback), context, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_getStackLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_getStackLimit(regexp : *const URegularExpression, status : *mut UErrorCode) -> i32);
-    uregex_getStackLimit(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_getStackLimit(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i32, status: *mut UErrorCode) -> *mut u16 {
@@ -5605,7 +5563,7 @@ pub unsafe fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i
 #[inline]
 pub unsafe fn uregex_getTimeLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_getTimeLimit(regexp : *const URegularExpression, status : *mut UErrorCode) -> i32);
-    uregex_getTimeLimit(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_getTimeLimit(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_getUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
@@ -5615,7 +5573,7 @@ pub unsafe fn uregex_getUText(regexp: *mut URegularExpression, dest: *mut UText,
 #[inline]
 pub unsafe fn uregex_group(regexp: *mut URegularExpression, groupnum: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_group(regexp : *mut URegularExpression, groupnum : i32, dest : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
-    uregex_group(core::mem::transmute(regexp), core::mem::transmute(groupnum), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(status))
+    uregex_group(core::mem::transmute(regexp), groupnum, core::mem::transmute(dest), destcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i32 {
@@ -5628,57 +5586,57 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_groupNumberFromCName(regexp : *mut URegularExpression, groupname : windows_core::PCSTR, namelength : i32, status : *mut UErrorCode) -> i32);
-    uregex_groupNumberFromCName(core::mem::transmute(regexp), groupname.param().abi(), core::mem::transmute(namelength), core::mem::transmute(status))
+    uregex_groupNumberFromCName(core::mem::transmute(regexp), groupname.param().abi(), namelength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_groupNumberFromName(regexp: *mut URegularExpression, groupname: *const u16, namelength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_groupNumberFromName(regexp : *mut URegularExpression, groupname : *const u16, namelength : i32, status : *mut UErrorCode) -> i32);
-    uregex_groupNumberFromName(core::mem::transmute(regexp), core::mem::transmute(groupname), core::mem::transmute(namelength), core::mem::transmute(status))
+    uregex_groupNumberFromName(core::mem::transmute(regexp), groupname, namelength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_groupUText(regexp: *mut URegularExpression, groupnum: i32, dest: *mut UText, grouplength: *mut i64, status: *mut UErrorCode) -> *mut UText {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_groupUText(regexp : *mut URegularExpression, groupnum : i32, dest : *mut UText, grouplength : *mut i64, status : *mut UErrorCode) -> *mut UText);
-    uregex_groupUText(core::mem::transmute(regexp), core::mem::transmute(groupnum), core::mem::transmute(dest), core::mem::transmute(grouplength), core::mem::transmute(status))
+    uregex_groupUText(core::mem::transmute(regexp), groupnum, core::mem::transmute(dest), core::mem::transmute(grouplength), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_hasAnchoringBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_hasAnchoringBounds(regexp : *const URegularExpression, status : *mut UErrorCode) -> i8);
-    uregex_hasAnchoringBounds(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_hasAnchoringBounds(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_hasTransparentBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_hasTransparentBounds(regexp : *const URegularExpression, status : *mut UErrorCode) -> i8);
-    uregex_hasTransparentBounds(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_hasTransparentBounds(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_hitEnd(regexp : *const URegularExpression, status : *mut UErrorCode) -> i8);
-    uregex_hitEnd(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_hitEnd(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_lookingAt(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_lookingAt(regexp : *mut URegularExpression, startindex : i32, status : *mut UErrorCode) -> i8);
-    uregex_lookingAt(core::mem::transmute(regexp), core::mem::transmute(startindex), core::mem::transmute(status))
+    uregex_lookingAt(core::mem::transmute(regexp), startindex, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_lookingAt64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_lookingAt64(regexp : *mut URegularExpression, startindex : i64, status : *mut UErrorCode) -> i8);
-    uregex_lookingAt64(core::mem::transmute(regexp), core::mem::transmute(startindex), core::mem::transmute(status))
+    uregex_lookingAt64(core::mem::transmute(regexp), startindex, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_matches(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_matches(regexp : *mut URegularExpression, startindex : i32, status : *mut UErrorCode) -> i8);
-    uregex_matches(core::mem::transmute(regexp), core::mem::transmute(startindex), core::mem::transmute(status))
+    uregex_matches(core::mem::transmute(regexp), startindex, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_matches64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_matches64(regexp : *mut URegularExpression, startindex : i64, status : *mut UErrorCode) -> i8);
-    uregex_matches64(core::mem::transmute(regexp), core::mem::transmute(startindex), core::mem::transmute(status))
+    uregex_matches64(core::mem::transmute(regexp), startindex, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_open(pattern: *const u16, patternlength: i32, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_open(pattern : *const u16, patternlength : i32, flags : u32, pe : *mut UParseError, status : *mut UErrorCode) -> *mut URegularExpression);
-    uregex_open(core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(flags), core::mem::transmute(pe), core::mem::transmute(status))
+    uregex_open(pattern, patternlength, flags, core::mem::transmute(pe), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_openC<P0>(pattern: P0, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression
@@ -5686,22 +5644,22 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_openC(pattern : windows_core::PCSTR, flags : u32, pe : *mut UParseError, status : *mut UErrorCode) -> *mut URegularExpression);
-    uregex_openC(pattern.param().abi(), core::mem::transmute(flags), core::mem::transmute(pe), core::mem::transmute(status))
+    uregex_openC(pattern.param().abi(), flags, core::mem::transmute(pe), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_openUText(pattern: *mut UText, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_openUText(pattern : *mut UText, flags : u32, pe : *mut UParseError, status : *mut UErrorCode) -> *mut URegularExpression);
-    uregex_openUText(core::mem::transmute(pattern), core::mem::transmute(flags), core::mem::transmute(pe), core::mem::transmute(status))
+    uregex_openUText(core::mem::transmute(pattern), flags, core::mem::transmute(pe), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_pattern(regexp: *const URegularExpression, patlength: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_pattern(regexp : *const URegularExpression, patlength : *mut i32, status : *mut UErrorCode) -> *mut u16);
-    uregex_pattern(core::mem::transmute(regexp), core::mem::transmute(patlength), core::mem::transmute(status))
+    uregex_pattern(regexp, core::mem::transmute(patlength), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_patternUText(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut UText {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_patternUText(regexp : *const URegularExpression, status : *mut UErrorCode) -> *mut UText);
-    uregex_patternUText(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_patternUText(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_refreshUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode) {
@@ -5711,27 +5669,27 @@ pub unsafe fn uregex_refreshUText(regexp: *mut URegularExpression, text: *mut UT
 #[inline]
 pub unsafe fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_regionEnd(regexp : *const URegularExpression, status : *mut UErrorCode) -> i32);
-    uregex_regionEnd(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_regionEnd(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_regionEnd64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_regionEnd64(regexp : *const URegularExpression, status : *mut UErrorCode) -> i64);
-    uregex_regionEnd64(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_regionEnd64(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_regionStart(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_regionStart(regexp : *const URegularExpression, status : *mut UErrorCode) -> i32);
-    uregex_regionStart(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_regionStart(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_regionStart64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_regionStart64(regexp : *const URegularExpression, status : *mut UErrorCode) -> i64);
-    uregex_regionStart64(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_regionStart64(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_replaceAll(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_replaceAll(regexp : *mut URegularExpression, replacementtext : *const u16, replacementlength : i32, destbuf : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
-    uregex_replaceAll(core::mem::transmute(regexp), core::mem::transmute(replacementtext), core::mem::transmute(replacementlength), core::mem::transmute(destbuf), core::mem::transmute(destcapacity), core::mem::transmute(status))
+    uregex_replaceAll(core::mem::transmute(regexp), replacementtext, replacementlength, core::mem::transmute(destbuf), destcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_replaceAllUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
@@ -5741,7 +5699,7 @@ pub unsafe fn uregex_replaceAllUText(regexp: *mut URegularExpression, replacemen
 #[inline]
 pub unsafe fn uregex_replaceFirst(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_replaceFirst(regexp : *mut URegularExpression, replacementtext : *const u16, replacementlength : i32, destbuf : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
-    uregex_replaceFirst(core::mem::transmute(regexp), core::mem::transmute(replacementtext), core::mem::transmute(replacementlength), core::mem::transmute(destbuf), core::mem::transmute(destcapacity), core::mem::transmute(status))
+    uregex_replaceFirst(core::mem::transmute(regexp), replacementtext, replacementlength, core::mem::transmute(destbuf), destcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_replaceFirstUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
@@ -5751,57 +5709,57 @@ pub unsafe fn uregex_replaceFirstUText(regexp: *mut URegularExpression, replacem
 #[inline]
 pub unsafe fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_requireEnd(regexp : *const URegularExpression, status : *mut UErrorCode) -> i8);
-    uregex_requireEnd(core::mem::transmute(regexp), core::mem::transmute(status))
+    uregex_requireEnd(regexp, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_reset(regexp : *mut URegularExpression, index : i32, status : *mut UErrorCode));
-    uregex_reset(core::mem::transmute(regexp), core::mem::transmute(index), core::mem::transmute(status))
+    uregex_reset(core::mem::transmute(regexp), index, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_reset64(regexp : *mut URegularExpression, index : i64, status : *mut UErrorCode));
-    uregex_reset64(core::mem::transmute(regexp), core::mem::transmute(index), core::mem::transmute(status))
+    uregex_reset64(core::mem::transmute(regexp), index, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, callback: URegexFindProgressCallback, context: *const core::ffi::c_void, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_setFindProgressCallback(regexp : *mut URegularExpression, callback : URegexFindProgressCallback, context : *const core::ffi::c_void, status : *mut UErrorCode));
-    uregex_setFindProgressCallback(core::mem::transmute(regexp), core::mem::transmute(callback), core::mem::transmute(context), core::mem::transmute(status))
+    uregex_setFindProgressCallback(core::mem::transmute(regexp), callback, context, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback: URegexMatchCallback, context: *const core::ffi::c_void, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_setMatchCallback(regexp : *mut URegularExpression, callback : URegexMatchCallback, context : *const core::ffi::c_void, status : *mut UErrorCode));
-    uregex_setMatchCallback(core::mem::transmute(regexp), core::mem::transmute(callback), core::mem::transmute(context), core::mem::transmute(status))
+    uregex_setMatchCallback(core::mem::transmute(regexp), callback, context, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_setRegion(regexp: *mut URegularExpression, regionstart: i32, regionlimit: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_setRegion(regexp : *mut URegularExpression, regionstart : i32, regionlimit : i32, status : *mut UErrorCode));
-    uregex_setRegion(core::mem::transmute(regexp), core::mem::transmute(regionstart), core::mem::transmute(regionlimit), core::mem::transmute(status))
+    uregex_setRegion(core::mem::transmute(regexp), regionstart, regionlimit, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_setRegion64(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_setRegion64(regexp : *mut URegularExpression, regionstart : i64, regionlimit : i64, status : *mut UErrorCode));
-    uregex_setRegion64(core::mem::transmute(regexp), core::mem::transmute(regionstart), core::mem::transmute(regionlimit), core::mem::transmute(status))
+    uregex_setRegion64(core::mem::transmute(regexp), regionstart, regionlimit, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_setRegionAndStart(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, startindex: i64, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_setRegionAndStart(regexp : *mut URegularExpression, regionstart : i64, regionlimit : i64, startindex : i64, status : *mut UErrorCode));
-    uregex_setRegionAndStart(core::mem::transmute(regexp), core::mem::transmute(regionstart), core::mem::transmute(regionlimit), core::mem::transmute(startindex), core::mem::transmute(status))
+    uregex_setRegionAndStart(core::mem::transmute(regexp), regionstart, regionlimit, startindex, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_setStackLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_setStackLimit(regexp : *mut URegularExpression, limit : i32, status : *mut UErrorCode));
-    uregex_setStackLimit(core::mem::transmute(regexp), core::mem::transmute(limit), core::mem::transmute(status))
+    uregex_setStackLimit(core::mem::transmute(regexp), limit, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_setText(regexp: *mut URegularExpression, text: *const u16, textlength: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_setText(regexp : *mut URegularExpression, text : *const u16, textlength : i32, status : *mut UErrorCode));
-    uregex_setText(core::mem::transmute(regexp), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(status))
+    uregex_setText(core::mem::transmute(regexp), text, textlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_setTimeLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_setTimeLimit(regexp : *mut URegularExpression, limit : i32, status : *mut UErrorCode));
-    uregex_setTimeLimit(core::mem::transmute(regexp), core::mem::transmute(limit), core::mem::transmute(status))
+    uregex_setTimeLimit(core::mem::transmute(regexp), limit, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_setUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode) {
@@ -5811,82 +5769,82 @@ pub unsafe fn uregex_setUText(regexp: *mut URegularExpression, text: *mut UText,
 #[inline]
 pub unsafe fn uregex_split(regexp: *mut URegularExpression, destbuf: *mut u16, destcapacity: i32, requiredcapacity: *mut i32, destfields: *mut *mut u16, destfieldscapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_split(regexp : *mut URegularExpression, destbuf : *mut u16, destcapacity : i32, requiredcapacity : *mut i32, destfields : *mut *mut u16, destfieldscapacity : i32, status : *mut UErrorCode) -> i32);
-    uregex_split(core::mem::transmute(regexp), core::mem::transmute(destbuf), core::mem::transmute(destcapacity), core::mem::transmute(requiredcapacity), core::mem::transmute(destfields), core::mem::transmute(destfieldscapacity), core::mem::transmute(status))
+    uregex_split(core::mem::transmute(regexp), core::mem::transmute(destbuf), destcapacity, core::mem::transmute(requiredcapacity), core::mem::transmute(destfields), destfieldscapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_splitUText(regexp: *mut URegularExpression, destfields: *mut *mut UText, destfieldscapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_splitUText(regexp : *mut URegularExpression, destfields : *mut *mut UText, destfieldscapacity : i32, status : *mut UErrorCode) -> i32);
-    uregex_splitUText(core::mem::transmute(regexp), core::mem::transmute(destfields), core::mem::transmute(destfieldscapacity), core::mem::transmute(status))
+    uregex_splitUText(core::mem::transmute(regexp), core::mem::transmute(destfields), destfieldscapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_start(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_start(regexp : *mut URegularExpression, groupnum : i32, status : *mut UErrorCode) -> i32);
-    uregex_start(core::mem::transmute(regexp), core::mem::transmute(groupnum), core::mem::transmute(status))
+    uregex_start(core::mem::transmute(regexp), groupnum, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_start64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_start64(regexp : *mut URegularExpression, groupnum : i32, status : *mut UErrorCode) -> i64);
-    uregex_start64(core::mem::transmute(regexp), core::mem::transmute(groupnum), core::mem::transmute(status))
+    uregex_start64(core::mem::transmute(regexp), groupnum, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_useAnchoringBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_useAnchoringBounds(regexp : *mut URegularExpression, b : i8, status : *mut UErrorCode));
-    uregex_useAnchoringBounds(core::mem::transmute(regexp), core::mem::transmute(b), core::mem::transmute(status))
+    uregex_useAnchoringBounds(core::mem::transmute(regexp), b, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregex_useTransparentBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uregex_useTransparentBounds(regexp : *mut URegularExpression, b : i8, status : *mut UErrorCode));
-    uregex_useTransparentBounds(core::mem::transmute(regexp), core::mem::transmute(b), core::mem::transmute(status))
+    uregex_useTransparentBounds(core::mem::transmute(regexp), b, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregion_areEqual(uregion: *const URegion, otherregion: *const URegion) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregion_areEqual(uregion : *const URegion, otherregion : *const URegion) -> i8);
-    uregion_areEqual(core::mem::transmute(uregion), core::mem::transmute(otherregion))
+    uregion_areEqual(uregion, otherregion)
 }
 #[inline]
 pub unsafe fn uregion_contains(uregion: *const URegion, otherregion: *const URegion) -> i8 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregion_contains(uregion : *const URegion, otherregion : *const URegion) -> i8);
-    uregion_contains(core::mem::transmute(uregion), core::mem::transmute(otherregion))
+    uregion_contains(uregion, otherregion)
 }
 #[inline]
 pub unsafe fn uregion_getAvailable(r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icuin.dll" "cdecl" fn uregion_getAvailable(r#type : URegionType, status : *mut UErrorCode) -> *mut UEnumeration);
-    uregion_getAvailable(core::mem::transmute(r#type), core::mem::transmute(status))
+    uregion_getAvailable(r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregion_getContainedRegions(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icuin.dll" "cdecl" fn uregion_getContainedRegions(uregion : *const URegion, status : *mut UErrorCode) -> *mut UEnumeration);
-    uregion_getContainedRegions(core::mem::transmute(uregion), core::mem::transmute(status))
+    uregion_getContainedRegions(uregion, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregion_getContainedRegionsOfType(uregion: *const URegion, r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icuin.dll" "cdecl" fn uregion_getContainedRegionsOfType(uregion : *const URegion, r#type : URegionType, status : *mut UErrorCode) -> *mut UEnumeration);
-    uregion_getContainedRegionsOfType(core::mem::transmute(uregion), core::mem::transmute(r#type), core::mem::transmute(status))
+    uregion_getContainedRegionsOfType(uregion, r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegion {
     windows_targets::link!("icuin.dll" "cdecl" fn uregion_getContainingRegion(uregion : *const URegion) -> *mut URegion);
-    uregion_getContainingRegion(core::mem::transmute(uregion))
+    uregion_getContainingRegion(uregion)
 }
 #[inline]
 pub unsafe fn uregion_getContainingRegionOfType(uregion: *const URegion, r#type: URegionType) -> *mut URegion {
     windows_targets::link!("icuin.dll" "cdecl" fn uregion_getContainingRegionOfType(uregion : *const URegion, r#type : URegionType) -> *mut URegion);
-    uregion_getContainingRegionOfType(core::mem::transmute(uregion), core::mem::transmute(r#type))
+    uregion_getContainingRegionOfType(uregion, r#type)
 }
 #[inline]
 pub unsafe fn uregion_getNumericCode(uregion: *const URegion) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uregion_getNumericCode(uregion : *const URegion) -> i32);
-    uregion_getNumericCode(core::mem::transmute(uregion))
+    uregion_getNumericCode(uregion)
 }
 #[inline]
 pub unsafe fn uregion_getPreferredValues(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration {
     windows_targets::link!("icuin.dll" "cdecl" fn uregion_getPreferredValues(uregion : *const URegion, status : *mut UErrorCode) -> *mut UEnumeration);
-    uregion_getPreferredValues(core::mem::transmute(uregion), core::mem::transmute(status))
+    uregion_getPreferredValues(uregion, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregion_getRegionCode(uregion: *const URegion) -> windows_core::PCSTR {
     windows_targets::link!("icuin.dll" "cdecl" fn uregion_getRegionCode(uregion : *const URegion) -> windows_core::PCSTR);
-    uregion_getRegionCode(core::mem::transmute(uregion))
+    uregion_getRegionCode(uregion)
 }
 #[inline]
 pub unsafe fn uregion_getRegionFromCode<P0>(regioncode: P0, status: *mut UErrorCode) -> *mut URegion
@@ -5899,12 +5857,12 @@ where
 #[inline]
 pub unsafe fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCode) -> *mut URegion {
     windows_targets::link!("icuin.dll" "cdecl" fn uregion_getRegionFromNumericCode(code : i32, status : *mut UErrorCode) -> *mut URegion);
-    uregion_getRegionFromNumericCode(core::mem::transmute(code), core::mem::transmute(status))
+    uregion_getRegionFromNumericCode(code, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uregion_getType(uregion: *const URegion) -> URegionType {
     windows_targets::link!("icuin.dll" "cdecl" fn uregion_getType(uregion : *const URegion) -> URegionType);
-    uregion_getType(core::mem::transmute(uregion))
+    uregion_getType(uregion)
 }
 #[inline]
 pub unsafe fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter) {
@@ -5919,27 +5877,27 @@ pub unsafe fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime) {
 #[inline]
 pub unsafe fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTimeFormatter, relativedatestring: *const u16, relativedatestringlen: i32, timestring: *const u16, timestringlen: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ureldatefmt_combineDateAndTime(reldatefmt : *const URelativeDateTimeFormatter, relativedatestring : *const u16, relativedatestringlen : i32, timestring : *const u16, timestringlen : i32, result : *mut u16, resultcapacity : i32, status : *mut UErrorCode) -> i32);
-    ureldatefmt_combineDateAndTime(core::mem::transmute(reldatefmt), core::mem::transmute(relativedatestring), core::mem::transmute(relativedatestringlen), core::mem::transmute(timestring), core::mem::transmute(timestringlen), core::mem::transmute(result), core::mem::transmute(resultcapacity), core::mem::transmute(status))
+    ureldatefmt_combineDateAndTime(reldatefmt, relativedatestring, relativedatestringlen, timestring, timestringlen, core::mem::transmute(result), resultcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ureldatefmt_format(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ureldatefmt_format(reldatefmt : *const URelativeDateTimeFormatter, offset : f64, unit : URelativeDateTimeUnit, result : *mut u16, resultcapacity : i32, status : *mut UErrorCode) -> i32);
-    ureldatefmt_format(core::mem::transmute(reldatefmt), core::mem::transmute(offset), core::mem::transmute(unit), core::mem::transmute(result), core::mem::transmute(resultcapacity), core::mem::transmute(status))
+    ureldatefmt_format(reldatefmt, offset, unit, core::mem::transmute(result), resultcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ureldatefmt_formatNumeric(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn ureldatefmt_formatNumeric(reldatefmt : *const URelativeDateTimeFormatter, offset : f64, unit : URelativeDateTimeUnit, result : *mut u16, resultcapacity : i32, status : *mut UErrorCode) -> i32);
-    ureldatefmt_formatNumeric(core::mem::transmute(reldatefmt), core::mem::transmute(offset), core::mem::transmute(unit), core::mem::transmute(result), core::mem::transmute(resultcapacity), core::mem::transmute(status))
+    ureldatefmt_formatNumeric(reldatefmt, offset, unit, core::mem::transmute(result), resultcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ureldatefmt_formatNumericToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn ureldatefmt_formatNumericToResult(reldatefmt : *const URelativeDateTimeFormatter, offset : f64, unit : URelativeDateTimeUnit, result : *mut UFormattedRelativeDateTime, status : *mut UErrorCode));
-    ureldatefmt_formatNumericToResult(core::mem::transmute(reldatefmt), core::mem::transmute(offset), core::mem::transmute(unit), core::mem::transmute(result), core::mem::transmute(status))
+    ureldatefmt_formatNumericToResult(reldatefmt, offset, unit, core::mem::transmute(result), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ureldatefmt_formatToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode) {
     windows_targets::link!("icu.dll" "cdecl" fn ureldatefmt_formatToResult(reldatefmt : *const URelativeDateTimeFormatter, offset : f64, unit : URelativeDateTimeUnit, result : *mut UFormattedRelativeDateTime, status : *mut UErrorCode));
-    ureldatefmt_formatToResult(core::mem::transmute(reldatefmt), core::mem::transmute(offset), core::mem::transmute(unit), core::mem::transmute(result), core::mem::transmute(status))
+    ureldatefmt_formatToResult(reldatefmt, offset, unit, core::mem::transmute(result), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ureldatefmt_open<P0>(locale: P0, nftoadopt: *mut *mut core::ffi::c_void, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: *mut UErrorCode) -> *mut URelativeDateTimeFormatter
@@ -5947,7 +5905,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn ureldatefmt_open(locale : windows_core::PCSTR, nftoadopt : *mut *mut core::ffi::c_void, width : UDateRelativeDateTimeFormatterStyle, capitalizationcontext : UDisplayContext, status : *mut UErrorCode) -> *mut URelativeDateTimeFormatter);
-    ureldatefmt_open(locale.param().abi(), core::mem::transmute(nftoadopt), core::mem::transmute(width), core::mem::transmute(capitalizationcontext), core::mem::transmute(status))
+    ureldatefmt_open(locale.param().abi(), core::mem::transmute(nftoadopt), width, capitalizationcontext, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRelativeDateTime {
@@ -5957,7 +5915,7 @@ pub unsafe fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRela
 #[inline]
 pub unsafe fn ureldatefmt_resultAsValue(ufrdt: *const UFormattedRelativeDateTime, ec: *mut UErrorCode) -> *mut UFormattedValue {
     windows_targets::link!("icu.dll" "cdecl" fn ureldatefmt_resultAsValue(ufrdt : *const UFormattedRelativeDateTime, ec : *mut UErrorCode) -> *mut UFormattedValue);
-    ureldatefmt_resultAsValue(core::mem::transmute(ufrdt), core::mem::transmute(ec))
+    ureldatefmt_resultAsValue(ufrdt, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn ures_close(resourcebundle: *mut UResourceBundle) {
@@ -5967,12 +5925,12 @@ pub unsafe fn ures_close(resourcebundle: *mut UResourceBundle) {
 #[inline]
 pub unsafe fn ures_getBinary(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getBinary(resourcebundle : *const UResourceBundle, len : *mut i32, status : *mut UErrorCode) -> *mut u8);
-    ures_getBinary(core::mem::transmute(resourcebundle), core::mem::transmute(len), core::mem::transmute(status))
+    ures_getBinary(resourcebundle, core::mem::transmute(len), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getByIndex(resourcebundle: *const UResourceBundle, indexr: i32, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getByIndex(resourcebundle : *const UResourceBundle, indexr : i32, fillin : *mut UResourceBundle, status : *mut UErrorCode) -> *mut UResourceBundle);
-    ures_getByIndex(core::mem::transmute(resourcebundle), core::mem::transmute(indexr), core::mem::transmute(fillin), core::mem::transmute(status))
+    ures_getByIndex(resourcebundle, indexr, core::mem::transmute(fillin), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getByKey<P1>(resourcebundle: *const UResourceBundle, key: P1, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle
@@ -5980,27 +5938,27 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getByKey(resourcebundle : *const UResourceBundle, key : windows_core::PCSTR, fillin : *mut UResourceBundle, status : *mut UErrorCode) -> *mut UResourceBundle);
-    ures_getByKey(core::mem::transmute(resourcebundle), key.param().abi(), core::mem::transmute(fillin), core::mem::transmute(status))
+    ures_getByKey(resourcebundle, key.param().abi(), core::mem::transmute(fillin), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getInt(resourcebundle : *const UResourceBundle, status : *mut UErrorCode) -> i32);
-    ures_getInt(core::mem::transmute(resourcebundle), core::mem::transmute(status))
+    ures_getInt(resourcebundle, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getIntVector(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getIntVector(resourcebundle : *const UResourceBundle, len : *mut i32, status : *mut UErrorCode) -> *mut i32);
-    ures_getIntVector(core::mem::transmute(resourcebundle), core::mem::transmute(len), core::mem::transmute(status))
+    ures_getIntVector(resourcebundle, core::mem::transmute(len), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getKey(resourcebundle: *const UResourceBundle) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getKey(resourcebundle : *const UResourceBundle) -> windows_core::PCSTR);
-    ures_getKey(core::mem::transmute(resourcebundle))
+    ures_getKey(resourcebundle)
 }
 #[inline]
 pub unsafe fn ures_getLocaleByType(resourcebundle: *const UResourceBundle, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getLocaleByType(resourcebundle : *const UResourceBundle, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> windows_core::PCSTR);
-    ures_getLocaleByType(core::mem::transmute(resourcebundle), core::mem::transmute(r#type), core::mem::transmute(status))
+    ures_getLocaleByType(resourcebundle, r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getNextResource(resourcebundle: *mut UResourceBundle, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle {
@@ -6010,22 +5968,22 @@ pub unsafe fn ures_getNextResource(resourcebundle: *mut UResourceBundle, fillin:
 #[inline]
 pub unsafe fn ures_getNextString(resourcebundle: *mut UResourceBundle, len: *mut i32, key: *const *const i8, status: *mut UErrorCode) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getNextString(resourcebundle : *mut UResourceBundle, len : *mut i32, key : *const *const i8, status : *mut UErrorCode) -> *mut u16);
-    ures_getNextString(core::mem::transmute(resourcebundle), core::mem::transmute(len), core::mem::transmute(key), core::mem::transmute(status))
+    ures_getNextString(core::mem::transmute(resourcebundle), core::mem::transmute(len), key, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getSize(resourcebundle : *const UResourceBundle) -> i32);
-    ures_getSize(core::mem::transmute(resourcebundle))
+    ures_getSize(resourcebundle)
 }
 #[inline]
 pub unsafe fn ures_getString(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getString(resourcebundle : *const UResourceBundle, len : *mut i32, status : *mut UErrorCode) -> *mut u16);
-    ures_getString(core::mem::transmute(resourcebundle), core::mem::transmute(len), core::mem::transmute(status))
+    ures_getString(resourcebundle, core::mem::transmute(len), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getStringByIndex(resourcebundle: *const UResourceBundle, indexs: i32, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getStringByIndex(resourcebundle : *const UResourceBundle, indexs : i32, len : *mut i32, status : *mut UErrorCode) -> *mut u16);
-    ures_getStringByIndex(core::mem::transmute(resourcebundle), core::mem::transmute(indexs), core::mem::transmute(len), core::mem::transmute(status))
+    ures_getStringByIndex(resourcebundle, indexs, core::mem::transmute(len), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getStringByKey<P1>(resb: *const UResourceBundle, key: P1, len: *mut i32, status: *mut UErrorCode) -> *mut u16
@@ -6033,17 +5991,17 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getStringByKey(resb : *const UResourceBundle, key : windows_core::PCSTR, len : *mut i32, status : *mut UErrorCode) -> *mut u16);
-    ures_getStringByKey(core::mem::transmute(resb), key.param().abi(), core::mem::transmute(len), core::mem::transmute(status))
+    ures_getStringByKey(resb, key.param().abi(), core::mem::transmute(len), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getType(resourcebundle : *const UResourceBundle) -> UResType);
-    ures_getType(core::mem::transmute(resourcebundle))
+    ures_getType(resourcebundle)
 }
 #[inline]
 pub unsafe fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> u32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getUInt(resourcebundle : *const UResourceBundle, status : *mut UErrorCode) -> u32);
-    ures_getUInt(core::mem::transmute(resourcebundle), core::mem::transmute(status))
+    ures_getUInt(resourcebundle, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getUTF8String<P1>(resb: *const UResourceBundle, dest: P1, length: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> windows_core::PCSTR
@@ -6051,7 +6009,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getUTF8String(resb : *const UResourceBundle, dest : windows_core::PCSTR, length : *mut i32, forcecopy : i8, status : *mut UErrorCode) -> windows_core::PCSTR);
-    ures_getUTF8String(core::mem::transmute(resb), dest.param().abi(), core::mem::transmute(length), core::mem::transmute(forcecopy), core::mem::transmute(status))
+    ures_getUTF8String(resb, dest.param().abi(), core::mem::transmute(length), forcecopy, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getUTF8StringByIndex<P2>(resb: *const UResourceBundle, stringindex: i32, dest: P2, plength: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> windows_core::PCSTR
@@ -6059,7 +6017,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getUTF8StringByIndex(resb : *const UResourceBundle, stringindex : i32, dest : windows_core::PCSTR, plength : *mut i32, forcecopy : i8, status : *mut UErrorCode) -> windows_core::PCSTR);
-    ures_getUTF8StringByIndex(core::mem::transmute(resb), core::mem::transmute(stringindex), dest.param().abi(), core::mem::transmute(plength), core::mem::transmute(forcecopy), core::mem::transmute(status))
+    ures_getUTF8StringByIndex(resb, stringindex, dest.param().abi(), core::mem::transmute(plength), forcecopy, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getUTF8StringByKey<P1, P2>(resb: *const UResourceBundle, key: P1, dest: P2, plength: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> windows_core::PCSTR
@@ -6068,17 +6026,17 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getUTF8StringByKey(resb : *const UResourceBundle, key : windows_core::PCSTR, dest : windows_core::PCSTR, plength : *mut i32, forcecopy : i8, status : *mut UErrorCode) -> windows_core::PCSTR);
-    ures_getUTF8StringByKey(core::mem::transmute(resb), key.param().abi(), dest.param().abi(), core::mem::transmute(plength), core::mem::transmute(forcecopy), core::mem::transmute(status))
+    ures_getUTF8StringByKey(resb, key.param().abi(), dest.param().abi(), core::mem::transmute(plength), forcecopy, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8) {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_getVersion(resb : *const UResourceBundle, versioninfo : *mut u8));
-    ures_getVersion(core::mem::transmute(resb), core::mem::transmute(versioninfo))
+    ures_getVersion(resb, core::mem::transmute(versioninfo))
 }
 #[inline]
 pub unsafe fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_hasNext(resourcebundle : *const UResourceBundle) -> i8);
-    ures_hasNext(core::mem::transmute(resourcebundle))
+    ures_hasNext(resourcebundle)
 }
 #[inline]
 pub unsafe fn ures_open<P0, P1>(packagename: P0, locale: P1, status: *mut UErrorCode) -> *mut UResourceBundle
@@ -6112,7 +6070,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn ures_openU(packagename : *const u16, locale : windows_core::PCSTR, status : *mut UErrorCode) -> *mut UResourceBundle);
-    ures_openU(core::mem::transmute(packagename), locale.param().abi(), core::mem::transmute(status))
+    ures_openU(packagename, locale.param().abi(), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn ures_resetIterator(resourcebundle: *mut UResourceBundle) {
@@ -6122,7 +6080,7 @@ pub unsafe fn ures_resetIterator(resourcebundle: *mut UResourceBundle) {
 #[inline]
 pub unsafe fn uscript_breaksBetweenLetters(script: UScriptCode) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uscript_breaksBetweenLetters(script : UScriptCode) -> i8);
-    uscript_breaksBetweenLetters(core::mem::transmute(script))
+    uscript_breaksBetweenLetters(script)
 }
 #[inline]
 pub unsafe fn uscript_getCode<P0>(nameorabbrorlocale: P0, fillin: *mut UScriptCode, capacity: i32, err: *mut UErrorCode) -> i32
@@ -6130,52 +6088,52 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uscript_getCode(nameorabbrorlocale : windows_core::PCSTR, fillin : *mut UScriptCode, capacity : i32, err : *mut UErrorCode) -> i32);
-    uscript_getCode(nameorabbrorlocale.param().abi(), core::mem::transmute(fillin), core::mem::transmute(capacity), core::mem::transmute(err))
+    uscript_getCode(nameorabbrorlocale.param().abi(), core::mem::transmute(fillin), capacity, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uscript_getName(scriptcode: UScriptCode) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn uscript_getName(scriptcode : UScriptCode) -> windows_core::PCSTR);
-    uscript_getName(core::mem::transmute(scriptcode))
+    uscript_getName(scriptcode)
 }
 #[inline]
 pub unsafe fn uscript_getSampleString(script: UScriptCode, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uscript_getSampleString(script : UScriptCode, dest : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    uscript_getSampleString(core::mem::transmute(script), core::mem::transmute(dest), core::mem::transmute(capacity), core::mem::transmute(perrorcode))
+    uscript_getSampleString(script, core::mem::transmute(dest), capacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScriptCode {
     windows_targets::link!("icuuc.dll" "cdecl" fn uscript_getScript(codepoint : i32, err : *mut UErrorCode) -> UScriptCode);
-    uscript_getScript(core::mem::transmute(codepoint), core::mem::transmute(err))
+    uscript_getScript(codepoint, core::mem::transmute(err))
 }
 #[inline]
 pub unsafe fn uscript_getScriptExtensions(c: i32, scripts: *mut UScriptCode, capacity: i32, errorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uscript_getScriptExtensions(c : i32, scripts : *mut UScriptCode, capacity : i32, errorcode : *mut UErrorCode) -> i32);
-    uscript_getScriptExtensions(core::mem::transmute(c), core::mem::transmute(scripts), core::mem::transmute(capacity), core::mem::transmute(errorcode))
+    uscript_getScriptExtensions(c, core::mem::transmute(scripts), capacity, core::mem::transmute(errorcode))
 }
 #[inline]
 pub unsafe fn uscript_getShortName(scriptcode: UScriptCode) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn uscript_getShortName(scriptcode : UScriptCode) -> windows_core::PCSTR);
-    uscript_getShortName(core::mem::transmute(scriptcode))
+    uscript_getShortName(scriptcode)
 }
 #[inline]
 pub unsafe fn uscript_getUsage(script: UScriptCode) -> UScriptUsage {
     windows_targets::link!("icuuc.dll" "cdecl" fn uscript_getUsage(script : UScriptCode) -> UScriptUsage);
-    uscript_getUsage(core::mem::transmute(script))
+    uscript_getUsage(script)
 }
 #[inline]
 pub unsafe fn uscript_hasScript(c: i32, sc: UScriptCode) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uscript_hasScript(c : i32, sc : UScriptCode) -> i8);
-    uscript_hasScript(core::mem::transmute(c), core::mem::transmute(sc))
+    uscript_hasScript(c, sc)
 }
 #[inline]
 pub unsafe fn uscript_isCased(script: UScriptCode) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uscript_isCased(script : UScriptCode) -> i8);
-    uscript_isCased(core::mem::transmute(script))
+    uscript_isCased(script)
 }
 #[inline]
 pub unsafe fn uscript_isRightToLeft(script: UScriptCode) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uscript_isRightToLeft(script : UScriptCode) -> i8);
-    uscript_isRightToLeft(core::mem::transmute(script))
+    uscript_isRightToLeft(script)
 }
 #[inline]
 pub unsafe fn usearch_close(searchiter: *mut UStringSearch) {
@@ -6190,52 +6148,52 @@ pub unsafe fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode
 #[inline]
 pub unsafe fn usearch_following(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_following(strsrch : *mut UStringSearch, position : i32, status : *mut UErrorCode) -> i32);
-    usearch_following(core::mem::transmute(strsrch), core::mem::transmute(position), core::mem::transmute(status))
+    usearch_following(core::mem::transmute(strsrch), position, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn usearch_getAttribute(strsrch: *const UStringSearch, attribute: USearchAttribute) -> USearchAttributeValue {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_getAttribute(strsrch : *const UStringSearch, attribute : USearchAttribute) -> USearchAttributeValue);
-    usearch_getAttribute(core::mem::transmute(strsrch), core::mem::transmute(attribute))
+    usearch_getAttribute(strsrch, attribute)
 }
 #[inline]
 pub unsafe fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UBreakIterator {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_getBreakIterator(strsrch : *const UStringSearch) -> *mut UBreakIterator);
-    usearch_getBreakIterator(core::mem::transmute(strsrch))
+    usearch_getBreakIterator(strsrch)
 }
 #[inline]
 pub unsafe fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollator {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_getCollator(strsrch : *const UStringSearch) -> *mut UCollator);
-    usearch_getCollator(core::mem::transmute(strsrch))
+    usearch_getCollator(strsrch)
 }
 #[inline]
 pub unsafe fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_getMatchedLength(strsrch : *const UStringSearch) -> i32);
-    usearch_getMatchedLength(core::mem::transmute(strsrch))
+    usearch_getMatchedLength(strsrch)
 }
 #[inline]
 pub unsafe fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_getMatchedStart(strsrch : *const UStringSearch) -> i32);
-    usearch_getMatchedStart(core::mem::transmute(strsrch))
+    usearch_getMatchedStart(strsrch)
 }
 #[inline]
 pub unsafe fn usearch_getMatchedText(strsrch: *const UStringSearch, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_getMatchedText(strsrch : *const UStringSearch, result : *mut u16, resultcapacity : i32, status : *mut UErrorCode) -> i32);
-    usearch_getMatchedText(core::mem::transmute(strsrch), core::mem::transmute(result), core::mem::transmute(resultcapacity), core::mem::transmute(status))
+    usearch_getMatchedText(strsrch, core::mem::transmute(result), resultcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn usearch_getOffset(strsrch: *const UStringSearch) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_getOffset(strsrch : *const UStringSearch) -> i32);
-    usearch_getOffset(core::mem::transmute(strsrch))
+    usearch_getOffset(strsrch)
 }
 #[inline]
 pub unsafe fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16 {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_getPattern(strsrch : *const UStringSearch, length : *mut i32) -> *mut u16);
-    usearch_getPattern(core::mem::transmute(strsrch), core::mem::transmute(length))
+    usearch_getPattern(strsrch, core::mem::transmute(length))
 }
 #[inline]
 pub unsafe fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16 {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_getText(strsrch : *const UStringSearch, length : *mut i32) -> *mut u16);
-    usearch_getText(core::mem::transmute(strsrch), core::mem::transmute(length))
+    usearch_getText(strsrch, core::mem::transmute(length))
 }
 #[inline]
 pub unsafe fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
@@ -6253,17 +6211,17 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_open(pattern : *const u16, patternlength : i32, text : *const u16, textlength : i32, locale : windows_core::PCSTR, breakiter : *mut UBreakIterator, status : *mut UErrorCode) -> *mut UStringSearch);
-    usearch_open(core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(text), core::mem::transmute(textlength), locale.param().abi(), core::mem::transmute(breakiter), core::mem::transmute(status))
+    usearch_open(pattern, patternlength, text, textlength, locale.param().abi(), core::mem::transmute(breakiter), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn usearch_openFromCollator(pattern: *const u16, patternlength: i32, text: *const u16, textlength: i32, collator: *const UCollator, breakiter: *mut UBreakIterator, status: *mut UErrorCode) -> *mut UStringSearch {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_openFromCollator(pattern : *const u16, patternlength : i32, text : *const u16, textlength : i32, collator : *const UCollator, breakiter : *mut UBreakIterator, status : *mut UErrorCode) -> *mut UStringSearch);
-    usearch_openFromCollator(core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(collator), core::mem::transmute(breakiter), core::mem::transmute(status))
+    usearch_openFromCollator(pattern, patternlength, text, textlength, collator, core::mem::transmute(breakiter), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn usearch_preceding(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_preceding(strsrch : *mut UStringSearch, position : i32, status : *mut UErrorCode) -> i32);
-    usearch_preceding(core::mem::transmute(strsrch), core::mem::transmute(position), core::mem::transmute(status))
+    usearch_preceding(core::mem::transmute(strsrch), position, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
@@ -6278,7 +6236,7 @@ pub unsafe fn usearch_reset(strsrch: *mut UStringSearch) {
 #[inline]
 pub unsafe fn usearch_setAttribute(strsrch: *mut UStringSearch, attribute: USearchAttribute, value: USearchAttributeValue, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_setAttribute(strsrch : *mut UStringSearch, attribute : USearchAttribute, value : USearchAttributeValue, status : *mut UErrorCode));
-    usearch_setAttribute(core::mem::transmute(strsrch), core::mem::transmute(attribute), core::mem::transmute(value), core::mem::transmute(status))
+    usearch_setAttribute(core::mem::transmute(strsrch), attribute, value, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn usearch_setBreakIterator(strsrch: *mut UStringSearch, breakiter: *mut UBreakIterator, status: *mut UErrorCode) {
@@ -6288,67 +6246,67 @@ pub unsafe fn usearch_setBreakIterator(strsrch: *mut UStringSearch, breakiter: *
 #[inline]
 pub unsafe fn usearch_setCollator(strsrch: *mut UStringSearch, collator: *const UCollator, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_setCollator(strsrch : *mut UStringSearch, collator : *const UCollator, status : *mut UErrorCode));
-    usearch_setCollator(core::mem::transmute(strsrch), core::mem::transmute(collator), core::mem::transmute(status))
+    usearch_setCollator(core::mem::transmute(strsrch), collator, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn usearch_setOffset(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_setOffset(strsrch : *mut UStringSearch, position : i32, status : *mut UErrorCode));
-    usearch_setOffset(core::mem::transmute(strsrch), core::mem::transmute(position), core::mem::transmute(status))
+    usearch_setOffset(core::mem::transmute(strsrch), position, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn usearch_setPattern(strsrch: *mut UStringSearch, pattern: *const u16, patternlength: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_setPattern(strsrch : *mut UStringSearch, pattern : *const u16, patternlength : i32, status : *mut UErrorCode));
-    usearch_setPattern(core::mem::transmute(strsrch), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(status))
+    usearch_setPattern(core::mem::transmute(strsrch), pattern, patternlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn usearch_setText(strsrch: *mut UStringSearch, text: *const u16, textlength: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn usearch_setText(strsrch : *mut UStringSearch, text : *const u16, textlength : i32, status : *mut UErrorCode));
-    usearch_setText(core::mem::transmute(strsrch), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(status))
+    usearch_setText(core::mem::transmute(strsrch), text, textlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uset_add(set: *mut USet, c: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_add(set : *mut USet, c : i32));
-    uset_add(core::mem::transmute(set), core::mem::transmute(c))
+    uset_add(core::mem::transmute(set), c)
 }
 #[inline]
 pub unsafe fn uset_addAll(set: *mut USet, additionalset: *const USet) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_addAll(set : *mut USet, additionalset : *const USet));
-    uset_addAll(core::mem::transmute(set), core::mem::transmute(additionalset))
+    uset_addAll(core::mem::transmute(set), additionalset)
 }
 #[inline]
 pub unsafe fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_addAllCodePoints(set : *mut USet, str : *const u16, strlen : i32));
-    uset_addAllCodePoints(core::mem::transmute(set), core::mem::transmute(str), core::mem::transmute(strlen))
+    uset_addAllCodePoints(core::mem::transmute(set), str, strlen)
 }
 #[inline]
 pub unsafe fn uset_addRange(set: *mut USet, start: i32, end: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_addRange(set : *mut USet, start : i32, end : i32));
-    uset_addRange(core::mem::transmute(set), core::mem::transmute(start), core::mem::transmute(end))
+    uset_addRange(core::mem::transmute(set), start, end)
 }
 #[inline]
 pub unsafe fn uset_addString(set: *mut USet, str: *const u16, strlen: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_addString(set : *mut USet, str : *const u16, strlen : i32));
-    uset_addString(core::mem::transmute(set), core::mem::transmute(str), core::mem::transmute(strlen))
+    uset_addString(core::mem::transmute(set), str, strlen)
 }
 #[inline]
 pub unsafe fn uset_applyIntPropertyValue(set: *mut USet, prop: UProperty, value: i32, ec: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_applyIntPropertyValue(set : *mut USet, prop : UProperty, value : i32, ec : *mut UErrorCode));
-    uset_applyIntPropertyValue(core::mem::transmute(set), core::mem::transmute(prop), core::mem::transmute(value), core::mem::transmute(ec))
+    uset_applyIntPropertyValue(core::mem::transmute(set), prop, value, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn uset_applyPattern(set: *mut USet, pattern: *const u16, patternlength: i32, options: u32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_applyPattern(set : *mut USet, pattern : *const u16, patternlength : i32, options : u32, status : *mut UErrorCode) -> i32);
-    uset_applyPattern(core::mem::transmute(set), core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(options), core::mem::transmute(status))
+    uset_applyPattern(core::mem::transmute(set), pattern, patternlength, options, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uset_applyPropertyAlias(set: *mut USet, prop: *const u16, proplength: i32, value: *const u16, valuelength: i32, ec: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_applyPropertyAlias(set : *mut USet, prop : *const u16, proplength : i32, value : *const u16, valuelength : i32, ec : *mut UErrorCode));
-    uset_applyPropertyAlias(core::mem::transmute(set), core::mem::transmute(prop), core::mem::transmute(proplength), core::mem::transmute(value), core::mem::transmute(valuelength), core::mem::transmute(ec))
+    uset_applyPropertyAlias(core::mem::transmute(set), prop, proplength, value, valuelength, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn uset_charAt(set: *const USet, charindex: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_charAt(set : *const USet, charindex : i32) -> i32);
-    uset_charAt(core::mem::transmute(set), core::mem::transmute(charindex))
+    uset_charAt(set, charindex)
 }
 #[inline]
 pub unsafe fn uset_clear(set: *mut USet) {
@@ -6358,12 +6316,12 @@ pub unsafe fn uset_clear(set: *mut USet) {
 #[inline]
 pub unsafe fn uset_clone(set: *const USet) -> *mut USet {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_clone(set : *const USet) -> *mut USet);
-    uset_clone(core::mem::transmute(set))
+    uset_clone(set)
 }
 #[inline]
 pub unsafe fn uset_cloneAsThawed(set: *const USet) -> *mut USet {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_cloneAsThawed(set : *const USet) -> *mut USet);
-    uset_cloneAsThawed(core::mem::transmute(set))
+    uset_cloneAsThawed(set)
 }
 #[inline]
 pub unsafe fn uset_close(set: *mut USet) {
@@ -6373,7 +6331,7 @@ pub unsafe fn uset_close(set: *mut USet) {
 #[inline]
 pub unsafe fn uset_closeOver(set: *mut USet, attributes: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_closeOver(set : *mut USet, attributes : i32));
-    uset_closeOver(core::mem::transmute(set), core::mem::transmute(attributes))
+    uset_closeOver(core::mem::transmute(set), attributes)
 }
 #[inline]
 pub unsafe fn uset_compact(set: *mut USet) {
@@ -6388,47 +6346,47 @@ pub unsafe fn uset_complement(set: *mut USet) {
 #[inline]
 pub unsafe fn uset_complementAll(set: *mut USet, complement: *const USet) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_complementAll(set : *mut USet, complement : *const USet));
-    uset_complementAll(core::mem::transmute(set), core::mem::transmute(complement))
+    uset_complementAll(core::mem::transmute(set), complement)
 }
 #[inline]
 pub unsafe fn uset_contains(set: *const USet, c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_contains(set : *const USet, c : i32) -> i8);
-    uset_contains(core::mem::transmute(set), core::mem::transmute(c))
+    uset_contains(set, c)
 }
 #[inline]
 pub unsafe fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_containsAll(set1 : *const USet, set2 : *const USet) -> i8);
-    uset_containsAll(core::mem::transmute(set1), core::mem::transmute(set2))
+    uset_containsAll(set1, set2)
 }
 #[inline]
 pub unsafe fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strlen: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_containsAllCodePoints(set : *const USet, str : *const u16, strlen : i32) -> i8);
-    uset_containsAllCodePoints(core::mem::transmute(set), core::mem::transmute(str), core::mem::transmute(strlen))
+    uset_containsAllCodePoints(set, str, strlen)
 }
 #[inline]
 pub unsafe fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_containsNone(set1 : *const USet, set2 : *const USet) -> i8);
-    uset_containsNone(core::mem::transmute(set1), core::mem::transmute(set2))
+    uset_containsNone(set1, set2)
 }
 #[inline]
 pub unsafe fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_containsRange(set : *const USet, start : i32, end : i32) -> i8);
-    uset_containsRange(core::mem::transmute(set), core::mem::transmute(start), core::mem::transmute(end))
+    uset_containsRange(set, start, end)
 }
 #[inline]
 pub unsafe fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_containsSome(set1 : *const USet, set2 : *const USet) -> i8);
-    uset_containsSome(core::mem::transmute(set1), core::mem::transmute(set2))
+    uset_containsSome(set1, set2)
 }
 #[inline]
 pub unsafe fn uset_containsString(set: *const USet, str: *const u16, strlen: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_containsString(set : *const USet, str : *const u16, strlen : i32) -> i8);
-    uset_containsString(core::mem::transmute(set), core::mem::transmute(str), core::mem::transmute(strlen))
+    uset_containsString(set, str, strlen)
 }
 #[inline]
 pub unsafe fn uset_equals(set1: *const USet, set2: *const USet) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_equals(set1 : *const USet, set2 : *const USet) -> i8);
-    uset_equals(core::mem::transmute(set1), core::mem::transmute(set2))
+    uset_equals(set1, set2)
 }
 #[inline]
 pub unsafe fn uset_freeze(set: *mut USet) {
@@ -6438,47 +6396,47 @@ pub unsafe fn uset_freeze(set: *mut USet) {
 #[inline]
 pub unsafe fn uset_getItem(set: *const USet, itemindex: i32, start: *mut i32, end: *mut i32, str: *mut u16, strcapacity: i32, ec: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_getItem(set : *const USet, itemindex : i32, start : *mut i32, end : *mut i32, str : *mut u16, strcapacity : i32, ec : *mut UErrorCode) -> i32);
-    uset_getItem(core::mem::transmute(set), core::mem::transmute(itemindex), core::mem::transmute(start), core::mem::transmute(end), core::mem::transmute(str), core::mem::transmute(strcapacity), core::mem::transmute(ec))
+    uset_getItem(set, itemindex, core::mem::transmute(start), core::mem::transmute(end), core::mem::transmute(str), strcapacity, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn uset_getItemCount(set: *const USet) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_getItemCount(set : *const USet) -> i32);
-    uset_getItemCount(core::mem::transmute(set))
+    uset_getItemCount(set)
 }
 #[inline]
 pub unsafe fn uset_getSerializedRange(set: *const USerializedSet, rangeindex: i32, pstart: *mut i32, pend: *mut i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_getSerializedRange(set : *const USerializedSet, rangeindex : i32, pstart : *mut i32, pend : *mut i32) -> i8);
-    uset_getSerializedRange(core::mem::transmute(set), core::mem::transmute(rangeindex), core::mem::transmute(pstart), core::mem::transmute(pend))
+    uset_getSerializedRange(set, rangeindex, core::mem::transmute(pstart), core::mem::transmute(pend))
 }
 #[inline]
 pub unsafe fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_getSerializedRangeCount(set : *const USerializedSet) -> i32);
-    uset_getSerializedRangeCount(core::mem::transmute(set))
+    uset_getSerializedRangeCount(set)
 }
 #[inline]
 pub unsafe fn uset_getSerializedSet(fillset: *mut USerializedSet, src: *const u16, srclength: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_getSerializedSet(fillset : *mut USerializedSet, src : *const u16, srclength : i32) -> i8);
-    uset_getSerializedSet(core::mem::transmute(fillset), core::mem::transmute(src), core::mem::transmute(srclength))
+    uset_getSerializedSet(core::mem::transmute(fillset), src, srclength)
 }
 #[inline]
 pub unsafe fn uset_indexOf(set: *const USet, c: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_indexOf(set : *const USet, c : i32) -> i32);
-    uset_indexOf(core::mem::transmute(set), core::mem::transmute(c))
+    uset_indexOf(set, c)
 }
 #[inline]
 pub unsafe fn uset_isEmpty(set: *const USet) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_isEmpty(set : *const USet) -> i8);
-    uset_isEmpty(core::mem::transmute(set))
+    uset_isEmpty(set)
 }
 #[inline]
 pub unsafe fn uset_isFrozen(set: *const USet) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_isFrozen(set : *const USet) -> i8);
-    uset_isFrozen(core::mem::transmute(set))
+    uset_isFrozen(set)
 }
 #[inline]
 pub unsafe fn uset_open(start: i32, end: i32) -> *mut USet {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_open(start : i32, end : i32) -> *mut USet);
-    uset_open(core::mem::transmute(start), core::mem::transmute(end))
+    uset_open(start, end)
 }
 #[inline]
 pub unsafe fn uset_openEmpty() -> *mut USet {
@@ -6488,22 +6446,22 @@ pub unsafe fn uset_openEmpty() -> *mut USet {
 #[inline]
 pub unsafe fn uset_openPattern(pattern: *const u16, patternlength: i32, ec: *mut UErrorCode) -> *mut USet {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_openPattern(pattern : *const u16, patternlength : i32, ec : *mut UErrorCode) -> *mut USet);
-    uset_openPattern(core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(ec))
+    uset_openPattern(pattern, patternlength, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn uset_openPatternOptions(pattern: *const u16, patternlength: i32, options: u32, ec: *mut UErrorCode) -> *mut USet {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_openPatternOptions(pattern : *const u16, patternlength : i32, options : u32, ec : *mut UErrorCode) -> *mut USet);
-    uset_openPatternOptions(core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(options), core::mem::transmute(ec))
+    uset_openPatternOptions(pattern, patternlength, options, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn uset_remove(set: *mut USet, c: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_remove(set : *mut USet, c : i32));
-    uset_remove(core::mem::transmute(set), core::mem::transmute(c))
+    uset_remove(core::mem::transmute(set), c)
 }
 #[inline]
 pub unsafe fn uset_removeAll(set: *mut USet, removeset: *const USet) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_removeAll(set : *mut USet, removeset : *const USet));
-    uset_removeAll(core::mem::transmute(set), core::mem::transmute(removeset))
+    uset_removeAll(core::mem::transmute(set), removeset)
 }
 #[inline]
 pub unsafe fn uset_removeAllStrings(set: *mut USet) {
@@ -6513,62 +6471,62 @@ pub unsafe fn uset_removeAllStrings(set: *mut USet) {
 #[inline]
 pub unsafe fn uset_removeRange(set: *mut USet, start: i32, end: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_removeRange(set : *mut USet, start : i32, end : i32));
-    uset_removeRange(core::mem::transmute(set), core::mem::transmute(start), core::mem::transmute(end))
+    uset_removeRange(core::mem::transmute(set), start, end)
 }
 #[inline]
 pub unsafe fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_removeString(set : *mut USet, str : *const u16, strlen : i32));
-    uset_removeString(core::mem::transmute(set), core::mem::transmute(str), core::mem::transmute(strlen))
+    uset_removeString(core::mem::transmute(set), str, strlen)
 }
 #[inline]
 pub unsafe fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_resemblesPattern(pattern : *const u16, patternlength : i32, pos : i32) -> i8);
-    uset_resemblesPattern(core::mem::transmute(pattern), core::mem::transmute(patternlength), core::mem::transmute(pos))
+    uset_resemblesPattern(pattern, patternlength, pos)
 }
 #[inline]
 pub unsafe fn uset_retain(set: *mut USet, start: i32, end: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_retain(set : *mut USet, start : i32, end : i32));
-    uset_retain(core::mem::transmute(set), core::mem::transmute(start), core::mem::transmute(end))
+    uset_retain(core::mem::transmute(set), start, end)
 }
 #[inline]
 pub unsafe fn uset_retainAll(set: *mut USet, retain: *const USet) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_retainAll(set : *mut USet, retain : *const USet));
-    uset_retainAll(core::mem::transmute(set), core::mem::transmute(retain))
+    uset_retainAll(core::mem::transmute(set), retain)
 }
 #[inline]
 pub unsafe fn uset_serialize(set: *const USet, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_serialize(set : *const USet, dest : *mut u16, destcapacity : i32, perrorcode : *mut UErrorCode) -> i32);
-    uset_serialize(core::mem::transmute(set), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(perrorcode))
+    uset_serialize(set, core::mem::transmute(dest), destcapacity, core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_serializedContains(set : *const USerializedSet, c : i32) -> i8);
-    uset_serializedContains(core::mem::transmute(set), core::mem::transmute(c))
+    uset_serializedContains(set, c)
 }
 #[inline]
 pub unsafe fn uset_set(set: *mut USet, start: i32, end: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_set(set : *mut USet, start : i32, end : i32));
-    uset_set(core::mem::transmute(set), core::mem::transmute(start), core::mem::transmute(end))
+    uset_set(core::mem::transmute(set), start, end)
 }
 #[inline]
 pub unsafe fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_setSerializedToOne(fillset : *mut USerializedSet, c : i32));
-    uset_setSerializedToOne(core::mem::transmute(fillset), core::mem::transmute(c))
+    uset_setSerializedToOne(core::mem::transmute(fillset), c)
 }
 #[inline]
 pub unsafe fn uset_size(set: *const USet) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_size(set : *const USet) -> i32);
-    uset_size(core::mem::transmute(set))
+    uset_size(set)
 }
 #[inline]
 pub unsafe fn uset_span(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_span(set : *const USet, s : *const u16, length : i32, spancondition : USetSpanCondition) -> i32);
-    uset_span(core::mem::transmute(set), core::mem::transmute(s), core::mem::transmute(length), core::mem::transmute(spancondition))
+    uset_span(set, s, length, spancondition)
 }
 #[inline]
 pub unsafe fn uset_spanBack(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_spanBack(set : *const USet, s : *const u16, length : i32, spancondition : USetSpanCondition) -> i32);
-    uset_spanBack(core::mem::transmute(set), core::mem::transmute(s), core::mem::transmute(length), core::mem::transmute(spancondition))
+    uset_spanBack(set, s, length, spancondition)
 }
 #[inline]
 pub unsafe fn uset_spanBackUTF8<P1>(set: *const USet, s: P1, length: i32, spancondition: USetSpanCondition) -> i32
@@ -6576,7 +6534,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_spanBackUTF8(set : *const USet, s : windows_core::PCSTR, length : i32, spancondition : USetSpanCondition) -> i32);
-    uset_spanBackUTF8(core::mem::transmute(set), s.param().abi(), core::mem::transmute(length), core::mem::transmute(spancondition))
+    uset_spanBackUTF8(set, s.param().abi(), length, spancondition)
 }
 #[inline]
 pub unsafe fn uset_spanUTF8<P1>(set: *const USet, s: P1, length: i32, spancondition: USetSpanCondition) -> i32
@@ -6584,17 +6542,17 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_spanUTF8(set : *const USet, s : windows_core::PCSTR, length : i32, spancondition : USetSpanCondition) -> i32);
-    uset_spanUTF8(core::mem::transmute(set), s.param().abi(), core::mem::transmute(length), core::mem::transmute(spancondition))
+    uset_spanUTF8(set, s.param().abi(), length, spancondition)
 }
 #[inline]
 pub unsafe fn uset_toPattern(set: *const USet, result: *mut u16, resultcapacity: i32, escapeunprintable: i8, ec: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn uset_toPattern(set : *const USet, result : *mut u16, resultcapacity : i32, escapeunprintable : i8, ec : *mut UErrorCode) -> i32);
-    uset_toPattern(core::mem::transmute(set), core::mem::transmute(result), core::mem::transmute(resultcapacity), core::mem::transmute(escapeunprintable), core::mem::transmute(ec))
+    uset_toPattern(set, core::mem::transmute(result), resultcapacity, escapeunprintable, core::mem::transmute(ec))
 }
 #[inline]
 pub unsafe fn uspoof_areConfusable(sc: *const USpoofChecker, id1: *const u16, length1: i32, id2: *const u16, length2: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_areConfusable(sc : *const USpoofChecker, id1 : *const u16, length1 : i32, id2 : *const u16, length2 : i32, status : *mut UErrorCode) -> i32);
-    uspoof_areConfusable(core::mem::transmute(sc), core::mem::transmute(id1), core::mem::transmute(length1), core::mem::transmute(id2), core::mem::transmute(length2), core::mem::transmute(status))
+    uspoof_areConfusable(sc, id1, length1, id2, length2, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_areConfusableUTF8<P1, P3>(sc: *const USpoofChecker, id1: P1, length1: i32, id2: P3, length2: i32, status: *mut UErrorCode) -> i32
@@ -6603,17 +6561,17 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_areConfusableUTF8(sc : *const USpoofChecker, id1 : windows_core::PCSTR, length1 : i32, id2 : windows_core::PCSTR, length2 : i32, status : *mut UErrorCode) -> i32);
-    uspoof_areConfusableUTF8(core::mem::transmute(sc), id1.param().abi(), core::mem::transmute(length1), id2.param().abi(), core::mem::transmute(length2), core::mem::transmute(status))
+    uspoof_areConfusableUTF8(sc, id1.param().abi(), length1, id2.param().abi(), length2, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_check(sc: *const USpoofChecker, id: *const u16, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_check(sc : *const USpoofChecker, id : *const u16, length : i32, position : *mut i32, status : *mut UErrorCode) -> i32);
-    uspoof_check(core::mem::transmute(sc), core::mem::transmute(id), core::mem::transmute(length), core::mem::transmute(position), core::mem::transmute(status))
+    uspoof_check(sc, id, length, core::mem::transmute(position), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_check2(sc: *const USpoofChecker, id: *const u16, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_check2(sc : *const USpoofChecker, id : *const u16, length : i32, checkresult : *mut USpoofCheckResult, status : *mut UErrorCode) -> i32);
-    uspoof_check2(core::mem::transmute(sc), core::mem::transmute(id), core::mem::transmute(length), core::mem::transmute(checkresult), core::mem::transmute(status))
+    uspoof_check2(sc, id, length, core::mem::transmute(checkresult), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_check2UTF8<P1>(sc: *const USpoofChecker, id: P1, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32
@@ -6621,7 +6579,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_check2UTF8(sc : *const USpoofChecker, id : windows_core::PCSTR, length : i32, checkresult : *mut USpoofCheckResult, status : *mut UErrorCode) -> i32);
-    uspoof_check2UTF8(core::mem::transmute(sc), id.param().abi(), core::mem::transmute(length), core::mem::transmute(checkresult), core::mem::transmute(status))
+    uspoof_check2UTF8(sc, id.param().abi(), length, core::mem::transmute(checkresult), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_checkUTF8<P1>(sc: *const USpoofChecker, id: P1, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32
@@ -6629,12 +6587,12 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_checkUTF8(sc : *const USpoofChecker, id : windows_core::PCSTR, length : i32, position : *mut i32, status : *mut UErrorCode) -> i32);
-    uspoof_checkUTF8(core::mem::transmute(sc), id.param().abi(), core::mem::transmute(length), core::mem::transmute(position), core::mem::transmute(status))
+    uspoof_checkUTF8(sc, id.param().abi(), length, core::mem::transmute(position), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_clone(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USpoofChecker {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_clone(sc : *const USpoofChecker, status : *mut UErrorCode) -> *mut USpoofChecker);
-    uspoof_clone(core::mem::transmute(sc), core::mem::transmute(status))
+    uspoof_clone(sc, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_close(sc: *mut USpoofChecker) {
@@ -6649,7 +6607,7 @@ pub unsafe fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult) {
 #[inline]
 pub unsafe fn uspoof_getAllowedChars(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USet {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_getAllowedChars(sc : *const USpoofChecker, status : *mut UErrorCode) -> *mut USet);
-    uspoof_getAllowedChars(core::mem::transmute(sc), core::mem::transmute(status))
+    uspoof_getAllowedChars(sc, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErrorCode) -> windows_core::PCSTR {
@@ -6659,22 +6617,22 @@ pub unsafe fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErr
 #[inline]
 pub unsafe fn uspoof_getCheckResultChecks(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_getCheckResultChecks(checkresult : *const USpoofCheckResult, status : *mut UErrorCode) -> i32);
-    uspoof_getCheckResultChecks(core::mem::transmute(checkresult), core::mem::transmute(status))
+    uspoof_getCheckResultChecks(checkresult, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_getCheckResultNumerics(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> *mut USet {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_getCheckResultNumerics(checkresult : *const USpoofCheckResult, status : *mut UErrorCode) -> *mut USet);
-    uspoof_getCheckResultNumerics(core::mem::transmute(checkresult), core::mem::transmute(status))
+    uspoof_getCheckResultNumerics(checkresult, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_getCheckResultRestrictionLevel(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> URestrictionLevel {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_getCheckResultRestrictionLevel(checkresult : *const USpoofCheckResult, status : *mut UErrorCode) -> URestrictionLevel);
-    uspoof_getCheckResultRestrictionLevel(core::mem::transmute(checkresult), core::mem::transmute(status))
+    uspoof_getCheckResultRestrictionLevel(checkresult, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_getChecks(sc : *const USpoofChecker, status : *mut UErrorCode) -> i32);
-    uspoof_getChecks(core::mem::transmute(sc), core::mem::transmute(status))
+    uspoof_getChecks(sc, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet {
@@ -6689,12 +6647,12 @@ pub unsafe fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet {
 #[inline]
 pub unsafe fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestrictionLevel {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_getRestrictionLevel(sc : *const USpoofChecker) -> URestrictionLevel);
-    uspoof_getRestrictionLevel(core::mem::transmute(sc))
+    uspoof_getRestrictionLevel(sc)
 }
 #[inline]
 pub unsafe fn uspoof_getSkeleton(sc: *const USpoofChecker, r#type: u32, id: *const u16, length: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_getSkeleton(sc : *const USpoofChecker, r#type : u32, id : *const u16, length : i32, dest : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
-    uspoof_getSkeleton(core::mem::transmute(sc), core::mem::transmute(r#type), core::mem::transmute(id), core::mem::transmute(length), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(status))
+    uspoof_getSkeleton(sc, r#type, id, length, core::mem::transmute(dest), destcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_getSkeletonUTF8<P2, P4>(sc: *const USpoofChecker, r#type: u32, id: P2, length: i32, dest: P4, destcapacity: i32, status: *mut UErrorCode) -> i32
@@ -6703,7 +6661,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_getSkeletonUTF8(sc : *const USpoofChecker, r#type : u32, id : windows_core::PCSTR, length : i32, dest : windows_core::PCSTR, destcapacity : i32, status : *mut UErrorCode) -> i32);
-    uspoof_getSkeletonUTF8(core::mem::transmute(sc), core::mem::transmute(r#type), id.param().abi(), core::mem::transmute(length), dest.param().abi(), core::mem::transmute(destcapacity), core::mem::transmute(status))
+    uspoof_getSkeletonUTF8(sc, r#type, id.param().abi(), length, dest.param().abi(), destcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker {
@@ -6718,7 +6676,7 @@ pub unsafe fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofChec
 #[inline]
 pub unsafe fn uspoof_openFromSerialized(data: *const core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut USpoofChecker {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_openFromSerialized(data : *const core::ffi::c_void, length : i32, pactuallength : *mut i32, perrorcode : *mut UErrorCode) -> *mut USpoofChecker);
-    uspoof_openFromSerialized(core::mem::transmute(data), core::mem::transmute(length), core::mem::transmute(pactuallength), core::mem::transmute(perrorcode))
+    uspoof_openFromSerialized(data, length, core::mem::transmute(pactuallength), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn uspoof_openFromSource<P0, P2>(confusables: P0, confusableslen: i32, confusableswholescript: P2, confusableswholescriptlen: i32, errtype: *mut i32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut USpoofChecker
@@ -6727,17 +6685,17 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_openFromSource(confusables : windows_core::PCSTR, confusableslen : i32, confusableswholescript : windows_core::PCSTR, confusableswholescriptlen : i32, errtype : *mut i32, pe : *mut UParseError, status : *mut UErrorCode) -> *mut USpoofChecker);
-    uspoof_openFromSource(confusables.param().abi(), core::mem::transmute(confusableslen), confusableswholescript.param().abi(), core::mem::transmute(confusableswholescriptlen), core::mem::transmute(errtype), core::mem::transmute(pe), core::mem::transmute(status))
+    uspoof_openFromSource(confusables.param().abi(), confusableslen, confusableswholescript.param().abi(), confusableswholescriptlen, core::mem::transmute(errtype), core::mem::transmute(pe), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_serialize(sc: *mut USpoofChecker, data: *mut core::ffi::c_void, capacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_serialize(sc : *mut USpoofChecker, data : *mut core::ffi::c_void, capacity : i32, status : *mut UErrorCode) -> i32);
-    uspoof_serialize(core::mem::transmute(sc), core::mem::transmute(data), core::mem::transmute(capacity), core::mem::transmute(status))
+    uspoof_serialize(core::mem::transmute(sc), core::mem::transmute(data), capacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_setAllowedChars(sc: *mut USpoofChecker, chars: *const USet, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_setAllowedChars(sc : *mut USpoofChecker, chars : *const USet, status : *mut UErrorCode));
-    uspoof_setAllowedChars(core::mem::transmute(sc), core::mem::transmute(chars), core::mem::transmute(status))
+    uspoof_setAllowedChars(core::mem::transmute(sc), chars, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_setAllowedLocales<P1>(sc: *mut USpoofChecker, localeslist: P1, status: *mut UErrorCode)
@@ -6750,12 +6708,12 @@ where
 #[inline]
 pub unsafe fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_setChecks(sc : *mut USpoofChecker, checks : i32, status : *mut UErrorCode));
-    uspoof_setChecks(core::mem::transmute(sc), core::mem::transmute(checks), core::mem::transmute(status))
+    uspoof_setChecks(core::mem::transmute(sc), checks, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn uspoof_setRestrictionLevel(sc: *mut USpoofChecker, restrictionlevel: URestrictionLevel) {
     windows_targets::link!("icuin.dll" "cdecl" fn uspoof_setRestrictionLevel(sc : *mut USpoofChecker, restrictionlevel : URestrictionLevel));
-    uspoof_setRestrictionLevel(core::mem::transmute(sc), core::mem::transmute(restrictionlevel))
+    uspoof_setRestrictionLevel(core::mem::transmute(sc), restrictionlevel)
 }
 #[inline]
 pub unsafe fn usprep_close(profile: *mut UStringPrepProfile) {
@@ -6774,22 +6732,22 @@ where
 #[inline]
 pub unsafe fn usprep_openByType(r#type: UStringPrepProfileType, status: *mut UErrorCode) -> *mut UStringPrepProfile {
     windows_targets::link!("icuuc.dll" "cdecl" fn usprep_openByType(r#type : UStringPrepProfileType, status : *mut UErrorCode) -> *mut UStringPrepProfile);
-    usprep_openByType(core::mem::transmute(r#type), core::mem::transmute(status))
+    usprep_openByType(r#type, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn usprep_prepare(prep: *const UStringPrepProfile, src: *const u16, srclength: i32, dest: *mut u16, destcapacity: i32, options: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn usprep_prepare(prep : *const UStringPrepProfile, src : *const u16, srclength : i32, dest : *mut u16, destcapacity : i32, options : i32, parseerror : *mut UParseError, status : *mut UErrorCode) -> i32);
-    usprep_prepare(core::mem::transmute(prep), core::mem::transmute(src), core::mem::transmute(srclength), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(options), core::mem::transmute(parseerror), core::mem::transmute(status))
+    usprep_prepare(prep, src, srclength, core::mem::transmute(dest), destcapacity, options, core::mem::transmute(parseerror), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_char32At(ut : *mut UText, nativeindex : i64) -> i32);
-    utext_char32At(core::mem::transmute(ut), core::mem::transmute(nativeindex))
+    utext_char32At(core::mem::transmute(ut), nativeindex)
 }
 #[inline]
 pub unsafe fn utext_clone(dest: *mut UText, src: *const UText, deep: i8, readonly: i8, status: *mut UErrorCode) -> *mut UText {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_clone(dest : *mut UText, src : *const UText, deep : i8, readonly : i8, status : *mut UErrorCode) -> *mut UText);
-    utext_clone(core::mem::transmute(dest), core::mem::transmute(src), core::mem::transmute(deep), core::mem::transmute(readonly), core::mem::transmute(status))
+    utext_clone(core::mem::transmute(dest), src, deep, readonly, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utext_close(ut: *mut UText) -> *mut UText {
@@ -6799,7 +6757,7 @@ pub unsafe fn utext_close(ut: *mut UText) -> *mut UText {
 #[inline]
 pub unsafe fn utext_copy(ut: *mut UText, nativestart: i64, nativelimit: i64, destindex: i64, r#move: i8, status: *mut UErrorCode) {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_copy(ut : *mut UText, nativestart : i64, nativelimit : i64, destindex : i64, r#move : i8, status : *mut UErrorCode));
-    utext_copy(core::mem::transmute(ut), core::mem::transmute(nativestart), core::mem::transmute(nativelimit), core::mem::transmute(destindex), core::mem::transmute(r#move), core::mem::transmute(status))
+    utext_copy(core::mem::transmute(ut), nativestart, nativelimit, destindex, r#move, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utext_current32(ut: *mut UText) -> i32 {
@@ -6809,12 +6767,12 @@ pub unsafe fn utext_current32(ut: *mut UText) -> i32 {
 #[inline]
 pub unsafe fn utext_equals(a: *const UText, b: *const UText) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_equals(a : *const UText, b : *const UText) -> i8);
-    utext_equals(core::mem::transmute(a), core::mem::transmute(b))
+    utext_equals(a, b)
 }
 #[inline]
 pub unsafe fn utext_extract(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_extract(ut : *mut UText, nativestart : i64, nativelimit : i64, dest : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
-    utext_extract(core::mem::transmute(ut), core::mem::transmute(nativestart), core::mem::transmute(nativelimit), core::mem::transmute(dest), core::mem::transmute(destcapacity), core::mem::transmute(status))
+    utext_extract(core::mem::transmute(ut), nativestart, nativelimit, core::mem::transmute(dest), destcapacity, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utext_freeze(ut: *mut UText) {
@@ -6824,7 +6782,7 @@ pub unsafe fn utext_freeze(ut: *mut UText) {
 #[inline]
 pub unsafe fn utext_getNativeIndex(ut: *const UText) -> i64 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_getNativeIndex(ut : *const UText) -> i64);
-    utext_getNativeIndex(core::mem::transmute(ut))
+    utext_getNativeIndex(ut)
 }
 #[inline]
 pub unsafe fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64 {
@@ -6834,22 +6792,22 @@ pub unsafe fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64 {
 #[inline]
 pub unsafe fn utext_hasMetaData(ut: *const UText) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_hasMetaData(ut : *const UText) -> i8);
-    utext_hasMetaData(core::mem::transmute(ut))
+    utext_hasMetaData(ut)
 }
 #[inline]
 pub unsafe fn utext_isLengthExpensive(ut: *const UText) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_isLengthExpensive(ut : *const UText) -> i8);
-    utext_isLengthExpensive(core::mem::transmute(ut))
+    utext_isLengthExpensive(ut)
 }
 #[inline]
 pub unsafe fn utext_isWritable(ut: *const UText) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_isWritable(ut : *const UText) -> i8);
-    utext_isWritable(core::mem::transmute(ut))
+    utext_isWritable(ut)
 }
 #[inline]
 pub unsafe fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_moveIndex32(ut : *mut UText, delta : i32) -> i8);
-    utext_moveIndex32(core::mem::transmute(ut), core::mem::transmute(delta))
+    utext_moveIndex32(core::mem::transmute(ut), delta)
 }
 #[inline]
 pub unsafe fn utext_nativeLength(ut: *mut UText) -> i64 {
@@ -6864,12 +6822,12 @@ pub unsafe fn utext_next32(ut: *mut UText) -> i32 {
 #[inline]
 pub unsafe fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_next32From(ut : *mut UText, nativeindex : i64) -> i32);
-    utext_next32From(core::mem::transmute(ut), core::mem::transmute(nativeindex))
+    utext_next32From(core::mem::transmute(ut), nativeindex)
 }
 #[inline]
 pub unsafe fn utext_openUChars(ut: *mut UText, s: *const u16, length: i64, status: *mut UErrorCode) -> *mut UText {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_openUChars(ut : *mut UText, s : *const u16, length : i64, status : *mut UErrorCode) -> *mut UText);
-    utext_openUChars(core::mem::transmute(ut), core::mem::transmute(s), core::mem::transmute(length), core::mem::transmute(status))
+    utext_openUChars(core::mem::transmute(ut), s, length, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utext_openUTF8<P1>(ut: *mut UText, s: P1, length: i64, status: *mut UErrorCode) -> *mut UText
@@ -6877,7 +6835,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_openUTF8(ut : *mut UText, s : windows_core::PCSTR, length : i64, status : *mut UErrorCode) -> *mut UText);
-    utext_openUTF8(core::mem::transmute(ut), s.param().abi(), core::mem::transmute(length), core::mem::transmute(status))
+    utext_openUTF8(core::mem::transmute(ut), s.param().abi(), length, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utext_previous32(ut: *mut UText) -> i32 {
@@ -6887,57 +6845,57 @@ pub unsafe fn utext_previous32(ut: *mut UText) -> i32 {
 #[inline]
 pub unsafe fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_previous32From(ut : *mut UText, nativeindex : i64) -> i32);
-    utext_previous32From(core::mem::transmute(ut), core::mem::transmute(nativeindex))
+    utext_previous32From(core::mem::transmute(ut), nativeindex)
 }
 #[inline]
 pub unsafe fn utext_replace(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacementlength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_replace(ut : *mut UText, nativestart : i64, nativelimit : i64, replacementtext : *const u16, replacementlength : i32, status : *mut UErrorCode) -> i32);
-    utext_replace(core::mem::transmute(ut), core::mem::transmute(nativestart), core::mem::transmute(nativelimit), core::mem::transmute(replacementtext), core::mem::transmute(replacementlength), core::mem::transmute(status))
+    utext_replace(core::mem::transmute(ut), nativestart, nativelimit, replacementtext, replacementlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64) {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_setNativeIndex(ut : *mut UText, nativeindex : i64));
-    utext_setNativeIndex(core::mem::transmute(ut), core::mem::transmute(nativeindex))
+    utext_setNativeIndex(core::mem::transmute(ut), nativeindex)
 }
 #[inline]
 pub unsafe fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCode) -> *mut UText {
     windows_targets::link!("icuuc.dll" "cdecl" fn utext_setup(ut : *mut UText, extraspace : i32, status : *mut UErrorCode) -> *mut UText);
-    utext_setup(core::mem::transmute(ut), core::mem::transmute(extraspace), core::mem::transmute(status))
+    utext_setup(core::mem::transmute(ut), extraspace, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utf8_appendCharSafeBody(s: *mut u8, i: i32, length: i32, c: i32, piserror: *mut i8) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utf8_appendCharSafeBody(s : *mut u8, i : i32, length : i32, c : i32, piserror : *mut i8) -> i32);
-    utf8_appendCharSafeBody(core::mem::transmute(s), core::mem::transmute(i), core::mem::transmute(length), core::mem::transmute(c), core::mem::transmute(piserror))
+    utf8_appendCharSafeBody(core::mem::transmute(s), i, length, c, core::mem::transmute(piserror))
 }
 #[inline]
 pub unsafe fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utf8_back1SafeBody(s : *const u8, start : i32, i : i32) -> i32);
-    utf8_back1SafeBody(core::mem::transmute(s), core::mem::transmute(start), core::mem::transmute(i))
+    utf8_back1SafeBody(s, start, i)
 }
 #[inline]
 pub unsafe fn utf8_nextCharSafeBody(s: *const u8, pi: *mut i32, length: i32, c: i32, strict: i8) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utf8_nextCharSafeBody(s : *const u8, pi : *mut i32, length : i32, c : i32, strict : i8) -> i32);
-    utf8_nextCharSafeBody(core::mem::transmute(s), core::mem::transmute(pi), core::mem::transmute(length), core::mem::transmute(c), core::mem::transmute(strict))
+    utf8_nextCharSafeBody(s, core::mem::transmute(pi), length, c, strict)
 }
 #[inline]
 pub unsafe fn utf8_prevCharSafeBody(s: *const u8, start: i32, pi: *mut i32, c: i32, strict: i8) -> i32 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utf8_prevCharSafeBody(s : *const u8, start : i32, pi : *mut i32, c : i32, strict : i8) -> i32);
-    utf8_prevCharSafeBody(core::mem::transmute(s), core::mem::transmute(start), core::mem::transmute(pi), core::mem::transmute(c), core::mem::transmute(strict))
+    utf8_prevCharSafeBody(s, start, core::mem::transmute(pi), c, strict)
 }
 #[inline]
 pub unsafe fn utmscale_fromInt64(othertime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64 {
     windows_targets::link!("icuin.dll" "cdecl" fn utmscale_fromInt64(othertime : i64, timescale : UDateTimeScale, status : *mut UErrorCode) -> i64);
-    utmscale_fromInt64(core::mem::transmute(othertime), core::mem::transmute(timescale), core::mem::transmute(status))
+    utmscale_fromInt64(othertime, timescale, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: *mut UErrorCode) -> i64 {
     windows_targets::link!("icuin.dll" "cdecl" fn utmscale_getTimeScaleValue(timescale : UDateTimeScale, value : UTimeScaleValue, status : *mut UErrorCode) -> i64);
-    utmscale_getTimeScaleValue(core::mem::transmute(timescale), core::mem::transmute(value), core::mem::transmute(status))
+    utmscale_getTimeScaleValue(timescale, value, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utmscale_toInt64(universaltime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64 {
     windows_targets::link!("icuin.dll" "cdecl" fn utmscale_toInt64(universaltime : i64, timescale : UDateTimeScale, status : *mut UErrorCode) -> i64);
-    utmscale_toInt64(core::mem::transmute(universaltime), core::mem::transmute(timescale), core::mem::transmute(status))
+    utmscale_toInt64(universaltime, timescale, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utrace_format<P0, P3>(outbuf: P0, capacity: i32, indent: i32, fmt: P3) -> i32
@@ -6946,17 +6904,17 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utrace_format(outbuf : windows_core::PCSTR, capacity : i32, indent : i32, fmt : windows_core::PCSTR) -> i32);
-    utrace_format(outbuf.param().abi(), core::mem::transmute(capacity), core::mem::transmute(indent), fmt.param().abi())
+    utrace_format(outbuf.param().abi(), capacity, indent, fmt.param().abi())
 }
 #[inline]
 pub unsafe fn utrace_functionName(fnnumber: i32) -> windows_core::PCSTR {
     windows_targets::link!("icuuc.dll" "cdecl" fn utrace_functionName(fnnumber : i32) -> windows_core::PCSTR);
-    utrace_functionName(core::mem::transmute(fnnumber))
+    utrace_functionName(fnnumber)
 }
 #[inline]
 pub unsafe fn utrace_getFunctions(context: *const *const core::ffi::c_void, e: *mut UTraceEntry, x: *mut UTraceExit, d: *mut UTraceData) {
     windows_targets::link!("icuuc.dll" "cdecl" fn utrace_getFunctions(context : *const *const core::ffi::c_void, e : *mut UTraceEntry, x : *mut UTraceExit, d : *mut UTraceData));
-    utrace_getFunctions(core::mem::transmute(context), core::mem::transmute(e), core::mem::transmute(x), core::mem::transmute(d))
+    utrace_getFunctions(context, core::mem::transmute(e), core::mem::transmute(x), core::mem::transmute(d))
 }
 #[inline]
 pub unsafe fn utrace_getLevel() -> i32 {
@@ -6966,12 +6924,12 @@ pub unsafe fn utrace_getLevel() -> i32 {
 #[inline]
 pub unsafe fn utrace_setFunctions(context: *const core::ffi::c_void, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
     windows_targets::link!("icuuc.dll" "cdecl" fn utrace_setFunctions(context : *const core::ffi::c_void, e : UTraceEntry, x : UTraceExit, d : UTraceData));
-    utrace_setFunctions(core::mem::transmute(context), core::mem::transmute(e), core::mem::transmute(x), core::mem::transmute(d))
+    utrace_setFunctions(context, e, x, d)
 }
 #[inline]
 pub unsafe fn utrace_setLevel(tracelevel: i32) {
     windows_targets::link!("icuuc.dll" "cdecl" fn utrace_setLevel(tracelevel : i32));
-    utrace_setLevel(core::mem::transmute(tracelevel))
+    utrace_setLevel(tracelevel)
 }
 #[inline]
 pub unsafe fn utrace_vformat<P0, P3>(outbuf: P0, capacity: i32, indent: i32, fmt: P3, args: *mut i8) -> i32
@@ -6980,12 +6938,12 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("icuuc.dll" "cdecl" fn utrace_vformat(outbuf : windows_core::PCSTR, capacity : i32, indent : i32, fmt : windows_core::PCSTR, args : *mut i8) -> i32);
-    utrace_vformat(outbuf.param().abi(), core::mem::transmute(capacity), core::mem::transmute(indent), fmt.param().abi(), core::mem::transmute(args))
+    utrace_vformat(outbuf.param().abi(), capacity, indent, fmt.param().abi(), core::mem::transmute(args))
 }
 #[inline]
 pub unsafe fn utrans_clone(trans: *const *const core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn utrans_clone(trans : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    utrans_clone(core::mem::transmute(trans), core::mem::transmute(status))
+    utrans_clone(trans, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utrans_close(trans: *mut *mut core::ffi::c_void) {
@@ -7000,12 +6958,12 @@ pub unsafe fn utrans_countAvailableIDs() -> i32 {
 #[inline]
 pub unsafe fn utrans_getSourceSet(trans: *const *const core::ffi::c_void, ignorefilter: i8, fillin: *mut USet, status: *mut UErrorCode) -> *mut USet {
     windows_targets::link!("icuin.dll" "cdecl" fn utrans_getSourceSet(trans : *const *const core::ffi::c_void, ignorefilter : i8, fillin : *mut USet, status : *mut UErrorCode) -> *mut USet);
-    utrans_getSourceSet(core::mem::transmute(trans), core::mem::transmute(ignorefilter), core::mem::transmute(fillin), core::mem::transmute(status))
+    utrans_getSourceSet(trans, ignorefilter, core::mem::transmute(fillin), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utrans_getUnicodeID(trans: *const *const core::ffi::c_void, resultlength: *mut i32) -> *mut u16 {
     windows_targets::link!("icuin.dll" "cdecl" fn utrans_getUnicodeID(trans : *const *const core::ffi::c_void, resultlength : *mut i32) -> *mut u16);
-    utrans_getUnicodeID(core::mem::transmute(trans), core::mem::transmute(resultlength))
+    utrans_getUnicodeID(trans, core::mem::transmute(resultlength))
 }
 #[inline]
 pub unsafe fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
@@ -7015,12 +6973,12 @@ pub unsafe fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
 #[inline]
 pub unsafe fn utrans_openInverse(trans: *const *const core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn utrans_openInverse(trans : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    utrans_openInverse(core::mem::transmute(trans), core::mem::transmute(status))
+    utrans_openInverse(trans, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utrans_openU(id: *const u16, idlength: i32, dir: UTransDirection, rules: *const u16, ruleslength: i32, parseerror: *mut UParseError, perrorcode: *mut UErrorCode) -> *mut *mut core::ffi::c_void {
     windows_targets::link!("icuin.dll" "cdecl" fn utrans_openU(id : *const u16, idlength : i32, dir : UTransDirection, rules : *const u16, ruleslength : i32, parseerror : *mut UParseError, perrorcode : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
-    utrans_openU(core::mem::transmute(id), core::mem::transmute(idlength), core::mem::transmute(dir), core::mem::transmute(rules), core::mem::transmute(ruleslength), core::mem::transmute(parseerror), core::mem::transmute(perrorcode))
+    utrans_openU(id, idlength, dir, rules, ruleslength, core::mem::transmute(parseerror), core::mem::transmute(perrorcode))
 }
 #[inline]
 pub unsafe fn utrans_register(adoptedtrans: *mut *mut core::ffi::c_void, status: *mut UErrorCode) {
@@ -7030,37 +6988,37 @@ pub unsafe fn utrans_register(adoptedtrans: *mut *mut core::ffi::c_void, status:
 #[inline]
 pub unsafe fn utrans_setFilter(trans: *mut *mut core::ffi::c_void, filterpattern: *const u16, filterpatternlen: i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn utrans_setFilter(trans : *mut *mut core::ffi::c_void, filterpattern : *const u16, filterpatternlen : i32, status : *mut UErrorCode));
-    utrans_setFilter(core::mem::transmute(trans), core::mem::transmute(filterpattern), core::mem::transmute(filterpatternlen), core::mem::transmute(status))
+    utrans_setFilter(core::mem::transmute(trans), filterpattern, filterpatternlen, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utrans_toRules(trans: *const *const core::ffi::c_void, escapeunprintable: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     windows_targets::link!("icuin.dll" "cdecl" fn utrans_toRules(trans : *const *const core::ffi::c_void, escapeunprintable : i8, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-    utrans_toRules(core::mem::transmute(trans), core::mem::transmute(escapeunprintable), core::mem::transmute(result), core::mem::transmute(resultlength), core::mem::transmute(status))
+    utrans_toRules(trans, escapeunprintable, core::mem::transmute(result), resultlength, core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utrans_trans(trans: *const *const core::ffi::c_void, rep: *mut *mut core::ffi::c_void, repfunc: *const UReplaceableCallbacks, start: i32, limit: *mut i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn utrans_trans(trans : *const *const core::ffi::c_void, rep : *mut *mut core::ffi::c_void, repfunc : *const UReplaceableCallbacks, start : i32, limit : *mut i32, status : *mut UErrorCode));
-    utrans_trans(core::mem::transmute(trans), core::mem::transmute(rep), core::mem::transmute(repfunc), core::mem::transmute(start), core::mem::transmute(limit), core::mem::transmute(status))
+    utrans_trans(trans, core::mem::transmute(rep), repfunc, start, core::mem::transmute(limit), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utrans_transIncremental(trans: *const *const core::ffi::c_void, rep: *mut *mut core::ffi::c_void, repfunc: *const UReplaceableCallbacks, pos: *mut UTransPosition, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn utrans_transIncremental(trans : *const *const core::ffi::c_void, rep : *mut *mut core::ffi::c_void, repfunc : *const UReplaceableCallbacks, pos : *mut UTransPosition, status : *mut UErrorCode));
-    utrans_transIncremental(core::mem::transmute(trans), core::mem::transmute(rep), core::mem::transmute(repfunc), core::mem::transmute(pos), core::mem::transmute(status))
+    utrans_transIncremental(trans, core::mem::transmute(rep), repfunc, core::mem::transmute(pos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utrans_transIncrementalUChars(trans: *const *const core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, pos: *mut UTransPosition, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn utrans_transIncrementalUChars(trans : *const *const core::ffi::c_void, text : *mut u16, textlength : *mut i32, textcapacity : i32, pos : *mut UTransPosition, status : *mut UErrorCode));
-    utrans_transIncrementalUChars(core::mem::transmute(trans), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(textcapacity), core::mem::transmute(pos), core::mem::transmute(status))
+    utrans_transIncrementalUChars(trans, core::mem::transmute(text), core::mem::transmute(textlength), textcapacity, core::mem::transmute(pos), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utrans_transUChars(trans: *const *const core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, start: i32, limit: *mut i32, status: *mut UErrorCode) {
     windows_targets::link!("icuin.dll" "cdecl" fn utrans_transUChars(trans : *const *const core::ffi::c_void, text : *mut u16, textlength : *mut i32, textcapacity : i32, start : i32, limit : *mut i32, status : *mut UErrorCode));
-    utrans_transUChars(core::mem::transmute(trans), core::mem::transmute(text), core::mem::transmute(textlength), core::mem::transmute(textcapacity), core::mem::transmute(start), core::mem::transmute(limit), core::mem::transmute(status))
+    utrans_transUChars(trans, core::mem::transmute(text), core::mem::transmute(textlength), textcapacity, start, core::mem::transmute(limit), core::mem::transmute(status))
 }
 #[inline]
 pub unsafe fn utrans_unregisterID(id: *const u16, idlength: i32) {
     windows_targets::link!("icuin.dll" "cdecl" fn utrans_unregisterID(id : *const u16, idlength : i32));
-    utrans_unregisterID(core::mem::transmute(id), core::mem::transmute(idlength))
+    utrans_unregisterID(id, idlength)
 }
 pub const ALL_SERVICES: u32 = 0u32;
 pub const ALL_SERVICE_TYPES: u32 = 0u32;
@@ -7725,13 +7683,13 @@ impl IEnumCodePage {
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut MIMECPINFO, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(rgelt), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
 }
 #[repr(C)]
@@ -7786,13 +7744,13 @@ impl IEnumRfc1766 {
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(rgelt), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
 }
 #[repr(C)]
@@ -7847,13 +7805,13 @@ impl IEnumScript {
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut SCRIPTINFO, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(rgelt), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
 }
 #[repr(C)]
@@ -7934,18 +7892,18 @@ windows_core::imp::interface_hierarchy!(IMLangCodePages, windows_core::IUnknown)
 impl IMLangCodePages {
     pub unsafe fn GetCharCodePages(&self, chsrc: u16) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCharCodePages)(windows_core::Interface::as_raw(self), core::mem::transmute(chsrc), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetCharCodePages)(windows_core::Interface::as_raw(self), chsrc, &mut result__).map(|| result__)
     }
     pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: Option<*mut u32>, pcchcodepages: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStrCodePages)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(dwprioritycodepages), core::mem::transmute(pdwcodepages.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchcodepages.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).GetStrCodePages)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), dwprioritycodepages, core::mem::transmute(pdwcodepages.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchcodepages.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn CodePageToCodePages(&self, ucodepage: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CodePageToCodePages)(windows_core::Interface::as_raw(self), core::mem::transmute(ucodepage), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CodePageToCodePages)(windows_core::Interface::as_raw(self), ucodepage, &mut result__).map(|| result__)
     }
     pub unsafe fn CodePagesToCodePage(&self, dwcodepages: u32, udefaultcodepage: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CodePagesToCodePage)(windows_core::Interface::as_raw(self), core::mem::transmute(dwcodepages), core::mem::transmute(udefaultcodepage), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CodePagesToCodePage)(windows_core::Interface::as_raw(self), dwcodepages, udefaultcodepage, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -8015,7 +7973,7 @@ windows_core::imp::define_interface!(IMLangConvertCharset, IMLangConvertCharset_
 windows_core::imp::interface_hierarchy!(IMLangConvertCharset, windows_core::IUnknown);
 impl IMLangConvertCharset {
     pub unsafe fn Initialize(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(uisrccodepage), core::mem::transmute(uidstcodepage), core::mem::transmute(dwproperty)).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty).ok()
     }
     pub unsafe fn GetSourceCodePage(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -8030,7 +7988,7 @@ impl IMLangConvertCharset {
         (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DoConversion(&self, psrcstr: *const u8, pcsrcsize: Option<*mut u32>, pdststr: *mut u8, pcdstsize: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DoConversion)(windows_core::Interface::as_raw(self), core::mem::transmute(psrcstr), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).DoConversion)(windows_core::Interface::as_raw(self), psrcstr, core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn DoConversionToUnicode<P0>(&self, psrcstr: P0, pcsrcsize: Option<*mut u32>, pdststr: windows_core::PWSTR, pcdstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
@@ -8140,15 +8098,15 @@ windows_core::imp::interface_hierarchy!(IMLangFontLink, windows_core::IUnknown, 
 impl IMLangFontLink {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetFontCodePages(&self, hdc: super::Graphics::Gdi::HDC, hfont: super::Graphics::Gdi::HFONT, pdwcodepages: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetFontCodePages)(windows_core::Interface::as_raw(self), core::mem::transmute(hdc), core::mem::transmute(hfont), core::mem::transmute(pdwcodepages.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).GetFontCodePages)(windows_core::Interface::as_raw(self), hdc, hfont, core::mem::transmute(pdwcodepages.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn MapFont(&self, hdc: super::Graphics::Gdi::HDC, dwcodepages: u32, hsrcfont: super::Graphics::Gdi::HFONT, phdestfont: Option<*mut super::Graphics::Gdi::HFONT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).MapFont)(windows_core::Interface::as_raw(self), core::mem::transmute(hdc), core::mem::transmute(dwcodepages), core::mem::transmute(hsrcfont), core::mem::transmute(phdestfont.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).MapFont)(windows_core::Interface::as_raw(self), hdc, dwcodepages, hsrcfont, core::mem::transmute(phdestfont.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseFont(&self, hfont: super::Graphics::Gdi::HFONT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReleaseFont)(windows_core::Interface::as_raw(self), core::mem::transmute(hfont)).ok()
+        (windows_core::Interface::vtable(self).ReleaseFont)(windows_core::Interface::as_raw(self), hfont).ok()
     }
     pub unsafe fn ResetFontMapping(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ResetFontMapping)(windows_core::Interface::as_raw(self)).ok()
@@ -8222,29 +8180,29 @@ windows_core::imp::interface_hierarchy!(IMLangFontLink2, windows_core::IUnknown,
 impl IMLangFontLink2 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetFontCodePages(&self, hdc: super::Graphics::Gdi::HDC, hfont: super::Graphics::Gdi::HFONT, pdwcodepages: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetFontCodePages)(windows_core::Interface::as_raw(self), core::mem::transmute(hdc), core::mem::transmute(hfont), core::mem::transmute(pdwcodepages.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).GetFontCodePages)(windows_core::Interface::as_raw(self), hdc, hfont, core::mem::transmute(pdwcodepages.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseFont(&self, hfont: super::Graphics::Gdi::HFONT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReleaseFont)(windows_core::Interface::as_raw(self), core::mem::transmute(hfont)).ok()
+        (windows_core::Interface::vtable(self).ReleaseFont)(windows_core::Interface::as_raw(self), hfont).ok()
     }
     pub unsafe fn ResetFontMapping(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ResetFontMapping)(windows_core::Interface::as_raw(self)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn MapFont(&self, hdc: super::Graphics::Gdi::HDC, dwcodepages: u32, chsrc: u16, pfont: Option<*mut super::Graphics::Gdi::HFONT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).MapFont)(windows_core::Interface::as_raw(self), core::mem::transmute(hdc), core::mem::transmute(dwcodepages), core::mem::transmute(chsrc), core::mem::transmute(pfont.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).MapFont)(windows_core::Interface::as_raw(self), hdc, dwcodepages, chsrc, core::mem::transmute(pfont.unwrap_or(core::mem::zeroed()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetFontUnicodeRanges(&self, hdc: super::Graphics::Gdi::HDC, puiranges: *const u32, puranges: Option<*mut UNICODERANGE>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetFontUnicodeRanges)(windows_core::Interface::as_raw(self), core::mem::transmute(hdc), core::mem::transmute(puiranges), core::mem::transmute(puranges.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).GetFontUnicodeRanges)(windows_core::Interface::as_raw(self), hdc, puiranges, core::mem::transmute(puranges.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetScriptFontInfo(&self, sid: u8, dwflags: u32, puifonts: *mut u32, pscriptfont: Option<*mut SCRIPTFONTINFO>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetScriptFontInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(sid), core::mem::transmute(dwflags), core::mem::transmute(puifonts), core::mem::transmute(pscriptfont.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).GetScriptFontInfo)(windows_core::Interface::as_raw(self), sid, dwflags, core::mem::transmute(puifonts), core::mem::transmute(pscriptfont.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn CodePageToScriptID(&self, uicodepage: u32) -> windows_core::Result<u8> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CodePageToScriptID)(windows_core::Interface::as_raw(self), core::mem::transmute(uicodepage), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CodePageToScriptID)(windows_core::Interface::as_raw(self), uicodepage, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -8341,13 +8299,13 @@ impl IMLangLineBreakConsole {
     where
         P0: windows_core::Param<IMLangString>,
     {
-        (windows_core::Interface::vtable(self).BreakLineML)(windows_core::Interface::as_raw(self), psrcmlstr.param().abi(), core::mem::transmute(lsrcpos), core::mem::transmute(lsrclen), core::mem::transmute(cmincolumns), core::mem::transmute(cmaxcolumns), core::mem::transmute(pllinelen.unwrap_or(core::mem::zeroed())), core::mem::transmute(plskiplen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).BreakLineML)(windows_core::Interface::as_raw(self), psrcmlstr.param().abi(), lsrcpos, lsrclen, cmincolumns, cmaxcolumns, core::mem::transmute(pllinelen.unwrap_or(core::mem::zeroed())), core::mem::transmute(plskiplen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn BreakLineW(&self, locale: u32, pszsrc: &[u16], cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BreakLineW)(windows_core::Interface::as_raw(self), core::mem::transmute(locale), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(cmaxcolumns), core::mem::transmute(pcchline.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchskip.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).BreakLineW)(windows_core::Interface::as_raw(self), locale, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), cmaxcolumns, core::mem::transmute(pcchline.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchskip.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn BreakLineA(&self, locale: u32, ucodepage: u32, pszsrc: &[u8], cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BreakLineA)(windows_core::Interface::as_raw(self), core::mem::transmute(locale), core::mem::transmute(ucodepage), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(cmaxcolumns), core::mem::transmute(pcchline.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchskip.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).BreakLineA)(windows_core::Interface::as_raw(self), locale, ucodepage, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), cmaxcolumns, core::mem::transmute(pcchline.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchskip.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -8401,13 +8359,13 @@ impl IMLangString {
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetMLStr)(windows_core::Interface::as_raw(self), core::mem::transmute(ldestpos), core::mem::transmute(ldestlen), psrcmlstr.param().abi(), core::mem::transmute(lsrcpos), core::mem::transmute(lsrclen)).ok()
+        (windows_core::Interface::vtable(self).SetMLStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, psrcmlstr.param().abi(), lsrcpos, lsrclen).ok()
     }
     pub unsafe fn GetMLStr<P2>(&self, lsrcpos: i32, lsrclen: i32, punkouter: P2, dwclscontext: u32, piid: *const windows_core::GUID, ppdestmlstr: *mut Option<windows_core::IUnknown>, pldestpos: Option<*mut i32>, pldestlen: Option<*mut i32>) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).GetMLStr)(windows_core::Interface::as_raw(self), core::mem::transmute(lsrcpos), core::mem::transmute(lsrclen), punkouter.param().abi(), core::mem::transmute(dwclscontext), core::mem::transmute(piid), core::mem::transmute(ppdestmlstr), core::mem::transmute(pldestpos.unwrap_or(core::mem::zeroed())), core::mem::transmute(pldestlen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).GetMLStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, punkouter.param().abi(), dwclscontext, piid, core::mem::transmute(ppdestmlstr), core::mem::transmute(pldestpos.unwrap_or(core::mem::zeroed())), core::mem::transmute(pldestlen.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -8465,42 +8423,31 @@ impl core::ops::Deref for IMLangStringAStr {
 windows_core::imp::interface_hierarchy!(IMLangStringAStr, windows_core::IUnknown, IMLangString);
 impl IMLangStringAStr {
     pub unsafe fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: &[u8], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAStr)(windows_core::Interface::as_raw(self), core::mem::transmute(ldestpos), core::mem::transmute(ldestlen), core::mem::transmute(ucodepage), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).SetAStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetStrBufA<P3>(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: P3, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()>
     where
         P3: windows_core::Param<IMLangStringBufA>,
     {
-        (windows_core::Interface::vtable(self).SetStrBufA)(windows_core::Interface::as_raw(self), core::mem::transmute(ldestpos), core::mem::transmute(ldestlen), core::mem::transmute(ucodepage), psrcbuf.param().abi(), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).SetStrBufA)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, psrcbuf.param().abi(), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: Option<*const u32>, pszdest: Option<&mut [u8]>, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAStr)(
-            windows_core::Interface::as_raw(self),
-            core::mem::transmute(lsrcpos),
-            core::mem::transmute(lsrclen),
-            core::mem::transmute(ucodepagein),
-            core::mem::transmute(pucodepageout.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed())),
-        )
-        .ok()
+        (windows_core::Interface::vtable(self).GetAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, ucodepagein, core::mem::transmute(pucodepageout.unwrap_or(core::mem::zeroed())), core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: Option<*mut u32>, ppdestbuf: *mut Option<IMLangStringBufA>, pldestlen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStrBufA)(windows_core::Interface::as_raw(self), core::mem::transmute(lsrcpos), core::mem::transmute(lsrcmaxlen), core::mem::transmute(pudestcodepage.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppdestbuf), core::mem::transmute(pldestlen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).GetStrBufA)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(pudestcodepage.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppdestbuf), core::mem::transmute(pldestlen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn LockAStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: u32, cchrequest: i32, pucodepageout: Option<*mut u32>, ppszdest: Option<*mut windows_core::PSTR>, pcchdest: Option<*mut i32>, pldestlen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LockAStr)(windows_core::Interface::as_raw(self), core::mem::transmute(lsrcpos), core::mem::transmute(lsrclen), core::mem::transmute(lflags), core::mem::transmute(ucodepagein), core::mem::transmute(cchrequest), core::mem::transmute(pucodepageout.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppszdest.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchdest.unwrap_or(core::mem::zeroed())), core::mem::transmute(pldestlen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).LockAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, lflags, ucodepagein, cchrequest, core::mem::transmute(pucodepageout.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppszdest.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchdest.unwrap_or(core::mem::zeroed())), core::mem::transmute(pldestlen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn UnlockAStr(&self, pszsrc: &[u8], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnlockAStr)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLocale)(windows_core::Interface::as_raw(self), core::mem::transmute(ldestpos), core::mem::transmute(ldestlen), core::mem::transmute(locale)).ok()
+        (windows_core::Interface::vtable(self).SetLocale)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, locale).ok()
     }
     pub unsafe fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: Option<*mut u32>, pllocalepos: Option<*mut i32>, pllocalelen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self), core::mem::transmute(lsrcpos), core::mem::transmute(lsrcmaxlen), core::mem::transmute(plocale.unwrap_or(core::mem::zeroed())), core::mem::transmute(pllocalepos.unwrap_or(core::mem::zeroed())), core::mem::transmute(pllocalelen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(plocale.unwrap_or(core::mem::zeroed())), core::mem::transmute(pllocalepos.unwrap_or(core::mem::zeroed())), core::mem::transmute(pllocalelen.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -8583,19 +8530,19 @@ impl IMLangStringBufA {
         (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(plflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuf.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut i8, pcchbuf: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LockBuf)(windows_core::Interface::as_raw(self), core::mem::transmute(cchoffset), core::mem::transmute(cchmaxlock), core::mem::transmute(ppszbuf), core::mem::transmute(pcchbuf.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).LockBuf)(windows_core::Interface::as_raw(self), cchoffset, cchmaxlock, core::mem::transmute(ppszbuf), core::mem::transmute(pcchbuf.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn UnlockBuf<P0>(&self, pszbuf: P0, cchoffset: i32, cchwrite: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).UnlockBuf)(windows_core::Interface::as_raw(self), pszbuf.param().abi(), core::mem::transmute(cchoffset), core::mem::transmute(cchwrite)).ok()
+        (windows_core::Interface::vtable(self).UnlockBuf)(windows_core::Interface::as_raw(self), pszbuf.param().abi(), cchoffset, cchwrite).ok()
     }
     pub unsafe fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), core::mem::transmute(cchoffset), core::mem::transmute(cchmaxinsert), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), cchoffset, cchmaxinsert, core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Delete(&self, cchoffset: i32, cchdelete: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), core::mem::transmute(cchoffset), core::mem::transmute(cchdelete)).ok()
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), cchoffset, cchdelete).ok()
     }
 }
 #[repr(C)]
@@ -8657,19 +8604,19 @@ impl IMLangStringBufW {
         (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(plflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuf.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut u16, pcchbuf: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LockBuf)(windows_core::Interface::as_raw(self), core::mem::transmute(cchoffset), core::mem::transmute(cchmaxlock), core::mem::transmute(ppszbuf), core::mem::transmute(pcchbuf.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).LockBuf)(windows_core::Interface::as_raw(self), cchoffset, cchmaxlock, core::mem::transmute(ppszbuf), core::mem::transmute(pcchbuf.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn UnlockBuf<P0>(&self, pszbuf: P0, cchoffset: i32, cchwrite: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).UnlockBuf)(windows_core::Interface::as_raw(self), pszbuf.param().abi(), core::mem::transmute(cchoffset), core::mem::transmute(cchwrite)).ok()
+        (windows_core::Interface::vtable(self).UnlockBuf)(windows_core::Interface::as_raw(self), pszbuf.param().abi(), cchoffset, cchwrite).ok()
     }
     pub unsafe fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), core::mem::transmute(cchoffset), core::mem::transmute(cchmaxinsert), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), cchoffset, cchmaxinsert, core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Delete(&self, cchoffset: i32, cchdelete: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), core::mem::transmute(cchoffset), core::mem::transmute(cchdelete)).ok()
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), cchoffset, cchdelete).ok()
     }
 }
 #[repr(C)]
@@ -8734,31 +8681,31 @@ impl core::ops::Deref for IMLangStringWStr {
 windows_core::imp::interface_hierarchy!(IMLangStringWStr, windows_core::IUnknown, IMLangString);
 impl IMLangStringWStr {
     pub unsafe fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &[u16], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(ldestpos), core::mem::transmute(ldestlen), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).SetWStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetStrBufW<P2>(&self, ldestpos: i32, ldestlen: i32, psrcbuf: P2, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()>
     where
         P2: windows_core::Param<IMLangStringBufW>,
     {
-        (windows_core::Interface::vtable(self).SetStrBufW)(windows_core::Interface::as_raw(self), core::mem::transmute(ldestpos), core::mem::transmute(ldestlen), psrcbuf.param().abi(), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).SetStrBufW)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, psrcbuf.param().abi(), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetWStr(&self, lsrcpos: i32, lsrclen: i32, pszdest: Option<&mut [u16]>, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(lsrcpos), core::mem::transmute(lsrclen), core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).GetWStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetStrBufW(&self, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: *mut Option<IMLangStringBufW>, pldestlen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStrBufW)(windows_core::Interface::as_raw(self), core::mem::transmute(lsrcpos), core::mem::transmute(lsrcmaxlen), core::mem::transmute(ppdestbuf), core::mem::transmute(pldestlen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).GetStrBufW)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(ppdestbuf), core::mem::transmute(pldestlen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn LockWStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, cchrequest: i32, ppszdest: Option<*mut windows_core::PWSTR>, pcchdest: Option<*mut i32>, pldestlen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LockWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(lsrcpos), core::mem::transmute(lsrclen), core::mem::transmute(lflags), core::mem::transmute(cchrequest), core::mem::transmute(ppszdest.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchdest.unwrap_or(core::mem::zeroed())), core::mem::transmute(pldestlen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).LockWStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, lflags, cchrequest, core::mem::transmute(ppszdest.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchdest.unwrap_or(core::mem::zeroed())), core::mem::transmute(pldestlen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn UnlockWStr(&self, pszsrc: &[u16], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnlockWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(core::mem::zeroed())), core::mem::transmute(plactuallen.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLocale)(windows_core::Interface::as_raw(self), core::mem::transmute(ldestpos), core::mem::transmute(ldestlen), core::mem::transmute(locale)).ok()
+        (windows_core::Interface::vtable(self).SetLocale)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, locale).ok()
     }
     pub unsafe fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: Option<*mut u32>, pllocalepos: Option<*mut i32>, pllocalelen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self), core::mem::transmute(lsrcpos), core::mem::transmute(lsrcmaxlen), core::mem::transmute(plocale.unwrap_or(core::mem::zeroed())), core::mem::transmute(pllocalepos.unwrap_or(core::mem::zeroed())), core::mem::transmute(pllocalelen.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(plocale.unwrap_or(core::mem::zeroed())), core::mem::transmute(pllocalepos.unwrap_or(core::mem::zeroed())), core::mem::transmute(pllocalelen.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -8842,43 +8789,43 @@ impl IMultiLanguage {
         (windows_core::Interface::vtable(self).GetNumberOfCodePageInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodePageInfo(&self, uicodepage: u32, pcodepageinfo: *mut MIMECPINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCodePageInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(uicodepage), core::mem::transmute(pcodepageinfo)).ok()
+        (windows_core::Interface::vtable(self).GetCodePageInfo)(windows_core::Interface::as_raw(self), uicodepage, core::mem::transmute(pcodepageinfo)).ok()
     }
     pub unsafe fn GetFamilyCodePage(&self, uicodepage: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFamilyCodePage)(windows_core::Interface::as_raw(self), core::mem::transmute(uicodepage), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetFamilyCodePage)(windows_core::Interface::as_raw(self), uicodepage, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumCodePages(&self, grfflags: u32) -> windows_core::Result<IEnumCodePage> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), core::mem::transmute(grfflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), grfflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: *mut MIMECSETINFO) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetCharsetInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(charset), core::mem::transmute(pcharsetinfo)).ok()
     }
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).IsConvertible)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsrcencoding), core::mem::transmute(dwdstencoding)).ok()
+        (windows_core::Interface::vtable(self).IsConvertible)(windows_core::Interface::as_raw(self), dwsrcencoding, dwdstencoding).ok()
     }
     pub unsafe fn ConvertString(&self, pdwmode: Option<*mut u32>, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: Option<*const u8>, pcsrcsize: Option<*mut u32>, pdststr: Option<*mut u8>, pcdstsize: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConvertString)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwsrcencoding), core::mem::transmute(dwdstencoding), core::mem::transmute(psrcstr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).ConvertString)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), dwsrcencoding, dwdstencoding, core::mem::transmute(psrcstr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn ConvertStringToUnicode<P2>(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: P2, pcsrcsize: Option<*mut u32>, pdststr: Option<windows_core::PWSTR>, pcdstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringToUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwencoding), psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).ConvertStringToUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn ConvertStringFromUnicode<P2>(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: P2, pcsrcsize: Option<*mut u32>, pdststr: Option<windows_core::PSTR>, pcdstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringFromUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwencoding), psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).ConvertStringFromUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn ConvertStringReset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConvertStringReset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetRfc1766FromLcid(&self, locale: u32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRfc1766FromLcid)(windows_core::Interface::as_raw(self), core::mem::transmute(locale), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetRfc1766FromLcid)(windows_core::Interface::as_raw(self), locale, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn GetLcidFromRfc1766(&self, plocale: *mut u32, bstrrfc1766: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLcidFromRfc1766)(windows_core::Interface::as_raw(self), core::mem::transmute(plocale), core::mem::transmute_copy(bstrrfc1766)).ok()
@@ -8888,11 +8835,11 @@ impl IMultiLanguage {
         (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRfc1766Info(&self, locale: u32, prfc1766info: *mut RFC1766INFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetRfc1766Info)(windows_core::Interface::as_raw(self), core::mem::transmute(locale), core::mem::transmute(prfc1766info)).ok()
+        (windows_core::Interface::vtable(self).GetRfc1766Info)(windows_core::Interface::as_raw(self), locale, core::mem::transmute(prfc1766info)).ok()
     }
     pub unsafe fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> windows_core::Result<IMLangConvertCharset> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), core::mem::transmute(uisrccodepage), core::mem::transmute(uidstcodepage), core::mem::transmute(dwproperty), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -9061,57 +9008,57 @@ impl IMultiLanguage2 {
         (windows_core::Interface::vtable(self).GetNumberOfCodePageInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodePageInfo(&self, uicodepage: u32, langid: u16, pcodepageinfo: *mut MIMECPINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCodePageInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(uicodepage), core::mem::transmute(langid), core::mem::transmute(pcodepageinfo)).ok()
+        (windows_core::Interface::vtable(self).GetCodePageInfo)(windows_core::Interface::as_raw(self), uicodepage, langid, core::mem::transmute(pcodepageinfo)).ok()
     }
     pub unsafe fn GetFamilyCodePage(&self, uicodepage: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFamilyCodePage)(windows_core::Interface::as_raw(self), core::mem::transmute(uicodepage), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetFamilyCodePage)(windows_core::Interface::as_raw(self), uicodepage, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumCodePages(&self, grfflags: u32, langid: u16) -> windows_core::Result<IEnumCodePage> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), core::mem::transmute(grfflags), core::mem::transmute(langid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), grfflags, langid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: *mut MIMECSETINFO) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetCharsetInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(charset), core::mem::transmute(pcharsetinfo)).ok()
     }
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).IsConvertible)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsrcencoding), core::mem::transmute(dwdstencoding)).ok()
+        (windows_core::Interface::vtable(self).IsConvertible)(windows_core::Interface::as_raw(self), dwsrcencoding, dwdstencoding).ok()
     }
     pub unsafe fn ConvertString(&self, pdwmode: Option<*mut u32>, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: Option<*const u8>, pcsrcsize: Option<*mut u32>, pdststr: Option<*mut u8>, pcdstsize: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConvertString)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwsrcencoding), core::mem::transmute(dwdstencoding), core::mem::transmute(psrcstr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).ConvertString)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), dwsrcencoding, dwdstencoding, core::mem::transmute(psrcstr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn ConvertStringToUnicode<P2>(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: P2, pcsrcsize: Option<*mut u32>, pdststr: Option<windows_core::PWSTR>, pcdstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringToUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwencoding), psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).ConvertStringToUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn ConvertStringFromUnicode<P2>(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: P2, pcsrcsize: Option<*mut u32>, pdststr: Option<windows_core::PSTR>, pcdstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringFromUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwencoding), psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).ConvertStringFromUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn ConvertStringReset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConvertStringReset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetRfc1766FromLcid(&self, locale: u32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRfc1766FromLcid)(windows_core::Interface::as_raw(self), core::mem::transmute(locale), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetRfc1766FromLcid)(windows_core::Interface::as_raw(self), locale, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn GetLcidFromRfc1766(&self, plocale: *mut u32, bstrrfc1766: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLcidFromRfc1766)(windows_core::Interface::as_raw(self), core::mem::transmute(plocale), core::mem::transmute_copy(bstrrfc1766)).ok()
     }
     pub unsafe fn EnumRfc1766(&self, langid: u16) -> windows_core::Result<IEnumRfc1766> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), core::mem::transmute(langid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), langid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRfc1766Info(&self, locale: u32, langid: u16, prfc1766info: *mut RFC1766INFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetRfc1766Info)(windows_core::Interface::as_raw(self), core::mem::transmute(locale), core::mem::transmute(langid), core::mem::transmute(prfc1766info)).ok()
+        (windows_core::Interface::vtable(self).GetRfc1766Info)(windows_core::Interface::as_raw(self), locale, langid, core::mem::transmute(prfc1766info)).ok()
     }
     pub unsafe fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> windows_core::Result<IMLangConvertCharset> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), core::mem::transmute(uisrccodepage), core::mem::transmute(uidstcodepage), core::mem::transmute(dwproperty), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConvertStringInIStream<P2, P5, P6>(&self, pdwmode: Option<*mut u32>, dwflag: u32, lpfallback: P2, dwsrcencoding: u32, dwdstencoding: u32, pstmin: P5, pstmout: P6) -> windows_core::Result<()>
@@ -9120,46 +9067,46 @@ impl IMultiLanguage2 {
         P5: windows_core::Param<super::System::Com::IStream>,
         P6: windows_core::Param<super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringInIStream)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflag), lpfallback.param().abi(), core::mem::transmute(dwsrcencoding), core::mem::transmute(dwdstencoding), pstmin.param().abi(), pstmout.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ConvertStringInIStream)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), dwflag, lpfallback.param().abi(), dwsrcencoding, dwdstencoding, pstmin.param().abi(), pstmout.param().abi()).ok()
     }
     pub unsafe fn ConvertStringToUnicodeEx<P2, P7>(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: P2, pcsrcsize: Option<*mut u32>, pdststr: windows_core::PWSTR, pcdstsize: Option<*mut u32>, dwflag: u32, lpfallback: P7) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCSTR>,
         P7: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringToUnicodeEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwencoding), psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflag), lpfallback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ConvertStringToUnicodeEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed())), dwflag, lpfallback.param().abi()).ok()
     }
     pub unsafe fn ConvertStringFromUnicodeEx<P2, P7>(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: P2, pcsrcsize: Option<*mut u32>, pdststr: windows_core::PSTR, pcdstsize: Option<*mut u32>, dwflag: u32, lpfallback: P7) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
         P7: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringFromUnicodeEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwencoding), psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflag), lpfallback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ConvertStringFromUnicodeEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::mem::zeroed())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::mem::zeroed())), dwflag, lpfallback.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectCodepageInIStream<P2>(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: P2, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> windows_core::Result<()>
     where
         P2: windows_core::Param<super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).DetectCodepageInIStream)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflag), core::mem::transmute(dwprefwincodepage), pstmin.param().abi(), core::mem::transmute(lpencoding), core::mem::transmute(pnscores)).ok()
+        (windows_core::Interface::vtable(self).DetectCodepageInIStream)(windows_core::Interface::as_raw(self), dwflag, dwprefwincodepage, pstmin.param().abi(), core::mem::transmute(lpencoding), core::mem::transmute(pnscores)).ok()
     }
     pub unsafe fn DetectInputCodepage<P2>(&self, dwflag: u32, dwprefwincodepage: u32, psrcstr: P2, pcsrcsize: *mut i32, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).DetectInputCodepage)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflag), core::mem::transmute(dwprefwincodepage), psrcstr.param().abi(), core::mem::transmute(pcsrcsize), core::mem::transmute(lpencoding), core::mem::transmute(pnscores)).ok()
+        (windows_core::Interface::vtable(self).DetectInputCodepage)(windows_core::Interface::as_raw(self), dwflag, dwprefwincodepage, psrcstr.param().abi(), core::mem::transmute(pcsrcsize), core::mem::transmute(lpencoding), core::mem::transmute(pnscores)).ok()
     }
     pub unsafe fn ValidateCodePage(&self, uicodepage: u32, hwnd: super::Foundation::HWND) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ValidateCodePage)(windows_core::Interface::as_raw(self), core::mem::transmute(uicodepage), core::mem::transmute(hwnd)).ok()
+        (windows_core::Interface::vtable(self).ValidateCodePage)(windows_core::Interface::as_raw(self), uicodepage, hwnd).ok()
     }
     pub unsafe fn GetCodePageDescription(&self, uicodepage: u32, lcid: u32, lpwidecharstr: &mut [u16]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCodePageDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(uicodepage), core::mem::transmute(lcid), core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).GetCodePageDescription)(windows_core::Interface::as_raw(self), uicodepage, lcid, core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap()).ok()
     }
     pub unsafe fn IsCodePageInstallable(&self, uicodepage: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).IsCodePageInstallable)(windows_core::Interface::as_raw(self), core::mem::transmute(uicodepage)).ok()
+        (windows_core::Interface::vtable(self).IsCodePageInstallable)(windows_core::Interface::as_raw(self), uicodepage).ok()
     }
     pub unsafe fn SetMimeDBSource(&self, dwsource: MIMECONTF) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMimeDBSource)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsource)).ok()
+        (windows_core::Interface::vtable(self).SetMimeDBSource)(windows_core::Interface::as_raw(self), dwsource).ok()
     }
     pub unsafe fn GetNumberOfScripts(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -9167,10 +9114,10 @@ impl IMultiLanguage2 {
     }
     pub unsafe fn EnumScripts(&self, dwflags: u32, langid: u16) -> windows_core::Result<IEnumScript> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumScripts)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), core::mem::transmute(langid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumScripts)(windows_core::Interface::as_raw(self), dwflags, langid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ValidateCodePageEx(&self, uicodepage: u32, hwnd: super::Foundation::HWND, dwfiodcontrol: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ValidateCodePageEx)(windows_core::Interface::as_raw(self), core::mem::transmute(uicodepage), core::mem::transmute(hwnd), core::mem::transmute(dwfiodcontrol)).ok()
+        (windows_core::Interface::vtable(self).ValidateCodePageEx)(windows_core::Interface::as_raw(self), uicodepage, hwnd, dwfiodcontrol).ok()
     }
 }
 #[repr(C)]
@@ -9449,7 +9396,7 @@ impl IMultiLanguage3 {
     where
         P7: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DetectOutboundCodePage)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap(), core::mem::transmute(puipreferredcodepages.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), puipreferredcodepages.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puidetectedcodepages), core::mem::transmute(pndetectedcodepages), lpspecialchar.param().abi()).ok()
+        (windows_core::Interface::vtable(self).DetectOutboundCodePage)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap(), core::mem::transmute(puipreferredcodepages.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), puipreferredcodepages.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puidetectedcodepages), core::mem::transmute(pndetectedcodepages), lpspecialchar.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectOutboundCodePageInIStream<P1, P6>(&self, dwflags: u32, pstrin: P1, puipreferredcodepages: Option<&[u32]>, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: P6) -> windows_core::Result<()>
@@ -9457,7 +9404,7 @@ impl IMultiLanguage3 {
         P1: windows_core::Param<super::System::Com::IStream>,
         P6: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DetectOutboundCodePageInIStream)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), pstrin.param().abi(), core::mem::transmute(puipreferredcodepages.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), puipreferredcodepages.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puidetectedcodepages), core::mem::transmute(pndetectedcodepages), lpspecialchar.param().abi()).ok()
+        (windows_core::Interface::vtable(self).DetectOutboundCodePageInIStream)(windows_core::Interface::as_raw(self), dwflags, pstrin.param().abi(), core::mem::transmute(puipreferredcodepages.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), puipreferredcodepages.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puidetectedcodepages), core::mem::transmute(pndetectedcodepages), lpspecialchar.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -9680,7 +9627,7 @@ impl ISpellCheckProvider {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOptionValue)(windows_core::Interface::as_raw(self), optionid.param().abi(), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetOptionValue)(windows_core::Interface::as_raw(self), optionid.param().abi(), value).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OptionIds(&self) -> windows_core::Result<super::System::Com::IEnumString> {
@@ -9707,7 +9654,7 @@ impl ISpellCheckProvider {
     where
         P1: windows_core::Param<super::System::Com::IEnumString>,
     {
-        (windows_core::Interface::vtable(self).InitializeWordlist)(windows_core::Interface::as_raw(self), core::mem::transmute(wordlisttype), words.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InitializeWordlist)(windows_core::Interface::as_raw(self), wordlisttype, words.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -10011,7 +9958,7 @@ impl ISpellChecker {
         (windows_core::Interface::vtable(self).add_SpellCheckerChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn remove_SpellCheckerChanged(&self, eventcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).remove_SpellCheckerChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(eventcookie)).ok()
+        (windows_core::Interface::vtable(self).remove_SpellCheckerChanged)(windows_core::Interface::as_raw(self), eventcookie).ok()
     }
     pub unsafe fn GetOptionDescription<P0>(&self, optionid: P0) -> windows_core::Result<IOptionDescription>
     where

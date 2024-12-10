@@ -34,16 +34,12 @@ pub unsafe fn NtWaitForSingleObject(
     timeout: *mut i64,
 ) -> windows::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : windows::Win32::Foundation:: HANDLE, alertable : bool, timeout : *mut i64) -> windows::Win32::Foundation:: NTSTATUS);
-    NtWaitForSingleObject(
-        core::mem::transmute(handle),
-        core::mem::transmute(alertable),
-        core::mem::transmute(timeout),
-    )
+    NtWaitForSingleObject(handle, alertable, core::mem::transmute(timeout))
 }
 #[inline]
 pub unsafe fn SetEvent(hevent: windows::Win32::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : windows::Win32::Foundation:: HANDLE) -> windows::Win32::Foundation:: BOOL);
-    SetEvent(core::mem::transmute(hevent)).ok()
+    SetEvent(hevent).ok()
 }
 #[inline]
 pub unsafe fn WaitForSingleObjectEx(
@@ -52,9 +48,5 @@ pub unsafe fn WaitForSingleObjectEx(
     balertable: bool,
 ) -> windows::Win32::Foundation::WAIT_EVENT {
     windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObjectEx(hhandle : windows::Win32::Foundation:: HANDLE, dwmilliseconds : u32, balertable : windows::Win32::Foundation:: BOOL) -> windows::Win32::Foundation:: WAIT_EVENT);
-    WaitForSingleObjectEx(
-        core::mem::transmute(hhandle),
-        core::mem::transmute(dwmilliseconds),
-        balertable.into(),
-    )
+    WaitForSingleObjectEx(hhandle, dwmilliseconds, balertable.into())
 }

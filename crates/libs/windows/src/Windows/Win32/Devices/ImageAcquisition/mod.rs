@@ -154,10 +154,10 @@ windows_core::imp::define_interface!(IEnumWIA_DEV_CAPS, IEnumWIA_DEV_CAPS_Vtbl, 
 windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_CAPS, windows_core::IUnknown);
 impl IEnumWIA_DEV_CAPS {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_DEV_CAP, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(rgelt), core::mem::transmute(pceltfetched)).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -239,10 +239,10 @@ windows_core::imp::define_interface!(IEnumWIA_DEV_INFO, IEnumWIA_DEV_INFO_Vtbl, 
 windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_INFO, windows_core::IUnknown);
 impl IEnumWIA_DEV_INFO {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut Option<IWiaPropertyStorage>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(rgelt), core::mem::transmute(pceltfetched)).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -324,10 +324,10 @@ windows_core::imp::define_interface!(IEnumWIA_FORMAT_INFO, IEnumWIA_FORMAT_INFO_
 windows_core::imp::interface_hierarchy!(IEnumWIA_FORMAT_INFO, windows_core::IUnknown);
 impl IEnumWIA_FORMAT_INFO {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_FORMAT_INFO, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(rgelt), core::mem::transmute(pceltfetched)).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -409,10 +409,10 @@ windows_core::imp::define_interface!(IEnumWiaItem, IEnumWiaItem_Vtbl, 0x5e8383fc
 windows_core::imp::interface_hierarchy!(IEnumWiaItem, windows_core::IUnknown);
 impl IEnumWiaItem {
     pub unsafe fn Next(&self, celt: u32, ppiwiaitem: *mut Option<IWiaItem>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppiwiaitem), core::mem::transmute(pceltfetched)).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppiwiaitem), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -494,10 +494,10 @@ windows_core::imp::define_interface!(IEnumWiaItem2, IEnumWiaItem2_Vtbl, 0x59970a
 windows_core::imp::interface_hierarchy!(IEnumWiaItem2, windows_core::IUnknown);
 impl IEnumWiaItem2 {
     pub unsafe fn Next(&self, celt: u32, ppiwiaitem2: *mut Option<IWiaItem2>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(celt), core::mem::transmute(ppiwiaitem2), core::mem::transmute(pceltfetched)).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppiwiaitem2), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -599,7 +599,7 @@ impl IWiaAppErrorHandler {
     where
         P1: windows_core::Param<IWiaItem2>,
     {
-        (windows_core::Interface::vtable(self).ReportStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), pwiaitem2.param().abi(), core::mem::transmute(hrstatus), core::mem::transmute(lpercentcomplete)).ok()
+        (windows_core::Interface::vtable(self).ReportStatus)(windows_core::Interface::as_raw(self), lflags, pwiaitem2.param().abi(), hrstatus, lpercentcomplete).ok()
     }
 }
 #[repr(C)]
@@ -643,7 +643,7 @@ windows_core::imp::define_interface!(IWiaDataCallback, IWiaDataCallback_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IWiaDataCallback, windows_core::IUnknown);
 impl IWiaDataCallback {
     pub unsafe fn BandedDataCallback(&self, lmessage: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, lreserved: i32, lreslength: i32, pbbuffer: *mut u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BandedDataCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(lmessage), core::mem::transmute(lstatus), core::mem::transmute(lpercentcomplete), core::mem::transmute(loffset), core::mem::transmute(llength), core::mem::transmute(lreserved), core::mem::transmute(lreslength), core::mem::transmute(pbbuffer)).ok()
+        (windows_core::Interface::vtable(self).BandedDataCallback)(windows_core::Interface::as_raw(self), lmessage, lstatus, lpercentcomplete, loffset, llength, lreserved, lreslength, core::mem::transmute(pbbuffer)).ok()
     }
 }
 #[repr(C)]
@@ -763,39 +763,39 @@ windows_core::imp::interface_hierarchy!(IWiaDevMgr, windows_core::IUnknown);
 impl IWiaDevMgr {
     pub unsafe fn EnumDeviceInfo(&self, lflag: i32) -> windows_core::Result<IEnumWIA_DEV_INFO> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumDeviceInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(lflag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumDeviceInfo)(windows_core::Interface::as_raw(self), lflag, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateDevice(&self, bstrdeviceid: &windows_core::BSTR) -> windows_core::Result<IWiaItem> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SelectDeviceDlg(&self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR, ppitemroot: *mut Option<IWiaItem>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(pbstrdeviceid), core::mem::transmute(ppitemroot)).ok()
+        (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent, ldevicetype, lflags, core::mem::transmute(pbstrdeviceid), core::mem::transmute(ppitemroot)).ok()
     }
     pub unsafe fn SelectDeviceDlgID(&self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(pbstrdeviceid)).ok()
+        (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), hwndparent, ldevicetype, lflags, core::mem::transmute(pbstrdeviceid)).ok()
     }
     pub unsafe fn GetImageDlg<P4>(&self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: P4, bstrfilename: &windows_core::BSTR, pguidformat: *mut windows_core::GUID) -> windows_core::Result<()>
     where
         P4: windows_core::Param<IWiaItem>,
     {
-        (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(lintent), pitemroot.param().abi(), core::mem::transmute_copy(bstrfilename), core::mem::transmute(pguidformat)).ok()
+        (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), hwndparent, ldevicetype, lflags, lintent, pitemroot.param().abi(), core::mem::transmute_copy(bstrfilename), core::mem::transmute(pguidformat)).ok()
     }
     pub unsafe fn RegisterEventCallbackProgram(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, bstrcommandline: &windows_core::BSTR, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RegisterEventCallbackProgram)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(peventguid), core::mem::transmute_copy(bstrcommandline), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)).ok()
+        (windows_core::Interface::vtable(self).RegisterEventCallbackProgram)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), peventguid, core::mem::transmute_copy(bstrcommandline), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)).ok()
     }
     pub unsafe fn RegisterEventCallbackInterface<P3>(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, piwiaeventcallback: P3) -> windows_core::Result<windows_core::IUnknown>
     where
         P3: windows_core::Param<IWiaEventCallback>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(peventguid), piwiaeventcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(peventguid), core::mem::transmute(pclsid), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)).ok()
+        (windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), peventguid, pclsid, core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)).ok()
     }
     pub unsafe fn AddDeviceDlg(&self, hwndparent: super::super::Foundation::HWND, lflags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddDeviceDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(lflags)).ok()
+        (windows_core::Interface::vtable(self).AddDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent, lflags).ok()
     }
 }
 #[repr(C)]
@@ -901,33 +901,33 @@ windows_core::imp::interface_hierarchy!(IWiaDevMgr2, windows_core::IUnknown);
 impl IWiaDevMgr2 {
     pub unsafe fn EnumDeviceInfo(&self, lflags: i32) -> windows_core::Result<IEnumWIA_DEV_INFO> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumDeviceInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumDeviceInfo)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateDevice(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR) -> windows_core::Result<IWiaItem2> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SelectDeviceDlg(&self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR, ppitemroot: *mut Option<IWiaItem2>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(pbstrdeviceid), core::mem::transmute(ppitemroot)).ok()
+        (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent, ldevicetype, lflags, core::mem::transmute(pbstrdeviceid), core::mem::transmute(ppitemroot)).ok()
     }
     pub unsafe fn SelectDeviceDlgID(&self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(ldevicetype), core::mem::transmute(lflags), core::mem::transmute(pbstrdeviceid)).ok()
+        (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), hwndparent, ldevicetype, lflags, core::mem::transmute(pbstrdeviceid)).ok()
     }
     pub unsafe fn RegisterEventCallbackInterface<P3>(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, piwiaeventcallback: P3) -> windows_core::Result<windows_core::IUnknown>
     where
         P3: windows_core::Param<IWiaEventCallback>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(peventguid), piwiaeventcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterEventCallbackProgram(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, bstrfullappname: &windows_core::BSTR, bstrcommandlinearg: &windows_core::BSTR, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RegisterEventCallbackProgram)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(peventguid), core::mem::transmute_copy(bstrfullappname), core::mem::transmute_copy(bstrcommandlinearg), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)).ok()
+        (windows_core::Interface::vtable(self).RegisterEventCallbackProgram)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), peventguid, core::mem::transmute_copy(bstrfullappname), core::mem::transmute_copy(bstrcommandlinearg), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)).ok()
     }
     pub unsafe fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(peventguid), core::mem::transmute(pclsid), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)).ok()
+        (windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), peventguid, pclsid, core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)).ok()
     }
     pub unsafe fn GetImageDlg(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstrfoldername: &windows_core::BSTR, bstrfilename: &windows_core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: *mut Option<IWiaItem2>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(hwndparent), core::mem::transmute_copy(bstrfoldername), core::mem::transmute_copy(bstrfilename), core::mem::transmute(plnumfiles), core::mem::transmute(ppbstrfilepaths), core::mem::transmute(ppitem)).ok()
+        (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), hwndparent, core::mem::transmute_copy(bstrfoldername), core::mem::transmute_copy(bstrfilename), core::mem::transmute(plnumfiles), core::mem::transmute(ppbstrfilepaths), core::mem::transmute(ppitem)).ok()
     }
 }
 #[repr(C)]
@@ -1047,14 +1047,14 @@ impl IWiaDrvItem {
         (windows_core::Interface::vtable(self).AddItemToFolder)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0004.param().abi()).ok()
     }
     pub unsafe fn UnlinkItemTree(&self, __midl__iwiadrvitem0005: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnlinkItemTree)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiadrvitem0005)).ok()
+        (windows_core::Interface::vtable(self).UnlinkItemTree)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0005).ok()
     }
     pub unsafe fn RemoveItemFromFolder(&self, __midl__iwiadrvitem0006: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveItemFromFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiadrvitem0006)).ok()
+        (windows_core::Interface::vtable(self).RemoveItemFromFolder)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0006).ok()
     }
     pub unsafe fn FindItemByName(&self, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: &windows_core::BSTR) -> windows_core::Result<IWiaDrvItem> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiadrvitem0007), core::mem::transmute_copy(__midl__iwiadrvitem0008), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0007, core::mem::transmute_copy(__midl__iwiadrvitem0008), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindChildItemByName(&self, __midl__iwiadrvitem0010: &windows_core::BSTR) -> windows_core::Result<IWiaDrvItem> {
         let mut result__ = core::mem::zeroed();
@@ -1252,14 +1252,14 @@ impl IWiaErrorHandler {
     where
         P2: windows_core::Param<IWiaItem2>,
     {
-        (windows_core::Interface::vtable(self).ReportStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(hwndparent), pwiaitem2.param().abi(), core::mem::transmute(hrstatus), core::mem::transmute(lpercentcomplete)).ok()
+        (windows_core::Interface::vtable(self).ReportStatus)(windows_core::Interface::as_raw(self), lflags, hwndparent, pwiaitem2.param().abi(), hrstatus, lpercentcomplete).ok()
     }
     pub unsafe fn GetStatusDescription<P1>(&self, lflags: i32, pwiaitem2: P1, hrstatus: windows_core::HRESULT) -> windows_core::Result<windows_core::BSTR>
     where
         P1: windows_core::Param<IWiaItem2>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStatusDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), pwiaitem2.param().abi(), core::mem::transmute(hrstatus), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetStatusDescription)(windows_core::Interface::as_raw(self), lflags, pwiaitem2.param().abi(), hrstatus, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[repr(C)]
@@ -1303,7 +1303,7 @@ windows_core::imp::define_interface!(IWiaEventCallback, IWiaEventCallback_Vtbl, 
 windows_core::imp::interface_hierarchy!(IWiaEventCallback, windows_core::IUnknown);
 impl IWiaEventCallback {
     pub unsafe fn ImageEventCallback(&self, peventguid: *const windows_core::GUID, bstreventdescription: &windows_core::BSTR, bstrdeviceid: &windows_core::BSTR, bstrdevicedescription: &windows_core::BSTR, dwdevicetype: u32, bstrfullitemname: &windows_core::BSTR, puleventtype: *mut u32, ulreserved: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ImageEventCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(peventguid), core::mem::transmute_copy(bstreventdescription), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute_copy(bstrdevicedescription), core::mem::transmute(dwdevicetype), core::mem::transmute_copy(bstrfullitemname), core::mem::transmute(puleventtype), core::mem::transmute(ulreserved)).ok()
+        (windows_core::Interface::vtable(self).ImageEventCallback)(windows_core::Interface::as_raw(self), peventguid, core::mem::transmute_copy(bstreventdescription), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute_copy(bstrdevicedescription), dwdevicetype, core::mem::transmute_copy(bstrfullitemname), core::mem::transmute(puleventtype), ulreserved).ok()
     }
 }
 #[repr(C)]
@@ -1349,7 +1349,7 @@ impl IWiaImageFilter {
         P1: windows_core::Param<IWiaItem2>,
         P3: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).FilterPreviewImage)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), pwiachilditem2.param().abi(), core::mem::transmute(inputimageextents), pinputstream.param().abi()).ok()
+        (windows_core::Interface::vtable(self).FilterPreviewImage)(windows_core::Interface::as_raw(self), lflags, pwiachilditem2.param().abi(), core::mem::transmute(inputimageextents), pinputstream.param().abi()).ok()
     }
     pub unsafe fn ApplyProperties<P0>(&self, pwiapropertystorage: P0) -> windows_core::Result<()>
     where
@@ -1417,32 +1417,32 @@ impl IWiaItem {
         (windows_core::Interface::vtable(self).GetItemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AnalyzeItem(&self, lflags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AnalyzeItem)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags)).ok()
+        (windows_core::Interface::vtable(self).AnalyzeItem)(windows_core::Interface::as_raw(self), lflags).ok()
     }
     pub unsafe fn EnumChildItems(&self) -> windows_core::Result<IEnumWiaItem> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumChildItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteItem(&self, lflags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags)).ok()
+        (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), lflags).ok()
     }
     pub unsafe fn CreateChildItem(&self, lflags: i32, bstritemname: &windows_core::BSTR, bstrfullitemname: &windows_core::BSTR) -> windows_core::Result<IWiaItem> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstritemname), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstritemname), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const windows_core::GUID) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumRegisterEventInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(peventguid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumRegisterEventInfo)(windows_core::Interface::as_raw(self), lflags, peventguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindItemByName(&self, lflags: i32, bstrfullitemname: &windows_core::BSTR) -> windows_core::Result<IWiaItem> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeviceDlg(&self, hwndparent: super::super::Foundation::HWND, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut Option<IWiaItem>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(lflags), core::mem::transmute(lintent), core::mem::transmute(plitemcount), core::mem::transmute(ppiwiaitem)).ok()
+        (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), hwndparent, lflags, lintent, core::mem::transmute(plitemcount), core::mem::transmute(ppiwiaitem)).ok()
     }
     pub unsafe fn DeviceCommand(&self, lflags: i32, pcmdguid: *const windows_core::GUID, piwiaitem: *mut Option<IWiaItem>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeviceCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(pcmdguid), core::mem::transmute(piwiaitem)).ok()
+        (windows_core::Interface::vtable(self).DeviceCommand)(windows_core::Interface::as_raw(self), lflags, pcmdguid, core::mem::transmute(piwiaitem)).ok()
     }
     pub unsafe fn GetRootItem(&self) -> windows_core::Result<IWiaItem> {
         let mut result__ = core::mem::zeroed();
@@ -1450,7 +1450,7 @@ impl IWiaItem {
     }
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumDeviceCapabilities)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumDeviceCapabilities)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DumpItemData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -1655,10 +1655,10 @@ windows_core::imp::interface_hierarchy!(IWiaItem2, windows_core::IUnknown);
 impl IWiaItem2 {
     pub unsafe fn CreateChildItem(&self, litemflags: i32, lcreationflags: i32, bstritemname: &windows_core::BSTR) -> windows_core::Result<IWiaItem2> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), core::mem::transmute(litemflags), core::mem::transmute(lcreationflags), core::mem::transmute_copy(bstritemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), litemflags, lcreationflags, core::mem::transmute_copy(bstritemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteItem(&self, lflags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags)).ok()
+        (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), lflags).ok()
     }
     pub unsafe fn EnumChildItems(&self, pcategoryguid: Option<*const windows_core::GUID>) -> windows_core::Result<IEnumWiaItem2> {
         let mut result__ = core::mem::zeroed();
@@ -1666,7 +1666,7 @@ impl IWiaItem2 {
     }
     pub unsafe fn FindItemByName(&self, lflags: i32, bstrfullitemname: &windows_core::BSTR) -> windows_core::Result<IWiaItem2> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetItemCategory(&self) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = core::mem::zeroed();
@@ -1677,20 +1677,20 @@ impl IWiaItem2 {
         (windows_core::Interface::vtable(self).GetItemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DeviceDlg(&self, lflags: i32, hwndparent: super::super::Foundation::HWND, bstrfoldername: &windows_core::BSTR, bstrfilename: &windows_core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: Option<*mut Option<IWiaItem2>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(hwndparent), core::mem::transmute_copy(bstrfoldername), core::mem::transmute_copy(bstrfilename), core::mem::transmute(plnumfiles), core::mem::transmute(ppbstrfilepaths), core::mem::transmute(ppitem.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), lflags, hwndparent, core::mem::transmute_copy(bstrfoldername), core::mem::transmute_copy(bstrfilename), core::mem::transmute(plnumfiles), core::mem::transmute(ppbstrfilepaths), core::mem::transmute(ppitem.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn DeviceCommand(&self, lflags: i32, pcmdguid: *const windows_core::GUID, ppiwiaitem2: *mut Option<IWiaItem2>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeviceCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(pcmdguid), core::mem::transmute(ppiwiaitem2)).ok()
+        (windows_core::Interface::vtable(self).DeviceCommand)(windows_core::Interface::as_raw(self), lflags, pcmdguid, core::mem::transmute(ppiwiaitem2)).ok()
     }
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumDeviceCapabilities)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumDeviceCapabilities)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CheckExtension(&self, lflags: i32, bstrname: &windows_core::BSTR, riidextensioninterface: *const windows_core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CheckExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrname), core::mem::transmute(riidextensioninterface), core::mem::transmute(pbextensionexists)).ok()
+        (windows_core::Interface::vtable(self).CheckExtension)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrname), riidextensioninterface, core::mem::transmute(pbextensionexists)).ok()
     }
     pub unsafe fn GetExtension(&self, lflags: i32, bstrname: &windows_core::BSTR, riidextensioninterface: *const windows_core::GUID, ppout: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstrname), core::mem::transmute(riidextensioninterface), core::mem::transmute(ppout)).ok()
+        (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrname), riidextensioninterface, core::mem::transmute(ppout)).ok()
     }
     pub unsafe fn GetParentItem(&self) -> windows_core::Result<IWiaItem2> {
         let mut result__ = core::mem::zeroed();
@@ -1702,11 +1702,11 @@ impl IWiaItem2 {
     }
     pub unsafe fn GetPreviewComponent(&self, lflags: i32) -> windows_core::Result<IWiaPreview> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPreviewComponent)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPreviewComponent)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const windows_core::GUID) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumRegisterEventInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(peventguid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumRegisterEventInfo)(windows_core::Interface::as_raw(self), lflags, peventguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Diagnostic)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), core::mem::transmute(pbuffer.as_ptr())).ok()
@@ -1909,7 +1909,7 @@ impl IWiaItemExtras {
         (windows_core::Interface::vtable(self).GetExtendedErrorInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Escape(&self, dwescapecode: u32, lpindata: &[u8], poutdata: &mut [u8], pdwactualdatasize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), core::mem::transmute(dwescapecode), core::mem::transmute(lpindata.as_ptr()), lpindata.len().try_into().unwrap(), core::mem::transmute(poutdata.as_ptr()), poutdata.len().try_into().unwrap(), core::mem::transmute(pdwactualdatasize)).ok()
+        (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), dwescapecode, core::mem::transmute(lpindata.as_ptr()), lpindata.len().try_into().unwrap(), core::mem::transmute(poutdata.as_ptr()), poutdata.len().try_into().unwrap(), core::mem::transmute(pdwactualdatasize)).ok()
     }
     pub unsafe fn CancelPendingIO(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CancelPendingIO)(windows_core::Interface::as_raw(self)).ok()
@@ -1963,13 +1963,13 @@ windows_core::imp::define_interface!(IWiaLog, IWiaLog_Vtbl, 0xa00c10b6_82a1_452f
 windows_core::imp::interface_hierarchy!(IWiaLog, windows_core::IUnknown);
 impl IWiaLog {
     pub unsafe fn InitializeLog(&self, hinstance: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InitializeLog)(windows_core::Interface::as_raw(self), core::mem::transmute(hinstance)).ok()
+        (windows_core::Interface::vtable(self).InitializeLog)(windows_core::Interface::as_raw(self), hinstance).ok()
     }
     pub unsafe fn hResult(&self, hresult: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).hResult)(windows_core::Interface::as_raw(self), core::mem::transmute(hresult)).ok()
+        (windows_core::Interface::vtable(self).hResult)(windows_core::Interface::as_raw(self), hresult).ok()
     }
     pub unsafe fn Log(&self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(lresid), core::mem::transmute(ldetail), core::mem::transmute_copy(bstrtext)).ok()
+        (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), lflags, lresid, ldetail, core::mem::transmute_copy(bstrtext)).ok()
     }
 }
 #[repr(C)]
@@ -2014,19 +2014,19 @@ windows_core::imp::define_interface!(IWiaLogEx, IWiaLogEx_Vtbl, 0xaf1f22ac_7a40_
 windows_core::imp::interface_hierarchy!(IWiaLogEx, windows_core::IUnknown);
 impl IWiaLogEx {
     pub unsafe fn InitializeLogEx(&self, hinstance: *const u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InitializeLogEx)(windows_core::Interface::as_raw(self), core::mem::transmute(hinstance)).ok()
+        (windows_core::Interface::vtable(self).InitializeLogEx)(windows_core::Interface::as_raw(self), hinstance).ok()
     }
     pub unsafe fn hResult(&self, hresult: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).hResult)(windows_core::Interface::as_raw(self), core::mem::transmute(hresult)).ok()
+        (windows_core::Interface::vtable(self).hResult)(windows_core::Interface::as_raw(self), hresult).ok()
     }
     pub unsafe fn Log(&self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(lresid), core::mem::transmute(ldetail), core::mem::transmute_copy(bstrtext)).ok()
+        (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), lflags, lresid, ldetail, core::mem::transmute_copy(bstrtext)).ok()
     }
     pub unsafe fn hResultEx(&self, lmethodid: i32, hresult: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).hResultEx)(windows_core::Interface::as_raw(self), core::mem::transmute(lmethodid), core::mem::transmute(hresult)).ok()
+        (windows_core::Interface::vtable(self).hResultEx)(windows_core::Interface::as_raw(self), lmethodid, hresult).ok()
     }
     pub unsafe fn LogEx(&self, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LogEx)(windows_core::Interface::as_raw(self), core::mem::transmute(lmethodid), core::mem::transmute(lflags), core::mem::transmute(lresid), core::mem::transmute(ldetail), core::mem::transmute_copy(bstrtext)).ok()
+        (windows_core::Interface::vtable(self).LogEx)(windows_core::Interface::as_raw(self), lmethodid, lflags, lresid, ldetail, core::mem::transmute_copy(bstrtext)).ok()
     }
 }
 #[repr(C)]
@@ -2089,65 +2089,65 @@ impl IWiaMiniDrv {
         P4: windows_core::Param<windows_core::IUnknown>,
         P5: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).drvInitializeWia)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0000), core::mem::transmute(__midl__iwiaminidrv0001), core::mem::transmute_copy(__midl__iwiaminidrv0002), core::mem::transmute_copy(__midl__iwiaminidrv0003), __midl__iwiaminidrv0004.param().abi(), __midl__iwiaminidrv0005.param().abi(), core::mem::transmute(__midl__iwiaminidrv0006), core::mem::transmute(__midl__iwiaminidrv0007), core::mem::transmute(__midl__iwiaminidrv0008)).ok()
+        (windows_core::Interface::vtable(self).drvInitializeWia)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0000, __midl__iwiaminidrv0001, core::mem::transmute_copy(__midl__iwiaminidrv0002), core::mem::transmute_copy(__midl__iwiaminidrv0003), __midl__iwiaminidrv0004.param().abi(), __midl__iwiaminidrv0005.param().abi(), core::mem::transmute(__midl__iwiaminidrv0006), core::mem::transmute(__midl__iwiaminidrv0007), core::mem::transmute(__midl__iwiaminidrv0008)).ok()
     }
     pub unsafe fn drvAcquireItemData(&self, __midl__iwiaminidrv0009: *const u8, __midl__iwiaminidrv0010: i32, __midl__iwiaminidrv0011: *mut MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0012: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).drvAcquireItemData)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0009), core::mem::transmute(__midl__iwiaminidrv0010), core::mem::transmute(__midl__iwiaminidrv0011), core::mem::transmute(__midl__iwiaminidrv0012)).ok()
+        (windows_core::Interface::vtable(self).drvAcquireItemData)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0009, __midl__iwiaminidrv0010, core::mem::transmute(__midl__iwiaminidrv0011), core::mem::transmute(__midl__iwiaminidrv0012)).ok()
     }
     pub unsafe fn drvInitItemProperties(&self, __midl__iwiaminidrv0013: *const u8, __midl__iwiaminidrv0014: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).drvInitItemProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0013), core::mem::transmute(__midl__iwiaminidrv0014), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).drvInitItemProperties)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0013, __midl__iwiaminidrv0014, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn drvValidateItemProperties(&self, __midl__iwiaminidrv0016: *const u8, __midl__iwiaminidrv0017: i32, __midl__iwiaminidrv0018: u32, __midl__iwiaminidrv0019: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).drvValidateItemProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0016), core::mem::transmute(__midl__iwiaminidrv0017), core::mem::transmute(__midl__iwiaminidrv0018), core::mem::transmute(__midl__iwiaminidrv0019), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).drvValidateItemProperties)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0016, __midl__iwiaminidrv0017, __midl__iwiaminidrv0018, __midl__iwiaminidrv0019, &mut result__).map(|| result__)
     }
     pub unsafe fn drvWriteItemProperties(&self, __midl__iwiaminidrv0021: *const u8, __midl__iwiaminidrv0022: i32, __midl__iwiaminidrv0023: *const MINIDRV_TRANSFER_CONTEXT) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).drvWriteItemProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0021), core::mem::transmute(__midl__iwiaminidrv0022), core::mem::transmute(__midl__iwiaminidrv0023), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).drvWriteItemProperties)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0021, __midl__iwiaminidrv0022, core::mem::transmute(__midl__iwiaminidrv0023), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn drvReadItemProperties(&self, __midl__iwiaminidrv0025: *const u8, __midl__iwiaminidrv0026: i32, __midl__iwiaminidrv0027: u32, __midl__iwiaminidrv0028: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).drvReadItemProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0025), core::mem::transmute(__midl__iwiaminidrv0026), core::mem::transmute(__midl__iwiaminidrv0027), core::mem::transmute(__midl__iwiaminidrv0028), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).drvReadItemProperties)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0025, __midl__iwiaminidrv0026, __midl__iwiaminidrv0027, __midl__iwiaminidrv0028, &mut result__).map(|| result__)
     }
     pub unsafe fn drvLockWiaDevice(&self, __midl__iwiaminidrv0030: *const u8, __midl__iwiaminidrv0031: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).drvLockWiaDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0030), core::mem::transmute(__midl__iwiaminidrv0031), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).drvLockWiaDevice)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0030, __midl__iwiaminidrv0031, &mut result__).map(|| result__)
     }
     pub unsafe fn drvUnLockWiaDevice(&self, __midl__iwiaminidrv0033: *const u8, __midl__iwiaminidrv0034: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).drvUnLockWiaDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0033), core::mem::transmute(__midl__iwiaminidrv0034), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).drvUnLockWiaDevice)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0033, __midl__iwiaminidrv0034, &mut result__).map(|| result__)
     }
     pub unsafe fn drvAnalyzeItem(&self, __midl__iwiaminidrv0036: *const u8, __midl__iwiaminidrv0037: i32, __midl__iwiaminidrv0038: *const i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).drvAnalyzeItem)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0036), core::mem::transmute(__midl__iwiaminidrv0037), core::mem::transmute(__midl__iwiaminidrv0038)).ok()
+        (windows_core::Interface::vtable(self).drvAnalyzeItem)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0036, __midl__iwiaminidrv0037, __midl__iwiaminidrv0038).ok()
     }
     pub unsafe fn drvGetDeviceErrorStr(&self, __midl__iwiaminidrv0039: i32, __midl__iwiaminidrv0040: i32, __midl__iwiaminidrv0041: *mut windows_core::PWSTR, __midl__iwiaminidrv0042: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).drvGetDeviceErrorStr)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0039), core::mem::transmute(__midl__iwiaminidrv0040), core::mem::transmute(__midl__iwiaminidrv0041), core::mem::transmute(__midl__iwiaminidrv0042)).ok()
+        (windows_core::Interface::vtable(self).drvGetDeviceErrorStr)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0039, __midl__iwiaminidrv0040, core::mem::transmute(__midl__iwiaminidrv0041), core::mem::transmute(__midl__iwiaminidrv0042)).ok()
     }
     pub unsafe fn drvDeviceCommand(&self, __midl__iwiaminidrv0043: *const u8, __midl__iwiaminidrv0044: i32, __midl__iwiaminidrv0045: *const windows_core::GUID, __midl__iwiaminidrv0046: *mut Option<IWiaDrvItem>, __midl__iwiaminidrv0047: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).drvDeviceCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0043), core::mem::transmute(__midl__iwiaminidrv0044), core::mem::transmute(__midl__iwiaminidrv0045), core::mem::transmute(__midl__iwiaminidrv0046), core::mem::transmute(__midl__iwiaminidrv0047)).ok()
+        (windows_core::Interface::vtable(self).drvDeviceCommand)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0043, __midl__iwiaminidrv0044, __midl__iwiaminidrv0045, core::mem::transmute(__midl__iwiaminidrv0046), core::mem::transmute(__midl__iwiaminidrv0047)).ok()
     }
     pub unsafe fn drvGetCapabilities(&self, __midl__iwiaminidrv0048: *const u8, __midl__iwiaminidrv0049: i32, __midl__iwiaminidrv0050: *mut i32, __midl__iwiaminidrv0051: *mut *mut WIA_DEV_CAP_DRV, __midl__iwiaminidrv0052: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).drvGetCapabilities)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0048), core::mem::transmute(__midl__iwiaminidrv0049), core::mem::transmute(__midl__iwiaminidrv0050), core::mem::transmute(__midl__iwiaminidrv0051), core::mem::transmute(__midl__iwiaminidrv0052)).ok()
+        (windows_core::Interface::vtable(self).drvGetCapabilities)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0048, __midl__iwiaminidrv0049, core::mem::transmute(__midl__iwiaminidrv0050), core::mem::transmute(__midl__iwiaminidrv0051), core::mem::transmute(__midl__iwiaminidrv0052)).ok()
     }
     pub unsafe fn drvDeleteItem(&self, __midl__iwiaminidrv0053: *const u8, __midl__iwiaminidrv0054: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).drvDeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0053), core::mem::transmute(__midl__iwiaminidrv0054), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).drvDeleteItem)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0053, __midl__iwiaminidrv0054, &mut result__).map(|| result__)
     }
     pub unsafe fn drvFreeDrvItemContext(&self, __midl__iwiaminidrv0056: i32, __midl__iwiaminidrv0057: *const u8) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).drvFreeDrvItemContext)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0056), core::mem::transmute(__midl__iwiaminidrv0057), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).drvFreeDrvItemContext)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0056, __midl__iwiaminidrv0057, &mut result__).map(|| result__)
     }
     pub unsafe fn drvGetWiaFormatInfo(&self, __midl__iwiaminidrv0059: *const u8, __midl__iwiaminidrv0060: i32, __midl__iwiaminidrv0061: *mut i32, __midl__iwiaminidrv0062: *mut *mut WIA_FORMAT_INFO, __midl__iwiaminidrv0063: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).drvGetWiaFormatInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0059), core::mem::transmute(__midl__iwiaminidrv0060), core::mem::transmute(__midl__iwiaminidrv0061), core::mem::transmute(__midl__iwiaminidrv0062), core::mem::transmute(__midl__iwiaminidrv0063)).ok()
+        (windows_core::Interface::vtable(self).drvGetWiaFormatInfo)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0059, __midl__iwiaminidrv0060, core::mem::transmute(__midl__iwiaminidrv0061), core::mem::transmute(__midl__iwiaminidrv0062), core::mem::transmute(__midl__iwiaminidrv0063)).ok()
     }
     pub unsafe fn drvNotifyPnpEvent(&self, peventguid: *const windows_core::GUID, bstrdeviceid: &windows_core::BSTR, ulreserved: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).drvNotifyPnpEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(peventguid), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(ulreserved)).ok()
+        (windows_core::Interface::vtable(self).drvNotifyPnpEvent)(windows_core::Interface::as_raw(self), peventguid, core::mem::transmute_copy(bstrdeviceid), ulreserved).ok()
     }
     pub unsafe fn drvUnInitializeWia(&self, __midl__iwiaminidrv0064: *const u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).drvUnInitializeWia)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iwiaminidrv0064)).ok()
+        (windows_core::Interface::vtable(self).drvUnInitializeWia)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0064).ok()
     }
 }
 #[repr(C)]
@@ -2359,7 +2359,7 @@ windows_core::imp::define_interface!(IWiaMiniDrvCallBack, IWiaMiniDrvCallBack_Vt
 windows_core::imp::interface_hierarchy!(IWiaMiniDrvCallBack, windows_core::IUnknown);
 impl IWiaMiniDrvCallBack {
     pub unsafe fn MiniDrvCallback(&self, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const MINIDRV_TRANSFER_CONTEXT, lreserved: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).MiniDrvCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(lreason), core::mem::transmute(lstatus), core::mem::transmute(lpercentcomplete), core::mem::transmute(loffset), core::mem::transmute(llength), core::mem::transmute(ptranctx), core::mem::transmute(lreserved)).ok()
+        (windows_core::Interface::vtable(self).MiniDrvCallback)(windows_core::Interface::as_raw(self), lreason, lstatus, lpercentcomplete, loffset, llength, core::mem::transmute(ptranctx), lreserved).ok()
     }
 }
 #[repr(C)]
@@ -2389,10 +2389,10 @@ impl IWiaMiniDrvTransferCallback {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextStream(&self, lflags: i32, bstritemname: &windows_core::BSTR, bstrfullitemname: &windows_core::BSTR) -> windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetNextStream)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstritemname), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetNextStream)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstritemname), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SendMessage(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SendMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(pwiatransferparams)).ok()
+        (windows_core::Interface::vtable(self).SendMessage)(windows_core::Interface::as_raw(self), lflags, pwiatransferparams).ok()
     }
 }
 #[repr(C)]
@@ -2474,17 +2474,17 @@ impl IWiaPreview {
         P1: windows_core::Param<IWiaItem2>,
         P2: windows_core::Param<IWiaTransferCallback>,
     {
-        (windows_core::Interface::vtable(self).GetNewPreview)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), pwiaitem2.param().abi(), pwiatransfercallback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetNewPreview)(windows_core::Interface::as_raw(self), lflags, pwiaitem2.param().abi(), pwiatransfercallback.param().abi()).ok()
     }
     pub unsafe fn UpdatePreview<P1, P2>(&self, lflags: i32, pchildwiaitem2: P1, pwiatransfercallback: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWiaItem2>,
         P2: windows_core::Param<IWiaTransferCallback>,
     {
-        (windows_core::Interface::vtable(self).UpdatePreview)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), pchildwiaitem2.param().abi(), pwiatransfercallback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).UpdatePreview)(windows_core::Interface::as_raw(self), lflags, pchildwiaitem2.param().abi(), pwiatransfercallback.param().abi()).ok()
     }
     pub unsafe fn DetectRegions(&self, lflags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DetectRegions)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags)).ok()
+        (windows_core::Interface::vtable(self).DetectRegions)(windows_core::Interface::as_raw(self), lflags).ok()
     }
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok()
@@ -2541,11 +2541,11 @@ impl IWiaPropertyStorage {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReadMultiple)(windows_core::Interface::as_raw(self), core::mem::transmute(cpspec), core::mem::transmute(rgpspec), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).ReadMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), core::mem::transmute(cpspec), core::mem::transmute(rgpspec), core::mem::transmute(rgpropvar), core::mem::transmute(propidnamefirst)).ok()
+        (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, core::mem::transmute(rgpropvar), propidnamefirst).ok()
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn DeleteMultiple(&self, rgpspec: &[super::super::System::Com::StructuredStorage::PROPSPEC]) -> windows_core::Result<()> {
@@ -2553,16 +2553,16 @@ impl IWiaPropertyStorage {
     }
     pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const u32) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReadPropertyNames)(windows_core::Interface::as_raw(self), core::mem::transmute(cpropid), core::mem::transmute(rgpropid), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ReadPropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, &mut result__).map(|| result__)
     }
     pub unsafe fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const windows_core::PCWSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WritePropertyNames)(windows_core::Interface::as_raw(self), core::mem::transmute(cpropid), core::mem::transmute(rgpropid), core::mem::transmute(rglpwstrname)).ok()
+        (windows_core::Interface::vtable(self).WritePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname).ok()
     }
     pub unsafe fn DeletePropertyNames(&self, rgpropid: &[u32]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DeletePropertyNames)(windows_core::Interface::as_raw(self), rgpropid.len().try_into().unwrap(), core::mem::transmute(rgpropid.as_ptr())).ok()
     }
     pub unsafe fn Commit(&self, grfcommitflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), core::mem::transmute(grfcommitflags)).ok()
+        (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), grfcommitflags).ok()
     }
     pub unsafe fn Revert(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Revert)(windows_core::Interface::as_raw(self)).ok()
@@ -2573,10 +2573,10 @@ impl IWiaPropertyStorage {
         (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetTimes(&self, pctime: *const super::super::Foundation::FILETIME, patime: *const super::super::Foundation::FILETIME, pmtime: *const super::super::Foundation::FILETIME) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetTimes)(windows_core::Interface::as_raw(self), core::mem::transmute(pctime), core::mem::transmute(patime), core::mem::transmute(pmtime)).ok()
+        (windows_core::Interface::vtable(self).SetTimes)(windows_core::Interface::as_raw(self), pctime, patime, pmtime).ok()
     }
     pub unsafe fn SetClass(&self, clsid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetClass)(windows_core::Interface::as_raw(self), core::mem::transmute(clsid)).ok()
+        (windows_core::Interface::vtable(self).SetClass)(windows_core::Interface::as_raw(self), clsid).ok()
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Stat(&self, pstatpsstg: *mut super::super::System::Com::StructuredStorage::STATPROPSETSTG) -> windows_core::Result<()> {
@@ -2584,7 +2584,7 @@ impl IWiaPropertyStorage {
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropertyAttributes(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPropertyAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(cpspec), core::mem::transmute(rgpspec), core::mem::transmute(rgflags), core::mem::transmute(rgpropvar)).ok()
+        (windows_core::Interface::vtable(self).GetPropertyAttributes)(windows_core::Interface::as_raw(self), cpspec, rgpspec, core::mem::transmute(rgflags), core::mem::transmute(rgpropvar)).ok()
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -2791,7 +2791,7 @@ impl IWiaSegmentationFilter {
         P1: windows_core::Param<super::super::System::Com::IStream>,
         P2: windows_core::Param<IWiaItem2>,
     {
-        (windows_core::Interface::vtable(self).DetectRegions)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), pinputstream.param().abi(), pwiaitem2.param().abi()).ok()
+        (windows_core::Interface::vtable(self).DetectRegions)(windows_core::Interface::as_raw(self), lflags, pinputstream.param().abi(), pwiaitem2.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2828,7 +2828,7 @@ impl IWiaTransfer {
     where
         P1: windows_core::Param<IWiaTransferCallback>,
     {
-        (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), piwiatransfercallback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), lflags, piwiatransfercallback.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Upload<P1, P2>(&self, lflags: i32, psource: P1, piwiatransfercallback: P2) -> windows_core::Result<()>
@@ -2836,7 +2836,7 @@ impl IWiaTransfer {
         P1: windows_core::Param<super::super::System::Com::IStream>,
         P2: windows_core::Param<IWiaTransferCallback>,
     {
-        (windows_core::Interface::vtable(self).Upload)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), psource.param().abi(), piwiatransfercallback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Upload)(windows_core::Interface::as_raw(self), lflags, psource.param().abi(), piwiatransfercallback.param().abi()).ok()
     }
     pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok()
@@ -2907,12 +2907,12 @@ windows_core::imp::define_interface!(IWiaTransferCallback, IWiaTransferCallback_
 windows_core::imp::interface_hierarchy!(IWiaTransferCallback, windows_core::IUnknown);
 impl IWiaTransferCallback {
     pub unsafe fn TransferCallback(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TransferCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute(pwiatransferparams)).ok()
+        (windows_core::Interface::vtable(self).TransferCallback)(windows_core::Interface::as_raw(self), lflags, pwiatransferparams).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextStream(&self, lflags: i32, bstritemname: &windows_core::BSTR, bstrfullitemname: &windows_core::BSTR) -> windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetNextStream)(windows_core::Interface::as_raw(self), core::mem::transmute(lflags), core::mem::transmute_copy(bstritemname), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetNextStream)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstritemname), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -2966,11 +2966,11 @@ impl IWiaUIExtension {
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetDeviceIcon(&self, bstrdeviceid: &windows_core::BSTR, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDeviceIcon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(phicon), core::mem::transmute(nsize)).ok()
+        (windows_core::Interface::vtable(self).GetDeviceIcon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(phicon), nsize).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDeviceBitmapLogo(&self, bstrdeviceid: &windows_core::BSTR, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDeviceBitmapLogo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(phbitmap), core::mem::transmute(nmaxwidth), core::mem::transmute(nmaxheight)).ok()
+        (windows_core::Interface::vtable(self).GetDeviceBitmapLogo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(phbitmap), nmaxwidth, nmaxheight).ok()
     }
 }
 #[repr(C)]
@@ -3028,7 +3028,7 @@ impl IWiaUIExtension2 {
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetDeviceIcon(&self, bstrdeviceid: &windows_core::BSTR, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDeviceIcon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(phicon), core::mem::transmute(nsize)).ok()
+        (windows_core::Interface::vtable(self).GetDeviceIcon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceid), core::mem::transmute(phicon), nsize).ok()
     }
 }
 #[repr(C)]
@@ -3086,13 +3086,13 @@ impl IWiaVideo {
         (windows_core::Interface::vtable(self).SetImagesDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrimagedirectory)).ok()
     }
     pub unsafe fn CreateVideoByWiaDevID(&self, bstrwiadeviceid: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: bool, bautobeginplayback: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CreateVideoByWiaDevID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrwiadeviceid), core::mem::transmute(hwndparent), bstretchtofitparent.into(), bautobeginplayback.into()).ok()
+        (windows_core::Interface::vtable(self).CreateVideoByWiaDevID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrwiadeviceid), hwndparent, bstretchtofitparent.into(), bautobeginplayback.into()).ok()
     }
     pub unsafe fn CreateVideoByDevNum(&self, uidevicenumber: u32, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: bool, bautobeginplayback: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CreateVideoByDevNum)(windows_core::Interface::as_raw(self), core::mem::transmute(uidevicenumber), core::mem::transmute(hwndparent), bstretchtofitparent.into(), bautobeginplayback.into()).ok()
+        (windows_core::Interface::vtable(self).CreateVideoByDevNum)(windows_core::Interface::as_raw(self), uidevicenumber, hwndparent, bstretchtofitparent.into(), bautobeginplayback.into()).ok()
     }
     pub unsafe fn CreateVideoByName(&self, bstrfriendlyname: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: bool, bautobeginplayback: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CreateVideoByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfriendlyname), core::mem::transmute(hwndparent), bstretchtofitparent.into(), bautobeginplayback.into()).ok()
+        (windows_core::Interface::vtable(self).CreateVideoByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfriendlyname), hwndparent, bstretchtofitparent.into(), bautobeginplayback.into()).ok()
     }
     pub unsafe fn DestroyVideo(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DestroyVideo)(windows_core::Interface::as_raw(self)).ok()

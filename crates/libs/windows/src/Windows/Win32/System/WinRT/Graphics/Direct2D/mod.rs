@@ -100,12 +100,12 @@ impl IGraphicsEffectD2D1Interop {
     }
     pub unsafe fn GetProperty(&self, index: u32) -> windows_core::Result<super::super::super::super::super::Foundation::IPropertyValue> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Graphics_Effects")]
     pub unsafe fn GetSource(&self, index: u32) -> windows_core::Result<super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSource)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSource)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSourceCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();

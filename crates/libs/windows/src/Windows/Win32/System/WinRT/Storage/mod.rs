@@ -203,7 +203,7 @@ impl IStorageFolderHandleAccess {
         P5: windows_core::Param<IOplockBreakingHandler>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), filename.param().abi(), core::mem::transmute(creationoptions), core::mem::transmute(accessoptions), core::mem::transmute(sharingoptions), core::mem::transmute(options), oplockbreakinghandler.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), filename.param().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -241,7 +241,7 @@ impl IStorageItemHandleAccess {
         P3: windows_core::Param<IOplockBreakingHandler>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), core::mem::transmute(accessoptions), core::mem::transmute(sharingoptions), core::mem::transmute(options), oplockbreakinghandler.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

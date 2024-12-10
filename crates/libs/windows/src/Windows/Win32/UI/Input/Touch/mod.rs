@@ -1,52 +1,52 @@
 #[inline]
 pub unsafe fn CloseGestureInfoHandle(hgestureinfo: HGESTUREINFO) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn CloseGestureInfoHandle(hgestureinfo : HGESTUREINFO) -> super::super::super::Foundation:: BOOL);
-    CloseGestureInfoHandle(core::mem::transmute(hgestureinfo)).ok()
+    CloseGestureInfoHandle(hgestureinfo).ok()
 }
 #[inline]
 pub unsafe fn CloseTouchInputHandle(htouchinput: HTOUCHINPUT) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn CloseTouchInputHandle(htouchinput : HTOUCHINPUT) -> super::super::super::Foundation:: BOOL);
-    CloseTouchInputHandle(core::mem::transmute(htouchinput)).ok()
+    CloseTouchInputHandle(htouchinput).ok()
 }
 #[inline]
 pub unsafe fn GetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, dwflags: u32, pcids: *const u32, pgestureconfig: *mut GESTURECONFIG, cbsize: u32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn GetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, dwflags : u32, pcids : *const u32, pgestureconfig : *mut GESTURECONFIG, cbsize : u32) -> super::super::super::Foundation:: BOOL);
-    GetGestureConfig(core::mem::transmute(hwnd), core::mem::transmute(dwreserved), core::mem::transmute(dwflags), core::mem::transmute(pcids), core::mem::transmute(pgestureconfig), core::mem::transmute(cbsize)).ok()
+    GetGestureConfig(hwnd, dwreserved, dwflags, pcids, core::mem::transmute(pgestureconfig), cbsize).ok()
 }
 #[inline]
 pub unsafe fn GetGestureExtraArgs(hgestureinfo: HGESTUREINFO, pextraargs: &mut [u8]) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn GetGestureExtraArgs(hgestureinfo : HGESTUREINFO, cbextraargs : u32, pextraargs : *mut u8) -> super::super::super::Foundation:: BOOL);
-    GetGestureExtraArgs(core::mem::transmute(hgestureinfo), pextraargs.len().try_into().unwrap(), core::mem::transmute(pextraargs.as_ptr())).ok()
+    GetGestureExtraArgs(hgestureinfo, pextraargs.len().try_into().unwrap(), core::mem::transmute(pextraargs.as_ptr())).ok()
 }
 #[inline]
 pub unsafe fn GetGestureInfo(hgestureinfo: HGESTUREINFO, pgestureinfo: *mut GESTUREINFO) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn GetGestureInfo(hgestureinfo : HGESTUREINFO, pgestureinfo : *mut GESTUREINFO) -> super::super::super::Foundation:: BOOL);
-    GetGestureInfo(core::mem::transmute(hgestureinfo), core::mem::transmute(pgestureinfo)).ok()
+    GetGestureInfo(hgestureinfo, core::mem::transmute(pgestureinfo)).ok()
 }
 #[inline]
 pub unsafe fn GetTouchInputInfo(htouchinput: HTOUCHINPUT, pinputs: &mut [TOUCHINPUT], cbsize: i32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn GetTouchInputInfo(htouchinput : HTOUCHINPUT, cinputs : u32, pinputs : *mut TOUCHINPUT, cbsize : i32) -> super::super::super::Foundation:: BOOL);
-    GetTouchInputInfo(core::mem::transmute(htouchinput), pinputs.len().try_into().unwrap(), core::mem::transmute(pinputs.as_ptr()), core::mem::transmute(cbsize)).ok()
+    GetTouchInputInfo(htouchinput, pinputs.len().try_into().unwrap(), core::mem::transmute(pinputs.as_ptr()), cbsize).ok()
 }
 #[inline]
 pub unsafe fn IsTouchWindow(hwnd: super::super::super::Foundation::HWND, pulflags: Option<*mut u32>) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn IsTouchWindow(hwnd : super::super::super::Foundation:: HWND, pulflags : *mut u32) -> super::super::super::Foundation:: BOOL);
-    IsTouchWindow(core::mem::transmute(hwnd), core::mem::transmute(pulflags.unwrap_or(core::mem::zeroed())))
+    IsTouchWindow(hwnd, core::mem::transmute(pulflags.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn RegisterTouchWindow(hwnd: super::super::super::Foundation::HWND, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::super::super::Foundation:: HWND, ulflags : REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation:: BOOL);
-    RegisterTouchWindow(core::mem::transmute(hwnd), core::mem::transmute(ulflags)).ok()
+    RegisterTouchWindow(hwnd, ulflags).ok()
 }
 #[inline]
 pub unsafe fn SetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, pgestureconfig: &[GESTURECONFIG], cbsize: u32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, cids : u32, pgestureconfig : *const GESTURECONFIG, cbsize : u32) -> super::super::super::Foundation:: BOOL);
-    SetGestureConfig(core::mem::transmute(hwnd), core::mem::transmute(dwreserved), pgestureconfig.len().try_into().unwrap(), core::mem::transmute(pgestureconfig.as_ptr()), core::mem::transmute(cbsize)).ok()
+    SetGestureConfig(hwnd, dwreserved, pgestureconfig.len().try_into().unwrap(), core::mem::transmute(pgestureconfig.as_ptr()), cbsize).ok()
 }
 #[inline]
 pub unsafe fn UnregisterTouchWindow(hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
-    UnregisterTouchWindow(core::mem::transmute(hwnd)).ok()
+    UnregisterTouchWindow(hwnd).ok()
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -188,154 +188,154 @@ impl IInertiaProcessor {
         (windows_core::Interface::vtable(self).InitialOriginX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetInitialOriginX(&self, x: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInitialOriginX)(windows_core::Interface::as_raw(self), core::mem::transmute(x)).ok()
+        (windows_core::Interface::vtable(self).SetInitialOriginX)(windows_core::Interface::as_raw(self), x).ok()
     }
     pub unsafe fn InitialOriginY(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InitialOriginY)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetInitialOriginY(&self, y: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInitialOriginY)(windows_core::Interface::as_raw(self), core::mem::transmute(y)).ok()
+        (windows_core::Interface::vtable(self).SetInitialOriginY)(windows_core::Interface::as_raw(self), y).ok()
     }
     pub unsafe fn InitialVelocityX(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InitialVelocityX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetInitialVelocityX(&self, x: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInitialVelocityX)(windows_core::Interface::as_raw(self), core::mem::transmute(x)).ok()
+        (windows_core::Interface::vtable(self).SetInitialVelocityX)(windows_core::Interface::as_raw(self), x).ok()
     }
     pub unsafe fn InitialVelocityY(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InitialVelocityY)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetInitialVelocityY(&self, y: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInitialVelocityY)(windows_core::Interface::as_raw(self), core::mem::transmute(y)).ok()
+        (windows_core::Interface::vtable(self).SetInitialVelocityY)(windows_core::Interface::as_raw(self), y).ok()
     }
     pub unsafe fn InitialAngularVelocity(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InitialAngularVelocity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetInitialAngularVelocity(&self, velocity: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInitialAngularVelocity)(windows_core::Interface::as_raw(self), core::mem::transmute(velocity)).ok()
+        (windows_core::Interface::vtable(self).SetInitialAngularVelocity)(windows_core::Interface::as_raw(self), velocity).ok()
     }
     pub unsafe fn InitialExpansionVelocity(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InitialExpansionVelocity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetInitialExpansionVelocity(&self, velocity: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInitialExpansionVelocity)(windows_core::Interface::as_raw(self), core::mem::transmute(velocity)).ok()
+        (windows_core::Interface::vtable(self).SetInitialExpansionVelocity)(windows_core::Interface::as_raw(self), velocity).ok()
     }
     pub unsafe fn InitialRadius(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InitialRadius)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetInitialRadius(&self, radius: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInitialRadius)(windows_core::Interface::as_raw(self), core::mem::transmute(radius)).ok()
+        (windows_core::Interface::vtable(self).SetInitialRadius)(windows_core::Interface::as_raw(self), radius).ok()
     }
     pub unsafe fn BoundaryLeft(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BoundaryLeft)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBoundaryLeft(&self, left: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBoundaryLeft)(windows_core::Interface::as_raw(self), core::mem::transmute(left)).ok()
+        (windows_core::Interface::vtable(self).SetBoundaryLeft)(windows_core::Interface::as_raw(self), left).ok()
     }
     pub unsafe fn BoundaryTop(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BoundaryTop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBoundaryTop(&self, top: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBoundaryTop)(windows_core::Interface::as_raw(self), core::mem::transmute(top)).ok()
+        (windows_core::Interface::vtable(self).SetBoundaryTop)(windows_core::Interface::as_raw(self), top).ok()
     }
     pub unsafe fn BoundaryRight(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BoundaryRight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBoundaryRight(&self, right: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBoundaryRight)(windows_core::Interface::as_raw(self), core::mem::transmute(right)).ok()
+        (windows_core::Interface::vtable(self).SetBoundaryRight)(windows_core::Interface::as_raw(self), right).ok()
     }
     pub unsafe fn BoundaryBottom(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).BoundaryBottom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBoundaryBottom(&self, bottom: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBoundaryBottom)(windows_core::Interface::as_raw(self), core::mem::transmute(bottom)).ok()
+        (windows_core::Interface::vtable(self).SetBoundaryBottom)(windows_core::Interface::as_raw(self), bottom).ok()
     }
     pub unsafe fn ElasticMarginLeft(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ElasticMarginLeft)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetElasticMarginLeft(&self, left: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetElasticMarginLeft)(windows_core::Interface::as_raw(self), core::mem::transmute(left)).ok()
+        (windows_core::Interface::vtable(self).SetElasticMarginLeft)(windows_core::Interface::as_raw(self), left).ok()
     }
     pub unsafe fn ElasticMarginTop(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ElasticMarginTop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetElasticMarginTop(&self, top: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetElasticMarginTop)(windows_core::Interface::as_raw(self), core::mem::transmute(top)).ok()
+        (windows_core::Interface::vtable(self).SetElasticMarginTop)(windows_core::Interface::as_raw(self), top).ok()
     }
     pub unsafe fn ElasticMarginRight(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ElasticMarginRight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetElasticMarginRight(&self, right: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetElasticMarginRight)(windows_core::Interface::as_raw(self), core::mem::transmute(right)).ok()
+        (windows_core::Interface::vtable(self).SetElasticMarginRight)(windows_core::Interface::as_raw(self), right).ok()
     }
     pub unsafe fn ElasticMarginBottom(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ElasticMarginBottom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetElasticMarginBottom(&self, bottom: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetElasticMarginBottom)(windows_core::Interface::as_raw(self), core::mem::transmute(bottom)).ok()
+        (windows_core::Interface::vtable(self).SetElasticMarginBottom)(windows_core::Interface::as_raw(self), bottom).ok()
     }
     pub unsafe fn DesiredDisplacement(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DesiredDisplacement)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDesiredDisplacement(&self, displacement: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDesiredDisplacement)(windows_core::Interface::as_raw(self), core::mem::transmute(displacement)).ok()
+        (windows_core::Interface::vtable(self).SetDesiredDisplacement)(windows_core::Interface::as_raw(self), displacement).ok()
     }
     pub unsafe fn DesiredRotation(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DesiredRotation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDesiredRotation(&self, rotation: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDesiredRotation)(windows_core::Interface::as_raw(self), core::mem::transmute(rotation)).ok()
+        (windows_core::Interface::vtable(self).SetDesiredRotation)(windows_core::Interface::as_raw(self), rotation).ok()
     }
     pub unsafe fn DesiredExpansion(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DesiredExpansion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDesiredExpansion(&self, expansion: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDesiredExpansion)(windows_core::Interface::as_raw(self), core::mem::transmute(expansion)).ok()
+        (windows_core::Interface::vtable(self).SetDesiredExpansion)(windows_core::Interface::as_raw(self), expansion).ok()
     }
     pub unsafe fn DesiredDeceleration(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DesiredDeceleration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDesiredDeceleration(&self, deceleration: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDesiredDeceleration)(windows_core::Interface::as_raw(self), core::mem::transmute(deceleration)).ok()
+        (windows_core::Interface::vtable(self).SetDesiredDeceleration)(windows_core::Interface::as_raw(self), deceleration).ok()
     }
     pub unsafe fn DesiredAngularDeceleration(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DesiredAngularDeceleration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDesiredAngularDeceleration(&self, deceleration: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDesiredAngularDeceleration)(windows_core::Interface::as_raw(self), core::mem::transmute(deceleration)).ok()
+        (windows_core::Interface::vtable(self).SetDesiredAngularDeceleration)(windows_core::Interface::as_raw(self), deceleration).ok()
     }
     pub unsafe fn DesiredExpansionDeceleration(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DesiredExpansionDeceleration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDesiredExpansionDeceleration(&self, deceleration: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDesiredExpansionDeceleration)(windows_core::Interface::as_raw(self), core::mem::transmute(deceleration)).ok()
+        (windows_core::Interface::vtable(self).SetDesiredExpansionDeceleration)(windows_core::Interface::as_raw(self), deceleration).ok()
     }
     pub unsafe fn InitialTimestamp(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).InitialTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetInitialTimestamp(&self, timestamp: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInitialTimestamp)(windows_core::Interface::as_raw(self), core::mem::transmute(timestamp)).ok()
+        (windows_core::Interface::vtable(self).SetInitialTimestamp)(windows_core::Interface::as_raw(self), timestamp).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -346,13 +346,13 @@ impl IInertiaProcessor {
     }
     pub unsafe fn ProcessTime(&self, timestamp: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ProcessTime)(windows_core::Interface::as_raw(self), core::mem::transmute(timestamp), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ProcessTime)(windows_core::Interface::as_raw(self), timestamp, &mut result__).map(|| result__)
     }
     pub unsafe fn Complete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Complete)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn CompleteTime(&self, timestamp: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CompleteTime)(windows_core::Interface::as_raw(self), core::mem::transmute(timestamp)).ok()
+        (windows_core::Interface::vtable(self).CompleteTime)(windows_core::Interface::as_raw(self), timestamp).ok()
     }
 }
 #[repr(C)]
@@ -867,49 +867,49 @@ impl IManipulationProcessor {
         (windows_core::Interface::vtable(self).SupportedManipulations)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSupportedManipulations(&self, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSupportedManipulations)(windows_core::Interface::as_raw(self), core::mem::transmute(manipulations)).ok()
+        (windows_core::Interface::vtable(self).SetSupportedManipulations)(windows_core::Interface::as_raw(self), manipulations).ok()
     }
     pub unsafe fn PivotPointX(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PivotPointX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPivotPointX(&self, pivotpointx: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPivotPointX)(windows_core::Interface::as_raw(self), core::mem::transmute(pivotpointx)).ok()
+        (windows_core::Interface::vtable(self).SetPivotPointX)(windows_core::Interface::as_raw(self), pivotpointx).ok()
     }
     pub unsafe fn PivotPointY(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PivotPointY)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPivotPointY(&self, pivotpointy: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPivotPointY)(windows_core::Interface::as_raw(self), core::mem::transmute(pivotpointy)).ok()
+        (windows_core::Interface::vtable(self).SetPivotPointY)(windows_core::Interface::as_raw(self), pivotpointy).ok()
     }
     pub unsafe fn PivotRadius(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PivotRadius)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPivotRadius(&self, pivotradius: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPivotRadius)(windows_core::Interface::as_raw(self), core::mem::transmute(pivotradius)).ok()
+        (windows_core::Interface::vtable(self).SetPivotRadius)(windows_core::Interface::as_raw(self), pivotradius).ok()
     }
     pub unsafe fn CompleteManipulation(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CompleteManipulation)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn ProcessDown(&self, manipulatorid: u32, x: f32, y: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProcessDown)(windows_core::Interface::as_raw(self), core::mem::transmute(manipulatorid), core::mem::transmute(x), core::mem::transmute(y)).ok()
+        (windows_core::Interface::vtable(self).ProcessDown)(windows_core::Interface::as_raw(self), manipulatorid, x, y).ok()
     }
     pub unsafe fn ProcessMove(&self, manipulatorid: u32, x: f32, y: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProcessMove)(windows_core::Interface::as_raw(self), core::mem::transmute(manipulatorid), core::mem::transmute(x), core::mem::transmute(y)).ok()
+        (windows_core::Interface::vtable(self).ProcessMove)(windows_core::Interface::as_raw(self), manipulatorid, x, y).ok()
     }
     pub unsafe fn ProcessUp(&self, manipulatorid: u32, x: f32, y: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProcessUp)(windows_core::Interface::as_raw(self), core::mem::transmute(manipulatorid), core::mem::transmute(x), core::mem::transmute(y)).ok()
+        (windows_core::Interface::vtable(self).ProcessUp)(windows_core::Interface::as_raw(self), manipulatorid, x, y).ok()
     }
     pub unsafe fn ProcessDownWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProcessDownWithTime)(windows_core::Interface::as_raw(self), core::mem::transmute(manipulatorid), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(timestamp)).ok()
+        (windows_core::Interface::vtable(self).ProcessDownWithTime)(windows_core::Interface::as_raw(self), manipulatorid, x, y, timestamp).ok()
     }
     pub unsafe fn ProcessMoveWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProcessMoveWithTime)(windows_core::Interface::as_raw(self), core::mem::transmute(manipulatorid), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(timestamp)).ok()
+        (windows_core::Interface::vtable(self).ProcessMoveWithTime)(windows_core::Interface::as_raw(self), manipulatorid, x, y, timestamp).ok()
     }
     pub unsafe fn ProcessUpWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProcessUpWithTime)(windows_core::Interface::as_raw(self), core::mem::transmute(manipulatorid), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(timestamp)).ok()
+        (windows_core::Interface::vtable(self).ProcessUpWithTime)(windows_core::Interface::as_raw(self), manipulatorid, x, y, timestamp).ok()
     }
     pub unsafe fn GetVelocityX(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
@@ -932,7 +932,7 @@ impl IManipulationProcessor {
         (windows_core::Interface::vtable(self).MinimumScaleRotateRadius)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMinimumScaleRotateRadius(&self, minradius: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMinimumScaleRotateRadius)(windows_core::Interface::as_raw(self), core::mem::transmute(minradius)).ok()
+        (windows_core::Interface::vtable(self).SetMinimumScaleRotateRadius)(windows_core::Interface::as_raw(self), minradius).ok()
     }
 }
 #[repr(C)]
@@ -1308,28 +1308,13 @@ windows_core::imp::define_interface!(_IManipulationEvents, _IManipulationEvents_
 windows_core::imp::interface_hierarchy!(_IManipulationEvents, windows_core::IUnknown);
 impl _IManipulationEvents {
     pub unsafe fn ManipulationStarted(&self, x: f32, y: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ManipulationStarted)(windows_core::Interface::as_raw(self), core::mem::transmute(x), core::mem::transmute(y)).ok()
+        (windows_core::Interface::vtable(self).ManipulationStarted)(windows_core::Interface::as_raw(self), x, y).ok()
     }
     pub unsafe fn ManipulationDelta(&self, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ManipulationDelta)(
-            windows_core::Interface::as_raw(self),
-            core::mem::transmute(x),
-            core::mem::transmute(y),
-            core::mem::transmute(translationdeltax),
-            core::mem::transmute(translationdeltay),
-            core::mem::transmute(scaledelta),
-            core::mem::transmute(expansiondelta),
-            core::mem::transmute(rotationdelta),
-            core::mem::transmute(cumulativetranslationx),
-            core::mem::transmute(cumulativetranslationy),
-            core::mem::transmute(cumulativescale),
-            core::mem::transmute(cumulativeexpansion),
-            core::mem::transmute(cumulativerotation),
-        )
-        .ok()
+        (windows_core::Interface::vtable(self).ManipulationDelta)(windows_core::Interface::as_raw(self), x, y, translationdeltax, translationdeltay, scaledelta, expansiondelta, rotationdelta, cumulativetranslationx, cumulativetranslationy, cumulativescale, cumulativeexpansion, cumulativerotation).ok()
     }
     pub unsafe fn ManipulationCompleted(&self, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ManipulationCompleted)(windows_core::Interface::as_raw(self), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(cumulativetranslationx), core::mem::transmute(cumulativetranslationy), core::mem::transmute(cumulativescale), core::mem::transmute(cumulativeexpansion), core::mem::transmute(cumulativerotation)).ok()
+        (windows_core::Interface::vtable(self).ManipulationCompleted)(windows_core::Interface::as_raw(self), x, y, cumulativetranslationx, cumulativetranslationy, cumulativescale, cumulativeexpansion, cumulativerotation).ok()
     }
 }
 #[repr(C)]
