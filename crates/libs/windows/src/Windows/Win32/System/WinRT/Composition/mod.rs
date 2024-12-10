@@ -4,7 +4,7 @@ impl ICompositionCapabilitiesInteropFactory {
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionCapabilities> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -60,7 +60,7 @@ impl ICompositionDrawingSurfaceInterop {
         (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), core::mem::transmute(sizepixels)).ok()
     }
     pub unsafe fn Scroll(&self, scrollrect: Option<*const super::super::super::Foundation::RECT>, cliprect: Option<*const super::super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), core::mem::transmute(scrollrect.unwrap_or(core::mem::zeroed())), core::mem::transmute(cliprect.unwrap_or(core::mem::zeroed())), core::mem::transmute(offsetx), core::mem::transmute(offsety)).ok()
+        (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), core::mem::transmute(scrollrect.unwrap_or(core::mem::zeroed())), core::mem::transmute(cliprect.unwrap_or(core::mem::zeroed())), offsetx, offsety).ok()
     }
     pub unsafe fn ResumeDraw(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(self)).ok()
@@ -141,7 +141,7 @@ impl ICompositionDrawingSurfaceInterop2 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).CopySurface)(windows_core::Interface::as_raw(self), destinationresource.param().abi(), core::mem::transmute(destinationoffsetx), core::mem::transmute(destinationoffsety), core::mem::transmute(sourcerectangle.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).CopySurface)(windows_core::Interface::as_raw(self), destinationresource.param().abi(), destinationoffsetx, destinationoffsety, core::mem::transmute(sourcerectangle.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -220,7 +220,7 @@ windows_core::imp::define_interface!(ICompositionTextureInterop, ICompositionTex
 windows_core::imp::interface_hierarchy!(ICompositionTextureInterop, windows_core::IUnknown);
 impl ICompositionTextureInterop {
     pub unsafe fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAvailableFence)(windows_core::Interface::as_raw(self), core::mem::transmute(fencevalue), core::mem::transmute(iid), core::mem::transmute(availablefence)).ok()
+        (windows_core::Interface::vtable(self).GetAvailableFence)(windows_core::Interface::as_raw(self), core::mem::transmute(fencevalue), iid, core::mem::transmute(availablefence)).ok()
     }
 }
 #[repr(C)]
@@ -250,10 +250,10 @@ impl ICompositorDesktopInterop {
     #[cfg(feature = "UI_Composition_Desktop")]
     pub unsafe fn CreateDesktopWindowTarget(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: bool) -> windows_core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndtarget), istopmost.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(windows_core::Interface::as_raw(self), hwndtarget, istopmost.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnsureOnThread(&self, threadid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EnsureOnThread)(windows_core::Interface::as_raw(self), core::mem::transmute(threadid)).ok()
+        (windows_core::Interface::vtable(self).EnsureOnThread)(windows_core::Interface::as_raw(self), threadid).ok()
     }
 }
 #[repr(C)]
@@ -305,7 +305,7 @@ impl ICompositorInterop {
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn CreateCompositionSurfaceForHandle(&self, swapchain: super::super::super::Foundation::HANDLE) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(swapchain), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(windows_core::Interface::as_raw(self), swapchain, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn CreateCompositionSurfaceForSwapChain<P0>(&self, swapchain: P0) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
@@ -500,7 +500,7 @@ windows_core::imp::interface_hierarchy!(IVisualInteractionSourceInterop, windows
 impl IVisualInteractionSourceInterop {
     #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TryRedirectForManipulation)(windows_core::Interface::as_raw(self), core::mem::transmute(pointerinfo)).ok()
+        (windows_core::Interface::vtable(self).TryRedirectForManipulation)(windows_core::Interface::as_raw(self), pointerinfo).ok()
     }
 }
 #[repr(C)]

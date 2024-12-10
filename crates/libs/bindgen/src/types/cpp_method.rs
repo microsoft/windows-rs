@@ -680,7 +680,11 @@ impl CppMethod {
                             quote! { #name.into(), }
                         }
                         ParamHint::ValueType => {
-                            quote! { core::mem::transmute(#name), }
+                            if flags.contains(ParamAttributes::Out) {
+                                quote! { core::mem::transmute(#name), }
+                            } else {
+                                quote! { #name, }
+                            }
                         }
                         ParamHint::Blittable => {
                             if matches!(ty, Type::PrimitiveOrEnum(_, _)) {

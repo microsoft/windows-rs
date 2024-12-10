@@ -11,12 +11,12 @@ pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::
 #[inline]
 pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
     windows_targets::link!("rpcproxy.dll" "system" fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> u32);
-    HttpExtensionProc(core::mem::transmute(pecb))
+    HttpExtensionProc(pecb)
 }
 #[inline]
 pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("rpcproxy.dll" "system" fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : u32, pvnotification : *mut core::ffi::c_void) -> u32);
-    HttpFilterProc(core::mem::transmute(pfc), core::mem::transmute(notificationtype), core::mem::transmute(pvnotification))
+    HttpFilterProc(core::mem::transmute(pfc), notificationtype, core::mem::transmute(pvnotification))
 }
 pub const ADMINDATA_MAX_NAME_LEN: u32 = 256u32;
 pub const ALL_METADATA: METADATATYPES = METADATATYPES(0i32);
@@ -187,7 +187,7 @@ windows_core::imp::define_interface!(AsyncIFtpLogProvider, AsyncIFtpLogProvider_
 windows_core::imp::interface_hierarchy!(AsyncIFtpLogProvider, windows_core::IUnknown);
 impl AsyncIFtpLogProvider {
     pub unsafe fn Begin_Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Begin_Log)(windows_core::Interface::as_raw(self), core::mem::transmute(ploggingparameters)).ok()
+        (windows_core::Interface::vtable(self).Begin_Log)(windows_core::Interface::as_raw(self), ploggingparameters).ok()
     }
     pub unsafe fn Finish_Log(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Finish_Log)(windows_core::Interface::as_raw(self)).ok()
@@ -228,7 +228,7 @@ windows_core::imp::define_interface!(AsyncIFtpPostprocessProvider, AsyncIFtpPost
 windows_core::imp::interface_hierarchy!(AsyncIFtpPostprocessProvider, windows_core::IUnknown);
 impl AsyncIFtpPostprocessProvider {
     pub unsafe fn Begin_HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Begin_HandlePostprocess)(windows_core::Interface::as_raw(self), core::mem::transmute(ppostprocessparameters)).ok()
+        (windows_core::Interface::vtable(self).Begin_HandlePostprocess)(windows_core::Interface::as_raw(self), ppostprocessparameters).ok()
     }
     pub unsafe fn Finish_HandlePostprocess(&self) -> windows_core::Result<FTP_PROCESS_STATUS> {
         let mut result__ = core::mem::zeroed();
@@ -276,7 +276,7 @@ windows_core::imp::define_interface!(AsyncIFtpPreprocessProvider, AsyncIFtpPrepr
 windows_core::imp::interface_hierarchy!(AsyncIFtpPreprocessProvider, windows_core::IUnknown);
 impl AsyncIFtpPreprocessProvider {
     pub unsafe fn Begin_HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Begin_HandlePreprocess)(windows_core::Interface::as_raw(self), core::mem::transmute(ppreprocessparameters)).ok()
+        (windows_core::Interface::vtable(self).Begin_HandlePreprocess)(windows_core::Interface::as_raw(self), ppreprocessparameters).ok()
     }
     pub unsafe fn Finish_HandlePreprocess(&self) -> windows_core::Result<FTP_PROCESS_STATUS> {
         let mut result__ = core::mem::zeroed();
@@ -1067,7 +1067,7 @@ impl IADMEXT {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn EnumDcomCLSIDs(&self, pclsiddcom: *mut windows_core::GUID, dwenumindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EnumDcomCLSIDs)(windows_core::Interface::as_raw(self), core::mem::transmute(pclsiddcom), core::mem::transmute(dwenumindex)).ok()
+        (windows_core::Interface::vtable(self).EnumDcomCLSIDs)(windows_core::Interface::as_raw(self), core::mem::transmute(pclsiddcom), dwenumindex).ok()
     }
     pub unsafe fn Terminate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self)).ok()
@@ -1230,7 +1230,7 @@ windows_core::imp::define_interface!(IFtpLogProvider, IFtpLogProvider_Vtbl, 0xa1
 windows_core::imp::interface_hierarchy!(IFtpLogProvider, windows_core::IUnknown);
 impl IFtpLogProvider {
     pub unsafe fn Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), core::mem::transmute(ploggingparameters)).ok()
+        (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), ploggingparameters).ok()
     }
 }
 #[repr(C)]
@@ -1259,7 +1259,7 @@ windows_core::imp::interface_hierarchy!(IFtpPostprocessProvider, windows_core::I
 impl IFtpPostprocessProvider {
     pub unsafe fn HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> windows_core::Result<FTP_PROCESS_STATUS> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).HandlePostprocess)(windows_core::Interface::as_raw(self), core::mem::transmute(ppostprocessparameters), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).HandlePostprocess)(windows_core::Interface::as_raw(self), ppostprocessparameters, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1294,7 +1294,7 @@ windows_core::imp::interface_hierarchy!(IFtpPreprocessProvider, windows_core::IU
 impl IFtpPreprocessProvider {
     pub unsafe fn HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> windows_core::Result<FTP_PROCESS_STATUS> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).HandlePreprocess)(windows_core::Interface::as_raw(self), core::mem::transmute(ppreprocessparameters), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).HandlePreprocess)(windows_core::Interface::as_raw(self), ppreprocessparameters, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1329,7 +1329,7 @@ windows_core::imp::interface_hierarchy!(IFtpProviderConstruct, windows_core::IUn
 impl IFtpProviderConstruct {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Construct(&self, configurationentries: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Construct)(windows_core::Interface::as_raw(self), core::mem::transmute(configurationentries)).ok()
+        (windows_core::Interface::vtable(self).Construct)(windows_core::Interface::as_raw(self), configurationentries).ok()
     }
 }
 #[repr(C)]
@@ -1507,14 +1507,14 @@ impl IMSAdminBase2W {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).BackupWithPasswd)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), core::mem::transmute(dwmdversion), core::mem::transmute(dwmdflags), pszpasswd.param().abi()).ok()
+        (windows_core::Interface::vtable(self).BackupWithPasswd)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), dwmdversion, dwmdflags, pszpasswd.param().abi()).ok()
     }
     pub unsafe fn RestoreWithPasswd<P0, P3>(&self, pszmdbackuplocation: P0, dwmdversion: u32, dwmdflags: u32, pszpasswd: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RestoreWithPasswd)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), core::mem::transmute(dwmdversion), core::mem::transmute(dwmdflags), pszpasswd.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RestoreWithPasswd)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), dwmdversion, dwmdflags, pszpasswd.param().abi()).ok()
     }
     pub unsafe fn Export<P0, P1, P2>(&self, pszpasswd: P0, pszfilename: P1, pszsourcepath: P2, dwmdflags: u32) -> windows_core::Result<()>
     where
@@ -1522,7 +1522,7 @@ impl IMSAdminBase2W {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Export)(windows_core::Interface::as_raw(self), pszpasswd.param().abi(), pszfilename.param().abi(), pszsourcepath.param().abi(), core::mem::transmute(dwmdflags)).ok()
+        (windows_core::Interface::vtable(self).Export)(windows_core::Interface::as_raw(self), pszpasswd.param().abi(), pszfilename.param().abi(), pszsourcepath.param().abi(), dwmdflags).ok()
     }
     pub unsafe fn Import<P0, P1, P2, P3>(&self, pszpasswd: P0, pszfilename: P1, pszsourcepath: P2, pszdestpath: P3, dwmdflags: u32) -> windows_core::Result<()>
     where
@@ -1531,16 +1531,16 @@ impl IMSAdminBase2W {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Import)(windows_core::Interface::as_raw(self), pszpasswd.param().abi(), pszfilename.param().abi(), pszsourcepath.param().abi(), pszdestpath.param().abi(), core::mem::transmute(dwmdflags)).ok()
+        (windows_core::Interface::vtable(self).Import)(windows_core::Interface::as_raw(self), pszpasswd.param().abi(), pszfilename.param().abi(), pszsourcepath.param().abi(), pszdestpath.param().abi(), dwmdflags).ok()
     }
     pub unsafe fn RestoreHistory<P0>(&self, pszmdhistorylocation: P0, dwmdmajorversion: u32, dwmdminorversion: u32, dwmdflags: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RestoreHistory)(windows_core::Interface::as_raw(self), pszmdhistorylocation.param().abi(), core::mem::transmute(dwmdmajorversion), core::mem::transmute(dwmdminorversion), core::mem::transmute(dwmdflags)).ok()
+        (windows_core::Interface::vtable(self).RestoreHistory)(windows_core::Interface::as_raw(self), pszmdhistorylocation.param().abi(), dwmdmajorversion, dwmdminorversion, dwmdflags).ok()
     }
     pub unsafe fn EnumHistory(&self, pszmdhistorylocation: &mut [u16; 256], pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EnumHistory)(windows_core::Interface::as_raw(self), core::mem::transmute(pszmdhistorylocation.as_ptr()), core::mem::transmute(pdwmdmajorversion), core::mem::transmute(pdwmdminorversion), core::mem::transmute(pftmdhistorytime), core::mem::transmute(dwmdenumindex)).ok()
+        (windows_core::Interface::vtable(self).EnumHistory)(windows_core::Interface::as_raw(self), core::mem::transmute(pszmdhistorylocation.as_ptr()), core::mem::transmute(pdwmdmajorversion), core::mem::transmute(pdwmdminorversion), core::mem::transmute(pftmdhistorytime), dwmdenumindex).ok()
     }
 }
 #[repr(C)]
@@ -1615,7 +1615,7 @@ impl IMSAdminBase3W {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetChildPaths)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), pszbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pcchmdrequiredbuffersize.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).GetChildPaths)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), pszbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pcchmdrequiredbuffersize.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -1687,108 +1687,108 @@ impl IMSAdminBaseW {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddKey)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddKey)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi()).ok()
     }
     pub unsafe fn DeleteKey<P1>(&self, hmdhandle: u32, pszmdpath: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteKey)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteKey)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi()).ok()
     }
     pub unsafe fn DeleteChildKeys<P1>(&self, hmdhandle: u32, pszmdpath: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteChildKeys)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteChildKeys)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi()).ok()
     }
     pub unsafe fn EnumKeys<P1>(&self, hmdhandle: u32, pszmdpath: P1, pszmdname: &mut [u16; 256], dwmdenumobjectindex: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).EnumKeys)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(pszmdname.as_ptr()), core::mem::transmute(dwmdenumobjectindex)).ok()
+        (windows_core::Interface::vtable(self).EnumKeys)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), core::mem::transmute(pszmdname.as_ptr()), dwmdenumobjectindex).ok()
     }
     pub unsafe fn CopyKey<P1, P3>(&self, hmdsourcehandle: u32, pszmdsourcepath: P1, hmddesthandle: u32, pszmddestpath: P3, bmdoverwriteflag: bool, bmdcopyflag: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CopyKey)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdsourcehandle), pszmdsourcepath.param().abi(), core::mem::transmute(hmddesthandle), pszmddestpath.param().abi(), bmdoverwriteflag.into(), bmdcopyflag.into()).ok()
+        (windows_core::Interface::vtable(self).CopyKey)(windows_core::Interface::as_raw(self), hmdsourcehandle, pszmdsourcepath.param().abi(), hmddesthandle, pszmddestpath.param().abi(), bmdoverwriteflag.into(), bmdcopyflag.into()).ok()
     }
     pub unsafe fn RenameKey<P1, P2>(&self, hmdhandle: u32, pszmdpath: P1, pszmdnewname: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RenameKey)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), pszmdnewname.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RenameKey)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), pszmdnewname.param().abi()).ok()
     }
     pub unsafe fn SetData<P1>(&self, hmdhandle: u32, pszmdpath: P1, pmdrmddata: *mut METADATA_RECORD) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(pmdrmddata)).ok()
+        (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), core::mem::transmute(pmdrmddata)).ok()
     }
     pub unsafe fn GetData<P1>(&self, hmdhandle: u32, pszmdpath: P1, pmdrmddata: *mut METADATA_RECORD, pdwmdrequireddatalen: *mut u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(pmdrmddata), core::mem::transmute(pdwmdrequireddatalen)).ok()
+        (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), core::mem::transmute(pmdrmddata), core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     pub unsafe fn DeleteData<P1>(&self, hmdhandle: u32, pszmdpath: P1, dwmdidentifier: u32, dwmddatatype: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteData)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(dwmdidentifier), core::mem::transmute(dwmddatatype)).ok()
+        (windows_core::Interface::vtable(self).DeleteData)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), dwmdidentifier, dwmddatatype).ok()
     }
     pub unsafe fn EnumData<P1>(&self, hmdhandle: u32, pszmdpath: P1, pmdrmddata: *mut METADATA_RECORD, dwmdenumdataindex: u32, pdwmdrequireddatalen: *mut u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).EnumData)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(pmdrmddata), core::mem::transmute(dwmdenumdataindex), core::mem::transmute(pdwmdrequireddatalen)).ok()
+        (windows_core::Interface::vtable(self).EnumData)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), core::mem::transmute(pmdrmddata), dwmdenumdataindex, core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     pub unsafe fn GetAllData<P1>(&self, hmdhandle: u32, pszmdpath: P1, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetAllData)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(dwmdattributes), core::mem::transmute(dwmdusertype), core::mem::transmute(dwmddatatype), core::mem::transmute(pdwmdnumdataentries), core::mem::transmute(pdwmddatasetnumber), core::mem::transmute(dwmdbuffersize), core::mem::transmute(pbmdbuffer), core::mem::transmute(pdwmdrequiredbuffersize)).ok()
+        (windows_core::Interface::vtable(self).GetAllData)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), dwmdattributes, dwmdusertype, dwmddatatype, core::mem::transmute(pdwmdnumdataentries), core::mem::transmute(pdwmddatasetnumber), dwmdbuffersize, core::mem::transmute(pbmdbuffer), core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
     pub unsafe fn DeleteAllData<P1>(&self, hmdhandle: u32, pszmdpath: P1, dwmdusertype: u32, dwmddatatype: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteAllData)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(dwmdusertype), core::mem::transmute(dwmddatatype)).ok()
+        (windows_core::Interface::vtable(self).DeleteAllData)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), dwmdusertype, dwmddatatype).ok()
     }
     pub unsafe fn CopyData<P1, P3>(&self, hmdsourcehandle: u32, pszmdsourcepath: P1, hmddesthandle: u32, pszmddestpath: P3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CopyData)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdsourcehandle), pszmdsourcepath.param().abi(), core::mem::transmute(hmddesthandle), pszmddestpath.param().abi(), core::mem::transmute(dwmdattributes), core::mem::transmute(dwmdusertype), core::mem::transmute(dwmddatatype), bmdcopyflag.into()).ok()
+        (windows_core::Interface::vtable(self).CopyData)(windows_core::Interface::as_raw(self), hmdsourcehandle, pszmdsourcepath.param().abi(), hmddesthandle, pszmddestpath.param().abi(), dwmdattributes, dwmdusertype, dwmddatatype, bmdcopyflag.into()).ok()
     }
     pub unsafe fn GetDataPaths<P1>(&self, hmdhandle: u32, pszmdpath: P1, dwmdidentifier: u32, dwmddatatype: u32, pszbuffer: &mut [u16], pdwmdrequiredbuffersize: *mut u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetDataPaths)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(dwmdidentifier), core::mem::transmute(dwmddatatype), pszbuffer.len().try_into().unwrap(), core::mem::transmute(pszbuffer.as_ptr()), core::mem::transmute(pdwmdrequiredbuffersize)).ok()
+        (windows_core::Interface::vtable(self).GetDataPaths)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), dwmdidentifier, dwmddatatype, pszbuffer.len().try_into().unwrap(), core::mem::transmute(pszbuffer.as_ptr()), core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
     pub unsafe fn OpenKey<P1>(&self, hmdhandle: u32, pszmdpath: P1, dwmdaccessrequested: u32, dwmdtimeout: u32) -> windows_core::Result<u32>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenKey)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(dwmdaccessrequested), core::mem::transmute(dwmdtimeout), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OpenKey)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), dwmdaccessrequested, dwmdtimeout, &mut result__).map(|| result__)
     }
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CloseKey)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle)).ok()
+        (windows_core::Interface::vtable(self).CloseKey)(windows_core::Interface::as_raw(self), hmdhandle).ok()
     }
     pub unsafe fn ChangePermissions(&self, hmdhandle: u32, dwmdtimeout: u32, dwmdaccessrequested: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ChangePermissions)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), core::mem::transmute(dwmdtimeout), core::mem::transmute(dwmdaccessrequested)).ok()
+        (windows_core::Interface::vtable(self).ChangePermissions)(windows_core::Interface::as_raw(self), hmdhandle, dwmdtimeout, dwmdaccessrequested).ok()
     }
     pub unsafe fn SaveData(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SaveData)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> windows_core::Result<METADATA_HANDLE_INFO> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetHandleInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetHandleInfo)(windows_core::Interface::as_raw(self), hmdhandle, &mut result__).map(|| result__)
     }
     pub unsafe fn GetSystemChangeNumber(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -1799,19 +1799,19 @@ impl IMSAdminBaseW {
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDataSetNumber)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetDataSetNumber)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLastChangeTime<P1>(&self, hmdhandle: u32, pszmdpath: P1, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLastChangeTime)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(pftmdlastchangetime), blocaltime.into()).ok()
+        (windows_core::Interface::vtable(self).SetLastChangeTime)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), pftmdlastchangetime, blocaltime.into()).ok()
     }
     pub unsafe fn GetLastChangeTime<P1>(&self, hmdhandle: u32, pszmdpath: P1, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetLastChangeTime)(windows_core::Interface::as_raw(self), core::mem::transmute(hmdhandle), pszmdpath.param().abi(), core::mem::transmute(pftmdlastchangetime), blocaltime.into()).ok()
+        (windows_core::Interface::vtable(self).GetLastChangeTime)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), core::mem::transmute(pftmdlastchangetime), blocaltime.into()).ok()
     }
     pub unsafe fn KeyExchangePhase1(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).KeyExchangePhase1)(windows_core::Interface::as_raw(self)).ok()
@@ -1823,22 +1823,22 @@ impl IMSAdminBaseW {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Backup)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), core::mem::transmute(dwmdversion), core::mem::transmute(dwmdflags)).ok()
+        (windows_core::Interface::vtable(self).Backup)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), dwmdversion, dwmdflags).ok()
     }
     pub unsafe fn Restore<P0>(&self, pszmdbackuplocation: P0, dwmdversion: u32, dwmdflags: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), core::mem::transmute(dwmdversion), core::mem::transmute(dwmdflags)).ok()
+        (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), dwmdversion, dwmdflags).ok()
     }
     pub unsafe fn EnumBackups(&self, pszmdbackuplocation: &mut [u16; 256], pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EnumBackups)(windows_core::Interface::as_raw(self), core::mem::transmute(pszmdbackuplocation.as_ptr()), core::mem::transmute(pdwmdversion), core::mem::transmute(pftmdbackuptime), core::mem::transmute(dwmdenumindex)).ok()
+        (windows_core::Interface::vtable(self).EnumBackups)(windows_core::Interface::as_raw(self), core::mem::transmute(pszmdbackuplocation.as_ptr()), core::mem::transmute(pdwmdversion), core::mem::transmute(pftmdbackuptime), dwmdenumindex).ok()
     }
     pub unsafe fn DeleteBackup<P0>(&self, pszmdbackuplocation: P0, dwmdversion: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteBackup)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), core::mem::transmute(dwmdversion)).ok()
+        (windows_core::Interface::vtable(self).DeleteBackup)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), dwmdversion).ok()
     }
     pub unsafe fn UnmarshalInterface(&self) -> windows_core::Result<IMSAdminBaseW> {
         let mut result__ = core::mem::zeroed();

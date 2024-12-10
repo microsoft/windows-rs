@@ -184,10 +184,10 @@ windows_core::imp::interface_hierarchy!(IPackageUtil, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IPackageUtil {
     pub unsafe fn InstallPackage(&self, bstrpackagefile: &windows_core::BSTR, bstrinstallpath: &windows_core::BSTR, loptions: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InstallPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackagefile), core::mem::transmute_copy(bstrinstallpath), core::mem::transmute(loptions)).ok()
+        (windows_core::Interface::vtable(self).InstallPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackagefile), core::mem::transmute_copy(bstrinstallpath), loptions).ok()
     }
     pub unsafe fn ExportPackage(&self, bstrpackageid: &windows_core::BSTR, bstrpackagefile: &windows_core::BSTR, loptions: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExportPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackageid), core::mem::transmute_copy(bstrpackagefile), core::mem::transmute(loptions)).ok()
+        (windows_core::Interface::vtable(self).ExportPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackageid), core::mem::transmute_copy(bstrpackagefile), loptions).ok()
     }
     pub unsafe fn ShutdownPackage(&self, bstrpackageid: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ShutdownPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackageid)).ok()

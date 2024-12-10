@@ -1,22 +1,22 @@
 #[inline]
 pub unsafe fn DisableThreadProfiling(performancedatahandle: super::super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn DisableThreadProfiling(performancedatahandle : super::super::super::Foundation:: HANDLE) -> u32);
-    DisableThreadProfiling(core::mem::transmute(performancedatahandle))
+    DisableThreadProfiling(performancedatahandle)
 }
 #[inline]
 pub unsafe fn EnableThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, flags: u32, hardwarecounters: u64, performancedatahandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn EnableThreadProfiling(threadhandle : super::super::super::Foundation:: HANDLE, flags : u32, hardwarecounters : u64, performancedatahandle : *mut super::super::super::Foundation:: HANDLE) -> u32);
-    EnableThreadProfiling(core::mem::transmute(threadhandle), core::mem::transmute(flags), core::mem::transmute(hardwarecounters), core::mem::transmute(performancedatahandle))
+    EnableThreadProfiling(threadhandle, flags, hardwarecounters, core::mem::transmute(performancedatahandle))
 }
 #[inline]
 pub unsafe fn QueryThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, enabled: *mut bool) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn QueryThreadProfiling(threadhandle : super::super::super::Foundation:: HANDLE, enabled : *mut bool) -> u32);
-    QueryThreadProfiling(core::mem::transmute(threadhandle), core::mem::transmute(enabled))
+    QueryThreadProfiling(threadhandle, core::mem::transmute(enabled))
 }
 #[inline]
 pub unsafe fn ReadThreadProfilingData(performancedatahandle: super::super::super::Foundation::HANDLE, flags: u32, performancedata: *mut PERFORMANCE_DATA) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn ReadThreadProfilingData(performancedatahandle : super::super::super::Foundation:: HANDLE, flags : u32, performancedata : *mut PERFORMANCE_DATA) -> u32);
-    ReadThreadProfilingData(core::mem::transmute(performancedatahandle), core::mem::transmute(flags), core::mem::transmute(performancedata))
+    ReadThreadProfilingData(performancedatahandle, flags, core::mem::transmute(performancedata))
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

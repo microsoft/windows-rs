@@ -1,12 +1,12 @@
 #[inline]
 pub unsafe fn NtClose(handle: super::super::Win32::Foundation::HANDLE) -> super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn NtClose(handle : super::super::Win32::Foundation:: HANDLE) -> super::super::Win32::Foundation:: NTSTATUS);
-    NtClose(core::mem::transmute(handle))
+    NtClose(handle)
 }
 #[inline]
 pub unsafe fn NtQueryObject(handle: Option<super::super::Win32::Foundation::HANDLE>, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: Option<*mut core::ffi::c_void>, objectinformationlength: u32, returnlength: Option<*mut u32>) -> super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn NtQueryObject(handle : super::super::Win32::Foundation:: HANDLE, objectinformationclass : OBJECT_INFORMATION_CLASS, objectinformation : *mut core::ffi::c_void, objectinformationlength : u32, returnlength : *mut u32) -> super::super::Win32::Foundation:: NTSTATUS);
-    NtQueryObject(core::mem::transmute(handle.unwrap_or(core::mem::zeroed())), core::mem::transmute(objectinformationclass), core::mem::transmute(objectinformation.unwrap_or(core::mem::zeroed())), core::mem::transmute(objectinformationlength), core::mem::transmute(returnlength.unwrap_or(core::mem::zeroed())))
+    NtQueryObject(core::mem::transmute(handle.unwrap_or(core::mem::zeroed())), objectinformationclass, core::mem::transmute(objectinformation.unwrap_or(core::mem::zeroed())), objectinformationlength, core::mem::transmute(returnlength.unwrap_or(core::mem::zeroed())))
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]

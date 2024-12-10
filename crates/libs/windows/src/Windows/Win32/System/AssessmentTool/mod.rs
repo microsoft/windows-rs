@@ -213,7 +213,7 @@ windows_core::imp::interface_hierarchy!(IProvideWinSATResultsInfo, windows_core:
 impl IProvideWinSATResultsInfo {
     pub unsafe fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> windows_core::Result<IProvideWinSATAssessmentInfo> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAssessmentInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(assessment), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAssessmentInfo)(windows_core::Interface::as_raw(self), assessment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AssessmentState(&self) -> windows_core::Result<WINSAT_ASSESSMENT_STATE> {
         let mut result__ = core::mem::zeroed();
@@ -328,7 +328,7 @@ impl IProvideWinSATVisuals {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn get_Bitmap(&self, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Bitmap)(windows_core::Interface::as_raw(self), core::mem::transmute(bitmapsize), core::mem::transmute(state), core::mem::transmute(rating), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).get_Bitmap)(windows_core::Interface::as_raw(self), bitmapsize, state, rating, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -528,13 +528,13 @@ impl IWinSATInitiateEvents {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).WinSATComplete)(windows_core::Interface::as_raw(self), core::mem::transmute(hresult), strdescription.param().abi()).ok()
+        (windows_core::Interface::vtable(self).WinSATComplete)(windows_core::Interface::as_raw(self), hresult, strdescription.param().abi()).ok()
     }
     pub unsafe fn WinSATUpdate<P2>(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).WinSATUpdate)(windows_core::Interface::as_raw(self), core::mem::transmute(ucurrenttick), core::mem::transmute(uticktotal), strcurrentstate.param().abi()).ok()
+        (windows_core::Interface::vtable(self).WinSATUpdate)(windows_core::Interface::as_raw(self), ucurrenttick, uticktotal, strcurrentstate.param().abi()).ok()
     }
 }
 #[repr(C)]

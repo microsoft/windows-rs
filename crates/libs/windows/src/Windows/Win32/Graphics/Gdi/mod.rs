@@ -1,12 +1,12 @@
 #[inline]
 pub unsafe fn AbortPath(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn AbortPath(hdc : HDC) -> super::super::Foundation:: BOOL);
-    AbortPath(core::mem::transmute(hdc))
+    AbortPath(hdc)
 }
 #[inline]
 pub unsafe fn AddFontMemResourceEx(pfileview: *const core::ffi::c_void, cjsize: u32, pvresrved: Option<*const core::ffi::c_void>, pnumfonts: *const u32) -> super::super::Foundation::HANDLE {
     windows_targets::link!("gdi32.dll" "system" fn AddFontMemResourceEx(pfileview : *const core::ffi::c_void, cjsize : u32, pvresrved : *const core::ffi::c_void, pnumfonts : *const u32) -> super::super::Foundation:: HANDLE);
-    AddFontMemResourceEx(core::mem::transmute(pfileview), core::mem::transmute(cjsize), core::mem::transmute(pvresrved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pnumfonts))
+    AddFontMemResourceEx(pfileview, cjsize, core::mem::transmute(pvresrved.unwrap_or(core::mem::zeroed())), pnumfonts)
 }
 #[inline]
 pub unsafe fn AddFontResourceA<P0>(param0: P0) -> i32
@@ -22,7 +22,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn AddFontResourceExA(name : windows_core::PCSTR, fl : FONT_RESOURCE_CHARACTERISTICS, res : *const core::ffi::c_void) -> i32);
-    AddFontResourceExA(name.param().abi(), core::mem::transmute(fl), core::mem::transmute(res.unwrap_or(core::mem::zeroed())))
+    AddFontResourceExA(name.param().abi(), fl, core::mem::transmute(res.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn AddFontResourceExW<P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: Option<*const core::ffi::c_void>) -> i32
@@ -30,7 +30,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn AddFontResourceExW(name : windows_core::PCWSTR, fl : FONT_RESOURCE_CHARACTERISTICS, res : *const core::ffi::c_void) -> i32);
-    AddFontResourceExW(name.param().abi(), core::mem::transmute(fl), core::mem::transmute(res.unwrap_or(core::mem::zeroed())))
+    AddFontResourceExW(name.param().abi(), fl, core::mem::transmute(res.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn AddFontResourceW<P0>(param0: P0) -> i32
@@ -43,52 +43,52 @@ where
 #[inline]
 pub unsafe fn AlphaBlend(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> super::super::Foundation::BOOL {
     windows_targets::link!("msimg32.dll" "system" fn AlphaBlend(hdcdest : HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, ftn : BLENDFUNCTION) -> super::super::Foundation:: BOOL);
-    AlphaBlend(core::mem::transmute(hdcdest), core::mem::transmute(xorigindest), core::mem::transmute(yorigindest), core::mem::transmute(wdest), core::mem::transmute(hdest), core::mem::transmute(hdcsrc), core::mem::transmute(xoriginsrc), core::mem::transmute(yoriginsrc), core::mem::transmute(wsrc), core::mem::transmute(hsrc), core::mem::transmute(ftn))
+    AlphaBlend(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, core::mem::transmute(ftn))
 }
 #[inline]
 pub unsafe fn AngleArc(hdc: HDC, x: i32, y: i32, r: u32, startangle: f32, sweepangle: f32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn AngleArc(hdc : HDC, x : i32, y : i32, r : u32, startangle : f32, sweepangle : f32) -> super::super::Foundation:: BOOL);
-    AngleArc(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(r), core::mem::transmute(startangle), core::mem::transmute(sweepangle))
+    AngleArc(hdc, x, y, r, startangle, sweepangle)
 }
 #[inline]
 pub unsafe fn AnimatePalette(hpal: HPALETTE, istartindex: u32, ppe: &[PALETTEENTRY]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn AnimatePalette(hpal : HPALETTE, istartindex : u32, centries : u32, ppe : *const PALETTEENTRY) -> super::super::Foundation:: BOOL);
-    AnimatePalette(core::mem::transmute(hpal), core::mem::transmute(istartindex), ppe.len().try_into().unwrap(), core::mem::transmute(ppe.as_ptr()))
+    AnimatePalette(hpal, istartindex, ppe.len().try_into().unwrap(), core::mem::transmute(ppe.as_ptr()))
 }
 #[inline]
 pub unsafe fn Arc(hdc: HDC, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn Arc(hdc : HDC, x1 : i32, y1 : i32, x2 : i32, y2 : i32, x3 : i32, y3 : i32, x4 : i32, y4 : i32) -> super::super::Foundation:: BOOL);
-    Arc(core::mem::transmute(hdc), core::mem::transmute(x1), core::mem::transmute(y1), core::mem::transmute(x2), core::mem::transmute(y2), core::mem::transmute(x3), core::mem::transmute(y3), core::mem::transmute(x4), core::mem::transmute(y4))
+    Arc(hdc, x1, y1, x2, y2, x3, y3, x4, y4)
 }
 #[inline]
 pub unsafe fn ArcTo(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn ArcTo(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32, xr1 : i32, yr1 : i32, xr2 : i32, yr2 : i32) -> super::super::Foundation:: BOOL);
-    ArcTo(core::mem::transmute(hdc), core::mem::transmute(left), core::mem::transmute(top), core::mem::transmute(right), core::mem::transmute(bottom), core::mem::transmute(xr1), core::mem::transmute(yr1), core::mem::transmute(xr2), core::mem::transmute(yr2))
+    ArcTo(hdc, left, top, right, bottom, xr1, yr1, xr2, yr2)
 }
 #[inline]
 pub unsafe fn BeginPaint(hwnd: super::super::Foundation::HWND, lppaint: *mut PAINTSTRUCT) -> HDC {
     windows_targets::link!("user32.dll" "system" fn BeginPaint(hwnd : super::super::Foundation:: HWND, lppaint : *mut PAINTSTRUCT) -> HDC);
-    BeginPaint(core::mem::transmute(hwnd), core::mem::transmute(lppaint))
+    BeginPaint(hwnd, core::mem::transmute(lppaint))
 }
 #[inline]
 pub unsafe fn BeginPath(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn BeginPath(hdc : HDC) -> super::super::Foundation:: BOOL);
-    BeginPath(core::mem::transmute(hdc))
+    BeginPath(hdc)
 }
 #[inline]
 pub unsafe fn BitBlt(hdc: HDC, x: i32, y: i32, cx: i32, cy: i32, hdcsrc: Option<HDC>, x1: i32, y1: i32, rop: ROP_CODE) -> windows_core::Result<()> {
     windows_targets::link!("gdi32.dll" "system" fn BitBlt(hdc : HDC, x : i32, y : i32, cx : i32, cy : i32, hdcsrc : HDC, x1 : i32, y1 : i32, rop : ROP_CODE) -> super::super::Foundation:: BOOL);
-    BitBlt(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(cx), core::mem::transmute(cy), core::mem::transmute(hdcsrc.unwrap_or(core::mem::zeroed())), core::mem::transmute(x1), core::mem::transmute(y1), core::mem::transmute(rop)).ok()
+    BitBlt(hdc, x, y, cx, cy, core::mem::transmute(hdcsrc.unwrap_or(core::mem::zeroed())), x1, y1, rop).ok()
 }
 #[inline]
 pub unsafe fn CancelDC(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn CancelDC(hdc : HDC) -> super::super::Foundation:: BOOL);
-    CancelDC(core::mem::transmute(hdc))
+    CancelDC(hdc)
 }
 #[inline]
 pub unsafe fn ChangeDisplaySettingsA(lpdevmode: Option<*const DEVMODEA>, dwflags: CDS_TYPE) -> DISP_CHANGE {
     windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsA(lpdevmode : *const DEVMODEA, dwflags : CDS_TYPE) -> DISP_CHANGE);
-    ChangeDisplaySettingsA(core::mem::transmute(lpdevmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags))
+    ChangeDisplaySettingsA(core::mem::transmute(lpdevmode.unwrap_or(core::mem::zeroed())), dwflags)
 }
 #[inline]
 pub unsafe fn ChangeDisplaySettingsExA<P0>(lpszdevicename: P0, lpdevmode: Option<*const DEVMODEA>, hwnd: Option<super::super::Foundation::HWND>, dwflags: CDS_TYPE, lparam: Option<*const core::ffi::c_void>) -> DISP_CHANGE
@@ -96,7 +96,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsExA(lpszdevicename : windows_core::PCSTR, lpdevmode : *const DEVMODEA, hwnd : super::super::Foundation:: HWND, dwflags : CDS_TYPE, lparam : *const core::ffi::c_void) -> DISP_CHANGE);
-    ChangeDisplaySettingsExA(lpszdevicename.param().abi(), core::mem::transmute(lpdevmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(lparam.unwrap_or(core::mem::zeroed())))
+    ChangeDisplaySettingsExA(lpszdevicename.param().abi(), core::mem::transmute(lpdevmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), dwflags, core::mem::transmute(lparam.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ChangeDisplaySettingsExW<P0>(lpszdevicename: P0, lpdevmode: Option<*const DEVMODEW>, hwnd: Option<super::super::Foundation::HWND>, dwflags: CDS_TYPE, lparam: Option<*const core::ffi::c_void>) -> DISP_CHANGE
@@ -104,47 +104,47 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsExW(lpszdevicename : windows_core::PCWSTR, lpdevmode : *const DEVMODEW, hwnd : super::super::Foundation:: HWND, dwflags : CDS_TYPE, lparam : *const core::ffi::c_void) -> DISP_CHANGE);
-    ChangeDisplaySettingsExW(lpszdevicename.param().abi(), core::mem::transmute(lpdevmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(lparam.unwrap_or(core::mem::zeroed())))
+    ChangeDisplaySettingsExW(lpszdevicename.param().abi(), core::mem::transmute(lpdevmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), dwflags, core::mem::transmute(lparam.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ChangeDisplaySettingsW(lpdevmode: Option<*const DEVMODEW>, dwflags: CDS_TYPE) -> DISP_CHANGE {
     windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsW(lpdevmode : *const DEVMODEW, dwflags : CDS_TYPE) -> DISP_CHANGE);
-    ChangeDisplaySettingsW(core::mem::transmute(lpdevmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags))
+    ChangeDisplaySettingsW(core::mem::transmute(lpdevmode.unwrap_or(core::mem::zeroed())), dwflags)
 }
 #[inline]
 pub unsafe fn Chord(hdc: HDC, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn Chord(hdc : HDC, x1 : i32, y1 : i32, x2 : i32, y2 : i32, x3 : i32, y3 : i32, x4 : i32, y4 : i32) -> super::super::Foundation:: BOOL);
-    Chord(core::mem::transmute(hdc), core::mem::transmute(x1), core::mem::transmute(y1), core::mem::transmute(x2), core::mem::transmute(y2), core::mem::transmute(x3), core::mem::transmute(y3), core::mem::transmute(x4), core::mem::transmute(y4))
+    Chord(hdc, x1, y1, x2, y2, x3, y3, x4, y4)
 }
 #[inline]
 pub unsafe fn ClientToScreen(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn ClientToScreen(hwnd : super::super::Foundation:: HWND, lppoint : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    ClientToScreen(core::mem::transmute(hwnd), core::mem::transmute(lppoint))
+    ClientToScreen(hwnd, core::mem::transmute(lppoint))
 }
 #[inline]
 pub unsafe fn CloseEnhMetaFile(hdc: HDC) -> HENHMETAFILE {
     windows_targets::link!("gdi32.dll" "system" fn CloseEnhMetaFile(hdc : HDC) -> HENHMETAFILE);
-    CloseEnhMetaFile(core::mem::transmute(hdc))
+    CloseEnhMetaFile(hdc)
 }
 #[inline]
 pub unsafe fn CloseFigure(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn CloseFigure(hdc : HDC) -> super::super::Foundation:: BOOL);
-    CloseFigure(core::mem::transmute(hdc))
+    CloseFigure(hdc)
 }
 #[inline]
 pub unsafe fn CloseMetaFile(hdc: HDC) -> HMETAFILE {
     windows_targets::link!("gdi32.dll" "system" fn CloseMetaFile(hdc : HDC) -> HMETAFILE);
-    CloseMetaFile(core::mem::transmute(hdc))
+    CloseMetaFile(hdc)
 }
 #[inline]
 pub unsafe fn CombineRgn(hrgndst: Option<HRGN>, hrgnsrc1: Option<HRGN>, hrgnsrc2: Option<HRGN>, imode: RGN_COMBINE_MODE) -> GDI_REGION_TYPE {
     windows_targets::link!("gdi32.dll" "system" fn CombineRgn(hrgndst : HRGN, hrgnsrc1 : HRGN, hrgnsrc2 : HRGN, imode : RGN_COMBINE_MODE) -> GDI_REGION_TYPE);
-    CombineRgn(core::mem::transmute(hrgndst.unwrap_or(core::mem::zeroed())), core::mem::transmute(hrgnsrc1.unwrap_or(core::mem::zeroed())), core::mem::transmute(hrgnsrc2.unwrap_or(core::mem::zeroed())), core::mem::transmute(imode))
+    CombineRgn(core::mem::transmute(hrgndst.unwrap_or(core::mem::zeroed())), core::mem::transmute(hrgnsrc1.unwrap_or(core::mem::zeroed())), core::mem::transmute(hrgnsrc2.unwrap_or(core::mem::zeroed())), imode)
 }
 #[inline]
 pub unsafe fn CombineTransform(lpxfout: *mut XFORM, lpxf1: *const XFORM, lpxf2: *const XFORM) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn CombineTransform(lpxfout : *mut XFORM, lpxf1 : *const XFORM, lpxf2 : *const XFORM) -> super::super::Foundation:: BOOL);
-    CombineTransform(core::mem::transmute(lpxfout), core::mem::transmute(lpxf1), core::mem::transmute(lpxf2))
+    CombineTransform(core::mem::transmute(lpxfout), lpxf1, lpxf2)
 }
 #[inline]
 pub unsafe fn CopyEnhMetaFileA<P1>(henh: HENHMETAFILE, lpfilename: P1) -> HENHMETAFILE
@@ -152,7 +152,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn CopyEnhMetaFileA(henh : HENHMETAFILE, lpfilename : windows_core::PCSTR) -> HENHMETAFILE);
-    CopyEnhMetaFileA(core::mem::transmute(henh), lpfilename.param().abi())
+    CopyEnhMetaFileA(henh, lpfilename.param().abi())
 }
 #[inline]
 pub unsafe fn CopyEnhMetaFileW<P1>(henh: HENHMETAFILE, lpfilename: P1) -> HENHMETAFILE
@@ -160,7 +160,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn CopyEnhMetaFileW(henh : HENHMETAFILE, lpfilename : windows_core::PCWSTR) -> HENHMETAFILE);
-    CopyEnhMetaFileW(core::mem::transmute(henh), lpfilename.param().abi())
+    CopyEnhMetaFileW(henh, lpfilename.param().abi())
 }
 #[inline]
 pub unsafe fn CopyMetaFileA<P1>(param0: HMETAFILE, param1: P1) -> HMETAFILE
@@ -168,7 +168,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn CopyMetaFileA(param0 : HMETAFILE, param1 : windows_core::PCSTR) -> HMETAFILE);
-    CopyMetaFileA(core::mem::transmute(param0), param1.param().abi())
+    CopyMetaFileA(param0, param1.param().abi())
 }
 #[inline]
 pub unsafe fn CopyMetaFileW<P1>(param0: HMETAFILE, param1: P1) -> HMETAFILE
@@ -176,32 +176,32 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn CopyMetaFileW(param0 : HMETAFILE, param1 : windows_core::PCWSTR) -> HMETAFILE);
-    CopyMetaFileW(core::mem::transmute(param0), param1.param().abi())
+    CopyMetaFileW(param0, param1.param().abi())
 }
 #[inline]
 pub unsafe fn CopyRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn CopyRect(lprcdst : *mut super::super::Foundation:: RECT, lprcsrc : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    CopyRect(core::mem::transmute(lprcdst), core::mem::transmute(lprcsrc))
+    CopyRect(core::mem::transmute(lprcdst), lprcsrc)
 }
 #[inline]
 pub unsafe fn CreateBitmap(nwidth: i32, nheight: i32, nplanes: u32, nbitcount: u32, lpbits: Option<*const core::ffi::c_void>) -> HBITMAP {
     windows_targets::link!("gdi32.dll" "system" fn CreateBitmap(nwidth : i32, nheight : i32, nplanes : u32, nbitcount : u32, lpbits : *const core::ffi::c_void) -> HBITMAP);
-    CreateBitmap(core::mem::transmute(nwidth), core::mem::transmute(nheight), core::mem::transmute(nplanes), core::mem::transmute(nbitcount), core::mem::transmute(lpbits.unwrap_or(core::mem::zeroed())))
+    CreateBitmap(nwidth, nheight, nplanes, nbitcount, core::mem::transmute(lpbits.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CreateBitmapIndirect(pbm: *const BITMAP) -> HBITMAP {
     windows_targets::link!("gdi32.dll" "system" fn CreateBitmapIndirect(pbm : *const BITMAP) -> HBITMAP);
-    CreateBitmapIndirect(core::mem::transmute(pbm))
+    CreateBitmapIndirect(pbm)
 }
 #[inline]
 pub unsafe fn CreateBrushIndirect(plbrush: *const LOGBRUSH) -> HBRUSH {
     windows_targets::link!("gdi32.dll" "system" fn CreateBrushIndirect(plbrush : *const LOGBRUSH) -> HBRUSH);
-    CreateBrushIndirect(core::mem::transmute(plbrush))
+    CreateBrushIndirect(plbrush)
 }
 #[inline]
 pub unsafe fn CreateCompatibleBitmap(hdc: HDC, cx: i32, cy: i32) -> HBITMAP {
     windows_targets::link!("gdi32.dll" "system" fn CreateCompatibleBitmap(hdc : HDC, cx : i32, cy : i32) -> HBITMAP);
-    CreateCompatibleBitmap(core::mem::transmute(hdc), core::mem::transmute(cx), core::mem::transmute(cy))
+    CreateCompatibleBitmap(hdc, cx, cy)
 }
 #[inline]
 pub unsafe fn CreateCompatibleDC(hdc: Option<HDC>) -> HDC {
@@ -231,38 +231,38 @@ where
 #[inline]
 pub unsafe fn CreateDIBPatternBrush(h: super::super::Foundation::HGLOBAL, iusage: DIB_USAGE) -> HBRUSH {
     windows_targets::link!("gdi32.dll" "system" fn CreateDIBPatternBrush(h : super::super::Foundation:: HGLOBAL, iusage : DIB_USAGE) -> HBRUSH);
-    CreateDIBPatternBrush(core::mem::transmute(h), core::mem::transmute(iusage))
+    CreateDIBPatternBrush(h, iusage)
 }
 #[inline]
 pub unsafe fn CreateDIBPatternBrushPt(lppackeddib: *const core::ffi::c_void, iusage: DIB_USAGE) -> HBRUSH {
     windows_targets::link!("gdi32.dll" "system" fn CreateDIBPatternBrushPt(lppackeddib : *const core::ffi::c_void, iusage : DIB_USAGE) -> HBRUSH);
-    CreateDIBPatternBrushPt(core::mem::transmute(lppackeddib), core::mem::transmute(iusage))
+    CreateDIBPatternBrushPt(lppackeddib, iusage)
 }
 #[inline]
 pub unsafe fn CreateDIBSection(hdc: Option<HDC>, pbmi: *const BITMAPINFO, usage: DIB_USAGE, ppvbits: *mut *mut core::ffi::c_void, hsection: Option<super::super::Foundation::HANDLE>, offset: u32) -> windows_core::Result<HBITMAP> {
     windows_targets::link!("gdi32.dll" "system" fn CreateDIBSection(hdc : HDC, pbmi : *const BITMAPINFO, usage : DIB_USAGE, ppvbits : *mut *mut core::ffi::c_void, hsection : super::super::Foundation:: HANDLE, offset : u32) -> HBITMAP);
-    let result__ = CreateDIBSection(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbmi), core::mem::transmute(usage), core::mem::transmute(ppvbits), core::mem::transmute(hsection.unwrap_or(core::mem::zeroed())), core::mem::transmute(offset));
+    let result__ = CreateDIBSection(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), pbmi, usage, core::mem::transmute(ppvbits), core::mem::transmute(hsection.unwrap_or(core::mem::zeroed())), offset);
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn CreateDIBitmap(hdc: HDC, pbmih: Option<*const BITMAPINFOHEADER>, flinit: u32, pjbits: Option<*const core::ffi::c_void>, pbmi: Option<*const BITMAPINFO>, iusage: DIB_USAGE) -> HBITMAP {
     windows_targets::link!("gdi32.dll" "system" fn CreateDIBitmap(hdc : HDC, pbmih : *const BITMAPINFOHEADER, flinit : u32, pjbits : *const core::ffi::c_void, pbmi : *const BITMAPINFO, iusage : DIB_USAGE) -> HBITMAP);
-    CreateDIBitmap(core::mem::transmute(hdc), core::mem::transmute(pbmih.unwrap_or(core::mem::zeroed())), core::mem::transmute(flinit), core::mem::transmute(pjbits.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbmi.unwrap_or(core::mem::zeroed())), core::mem::transmute(iusage))
+    CreateDIBitmap(hdc, core::mem::transmute(pbmih.unwrap_or(core::mem::zeroed())), flinit, core::mem::transmute(pjbits.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbmi.unwrap_or(core::mem::zeroed())), iusage)
 }
 #[inline]
 pub unsafe fn CreateDiscardableBitmap(hdc: HDC, cx: i32, cy: i32) -> HBITMAP {
     windows_targets::link!("gdi32.dll" "system" fn CreateDiscardableBitmap(hdc : HDC, cx : i32, cy : i32) -> HBITMAP);
-    CreateDiscardableBitmap(core::mem::transmute(hdc), core::mem::transmute(cx), core::mem::transmute(cy))
+    CreateDiscardableBitmap(hdc, cx, cy)
 }
 #[inline]
 pub unsafe fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     windows_targets::link!("gdi32.dll" "system" fn CreateEllipticRgn(x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> HRGN);
-    CreateEllipticRgn(core::mem::transmute(x1), core::mem::transmute(y1), core::mem::transmute(x2), core::mem::transmute(y2))
+    CreateEllipticRgn(x1, y1, x2, y2)
 }
 #[inline]
 pub unsafe fn CreateEllipticRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN {
     windows_targets::link!("gdi32.dll" "system" fn CreateEllipticRgnIndirect(lprect : *const super::super::Foundation:: RECT) -> HRGN);
-    CreateEllipticRgnIndirect(core::mem::transmute(lprect))
+    CreateEllipticRgnIndirect(lprect)
 }
 #[inline]
 pub unsafe fn CreateEnhMetaFileA<P1, P3>(hdc: Option<HDC>, lpfilename: P1, lprc: Option<*const super::super::Foundation::RECT>, lpdesc: P3) -> HDC
@@ -288,50 +288,32 @@ where
     P13: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn CreateFontA(cheight : i32, cwidth : i32, cescapement : i32, corientation : i32, cweight : i32, bitalic : u32, bunderline : u32, bstrikeout : u32, icharset : u32, ioutprecision : u32, iclipprecision : u32, iquality : u32, ipitchandfamily : u32, pszfacename : windows_core::PCSTR) -> HFONT);
-    CreateFontA(core::mem::transmute(cheight), core::mem::transmute(cwidth), core::mem::transmute(cescapement), core::mem::transmute(corientation), core::mem::transmute(cweight), core::mem::transmute(bitalic), core::mem::transmute(bunderline), core::mem::transmute(bstrikeout), icharset.0 as _, ioutprecision.0 as _, iclipprecision.0 as _, iquality.0 as _, core::mem::transmute(ipitchandfamily), pszfacename.param().abi())
+    CreateFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset.0 as _, ioutprecision.0 as _, iclipprecision.0 as _, iquality.0 as _, ipitchandfamily, pszfacename.param().abi())
 }
 #[inline]
 pub unsafe fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT {
     windows_targets::link!("gdi32.dll" "system" fn CreateFontIndirectA(lplf : *const LOGFONTA) -> HFONT);
-    CreateFontIndirectA(core::mem::transmute(lplf))
+    CreateFontIndirectA(lplf)
 }
 #[inline]
 pub unsafe fn CreateFontIndirectExA(param0: *const ENUMLOGFONTEXDVA) -> HFONT {
     windows_targets::link!("gdi32.dll" "system" fn CreateFontIndirectExA(param0 : *const ENUMLOGFONTEXDVA) -> HFONT);
-    CreateFontIndirectExA(core::mem::transmute(param0))
+    CreateFontIndirectExA(param0)
 }
 #[inline]
 pub unsafe fn CreateFontIndirectExW(param0: *const ENUMLOGFONTEXDVW) -> HFONT {
     windows_targets::link!("gdi32.dll" "system" fn CreateFontIndirectExW(param0 : *const ENUMLOGFONTEXDVW) -> HFONT);
-    CreateFontIndirectExW(core::mem::transmute(param0))
+    CreateFontIndirectExW(param0)
 }
 #[inline]
 pub unsafe fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT {
     windows_targets::link!("gdi32.dll" "system" fn CreateFontIndirectW(lplf : *const LOGFONTW) -> HFONT);
-    CreateFontIndirectW(core::mem::transmute(lplf))
+    CreateFontIndirectW(lplf)
 }
 #[inline]
 pub unsafe fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("fontsub.dll" "cdecl" fn CreateFontPackage(puchsrcbuffer : *const u8, ulsrcbuffersize : u32, ppuchfontpackagebuffer : *mut *mut u8, pulfontpackagebuffersize : *mut u32, pulbyteswritten : *mut u32, usflag : u16, usttcindex : u16, ussubsetformat : u16, ussubsetlanguage : u16, ussubsetplatform : CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding : CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist : *const u16, ussubsetlistcount : u16, lpfnallocate : CFP_ALLOCPROC, lpfnreallocate : CFP_REALLOCPROC, lpfnfree : CFP_FREEPROC, lpvreserved : *mut core::ffi::c_void) -> u32);
-    CreateFontPackage(
-        core::mem::transmute(puchsrcbuffer),
-        core::mem::transmute(ulsrcbuffersize),
-        core::mem::transmute(ppuchfontpackagebuffer),
-        core::mem::transmute(pulfontpackagebuffersize),
-        core::mem::transmute(pulbyteswritten),
-        core::mem::transmute(usflag),
-        core::mem::transmute(usttcindex),
-        core::mem::transmute(ussubsetformat),
-        core::mem::transmute(ussubsetlanguage),
-        core::mem::transmute(ussubsetplatform),
-        core::mem::transmute(ussubsetencoding),
-        core::mem::transmute(pussubsetkeeplist),
-        core::mem::transmute(ussubsetlistcount),
-        core::mem::transmute(lpfnallocate),
-        core::mem::transmute(lpfnreallocate),
-        core::mem::transmute(lpfnfree),
-        core::mem::transmute(lpvreserved),
-    )
+    CreateFontPackage(puchsrcbuffer, ulsrcbuffersize, core::mem::transmute(ppuchfontpackagebuffer), core::mem::transmute(pulfontpackagebuffersize), core::mem::transmute(pulbyteswritten), usflag, usttcindex, ussubsetformat, ussubsetlanguage, ussubsetplatform, ussubsetencoding, pussubsetkeeplist, ussubsetlistcount, lpfnallocate, lpfnreallocate, lpfnfree, core::mem::transmute(lpvreserved))
 }
 #[inline]
 pub unsafe fn CreateFontW<P13>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: FONT_CHARSET, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: u32, pszfacename: P13) -> HFONT
@@ -339,7 +321,7 @@ where
     P13: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn CreateFontW(cheight : i32, cwidth : i32, cescapement : i32, corientation : i32, cweight : i32, bitalic : u32, bunderline : u32, bstrikeout : u32, icharset : u32, ioutprecision : u32, iclipprecision : u32, iquality : u32, ipitchandfamily : u32, pszfacename : windows_core::PCWSTR) -> HFONT);
-    CreateFontW(core::mem::transmute(cheight), core::mem::transmute(cwidth), core::mem::transmute(cescapement), core::mem::transmute(corientation), core::mem::transmute(cweight), core::mem::transmute(bitalic), core::mem::transmute(bunderline), core::mem::transmute(bstrikeout), icharset.0 as _, ioutprecision.0 as _, iclipprecision.0 as _, iquality.0 as _, core::mem::transmute(ipitchandfamily), pszfacename.param().abi())
+    CreateFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset.0 as _, ioutprecision.0 as _, iclipprecision.0 as _, iquality.0 as _, ipitchandfamily, pszfacename.param().abi())
 }
 #[inline]
 pub unsafe fn CreateHalftonePalette(hdc: Option<HDC>) -> HPALETTE {
@@ -349,7 +331,7 @@ pub unsafe fn CreateHalftonePalette(hdc: Option<HDC>) -> HPALETTE {
 #[inline]
 pub unsafe fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: super::super::Foundation::COLORREF) -> HBRUSH {
     windows_targets::link!("gdi32.dll" "system" fn CreateHatchBrush(ihatch : HATCH_BRUSH_STYLE, color : super::super::Foundation:: COLORREF) -> HBRUSH);
-    CreateHatchBrush(core::mem::transmute(ihatch), core::mem::transmute(color))
+    CreateHatchBrush(ihatch, color)
 }
 #[inline]
 pub unsafe fn CreateICA<P0, P1, P2>(pszdriver: P0, pszdevice: P1, pszport: P2, pdm: Option<*const DEVMODEA>) -> HDC
@@ -390,47 +372,47 @@ where
 #[inline]
 pub unsafe fn CreatePalette(plpal: *const LOGPALETTE) -> HPALETTE {
     windows_targets::link!("gdi32.dll" "system" fn CreatePalette(plpal : *const LOGPALETTE) -> HPALETTE);
-    CreatePalette(core::mem::transmute(plpal))
+    CreatePalette(plpal)
 }
 #[inline]
 pub unsafe fn CreatePatternBrush(hbm: HBITMAP) -> HBRUSH {
     windows_targets::link!("gdi32.dll" "system" fn CreatePatternBrush(hbm : HBITMAP) -> HBRUSH);
-    CreatePatternBrush(core::mem::transmute(hbm))
+    CreatePatternBrush(hbm)
 }
 #[inline]
 pub unsafe fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: super::super::Foundation::COLORREF) -> HPEN {
     windows_targets::link!("gdi32.dll" "system" fn CreatePen(istyle : PEN_STYLE, cwidth : i32, color : super::super::Foundation:: COLORREF) -> HPEN);
-    CreatePen(core::mem::transmute(istyle), core::mem::transmute(cwidth), core::mem::transmute(color))
+    CreatePen(istyle, cwidth, color)
 }
 #[inline]
 pub unsafe fn CreatePenIndirect(plpen: *const LOGPEN) -> HPEN {
     windows_targets::link!("gdi32.dll" "system" fn CreatePenIndirect(plpen : *const LOGPEN) -> HPEN);
-    CreatePenIndirect(core::mem::transmute(plpen))
+    CreatePenIndirect(plpen)
 }
 #[inline]
 pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT, pc: &[i32], imode: CREATE_POLYGON_RGN_MODE) -> HRGN {
     windows_targets::link!("gdi32.dll" "system" fn CreatePolyPolygonRgn(pptl : *const super::super::Foundation:: POINT, pc : *const i32, cpoly : i32, imode : CREATE_POLYGON_RGN_MODE) -> HRGN);
-    CreatePolyPolygonRgn(core::mem::transmute(pptl), core::mem::transmute(pc.as_ptr()), pc.len().try_into().unwrap(), core::mem::transmute(imode))
+    CreatePolyPolygonRgn(pptl, core::mem::transmute(pc.as_ptr()), pc.len().try_into().unwrap(), imode)
 }
 #[inline]
 pub unsafe fn CreatePolygonRgn(pptl: &[super::super::Foundation::POINT], imode: CREATE_POLYGON_RGN_MODE) -> HRGN {
     windows_targets::link!("gdi32.dll" "system" fn CreatePolygonRgn(pptl : *const super::super::Foundation:: POINT, cpoint : i32, imode : CREATE_POLYGON_RGN_MODE) -> HRGN);
-    CreatePolygonRgn(core::mem::transmute(pptl.as_ptr()), pptl.len().try_into().unwrap(), core::mem::transmute(imode))
+    CreatePolygonRgn(core::mem::transmute(pptl.as_ptr()), pptl.len().try_into().unwrap(), imode)
 }
 #[inline]
 pub unsafe fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     windows_targets::link!("gdi32.dll" "system" fn CreateRectRgn(x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> HRGN);
-    CreateRectRgn(core::mem::transmute(x1), core::mem::transmute(y1), core::mem::transmute(x2), core::mem::transmute(y2))
+    CreateRectRgn(x1, y1, x2, y2)
 }
 #[inline]
 pub unsafe fn CreateRectRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN {
     windows_targets::link!("gdi32.dll" "system" fn CreateRectRgnIndirect(lprect : *const super::super::Foundation:: RECT) -> HRGN);
-    CreateRectRgnIndirect(core::mem::transmute(lprect))
+    CreateRectRgnIndirect(lprect)
 }
 #[inline]
 pub unsafe fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: i32) -> HRGN {
     windows_targets::link!("gdi32.dll" "system" fn CreateRoundRectRgn(x1 : i32, y1 : i32, x2 : i32, y2 : i32, w : i32, h : i32) -> HRGN);
-    CreateRoundRectRgn(core::mem::transmute(x1), core::mem::transmute(y1), core::mem::transmute(x2), core::mem::transmute(y2), core::mem::transmute(w), core::mem::transmute(h))
+    CreateRoundRectRgn(x1, y1, x2, y2, w, h)
 }
 #[inline]
 pub unsafe fn CreateScalableFontResourceA<P1, P2, P3>(fdwhidden: u32, lpszfont: P1, lpszfile: P2, lpszpath: P3) -> windows_core::Result<()>
@@ -440,7 +422,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn CreateScalableFontResourceA(fdwhidden : u32, lpszfont : windows_core::PCSTR, lpszfile : windows_core::PCSTR, lpszpath : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
-    CreateScalableFontResourceA(core::mem::transmute(fdwhidden), lpszfont.param().abi(), lpszfile.param().abi(), lpszpath.param().abi()).ok()
+    CreateScalableFontResourceA(fdwhidden, lpszfont.param().abi(), lpszfile.param().abi(), lpszpath.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn CreateScalableFontResourceW<P1, P2, P3>(fdwhidden: u32, lpszfont: P1, lpszfile: P2, lpszpath: P3) -> windows_core::Result<()>
@@ -450,22 +432,22 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn CreateScalableFontResourceW(fdwhidden : u32, lpszfont : windows_core::PCWSTR, lpszfile : windows_core::PCWSTR, lpszpath : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    CreateScalableFontResourceW(core::mem::transmute(fdwhidden), lpszfont.param().abi(), lpszfile.param().abi(), lpszpath.param().abi()).ok()
+    CreateScalableFontResourceW(fdwhidden, lpszfont.param().abi(), lpszfile.param().abi(), lpszpath.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn CreateSolidBrush(color: super::super::Foundation::COLORREF) -> HBRUSH {
     windows_targets::link!("gdi32.dll" "system" fn CreateSolidBrush(color : super::super::Foundation:: COLORREF) -> HBRUSH);
-    CreateSolidBrush(core::mem::transmute(color))
+    CreateSolidBrush(color)
 }
 #[inline]
 pub unsafe fn DPtoLP(hdc: HDC, lppt: &mut [super::super::Foundation::POINT]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn DPtoLP(hdc : HDC, lppt : *mut super::super::Foundation:: POINT, c : i32) -> super::super::Foundation:: BOOL);
-    DPtoLP(core::mem::transmute(hdc), core::mem::transmute(lppt.as_ptr()), lppt.len().try_into().unwrap())
+    DPtoLP(hdc, core::mem::transmute(lppt.as_ptr()), lppt.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn DeleteDC(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn DeleteDC(hdc : HDC) -> super::super::Foundation:: BOOL);
-    DeleteDC(core::mem::transmute(hdc))
+    DeleteDC(hdc)
 }
 #[inline]
 pub unsafe fn DeleteEnhMetaFile(hmf: Option<HENHMETAFILE>) -> super::super::Foundation::BOOL {
@@ -475,87 +457,87 @@ pub unsafe fn DeleteEnhMetaFile(hmf: Option<HENHMETAFILE>) -> super::super::Foun
 #[inline]
 pub unsafe fn DeleteMetaFile(hmf: HMETAFILE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn DeleteMetaFile(hmf : HMETAFILE) -> super::super::Foundation:: BOOL);
-    DeleteMetaFile(core::mem::transmute(hmf))
+    DeleteMetaFile(hmf)
 }
 #[inline]
 pub unsafe fn DeleteObject(ho: HGDIOBJ) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : HGDIOBJ) -> super::super::Foundation:: BOOL);
-    DeleteObject(core::mem::transmute(ho))
+    DeleteObject(ho)
 }
 #[inline]
 pub unsafe fn DrawAnimatedRects(hwnd: Option<super::super::Foundation::HWND>, idani: i32, lprcfrom: *const super::super::Foundation::RECT, lprcto: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn DrawAnimatedRects(hwnd : super::super::Foundation:: HWND, idani : i32, lprcfrom : *const super::super::Foundation:: RECT, lprcto : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    DrawAnimatedRects(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(idani), core::mem::transmute(lprcfrom), core::mem::transmute(lprcto))
+    DrawAnimatedRects(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), idani, lprcfrom, lprcto)
 }
 #[inline]
 pub unsafe fn DrawCaption(hwnd: super::super::Foundation::HWND, hdc: HDC, lprect: *const super::super::Foundation::RECT, flags: DRAW_CAPTION_FLAGS) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn DrawCaption(hwnd : super::super::Foundation:: HWND, hdc : HDC, lprect : *const super::super::Foundation:: RECT, flags : DRAW_CAPTION_FLAGS) -> super::super::Foundation:: BOOL);
-    DrawCaption(core::mem::transmute(hwnd), core::mem::transmute(hdc), core::mem::transmute(lprect), core::mem::transmute(flags))
+    DrawCaption(hwnd, hdc, lprect, flags)
 }
 #[inline]
 pub unsafe fn DrawEdge(hdc: HDC, qrc: *mut super::super::Foundation::RECT, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn DrawEdge(hdc : HDC, qrc : *mut super::super::Foundation:: RECT, edge : DRAWEDGE_FLAGS, grfflags : DRAW_EDGE_FLAGS) -> super::super::Foundation:: BOOL);
-    DrawEdge(core::mem::transmute(hdc), core::mem::transmute(qrc), core::mem::transmute(edge), core::mem::transmute(grfflags))
+    DrawEdge(hdc, core::mem::transmute(qrc), edge, grfflags)
 }
 #[inline]
 pub unsafe fn DrawEscape(hdc: HDC, iescape: i32, lpin: Option<&[u8]>) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn DrawEscape(hdc : HDC, iescape : i32, cjin : i32, lpin : windows_core::PCSTR) -> i32);
-    DrawEscape(core::mem::transmute(hdc), core::mem::transmute(iescape), lpin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    DrawEscape(hdc, iescape, lpin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn DrawFocusRect(hdc: HDC, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn DrawFocusRect(hdc : HDC, lprc : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    DrawFocusRect(core::mem::transmute(hdc), core::mem::transmute(lprc))
+    DrawFocusRect(hdc, lprc)
 }
 #[inline]
 pub unsafe fn DrawFrameControl(param0: HDC, param1: *mut super::super::Foundation::RECT, param2: DFC_TYPE, param3: DFCS_STATE) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn DrawFrameControl(param0 : HDC, param1 : *mut super::super::Foundation:: RECT, param2 : DFC_TYPE, param3 : DFCS_STATE) -> super::super::Foundation:: BOOL);
-    DrawFrameControl(core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(param3))
+    DrawFrameControl(param0, core::mem::transmute(param1), param2, param3)
 }
 #[inline]
 pub unsafe fn DrawStateA(hdc: HDC, hbrfore: Option<HBRUSH>, qfncallback: Option<DRAWSTATEPROC>, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn DrawStateA(hdc : HDC, hbrfore : HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::super::Foundation:: LPARAM, wdata : super::super::Foundation:: WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : DRAWSTATE_FLAGS) -> super::super::Foundation:: BOOL);
-    DrawStateA(core::mem::transmute(hdc), core::mem::transmute(hbrfore.unwrap_or(core::mem::zeroed())), core::mem::transmute(qfncallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(ldata), core::mem::transmute(wdata), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(cx), core::mem::transmute(cy), core::mem::transmute(uflags))
+    DrawStateA(hdc, core::mem::transmute(hbrfore.unwrap_or(core::mem::zeroed())), core::mem::transmute(qfncallback.unwrap_or(core::mem::zeroed())), ldata, wdata, x, y, cx, cy, uflags)
 }
 #[inline]
 pub unsafe fn DrawStateW(hdc: HDC, hbrfore: Option<HBRUSH>, qfncallback: Option<DRAWSTATEPROC>, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn DrawStateW(hdc : HDC, hbrfore : HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::super::Foundation:: LPARAM, wdata : super::super::Foundation:: WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : DRAWSTATE_FLAGS) -> super::super::Foundation:: BOOL);
-    DrawStateW(core::mem::transmute(hdc), core::mem::transmute(hbrfore.unwrap_or(core::mem::zeroed())), core::mem::transmute(qfncallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(ldata), core::mem::transmute(wdata), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(cx), core::mem::transmute(cy), core::mem::transmute(uflags))
+    DrawStateW(hdc, core::mem::transmute(hbrfore.unwrap_or(core::mem::zeroed())), core::mem::transmute(qfncallback.unwrap_or(core::mem::zeroed())), ldata, wdata, x, y, cx, cy, uflags)
 }
 #[inline]
 pub unsafe fn DrawTextA(hdc: HDC, lpchtext: &mut [u8], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32 {
     windows_targets::link!("user32.dll" "system" fn DrawTextA(hdc : HDC, lpchtext : windows_core::PCSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
-    DrawTextA(core::mem::transmute(hdc), core::mem::transmute(lpchtext.as_ptr()), lpchtext.len().try_into().unwrap(), core::mem::transmute(lprc), core::mem::transmute(format))
+    DrawTextA(hdc, core::mem::transmute(lpchtext.as_ptr()), lpchtext.len().try_into().unwrap(), core::mem::transmute(lprc), format)
 }
 #[inline]
 pub unsafe fn DrawTextExA(hdc: HDC, lpchtext: &mut [u8], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: Option<*const DRAWTEXTPARAMS>) -> i32 {
     windows_targets::link!("user32.dll" "system" fn DrawTextExA(hdc : HDC, lpchtext : windows_core::PSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT, lpdtp : *const DRAWTEXTPARAMS) -> i32);
-    DrawTextExA(core::mem::transmute(hdc), core::mem::transmute(lpchtext.as_ptr()), lpchtext.len().try_into().unwrap(), core::mem::transmute(lprc), core::mem::transmute(format), core::mem::transmute(lpdtp.unwrap_or(core::mem::zeroed())))
+    DrawTextExA(hdc, core::mem::transmute(lpchtext.as_ptr()), lpchtext.len().try_into().unwrap(), core::mem::transmute(lprc), format, core::mem::transmute(lpdtp.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn DrawTextExW(hdc: HDC, lpchtext: &mut [u16], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: Option<*const DRAWTEXTPARAMS>) -> i32 {
     windows_targets::link!("user32.dll" "system" fn DrawTextExW(hdc : HDC, lpchtext : windows_core::PWSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT, lpdtp : *const DRAWTEXTPARAMS) -> i32);
-    DrawTextExW(core::mem::transmute(hdc), core::mem::transmute(lpchtext.as_ptr()), lpchtext.len().try_into().unwrap(), core::mem::transmute(lprc), core::mem::transmute(format), core::mem::transmute(lpdtp.unwrap_or(core::mem::zeroed())))
+    DrawTextExW(hdc, core::mem::transmute(lpchtext.as_ptr()), lpchtext.len().try_into().unwrap(), core::mem::transmute(lprc), format, core::mem::transmute(lpdtp.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn DrawTextW(hdc: HDC, lpchtext: &mut [u16], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32 {
     windows_targets::link!("user32.dll" "system" fn DrawTextW(hdc : HDC, lpchtext : windows_core::PCWSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
-    DrawTextW(core::mem::transmute(hdc), core::mem::transmute(lpchtext.as_ptr()), lpchtext.len().try_into().unwrap(), core::mem::transmute(lprc), core::mem::transmute(format))
+    DrawTextW(hdc, core::mem::transmute(lpchtext.as_ptr()), lpchtext.len().try_into().unwrap(), core::mem::transmute(lprc), format)
 }
 #[inline]
 pub unsafe fn Ellipse(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn Ellipse(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32) -> super::super::Foundation:: BOOL);
-    Ellipse(core::mem::transmute(hdc), core::mem::transmute(left), core::mem::transmute(top), core::mem::transmute(right), core::mem::transmute(bottom))
+    Ellipse(hdc, left, top, right, bottom)
 }
 #[inline]
 pub unsafe fn EndPaint(hwnd: super::super::Foundation::HWND, lppaint: *const PAINTSTRUCT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn EndPaint(hwnd : super::super::Foundation:: HWND, lppaint : *const PAINTSTRUCT) -> super::super::Foundation:: BOOL);
-    EndPaint(core::mem::transmute(hwnd), core::mem::transmute(lppaint))
+    EndPaint(hwnd, lppaint)
 }
 #[inline]
 pub unsafe fn EndPath(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn EndPath(hdc : HDC) -> super::super::Foundation:: BOOL);
-    EndPath(core::mem::transmute(hdc))
+    EndPath(hdc)
 }
 #[inline]
 pub unsafe fn EnumDisplayDevicesA<P0>(lpdevice: P0, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEA, dwflags: u32) -> super::super::Foundation::BOOL
@@ -563,7 +545,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn EnumDisplayDevicesA(lpdevice : windows_core::PCSTR, idevnum : u32, lpdisplaydevice : *mut DISPLAY_DEVICEA, dwflags : u32) -> super::super::Foundation:: BOOL);
-    EnumDisplayDevicesA(lpdevice.param().abi(), core::mem::transmute(idevnum), core::mem::transmute(lpdisplaydevice), core::mem::transmute(dwflags))
+    EnumDisplayDevicesA(lpdevice.param().abi(), idevnum, core::mem::transmute(lpdisplaydevice), dwflags)
 }
 #[inline]
 pub unsafe fn EnumDisplayDevicesW<P0>(lpdevice: P0, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEW, dwflags: u32) -> super::super::Foundation::BOOL
@@ -571,12 +553,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn EnumDisplayDevicesW(lpdevice : windows_core::PCWSTR, idevnum : u32, lpdisplaydevice : *mut DISPLAY_DEVICEW, dwflags : u32) -> super::super::Foundation:: BOOL);
-    EnumDisplayDevicesW(lpdevice.param().abi(), core::mem::transmute(idevnum), core::mem::transmute(lpdisplaydevice), core::mem::transmute(dwflags))
+    EnumDisplayDevicesW(lpdevice.param().abi(), idevnum, core::mem::transmute(lpdisplaydevice), dwflags)
 }
 #[inline]
 pub unsafe fn EnumDisplayMonitors(hdc: Option<HDC>, lprcclip: Option<*const super::super::Foundation::RECT>, lpfnenum: MONITORENUMPROC, dwdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn EnumDisplayMonitors(hdc : HDC, lprcclip : *const super::super::Foundation:: RECT, lpfnenum : MONITORENUMPROC, dwdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-    EnumDisplayMonitors(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(lprcclip.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpfnenum), core::mem::transmute(dwdata))
+    EnumDisplayMonitors(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(lprcclip.unwrap_or(core::mem::zeroed())), lpfnenum, dwdata)
 }
 #[inline]
 pub unsafe fn EnumDisplaySettingsA<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL
@@ -584,7 +566,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsA(lpszdevicename : windows_core::PCSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEA) -> super::super::Foundation:: BOOL);
-    EnumDisplaySettingsA(lpszdevicename.param().abi(), core::mem::transmute(imodenum), core::mem::transmute(lpdevmode))
+    EnumDisplaySettingsA(lpszdevicename.param().abi(), imodenum, core::mem::transmute(lpdevmode))
 }
 #[inline]
 pub unsafe fn EnumDisplaySettingsExA<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation::BOOL
@@ -592,7 +574,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsExA(lpszdevicename : windows_core::PCSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEA, dwflags : ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation:: BOOL);
-    EnumDisplaySettingsExA(lpszdevicename.param().abi(), core::mem::transmute(imodenum), core::mem::transmute(lpdevmode), core::mem::transmute(dwflags))
+    EnumDisplaySettingsExA(lpszdevicename.param().abi(), imodenum, core::mem::transmute(lpdevmode), dwflags)
 }
 #[inline]
 pub unsafe fn EnumDisplaySettingsExW<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation::BOOL
@@ -600,7 +582,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsExW(lpszdevicename : windows_core::PCWSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEW, dwflags : ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation:: BOOL);
-    EnumDisplaySettingsExW(lpszdevicename.param().abi(), core::mem::transmute(imodenum), core::mem::transmute(lpdevmode), core::mem::transmute(dwflags))
+    EnumDisplaySettingsExW(lpszdevicename.param().abi(), imodenum, core::mem::transmute(lpdevmode), dwflags)
 }
 #[inline]
 pub unsafe fn EnumDisplaySettingsW<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL
@@ -608,12 +590,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsW(lpszdevicename : windows_core::PCWSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEW) -> super::super::Foundation:: BOOL);
-    EnumDisplaySettingsW(lpszdevicename.param().abi(), core::mem::transmute(imodenum), core::mem::transmute(lpdevmode))
+    EnumDisplaySettingsW(lpszdevicename.param().abi(), imodenum, core::mem::transmute(lpdevmode))
 }
 #[inline]
 pub unsafe fn EnumEnhMetaFile(hdc: Option<HDC>, hmf: HENHMETAFILE, proc: ENHMFENUMPROC, param3: Option<*const core::ffi::c_void>, lprect: Option<*const super::super::Foundation::RECT>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn EnumEnhMetaFile(hdc : HDC, hmf : HENHMETAFILE, proc : ENHMFENUMPROC, param3 : *const core::ffi::c_void, lprect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    EnumEnhMetaFile(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(hmf), core::mem::transmute(proc), core::mem::transmute(param3.unwrap_or(core::mem::zeroed())), core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())))
+    EnumEnhMetaFile(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), hmf, proc, core::mem::transmute(param3.unwrap_or(core::mem::zeroed())), core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn EnumFontFamiliesA<P1>(hdc: HDC, lplogfont: P1, lpproc: FONTENUMPROCA, lparam: super::super::Foundation::LPARAM) -> i32
@@ -621,17 +603,17 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesA(hdc : HDC, lplogfont : windows_core::PCSTR, lpproc : FONTENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> i32);
-    EnumFontFamiliesA(core::mem::transmute(hdc), lplogfont.param().abi(), core::mem::transmute(lpproc), core::mem::transmute(lparam))
+    EnumFontFamiliesA(hdc, lplogfont.param().abi(), lpproc, lparam)
 }
 #[inline]
 pub unsafe fn EnumFontFamiliesExA(hdc: HDC, lplogfont: *const LOGFONTA, lpproc: FONTENUMPROCA, lparam: super::super::Foundation::LPARAM, dwflags: u32) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesExA(hdc : HDC, lplogfont : *const LOGFONTA, lpproc : FONTENUMPROCA, lparam : super::super::Foundation:: LPARAM, dwflags : u32) -> i32);
-    EnumFontFamiliesExA(core::mem::transmute(hdc), core::mem::transmute(lplogfont), core::mem::transmute(lpproc), core::mem::transmute(lparam), core::mem::transmute(dwflags))
+    EnumFontFamiliesExA(hdc, lplogfont, lpproc, lparam, dwflags)
 }
 #[inline]
 pub unsafe fn EnumFontFamiliesExW(hdc: HDC, lplogfont: *const LOGFONTW, lpproc: FONTENUMPROCW, lparam: super::super::Foundation::LPARAM, dwflags: u32) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesExW(hdc : HDC, lplogfont : *const LOGFONTW, lpproc : FONTENUMPROCW, lparam : super::super::Foundation:: LPARAM, dwflags : u32) -> i32);
-    EnumFontFamiliesExW(core::mem::transmute(hdc), core::mem::transmute(lplogfont), core::mem::transmute(lpproc), core::mem::transmute(lparam), core::mem::transmute(dwflags))
+    EnumFontFamiliesExW(hdc, lplogfont, lpproc, lparam, dwflags)
 }
 #[inline]
 pub unsafe fn EnumFontFamiliesW<P1>(hdc: HDC, lplogfont: P1, lpproc: FONTENUMPROCW, lparam: super::super::Foundation::LPARAM) -> i32
@@ -639,7 +621,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesW(hdc : HDC, lplogfont : windows_core::PCWSTR, lpproc : FONTENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> i32);
-    EnumFontFamiliesW(core::mem::transmute(hdc), lplogfont.param().abi(), core::mem::transmute(lpproc), core::mem::transmute(lparam))
+    EnumFontFamiliesW(hdc, lplogfont.param().abi(), lpproc, lparam)
 }
 #[inline]
 pub unsafe fn EnumFontsA<P1>(hdc: HDC, lplogfont: P1, lpproc: FONTENUMPROCA, lparam: super::super::Foundation::LPARAM) -> i32
@@ -647,7 +629,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn EnumFontsA(hdc : HDC, lplogfont : windows_core::PCSTR, lpproc : FONTENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> i32);
-    EnumFontsA(core::mem::transmute(hdc), lplogfont.param().abi(), core::mem::transmute(lpproc), core::mem::transmute(lparam))
+    EnumFontsA(hdc, lplogfont.param().abi(), lpproc, lparam)
 }
 #[inline]
 pub unsafe fn EnumFontsW<P1>(hdc: HDC, lplogfont: P1, lpproc: FONTENUMPROCW, lparam: super::super::Foundation::LPARAM) -> i32
@@ -655,57 +637,57 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn EnumFontsW(hdc : HDC, lplogfont : windows_core::PCWSTR, lpproc : FONTENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> i32);
-    EnumFontsW(core::mem::transmute(hdc), lplogfont.param().abi(), core::mem::transmute(lpproc), core::mem::transmute(lparam))
+    EnumFontsW(hdc, lplogfont.param().abi(), lpproc, lparam)
 }
 #[inline]
 pub unsafe fn EnumMetaFile(hdc: HDC, hmf: HMETAFILE, proc: MFENUMPROC, param3: Option<super::super::Foundation::LPARAM>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn EnumMetaFile(hdc : HDC, hmf : HMETAFILE, proc : MFENUMPROC, param3 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-    EnumMetaFile(core::mem::transmute(hdc), core::mem::transmute(hmf), core::mem::transmute(proc), core::mem::transmute(param3.unwrap_or(core::mem::zeroed())))
+    EnumMetaFile(hdc, hmf, proc, core::mem::transmute(param3.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn EnumObjects(hdc: HDC, ntype: OBJ_TYPE, lpfunc: GOBJENUMPROC, lparam: super::super::Foundation::LPARAM) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn EnumObjects(hdc : HDC, ntype : OBJ_TYPE, lpfunc : GOBJENUMPROC, lparam : super::super::Foundation:: LPARAM) -> i32);
-    EnumObjects(core::mem::transmute(hdc), core::mem::transmute(ntype), core::mem::transmute(lpfunc), core::mem::transmute(lparam))
+    EnumObjects(hdc, ntype, lpfunc, lparam)
 }
 #[inline]
 pub unsafe fn EqualRect(lprc1: *const super::super::Foundation::RECT, lprc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn EqualRect(lprc1 : *const super::super::Foundation:: RECT, lprc2 : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    EqualRect(core::mem::transmute(lprc1), core::mem::transmute(lprc2))
+    EqualRect(lprc1, lprc2)
 }
 #[inline]
 pub unsafe fn EqualRgn(hrgn1: HRGN, hrgn2: HRGN) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn EqualRgn(hrgn1 : HRGN, hrgn2 : HRGN) -> super::super::Foundation:: BOOL);
-    EqualRgn(core::mem::transmute(hrgn1), core::mem::transmute(hrgn2))
+    EqualRgn(hrgn1, hrgn2)
 }
 #[inline]
 pub unsafe fn ExcludeClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> GDI_REGION_TYPE {
     windows_targets::link!("gdi32.dll" "system" fn ExcludeClipRect(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32) -> GDI_REGION_TYPE);
-    ExcludeClipRect(core::mem::transmute(hdc), core::mem::transmute(left), core::mem::transmute(top), core::mem::transmute(right), core::mem::transmute(bottom))
+    ExcludeClipRect(hdc, left, top, right, bottom)
 }
 #[inline]
 pub unsafe fn ExcludeUpdateRgn(hdc: HDC, hwnd: super::super::Foundation::HWND) -> i32 {
     windows_targets::link!("user32.dll" "system" fn ExcludeUpdateRgn(hdc : HDC, hwnd : super::super::Foundation:: HWND) -> i32);
-    ExcludeUpdateRgn(core::mem::transmute(hdc), core::mem::transmute(hwnd))
+    ExcludeUpdateRgn(hdc, hwnd)
 }
 #[inline]
 pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LOGBRUSH, pstyle: Option<&[u32]>) -> HPEN {
     windows_targets::link!("gdi32.dll" "system" fn ExtCreatePen(ipenstyle : u32, cwidth : u32, plbrush : *const LOGBRUSH, cstyle : u32, pstyle : *const u32) -> HPEN);
-    ExtCreatePen(ipenstyle.0 as _, core::mem::transmute(cwidth), core::mem::transmute(plbrush), pstyle.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pstyle.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    ExtCreatePen(ipenstyle.0 as _, cwidth, plbrush, pstyle.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pstyle.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn ExtCreateRegion(lpx: Option<*const XFORM>, ncount: u32, lpdata: *const RGNDATA) -> HRGN {
     windows_targets::link!("gdi32.dll" "system" fn ExtCreateRegion(lpx : *const XFORM, ncount : u32, lpdata : *const RGNDATA) -> HRGN);
-    ExtCreateRegion(core::mem::transmute(lpx.unwrap_or(core::mem::zeroed())), core::mem::transmute(ncount), core::mem::transmute(lpdata))
+    ExtCreateRegion(core::mem::transmute(lpx.unwrap_or(core::mem::zeroed())), ncount, lpdata)
 }
 #[inline]
 pub unsafe fn ExtFloodFill(hdc: HDC, x: i32, y: i32, color: super::super::Foundation::COLORREF, r#type: EXT_FLOOD_FILL_TYPE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn ExtFloodFill(hdc : HDC, x : i32, y : i32, color : super::super::Foundation:: COLORREF, r#type : EXT_FLOOD_FILL_TYPE) -> super::super::Foundation:: BOOL);
-    ExtFloodFill(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(color), core::mem::transmute(r#type))
+    ExtFloodFill(hdc, x, y, color, r#type)
 }
 #[inline]
 pub unsafe fn ExtSelectClipRgn(hdc: HDC, hrgn: Option<HRGN>, mode: RGN_COMBINE_MODE) -> GDI_REGION_TYPE {
     windows_targets::link!("gdi32.dll" "system" fn ExtSelectClipRgn(hdc : HDC, hrgn : HRGN, mode : RGN_COMBINE_MODE) -> GDI_REGION_TYPE);
-    ExtSelectClipRgn(core::mem::transmute(hdc), core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())), core::mem::transmute(mode))
+    ExtSelectClipRgn(hdc, core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())), mode)
 }
 #[inline]
 pub unsafe fn ExtTextOutA<P5>(hdc: HDC, x: i32, y: i32, options: ETO_OPTIONS, lprect: Option<*const super::super::Foundation::RECT>, lpstring: P5, c: u32, lpdx: Option<*const i32>) -> super::super::Foundation::BOOL
@@ -713,7 +695,7 @@ where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn ExtTextOutA(hdc : HDC, x : i32, y : i32, options : ETO_OPTIONS, lprect : *const super::super::Foundation:: RECT, lpstring : windows_core::PCSTR, c : u32, lpdx : *const i32) -> super::super::Foundation:: BOOL);
-    ExtTextOutA(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(options), core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())), lpstring.param().abi(), core::mem::transmute(c), core::mem::transmute(lpdx.unwrap_or(core::mem::zeroed())))
+    ExtTextOutA(hdc, x, y, options, core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())), lpstring.param().abi(), c, core::mem::transmute(lpdx.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ExtTextOutW<P5>(hdc: HDC, x: i32, y: i32, options: ETO_OPTIONS, lprect: Option<*const super::super::Foundation::RECT>, lpstring: P5, c: u32, lpdx: Option<*const i32>) -> super::super::Foundation::BOOL
@@ -721,57 +703,57 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn ExtTextOutW(hdc : HDC, x : i32, y : i32, options : ETO_OPTIONS, lprect : *const super::super::Foundation:: RECT, lpstring : windows_core::PCWSTR, c : u32, lpdx : *const i32) -> super::super::Foundation:: BOOL);
-    ExtTextOutW(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(options), core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())), lpstring.param().abi(), core::mem::transmute(c), core::mem::transmute(lpdx.unwrap_or(core::mem::zeroed())))
+    ExtTextOutW(hdc, x, y, options, core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())), lpstring.param().abi(), c, core::mem::transmute(lpdx.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn FillPath(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn FillPath(hdc : HDC) -> super::super::Foundation:: BOOL);
-    FillPath(core::mem::transmute(hdc))
+    FillPath(hdc)
 }
 #[inline]
 pub unsafe fn FillRect(hdc: HDC, lprc: *const super::super::Foundation::RECT, hbr: HBRUSH) -> i32 {
     windows_targets::link!("user32.dll" "system" fn FillRect(hdc : HDC, lprc : *const super::super::Foundation:: RECT, hbr : HBRUSH) -> i32);
-    FillRect(core::mem::transmute(hdc), core::mem::transmute(lprc), core::mem::transmute(hbr))
+    FillRect(hdc, lprc, hbr)
 }
 #[inline]
 pub unsafe fn FillRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn FillRgn(hdc : HDC, hrgn : HRGN, hbr : HBRUSH) -> super::super::Foundation:: BOOL);
-    FillRgn(core::mem::transmute(hdc), core::mem::transmute(hrgn), core::mem::transmute(hbr))
+    FillRgn(hdc, hrgn, hbr)
 }
 #[inline]
 pub unsafe fn FixBrushOrgEx(hdc: HDC, x: i32, y: i32, ptl: Option<*const super::super::Foundation::POINT>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn FixBrushOrgEx(hdc : HDC, x : i32, y : i32, ptl : *const super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    FixBrushOrgEx(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(ptl.unwrap_or(core::mem::zeroed())))
+    FixBrushOrgEx(hdc, x, y, core::mem::transmute(ptl.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn FlattenPath(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn FlattenPath(hdc : HDC) -> super::super::Foundation:: BOOL);
-    FlattenPath(core::mem::transmute(hdc))
+    FlattenPath(hdc)
 }
 #[inline]
 pub unsafe fn FloodFill(hdc: HDC, x: i32, y: i32, color: super::super::Foundation::COLORREF) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn FloodFill(hdc : HDC, x : i32, y : i32, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: BOOL);
-    FloodFill(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(color))
+    FloodFill(hdc, x, y, color)
 }
 #[inline]
 pub unsafe fn FrameRect(hdc: HDC, lprc: *const super::super::Foundation::RECT, hbr: HBRUSH) -> i32 {
     windows_targets::link!("user32.dll" "system" fn FrameRect(hdc : HDC, lprc : *const super::super::Foundation:: RECT, hbr : HBRUSH) -> i32);
-    FrameRect(core::mem::transmute(hdc), core::mem::transmute(lprc), core::mem::transmute(hbr))
+    FrameRect(hdc, lprc, hbr)
 }
 #[inline]
 pub unsafe fn FrameRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH, w: i32, h: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn FrameRgn(hdc : HDC, hrgn : HRGN, hbr : HBRUSH, w : i32, h : i32) -> super::super::Foundation:: BOOL);
-    FrameRgn(core::mem::transmute(hdc), core::mem::transmute(hrgn), core::mem::transmute(hbr), core::mem::transmute(w), core::mem::transmute(h))
+    FrameRgn(hdc, hrgn, hbr, w, h)
 }
 #[inline]
 pub unsafe fn GdiAlphaBlend(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GdiAlphaBlend(hdcdest : HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, ftn : BLENDFUNCTION) -> super::super::Foundation:: BOOL);
-    GdiAlphaBlend(core::mem::transmute(hdcdest), core::mem::transmute(xorigindest), core::mem::transmute(yorigindest), core::mem::transmute(wdest), core::mem::transmute(hdest), core::mem::transmute(hdcsrc), core::mem::transmute(xoriginsrc), core::mem::transmute(yoriginsrc), core::mem::transmute(wsrc), core::mem::transmute(hsrc), core::mem::transmute(ftn))
+    GdiAlphaBlend(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, core::mem::transmute(ftn))
 }
 #[inline]
 pub unsafe fn GdiComment(hdc: HDC, lpdata: &[u8]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GdiComment(hdc : HDC, nsize : u32, lpdata : *const u8) -> super::super::Foundation:: BOOL);
-    GdiComment(core::mem::transmute(hdc), lpdata.len().try_into().unwrap(), core::mem::transmute(lpdata.as_ptr()))
+    GdiComment(hdc, lpdata.len().try_into().unwrap(), core::mem::transmute(lpdata.as_ptr()))
 }
 #[inline]
 pub unsafe fn GdiFlush() -> super::super::Foundation::BOOL {
@@ -786,152 +768,152 @@ pub unsafe fn GdiGetBatchLimit() -> u32 {
 #[inline]
 pub unsafe fn GdiGradientFill(hdc: HDC, pvertex: &[TRIVERTEX], pmesh: *const core::ffi::c_void, ncount: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GdiGradientFill(hdc : HDC, pvertex : *const TRIVERTEX, nvertex : u32, pmesh : *const core::ffi::c_void, ncount : u32, ulmode : GRADIENT_FILL) -> super::super::Foundation:: BOOL);
-    GdiGradientFill(core::mem::transmute(hdc), core::mem::transmute(pvertex.as_ptr()), pvertex.len().try_into().unwrap(), core::mem::transmute(pmesh), core::mem::transmute(ncount), core::mem::transmute(ulmode))
+    GdiGradientFill(hdc, core::mem::transmute(pvertex.as_ptr()), pvertex.len().try_into().unwrap(), pmesh, ncount, ulmode)
 }
 #[inline]
 pub unsafe fn GdiSetBatchLimit(dw: u32) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GdiSetBatchLimit(dw : u32) -> u32);
-    GdiSetBatchLimit(core::mem::transmute(dw))
+    GdiSetBatchLimit(dw)
 }
 #[inline]
 pub unsafe fn GdiTransparentBlt(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GdiTransparentBlt(hdcdest : HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, crtransparent : u32) -> super::super::Foundation:: BOOL);
-    GdiTransparentBlt(core::mem::transmute(hdcdest), core::mem::transmute(xorigindest), core::mem::transmute(yorigindest), core::mem::transmute(wdest), core::mem::transmute(hdest), core::mem::transmute(hdcsrc), core::mem::transmute(xoriginsrc), core::mem::transmute(yoriginsrc), core::mem::transmute(wsrc), core::mem::transmute(hsrc), core::mem::transmute(crtransparent))
+    GdiTransparentBlt(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent)
 }
 #[inline]
 pub unsafe fn GetArcDirection(hdc: HDC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetArcDirection(hdc : HDC) -> i32);
-    GetArcDirection(core::mem::transmute(hdc))
+    GetArcDirection(hdc)
 }
 #[inline]
 pub unsafe fn GetAspectRatioFilterEx(hdc: HDC, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetAspectRatioFilterEx(hdc : HDC, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    GetAspectRatioFilterEx(core::mem::transmute(hdc), core::mem::transmute(lpsize))
+    GetAspectRatioFilterEx(hdc, core::mem::transmute(lpsize))
 }
 #[inline]
 pub unsafe fn GetBitmapBits(hbit: HBITMAP, cb: i32, lpvbits: *mut core::ffi::c_void) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetBitmapBits(hbit : HBITMAP, cb : i32, lpvbits : *mut core::ffi::c_void) -> i32);
-    GetBitmapBits(core::mem::transmute(hbit), core::mem::transmute(cb), core::mem::transmute(lpvbits))
+    GetBitmapBits(hbit, cb, core::mem::transmute(lpvbits))
 }
 #[inline]
 pub unsafe fn GetBitmapDimensionEx(hbit: HBITMAP, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetBitmapDimensionEx(hbit : HBITMAP, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    GetBitmapDimensionEx(core::mem::transmute(hbit), core::mem::transmute(lpsize))
+    GetBitmapDimensionEx(hbit, core::mem::transmute(lpsize))
 }
 #[inline]
 pub unsafe fn GetBkColor(hdc: HDC) -> super::super::Foundation::COLORREF {
     windows_targets::link!("gdi32.dll" "system" fn GetBkColor(hdc : HDC) -> super::super::Foundation:: COLORREF);
-    GetBkColor(core::mem::transmute(hdc))
+    GetBkColor(hdc)
 }
 #[inline]
 pub unsafe fn GetBkMode(hdc: HDC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetBkMode(hdc : HDC) -> i32);
-    GetBkMode(core::mem::transmute(hdc))
+    GetBkMode(hdc)
 }
 #[inline]
 pub unsafe fn GetBoundsRect(hdc: HDC, lprect: *mut super::super::Foundation::RECT, flags: u32) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetBoundsRect(hdc : HDC, lprect : *mut super::super::Foundation:: RECT, flags : u32) -> u32);
-    GetBoundsRect(core::mem::transmute(hdc), core::mem::transmute(lprect), core::mem::transmute(flags))
+    GetBoundsRect(hdc, core::mem::transmute(lprect), flags)
 }
 #[inline]
 pub unsafe fn GetBrushOrgEx(hdc: HDC, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetBrushOrgEx(hdc : HDC, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    GetBrushOrgEx(core::mem::transmute(hdc), core::mem::transmute(lppt))
+    GetBrushOrgEx(hdc, core::mem::transmute(lppt))
 }
 #[inline]
 pub unsafe fn GetCharABCWidthsA(hdc: HDC, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCharABCWidthsA(hdc : HDC, wfirst : u32, wlast : u32, lpabc : *mut ABC) -> super::super::Foundation:: BOOL);
-    GetCharABCWidthsA(core::mem::transmute(hdc), core::mem::transmute(wfirst), core::mem::transmute(wlast), core::mem::transmute(lpabc))
+    GetCharABCWidthsA(hdc, wfirst, wlast, core::mem::transmute(lpabc))
 }
 #[inline]
 pub unsafe fn GetCharABCWidthsFloatA(hdc: HDC, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCharABCWidthsFloatA(hdc : HDC, ifirst : u32, ilast : u32, lpabc : *mut ABCFLOAT) -> super::super::Foundation:: BOOL);
-    GetCharABCWidthsFloatA(core::mem::transmute(hdc), core::mem::transmute(ifirst), core::mem::transmute(ilast), core::mem::transmute(lpabc))
+    GetCharABCWidthsFloatA(hdc, ifirst, ilast, core::mem::transmute(lpabc))
 }
 #[inline]
 pub unsafe fn GetCharABCWidthsFloatW(hdc: HDC, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCharABCWidthsFloatW(hdc : HDC, ifirst : u32, ilast : u32, lpabc : *mut ABCFLOAT) -> super::super::Foundation:: BOOL);
-    GetCharABCWidthsFloatW(core::mem::transmute(hdc), core::mem::transmute(ifirst), core::mem::transmute(ilast), core::mem::transmute(lpabc))
+    GetCharABCWidthsFloatW(hdc, ifirst, ilast, core::mem::transmute(lpabc))
 }
 #[inline]
 pub unsafe fn GetCharABCWidthsI(hdc: HDC, gifirst: u32, cgi: u32, pgi: Option<*const u16>, pabc: *mut ABC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCharABCWidthsI(hdc : HDC, gifirst : u32, cgi : u32, pgi : *const u16, pabc : *mut ABC) -> super::super::Foundation:: BOOL);
-    GetCharABCWidthsI(core::mem::transmute(hdc), core::mem::transmute(gifirst), core::mem::transmute(cgi), core::mem::transmute(pgi.unwrap_or(core::mem::zeroed())), core::mem::transmute(pabc))
+    GetCharABCWidthsI(hdc, gifirst, cgi, core::mem::transmute(pgi.unwrap_or(core::mem::zeroed())), core::mem::transmute(pabc))
 }
 #[inline]
 pub unsafe fn GetCharABCWidthsW(hdc: HDC, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCharABCWidthsW(hdc : HDC, wfirst : u32, wlast : u32, lpabc : *mut ABC) -> super::super::Foundation:: BOOL);
-    GetCharABCWidthsW(core::mem::transmute(hdc), core::mem::transmute(wfirst), core::mem::transmute(wlast), core::mem::transmute(lpabc))
+    GetCharABCWidthsW(hdc, wfirst, wlast, core::mem::transmute(lpabc))
 }
 #[inline]
 pub unsafe fn GetCharWidth32A(hdc: HDC, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCharWidth32A(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> super::super::Foundation:: BOOL);
-    GetCharWidth32A(core::mem::transmute(hdc), core::mem::transmute(ifirst), core::mem::transmute(ilast), core::mem::transmute(lpbuffer))
+    GetCharWidth32A(hdc, ifirst, ilast, core::mem::transmute(lpbuffer))
 }
 #[inline]
 pub unsafe fn GetCharWidth32W(hdc: HDC, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCharWidth32W(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> super::super::Foundation:: BOOL);
-    GetCharWidth32W(core::mem::transmute(hdc), core::mem::transmute(ifirst), core::mem::transmute(ilast), core::mem::transmute(lpbuffer))
+    GetCharWidth32W(hdc, ifirst, ilast, core::mem::transmute(lpbuffer))
 }
 #[inline]
 pub unsafe fn GetCharWidthA(hdc: HDC, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCharWidthA(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> super::super::Foundation:: BOOL);
-    GetCharWidthA(core::mem::transmute(hdc), core::mem::transmute(ifirst), core::mem::transmute(ilast), core::mem::transmute(lpbuffer))
+    GetCharWidthA(hdc, ifirst, ilast, core::mem::transmute(lpbuffer))
 }
 #[inline]
 pub unsafe fn GetCharWidthFloatA(hdc: HDC, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCharWidthFloatA(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut f32) -> super::super::Foundation:: BOOL);
-    GetCharWidthFloatA(core::mem::transmute(hdc), core::mem::transmute(ifirst), core::mem::transmute(ilast), core::mem::transmute(lpbuffer))
+    GetCharWidthFloatA(hdc, ifirst, ilast, core::mem::transmute(lpbuffer))
 }
 #[inline]
 pub unsafe fn GetCharWidthFloatW(hdc: HDC, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCharWidthFloatW(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut f32) -> super::super::Foundation:: BOOL);
-    GetCharWidthFloatW(core::mem::transmute(hdc), core::mem::transmute(ifirst), core::mem::transmute(ilast), core::mem::transmute(lpbuffer))
+    GetCharWidthFloatW(hdc, ifirst, ilast, core::mem::transmute(lpbuffer))
 }
 #[inline]
 pub unsafe fn GetCharWidthI(hdc: HDC, gifirst: u32, cgi: u32, pgi: Option<*const u16>, piwidths: *mut i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCharWidthI(hdc : HDC, gifirst : u32, cgi : u32, pgi : *const u16, piwidths : *mut i32) -> super::super::Foundation:: BOOL);
-    GetCharWidthI(core::mem::transmute(hdc), core::mem::transmute(gifirst), core::mem::transmute(cgi), core::mem::transmute(pgi.unwrap_or(core::mem::zeroed())), core::mem::transmute(piwidths))
+    GetCharWidthI(hdc, gifirst, cgi, core::mem::transmute(pgi.unwrap_or(core::mem::zeroed())), core::mem::transmute(piwidths))
 }
 #[inline]
 pub unsafe fn GetCharWidthW(hdc: HDC, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCharWidthW(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> super::super::Foundation:: BOOL);
-    GetCharWidthW(core::mem::transmute(hdc), core::mem::transmute(ifirst), core::mem::transmute(ilast), core::mem::transmute(lpbuffer))
+    GetCharWidthW(hdc, ifirst, ilast, core::mem::transmute(lpbuffer))
 }
 #[inline]
 pub unsafe fn GetCharacterPlacementA(hdc: HDC, lpstring: &[u8], nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetCharacterPlacementA(hdc : HDC, lpstring : windows_core::PCSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSA, dwflags : GET_CHARACTER_PLACEMENT_FLAGS) -> u32);
-    GetCharacterPlacementA(core::mem::transmute(hdc), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(nmexextent), core::mem::transmute(lpresults), core::mem::transmute(dwflags))
+    GetCharacterPlacementA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), nmexextent, core::mem::transmute(lpresults), dwflags)
 }
 #[inline]
 pub unsafe fn GetCharacterPlacementW(hdc: HDC, lpstring: &[u16], nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetCharacterPlacementW(hdc : HDC, lpstring : windows_core::PCWSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSW, dwflags : GET_CHARACTER_PLACEMENT_FLAGS) -> u32);
-    GetCharacterPlacementW(core::mem::transmute(hdc), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(nmexextent), core::mem::transmute(lpresults), core::mem::transmute(dwflags))
+    GetCharacterPlacementW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), nmexextent, core::mem::transmute(lpresults), dwflags)
 }
 #[inline]
 pub unsafe fn GetClipBox(hdc: HDC, lprect: *mut super::super::Foundation::RECT) -> GDI_REGION_TYPE {
     windows_targets::link!("gdi32.dll" "system" fn GetClipBox(hdc : HDC, lprect : *mut super::super::Foundation:: RECT) -> GDI_REGION_TYPE);
-    GetClipBox(core::mem::transmute(hdc), core::mem::transmute(lprect))
+    GetClipBox(hdc, core::mem::transmute(lprect))
 }
 #[inline]
 pub unsafe fn GetClipRgn(hdc: HDC, hrgn: HRGN) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetClipRgn(hdc : HDC, hrgn : HRGN) -> i32);
-    GetClipRgn(core::mem::transmute(hdc), core::mem::transmute(hrgn))
+    GetClipRgn(hdc, hrgn)
 }
 #[inline]
 pub unsafe fn GetColorAdjustment(hdc: HDC, lpca: *mut COLORADJUSTMENT) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetColorAdjustment(hdc : HDC, lpca : *mut COLORADJUSTMENT) -> super::super::Foundation:: BOOL);
-    GetColorAdjustment(core::mem::transmute(hdc), core::mem::transmute(lpca))
+    GetColorAdjustment(hdc, core::mem::transmute(lpca))
 }
 #[inline]
 pub unsafe fn GetCurrentObject(hdc: HDC, r#type: OBJ_TYPE) -> HGDIOBJ {
     windows_targets::link!("gdi32.dll" "system" fn GetCurrentObject(hdc : HDC, r#type : u32) -> HGDIOBJ);
-    GetCurrentObject(core::mem::transmute(hdc), r#type.0 as _)
+    GetCurrentObject(hdc, r#type.0 as _)
 }
 #[inline]
 pub unsafe fn GetCurrentPositionEx(hdc: HDC, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetCurrentPositionEx(hdc : HDC, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    GetCurrentPositionEx(core::mem::transmute(hdc), core::mem::transmute(lppt))
+    GetCurrentPositionEx(hdc, core::mem::transmute(lppt))
 }
 #[inline]
 pub unsafe fn GetDC(hwnd: Option<super::super::Foundation::HWND>) -> HDC {
@@ -941,32 +923,32 @@ pub unsafe fn GetDC(hwnd: Option<super::super::Foundation::HWND>) -> HDC {
 #[inline]
 pub unsafe fn GetDCBrushColor(hdc: HDC) -> super::super::Foundation::COLORREF {
     windows_targets::link!("gdi32.dll" "system" fn GetDCBrushColor(hdc : HDC) -> super::super::Foundation:: COLORREF);
-    GetDCBrushColor(core::mem::transmute(hdc))
+    GetDCBrushColor(hdc)
 }
 #[inline]
 pub unsafe fn GetDCEx(hwnd: Option<super::super::Foundation::HWND>, hrgnclip: Option<HRGN>, flags: GET_DCX_FLAGS) -> HDC {
     windows_targets::link!("user32.dll" "system" fn GetDCEx(hwnd : super::super::Foundation:: HWND, hrgnclip : HRGN, flags : GET_DCX_FLAGS) -> HDC);
-    GetDCEx(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(hrgnclip.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags))
+    GetDCEx(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(hrgnclip.unwrap_or(core::mem::zeroed())), flags)
 }
 #[inline]
 pub unsafe fn GetDCOrgEx(hdc: HDC, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetDCOrgEx(hdc : HDC, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    GetDCOrgEx(core::mem::transmute(hdc), core::mem::transmute(lppt))
+    GetDCOrgEx(hdc, core::mem::transmute(lppt))
 }
 #[inline]
 pub unsafe fn GetDCPenColor(hdc: HDC) -> super::super::Foundation::COLORREF {
     windows_targets::link!("gdi32.dll" "system" fn GetDCPenColor(hdc : HDC) -> super::super::Foundation:: COLORREF);
-    GetDCPenColor(core::mem::transmute(hdc))
+    GetDCPenColor(hdc)
 }
 #[inline]
 pub unsafe fn GetDIBColorTable(hdc: HDC, istart: u32, prgbq: &mut [RGBQUAD]) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetDIBColorTable(hdc : HDC, istart : u32, centries : u32, prgbq : *mut RGBQUAD) -> u32);
-    GetDIBColorTable(core::mem::transmute(hdc), core::mem::transmute(istart), prgbq.len().try_into().unwrap(), core::mem::transmute(prgbq.as_ptr()))
+    GetDIBColorTable(hdc, istart, prgbq.len().try_into().unwrap(), core::mem::transmute(prgbq.as_ptr()))
 }
 #[inline]
 pub unsafe fn GetDIBits(hdc: HDC, hbm: HBITMAP, start: u32, clines: u32, lpvbits: Option<*mut core::ffi::c_void>, lpbmi: *mut BITMAPINFO, usage: DIB_USAGE) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetDIBits(hdc : HDC, hbm : HBITMAP, start : u32, clines : u32, lpvbits : *mut core::ffi::c_void, lpbmi : *mut BITMAPINFO, usage : DIB_USAGE) -> i32);
-    GetDIBits(core::mem::transmute(hdc), core::mem::transmute(hbm), core::mem::transmute(start), core::mem::transmute(clines), core::mem::transmute(lpvbits.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbmi), core::mem::transmute(usage))
+    GetDIBits(hdc, hbm, start, clines, core::mem::transmute(lpvbits.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbmi), usage)
 }
 #[inline]
 pub unsafe fn GetDeviceCaps(hdc: Option<HDC>, index: GET_DEVICE_CAPS_INDEX) -> i32 {
@@ -984,27 +966,27 @@ where
 #[inline]
 pub unsafe fn GetEnhMetaFileBits(hemf: HENHMETAFILE, lpdata: Option<&mut [u8]>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileBits(hemf : HENHMETAFILE, nsize : u32, lpdata : *mut u8) -> u32);
-    GetEnhMetaFileBits(core::mem::transmute(hemf), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    GetEnhMetaFileBits(hemf, lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn GetEnhMetaFileDescriptionA(hemf: HENHMETAFILE, lpdescription: Option<&mut [u8]>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileDescriptionA(hemf : HENHMETAFILE, cchbuffer : u32, lpdescription : windows_core::PSTR) -> u32);
-    GetEnhMetaFileDescriptionA(core::mem::transmute(hemf), lpdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    GetEnhMetaFileDescriptionA(hemf, lpdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn GetEnhMetaFileDescriptionW(hemf: HENHMETAFILE, lpdescription: Option<&mut [u16]>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileDescriptionW(hemf : HENHMETAFILE, cchbuffer : u32, lpdescription : windows_core::PWSTR) -> u32);
-    GetEnhMetaFileDescriptionW(core::mem::transmute(hemf), lpdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    GetEnhMetaFileDescriptionW(hemf, lpdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn GetEnhMetaFileHeader(hemf: HENHMETAFILE, nsize: u32, lpenhmetaheader: Option<*mut ENHMETAHEADER>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileHeader(hemf : HENHMETAFILE, nsize : u32, lpenhmetaheader : *mut ENHMETAHEADER) -> u32);
-    GetEnhMetaFileHeader(core::mem::transmute(hemf), core::mem::transmute(nsize), core::mem::transmute(lpenhmetaheader.unwrap_or(core::mem::zeroed())))
+    GetEnhMetaFileHeader(hemf, nsize, core::mem::transmute(lpenhmetaheader.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn GetEnhMetaFilePaletteEntries(hemf: HENHMETAFILE, lppaletteentries: Option<&mut [PALETTEENTRY]>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFilePaletteEntries(hemf : HENHMETAFILE, nnumentries : u32, lppaletteentries : *mut PALETTEENTRY) -> u32);
-    GetEnhMetaFilePaletteEntries(core::mem::transmute(hemf), lppaletteentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lppaletteentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    GetEnhMetaFilePaletteEntries(hemf, lppaletteentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lppaletteentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn GetEnhMetaFileW<P0>(lpname: P0) -> HENHMETAFILE
@@ -1017,17 +999,17 @@ where
 #[inline]
 pub unsafe fn GetFontData(hdc: HDC, dwtable: u32, dwoffset: u32, pvbuffer: Option<*mut core::ffi::c_void>, cjbuffer: u32) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetFontData(hdc : HDC, dwtable : u32, dwoffset : u32, pvbuffer : *mut core::ffi::c_void, cjbuffer : u32) -> u32);
-    GetFontData(core::mem::transmute(hdc), core::mem::transmute(dwtable), core::mem::transmute(dwoffset), core::mem::transmute(pvbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(cjbuffer))
+    GetFontData(hdc, dwtable, dwoffset, core::mem::transmute(pvbuffer.unwrap_or(core::mem::zeroed())), cjbuffer)
 }
 #[inline]
 pub unsafe fn GetFontLanguageInfo(hdc: HDC) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetFontLanguageInfo(hdc : HDC) -> u32);
-    GetFontLanguageInfo(core::mem::transmute(hdc))
+    GetFontLanguageInfo(hdc)
 }
 #[inline]
 pub unsafe fn GetFontUnicodeRanges(hdc: HDC, lpgs: Option<*mut GLYPHSET>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetFontUnicodeRanges(hdc : HDC, lpgs : *mut GLYPHSET) -> u32);
-    GetFontUnicodeRanges(core::mem::transmute(hdc), core::mem::transmute(lpgs.unwrap_or(core::mem::zeroed())))
+    GetFontUnicodeRanges(hdc, core::mem::transmute(lpgs.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn GetGlyphIndicesA<P1>(hdc: HDC, lpstr: P1, c: i32, pgi: *mut u16, fl: u32) -> u32
@@ -1035,7 +1017,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn GetGlyphIndicesA(hdc : HDC, lpstr : windows_core::PCSTR, c : i32, pgi : *mut u16, fl : u32) -> u32);
-    GetGlyphIndicesA(core::mem::transmute(hdc), lpstr.param().abi(), core::mem::transmute(c), core::mem::transmute(pgi), core::mem::transmute(fl))
+    GetGlyphIndicesA(hdc, lpstr.param().abi(), c, core::mem::transmute(pgi), fl)
 }
 #[inline]
 pub unsafe fn GetGlyphIndicesW<P1>(hdc: HDC, lpstr: P1, c: i32, pgi: *mut u16, fl: u32) -> u32
@@ -1043,42 +1025,42 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn GetGlyphIndicesW(hdc : HDC, lpstr : windows_core::PCWSTR, c : i32, pgi : *mut u16, fl : u32) -> u32);
-    GetGlyphIndicesW(core::mem::transmute(hdc), lpstr.param().abi(), core::mem::transmute(c), core::mem::transmute(pgi), core::mem::transmute(fl))
+    GetGlyphIndicesW(hdc, lpstr.param().abi(), c, core::mem::transmute(pgi), fl)
 }
 #[inline]
 pub unsafe fn GetGlyphOutlineA(hdc: HDC, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: Option<*mut core::ffi::c_void>, lpmat2: *const MAT2) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetGlyphOutlineA(hdc : HDC, uchar : u32, fuformat : GET_GLYPH_OUTLINE_FORMAT, lpgm : *mut GLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
-    GetGlyphOutlineA(core::mem::transmute(hdc), core::mem::transmute(uchar), core::mem::transmute(fuformat), core::mem::transmute(lpgm), core::mem::transmute(cjbuffer), core::mem::transmute(pvbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpmat2))
+    GetGlyphOutlineA(hdc, uchar, fuformat, core::mem::transmute(lpgm), cjbuffer, core::mem::transmute(pvbuffer.unwrap_or(core::mem::zeroed())), lpmat2)
 }
 #[inline]
 pub unsafe fn GetGlyphOutlineW(hdc: HDC, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: Option<*mut core::ffi::c_void>, lpmat2: *const MAT2) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetGlyphOutlineW(hdc : HDC, uchar : u32, fuformat : GET_GLYPH_OUTLINE_FORMAT, lpgm : *mut GLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
-    GetGlyphOutlineW(core::mem::transmute(hdc), core::mem::transmute(uchar), core::mem::transmute(fuformat), core::mem::transmute(lpgm), core::mem::transmute(cjbuffer), core::mem::transmute(pvbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpmat2))
+    GetGlyphOutlineW(hdc, uchar, fuformat, core::mem::transmute(lpgm), cjbuffer, core::mem::transmute(pvbuffer.unwrap_or(core::mem::zeroed())), lpmat2)
 }
 #[inline]
 pub unsafe fn GetGraphicsMode(hdc: HDC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetGraphicsMode(hdc : HDC) -> i32);
-    GetGraphicsMode(core::mem::transmute(hdc))
+    GetGraphicsMode(hdc)
 }
 #[inline]
 pub unsafe fn GetKerningPairsA(hdc: HDC, lpkernpair: Option<&mut [KERNINGPAIR]>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetKerningPairsA(hdc : HDC, npairs : u32, lpkernpair : *mut KERNINGPAIR) -> u32);
-    GetKerningPairsA(core::mem::transmute(hdc), lpkernpair.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpkernpair.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    GetKerningPairsA(hdc, lpkernpair.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpkernpair.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn GetKerningPairsW(hdc: HDC, lpkernpair: Option<&mut [KERNINGPAIR]>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetKerningPairsW(hdc : HDC, npairs : u32, lpkernpair : *mut KERNINGPAIR) -> u32);
-    GetKerningPairsW(core::mem::transmute(hdc), lpkernpair.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpkernpair.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    GetKerningPairsW(hdc, lpkernpair.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpkernpair.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn GetLayout(hdc: HDC) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetLayout(hdc : HDC) -> u32);
-    GetLayout(core::mem::transmute(hdc))
+    GetLayout(hdc)
 }
 #[inline]
 pub unsafe fn GetMapMode(hdc: HDC) -> HDC_MAP_MODE {
     windows_targets::link!("gdi32.dll" "system" fn GetMapMode(hdc : HDC) -> HDC_MAP_MODE);
-    GetMapMode(core::mem::transmute(hdc))
+    GetMapMode(hdc)
 }
 #[inline]
 pub unsafe fn GetMetaFileA<P0>(lpname: P0) -> HMETAFILE
@@ -1091,7 +1073,7 @@ where
 #[inline]
 pub unsafe fn GetMetaFileBitsEx(hmf: HMETAFILE, cbbuffer: u32, lpdata: Option<*mut core::ffi::c_void>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetMetaFileBitsEx(hmf : HMETAFILE, cbbuffer : u32, lpdata : *mut core::ffi::c_void) -> u32);
-    GetMetaFileBitsEx(core::mem::transmute(hmf), core::mem::transmute(cbbuffer), core::mem::transmute(lpdata.unwrap_or(core::mem::zeroed())))
+    GetMetaFileBitsEx(hmf, cbbuffer, core::mem::transmute(lpdata.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn GetMetaFileW<P0>(lpname: P0) -> HMETAFILE
@@ -1104,157 +1086,157 @@ where
 #[inline]
 pub unsafe fn GetMetaRgn(hdc: HDC, hrgn: HRGN) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetMetaRgn(hdc : HDC, hrgn : HRGN) -> i32);
-    GetMetaRgn(core::mem::transmute(hdc), core::mem::transmute(hrgn))
+    GetMetaRgn(hdc, hrgn)
 }
 #[inline]
 pub unsafe fn GetMiterLimit(hdc: HDC, plimit: *mut f32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetMiterLimit(hdc : HDC, plimit : *mut f32) -> super::super::Foundation:: BOOL);
-    GetMiterLimit(core::mem::transmute(hdc), core::mem::transmute(plimit))
+    GetMiterLimit(hdc, core::mem::transmute(plimit))
 }
 #[inline]
 pub unsafe fn GetMonitorInfoA(hmonitor: HMONITOR, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn GetMonitorInfoA(hmonitor : HMONITOR, lpmi : *mut MONITORINFO) -> super::super::Foundation:: BOOL);
-    GetMonitorInfoA(core::mem::transmute(hmonitor), core::mem::transmute(lpmi))
+    GetMonitorInfoA(hmonitor, core::mem::transmute(lpmi))
 }
 #[inline]
 pub unsafe fn GetMonitorInfoW(hmonitor: HMONITOR, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn GetMonitorInfoW(hmonitor : HMONITOR, lpmi : *mut MONITORINFO) -> super::super::Foundation:: BOOL);
-    GetMonitorInfoW(core::mem::transmute(hmonitor), core::mem::transmute(lpmi))
+    GetMonitorInfoW(hmonitor, core::mem::transmute(lpmi))
 }
 #[inline]
 pub unsafe fn GetNearestColor(hdc: HDC, color: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF {
     windows_targets::link!("gdi32.dll" "system" fn GetNearestColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
-    GetNearestColor(core::mem::transmute(hdc), core::mem::transmute(color))
+    GetNearestColor(hdc, color)
 }
 #[inline]
 pub unsafe fn GetNearestPaletteIndex(h: HPALETTE, color: super::super::Foundation::COLORREF) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetNearestPaletteIndex(h : HPALETTE, color : super::super::Foundation:: COLORREF) -> u32);
-    GetNearestPaletteIndex(core::mem::transmute(h), core::mem::transmute(color))
+    GetNearestPaletteIndex(h, color)
 }
 #[inline]
 pub unsafe fn GetObjectA(h: HGDIOBJ, c: i32, pv: Option<*mut core::ffi::c_void>) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetObjectA(h : HGDIOBJ, c : i32, pv : *mut core::ffi::c_void) -> i32);
-    GetObjectA(core::mem::transmute(h), core::mem::transmute(c), core::mem::transmute(pv.unwrap_or(core::mem::zeroed())))
+    GetObjectA(h, c, core::mem::transmute(pv.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn GetObjectType(h: HGDIOBJ) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetObjectType(h : HGDIOBJ) -> u32);
-    GetObjectType(core::mem::transmute(h))
+    GetObjectType(h)
 }
 #[inline]
 pub unsafe fn GetObjectW(h: HGDIOBJ, c: i32, pv: Option<*mut core::ffi::c_void>) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetObjectW(h : HGDIOBJ, c : i32, pv : *mut core::ffi::c_void) -> i32);
-    GetObjectW(core::mem::transmute(h), core::mem::transmute(c), core::mem::transmute(pv.unwrap_or(core::mem::zeroed())))
+    GetObjectW(h, c, core::mem::transmute(pv.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn GetOutlineTextMetricsA(hdc: HDC, cjcopy: u32, potm: Option<*mut OUTLINETEXTMETRICA>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetOutlineTextMetricsA(hdc : HDC, cjcopy : u32, potm : *mut OUTLINETEXTMETRICA) -> u32);
-    GetOutlineTextMetricsA(core::mem::transmute(hdc), core::mem::transmute(cjcopy), core::mem::transmute(potm.unwrap_or(core::mem::zeroed())))
+    GetOutlineTextMetricsA(hdc, cjcopy, core::mem::transmute(potm.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn GetOutlineTextMetricsW(hdc: HDC, cjcopy: u32, potm: Option<*mut OUTLINETEXTMETRICW>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetOutlineTextMetricsW(hdc : HDC, cjcopy : u32, potm : *mut OUTLINETEXTMETRICW) -> u32);
-    GetOutlineTextMetricsW(core::mem::transmute(hdc), core::mem::transmute(cjcopy), core::mem::transmute(potm.unwrap_or(core::mem::zeroed())))
+    GetOutlineTextMetricsW(hdc, cjcopy, core::mem::transmute(potm.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn GetPaletteEntries(hpal: HPALETTE, istart: u32, ppalentries: Option<&mut [PALETTEENTRY]>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetPaletteEntries(hpal : HPALETTE, istart : u32, centries : u32, ppalentries : *mut PALETTEENTRY) -> u32);
-    GetPaletteEntries(core::mem::transmute(hpal), core::mem::transmute(istart), ppalentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppalentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    GetPaletteEntries(hpal, istart, ppalentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppalentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn GetPath(hdc: HDC, apt: Option<*mut super::super::Foundation::POINT>, aj: Option<*mut u8>, cpt: i32) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetPath(hdc : HDC, apt : *mut super::super::Foundation:: POINT, aj : *mut u8, cpt : i32) -> i32);
-    GetPath(core::mem::transmute(hdc), core::mem::transmute(apt.unwrap_or(core::mem::zeroed())), core::mem::transmute(aj.unwrap_or(core::mem::zeroed())), core::mem::transmute(cpt))
+    GetPath(hdc, core::mem::transmute(apt.unwrap_or(core::mem::zeroed())), core::mem::transmute(aj.unwrap_or(core::mem::zeroed())), cpt)
 }
 #[inline]
 pub unsafe fn GetPixel(hdc: HDC, x: i32, y: i32) -> super::super::Foundation::COLORREF {
     windows_targets::link!("gdi32.dll" "system" fn GetPixel(hdc : HDC, x : i32, y : i32) -> super::super::Foundation:: COLORREF);
-    GetPixel(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y))
+    GetPixel(hdc, x, y)
 }
 #[inline]
 pub unsafe fn GetPolyFillMode(hdc: HDC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetPolyFillMode(hdc : HDC) -> i32);
-    GetPolyFillMode(core::mem::transmute(hdc))
+    GetPolyFillMode(hdc)
 }
 #[inline]
 pub unsafe fn GetROP2(hdc: HDC) -> R2_MODE {
     windows_targets::link!("gdi32.dll" "system" fn GetROP2(hdc : HDC) -> R2_MODE);
-    GetROP2(core::mem::transmute(hdc))
+    GetROP2(hdc)
 }
 #[inline]
 pub unsafe fn GetRandomRgn(hdc: HDC, hrgn: HRGN, i: i32) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetRandomRgn(hdc : HDC, hrgn : HRGN, i : i32) -> i32);
-    GetRandomRgn(core::mem::transmute(hdc), core::mem::transmute(hrgn), core::mem::transmute(i))
+    GetRandomRgn(hdc, hrgn, i)
 }
 #[inline]
 pub unsafe fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS, cjbytes: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetRasterizerCaps(lpraststat : *mut RASTERIZER_STATUS, cjbytes : u32) -> super::super::Foundation:: BOOL);
-    GetRasterizerCaps(core::mem::transmute(lpraststat), core::mem::transmute(cjbytes))
+    GetRasterizerCaps(core::mem::transmute(lpraststat), cjbytes)
 }
 #[inline]
 pub unsafe fn GetRegionData(hrgn: HRGN, ncount: u32, lprgndata: Option<*mut RGNDATA>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetRegionData(hrgn : HRGN, ncount : u32, lprgndata : *mut RGNDATA) -> u32);
-    GetRegionData(core::mem::transmute(hrgn), core::mem::transmute(ncount), core::mem::transmute(lprgndata.unwrap_or(core::mem::zeroed())))
+    GetRegionData(hrgn, ncount, core::mem::transmute(lprgndata.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn GetRgnBox(hrgn: HRGN, lprc: *mut super::super::Foundation::RECT) -> GDI_REGION_TYPE {
     windows_targets::link!("gdi32.dll" "system" fn GetRgnBox(hrgn : HRGN, lprc : *mut super::super::Foundation:: RECT) -> GDI_REGION_TYPE);
-    GetRgnBox(core::mem::transmute(hrgn), core::mem::transmute(lprc))
+    GetRgnBox(hrgn, core::mem::transmute(lprc))
 }
 #[inline]
 pub unsafe fn GetStockObject(i: GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ {
     windows_targets::link!("gdi32.dll" "system" fn GetStockObject(i : GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ);
-    GetStockObject(core::mem::transmute(i))
+    GetStockObject(i)
 }
 #[inline]
 pub unsafe fn GetStretchBltMode(hdc: HDC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetStretchBltMode(hdc : HDC) -> i32);
-    GetStretchBltMode(core::mem::transmute(hdc))
+    GetStretchBltMode(hdc)
 }
 #[inline]
 pub unsafe fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32 {
     windows_targets::link!("user32.dll" "system" fn GetSysColor(nindex : SYS_COLOR_INDEX) -> u32);
-    GetSysColor(core::mem::transmute(nindex))
+    GetSysColor(nindex)
 }
 #[inline]
 pub unsafe fn GetSysColorBrush(nindex: SYS_COLOR_INDEX) -> HBRUSH {
     windows_targets::link!("user32.dll" "system" fn GetSysColorBrush(nindex : SYS_COLOR_INDEX) -> HBRUSH);
-    GetSysColorBrush(core::mem::transmute(nindex))
+    GetSysColorBrush(nindex)
 }
 #[inline]
 pub unsafe fn GetSystemPaletteEntries(hdc: HDC, istart: u32, ppalentries: Option<&mut [PALETTEENTRY]>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetSystemPaletteEntries(hdc : HDC, istart : u32, centries : u32, ppalentries : *mut PALETTEENTRY) -> u32);
-    GetSystemPaletteEntries(core::mem::transmute(hdc), core::mem::transmute(istart), ppalentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppalentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    GetSystemPaletteEntries(hdc, istart, ppalentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppalentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn GetSystemPaletteUse(hdc: HDC) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetSystemPaletteUse(hdc : HDC) -> u32);
-    GetSystemPaletteUse(core::mem::transmute(hdc))
+    GetSystemPaletteUse(hdc)
 }
 #[inline]
 pub unsafe fn GetTabbedTextExtentA(hdc: HDC, lpstring: &[u8], lpntabstoppositions: Option<&[i32]>) -> u32 {
     windows_targets::link!("user32.dll" "system" fn GetTabbedTextExtentA(hdc : HDC, lpstring : windows_core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
-    GetTabbedTextExtentA(core::mem::transmute(hdc), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpntabstoppositions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpntabstoppositions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    GetTabbedTextExtentA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpntabstoppositions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpntabstoppositions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn GetTabbedTextExtentW(hdc: HDC, lpstring: &[u16], lpntabstoppositions: Option<&[i32]>) -> u32 {
     windows_targets::link!("user32.dll" "system" fn GetTabbedTextExtentW(hdc : HDC, lpstring : windows_core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
-    GetTabbedTextExtentW(core::mem::transmute(hdc), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpntabstoppositions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpntabstoppositions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    GetTabbedTextExtentW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpntabstoppositions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpntabstoppositions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn GetTextAlign(hdc: HDC) -> TEXT_ALIGN_OPTIONS {
     windows_targets::link!("gdi32.dll" "system" fn GetTextAlign(hdc : HDC) -> TEXT_ALIGN_OPTIONS);
-    GetTextAlign(core::mem::transmute(hdc))
+    GetTextAlign(hdc)
 }
 #[inline]
 pub unsafe fn GetTextCharacterExtra(hdc: HDC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetTextCharacterExtra(hdc : HDC) -> i32);
-    GetTextCharacterExtra(core::mem::transmute(hdc))
+    GetTextCharacterExtra(hdc)
 }
 #[inline]
 pub unsafe fn GetTextColor(hdc: HDC) -> super::super::Foundation::COLORREF {
     windows_targets::link!("gdi32.dll" "system" fn GetTextColor(hdc : HDC) -> super::super::Foundation:: COLORREF);
-    GetTextColor(core::mem::transmute(hdc))
+    GetTextColor(hdc)
 }
 #[inline]
 pub unsafe fn GetTextExtentExPointA<P1>(hdc: HDC, lpszstring: P1, cchstring: i32, nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -1262,12 +1244,12 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn GetTextExtentExPointA(hdc : HDC, lpszstring : windows_core::PCSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    GetTextExtentExPointA(core::mem::transmute(hdc), lpszstring.param().abi(), core::mem::transmute(cchstring), core::mem::transmute(nmaxextent), core::mem::transmute(lpnfit.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpndx.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpsize))
+    GetTextExtentExPointA(hdc, lpszstring.param().abi(), cchstring, nmaxextent, core::mem::transmute(lpnfit.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpndx.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpsize))
 }
 #[inline]
 pub unsafe fn GetTextExtentExPointI(hdc: HDC, lpwszstring: *const u16, cwchstring: i32, nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetTextExtentExPointI(hdc : HDC, lpwszstring : *const u16, cwchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    GetTextExtentExPointI(core::mem::transmute(hdc), core::mem::transmute(lpwszstring), core::mem::transmute(cwchstring), core::mem::transmute(nmaxextent), core::mem::transmute(lpnfit.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpndx.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpsize))
+    GetTextExtentExPointI(hdc, lpwszstring, cwchstring, nmaxextent, core::mem::transmute(lpnfit.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpndx.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpsize))
 }
 #[inline]
 pub unsafe fn GetTextExtentExPointW<P1>(hdc: HDC, lpszstring: P1, cchstring: i32, nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -1275,77 +1257,77 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn GetTextExtentExPointW(hdc : HDC, lpszstring : windows_core::PCWSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    GetTextExtentExPointW(core::mem::transmute(hdc), lpszstring.param().abi(), core::mem::transmute(cchstring), core::mem::transmute(nmaxextent), core::mem::transmute(lpnfit.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpndx.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpsize))
+    GetTextExtentExPointW(hdc, lpszstring.param().abi(), cchstring, nmaxextent, core::mem::transmute(lpnfit.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpndx.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpsize))
 }
 #[inline]
 pub unsafe fn GetTextExtentPoint32A(hdc: HDC, lpstring: &[u8], psizl: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPoint32A(hdc : HDC, lpstring : windows_core::PCSTR, c : i32, psizl : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    GetTextExtentPoint32A(core::mem::transmute(hdc), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(psizl))
+    GetTextExtentPoint32A(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(psizl))
 }
 #[inline]
 pub unsafe fn GetTextExtentPoint32W(hdc: HDC, lpstring: &[u16], psizl: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPoint32W(hdc : HDC, lpstring : windows_core::PCWSTR, c : i32, psizl : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    GetTextExtentPoint32W(core::mem::transmute(hdc), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(psizl))
+    GetTextExtentPoint32W(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(psizl))
 }
 #[inline]
 pub unsafe fn GetTextExtentPointA(hdc: HDC, lpstring: &[u8], lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPointA(hdc : HDC, lpstring : windows_core::PCSTR, c : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    GetTextExtentPointA(core::mem::transmute(hdc), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(lpsz))
+    GetTextExtentPointA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(lpsz))
 }
 #[inline]
 pub unsafe fn GetTextExtentPointI(hdc: HDC, pgiin: &[u16], psize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPointI(hdc : HDC, pgiin : *const u16, cgi : i32, psize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    GetTextExtentPointI(core::mem::transmute(hdc), core::mem::transmute(pgiin.as_ptr()), pgiin.len().try_into().unwrap(), core::mem::transmute(psize))
+    GetTextExtentPointI(hdc, core::mem::transmute(pgiin.as_ptr()), pgiin.len().try_into().unwrap(), core::mem::transmute(psize))
 }
 #[inline]
 pub unsafe fn GetTextExtentPointW(hdc: HDC, lpstring: &[u16], lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPointW(hdc : HDC, lpstring : windows_core::PCWSTR, c : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    GetTextExtentPointW(core::mem::transmute(hdc), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(lpsz))
+    GetTextExtentPointW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(lpsz))
 }
 #[inline]
 pub unsafe fn GetTextFaceA(hdc: HDC, lpname: Option<&mut [u8]>) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetTextFaceA(hdc : HDC, c : i32, lpname : windows_core::PSTR) -> i32);
-    GetTextFaceA(core::mem::transmute(hdc), lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    GetTextFaceA(hdc, lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn GetTextFaceW(hdc: HDC, lpname: Option<&mut [u16]>) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn GetTextFaceW(hdc : HDC, c : i32, lpname : windows_core::PWSTR) -> i32);
-    GetTextFaceW(core::mem::transmute(hdc), lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    GetTextFaceW(hdc, lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn GetTextMetricsA(hdc: HDC, lptm: *mut TEXTMETRICA) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetTextMetricsA(hdc : HDC, lptm : *mut TEXTMETRICA) -> super::super::Foundation:: BOOL);
-    GetTextMetricsA(core::mem::transmute(hdc), core::mem::transmute(lptm))
+    GetTextMetricsA(hdc, core::mem::transmute(lptm))
 }
 #[inline]
 pub unsafe fn GetTextMetricsW(hdc: HDC, lptm: *mut TEXTMETRICW) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetTextMetricsW(hdc : HDC, lptm : *mut TEXTMETRICW) -> super::super::Foundation:: BOOL);
-    GetTextMetricsW(core::mem::transmute(hdc), core::mem::transmute(lptm))
+    GetTextMetricsW(hdc, core::mem::transmute(lptm))
 }
 #[inline]
 pub unsafe fn GetUpdateRect(hwnd: super::super::Foundation::HWND, lprect: Option<*mut super::super::Foundation::RECT>, berase: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn GetUpdateRect(hwnd : super::super::Foundation:: HWND, lprect : *mut super::super::Foundation:: RECT, berase : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetUpdateRect(core::mem::transmute(hwnd), core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())), berase.into())
+    GetUpdateRect(hwnd, core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())), berase.into())
 }
 #[inline]
 pub unsafe fn GetUpdateRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN, berase: bool) -> GDI_REGION_TYPE {
     windows_targets::link!("user32.dll" "system" fn GetUpdateRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN, berase : super::super::Foundation:: BOOL) -> GDI_REGION_TYPE);
-    GetUpdateRgn(core::mem::transmute(hwnd), core::mem::transmute(hrgn), berase.into())
+    GetUpdateRgn(hwnd, hrgn, berase.into())
 }
 #[inline]
 pub unsafe fn GetViewportExtEx(hdc: HDC, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetViewportExtEx(hdc : HDC, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    GetViewportExtEx(core::mem::transmute(hdc), core::mem::transmute(lpsize))
+    GetViewportExtEx(hdc, core::mem::transmute(lpsize))
 }
 #[inline]
 pub unsafe fn GetViewportOrgEx(hdc: HDC, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetViewportOrgEx(hdc : HDC, lppoint : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    GetViewportOrgEx(core::mem::transmute(hdc), core::mem::transmute(lppoint))
+    GetViewportOrgEx(hdc, core::mem::transmute(lppoint))
 }
 #[inline]
 pub unsafe fn GetWinMetaFileBits(hemf: HENHMETAFILE, pdata16: Option<&mut [u8]>, imapmode: i32, hdcref: HDC) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetWinMetaFileBits(hemf : HENHMETAFILE, cbdata16 : u32, pdata16 : *mut u8, imapmode : i32, hdcref : HDC) -> u32);
-    GetWinMetaFileBits(core::mem::transmute(hemf), pdata16.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pdata16.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(imapmode), core::mem::transmute(hdcref))
+    GetWinMetaFileBits(hemf, pdata16.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pdata16.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), imapmode, hdcref)
 }
 #[inline]
 pub unsafe fn GetWindowDC(hwnd: Option<super::super::Foundation::HWND>) -> HDC {
@@ -1355,57 +1337,57 @@ pub unsafe fn GetWindowDC(hwnd: Option<super::super::Foundation::HWND>) -> HDC {
 #[inline]
 pub unsafe fn GetWindowExtEx(hdc: HDC, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetWindowExtEx(hdc : HDC, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    GetWindowExtEx(core::mem::transmute(hdc), core::mem::transmute(lpsize))
+    GetWindowExtEx(hdc, core::mem::transmute(lpsize))
 }
 #[inline]
 pub unsafe fn GetWindowOrgEx(hdc: HDC, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetWindowOrgEx(hdc : HDC, lppoint : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    GetWindowOrgEx(core::mem::transmute(hdc), core::mem::transmute(lppoint))
+    GetWindowOrgEx(hdc, core::mem::transmute(lppoint))
 }
 #[inline]
 pub unsafe fn GetWindowRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN) -> GDI_REGION_TYPE {
     windows_targets::link!("user32.dll" "system" fn GetWindowRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN) -> GDI_REGION_TYPE);
-    GetWindowRgn(core::mem::transmute(hwnd), core::mem::transmute(hrgn))
+    GetWindowRgn(hwnd, hrgn)
 }
 #[inline]
 pub unsafe fn GetWindowRgnBox(hwnd: super::super::Foundation::HWND, lprc: *mut super::super::Foundation::RECT) -> GDI_REGION_TYPE {
     windows_targets::link!("user32.dll" "system" fn GetWindowRgnBox(hwnd : super::super::Foundation:: HWND, lprc : *mut super::super::Foundation:: RECT) -> GDI_REGION_TYPE);
-    GetWindowRgnBox(core::mem::transmute(hwnd), core::mem::transmute(lprc))
+    GetWindowRgnBox(hwnd, core::mem::transmute(lprc))
 }
 #[inline]
 pub unsafe fn GetWorldTransform(hdc: HDC, lpxf: *mut XFORM) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn GetWorldTransform(hdc : HDC, lpxf : *mut XFORM) -> super::super::Foundation:: BOOL);
-    GetWorldTransform(core::mem::transmute(hdc), core::mem::transmute(lpxf))
+    GetWorldTransform(hdc, core::mem::transmute(lpxf))
 }
 #[inline]
 pub unsafe fn GradientFill(hdc: HDC, pvertex: &[TRIVERTEX], pmesh: *const core::ffi::c_void, nmesh: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL {
     windows_targets::link!("msimg32.dll" "system" fn GradientFill(hdc : HDC, pvertex : *const TRIVERTEX, nvertex : u32, pmesh : *const core::ffi::c_void, nmesh : u32, ulmode : GRADIENT_FILL) -> super::super::Foundation:: BOOL);
-    GradientFill(core::mem::transmute(hdc), core::mem::transmute(pvertex.as_ptr()), pvertex.len().try_into().unwrap(), core::mem::transmute(pmesh), core::mem::transmute(nmesh), core::mem::transmute(ulmode))
+    GradientFill(hdc, core::mem::transmute(pvertex.as_ptr()), pvertex.len().try_into().unwrap(), pmesh, nmesh, ulmode)
 }
 #[inline]
 pub unsafe fn GrayStringA(hdc: HDC, hbrush: Option<HBRUSH>, lpoutputfunc: Option<GRAYSTRINGPROC>, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn GrayStringA(hdc : HDC, hbrush : HBRUSH, lpoutputfunc : GRAYSTRINGPROC, lpdata : super::super::Foundation:: LPARAM, ncount : i32, x : i32, y : i32, nwidth : i32, nheight : i32) -> super::super::Foundation:: BOOL);
-    GrayStringA(core::mem::transmute(hdc), core::mem::transmute(hbrush.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpoutputfunc.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpdata), core::mem::transmute(ncount), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(nwidth), core::mem::transmute(nheight))
+    GrayStringA(hdc, core::mem::transmute(hbrush.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpoutputfunc.unwrap_or(core::mem::zeroed())), lpdata, ncount, x, y, nwidth, nheight)
 }
 #[inline]
 pub unsafe fn GrayStringW(hdc: HDC, hbrush: Option<HBRUSH>, lpoutputfunc: Option<GRAYSTRINGPROC>, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn GrayStringW(hdc : HDC, hbrush : HBRUSH, lpoutputfunc : GRAYSTRINGPROC, lpdata : super::super::Foundation:: LPARAM, ncount : i32, x : i32, y : i32, nwidth : i32, nheight : i32) -> super::super::Foundation:: BOOL);
-    GrayStringW(core::mem::transmute(hdc), core::mem::transmute(hbrush.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpoutputfunc.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpdata), core::mem::transmute(ncount), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(nwidth), core::mem::transmute(nheight))
+    GrayStringW(hdc, core::mem::transmute(hbrush.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpoutputfunc.unwrap_or(core::mem::zeroed())), lpdata, ncount, x, y, nwidth, nheight)
 }
 #[inline]
 pub unsafe fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn InflateRect(lprc : *mut super::super::Foundation:: RECT, dx : i32, dy : i32) -> super::super::Foundation:: BOOL);
-    InflateRect(core::mem::transmute(lprc), core::mem::transmute(dx), core::mem::transmute(dy))
+    InflateRect(core::mem::transmute(lprc), dx, dy)
 }
 #[inline]
 pub unsafe fn IntersectClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> GDI_REGION_TYPE {
     windows_targets::link!("gdi32.dll" "system" fn IntersectClipRect(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32) -> GDI_REGION_TYPE);
-    IntersectClipRect(core::mem::transmute(hdc), core::mem::transmute(left), core::mem::transmute(top), core::mem::transmute(right), core::mem::transmute(bottom))
+    IntersectClipRect(hdc, left, top, right, bottom)
 }
 #[inline]
 pub unsafe fn IntersectRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn IntersectRect(lprcdst : *mut super::super::Foundation:: RECT, lprcsrc1 : *const super::super::Foundation:: RECT, lprcsrc2 : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    IntersectRect(core::mem::transmute(lprcdst), core::mem::transmute(lprcsrc1), core::mem::transmute(lprcsrc2))
+    IntersectRect(core::mem::transmute(lprcdst), lprcsrc1, lprcsrc2)
 }
 #[inline]
 pub unsafe fn InvalidateRect(hwnd: Option<super::super::Foundation::HWND>, lprect: Option<*const super::super::Foundation::RECT>, berase: bool) -> super::super::Foundation::BOOL {
@@ -1415,37 +1397,37 @@ pub unsafe fn InvalidateRect(hwnd: Option<super::super::Foundation::HWND>, lprec
 #[inline]
 pub unsafe fn InvalidateRgn(hwnd: super::super::Foundation::HWND, hrgn: Option<HRGN>, berase: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn InvalidateRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN, berase : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    InvalidateRgn(core::mem::transmute(hwnd), core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())), berase.into())
+    InvalidateRgn(hwnd, core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())), berase.into())
 }
 #[inline]
 pub unsafe fn InvertRect(hdc: HDC, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn InvertRect(hdc : HDC, lprc : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    InvertRect(core::mem::transmute(hdc), core::mem::transmute(lprc))
+    InvertRect(hdc, lprc)
 }
 #[inline]
 pub unsafe fn InvertRgn(hdc: HDC, hrgn: HRGN) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn InvertRgn(hdc : HDC, hrgn : HRGN) -> super::super::Foundation:: BOOL);
-    InvertRgn(core::mem::transmute(hdc), core::mem::transmute(hrgn))
+    InvertRgn(hdc, hrgn)
 }
 #[inline]
 pub unsafe fn IsRectEmpty(lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn IsRectEmpty(lprc : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    IsRectEmpty(core::mem::transmute(lprc))
+    IsRectEmpty(lprc)
 }
 #[inline]
 pub unsafe fn LPtoDP(hdc: HDC, lppt: &mut [super::super::Foundation::POINT]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn LPtoDP(hdc : HDC, lppt : *mut super::super::Foundation:: POINT, c : i32) -> super::super::Foundation:: BOOL);
-    LPtoDP(core::mem::transmute(hdc), core::mem::transmute(lppt.as_ptr()), lppt.len().try_into().unwrap())
+    LPtoDP(hdc, core::mem::transmute(lppt.as_ptr()), lppt.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn LineDDA(xstart: i32, ystart: i32, xend: i32, yend: i32, lpproc: LINEDDAPROC, data: Option<super::super::Foundation::LPARAM>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn LineDDA(xstart : i32, ystart : i32, xend : i32, yend : i32, lpproc : LINEDDAPROC, data : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-    LineDDA(core::mem::transmute(xstart), core::mem::transmute(ystart), core::mem::transmute(xend), core::mem::transmute(yend), core::mem::transmute(lpproc), core::mem::transmute(data.unwrap_or(core::mem::zeroed())))
+    LineDDA(xstart, ystart, xend, yend, lpproc, core::mem::transmute(data.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn LineTo(hdc: HDC, x: i32, y: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn LineTo(hdc : HDC, x : i32, y : i32) -> super::super::Foundation:: BOOL);
-    LineTo(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y))
+    LineTo(hdc, x, y)
 }
 #[inline]
 pub unsafe fn LoadBitmapA<P1>(hinstance: Option<super::super::Foundation::HINSTANCE>, lpbitmapname: P1) -> HBITMAP
@@ -1476,212 +1458,212 @@ pub unsafe fn MapWindowPoints(hwndfrom: Option<super::super::Foundation::HWND>, 
 #[inline]
 pub unsafe fn MaskBlt(hdcdest: HDC, xdest: i32, ydest: i32, width: i32, height: i32, hdcsrc: HDC, xsrc: i32, ysrc: i32, hbmmask: HBITMAP, xmask: i32, ymask: i32, rop: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn MaskBlt(hdcdest : HDC, xdest : i32, ydest : i32, width : i32, height : i32, hdcsrc : HDC, xsrc : i32, ysrc : i32, hbmmask : HBITMAP, xmask : i32, ymask : i32, rop : u32) -> super::super::Foundation:: BOOL);
-    MaskBlt(core::mem::transmute(hdcdest), core::mem::transmute(xdest), core::mem::transmute(ydest), core::mem::transmute(width), core::mem::transmute(height), core::mem::transmute(hdcsrc), core::mem::transmute(xsrc), core::mem::transmute(ysrc), core::mem::transmute(hbmmask), core::mem::transmute(xmask), core::mem::transmute(ymask), core::mem::transmute(rop))
+    MaskBlt(hdcdest, xdest, ydest, width, height, hdcsrc, xsrc, ysrc, hbmmask, xmask, ymask, rop)
 }
 #[inline]
 pub unsafe fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffersize: u32, puchfontpackagebuffer: *const u8, ulfontpackagebuffersize: u32, ppuchdestbuffer: *mut *mut u8, puldestbuffersize: *mut u32, pulbyteswritten: *mut u32, usmode: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("fontsub.dll" "cdecl" fn MergeFontPackage(puchmergefontbuffer : *const u8, ulmergefontbuffersize : u32, puchfontpackagebuffer : *const u8, ulfontpackagebuffersize : u32, ppuchdestbuffer : *mut *mut u8, puldestbuffersize : *mut u32, pulbyteswritten : *mut u32, usmode : u16, lpfnallocate : CFP_ALLOCPROC, lpfnreallocate : CFP_REALLOCPROC, lpfnfree : CFP_FREEPROC, lpvreserved : *mut core::ffi::c_void) -> u32);
-    MergeFontPackage(core::mem::transmute(puchmergefontbuffer), core::mem::transmute(ulmergefontbuffersize), core::mem::transmute(puchfontpackagebuffer), core::mem::transmute(ulfontpackagebuffersize), core::mem::transmute(ppuchdestbuffer), core::mem::transmute(puldestbuffersize), core::mem::transmute(pulbyteswritten), core::mem::transmute(usmode), core::mem::transmute(lpfnallocate), core::mem::transmute(lpfnreallocate), core::mem::transmute(lpfnfree), core::mem::transmute(lpvreserved))
+    MergeFontPackage(puchmergefontbuffer, ulmergefontbuffersize, puchfontpackagebuffer, ulfontpackagebuffersize, core::mem::transmute(ppuchdestbuffer), core::mem::transmute(puldestbuffersize), core::mem::transmute(pulbyteswritten), usmode, lpfnallocate, lpfnreallocate, lpfnfree, core::mem::transmute(lpvreserved))
 }
 #[inline]
 pub unsafe fn ModifyWorldTransform(hdc: HDC, lpxf: Option<*const XFORM>, mode: MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn ModifyWorldTransform(hdc : HDC, lpxf : *const XFORM, mode : MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation:: BOOL);
-    ModifyWorldTransform(core::mem::transmute(hdc), core::mem::transmute(lpxf.unwrap_or(core::mem::zeroed())), core::mem::transmute(mode))
+    ModifyWorldTransform(hdc, core::mem::transmute(lpxf.unwrap_or(core::mem::zeroed())), mode)
 }
 #[inline]
 pub unsafe fn MonitorFromPoint(pt: super::super::Foundation::POINT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
     windows_targets::link!("user32.dll" "system" fn MonitorFromPoint(pt : super::super::Foundation:: POINT, dwflags : MONITOR_FROM_FLAGS) -> HMONITOR);
-    MonitorFromPoint(core::mem::transmute(pt), core::mem::transmute(dwflags))
+    MonitorFromPoint(core::mem::transmute(pt), dwflags)
 }
 #[inline]
 pub unsafe fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
     windows_targets::link!("user32.dll" "system" fn MonitorFromRect(lprc : *const super::super::Foundation:: RECT, dwflags : MONITOR_FROM_FLAGS) -> HMONITOR);
-    MonitorFromRect(core::mem::transmute(lprc), core::mem::transmute(dwflags))
+    MonitorFromRect(lprc, dwflags)
 }
 #[inline]
 pub unsafe fn MonitorFromWindow(hwnd: super::super::Foundation::HWND, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
     windows_targets::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : super::super::Foundation:: HWND, dwflags : MONITOR_FROM_FLAGS) -> HMONITOR);
-    MonitorFromWindow(core::mem::transmute(hwnd), core::mem::transmute(dwflags))
+    MonitorFromWindow(hwnd, dwflags)
 }
 #[inline]
 pub unsafe fn MoveToEx(hdc: HDC, x: i32, y: i32, lppt: Option<*mut super::super::Foundation::POINT>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn MoveToEx(hdc : HDC, x : i32, y : i32, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    MoveToEx(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
+    MoveToEx(hdc, x, y, core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn OffsetClipRgn(hdc: HDC, x: i32, y: i32) -> GDI_REGION_TYPE {
     windows_targets::link!("gdi32.dll" "system" fn OffsetClipRgn(hdc : HDC, x : i32, y : i32) -> GDI_REGION_TYPE);
-    OffsetClipRgn(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y))
+    OffsetClipRgn(hdc, x, y)
 }
 #[inline]
 pub unsafe fn OffsetRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn OffsetRect(lprc : *mut super::super::Foundation:: RECT, dx : i32, dy : i32) -> super::super::Foundation:: BOOL);
-    OffsetRect(core::mem::transmute(lprc), core::mem::transmute(dx), core::mem::transmute(dy))
+    OffsetRect(core::mem::transmute(lprc), dx, dy)
 }
 #[inline]
 pub unsafe fn OffsetRgn(hrgn: HRGN, x: i32, y: i32) -> GDI_REGION_TYPE {
     windows_targets::link!("gdi32.dll" "system" fn OffsetRgn(hrgn : HRGN, x : i32, y : i32) -> GDI_REGION_TYPE);
-    OffsetRgn(core::mem::transmute(hrgn), core::mem::transmute(x), core::mem::transmute(y))
+    OffsetRgn(hrgn, x, y)
 }
 #[inline]
 pub unsafe fn OffsetViewportOrgEx(hdc: HDC, x: i32, y: i32, lppt: Option<*mut super::super::Foundation::POINT>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn OffsetViewportOrgEx(hdc : HDC, x : i32, y : i32, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    OffsetViewportOrgEx(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
+    OffsetViewportOrgEx(hdc, x, y, core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn OffsetWindowOrgEx(hdc: HDC, x: i32, y: i32, lppt: Option<*mut super::super::Foundation::POINT>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn OffsetWindowOrgEx(hdc : HDC, x : i32, y : i32, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    OffsetWindowOrgEx(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
+    OffsetWindowOrgEx(hdc, x, y, core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn PaintDesktop(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn PaintDesktop(hdc : HDC) -> super::super::Foundation:: BOOL);
-    PaintDesktop(core::mem::transmute(hdc))
+    PaintDesktop(hdc)
 }
 #[inline]
 pub unsafe fn PaintRgn(hdc: HDC, hrgn: HRGN) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PaintRgn(hdc : HDC, hrgn : HRGN) -> super::super::Foundation:: BOOL);
-    PaintRgn(core::mem::transmute(hdc), core::mem::transmute(hrgn))
+    PaintRgn(hdc, hrgn)
 }
 #[inline]
 pub unsafe fn PatBlt(hdc: HDC, x: i32, y: i32, w: i32, h: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PatBlt(hdc : HDC, x : i32, y : i32, w : i32, h : i32, rop : ROP_CODE) -> super::super::Foundation:: BOOL);
-    PatBlt(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(w), core::mem::transmute(h), core::mem::transmute(rop))
+    PatBlt(hdc, x, y, w, h, rop)
 }
 #[inline]
 pub unsafe fn PathToRegion(hdc: HDC) -> HRGN {
     windows_targets::link!("gdi32.dll" "system" fn PathToRegion(hdc : HDC) -> HRGN);
-    PathToRegion(core::mem::transmute(hdc))
+    PathToRegion(hdc)
 }
 #[inline]
 pub unsafe fn Pie(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn Pie(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32, xr1 : i32, yr1 : i32, xr2 : i32, yr2 : i32) -> super::super::Foundation:: BOOL);
-    Pie(core::mem::transmute(hdc), core::mem::transmute(left), core::mem::transmute(top), core::mem::transmute(right), core::mem::transmute(bottom), core::mem::transmute(xr1), core::mem::transmute(yr1), core::mem::transmute(xr2), core::mem::transmute(yr2))
+    Pie(hdc, left, top, right, bottom, xr1, yr1, xr2, yr2)
 }
 #[inline]
 pub unsafe fn PlayEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PlayEnhMetaFile(hdc : HDC, hmf : HENHMETAFILE, lprect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    PlayEnhMetaFile(core::mem::transmute(hdc), core::mem::transmute(hmf), core::mem::transmute(lprect))
+    PlayEnhMetaFile(hdc, hmf, lprect)
 }
 #[inline]
 pub unsafe fn PlayEnhMetaFileRecord(hdc: HDC, pht: &[HANDLETABLE], pmr: *const ENHMETARECORD) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PlayEnhMetaFileRecord(hdc : HDC, pht : *const HANDLETABLE, pmr : *const ENHMETARECORD, cht : u32) -> super::super::Foundation:: BOOL);
-    PlayEnhMetaFileRecord(core::mem::transmute(hdc), core::mem::transmute(pht.as_ptr()), core::mem::transmute(pmr), pht.len().try_into().unwrap())
+    PlayEnhMetaFileRecord(hdc, core::mem::transmute(pht.as_ptr()), pmr, pht.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn PlayMetaFile(hdc: HDC, hmf: HMETAFILE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PlayMetaFile(hdc : HDC, hmf : HMETAFILE) -> super::super::Foundation:: BOOL);
-    PlayMetaFile(core::mem::transmute(hdc), core::mem::transmute(hmf))
+    PlayMetaFile(hdc, hmf)
 }
 #[inline]
 pub unsafe fn PlayMetaFileRecord(hdc: HDC, lphandletable: &[HANDLETABLE], lpmr: *const METARECORD) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PlayMetaFileRecord(hdc : HDC, lphandletable : *const HANDLETABLE, lpmr : *const METARECORD, noobjs : u32) -> super::super::Foundation:: BOOL);
-    PlayMetaFileRecord(core::mem::transmute(hdc), core::mem::transmute(lphandletable.as_ptr()), core::mem::transmute(lpmr), lphandletable.len().try_into().unwrap())
+    PlayMetaFileRecord(hdc, core::mem::transmute(lphandletable.as_ptr()), lpmr, lphandletable.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn PlgBlt(hdcdest: HDC, lppoint: &[super::super::Foundation::POINT; 3], hdcsrc: HDC, xsrc: i32, ysrc: i32, width: i32, height: i32, hbmmask: Option<HBITMAP>, xmask: i32, ymask: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PlgBlt(hdcdest : HDC, lppoint : *const super::super::Foundation:: POINT, hdcsrc : HDC, xsrc : i32, ysrc : i32, width : i32, height : i32, hbmmask : HBITMAP, xmask : i32, ymask : i32) -> super::super::Foundation:: BOOL);
-    PlgBlt(core::mem::transmute(hdcdest), core::mem::transmute(lppoint.as_ptr()), core::mem::transmute(hdcsrc), core::mem::transmute(xsrc), core::mem::transmute(ysrc), core::mem::transmute(width), core::mem::transmute(height), core::mem::transmute(hbmmask.unwrap_or(core::mem::zeroed())), core::mem::transmute(xmask), core::mem::transmute(ymask))
+    PlgBlt(hdcdest, core::mem::transmute(lppoint.as_ptr()), hdcsrc, xsrc, ysrc, width, height, core::mem::transmute(hbmmask.unwrap_or(core::mem::zeroed())), xmask, ymask)
 }
 #[inline]
 pub unsafe fn PolyBezier(hdc: HDC, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PolyBezier(hdc : HDC, apt : *const super::super::Foundation:: POINT, cpt : u32) -> super::super::Foundation:: BOOL);
-    PolyBezier(core::mem::transmute(hdc), core::mem::transmute(apt.as_ptr()), apt.len().try_into().unwrap())
+    PolyBezier(hdc, core::mem::transmute(apt.as_ptr()), apt.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn PolyBezierTo(hdc: HDC, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PolyBezierTo(hdc : HDC, apt : *const super::super::Foundation:: POINT, cpt : u32) -> super::super::Foundation:: BOOL);
-    PolyBezierTo(core::mem::transmute(hdc), core::mem::transmute(apt.as_ptr()), apt.len().try_into().unwrap())
+    PolyBezierTo(hdc, core::mem::transmute(apt.as_ptr()), apt.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn PolyDraw(hdc: HDC, apt: *const super::super::Foundation::POINT, aj: *const u8, cpt: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PolyDraw(hdc : HDC, apt : *const super::super::Foundation:: POINT, aj : *const u8, cpt : i32) -> super::super::Foundation:: BOOL);
-    PolyDraw(core::mem::transmute(hdc), core::mem::transmute(apt), core::mem::transmute(aj), core::mem::transmute(cpt))
+    PolyDraw(hdc, apt, aj, cpt)
 }
 #[inline]
 pub unsafe fn PolyPolygon(hdc: HDC, apt: *const super::super::Foundation::POINT, asz: &[i32]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PolyPolygon(hdc : HDC, apt : *const super::super::Foundation:: POINT, asz : *const i32, csz : i32) -> super::super::Foundation:: BOOL);
-    PolyPolygon(core::mem::transmute(hdc), core::mem::transmute(apt), core::mem::transmute(asz.as_ptr()), asz.len().try_into().unwrap())
+    PolyPolygon(hdc, apt, core::mem::transmute(asz.as_ptr()), asz.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn PolyPolyline(hdc: HDC, apt: *const super::super::Foundation::POINT, asz: &[u32]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PolyPolyline(hdc : HDC, apt : *const super::super::Foundation:: POINT, asz : *const u32, csz : u32) -> super::super::Foundation:: BOOL);
-    PolyPolyline(core::mem::transmute(hdc), core::mem::transmute(apt), core::mem::transmute(asz.as_ptr()), asz.len().try_into().unwrap())
+    PolyPolyline(hdc, apt, core::mem::transmute(asz.as_ptr()), asz.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn PolyTextOutA(hdc: HDC, ppt: &[POLYTEXTA]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PolyTextOutA(hdc : HDC, ppt : *const POLYTEXTA, nstrings : i32) -> super::super::Foundation:: BOOL);
-    PolyTextOutA(core::mem::transmute(hdc), core::mem::transmute(ppt.as_ptr()), ppt.len().try_into().unwrap())
+    PolyTextOutA(hdc, core::mem::transmute(ppt.as_ptr()), ppt.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn PolyTextOutW(hdc: HDC, ppt: &[POLYTEXTW]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PolyTextOutW(hdc : HDC, ppt : *const POLYTEXTW, nstrings : i32) -> super::super::Foundation:: BOOL);
-    PolyTextOutW(core::mem::transmute(hdc), core::mem::transmute(ppt.as_ptr()), ppt.len().try_into().unwrap())
+    PolyTextOutW(hdc, core::mem::transmute(ppt.as_ptr()), ppt.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn Polygon(hdc: HDC, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn Polygon(hdc : HDC, apt : *const super::super::Foundation:: POINT, cpt : i32) -> super::super::Foundation:: BOOL);
-    Polygon(core::mem::transmute(hdc), core::mem::transmute(apt.as_ptr()), apt.len().try_into().unwrap())
+    Polygon(hdc, core::mem::transmute(apt.as_ptr()), apt.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn Polyline(hdc: HDC, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn Polyline(hdc : HDC, apt : *const super::super::Foundation:: POINT, cpt : i32) -> super::super::Foundation:: BOOL);
-    Polyline(core::mem::transmute(hdc), core::mem::transmute(apt.as_ptr()), apt.len().try_into().unwrap())
+    Polyline(hdc, core::mem::transmute(apt.as_ptr()), apt.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn PolylineTo(hdc: HDC, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PolylineTo(hdc : HDC, apt : *const super::super::Foundation:: POINT, cpt : u32) -> super::super::Foundation:: BOOL);
-    PolylineTo(core::mem::transmute(hdc), core::mem::transmute(apt.as_ptr()), apt.len().try_into().unwrap())
+    PolylineTo(hdc, core::mem::transmute(apt.as_ptr()), apt.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn PtInRect(lprc: *const super::super::Foundation::RECT, pt: super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn PtInRect(lprc : *const super::super::Foundation:: RECT, pt : super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    PtInRect(core::mem::transmute(lprc), core::mem::transmute(pt))
+    PtInRect(lprc, core::mem::transmute(pt))
 }
 #[inline]
 pub unsafe fn PtInRegion(hrgn: HRGN, x: i32, y: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PtInRegion(hrgn : HRGN, x : i32, y : i32) -> super::super::Foundation:: BOOL);
-    PtInRegion(core::mem::transmute(hrgn), core::mem::transmute(x), core::mem::transmute(y))
+    PtInRegion(hrgn, x, y)
 }
 #[inline]
 pub unsafe fn PtVisible(hdc: HDC, x: i32, y: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn PtVisible(hdc : HDC, x : i32, y : i32) -> super::super::Foundation:: BOOL);
-    PtVisible(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y))
+    PtVisible(hdc, x, y)
 }
 #[inline]
 pub unsafe fn RealizePalette(hdc: HDC) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn RealizePalette(hdc : HDC) -> u32);
-    RealizePalette(core::mem::transmute(hdc))
+    RealizePalette(hdc)
 }
 #[inline]
 pub unsafe fn RectInRegion(hrgn: HRGN, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn RectInRegion(hrgn : HRGN, lprect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    RectInRegion(core::mem::transmute(hrgn), core::mem::transmute(lprect))
+    RectInRegion(hrgn, lprect)
 }
 #[inline]
 pub unsafe fn RectVisible(hdc: HDC, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn RectVisible(hdc : HDC, lprect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    RectVisible(core::mem::transmute(hdc), core::mem::transmute(lprect))
+    RectVisible(hdc, lprect)
 }
 #[inline]
 pub unsafe fn Rectangle(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn Rectangle(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32) -> super::super::Foundation:: BOOL);
-    Rectangle(core::mem::transmute(hdc), core::mem::transmute(left), core::mem::transmute(top), core::mem::transmute(right), core::mem::transmute(bottom))
+    Rectangle(hdc, left, top, right, bottom)
 }
 #[inline]
 pub unsafe fn RedrawWindow(hwnd: Option<super::super::Foundation::HWND>, lprcupdate: Option<*const super::super::Foundation::RECT>, hrgnupdate: Option<HRGN>, flags: REDRAW_WINDOW_FLAGS) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn RedrawWindow(hwnd : super::super::Foundation:: HWND, lprcupdate : *const super::super::Foundation:: RECT, hrgnupdate : HRGN, flags : REDRAW_WINDOW_FLAGS) -> super::super::Foundation:: BOOL);
-    RedrawWindow(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(lprcupdate.unwrap_or(core::mem::zeroed())), core::mem::transmute(hrgnupdate.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags))
+    RedrawWindow(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(lprcupdate.unwrap_or(core::mem::zeroed())), core::mem::transmute(hrgnupdate.unwrap_or(core::mem::zeroed())), flags)
 }
 #[inline]
 pub unsafe fn ReleaseDC(hwnd: Option<super::super::Foundation::HWND>, hdc: HDC) -> i32 {
     windows_targets::link!("user32.dll" "system" fn ReleaseDC(hwnd : super::super::Foundation:: HWND, hdc : HDC) -> i32);
-    ReleaseDC(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(hdc))
+    ReleaseDC(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), hdc)
 }
 #[inline]
 pub unsafe fn RemoveFontMemResourceEx(h: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn RemoveFontMemResourceEx(h : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    RemoveFontMemResourceEx(core::mem::transmute(h))
+    RemoveFontMemResourceEx(h)
 }
 #[inline]
 pub unsafe fn RemoveFontResourceA<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
@@ -1697,7 +1679,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceExA(name : windows_core::PCSTR, fl : u32, pdv : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    RemoveFontResourceExA(name.param().abi(), core::mem::transmute(fl), core::mem::transmute(pdv.unwrap_or(core::mem::zeroed())))
+    RemoveFontResourceExA(name.param().abi(), fl, core::mem::transmute(pdv.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn RemoveFontResourceExW<P0>(name: P0, fl: u32, pdv: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
@@ -1705,7 +1687,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceExW(name : windows_core::PCWSTR, fl : u32, pdv : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    RemoveFontResourceExW(name.param().abi(), core::mem::transmute(fl), core::mem::transmute(pdv.unwrap_or(core::mem::zeroed())))
+    RemoveFontResourceExW(name.param().abi(), fl, core::mem::transmute(pdv.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn RemoveFontResourceW<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
@@ -1718,132 +1700,132 @@ where
 #[inline]
 pub unsafe fn ResetDCA(hdc: HDC, lpdm: *const DEVMODEA) -> HDC {
     windows_targets::link!("gdi32.dll" "system" fn ResetDCA(hdc : HDC, lpdm : *const DEVMODEA) -> HDC);
-    ResetDCA(core::mem::transmute(hdc), core::mem::transmute(lpdm))
+    ResetDCA(hdc, lpdm)
 }
 #[inline]
 pub unsafe fn ResetDCW(hdc: HDC, lpdm: *const DEVMODEW) -> HDC {
     windows_targets::link!("gdi32.dll" "system" fn ResetDCW(hdc : HDC, lpdm : *const DEVMODEW) -> HDC);
-    ResetDCW(core::mem::transmute(hdc), core::mem::transmute(lpdm))
+    ResetDCW(hdc, lpdm)
 }
 #[inline]
 pub unsafe fn ResizePalette(hpal: HPALETTE, n: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn ResizePalette(hpal : HPALETTE, n : u32) -> super::super::Foundation:: BOOL);
-    ResizePalette(core::mem::transmute(hpal), core::mem::transmute(n))
+    ResizePalette(hpal, n)
 }
 #[inline]
 pub unsafe fn RestoreDC(hdc: HDC, nsaveddc: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn RestoreDC(hdc : HDC, nsaveddc : i32) -> super::super::Foundation:: BOOL);
-    RestoreDC(core::mem::transmute(hdc), core::mem::transmute(nsaveddc))
+    RestoreDC(hdc, nsaveddc)
 }
 #[inline]
 pub unsafe fn RoundRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32, width: i32, height: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn RoundRect(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32, width : i32, height : i32) -> super::super::Foundation:: BOOL);
-    RoundRect(core::mem::transmute(hdc), core::mem::transmute(left), core::mem::transmute(top), core::mem::transmute(right), core::mem::transmute(bottom), core::mem::transmute(width), core::mem::transmute(height))
+    RoundRect(hdc, left, top, right, bottom, width, height)
 }
 #[inline]
 pub unsafe fn SaveDC(hdc: HDC) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SaveDC(hdc : HDC) -> i32);
-    SaveDC(core::mem::transmute(hdc))
+    SaveDC(hdc)
 }
 #[inline]
 pub unsafe fn ScaleViewportExtEx(hdc: HDC, xn: i32, dx: i32, yn: i32, yd: i32, lpsz: Option<*mut super::super::Foundation::SIZE>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn ScaleViewportExtEx(hdc : HDC, xn : i32, dx : i32, yn : i32, yd : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    ScaleViewportExtEx(core::mem::transmute(hdc), core::mem::transmute(xn), core::mem::transmute(dx), core::mem::transmute(yn), core::mem::transmute(yd), core::mem::transmute(lpsz.unwrap_or(core::mem::zeroed())))
+    ScaleViewportExtEx(hdc, xn, dx, yn, yd, core::mem::transmute(lpsz.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ScaleWindowExtEx(hdc: HDC, xn: i32, xd: i32, yn: i32, yd: i32, lpsz: Option<*mut super::super::Foundation::SIZE>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn ScaleWindowExtEx(hdc : HDC, xn : i32, xd : i32, yn : i32, yd : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    ScaleWindowExtEx(core::mem::transmute(hdc), core::mem::transmute(xn), core::mem::transmute(xd), core::mem::transmute(yn), core::mem::transmute(yd), core::mem::transmute(lpsz.unwrap_or(core::mem::zeroed())))
+    ScaleWindowExtEx(hdc, xn, xd, yn, yd, core::mem::transmute(lpsz.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ScreenToClient(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn ScreenToClient(hwnd : super::super::Foundation:: HWND, lppoint : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    ScreenToClient(core::mem::transmute(hwnd), core::mem::transmute(lppoint))
+    ScreenToClient(hwnd, core::mem::transmute(lppoint))
 }
 #[inline]
 pub unsafe fn SelectClipPath(hdc: HDC, mode: RGN_COMBINE_MODE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SelectClipPath(hdc : HDC, mode : RGN_COMBINE_MODE) -> super::super::Foundation:: BOOL);
-    SelectClipPath(core::mem::transmute(hdc), core::mem::transmute(mode))
+    SelectClipPath(hdc, mode)
 }
 #[inline]
 pub unsafe fn SelectClipRgn(hdc: HDC, hrgn: Option<HRGN>) -> GDI_REGION_TYPE {
     windows_targets::link!("gdi32.dll" "system" fn SelectClipRgn(hdc : HDC, hrgn : HRGN) -> GDI_REGION_TYPE);
-    SelectClipRgn(core::mem::transmute(hdc), core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())))
+    SelectClipRgn(hdc, core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SelectObject(hdc: HDC, h: HGDIOBJ) -> HGDIOBJ {
     windows_targets::link!("gdi32.dll" "system" fn SelectObject(hdc : HDC, h : HGDIOBJ) -> HGDIOBJ);
-    SelectObject(core::mem::transmute(hdc), core::mem::transmute(h))
+    SelectObject(hdc, h)
 }
 #[inline]
 pub unsafe fn SelectPalette(hdc: HDC, hpal: HPALETTE, bforcebkgd: bool) -> HPALETTE {
     windows_targets::link!("gdi32.dll" "system" fn SelectPalette(hdc : HDC, hpal : HPALETTE, bforcebkgd : super::super::Foundation:: BOOL) -> HPALETTE);
-    SelectPalette(core::mem::transmute(hdc), core::mem::transmute(hpal), bforcebkgd.into())
+    SelectPalette(hdc, hpal, bforcebkgd.into())
 }
 #[inline]
 pub unsafe fn SetArcDirection(hdc: HDC, dir: ARC_DIRECTION) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SetArcDirection(hdc : HDC, dir : ARC_DIRECTION) -> i32);
-    SetArcDirection(core::mem::transmute(hdc), core::mem::transmute(dir))
+    SetArcDirection(hdc, dir)
 }
 #[inline]
 pub unsafe fn SetBitmapBits(hbm: HBITMAP, cb: u32, pvbits: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SetBitmapBits(hbm : HBITMAP, cb : u32, pvbits : *const core::ffi::c_void) -> i32);
-    SetBitmapBits(core::mem::transmute(hbm), core::mem::transmute(cb), core::mem::transmute(pvbits))
+    SetBitmapBits(hbm, cb, pvbits)
 }
 #[inline]
 pub unsafe fn SetBitmapDimensionEx(hbm: HBITMAP, w: i32, h: i32, lpsz: Option<*mut super::super::Foundation::SIZE>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SetBitmapDimensionEx(hbm : HBITMAP, w : i32, h : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    SetBitmapDimensionEx(core::mem::transmute(hbm), core::mem::transmute(w), core::mem::transmute(h), core::mem::transmute(lpsz.unwrap_or(core::mem::zeroed())))
+    SetBitmapDimensionEx(hbm, w, h, core::mem::transmute(lpsz.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SetBkColor(hdc: HDC, color: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF {
     windows_targets::link!("gdi32.dll" "system" fn SetBkColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
-    SetBkColor(core::mem::transmute(hdc), core::mem::transmute(color))
+    SetBkColor(hdc, color)
 }
 #[inline]
 pub unsafe fn SetBkMode(hdc: HDC, mode: BACKGROUND_MODE) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SetBkMode(hdc : HDC, mode : i32) -> i32);
-    SetBkMode(core::mem::transmute(hdc), mode.0 as _)
+    SetBkMode(hdc, mode.0 as _)
 }
 #[inline]
 pub unsafe fn SetBoundsRect(hdc: HDC, lprect: Option<*const super::super::Foundation::RECT>, flags: SET_BOUNDS_RECT_FLAGS) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn SetBoundsRect(hdc : HDC, lprect : *const super::super::Foundation:: RECT, flags : SET_BOUNDS_RECT_FLAGS) -> u32);
-    SetBoundsRect(core::mem::transmute(hdc), core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags))
+    SetBoundsRect(hdc, core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())), flags)
 }
 #[inline]
 pub unsafe fn SetBrushOrgEx(hdc: HDC, x: i32, y: i32, lppt: Option<*mut super::super::Foundation::POINT>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SetBrushOrgEx(hdc : HDC, x : i32, y : i32, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    SetBrushOrgEx(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
+    SetBrushOrgEx(hdc, x, y, core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SetColorAdjustment(hdc: HDC, lpca: *const COLORADJUSTMENT) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SetColorAdjustment(hdc : HDC, lpca : *const COLORADJUSTMENT) -> super::super::Foundation:: BOOL);
-    SetColorAdjustment(core::mem::transmute(hdc), core::mem::transmute(lpca))
+    SetColorAdjustment(hdc, lpca)
 }
 #[inline]
 pub unsafe fn SetDCBrushColor(hdc: HDC, color: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF {
     windows_targets::link!("gdi32.dll" "system" fn SetDCBrushColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
-    SetDCBrushColor(core::mem::transmute(hdc), core::mem::transmute(color))
+    SetDCBrushColor(hdc, color)
 }
 #[inline]
 pub unsafe fn SetDCPenColor(hdc: HDC, color: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF {
     windows_targets::link!("gdi32.dll" "system" fn SetDCPenColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
-    SetDCPenColor(core::mem::transmute(hdc), core::mem::transmute(color))
+    SetDCPenColor(hdc, color)
 }
 #[inline]
 pub unsafe fn SetDIBColorTable(hdc: HDC, istart: u32, prgbq: &[RGBQUAD]) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn SetDIBColorTable(hdc : HDC, istart : u32, centries : u32, prgbq : *const RGBQUAD) -> u32);
-    SetDIBColorTable(core::mem::transmute(hdc), core::mem::transmute(istart), prgbq.len().try_into().unwrap(), core::mem::transmute(prgbq.as_ptr()))
+    SetDIBColorTable(hdc, istart, prgbq.len().try_into().unwrap(), core::mem::transmute(prgbq.as_ptr()))
 }
 #[inline]
 pub unsafe fn SetDIBits(hdc: Option<HDC>, hbm: HBITMAP, start: u32, clines: u32, lpbits: *const core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SetDIBits(hdc : HDC, hbm : HBITMAP, start : u32, clines : u32, lpbits : *const core::ffi::c_void, lpbmi : *const BITMAPINFO, coloruse : DIB_USAGE) -> i32);
-    SetDIBits(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), core::mem::transmute(hbm), core::mem::transmute(start), core::mem::transmute(clines), core::mem::transmute(lpbits), core::mem::transmute(lpbmi), core::mem::transmute(coloruse))
+    SetDIBits(core::mem::transmute(hdc.unwrap_or(core::mem::zeroed())), hbm, start, clines, lpbits, lpbmi, coloruse)
 }
 #[inline]
 pub unsafe fn SetDIBitsToDevice(hdc: HDC, xdest: i32, ydest: i32, w: u32, h: u32, xsrc: i32, ysrc: i32, startscan: u32, clines: u32, lpvbits: *const core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SetDIBitsToDevice(hdc : HDC, xdest : i32, ydest : i32, w : u32, h : u32, xsrc : i32, ysrc : i32, startscan : u32, clines : u32, lpvbits : *const core::ffi::c_void, lpbmi : *const BITMAPINFO, coloruse : DIB_USAGE) -> i32);
-    SetDIBitsToDevice(core::mem::transmute(hdc), core::mem::transmute(xdest), core::mem::transmute(ydest), core::mem::transmute(w), core::mem::transmute(h), core::mem::transmute(xsrc), core::mem::transmute(ysrc), core::mem::transmute(startscan), core::mem::transmute(clines), core::mem::transmute(lpvbits), core::mem::transmute(lpbmi), core::mem::transmute(coloruse))
+    SetDIBitsToDevice(hdc, xdest, ydest, w, h, xsrc, ysrc, startscan, clines, lpvbits, lpbmi, coloruse)
 }
 #[inline]
 pub unsafe fn SetEnhMetaFileBits(pb: &[u8]) -> HENHMETAFILE {
@@ -1853,22 +1835,22 @@ pub unsafe fn SetEnhMetaFileBits(pb: &[u8]) -> HENHMETAFILE {
 #[inline]
 pub unsafe fn SetGraphicsMode(hdc: HDC, imode: GRAPHICS_MODE) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SetGraphicsMode(hdc : HDC, imode : GRAPHICS_MODE) -> i32);
-    SetGraphicsMode(core::mem::transmute(hdc), core::mem::transmute(imode))
+    SetGraphicsMode(hdc, imode)
 }
 #[inline]
 pub unsafe fn SetLayout(hdc: HDC, l: DC_LAYOUT) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn SetLayout(hdc : HDC, l : DC_LAYOUT) -> u32);
-    SetLayout(core::mem::transmute(hdc), core::mem::transmute(l))
+    SetLayout(hdc, l)
 }
 #[inline]
 pub unsafe fn SetMapMode(hdc: HDC, imode: HDC_MAP_MODE) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SetMapMode(hdc : HDC, imode : HDC_MAP_MODE) -> i32);
-    SetMapMode(core::mem::transmute(hdc), core::mem::transmute(imode))
+    SetMapMode(hdc, imode)
 }
 #[inline]
 pub unsafe fn SetMapperFlags(hdc: HDC, flags: u32) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn SetMapperFlags(hdc : HDC, flags : u32) -> u32);
-    SetMapperFlags(core::mem::transmute(hdc), core::mem::transmute(flags))
+    SetMapperFlags(hdc, flags)
 }
 #[inline]
 pub unsafe fn SetMetaFileBitsEx(lpdata: &[u8]) -> HMETAFILE {
@@ -1878,42 +1860,42 @@ pub unsafe fn SetMetaFileBitsEx(lpdata: &[u8]) -> HMETAFILE {
 #[inline]
 pub unsafe fn SetMetaRgn(hdc: HDC) -> GDI_REGION_TYPE {
     windows_targets::link!("gdi32.dll" "system" fn SetMetaRgn(hdc : HDC) -> GDI_REGION_TYPE);
-    SetMetaRgn(core::mem::transmute(hdc))
+    SetMetaRgn(hdc)
 }
 #[inline]
 pub unsafe fn SetMiterLimit(hdc: HDC, limit: f32, old: Option<*mut f32>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SetMiterLimit(hdc : HDC, limit : f32, old : *mut f32) -> super::super::Foundation:: BOOL);
-    SetMiterLimit(core::mem::transmute(hdc), core::mem::transmute(limit), core::mem::transmute(old.unwrap_or(core::mem::zeroed())))
+    SetMiterLimit(hdc, limit, core::mem::transmute(old.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SetPaletteEntries(hpal: HPALETTE, istart: u32, ppalentries: &[PALETTEENTRY]) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn SetPaletteEntries(hpal : HPALETTE, istart : u32, centries : u32, ppalentries : *const PALETTEENTRY) -> u32);
-    SetPaletteEntries(core::mem::transmute(hpal), core::mem::transmute(istart), ppalentries.len().try_into().unwrap(), core::mem::transmute(ppalentries.as_ptr()))
+    SetPaletteEntries(hpal, istart, ppalentries.len().try_into().unwrap(), core::mem::transmute(ppalentries.as_ptr()))
 }
 #[inline]
 pub unsafe fn SetPixel(hdc: HDC, x: i32, y: i32, color: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF {
     windows_targets::link!("gdi32.dll" "system" fn SetPixel(hdc : HDC, x : i32, y : i32, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
-    SetPixel(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(color))
+    SetPixel(hdc, x, y, color)
 }
 #[inline]
 pub unsafe fn SetPixelV(hdc: HDC, x: i32, y: i32, color: super::super::Foundation::COLORREF) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SetPixelV(hdc : HDC, x : i32, y : i32, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: BOOL);
-    SetPixelV(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(color))
+    SetPixelV(hdc, x, y, color)
 }
 #[inline]
 pub unsafe fn SetPolyFillMode(hdc: HDC, mode: CREATE_POLYGON_RGN_MODE) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SetPolyFillMode(hdc : HDC, mode : CREATE_POLYGON_RGN_MODE) -> i32);
-    SetPolyFillMode(core::mem::transmute(hdc), core::mem::transmute(mode))
+    SetPolyFillMode(hdc, mode)
 }
 #[inline]
 pub unsafe fn SetROP2(hdc: HDC, rop2: R2_MODE) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SetROP2(hdc : HDC, rop2 : R2_MODE) -> i32);
-    SetROP2(core::mem::transmute(hdc), core::mem::transmute(rop2))
+    SetROP2(hdc, rop2)
 }
 #[inline]
 pub unsafe fn SetRect(lprc: *mut super::super::Foundation::RECT, xleft: i32, ytop: i32, xright: i32, ybottom: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn SetRect(lprc : *mut super::super::Foundation:: RECT, xleft : i32, ytop : i32, xright : i32, ybottom : i32) -> super::super::Foundation:: BOOL);
-    SetRect(core::mem::transmute(lprc), core::mem::transmute(xleft), core::mem::transmute(ytop), core::mem::transmute(xright), core::mem::transmute(ybottom))
+    SetRect(core::mem::transmute(lprc), xleft, ytop, xright, ybottom)
 }
 #[inline]
 pub unsafe fn SetRectEmpty(lprc: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -1923,117 +1905,117 @@ pub unsafe fn SetRectEmpty(lprc: *mut super::super::Foundation::RECT) -> super::
 #[inline]
 pub unsafe fn SetRectRgn(hrgn: HRGN, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SetRectRgn(hrgn : HRGN, left : i32, top : i32, right : i32, bottom : i32) -> super::super::Foundation:: BOOL);
-    SetRectRgn(core::mem::transmute(hrgn), core::mem::transmute(left), core::mem::transmute(top), core::mem::transmute(right), core::mem::transmute(bottom))
+    SetRectRgn(hrgn, left, top, right, bottom)
 }
 #[inline]
 pub unsafe fn SetStretchBltMode(hdc: HDC, mode: STRETCH_BLT_MODE) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SetStretchBltMode(hdc : HDC, mode : STRETCH_BLT_MODE) -> i32);
-    SetStretchBltMode(core::mem::transmute(hdc), core::mem::transmute(mode))
+    SetStretchBltMode(hdc, mode)
 }
 #[inline]
 pub unsafe fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const super::super::Foundation::COLORREF) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn SetSysColors(celements : i32, lpaelements : *const i32, lpargbvalues : *const super::super::Foundation:: COLORREF) -> super::super::Foundation:: BOOL);
-    SetSysColors(core::mem::transmute(celements), core::mem::transmute(lpaelements), core::mem::transmute(lpargbvalues)).ok()
+    SetSysColors(celements, lpaelements, lpargbvalues).ok()
 }
 #[inline]
 pub unsafe fn SetSystemPaletteUse(hdc: HDC, r#use: SYSTEM_PALETTE_USE) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn SetSystemPaletteUse(hdc : HDC, r#use : SYSTEM_PALETTE_USE) -> u32);
-    SetSystemPaletteUse(core::mem::transmute(hdc), core::mem::transmute(r#use))
+    SetSystemPaletteUse(hdc, r#use)
 }
 #[inline]
 pub unsafe fn SetTextAlign(hdc: HDC, align: TEXT_ALIGN_OPTIONS) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn SetTextAlign(hdc : HDC, align : TEXT_ALIGN_OPTIONS) -> u32);
-    SetTextAlign(core::mem::transmute(hdc), core::mem::transmute(align))
+    SetTextAlign(hdc, align)
 }
 #[inline]
 pub unsafe fn SetTextCharacterExtra(hdc: HDC, extra: i32) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn SetTextCharacterExtra(hdc : HDC, extra : i32) -> i32);
-    SetTextCharacterExtra(core::mem::transmute(hdc), core::mem::transmute(extra))
+    SetTextCharacterExtra(hdc, extra)
 }
 #[inline]
 pub unsafe fn SetTextColor(hdc: HDC, color: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF {
     windows_targets::link!("gdi32.dll" "system" fn SetTextColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
-    SetTextColor(core::mem::transmute(hdc), core::mem::transmute(color))
+    SetTextColor(hdc, color)
 }
 #[inline]
 pub unsafe fn SetTextJustification(hdc: HDC, extra: i32, count: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SetTextJustification(hdc : HDC, extra : i32, count : i32) -> super::super::Foundation:: BOOL);
-    SetTextJustification(core::mem::transmute(hdc), core::mem::transmute(extra), core::mem::transmute(count))
+    SetTextJustification(hdc, extra, count)
 }
 #[inline]
 pub unsafe fn SetViewportExtEx(hdc: HDC, x: i32, y: i32, lpsz: Option<*mut super::super::Foundation::SIZE>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SetViewportExtEx(hdc : HDC, x : i32, y : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    SetViewportExtEx(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lpsz.unwrap_or(core::mem::zeroed())))
+    SetViewportExtEx(hdc, x, y, core::mem::transmute(lpsz.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SetViewportOrgEx(hdc: HDC, x: i32, y: i32, lppt: Option<*mut super::super::Foundation::POINT>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SetViewportOrgEx(hdc : HDC, x : i32, y : i32, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    SetViewportOrgEx(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
+    SetViewportOrgEx(hdc, x, y, core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SetWindowExtEx(hdc: HDC, x: i32, y: i32, lpsz: Option<*mut super::super::Foundation::SIZE>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SetWindowExtEx(hdc : HDC, x : i32, y : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-    SetWindowExtEx(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lpsz.unwrap_or(core::mem::zeroed())))
+    SetWindowExtEx(hdc, x, y, core::mem::transmute(lpsz.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SetWindowOrgEx(hdc: HDC, x: i32, y: i32, lppt: Option<*mut super::super::Foundation::POINT>) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SetWindowOrgEx(hdc : HDC, x : i32, y : i32, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-    SetWindowOrgEx(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
+    SetWindowOrgEx(hdc, x, y, core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn SetWindowRgn(hwnd: super::super::Foundation::HWND, hrgn: Option<HRGN>, bredraw: bool) -> i32 {
     windows_targets::link!("user32.dll" "system" fn SetWindowRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN, bredraw : super::super::Foundation:: BOOL) -> i32);
-    SetWindowRgn(core::mem::transmute(hwnd), core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())), bredraw.into())
+    SetWindowRgn(hwnd, core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())), bredraw.into())
 }
 #[inline]
 pub unsafe fn SetWorldTransform(hdc: HDC, lpxf: *const XFORM) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn SetWorldTransform(hdc : HDC, lpxf : *const XFORM) -> super::super::Foundation:: BOOL);
-    SetWorldTransform(core::mem::transmute(hdc), core::mem::transmute(lpxf))
+    SetWorldTransform(hdc, lpxf)
 }
 #[inline]
 pub unsafe fn StretchBlt(hdcdest: HDC, xdest: i32, ydest: i32, wdest: i32, hdest: i32, hdcsrc: Option<HDC>, xsrc: i32, ysrc: i32, wsrc: i32, hsrc: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn StretchBlt(hdcdest : HDC, xdest : i32, ydest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xsrc : i32, ysrc : i32, wsrc : i32, hsrc : i32, rop : ROP_CODE) -> super::super::Foundation:: BOOL);
-    StretchBlt(core::mem::transmute(hdcdest), core::mem::transmute(xdest), core::mem::transmute(ydest), core::mem::transmute(wdest), core::mem::transmute(hdest), core::mem::transmute(hdcsrc.unwrap_or(core::mem::zeroed())), core::mem::transmute(xsrc), core::mem::transmute(ysrc), core::mem::transmute(wsrc), core::mem::transmute(hsrc), core::mem::transmute(rop))
+    StretchBlt(hdcdest, xdest, ydest, wdest, hdest, core::mem::transmute(hdcsrc.unwrap_or(core::mem::zeroed())), xsrc, ysrc, wsrc, hsrc, rop)
 }
 #[inline]
 pub unsafe fn StretchDIBits(hdc: HDC, xdest: i32, ydest: i32, destwidth: i32, destheight: i32, xsrc: i32, ysrc: i32, srcwidth: i32, srcheight: i32, lpbits: Option<*const core::ffi::c_void>, lpbmi: *const BITMAPINFO, iusage: DIB_USAGE, rop: ROP_CODE) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn StretchDIBits(hdc : HDC, xdest : i32, ydest : i32, destwidth : i32, destheight : i32, xsrc : i32, ysrc : i32, srcwidth : i32, srcheight : i32, lpbits : *const core::ffi::c_void, lpbmi : *const BITMAPINFO, iusage : DIB_USAGE, rop : ROP_CODE) -> i32);
-    StretchDIBits(core::mem::transmute(hdc), core::mem::transmute(xdest), core::mem::transmute(ydest), core::mem::transmute(destwidth), core::mem::transmute(destheight), core::mem::transmute(xsrc), core::mem::transmute(ysrc), core::mem::transmute(srcwidth), core::mem::transmute(srcheight), core::mem::transmute(lpbits.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbmi), core::mem::transmute(iusage), core::mem::transmute(rop))
+    StretchDIBits(hdc, xdest, ydest, destwidth, destheight, xsrc, ysrc, srcwidth, srcheight, core::mem::transmute(lpbits.unwrap_or(core::mem::zeroed())), lpbmi, iusage, rop)
 }
 #[inline]
 pub unsafe fn StrokeAndFillPath(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn StrokeAndFillPath(hdc : HDC) -> super::super::Foundation:: BOOL);
-    StrokeAndFillPath(core::mem::transmute(hdc))
+    StrokeAndFillPath(hdc)
 }
 #[inline]
 pub unsafe fn StrokePath(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn StrokePath(hdc : HDC) -> super::super::Foundation:: BOOL);
-    StrokePath(core::mem::transmute(hdc))
+    StrokePath(hdc)
 }
 #[inline]
 pub unsafe fn SubtractRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn SubtractRect(lprcdst : *mut super::super::Foundation:: RECT, lprcsrc1 : *const super::super::Foundation:: RECT, lprcsrc2 : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    SubtractRect(core::mem::transmute(lprcdst), core::mem::transmute(lprcsrc1), core::mem::transmute(lprcsrc2))
+    SubtractRect(core::mem::transmute(lprcdst), lprcsrc1, lprcsrc2)
 }
 #[inline]
 pub unsafe fn TTCharToUnicode(hdc: HDC, puccharcodes: &[u8], pusshortcodes: &mut [u16], ulflags: u32) -> i32 {
     windows_targets::link!("t2embed.dll" "system" fn TTCharToUnicode(hdc : HDC, puccharcodes : *const u8, ulcharcodesize : u32, pusshortcodes : *mut u16, ulshortcodesize : u32, ulflags : u32) -> i32);
-    TTCharToUnicode(core::mem::transmute(hdc), core::mem::transmute(puccharcodes.as_ptr()), puccharcodes.len().try_into().unwrap(), core::mem::transmute(pusshortcodes.as_ptr()), pusshortcodes.len().try_into().unwrap(), core::mem::transmute(ulflags))
+    TTCharToUnicode(hdc, core::mem::transmute(puccharcodes.as_ptr()), puccharcodes.len().try_into().unwrap(), core::mem::transmute(pusshortcodes.as_ptr()), pusshortcodes.len().try_into().unwrap(), ulflags)
 }
 #[inline]
 pub unsafe fn TTDeleteEmbeddedFont(hfontreference: super::super::Foundation::HANDLE, ulflags: u32, pulstatus: *mut u32) -> i32 {
     windows_targets::link!("t2embed.dll" "system" fn TTDeleteEmbeddedFont(hfontreference : super::super::Foundation:: HANDLE, ulflags : u32, pulstatus : *mut u32) -> i32);
-    TTDeleteEmbeddedFont(core::mem::transmute(hfontreference), core::mem::transmute(ulflags), core::mem::transmute(pulstatus))
+    TTDeleteEmbeddedFont(hfontreference, ulflags, core::mem::transmute(pulstatus))
 }
 #[inline]
 pub unsafe fn TTEmbedFont(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const core::ffi::c_void, puscharcodeset: &[u16], uslanguage: u16, pttembedinfo: Option<*const TTEMBEDINFO>) -> i32 {
     windows_targets::link!("t2embed.dll" "system" fn TTEmbedFont(hdc : HDC, ulflags : TTEMBED_FLAGS, ulcharset : EMBED_FONT_CHARSET, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const core::ffi::c_void, puscharcodeset : *const u16, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
-    TTEmbedFont(core::mem::transmute(hdc), core::mem::transmute(ulflags), core::mem::transmute(ulcharset), core::mem::transmute(pulprivstatus), core::mem::transmute(pulstatus), core::mem::transmute(lpfnwritetostream), core::mem::transmute(lpvwritestream), core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len().try_into().unwrap(), core::mem::transmute(uslanguage), core::mem::transmute(pttembedinfo.unwrap_or(core::mem::zeroed())))
+    TTEmbedFont(hdc, ulflags, ulcharset, core::mem::transmute(pulprivstatus), core::mem::transmute(pulstatus), lpfnwritetostream, lpvwritestream, core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len().try_into().unwrap(), uslanguage, core::mem::transmute(pttembedinfo.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn TTEmbedFontEx(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const core::ffi::c_void, pulcharcodeset: &[u32], uslanguage: u16, pttembedinfo: Option<*const TTEMBEDINFO>) -> i32 {
     windows_targets::link!("t2embed.dll" "system" fn TTEmbedFontEx(hdc : HDC, ulflags : TTEMBED_FLAGS, ulcharset : EMBED_FONT_CHARSET, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const core::ffi::c_void, pulcharcodeset : *const u32, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
-    TTEmbedFontEx(core::mem::transmute(hdc), core::mem::transmute(ulflags), core::mem::transmute(ulcharset), core::mem::transmute(pulprivstatus), core::mem::transmute(pulstatus), core::mem::transmute(lpfnwritetostream), core::mem::transmute(lpvwritestream), core::mem::transmute(pulcharcodeset.as_ptr()), pulcharcodeset.len().try_into().unwrap(), core::mem::transmute(uslanguage), core::mem::transmute(pttembedinfo.unwrap_or(core::mem::zeroed())))
+    TTEmbedFontEx(hdc, ulflags, ulcharset, core::mem::transmute(pulprivstatus), core::mem::transmute(pulstatus), lpfnwritetostream, lpvwritestream, core::mem::transmute(pulcharcodeset.as_ptr()), pulcharcodeset.len().try_into().unwrap(), uslanguage, core::mem::transmute(pttembedinfo.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn TTEmbedFontFromFileA<P1>(hdc: HDC, szfontfilename: P1, usttcindex: u16, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const core::ffi::c_void, puscharcodeset: &[u16], uslanguage: u16, pttembedinfo: Option<*const TTEMBEDINFO>) -> i32
@@ -2041,21 +2023,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("t2embed.dll" "system" fn TTEmbedFontFromFileA(hdc : HDC, szfontfilename : windows_core::PCSTR, usttcindex : u16, ulflags : TTEMBED_FLAGS, ulcharset : EMBED_FONT_CHARSET, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const core::ffi::c_void, puscharcodeset : *const u16, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
-    TTEmbedFontFromFileA(
-        core::mem::transmute(hdc),
-        szfontfilename.param().abi(),
-        core::mem::transmute(usttcindex),
-        core::mem::transmute(ulflags),
-        core::mem::transmute(ulcharset),
-        core::mem::transmute(pulprivstatus),
-        core::mem::transmute(pulstatus),
-        core::mem::transmute(lpfnwritetostream),
-        core::mem::transmute(lpvwritestream),
-        core::mem::transmute(puscharcodeset.as_ptr()),
-        puscharcodeset.len().try_into().unwrap(),
-        core::mem::transmute(uslanguage),
-        core::mem::transmute(pttembedinfo.unwrap_or(core::mem::zeroed())),
-    )
+    TTEmbedFontFromFileA(hdc, szfontfilename.param().abi(), usttcindex, ulflags, ulcharset, core::mem::transmute(pulprivstatus), core::mem::transmute(pulstatus), lpfnwritetostream, lpvwritestream, core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len().try_into().unwrap(), uslanguage, core::mem::transmute(pttembedinfo.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn TTEnableEmbeddingForFacename<P0>(lpszfacename: P0, benable: bool) -> i32
@@ -2068,22 +2036,22 @@ where
 #[inline]
 pub unsafe fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut u32, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut u32, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const core::ffi::c_void, pttloadinfo: Option<*const TTLOADINFO>) -> i32 {
     windows_targets::link!("t2embed.dll" "system" fn TTGetEmbeddedFontInfo(ulflags : TTEMBED_FLAGS, pulprivstatus : *mut u32, ulprivs : FONT_LICENSE_PRIVS, pulstatus : *mut u32, lpfnreadfromstream : READEMBEDPROC, lpvreadstream : *const core::ffi::c_void, pttloadinfo : *const TTLOADINFO) -> i32);
-    TTGetEmbeddedFontInfo(core::mem::transmute(ulflags), core::mem::transmute(pulprivstatus), core::mem::transmute(ulprivs), core::mem::transmute(pulstatus), core::mem::transmute(lpfnreadfromstream), core::mem::transmute(lpvreadstream), core::mem::transmute(pttloadinfo.unwrap_or(core::mem::zeroed())))
+    TTGetEmbeddedFontInfo(ulflags, core::mem::transmute(pulprivstatus), ulprivs, core::mem::transmute(pulstatus), lpfnreadfromstream, lpvreadstream, core::mem::transmute(pttloadinfo.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn TTGetEmbeddingType(hdc: HDC, pulembedtype: *mut EMBEDDED_FONT_PRIV_STATUS) -> i32 {
     windows_targets::link!("t2embed.dll" "system" fn TTGetEmbeddingType(hdc : HDC, pulembedtype : *mut EMBEDDED_FONT_PRIV_STATUS) -> i32);
-    TTGetEmbeddingType(core::mem::transmute(hdc), core::mem::transmute(pulembedtype))
+    TTGetEmbeddingType(hdc, core::mem::transmute(pulembedtype))
 }
 #[inline]
 pub unsafe fn TTGetNewFontName(phfontreference: *const super::super::Foundation::HANDLE, wzwinfamilyname: &mut [u16], szmacfamilyname: &mut [u8]) -> i32 {
     windows_targets::link!("t2embed.dll" "system" fn TTGetNewFontName(phfontreference : *const super::super::Foundation:: HANDLE, wzwinfamilyname : windows_core::PWSTR, cchmaxwinname : i32, szmacfamilyname : windows_core::PSTR, cchmaxmacname : i32) -> i32);
-    TTGetNewFontName(core::mem::transmute(phfontreference), core::mem::transmute(wzwinfamilyname.as_ptr()), wzwinfamilyname.len().try_into().unwrap(), core::mem::transmute(szmacfamilyname.as_ptr()), szmacfamilyname.len().try_into().unwrap())
+    TTGetNewFontName(phfontreference, core::mem::transmute(wzwinfamilyname.as_ptr()), wzwinfamilyname.len().try_into().unwrap(), core::mem::transmute(szmacfamilyname.as_ptr()), szmacfamilyname.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn TTIsEmbeddingEnabled(hdc: HDC, pbenabled: *mut super::super::Foundation::BOOL) -> i32 {
     windows_targets::link!("t2embed.dll" "system" fn TTIsEmbeddingEnabled(hdc : HDC, pbenabled : *mut super::super::Foundation:: BOOL) -> i32);
-    TTIsEmbeddingEnabled(core::mem::transmute(hdc), core::mem::transmute(pbenabled))
+    TTIsEmbeddingEnabled(hdc, core::mem::transmute(pbenabled))
 }
 #[inline]
 pub unsafe fn TTIsEmbeddingEnabledForFacename<P0>(lpszfacename: P0, pbenabled: *mut super::super::Foundation::BOOL) -> i32
@@ -2100,62 +2068,62 @@ where
     P8: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("t2embed.dll" "system" fn TTLoadEmbeddedFont(phfontreference : *mut super::super::Foundation:: HANDLE, ulflags : u32, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs : FONT_LICENSE_PRIVS, pulstatus : *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream : READEMBEDPROC, lpvreadstream : *const core::ffi::c_void, szwinfamilyname : windows_core::PCWSTR, szmacfamilyname : windows_core::PCSTR, pttloadinfo : *const TTLOADINFO) -> i32);
-    TTLoadEmbeddedFont(core::mem::transmute(phfontreference), core::mem::transmute(ulflags), core::mem::transmute(pulprivstatus), core::mem::transmute(ulprivs), core::mem::transmute(pulstatus), core::mem::transmute(lpfnreadfromstream), core::mem::transmute(lpvreadstream), szwinfamilyname.param().abi(), szmacfamilyname.param().abi(), core::mem::transmute(pttloadinfo.unwrap_or(core::mem::zeroed())))
+    TTLoadEmbeddedFont(core::mem::transmute(phfontreference), ulflags, core::mem::transmute(pulprivstatus), ulprivs, core::mem::transmute(pulstatus), lpfnreadfromstream, lpvreadstream, szwinfamilyname.param().abi(), szmacfamilyname.param().abi(), core::mem::transmute(pttloadinfo.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn TTRunValidationTests(hdc: HDC, ptestparam: *const TTVALIDATIONTESTSPARAMS) -> i32 {
     windows_targets::link!("t2embed.dll" "system" fn TTRunValidationTests(hdc : HDC, ptestparam : *const TTVALIDATIONTESTSPARAMS) -> i32);
-    TTRunValidationTests(core::mem::transmute(hdc), core::mem::transmute(ptestparam))
+    TTRunValidationTests(hdc, ptestparam)
 }
 #[inline]
 pub unsafe fn TTRunValidationTestsEx(hdc: HDC, ptestparam: *const TTVALIDATIONTESTSPARAMSEX) -> i32 {
     windows_targets::link!("t2embed.dll" "system" fn TTRunValidationTestsEx(hdc : HDC, ptestparam : *const TTVALIDATIONTESTSPARAMSEX) -> i32);
-    TTRunValidationTestsEx(core::mem::transmute(hdc), core::mem::transmute(ptestparam))
+    TTRunValidationTestsEx(hdc, ptestparam)
 }
 #[inline]
 pub unsafe fn TabbedTextOutA(hdc: HDC, x: i32, y: i32, lpstring: &[u8], lpntabstoppositions: Option<&[i32]>, ntaborigin: i32) -> i32 {
     windows_targets::link!("user32.dll" "system" fn TabbedTextOutA(hdc : HDC, x : i32, y : i32, lpstring : windows_core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
-    TabbedTextOutA(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpntabstoppositions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpntabstoppositions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(ntaborigin))
+    TabbedTextOutA(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpntabstoppositions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpntabstoppositions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ntaborigin)
 }
 #[inline]
 pub unsafe fn TabbedTextOutW(hdc: HDC, x: i32, y: i32, lpstring: &[u16], lpntabstoppositions: Option<&[i32]>, ntaborigin: i32) -> i32 {
     windows_targets::link!("user32.dll" "system" fn TabbedTextOutW(hdc : HDC, x : i32, y : i32, lpstring : windows_core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
-    TabbedTextOutW(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpntabstoppositions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpntabstoppositions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(ntaborigin))
+    TabbedTextOutW(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpntabstoppositions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpntabstoppositions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ntaborigin)
 }
 #[inline]
 pub unsafe fn TextOutA(hdc: HDC, x: i32, y: i32, lpstring: &[u8]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn TextOutA(hdc : HDC, x : i32, y : i32, lpstring : windows_core::PCSTR, c : i32) -> super::super::Foundation:: BOOL);
-    TextOutA(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap())
+    TextOutA(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn TextOutW(hdc: HDC, x: i32, y: i32, lpstring: &[u16]) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn TextOutW(hdc : HDC, x : i32, y : i32, lpstring : windows_core::PCWSTR, c : i32) -> super::super::Foundation:: BOOL);
-    TextOutW(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap())
+    TextOutW(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn TransparentBlt(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("msimg32.dll" "system" fn TransparentBlt(hdcdest : HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, crtransparent : u32) -> super::super::Foundation:: BOOL);
-    TransparentBlt(core::mem::transmute(hdcdest), core::mem::transmute(xorigindest), core::mem::transmute(yorigindest), core::mem::transmute(wdest), core::mem::transmute(hdest), core::mem::transmute(hdcsrc), core::mem::transmute(xoriginsrc), core::mem::transmute(yoriginsrc), core::mem::transmute(wsrc), core::mem::transmute(hsrc), core::mem::transmute(crtransparent))
+    TransparentBlt(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent)
 }
 #[inline]
 pub unsafe fn UnionRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn UnionRect(lprcdst : *mut super::super::Foundation:: RECT, lprcsrc1 : *const super::super::Foundation:: RECT, lprcsrc2 : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    UnionRect(core::mem::transmute(lprcdst), core::mem::transmute(lprcsrc1), core::mem::transmute(lprcsrc2))
+    UnionRect(core::mem::transmute(lprcdst), lprcsrc1, lprcsrc2)
 }
 #[inline]
 pub unsafe fn UnrealizeObject(h: HGDIOBJ) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn UnrealizeObject(h : HGDIOBJ) -> super::super::Foundation:: BOOL);
-    UnrealizeObject(core::mem::transmute(h))
+    UnrealizeObject(h)
 }
 #[inline]
 pub unsafe fn UpdateColors(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn UpdateColors(hdc : HDC) -> super::super::Foundation:: BOOL);
-    UpdateColors(core::mem::transmute(hdc))
+    UpdateColors(hdc)
 }
 #[inline]
 pub unsafe fn UpdateWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn UpdateWindow(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-    UpdateWindow(core::mem::transmute(hwnd))
+    UpdateWindow(hwnd)
 }
 #[inline]
 pub unsafe fn ValidateRect(hwnd: Option<super::super::Foundation::HWND>, lprect: Option<*const super::super::Foundation::RECT>) -> super::super::Foundation::BOOL {
@@ -2165,22 +2133,22 @@ pub unsafe fn ValidateRect(hwnd: Option<super::super::Foundation::HWND>, lprect:
 #[inline]
 pub unsafe fn ValidateRgn(hwnd: super::super::Foundation::HWND, hrgn: Option<HRGN>) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn ValidateRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN) -> super::super::Foundation:: BOOL);
-    ValidateRgn(core::mem::transmute(hwnd), core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())))
+    ValidateRgn(hwnd, core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn WidenPath(hdc: HDC) -> super::super::Foundation::BOOL {
     windows_targets::link!("gdi32.dll" "system" fn WidenPath(hdc : HDC) -> super::super::Foundation:: BOOL);
-    WidenPath(core::mem::transmute(hdc))
+    WidenPath(hdc)
 }
 #[inline]
 pub unsafe fn WindowFromDC(hdc: HDC) -> super::super::Foundation::HWND {
     windows_targets::link!("user32.dll" "system" fn WindowFromDC(hdc : HDC) -> super::super::Foundation:: HWND);
-    WindowFromDC(core::mem::transmute(hdc))
+    WindowFromDC(hdc)
 }
 #[inline]
 pub unsafe fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32 {
     windows_targets::link!("opengl32.dll" "system" fn wglSwapMultipleBuffers(param0 : u32, param1 : *const WGLSWAP) -> u32);
-    wglSwapMultipleBuffers(core::mem::transmute(param0), core::mem::transmute(param1))
+    wglSwapMultipleBuffers(param0, param1)
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

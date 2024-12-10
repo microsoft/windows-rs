@@ -1,27 +1,27 @@
 #[inline]
 pub unsafe fn CloseHandle(hobject: HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
-    CloseHandle(core::mem::transmute(hobject)).ok()
+    CloseHandle(hobject).ok()
 }
 #[inline]
 pub unsafe fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL {
     windows_targets::link!("api-ms-win-core-handle-l1-1-0.dll" "system" fn CompareObjectHandles(hfirstobjecthandle : HANDLE, hsecondobjecthandle : HANDLE) -> BOOL);
-    CompareObjectHandles(core::mem::transmute(hfirstobjecthandle), core::mem::transmute(hsecondobjecthandle))
+    CompareObjectHandles(hfirstobjecthandle, hsecondobjecthandle)
 }
 #[inline]
 pub unsafe fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: bool, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> BOOL);
-    DuplicateHandle(core::mem::transmute(hsourceprocesshandle), core::mem::transmute(hsourcehandle), core::mem::transmute(htargetprocesshandle), core::mem::transmute(lptargethandle), core::mem::transmute(dwdesiredaccess), binherithandle.into(), core::mem::transmute(dwoptions)).ok()
+    DuplicateHandle(hsourceprocesshandle, hsourcehandle, htargetprocesshandle, core::mem::transmute(lptargethandle), dwdesiredaccess, binherithandle.into(), dwoptions).ok()
 }
 #[inline]
 pub unsafe fn FreeLibrary(hlibmodule: HMODULE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> BOOL);
-    FreeLibrary(core::mem::transmute(hlibmodule)).ok()
+    FreeLibrary(hlibmodule).ok()
 }
 #[inline]
 pub unsafe fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> BOOL);
-    GetHandleInformation(core::mem::transmute(hobject), core::mem::transmute(lpdwflags)).ok()
+    GetHandleInformation(hobject, core::mem::transmute(lpdwflags)).ok()
 }
 #[inline]
 pub unsafe fn GetLastError() -> WIN32_ERROR {
@@ -42,22 +42,22 @@ pub unsafe fn LocalFree(hmem: Option<HLOCAL>) -> HLOCAL {
 #[inline]
 pub unsafe fn RtlNtStatusToDosError(status: NTSTATUS) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlNtStatusToDosError(status : NTSTATUS) -> u32);
-    RtlNtStatusToDosError(core::mem::transmute(status))
+    RtlNtStatusToDosError(status)
 }
 #[inline]
 pub unsafe fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> BOOL);
-    SetHandleInformation(core::mem::transmute(hobject), core::mem::transmute(dwmask), core::mem::transmute(dwflags)).ok()
+    SetHandleInformation(hobject, dwmask, dwflags).ok()
 }
 #[inline]
 pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
     windows_targets::link!("kernel32.dll" "system" fn SetLastError(dwerrcode : WIN32_ERROR));
-    SetLastError(core::mem::transmute(dwerrcode))
+    SetLastError(dwerrcode)
 }
 #[inline]
 pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
     windows_targets::link!("user32.dll" "system" fn SetLastErrorEx(dwerrcode : WIN32_ERROR, dwtype : u32));
-    SetLastErrorEx(core::mem::transmute(dwerrcode), core::mem::transmute(dwtype))
+    SetLastErrorEx(dwerrcode, dwtype)
 }
 #[inline]
 pub unsafe fn SysAddRefString(bstrstring: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -101,7 +101,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut * mut core::ffi::c_void, psz : windows_core::PCWSTR, len : u32) -> i32);
-    SysReAllocStringLen(core::mem::transmute(pbstr), psz.param().abi(), core::mem::transmute(len))
+    SysReAllocStringLen(core::mem::transmute(pbstr), psz.param().abi(), len)
 }
 #[inline]
 pub unsafe fn SysReleaseString(bstrstring: &windows_core::BSTR) {

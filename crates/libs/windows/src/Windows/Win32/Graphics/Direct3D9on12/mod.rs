@@ -2,13 +2,13 @@
 #[inline]
 pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> Option<super::Direct3D9::IDirect3D9> {
     windows_targets::link!("d3d9.dll" "system" fn Direct3DCreate9On12(sdkversion : u32, poverridelist : *mut D3D9ON12_ARGS, numoverrideentries : u32) -> Option < super::Direct3D9:: IDirect3D9 >);
-    Direct3DCreate9On12(core::mem::transmute(sdkversion), core::mem::transmute(poverridelist), core::mem::transmute(numoverrideentries))
+    Direct3DCreate9On12(sdkversion, core::mem::transmute(poverridelist), numoverrideentries)
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut Option<super::Direct3D9::IDirect3D9Ex>) -> windows_core::Result<()> {
     windows_targets::link!("d3d9.dll" "system" fn Direct3DCreate9On12Ex(sdkversion : u32, poverridelist : *mut D3D9ON12_ARGS, numoverrideentries : u32, ppoutputinterface : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    Direct3DCreate9On12Ex(core::mem::transmute(sdkversion), core::mem::transmute(poverridelist), core::mem::transmute(numoverrideentries), core::mem::transmute(ppoutputinterface)).ok()
+    Direct3DCreate9On12Ex(sdkversion, core::mem::transmute(poverridelist), numoverrideentries, core::mem::transmute(ppoutputinterface)).ok()
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -28,7 +28,7 @@ windows_core::imp::define_interface!(IDirect3DDevice9On12, IDirect3DDevice9On12_
 windows_core::imp::interface_hierarchy!(IDirect3DDevice9On12, windows_core::IUnknown);
 impl IDirect3DDevice9On12 {
     pub unsafe fn GetD3D12Device(&self, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetD3D12Device)(windows_core::Interface::as_raw(self), core::mem::transmute(riid), core::mem::transmute(ppvdevice)).ok()
+        (windows_core::Interface::vtable(self).GetD3D12Device)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppvdevice)).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn UnwrapUnderlyingResource<P0, P1>(&self, presource: P0, pcommandqueue: P1, riid: *const windows_core::GUID, ppvresource12: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -36,14 +36,14 @@ impl IDirect3DDevice9On12 {
         P0: windows_core::Param<super::Direct3D9::IDirect3DResource9>,
         P1: windows_core::Param<super::Direct3D12::ID3D12CommandQueue>,
     {
-        (windows_core::Interface::vtable(self).UnwrapUnderlyingResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pcommandqueue.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppvresource12)).ok()
+        (windows_core::Interface::vtable(self).UnwrapUnderlyingResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pcommandqueue.param().abi(), riid, core::mem::transmute(ppvresource12)).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn ReturnUnderlyingResource<P0>(&self, presource: P0, numsync: u32, psignalvalues: *mut u64, ppfences: *mut Option<super::Direct3D12::ID3D12Fence>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Direct3D9::IDirect3DResource9>,
     {
-        (windows_core::Interface::vtable(self).ReturnUnderlyingResource)(windows_core::Interface::as_raw(self), presource.param().abi(), core::mem::transmute(numsync), core::mem::transmute(psignalvalues), core::mem::transmute(ppfences)).ok()
+        (windows_core::Interface::vtable(self).ReturnUnderlyingResource)(windows_core::Interface::as_raw(self), presource.param().abi(), numsync, core::mem::transmute(psignalvalues), core::mem::transmute(ppfences)).ok()
     }
 }
 #[repr(C)]

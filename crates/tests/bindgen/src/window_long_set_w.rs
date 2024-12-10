@@ -18,22 +18,14 @@ pub unsafe fn SetWindowLongPtrW(
     dwnewlong: isize,
 ) -> isize {
     windows_targets::link!("user32.dll" "system" fn SetWindowLongPtrW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : isize) -> isize);
-    SetWindowLongPtrW(
-        core::mem::transmute(hwnd),
-        core::mem::transmute(nindex),
-        core::mem::transmute(dwnewlong),
-    )
+    SetWindowLongPtrW(hwnd, nindex, dwnewlong)
 }
 #[cfg(target_pointer_width = "32")]
 pub use SetWindowLongW as SetWindowLongPtrW;
 #[inline]
 pub unsafe fn SetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: i32) -> i32 {
     windows_targets::link!("user32.dll" "system" fn SetWindowLongW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : i32) -> i32);
-    SetWindowLongW(
-        core::mem::transmute(hwnd),
-        core::mem::transmute(nindex),
-        core::mem::transmute(dwnewlong),
-    )
+    SetWindowLongW(hwnd, nindex, dwnewlong)
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

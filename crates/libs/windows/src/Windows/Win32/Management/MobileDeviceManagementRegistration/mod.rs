@@ -36,7 +36,7 @@ where
 #[inline]
 pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("mdmregistration.dll" "system" fn GetDeviceRegistrationInfo(deviceinformationclass : REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    GetDeviceRegistrationInfo(core::mem::transmute(deviceinformationclass), core::mem::transmute(ppdeviceregistrationinfo)).ok()
+    GetDeviceRegistrationInfo(deviceinformationclass, core::mem::transmute(ppdeviceregistrationinfo)).ok()
 }
 #[inline]
 pub unsafe fn GetManagementAppHyperlink(pszhyperlink: &mut [u16]) -> windows_core::Result<()> {
@@ -78,7 +78,7 @@ where
 #[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADCredentials(usertoken: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagementUsingAADCredentials(usertoken : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    RegisterDeviceWithManagementUsingAADCredentials(core::mem::transmute(usertoken)).ok()
+    RegisterDeviceWithManagementUsingAADCredentials(usertoken).ok()
 }
 #[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> windows_core::Result<()> {

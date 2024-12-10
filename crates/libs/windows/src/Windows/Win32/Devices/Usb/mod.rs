@@ -1,180 +1,180 @@
 #[inline]
 pub unsafe fn WinUsb_AbortPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: u8) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_AbortPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8) -> super::super::Foundation:: BOOL);
-    WinUsb_AbortPipe(core::mem::transmute(interfacehandle), core::mem::transmute(pipeid)).ok()
+    WinUsb_AbortPipe(interfacehandle, pipeid).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WinUsb_ControlTransfer(interfacehandle: WINUSB_INTERFACE_HANDLE, setuppacket: WINUSB_SETUP_PACKET, buffer: Option<&mut [u8]>, lengthtransferred: Option<*mut u32>, overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_ControlTransfer(interfacehandle : WINUSB_INTERFACE_HANDLE, setuppacket : WINUSB_SETUP_PACKET, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_ControlTransfer(core::mem::transmute(interfacehandle), core::mem::transmute(setuppacket), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lengthtransferred.unwrap_or(core::mem::zeroed())), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
+    WinUsb_ControlTransfer(interfacehandle, core::mem::transmute(setuppacket), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lengthtransferred.unwrap_or(core::mem::zeroed())), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_FlushPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: u8) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_FlushPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8) -> super::super::Foundation:: BOOL);
-    WinUsb_FlushPipe(core::mem::transmute(interfacehandle), core::mem::transmute(pipeid)).ok()
+    WinUsb_FlushPipe(interfacehandle, pipeid).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_Free(interfacehandle: WINUSB_INTERFACE_HANDLE) -> super::super::Foundation::BOOL {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_Free(interfacehandle : WINUSB_INTERFACE_HANDLE) -> super::super::Foundation:: BOOL);
-    WinUsb_Free(core::mem::transmute(interfacehandle))
+    WinUsb_Free(interfacehandle)
 }
 #[inline]
 pub unsafe fn WinUsb_GetAdjustedFrameNumber(currentframenumber: *mut u32, timestamp: i64) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_GetAdjustedFrameNumber(currentframenumber : *mut u32, timestamp : i64) -> super::super::Foundation:: BOOL);
-    WinUsb_GetAdjustedFrameNumber(core::mem::transmute(currentframenumber), core::mem::transmute(timestamp)).ok()
+    WinUsb_GetAdjustedFrameNumber(core::mem::transmute(currentframenumber), timestamp).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_GetAssociatedInterface(interfacehandle: WINUSB_INTERFACE_HANDLE, associatedinterfaceindex: u8, associatedinterfacehandle: *mut WINUSB_INTERFACE_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_GetAssociatedInterface(interfacehandle : WINUSB_INTERFACE_HANDLE, associatedinterfaceindex : u8, associatedinterfacehandle : *mut WINUSB_INTERFACE_HANDLE) -> super::super::Foundation:: BOOL);
-    WinUsb_GetAssociatedInterface(core::mem::transmute(interfacehandle), core::mem::transmute(associatedinterfaceindex), core::mem::transmute(associatedinterfacehandle)).ok()
+    WinUsb_GetAssociatedInterface(interfacehandle, associatedinterfaceindex, core::mem::transmute(associatedinterfacehandle)).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_GetCurrentAlternateSetting(interfacehandle: WINUSB_INTERFACE_HANDLE, settingnumber: *mut u8) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_GetCurrentAlternateSetting(interfacehandle : WINUSB_INTERFACE_HANDLE, settingnumber : *mut u8) -> super::super::Foundation:: BOOL);
-    WinUsb_GetCurrentAlternateSetting(core::mem::transmute(interfacehandle), core::mem::transmute(settingnumber)).ok()
+    WinUsb_GetCurrentAlternateSetting(interfacehandle, core::mem::transmute(settingnumber)).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_GetCurrentFrameNumber(interfacehandle: WINUSB_INTERFACE_HANDLE, currentframenumber: *mut u32, timestamp: *mut i64) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_GetCurrentFrameNumber(interfacehandle : WINUSB_INTERFACE_HANDLE, currentframenumber : *mut u32, timestamp : *mut i64) -> super::super::Foundation:: BOOL);
-    WinUsb_GetCurrentFrameNumber(core::mem::transmute(interfacehandle), core::mem::transmute(currentframenumber), core::mem::transmute(timestamp)).ok()
+    WinUsb_GetCurrentFrameNumber(interfacehandle, core::mem::transmute(currentframenumber), core::mem::transmute(timestamp)).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle: WINUSB_INTERFACE_HANDLE, frameqpcinfo: *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle : WINUSB_INTERFACE_HANDLE, frameqpcinfo : *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation:: BOOL);
-    WinUsb_GetCurrentFrameNumberAndQpc(core::mem::transmute(interfacehandle), core::mem::transmute(frameqpcinfo)).ok()
+    WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle, frameqpcinfo).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_GetDescriptor(interfacehandle: WINUSB_INTERFACE_HANDLE, descriptortype: u8, index: u8, languageid: u16, buffer: Option<&mut [u8]>, lengthtransferred: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_GetDescriptor(interfacehandle : WINUSB_INTERFACE_HANDLE, descriptortype : u8, index : u8, languageid : u16, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32) -> super::super::Foundation:: BOOL);
-    WinUsb_GetDescriptor(core::mem::transmute(interfacehandle), core::mem::transmute(descriptortype), core::mem::transmute(index), core::mem::transmute(languageid), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lengthtransferred)).ok()
+    WinUsb_GetDescriptor(interfacehandle, descriptortype, index, languageid, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lengthtransferred)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WinUsb_GetOverlappedResult(interfacehandle: WINUSB_INTERFACE_HANDLE, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: bool) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_GetOverlappedResult(interfacehandle : WINUSB_INTERFACE_HANDLE, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    WinUsb_GetOverlappedResult(core::mem::transmute(interfacehandle), core::mem::transmute(lpoverlapped), core::mem::transmute(lpnumberofbytestransferred), bwait.into()).ok()
+    WinUsb_GetOverlappedResult(interfacehandle, lpoverlapped, core::mem::transmute(lpnumberofbytestransferred), bwait.into()).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_GetPipePolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: u8, policytype: WINUSB_PIPE_POLICY, valuelength: *mut u32, value: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_GetPipePolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, policytype : WINUSB_PIPE_POLICY, valuelength : *mut u32, value : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    WinUsb_GetPipePolicy(core::mem::transmute(interfacehandle), core::mem::transmute(pipeid), core::mem::transmute(policytype), core::mem::transmute(valuelength), core::mem::transmute(value)).ok()
+    WinUsb_GetPipePolicy(interfacehandle, pipeid, policytype, core::mem::transmute(valuelength), core::mem::transmute(value)).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_GetPowerPolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, policytype: WINUSB_POWER_POLICY, valuelength: *mut u32, value: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_GetPowerPolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, policytype : WINUSB_POWER_POLICY, valuelength : *mut u32, value : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    WinUsb_GetPowerPolicy(core::mem::transmute(interfacehandle), core::mem::transmute(policytype), core::mem::transmute(valuelength), core::mem::transmute(value)).ok()
+    WinUsb_GetPowerPolicy(interfacehandle, policytype, core::mem::transmute(valuelength), core::mem::transmute(value)).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_Initialize(devicehandle: super::super::Foundation::HANDLE, interfacehandle: *mut WINUSB_INTERFACE_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_Initialize(devicehandle : super::super::Foundation:: HANDLE, interfacehandle : *mut WINUSB_INTERFACE_HANDLE) -> super::super::Foundation:: BOOL);
-    WinUsb_Initialize(core::mem::transmute(devicehandle), core::mem::transmute(interfacehandle)).ok()
+    WinUsb_Initialize(devicehandle, core::mem::transmute(interfacehandle)).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_ParseConfigurationDescriptor(configurationdescriptor: *const USB_CONFIGURATION_DESCRIPTOR, startposition: *const core::ffi::c_void, interfacenumber: i32, alternatesetting: i32, interfaceclass: i32, interfacesubclass: i32, interfaceprotocol: i32) -> *mut USB_INTERFACE_DESCRIPTOR {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_ParseConfigurationDescriptor(configurationdescriptor : *const USB_CONFIGURATION_DESCRIPTOR, startposition : *const core::ffi::c_void, interfacenumber : i32, alternatesetting : i32, interfaceclass : i32, interfacesubclass : i32, interfaceprotocol : i32) -> *mut USB_INTERFACE_DESCRIPTOR);
-    WinUsb_ParseConfigurationDescriptor(core::mem::transmute(configurationdescriptor), core::mem::transmute(startposition), core::mem::transmute(interfacenumber), core::mem::transmute(alternatesetting), core::mem::transmute(interfaceclass), core::mem::transmute(interfacesubclass), core::mem::transmute(interfaceprotocol))
+    WinUsb_ParseConfigurationDescriptor(configurationdescriptor, startposition, interfacenumber, alternatesetting, interfaceclass, interfacesubclass, interfaceprotocol)
 }
 #[inline]
 pub unsafe fn WinUsb_ParseDescriptors(descriptorbuffer: *const core::ffi::c_void, totallength: u32, startposition: *const core::ffi::c_void, descriptortype: i32) -> *mut USB_COMMON_DESCRIPTOR {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_ParseDescriptors(descriptorbuffer : *const core::ffi::c_void, totallength : u32, startposition : *const core::ffi::c_void, descriptortype : i32) -> *mut USB_COMMON_DESCRIPTOR);
-    WinUsb_ParseDescriptors(core::mem::transmute(descriptorbuffer), core::mem::transmute(totallength), core::mem::transmute(startposition), core::mem::transmute(descriptortype))
+    WinUsb_ParseDescriptors(descriptorbuffer, totallength, startposition, descriptortype)
 }
 #[inline]
 pub unsafe fn WinUsb_QueryDeviceInformation(interfacehandle: WINUSB_INTERFACE_HANDLE, informationtype: u32, bufferlength: *mut u32, buffer: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_QueryDeviceInformation(interfacehandle : WINUSB_INTERFACE_HANDLE, informationtype : u32, bufferlength : *mut u32, buffer : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    WinUsb_QueryDeviceInformation(core::mem::transmute(interfacehandle), core::mem::transmute(informationtype), core::mem::transmute(bufferlength), core::mem::transmute(buffer)).ok()
+    WinUsb_QueryDeviceInformation(interfacehandle, informationtype, core::mem::transmute(bufferlength), core::mem::transmute(buffer)).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_QueryInterfaceSettings(interfacehandle: WINUSB_INTERFACE_HANDLE, alternateinterfacenumber: u8, usbaltinterfacedescriptor: *mut USB_INTERFACE_DESCRIPTOR) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_QueryInterfaceSettings(interfacehandle : WINUSB_INTERFACE_HANDLE, alternateinterfacenumber : u8, usbaltinterfacedescriptor : *mut USB_INTERFACE_DESCRIPTOR) -> super::super::Foundation:: BOOL);
-    WinUsb_QueryInterfaceSettings(core::mem::transmute(interfacehandle), core::mem::transmute(alternateinterfacenumber), core::mem::transmute(usbaltinterfacedescriptor)).ok()
+    WinUsb_QueryInterfaceSettings(interfacehandle, alternateinterfacenumber, core::mem::transmute(usbaltinterfacedescriptor)).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_QueryPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, alternateinterfacenumber: u8, pipeindex: u8, pipeinformation: *mut WINUSB_PIPE_INFORMATION) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_QueryPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, alternateinterfacenumber : u8, pipeindex : u8, pipeinformation : *mut WINUSB_PIPE_INFORMATION) -> super::super::Foundation:: BOOL);
-    WinUsb_QueryPipe(core::mem::transmute(interfacehandle), core::mem::transmute(alternateinterfacenumber), core::mem::transmute(pipeindex), core::mem::transmute(pipeinformation)).ok()
+    WinUsb_QueryPipe(interfacehandle, alternateinterfacenumber, pipeindex, core::mem::transmute(pipeinformation)).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_QueryPipeEx(interfacehandle: WINUSB_INTERFACE_HANDLE, alternatesettingnumber: u8, pipeindex: u8, pipeinformationex: *mut WINUSB_PIPE_INFORMATION_EX) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_QueryPipeEx(interfacehandle : WINUSB_INTERFACE_HANDLE, alternatesettingnumber : u8, pipeindex : u8, pipeinformationex : *mut WINUSB_PIPE_INFORMATION_EX) -> super::super::Foundation:: BOOL);
-    WinUsb_QueryPipeEx(core::mem::transmute(interfacehandle), core::mem::transmute(alternatesettingnumber), core::mem::transmute(pipeindex), core::mem::transmute(pipeinformationex)).ok()
+    WinUsb_QueryPipeEx(interfacehandle, alternatesettingnumber, pipeindex, core::mem::transmute(pipeinformationex)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const core::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, isopacketdescriptors: &mut [USBD_ISO_PACKET_DESCRIPTOR], overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipe(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, framenumber : *mut u32, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_ReadIsochPipe(core::mem::transmute(bufferhandle), core::mem::transmute(offset), core::mem::transmute(length), core::mem::transmute(framenumber), isopacketdescriptors.len().try_into().unwrap(), core::mem::transmute(isopacketdescriptors.as_ptr()), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
+    WinUsb_ReadIsochPipe(bufferhandle, offset, length, core::mem::transmute(framenumber), isopacketdescriptors.len().try_into().unwrap(), core::mem::transmute(isopacketdescriptors.as_ptr()), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipeAsap(bufferhandle: *const core::ffi::c_void, offset: u32, length: u32, continuestream: bool, isopacketdescriptors: &mut [USBD_ISO_PACKET_DESCRIPTOR], overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipeAsap(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, continuestream : super::super::Foundation:: BOOL, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_ReadIsochPipeAsap(core::mem::transmute(bufferhandle), core::mem::transmute(offset), core::mem::transmute(length), continuestream.into(), isopacketdescriptors.len().try_into().unwrap(), core::mem::transmute(isopacketdescriptors.as_ptr()), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
+    WinUsb_ReadIsochPipeAsap(bufferhandle, offset, length, continuestream.into(), isopacketdescriptors.len().try_into().unwrap(), core::mem::transmute(isopacketdescriptors.as_ptr()), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WinUsb_ReadPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: u8, buffer: Option<&mut [u8]>, lengthtransferred: Option<*mut u32>, overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_ReadPipe(core::mem::transmute(interfacehandle), core::mem::transmute(pipeid), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lengthtransferred.unwrap_or(core::mem::zeroed())), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
+    WinUsb_ReadPipe(interfacehandle, pipeid, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lengthtransferred.unwrap_or(core::mem::zeroed())), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_RegisterIsochBuffer(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: u8, buffer: &mut [u8], isochbufferhandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_RegisterIsochBuffer(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *mut u8, bufferlength : u32, isochbufferhandle : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    WinUsb_RegisterIsochBuffer(core::mem::transmute(interfacehandle), core::mem::transmute(pipeid), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(isochbufferhandle)).ok()
+    WinUsb_RegisterIsochBuffer(interfacehandle, pipeid, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(isochbufferhandle)).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_ResetPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: u8) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_ResetPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8) -> super::super::Foundation:: BOOL);
-    WinUsb_ResetPipe(core::mem::transmute(interfacehandle), core::mem::transmute(pipeid)).ok()
+    WinUsb_ResetPipe(interfacehandle, pipeid).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_SetCurrentAlternateSetting(interfacehandle: WINUSB_INTERFACE_HANDLE, settingnumber: u8) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_SetCurrentAlternateSetting(interfacehandle : WINUSB_INTERFACE_HANDLE, settingnumber : u8) -> super::super::Foundation:: BOOL);
-    WinUsb_SetCurrentAlternateSetting(core::mem::transmute(interfacehandle), core::mem::transmute(settingnumber)).ok()
+    WinUsb_SetCurrentAlternateSetting(interfacehandle, settingnumber).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_SetPipePolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: u8, policytype: WINUSB_PIPE_POLICY, valuelength: u32, value: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_SetPipePolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, policytype : WINUSB_PIPE_POLICY, valuelength : u32, value : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    WinUsb_SetPipePolicy(core::mem::transmute(interfacehandle), core::mem::transmute(pipeid), core::mem::transmute(policytype), core::mem::transmute(valuelength), core::mem::transmute(value)).ok()
+    WinUsb_SetPipePolicy(interfacehandle, pipeid, policytype, valuelength, value).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_SetPowerPolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, policytype: WINUSB_POWER_POLICY, valuelength: u32, value: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_SetPowerPolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, policytype : WINUSB_POWER_POLICY, valuelength : u32, value : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    WinUsb_SetPowerPolicy(core::mem::transmute(interfacehandle), core::mem::transmute(policytype), core::mem::transmute(valuelength), core::mem::transmute(value)).ok()
+    WinUsb_SetPowerPolicy(interfacehandle, policytype, valuelength, value).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_StartTrackingForTimeSync(interfacehandle: WINUSB_INTERFACE_HANDLE, starttrackinginfo: *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_StartTrackingForTimeSync(interfacehandle : WINUSB_INTERFACE_HANDLE, starttrackinginfo : *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation:: BOOL);
-    WinUsb_StartTrackingForTimeSync(core::mem::transmute(interfacehandle), core::mem::transmute(starttrackinginfo)).ok()
+    WinUsb_StartTrackingForTimeSync(interfacehandle, starttrackinginfo).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_StopTrackingForTimeSync(interfacehandle: WINUSB_INTERFACE_HANDLE, stoptrackinginfo: *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_StopTrackingForTimeSync(interfacehandle : WINUSB_INTERFACE_HANDLE, stoptrackinginfo : *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation:: BOOL);
-    WinUsb_StopTrackingForTimeSync(core::mem::transmute(interfacehandle), core::mem::transmute(stoptrackinginfo)).ok()
+    WinUsb_StopTrackingForTimeSync(interfacehandle, stoptrackinginfo).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_UnregisterIsochBuffer(isochbufferhandle: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_UnregisterIsochBuffer(isochbufferhandle : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    WinUsb_UnregisterIsochBuffer(core::mem::transmute(isochbufferhandle)).ok()
+    WinUsb_UnregisterIsochBuffer(isochbufferhandle).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WinUsb_WriteIsochPipe(bufferhandle: *const core::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipe(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, framenumber : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_WriteIsochPipe(core::mem::transmute(bufferhandle), core::mem::transmute(offset), core::mem::transmute(length), core::mem::transmute(framenumber), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
+    WinUsb_WriteIsochPipe(bufferhandle, offset, length, core::mem::transmute(framenumber), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WinUsb_WriteIsochPipeAsap(bufferhandle: *const core::ffi::c_void, offset: u32, length: u32, continuestream: bool, overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipeAsap(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, continuestream : super::super::Foundation:: BOOL, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_WriteIsochPipeAsap(core::mem::transmute(bufferhandle), core::mem::transmute(offset), core::mem::transmute(length), continuestream.into(), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
+    WinUsb_WriteIsochPipeAsap(bufferhandle, offset, length, continuestream.into(), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WinUsb_WritePipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: u8, buffer: &[u8], lengthtransferred: Option<*mut u32>, overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_WritePipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *const u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_WritePipe(core::mem::transmute(interfacehandle), core::mem::transmute(pipeid), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(lengthtransferred.unwrap_or(core::mem::zeroed())), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
+    WinUsb_WritePipe(interfacehandle, pipeid, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(lengthtransferred.unwrap_or(core::mem::zeroed())), core::mem::transmute(overlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 pub const ALLOW_PARTIAL_READS: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(5u32);
 pub const ALL_PIPE: PIPE_TYPE = PIPE_TYPE(3i32);

@@ -292,7 +292,7 @@ impl IAutomaticUpdatesSettings {
         (windows_core::Interface::vtable(self).NotificationLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetNotificationLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetNotificationLevel)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -307,14 +307,14 @@ impl IAutomaticUpdatesSettings {
         (windows_core::Interface::vtable(self).ScheduledInstallationDay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetScheduledInstallationDay)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetScheduledInstallationDay)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ScheduledInstallationTime(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ScheduledInstallationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetScheduledInstallationTime(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetScheduledInstallationTime)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetScheduledInstallationTime)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
@@ -462,11 +462,11 @@ impl IAutomaticUpdatesSettings2 {
         (windows_core::Interface::vtable(self).IncludeRecommendedUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetIncludeRecommendedUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIncludeRecommendedUpdates)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetIncludeRecommendedUpdates)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CheckPermission)(windows_core::Interface::as_raw(self), core::mem::transmute(usertype), core::mem::transmute(permissiontype), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CheckPermission)(windows_core::Interface::as_raw(self), usertype, permissiontype, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -541,14 +541,14 @@ impl IAutomaticUpdatesSettings3 {
         (windows_core::Interface::vtable(self).NonAdministratorsElevated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNonAdministratorsElevated(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetNonAdministratorsElevated)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetNonAdministratorsElevated)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn FeaturedUpdatesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FeaturedUpdatesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFeaturedUpdatesEnabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFeaturedUpdatesEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetFeaturedUpdatesEnabled)(windows_core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -815,7 +815,7 @@ windows_core::imp::interface_hierarchy!(ICategoryCollection, windows_core::IUnkn
 impl ICategoryCollection {
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<ICategory> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
@@ -1120,7 +1120,7 @@ impl IDownloadProgress {
     }
     pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateDownloadResult> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), core::mem::transmute(updateindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CurrentUpdateDownloadPhase(&self) -> windows_core::Result<DownloadPhase> {
         let mut result__ = core::mem::zeroed();
@@ -1380,7 +1380,7 @@ impl IDownloadResult {
     }
     pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateDownloadResult> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), core::mem::transmute(updateindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1563,7 +1563,7 @@ impl IInstallationAgent {
     where
         P2: windows_core::Param<IStringCollection>,
     {
-        (windows_core::Interface::vtable(self).RecordInstallationResult)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(installationresultcookie), core::mem::transmute(hresult), extendedreportingdata.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RecordInstallationResult)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(installationresultcookie), hresult, extendedreportingdata.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1916,7 +1916,7 @@ impl IInstallationProgress {
     }
     pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateInstallationResult> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), core::mem::transmute(updateindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2107,7 +2107,7 @@ impl IInstallationResult {
     }
     pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateInstallationResult> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), core::mem::transmute(updateindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2511,10 +2511,10 @@ windows_core::imp::interface_hierarchy!(IStringCollection, windows_core::IUnknow
 impl IStringCollection {
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn put_Item(&self, index: i32, value: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).put_Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute_copy(value)).ok()
+        (windows_core::Interface::vtable(self).put_Item)(windows_core::Interface::as_raw(self), index, core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
@@ -2540,10 +2540,10 @@ impl IStringCollection {
         (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Insert(&self, index: i32, value: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute_copy(value)).ok()
+        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), index, core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn RemoveAt(&self, index: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2829,7 +2829,7 @@ impl IUpdate {
         (windows_core::Interface::vtable(self).IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIsHidden)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetIsHidden)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -2923,7 +2923,7 @@ impl IUpdate {
         (windows_core::Interface::vtable(self).DeploymentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CopyFromCache(&self, path: &windows_core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CopyFromCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), core::mem::transmute(toextractcabfiles)).ok()
+        (windows_core::Interface::vtable(self).CopyFromCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), toextractcabfiles).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority> {
         let mut result__ = core::mem::zeroed();
@@ -3806,13 +3806,13 @@ windows_core::imp::interface_hierarchy!(IUpdateCollection, windows_core::IUnknow
 impl IUpdateCollection {
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IUpdate> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn put_Item<P1>(&self, index: i32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IUpdate>,
     {
-        (windows_core::Interface::vtable(self).put_Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), value.param().abi()).ok()
+        (windows_core::Interface::vtable(self).put_Item)(windows_core::Interface::as_raw(self), index, value.param().abi()).ok()
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
@@ -3844,10 +3844,10 @@ impl IUpdateCollection {
     where
         P1: windows_core::Param<IUpdate>,
     {
-        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), core::mem::transmute(index), value.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), index, value.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4090,7 +4090,7 @@ windows_core::imp::interface_hierarchy!(IUpdateDownloadContentCollection, window
 impl IUpdateDownloadContentCollection {
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateDownloadContent> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
@@ -4251,14 +4251,14 @@ impl IUpdateDownloader {
         (windows_core::Interface::vtable(self).IsForced)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIsForced)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetIsForced)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn Priority(&self) -> windows_core::Result<DownloadPriority> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Priority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPriority(&self, value: DownloadPriority) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetPriority)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
         let mut result__ = core::mem::zeroed();
@@ -4535,7 +4535,7 @@ windows_core::imp::interface_hierarchy!(IUpdateExceptionCollection, windows_core
 impl IUpdateExceptionCollection {
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateException> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
@@ -4943,7 +4943,7 @@ windows_core::imp::interface_hierarchy!(IUpdateHistoryEntryCollection, windows_c
 impl IUpdateHistoryEntryCollection {
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateHistoryEntry> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
@@ -5194,14 +5194,14 @@ impl IUpdateInstaller {
         (windows_core::Interface::vtable(self).IsForced)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIsForced)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetIsForced)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentHwnd(&self) -> windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ParentHwnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetParentHwnd(&self, value: super::super::Foundation::HWND) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetParentHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetParentHwnd)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn SetParentWindow<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -5276,7 +5276,7 @@ impl IUpdateInstaller {
         (windows_core::Interface::vtable(self).AllowSourcePrompts)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAllowSourcePrompts(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAllowSourcePrompts)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetAllowSourcePrompts)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn RebootRequiredBeforeInstallation(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -5565,7 +5565,7 @@ impl IUpdateInstaller2 {
         (windows_core::Interface::vtable(self).ForceQuiet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetForceQuiet(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetForceQuiet)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetForceQuiet)(windows_core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5627,7 +5627,7 @@ impl IUpdateInstaller3 {
         (windows_core::Interface::vtable(self).AttemptCloseAppsIfNecessary)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAttemptCloseAppsIfNecessary(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAttemptCloseAppsIfNecessary)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetAttemptCloseAppsIfNecessary)(windows_core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5685,7 +5685,7 @@ windows_core::imp::interface_hierarchy!(IUpdateInstaller4, windows_core::IUnknow
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstaller4 {
     pub unsafe fn Commit(&self, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), dwflags).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5717,7 +5717,7 @@ windows_core::imp::define_interface!(IUpdateLockdown, IUpdateLockdown_Vtbl, 0xa9
 windows_core::imp::interface_hierarchy!(IUpdateLockdown, windows_core::IUnknown);
 impl IUpdateLockdown {
     pub unsafe fn LockDown(&self, flags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LockDown)(windows_core::Interface::as_raw(self), core::mem::transmute(flags)).ok()
+        (windows_core::Interface::vtable(self).LockDown)(windows_core::Interface::as_raw(self), flags).ok()
     }
 }
 #[repr(C)]
@@ -5759,7 +5759,7 @@ impl IUpdateSearcher {
         (windows_core::Interface::vtable(self).CanAutomaticallyUpgradeService)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCanAutomaticallyUpgradeService(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCanAutomaticallyUpgradeService)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetCanAutomaticallyUpgradeService)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -5773,14 +5773,14 @@ impl IUpdateSearcher {
         (windows_core::Interface::vtable(self).IncludePotentiallySupersededUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetIncludePotentiallySupersededUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIncludePotentiallySupersededUpdates)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetIncludePotentiallySupersededUpdates)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ServerSelection(&self) -> windows_core::Result<ServerSelection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ServerSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetServerSelection)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetServerSelection)(windows_core::Interface::as_raw(self), value).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn BeginSearch<P1>(&self, criteria: &windows_core::BSTR, oncompleted: P1, state: &super::Variant::VARIANT) -> windows_core::Result<ISearchJob>
@@ -5803,7 +5803,7 @@ impl IUpdateSearcher {
     }
     pub unsafe fn QueryHistory(&self, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).QueryHistory)(windows_core::Interface::as_raw(self), core::mem::transmute(startindex), core::mem::transmute(count), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).QueryHistory)(windows_core::Interface::as_raw(self), startindex, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Search(&self, criteria: &windows_core::BSTR) -> windows_core::Result<ISearchResult> {
         let mut result__ = core::mem::zeroed();
@@ -5814,7 +5814,7 @@ impl IUpdateSearcher {
         (windows_core::Interface::vtable(self).Online)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOnline(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOnline)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetOnline)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn GetTotalHistoryCount(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -6068,7 +6068,7 @@ impl IUpdateSearcher2 {
         (windows_core::Interface::vtable(self).IgnoreDownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetIgnoreDownloadPriority(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIgnoreDownloadPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetIgnoreDownloadPriority)(windows_core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6130,7 +6130,7 @@ impl IUpdateSearcher3 {
         (windows_core::Interface::vtable(self).SearchScope)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSearchScope(&self, value: SearchScope) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSearchScope)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetSearchScope)(windows_core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6498,7 +6498,7 @@ windows_core::imp::interface_hierarchy!(IUpdateServiceCollection, windows_core::
 impl IUpdateServiceCollection {
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateService> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
@@ -6601,7 +6601,7 @@ impl IUpdateServiceManager {
     }
     pub unsafe fn AddScanPackageService(&self, servicename: &windows_core::BSTR, scanfilelocation: &windows_core::BSTR, flags: i32) -> windows_core::Result<IUpdateService> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddScanPackageService)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(servicename), core::mem::transmute_copy(scanfilelocation), core::mem::transmute(flags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AddScanPackageService)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(servicename), core::mem::transmute_copy(scanfilelocation), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT) -> windows_core::Result<()> {
@@ -6725,7 +6725,7 @@ impl IUpdateServiceManager2 {
     }
     pub unsafe fn AddService2(&self, serviceid: &windows_core::BSTR, flags: i32, authorizationcabpath: &windows_core::BSTR) -> windows_core::Result<IUpdateServiceRegistration> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddService2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid), core::mem::transmute(flags), core::mem::transmute_copy(authorizationcabpath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AddService2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid), flags, core::mem::transmute_copy(authorizationcabpath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7076,7 +7076,7 @@ impl IUpdateSession2 {
         (windows_core::Interface::vtable(self).UserLocale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetUserLocale(&self, lcid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetUserLocale)(windows_core::Interface::as_raw(self), core::mem::transmute(lcid)).ok()
+        (windows_core::Interface::vtable(self).SetUserLocale)(windows_core::Interface::as_raw(self), lcid).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7139,7 +7139,7 @@ impl IUpdateSession3 {
     }
     pub unsafe fn QueryHistory(&self, criteria: &windows_core::BSTR, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).QueryHistory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(criteria), core::mem::transmute(startindex), core::mem::transmute(count), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).QueryHistory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(criteria), startindex, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7224,7 +7224,7 @@ impl IWebProxy {
         (windows_core::Interface::vtable(self).BypassProxyOnLocal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBypassProxyOnLocal(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBypassProxyOnLocal)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetBypassProxyOnLocal)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -7247,14 +7247,14 @@ impl IWebProxy {
         (windows_core::Interface::vtable(self).PromptForCredentials)(windows_core::Interface::as_raw(self), parentwindow.param().abi(), core::mem::transmute_copy(title)).ok()
     }
     pub unsafe fn PromptForCredentialsFromHwnd(&self, parentwindow: super::super::Foundation::HWND, title: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).PromptForCredentialsFromHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute(parentwindow), core::mem::transmute_copy(title)).ok()
+        (windows_core::Interface::vtable(self).PromptForCredentialsFromHwnd)(windows_core::Interface::as_raw(self), parentwindow, core::mem::transmute_copy(title)).ok()
     }
     pub unsafe fn AutoDetect(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoDetect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAutoDetect(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAutoDetect)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetAutoDetect)(windows_core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8055,7 +8055,7 @@ windows_core::imp::interface_hierarchy!(IWindowsDriverUpdateEntryCollection, win
 impl IWindowsDriverUpdateEntryCollection {
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IWindowsDriverUpdateEntry> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();

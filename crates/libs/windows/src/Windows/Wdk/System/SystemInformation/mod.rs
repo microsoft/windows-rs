@@ -1,7 +1,7 @@
 #[inline]
 pub unsafe fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn NtQuerySystemInformation(systeminformationclass : SYSTEM_INFORMATION_CLASS, systeminformation : *mut core::ffi::c_void, systeminformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtQuerySystemInformation(core::mem::transmute(systeminformationclass), core::mem::transmute(systeminformation), core::mem::transmute(systeminformationlength), core::mem::transmute(returnlength))
+    NtQuerySystemInformation(systeminformationclass, core::mem::transmute(systeminformation), systeminformationlength, core::mem::transmute(returnlength))
 }
 #[inline]
 pub unsafe fn NtQuerySystemTime(systemtime: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -16,7 +16,7 @@ pub unsafe fn NtQueryTimerResolution(maximumtime: *mut u32, minimumtime: *mut u3
 #[inline]
 pub unsafe fn ZwQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn ZwQuerySystemInformation(systeminformationclass : SYSTEM_INFORMATION_CLASS, systeminformation : *mut core::ffi::c_void, systeminformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwQuerySystemInformation(core::mem::transmute(systeminformationclass), core::mem::transmute(systeminformation), core::mem::transmute(systeminformationlength), core::mem::transmute(returnlength))
+    ZwQuerySystemInformation(systeminformationclass, core::mem::transmute(systeminformation), systeminformationlength, core::mem::transmute(returnlength))
 }
 #[inline]
 pub unsafe fn ZwQuerySystemTime(systemtime: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS {

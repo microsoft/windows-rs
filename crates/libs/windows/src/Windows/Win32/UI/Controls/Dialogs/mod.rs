@@ -742,7 +742,7 @@ impl IPrintDialogCallback {
         (windows_core::Interface::vtable(self).SelectionChange)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn HandleMessage(&self, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).HandleMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(hdlg), core::mem::transmute(umsg), core::mem::transmute(wparam), core::mem::transmute(lparam), core::mem::transmute(presult)).ok()
+        (windows_core::Interface::vtable(self).HandleMessage)(windows_core::Interface::as_raw(self), hdlg, umsg, wparam, lparam, core::mem::transmute(presult)).ok()
     }
 }
 #[repr(C)]

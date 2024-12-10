@@ -25,7 +25,7 @@ impl IEnumOfflineFilesItems {
         (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -93,7 +93,7 @@ impl IEnumOfflineFilesSettings {
         (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -162,32 +162,32 @@ impl IOfflineFilesCache {
         P5: windows_core::Param<IOfflineFilesSyncConflictHandler>,
         P6: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).Synchronize)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), basync.into(), core::mem::transmute(dwsynccontrol), pisyncconflicthandler.param().abi(), piprogress.param().abi(), core::mem::transmute(psyncid.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).Synchronize)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), basync.into(), dwsynccontrol, pisyncconflicthandler.param().abi(), piprogress.param().abi(), core::mem::transmute(psyncid.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn DeleteItems<P4>(&self, rgpszpaths: &[windows_core::PCWSTR], dwflags: u32, basync: bool, piprogress: P4) -> windows_core::Result<()>
     where
         P4: windows_core::Param<IOfflineFilesSimpleProgress>,
     {
-        (windows_core::Interface::vtable(self).DeleteItems)(windows_core::Interface::as_raw(self), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), core::mem::transmute(dwflags), basync.into(), piprogress.param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteItems)(windows_core::Interface::as_raw(self), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.into(), piprogress.param().abi()).ok()
     }
     pub unsafe fn DeleteItemsForUser<P0, P5>(&self, pszuser: P0, rgpszpaths: &[windows_core::PCWSTR], dwflags: u32, basync: bool, piprogress: P5) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<IOfflineFilesSimpleProgress>,
     {
-        (windows_core::Interface::vtable(self).DeleteItemsForUser)(windows_core::Interface::as_raw(self), pszuser.param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), core::mem::transmute(dwflags), basync.into(), piprogress.param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteItemsForUser)(windows_core::Interface::as_raw(self), pszuser.param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.into(), piprogress.param().abi()).ok()
     }
     pub unsafe fn Pin<P6>(&self, hwndparent: Option<super::super::Foundation::HWND>, rgpszpaths: &[windows_core::PCWSTR], bdeep: bool, basync: bool, dwpincontrolflags: u32, piprogress: P6) -> windows_core::Result<()>
     where
         P6: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).Pin)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into(), basync.into(), core::mem::transmute(dwpincontrolflags), piprogress.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Pin)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into(), basync.into(), dwpincontrolflags, piprogress.param().abi()).ok()
     }
     pub unsafe fn Unpin<P6>(&self, hwndparent: Option<super::super::Foundation::HWND>, rgpszpaths: &[windows_core::PCWSTR], bdeep: bool, basync: bool, dwpincontrolflags: u32, piprogress: P6) -> windows_core::Result<()>
     where
         P6: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).Unpin)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into(), basync.into(), core::mem::transmute(dwpincontrolflags), piprogress.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Unpin)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into(), basync.into(), dwpincontrolflags, piprogress.param().abi()).ok()
     }
     pub unsafe fn GetEncryptionStatus(&self, pbencrypted: *mut super::super::Foundation::BOOL, pbpartial: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEncryptionStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(pbencrypted), core::mem::transmute(pbpartial)).ok()
@@ -196,14 +196,14 @@ impl IOfflineFilesCache {
     where
         P4: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).Encrypt)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), bencrypt.into(), core::mem::transmute(dwencryptioncontrolflags), basync.into(), piprogress.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Encrypt)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), bencrypt.into(), dwencryptioncontrolflags, basync.into(), piprogress.param().abi()).ok()
     }
     pub unsafe fn FindItem<P0>(&self, pszpath: P0, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItem)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(dwqueryflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindItem)(windows_core::Interface::as_raw(self), pszpath.param().abi(), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindItemEx<P0, P1, P2, P3, P4>(&self, pszpath: P0, pincludefilefilter: P1, pincludedirfilter: P2, pexcludefilefilter: P3, pexcludedirfilter: P4, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>
     where
@@ -214,7 +214,7 @@ impl IOfflineFilesCache {
         P4: windows_core::Param<IOfflineFilesItemFilter>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItemEx)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pincludefilefilter.param().abi(), pincludedirfilter.param().abi(), pexcludefilefilter.param().abi(), pexcludedirfilter.param().abi(), core::mem::transmute(dwqueryflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindItemEx)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pincludefilefilter.param().abi(), pincludedirfilter.param().abi(), pexcludefilefilter.param().abi(), pexcludedirfilter.param().abi(), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RenameItem<P0, P1>(&self, pszpathoriginal: P0, pszpathnew: P1, breplaceifexists: bool) -> windows_core::Result<()>
     where
@@ -231,7 +231,7 @@ impl IOfflineFilesCache {
         (windows_core::Interface::vtable(self).GetDiskSpaceInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pcbvolumetotal), core::mem::transmute(pcblimit), core::mem::transmute(pcbused), core::mem::transmute(pcbunpinnedlimit), core::mem::transmute(pcbunpinnedused)).ok()
     }
     pub unsafe fn SetDiskSpaceLimits(&self, cblimit: u64, cbunpinnedlimit: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDiskSpaceLimits)(windows_core::Interface::as_raw(self), core::mem::transmute(cblimit), core::mem::transmute(cbunpinnedlimit)).ok()
+        (windows_core::Interface::vtable(self).SetDiskSpaceLimits)(windows_core::Interface::as_raw(self), cblimit, cbunpinnedlimit).ok()
     }
     pub unsafe fn ProcessAdminPinPolicy<P0, P1>(&self, ppinprogress: P0, punpinprogress: P1) -> windows_core::Result<()>
     where
@@ -585,14 +585,14 @@ impl IOfflineFilesConnectionInfo {
         (windows_core::Interface::vtable(self).GetConnectState)(windows_core::Interface::as_raw(self), core::mem::transmute(pconnectstate), core::mem::transmute(pofflinereason)).ok()
     }
     pub unsafe fn SetConnectState(&self, hwndparent: Option<super::super::Foundation::HWND>, dwflags: u32, connectstate: OFFLINEFILES_CONNECT_STATE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetConnectState)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), core::mem::transmute(connectstate)).ok()
+        (windows_core::Interface::vtable(self).SetConnectState)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), dwflags, connectstate).ok()
     }
     pub unsafe fn TransitionOnline(&self, hwndparent: Option<super::super::Foundation::HWND>, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).TransitionOnline)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).TransitionOnline)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), dwflags).ok()
     }
     pub unsafe fn TransitionOffline(&self, hwndparent: Option<super::super::Foundation::HWND>, dwflags: u32, bforceopenfilesclosed: bool) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).TransitionOffline)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwflags), bforceopenfilesclosed.into(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).TransitionOffline)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), dwflags, bforceopenfilesclosed.into(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -808,34 +808,34 @@ impl IOfflineFilesEvents {
         (windows_core::Interface::vtable(self).EncryptionChanged)(windows_core::Interface::as_raw(self), bwasencrypted.into(), bwaspartial.into(), bisencrypted.into(), bispartial.into()).ok()
     }
     pub unsafe fn SyncBegin(&self, rsyncid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SyncBegin)(windows_core::Interface::as_raw(self), core::mem::transmute(rsyncid)).ok()
+        (windows_core::Interface::vtable(self).SyncBegin)(windows_core::Interface::as_raw(self), rsyncid).ok()
     }
     pub unsafe fn SyncFileResult<P1>(&self, rsyncid: *const windows_core::GUID, pszfile: P1, hrresult: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SyncFileResult)(windows_core::Interface::as_raw(self), core::mem::transmute(rsyncid), pszfile.param().abi(), core::mem::transmute(hrresult)).ok()
+        (windows_core::Interface::vtable(self).SyncFileResult)(windows_core::Interface::as_raw(self), rsyncid, pszfile.param().abi(), hrresult).ok()
     }
     pub unsafe fn SyncConflictRecAdded<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SyncConflictRecAdded)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), core::mem::transmute(pftconflictdatetime), core::mem::transmute(conflictsyncstate)).ok()
+        (windows_core::Interface::vtable(self).SyncConflictRecAdded)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncConflictRecUpdated<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SyncConflictRecUpdated)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), core::mem::transmute(pftconflictdatetime), core::mem::transmute(conflictsyncstate)).ok()
+        (windows_core::Interface::vtable(self).SyncConflictRecUpdated)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncConflictRecRemoved<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SyncConflictRecRemoved)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), core::mem::transmute(pftconflictdatetime), core::mem::transmute(conflictsyncstate)).ok()
+        (windows_core::Interface::vtable(self).SyncConflictRecRemoved)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncEnd(&self, rsyncid: *const windows_core::GUID, hrresult: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SyncEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(rsyncid), core::mem::transmute(hrresult)).ok()
+        (windows_core::Interface::vtable(self).SyncEnd)(windows_core::Interface::as_raw(self), rsyncid, hrresult).ok()
     }
     pub unsafe fn NetTransportArrived(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).NetTransportArrived)(windows_core::Interface::as_raw(self)).ok()
@@ -847,62 +847,62 @@ impl IOfflineFilesEvents {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemDisconnected)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(itemtype)).ok()
+        (windows_core::Interface::vtable(self).ItemDisconnected)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemReconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemReconnected)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(itemtype)).ok()
+        (windows_core::Interface::vtable(self).ItemReconnected)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(itemtype)).ok()
+        (windows_core::Interface::vtable(self).ItemAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemNotAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(itemtype)).ok()
+        (windows_core::Interface::vtable(self).ItemNotAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemPinned)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(itemtype)).ok()
+        (windows_core::Interface::vtable(self).ItemPinned)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemNotPinned)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(itemtype)).ok()
+        (windows_core::Interface::vtable(self).ItemNotPinned)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemModified<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: bool, bmodifiedattributes: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemModified)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(itemtype), bmodifieddata.into(), bmodifiedattributes.into()).ok()
+        (windows_core::Interface::vtable(self).ItemModified)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype, bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     pub unsafe fn ItemAddedToCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemAddedToCache)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(itemtype)).ok()
+        (windows_core::Interface::vtable(self).ItemAddedToCache)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemDeletedFromCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemDeletedFromCache)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(itemtype)).ok()
+        (windows_core::Interface::vtable(self).ItemDeletedFromCache)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemRenamed<P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemRenamed)(windows_core::Interface::as_raw(self), pszoldpath.param().abi(), psznewpath.param().abi(), core::mem::transmute(itemtype)).ok()
+        (windows_core::Interface::vtable(self).ItemRenamed)(windows_core::Interface::as_raw(self), pszoldpath.param().abi(), psznewpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn DataLost(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DataLost)(windows_core::Interface::as_raw(self)).ok()
@@ -1125,10 +1125,10 @@ impl IOfflineFilesEvents2 {
         (windows_core::Interface::vtable(self).CacheEvictEnd)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn BackgroundSyncBegin(&self, dwsynccontrolflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BackgroundSyncBegin)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsynccontrolflags)).ok()
+        (windows_core::Interface::vtable(self).BackgroundSyncBegin)(windows_core::Interface::as_raw(self), dwsynccontrolflags).ok()
     }
     pub unsafe fn BackgroundSyncEnd(&self, dwsynccontrolflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BackgroundSyncEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsynccontrolflags)).ok()
+        (windows_core::Interface::vtable(self).BackgroundSyncEnd)(windows_core::Interface::as_raw(self), dwsynccontrolflags).ok()
     }
     pub unsafe fn PolicyChangeDetected(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PolicyChangeDetected)(windows_core::Interface::as_raw(self)).ok()
@@ -1234,7 +1234,7 @@ impl IOfflineFilesEvents3 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).TransparentCacheItemNotify)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(eventtype), core::mem::transmute(itemtype), bmodifieddata.into(), bmodifiedattributes.into(), pzsoldpath.param().abi()).ok()
+        (windows_core::Interface::vtable(self).TransparentCacheItemNotify)(windows_core::Interface::as_raw(self), pszpath.param().abi(), eventtype, itemtype, bmodifieddata.into(), bmodifiedattributes.into(), pzsoldpath.param().abi()).ok()
     }
     pub unsafe fn PrefetchFileBegin<P0>(&self, pszpath: P0) -> windows_core::Result<()>
     where
@@ -1246,7 +1246,7 @@ impl IOfflineFilesEvents3 {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PrefetchFileEnd)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(hrresult)).ok()
+        (windows_core::Interface::vtable(self).PrefetchFileEnd)(windows_core::Interface::as_raw(self), pszpath.param().abi(), hrresult).ok()
     }
 }
 #[repr(C)]
@@ -1300,7 +1300,7 @@ impl IOfflineFilesEvents4 {
         (windows_core::Interface::vtable(self).PrefetchCloseHandleBegin)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn PrefetchCloseHandleEnd(&self, dwclosedhandlecount: u32, dwopenhandlecount: u32, hrresult: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).PrefetchCloseHandleEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(dwclosedhandlecount), core::mem::transmute(dwopenhandlecount), core::mem::transmute(hrresult)).ok()
+        (windows_core::Interface::vtable(self).PrefetchCloseHandleEnd)(windows_core::Interface::as_raw(self), dwclosedhandlecount, dwopenhandlecount, hrresult).ok()
     }
 }
 #[repr(C)]
@@ -1447,14 +1447,14 @@ windows_core::imp::interface_hierarchy!(IOfflineFilesFileSysInfo, windows_core::
 impl IOfflineFilesFileSysInfo {
     pub unsafe fn GetAttributes(&self, copy: OFFLINEFILES_ITEM_COPY) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(copy), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAttributes)(windows_core::Interface::as_raw(self), copy, &mut result__).map(|| result__)
     }
     pub unsafe fn GetTimes(&self, copy: OFFLINEFILES_ITEM_COPY, pftcreationtime: *mut super::super::Foundation::FILETIME, pftlastwritetime: *mut super::super::Foundation::FILETIME, pftchangetime: *mut super::super::Foundation::FILETIME, pftlastaccesstime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTimes)(windows_core::Interface::as_raw(self), core::mem::transmute(copy), core::mem::transmute(pftcreationtime), core::mem::transmute(pftlastwritetime), core::mem::transmute(pftchangetime), core::mem::transmute(pftlastaccesstime)).ok()
+        (windows_core::Interface::vtable(self).GetTimes)(windows_core::Interface::as_raw(self), copy, core::mem::transmute(pftcreationtime), core::mem::transmute(pftlastwritetime), core::mem::transmute(pftchangetime), core::mem::transmute(pftlastaccesstime)).ok()
     }
     pub unsafe fn GetFileSize(&self, copy: OFFLINEFILES_ITEM_COPY) -> windows_core::Result<i64> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFileSize)(windows_core::Interface::as_raw(self), core::mem::transmute(copy), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetFileSize)(windows_core::Interface::as_raw(self), copy, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1558,7 +1558,7 @@ impl IOfflineFilesItem {
         (windows_core::Interface::vtable(self).GetParentItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Refresh(&self, dwqueryflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self), core::mem::transmute(dwqueryflags)).ok()
+        (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self), dwqueryflags).ok()
     }
     pub unsafe fn IsMarkedForDeletion(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -1646,7 +1646,7 @@ windows_core::imp::interface_hierarchy!(IOfflineFilesItemContainer, windows_core
 impl IOfflineFilesItemContainer {
     pub unsafe fn EnumItems(&self, dwqueryflags: u32) -> windows_core::Result<IEnumOfflineFilesItems> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumItems)(windows_core::Interface::as_raw(self), core::mem::transmute(dwqueryflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumItems)(windows_core::Interface::as_raw(self), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumItemsEx<P0, P1, P2, P3>(&self, pincludefilefilter: P0, pincludedirfilter: P1, pexcludefilefilter: P2, pexcludedirfilter: P3, dwenumflags: u32, dwqueryflags: u32) -> windows_core::Result<IEnumOfflineFilesItems>
     where
@@ -1656,7 +1656,7 @@ impl IOfflineFilesItemContainer {
         P3: windows_core::Param<IOfflineFilesItemFilter>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumItemsEx)(windows_core::Interface::as_raw(self), pincludefilefilter.param().abi(), pincludedirfilter.param().abi(), pexcludefilefilter.param().abi(), pexcludedirfilter.param().abi(), core::mem::transmute(dwenumflags), core::mem::transmute(dwqueryflags), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumItemsEx)(windows_core::Interface::as_raw(self), pincludefilefilter.param().abi(), pincludedirfilter.param().abi(), pexcludefilefilter.param().abi(), pexcludedirfilter.param().abi(), dwenumflags, dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1884,7 +1884,7 @@ impl IOfflineFilesProgress {
         (windows_core::Interface::vtable(self).QueryAbort)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn End(&self, hrresult: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self), core::mem::transmute(hrresult)).ok()
+        (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self), hrresult).ok()
     }
 }
 #[repr(C)]
@@ -1972,7 +1972,7 @@ impl IOfflineFilesSetting {
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPreference(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, dwscope: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPreference)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarvalue), core::mem::transmute(dwscope)).ok()
+        (windows_core::Interface::vtable(self).GetPreference)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarvalue), dwscope).ok()
     }
     pub unsafe fn GetPreferenceScope(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -1980,14 +1980,14 @@ impl IOfflineFilesSetting {
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPreference(&self, pvarvalue: *const super::super::System::Variant::VARIANT, dwscope: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPreference)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarvalue), core::mem::transmute(dwscope)).ok()
+        (windows_core::Interface::vtable(self).SetPreference)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarvalue), dwscope).ok()
     }
     pub unsafe fn DeletePreference(&self, dwscope: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeletePreference)(windows_core::Interface::as_raw(self), core::mem::transmute(dwscope)).ok()
+        (windows_core::Interface::vtable(self).DeletePreference)(windows_core::Interface::as_raw(self), dwscope).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPolicy(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, dwscope: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPolicy)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarvalue), core::mem::transmute(dwscope)).ok()
+        (windows_core::Interface::vtable(self).GetPolicy)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarvalue), dwscope).ok()
     }
     pub unsafe fn GetPolicyScope(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -2232,7 +2232,7 @@ impl IOfflineFilesSimpleProgress {
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ItemResult)(windows_core::Interface::as_raw(self), pszfile.param().abi(), core::mem::transmute(hrresult), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ItemResult)(windows_core::Interface::as_raw(self), pszfile.param().abi(), hrresult, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -2341,7 +2341,7 @@ impl IOfflineFilesSyncConflictHandler {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ResolveConflict)(windows_core::Interface::as_raw(self), pszpath.param().abi(), core::mem::transmute(fstateknown), core::mem::transmute(state), core::mem::transmute(fchangedetails), core::mem::transmute(pconflictresolution), core::mem::transmute(ppsznewname)).ok()
+        (windows_core::Interface::vtable(self).ResolveConflict)(windows_core::Interface::as_raw(self), pszpath.param().abi(), fstateknown, state, fchangedetails, core::mem::transmute(pconflictresolution), core::mem::transmute(ppsznewname)).ok()
     }
 }
 #[repr(C)]
@@ -2587,7 +2587,7 @@ impl IOfflineFilesSyncProgress {
         P2: windows_core::Param<IOfflineFilesSyncErrorInfo>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SyncItemResult)(windows_core::Interface::as_raw(self), pszfile.param().abi(), core::mem::transmute(hrresult), perrorinfo.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).SyncItemResult)(windows_core::Interface::as_raw(self), pszfile.param().abi(), hrresult, perrorinfo.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

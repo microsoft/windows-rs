@@ -66,7 +66,7 @@ impl IInkD2DRenderer2 {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pd2d1devicecontext.param().abi(), pinkstrokeiterable.param().abi(), core::mem::transmute(highcontrastadjustment)).ok()
+        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pd2d1devicecontext.param().abi(), pinkstrokeiterable.param().abi(), highcontrastadjustment).ok()
     }
 }
 #[repr(C)]
@@ -112,7 +112,7 @@ impl IInkDesktopHost {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateAndInitializeInkPresenter)(windows_core::Interface::as_raw(self), rootvisual.param().abi(), core::mem::transmute(width), core::mem::transmute(height), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateAndInitializeInkPresenter)(windows_core::Interface::as_raw(self), rootvisual.param().abi(), width, height, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -201,7 +201,7 @@ impl IInkPresenterDesktop {
         (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), core::mem::transmute(width), core::mem::transmute(height)).ok()
     }
     pub unsafe fn SetSize(&self, width: f32, height: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), core::mem::transmute(width), core::mem::transmute(height)).ok()
+        (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), width, height).ok()
     }
     pub unsafe fn OnHighContrastChanged(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnHighContrastChanged)(windows_core::Interface::as_raw(self)).ok()

@@ -1,77 +1,77 @@
 #[inline]
 pub unsafe fn EmptyWorkingSet(hprocess: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn EmptyWorkingSet(hprocess : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    EmptyWorkingSet(core::mem::transmute(hprocess)).ok()
+    EmptyWorkingSet(hprocess).ok()
 }
 #[inline]
 pub unsafe fn EnumDeviceDrivers(lpimagebase: *mut *mut core::ffi::c_void, cb: u32, lpcbneeded: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn EnumDeviceDrivers(lpimagebase : *mut *mut core::ffi::c_void, cb : u32, lpcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumDeviceDrivers(core::mem::transmute(lpimagebase), core::mem::transmute(cb), core::mem::transmute(lpcbneeded)).ok()
+    EnumDeviceDrivers(core::mem::transmute(lpimagebase), cb, core::mem::transmute(lpcbneeded)).ok()
 }
 #[inline]
 pub unsafe fn EnumPageFilesA(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKA, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn EnumPageFilesA(pcallbackroutine : PENUM_PAGE_FILE_CALLBACKA, pcontext : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    EnumPageFilesA(core::mem::transmute(pcallbackroutine), core::mem::transmute(pcontext)).ok()
+    EnumPageFilesA(pcallbackroutine, core::mem::transmute(pcontext)).ok()
 }
 #[inline]
 pub unsafe fn EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn EnumPageFilesW(pcallbackroutine : PENUM_PAGE_FILE_CALLBACKW, pcontext : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    EnumPageFilesW(core::mem::transmute(pcallbackroutine), core::mem::transmute(pcontext)).ok()
+    EnumPageFilesW(pcallbackroutine, core::mem::transmute(pcontext)).ok()
 }
 #[inline]
 pub unsafe fn EnumProcessModules(hprocess: super::super::Foundation::HANDLE, lphmodule: *mut super::super::Foundation::HMODULE, cb: u32, lpcbneeded: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn EnumProcessModules(hprocess : super::super::Foundation:: HANDLE, lphmodule : *mut super::super::Foundation:: HMODULE, cb : u32, lpcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumProcessModules(core::mem::transmute(hprocess), core::mem::transmute(lphmodule), core::mem::transmute(cb), core::mem::transmute(lpcbneeded)).ok()
+    EnumProcessModules(hprocess, core::mem::transmute(lphmodule), cb, core::mem::transmute(lpcbneeded)).ok()
 }
 #[inline]
 pub unsafe fn EnumProcessModulesEx(hprocess: super::super::Foundation::HANDLE, lphmodule: *mut super::super::Foundation::HMODULE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn EnumProcessModulesEx(hprocess : super::super::Foundation:: HANDLE, lphmodule : *mut super::super::Foundation:: HMODULE, cb : u32, lpcbneeded : *mut u32, dwfilterflag : ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation:: BOOL);
-    EnumProcessModulesEx(core::mem::transmute(hprocess), core::mem::transmute(lphmodule), core::mem::transmute(cb), core::mem::transmute(lpcbneeded), core::mem::transmute(dwfilterflag)).ok()
+    EnumProcessModulesEx(hprocess, core::mem::transmute(lphmodule), cb, core::mem::transmute(lpcbneeded), dwfilterflag).ok()
 }
 #[inline]
 pub unsafe fn EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn EnumProcesses(lpidprocess : *mut u32, cb : u32, lpcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumProcesses(core::mem::transmute(lpidprocess), core::mem::transmute(cb), core::mem::transmute(lpcbneeded)).ok()
+    EnumProcesses(core::mem::transmute(lpidprocess), cb, core::mem::transmute(lpcbneeded)).ok()
 }
 #[inline]
 pub unsafe fn GetDeviceDriverBaseNameA(imagebase: *const core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     windows_targets::link!("psapi.dll" "system" fn GetDeviceDriverBaseNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
-    GetDeviceDriverBaseNameA(core::mem::transmute(imagebase), core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
+    GetDeviceDriverBaseNameA(imagebase, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetDeviceDriverBaseNameW(imagebase: *const core::ffi::c_void, lpbasename: &mut [u16]) -> u32 {
     windows_targets::link!("psapi.dll" "system" fn GetDeviceDriverBaseNameW(imagebase : *const core::ffi::c_void, lpbasename : windows_core::PWSTR, nsize : u32) -> u32);
-    GetDeviceDriverBaseNameW(core::mem::transmute(imagebase), core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
+    GetDeviceDriverBaseNameW(imagebase, core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetDeviceDriverFileNameA(imagebase: *const core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     windows_targets::link!("psapi.dll" "system" fn GetDeviceDriverFileNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
-    GetDeviceDriverFileNameA(core::mem::transmute(imagebase), core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
+    GetDeviceDriverFileNameA(imagebase, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetDeviceDriverFileNameW(imagebase: *const core::ffi::c_void, lpfilename: &mut [u16]) -> u32 {
     windows_targets::link!("psapi.dll" "system" fn GetDeviceDriverFileNameW(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
-    GetDeviceDriverFileNameW(core::mem::transmute(imagebase), core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
+    GetDeviceDriverFileNameW(imagebase, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetMappedFileNameA(hprocess: super::super::Foundation::HANDLE, lpv: *const core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     windows_targets::link!("psapi.dll" "system" fn GetMappedFileNameA(hprocess : super::super::Foundation:: HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
-    GetMappedFileNameA(core::mem::transmute(hprocess), core::mem::transmute(lpv), core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
+    GetMappedFileNameA(hprocess, lpv, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetMappedFileNameW(hprocess: super::super::Foundation::HANDLE, lpv: *const core::ffi::c_void, lpfilename: &mut [u16]) -> u32 {
     windows_targets::link!("psapi.dll" "system" fn GetMappedFileNameW(hprocess : super::super::Foundation:: HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
-    GetMappedFileNameW(core::mem::transmute(hprocess), core::mem::transmute(lpv), core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
+    GetMappedFileNameW(hprocess, lpv, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetModuleBaseNameA(hprocess: super::super::Foundation::HANDLE, hmodule: Option<super::super::Foundation::HMODULE>, lpbasename: &mut [u8]) -> u32 {
     windows_targets::link!("psapi.dll" "system" fn GetModuleBaseNameA(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : windows_core::PSTR, nsize : u32) -> u32);
-    GetModuleBaseNameA(core::mem::transmute(hprocess), core::mem::transmute(hmodule.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
+    GetModuleBaseNameA(hprocess, core::mem::transmute(hmodule.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetModuleBaseNameW(hprocess: super::super::Foundation::HANDLE, hmodule: Option<super::super::Foundation::HMODULE>, lpbasename: &mut [u16]) -> u32 {
     windows_targets::link!("psapi.dll" "system" fn GetModuleBaseNameW(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : windows_core::PWSTR, nsize : u32) -> u32);
-    GetModuleBaseNameW(core::mem::transmute(hprocess), core::mem::transmute(hmodule.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
+    GetModuleBaseNameW(hprocess, core::mem::transmute(hmodule.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetModuleFileNameExA(hprocess: Option<super::super::Foundation::HANDLE>, hmodule: Option<super::super::Foundation::HMODULE>, lpfilename: &mut [u8]) -> u32 {
@@ -86,117 +86,117 @@ pub unsafe fn GetModuleFileNameExW(hprocess: Option<super::super::Foundation::HA
 #[inline]
 pub unsafe fn GetModuleInformation(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpmodinfo: *mut MODULEINFO, cb: u32) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn GetModuleInformation(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpmodinfo : *mut MODULEINFO, cb : u32) -> super::super::Foundation:: BOOL);
-    GetModuleInformation(core::mem::transmute(hprocess), core::mem::transmute(hmodule), core::mem::transmute(lpmodinfo), core::mem::transmute(cb)).ok()
+    GetModuleInformation(hprocess, hmodule, core::mem::transmute(lpmodinfo), cb).ok()
 }
 #[inline]
 pub unsafe fn GetPerformanceInfo(pperformanceinformation: *mut PERFORMANCE_INFORMATION, cb: u32) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn GetPerformanceInfo(pperformanceinformation : *mut PERFORMANCE_INFORMATION, cb : u32) -> super::super::Foundation:: BOOL);
-    GetPerformanceInfo(core::mem::transmute(pperformanceinformation), core::mem::transmute(cb)).ok()
+    GetPerformanceInfo(core::mem::transmute(pperformanceinformation), cb).ok()
 }
 #[inline]
 pub unsafe fn GetProcessImageFileNameA(hprocess: super::super::Foundation::HANDLE, lpimagefilename: &mut [u8]) -> u32 {
     windows_targets::link!("psapi.dll" "system" fn GetProcessImageFileNameA(hprocess : super::super::Foundation:: HANDLE, lpimagefilename : windows_core::PSTR, nsize : u32) -> u32);
-    GetProcessImageFileNameA(core::mem::transmute(hprocess), core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap())
+    GetProcessImageFileNameA(hprocess, core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetProcessImageFileNameW(hprocess: super::super::Foundation::HANDLE, lpimagefilename: &mut [u16]) -> u32 {
     windows_targets::link!("psapi.dll" "system" fn GetProcessImageFileNameW(hprocess : super::super::Foundation:: HANDLE, lpimagefilename : windows_core::PWSTR, nsize : u32) -> u32);
-    GetProcessImageFileNameW(core::mem::transmute(hprocess), core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap())
+    GetProcessImageFileNameW(hprocess, core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetProcessMemoryInfo(process: super::super::Foundation::HANDLE, ppsmemcounters: *mut PROCESS_MEMORY_COUNTERS, cb: u32) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn GetProcessMemoryInfo(process : super::super::Foundation:: HANDLE, ppsmemcounters : *mut PROCESS_MEMORY_COUNTERS, cb : u32) -> super::super::Foundation:: BOOL);
-    GetProcessMemoryInfo(core::mem::transmute(process), core::mem::transmute(ppsmemcounters), core::mem::transmute(cb)).ok()
+    GetProcessMemoryInfo(process, core::mem::transmute(ppsmemcounters), cb).ok()
 }
 #[inline]
 pub unsafe fn GetWsChanges(hprocess: super::super::Foundation::HANDLE, lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION, cb: u32) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn GetWsChanges(hprocess : super::super::Foundation:: HANDLE, lpwatchinfo : *mut PSAPI_WS_WATCH_INFORMATION, cb : u32) -> super::super::Foundation:: BOOL);
-    GetWsChanges(core::mem::transmute(hprocess), core::mem::transmute(lpwatchinfo), core::mem::transmute(cb)).ok()
+    GetWsChanges(hprocess, core::mem::transmute(lpwatchinfo), cb).ok()
 }
 #[inline]
 pub unsafe fn GetWsChangesEx(hprocess: super::super::Foundation::HANDLE, lpwatchinfoex: *mut PSAPI_WS_WATCH_INFORMATION_EX, cb: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn GetWsChangesEx(hprocess : super::super::Foundation:: HANDLE, lpwatchinfoex : *mut PSAPI_WS_WATCH_INFORMATION_EX, cb : *mut u32) -> super::super::Foundation:: BOOL);
-    GetWsChangesEx(core::mem::transmute(hprocess), core::mem::transmute(lpwatchinfoex), core::mem::transmute(cb)).ok()
+    GetWsChangesEx(hprocess, core::mem::transmute(lpwatchinfoex), core::mem::transmute(cb)).ok()
 }
 #[inline]
 pub unsafe fn InitializeProcessForWsWatch(hprocess: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn InitializeProcessForWsWatch(hprocess : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    InitializeProcessForWsWatch(core::mem::transmute(hprocess)).ok()
+    InitializeProcessForWsWatch(hprocess).ok()
 }
 #[inline]
 pub unsafe fn K32EmptyWorkingSet(hprocess: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32EmptyWorkingSet(hprocess : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    K32EmptyWorkingSet(core::mem::transmute(hprocess))
+    K32EmptyWorkingSet(hprocess)
 }
 #[inline]
 pub unsafe fn K32EnumDeviceDrivers(lpimagebase: *mut *mut core::ffi::c_void, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32EnumDeviceDrivers(lpimagebase : *mut *mut core::ffi::c_void, cb : u32, lpcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    K32EnumDeviceDrivers(core::mem::transmute(lpimagebase), core::mem::transmute(cb), core::mem::transmute(lpcbneeded))
+    K32EnumDeviceDrivers(core::mem::transmute(lpimagebase), cb, core::mem::transmute(lpcbneeded))
 }
 #[inline]
 pub unsafe fn K32EnumPageFilesA(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKA, pcontext: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32EnumPageFilesA(pcallbackroutine : PENUM_PAGE_FILE_CALLBACKA, pcontext : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    K32EnumPageFilesA(core::mem::transmute(pcallbackroutine), core::mem::transmute(pcontext))
+    K32EnumPageFilesA(pcallbackroutine, core::mem::transmute(pcontext))
 }
 #[inline]
 pub unsafe fn K32EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pcontext: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32EnumPageFilesW(pcallbackroutine : PENUM_PAGE_FILE_CALLBACKW, pcontext : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    K32EnumPageFilesW(core::mem::transmute(pcallbackroutine), core::mem::transmute(pcontext))
+    K32EnumPageFilesW(pcallbackroutine, core::mem::transmute(pcontext))
 }
 #[inline]
 pub unsafe fn K32EnumProcessModules(hprocess: super::super::Foundation::HANDLE, lphmodule: *mut super::super::Foundation::HMODULE, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32EnumProcessModules(hprocess : super::super::Foundation:: HANDLE, lphmodule : *mut super::super::Foundation:: HMODULE, cb : u32, lpcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    K32EnumProcessModules(core::mem::transmute(hprocess), core::mem::transmute(lphmodule), core::mem::transmute(cb), core::mem::transmute(lpcbneeded))
+    K32EnumProcessModules(hprocess, core::mem::transmute(lphmodule), cb, core::mem::transmute(lpcbneeded))
 }
 #[inline]
 pub unsafe fn K32EnumProcessModulesEx(hprocess: super::super::Foundation::HANDLE, lphmodule: *mut super::super::Foundation::HMODULE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32EnumProcessModulesEx(hprocess : super::super::Foundation:: HANDLE, lphmodule : *mut super::super::Foundation:: HMODULE, cb : u32, lpcbneeded : *mut u32, dwfilterflag : u32) -> super::super::Foundation:: BOOL);
-    K32EnumProcessModulesEx(core::mem::transmute(hprocess), core::mem::transmute(lphmodule), core::mem::transmute(cb), core::mem::transmute(lpcbneeded), core::mem::transmute(dwfilterflag))
+    K32EnumProcessModulesEx(hprocess, core::mem::transmute(lphmodule), cb, core::mem::transmute(lpcbneeded), dwfilterflag)
 }
 #[inline]
 pub unsafe fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32EnumProcesses(lpidprocess : *mut u32, cb : u32, lpcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    K32EnumProcesses(core::mem::transmute(lpidprocess), core::mem::transmute(cb), core::mem::transmute(lpcbneeded))
+    K32EnumProcesses(core::mem::transmute(lpidprocess), cb, core::mem::transmute(lpcbneeded))
 }
 #[inline]
 pub unsafe fn K32GetDeviceDriverBaseNameA(imagebase: *const core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn K32GetDeviceDriverBaseNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
-    K32GetDeviceDriverBaseNameA(core::mem::transmute(imagebase), core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
+    K32GetDeviceDriverBaseNameA(imagebase, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetDeviceDriverBaseNameW(imagebase: *const core::ffi::c_void, lpbasename: &mut [u16]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn K32GetDeviceDriverBaseNameW(imagebase : *const core::ffi::c_void, lpbasename : windows_core::PWSTR, nsize : u32) -> u32);
-    K32GetDeviceDriverBaseNameW(core::mem::transmute(imagebase), core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
+    K32GetDeviceDriverBaseNameW(imagebase, core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetDeviceDriverFileNameA(imagebase: *const core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn K32GetDeviceDriverFileNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
-    K32GetDeviceDriverFileNameA(core::mem::transmute(imagebase), core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
+    K32GetDeviceDriverFileNameA(imagebase, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetDeviceDriverFileNameW(imagebase: *const core::ffi::c_void, lpfilename: &mut [u16]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn K32GetDeviceDriverFileNameW(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
-    K32GetDeviceDriverFileNameW(core::mem::transmute(imagebase), core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
+    K32GetDeviceDriverFileNameW(imagebase, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetMappedFileNameA(hprocess: super::super::Foundation::HANDLE, lpv: *const core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn K32GetMappedFileNameA(hprocess : super::super::Foundation:: HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
-    K32GetMappedFileNameA(core::mem::transmute(hprocess), core::mem::transmute(lpv), core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
+    K32GetMappedFileNameA(hprocess, lpv, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetMappedFileNameW(hprocess: super::super::Foundation::HANDLE, lpv: *const core::ffi::c_void, lpfilename: &mut [u16]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn K32GetMappedFileNameW(hprocess : super::super::Foundation:: HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
-    K32GetMappedFileNameW(core::mem::transmute(hprocess), core::mem::transmute(lpv), core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
+    K32GetMappedFileNameW(hprocess, lpv, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetModuleBaseNameA(hprocess: super::super::Foundation::HANDLE, hmodule: Option<super::super::Foundation::HMODULE>, lpbasename: &mut [u8]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn K32GetModuleBaseNameA(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : windows_core::PSTR, nsize : u32) -> u32);
-    K32GetModuleBaseNameA(core::mem::transmute(hprocess), core::mem::transmute(hmodule.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
+    K32GetModuleBaseNameA(hprocess, core::mem::transmute(hmodule.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetModuleBaseNameW(hprocess: super::super::Foundation::HANDLE, hmodule: Option<super::super::Foundation::HMODULE>, lpbasename: &mut [u16]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn K32GetModuleBaseNameW(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : windows_core::PWSTR, nsize : u32) -> u32);
-    K32GetModuleBaseNameW(core::mem::transmute(hprocess), core::mem::transmute(hmodule.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
+    K32GetModuleBaseNameW(hprocess, core::mem::transmute(hmodule.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetModuleFileNameExA(hprocess: Option<super::super::Foundation::HANDLE>, hmodule: Option<super::super::Foundation::HMODULE>, lpfilename: &mut [u8]) -> u32 {
@@ -211,62 +211,62 @@ pub unsafe fn K32GetModuleFileNameExW(hprocess: Option<super::super::Foundation:
 #[inline]
 pub unsafe fn K32GetModuleInformation(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpmodinfo: *mut MODULEINFO, cb: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32GetModuleInformation(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpmodinfo : *mut MODULEINFO, cb : u32) -> super::super::Foundation:: BOOL);
-    K32GetModuleInformation(core::mem::transmute(hprocess), core::mem::transmute(hmodule), core::mem::transmute(lpmodinfo), core::mem::transmute(cb))
+    K32GetModuleInformation(hprocess, hmodule, core::mem::transmute(lpmodinfo), cb)
 }
 #[inline]
 pub unsafe fn K32GetPerformanceInfo(pperformanceinformation: *mut PERFORMANCE_INFORMATION, cb: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32GetPerformanceInfo(pperformanceinformation : *mut PERFORMANCE_INFORMATION, cb : u32) -> super::super::Foundation:: BOOL);
-    K32GetPerformanceInfo(core::mem::transmute(pperformanceinformation), core::mem::transmute(cb))
+    K32GetPerformanceInfo(core::mem::transmute(pperformanceinformation), cb)
 }
 #[inline]
 pub unsafe fn K32GetProcessImageFileNameA(hprocess: super::super::Foundation::HANDLE, lpimagefilename: &mut [u8]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn K32GetProcessImageFileNameA(hprocess : super::super::Foundation:: HANDLE, lpimagefilename : windows_core::PSTR, nsize : u32) -> u32);
-    K32GetProcessImageFileNameA(core::mem::transmute(hprocess), core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap())
+    K32GetProcessImageFileNameA(hprocess, core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetProcessImageFileNameW(hprocess: super::super::Foundation::HANDLE, lpimagefilename: &mut [u16]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn K32GetProcessImageFileNameW(hprocess : super::super::Foundation:: HANDLE, lpimagefilename : windows_core::PWSTR, nsize : u32) -> u32);
-    K32GetProcessImageFileNameW(core::mem::transmute(hprocess), core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap())
+    K32GetProcessImageFileNameW(hprocess, core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn K32GetProcessMemoryInfo(process: super::super::Foundation::HANDLE, ppsmemcounters: *mut PROCESS_MEMORY_COUNTERS, cb: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32GetProcessMemoryInfo(process : super::super::Foundation:: HANDLE, ppsmemcounters : *mut PROCESS_MEMORY_COUNTERS, cb : u32) -> super::super::Foundation:: BOOL);
-    K32GetProcessMemoryInfo(core::mem::transmute(process), core::mem::transmute(ppsmemcounters), core::mem::transmute(cb))
+    K32GetProcessMemoryInfo(process, core::mem::transmute(ppsmemcounters), cb)
 }
 #[inline]
 pub unsafe fn K32GetWsChanges(hprocess: super::super::Foundation::HANDLE, lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION, cb: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32GetWsChanges(hprocess : super::super::Foundation:: HANDLE, lpwatchinfo : *mut PSAPI_WS_WATCH_INFORMATION, cb : u32) -> super::super::Foundation:: BOOL);
-    K32GetWsChanges(core::mem::transmute(hprocess), core::mem::transmute(lpwatchinfo), core::mem::transmute(cb))
+    K32GetWsChanges(hprocess, core::mem::transmute(lpwatchinfo), cb)
 }
 #[inline]
 pub unsafe fn K32GetWsChangesEx(hprocess: super::super::Foundation::HANDLE, lpwatchinfoex: *mut PSAPI_WS_WATCH_INFORMATION_EX, cb: *mut u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32GetWsChangesEx(hprocess : super::super::Foundation:: HANDLE, lpwatchinfoex : *mut PSAPI_WS_WATCH_INFORMATION_EX, cb : *mut u32) -> super::super::Foundation:: BOOL);
-    K32GetWsChangesEx(core::mem::transmute(hprocess), core::mem::transmute(lpwatchinfoex), core::mem::transmute(cb))
+    K32GetWsChangesEx(hprocess, core::mem::transmute(lpwatchinfoex), core::mem::transmute(cb))
 }
 #[inline]
 pub unsafe fn K32InitializeProcessForWsWatch(hprocess: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32InitializeProcessForWsWatch(hprocess : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    K32InitializeProcessForWsWatch(core::mem::transmute(hprocess))
+    K32InitializeProcessForWsWatch(hprocess)
 }
 #[inline]
 pub unsafe fn K32QueryWorkingSet(hprocess: super::super::Foundation::HANDLE, pv: *mut core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32QueryWorkingSet(hprocess : super::super::Foundation:: HANDLE, pv : *mut core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
-    K32QueryWorkingSet(core::mem::transmute(hprocess), core::mem::transmute(pv), core::mem::transmute(cb))
+    K32QueryWorkingSet(hprocess, core::mem::transmute(pv), cb)
 }
 #[inline]
 pub unsafe fn K32QueryWorkingSetEx(hprocess: super::super::Foundation::HANDLE, pv: *mut core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn K32QueryWorkingSetEx(hprocess : super::super::Foundation:: HANDLE, pv : *mut core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
-    K32QueryWorkingSetEx(core::mem::transmute(hprocess), core::mem::transmute(pv), core::mem::transmute(cb))
+    K32QueryWorkingSetEx(hprocess, core::mem::transmute(pv), cb)
 }
 #[inline]
 pub unsafe fn QueryWorkingSet(hprocess: super::super::Foundation::HANDLE, pv: *mut core::ffi::c_void, cb: u32) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn QueryWorkingSet(hprocess : super::super::Foundation:: HANDLE, pv : *mut core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
-    QueryWorkingSet(core::mem::transmute(hprocess), core::mem::transmute(pv), core::mem::transmute(cb)).ok()
+    QueryWorkingSet(hprocess, core::mem::transmute(pv), cb).ok()
 }
 #[inline]
 pub unsafe fn QueryWorkingSetEx(hprocess: super::super::Foundation::HANDLE, pv: *mut core::ffi::c_void, cb: u32) -> windows_core::Result<()> {
     windows_targets::link!("psapi.dll" "system" fn QueryWorkingSetEx(hprocess : super::super::Foundation:: HANDLE, pv : *mut core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
-    QueryWorkingSetEx(core::mem::transmute(hprocess), core::mem::transmute(pv), core::mem::transmute(cb)).ok()
+    QueryWorkingSetEx(hprocess, core::mem::transmute(pv), cb).ok()
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

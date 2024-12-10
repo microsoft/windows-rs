@@ -23,13 +23,8 @@ where
 {
     windows_targets::link!("ole32.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, ppagilereference : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    RoGetAgileReference(
-        core::mem::transmute(options),
-        core::mem::transmute(riid),
-        punk.param().abi(),
-        &mut result__,
-    )
-    .and_then(|| windows_core::Type::from_abi(result__))
+    RoGetAgileReference(options, riid, punk.param().abi(), &mut result__)
+        .and_then(|| windows_core::Type::from_abi(result__))
 }
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
 #[repr(transparent)]

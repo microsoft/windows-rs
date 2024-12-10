@@ -89,7 +89,7 @@ windows_core::imp::define_interface!(ILearningModelSessionOptionsNative, ILearni
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative, windows_core::IUnknown);
 impl ILearningModelSessionOptionsNative {
     pub unsafe fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIntraOpNumThreadsOverride)(windows_core::Interface::as_raw(self), core::mem::transmute(intraopnumthreads)).ok()
+        (windows_core::Interface::vtable(self).SetIntraOpNumThreadsOverride)(windows_core::Interface::as_raw(self), intraopnumthreads).ok()
     }
 }
 #[repr(C)]
@@ -117,7 +117,7 @@ windows_core::imp::define_interface!(ILearningModelSessionOptionsNative1, ILearn
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative1, windows_core::IUnknown);
 impl ILearningModelSessionOptionsNative1 {
     pub unsafe fn SetIntraOpThreadSpinning(&self, allowspinning: u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIntraOpThreadSpinning)(windows_core::Interface::as_raw(self), core::mem::transmute(allowspinning)).ok()
+        (windows_core::Interface::vtable(self).SetIntraOpThreadSpinning)(windows_core::Interface::as_raw(self), allowspinning).ok()
     }
 }
 #[repr(C)]
@@ -204,7 +204,7 @@ impl ITensorStaticsNative {
     where
         P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        (windows_core::Interface::vtable(self).CreateFromD3D12Resource)(windows_core::Interface::as_raw(self), value.param().abi(), core::mem::transmute(shape), core::mem::transmute(shapecount), core::mem::transmute(result)).ok()
+        (windows_core::Interface::vtable(self).CreateFromD3D12Resource)(windows_core::Interface::as_raw(self), value.param().abi(), core::mem::transmute(shape), shapecount, core::mem::transmute(result)).ok()
     }
 }
 #[repr(C)]
