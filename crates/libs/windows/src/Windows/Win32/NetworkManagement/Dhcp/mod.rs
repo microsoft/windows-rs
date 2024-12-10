@@ -1,11 +1,10 @@
 #[inline]
-pub unsafe fn DhcpAddFilterV4<P0, P2>(serveripaddress: P0, addfilterinfo: *const DHCP_FILTER_ADD_INFO, forceflag: P2) -> u32
+pub unsafe fn DhcpAddFilterV4<P0>(serveripaddress: P0, addfilterinfo: *const DHCP_FILTER_ADD_INFO, forceflag: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAddFilterV4(serveripaddress : windows_core::PCWSTR, addfilterinfo : *const DHCP_FILTER_ADD_INFO, forceflag : super::super::Foundation:: BOOL) -> u32);
-    DhcpAddFilterV4(serveripaddress.param().abi(), core::mem::transmute(addfilterinfo), forceflag.param().abi())
+    DhcpAddFilterV4(serveripaddress.param().abi(), core::mem::transmute(addfilterinfo), forceflag.into())
 }
 #[inline]
 pub unsafe fn DhcpAddSecurityGroup<P0>(pserver: P0) -> u32
@@ -711,26 +710,22 @@ pub unsafe fn DhcpHlprAddV4PolicyRange(policy: *mut DHCP_POLICY, range: *const D
     DhcpHlprAddV4PolicyRange(core::mem::transmute(policy), core::mem::transmute(range))
 }
 #[inline]
-pub unsafe fn DhcpHlprCreateV4Policy<P0, P1, P5, P6>(policyname: P0, fglobalpolicy: P1, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: P5, enabled: P6, policy: *mut *mut DHCP_POLICY) -> u32
+pub unsafe fn DhcpHlprCreateV4Policy<P0, P5>(policyname: P0, fglobalpolicy: bool, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: P5, enabled: bool, policy: *mut *mut DHCP_POLICY) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P5: windows_core::Param<windows_core::PCWSTR>,
-    P6: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprCreateV4Policy(policyname : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnet : u32, processingorder : u32, rootoperator : DHCP_POL_LOGIC_OPER, description : windows_core::PCWSTR, enabled : super::super::Foundation:: BOOL, policy : *mut *mut DHCP_POLICY) -> u32);
-    DhcpHlprCreateV4Policy(policyname.param().abi(), fglobalpolicy.param().abi(), core::mem::transmute(subnet), core::mem::transmute(processingorder), core::mem::transmute(rootoperator), description.param().abi(), enabled.param().abi(), core::mem::transmute(policy))
+    DhcpHlprCreateV4Policy(policyname.param().abi(), fglobalpolicy.into(), core::mem::transmute(subnet), core::mem::transmute(processingorder), core::mem::transmute(rootoperator), description.param().abi(), enabled.into(), core::mem::transmute(policy))
 }
 #[inline]
-pub unsafe fn DhcpHlprCreateV4PolicyEx<P0, P1, P5, P6>(policyname: P0, fglobalpolicy: P1, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: P5, enabled: P6, policy: *mut *mut DHCP_POLICY_EX) -> u32
+pub unsafe fn DhcpHlprCreateV4PolicyEx<P0, P5>(policyname: P0, fglobalpolicy: bool, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: P5, enabled: bool, policy: *mut *mut DHCP_POLICY_EX) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P5: windows_core::Param<windows_core::PCWSTR>,
-    P6: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprCreateV4PolicyEx(policyname : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnet : u32, processingorder : u32, rootoperator : DHCP_POL_LOGIC_OPER, description : windows_core::PCWSTR, enabled : super::super::Foundation:: BOOL, policy : *mut *mut DHCP_POLICY_EX) -> u32);
-    DhcpHlprCreateV4PolicyEx(policyname.param().abi(), fglobalpolicy.param().abi(), core::mem::transmute(subnet), core::mem::transmute(processingorder), core::mem::transmute(rootoperator), description.param().abi(), enabled.param().abi(), core::mem::transmute(policy))
+    DhcpHlprCreateV4PolicyEx(policyname.param().abi(), fglobalpolicy.into(), core::mem::transmute(subnet), core::mem::transmute(processingorder), core::mem::transmute(rootoperator), description.param().abi(), enabled.into(), core::mem::transmute(policy))
 }
 #[inline]
 pub unsafe fn DhcpHlprFindV4DhcpProperty(propertyarray: *const DHCP_PROPERTY_ARRAY, id: DHCP_PROPERTY_ID, r#type: DHCP_PROPERTY_TYPE) -> *mut DHCP_PROPERTY {
@@ -1235,14 +1230,13 @@ where
     DhcpSetSubnetInfoVQ(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(subnetinfo))
 }
 #[inline]
-pub unsafe fn DhcpSetSuperScopeV4<P0, P2, P3>(serveripaddress: P0, subnetaddress: u32, superscopename: P2, changeexisting: P3) -> u32
+pub unsafe fn DhcpSetSuperScopeV4<P0, P2>(serveripaddress: P0, subnetaddress: u32, superscopename: P2, changeexisting: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetSuperScopeV4(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, superscopename : windows_core::PCWSTR, changeexisting : super::super::Foundation:: BOOL) -> u32);
-    DhcpSetSuperScopeV4(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), superscopename.param().abi(), changeexisting.param().abi())
+    DhcpSetSuperScopeV4(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), superscopename.param().abi(), changeexisting.into())
 }
 #[inline]
 pub unsafe fn DhcpSetThreadOptions(flags: u32, reserved: *mut core::ffi::c_void) -> u32 {
@@ -1300,32 +1294,29 @@ where
     DhcpV4CreatePolicyEx(serveripaddress.param().abi(), core::mem::transmute(policyex))
 }
 #[inline]
-pub unsafe fn DhcpV4DeletePolicy<P0, P1, P3>(serveripaddress: P0, fglobalpolicy: P1, subnetaddress: u32, policyname: P3) -> u32
+pub unsafe fn DhcpV4DeletePolicy<P0, P3>(serveripaddress: P0, fglobalpolicy: bool, subnetaddress: u32, policyname: P3) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4DeletePolicy(serveripaddress : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR) -> u32);
-    DhcpV4DeletePolicy(serveripaddress.param().abi(), fglobalpolicy.param().abi(), core::mem::transmute(subnetaddress), policyname.param().abi())
+    DhcpV4DeletePolicy(serveripaddress.param().abi(), fglobalpolicy.into(), core::mem::transmute(subnetaddress), policyname.param().abi())
 }
 #[inline]
-pub unsafe fn DhcpV4EnumPolicies<P0, P3>(serveripaddress: P0, resumehandle: *mut u32, preferredmaximum: u32, fglobalpolicy: P3, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
+pub unsafe fn DhcpV4EnumPolicies<P0>(serveripaddress: P0, resumehandle: *mut u32, preferredmaximum: u32, fglobalpolicy: bool, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4EnumPolicies(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, enuminfo : *mut *mut DHCP_POLICY_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    DhcpV4EnumPolicies(serveripaddress.param().abi(), core::mem::transmute(resumehandle), core::mem::transmute(preferredmaximum), fglobalpolicy.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(enuminfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
+    DhcpV4EnumPolicies(serveripaddress.param().abi(), core::mem::transmute(resumehandle), core::mem::transmute(preferredmaximum), fglobalpolicy.into(), core::mem::transmute(subnetaddress), core::mem::transmute(enuminfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
 }
 #[inline]
-pub unsafe fn DhcpV4EnumPoliciesEx<P0, P3>(serveripaddress: P0, resumehandle: *mut u32, preferredmaximum: u32, globalpolicy: P3, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_EX_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
+pub unsafe fn DhcpV4EnumPoliciesEx<P0>(serveripaddress: P0, resumehandle: *mut u32, preferredmaximum: u32, globalpolicy: bool, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_EX_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4EnumPoliciesEx(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, globalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, enuminfo : *mut *mut DHCP_POLICY_EX_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    DhcpV4EnumPoliciesEx(serveripaddress.param().abi(), core::mem::transmute(resumehandle), core::mem::transmute(preferredmaximum), globalpolicy.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(enuminfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
+    DhcpV4EnumPoliciesEx(serveripaddress.param().abi(), core::mem::transmute(resumehandle), core::mem::transmute(preferredmaximum), globalpolicy.into(), core::mem::transmute(subnetaddress), core::mem::transmute(enuminfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
 }
 #[inline]
 pub unsafe fn DhcpV4EnumSubnetClients<P0>(serveripaddress: P0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32
@@ -1501,33 +1492,30 @@ where
     DhcpV4GetOptionValue(serveripaddress.param().abi(), core::mem::transmute(flags), core::mem::transmute(optionid), policyname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue))
 }
 #[inline]
-pub unsafe fn DhcpV4GetPolicy<P0, P1, P3>(serveripaddress: P0, fglobalpolicy: P1, subnetaddress: u32, policyname: P3, policy: *mut *mut DHCP_POLICY) -> u32
+pub unsafe fn DhcpV4GetPolicy<P0, P3>(serveripaddress: P0, fglobalpolicy: bool, subnetaddress: u32, policyname: P3, policy: *mut *mut DHCP_POLICY) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetPolicy(serveripaddress : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *mut *mut DHCP_POLICY) -> u32);
-    DhcpV4GetPolicy(serveripaddress.param().abi(), fglobalpolicy.param().abi(), core::mem::transmute(subnetaddress), policyname.param().abi(), core::mem::transmute(policy))
+    DhcpV4GetPolicy(serveripaddress.param().abi(), fglobalpolicy.into(), core::mem::transmute(subnetaddress), policyname.param().abi(), core::mem::transmute(policy))
 }
 #[inline]
-pub unsafe fn DhcpV4GetPolicyEx<P0, P1, P3>(serveripaddress: P0, globalpolicy: P1, subnetaddress: u32, policyname: P3, policy: *mut *mut DHCP_POLICY_EX) -> u32
+pub unsafe fn DhcpV4GetPolicyEx<P0, P3>(serveripaddress: P0, globalpolicy: bool, subnetaddress: u32, policyname: P3, policy: *mut *mut DHCP_POLICY_EX) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetPolicyEx(serveripaddress : windows_core::PCWSTR, globalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *mut *mut DHCP_POLICY_EX) -> u32);
-    DhcpV4GetPolicyEx(serveripaddress.param().abi(), globalpolicy.param().abi(), core::mem::transmute(subnetaddress), policyname.param().abi(), core::mem::transmute(policy))
+    DhcpV4GetPolicyEx(serveripaddress.param().abi(), globalpolicy.into(), core::mem::transmute(subnetaddress), policyname.param().abi(), core::mem::transmute(policy))
 }
 #[inline]
-pub unsafe fn DhcpV4QueryPolicyEnforcement<P0, P1>(serveripaddress: P0, fglobalpolicy: P1, subnetaddress: u32, enabled: *mut super::super::Foundation::BOOL) -> u32
+pub unsafe fn DhcpV4QueryPolicyEnforcement<P0>(serveripaddress: P0, fglobalpolicy: bool, subnetaddress: u32, enabled: *mut super::super::Foundation::BOOL) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4QueryPolicyEnforcement(serveripaddress : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, enabled : *mut super::super::Foundation:: BOOL) -> u32);
-    DhcpV4QueryPolicyEnforcement(serveripaddress.param().abi(), fglobalpolicy.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(enabled))
+    DhcpV4QueryPolicyEnforcement(serveripaddress.param().abi(), fglobalpolicy.into(), core::mem::transmute(subnetaddress), core::mem::transmute(enabled))
 }
 #[inline]
 pub unsafe fn DhcpV4RemoveOptionValue<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, policyname: P3, vendorname: P4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32
@@ -1569,34 +1557,30 @@ where
     DhcpV4SetOptionValues(serveripaddress.param().abi(), core::mem::transmute(flags), policyname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalues))
 }
 #[inline]
-pub unsafe fn DhcpV4SetPolicy<P0, P2, P4>(serveripaddress: P0, fieldsmodified: u32, fglobalpolicy: P2, subnetaddress: u32, policyname: P4, policy: *const DHCP_POLICY) -> u32
+pub unsafe fn DhcpV4SetPolicy<P0, P4>(serveripaddress: P0, fieldsmodified: u32, fglobalpolicy: bool, subnetaddress: u32, policyname: P4, policy: *const DHCP_POLICY) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicy(serveripaddress : windows_core::PCWSTR, fieldsmodified : u32, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *const DHCP_POLICY) -> u32);
-    DhcpV4SetPolicy(serveripaddress.param().abi(), core::mem::transmute(fieldsmodified), fglobalpolicy.param().abi(), core::mem::transmute(subnetaddress), policyname.param().abi(), core::mem::transmute(policy))
+    DhcpV4SetPolicy(serveripaddress.param().abi(), core::mem::transmute(fieldsmodified), fglobalpolicy.into(), core::mem::transmute(subnetaddress), policyname.param().abi(), core::mem::transmute(policy))
 }
 #[inline]
-pub unsafe fn DhcpV4SetPolicyEnforcement<P0, P1, P3>(serveripaddress: P0, fglobalpolicy: P1, subnetaddress: u32, enable: P3) -> u32
+pub unsafe fn DhcpV4SetPolicyEnforcement<P0>(serveripaddress: P0, fglobalpolicy: bool, subnetaddress: u32, enable: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicyEnforcement(serveripaddress : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, enable : super::super::Foundation:: BOOL) -> u32);
-    DhcpV4SetPolicyEnforcement(serveripaddress.param().abi(), fglobalpolicy.param().abi(), core::mem::transmute(subnetaddress), enable.param().abi())
+    DhcpV4SetPolicyEnforcement(serveripaddress.param().abi(), fglobalpolicy.into(), core::mem::transmute(subnetaddress), enable.into())
 }
 #[inline]
-pub unsafe fn DhcpV4SetPolicyEx<P0, P2, P4>(serveripaddress: P0, fieldsmodified: u32, globalpolicy: P2, subnetaddress: u32, policyname: P4, policy: *const DHCP_POLICY_EX) -> u32
+pub unsafe fn DhcpV4SetPolicyEx<P0, P4>(serveripaddress: P0, fieldsmodified: u32, globalpolicy: bool, subnetaddress: u32, policyname: P4, policy: *const DHCP_POLICY_EX) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicyEx(serveripaddress : windows_core::PCWSTR, fieldsmodified : u32, globalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *const DHCP_POLICY_EX) -> u32);
-    DhcpV4SetPolicyEx(serveripaddress.param().abi(), core::mem::transmute(fieldsmodified), globalpolicy.param().abi(), core::mem::transmute(subnetaddress), policyname.param().abi(), core::mem::transmute(policy))
+    DhcpV4SetPolicyEx(serveripaddress.param().abi(), core::mem::transmute(fieldsmodified), globalpolicy.into(), core::mem::transmute(subnetaddress), policyname.param().abi(), core::mem::transmute(policy))
 }
 #[inline]
 pub unsafe fn DhcpV6CreateClientInfo<P0>(serveripaddress: P0, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32
@@ -1623,22 +1607,20 @@ where
     DhcpV6GetStatelessStatistics(serveripaddress.param().abi(), core::mem::transmute(statelessstats))
 }
 #[inline]
-pub unsafe fn DhcpV6GetStatelessStoreParams<P0, P1>(serveripaddress: P0, fserverlevel: P1, subnetaddress: DHCP_IPV6_ADDRESS, params: *mut *mut DHCPV6_STATELESS_PARAMS) -> u32
+pub unsafe fn DhcpV6GetStatelessStoreParams<P0>(serveripaddress: P0, fserverlevel: bool, subnetaddress: DHCP_IPV6_ADDRESS, params: *mut *mut DHCPV6_STATELESS_PARAMS) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV6GetStatelessStoreParams(serveripaddress : windows_core::PCWSTR, fserverlevel : super::super::Foundation:: BOOL, subnetaddress : DHCP_IPV6_ADDRESS, params : *mut *mut DHCPV6_STATELESS_PARAMS) -> u32);
-    DhcpV6GetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(params))
+    DhcpV6GetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.into(), core::mem::transmute(subnetaddress), core::mem::transmute(params))
 }
 #[inline]
-pub unsafe fn DhcpV6SetStatelessStoreParams<P0, P1>(serveripaddress: P0, fserverlevel: P1, subnetaddress: DHCP_IPV6_ADDRESS, fieldmodified: u32, params: *const DHCPV6_STATELESS_PARAMS) -> u32
+pub unsafe fn DhcpV6SetStatelessStoreParams<P0>(serveripaddress: P0, fserverlevel: bool, subnetaddress: DHCP_IPV6_ADDRESS, fieldmodified: u32, params: *const DHCPV6_STATELESS_PARAMS) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV6SetStatelessStoreParams(serveripaddress : windows_core::PCWSTR, fserverlevel : super::super::Foundation:: BOOL, subnetaddress : DHCP_IPV6_ADDRESS, fieldmodified : u32, params : *const DHCPV6_STATELESS_PARAMS) -> u32);
-    DhcpV6SetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(fieldmodified), core::mem::transmute(params))
+    DhcpV6SetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.into(), core::mem::transmute(subnetaddress), core::mem::transmute(fieldmodified), core::mem::transmute(params))
 }
 #[inline]
 pub unsafe fn Dhcpv6CApiCleanup() {
@@ -1667,13 +1649,12 @@ where
     Dhcpv6RenewPrefix(adaptername.param().abi(), core::mem::transmute(pclassid), core::mem::transmute(prefixleaseinfo), core::mem::transmute(pdwtimetowait), core::mem::transmute(bvalidateprefix))
 }
 #[inline]
-pub unsafe fn Dhcpv6RequestParams<P0, P2>(forcenewinform: P0, reserved: *mut core::ffi::c_void, adaptername: P2, classid: *mut DHCPV6CAPI_CLASSID, recdparams: DHCPV6CAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32) -> u32
+pub unsafe fn Dhcpv6RequestParams<P2>(forcenewinform: bool, reserved: *mut core::ffi::c_void, adaptername: P2, classid: *mut DHCPV6CAPI_CLASSID, recdparams: DHCPV6CAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6RequestParams(forcenewinform : super::super::Foundation:: BOOL, reserved : *mut core::ffi::c_void, adaptername : windows_core::PCWSTR, classid : *mut DHCPV6CAPI_CLASSID, recdparams : DHCPV6CAPI_PARAMS_ARRAY, buffer : *mut u8, psize : *mut u32) -> u32);
-    Dhcpv6RequestParams(forcenewinform.param().abi(), core::mem::transmute(reserved), adaptername.param().abi(), core::mem::transmute(classid), core::mem::transmute(recdparams), core::mem::transmute(buffer), core::mem::transmute(psize))
+    Dhcpv6RequestParams(forcenewinform.into(), core::mem::transmute(reserved), adaptername.param().abi(), core::mem::transmute(classid), core::mem::transmute(recdparams), core::mem::transmute(buffer), core::mem::transmute(psize))
 }
 #[inline]
 pub unsafe fn Dhcpv6RequestPrefix<P0>(adaptername: P0, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32) -> u32

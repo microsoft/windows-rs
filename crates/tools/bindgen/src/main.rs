@@ -93,8 +93,6 @@ fn main() {
     test("--out fn_no_return_win.rs --filter FatalExit");
     test("--out fn_no_return_sys.rs --filter FatalExit --sys");
     test("--out fn_result_void_sys.rs --filter SetComputerNameA --sys");
-    // TODO: this requires BOOL extensions which are currently only in the `windows` crate
-    // test("--out fn_result_void_win.rs --filter SetComputerNameA");
 
     // Tests for delegates
     test("--out delegate.rs --filter DeferralCompletedHandler");
@@ -136,6 +134,11 @@ fn main() {
     test("--out reference_struct_sys_filter.rs --sys --filter GAMING_DEVICE_MODEL_INFORMATION");
     test("--out reference_struct_sys_reference_type.rs --sys --filter GAMING_DEVICE_MODEL_INFORMATION --reference windows_sys,skip-root,GAMING_DEVICE_VENDOR_ID");
     test("--out reference_struct_sys_reference_namespace.rs --sys --filter GAMING_DEVICE_MODEL_INFORMATION --reference windows_sys,skip-root,Windows.Win32.Gaming");
+
+    // Tests for BOOL and BOOLEAN parameters
+    // TODO: this requires BOOL extensions which are currently only in the `windows` crate hence the --reference below
+    test("--out bool.rs --filter EnableMouseInPointer --reference windows,skip-root,Windows");
+    test("--out bool_event.rs --filter CreateEventW SetEvent NtWaitForSingleObject WaitForSingleObjectEx --reference windows,skip-root,Windows");
 
     // Tests simulating reference dependency and dependent
     test_raw(

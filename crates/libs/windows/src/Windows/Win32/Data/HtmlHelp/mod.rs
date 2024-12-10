@@ -509,12 +509,11 @@ impl IITDatabase {
     pub unsafe fn GetObject(&self, dwobjinstance: u32, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(dwobjinstance), core::mem::transmute(riid), core::mem::transmute(ppvobj)).ok()
     }
-    pub unsafe fn GetObjectPersistence<P0, P3>(&self, lpwszobject: P0, dwobjinstance: u32, ppvpersistence: *mut *mut core::ffi::c_void, fstream: P3) -> windows_core::Result<()>
+    pub unsafe fn GetObjectPersistence<P0>(&self, lpwszobject: P0, dwobjinstance: u32, ppvpersistence: *mut *mut core::ffi::c_void, fstream: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetObjectPersistence)(windows_core::Interface::as_raw(self), lpwszobject.param().abi(), core::mem::transmute(dwobjinstance), core::mem::transmute(ppvpersistence), fstream.param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetObjectPersistence)(windows_core::Interface::as_raw(self), lpwszobject.param().abi(), core::mem::transmute(dwobjinstance), core::mem::transmute(ppvpersistence), fstream.into()).ok()
     }
 }
 #[repr(C)]
@@ -603,17 +602,11 @@ impl IITPropList {
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetPersist<P0>(&self, fpersist: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetPersist)(windows_core::Interface::as_raw(self), fpersist.param().abi()).ok()
+    pub unsafe fn SetPersist(&self, fpersist: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetPersist)(windows_core::Interface::as_raw(self), fpersist.into()).ok()
     }
-    pub unsafe fn SetPersist2<P1>(&self, propid: u32, fpersist: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetPersist2)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), fpersist.param().abi()).ok()
+    pub unsafe fn SetPersist2(&self, propid: u32, fpersist: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetPersist2)(windows_core::Interface::as_raw(self), core::mem::transmute(propid), fpersist.into()).ok()
     }
     pub unsafe fn GetFirst(&self, property: *mut CProperty) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFirst)(windows_core::Interface::as_raw(self), core::mem::transmute(property)).ok()
@@ -896,11 +889,8 @@ impl IITResultSet {
     pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Pause<P0>(&self, fpause: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self), fpause.param().abi()).ok()
+    pub unsafe fn Pause(&self, fpause: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self), fpause.into()).ok()
     }
     pub unsafe fn GetRowStatus(&self, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRowStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(lrowfirst), core::mem::transmute(crows), core::mem::transmute(lprowstatus)).ok()

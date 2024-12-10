@@ -428,12 +428,9 @@ pub unsafe fn ImmSetHotKey(param0: u32, param1: u32, param2: u32, param3: super:
     ImmSetHotKey(core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(param3))
 }
 #[inline]
-pub unsafe fn ImmSetOpenStatus<P1>(param0: HIMC, param1: P1) -> super::super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-{
+pub unsafe fn ImmSetOpenStatus(param0: HIMC, param1: bool) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("imm32.dll" "system" fn ImmSetOpenStatus(param0 : HIMC, param1 : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    ImmSetOpenStatus(core::mem::transmute(param0), param1.param().abi())
+    ImmSetOpenStatus(core::mem::transmute(param0), param1.into())
 }
 #[inline]
 pub unsafe fn ImmSetStatusWindowPos(param0: HIMC, lpptpos: *const super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
@@ -750,9 +747,6 @@ impl Default for GUIDELINE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIMC(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HIMC {
-    type TypeKind = windows_core::CopyType;
-}
 impl HIMC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -775,9 +769,6 @@ impl Default for HIMC {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIMCC(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HIMCC {
-    type TypeKind = windows_core::CopyType;
-}
 impl HIMCC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -813,11 +804,8 @@ impl IActiveIME {
     pub unsafe fn Escape(&self, himc: HIMC, uescape: u32, pdata: *mut core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), core::mem::transmute(uescape), core::mem::transmute(pdata), core::mem::transmute(plresult)).ok()
     }
-    pub unsafe fn SetActiveContext<P1>(&self, himc: HIMC, fflag: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetActiveContext)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), fflag.param().abi()).ok()
+    pub unsafe fn SetActiveContext(&self, himc: HIMC, fflag: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetActiveContext)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), fflag.into()).ok()
     }
     pub unsafe fn ProcessKey(&self, himc: HIMC, uvirkey: u32, lparam: u32, pbkeystate: *const u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ProcessKey)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), core::mem::transmute(uvirkey), core::mem::transmute(lparam), core::mem::transmute(pbkeystate)).ok()
@@ -825,11 +813,8 @@ impl IActiveIME {
     pub unsafe fn Notify(&self, himc: HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), core::mem::transmute(dwaction), core::mem::transmute(dwindex), core::mem::transmute(dwvalue)).ok()
     }
-    pub unsafe fn Select<P1>(&self, himc: HIMC, fselect: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), fselect.param().abi()).ok()
+    pub unsafe fn Select(&self, himc: HIMC, fselect: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), fselect.into()).ok()
     }
     pub unsafe fn SetCompositionString(&self, himc: HIMC, dwindex: u32, pcomp: *const core::ffi::c_void, dwcomplen: u32, pread: *const core::ffi::c_void, dwreadlen: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCompositionString)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), core::mem::transmute(dwindex), core::mem::transmute(pcomp), core::mem::transmute(dwcomplen), core::mem::transmute(pread), core::mem::transmute(dwreadlen)).ok()
@@ -1043,11 +1028,8 @@ impl IActiveIME2 {
     pub unsafe fn Sleep(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Sleep)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Unsleep<P0>(&self, fdead: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Unsleep)(windows_core::Interface::as_raw(self), fdead.param().abi()).ok()
+    pub unsafe fn Unsleep(&self, fdead: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Unsleep)(windows_core::Interface::as_raw(self), fdead.into()).ok()
     }
 }
 #[repr(C)]
@@ -1304,11 +1286,8 @@ impl IActiveIMMApp {
     pub unsafe fn SetConversionStatus(&self, himc: HIMC, fdwconversion: u32, fdwsentence: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetConversionStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), core::mem::transmute(fdwconversion), core::mem::transmute(fdwsentence)).ok()
     }
-    pub unsafe fn SetOpenStatus<P1>(&self, himc: HIMC, fopen: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetOpenStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), fopen.param().abi()).ok()
+    pub unsafe fn SetOpenStatus(&self, himc: HIMC, fopen: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetOpenStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), fopen.into()).ok()
     }
     pub unsafe fn SetStatusWindowPos(&self, himc: HIMC, pptpos: *const super::super::super::Foundation::POINT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetStatusWindowPos)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), core::mem::transmute(pptpos)).ok()
@@ -1332,11 +1311,8 @@ impl IActiveIMMApp {
     {
         (windows_core::Interface::vtable(self).UnregisterWordW)(windows_core::Interface::as_raw(self), core::mem::transmute(hkl), szreading.param().abi(), core::mem::transmute(dwstyle), szunregister.param().abi()).ok()
     }
-    pub unsafe fn Activate<P0>(&self, frestorelayout: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), frestorelayout.param().abi()).ok()
+    pub unsafe fn Activate(&self, frestorelayout: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), frestorelayout.into()).ok()
     }
     pub unsafe fn Deactivate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self)).ok()
@@ -2277,11 +2253,8 @@ impl IActiveIMMIME {
     pub unsafe fn SetConversionStatus(&self, himc: HIMC, fdwconversion: u32, fdwsentence: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetConversionStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), core::mem::transmute(fdwconversion), core::mem::transmute(fdwsentence)).ok()
     }
-    pub unsafe fn SetOpenStatus<P1>(&self, himc: HIMC, fopen: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetOpenStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), fopen.param().abi()).ok()
+    pub unsafe fn SetOpenStatus(&self, himc: HIMC, fopen: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetOpenStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), fopen.into()).ok()
     }
     pub unsafe fn SetStatusWindowPos(&self, himc: HIMC, pptpos: *const super::super::super::Foundation::POINT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetStatusWindowPos)(windows_core::Interface::as_raw(self), core::mem::transmute(himc), core::mem::transmute(pptpos)).ok()

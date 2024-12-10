@@ -196,11 +196,8 @@ impl ISecurityInformation {
     pub unsafe fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetObjectInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pobjectinfo)).ok()
     }
-    pub unsafe fn GetSecurity<P2>(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(requestedinformation), core::mem::transmute(ppsecuritydescriptor), fdefault.param().abi()).ok()
+    pub unsafe fn GetSecurity(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(requestedinformation), core::mem::transmute(ppsecuritydescriptor), fdefault.into()).ok()
     }
     pub unsafe fn SetSecurity(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(securityinformation), core::mem::transmute(psecuritydescriptor)).ok()

@@ -355,21 +355,15 @@ impl IEventClass2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AllowInprocActivation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.param().abi()).ok()
+    pub unsafe fn SetAllowInprocActivation(&self, fallowinprocactivation: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into()).ok()
     }
     pub unsafe fn FireInParallel(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FireInParallel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetFireInParallel<P0>(&self, ffireinparallel: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetFireInParallel)(windows_core::Interface::as_raw(self), ffireinparallel.param().abi()).ok()
+    pub unsafe fn SetFireInParallel(&self, ffireinparallel: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetFireInParallel)(windows_core::Interface::as_raw(self), ffireinparallel.into()).ok()
     }
 }
 #[repr(C)]
@@ -491,11 +485,8 @@ impl IEventControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AllowInprocActivation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.param().abi()).ok()
+    pub unsafe fn SetAllowInprocActivation(&self, fallowinprocactivation: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into()).ok()
     }
     pub unsafe fn GetSubscriptions(&self, methodname: &windows_core::BSTR, optionalcriteria: &windows_core::BSTR, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection> {
         let mut result__ = core::mem::zeroed();
@@ -1181,11 +1172,8 @@ impl IEventSubscription {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PerUser)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetPerUser<P0>(&self, fperuser: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetPerUser)(windows_core::Interface::as_raw(self), fperuser.param().abi()).ok()
+    pub unsafe fn SetPerUser(&self, fperuser: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetPerUser)(windows_core::Interface::as_raw(self), fperuser.into()).ok()
     }
     pub unsafe fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -1198,11 +1186,8 @@ impl IEventSubscription {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, fenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
+    pub unsafe fn SetEnabled(&self, fenabled: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenabled.into()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -1812,21 +1797,15 @@ impl IMultiInterfaceEventControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AllowInprocActivation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.param().abi()).ok()
+    pub unsafe fn SetAllowInprocActivation(&self, fallowinprocactivation: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into()).ok()
     }
     pub unsafe fn FireInParallel(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FireInParallel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetFireInParallel<P0>(&self, ffireinparallel: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetFireInParallel)(windows_core::Interface::as_raw(self), ffireinparallel.param().abi()).ok()
+    pub unsafe fn SetFireInParallel(&self, ffireinparallel: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetFireInParallel)(windows_core::Interface::as_raw(self), ffireinparallel.into()).ok()
     }
 }
 #[repr(C)]

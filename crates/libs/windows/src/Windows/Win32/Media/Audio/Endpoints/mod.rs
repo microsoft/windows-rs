@@ -313,11 +313,8 @@ impl IAudioEndpointVolume {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetChannelVolumeLevelScalar)(windows_core::Interface::as_raw(self), core::mem::transmute(nchannel), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetMute<P0>(&self, bmute: P0, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.param().abi(), core::mem::transmute(pguideventcontext)).ok()
+    pub unsafe fn SetMute(&self, bmute: bool, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.into(), core::mem::transmute(pguideventcontext)).ok()
     }
     pub unsafe fn GetMute(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -590,11 +587,8 @@ impl windows_core::RuntimeName for IAudioEndpointVolumeEx {}
 windows_core::imp::define_interface!(IAudioLfxControl, IAudioLfxControl_Vtbl, 0x076a6922_d802_4f83_baf6_409d9ca11bfe);
 windows_core::imp::interface_hierarchy!(IAudioLfxControl, windows_core::IUnknown);
 impl IAudioLfxControl {
-    pub unsafe fn SetLocalEffectsState<P0>(&self, benabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetLocalEffectsState)(windows_core::Interface::as_raw(self), benabled.param().abi()).ok()
+    pub unsafe fn SetLocalEffectsState(&self, benabled: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetLocalEffectsState)(windows_core::Interface::as_raw(self), benabled.into()).ok()
     }
     pub unsafe fn GetLocalEffectsState(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -730,12 +724,11 @@ impl IHardwareAudioEngineBase {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(windows_core::Interface::as_raw(self), _pwstrdeviceid.param().abi(), core::mem::transmute(_uconnectorid), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetEngineFormat<P0, P1>(&self, pdevice: P0, _brequestdeviceformat: P1, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>
+    pub unsafe fn GetEngineFormat<P0>(&self, pdevice: P0, _brequestdeviceformat: bool, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::IMMDevice>,
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetEngineFormat)(windows_core::Interface::as_raw(self), pdevice.param().abi(), _brequestdeviceformat.param().abi(), core::mem::transmute(_ppwfxformat)).ok()
+        (windows_core::Interface::vtable(self).GetEngineFormat)(windows_core::Interface::as_raw(self), pdevice.param().abi(), _brequestdeviceformat.into(), core::mem::transmute(_ppwfxformat)).ok()
     }
     pub unsafe fn SetEngineDeviceFormat<P0>(&self, pdevice: P0, _pwfxformat: *mut super::WAVEFORMATEX) -> windows_core::Result<()>
     where
@@ -743,12 +736,11 @@ impl IHardwareAudioEngineBase {
     {
         (windows_core::Interface::vtable(self).SetEngineDeviceFormat)(windows_core::Interface::as_raw(self), pdevice.param().abi(), core::mem::transmute(_pwfxformat)).ok()
     }
-    pub unsafe fn SetGfxState<P0, P1>(&self, pdevice: P0, _benable: P1) -> windows_core::Result<()>
+    pub unsafe fn SetGfxState<P0>(&self, pdevice: P0, _benable: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::IMMDevice>,
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetGfxState)(windows_core::Interface::as_raw(self), pdevice.param().abi(), _benable.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetGfxState)(windows_core::Interface::as_raw(self), pdevice.param().abi(), _benable.into()).ok()
     }
     pub unsafe fn GetGfxState<P0>(&self, pdevice: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
     where

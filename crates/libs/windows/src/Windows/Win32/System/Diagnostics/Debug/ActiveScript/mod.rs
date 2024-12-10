@@ -2571,11 +2571,8 @@ impl IActiveScriptSiteWindow {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn EnableModeless<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).EnableModeless)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
+    pub unsafe fn EnableModeless(&self, fenable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).EnableModeless)(windows_core::Interface::as_raw(self), fenable.into()).ok()
     }
 }
 #[repr(C)]
@@ -4636,13 +4633,12 @@ impl IDebugDocumentHelper32 {
     pub unsafe fn AddDeferredText(&self, cchars: u32, dwtextstartcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddDeferredText)(windows_core::Interface::as_raw(self), core::mem::transmute(cchars), core::mem::transmute(dwtextstartcookie)).ok()
     }
-    pub unsafe fn DefineScriptBlock<P2, P3>(&self, ulcharoffset: u32, cchars: u32, pas: P2, fscriptlet: P3) -> windows_core::Result<u32>
+    pub unsafe fn DefineScriptBlock<P2>(&self, ulcharoffset: u32, cchars: u32, pas: P2, fscriptlet: bool) -> windows_core::Result<u32>
     where
         P2: windows_core::Param<IActiveScript>,
-        P3: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).DefineScriptBlock)(windows_core::Interface::as_raw(self), core::mem::transmute(ulcharoffset), core::mem::transmute(cchars), pas.param().abi(), fscriptlet.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).DefineScriptBlock)(windows_core::Interface::as_raw(self), core::mem::transmute(ulcharoffset), core::mem::transmute(cchars), pas.param().abi(), fscriptlet.into(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDefaultTextAttr(&self, statextattr: u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDefaultTextAttr)(windows_core::Interface::as_raw(self), core::mem::transmute(statextattr)).ok()
@@ -4888,13 +4884,12 @@ impl IDebugDocumentHelper64 {
     pub unsafe fn AddDeferredText(&self, cchars: u32, dwtextstartcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddDeferredText)(windows_core::Interface::as_raw(self), core::mem::transmute(cchars), core::mem::transmute(dwtextstartcookie)).ok()
     }
-    pub unsafe fn DefineScriptBlock<P2, P3>(&self, ulcharoffset: u32, cchars: u32, pas: P2, fscriptlet: P3) -> windows_core::Result<u64>
+    pub unsafe fn DefineScriptBlock<P2>(&self, ulcharoffset: u32, cchars: u32, pas: P2, fscriptlet: bool) -> windows_core::Result<u64>
     where
         P2: windows_core::Param<IActiveScript>,
-        P3: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).DefineScriptBlock)(windows_core::Interface::as_raw(self), core::mem::transmute(ulcharoffset), core::mem::transmute(cchars), pas.param().abi(), fscriptlet.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).DefineScriptBlock)(windows_core::Interface::as_raw(self), core::mem::transmute(ulcharoffset), core::mem::transmute(cchars), pas.param().abi(), fscriptlet.into(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDefaultTextAttr(&self, statextattr: u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDefaultTextAttr)(windows_core::Interface::as_raw(self), core::mem::transmute(statextattr)).ok()
@@ -5992,19 +5987,13 @@ impl IDebugStackFrame {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCodeContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetDescriptionString<P0>(&self, flong: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<super::super::super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn GetDescriptionString(&self, flong: bool) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDescriptionString)(windows_core::Interface::as_raw(self), flong.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetDescriptionString)(windows_core::Interface::as_raw(self), flong.into(), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn GetLanguageString<P0>(&self, flong: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<super::super::super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn GetLanguageString(&self, flong: bool) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetLanguageString)(windows_core::Interface::as_raw(self), flong.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetLanguageString)(windows_core::Interface::as_raw(self), flong.into(), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn GetThread(&self) -> windows_core::Result<IDebugApplicationThread> {
         let mut result__ = core::mem::zeroed();
@@ -7259,12 +7248,9 @@ impl IJsDebugProcess {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateStackWalker)(windows_core::Interface::as_raw(self), core::mem::transmute(threadid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateBreakPoint<P3>(&self, documentid: u64, characteroffset: u32, charactercount: u32, isenabled: P3) -> windows_core::Result<IJsDebugBreakPoint>
-    where
-        P3: windows_core::Param<super::super::super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn CreateBreakPoint(&self, documentid: u64, characteroffset: u32, charactercount: u32, isenabled: bool) -> windows_core::Result<IJsDebugBreakPoint> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateBreakPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(documentid), core::mem::transmute(characteroffset), core::mem::transmute(charactercount), isenabled.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateBreakPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(documentid), core::mem::transmute(characteroffset), core::mem::transmute(charactercount), isenabled.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn PerformAsyncBreak(&self, threadid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PerformAsyncBreak)(windows_core::Interface::as_raw(self), core::mem::transmute(threadid)).ok()

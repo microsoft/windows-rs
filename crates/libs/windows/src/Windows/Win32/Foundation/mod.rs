@@ -9,12 +9,9 @@ pub unsafe fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthand
     CompareObjectHandles(core::mem::transmute(hfirstobjecthandle), core::mem::transmute(hsecondobjecthandle))
 }
 #[inline]
-pub unsafe fn DuplicateHandle<P5>(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P5, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::Result<()>
-where
-    P5: windows_core::Param<BOOL>,
-{
+pub unsafe fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: bool, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> BOOL);
-    DuplicateHandle(core::mem::transmute(hsourceprocesshandle), core::mem::transmute(hsourcehandle), core::mem::transmute(htargetprocesshandle), core::mem::transmute(lptargethandle), core::mem::transmute(dwdesiredaccess), binherithandle.param().abi(), core::mem::transmute(dwoptions)).ok()
+    DuplicateHandle(core::mem::transmute(hsourceprocesshandle), core::mem::transmute(hsourcehandle), core::mem::transmute(htargetprocesshandle), core::mem::transmute(lptargethandle), core::mem::transmute(dwdesiredaccess), binherithandle.into(), core::mem::transmute(dwoptions)).ok()
 }
 #[inline]
 pub unsafe fn FreeLibrary(hlibmodule: HMODULE) -> windows_core::Result<()> {
@@ -170,15 +167,9 @@ pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct BOOL(pub i32);
-impl windows_core::TypeKind for BOOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct BOOLEAN(pub u8);
-impl windows_core::TypeKind for BOOLEAN {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BT_E_SPURIOUS_ACTIVATION: windows_core::HRESULT = windows_core::HRESULT(0x80080300_u32 as _);
 pub const CACHE_E_FIRST: i32 = -2147221136i32;
 pub const CACHE_E_LAST: i32 = -2147221121i32;
@@ -333,9 +324,6 @@ pub const CLIPBRD_S_LAST: i32 = 262623i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct COLORREF(pub u32);
-impl windows_core::TypeKind for COLORREF {
-    type TypeKind = windows_core::CopyType;
-}
 pub const COMADMIN_E_ALREADYINSTALLED: windows_core::HRESULT = windows_core::HRESULT(0x80110404_u32 as _);
 pub const COMADMIN_E_AMBIGUOUS_APPLICATION_NAME: windows_core::HRESULT = windows_core::HRESULT(0x8011045C_u32 as _);
 pub const COMADMIN_E_AMBIGUOUS_PARTITION_NAME: windows_core::HRESULT = windows_core::HRESULT(0x8011045D_u32 as _);
@@ -5333,9 +5321,6 @@ pub const GENERIC_WRITE: GENERIC_ACCESS_RIGHTS = GENERIC_ACCESS_RIGHTS(107374182
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5396,9 +5381,6 @@ pub const HANDLE_FLAG_PROTECT_FROM_CLOSE: HANDLE_FLAGS = HANDLE_FLAGS(2u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HANDLE_PTR(pub usize);
-impl windows_core::TypeKind for HANDLE_PTR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HCN_E_ADAPTER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0006_u32 as _);
 pub const HCN_E_ADDR_INVALID_OR_RESERVED: windows_core::HRESULT = windows_core::HRESULT(0x803B002F_u32 as _);
 pub const HCN_E_DEGRADED_OPERATION: windows_core::HRESULT = windows_core::HRESULT(0x803B0017_u32 as _);
@@ -5480,9 +5462,6 @@ pub const HCS_E_WINDOWS_INSIDER_REQUIRED: windows_core::HRESULT = windows_core::
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGLOBAL(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HGLOBAL {
-    type TypeKind = windows_core::CopyType;
-}
 impl HGLOBAL {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5505,9 +5484,6 @@ impl Default for HGLOBAL {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HINSTANCE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HINSTANCE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HINSTANCE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -5536,9 +5512,6 @@ impl From<HINSTANCE> for HMODULE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HLOCAL(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HLOCAL {
-    type TypeKind = windows_core::CopyType;
-}
 impl HLOCAL {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5561,9 +5534,6 @@ impl Default for HLOCAL {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HLSURF(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HLSURF {
-    type TypeKind = windows_core::CopyType;
-}
 impl HLSURF {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -5577,9 +5547,6 @@ impl Default for HLSURF {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMODULE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMODULE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HMODULE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -5608,9 +5575,6 @@ impl From<HMODULE> for HINSTANCE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRSRC(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HRSRC {
-    type TypeKind = windows_core::CopyType;
-}
 impl HRSRC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5624,9 +5588,6 @@ impl Default for HRSRC {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSPRITE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HSPRITE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HSPRITE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -5668,9 +5629,6 @@ pub const HSP_KSP_PARAMETER_NOT_SET: windows_core::HRESULT = windows_core::HRESU
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSTR(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HSTR {
-    type TypeKind = windows_core::CopyType;
-}
 impl HSTR {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -5719,9 +5677,6 @@ pub const HTTP_E_STATUS_VERSION_NOT_SUP: windows_core::HRESULT = windows_core::H
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HUMPD(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HUMPD {
-    type TypeKind = windows_core::CopyType;
-}
 impl HUMPD {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -5735,9 +5690,6 @@ impl Default for HUMPD {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWND(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HWND {
-    type TypeKind = windows_core::CopyType;
-}
 impl HWND {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -5876,15 +5828,9 @@ pub const LANGUAGE_S_LARGE_WORD: windows_core::HRESULT = windows_core::HRESULT(0
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPARAM(pub isize);
-impl windows_core::TypeKind for LPARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LRESULT(pub isize);
-impl windows_core::TypeKind for LRESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LUID {
@@ -6172,9 +6118,6 @@ pub const NTE_VALIDATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NTSTATUS(pub i32);
-impl windows_core::TypeKind for NTSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTSTATUS_FACILITY_CODE(pub u32);
@@ -7030,9 +6973,6 @@ pub const SEVERITY_SUCCESS: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SHANDLE_PTR(pub isize);
-impl windows_core::TypeKind for SHANDLE_PTR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SIZE {
@@ -10589,9 +10529,6 @@ pub const UTC_E_WINRT_INIT_FAILED: windows_core::HRESULT = windows_core::HRESULT
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct VARIANT_BOOL(pub i16);
-impl windows_core::TypeKind for VARIANT_BOOL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VARIANT_FALSE: VARIANT_BOOL = VARIANT_BOOL(0i16);
 pub const VARIANT_TRUE: VARIANT_BOOL = VARIANT_BOOL(-1i16);
 pub const VIEW_E_DRAW: windows_core::HRESULT = windows_core::HRESULT(0x80040140_u32 as _);
@@ -10809,9 +10746,6 @@ pub const WINVER_MAXVER: u32 = 2560u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WPARAM(pub usize);
-impl windows_core::TypeKind for WPARAM {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WPN_E_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x803E0117_u32 as _);
 pub const WPN_E_ALL_URL_NOT_COMPLETED: windows_core::HRESULT = windows_core::HRESULT(0x803E0203_u32 as _);
 pub const WPN_E_CALLBACK_ALREADY_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x803E0206_u32 as _);

@@ -386,41 +386,35 @@ pub unsafe fn OfferVirtualMemory(virtualaddress: &mut [u8], priority: OFFER_PRIO
     OfferVirtualMemory(core::mem::transmute(virtualaddress.as_ptr()), virtualaddress.len().try_into().unwrap(), core::mem::transmute(priority))
 }
 #[inline]
-pub unsafe fn OpenDedicatedMemoryPartition<P3>(partition: super::super::Foundation::HANDLE, dedicatedmemorytypeid: u64, desiredaccess: u32, inherithandle: P3) -> super::super::Foundation::HANDLE
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn OpenDedicatedMemoryPartition(partition: super::super::Foundation::HANDLE, dedicatedmemorytypeid: u64, desiredaccess: u32, inherithandle: bool) -> super::super::Foundation::HANDLE {
     windows_targets::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn OpenDedicatedMemoryPartition(partition : super::super::Foundation:: HANDLE, dedicatedmemorytypeid : u64, desiredaccess : u32, inherithandle : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
-    OpenDedicatedMemoryPartition(core::mem::transmute(partition), core::mem::transmute(dedicatedmemorytypeid), core::mem::transmute(desiredaccess), inherithandle.param().abi())
+    OpenDedicatedMemoryPartition(core::mem::transmute(partition), core::mem::transmute(dedicatedmemorytypeid), core::mem::transmute(desiredaccess), inherithandle.into())
 }
 #[inline]
-pub unsafe fn OpenFileMappingA<P1, P2>(dwdesiredaccess: u32, binherithandle: P1, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenFileMappingA<P2>(dwdesiredaccess: u32, binherithandle: bool, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn OpenFileMappingA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = OpenFileMappingA(core::mem::transmute(dwdesiredaccess), binherithandle.param().abi(), lpname.param().abi());
+    let result__ = OpenFileMappingA(core::mem::transmute(dwdesiredaccess), binherithandle.into(), lpname.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn OpenFileMappingFromApp<P1, P2>(desiredaccess: u32, inherithandle: P1, name: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenFileMappingFromApp<P2>(desiredaccess: u32, inherithandle: bool, name: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn OpenFileMappingFromApp(desiredaccess : u32, inherithandle : super::super::Foundation:: BOOL, name : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = OpenFileMappingFromApp(core::mem::transmute(desiredaccess), inherithandle.param().abi(), name.param().abi());
+    let result__ = OpenFileMappingFromApp(core::mem::transmute(desiredaccess), inherithandle.into(), name.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn OpenFileMappingW<P1, P2>(dwdesiredaccess: u32, binherithandle: P1, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenFileMappingW<P2>(dwdesiredaccess: u32, binherithandle: bool, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn OpenFileMappingW(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = OpenFileMappingW(core::mem::transmute(dwdesiredaccess), binherithandle.param().abi(), lpname.param().abi());
+    let result__ = OpenFileMappingW(core::mem::transmute(dwdesiredaccess), binherithandle.into(), lpname.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -606,9 +600,6 @@ pub unsafe fn VirtualUnlockEx(process: Option<super::super::Foundation::HANDLE>,
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct AtlThunkData_t(pub isize);
-impl windows_core::TypeKind for AtlThunkData_t {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CFG_CALL_TARGET_INFO {

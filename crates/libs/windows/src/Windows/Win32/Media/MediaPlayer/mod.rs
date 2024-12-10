@@ -5632,11 +5632,8 @@ impl IWMPEffects {
     pub unsafe fn DisplayPropertyPage(&self, hwndowner: super::super::Foundation::HWND) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisplayPropertyPage)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndowner)).ok()
     }
-    pub unsafe fn GoFullscreen<P0>(&self, ffullscreen: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).GoFullscreen)(windows_core::Interface::as_raw(self), ffullscreen.param().abi()).ok()
+    pub unsafe fn GoFullscreen(&self, ffullscreen: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GoFullscreen)(windows_core::Interface::as_raw(self), ffullscreen.into()).ok()
     }
     pub unsafe fn RenderFullScreen(&self, plevels: *mut TimedLevel) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RenderFullScreen)(windows_core::Interface::as_raw(self), core::mem::transmute(plevels)).ok()
@@ -5774,11 +5771,8 @@ impl IWMPEffects2 {
     pub unsafe fn OnWindowMessage(&self, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresultparam: *mut super::super::Foundation::LRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnWindowMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(msg), core::mem::transmute(wparam), core::mem::transmute(lparam), core::mem::transmute(plresultparam)).ok()
     }
-    pub unsafe fn RenderWindowed<P1>(&self, pdata: *mut TimedLevel, frequiredrender: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).RenderWindowed)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata), frequiredrender.param().abi()).ok()
+    pub unsafe fn RenderWindowed(&self, pdata: *mut TimedLevel, frequiredrender: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RenderWindowed)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata), frequiredrender.into()).ok()
     }
 }
 #[repr(C)]
@@ -8480,20 +8474,14 @@ impl IWMPNodeRealEstate {
     pub unsafe fn GetRects(&self, psrc: *mut super::super::Foundation::RECT, pdest: *mut super::super::Foundation::RECT, pclip: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRects)(windows_core::Interface::as_raw(self), core::mem::transmute(psrc), core::mem::transmute(pdest), core::mem::transmute(pclip)).ok()
     }
-    pub unsafe fn SetWindowless<P0>(&self, fwindowless: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetWindowless)(windows_core::Interface::as_raw(self), fwindowless.param().abi()).ok()
+    pub unsafe fn SetWindowless(&self, fwindowless: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetWindowless)(windows_core::Interface::as_raw(self), fwindowless.into()).ok()
     }
     pub unsafe fn GetWindowless(&self, pfwindowless: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindowless)(windows_core::Interface::as_raw(self), core::mem::transmute(pfwindowless)).ok()
     }
-    pub unsafe fn SetFullScreen<P0>(&self, ffullscreen: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetFullScreen)(windows_core::Interface::as_raw(self), ffullscreen.param().abi()).ok()
+    pub unsafe fn SetFullScreen(&self, ffullscreen: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetFullScreen)(windows_core::Interface::as_raw(self), ffullscreen.into()).ok()
     }
     pub unsafe fn GetFullScreen(&self, pffullscreen: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFullScreen)(windows_core::Interface::as_raw(self), core::mem::transmute(pffullscreen)).ok()
@@ -8571,11 +8559,8 @@ impl IWMPNodeRealEstateHost {
     pub unsafe fn OnDesiredSizeChange(&self, psize: *mut super::super::Foundation::SIZE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnDesiredSizeChange)(windows_core::Interface::as_raw(self), core::mem::transmute(psize)).ok()
     }
-    pub unsafe fn OnFullScreenTransition<P0>(&self, ffullscreen: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).OnFullScreenTransition)(windows_core::Interface::as_raw(self), ffullscreen.param().abi()).ok()
+    pub unsafe fn OnFullScreenTransition(&self, ffullscreen: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).OnFullScreenTransition)(windows_core::Interface::as_raw(self), ffullscreen.into()).ok()
     }
 }
 #[repr(C)]
@@ -8715,11 +8700,8 @@ impl windows_core::RuntimeName for IWMPNodeWindowless {}
 windows_core::imp::define_interface!(IWMPNodeWindowlessHost, IWMPNodeWindowlessHost_Vtbl, 0xbe7017c6_ce34_4901_8106_770381aa6e3e);
 windows_core::imp::interface_hierarchy!(IWMPNodeWindowlessHost, windows_core::IUnknown);
 impl IWMPNodeWindowlessHost {
-    pub unsafe fn InvalidateRect<P1>(&self, prc: *const super::super::Foundation::RECT, ferase: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).InvalidateRect)(windows_core::Interface::as_raw(self), core::mem::transmute(prc), ferase.param().abi()).ok()
+    pub unsafe fn InvalidateRect(&self, prc: *const super::super::Foundation::RECT, ferase: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).InvalidateRect)(windows_core::Interface::as_raw(self), core::mem::transmute(prc), ferase.into()).ok()
     }
 }
 #[repr(C)]
@@ -10004,11 +9986,8 @@ impl windows_core::RuntimeName for IWMPPlugin {}
 windows_core::imp::define_interface!(IWMPPluginEnable, IWMPPluginEnable_Vtbl, 0x5fca444c_7ad1_479d_a4ef_40566a5309d6);
 windows_core::imp::interface_hierarchy!(IWMPPluginEnable, windows_core::IUnknown);
 impl IWMPPluginEnable {
-    pub unsafe fn SetEnable<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnable)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
+    pub unsafe fn SetEnable(&self, fenable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnable)(windows_core::Interface::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn GetEnable(&self, pfenable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEnable)(windows_core::Interface::as_raw(self), core::mem::transmute(pfenable)).ok()
@@ -10290,11 +10269,8 @@ impl windows_core::RuntimeName for IWMPRemoteMediaServices {}
 windows_core::imp::define_interface!(IWMPRenderConfig, IWMPRenderConfig_Vtbl, 0x959506c1_0314_4ec5_9e61_8528db5e5478);
 windows_core::imp::interface_hierarchy!(IWMPRenderConfig, windows_core::IUnknown);
 impl IWMPRenderConfig {
-    pub unsafe fn SetinProcOnly<P0>(&self, finproc: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetinProcOnly)(windows_core::Interface::as_raw(self), finproc.param().abi()).ok()
+    pub unsafe fn SetinProcOnly(&self, finproc: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetinProcOnly)(windows_core::Interface::as_raw(self), finproc.into()).ok()
     }
     pub unsafe fn inProcOnly(&self, pfinproc: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).inProcOnly)(windows_core::Interface::as_raw(self), core::mem::transmute(pfinproc)).ok()
@@ -11610,11 +11586,8 @@ impl IXFeed {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DownloadEnclosuresAutomatically)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetDownloadEnclosuresAutomatically<P0>(&self, bdownloadenclosuresautomatically: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDownloadEnclosuresAutomatically)(windows_core::Interface::as_raw(self), bdownloadenclosuresautomatically.param().abi()).ok()
+    pub unsafe fn SetDownloadEnclosuresAutomatically(&self, bdownloadenclosuresautomatically: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDownloadEnclosuresAutomatically)(windows_core::Interface::as_raw(self), bdownloadenclosuresautomatically.into()).ok()
     }
     pub unsafe fn DownloadStatus(&self) -> windows_core::Result<FEEDS_DOWNLOAD_STATUS> {
         let mut result__ = core::mem::zeroed();
@@ -13224,11 +13197,8 @@ impl IXFeedItem {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsRead)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIsRead<P0>(&self, bisread: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIsRead)(windows_core::Interface::as_raw(self), bisread.param().abi()).ok()
+    pub unsafe fn SetIsRead(&self, bisread: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIsRead)(windows_core::Interface::as_raw(self), bisread.into()).ok()
     }
     pub unsafe fn LocalId(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();

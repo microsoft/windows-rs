@@ -99,12 +99,9 @@ pub unsafe fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut *mut POLICY_AUDI
     AuditEnumeratePerUserPolicy(core::mem::transmute(ppauditsidarray))
 }
 #[inline]
-pub unsafe fn AuditEnumerateSubCategories<P1>(pauditcategoryguid: Option<*const windows_core::GUID>, bretrieveallsubcategories: P1, ppauditsubcategoriesarray: *mut *mut windows_core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN
-where
-    P1: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn AuditEnumerateSubCategories(pauditcategoryguid: Option<*const windows_core::GUID>, bretrieveallsubcategories: bool, ppauditsubcategoriesarray: *mut *mut windows_core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN {
     windows_targets::link!("advapi32.dll" "system" fn AuditEnumerateSubCategories(pauditcategoryguid : *const windows_core::GUID, bretrieveallsubcategories : super::super::super::Foundation:: BOOLEAN, ppauditsubcategoriesarray : *mut *mut windows_core::GUID, pdwcountreturned : *mut u32) -> super::super::super::Foundation:: BOOLEAN);
-    AuditEnumerateSubCategories(core::mem::transmute(pauditcategoryguid.unwrap_or(core::mem::zeroed())), bretrieveallsubcategories.param().abi(), core::mem::transmute(ppauditsubcategoriesarray), core::mem::transmute(pdwcountreturned))
+    AuditEnumerateSubCategories(core::mem::transmute(pauditcategoryguid.unwrap_or(core::mem::zeroed())), bretrieveallsubcategories.into(), core::mem::transmute(ppauditsubcategoriesarray), core::mem::transmute(pdwcountreturned))
 }
 #[inline]
 pub unsafe fn AuditFree(buffer: *const core::ffi::c_void) {
@@ -204,20 +201,14 @@ pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[AUDIT_POLICY_INFORMATION]) ->
     AuditSetSystemPolicy(core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn ChangeAccountPasswordA<P5>(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: P5, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()>
-where
-    P5: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn ChangeAccountPasswordA(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: bool, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()> {
     windows_targets::link!("secur32.dll" "system" fn ChangeAccountPasswordA(pszpackagename : *const i8, pszdomainname : *const i8, pszaccountname : *const i8, pszoldpassword : *const i8, psznewpassword : *const i8, bimpersonating : super::super::super::Foundation:: BOOLEAN, dwreserved : u32, poutput : *mut SecBufferDesc) -> windows_core::HRESULT);
-    ChangeAccountPasswordA(core::mem::transmute(pszpackagename), core::mem::transmute(pszdomainname), core::mem::transmute(pszaccountname), core::mem::transmute(pszoldpassword), core::mem::transmute(psznewpassword), bimpersonating.param().abi(), core::mem::transmute(dwreserved), core::mem::transmute(poutput)).ok()
+    ChangeAccountPasswordA(core::mem::transmute(pszpackagename), core::mem::transmute(pszdomainname), core::mem::transmute(pszaccountname), core::mem::transmute(pszoldpassword), core::mem::transmute(psznewpassword), bimpersonating.into(), core::mem::transmute(dwreserved), core::mem::transmute(poutput)).ok()
 }
 #[inline]
-pub unsafe fn ChangeAccountPasswordW<P5>(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: P5, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()>
-where
-    P5: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn ChangeAccountPasswordW(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: bool, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()> {
     windows_targets::link!("secur32.dll" "system" fn ChangeAccountPasswordW(pszpackagename : *const u16, pszdomainname : *const u16, pszaccountname : *const u16, pszoldpassword : *const u16, psznewpassword : *const u16, bimpersonating : super::super::super::Foundation:: BOOLEAN, dwreserved : u32, poutput : *mut SecBufferDesc) -> windows_core::HRESULT);
-    ChangeAccountPasswordW(core::mem::transmute(pszpackagename), core::mem::transmute(pszdomainname), core::mem::transmute(pszaccountname), core::mem::transmute(pszoldpassword), core::mem::transmute(psznewpassword), bimpersonating.param().abi(), core::mem::transmute(dwreserved), core::mem::transmute(poutput)).ok()
+    ChangeAccountPasswordW(core::mem::transmute(pszpackagename), core::mem::transmute(pszdomainname), core::mem::transmute(pszaccountname), core::mem::transmute(pszoldpassword), core::mem::transmute(psznewpassword), bimpersonating.into(), core::mem::transmute(dwreserved), core::mem::transmute(poutput)).ok()
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
@@ -580,12 +571,9 @@ pub unsafe fn LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIF
     LsaRegisterPolicyChangeNotification(core::mem::transmute(informationclass), core::mem::transmute(notificationeventhandle))
 }
 #[inline]
-pub unsafe fn LsaRemoveAccountRights<P2>(policyhandle: LSA_HANDLE, accountsid: super::super::PSID, allrights: P2, userrights: Option<&[LSA_UNICODE_STRING]>) -> super::super::super::Foundation::NTSTATUS
-where
-    P2: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn LsaRemoveAccountRights(policyhandle: LSA_HANDLE, accountsid: super::super::PSID, allrights: bool, userrights: Option<&[LSA_UNICODE_STRING]>) -> super::super::super::Foundation::NTSTATUS {
     windows_targets::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::super:: PSID, allrights : super::super::super::Foundation:: BOOLEAN, userrights : *const LSA_UNICODE_STRING, countofrights : u32) -> super::super::super::Foundation:: NTSTATUS);
-    LsaRemoveAccountRights(core::mem::transmute(policyhandle), core::mem::transmute(accountsid), allrights.param().abi(), core::mem::transmute(userrights.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), userrights.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    LsaRemoveAccountRights(core::mem::transmute(policyhandle), core::mem::transmute(accountsid), allrights.into(), core::mem::transmute(userrights.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), userrights.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn LsaRetrievePrivateData(policyhandle: LSA_HANDLE, keyname: *const LSA_UNICODE_STRING, privatedata: *mut *mut LSA_UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS {
@@ -603,20 +591,14 @@ pub unsafe fn LsaSetDomainInformationPolicy(policyhandle: LSA_HANDLE, informatio
     LsaSetDomainInformationPolicy(core::mem::transmute(policyhandle), core::mem::transmute(informationclass), core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn LsaSetForestTrustInformation<P3>(policyhandle: LSA_HANDLE, trusteddomainname: *const LSA_UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: P3, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS
-where
-    P3: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn LsaSetForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: *const LSA_UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: bool, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS {
     windows_targets::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : *const LSA_UNICODE_STRING, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION, checkonly : super::super::super::Foundation:: BOOLEAN, collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation:: NTSTATUS);
-    LsaSetForestTrustInformation(core::mem::transmute(policyhandle), core::mem::transmute(trusteddomainname), core::mem::transmute(foresttrustinfo), checkonly.param().abi(), core::mem::transmute(collisioninfo))
+    LsaSetForestTrustInformation(core::mem::transmute(policyhandle), core::mem::transmute(trusteddomainname), core::mem::transmute(foresttrustinfo), checkonly.into(), core::mem::transmute(collisioninfo))
 }
 #[inline]
-pub unsafe fn LsaSetForestTrustInformation2<P4>(policyhandle: LSA_HANDLE, trusteddomainname: *const LSA_UNICODE_STRING, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION2, checkonly: P4, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS
-where
-    P4: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn LsaSetForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: *const LSA_UNICODE_STRING, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION2, checkonly: bool, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS {
     windows_targets::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : *const LSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION2, checkonly : super::super::super::Foundation:: BOOLEAN, collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation:: NTSTATUS);
-    LsaSetForestTrustInformation2(core::mem::transmute(policyhandle), core::mem::transmute(trusteddomainname), core::mem::transmute(highestrecordtype), core::mem::transmute(foresttrustinfo), checkonly.param().abi(), core::mem::transmute(collisioninfo))
+    LsaSetForestTrustInformation2(core::mem::transmute(policyhandle), core::mem::transmute(trusteddomainname), core::mem::transmute(highestrecordtype), core::mem::transmute(foresttrustinfo), checkonly.into(), core::mem::transmute(collisioninfo))
 }
 #[inline]
 pub unsafe fn LsaSetInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_INFORMATION_CLASS, buffer: *const core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS {
@@ -1138,12 +1120,9 @@ pub unsafe fn SaslSetContextOption(contexthandle: *const super::super::Credentia
     SaslSetContextOption(core::mem::transmute(contexthandle), core::mem::transmute(option), core::mem::transmute(value), core::mem::transmute(size)).ok()
 }
 #[inline]
-pub unsafe fn SendSAS<P0>(asuser: P0)
-where
-    P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-{
+pub unsafe fn SendSAS(asuser: bool) {
     windows_targets::link!("sas.dll" "system" fn SendSAS(asuser : super::super::super::Foundation:: BOOL));
-    SendSAS(asuser.param().abi())
+    SendSAS(asuser.into())
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
@@ -3609,9 +3588,6 @@ pub const LSA_GLOBAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LSA_HANDLE(pub isize);
-impl windows_core::TypeKind for LSA_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl LSA_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -9241,9 +9217,6 @@ pub const _FACILITY_WINDOWS_STORE: u32 = 63u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct _HMAPPER(pub isize);
-impl windows_core::TypeKind for _HMAPPER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eTlsAlgorithmUsage(pub i32);

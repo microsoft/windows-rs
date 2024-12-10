@@ -61,9 +61,6 @@ pub unsafe fn SetDecompressorInformation(decompressorhandle: DECOMPRESSOR_HANDLE
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct COMPRESSOR_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for COMPRESSOR_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl COMPRESSOR_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -115,9 +112,6 @@ pub const COMPRESS_RAW: u32 = 536870912u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DECOMPRESSOR_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for DECOMPRESSOR_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl DECOMPRESSOR_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

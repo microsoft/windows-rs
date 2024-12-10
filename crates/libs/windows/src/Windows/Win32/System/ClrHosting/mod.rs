@@ -1753,11 +1753,8 @@ impl ICLRRuntimeHost {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCLRControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn UnloadAppDomain<P1>(&self, dwappdomainid: u32, fwaituntildone: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).UnloadAppDomain)(windows_core::Interface::as_raw(self), core::mem::transmute(dwappdomainid), fwaituntildone.param().abi()).ok()
+    pub unsafe fn UnloadAppDomain(&self, dwappdomainid: u32, fwaituntildone: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).UnloadAppDomain)(windows_core::Interface::as_raw(self), core::mem::transmute(dwappdomainid), fwaituntildone.into()).ok()
     }
     pub unsafe fn ExecuteInAppDomain(&self, dwappdomainid: u32, pcallback: FExecuteInAppDomainCallback, cookie: *const core::ffi::c_void) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ExecuteInAppDomain)(windows_core::Interface::as_raw(self), core::mem::transmute(dwappdomainid), core::mem::transmute(pcallback), core::mem::transmute(cookie)).ok()
@@ -2181,13 +2178,12 @@ impl ICLRStrongName {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).StrongNameSignatureVerification)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), core::mem::transmute(dwinflags), &mut result__).map(|| result__)
     }
-    pub unsafe fn StrongNameSignatureVerificationEx<P0, P1>(&self, pwzfilepath: P0, fforceverification: P1) -> windows_core::Result<u8>
+    pub unsafe fn StrongNameSignatureVerificationEx<P0>(&self, pwzfilepath: P0, fforceverification: bool) -> windows_core::Result<u8>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).StrongNameSignatureVerificationEx)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), fforceverification.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StrongNameSignatureVerificationEx)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), fforceverification.into(), &mut result__).map(|| result__)
     }
     pub unsafe fn StrongNameSignatureVerificationFromImage(&self, pbbase: *const u8, dwlength: u32, dwinflags: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -2440,13 +2436,12 @@ impl ICLRStrongName2 {
     {
         (windows_core::Interface::vtable(self).StrongNameGetPublicKeyEx)(windows_core::Interface::as_raw(self), pwzkeycontainer.param().abi(), core::mem::transmute(pbkeyblob), core::mem::transmute(cbkeyblob), core::mem::transmute(ppbpublickeyblob), core::mem::transmute(pcbpublickeyblob), core::mem::transmute(uhashalgid), core::mem::transmute(ureserved)).ok()
     }
-    pub unsafe fn StrongNameSignatureVerificationEx2<P0, P1>(&self, wszfilepath: P0, fforceverification: P1, pbecmapublickey: *const u8, cbecmapublickey: u32) -> windows_core::Result<u8>
+    pub unsafe fn StrongNameSignatureVerificationEx2<P0>(&self, wszfilepath: P0, fforceverification: bool, pbecmapublickey: *const u8, cbecmapublickey: u32) -> windows_core::Result<u8>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).StrongNameSignatureVerificationEx2)(windows_core::Interface::as_raw(self), wszfilepath.param().abi(), fforceverification.param().abi(), core::mem::transmute(pbecmapublickey), core::mem::transmute(cbecmapublickey), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StrongNameSignatureVerificationEx2)(windows_core::Interface::as_raw(self), wszfilepath.param().abi(), fforceverification.into(), core::mem::transmute(pbecmapublickey), core::mem::transmute(cbecmapublickey), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -2641,11 +2636,8 @@ impl ICLRTask {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMemStats)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Reset<P0>(&self, ffull: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), ffull.param().abi()).ok()
+    pub unsafe fn Reset(&self, ffull: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), ffull.into()).ok()
     }
     pub unsafe fn ExitTask(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ExitTask)(windows_core::Interface::as_raw(self)).ok()
@@ -3337,24 +3329,18 @@ windows_core::imp::define_interface!(ICorThreadpool, ICorThreadpool_Vtbl, 0x8468
 windows_core::imp::interface_hierarchy!(ICorThreadpool, windows_core::IUnknown);
 impl ICorThreadpool {
     #[cfg(feature = "Win32_System_Threading")]
-    pub unsafe fn CorRegisterWaitForSingleObject<P5>(&self, phnewwaitobject: *const super::super::Foundation::HANDLE, hwaitobject: super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, context: *const core::ffi::c_void, timeout: u32, executeonlyonce: P5) -> windows_core::Result<super::super::Foundation::BOOL>
-    where
-        P5: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn CorRegisterWaitForSingleObject(&self, phnewwaitobject: *const super::super::Foundation::HANDLE, hwaitobject: super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, context: *const core::ffi::c_void, timeout: u32, executeonlyonce: bool) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CorRegisterWaitForSingleObject)(windows_core::Interface::as_raw(self), core::mem::transmute(phnewwaitobject), core::mem::transmute(hwaitobject), core::mem::transmute(callback), core::mem::transmute(context), core::mem::transmute(timeout), executeonlyonce.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CorRegisterWaitForSingleObject)(windows_core::Interface::as_raw(self), core::mem::transmute(phnewwaitobject), core::mem::transmute(hwaitobject), core::mem::transmute(callback), core::mem::transmute(context), core::mem::transmute(timeout), executeonlyonce.into(), &mut result__).map(|| result__)
     }
     pub unsafe fn CorUnregisterWait(&self, hwaitobject: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CorUnregisterWait)(windows_core::Interface::as_raw(self), core::mem::transmute(hwaitobject), core::mem::transmute(completionevent), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Threading")]
-    pub unsafe fn CorQueueUserWorkItem<P2>(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void, executeonlyonce: P2) -> windows_core::Result<super::super::Foundation::BOOL>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn CorQueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void, executeonlyonce: bool) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CorQueueUserWorkItem)(windows_core::Interface::as_raw(self), core::mem::transmute(function), core::mem::transmute(context), executeonlyonce.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CorQueueUserWorkItem)(windows_core::Interface::as_raw(self), core::mem::transmute(function), core::mem::transmute(context), executeonlyonce.into(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Threading")]
     pub unsafe fn CorCreateTimer(&self, phnewtimer: *const super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, parameter: *const core::ffi::c_void, duetime: u32, period: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -4623,12 +4609,9 @@ impl IHostSecurityManager {
     pub unsafe fn RevertToSelf(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RevertToSelf)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn OpenThreadToken<P1>(&self, dwdesiredaccess: u32, bopenasself: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn OpenThreadToken(&self, dwdesiredaccess: u32, bopenasself: bool) -> windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenThreadToken)(windows_core::Interface::as_raw(self), core::mem::transmute(dwdesiredaccess), bopenasself.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OpenThreadToken)(windows_core::Interface::as_raw(self), core::mem::transmute(dwdesiredaccess), bopenasself.into(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetThreadToken(&self, htoken: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetThreadToken)(windows_core::Interface::as_raw(self), core::mem::transmute(htoken)).ok()
@@ -4784,12 +4767,9 @@ impl IHostSyncManager {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateAutoEvent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateManualEvent<P0>(&self, binitialstate: P0) -> windows_core::Result<IHostManualEvent>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn CreateManualEvent(&self, binitialstate: bool) -> windows_core::Result<IHostManualEvent> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateManualEvent)(windows_core::Interface::as_raw(self), binitialstate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateManualEvent)(windows_core::Interface::as_raw(self), binitialstate.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateMonitorEvent(&self, cookie: usize) -> windows_core::Result<IHostAutoEvent> {
         let mut result__ = core::mem::zeroed();
@@ -4799,12 +4779,9 @@ impl IHostSyncManager {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateRWLockWriterEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(cookie), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateRWLockReaderEvent<P0>(&self, binitialstate: P0, cookie: usize) -> windows_core::Result<IHostManualEvent>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn CreateRWLockReaderEvent(&self, binitialstate: bool, cookie: usize) -> windows_core::Result<IHostManualEvent> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRWLockReaderEvent)(windows_core::Interface::as_raw(self), binitialstate.param().abi(), core::mem::transmute(cookie), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRWLockReaderEvent)(windows_core::Interface::as_raw(self), binitialstate.into(), core::mem::transmute(cookie), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSemaphoreA(&self, dwinitial: u32, dwmax: u32) -> windows_core::Result<IHostSemaphore> {
         let mut result__ = core::mem::zeroed();

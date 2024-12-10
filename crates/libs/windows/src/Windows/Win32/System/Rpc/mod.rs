@@ -1555,12 +1555,9 @@ pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn RpcAsyncCancelCall<P1>(pasync: *mut RPC_ASYNC_STATE, fabort: P1) -> RPC_STATUS
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RpcAsyncCancelCall(pasync: *mut RPC_ASYNC_STATE, fabort: bool) -> RPC_STATUS {
     windows_targets::link!("rpcrt4.dll" "system" fn RpcAsyncCancelCall(pasync : *mut RPC_ASYNC_STATE, fabort : super::super::Foundation:: BOOL) -> RPC_STATUS);
-    RpcAsyncCancelCall(core::mem::transmute(pasync), fabort.param().abi())
+    RpcAsyncCancelCall(core::mem::transmute(pasync), fabort.into())
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -1841,12 +1838,9 @@ pub unsafe fn RpcErrorEndEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> 
     RpcErrorEndEnumeration(core::mem::transmute(enumhandle))
 }
 #[inline]
-pub unsafe fn RpcErrorGetNextRecord<P1>(enumhandle: *const RPC_ERROR_ENUM_HANDLE, copystrings: P1, errorinfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RpcErrorGetNextRecord(enumhandle: *const RPC_ERROR_ENUM_HANDLE, copystrings: bool, errorinfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS {
     windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorGetNextRecord(enumhandle : *const RPC_ERROR_ENUM_HANDLE, copystrings : super::super::Foundation:: BOOL, errorinfo : *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS);
-    RpcErrorGetNextRecord(core::mem::transmute(enumhandle), copystrings.param().abi(), core::mem::transmute(errorinfo))
+    RpcErrorGetNextRecord(core::mem::transmute(enumhandle), copystrings.into(), core::mem::transmute(errorinfo))
 }
 #[inline]
 pub unsafe fn RpcErrorGetNumberOfRecords(enumhandle: *const RPC_ERROR_ENUM_HANDLE, records: *mut i32) -> RPC_STATUS {
@@ -1884,12 +1878,9 @@ pub unsafe fn RpcFreeAuthorizationContext(pauthzclientcontext: *mut *mut core::f
     RpcFreeAuthorizationContext(core::mem::transmute(pauthzclientcontext))
 }
 #[inline]
-pub unsafe fn RpcGetAuthorizationContextForClient<P1>(clientbinding: Option<*const core::ffi::c_void>, impersonateonreturn: P1, reserved1: Option<*const core::ffi::c_void>, pexpirationtime: Option<*const i64>, reserved2: super::super::Foundation::LUID, reserved3: u32, reserved4: Option<*const core::ffi::c_void>, pauthzclientcontext: *mut *mut core::ffi::c_void) -> RPC_STATUS
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RpcGetAuthorizationContextForClient(clientbinding: Option<*const core::ffi::c_void>, impersonateonreturn: bool, reserved1: Option<*const core::ffi::c_void>, pexpirationtime: Option<*const i64>, reserved2: super::super::Foundation::LUID, reserved3: u32, reserved4: Option<*const core::ffi::c_void>, pauthzclientcontext: *mut *mut core::ffi::c_void) -> RPC_STATUS {
     windows_targets::link!("rpcrt4.dll" "system" fn RpcGetAuthorizationContextForClient(clientbinding : *const core::ffi::c_void, impersonateonreturn : super::super::Foundation:: BOOL, reserved1 : *const core::ffi::c_void, pexpirationtime : *const i64, reserved2 : super::super::Foundation:: LUID, reserved3 : u32, reserved4 : *const core::ffi::c_void, pauthzclientcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
-    RpcGetAuthorizationContextForClient(core::mem::transmute(clientbinding.unwrap_or(core::mem::zeroed())), impersonateonreturn.param().abi(), core::mem::transmute(reserved1.unwrap_or(core::mem::zeroed())), core::mem::transmute(pexpirationtime.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved2), core::mem::transmute(reserved3), core::mem::transmute(reserved4.unwrap_or(core::mem::zeroed())), core::mem::transmute(pauthzclientcontext))
+    RpcGetAuthorizationContextForClient(core::mem::transmute(clientbinding.unwrap_or(core::mem::zeroed())), impersonateonreturn.into(), core::mem::transmute(reserved1.unwrap_or(core::mem::zeroed())), core::mem::transmute(pexpirationtime.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved2), core::mem::transmute(reserved3), core::mem::transmute(reserved4.unwrap_or(core::mem::zeroed())), core::mem::transmute(pauthzclientcontext))
 }
 #[inline]
 pub unsafe fn RpcIfIdVectorFree(ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS {
@@ -4298,9 +4289,6 @@ impl Default for NDR64_VAR_ARRAY_HEADER_FORMAT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub isize);
-impl windows_core::TypeKind for NDR_ALLOC_ALL_NODES_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NDR_CS_ROUTINES {
@@ -4343,9 +4331,6 @@ pub type NDR_NOTIFY_ROUTINE = Option<unsafe extern "system" fn()>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NDR_POINTER_QUEUE_STATE(pub isize);
-impl windows_core::TypeKind for NDR_POINTER_QUEUE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub type NDR_RUNDOWN = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4418,15 +4403,9 @@ pub type PFN_RPC_FREE = Option<unsafe extern "system" fn(param0: *mut core::ffi:
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PNDR_ASYNC_MESSAGE(pub isize);
-impl windows_core::TypeKind for PNDR_ASYNC_MESSAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PNDR_CORRELATION_INFO(pub isize);
-impl windows_core::TypeKind for PNDR_CORRELATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PROTOCOL_ADDRESS_CHANGE: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(3i32);
 pub const PROTOCOL_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(2i32);
 pub const PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(1i32);
@@ -6258,9 +6237,6 @@ impl Default for XMIT_ROUTINE_QUINTUPLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct _NDR_PROC_CONTEXT(pub isize);
-impl windows_core::TypeKind for _NDR_PROC_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const __RPCPROXY_H_VERSION__: u32 = 477u32;
 pub const cbNDRContext: u32 = 20u32;
 pub const eeptAnsiString: ExtendedErrorParamTypes = ExtendedErrorParamTypes(1i32);

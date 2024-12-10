@@ -107,9 +107,6 @@ pub const E_PRINTTICKET_FORMAT: u32 = 2147745795u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPTPROVIDER(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HPTPROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 impl HPTPROVIDER {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

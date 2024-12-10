@@ -182,12 +182,9 @@ pub unsafe fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, p
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterPointerInputTargetEx<P2>(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: P2) -> super::super::Foundation::BOOL
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn RegisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, fobserve : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    RegisterPointerInputTargetEx(core::mem::transmute(hwnd), core::mem::transmute(pointertype), fobserve.param().abi())
+    RegisterPointerInputTargetEx(core::mem::transmute(hwnd), core::mem::transmute(pointertype), fobserve.into())
 }
 #[inline]
 pub unsafe fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
@@ -293,21 +290,14 @@ pub unsafe fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUni
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn TextRange_FindAttribute<P3>(hobj: HUIATEXTRANGE, attributeid: i32, val: &super::super::System::Variant::VARIANT, backward: P3, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()>
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: &super::super::System::Variant::VARIANT, backward: bool, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : super::super::System::Variant:: VARIANT, backward : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
-    TextRange_FindAttribute(core::mem::transmute(hobj), core::mem::transmute(attributeid), core::mem::transmute_copy(val), backward.param().abi(), core::mem::transmute(pretval)).ok()
+    TextRange_FindAttribute(core::mem::transmute(hobj), core::mem::transmute(attributeid), core::mem::transmute_copy(val), backward.into(), core::mem::transmute(pretval)).ok()
 }
 #[inline]
-pub unsafe fn TextRange_FindText<P2, P3>(hobj: HUIATEXTRANGE, text: &windows_core::BSTR, backward: P2, ignorecase: P3, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn TextRange_FindText(hobj: HUIATEXTRANGE, text: &windows_core::BSTR, backward: bool, ignorecase: bool, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindText(hobj : HUIATEXTRANGE, text : * mut core::ffi::c_void, backward : super::super::Foundation:: BOOL, ignorecase : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
-    TextRange_FindText(core::mem::transmute(hobj), core::mem::transmute_copy(text), backward.param().abi(), ignorecase.param().abi(), core::mem::transmute(pretval)).ok()
+    TextRange_FindText(core::mem::transmute(hobj), core::mem::transmute_copy(text), backward.into(), ignorecase.into(), core::mem::transmute(pretval)).ok()
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
@@ -358,12 +348,9 @@ pub unsafe fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> windows_core
     TextRange_RemoveFromSelection(core::mem::transmute(hobj)).ok()
 }
 #[inline]
-pub unsafe fn TextRange_ScrollIntoView<P1>(hobj: HUIATEXTRANGE, aligntotop: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: bool) -> windows_core::Result<()> {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_ScrollIntoView(hobj : HUIATEXTRANGE, aligntotop : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    TextRange_ScrollIntoView(core::mem::transmute(hobj), aligntotop.param().abi()).ok()
+    TextRange_ScrollIntoView(core::mem::transmute(hobj), aligntotop.into()).ok()
 }
 #[inline]
 pub unsafe fn TextRange_Select(hobj: HUIATEXTRANGE) -> windows_core::Result<()> {
@@ -1163,9 +1150,6 @@ impl core::ops::Not for HIGHCONTRASTW_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HUIAEVENT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HUIAEVENT {
-    type TypeKind = windows_core::CopyType;
-}
 impl HUIAEVENT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1188,9 +1172,6 @@ impl Default for HUIAEVENT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HUIANODE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HUIANODE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HUIANODE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1213,9 +1194,6 @@ impl Default for HUIANODE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HUIAPATTERNOBJECT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HUIAPATTERNOBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 impl HUIAPATTERNOBJECT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1238,9 +1216,6 @@ impl Default for HUIAPATTERNOBJECT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HUIATEXTRANGE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HUIATEXTRANGE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HUIATEXTRANGE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1263,9 +1238,6 @@ impl Default for HUIATEXTRANGE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWINEVENTHOOK(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HWINEVENTHOOK {
-    type TypeKind = windows_core::CopyType;
-}
 impl HWINEVENTHOOK {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5469,20 +5441,13 @@ impl ITextRangeProvider {
         (windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), core::mem::transmute(unit)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn FindAttribute<P2>(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: P2) -> windows_core::Result<ITextRangeProvider>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: bool) -> windows_core::Result<ITextRangeProvider> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute(attributeid), core::mem::transmute_copy(val), backward.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute(attributeid), core::mem::transmute_copy(val), backward.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn FindText<P1, P2>(&self, text: &windows_core::BSTR, backward: P1, ignorecase: P2) -> windows_core::Result<ITextRangeProvider>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn FindText(&self, text: &windows_core::BSTR, backward: bool, ignorecase: bool) -> windows_core::Result<ITextRangeProvider> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), backward.param().abi(), ignorecase.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), backward.into(), ignorecase.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -5525,11 +5490,8 @@ impl ITextRangeProvider {
     pub unsafe fn RemoveFromSelection(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveFromSelection)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn ScrollIntoView<P0>(&self, aligntotop: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.param().abi()).ok()
+    pub unsafe fn ScrollIntoView(&self, aligntotop: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.into()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetChildren(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -7102,11 +7064,8 @@ impl IUIAutomation2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoSetFocus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAutoSetFocus<P0>(&self, autosetfocus: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.param().abi()).ok()
+    pub unsafe fn SetAutoSetFocus(&self, autosetfocus: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.into()).ok()
     }
     pub unsafe fn ConnectionTimeout(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -8501,12 +8460,9 @@ impl IUIAutomationElement {
         (windows_core::Interface::vtable(self).GetCurrentPropertyValue)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyid), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetCurrentPropertyValueEx<P1>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P1) -> windows_core::Result<super::super::System::Variant::VARIANT>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn GetCurrentPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: bool) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyid), ignoredefaultvalue.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyid), ignoredefaultvalue.into(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -8514,12 +8470,9 @@ impl IUIAutomationElement {
         (windows_core::Interface::vtable(self).GetCachedPropertyValue)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyid), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetCachedPropertyValueEx<P1>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P1) -> windows_core::Result<super::super::System::Variant::VARIANT>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn GetCachedPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: bool) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyid), ignoredefaultvalue.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyid), ignoredefaultvalue.into(), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<T>
     where
@@ -12200,11 +12153,8 @@ impl windows_core::RuntimeName for IUIAutomationPatternHandler {}
 windows_core::imp::define_interface!(IUIAutomationPatternInstance, IUIAutomationPatternInstance_Vtbl, 0xc03a7fe4_9431_409f_bed8_ae7c2299bc8d);
 windows_core::imp::interface_hierarchy!(IUIAutomationPatternInstance, windows_core::IUnknown);
 impl IUIAutomationPatternInstance {
-    pub unsafe fn GetProperty<P1>(&self, index: u32, cached: P1, r#type: UIAutomationType, pptr: *mut core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(index), cached.param().abi(), core::mem::transmute(r#type), core::mem::transmute(pptr)).ok()
+    pub unsafe fn GetProperty(&self, index: u32, cached: bool, r#type: UIAutomationType, pptr: *mut core::ffi::c_void) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(index), cached.into(), core::mem::transmute(r#type), core::mem::transmute(pptr)).ok()
     }
     pub unsafe fn CallMethod(&self, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CallMethod)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(pparams), core::mem::transmute(cparams)).ok()
@@ -12458,23 +12408,14 @@ impl IUIAutomationProxyFactoryEntry {
     {
         (windows_core::Interface::vtable(self).SetImageName)(windows_core::Interface::as_raw(self), imagename.param().abi()).ok()
     }
-    pub unsafe fn SetAllowSubstringMatch<P0>(&self, allowsubstringmatch: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAllowSubstringMatch)(windows_core::Interface::as_raw(self), allowsubstringmatch.param().abi()).ok()
+    pub unsafe fn SetAllowSubstringMatch(&self, allowsubstringmatch: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAllowSubstringMatch)(windows_core::Interface::as_raw(self), allowsubstringmatch.into()).ok()
     }
-    pub unsafe fn SetCanCheckBaseClass<P0>(&self, cancheckbaseclass: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetCanCheckBaseClass)(windows_core::Interface::as_raw(self), cancheckbaseclass.param().abi()).ok()
+    pub unsafe fn SetCanCheckBaseClass(&self, cancheckbaseclass: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCanCheckBaseClass)(windows_core::Interface::as_raw(self), cancheckbaseclass.into()).ok()
     }
-    pub unsafe fn SetNeedsAdviseEvents<P0>(&self, adviseevents: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetNeedsAdviseEvents)(windows_core::Interface::as_raw(self), adviseevents.param().abi()).ok()
+    pub unsafe fn SetNeedsAdviseEvents(&self, adviseevents: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetNeedsAdviseEvents)(windows_core::Interface::as_raw(self), adviseevents.into()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
@@ -14884,20 +14825,13 @@ impl IUIAutomationTextRange {
         (windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), core::mem::transmute(textunit)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn FindAttribute<P2>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: P2) -> windows_core::Result<IUIAutomationTextRange>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: bool) -> windows_core::Result<IUIAutomationTextRange> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute(attr), core::mem::transmute_copy(val), backward.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute(attr), core::mem::transmute_copy(val), backward.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn FindText<P1, P2>(&self, text: &windows_core::BSTR, backward: P1, ignorecase: P2) -> windows_core::Result<IUIAutomationTextRange>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn FindText(&self, text: &windows_core::BSTR, backward: bool, ignorecase: bool) -> windows_core::Result<IUIAutomationTextRange> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), backward.param().abi(), ignorecase.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), backward.into(), ignorecase.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -14940,11 +14874,8 @@ impl IUIAutomationTextRange {
     pub unsafe fn RemoveFromSelection(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveFromSelection)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn ScrollIntoView<P0>(&self, aligntotop: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.param().abi()).ok()
+    pub unsafe fn ScrollIntoView(&self, aligntotop: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.into()).ok()
     }
     pub unsafe fn GetChildren(&self) -> windows_core::Result<IUIAutomationElementArray> {
         let mut result__ = core::mem::zeroed();

@@ -1099,11 +1099,8 @@ impl IBackgroundCopyFile3 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTemporaryName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetValidationState<P0>(&self, state: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetValidationState)(windows_core::Interface::as_raw(self), state.param().abi()).ok()
+    pub unsafe fn SetValidationState(&self, state: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetValidationState)(windows_core::Interface::as_raw(self), state.into()).ok()
     }
     pub unsafe fn GetValidationState(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();

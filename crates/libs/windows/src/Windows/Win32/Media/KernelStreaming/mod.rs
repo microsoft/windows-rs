@@ -755,12 +755,11 @@ windows_core::imp::define_interface!(IKsDataTypeHandler, IKsDataTypeHandler_Vtbl
 windows_core::imp::interface_hierarchy!(IKsDataTypeHandler, windows_core::IUnknown);
 impl IKsDataTypeHandler {
     #[cfg(feature = "Win32_Media_DirectShow")]
-    pub unsafe fn KsCompleteIoOperation<P0, P3>(&self, sample: P0, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: P3) -> windows_core::Result<()>
+    pub unsafe fn KsCompleteIoOperation<P0>(&self, sample: P0, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::DirectShow::IMediaSample>,
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).KsCompleteIoOperation)(windows_core::Interface::as_raw(self), sample.param().abi(), core::mem::transmute(streamheader), core::mem::transmute(iooperation), cancelled.param().abi()).ok()
+        (windows_core::Interface::vtable(self).KsCompleteIoOperation)(windows_core::Interface::as_raw(self), sample.param().abi(), core::mem::transmute(streamheader), core::mem::transmute(iooperation), cancelled.into()).ok()
     }
     pub unsafe fn KsIsMediaTypeInRanges(&self, dataranges: *const core::ffi::c_void) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).KsIsMediaTypeInRanges)(windows_core::Interface::as_raw(self), core::mem::transmute(dataranges)).ok()

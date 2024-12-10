@@ -218,20 +218,14 @@ pub unsafe fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER) {
     ClusWorkerTerminate(core::mem::transmute(lpworker))
 }
 #[inline]
-pub unsafe fn ClusWorkerTerminateEx<P2>(clusworker: *mut CLUS_WORKER, timeoutinmilliseconds: u32, waitonly: P2) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ClusWorkerTerminateEx(clusworker: *mut CLUS_WORKER, timeoutinmilliseconds: u32, waitonly: bool) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ClusWorkerTerminateEx(clusworker : *mut CLUS_WORKER, timeoutinmilliseconds : u32, waitonly : super::super::Foundation:: BOOL) -> u32);
-    ClusWorkerTerminateEx(core::mem::transmute(clusworker), core::mem::transmute(timeoutinmilliseconds), waitonly.param().abi())
+    ClusWorkerTerminateEx(core::mem::transmute(clusworker), core::mem::transmute(timeoutinmilliseconds), waitonly.into())
 }
 #[inline]
-pub unsafe fn ClusWorkersTerminate<P3>(clusworkers: &mut [*mut CLUS_WORKER], timeoutinmilliseconds: u32, waitonly: P3) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ClusWorkersTerminate(clusworkers: &mut [*mut CLUS_WORKER], timeoutinmilliseconds: u32, waitonly: bool) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ClusWorkersTerminate(clusworkers : *mut *mut CLUS_WORKER, clusworkerscount : usize, timeoutinmilliseconds : u32, waitonly : super::super::Foundation:: BOOL) -> u32);
-    ClusWorkersTerminate(core::mem::transmute(clusworkers.as_ptr()), clusworkers.len().try_into().unwrap(), core::mem::transmute(timeoutinmilliseconds), waitonly.param().abi())
+    ClusWorkersTerminate(core::mem::transmute(clusworkers.as_ptr()), clusworkers.len().try_into().unwrap(), core::mem::transmute(timeoutinmilliseconds), waitonly.into())
 }
 #[inline]
 pub unsafe fn ClusapiSetReasonHandler(lphandler: *const CLUSAPI_REASON_HANDLER) -> *mut CLUSAPI_REASON_HANDLER {
@@ -619,12 +613,9 @@ pub unsafe fn ClusterRegBatchReadCommand(hbatchnotification: HREGBATCHNOTIFICATI
     ClusterRegBatchReadCommand(core::mem::transmute(hbatchnotification), core::mem::transmute(pbatchcommand))
 }
 #[inline]
-pub unsafe fn ClusterRegCloseBatch<P1>(hregbatch: HREGBATCH, bcommit: P1, failedcommandnumber: Option<*mut i32>) -> i32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ClusterRegCloseBatch(hregbatch: HREGBATCH, bcommit: bool, failedcommandnumber: Option<*mut i32>) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegCloseBatch(hregbatch : HREGBATCH, bcommit : super::super::Foundation:: BOOL, failedcommandnumber : *mut i32) -> i32);
-    ClusterRegCloseBatch(core::mem::transmute(hregbatch), bcommit.param().abi(), core::mem::transmute(failedcommandnumber.unwrap_or(core::mem::zeroed())))
+    ClusterRegCloseBatch(core::mem::transmute(hregbatch), bcommit.into(), core::mem::transmute(failedcommandnumber.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ClusterRegCloseBatchEx(hregbatch: HREGBATCH, flags: u32, failedcommandnumber: Option<*mut i32>) -> i32 {
@@ -1005,12 +996,9 @@ where
     ClusterSharedVolumeSetSnapshotState(core::mem::transmute(guidsnapshotset), lpszvolumename.param().abi(), core::mem::transmute(state))
 }
 #[inline]
-pub unsafe fn ClusterUpgradeFunctionalLevel<P1>(hcluster: HCLUSTER, perform: P1, pfnprogresscallback: Option<PCLUSTER_UPGRADE_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ClusterUpgradeFunctionalLevel(hcluster: HCLUSTER, perform: bool, pfnprogresscallback: Option<PCLUSTER_UPGRADE_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterUpgradeFunctionalLevel(hcluster : HCLUSTER, perform : super::super::Foundation:: BOOL, pfnprogresscallback : PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> u32);
-    ClusterUpgradeFunctionalLevel(core::mem::transmute(hcluster), perform.param().abi(), core::mem::transmute(pfnprogresscallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvcallbackarg.unwrap_or(core::mem::zeroed())))
+    ClusterUpgradeFunctionalLevel(core::mem::transmute(hcluster), perform.into(), core::mem::transmute(pfnprogresscallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvcallbackarg.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CreateCluster(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>) -> HCLUSTER {
@@ -1161,12 +1149,9 @@ where
     DeleteClusterResourceTypeEx(core::mem::transmute(hcluster), lpsztypename.param().abi(), lpszreason.param().abi())
 }
 #[inline]
-pub unsafe fn DestroyCluster<P3>(hcluster: HCLUSTER, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>, fdeletevirtualcomputerobjects: P3) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn DestroyCluster(hcluster: HCLUSTER, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>, fdeletevirtualcomputerobjects: bool) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn DestroyCluster(hcluster : HCLUSTER, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void, fdeletevirtualcomputerobjects : super::super::Foundation:: BOOL) -> u32);
-    DestroyCluster(core::mem::transmute(hcluster), core::mem::transmute(pfnprogresscallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvcallbackarg.unwrap_or(core::mem::zeroed())), fdeletevirtualcomputerobjects.param().abi())
+    DestroyCluster(core::mem::transmute(hcluster), core::mem::transmute(pfnprogresscallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvcallbackarg.unwrap_or(core::mem::zeroed())), fdeletevirtualcomputerobjects.into())
 }
 #[inline]
 pub unsafe fn DestroyClusterGroup(hgroup: HGROUP) -> u32 {
@@ -1674,21 +1659,17 @@ pub unsafe fn PauseClusterNode(hnode: HNODE) -> u32 {
     PauseClusterNode(core::mem::transmute(hnode))
 }
 #[inline]
-pub unsafe fn PauseClusterNodeEx<P1>(hnode: HNODE, bdrainnode: P1, dwpauseflags: u32, hnodedraintarget: Option<HNODE>) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn PauseClusterNodeEx(hnode: HNODE, bdrainnode: bool, dwpauseflags: u32, hnodedraintarget: Option<HNODE>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn PauseClusterNodeEx(hnode : HNODE, bdrainnode : super::super::Foundation:: BOOL, dwpauseflags : u32, hnodedraintarget : HNODE) -> u32);
-    PauseClusterNodeEx(core::mem::transmute(hnode), bdrainnode.param().abi(), core::mem::transmute(dwpauseflags), core::mem::transmute(hnodedraintarget.unwrap_or(core::mem::zeroed())))
+    PauseClusterNodeEx(core::mem::transmute(hnode), bdrainnode.into(), core::mem::transmute(dwpauseflags), core::mem::transmute(hnodedraintarget.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn PauseClusterNodeEx2<P1, P4>(hnode: HNODE, bdrainnode: P1, dwpauseflags: u32, hnodedraintarget: Option<HNODE>, lpszreason: P4) -> u32
+pub unsafe fn PauseClusterNodeEx2<P4>(hnode: HNODE, bdrainnode: bool, dwpauseflags: u32, hnodedraintarget: Option<HNODE>, lpszreason: P4) -> u32
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn PauseClusterNodeEx2(hnode : HNODE, bdrainnode : super::super::Foundation:: BOOL, dwpauseflags : u32, hnodedraintarget : HNODE, lpszreason : windows_core::PCWSTR) -> u32);
-    PauseClusterNodeEx2(core::mem::transmute(hnode), bdrainnode.param().abi(), core::mem::transmute(dwpauseflags), core::mem::transmute(hnodedraintarget.unwrap_or(core::mem::zeroed())), lpszreason.param().abi())
+    PauseClusterNodeEx2(core::mem::transmute(hnode), bdrainnode.into(), core::mem::transmute(dwpauseflags), core::mem::transmute(hnodedraintarget.unwrap_or(core::mem::zeroed())), lpszreason.param().abi())
 }
 #[inline]
 pub unsafe fn QueryAppInstanceVersion(appinstanceid: *const windows_core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32 {
@@ -1696,12 +1677,9 @@ pub unsafe fn QueryAppInstanceVersion(appinstanceid: *const windows_core::GUID, 
     QueryAppInstanceVersion(core::mem::transmute(appinstanceid), core::mem::transmute(instanceversionhigh), core::mem::transmute(instanceversionlow), core::mem::transmute(versionstatus))
 }
 #[inline]
-pub unsafe fn RegisterAppInstance<P2>(processhandle: super::super::Foundation::HANDLE, appinstanceid: *const windows_core::GUID, childreninheritappinstance: P2) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RegisterAppInstance(processhandle: super::super::Foundation::HANDLE, appinstanceid: *const windows_core::GUID, childreninheritappinstance: bool) -> u32 {
     windows_targets::link!("ntlanman.dll" "system" fn RegisterAppInstance(processhandle : super::super::Foundation:: HANDLE, appinstanceid : *const windows_core::GUID, childreninheritappinstance : super::super::Foundation:: BOOL) -> u32);
-    RegisterAppInstance(core::mem::transmute(processhandle), core::mem::transmute(appinstanceid), childreninheritappinstance.param().abi())
+    RegisterAppInstance(core::mem::transmute(processhandle), core::mem::transmute(appinstanceid), childreninheritappinstance.into())
 }
 #[inline]
 pub unsafe fn RegisterAppInstanceVersion(appinstanceid: *const windows_core::GUID, instanceversionhigh: u64, instanceversionlow: u64) -> u32 {
@@ -1766,12 +1744,9 @@ where
     RemoveClusterGroupToGroupSetDependencyEx(core::mem::transmute(hgroup), core::mem::transmute(hdependson), lpszreason.param().abi())
 }
 #[inline]
-pub unsafe fn RemoveClusterNameAccount<P1>(hcluster: HCLUSTER, bdeletecomputerobjects: P1) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RemoveClusterNameAccount(hcluster: HCLUSTER, bdeletecomputerobjects: bool) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn RemoveClusterNameAccount(hcluster : HCLUSTER, bdeletecomputerobjects : super::super::Foundation:: BOOL) -> u32);
-    RemoveClusterNameAccount(core::mem::transmute(hcluster), bdeletecomputerobjects.param().abi())
+    RemoveClusterNameAccount(core::mem::transmute(hcluster), bdeletecomputerobjects.into())
 }
 #[inline]
 pub unsafe fn RemoveClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE) -> u32 {
@@ -2099,12 +2074,9 @@ pub unsafe fn ResUtilGetProperties(hkeyclusterkey: super::super::System::Registr
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilGetPropertiesToParameterBlock<P3>(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: P3, psznameofpropinerror: *mut windows_core::PWSTR) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ResUtilGetPropertiesToParameterBlock(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: bool, psznameofpropinerror: *mut windows_core::PWSTR) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetPropertiesToParameterBlock(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, poutparams : *mut u8, bcheckforrequiredproperties : super::super::Foundation:: BOOL, psznameofpropinerror : *mut windows_core::PWSTR) -> u32);
-    ResUtilGetPropertiesToParameterBlock(core::mem::transmute(hkeyclusterkey), core::mem::transmute(ppropertytable), core::mem::transmute(poutparams), bcheckforrequiredproperties.param().abi(), core::mem::transmute(psznameofpropinerror))
+    ResUtilGetPropertiesToParameterBlock(core::mem::transmute(hkeyclusterkey), core::mem::transmute(ppropertytable), core::mem::transmute(poutparams), bcheckforrequiredproperties.into(), core::mem::transmute(psznameofpropinerror))
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2141,38 +2113,30 @@ where
     ResUtilGetResourceDependency(core::mem::transmute(hself), lpszresourcetype.param().abi())
 }
 #[inline]
-pub unsafe fn ResUtilGetResourceDependencyByClass<P3>(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: P3) -> HRESOURCE
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ResUtilGetResourceDependencyByClass(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: bool) -> HRESOURCE {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetResourceDependencyByClass(hcluster : HCLUSTER, hself : super::super::Foundation:: HANDLE, prci : *mut CLUS_RESOURCE_CLASS_INFO, brecurse : super::super::Foundation:: BOOL) -> HRESOURCE);
-    ResUtilGetResourceDependencyByClass(core::mem::transmute(hcluster), core::mem::transmute(hself), core::mem::transmute(prci), brecurse.param().abi())
+    ResUtilGetResourceDependencyByClass(core::mem::transmute(hcluster), core::mem::transmute(hself), core::mem::transmute(prci), brecurse.into())
 }
 #[inline]
-pub unsafe fn ResUtilGetResourceDependencyByClassEx<P3>(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: P3, dwdesiredaccess: u32) -> HRESOURCE
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ResUtilGetResourceDependencyByClassEx(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: bool, dwdesiredaccess: u32) -> HRESOURCE {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetResourceDependencyByClassEx(hcluster : HCLUSTER, hself : super::super::Foundation:: HANDLE, prci : *mut CLUS_RESOURCE_CLASS_INFO, brecurse : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HRESOURCE);
-    ResUtilGetResourceDependencyByClassEx(core::mem::transmute(hcluster), core::mem::transmute(hself), core::mem::transmute(prci), brecurse.param().abi(), core::mem::transmute(dwdesiredaccess))
+    ResUtilGetResourceDependencyByClassEx(core::mem::transmute(hcluster), core::mem::transmute(hself), core::mem::transmute(prci), brecurse.into(), core::mem::transmute(dwdesiredaccess))
 }
 #[inline]
-pub unsafe fn ResUtilGetResourceDependencyByName<P2, P3>(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: P2, brecurse: P3) -> HRESOURCE
+pub unsafe fn ResUtilGetResourceDependencyByName<P2>(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: P2, brecurse: bool) -> HRESOURCE
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetResourceDependencyByName(hcluster : HCLUSTER, hself : super::super::Foundation:: HANDLE, lpszresourcetype : windows_core::PCWSTR, brecurse : super::super::Foundation:: BOOL) -> HRESOURCE);
-    ResUtilGetResourceDependencyByName(core::mem::transmute(hcluster), core::mem::transmute(hself), lpszresourcetype.param().abi(), brecurse.param().abi())
+    ResUtilGetResourceDependencyByName(core::mem::transmute(hcluster), core::mem::transmute(hself), lpszresourcetype.param().abi(), brecurse.into())
 }
 #[inline]
-pub unsafe fn ResUtilGetResourceDependencyByNameEx<P2, P3>(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: P2, brecurse: P3, dwdesiredaccess: u32) -> HRESOURCE
+pub unsafe fn ResUtilGetResourceDependencyByNameEx<P2>(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: P2, brecurse: bool, dwdesiredaccess: u32) -> HRESOURCE
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetResourceDependencyByNameEx(hcluster : HCLUSTER, hself : super::super::Foundation:: HANDLE, lpszresourcetype : windows_core::PCWSTR, brecurse : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HRESOURCE);
-    ResUtilGetResourceDependencyByNameEx(core::mem::transmute(hcluster), core::mem::transmute(hself), lpszresourcetype.param().abi(), brecurse.param().abi(), core::mem::transmute(dwdesiredaccess))
+    ResUtilGetResourceDependencyByNameEx(core::mem::transmute(hcluster), core::mem::transmute(hself), lpszresourcetype.param().abi(), brecurse.into(), core::mem::transmute(dwdesiredaccess))
 }
 #[inline]
 pub unsafe fn ResUtilGetResourceDependencyEx<P1>(hself: super::super::Foundation::HANDLE, lpszresourcetype: P1, dwdesiredaccess: u32) -> HRESOURCE
@@ -2343,31 +2307,21 @@ pub unsafe fn ResUtilSetPropertyParameterBlock(hkeyclusterkey: super::super::Sys
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilSetPropertyParameterBlockEx<P6>(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: P6, poutparams: *mut u8) -> u32
-where
-    P6: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ResUtilSetPropertyParameterBlockEx(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: bool, poutparams: *mut u8) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyParameterBlockEx(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *mut core::ffi::c_void, pinparams : *const u8, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, bforcewrite : super::super::Foundation:: BOOL, poutparams : *mut u8) -> u32);
-    ResUtilSetPropertyParameterBlockEx(core::mem::transmute(hkeyclusterkey), core::mem::transmute(ppropertytable), core::mem::transmute(reserved), core::mem::transmute(pinparams), core::mem::transmute(pinpropertylist), core::mem::transmute(cbinpropertylistsize), bforcewrite.param().abi(), core::mem::transmute(poutparams))
+    ResUtilSetPropertyParameterBlockEx(core::mem::transmute(hkeyclusterkey), core::mem::transmute(ppropertytable), core::mem::transmute(reserved), core::mem::transmute(pinparams), core::mem::transmute(pinpropertylist), core::mem::transmute(cbinpropertylistsize), bforcewrite.into(), core::mem::transmute(poutparams))
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilSetPropertyTable<P3>(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: Option<*const core::ffi::c_void>, ballowunknownproperties: P3, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: Option<*mut u8>) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ResUtilSetPropertyTable(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: Option<*const core::ffi::c_void>, ballowunknownproperties: bool, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: Option<*mut u8>) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyTable(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *const core::ffi::c_void, ballowunknownproperties : super::super::Foundation:: BOOL, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, poutparams : *mut u8) -> u32);
-    ResUtilSetPropertyTable(core::mem::transmute(hkeyclusterkey), core::mem::transmute(ppropertytable), core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), ballowunknownproperties.param().abi(), core::mem::transmute(pinpropertylist), core::mem::transmute(cbinpropertylistsize), core::mem::transmute(poutparams.unwrap_or(core::mem::zeroed())))
+    ResUtilSetPropertyTable(core::mem::transmute(hkeyclusterkey), core::mem::transmute(ppropertytable), core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), ballowunknownproperties.into(), core::mem::transmute(pinpropertylist), core::mem::transmute(cbinpropertylistsize), core::mem::transmute(poutparams.unwrap_or(core::mem::zeroed())))
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilSetPropertyTableEx<P3, P6>(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, ballowunknownproperties: P3, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: P6, poutparams: *mut u8) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-    P6: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ResUtilSetPropertyTableEx(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, ballowunknownproperties: bool, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: bool, poutparams: *mut u8) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyTableEx(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *mut core::ffi::c_void, ballowunknownproperties : super::super::Foundation:: BOOL, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, bforcewrite : super::super::Foundation:: BOOL, poutparams : *mut u8) -> u32);
-    ResUtilSetPropertyTableEx(core::mem::transmute(hkeyclusterkey), core::mem::transmute(ppropertytable), core::mem::transmute(reserved), ballowunknownproperties.param().abi(), core::mem::transmute(pinpropertylist), core::mem::transmute(cbinpropertylistsize), bforcewrite.param().abi(), core::mem::transmute(poutparams))
+    ResUtilSetPropertyTableEx(core::mem::transmute(hkeyclusterkey), core::mem::transmute(ppropertytable), core::mem::transmute(reserved), ballowunknownproperties.into(), core::mem::transmute(pinpropertylist), core::mem::transmute(cbinpropertylistsize), bforcewrite.into(), core::mem::transmute(poutparams))
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2453,12 +2407,9 @@ pub unsafe fn ResUtilStopService(hservicehandle: super::super::System::Services:
     ResUtilStopService(core::mem::transmute(hservicehandle))
 }
 #[inline]
-pub unsafe fn ResUtilTerminateServiceProcessFromResDll<P1>(dwservicepid: u32, boffline: P1, pdwresourcestate: *mut u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ResUtilTerminateServiceProcessFromResDll(dwservicepid: u32, boffline: bool, pdwresourcestate: *mut u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilTerminateServiceProcessFromResDll(dwservicepid : u32, boffline : super::super::Foundation:: BOOL, pdwresourcestate : *mut u32, pfnlogevent : PLOG_EVENT_ROUTINE, hresourcehandle : isize) -> u32);
-    ResUtilTerminateServiceProcessFromResDll(core::mem::transmute(dwservicepid), boffline.param().abi(), core::mem::transmute(pdwresourcestate), core::mem::transmute(pfnlogevent), core::mem::transmute(hresourcehandle))
+    ResUtilTerminateServiceProcessFromResDll(core::mem::transmute(dwservicepid), boffline.into(), core::mem::transmute(pdwresourcestate), core::mem::transmute(pfnlogevent), core::mem::transmute(hresourcehandle))
 }
 #[inline]
 pub unsafe fn ResUtilVerifyPrivatePropertyList(pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32) -> u32 {
@@ -2466,12 +2417,9 @@ pub unsafe fn ResUtilVerifyPrivatePropertyList(pinpropertylist: *const core::ffi
     ResUtilVerifyPrivatePropertyList(core::mem::transmute(pinpropertylist), core::mem::transmute(cbinpropertylistsize))
 }
 #[inline]
-pub unsafe fn ResUtilVerifyPropertyTable<P2>(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: Option<*const core::ffi::c_void>, ballowunknownproperties: P2, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: Option<*mut u8>) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ResUtilVerifyPropertyTable(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: Option<*const core::ffi::c_void>, ballowunknownproperties: bool, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: Option<*mut u8>) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilVerifyPropertyTable(ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *const core::ffi::c_void, ballowunknownproperties : super::super::Foundation:: BOOL, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, poutparams : *mut u8) -> u32);
-    ResUtilVerifyPropertyTable(core::mem::transmute(ppropertytable), core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), ballowunknownproperties.param().abi(), core::mem::transmute(pinpropertylist), core::mem::transmute(cbinpropertylistsize), core::mem::transmute(poutparams.unwrap_or(core::mem::zeroed())))
+    ResUtilVerifyPropertyTable(core::mem::transmute(ppropertytable), core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), ballowunknownproperties.into(), core::mem::transmute(pinpropertylist), core::mem::transmute(cbinpropertylistsize), core::mem::transmute(poutparams.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ResUtilVerifyResourceService<P0>(pszservicename: P0) -> u32
@@ -2494,13 +2442,12 @@ pub unsafe fn ResUtilVerifyShutdownSafe(flags: u32, reason: u32, presult: *mut u
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilsDeleteKeyTree<P1, P2>(key: super::super::System::Registry::HKEY, keyname: P1, treatnokeyaserror: P2) -> u32
+pub unsafe fn ResUtilsDeleteKeyTree<P1>(key: super::super::System::Registry::HKEY, keyname: P1, treatnokeyaserror: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilsDeleteKeyTree(key : super::super::System::Registry:: HKEY, keyname : windows_core::PCWSTR, treatnokeyaserror : super::super::Foundation:: BOOL) -> u32);
-    ResUtilsDeleteKeyTree(core::mem::transmute(key), keyname.param().abi(), treatnokeyaserror.param().abi())
+    ResUtilsDeleteKeyTree(core::mem::transmute(key), keyname.param().abi(), treatnokeyaserror.into())
 }
 #[inline]
 pub unsafe fn ResetAllAppInstanceVersions() -> u32 {
@@ -2521,14 +2468,13 @@ where
     RestartClusterResourceEx(core::mem::transmute(hresource), core::mem::transmute(dwflags), lpszreason.param().abi())
 }
 #[inline]
-pub unsafe fn RestoreClusterDatabase<P0, P1, P2>(lpszpathname: P0, bforce: P1, lpszquorumdriveletter: P2) -> u32
+pub unsafe fn RestoreClusterDatabase<P0, P2>(lpszpathname: P0, bforce: bool, lpszquorumdriveletter: P2) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn RestoreClusterDatabase(lpszpathname : windows_core::PCWSTR, bforce : super::super::Foundation:: BOOL, lpszquorumdriveletter : windows_core::PCWSTR) -> u32);
-    RestoreClusterDatabase(lpszpathname.param().abi(), bforce.param().abi(), lpszquorumdriveletter.param().abi())
+    RestoreClusterDatabase(lpszpathname.param().abi(), bforce.into(), lpszquorumdriveletter.param().abi())
 }
 #[inline]
 pub unsafe fn ResumeClusterNode(hnode: HNODE) -> u32 {
@@ -5955,160 +5901,82 @@ pub const GUID_PRESENT: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCHANGE(pub isize);
-impl windows_core::TypeKind for HCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HCI_UPGRADE_BIT: u32 = 32768u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCLUSCRYPTPROVIDER(pub isize);
-impl windows_core::TypeKind for HCLUSCRYPTPROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCLUSENUM(pub isize);
-impl windows_core::TypeKind for HCLUSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCLUSENUMEX(pub isize);
-impl windows_core::TypeKind for HCLUSENUMEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCLUSTER(pub isize);
-impl windows_core::TypeKind for HCLUSTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HGROUP(pub isize);
-impl windows_core::TypeKind for HGROUP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HGROUPENUM(pub isize);
-impl windows_core::TypeKind for HGROUPENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HGROUPENUMEX(pub isize);
-impl windows_core::TypeKind for HGROUPENUMEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HGROUPSET(pub isize);
-impl windows_core::TypeKind for HGROUPSET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HGROUPSETENUM(pub isize);
-impl windows_core::TypeKind for HGROUPSETENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNETINTERFACE(pub isize);
-impl windows_core::TypeKind for HNETINTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNETINTERFACEENUM(pub isize);
-impl windows_core::TypeKind for HNETINTERFACEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNETWORK(pub isize);
-impl windows_core::TypeKind for HNETWORK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNETWORKENUM(pub isize);
-impl windows_core::TypeKind for HNETWORKENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNODE(pub isize);
-impl windows_core::TypeKind for HNODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNODEENUM(pub isize);
-impl windows_core::TypeKind for HNODEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNODEENUMEX(pub isize);
-impl windows_core::TypeKind for HNODEENUMEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HREGBATCH(pub isize);
-impl windows_core::TypeKind for HREGBATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HREGBATCHNOTIFICATION(pub isize);
-impl windows_core::TypeKind for HREGBATCHNOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HREGBATCHPORT(pub isize);
-impl windows_core::TypeKind for HREGBATCHPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HREGREADBATCH(pub isize);
-impl windows_core::TypeKind for HREGREADBATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HREGREADBATCHREPLY(pub isize);
-impl windows_core::TypeKind for HREGREADBATCHREPLY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HRESENUM(pub isize);
-impl windows_core::TypeKind for HRESENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HRESENUMEX(pub isize);
-impl windows_core::TypeKind for HRESENUMEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HRESOURCE(pub isize);
-impl windows_core::TypeKind for HRESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HRESTYPEENUM(pub isize);
-impl windows_core::TypeKind for HRESTYPEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 windows_core::imp::define_interface!(IGetClusterDataInfo, IGetClusterDataInfo_Vtbl, 0x97dede51_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IGetClusterDataInfo, windows_core::IUnknown);
 impl IGetClusterDataInfo {
@@ -11372,11 +11240,8 @@ impl ISClusResource {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MaintenanceMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetMaintenanceMode<P0>(&self, bmaintenancemode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMaintenanceMode)(windows_core::Interface::as_raw(self), bmaintenancemode.param().abi()).ok()
+    pub unsafe fn SetMaintenanceMode(&self, bmaintenancemode: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMaintenanceMode)(windows_core::Interface::as_raw(self), bmaintenancemode.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12875,11 +12740,8 @@ impl IWCWizard97Callback {
     pub unsafe fn AddWizard97Page(&self, hpage: *const i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddWizard97Page)(windows_core::Interface::as_raw(self), core::mem::transmute(hpage)).ok()
     }
-    pub unsafe fn EnableNext<P1>(&self, hpage: *const i32, benable: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).EnableNext)(windows_core::Interface::as_raw(self), core::mem::transmute(hpage), benable.param().abi()).ok()
+    pub unsafe fn EnableNext(&self, hpage: *const i32, benable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).EnableNext)(windows_core::Interface::as_raw(self), core::mem::transmute(hpage), benable.into()).ok()
     }
 }
 #[repr(C)]
@@ -12919,11 +12781,8 @@ impl IWCWizardCallback {
     pub unsafe fn AddWizardPage(&self, hpage: *const i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddWizardPage)(windows_core::Interface::as_raw(self), core::mem::transmute(hpage)).ok()
     }
-    pub unsafe fn EnableNext<P1>(&self, hpage: *const i32, benable: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).EnableNext)(windows_core::Interface::as_raw(self), core::mem::transmute(hpage), benable.param().abi()).ok()
+    pub unsafe fn EnableNext(&self, hpage: *const i32, benable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).EnableNext)(windows_core::Interface::as_raw(self), core::mem::transmute(hpage), benable.into()).ok()
     }
 }
 #[repr(C)]

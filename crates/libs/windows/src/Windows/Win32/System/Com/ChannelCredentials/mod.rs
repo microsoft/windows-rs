@@ -7,11 +7,8 @@ impl core::ops::Deref for IChannelCredentials {
 }
 windows_core::imp::interface_hierarchy!(IChannelCredentials, windows_core::IUnknown, super::IDispatch);
 impl IChannelCredentials {
-    pub unsafe fn SetWindowsCredential<P4>(&self, domain: &windows_core::BSTR, username: &windows_core::BSTR, password: &windows_core::BSTR, impersonationlevel: i32, allowntlm: P4) -> windows_core::Result<()>
-    where
-        P4: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetWindowsCredential)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(domain), core::mem::transmute_copy(username), core::mem::transmute_copy(password), core::mem::transmute(impersonationlevel), allowntlm.param().abi()).ok()
+    pub unsafe fn SetWindowsCredential(&self, domain: &windows_core::BSTR, username: &windows_core::BSTR, password: &windows_core::BSTR, impersonationlevel: i32, allowntlm: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetWindowsCredential)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(domain), core::mem::transmute_copy(username), core::mem::transmute_copy(password), core::mem::transmute(impersonationlevel), allowntlm.into()).ok()
     }
     pub unsafe fn SetUserNameCredential(&self, username: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetUserNameCredential)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(username), core::mem::transmute_copy(password)).ok()

@@ -4,12 +4,9 @@ pub unsafe fn ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: *mut u32) -> i32
     ComDBClaimNextFreePort(core::mem::transmute(hcomdb), core::mem::transmute(comnumber))
 }
 #[inline]
-pub unsafe fn ComDBClaimPort<P2>(hcomdb: HCOMDB, comnumber: u32, forceclaim: P2, forced: Option<*mut super::super::Foundation::BOOL>) -> i32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ComDBClaimPort(hcomdb: HCOMDB, comnumber: u32, forceclaim: bool, forced: Option<*mut super::super::Foundation::BOOL>) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBClaimPort(hcomdb : HCOMDB, comnumber : u32, forceclaim : super::super::Foundation:: BOOL, forced : *mut super::super::Foundation:: BOOL) -> i32);
-    ComDBClaimPort(core::mem::transmute(hcomdb), core::mem::transmute(comnumber), forceclaim.param().abi(), core::mem::transmute(forced.unwrap_or(core::mem::zeroed())))
+    ComDBClaimPort(core::mem::transmute(hcomdb), core::mem::transmute(comnumber), forceclaim.into(), core::mem::transmute(forced.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn ComDBClose(hcomdb: HCOMDB) -> i32 {
@@ -47,9 +44,6 @@ pub const EVEN_PARITY: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCOMDB(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCOMDB {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCOMDB {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

@@ -2893,11 +2893,8 @@ impl windows_core::RuntimeName for IDMLCompiledOperator {}
 windows_core::imp::define_interface!(IDMLDebugDevice, IDMLDebugDevice_Vtbl, 0x7d6f3ac9_394a_4ac3_92a7_390cc57a8217);
 windows_core::imp::interface_hierarchy!(IDMLDebugDevice, windows_core::IUnknown);
 impl IDMLDebugDevice {
-    pub unsafe fn SetMuteDebugOutput<P0>(&self, mute: P0)
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), mute.param().abi())
+    pub unsafe fn SetMuteDebugOutput(&self, mute: bool) {
+        (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), mute.into())
     }
 }
 #[repr(C)]

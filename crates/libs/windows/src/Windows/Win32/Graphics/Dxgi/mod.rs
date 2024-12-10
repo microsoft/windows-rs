@@ -2623,11 +2623,8 @@ impl IDXGIDisplayControl {
     pub unsafe fn IsStereoEnabled(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).IsStereoEnabled)(windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn SetStereoEnabled<P0>(&self, enabled: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetStereoEnabled)(windows_core::Interface::as_raw(self), enabled.param().abi())
+    pub unsafe fn SetStereoEnabled(&self, enabled: bool) {
+        (windows_core::Interface::vtable(self).SetStereoEnabled)(windows_core::Interface::as_raw(self), enabled.into())
     }
 }
 #[repr(C)]
@@ -3478,23 +3475,14 @@ impl IDXGIInfoQueue {
     {
         (windows_core::Interface::vtable(self).AddApplicationMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(severity), pdescription.param().abi()).ok()
     }
-    pub unsafe fn SetBreakOnCategory<P2>(&self, producer: windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), core::mem::transmute(category), benable.param().abi()).ok()
+    pub unsafe fn SetBreakOnCategory(&self, producer: windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), core::mem::transmute(category), benable.into()).ok()
     }
-    pub unsafe fn SetBreakOnSeverity<P2>(&self, producer: windows_core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBreakOnSeverity)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), core::mem::transmute(severity), benable.param().abi()).ok()
+    pub unsafe fn SetBreakOnSeverity(&self, producer: windows_core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBreakOnSeverity)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), core::mem::transmute(severity), benable.into()).ok()
     }
-    pub unsafe fn SetBreakOnID<P2>(&self, producer: windows_core::GUID, id: i32, benable: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), core::mem::transmute(id), benable.param().abi()).ok()
+    pub unsafe fn SetBreakOnID(&self, producer: windows_core::GUID, id: i32, benable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), core::mem::transmute(id), benable.into()).ok()
     }
     pub unsafe fn GetBreakOnCategory(&self, producer: windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).GetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), core::mem::transmute(category))
@@ -3505,11 +3493,8 @@ impl IDXGIInfoQueue {
     pub unsafe fn GetBreakOnID(&self, producer: windows_core::GUID, id: i32) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).GetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), core::mem::transmute(id))
     }
-    pub unsafe fn SetMuteDebugOutput<P1>(&self, producer: windows_core::GUID, bmute: P1)
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), bmute.param().abi())
+    pub unsafe fn SetMuteDebugOutput(&self, producer: windows_core::GUID, bmute: bool) {
+        (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), bmute.into())
     }
     pub unsafe fn GetMuteDebugOutput(&self, producer: windows_core::GUID) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).GetMuteDebugOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(producer))
@@ -3940,12 +3925,11 @@ impl IDXGIOutput {
     pub unsafe fn WaitForVBlank(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WaitForVBlank)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn TakeOwnership<P0, P1>(&self, pdevice: P0, exclusive: P1) -> windows_core::Result<()>
+    pub unsafe fn TakeOwnership<P0>(&self, pdevice: P0, exclusive: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).TakeOwnership)(windows_core::Interface::as_raw(self), pdevice.param().abi(), exclusive.param().abi()).ok()
+        (windows_core::Interface::vtable(self).TakeOwnership)(windows_core::Interface::as_raw(self), pdevice.param().abi(), exclusive.into()).ok()
     }
     pub unsafe fn ReleaseOwnership(&self) {
         (windows_core::Interface::vtable(self).ReleaseOwnership)(windows_core::Interface::as_raw(self))
@@ -4863,12 +4847,9 @@ impl core::ops::Deref for IDXGISurface1 {
 windows_core::imp::interface_hierarchy!(IDXGISurface1, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISurface);
 impl IDXGISurface1 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetDC<P0>(&self, discard: P0) -> windows_core::Result<super::Gdi::HDC>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn GetDC(&self, discard: bool) -> windows_core::Result<super::Gdi::HDC> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), discard.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), discard.into(), &mut result__).map(|| result__)
     }
     pub unsafe fn ReleaseDC(&self, pdirtyrect: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), core::mem::transmute(pdirtyrect.unwrap_or(core::mem::zeroed()))).ok()
@@ -4981,12 +4962,11 @@ impl IDXGISwapChain {
         let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetFullscreenState<P0, P1>(&self, fullscreen: P0, ptarget: P1) -> windows_core::Result<()>
+    pub unsafe fn SetFullscreenState<P1>(&self, fullscreen: bool, ptarget: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
         P1: windows_core::Param<IDXGIOutput>,
     {
-        (windows_core::Interface::vtable(self).SetFullscreenState)(windows_core::Interface::as_raw(self), fullscreen.param().abi(), ptarget.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFullscreenState)(windows_core::Interface::as_raw(self), fullscreen.into(), ptarget.param().abi()).ok()
     }
     pub unsafe fn GetFullscreenState(&self, pfullscreen: Option<*mut super::super::Foundation::BOOL>, pptarget: Option<*mut Option<IDXGIOutput>>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFullscreenState)(windows_core::Interface::as_raw(self), core::mem::transmute(pfullscreen.unwrap_or(core::mem::zeroed())), core::mem::transmute(pptarget.unwrap_or(core::mem::zeroed()))).ok()

@@ -147,12 +147,9 @@ where
     CoInternetQueryInfo(pwzurl.param().abi(), core::mem::transmute(queryoptions), core::mem::transmute(dwqueryflags), core::mem::transmute(pvbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(pcbbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwreserved)).ok()
 }
 #[inline]
-pub unsafe fn CoInternetSetFeatureEnabled<P2>(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
-{
+pub unsafe fn CoInternetSetFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: bool) -> windows_core::Result<()> {
     windows_targets::link!("urlmon.dll" "system" fn CoInternetSetFeatureEnabled(featureentry : INTERNETFEATURELIST, dwflags : u32, fenable : super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    CoInternetSetFeatureEnabled(core::mem::transmute(featureentry), core::mem::transmute(dwflags), fenable.param().abi()).ok()
+    CoInternetSetFeatureEnabled(core::mem::transmute(featureentry), core::mem::transmute(dwflags), fenable.into()).ok()
 }
 #[inline]
 pub unsafe fn CompareSecurityIds(pbsecurityid1: &[u8], pbsecurityid2: &[u8], dwreserved: u32) -> windows_core::Result<()> {
@@ -2322,11 +2319,8 @@ impl IInternetSecurityMgrSite {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn EnableModeless<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).EnableModeless)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
+    pub unsafe fn EnableModeless(&self, fenable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).EnableModeless)(windows_core::Interface::as_raw(self), fenable.into()).ok()
     }
 }
 #[repr(C)]
@@ -2730,18 +2724,11 @@ impl IInternetZoneManagerEx2 {
     pub unsafe fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetZoneAttributesEx)(windows_core::Interface::as_raw(self), core::mem::transmute(dwzone), core::mem::transmute(pzoneattributes), core::mem::transmute(dwflags)).ok()
     }
-    pub unsafe fn GetZoneSecurityState<P1>(&self, dwzoneindex: u32, frespectpolicy: P1, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).GetZoneSecurityState)(windows_core::Interface::as_raw(self), core::mem::transmute(dwzoneindex), frespectpolicy.param().abi(), core::mem::transmute(pdwstate), core::mem::transmute(pfpolicyencountered)).ok()
+    pub unsafe fn GetZoneSecurityState(&self, dwzoneindex: u32, frespectpolicy: bool, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetZoneSecurityState)(windows_core::Interface::as_raw(self), core::mem::transmute(dwzoneindex), frespectpolicy.into(), core::mem::transmute(pdwstate), core::mem::transmute(pfpolicyencountered)).ok()
     }
-    pub unsafe fn GetIESecurityState<P0, P3>(&self, frespectpolicy: P0, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: P3) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-        P3: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).GetIESecurityState)(windows_core::Interface::as_raw(self), frespectpolicy.param().abi(), core::mem::transmute(pdwstate), core::mem::transmute(pfpolicyencountered), fnocache.param().abi()).ok()
+    pub unsafe fn GetIESecurityState(&self, frespectpolicy: bool, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetIESecurityState)(windows_core::Interface::as_raw(self), frespectpolicy.into(), core::mem::transmute(pdwstate), core::mem::transmute(pfpolicyencountered), fnocache.into()).ok()
     }
     pub unsafe fn FixUnsecureSettings(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FixUnsecureSettings)(windows_core::Interface::as_raw(self)).ok()
@@ -2889,21 +2876,19 @@ impl IPersistMoniker {
     pub unsafe fn IsDirty(&self) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn Load<P0, P1, P2>(&self, ffullyavailable: P0, pimkname: P1, pibc: P2, grfmode: u32) -> windows_core::Result<()>
+    pub unsafe fn Load<P1, P2>(&self, ffullyavailable: bool, pimkname: P1, pibc: P2, grfmode: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
         P1: windows_core::Param<super::IMoniker>,
         P2: windows_core::Param<super::IBindCtx>,
     {
-        (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), ffullyavailable.param().abi(), pimkname.param().abi(), pibc.param().abi(), core::mem::transmute(grfmode)).ok()
+        (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), ffullyavailable.into(), pimkname.param().abi(), pibc.param().abi(), core::mem::transmute(grfmode)).ok()
     }
-    pub unsafe fn Save<P0, P1, P2>(&self, pimkname: P0, pbc: P1, fremember: P2) -> windows_core::Result<()>
+    pub unsafe fn Save<P0, P1>(&self, pimkname: P0, pbc: P1, fremember: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::IMoniker>,
         P1: windows_core::Param<super::IBindCtx>,
-        P2: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pimkname.param().abi(), pbc.param().abi(), fremember.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pimkname.param().abi(), pbc.param().abi(), fremember.into()).ok()
     }
     pub unsafe fn SaveCompleted<P0, P1>(&self, pimkname: P0, pibc: P1) -> windows_core::Result<()>
     where

@@ -567,9 +567,6 @@ pub struct HCS_NOTIFICATION_FLAGS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCS_OPERATION(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCS_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCS_OPERATION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -632,9 +629,6 @@ pub struct HCS_OPERATION_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCS_PROCESS(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCS_PROCESS {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCS_PROCESS {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -674,9 +668,6 @@ pub struct HCS_RESOURCE_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCS_SYSTEM(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCS_SYSTEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCS_SYSTEM {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

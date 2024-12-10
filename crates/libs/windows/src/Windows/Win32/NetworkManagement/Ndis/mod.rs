@@ -2789,9 +2789,6 @@ impl Default for NET_IF_ALIAS_LH {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NET_IF_COMPARTMENT_ID(pub u32);
-impl windows_core::TypeKind for NET_IF_COMPARTMENT_ID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const NET_IF_COMPARTMENT_ID_PRIMARY: u32 = 1u32;
 pub const NET_IF_COMPARTMENT_ID_UNSPECIFIED: u32 = 0u32;
 pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(1i32);

@@ -346,23 +346,20 @@ pub unsafe fn CoIsOle1Class(rclsid: *const windows_core::GUID) -> super::super::
     CoIsOle1Class(core::mem::transmute(rclsid))
 }
 #[inline]
-pub unsafe fn CoLoadLibrary<P0, P1>(lpszlibname: P0, bautofree: P1) -> super::super::Foundation::HINSTANCE
+pub unsafe fn CoLoadLibrary<P0>(lpszlibname: P0, bautofree: bool) -> super::super::Foundation::HINSTANCE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoLoadLibrary(lpszlibname : windows_core::PCWSTR, bautofree : super::super::Foundation:: BOOL) -> super::super::Foundation:: HINSTANCE);
-    CoLoadLibrary(lpszlibname.param().abi(), bautofree.param().abi())
+    CoLoadLibrary(lpszlibname.param().abi(), bautofree.into())
 }
 #[inline]
-pub unsafe fn CoLockObjectExternal<P0, P1, P2>(punk: P0, flock: P1, flastunlockreleases: P2) -> windows_core::Result<()>
+pub unsafe fn CoLockObjectExternal<P0>(punk: P0, flock: bool, flastunlockreleases: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoLockObjectExternal(punk : * mut core::ffi::c_void, flock : super::super::Foundation:: BOOL, flastunlockreleases : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    CoLockObjectExternal(punk.param().abi(), flock.param().abi(), flastunlockreleases.param().abi()).ok()
+    CoLockObjectExternal(punk.param().abi(), flock.into(), flastunlockreleases.into()).ok()
 }
 #[inline]
 pub unsafe fn CoQueryAuthenticationServices(pcauthsvc: *mut u32, asauthsvc: *mut *mut SOLE_AUTHENTICATION_SERVICE) -> windows_core::Result<()> {
@@ -747,14 +744,13 @@ where
     MonikerCommonPrefixWith(pmkthis.param().abi(), pmkother.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
-pub unsafe fn MonikerRelativePathTo<P0, P1, P3>(pmksrc: P0, pmkdest: P1, ppmkrelpath: *mut Option<IMoniker>, dwreserved: P3) -> windows_core::Result<()>
+pub unsafe fn MonikerRelativePathTo<P0, P1>(pmksrc: P0, pmkdest: P1, ppmkrelpath: *mut Option<IMoniker>, dwreserved: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<IMoniker>,
     P1: windows_core::Param<IMoniker>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("ole32.dll" "system" fn MonikerRelativePathTo(pmksrc : * mut core::ffi::c_void, pmkdest : * mut core::ffi::c_void, ppmkrelpath : *mut * mut core::ffi::c_void, dwreserved : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    MonikerRelativePathTo(pmksrc.param().abi(), pmkdest.param().abi(), core::mem::transmute(ppmkrelpath), dwreserved.param().abi()).ok()
+    MonikerRelativePathTo(pmksrc.param().abi(), pmkdest.param().abi(), core::mem::transmute(ppmkrelpath), dwreserved.into()).ok()
 }
 #[inline]
 pub unsafe fn ProgIDFromCLSID(clsid: *const windows_core::GUID) -> windows_core::Result<windows_core::PWSTR> {
@@ -1794,9 +1790,6 @@ pub const COWAIT_WAITALL: COWAIT_FLAGS = COWAIT_FLAGS(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CO_DEVICE_CATALOG_COOKIE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for CO_DEVICE_CATALOG_COOKIE {
-    type TypeKind = windows_core::CopyType;
-}
 impl CO_DEVICE_CATALOG_COOKIE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1841,9 +1834,6 @@ pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTE
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CO_MTA_USAGE_COOKIE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for CO_MTA_USAGE_COOKIE {
-    type TypeKind = windows_core::CopyType;
-}
 impl CO_MTA_USAGE_COOKIE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -3717,11 +3707,8 @@ impl IClassFactory {
         let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn LockServer<P0>(&self, flock: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).LockServer)(windows_core::Interface::as_raw(self), flock.param().abi()).ok()
+    pub unsafe fn LockServer(&self, flock: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).LockServer)(windows_core::Interface::as_raw(self), flock.into()).ok()
     }
 }
 #[repr(C)]
@@ -4317,11 +4304,8 @@ impl IDataObject {
         (windows_core::Interface::vtable(self).GetCanonicalFormatEtc)(windows_core::Interface::as_raw(self), core::mem::transmute(pformatectin), core::mem::transmute(pformatetcout))
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetData<P2>(&self, pformatetc: *const FORMATETC, pmedium: *const STGMEDIUM, frelease: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute(pformatetc), core::mem::transmute(pmedium), frelease.param().abi()).ok()
+    pub unsafe fn SetData(&self, pformatetc: *const FORMATETC, pmedium: *const STGMEDIUM, frelease: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute(pformatetc), core::mem::transmute(pmedium), frelease.into()).ok()
     }
     pub unsafe fn EnumFormatEtc(&self, dwdirection: u32) -> windows_core::Result<IEnumFORMATETC> {
         let mut result__ = core::mem::zeroed();
@@ -5387,11 +5371,8 @@ impl IExternalConnection {
     pub unsafe fn AddConnection(&self, extconn: u32, reserved: u32) -> u32 {
         (windows_core::Interface::vtable(self).AddConnection)(windows_core::Interface::as_raw(self), core::mem::transmute(extconn), core::mem::transmute(reserved))
     }
-    pub unsafe fn ReleaseConnection<P2>(&self, extconn: u32, reserved: u32, flastreleasecloses: P2) -> u32
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ReleaseConnection)(windows_core::Interface::as_raw(self), core::mem::transmute(extconn), core::mem::transmute(reserved), flastreleasecloses.param().abi())
+    pub unsafe fn ReleaseConnection(&self, extconn: u32, reserved: u32, flastreleasecloses: bool) -> u32 {
+        (windows_core::Interface::vtable(self).ReleaseConnection)(windows_core::Interface::as_raw(self), core::mem::transmute(extconn), core::mem::transmute(reserved), flastreleasecloses.into())
     }
 }
 #[repr(C)]
@@ -5860,53 +5841,29 @@ impl IMallocSpy {
     pub unsafe fn PostAlloc(&self, pactual: *const core::ffi::c_void) -> *mut core::ffi::c_void {
         (windows_core::Interface::vtable(self).PostAlloc)(windows_core::Interface::as_raw(self), core::mem::transmute(pactual))
     }
-    pub unsafe fn PreFree<P1>(&self, prequest: *const core::ffi::c_void, fspyed: P1) -> *mut core::ffi::c_void
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).PreFree)(windows_core::Interface::as_raw(self), core::mem::transmute(prequest), fspyed.param().abi())
+    pub unsafe fn PreFree(&self, prequest: *const core::ffi::c_void, fspyed: bool) -> *mut core::ffi::c_void {
+        (windows_core::Interface::vtable(self).PreFree)(windows_core::Interface::as_raw(self), core::mem::transmute(prequest), fspyed.into())
     }
-    pub unsafe fn PostFree<P0>(&self, fspyed: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).PostFree)(windows_core::Interface::as_raw(self), fspyed.param().abi())
+    pub unsafe fn PostFree(&self, fspyed: bool) {
+        (windows_core::Interface::vtable(self).PostFree)(windows_core::Interface::as_raw(self), fspyed.into())
     }
-    pub unsafe fn PreRealloc<P3>(&self, prequest: *const core::ffi::c_void, cbrequest: usize, ppnewrequest: *mut *mut core::ffi::c_void, fspyed: P3) -> usize
-    where
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).PreRealloc)(windows_core::Interface::as_raw(self), core::mem::transmute(prequest), core::mem::transmute(cbrequest), core::mem::transmute(ppnewrequest), fspyed.param().abi())
+    pub unsafe fn PreRealloc(&self, prequest: *const core::ffi::c_void, cbrequest: usize, ppnewrequest: *mut *mut core::ffi::c_void, fspyed: bool) -> usize {
+        (windows_core::Interface::vtable(self).PreRealloc)(windows_core::Interface::as_raw(self), core::mem::transmute(prequest), core::mem::transmute(cbrequest), core::mem::transmute(ppnewrequest), fspyed.into())
     }
-    pub unsafe fn PostRealloc<P1>(&self, pactual: *const core::ffi::c_void, fspyed: P1) -> *mut core::ffi::c_void
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).PostRealloc)(windows_core::Interface::as_raw(self), core::mem::transmute(pactual), fspyed.param().abi())
+    pub unsafe fn PostRealloc(&self, pactual: *const core::ffi::c_void, fspyed: bool) -> *mut core::ffi::c_void {
+        (windows_core::Interface::vtable(self).PostRealloc)(windows_core::Interface::as_raw(self), core::mem::transmute(pactual), fspyed.into())
     }
-    pub unsafe fn PreGetSize<P1>(&self, prequest: *const core::ffi::c_void, fspyed: P1) -> *mut core::ffi::c_void
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).PreGetSize)(windows_core::Interface::as_raw(self), core::mem::transmute(prequest), fspyed.param().abi())
+    pub unsafe fn PreGetSize(&self, prequest: *const core::ffi::c_void, fspyed: bool) -> *mut core::ffi::c_void {
+        (windows_core::Interface::vtable(self).PreGetSize)(windows_core::Interface::as_raw(self), core::mem::transmute(prequest), fspyed.into())
     }
-    pub unsafe fn PostGetSize<P1>(&self, cbactual: usize, fspyed: P1) -> usize
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).PostGetSize)(windows_core::Interface::as_raw(self), core::mem::transmute(cbactual), fspyed.param().abi())
+    pub unsafe fn PostGetSize(&self, cbactual: usize, fspyed: bool) -> usize {
+        (windows_core::Interface::vtable(self).PostGetSize)(windows_core::Interface::as_raw(self), core::mem::transmute(cbactual), fspyed.into())
     }
-    pub unsafe fn PreDidAlloc<P1>(&self, prequest: *const core::ffi::c_void, fspyed: P1) -> *mut core::ffi::c_void
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).PreDidAlloc)(windows_core::Interface::as_raw(self), core::mem::transmute(prequest), fspyed.param().abi())
+    pub unsafe fn PreDidAlloc(&self, prequest: *const core::ffi::c_void, fspyed: bool) -> *mut core::ffi::c_void {
+        (windows_core::Interface::vtable(self).PreDidAlloc)(windows_core::Interface::as_raw(self), core::mem::transmute(prequest), fspyed.into())
     }
-    pub unsafe fn PostDidAlloc<P1>(&self, prequest: *const core::ffi::c_void, fspyed: P1, factual: i32) -> i32
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).PostDidAlloc)(windows_core::Interface::as_raw(self), core::mem::transmute(prequest), fspyed.param().abi(), core::mem::transmute(factual))
+    pub unsafe fn PostDidAlloc(&self, prequest: *const core::ffi::c_void, fspyed: bool, factual: i32) -> i32 {
+        (windows_core::Interface::vtable(self).PostDidAlloc)(windows_core::Interface::as_raw(self), core::mem::transmute(prequest), fspyed.into(), core::mem::transmute(factual))
     }
     pub unsafe fn PreHeapMinimize(&self) {
         (windows_core::Interface::vtable(self).PreHeapMinimize)(windows_core::Interface::as_raw(self))
@@ -6049,20 +6006,16 @@ impl IMoniker {
     {
         (windows_core::Interface::vtable(self).Reduce)(windows_core::Interface::as_raw(self), pbc.param().abi(), core::mem::transmute(dwreducehowfar), core::mem::transmute(ppmktoleft), core::mem::transmute(ppmkreduced)).ok()
     }
-    pub unsafe fn ComposeWith<P0, P1>(&self, pmkright: P0, fonlyifnotgeneric: P1) -> windows_core::Result<IMoniker>
+    pub unsafe fn ComposeWith<P0>(&self, pmkright: P0, fonlyifnotgeneric: bool) -> windows_core::Result<IMoniker>
     where
         P0: windows_core::Param<IMoniker>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ComposeWith)(windows_core::Interface::as_raw(self), pmkright.param().abi(), fonlyifnotgeneric.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ComposeWith)(windows_core::Interface::as_raw(self), pmkright.param().abi(), fonlyifnotgeneric.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Enum<P0>(&self, fforward: P0) -> windows_core::Result<IEnumMoniker>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn Enum(&self, fforward: bool) -> windows_core::Result<IEnumMoniker> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), fforward.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), fforward.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsEqual<P0>(&self, pmkothermoniker: P0) -> windows_core::HRESULT
     where
@@ -6526,12 +6479,11 @@ impl IPersistFile {
     {
         (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), core::mem::transmute(dwmode)).ok()
     }
-    pub unsafe fn Save<P0, P1>(&self, pszfilename: P0, fremember: P1) -> windows_core::Result<()>
+    pub unsafe fn Save<P0>(&self, pszfilename: P0, fremember: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), fremember.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), fremember.into()).ok()
     }
     pub unsafe fn SaveCompleted<P0>(&self, pszfilename: P0) -> windows_core::Result<()>
     where
@@ -6617,11 +6569,8 @@ impl IPersistMemory {
     pub unsafe fn Load(&self, pmem: &[u8]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), core::mem::transmute(pmem.as_ptr()), pmem.len().try_into().unwrap()).ok()
     }
-    pub unsafe fn Save<P1>(&self, pmem: &mut [u8], fcleardirty: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), core::mem::transmute(pmem.as_ptr()), fcleardirty.param().abi(), pmem.len().try_into().unwrap()).ok()
+    pub unsafe fn Save(&self, pmem: &mut [u8], fcleardirty: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), core::mem::transmute(pmem.as_ptr()), fcleardirty.into(), pmem.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetSizeMax(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -6707,12 +6656,11 @@ impl IPersistStream {
     {
         (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pstm.param().abi()).ok()
     }
-    pub unsafe fn Save<P0, P1>(&self, pstm: P0, fcleardirty: P1) -> windows_core::Result<()>
+    pub unsafe fn Save<P0>(&self, pstm: P0, fcleardirty: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IStream>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pstm.param().abi(), fcleardirty.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pstm.param().abi(), fcleardirty.into()).ok()
     }
     pub unsafe fn GetSizeMax(&self) -> windows_core::Result<u64> {
         let mut result__ = core::mem::zeroed();
@@ -6788,12 +6736,11 @@ impl IPersistStreamInit {
     {
         (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pstm.param().abi()).ok()
     }
-    pub unsafe fn Save<P0, P1>(&self, pstm: P0, fcleardirty: P1) -> windows_core::Result<()>
+    pub unsafe fn Save<P0>(&self, pstm: P0, fcleardirty: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IStream>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pstm.param().abi(), fcleardirty.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pstm.param().abi(), fcleardirty.into()).ok()
     }
     pub unsafe fn GetSizeMax(&self) -> windows_core::Result<u64> {
         let mut result__ = core::mem::zeroed();
@@ -7044,12 +6991,8 @@ impl windows_core::RuntimeName for IProcessLock {}
 windows_core::imp::define_interface!(IProgressNotify, IProgressNotify_Vtbl, 0xa9d758a0_4617_11cf_95fc_00aa00680db4);
 windows_core::imp::interface_hierarchy!(IProgressNotify, windows_core::IUnknown);
 impl IProgressNotify {
-    pub unsafe fn OnProgress<P2, P3>(&self, dwprogresscurrent: u32, dwprogressmaximum: u32, faccurate: P2, fowner: P3) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).OnProgress)(windows_core::Interface::as_raw(self), core::mem::transmute(dwprogresscurrent), core::mem::transmute(dwprogressmaximum), faccurate.param().abi(), fowner.param().abi()).ok()
+    pub unsafe fn OnProgress(&self, dwprogresscurrent: u32, dwprogressmaximum: u32, faccurate: bool, fowner: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).OnProgress)(windows_core::Interface::as_raw(self), core::mem::transmute(dwprogresscurrent), core::mem::transmute(dwprogressmaximum), faccurate.into(), fowner.into()).ok()
     }
 }
 #[repr(C)]
@@ -7637,18 +7580,11 @@ impl IRunnableObject {
     pub unsafe fn IsRunning(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).IsRunning)(windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn LockRunning<P0, P1>(&self, flock: P0, flastunlockcloses: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).LockRunning)(windows_core::Interface::as_raw(self), flock.param().abi(), flastunlockcloses.param().abi()).ok()
+    pub unsafe fn LockRunning(&self, flock: bool, flastunlockcloses: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).LockRunning)(windows_core::Interface::as_raw(self), flock.into(), flastunlockcloses.into()).ok()
     }
-    pub unsafe fn SetContainedObject<P0>(&self, fcontained: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetContainedObject)(windows_core::Interface::as_raw(self), fcontained.param().abi()).ok()
+    pub unsafe fn SetContainedObject(&self, fcontained: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetContainedObject)(windows_core::Interface::as_raw(self), fcontained.into()).ok()
     }
 }
 #[repr(C)]
@@ -10151,11 +10087,8 @@ impl IUriBuilder {
     {
         (windows_core::Interface::vtable(self).SetPath)(windows_core::Interface::as_raw(self), pwznewvalue.param().abi()).ok()
     }
-    pub unsafe fn SetPort<P0>(&self, fhasport: P0, dwnewvalue: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetPort)(windows_core::Interface::as_raw(self), fhasport.param().abi(), core::mem::transmute(dwnewvalue)).ok()
+    pub unsafe fn SetPort(&self, fhasport: bool, dwnewvalue: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetPort)(windows_core::Interface::as_raw(self), fhasport.into(), core::mem::transmute(dwnewvalue)).ok()
     }
     pub unsafe fn SetQuery<P0>(&self, pwznewvalue: P0) -> windows_core::Result<()>
     where
@@ -10552,9 +10485,6 @@ impl Default for MULTI_QI {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct MachineGlobalObjectTableRegistrationToken(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for MachineGlobalObjectTableRegistrationToken {
-    type TypeKind = windows_core::CopyType;
-}
 impl MachineGlobalObjectTableRegistrationToken {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()

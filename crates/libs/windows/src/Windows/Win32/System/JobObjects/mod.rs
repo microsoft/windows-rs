@@ -39,23 +39,21 @@ pub unsafe fn IsProcessInJob(processhandle: super::super::Foundation::HANDLE, jo
     IsProcessInJob(core::mem::transmute(processhandle), core::mem::transmute(jobhandle.unwrap_or(core::mem::zeroed())), core::mem::transmute(result)).ok()
 }
 #[inline]
-pub unsafe fn OpenJobObjectA<P1, P2>(dwdesiredaccess: u32, binherithandle: P1, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenJobObjectA<P2>(dwdesiredaccess: u32, binherithandle: bool, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn OpenJobObjectA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = OpenJobObjectA(core::mem::transmute(dwdesiredaccess), binherithandle.param().abi(), lpname.param().abi());
+    let result__ = OpenJobObjectA(core::mem::transmute(dwdesiredaccess), binherithandle.into(), lpname.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn OpenJobObjectW<P1, P2>(dwdesiredaccess: u32, binherithandle: P1, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenJobObjectW<P2>(dwdesiredaccess: u32, binherithandle: bool, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn OpenJobObjectW(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = OpenJobObjectW(core::mem::transmute(dwdesiredaccess), binherithandle.param().abi(), lpname.param().abi());
+    let result__ = OpenJobObjectW(core::mem::transmute(dwdesiredaccess), binherithandle.into(), lpname.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -87,12 +85,9 @@ pub unsafe fn TerminateJobObject(hjob: super::super::Foundation::HANDLE, uexitco
     TerminateJobObject(core::mem::transmute(hjob), core::mem::transmute(uexitcode)).ok()
 }
 #[inline]
-pub unsafe fn UserHandleGrantAccess<P2>(huserhandle: super::super::Foundation::HANDLE, hjob: super::super::Foundation::HANDLE, bgrant: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn UserHandleGrantAccess(huserhandle: super::super::Foundation::HANDLE, hjob: super::super::Foundation::HANDLE, bgrant: bool) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn UserHandleGrantAccess(huserhandle : super::super::Foundation:: HANDLE, hjob : super::super::Foundation:: HANDLE, bgrant : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    UserHandleGrantAccess(core::mem::transmute(huserhandle), core::mem::transmute(hjob), bgrant.param().abi()).ok()
+    UserHandleGrantAccess(core::mem::transmute(huserhandle), core::mem::transmute(hjob), bgrant.into()).ok()
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

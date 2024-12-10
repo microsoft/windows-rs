@@ -123,13 +123,12 @@ impl IIsolatedProcessLauncher {
     {
         (windows_core::Interface::vtable(self).LaunchProcess)(windows_core::Interface::as_raw(self), process.param().abi(), arguments.param().abi(), workingdirectory.param().abi()).ok()
     }
-    pub unsafe fn ShareDirectory<P0, P1, P2>(&self, hostpath: P0, containerpath: P1, readonly: P2) -> windows_core::Result<()>
+    pub unsafe fn ShareDirectory<P0, P1>(&self, hostpath: P0, containerpath: P1, readonly: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).ShareDirectory)(windows_core::Interface::as_raw(self), hostpath.param().abi(), containerpath.param().abi(), readonly.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ShareDirectory)(windows_core::Interface::as_raw(self), hostpath.param().abi(), containerpath.param().abi(), readonly.into()).ok()
     }
     pub unsafe fn GetContainerGuid(&self) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = core::mem::zeroed();

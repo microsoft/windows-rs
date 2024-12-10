@@ -51,9 +51,6 @@ pub unsafe fn PssWalkSnapshot(snapshothandle: HPSS, informationclass: PSS_WALK_I
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPSS(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HPSS {
-    type TypeKind = windows_core::CopyType;
-}
 impl HPSS {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -67,9 +64,6 @@ impl Default for HPSS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPSSWALK(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HPSSWALK {
-    type TypeKind = windows_core::CopyType;
-}
 impl HPSSWALK {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

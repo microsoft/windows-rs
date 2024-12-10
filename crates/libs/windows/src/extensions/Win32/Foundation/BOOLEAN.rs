@@ -68,8 +68,3 @@ impl core::ops::Not for BOOLEAN {
         }
     }
 }
-impl windows_core::Param<BOOLEAN> for bool {
-    unsafe fn param(self) -> windows_core::ParamValue<BOOLEAN> {
-        windows_core::ParamValue::Owned(self.into())
-    }
-}

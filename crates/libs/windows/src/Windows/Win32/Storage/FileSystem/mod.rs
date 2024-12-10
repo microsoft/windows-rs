@@ -47,13 +47,9 @@ pub unsafe fn AreShortNamesEnabled(handle: super::super::Foundation::HANDLE, ena
     AreShortNamesEnabled(core::mem::transmute(handle), core::mem::transmute(enabled))
 }
 #[inline]
-pub unsafe fn BackupRead<P4, P5>(hfile: super::super::Foundation::HANDLE, lpbuffer: &mut [u8], lpnumberofbytesread: *mut u32, babort: P4, bprocesssecurity: P5, lpcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-where
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn BackupRead(hfile: super::super::Foundation::HANDLE, lpbuffer: &mut [u8], lpnumberofbytesread: *mut u32, babort: bool, bprocesssecurity: bool, lpcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn BackupRead(hfile : super::super::Foundation:: HANDLE, lpbuffer : *mut u8, nnumberofbytestoread : u32, lpnumberofbytesread : *mut u32, babort : super::super::Foundation:: BOOL, bprocesssecurity : super::super::Foundation:: BOOL, lpcontext : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    BackupRead(core::mem::transmute(hfile), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpnumberofbytesread), babort.param().abi(), bprocesssecurity.param().abi(), core::mem::transmute(lpcontext)).ok()
+    BackupRead(core::mem::transmute(hfile), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpnumberofbytesread), babort.into(), bprocesssecurity.into(), core::mem::transmute(lpcontext)).ok()
 }
 #[inline]
 pub unsafe fn BackupSeek(hfile: super::super::Foundation::HANDLE, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: *mut u32, lpdwhighbyteseeked: *mut u32, lpcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -61,13 +57,9 @@ pub unsafe fn BackupSeek(hfile: super::super::Foundation::HANDLE, dwlowbytestose
     BackupSeek(core::mem::transmute(hfile), core::mem::transmute(dwlowbytestoseek), core::mem::transmute(dwhighbytestoseek), core::mem::transmute(lpdwlowbyteseeked), core::mem::transmute(lpdwhighbyteseeked), core::mem::transmute(lpcontext)).ok()
 }
 #[inline]
-pub unsafe fn BackupWrite<P4, P5>(hfile: super::super::Foundation::HANDLE, lpbuffer: &[u8], lpnumberofbyteswritten: *mut u32, babort: P4, bprocesssecurity: P5, lpcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-where
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn BackupWrite(hfile: super::super::Foundation::HANDLE, lpbuffer: &[u8], lpnumberofbyteswritten: *mut u32, babort: bool, bprocesssecurity: bool, lpcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn BackupWrite(hfile : super::super::Foundation:: HANDLE, lpbuffer : *const u8, nnumberofbytestowrite : u32, lpnumberofbyteswritten : *mut u32, babort : super::super::Foundation:: BOOL, bprocesssecurity : super::super::Foundation:: BOOL, lpcontext : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    BackupWrite(core::mem::transmute(hfile), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpnumberofbyteswritten), babort.param().abi(), bprocesssecurity.param().abi(), core::mem::transmute(lpcontext)).ok()
+    BackupWrite(core::mem::transmute(hfile), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpnumberofbyteswritten), babort.into(), bprocesssecurity.into(), core::mem::transmute(lpcontext)).ok()
 }
 #[inline]
 pub unsafe fn BuildIoRingCancelRequest(ioring: HIORING, file: IORING_HANDLE_REF, optocancel: usize, userdata: usize) -> windows_core::Result<()> {
@@ -165,14 +157,13 @@ where
     CopyFile2(pwszexistingfilename.param().abi(), pwsznewfilename.param().abi(), core::mem::transmute(pextendedparameters.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn CopyFileA<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: P2) -> windows_core::Result<()>
+pub unsafe fn CopyFileA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CopyFileA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, bfailifexists : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    CopyFileA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.param().abi()).ok()
+    CopyFileA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.into()).ok()
 }
 #[inline]
 pub unsafe fn CopyFileExA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: Option<LPPROGRESS_ROUTINE>, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*mut super::super::Foundation::BOOL>, dwcopyflags: COPYFILE_FLAGS) -> windows_core::Result<()>
@@ -193,14 +184,13 @@ where
     CopyFileExW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), core::mem::transmute(lpprogressroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbcancel.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwcopyflags)).ok()
 }
 #[inline]
-pub unsafe fn CopyFileFromAppW<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: P2) -> super::super::Foundation::BOOL
+pub unsafe fn CopyFileFromAppW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: bool) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CopyFileFromAppW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, bfailifexists : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    CopyFileFromAppW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.param().abi())
+    CopyFileFromAppW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.into())
 }
 #[inline]
 pub unsafe fn CopyFileTransactedA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: Option<LPPROGRESS_ROUTINE>, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*const super::super::Foundation::BOOL>, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -221,14 +211,13 @@ where
     CopyFileTransactedW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), core::mem::transmute(lpprogressroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pbcancel.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwcopyflags), core::mem::transmute(htransaction)).ok()
 }
 #[inline]
-pub unsafe fn CopyFileW<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: P2) -> windows_core::Result<()>
+pub unsafe fn CopyFileW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CopyFileW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, bfailifexists : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    CopyFileW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.param().abi()).ok()
+    CopyFileW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.into()).ok()
 }
 #[inline]
 pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
@@ -677,21 +666,17 @@ where
     EncryptFileW(lpfilename.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn EncryptionDisable<P0, P1>(dirpath: P0, disable: P1) -> windows_core::Result<()>
+pub unsafe fn EncryptionDisable<P0>(dirpath: P0, disable: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advapi32.dll" "system" fn EncryptionDisable(dirpath : windows_core::PCWSTR, disable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    EncryptionDisable(dirpath.param().abi(), disable.param().abi()).ok()
+    EncryptionDisable(dirpath.param().abi(), disable.into()).ok()
 }
 #[inline]
-pub unsafe fn EraseTape<P2>(hdevice: super::super::Foundation::HANDLE, dwerasetype: ERASE_TAPE_TYPE, bimmediate: P2) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn EraseTape(hdevice: super::super::Foundation::HANDLE, dwerasetype: ERASE_TAPE_TYPE, bimmediate: bool) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn EraseTape(hdevice : super::super::Foundation:: HANDLE, dwerasetype : ERASE_TAPE_TYPE, bimmediate : super::super::Foundation:: BOOL) -> u32);
-    EraseTape(core::mem::transmute(hdevice), core::mem::transmute(dwerasetype), bimmediate.param().abi())
+    EraseTape(core::mem::transmute(hdevice), core::mem::transmute(dwerasetype), bimmediate.into())
 }
 #[inline]
 pub unsafe fn FileEncryptionStatusA<P0>(lpfilename: P0, lpstatus: *mut u32) -> windows_core::Result<()>
@@ -725,23 +710,21 @@ pub unsafe fn FindCloseChangeNotification(hchangehandle: super::super::Foundatio
     FindCloseChangeNotification(core::mem::transmute(hchangehandle)).ok()
 }
 #[inline]
-pub unsafe fn FindFirstChangeNotificationA<P0, P1>(lppathname: P0, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn FindFirstChangeNotificationA<P0>(lppathname: P0, bwatchsubtree: bool, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstChangeNotificationA(lppathname : windows_core::PCSTR, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstChangeNotificationA(lppathname.param().abi(), bwatchsubtree.param().abi(), core::mem::transmute(dwnotifyfilter));
+    let result__ = FindFirstChangeNotificationA(lppathname.param().abi(), bwatchsubtree.into(), core::mem::transmute(dwnotifyfilter));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FindFirstChangeNotificationW<P0, P1>(lppathname: P0, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn FindFirstChangeNotificationW<P0>(lppathname: P0, bwatchsubtree: bool, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstChangeNotificationW(lppathname : windows_core::PCWSTR, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstChangeNotificationW(lppathname.param().abi(), bwatchsubtree.param().abi(), core::mem::transmute(dwnotifyfilter));
+    let result__ = FindFirstChangeNotificationW(lppathname.param().abi(), bwatchsubtree.into(), core::mem::transmute(dwnotifyfilter));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -2080,12 +2063,9 @@ pub unsafe fn PrepareLogArchive(hlog: super::super::Foundation::HANDLE, pszbasel
     .ok()
 }
 #[inline]
-pub unsafe fn PrepareTape<P2>(hdevice: super::super::Foundation::HANDLE, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: P2) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn PrepareTape(hdevice: super::super::Foundation::HANDLE, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: bool) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn PrepareTape(hdevice : super::super::Foundation:: HANDLE, dwoperation : PREPARE_TAPE_OPERATION, bimmediate : super::super::Foundation:: BOOL) -> u32);
-    PrepareTape(core::mem::transmute(hdevice), core::mem::transmute(dwoperation), bimmediate.param().abi())
+    PrepareTape(core::mem::transmute(hdevice), core::mem::transmute(dwoperation), bimmediate.into())
 }
 #[inline]
 pub unsafe fn QueryDosDeviceA<P0>(lpdevicename: P0, lptargetpath: Option<&mut [u8]>) -> u32
@@ -2140,21 +2120,15 @@ pub unsafe fn ReOpenFile(horiginalfile: super::super::Foundation::HANDLE, dwdesi
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ReadDirectoryChangesExW<P3>(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: P3, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> windows_core::Result<()>
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ReadDirectoryChangesExW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: bool, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn ReadDirectoryChangesExW(hdirectory : super::super::Foundation:: HANDLE, lpbuffer : *mut core::ffi::c_void, nbufferlength : u32, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE, lpbytesreturned : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass : READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation:: BOOL);
-    ReadDirectoryChangesExW(core::mem::transmute(hdirectory), core::mem::transmute(lpbuffer), core::mem::transmute(nbufferlength), bwatchsubtree.param().abi(), core::mem::transmute(dwnotifyfilter), core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpoverlapped.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcompletionroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(readdirectorynotifyinformationclass)).ok()
+    ReadDirectoryChangesExW(core::mem::transmute(hdirectory), core::mem::transmute(lpbuffer), core::mem::transmute(nbufferlength), bwatchsubtree.into(), core::mem::transmute(dwnotifyfilter), core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpoverlapped.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcompletionroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(readdirectorynotifyinformationclass)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ReadDirectoryChangesW<P3>(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: P3, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>) -> windows_core::Result<()>
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn ReadDirectoryChangesW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: bool, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn ReadDirectoryChangesW(hdirectory : super::super::Foundation:: HANDLE, lpbuffer : *mut core::ffi::c_void, nbufferlength : u32, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE, lpbytesreturned : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation:: BOOL);
-    ReadDirectoryChangesW(core::mem::transmute(hdirectory), core::mem::transmute(lpbuffer), core::mem::transmute(nbufferlength), bwatchsubtree.param().abi(), core::mem::transmute(dwnotifyfilter), core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpoverlapped.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcompletionroutine.unwrap_or(core::mem::zeroed()))).ok()
+    ReadDirectoryChangesW(core::mem::transmute(hdirectory), core::mem::transmute(lpbuffer), core::mem::transmute(nbufferlength), bwatchsubtree.into(), core::mem::transmute(dwnotifyfilter), core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpoverlapped.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcompletionroutine.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: PFE_EXPORT_FUNC, pvcallbackcontext: Option<*const core::ffi::c_void>, pvcontext: *const core::ffi::c_void) -> u32 {
@@ -2235,12 +2209,9 @@ pub unsafe fn RecoverTransactionManager(transactionmanagerhandle: super::super::
     RecoverTransactionManager(core::mem::transmute(transactionmanagerhandle)).ok()
 }
 #[inline]
-pub unsafe fn RegisterForLogWriteNotification<P2>(hlog: super::super::Foundation::HANDLE, cbthreshold: u32, fenable: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RegisterForLogWriteNotification(hlog: super::super::Foundation::HANDLE, cbthreshold: u32, fenable: bool) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn RegisterForLogWriteNotification(hlog : super::super::Foundation:: HANDLE, cbthreshold : u32, fenable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    RegisterForLogWriteNotification(core::mem::transmute(hlog), core::mem::transmute(cbthreshold), fenable.param().abi()).ok()
+    RegisterForLogWriteNotification(core::mem::transmute(hlog), core::mem::transmute(cbthreshold), fenable.into()).ok()
 }
 #[inline]
 pub unsafe fn RegisterManageableLogClient(hlog: super::super::Foundation::HANDLE, pcallbacks: *mut LOG_MANAGEMENT_CALLBACKS) -> windows_core::Result<()> {
@@ -2288,21 +2259,17 @@ where
     RemoveDirectoryW(lppathname.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn RemoveLogContainer<P1, P2>(hlog: super::super::Foundation::HANDLE, pwszcontainerpath: P1, fforce: P2, preserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn RemoveLogContainer<P1>(hlog: super::super::Foundation::HANDLE, pwszcontainerpath: P1, fforce: bool, preserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn RemoveLogContainer(hlog : super::super::Foundation:: HANDLE, pwszcontainerpath : windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL, preserved : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    RemoveLogContainer(core::mem::transmute(hlog), pwszcontainerpath.param().abi(), fforce.param().abi(), core::mem::transmute(preserved.unwrap_or(core::mem::zeroed()))).ok()
+    RemoveLogContainer(core::mem::transmute(hlog), pwszcontainerpath.param().abi(), fforce.into(), core::mem::transmute(preserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn RemoveLogContainerSet<P3>(hlog: super::super::Foundation::HANDLE, rgwszcontainerpath: &[windows_core::PCWSTR], fforce: P3, preserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RemoveLogContainerSet(hlog: super::super::Foundation::HANDLE, rgwszcontainerpath: &[windows_core::PCWSTR], fforce: bool, preserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn RemoveLogContainerSet(hlog : super::super::Foundation:: HANDLE, ccontainer : u16, rgwszcontainerpath : *const windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL, preserved : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    RemoveLogContainerSet(core::mem::transmute(hlog), rgwszcontainerpath.len().try_into().unwrap(), core::mem::transmute(rgwszcontainerpath.as_ptr()), fforce.param().abi(), core::mem::transmute(preserved.unwrap_or(core::mem::zeroed()))).ok()
+    RemoveLogContainerSet(core::mem::transmute(hlog), rgwszcontainerpath.len().try_into().unwrap(), core::mem::transmute(rgwszcontainerpath.as_ptr()), fforce.into(), core::mem::transmute(preserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn RemoveLogPolicy(hlog: super::super::Foundation::HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE) -> windows_core::Result<()> {
@@ -2494,12 +2461,9 @@ where
     SetFileAttributesW(lpfilename.param().abi(), core::mem::transmute(dwfileattributes)).ok()
 }
 #[inline]
-pub unsafe fn SetFileBandwidthReservation<P3>(hfile: super::super::Foundation::HANDLE, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: P3, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> windows_core::Result<()>
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetFileBandwidthReservation(hfile: super::super::Foundation::HANDLE, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: bool, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetFileBandwidthReservation(hfile : super::super::Foundation:: HANDLE, nperiodmilliseconds : u32, nbytesperperiod : u32, bdiscardable : super::super::Foundation:: BOOL, lptransfersize : *mut u32, lpnumoutstandingrequests : *mut u32) -> super::super::Foundation:: BOOL);
-    SetFileBandwidthReservation(core::mem::transmute(hfile), core::mem::transmute(nperiodmilliseconds), core::mem::transmute(nbytesperperiod), bdiscardable.param().abi(), core::mem::transmute(lptransfersize), core::mem::transmute(lpnumoutstandingrequests)).ok()
+    SetFileBandwidthReservation(core::mem::transmute(hfile), core::mem::transmute(nperiodmilliseconds), core::mem::transmute(nbytesperperiod), bdiscardable.into(), core::mem::transmute(lptransfersize), core::mem::transmute(lpnumoutstandingrequests)).ok()
 }
 #[inline]
 pub unsafe fn SetFileCompletionNotificationModes(filehandle: super::super::Foundation::HANDLE, flags: u8) -> windows_core::Result<()> {
@@ -2588,12 +2552,9 @@ pub unsafe fn SetTapeParameters(hdevice: super::super::Foundation::HANDLE, dwope
     SetTapeParameters(core::mem::transmute(hdevice), core::mem::transmute(dwoperation), core::mem::transmute(lptapeinformation))
 }
 #[inline]
-pub unsafe fn SetTapePosition<P5>(hdevice: super::super::Foundation::HANDLE, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: P5) -> u32
-where
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetTapePosition(hdevice: super::super::Foundation::HANDLE, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: bool) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn SetTapePosition(hdevice : super::super::Foundation:: HANDLE, dwpositionmethod : TAPE_POSITION_METHOD, dwpartition : u32, dwoffsetlow : u32, dwoffsethigh : u32, bimmediate : super::super::Foundation:: BOOL) -> u32);
-    SetTapePosition(core::mem::transmute(hdevice), core::mem::transmute(dwpositionmethod), core::mem::transmute(dwpartition), core::mem::transmute(dwoffsetlow), core::mem::transmute(dwoffsethigh), bimmediate.param().abi())
+    SetTapePosition(core::mem::transmute(hdevice), core::mem::transmute(dwpositionmethod), core::mem::transmute(dwpartition), core::mem::transmute(dwoffsetlow), core::mem::transmute(dwoffsethigh), bimmediate.into())
 }
 #[inline]
 pub unsafe fn SetTransactionInformation<P4>(transactionhandle: super::super::Foundation::HANDLE, isolationlevel: u32, isolationflags: u32, timeout: u32, description: P4) -> windows_core::Result<()>
@@ -2912,12 +2873,9 @@ pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut core::ffi::c_vo
     Wow64DisableWow64FsRedirection(core::mem::transmute(oldvalue)).ok()
 }
 #[inline]
-pub unsafe fn Wow64EnableWow64FsRedirection<P0>(wow64fsenableredirection: P0) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn Wow64EnableWow64FsRedirection(wow64fsenableredirection: bool) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("kernel32.dll" "system" fn Wow64EnableWow64FsRedirection(wow64fsenableredirection : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOLEAN);
-    Wow64EnableWow64FsRedirection(wow64fsenableredirection.param().abi())
+    Wow64EnableWow64FsRedirection(wow64fsenableredirection.into())
 }
 #[inline]
 pub unsafe fn Wow64RevertWow64FsRedirection(olvalue: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -2954,12 +2912,9 @@ pub unsafe fn WriteLogRestartArea(pvmarshal: *mut core::ffi::c_void, pvrestartbu
     WriteLogRestartArea(core::mem::transmute(pvmarshal), core::mem::transmute(pvrestartbuffer), core::mem::transmute(cbrestartbuffer), core::mem::transmute(plsnbase), core::mem::transmute(fflags), core::mem::transmute(pcbwritten), core::mem::transmute(plsnnext), core::mem::transmute(poverlapped)).ok()
 }
 #[inline]
-pub unsafe fn WriteTapemark<P3>(hdevice: super::super::Foundation::HANDLE, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: P3) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WriteTapemark(hdevice: super::super::Foundation::HANDLE, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: bool) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn WriteTapemark(hdevice : super::super::Foundation:: HANDLE, dwtapemarktype : TAPEMARK_TYPE, dwtapemarkcount : u32, bimmediate : super::super::Foundation:: BOOL) -> u32);
-    WriteTapemark(core::mem::transmute(hdevice), core::mem::transmute(dwtapemarktype), core::mem::transmute(dwtapemarkcount), bimmediate.param().abi())
+    WriteTapemark(core::mem::transmute(hdevice), core::mem::transmute(dwtapemarktype), core::mem::transmute(dwtapemarkcount), bimmediate.into())
 }
 pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32768u32);
 pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32u32);
@@ -5167,9 +5122,6 @@ pub const GetFileExMaxInfoLevel: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIORING(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HIORING {
-    type TypeKind = windows_core::CopyType;
-}
 impl HIORING {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5202,12 +5154,11 @@ impl core::ops::Deref for IDiskQuotaControl {
 windows_core::imp::interface_hierarchy!(IDiskQuotaControl, windows_core::IUnknown, super::super::System::Com::IConnectionPointContainer);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiskQuotaControl {
-    pub unsafe fn Initialize<P0, P1>(&self, pszpath: P0, breadwrite: P1) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pszpath: P0, breadwrite: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pszpath.param().abi(), breadwrite.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pszpath.param().abi(), breadwrite.into()).ok()
     }
     pub unsafe fn SetQuotaState(&self, dwstate: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetQuotaState)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstate)).ok()
@@ -5584,17 +5535,11 @@ impl IDiskQuotaUser {
     pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut core::ffi::c_void, cbquotainfo: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetQuotaInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pbquotainfo), core::mem::transmute(cbquotainfo)).ok()
     }
-    pub unsafe fn SetQuotaThreshold<P1>(&self, llthreshold: i64, fwritethrough: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetQuotaThreshold)(windows_core::Interface::as_raw(self), core::mem::transmute(llthreshold), fwritethrough.param().abi()).ok()
+    pub unsafe fn SetQuotaThreshold(&self, llthreshold: i64, fwritethrough: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetQuotaThreshold)(windows_core::Interface::as_raw(self), core::mem::transmute(llthreshold), fwritethrough.into()).ok()
     }
-    pub unsafe fn SetQuotaLimit<P1>(&self, lllimit: i64, fwritethrough: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetQuotaLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(lllimit), fwritethrough.param().abi()).ok()
+    pub unsafe fn SetQuotaLimit(&self, lllimit: i64, fwritethrough: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetQuotaLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(lllimit), fwritethrough.into()).ok()
     }
     pub unsafe fn Invalidate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Invalidate)(windows_core::Interface::as_raw(self)).ok()

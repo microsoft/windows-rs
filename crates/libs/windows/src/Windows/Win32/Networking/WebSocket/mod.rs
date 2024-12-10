@@ -138,9 +138,6 @@ pub const WEB_SOCKET_ENDPOINT_UNAVAILABLE_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS 
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WEB_SOCKET_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for WEB_SOCKET_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl WEB_SOCKET_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

@@ -9,12 +9,9 @@ pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
     McastApiStartup(core::mem::transmute(version))
 }
 #[inline]
-pub unsafe fn McastEnumerateScopes<P1>(addrfamily: u16, requery: P1, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn McastEnumerateScopes(addrfamily: u16, requery: bool, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn McastEnumerateScopes(addrfamily : u16, requery : super::super::Foundation:: BOOL, pscopelist : *mut MCAST_SCOPE_ENTRY, pscopelen : *mut u32, pscopecount : *mut u32) -> u32);
-    McastEnumerateScopes(core::mem::transmute(addrfamily), requery.param().abi(), core::mem::transmute(pscopelist), core::mem::transmute(pscopelen), core::mem::transmute(pscopecount))
+    McastEnumerateScopes(core::mem::transmute(addrfamily), requery.into(), core::mem::transmute(pscopelist), core::mem::transmute(pscopelen), core::mem::transmute(pscopecount))
 }
 #[inline]
 pub unsafe fn McastGenUID(prequestid: *mut MCAST_CLIENT_UID) -> u32 {

@@ -31,23 +31,21 @@ where
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn SwDeviceInterfaceRegister<P2, P5>(hswdevice: HSWDEVICE, pinterfaceclassguid: *const windows_core::GUID, pszreferencestring: P2, pproperties: Option<&[super::super::Properties::DEVPROPERTY]>, fenabled: P5) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn SwDeviceInterfaceRegister<P2>(hswdevice: HSWDEVICE, pinterfaceclassguid: *const windows_core::GUID, pszreferencestring: P2, pproperties: Option<&[super::super::Properties::DEVPROPERTY]>, fenabled: bool) -> windows_core::Result<windows_core::PWSTR>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceRegister(hswdevice : HSWDEVICE, pinterfaceclassguid : *const windows_core::GUID, pszreferencestring : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, fenabled : super::super::super::Foundation:: BOOL, ppszdeviceinterfaceid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    SwDeviceInterfaceRegister(core::mem::transmute(hswdevice), core::mem::transmute(pinterfaceclassguid), pszreferencestring.param().abi(), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fenabled.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    SwDeviceInterfaceRegister(core::mem::transmute(hswdevice), core::mem::transmute(pinterfaceclassguid), pszreferencestring.param().abi(), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fenabled.into(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn SwDeviceInterfaceSetState<P1, P2>(hswdevice: HSWDEVICE, pszdeviceinterfaceid: P1, fenabled: P2) -> windows_core::Result<()>
+pub unsafe fn SwDeviceInterfaceSetState<P1>(hswdevice: HSWDEVICE, pszdeviceinterfaceid: P1, fenabled: bool) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceSetState(hswdevice : HSWDEVICE, pszdeviceinterfaceid : windows_core::PCWSTR, fenabled : super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    SwDeviceInterfaceSetState(core::mem::transmute(hswdevice), pszdeviceinterfaceid.param().abi(), fenabled.param().abi()).ok()
+    SwDeviceInterfaceSetState(core::mem::transmute(hswdevice), pszdeviceinterfaceid.param().abi(), fenabled.into()).ok()
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
@@ -76,9 +74,6 @@ pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSWDEVICE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HSWDEVICE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HSWDEVICE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1327,11 +1322,8 @@ impl IUPnPRegistrar {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUniqueDeviceName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceidentifier), core::mem::transmute_copy(bstrtemplateudn), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn UnregisterDevice<P1>(&self, bstrdeviceidentifier: &windows_core::BSTR, fpermanent: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).UnregisterDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceidentifier), fpermanent.param().abi()).ok()
+    pub unsafe fn UnregisterDevice(&self, bstrdeviceidentifier: &windows_core::BSTR, fpermanent: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).UnregisterDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceidentifier), fpermanent.into()).ok()
     }
     pub unsafe fn UnregisterDeviceProvider(&self, bstrprovidername: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnregisterDeviceProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprovidername)).ok()

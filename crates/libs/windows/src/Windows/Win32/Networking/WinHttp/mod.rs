@@ -195,14 +195,12 @@ pub unsafe fn WinHttpReadDataEx(hrequest: *mut core::ffi::c_void, lpbuffer: *mut
     WinHttpReadDataEx(core::mem::transmute(hrequest), core::mem::transmute(lpbuffer), core::mem::transmute(dwnumberofbytestoread), core::mem::transmute(lpdwnumberofbytesread), core::mem::transmute(ullflags), core::mem::transmute(cbproperty), core::mem::transmute(pvproperty.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn WinHttpReadProxySettings<P1, P2, P3>(hsession: *const core::ffi::c_void, pcwszconnectionname: P1, ffallbacktodefaultsettings: P2, fsetautodiscoverfordefaultsettings: P3, pdwsettingsversion: *mut u32, pfdefaultsettingsarereturned: *mut super::super::Foundation::BOOL, pwinhttpproxysettings: *mut WINHTTP_PROXY_SETTINGS) -> u32
+pub unsafe fn WinHttpReadProxySettings<P1>(hsession: *const core::ffi::c_void, pcwszconnectionname: P1, ffallbacktodefaultsettings: bool, fsetautodiscoverfordefaultsettings: bool, pdwsettingsversion: *mut u32, pfdefaultsettingsarereturned: *mut super::super::Foundation::BOOL, pwinhttpproxysettings: *mut WINHTTP_PROXY_SETTINGS) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpReadProxySettings(hsession : *const core::ffi::c_void, pcwszconnectionname : windows_core::PCWSTR, ffallbacktodefaultsettings : super::super::Foundation:: BOOL, fsetautodiscoverfordefaultsettings : super::super::Foundation:: BOOL, pdwsettingsversion : *mut u32, pfdefaultsettingsarereturned : *mut super::super::Foundation:: BOOL, pwinhttpproxysettings : *mut WINHTTP_PROXY_SETTINGS) -> u32);
-    WinHttpReadProxySettings(core::mem::transmute(hsession), pcwszconnectionname.param().abi(), ffallbacktodefaultsettings.param().abi(), fsetautodiscoverfordefaultsettings.param().abi(), core::mem::transmute(pdwsettingsversion), core::mem::transmute(pfdefaultsettingsarereturned), core::mem::transmute(pwinhttpproxysettings))
+    WinHttpReadProxySettings(core::mem::transmute(hsession), pcwszconnectionname.param().abi(), ffallbacktodefaultsettings.into(), fsetautodiscoverfordefaultsettings.into(), core::mem::transmute(pdwsettingsversion), core::mem::transmute(pfdefaultsettingsarereturned), core::mem::transmute(pwinhttpproxysettings))
 }
 #[inline]
 pub unsafe fn WinHttpReceiveResponse(hrequest: *mut core::ffi::c_void, lpreserved: *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -244,12 +242,9 @@ pub unsafe fn WinHttpSetOption(hinternet: Option<*const core::ffi::c_void>, dwop
     WinHttpSetOption(core::mem::transmute(hinternet.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwoption), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[inline]
-pub unsafe fn WinHttpSetProxySettingsPerUser<P0>(fproxysettingsperuser: P0) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WinHttpSetProxySettingsPerUser(fproxysettingsperuser: bool) -> u32 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpSetProxySettingsPerUser(fproxysettingsperuser : super::super::Foundation:: BOOL) -> u32);
-    WinHttpSetProxySettingsPerUser(fproxysettingsperuser.param().abi())
+    WinHttpSetProxySettingsPerUser(fproxysettingsperuser.into())
 }
 #[inline]
 pub unsafe fn WinHttpSetStatusCallback(hinternet: *mut core::ffi::c_void, lpfninternetcallback: WINHTTP_STATUS_CALLBACK, dwnotificationflags: u32, dwreserved: usize) -> WINHTTP_STATUS_CALLBACK {
@@ -315,12 +310,9 @@ pub unsafe fn WinHttpWriteData(hrequest: *mut core::ffi::c_void, lpbuffer: Optio
     WinHttpWriteData(core::mem::transmute(hrequest), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwnumberofbytestowrite), core::mem::transmute(lpdwnumberofbyteswritten)).ok()
 }
 #[inline]
-pub unsafe fn WinHttpWriteProxySettings<P1>(hsession: *const core::ffi::c_void, fforceupdate: P1, pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn WinHttpWriteProxySettings(hsession: *const core::ffi::c_void, fforceupdate: bool, pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS) -> u32 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpWriteProxySettings(hsession : *const core::ffi::c_void, fforceupdate : super::super::Foundation:: BOOL, pwinhttpproxysettings : *const WINHTTP_PROXY_SETTINGS) -> u32);
-    WinHttpWriteProxySettings(core::mem::transmute(hsession), fforceupdate.param().abi(), core::mem::transmute(pwinhttpproxysettings))
+    WinHttpWriteProxySettings(core::mem::transmute(hsession), fforceupdate.into(), core::mem::transmute(pwinhttpproxysettings))
 }
 pub const API_GET_PROXY_FOR_URL: u32 = 6u32;
 pub const API_GET_PROXY_SETTINGS: u32 = 7u32;

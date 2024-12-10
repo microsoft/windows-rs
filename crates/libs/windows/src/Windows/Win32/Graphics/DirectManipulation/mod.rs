@@ -1327,11 +1327,8 @@ impl IDirectManipulationViewport {
     pub unsafe fn SetViewportRect(&self, viewport: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetViewportRect)(windows_core::Interface::as_raw(self), core::mem::transmute(viewport)).ok()
     }
-    pub unsafe fn ZoomToRect<P4>(&self, left: f32, top: f32, right: f32, bottom: f32, animate: P4) -> windows_core::Result<()>
-    where
-        P4: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ZoomToRect)(windows_core::Interface::as_raw(self), core::mem::transmute(left), core::mem::transmute(top), core::mem::transmute(right), core::mem::transmute(bottom), animate.param().abi()).ok()
+    pub unsafe fn ZoomToRect(&self, left: f32, top: f32, right: f32, bottom: f32, animate: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ZoomToRect)(windows_core::Interface::as_raw(self), core::mem::transmute(left), core::mem::transmute(top), core::mem::transmute(right), core::mem::transmute(bottom), animate.into()).ok()
     }
     pub unsafe fn SetViewportTransform(&self, matrix: &[f32]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetViewportTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()).ok()

@@ -386,9 +386,6 @@ pub struct DdqAccessLevel(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_DATA_QUERY_SESSION(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDIAGNOSTIC_DATA_QUERY_SESSION {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDIAGNOSTIC_DATA_QUERY_SESSION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -411,9 +408,6 @@ impl Default for HDIAGNOSTIC_DATA_QUERY_SESSION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -436,9 +430,6 @@ impl Default for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -461,9 +452,6 @@ impl Default for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_EVENT_TAG_DESCRIPTION(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -486,9 +474,6 @@ impl Default for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_RECORD(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDIAGNOSTIC_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDIAGNOSTIC_RECORD {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -511,9 +496,6 @@ impl Default for HDIAGNOSTIC_RECORD {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_REPORT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDIAGNOSTIC_REPORT {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDIAGNOSTIC_REPORT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

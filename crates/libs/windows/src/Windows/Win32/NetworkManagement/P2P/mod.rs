@@ -43,16 +43,15 @@ pub unsafe fn DrtCreateNullSecurityProvider() -> windows_core::Result<*mut DRT_S
     DrtCreateNullSecurityProvider(&mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn DrtCreatePnrpBootstrapResolver<P0, P1, P2, P3>(fpublish: P0, pwzpeername: P1, pwzcloudname: P2, pwzpublishingidentity: P3) -> windows_core::Result<*mut DRT_BOOTSTRAP_PROVIDER>
+pub unsafe fn DrtCreatePnrpBootstrapResolver<P1, P2, P3>(fpublish: bool, pwzpeername: P1, pwzcloudname: P2, pwzpublishingidentity: P3) -> windows_core::Result<*mut DRT_BOOTSTRAP_PROVIDER>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("drtprov.dll" "system" fn DrtCreatePnrpBootstrapResolver(fpublish : super::super::Foundation:: BOOL, pwzpeername : windows_core::PCWSTR, pwzcloudname : windows_core::PCWSTR, pwzpublishingidentity : windows_core::PCWSTR, ppresolver : *mut *mut DRT_BOOTSTRAP_PROVIDER) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    DrtCreatePnrpBootstrapResolver(fpublish.param().abi(), pwzpeername.param().abi(), pwzcloudname.param().abi(), pwzpublishingidentity.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    DrtCreatePnrpBootstrapResolver(fpublish.into(), pwzpeername.param().abi(), pwzcloudname.param().abi(), pwzpublishingidentity.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER) {
@@ -479,12 +478,9 @@ pub unsafe fn PeerDistClientStreamRead(hpeerdist: isize, hcontenthandle: isize, 
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn PeerDistGetOverlappedResult<P2>(lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P2) -> super::super::Foundation::BOOL
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn PeerDistGetOverlappedResult(lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("peerdist.dll" "system" fn PeerDistGetOverlappedResult(lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    PeerDistGetOverlappedResult(core::mem::transmute(lpoverlapped), core::mem::transmute(lpnumberofbytestransferred), bwait.param().abi())
+    PeerDistGetOverlappedResult(core::mem::transmute(lpoverlapped), core::mem::transmute(lpnumberofbytestransferred), bwait.into())
 }
 #[inline]
 pub unsafe fn PeerDistGetStatus(hpeerdist: isize, ppeerdiststatus: *mut PEERDIST_STATUS) -> u32 {
@@ -656,12 +652,9 @@ where
     PeerGraphDelete(pwzgraphid.param().abi(), pwzpeerid.param().abi(), pwzdatabasename.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn PeerGraphDeleteRecord<P2>(hgraph: *const core::ffi::c_void, precordid: *const windows_core::GUID, flocal: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn PeerGraphDeleteRecord(hgraph: *const core::ffi::c_void, precordid: *const windows_core::GUID, flocal: bool) -> windows_core::Result<()> {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphDeleteRecord(hgraph : *const core::ffi::c_void, precordid : *const windows_core::GUID, flocal : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    PeerGraphDeleteRecord(core::mem::transmute(hgraph), core::mem::transmute(precordid), flocal.param().abi()).ok()
+    PeerGraphDeleteRecord(core::mem::transmute(hgraph), core::mem::transmute(precordid), flocal.into()).ok()
 }
 #[inline]
 pub unsafe fn PeerGraphEndEnumeration(hpeerenum: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -810,12 +803,9 @@ where
     PeerGraphSetNodeAttributes(core::mem::transmute(hgraph), pwzattributes.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn PeerGraphSetPresence<P1>(hgraph: *const core::ffi::c_void, fpresent: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn PeerGraphSetPresence(hgraph: *const core::ffi::c_void, fpresent: bool) -> windows_core::Result<()> {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSetPresence(hgraph : *const core::ffi::c_void, fpresent : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    PeerGraphSetPresence(core::mem::transmute(hgraph), fpresent.param().abi()).ok()
+    PeerGraphSetPresence(core::mem::transmute(hgraph), fpresent.into()).ok()
 }
 #[inline]
 pub unsafe fn PeerGraphSetProperties(hgraph: *const core::ffi::c_void, pgraphproperties: *const PEER_GRAPH_PROPERTIES) -> windows_core::Result<()> {
@@ -975,14 +965,13 @@ pub unsafe fn PeerGroupGetStatus(hgroup: *const core::ffi::c_void) -> windows_co
     PeerGroupGetStatus(core::mem::transmute(hgroup), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn PeerGroupImportConfig<P0, P1, P2>(pwzxml: P0, pwzpassword: P1, foverwrite: P2, ppwzidentity: *mut windows_core::PWSTR, ppwzgroup: *mut windows_core::PWSTR) -> windows_core::Result<()>
+pub unsafe fn PeerGroupImportConfig<P0, P1>(pwzxml: P0, pwzpassword: P1, foverwrite: bool, ppwzidentity: *mut windows_core::PWSTR, ppwzgroup: *mut windows_core::PWSTR) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerGroupImportConfig(pwzxml : windows_core::PCWSTR, pwzpassword : windows_core::PCWSTR, foverwrite : super::super::Foundation:: BOOL, ppwzidentity : *mut windows_core::PWSTR, ppwzgroup : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    PeerGroupImportConfig(pwzxml.param().abi(), pwzpassword.param().abi(), foverwrite.param().abi(), core::mem::transmute(ppwzidentity), core::mem::transmute(ppwzgroup)).ok()
+    PeerGroupImportConfig(pwzxml.param().abi(), pwzpassword.param().abi(), foverwrite.into(), core::mem::transmute(ppwzidentity), core::mem::transmute(ppwzgroup)).ok()
 }
 #[inline]
 pub unsafe fn PeerGroupImportDatabase<P1>(hgroup: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::Result<()>

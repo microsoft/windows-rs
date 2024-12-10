@@ -30,20 +30,14 @@ pub unsafe fn DeviceIoControl(hdevice: super::super::Foundation::HANDLE, dwiocon
     DeviceIoControl(core::mem::transmute(hdevice), core::mem::transmute(dwiocontrolcode), core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(ninbuffersize), core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(noutbuffersize), core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpoverlapped.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn GetOverlappedResult<P3>(hfile: super::super::Foundation::HANDLE, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P3) -> windows_core::Result<()>
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetOverlappedResult(hfile: super::super::Foundation::HANDLE, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: bool) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetOverlappedResult(hfile : super::super::Foundation:: HANDLE, lpoverlapped : *const OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetOverlappedResult(core::mem::transmute(hfile), core::mem::transmute(lpoverlapped), core::mem::transmute(lpnumberofbytestransferred), bwait.param().abi()).ok()
+    GetOverlappedResult(core::mem::transmute(hfile), core::mem::transmute(lpoverlapped), core::mem::transmute(lpnumberofbytestransferred), bwait.into()).ok()
 }
 #[inline]
-pub unsafe fn GetOverlappedResultEx<P4>(hfile: super::super::Foundation::HANDLE, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, dwmilliseconds: u32, balertable: P4) -> windows_core::Result<()>
-where
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetOverlappedResultEx(hfile: super::super::Foundation::HANDLE, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, dwmilliseconds: u32, balertable: bool) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetOverlappedResultEx(hfile : super::super::Foundation:: HANDLE, lpoverlapped : *const OVERLAPPED, lpnumberofbytestransferred : *mut u32, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetOverlappedResultEx(core::mem::transmute(hfile), core::mem::transmute(lpoverlapped), core::mem::transmute(lpnumberofbytestransferred), core::mem::transmute(dwmilliseconds), balertable.param().abi()).ok()
+    GetOverlappedResultEx(core::mem::transmute(hfile), core::mem::transmute(lpoverlapped), core::mem::transmute(lpnumberofbytestransferred), core::mem::transmute(dwmilliseconds), balertable.into()).ok()
 }
 #[inline]
 pub unsafe fn GetQueuedCompletionStatus(completionport: super::super::Foundation::HANDLE, lpnumberofbytestransferred: *mut u32, lpcompletionkey: *mut usize, lpoverlapped: *mut *mut OVERLAPPED, dwmilliseconds: u32) -> windows_core::Result<()> {
@@ -51,12 +45,9 @@ pub unsafe fn GetQueuedCompletionStatus(completionport: super::super::Foundation
     GetQueuedCompletionStatus(core::mem::transmute(completionport), core::mem::transmute(lpnumberofbytestransferred), core::mem::transmute(lpcompletionkey), core::mem::transmute(lpoverlapped), core::mem::transmute(dwmilliseconds)).ok()
 }
 #[inline]
-pub unsafe fn GetQueuedCompletionStatusEx<P5>(completionport: super::super::Foundation::HANDLE, lpcompletionportentries: &mut [OVERLAPPED_ENTRY], ulnumentriesremoved: *mut u32, dwmilliseconds: u32, falertable: P5) -> windows_core::Result<()>
-where
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetQueuedCompletionStatusEx(completionport: super::super::Foundation::HANDLE, lpcompletionportentries: &mut [OVERLAPPED_ENTRY], ulnumentriesremoved: *mut u32, dwmilliseconds: u32, falertable: bool) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetQueuedCompletionStatusEx(completionport : super::super::Foundation:: HANDLE, lpcompletionportentries : *mut OVERLAPPED_ENTRY, ulcount : u32, ulnumentriesremoved : *mut u32, dwmilliseconds : u32, falertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetQueuedCompletionStatusEx(core::mem::transmute(completionport), core::mem::transmute(lpcompletionportentries.as_ptr()), lpcompletionportentries.len().try_into().unwrap(), core::mem::transmute(ulnumentriesremoved), core::mem::transmute(dwmilliseconds), falertable.param().abi()).ok()
+    GetQueuedCompletionStatusEx(core::mem::transmute(completionport), core::mem::transmute(lpcompletionportentries.as_ptr()), lpcompletionportentries.len().try_into().unwrap(), core::mem::transmute(ulnumentriesremoved), core::mem::transmute(dwmilliseconds), falertable.into()).ok()
 }
 #[inline]
 pub unsafe fn PostQueuedCompletionStatus(completionport: super::super::Foundation::HANDLE, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: Option<*const OVERLAPPED>) -> windows_core::Result<()> {

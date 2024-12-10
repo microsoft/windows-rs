@@ -113,12 +113,9 @@ pub unsafe fn MprAdminConnectionGetInfoEx(hrasserver: isize, hrasconnection: sup
     MprAdminConnectionGetInfoEx(core::mem::transmute(hrasserver), core::mem::transmute(hrasconnection), core::mem::transmute(prasconnection))
 }
 #[inline]
-pub unsafe fn MprAdminConnectionRemoveQuarantine<P2>(hrasserver: super::super::Foundation::HANDLE, hrasconnection: super::super::Foundation::HANDLE, fisipaddress: P2) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn MprAdminConnectionRemoveQuarantine(hrasserver: super::super::Foundation::HANDLE, hrasconnection: super::super::Foundation::HANDLE, fisipaddress: bool) -> u32 {
     windows_targets::link!("mprapi.dll" "system" fn MprAdminConnectionRemoveQuarantine(hrasserver : super::super::Foundation:: HANDLE, hrasconnection : super::super::Foundation:: HANDLE, fisipaddress : super::super::Foundation:: BOOL) -> u32);
-    MprAdminConnectionRemoveQuarantine(core::mem::transmute(hrasserver), core::mem::transmute(hrasconnection), fisipaddress.param().abi())
+    MprAdminConnectionRemoveQuarantine(core::mem::transmute(hrasserver), core::mem::transmute(hrasconnection), fisipaddress.into())
 }
 #[inline]
 pub unsafe fn MprAdminDeregisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32 {
@@ -131,14 +128,13 @@ pub unsafe fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *
     MprAdminDeviceEnum(core::mem::transmute(hmprserver), core::mem::transmute(dwlevel), core::mem::transmute(lplpbbuffer), core::mem::transmute(lpdwtotalentries))
 }
 #[inline]
-pub unsafe fn MprAdminEstablishDomainRasServer<P0, P1, P2>(pszdomain: P0, pszmachine: P1, benable: P2) -> u32
+pub unsafe fn MprAdminEstablishDomainRasServer<P0, P1>(pszdomain: P0, pszmachine: P1, benable: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mprapi.dll" "system" fn MprAdminEstablishDomainRasServer(pszdomain : windows_core::PCWSTR, pszmachine : windows_core::PCWSTR, benable : super::super::Foundation:: BOOL) -> u32);
-    MprAdminEstablishDomainRasServer(pszdomain.param().abi(), pszmachine.param().abi(), benable.param().abi())
+    MprAdminEstablishDomainRasServer(pszdomain.param().abi(), pszmachine.param().abi(), benable.into())
 }
 #[inline]
 pub unsafe fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut windows_core::PWSTR) -> u32 {
@@ -155,12 +151,9 @@ where
     MprAdminGetPDCServer(lpszdomain.param().abi(), lpszserver.param().abi(), core::mem::transmute(lpszpdcserver))
 }
 #[inline]
-pub unsafe fn MprAdminInterfaceConnect<P3>(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, hevent: super::super::Foundation::HANDLE, fsynchronous: P3) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn MprAdminInterfaceConnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, hevent: super::super::Foundation::HANDLE, fsynchronous: bool) -> u32 {
     windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceConnect(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, hevent : super::super::Foundation:: HANDLE, fsynchronous : super::super::Foundation:: BOOL) -> u32);
-    MprAdminInterfaceConnect(core::mem::transmute(hmprserver), core::mem::transmute(hinterface), core::mem::transmute(hevent), fsynchronous.param().abi())
+    MprAdminInterfaceConnect(core::mem::transmute(hmprserver), core::mem::transmute(hinterface), core::mem::transmute(hevent), fsynchronous.into())
 }
 #[inline]
 pub unsafe fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8, phinterface: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -213,13 +206,12 @@ pub unsafe fn MprAdminInterfaceGetCustomInfoEx(hmprserver: isize, hinterface: su
     MprAdminInterfaceGetCustomInfoEx(core::mem::transmute(hmprserver), core::mem::transmute(hinterface), core::mem::transmute(pcustominfo))
 }
 #[inline]
-pub unsafe fn MprAdminInterfaceGetHandle<P1, P3>(hmprserver: isize, lpwsinterfacename: P1, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: P3) -> u32
+pub unsafe fn MprAdminInterfaceGetHandle<P1>(hmprserver: isize, lpwsinterfacename: P1, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceGetHandle(hmprserver : isize, lpwsinterfacename : windows_core::PCWSTR, phinterface : *mut super::super::Foundation:: HANDLE, fincludeclientinterfaces : super::super::Foundation:: BOOL) -> u32);
-    MprAdminInterfaceGetHandle(core::mem::transmute(hmprserver), lpwsinterfacename.param().abi(), core::mem::transmute(phinterface), fincludeclientinterfaces.param().abi())
+    MprAdminInterfaceGetHandle(core::mem::transmute(hmprserver), lpwsinterfacename.param().abi(), core::mem::transmute(phinterface), fincludeclientinterfaces.into())
 }
 #[inline]
 pub unsafe fn MprAdminInterfaceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32 {
@@ -1246,20 +1238,14 @@ where
     RasSetAutodialAddressW(param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(param2.unwrap_or(core::mem::zeroed())), core::mem::transmute(param3), core::mem::transmute(param4))
 }
 #[inline]
-pub unsafe fn RasSetAutodialEnableA<P1>(param0: u32, param1: P1) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RasSetAutodialEnableA(param0: u32, param1: bool) -> u32 {
     windows_targets::link!("rasapi32.dll" "system" fn RasSetAutodialEnableA(param0 : u32, param1 : super::super::Foundation:: BOOL) -> u32);
-    RasSetAutodialEnableA(core::mem::transmute(param0), param1.param().abi())
+    RasSetAutodialEnableA(core::mem::transmute(param0), param1.into())
 }
 #[inline]
-pub unsafe fn RasSetAutodialEnableW<P1>(param0: u32, param1: P1) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RasSetAutodialEnableW(param0: u32, param1: bool) -> u32 {
     windows_targets::link!("rasapi32.dll" "system" fn RasSetAutodialEnableW(param0 : u32, param1 : super::super::Foundation:: BOOL) -> u32);
-    RasSetAutodialEnableW(core::mem::transmute(param0), param1.param().abi())
+    RasSetAutodialEnableW(core::mem::transmute(param0), param1.into())
 }
 #[inline]
 pub unsafe fn RasSetAutodialParamA(param0: u32, param1: *const core::ffi::c_void, param2: u32) -> u32 {
@@ -1272,24 +1258,22 @@ pub unsafe fn RasSetAutodialParamW(param0: u32, param1: *const core::ffi::c_void
     RasSetAutodialParamW(core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2))
 }
 #[inline]
-pub unsafe fn RasSetCredentialsA<P0, P1, P3>(param0: P0, param1: P1, param2: *const RASCREDENTIALSA, param3: P3) -> u32
+pub unsafe fn RasSetCredentialsA<P0, P1>(param0: P0, param1: P1, param2: *const RASCREDENTIALSA, param3: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("rasapi32.dll" "system" fn RasSetCredentialsA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *const RASCREDENTIALSA, param3 : super::super::Foundation:: BOOL) -> u32);
-    RasSetCredentialsA(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2), param3.param().abi())
+    RasSetCredentialsA(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2), param3.into())
 }
 #[inline]
-pub unsafe fn RasSetCredentialsW<P0, P1, P3>(param0: P0, param1: P1, param2: *const RASCREDENTIALSW, param3: P3) -> u32
+pub unsafe fn RasSetCredentialsW<P0, P1>(param0: P0, param1: P1, param2: *const RASCREDENTIALSW, param3: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("rasapi32.dll" "system" fn RasSetCredentialsW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : *const RASCREDENTIALSW, param3 : super::super::Foundation:: BOOL) -> u32);
-    RasSetCredentialsW(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2), param3.param().abi())
+    RasSetCredentialsW(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2), param3.into())
 }
 #[inline]
 pub unsafe fn RasSetCustomAuthDataA<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: &[u8]) -> u32
@@ -1328,22 +1312,20 @@ where
     RasSetEapUserDataW(core::mem::transmute(htoken.unwrap_or(core::mem::zeroed())), pszphonebook.param().abi(), pszentry.param().abi(), core::mem::transmute(pbeapdata), core::mem::transmute(dwsizeofeapdata))
 }
 #[inline]
-pub unsafe fn RasSetEntryDialParamsA<P0, P2>(param0: P0, param1: *const RASDIALPARAMSA, param2: P2) -> u32
+pub unsafe fn RasSetEntryDialParamsA<P0>(param0: P0, param1: *const RASDIALPARAMSA, param2: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsA(param0 : windows_core::PCSTR, param1 : *const RASDIALPARAMSA, param2 : super::super::Foundation:: BOOL) -> u32);
-    RasSetEntryDialParamsA(param0.param().abi(), core::mem::transmute(param1), param2.param().abi())
+    RasSetEntryDialParamsA(param0.param().abi(), core::mem::transmute(param1), param2.into())
 }
 #[inline]
-pub unsafe fn RasSetEntryDialParamsW<P0, P2>(param0: P0, param1: *const RASDIALPARAMSW, param2: P2) -> u32
+pub unsafe fn RasSetEntryDialParamsW<P0>(param0: P0, param1: *const RASDIALPARAMSW, param2: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsW(param0 : windows_core::PCWSTR, param1 : *const RASDIALPARAMSW, param2 : super::super::Foundation:: BOOL) -> u32);
-    RasSetEntryDialParamsW(param0.param().abi(), core::mem::transmute(param1), param2.param().abi())
+    RasSetEntryDialParamsW(param0.param().abi(), core::mem::transmute(param1), param2.into())
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1620,39 +1602,24 @@ pub unsafe fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle
     RtmIsMarkedForChangeNotification(core::mem::transmute(rtmreghandle), core::mem::transmute(notifyhandle), core::mem::transmute(desthandle), core::mem::transmute(destmarked))
 }
 #[inline]
-pub unsafe fn RtmLockDestination<P2, P3>(rtmreghandle: isize, desthandle: isize, exclusive: P2, lockdest: P3) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RtmLockDestination(rtmreghandle: isize, desthandle: isize, exclusive: bool, lockdest: bool) -> u32 {
     windows_targets::link!("rtm.dll" "system" fn RtmLockDestination(rtmreghandle : isize, desthandle : isize, exclusive : super::super::Foundation:: BOOL, lockdest : super::super::Foundation:: BOOL) -> u32);
-    RtmLockDestination(core::mem::transmute(rtmreghandle), core::mem::transmute(desthandle), exclusive.param().abi(), lockdest.param().abi())
+    RtmLockDestination(core::mem::transmute(rtmreghandle), core::mem::transmute(desthandle), exclusive.into(), lockdest.into())
 }
 #[inline]
-pub unsafe fn RtmLockNextHop<P2, P3>(rtmreghandle: isize, nexthophandle: isize, exclusive: P2, locknexthop: P3, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RtmLockNextHop(rtmreghandle: isize, nexthophandle: isize, exclusive: bool, locknexthop: bool, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32 {
     windows_targets::link!("rtm.dll" "system" fn RtmLockNextHop(rtmreghandle : isize, nexthophandle : isize, exclusive : super::super::Foundation:: BOOL, locknexthop : super::super::Foundation:: BOOL, nexthoppointer : *mut *mut RTM_NEXTHOP_INFO) -> u32);
-    RtmLockNextHop(core::mem::transmute(rtmreghandle), core::mem::transmute(nexthophandle), exclusive.param().abi(), locknexthop.param().abi(), core::mem::transmute(nexthoppointer))
+    RtmLockNextHop(core::mem::transmute(rtmreghandle), core::mem::transmute(nexthophandle), exclusive.into(), locknexthop.into(), core::mem::transmute(nexthoppointer))
 }
 #[inline]
-pub unsafe fn RtmLockRoute<P2, P3>(rtmreghandle: isize, routehandle: isize, exclusive: P2, lockroute: P3, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RtmLockRoute(rtmreghandle: isize, routehandle: isize, exclusive: bool, lockroute: bool, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32 {
     windows_targets::link!("rtm.dll" "system" fn RtmLockRoute(rtmreghandle : isize, routehandle : isize, exclusive : super::super::Foundation:: BOOL, lockroute : super::super::Foundation:: BOOL, routepointer : *mut *mut RTM_ROUTE_INFO) -> u32);
-    RtmLockRoute(core::mem::transmute(rtmreghandle), core::mem::transmute(routehandle), exclusive.param().abi(), lockroute.param().abi(), core::mem::transmute(routepointer))
+    RtmLockRoute(core::mem::transmute(rtmreghandle), core::mem::transmute(routehandle), exclusive.into(), lockroute.into(), core::mem::transmute(routepointer))
 }
 #[inline]
-pub unsafe fn RtmMarkDestForChangeNotification<P3>(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: P3) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RtmMarkDestForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: bool) -> u32 {
     windows_targets::link!("rtm.dll" "system" fn RtmMarkDestForChangeNotification(rtmreghandle : isize, notifyhandle : isize, desthandle : isize, markdest : super::super::Foundation:: BOOL) -> u32);
-    RtmMarkDestForChangeNotification(core::mem::transmute(rtmreghandle), core::mem::transmute(notifyhandle), core::mem::transmute(desthandle), markdest.param().abi())
+    RtmMarkDestForChangeNotification(core::mem::transmute(rtmreghandle), core::mem::transmute(notifyhandle), core::mem::transmute(desthandle), markdest.into())
 }
 #[inline]
 pub unsafe fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandles: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -1660,12 +1627,9 @@ pub unsafe fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandl
     RtmReferenceHandles(core::mem::transmute(rtmreghandle), core::mem::transmute(numhandles), core::mem::transmute(rtmhandles))
 }
 #[inline]
-pub unsafe fn RtmRegisterEntity<P3>(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: RTM_EVENT_CALLBACK, reserveopaquepointer: P3, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32
-where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn RtmRegisterEntity(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: RTM_EVENT_CALLBACK, reserveopaquepointer: bool, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32 {
     windows_targets::link!("rtm.dll" "system" fn RtmRegisterEntity(rtmentityinfo : *mut RTM_ENTITY_INFO, exportmethods : *mut RTM_ENTITY_EXPORT_METHODS, eventcallback : RTM_EVENT_CALLBACK, reserveopaquepointer : super::super::Foundation:: BOOL, rtmregprofile : *mut RTM_REGN_PROFILE, rtmreghandle : *mut isize) -> u32);
-    RtmRegisterEntity(core::mem::transmute(rtmentityinfo), core::mem::transmute(exportmethods), core::mem::transmute(eventcallback), reserveopaquepointer.param().abi(), core::mem::transmute(rtmregprofile), core::mem::transmute(rtmreghandle))
+    RtmRegisterEntity(core::mem::transmute(rtmentityinfo), core::mem::transmute(exportmethods), core::mem::transmute(eventcallback), reserveopaquepointer.into(), core::mem::transmute(rtmregprofile), core::mem::transmute(rtmreghandle))
 }
 #[inline]
 pub unsafe fn RtmRegisterForChangeNotification(rtmreghandle: isize, targetviews: u32, notifyflags: u32, notifycontext: *mut core::ffi::c_void, notifyhandle: *mut isize) -> u32 {
@@ -2036,9 +2000,6 @@ impl Default for GRE_CONFIG_PARAMS0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRASCONN(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HRASCONN {
-    type TypeKind = windows_core::CopyType;
-}
 impl HRASCONN {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

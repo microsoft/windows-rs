@@ -399,9 +399,6 @@ impl Default for DISPATCHER_HEADER_0_6 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DMA_COMMON_BUFFER_VECTOR(pub isize);
-impl windows_core::TypeKind for DMA_COMMON_BUFFER_VECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type DRIVER_ADD_DEVICE = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT, physicaldeviceobject: *const DEVICE_OBJECT) -> super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -469,15 +466,9 @@ pub const DontUseThisTypeSession: POOL_TYPE = POOL_TYPE(35i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ECP_HEADER(pub isize);
-impl windows_core::TypeKind for ECP_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ECP_LIST(pub isize);
-impl windows_core::TypeKind for ECP_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -694,15 +685,9 @@ impl Default for FILE_OBJECT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct IOMMU_DMA_DEVICE(pub isize);
-impl windows_core::TypeKind for IOMMU_DMA_DEVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct IOMMU_DMA_DOMAIN(pub isize);
-impl windows_core::TypeKind for IOMMU_DMA_DOMAIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_COMPLETION_CONTEXT {
@@ -1639,9 +1624,6 @@ impl Default for KDPC_0_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KENLISTMENT(pub isize);
-impl windows_core::TypeKind for KENLISTMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -1657,15 +1639,9 @@ impl Default for KEVENT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KGDT(pub isize);
-impl windows_core::TypeKind for KGDT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KIDT(pub isize);
-impl windows_core::TypeKind for KIDT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -1710,15 +1686,9 @@ impl Default for KMUTANT_0_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KPCR(pub isize);
-impl windows_core::TypeKind for KPCR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KPRCB(pub isize);
-impl windows_core::TypeKind for KPRCB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -1738,30 +1708,18 @@ impl Default for KQUEUE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KRESOURCEMANAGER(pub isize);
-impl windows_core::TypeKind for KRESOURCEMANAGER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPIN_LOCK_QUEUE_NUMBER(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KTM(pub isize);
-impl windows_core::TypeKind for KTM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KTRANSACTION(pub isize);
-impl windows_core::TypeKind for KTRANSACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KTSS(pub isize);
-impl windows_core::TypeKind for KTSS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -1797,9 +1755,6 @@ impl Default for KWAIT_BLOCK_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LOADER_PARAMETER_BLOCK(pub isize);
-impl windows_core::TypeKind for LOADER_PARAMETER_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LockQueueAfdWorkQueueLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(13i32);
 pub const LockQueueBcbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(14i32);
 pub const LockQueueIoCancelLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(7i32);
@@ -1958,120 +1913,63 @@ pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_C
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PAFFINITY_TOKEN(pub isize);
-impl windows_core::TypeKind for PAFFINITY_TOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PBUS_HANDLER(pub isize);
-impl windows_core::TypeKind for PBUS_HANDLER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PCALLBACK_OBJECT(pub isize);
-impl windows_core::TypeKind for PCALLBACK_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PDEVICE_HANDLER_OBJECT(pub isize);
-impl windows_core::TypeKind for PDEVICE_HANDLER_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PEJOB(pub isize);
-impl windows_core::TypeKind for PEJOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PEPROCESS(pub isize);
-impl windows_core::TypeKind for PEPROCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PESILO(pub isize);
-impl windows_core::TypeKind for PESILO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PETHREAD(pub isize);
-impl windows_core::TypeKind for PETHREAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PEX_RUNDOWN_REF_CACHE_AWARE(pub isize);
-impl windows_core::TypeKind for PEX_RUNDOWN_REF_CACHE_AWARE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PEX_TIMER(pub isize);
-impl windows_core::TypeKind for PEX_TIMER {
-    type TypeKind = windows_core::CopyType;
-}
 pub type PFREE_FUNCTION = Option<unsafe extern "system" fn()>;
 pub type PIO_COMPLETION_ROUTINE = Option<unsafe extern "system" fn() -> super::super::Win32::Foundation::NTSTATUS>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PIO_REMOVE_LOCK_TRACKING_BLOCK(pub isize);
-impl windows_core::TypeKind for PIO_REMOVE_LOCK_TRACKING_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PIO_TIMER(pub isize);
-impl windows_core::TypeKind for PIO_TIMER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PIO_WORKITEM(pub isize);
-impl windows_core::TypeKind for PIO_WORKITEM {
-    type TypeKind = windows_core::CopyType;
-}
 pub type PKDEFERRED_ROUTINE = Option<unsafe extern "system" fn()>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PKINTERRUPT(pub isize);
-impl windows_core::TypeKind for PKINTERRUPT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PKPROCESS(pub isize);
-impl windows_core::TypeKind for PKPROCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PKTHREAD(pub isize);
-impl windows_core::TypeKind for PKTHREAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PNOTIFY_SYNC(pub isize);
-impl windows_core::TypeKind for PNOTIFY_SYNC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct POBJECT_TYPE(pub isize);
-impl windows_core::TypeKind for POBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POHANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for POHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl POHANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -2088,39 +1986,21 @@ pub struct POOL_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PPCW_BUFFER(pub isize);
-impl windows_core::TypeKind for PPCW_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PPCW_INSTANCE(pub isize);
-impl windows_core::TypeKind for PPCW_INSTANCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PPCW_REGISTRATION(pub isize);
-impl windows_core::TypeKind for PPCW_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PRKPROCESS(pub isize);
-impl windows_core::TypeKind for PRKPROCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PRKTHREAD(pub isize);
-impl windows_core::TypeKind for PRKTHREAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PSILO_MONITOR(pub isize);
-impl windows_core::TypeKind for PSILO_MONITOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub type PWORKER_THREAD_ROUTINE = Option<unsafe extern "system" fn()>;
 pub const PagedPool: POOL_TYPE = POOL_TYPE(1i32);
 pub const PagedPoolCacheAligned: POOL_TYPE = POOL_TYPE(5i32);
@@ -2175,9 +2055,6 @@ pub const STRSAFE_ZERO_LENGTH_ON_FAILURE: u32 = 2048u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SspiAsyncContext(pub isize);
-impl windows_core::TypeKind for SspiAsyncContext {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2232,21 +2109,12 @@ impl Default for WORK_QUEUE_ITEM {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct _DEVICE_OBJECT_POWER_EXTENSION(pub isize);
-impl windows_core::TypeKind for _DEVICE_OBJECT_POWER_EXTENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct _IORING_OBJECT(pub isize);
-impl windows_core::TypeKind for _IORING_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct _SCSI_REQUEST_BLOCK(pub isize);
-impl windows_core::TypeKind for _SCSI_REQUEST_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 pub const __WARNING_BANNED_API_USAGE: u32 = 28719u32;
 pub const __WARNING_CYCLOMATIC_COMPLEXITY: u32 = 28734u32;
 pub const __WARNING_DEREF_NULL_PTR: u32 = 6011u32;

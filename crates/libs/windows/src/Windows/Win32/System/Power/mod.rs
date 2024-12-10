@@ -175,21 +175,15 @@ pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: Option<*const windows_core:
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerOpenSystemPowerKey<P2>(phsystempowerkey: *mut super::Registry::HKEY, access: u32, openexisting: P2) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn PowerOpenSystemPowerKey(phsystempowerkey: *mut super::Registry::HKEY, access: u32, openexisting: bool) -> u32 {
     windows_targets::link!("powrprof.dll" "system" fn PowerOpenSystemPowerKey(phsystempowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : super::super::Foundation:: BOOL) -> u32);
-    PowerOpenSystemPowerKey(core::mem::transmute(phsystempowerkey), core::mem::transmute(access), openexisting.param().abi())
+    PowerOpenSystemPowerKey(core::mem::transmute(phsystempowerkey), core::mem::transmute(access), openexisting.into())
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerOpenUserPowerKey<P2>(phuserpowerkey: *mut super::Registry::HKEY, access: u32, openexisting: P2) -> u32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn PowerOpenUserPowerKey(phuserpowerkey: *mut super::Registry::HKEY, access: u32, openexisting: bool) -> u32 {
     windows_targets::link!("powrprof.dll" "system" fn PowerOpenUserPowerKey(phuserpowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : super::super::Foundation:: BOOL) -> u32);
-    PowerOpenUserPowerKey(core::mem::transmute(phuserpowerkey), core::mem::transmute(access), openexisting.param().abi())
+    PowerOpenUserPowerKey(core::mem::transmute(phuserpowerkey), core::mem::transmute(access), openexisting.into())
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -500,23 +494,14 @@ pub unsafe fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: Option<*const GL
     SetActivePwrScheme(core::mem::transmute(uiid), core::mem::transmute(pglobalpowerpolicy.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppowerpolicy.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn SetSuspendState<P0, P1, P2>(bhibernate: P0, bforce: P1, bwakeupeventsdisabled: P2) -> super::super::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
-    P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
-    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn SetSuspendState(bhibernate: bool, bforce: bool, bwakeupeventsdisabled: bool) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("powrprof.dll" "system" fn SetSuspendState(bhibernate : super::super::Foundation:: BOOLEAN, bforce : super::super::Foundation:: BOOLEAN, bwakeupeventsdisabled : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOLEAN);
-    SetSuspendState(bhibernate.param().abi(), bforce.param().abi(), bwakeupeventsdisabled.param().abi())
+    SetSuspendState(bhibernate.into(), bforce.into(), bwakeupeventsdisabled.into())
 }
 #[inline]
-pub unsafe fn SetSystemPowerState<P0, P1>(fsuspend: P0, fforce: P1) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetSystemPowerState(fsuspend: bool, fforce: bool) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetSystemPowerState(fsuspend : super::super::Foundation:: BOOL, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetSystemPowerState(fsuspend.param().abi(), fforce.param().abi()).ok()
+    SetSystemPowerState(fsuspend.into(), fforce.into()).ok()
 }
 #[inline]
 pub unsafe fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE {
@@ -1156,9 +1141,6 @@ pub const GroupPark: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(48i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HPOWERNOTIFY(pub isize);
-impl windows_core::TypeKind for HPOWERNOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 impl HPOWERNOTIFY {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0

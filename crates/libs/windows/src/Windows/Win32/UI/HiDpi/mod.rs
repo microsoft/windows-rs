@@ -1,11 +1,8 @@
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn AdjustWindowRectExForDpi<P2>(lprect: *mut super::super::Foundation::RECT, dwstyle: super::WindowsAndMessaging::WINDOW_STYLE, bmenu: P2, dwexstyle: super::WindowsAndMessaging::WINDOW_EX_STYLE, dpi: u32) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn AdjustWindowRectExForDpi(lprect: *mut super::super::Foundation::RECT, dwstyle: super::WindowsAndMessaging::WINDOW_STYLE, bmenu: bool, dwexstyle: super::WindowsAndMessaging::WINDOW_EX_STYLE, dpi: u32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn AdjustWindowRectExForDpi(lprect : *mut super::super::Foundation:: RECT, dwstyle : super::WindowsAndMessaging:: WINDOW_STYLE, bmenu : super::super::Foundation:: BOOL, dwexstyle : super::WindowsAndMessaging:: WINDOW_EX_STYLE, dpi : u32) -> super::super::Foundation:: BOOL);
-    AdjustWindowRectExForDpi(core::mem::transmute(lprect), core::mem::transmute(dwstyle), bmenu.param().abi(), core::mem::transmute(dwexstyle), core::mem::transmute(dpi)).ok()
+    AdjustWindowRectExForDpi(core::mem::transmute(lprect), core::mem::transmute(dwstyle), bmenu.into(), core::mem::transmute(dwexstyle), core::mem::transmute(dpi)).ok()
 }
 #[inline]
 pub unsafe fn AreDpiAwarenessContextsEqual(dpicontexta: DPI_AWARENESS_CONTEXT, dpicontextb: DPI_AWARENESS_CONTEXT) -> super::super::Foundation::BOOL {
@@ -239,9 +236,6 @@ pub struct DPI_AWARENESS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DPI_AWARENESS_CONTEXT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for DPI_AWARENESS_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 impl DPI_AWARENESS_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

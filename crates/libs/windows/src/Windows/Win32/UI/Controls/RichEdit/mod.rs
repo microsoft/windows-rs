@@ -1268,11 +1268,8 @@ impl IRichEditOle {
     {
         (windows_core::Interface::vtable(self).SetHostNames)(windows_core::Interface::as_raw(self), lpstrcontainerapp.param().abi(), lpstrcontainerobj.param().abi()).ok()
     }
-    pub unsafe fn SetLinkAvailable<P1>(&self, iob: i32, favailable: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetLinkAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute(iob), favailable.param().abi()).ok()
+    pub unsafe fn SetLinkAvailable(&self, iob: i32, favailable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetLinkAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute(iob), favailable.into()).ok()
     }
     pub unsafe fn SetDvaspect(&self, iob: i32, dvaspect: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDvaspect)(windows_core::Interface::as_raw(self), core::mem::transmute(iob), core::mem::transmute(dvaspect)).ok()
@@ -1290,11 +1287,8 @@ impl IRichEditOle {
     pub unsafe fn InPlaceDeactivate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InPlaceDeactivate)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
+    pub unsafe fn ContextSensitiveHelp(&self, fentermode: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.into()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut Option<super::super::super::System::Com::IDataObject>) -> windows_core::Result<()> {
@@ -1476,11 +1470,8 @@ impl IRichEditOleCallback {
     pub unsafe fn GetInPlaceContext(&self, lplpframe: *mut Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: *mut Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: *mut super::super::super::System::Ole::OLEINPLACEFRAMEINFO) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetInPlaceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(lplpframe), core::mem::transmute(lplpdoc), core::mem::transmute(lpframeinfo)).ok()
     }
-    pub unsafe fn ShowContainerUI<P0>(&self, fshow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ShowContainerUI)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
+    pub unsafe fn ShowContainerUI(&self, fshow: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ShowContainerUI)(windows_core::Interface::as_raw(self), fshow.into()).ok()
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn QueryInsertObject<P1>(&self, lpclsid: *mut windows_core::GUID, lpstg: P1, cp: i32) -> windows_core::Result<()>
@@ -1497,29 +1488,22 @@ impl IRichEditOleCallback {
         (windows_core::Interface::vtable(self).DeleteObject)(windows_core::Interface::as_raw(self), lpoleobj.param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
-    pub unsafe fn QueryAcceptData<P0, P3>(&self, lpdataobj: P0, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: P3, hmetapict: super::super::super::Foundation::HGLOBAL) -> windows_core::Result<()>
+    pub unsafe fn QueryAcceptData<P0>(&self, lpdataobj: P0, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: bool, hmetapict: super::super::super::Foundation::HGLOBAL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::System::Com::IDataObject>,
-        P3: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).QueryAcceptData)(windows_core::Interface::as_raw(self), lpdataobj.param().abi(), core::mem::transmute(lpcfformat), core::mem::transmute(reco), freally.param().abi(), core::mem::transmute(hmetapict)).ok()
+        (windows_core::Interface::vtable(self).QueryAcceptData)(windows_core::Interface::as_raw(self), lpdataobj.param().abi(), core::mem::transmute(lpcfformat), core::mem::transmute(reco), freally.into(), core::mem::transmute(hmetapict)).ok()
     }
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
+    pub unsafe fn ContextSensitiveHelp(&self, fentermode: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.into()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut Option<super::super::super::System::Com::IDataObject>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetClipboardData)(windows_core::Interface::as_raw(self), core::mem::transmute(lpchrg), core::mem::transmute(reco), core::mem::transmute(lplpdataobj)).ok()
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_SystemServices"))]
-    pub unsafe fn GetDragDropEffect<P0>(&self, fdrag: P0, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).GetDragDropEffect)(windows_core::Interface::as_raw(self), fdrag.param().abi(), core::mem::transmute(grfkeystate), core::mem::transmute(pdweffect)).ok()
+    pub unsafe fn GetDragDropEffect(&self, fdrag: bool, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetDragDropEffect)(windows_core::Interface::as_raw(self), fdrag.into(), core::mem::transmute(grfkeystate), core::mem::transmute(pdweffect)).ok()
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetContextMenu<P1>(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: P1, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> windows_core::Result<()>
@@ -4492,49 +4476,31 @@ impl ITextHost {
     pub unsafe fn TxReleaseDC(&self, hdc: super::super::super::Graphics::Gdi::HDC) -> i32 {
         (windows_core::Interface::vtable(self).TxReleaseDC)(windows_core::Interface::as_raw(self), core::mem::transmute(hdc))
     }
-    pub unsafe fn TxShowScrollBar<P1>(&self, fnbar: i32, fshow: P1) -> super::super::super::Foundation::BOOL
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).TxShowScrollBar)(windows_core::Interface::as_raw(self), core::mem::transmute(fnbar), fshow.param().abi())
+    pub unsafe fn TxShowScrollBar(&self, fnbar: i32, fshow: bool) -> super::super::super::Foundation::BOOL {
+        (windows_core::Interface::vtable(self).TxShowScrollBar)(windows_core::Interface::as_raw(self), core::mem::transmute(fnbar), fshow.into())
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: i32) -> super::super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).TxEnableScrollBar)(windows_core::Interface::as_raw(self), core::mem::transmute(fusbflags), core::mem::transmute(fuarrowflags))
     }
-    pub unsafe fn TxSetScrollRange<P3>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: P3) -> super::super::super::Foundation::BOOL
-    where
-        P3: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).TxSetScrollRange)(windows_core::Interface::as_raw(self), core::mem::transmute(fnbar), core::mem::transmute(nminpos), core::mem::transmute(nmaxpos), fredraw.param().abi())
+    pub unsafe fn TxSetScrollRange(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: bool) -> super::super::super::Foundation::BOOL {
+        (windows_core::Interface::vtable(self).TxSetScrollRange)(windows_core::Interface::as_raw(self), core::mem::transmute(fnbar), core::mem::transmute(nminpos), core::mem::transmute(nmaxpos), fredraw.into())
     }
-    pub unsafe fn TxSetScrollPos<P2>(&self, fnbar: i32, npos: i32, fredraw: P2) -> super::super::super::Foundation::BOOL
-    where
-        P2: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).TxSetScrollPos)(windows_core::Interface::as_raw(self), core::mem::transmute(fnbar), core::mem::transmute(npos), fredraw.param().abi())
+    pub unsafe fn TxSetScrollPos(&self, fnbar: i32, npos: i32, fredraw: bool) -> super::super::super::Foundation::BOOL {
+        (windows_core::Interface::vtable(self).TxSetScrollPos)(windows_core::Interface::as_raw(self), core::mem::transmute(fnbar), core::mem::transmute(npos), fredraw.into())
     }
-    pub unsafe fn TxInvalidateRect<P1>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: P1)
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).TxInvalidateRect)(windows_core::Interface::as_raw(self), core::mem::transmute(prc), fmode.param().abi())
+    pub unsafe fn TxInvalidateRect(&self, prc: *mut super::super::super::Foundation::RECT, fmode: bool) {
+        (windows_core::Interface::vtable(self).TxInvalidateRect)(windows_core::Interface::as_raw(self), core::mem::transmute(prc), fmode.into())
     }
-    pub unsafe fn TxViewChange<P0>(&self, fupdate: P0)
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).TxViewChange)(windows_core::Interface::as_raw(self), fupdate.param().abi())
+    pub unsafe fn TxViewChange(&self, fupdate: bool) {
+        (windows_core::Interface::vtable(self).TxViewChange)(windows_core::Interface::as_raw(self), fupdate.into())
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxCreateCaret(&self, hbmp: super::super::super::Graphics::Gdi::HBITMAP, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).TxCreateCaret)(windows_core::Interface::as_raw(self), core::mem::transmute(hbmp), core::mem::transmute(xwidth), core::mem::transmute(yheight))
     }
-    pub unsafe fn TxShowCaret<P0>(&self, fshow: P0) -> super::super::super::Foundation::BOOL
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).TxShowCaret)(windows_core::Interface::as_raw(self), fshow.param().abi())
+    pub unsafe fn TxShowCaret(&self, fshow: bool) -> super::super::super::Foundation::BOOL {
+        (windows_core::Interface::vtable(self).TxShowCaret)(windows_core::Interface::as_raw(self), fshow.into())
     }
     pub unsafe fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).TxSetCaretPos)(windows_core::Interface::as_raw(self), core::mem::transmute(x), core::mem::transmute(y))
@@ -4549,21 +4515,15 @@ impl ITextHost {
     pub unsafe fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SCROLL_WINDOW_FLAGS) {
         (windows_core::Interface::vtable(self).TxScrollWindowEx)(windows_core::Interface::as_raw(self), core::mem::transmute(dx), core::mem::transmute(dy), core::mem::transmute(lprcscroll), core::mem::transmute(lprcclip), core::mem::transmute(hrgnupdate), core::mem::transmute(lprcupdate), core::mem::transmute(fuscroll))
     }
-    pub unsafe fn TxSetCapture<P0>(&self, fcapture: P0)
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).TxSetCapture)(windows_core::Interface::as_raw(self), fcapture.param().abi())
+    pub unsafe fn TxSetCapture(&self, fcapture: bool) {
+        (windows_core::Interface::vtable(self).TxSetCapture)(windows_core::Interface::as_raw(self), fcapture.into())
     }
     pub unsafe fn TxSetFocus(&self) {
         (windows_core::Interface::vtable(self).TxSetFocus)(windows_core::Interface::as_raw(self))
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn TxSetCursor<P1>(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: P1)
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).TxSetCursor)(windows_core::Interface::as_raw(self), core::mem::transmute(hcur), ftext.param().abi())
+    pub unsafe fn TxSetCursor(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: bool) {
+        (windows_core::Interface::vtable(self).TxSetCursor)(windows_core::Interface::as_raw(self), core::mem::transmute(hcur), ftext.into())
     }
     pub unsafe fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).TxScreenToClient)(windows_core::Interface::as_raw(self), core::mem::transmute(lppt))
@@ -4996,11 +4956,8 @@ impl ITextHost2 {
         (windows_core::Interface::vtable(self).TxGetEastAsianFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pflags)).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn TxSetCursor2<P1>(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, btext: P1) -> super::super::WindowsAndMessaging::HCURSOR
-    where
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).TxSetCursor2)(windows_core::Interface::as_raw(self), core::mem::transmute(hcur), btext.param().abi())
+    pub unsafe fn TxSetCursor2(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, btext: bool) -> super::super::WindowsAndMessaging::HCURSOR {
+        (windows_core::Interface::vtable(self).TxSetCursor2)(windows_core::Interface::as_raw(self), core::mem::transmute(hcur), btext.into())
     }
     pub unsafe fn TxFreeTextServicesNotification(&self) {
         (windows_core::Interface::vtable(self).TxFreeTextServicesNotification)(windows_core::Interface::as_raw(self))
@@ -5012,11 +4969,8 @@ impl ITextHost2 {
         (windows_core::Interface::vtable(self).TxGetWindowStyles)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwstyle), core::mem::transmute(pdwexstyle)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn TxShowDropCaret<P0>(&self, fshow: P0, hdc: super::super::super::Graphics::Gdi::HDC, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).TxShowDropCaret)(windows_core::Interface::as_raw(self), fshow.param().abi(), core::mem::transmute(hdc), core::mem::transmute(prc)).ok()
+    pub unsafe fn TxShowDropCaret(&self, fshow: bool, hdc: super::super::super::Graphics::Gdi::HDC, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).TxShowDropCaret)(windows_core::Interface::as_raw(self), fshow.into(), core::mem::transmute(hdc), core::mem::transmute(prc)).ok()
     }
     pub unsafe fn TxDestroyCaret(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TxDestroyCaret)(windows_core::Interface::as_raw(self)).ok()

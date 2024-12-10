@@ -103,12 +103,9 @@ where
     SetDeviceManagementConfigInfo(providerid.param().abi(), configstring.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetManagedExternally<P0>(ismanagedexternally: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetManagedExternally(ismanagedexternally: bool) -> windows_core::Result<()> {
     windows_targets::link!("mdmregistration.dll" "system" fn SetManagedExternally(ismanagedexternally : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    SetManagedExternally(ismanagedexternally.param().abi()).ok()
+    SetManagedExternally(ismanagedexternally.into()).ok()
 }
 #[inline]
 pub unsafe fn UnregisterDeviceWithLocalManagement() -> windows_core::Result<()> {

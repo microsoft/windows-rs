@@ -1421,12 +1421,11 @@ impl ISpGrammarBuilder {
     pub unsafe fn ResetGrammar(&self, newlanguage: u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ResetGrammar)(windows_core::Interface::as_raw(self), core::mem::transmute(newlanguage)).ok()
     }
-    pub unsafe fn GetRule<P0, P3>(&self, pszrulename: P0, dwruleid: u32, dwattributes: u32, fcreateifnotexist: P3, phinitialstate: *mut SPSTATEHANDLE) -> windows_core::Result<()>
+    pub unsafe fn GetRule<P0>(&self, pszrulename: P0, dwruleid: u32, dwattributes: u32, fcreateifnotexist: bool, phinitialstate: *mut SPSTATEHANDLE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetRule)(windows_core::Interface::as_raw(self), pszrulename.param().abi(), core::mem::transmute(dwruleid), core::mem::transmute(dwattributes), fcreateifnotexist.param().abi(), core::mem::transmute(phinitialstate)).ok()
+        (windows_core::Interface::vtable(self).GetRule)(windows_core::Interface::as_raw(self), pszrulename.param().abi(), core::mem::transmute(dwruleid), core::mem::transmute(dwattributes), fcreateifnotexist.into(), core::mem::transmute(phinitialstate)).ok()
     }
     pub unsafe fn ClearRule(&self, hstate: SPSTATEHANDLE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ClearRule)(windows_core::Interface::as_raw(self), core::mem::transmute(hstate)).ok()
@@ -2027,11 +2026,8 @@ impl ISpNotifyTranslator {
     {
         (windows_core::Interface::vtable(self).InitSpNotifyCallback)(windows_core::Interface::as_raw(self), pspcallback.param().abi(), core::mem::transmute(wparam), core::mem::transmute(lparam)).ok()
     }
-    pub unsafe fn InitWin32Event<P1>(&self, hevent: super::super::Foundation::HANDLE, fclosehandleonrelease: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).InitWin32Event)(windows_core::Interface::as_raw(self), core::mem::transmute(hevent), fclosehandleonrelease.param().abi()).ok()
+    pub unsafe fn InitWin32Event(&self, hevent: super::super::Foundation::HANDLE, fclosehandleonrelease: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).InitWin32Event)(windows_core::Interface::as_raw(self), core::mem::transmute(hevent), fclosehandleonrelease.into()).ok()
     }
     pub unsafe fn Wait(&self, dwmilliseconds: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), core::mem::transmute(dwmilliseconds)).ok()
@@ -2108,13 +2104,12 @@ impl core::ops::Deref for ISpObjectToken {
 }
 windows_core::imp::interface_hierarchy!(ISpObjectToken, windows_core::IUnknown, ISpDataKey);
 impl ISpObjectToken {
-    pub unsafe fn SetId<P0, P1, P2>(&self, pszcategoryid: P0, psztokenid: P1, fcreateifnotexist: P2) -> windows_core::Result<()>
+    pub unsafe fn SetId<P0, P1>(&self, pszcategoryid: P0, psztokenid: P1, fcreateifnotexist: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetId)(windows_core::Interface::as_raw(self), pszcategoryid.param().abi(), psztokenid.param().abi(), fcreateifnotexist.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetId)(windows_core::Interface::as_raw(self), pszcategoryid.param().abi(), psztokenid.param().abi(), fcreateifnotexist.into()).ok()
     }
     pub unsafe fn GetId(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
@@ -2138,12 +2133,11 @@ impl ISpObjectToken {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStorageFileName)(windows_core::Interface::as_raw(self), core::mem::transmute(clsidcaller), pszvaluename.param().abi(), pszfilenamespecifier.param().abi(), core::mem::transmute(nfolder), &mut result__).map(|| result__)
     }
-    pub unsafe fn RemoveStorageFileName<P1, P2>(&self, clsidcaller: *const windows_core::GUID, pszkeyname: P1, fdeletefile: P2) -> windows_core::Result<()>
+    pub unsafe fn RemoveStorageFileName<P1>(&self, clsidcaller: *const windows_core::GUID, pszkeyname: P1, fdeletefile: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RemoveStorageFileName)(windows_core::Interface::as_raw(self), core::mem::transmute(clsidcaller), pszkeyname.param().abi(), fdeletefile.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveStorageFileName)(windows_core::Interface::as_raw(self), core::mem::transmute(clsidcaller), pszkeyname.param().abi(), fdeletefile.into()).ok()
     }
     pub unsafe fn Remove(&self, pclsidcaller: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute(pclsidcaller.unwrap_or(core::mem::zeroed()))).ok()
@@ -2284,12 +2278,11 @@ impl core::ops::Deref for ISpObjectTokenCategory {
 }
 windows_core::imp::interface_hierarchy!(ISpObjectTokenCategory, windows_core::IUnknown, ISpDataKey);
 impl ISpObjectTokenCategory {
-    pub unsafe fn SetId<P0, P1>(&self, pszcategoryid: P0, fcreateifnotexist: P1) -> windows_core::Result<()>
+    pub unsafe fn SetId<P0>(&self, pszcategoryid: P0, fcreateifnotexist: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetId)(windows_core::Interface::as_raw(self), pszcategoryid.param().abi(), fcreateifnotexist.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetId)(windows_core::Interface::as_raw(self), pszcategoryid.param().abi(), fcreateifnotexist.into()).ok()
     }
     pub unsafe fn GetId(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
@@ -2652,12 +2645,9 @@ impl ISpPhoneticAlphabetConverter {
     pub unsafe fn UPS2SAPI(&self, pszupsid: *const u16, pszsapiid: &mut [u16]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UPS2SAPI)(windows_core::Interface::as_raw(self), core::mem::transmute(pszupsid), core::mem::transmute(pszsapiid.as_ptr()), pszsapiid.len().try_into().unwrap()).ok()
     }
-    pub unsafe fn GetMaxConvertLength<P1>(&self, csrclength: u32, bsapi2ups: P1) -> windows_core::Result<u32>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn GetMaxConvertLength(&self, csrclength: u32, bsapi2ups: bool) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMaxConvertLength)(windows_core::Interface::as_raw(self), core::mem::transmute(csrclength), bsapi2ups.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetMaxConvertLength)(windows_core::Interface::as_raw(self), core::mem::transmute(csrclength), bsapi2ups.into(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -2731,11 +2721,8 @@ impl ISpPhoneticAlphabetSelection {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsAlphabetUPS)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAlphabetToUPS<P0>(&self, fforceups: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAlphabetToUPS)(windows_core::Interface::as_raw(self), fforceups.param().abi()).ok()
+    pub unsafe fn SetAlphabetToUPS(&self, fforceups: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAlphabetToUPS)(windows_core::Interface::as_raw(self), fforceups.into()).ok()
     }
 }
 #[repr(C)]
@@ -2787,11 +2774,8 @@ impl ISpPhrase {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSerializedPhrase)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetText<P2>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P2, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: Option<*mut u8>) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), core::mem::transmute(ulstart), core::mem::transmute(ulcount), fusetextreplacements.param().abi(), core::mem::transmute(ppszcomemtext), core::mem::transmute(pbdisplayattributes.unwrap_or(core::mem::zeroed()))).ok()
+    pub unsafe fn GetText(&self, ulstart: u32, ulcount: u32, fusetextreplacements: bool, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: Option<*mut u8>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), core::mem::transmute(ulstart), core::mem::transmute(ulcount), fusetextreplacements.into(), core::mem::transmute(ppszcomemtext), core::mem::transmute(pbdisplayattributes.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn Discard(&self, dwvaluetypes: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Discard)(windows_core::Interface::as_raw(self), core::mem::transmute(dwvaluetypes)).ok()
@@ -3264,12 +3248,11 @@ impl ISpRecoContext {
     pub unsafe fn Resume(&self, dwreserved: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self), core::mem::transmute(dwreserved)).ok()
     }
-    pub unsafe fn SetVoice<P0, P1>(&self, pvoice: P0, fallowformatchanges: P1) -> windows_core::Result<()>
+    pub unsafe fn SetVoice<P0>(&self, pvoice: P0, fallowformatchanges: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISpVoice>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetVoice)(windows_core::Interface::as_raw(self), pvoice.param().abi(), fallowformatchanges.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetVoice)(windows_core::Interface::as_raw(self), pvoice.param().abi(), fallowformatchanges.into()).ok()
     }
     pub unsafe fn GetVoice(&self) -> windows_core::Result<ISpVoice> {
         let mut result__ = core::mem::zeroed();
@@ -4042,12 +4025,11 @@ impl ISpRecoResult2 {
     {
         (windows_core::Interface::vtable(self).CommitText)(windows_core::Interface::as_raw(self), core::mem::transmute(ulstartelement), core::mem::transmute(celements), pszcorrecteddata.param().abi(), core::mem::transmute(ecommitflags)).ok()
     }
-    pub unsafe fn SetTextFeedback<P0, P1>(&self, pszfeedback: P0, fsuccessful: P1) -> windows_core::Result<()>
+    pub unsafe fn SetTextFeedback<P0>(&self, pszfeedback: P0, fsuccessful: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetTextFeedback)(windows_core::Interface::as_raw(self), pszfeedback.param().abi(), fsuccessful.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextFeedback)(windows_core::Interface::as_raw(self), pszfeedback.param().abi(), fsuccessful.into()).ok()
     }
 }
 #[repr(C)]
@@ -4116,12 +4098,11 @@ impl ISpRecognizer {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRecognizer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetInput<P0, P1>(&self, punkinput: P0, fallowformatchanges: P1) -> windows_core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, punkinput: P0, fallowformatchanges: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetInput)(windows_core::Interface::as_raw(self), punkinput.param().abi(), fallowformatchanges.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInput)(windows_core::Interface::as_raw(self), punkinput.param().abi(), fallowformatchanges.into()).ok()
     }
     pub unsafe fn GetInputObjectToken(&self) -> windows_core::Result<ISpObjectToken> {
         let mut result__ = core::mem::zeroed();
@@ -4359,12 +4340,8 @@ impl ISpRecognizer2 {
     {
         (windows_core::Interface::vtable(self).EmulateRecognitionEx)(windows_core::Interface::as_raw(self), pphrase.param().abi(), core::mem::transmute(dwcompareflags)).ok()
     }
-    pub unsafe fn SetTrainingState<P0, P1>(&self, fdoingtraining: P0, fadaptfromtrainingdata: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetTrainingState)(windows_core::Interface::as_raw(self), fdoingtraining.param().abi(), fadaptfromtrainingdata.param().abi()).ok()
+    pub unsafe fn SetTrainingState(&self, fdoingtraining: bool, fadaptfromtrainingdata: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetTrainingState)(windows_core::Interface::as_raw(self), fdoingtraining.into(), fadaptfromtrainingdata.into()).ok()
     }
     pub unsafe fn ResetAcousticModelAdaptation(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ResetAcousticModelAdaptation)(windows_core::Interface::as_raw(self)).ok()
@@ -4418,11 +4395,8 @@ impl core::ops::Deref for ISpRegDataKey {
 windows_core::imp::interface_hierarchy!(ISpRegDataKey, windows_core::IUnknown, ISpDataKey);
 impl ISpRegDataKey {
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn SetKey<P1>(&self, hkey: super::super::System::Registry::HKEY, freadonly: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), core::mem::transmute(hkey), freadonly.param().abi()).ok()
+    pub unsafe fn SetKey(&self, hkey: super::super::System::Registry::HKEY, freadonly: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), core::mem::transmute(hkey), freadonly.into()).ok()
     }
 }
 #[repr(C)]
@@ -4471,11 +4445,8 @@ impl ISpResourceManager {
     {
         (windows_core::Interface::vtable(self).SetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(guidserviceid), punkobject.param().abi()).ok()
     }
-    pub unsafe fn GetObject<P3>(&self, guidserviceid: *const windows_core::GUID, objectclsid: *const windows_core::GUID, objectiid: *const windows_core::GUID, freleasewhenlastexternalrefreleased: P3, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(guidserviceid), core::mem::transmute(objectclsid), core::mem::transmute(objectiid), freleasewhenlastexternalrefreleased.param().abi(), core::mem::transmute(ppobject)).ok()
+    pub unsafe fn GetObject(&self, guidserviceid: *const windows_core::GUID, objectclsid: *const windows_core::GUID, objectiid: *const windows_core::GUID, freleasewhenlastexternalrefreleased: bool, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(guidserviceid), core::mem::transmute(objectclsid), core::mem::transmute(objectiid), freleasewhenlastexternalrefreleased.into(), core::mem::transmute(ppobject)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4605,13 +4576,11 @@ impl ISpSREngine {
         (windows_core::Interface::vtable(self).GetInputAudioFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidsourceformatid), core::mem::transmute(psourcewaveformatex), core::mem::transmute(pguiddesiredformatid), core::mem::transmute(ppcomemdesiredwaveformatex)).ok()
     }
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn RecognizeStream<P5, P6, P7>(&self, rguidfmtid: *const windows_core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, hrequestsync: super::super::Foundation::HANDLE, hdataavailable: super::super::Foundation::HANDLE, hexit: super::super::Foundation::HANDLE, fnewaudiostream: P5, frealtimeaudio: P6, paudioobjecttoken: P7) -> windows_core::Result<()>
+    pub unsafe fn RecognizeStream<P7>(&self, rguidfmtid: *const windows_core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, hrequestsync: super::super::Foundation::HANDLE, hdataavailable: super::super::Foundation::HANDLE, hexit: super::super::Foundation::HANDLE, fnewaudiostream: bool, frealtimeaudio: bool, paudioobjecttoken: P7) -> windows_core::Result<()>
     where
-        P5: windows_core::Param<super::super::Foundation::BOOL>,
-        P6: windows_core::Param<super::super::Foundation::BOOL>,
         P7: windows_core::Param<ISpObjectToken>,
     {
-        (windows_core::Interface::vtable(self).RecognizeStream)(windows_core::Interface::as_raw(self), core::mem::transmute(rguidfmtid), core::mem::transmute(pwaveformatex), core::mem::transmute(hrequestsync), core::mem::transmute(hdataavailable), core::mem::transmute(hexit), fnewaudiostream.param().abi(), frealtimeaudio.param().abi(), paudioobjecttoken.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RecognizeStream)(windows_core::Interface::as_raw(self), core::mem::transmute(rguidfmtid), core::mem::transmute(pwaveformatex), core::mem::transmute(hrequestsync), core::mem::transmute(hdataavailable), core::mem::transmute(hexit), fnewaudiostream.into(), frealtimeaudio.into(), paudioobjecttoken.param().abi()).ok()
     }
     pub unsafe fn SetRecoProfile<P0>(&self, pprofile: P0) -> windows_core::Result<()>
     where
@@ -4995,12 +4964,11 @@ impl ISpSREngine2 {
     {
         (windows_core::Interface::vtable(self).SetAdaptationData2)(windows_core::Interface::as_raw(self), core::mem::transmute(pvenginecontext), core::mem::transmute(padaptationdata.as_ptr()), padaptationdata.len().try_into().unwrap(), ptopicname.param().abi(), core::mem::transmute(esettings), core::mem::transmute(erelevance)).ok()
     }
-    pub unsafe fn SetGrammarPrefix<P1, P2>(&self, pvenginegrammar: *const core::ffi::c_void, pszprefix: P1, fisprefixrequired: P2) -> windows_core::Result<()>
+    pub unsafe fn SetGrammarPrefix<P1>(&self, pvenginegrammar: *const core::ffi::c_void, pszprefix: P1, fisprefixrequired: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetGrammarPrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(pvenginegrammar), pszprefix.param().abi(), fisprefixrequired.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetGrammarPrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(pvenginegrammar), pszprefix.param().abi(), fisprefixrequired.into()).ok()
     }
     pub unsafe fn SetRulePriority(&self, hrule: SPRULEHANDLE, pvclientrulecontext: *const core::ffi::c_void, nrulepriority: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetRulePriority)(windows_core::Interface::as_raw(self), core::mem::transmute(hrule), core::mem::transmute(pvclientrulecontext), core::mem::transmute(nrulepriority)).ok()
@@ -5017,12 +4985,8 @@ impl ISpSREngine2 {
     pub unsafe fn SetRuleWeight(&self, hrule: SPRULEHANDLE, pvclientrulecontext: *const core::ffi::c_void, flweight: f32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetRuleWeight)(windows_core::Interface::as_raw(self), core::mem::transmute(hrule), core::mem::transmute(pvclientrulecontext), core::mem::transmute(flweight)).ok()
     }
-    pub unsafe fn SetTrainingState<P0, P1>(&self, fdoingtraining: P0, fadaptfromtrainingdata: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetTrainingState)(windows_core::Interface::as_raw(self), fdoingtraining.param().abi(), fadaptfromtrainingdata.param().abi()).ok()
+    pub unsafe fn SetTrainingState(&self, fdoingtraining: bool, fadaptfromtrainingdata: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetTrainingState)(windows_core::Interface::as_raw(self), fdoingtraining.into(), fadaptfromtrainingdata.into()).ok()
     }
     pub unsafe fn ResetAcousticModelAdaptation(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ResetAcousticModelAdaptation)(windows_core::Interface::as_raw(self)).ok()
@@ -5780,13 +5744,11 @@ impl core::ops::Deref for ISpStreamFormatConverter {
 windows_core::imp::interface_hierarchy!(ISpStreamFormatConverter, windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpStreamFormatConverter {
-    pub unsafe fn SetBaseStream<P0, P1, P2>(&self, pstream: P0, fsetformattobasestreamformat: P1, fwritetobasestream: P2) -> windows_core::Result<()>
+    pub unsafe fn SetBaseStream<P0>(&self, pstream: P0, fsetformattobasestreamformat: bool, fwritetobasestream: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISpStreamFormat>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetBaseStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), fsetformattobasestreamformat.param().abi(), fwritetobasestream.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBaseStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), fsetformattobasestreamformat.into(), fwritetobasestream.into()).ok()
     }
     pub unsafe fn GetBaseStream(&self) -> windows_core::Result<ISpStreamFormat> {
         let mut result__ = core::mem::zeroed();
@@ -6223,11 +6185,8 @@ impl ISpThreadControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).StartThread)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), &mut result__).map(|| result__)
     }
-    pub unsafe fn WaitForThreadDone<P0>(&self, fforcestop: P0, phrthreadresult: *mut windows_core::HRESULT, mstimeout: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).WaitForThreadDone)(windows_core::Interface::as_raw(self), fforcestop.param().abi(), core::mem::transmute(phrthreadresult), core::mem::transmute(mstimeout)).ok()
+    pub unsafe fn WaitForThreadDone(&self, fforcestop: bool, phrthreadresult: *mut windows_core::HRESULT, mstimeout: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).WaitForThreadDone)(windows_core::Interface::as_raw(self), fforcestop.into(), core::mem::transmute(phrthreadresult), core::mem::transmute(mstimeout)).ok()
     }
     pub unsafe fn TerminateThread(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TerminateThread)(windows_core::Interface::as_raw(self)).ok()
@@ -6509,12 +6468,11 @@ impl core::ops::Deref for ISpVoice {
 }
 windows_core::imp::interface_hierarchy!(ISpVoice, windows_core::IUnknown, ISpNotifySource, ISpEventSource);
 impl ISpVoice {
-    pub unsafe fn SetOutput<P0, P1>(&self, punkoutput: P0, fallowformatchanges: P1) -> windows_core::Result<()>
+    pub unsafe fn SetOutput<P0>(&self, punkoutput: P0, fallowformatchanges: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetOutput)(windows_core::Interface::as_raw(self), punkoutput.param().abi(), fallowformatchanges.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutput)(windows_core::Interface::as_raw(self), punkoutput.param().abi(), fallowformatchanges.into()).ok()
     }
     pub unsafe fn GetOutputObjectToken(&self) -> windows_core::Result<ISpObjectToken> {
         let mut result__ = core::mem::zeroed();
@@ -15007,9 +14965,6 @@ pub const SPGO_UPS: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(4i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPGRAMMARHANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for SPGRAMMARHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl SPGRAMMARHANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -15232,9 +15187,6 @@ impl Default for SPPHRASEPROPERTY_0_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPPHRASEPROPERTYHANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for SPPHRASEPROPERTYHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl SPPHRASEPROPERTYHANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -15284,9 +15236,6 @@ impl Default for SPPHRASERULE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPPHRASERULEHANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for SPPHRASERULEHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl SPPHRASERULEHANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -15393,9 +15342,6 @@ pub const SPRAF_UserDelimited: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(131072i
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPRECOCONTEXTHANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for SPRECOCONTEXTHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl SPRECOCONTEXTHANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -15551,9 +15497,6 @@ impl Default for SPRULEENTRY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPRULEHANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for SPRULEHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl SPRULEHANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -15757,9 +15700,6 @@ pub const SPSSuppressWord: SpeechPartOfSpeech = SpeechPartOfSpeech(61440i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPSTATEHANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for SPSTATEHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl SPSTATEHANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -15904,9 +15844,6 @@ impl Default for SPTRANSITIONENTRY_1_2 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPTRANSITIONID(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for SPTRANSITIONID {
-    type TypeKind = windows_core::CopyType;
-}
 impl SPTRANSITIONID {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -16104,9 +16041,6 @@ impl Default for SPWORDENTRY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPWORDHANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for SPWORDHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl SPWORDHANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

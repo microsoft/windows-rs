@@ -60,12 +60,9 @@ pub unsafe fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS,
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn EventAccessControl<P4>(guid: *const windows_core::GUID, operation: u32, sid: super::super::super::Security::PSID, rights: u32, allowordeny: P4) -> u32
-where
-    P4: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn EventAccessControl(guid: *const windows_core::GUID, operation: u32, sid: super::super::super::Security::PSID, rights: u32, allowordeny: bool) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_core::GUID, operation : u32, sid : super::super::super::Security:: PSID, rights : u32, allowordeny : super::super::super::Foundation:: BOOLEAN) -> u32);
-    EventAccessControl(core::mem::transmute(guid), core::mem::transmute(operation), core::mem::transmute(sid), core::mem::transmute(rights), allowordeny.param().abi())
+    EventAccessControl(core::mem::transmute(guid), core::mem::transmute(operation), core::mem::transmute(sid), core::mem::transmute(rights), allowordeny.into())
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -334,12 +331,9 @@ pub unsafe fn TdhCloseDecodingHandle(handle: TDH_HANDLE) -> u32 {
     TdhCloseDecodingHandle(core::mem::transmute(handle))
 }
 #[inline]
-pub unsafe fn TdhCreatePayloadFilter<P2>(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: P2, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: *mut *mut core::ffi::c_void) -> u32
-where
-    P2: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn TdhCreatePayloadFilter(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: bool, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: *mut *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("tdh.dll" "system" fn TdhCreatePayloadFilter(providerguid : *const windows_core::GUID, eventdescriptor : *const EVENT_DESCRIPTOR, eventmatchany : super::super::super::Foundation:: BOOLEAN, payloadpredicatecount : u32, payloadpredicates : *const PAYLOAD_FILTER_PREDICATE, payloadfilter : *mut *mut core::ffi::c_void) -> u32);
-    TdhCreatePayloadFilter(core::mem::transmute(providerguid), core::mem::transmute(eventdescriptor), eventmatchany.param().abi(), payloadpredicates.len().try_into().unwrap(), core::mem::transmute(payloadpredicates.as_ptr()), core::mem::transmute(payloadfilter))
+    TdhCreatePayloadFilter(core::mem::transmute(providerguid), core::mem::transmute(eventdescriptor), eventmatchany.into(), payloadpredicates.len().try_into().unwrap(), core::mem::transmute(payloadpredicates.as_ptr()), core::mem::transmute(payloadfilter))
 }
 #[inline]
 pub unsafe fn TdhDeletePayloadFilter(payloadfilter: *mut *mut core::ffi::c_void) -> u32 {
@@ -2333,11 +2327,8 @@ impl ITraceRelogger {
     pub unsafe fn SetOutputFilename(&self, logfilename: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOutputFilename)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(logfilename)).ok()
     }
-    pub unsafe fn SetCompressionMode<P0>(&self, compressionmode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
-    {
-        (windows_core::Interface::vtable(self).SetCompressionMode)(windows_core::Interface::as_raw(self), compressionmode.param().abi()).ok()
+    pub unsafe fn SetCompressionMode(&self, compressionmode: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCompressionMode)(windows_core::Interface::as_raw(self), compressionmode.into()).ok()
     }
     pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok()
@@ -2645,9 +2636,6 @@ pub const PropertyWBEMXmlFragment: PROPERTY_FLAGS = PROPERTY_FLAGS(8i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct REGHANDLE(pub i64);
-impl windows_core::TypeKind for REGHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RELOGSTREAM_HANDLE {
@@ -2797,9 +2785,6 @@ pub const TDH_CONTEXT_WPP_TMFSEARCHPATH: TDH_CONTEXT_TYPE = TDH_CONTEXT_TYPE(1i3
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct TDH_HANDLE(pub isize);
-impl windows_core::TypeKind for TDH_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl TDH_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0

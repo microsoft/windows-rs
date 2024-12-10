@@ -947,24 +947,22 @@ where
     DsRemoveDsDomainW(core::mem::transmute(hds), domaindn.param().abi())
 }
 #[inline]
-pub unsafe fn DsRemoveDsServerA<P1, P2, P4>(hds: super::super::Foundation::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: Option<*mut super::super::Foundation::BOOL>, fcommit: P4) -> u32
+pub unsafe fn DsRemoveDsServerA<P1, P2>(hds: super::super::Foundation::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: Option<*mut super::super::Foundation::BOOL>, fcommit: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::super::Foundation:: HANDLE, serverdn : windows_core::PCSTR, domaindn : windows_core::PCSTR, flastdcindomain : *mut super::super::Foundation:: BOOL, fcommit : super::super::Foundation:: BOOL) -> u32);
-    DsRemoveDsServerA(core::mem::transmute(hds), serverdn.param().abi(), domaindn.param().abi(), core::mem::transmute(flastdcindomain.unwrap_or(core::mem::zeroed())), fcommit.param().abi())
+    DsRemoveDsServerA(core::mem::transmute(hds), serverdn.param().abi(), domaindn.param().abi(), core::mem::transmute(flastdcindomain.unwrap_or(core::mem::zeroed())), fcommit.into())
 }
 #[inline]
-pub unsafe fn DsRemoveDsServerW<P1, P2, P4>(hds: super::super::Foundation::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: Option<*mut super::super::Foundation::BOOL>, fcommit: P4) -> u32
+pub unsafe fn DsRemoveDsServerW<P1, P2>(hds: super::super::Foundation::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: Option<*mut super::super::Foundation::BOOL>, fcommit: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::super::Foundation:: HANDLE, serverdn : windows_core::PCWSTR, domaindn : windows_core::PCWSTR, flastdcindomain : *mut super::super::Foundation:: BOOL, fcommit : super::super::Foundation:: BOOL) -> u32);
-    DsRemoveDsServerW(core::mem::transmute(hds), serverdn.param().abi(), domaindn.param().abi(), core::mem::transmute(flastdcindomain.unwrap_or(core::mem::zeroed())), fcommit.param().abi())
+    DsRemoveDsServerW(core::mem::transmute(hds), serverdn.param().abi(), domaindn.param().abi(), core::mem::transmute(flastdcindomain.unwrap_or(core::mem::zeroed())), fcommit.into())
 }
 #[inline]
 pub unsafe fn DsReplicaAddA<P1, P2, P3, P4>(hds: super::super::Foundation::HANDLE, namecontext: P1, sourcedsadn: P2, transportdn: P3, sourcedsaaddress: P4, pschedule: Option<*const SCHEDULE>, options: u32) -> u32
@@ -1889,9 +1887,6 @@ impl Default for ADS_SEARCH_COLUMN {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ADS_SEARCH_HANDLE(pub isize);
-impl windows_core::TypeKind for ADS_SEARCH_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl ADS_SEARCH_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -14755,11 +14750,8 @@ impl windows_core::RuntimeName for IDsAdminCreateObj {}
 windows_core::imp::define_interface!(IDsAdminNewObj, IDsAdminNewObj_Vtbl, 0xf2573587_e6fc_11d2_82af_00c04f68928b);
 windows_core::imp::interface_hierarchy!(IDsAdminNewObj, windows_core::IUnknown);
 impl IDsAdminNewObj {
-    pub unsafe fn SetButtons<P1>(&self, ncurrindex: u32, bvalid: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetButtons)(windows_core::Interface::as_raw(self), core::mem::transmute(ncurrindex), bvalid.param().abi()).ok()
+    pub unsafe fn SetButtons(&self, ncurrindex: u32, bvalid: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetButtons)(windows_core::Interface::as_raw(self), core::mem::transmute(ncurrindex), bvalid.into()).ok()
     }
     pub unsafe fn GetPageCounts(&self, pntotal: *mut i32, pnstartindex: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPageCounts)(windows_core::Interface::as_raw(self), core::mem::transmute(pntotal), core::mem::transmute(pnstartindex)).ok()

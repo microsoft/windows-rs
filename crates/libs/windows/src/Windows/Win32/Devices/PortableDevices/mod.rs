@@ -2712,11 +2712,8 @@ impl IPortableDeviceValues {
     pub unsafe fn GetKeyValue(&self, key: *const super::super::Foundation::PROPERTYKEY, pvalue: *mut super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKeyValue)(windows_core::Interface::as_raw(self), core::mem::transmute(key), core::mem::transmute(pvalue)).ok()
     }
-    pub unsafe fn SetBoolValue<P1>(&self, key: *const super::super::Foundation::PROPERTYKEY, value: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBoolValue)(windows_core::Interface::as_raw(self), core::mem::transmute(key), value.param().abi()).ok()
+    pub unsafe fn SetBoolValue(&self, key: *const super::super::Foundation::PROPERTYKEY, value: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBoolValue)(windows_core::Interface::as_raw(self), core::mem::transmute(key), value.into()).ok()
     }
     pub unsafe fn GetBoolValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();

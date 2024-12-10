@@ -317,20 +317,14 @@ pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTE
     SetSystemTime(core::mem::transmute(lpsystemtime)).ok()
 }
 #[inline]
-pub unsafe fn SetSystemTimeAdjustment<P1>(dwtimeadjustment: u32, btimeadjustmentdisabled: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetSystemTimeAdjustment(dwtimeadjustment: u32, btimeadjustmentdisabled: bool) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetSystemTimeAdjustment(dwtimeadjustment : u32, btimeadjustmentdisabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetSystemTimeAdjustment(core::mem::transmute(dwtimeadjustment), btimeadjustmentdisabled.param().abi()).ok()
+    SetSystemTimeAdjustment(core::mem::transmute(dwtimeadjustment), btimeadjustmentdisabled.into()).ok()
 }
 #[inline]
-pub unsafe fn SetSystemTimeAdjustmentPrecise<P1>(dwtimeadjustment: u64, btimeadjustmentdisabled: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetSystemTimeAdjustmentPrecise(dwtimeadjustment: u64, btimeadjustmentdisabled: bool) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-core-sysinfo-l1-2-4.dll" "system" fn SetSystemTimeAdjustmentPrecise(dwtimeadjustment : u64, btimeadjustmentdisabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetSystemTimeAdjustmentPrecise(core::mem::transmute(dwtimeadjustment), btimeadjustmentdisabled.param().abi()).ok()
+    SetSystemTimeAdjustmentPrecise(core::mem::transmute(dwtimeadjustment), btimeadjustmentdisabled.into()).ok()
 }
 #[inline]
 pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condition: u8) -> u64 {

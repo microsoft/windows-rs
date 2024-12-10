@@ -720,9 +720,6 @@ pub const EC_QUERYWAITING: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(2u3
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCONV(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCONV {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCONV {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -745,9 +742,6 @@ impl Default for HCONV {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCONVLIST(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCONVLIST {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCONVLIST {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -771,9 +765,6 @@ pub const HDATA_APPOWNED: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDDEDATA(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDDEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDDEDATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -796,9 +787,6 @@ impl Default for HDDEDATA {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSZ(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HSZ {
-    type TypeKind = windows_core::CopyType;
-}
 impl HSZ {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

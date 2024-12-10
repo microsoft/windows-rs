@@ -1,10 +1,7 @@
 #[inline]
-pub unsafe fn CallEnclave<P2>(lproutine: isize, lpparameter: *const core::ffi::c_void, fwaitforthread: P2, lpreturnvalue: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn CallEnclave(lproutine: isize, lpparameter: *const core::ffi::c_void, fwaitforthread: bool, lpreturnvalue: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("vertdll.dll" "system" fn CallEnclave(lproutine : isize, lpparameter : *const core::ffi::c_void, fwaitforthread : super::super::Foundation:: BOOL, lpreturnvalue : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CallEnclave(core::mem::transmute(lproutine), core::mem::transmute(lpparameter), fwaitforthread.param().abi(), core::mem::transmute(lpreturnvalue)).ok()
+    CallEnclave(core::mem::transmute(lproutine), core::mem::transmute(lpparameter), fwaitforthread.into(), core::mem::transmute(lpreturnvalue)).ok()
 }
 #[inline]
 pub unsafe fn CreateEnclave(hprocess: super::super::Foundation::HANDLE, lpaddress: Option<*const core::ffi::c_void>, dwsize: usize, dwinitialcommitment: usize, flenclavetype: u32, lpenclaveinformation: *const core::ffi::c_void, dwinfolength: u32, lpenclaveerror: Option<*mut u32>) -> *mut core::ffi::c_void {
@@ -12,12 +9,9 @@ pub unsafe fn CreateEnclave(hprocess: super::super::Foundation::HANDLE, lpaddres
     CreateEnclave(core::mem::transmute(hprocess), core::mem::transmute(lpaddress.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwsize), core::mem::transmute(dwinitialcommitment), core::mem::transmute(flenclavetype), core::mem::transmute(lpenclaveinformation), core::mem::transmute(dwinfolength), core::mem::transmute(lpenclaveerror.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn CreateEnvironmentBlock<P2>(lpenvironment: *mut *mut core::ffi::c_void, htoken: Option<super::super::Foundation::HANDLE>, binherit: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn CreateEnvironmentBlock(lpenvironment: *mut *mut core::ffi::c_void, htoken: Option<super::super::Foundation::HANDLE>, binherit: bool) -> windows_core::Result<()> {
     windows_targets::link!("userenv.dll" "system" fn CreateEnvironmentBlock(lpenvironment : *mut *mut core::ffi::c_void, htoken : super::super::Foundation:: HANDLE, binherit : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    CreateEnvironmentBlock(core::mem::transmute(lpenvironment), core::mem::transmute(htoken.unwrap_or(core::mem::zeroed())), binherit.param().abi()).ok()
+    CreateEnvironmentBlock(core::mem::transmute(lpenvironment), core::mem::transmute(htoken.unwrap_or(core::mem::zeroed())), binherit.into()).ok()
 }
 #[inline]
 pub unsafe fn DeleteEnclave(lpaddress: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -238,12 +232,9 @@ where
     SetEnvironmentVariableW(lpname.param().abi(), lpvalue.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn TerminateEnclave<P1>(lpaddress: *const core::ffi::c_void, fwait: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn TerminateEnclave(lpaddress: *const core::ffi::c_void, fwait: bool) -> windows_core::Result<()> {
     windows_targets::link!("vertdll.dll" "system" fn TerminateEnclave(lpaddress : *const core::ffi::c_void, fwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    TerminateEnclave(core::mem::transmute(lpaddress), fwait.param().abi()).ok()
+    TerminateEnclave(core::mem::transmute(lpaddress), fwait.into()).ok()
 }
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;

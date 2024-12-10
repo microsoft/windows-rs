@@ -9683,11 +9683,8 @@ impl IXMLDSOControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).JavaDSOCompatible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetJavaDSOCompatible<P0>(&self, fjavadsocompatible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetJavaDSOCompatible)(windows_core::Interface::as_raw(self), fjavadsocompatible.param().abi()).ok()
+    pub unsafe fn SetJavaDSOCompatible(&self, fjavadsocompatible: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetJavaDSOCompatible)(windows_core::Interface::as_raw(self), fjavadsocompatible.into()).ok()
     }
     pub unsafe fn readyState(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();

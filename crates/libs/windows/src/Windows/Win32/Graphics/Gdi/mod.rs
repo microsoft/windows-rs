@@ -1323,20 +1323,14 @@ pub unsafe fn GetTextMetricsW(hdc: HDC, lptm: *mut TEXTMETRICW) -> super::super:
     GetTextMetricsW(core::mem::transmute(hdc), core::mem::transmute(lptm))
 }
 #[inline]
-pub unsafe fn GetUpdateRect<P2>(hwnd: super::super::Foundation::HWND, lprect: Option<*mut super::super::Foundation::RECT>, berase: P2) -> super::super::Foundation::BOOL
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetUpdateRect(hwnd: super::super::Foundation::HWND, lprect: Option<*mut super::super::Foundation::RECT>, berase: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn GetUpdateRect(hwnd : super::super::Foundation:: HWND, lprect : *mut super::super::Foundation:: RECT, berase : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetUpdateRect(core::mem::transmute(hwnd), core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())), berase.param().abi())
+    GetUpdateRect(core::mem::transmute(hwnd), core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())), berase.into())
 }
 #[inline]
-pub unsafe fn GetUpdateRgn<P2>(hwnd: super::super::Foundation::HWND, hrgn: HRGN, berase: P2) -> GDI_REGION_TYPE
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn GetUpdateRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN, berase: bool) -> GDI_REGION_TYPE {
     windows_targets::link!("user32.dll" "system" fn GetUpdateRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN, berase : super::super::Foundation:: BOOL) -> GDI_REGION_TYPE);
-    GetUpdateRgn(core::mem::transmute(hwnd), core::mem::transmute(hrgn), berase.param().abi())
+    GetUpdateRgn(core::mem::transmute(hwnd), core::mem::transmute(hrgn), berase.into())
 }
 #[inline]
 pub unsafe fn GetViewportExtEx(hdc: HDC, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -1414,20 +1408,14 @@ pub unsafe fn IntersectRect(lprcdst: *mut super::super::Foundation::RECT, lprcsr
     IntersectRect(core::mem::transmute(lprcdst), core::mem::transmute(lprcsrc1), core::mem::transmute(lprcsrc2))
 }
 #[inline]
-pub unsafe fn InvalidateRect<P2>(hwnd: Option<super::super::Foundation::HWND>, lprect: Option<*const super::super::Foundation::RECT>, berase: P2) -> super::super::Foundation::BOOL
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn InvalidateRect(hwnd: Option<super::super::Foundation::HWND>, lprect: Option<*const super::super::Foundation::RECT>, berase: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn InvalidateRect(hwnd : super::super::Foundation:: HWND, lprect : *const super::super::Foundation:: RECT, berase : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    InvalidateRect(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())), berase.param().abi())
+    InvalidateRect(core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), core::mem::transmute(lprect.unwrap_or(core::mem::zeroed())), berase.into())
 }
 #[inline]
-pub unsafe fn InvalidateRgn<P2>(hwnd: super::super::Foundation::HWND, hrgn: Option<HRGN>, berase: P2) -> super::super::Foundation::BOOL
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn InvalidateRgn(hwnd: super::super::Foundation::HWND, hrgn: Option<HRGN>, berase: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn InvalidateRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN, berase : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    InvalidateRgn(core::mem::transmute(hwnd), core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())), berase.param().abi())
+    InvalidateRgn(core::mem::transmute(hwnd), core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())), berase.into())
 }
 #[inline]
 pub unsafe fn InvertRect(hdc: HDC, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -1788,12 +1776,9 @@ pub unsafe fn SelectObject(hdc: HDC, h: HGDIOBJ) -> HGDIOBJ {
     SelectObject(core::mem::transmute(hdc), core::mem::transmute(h))
 }
 #[inline]
-pub unsafe fn SelectPalette<P2>(hdc: HDC, hpal: HPALETTE, bforcebkgd: P2) -> HPALETTE
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SelectPalette(hdc: HDC, hpal: HPALETTE, bforcebkgd: bool) -> HPALETTE {
     windows_targets::link!("gdi32.dll" "system" fn SelectPalette(hdc : HDC, hpal : HPALETTE, bforcebkgd : super::super::Foundation:: BOOL) -> HPALETTE);
-    SelectPalette(core::mem::transmute(hdc), core::mem::transmute(hpal), bforcebkgd.param().abi())
+    SelectPalette(core::mem::transmute(hdc), core::mem::transmute(hpal), bforcebkgd.into())
 }
 #[inline]
 pub unsafe fn SetArcDirection(hdc: HDC, dir: ARC_DIRECTION) -> i32 {
@@ -1996,12 +1981,9 @@ pub unsafe fn SetWindowOrgEx(hdc: HDC, x: i32, y: i32, lppt: Option<*mut super::
     SetWindowOrgEx(core::mem::transmute(hdc), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(lppt.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn SetWindowRgn<P2>(hwnd: super::super::Foundation::HWND, hrgn: Option<HRGN>, bredraw: P2) -> i32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetWindowRgn(hwnd: super::super::Foundation::HWND, hrgn: Option<HRGN>, bredraw: bool) -> i32 {
     windows_targets::link!("user32.dll" "system" fn SetWindowRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN, bredraw : super::super::Foundation:: BOOL) -> i32);
-    SetWindowRgn(core::mem::transmute(hwnd), core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())), bredraw.param().abi())
+    SetWindowRgn(core::mem::transmute(hwnd), core::mem::transmute(hrgn.unwrap_or(core::mem::zeroed())), bredraw.into())
 }
 #[inline]
 pub unsafe fn SetWorldTransform(hdc: HDC, lpxf: *const XFORM) -> super::super::Foundation::BOOL {
@@ -2076,13 +2058,12 @@ where
     )
 }
 #[inline]
-pub unsafe fn TTEnableEmbeddingForFacename<P0, P1>(lpszfacename: P0, benable: P1) -> i32
+pub unsafe fn TTEnableEmbeddingForFacename<P0>(lpszfacename: P0, benable: bool) -> i32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("t2embed.dll" "system" fn TTEnableEmbeddingForFacename(lpszfacename : windows_core::PCSTR, benable : super::super::Foundation:: BOOL) -> i32);
-    TTEnableEmbeddingForFacename(lpszfacename.param().abi(), benable.param().abi())
+    TTEnableEmbeddingForFacename(lpszfacename.param().abi(), benable.into())
 }
 #[inline]
 pub unsafe fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut u32, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut u32, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const core::ffi::c_void, pttloadinfo: Option<*const TTLOADINFO>) -> i32 {
@@ -5676,9 +5657,6 @@ pub struct HATCH_BRUSH_STYLE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HBITMAP(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HBITMAP {
-    type TypeKind = windows_core::CopyType;
-}
 impl HBITMAP {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5707,9 +5685,6 @@ impl From<HBITMAP> for HGDIOBJ {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HBRUSH(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HBRUSH {
-    type TypeKind = windows_core::CopyType;
-}
 impl HBRUSH {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5738,9 +5713,6 @@ impl From<HBRUSH> for HGDIOBJ {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDC(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDC {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5758,9 +5730,6 @@ pub const HEBREW_CHARSET: FONT_CHARSET = FONT_CHARSET(177u8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HENHMETAFILE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HENHMETAFILE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HENHMETAFILE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5783,9 +5752,6 @@ impl Default for HENHMETAFILE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HFONT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HFONT {
-    type TypeKind = windows_core::CopyType;
-}
 impl HFONT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5814,9 +5780,6 @@ impl From<HFONT> for HGDIOBJ {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGDIOBJ(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HGDIOBJ {
-    type TypeKind = windows_core::CopyType;
-}
 impl HGDIOBJ {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5839,9 +5802,6 @@ impl Default for HGDIOBJ {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMETAFILE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMETAFILE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HMETAFILE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5864,9 +5824,6 @@ impl Default for HMETAFILE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMONITOR(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMONITOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl HMONITOR {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5883,9 +5840,6 @@ pub const HORZSIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(4u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPALETTE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HPALETTE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HPALETTE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5914,9 +5868,6 @@ impl From<HPALETTE> for HGDIOBJ {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPEN(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HPEN {
-    type TypeKind = windows_core::CopyType;
-}
 impl HPEN {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5945,9 +5896,6 @@ impl From<HPEN> for HGDIOBJ {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRGN(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HRGN {
-    type TypeKind = windows_core::CopyType;
-}
 impl HRGN {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

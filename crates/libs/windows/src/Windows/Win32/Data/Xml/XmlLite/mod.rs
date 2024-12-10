@@ -9,30 +9,28 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<P0, P1, P3, P4>(pinputstream: P0, pmalloc: P1, nencodingcodepage: u32, fencodinghint: P3, pwszbaseuri: P4) -> windows_core::Result<windows_core::IUnknown>
+pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<P0, P1, P4>(pinputstream: P0, pmalloc: P1, nencodingcodepage: u32, fencodinghint: bool, pwszbaseuri: P4) -> windows_core::Result<windows_core::IUnknown>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<super::super::super::System::Com::IMalloc>,
-    P3: windows_core::Param<super::super::super::Foundation::BOOL>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingCodePage(pinputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, nencodingcodepage : u32, fencodinghint : super::super::super::Foundation:: BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    CreateXmlReaderInputWithEncodingCodePage(pinputstream.param().abi(), pmalloc.param().abi(), core::mem::transmute(nencodingcodepage), fencodinghint.param().abi(), pwszbaseuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    CreateXmlReaderInputWithEncodingCodePage(pinputstream.param().abi(), pmalloc.param().abi(), core::mem::transmute(nencodingcodepage), fencodinghint.into(), pwszbaseuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateXmlReaderInputWithEncodingName<P0, P1, P2, P3, P4>(pinputstream: P0, pmalloc: P1, pwszencodingname: P2, fencodinghint: P3, pwszbaseuri: P4) -> windows_core::Result<windows_core::IUnknown>
+pub unsafe fn CreateXmlReaderInputWithEncodingName<P0, P1, P2, P4>(pinputstream: P0, pmalloc: P1, pwszencodingname: P2, fencodinghint: bool, pwszbaseuri: P4) -> windows_core::Result<windows_core::IUnknown>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<super::super::super::System::Com::IMalloc>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::super::Foundation::BOOL>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingName(pinputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, pwszencodingname : windows_core::PCWSTR, fencodinghint : super::super::super::Foundation:: BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    CreateXmlReaderInputWithEncodingName(pinputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), fencodinghint.param().abi(), pwszbaseuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    CreateXmlReaderInputWithEncodingName(pinputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), fencodinghint.into(), pwszbaseuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -427,12 +425,11 @@ impl IXmlWriter {
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: Option<isize>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(nproperty), core::mem::transmute(pvalue.unwrap_or(core::mem::zeroed()))).ok()
     }
-    pub unsafe fn WriteAttributes<P0, P1>(&self, preader: P0, fwritedefaultattributes: P1) -> windows_core::Result<()>
+    pub unsafe fn WriteAttributes<P0>(&self, preader: P0, fwritedefaultattributes: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXmlReader>,
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).WriteAttributes)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteAttributes)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.into()).ok()
     }
     pub unsafe fn WriteAttributeString<P0, P1, P2, P3>(&self, pwszprefix: P0, pwszlocalname: P1, pwsznamespaceuri: P2, pwszvalue: P3) -> windows_core::Result<()>
     where
@@ -506,19 +503,17 @@ impl IXmlWriter {
     {
         (windows_core::Interface::vtable(self).WriteNmToken)(windows_core::Interface::as_raw(self), pwsznmtoken.param().abi()).ok()
     }
-    pub unsafe fn WriteNode<P0, P1>(&self, preader: P0, fwritedefaultattributes: P1) -> windows_core::Result<()>
+    pub unsafe fn WriteNode<P0>(&self, preader: P0, fwritedefaultattributes: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXmlReader>,
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).WriteNode)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteNode)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.into()).ok()
     }
-    pub unsafe fn WriteNodeShallow<P0, P1>(&self, preader: P0, fwritedefaultattributes: P1) -> windows_core::Result<()>
+    pub unsafe fn WriteNodeShallow<P0>(&self, preader: P0, fwritedefaultattributes: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXmlReader>,
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).WriteNodeShallow)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteNodeShallow)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.into()).ok()
     }
     pub unsafe fn WriteProcessingInstruction<P0, P1>(&self, pwszname: P0, pwsztext: P1) -> windows_core::Result<()>
     where
@@ -815,12 +810,11 @@ impl IXmlWriterLite {
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: Option<isize>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(nproperty), core::mem::transmute(pvalue.unwrap_or(core::mem::zeroed()))).ok()
     }
-    pub unsafe fn WriteAttributes<P0, P1>(&self, preader: P0, fwritedefaultattributes: P1) -> windows_core::Result<()>
+    pub unsafe fn WriteAttributes<P0>(&self, preader: P0, fwritedefaultattributes: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXmlReader>,
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).WriteAttributes)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteAttributes)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.into()).ok()
     }
     pub unsafe fn WriteAttributeString(&self, pwszqname: &[u16], pwszvalue: Option<&[u16]>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WriteAttributeString)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszqname.as_ptr()), pwszqname.len().try_into().unwrap(), core::mem::transmute(pwszvalue.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pwszvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
@@ -885,19 +879,17 @@ impl IXmlWriterLite {
     {
         (windows_core::Interface::vtable(self).WriteNmToken)(windows_core::Interface::as_raw(self), pwsznmtoken.param().abi()).ok()
     }
-    pub unsafe fn WriteNode<P0, P1>(&self, preader: P0, fwritedefaultattributes: P1) -> windows_core::Result<()>
+    pub unsafe fn WriteNode<P0>(&self, preader: P0, fwritedefaultattributes: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXmlReader>,
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).WriteNode)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteNode)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.into()).ok()
     }
-    pub unsafe fn WriteNodeShallow<P0, P1>(&self, preader: P0, fwritedefaultattributes: P1) -> windows_core::Result<()>
+    pub unsafe fn WriteNodeShallow<P0>(&self, preader: P0, fwritedefaultattributes: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXmlReader>,
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).WriteNodeShallow)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteNodeShallow)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.into()).ok()
     }
     pub unsafe fn WriteProcessingInstruction<P0, P1>(&self, pwszname: P0, pwsztext: P1) -> windows_core::Result<()>
     where

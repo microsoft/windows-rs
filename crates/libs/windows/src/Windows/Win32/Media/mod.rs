@@ -65,9 +65,6 @@ pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTASK(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HTASK {
-    type TypeKind = windows_core::CopyType;
-}
 impl HTASK {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

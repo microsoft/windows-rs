@@ -118,13 +118,12 @@ where
     WSManPluginAuthzQueryQuotaComplete(core::mem::transmute(senderdetails), core::mem::transmute(flags), core::mem::transmute(quota.unwrap_or(core::mem::zeroed())), core::mem::transmute(errorcode), extendederrorinformation.param().abi())
 }
 #[inline]
-pub unsafe fn WSManPluginAuthzUserComplete<P4, P6>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: Option<*const core::ffi::c_void>, impersonationtoken: Option<super::super::Foundation::HANDLE>, userisadministrator: P4, errorcode: u32, extendederrorinformation: P6) -> u32
+pub unsafe fn WSManPluginAuthzUserComplete<P6>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: Option<*const core::ffi::c_void>, impersonationtoken: Option<super::super::Foundation::HANDLE>, userisadministrator: bool, errorcode: u32, extendederrorinformation: P6) -> u32
 where
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginAuthzUserComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const core::ffi::c_void, impersonationtoken : super::super::Foundation:: HANDLE, userisadministrator : super::super::Foundation:: BOOL, errorcode : u32, extendederrorinformation : windows_core::PCWSTR) -> u32);
-    WSManPluginAuthzUserComplete(core::mem::transmute(senderdetails), core::mem::transmute(flags), core::mem::transmute(userauthorizationcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(impersonationtoken.unwrap_or(core::mem::zeroed())), userisadministrator.param().abi(), core::mem::transmute(errorcode), extendederrorinformation.param().abi())
+    WSManPluginAuthzUserComplete(core::mem::transmute(senderdetails), core::mem::transmute(flags), core::mem::transmute(userauthorizationcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(impersonationtoken.unwrap_or(core::mem::zeroed())), userisadministrator.into(), core::mem::transmute(errorcode), extendederrorinformation.param().abi())
 }
 #[inline]
 pub unsafe fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_REQUEST) -> u32 {
@@ -207,14 +206,13 @@ where
     result__
 }
 #[inline]
-pub unsafe fn WSManSendShellInput<P3, P5>(shell: WSMAN_SHELL_HANDLE, command: Option<WSMAN_COMMAND_HANDLE>, flags: u32, streamid: P3, streamdata: *const WSMAN_DATA, endofstream: P5, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_OPERATION_HANDLE
+pub unsafe fn WSManSendShellInput<P3>(shell: WSMAN_SHELL_HANDLE, command: Option<WSMAN_COMMAND_HANDLE>, flags: u32, streamid: P3, streamdata: *const WSMAN_DATA, endofstream: bool, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_OPERATION_HANDLE
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wsmsvc.dll" "system" fn WSManSendShellInput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, streamid : windows_core::PCWSTR, streamdata : *const WSMAN_DATA, endofstream : super::super::Foundation:: BOOL, r#async : *const WSMAN_SHELL_ASYNC, sendoperation : *mut WSMAN_OPERATION_HANDLE));
     let mut result__ = core::mem::zeroed();
-    WSManSendShellInput(core::mem::transmute(shell), core::mem::transmute(command.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags), streamid.param().abi(), core::mem::transmute(streamdata), endofstream.param().abi(), core::mem::transmute(r#async), &mut result__);
+    WSManSendShellInput(core::mem::transmute(shell), core::mem::transmute(command.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags), streamid.param().abi(), core::mem::transmute(streamdata), endofstream.into(), core::mem::transmute(r#async), &mut result__);
     result__
 }
 #[inline]
@@ -1910,17 +1908,11 @@ impl IWSManResourceLocator {
         (windows_core::Interface::vtable(self).SetFragmentDialect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddOption<P2>(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT, mustcomply: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).AddOption)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(optionname), core::mem::transmute_copy(optionvalue), mustcomply.param().abi()).ok()
+    pub unsafe fn AddOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT, mustcomply: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).AddOption)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(optionname), core::mem::transmute_copy(optionvalue), mustcomply.into()).ok()
     }
-    pub unsafe fn SetMustUnderstandOptions<P0>(&self, mustunderstand: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMustUnderstandOptions)(windows_core::Interface::as_raw(self), mustunderstand.param().abi()).ok()
+    pub unsafe fn SetMustUnderstandOptions(&self, mustunderstand: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMustUnderstandOptions)(windows_core::Interface::as_raw(self), mustunderstand.into()).ok()
     }
     pub unsafe fn MustUnderstandOptions(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -2343,9 +2335,6 @@ impl windows_core::RuntimeName for IWSManSession {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WSMAN_API_HANDLE(pub isize);
-impl windows_core::TypeKind for WSMAN_API_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_AUTHENTICATION_CREDENTIALS {
@@ -2411,9 +2400,6 @@ impl Default for WSMAN_COMMAND_ARG_SET {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WSMAN_COMMAND_HANDLE(pub isize);
-impl windows_core::TypeKind for WSMAN_COMMAND_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_CONNECT_DATA {
@@ -2585,9 +2571,6 @@ impl Default for WSMAN_KEY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WSMAN_OPERATION_HANDLE(pub isize);
-impl windows_core::TypeKind for WSMAN_OPERATION_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_OPERATION_INFO {
@@ -2797,9 +2780,6 @@ impl Default for WSMAN_SENDER_DETAILS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WSMAN_SESSION_HANDLE(pub isize);
-impl windows_core::TypeKind for WSMAN_SESSION_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_SHELL_ASYNC {
@@ -2825,9 +2805,6 @@ impl Default for WSMAN_SHELL_DISCONNECT_INFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WSMAN_SHELL_HANDLE(pub isize);
-impl windows_core::TypeKind for WSMAN_SHELL_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WSMAN_SHELL_NS: windows_core::PCWSTR = windows_core::w!("http://schemas.microsoft.com/wbem/wsman/1/windows/shell");
 pub const WSMAN_SHELL_OPTION_NOPROFILE: windows_core::PCWSTR = windows_core::w!("WINRS_NOPROFILE");
 #[repr(C)]

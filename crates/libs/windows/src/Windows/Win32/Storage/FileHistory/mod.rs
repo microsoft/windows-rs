@@ -9,13 +9,10 @@ pub unsafe fn FhServiceClosePipe(pipe: FH_SERVICE_PIPE_HANDLE) -> windows_core::
     FhServiceClosePipe(core::mem::transmute(pipe)).ok()
 }
 #[inline]
-pub unsafe fn FhServiceOpenPipe<P0>(startserviceifstopped: P0) -> windows_core::Result<FH_SERVICE_PIPE_HANDLE>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn FhServiceOpenPipe(startserviceifstopped: bool) -> windows_core::Result<FH_SERVICE_PIPE_HANDLE> {
     windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceOpenPipe(startserviceifstopped : super::super::Foundation:: BOOL, pipe : *mut FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    FhServiceOpenPipe(startserviceifstopped.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    FhServiceOpenPipe(startserviceifstopped.into(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn FhServiceReloadConfiguration(pipe: FH_SERVICE_PIPE_HANDLE) -> windows_core::Result<()> {
@@ -23,20 +20,14 @@ pub unsafe fn FhServiceReloadConfiguration(pipe: FH_SERVICE_PIPE_HANDLE) -> wind
     FhServiceReloadConfiguration(core::mem::transmute(pipe)).ok()
 }
 #[inline]
-pub unsafe fn FhServiceStartBackup<P1>(pipe: FH_SERVICE_PIPE_HANDLE, lowpriorityio: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn FhServiceStartBackup(pipe: FH_SERVICE_PIPE_HANDLE, lowpriorityio: bool) -> windows_core::Result<()> {
     windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : FH_SERVICE_PIPE_HANDLE, lowpriorityio : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    FhServiceStartBackup(core::mem::transmute(pipe), lowpriorityio.param().abi()).ok()
+    FhServiceStartBackup(core::mem::transmute(pipe), lowpriorityio.into()).ok()
 }
 #[inline]
-pub unsafe fn FhServiceStopBackup<P1>(pipe: FH_SERVICE_PIPE_HANDLE, stoptracking: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn FhServiceStopBackup(pipe: FH_SERVICE_PIPE_HANDLE, stoptracking: bool) -> windows_core::Result<()> {
     windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : FH_SERVICE_PIPE_HANDLE, stoptracking : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    FhServiceStopBackup(core::mem::transmute(pipe), stoptracking.param().abi()).ok()
+    FhServiceStopBackup(core::mem::transmute(pipe), stoptracking.into()).ok()
 }
 #[inline]
 pub unsafe fn FhServiceUnblockBackup(pipe: FH_SERVICE_PIPE_HANDLE) -> windows_core::Result<()> {
@@ -106,9 +97,6 @@ pub const FH_RETENTION_UNLIMITED: FH_RETENTION_TYPES = FH_RETENTION_TYPES(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct FH_SERVICE_PIPE_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for FH_SERVICE_PIPE_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl FH_SERVICE_PIPE_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -173,27 +161,18 @@ impl IFhConfigMgr {
     pub unsafe fn LoadConfiguration(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).LoadConfiguration)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn CreateDefaultConfiguration<P0>(&self, overwriteifexists: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).CreateDefaultConfiguration)(windows_core::Interface::as_raw(self), overwriteifexists.param().abi()).ok()
+    pub unsafe fn CreateDefaultConfiguration(&self, overwriteifexists: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CreateDefaultConfiguration)(windows_core::Interface::as_raw(self), overwriteifexists.into()).ok()
     }
     pub unsafe fn SaveConfiguration(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SaveConfiguration)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn AddRemoveExcludeRule<P0>(&self, add: P0, category: FH_PROTECTED_ITEM_CATEGORY, item: &windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).AddRemoveExcludeRule)(windows_core::Interface::as_raw(self), add.param().abi(), core::mem::transmute(category), core::mem::transmute_copy(item)).ok()
+    pub unsafe fn AddRemoveExcludeRule(&self, add: bool, category: FH_PROTECTED_ITEM_CATEGORY, item: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).AddRemoveExcludeRule)(windows_core::Interface::as_raw(self), add.into(), core::mem::transmute(category), core::mem::transmute_copy(item)).ok()
     }
-    pub unsafe fn GetIncludeExcludeRules<P0>(&self, include: P0, category: FH_PROTECTED_ITEM_CATEGORY) -> windows_core::Result<IFhScopeIterator>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn GetIncludeExcludeRules(&self, include: bool, category: FH_PROTECTED_ITEM_CATEGORY) -> windows_core::Result<IFhScopeIterator> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIncludeExcludeRules)(windows_core::Interface::as_raw(self), include.param().abi(), core::mem::transmute(category), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetIncludeExcludeRules)(windows_core::Interface::as_raw(self), include.into(), core::mem::transmute(category), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE) -> windows_core::Result<u64> {
         let mut result__ = core::mem::zeroed();
@@ -220,11 +199,8 @@ impl IFhConfigMgr {
     pub unsafe fn ProvisionAndSetNewTarget(&self, targeturl: &windows_core::BSTR, targetname: &windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ProvisionAndSetNewTarget)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(targeturl), core::mem::transmute_copy(targetname)).ok()
     }
-    pub unsafe fn ChangeDefaultTargetRecommendation<P0>(&self, recommend: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ChangeDefaultTargetRecommendation)(windows_core::Interface::as_raw(self), recommend.param().abi()).ok()
+    pub unsafe fn ChangeDefaultTargetRecommendation(&self, recommend: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ChangeDefaultTargetRecommendation)(windows_core::Interface::as_raw(self), recommend.into()).ok()
     }
     pub unsafe fn QueryProtectionStatus(&self, protectionstate: *mut u32, protecteduntiltime: *mut windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).QueryProtectionStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(protectionstate), core::mem::transmute(protecteduntiltime)).ok()
@@ -391,11 +367,8 @@ impl IFhReassociation {
     pub unsafe fn SelectConfiguration(&self, index: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SelectConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
-    pub unsafe fn PerformReassociation<P0>(&self, overwriteifexists: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).PerformReassociation)(windows_core::Interface::as_raw(self), overwriteifexists.param().abi()).ok()
+    pub unsafe fn PerformReassociation(&self, overwriteifexists: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).PerformReassociation)(windows_core::Interface::as_raw(self), overwriteifexists.into()).ok()
     }
 }
 #[repr(C)]

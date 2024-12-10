@@ -14614,12 +14614,11 @@ impl IDebugControl {
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(core::mem::zeroed())), core::mem::transmute(append)).ok()
     }
-    pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
+    pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -15860,12 +15859,11 @@ impl IDebugControl2 {
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(core::mem::zeroed())), core::mem::transmute(append)).ok()
     }
-    pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
+    pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -17232,12 +17230,11 @@ impl IDebugControl3 {
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(core::mem::zeroed())), core::mem::transmute(append)).ok()
     }
-    pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
+    pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -18792,12 +18789,11 @@ impl IDebugControl4 {
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(core::mem::zeroed())), core::mem::transmute(append)).ok()
     }
-    pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
+    pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -19302,12 +19298,11 @@ impl IDebugControl4 {
     pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(core::mem::zeroed())), core::mem::transmute(append)).ok()
     }
-    pub unsafe fn OpenLogFileWide<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
+    pub unsafe fn OpenLogFileWide<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()).ok()
     }
     pub unsafe fn InputWide(&self, buffer: &mut [u16], inputsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(inputsize.unwrap_or(core::mem::zeroed()))).ok()
@@ -21081,12 +21076,11 @@ impl IDebugControl5 {
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(core::mem::zeroed())), core::mem::transmute(append)).ok()
     }
-    pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
+    pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -21591,12 +21585,11 @@ impl IDebugControl5 {
     pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(core::mem::zeroed())), core::mem::transmute(append)).ok()
     }
-    pub unsafe fn OpenLogFileWide<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
+    pub unsafe fn OpenLogFileWide<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()).ok()
     }
     pub unsafe fn InputWide(&self, buffer: &mut [u16], inputsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(inputsize.unwrap_or(core::mem::zeroed()))).ok()
@@ -23438,12 +23431,11 @@ impl IDebugControl6 {
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(core::mem::zeroed())), core::mem::transmute(append)).ok()
     }
-    pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
+    pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -23948,12 +23940,11 @@ impl IDebugControl6 {
     pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(core::mem::zeroed())), core::mem::transmute(append)).ok()
     }
-    pub unsafe fn OpenLogFileWide<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
+    pub unsafe fn OpenLogFileWide<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()).ok()
     }
     pub unsafe fn InputWide(&self, buffer: &mut [u16], inputsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(inputsize.unwrap_or(core::mem::zeroed()))).ok()
@@ -25822,12 +25813,11 @@ impl IDebugControl7 {
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(core::mem::zeroed())), core::mem::transmute(append)).ok()
     }
-    pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
+    pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -26332,12 +26322,11 @@ impl IDebugControl7 {
     pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(core::mem::zeroed())), core::mem::transmute(append)).ok()
     }
-    pub unsafe fn OpenLogFileWide<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
+    pub unsafe fn OpenLogFileWide<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()).ok()
     }
     pub unsafe fn InputWide(&self, buffer: &mut [u16], inputsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(inputsize.unwrap_or(core::mem::zeroed()))).ok()
@@ -34132,11 +34121,8 @@ impl IDebugSymbolGroup {
     pub unsafe fn GetSymbolParameters(&self, start: u32, params: &mut [DEBUG_SYMBOL_PARAMETERS]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolParameters)(windows_core::Interface::as_raw(self), core::mem::transmute(start), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok()
     }
-    pub unsafe fn ExpandSymbol<P1>(&self, index: u32, expand: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ExpandSymbol)(windows_core::Interface::as_raw(self), core::mem::transmute(index), expand.param().abi()).ok()
+    pub unsafe fn ExpandSymbol(&self, index: u32, expand: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ExpandSymbol)(windows_core::Interface::as_raw(self), core::mem::transmute(index), expand.into()).ok()
     }
     pub unsafe fn OutputSymbols(&self, outputcontrol: u32, flags: u32, start: u32, count: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OutputSymbols)(windows_core::Interface::as_raw(self), core::mem::transmute(outputcontrol), core::mem::transmute(flags), core::mem::transmute(start), core::mem::transmute(count)).ok()
@@ -34275,11 +34261,8 @@ impl IDebugSymbolGroup2 {
     pub unsafe fn GetSymbolParameters(&self, start: u32, params: &mut [DEBUG_SYMBOL_PARAMETERS]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolParameters)(windows_core::Interface::as_raw(self), core::mem::transmute(start), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok()
     }
-    pub unsafe fn ExpandSymbol<P1>(&self, index: u32, expand: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ExpandSymbol)(windows_core::Interface::as_raw(self), core::mem::transmute(index), expand.param().abi()).ok()
+    pub unsafe fn ExpandSymbol(&self, index: u32, expand: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ExpandSymbol)(windows_core::Interface::as_raw(self), core::mem::transmute(index), expand.into()).ok()
     }
     pub unsafe fn OutputSymbols(&self, outputcontrol: u32, flags: u32, start: u32, count: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OutputSymbols)(windows_core::Interface::as_raw(self), core::mem::transmute(outputcontrol), core::mem::transmute(flags), core::mem::transmute(start), core::mem::transmute(count)).ok()

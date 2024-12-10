@@ -104,9 +104,6 @@ impl Writer {
                 #[repr(transparent)]
                 #[derive(#derive)]
                 pub struct #name(pub #ty_name);
-                impl windows_core::TypeKind for #name { // TODO: get rid of TypeKind on Win32 types
-                    type TypeKind = windows_core::CopyType;
-                }
                 #is_invalid
                 #free
                 #default

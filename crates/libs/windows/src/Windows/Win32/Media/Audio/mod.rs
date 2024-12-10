@@ -1947,9 +1947,6 @@ pub const Full: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACMDRIVER(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HACMDRIVER {
-    type TypeKind = windows_core::CopyType;
-}
 impl HACMDRIVER {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1972,9 +1969,6 @@ impl Default for HACMDRIVER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACMDRIVERID(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HACMDRIVERID {
-    type TypeKind = windows_core::CopyType;
-}
 impl HACMDRIVERID {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1988,9 +1982,6 @@ impl Default for HACMDRIVERID {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACMOBJ(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HACMOBJ {
-    type TypeKind = windows_core::CopyType;
-}
 impl HACMOBJ {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2004,9 +1995,6 @@ impl Default for HACMOBJ {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACMSTREAM(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HACMSTREAM {
-    type TypeKind = windows_core::CopyType;
-}
 impl HACMSTREAM {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2029,9 +2017,6 @@ impl Default for HACMSTREAM {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIDI(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMIDI {
-    type TypeKind = windows_core::CopyType;
-}
 impl HMIDI {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2045,9 +2030,6 @@ impl Default for HMIDI {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIDIIN(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMIDIIN {
-    type TypeKind = windows_core::CopyType;
-}
 impl HMIDIIN {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2070,9 +2052,6 @@ impl Default for HMIDIIN {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIDIOUT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMIDIOUT {
-    type TypeKind = windows_core::CopyType;
-}
 impl HMIDIOUT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2095,9 +2074,6 @@ impl Default for HMIDIOUT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIDISTRM(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMIDISTRM {
-    type TypeKind = windows_core::CopyType;
-}
 impl HMIDISTRM {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2120,9 +2096,6 @@ impl Default for HMIDISTRM {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIXER(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMIXER {
-    type TypeKind = windows_core::CopyType;
-}
 impl HMIXER {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2145,9 +2118,6 @@ impl Default for HMIXER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIXEROBJ(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMIXEROBJ {
-    type TypeKind = windows_core::CopyType;
-}
 impl HMIXEROBJ {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2161,9 +2131,6 @@ impl Default for HMIXEROBJ {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWAVE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HWAVE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HWAVE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2177,9 +2144,6 @@ impl Default for HWAVE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWAVEIN(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HWAVEIN {
-    type TypeKind = windows_core::CopyType;
-}
 impl HWAVEIN {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2202,9 +2166,6 @@ impl Default for HWAVEIN {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWAVEOUT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HWAVEOUT {
-    type TypeKind = windows_core::CopyType;
-}
 impl HWAVEOUT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2326,11 +2287,8 @@ impl IAudioAmbisonicsControl {
     pub unsafe fn SetData(&self, pambisonicsparams: &[AMBISONICS_PARAMS]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute(pambisonicsparams.as_ptr()), pambisonicsparams.len().try_into().unwrap()).ok()
     }
-    pub unsafe fn SetHeadTracking<P0>(&self, benableheadtracking: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetHeadTracking)(windows_core::Interface::as_raw(self), benableheadtracking.param().abi()).ok()
+    pub unsafe fn SetHeadTracking(&self, benableheadtracking: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetHeadTracking)(windows_core::Interface::as_raw(self), benableheadtracking.into()).ok()
     }
     pub unsafe fn GetHeadTracking(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -2398,11 +2356,8 @@ impl IAudioAutoGainControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, benable: P0, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.param().abi(), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
+    pub unsafe fn SetEnabled(&self, benable: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.into(), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -2759,11 +2714,8 @@ impl IAudioClient2 {
     pub unsafe fn SetClientProperties(&self, pproperties: *const AudioClientProperties) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetClientProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(pproperties)).ok()
     }
-    pub unsafe fn GetBufferSizeLimits<P1>(&self, pformat: *const WAVEFORMATEX, beventdriven: P1, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).GetBufferSizeLimits)(windows_core::Interface::as_raw(self), core::mem::transmute(pformat), beventdriven.param().abi(), core::mem::transmute(phnsminbufferduration), core::mem::transmute(phnsmaxbufferduration)).ok()
+    pub unsafe fn GetBufferSizeLimits(&self, pformat: *const WAVEFORMATEX, beventdriven: bool, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetBufferSizeLimits)(windows_core::Interface::as_raw(self), core::mem::transmute(pformat), beventdriven.into(), core::mem::transmute(phnsminbufferduration), core::mem::transmute(phnsmaxbufferduration)).ok()
     }
 }
 #[repr(C)]
@@ -3220,11 +3172,8 @@ impl IAudioLoudness {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEnabled<P0>(&self, benable: P0, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.param().abi(), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
+    pub unsafe fn SetEnabled(&self, benable: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.into(), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
 }
 #[repr(C)]
@@ -3289,11 +3238,8 @@ impl windows_core::RuntimeName for IAudioMidrange {}
 windows_core::imp::define_interface!(IAudioMute, IAudioMute_Vtbl, 0xdf45aeea_b74a_4b6b_afad_2366b6aa012e);
 windows_core::imp::interface_hierarchy!(IAudioMute, windows_core::IUnknown);
 impl IAudioMute {
-    pub unsafe fn SetMute<P0>(&self, bmuted: P0, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmuted.param().abi(), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
+    pub unsafe fn SetMute(&self, bmuted: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmuted.into(), core::mem::transmute(pguideventcontext.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetMute(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -3659,11 +3605,8 @@ impl IAudioSessionControl2 {
     pub unsafe fn IsSystemSoundsSession(&self) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).IsSystemSoundsSession)(windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn SetDuckingPreference<P0>(&self, optout: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetDuckingPreference)(windows_core::Interface::as_raw(self), optout.param().abi()).ok()
+    pub unsafe fn SetDuckingPreference(&self, optout: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDuckingPreference)(windows_core::Interface::as_raw(self), optout.into()).ok()
     }
 }
 #[repr(C)]
@@ -3806,11 +3749,8 @@ impl IAudioSessionEvents {
     {
         (windows_core::Interface::vtable(self).OnIconPathChanged)(windows_core::Interface::as_raw(self), newiconpath.param().abi(), core::mem::transmute(eventcontext)).ok()
     }
-    pub unsafe fn OnSimpleVolumeChanged<P1>(&self, newvolume: f32, newmute: P1, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).OnSimpleVolumeChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(newvolume), newmute.param().abi(), core::mem::transmute(eventcontext)).ok()
+    pub unsafe fn OnSimpleVolumeChanged(&self, newvolume: f32, newmute: bool, eventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).OnSimpleVolumeChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(newvolume), newmute.into(), core::mem::transmute(eventcontext)).ok()
     }
     pub unsafe fn OnChannelVolumeChanged(&self, newchannelvolumearray: &[f32], changedchannel: u32, eventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnChannelVolumeChanged)(windows_core::Interface::as_raw(self), newchannelvolumearray.len().try_into().unwrap(), core::mem::transmute(newchannelvolumearray.as_ptr()), core::mem::transmute(changedchannel), core::mem::transmute(eventcontext)).ok()
@@ -4902,14 +4842,13 @@ impl IDeviceTopology {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDeviceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetSignalPath<P0, P1, P2>(&self, pipartfrom: P0, pipartto: P1, brejectmixedpaths: P2) -> windows_core::Result<IPartsList>
+    pub unsafe fn GetSignalPath<P0, P1>(&self, pipartfrom: P0, pipartto: P1, brejectmixedpaths: bool) -> windows_core::Result<IPartsList>
     where
         P0: windows_core::Param<IPart>,
         P1: windows_core::Param<IPart>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSignalPath)(windows_core::Interface::as_raw(self), pipartfrom.param().abi(), pipartto.param().abi(), brejectmixedpaths.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSignalPath)(windows_core::Interface::as_raw(self), pipartfrom.param().abi(), pipartto.param().abi(), brejectmixedpaths.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -5869,11 +5808,8 @@ impl ISimpleAudioVolume {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMasterVolume)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetMute<P0>(&self, bmute: P0, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.param().abi(), core::mem::transmute(eventcontext)).ok()
+    pub unsafe fn SetMute(&self, bmute: bool, eventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.into(), core::mem::transmute(eventcontext)).ok()
     }
     pub unsafe fn GetMute(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -6094,12 +6030,9 @@ impl ISpatialAudioClient2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsOffloadCapable)(windows_core::Interface::as_raw(self), core::mem::transmute(category), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetMaxFrameCountForCategory<P1>(&self, category: AUDIO_STREAM_CATEGORY, offloadenabled: P1, objectformat: *const WAVEFORMATEX) -> windows_core::Result<u32>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn GetMaxFrameCountForCategory(&self, category: AUDIO_STREAM_CATEGORY, offloadenabled: bool, objectformat: *const WAVEFORMATEX) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMaxFrameCountForCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(category), offloadenabled.param().abi(), core::mem::transmute(objectformat), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetMaxFrameCountForCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(category), offloadenabled.into(), core::mem::transmute(objectformat), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

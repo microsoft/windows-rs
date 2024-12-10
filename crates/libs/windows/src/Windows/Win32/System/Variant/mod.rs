@@ -311,12 +311,9 @@ pub unsafe fn VariantToBooleanArrayAlloc(var: *const VARIANT, pprgf: *mut *mut s
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToBooleanWithDefault<P1>(varin: *const VARIANT, fdefault: P1) -> super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn VariantToBooleanWithDefault(varin: *const VARIANT, fdefault: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("propsys.dll" "system" fn VariantToBooleanWithDefault(varin : *const VARIANT, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    VariantToBooleanWithDefault(core::mem::transmute(varin), fdefault.param().abi())
+    VariantToBooleanWithDefault(core::mem::transmute(varin), fdefault.into())
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]

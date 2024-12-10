@@ -721,14 +721,18 @@ impl Type {
     }
 
     pub fn is_convertible(&self) -> bool {
-        match self {
-            Self::CppStruct(ty) => ty.is_convertible(),
-            Self::Delegate(..) | Self::Interface(..) | Self::Class(..) | Self::CppInterface(..) => {
-                true
-            }
-            Self::PCSTR | Self::PCWSTR | Self::Object | Self::IUnknown | Self::Param(_) => true,
-            _ => false,
-        }
+        matches!(
+            self,
+            Self::Delegate(..)
+                | Self::Interface(..)
+                | Self::Class(..)
+                | Self::CppInterface(..)
+                | Self::PCSTR
+                | Self::PCWSTR
+                | Self::Object
+                | Self::IUnknown
+                | Self::Param(_)
+        )
     }
 
     pub fn is_const_ref(&self) -> bool {
@@ -950,7 +954,7 @@ impl Type {
             Self::String => TypeName("", "String"),
             Self::Object => TypeName("", "Object"),
 
-            rest => panic!("{rest:?}"),
+            _ => TypeName("", ""),
         }
     }
 

@@ -1776,11 +1776,8 @@ impl ILocation {
     pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const windows_core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), core::mem::transmute(reporttype), core::mem::transmute(desiredaccuracy)).ok()
     }
-    pub unsafe fn RequestPermissions<P3>(&self, hparent: Option<super::super::Foundation::HWND>, preporttypes: &[windows_core::GUID], fmodal: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), core::mem::transmute(hparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(preporttypes.as_ptr()), preporttypes.len().try_into().unwrap(), fmodal.param().abi()).ok()
+    pub unsafe fn RequestPermissions(&self, hparent: Option<super::super::Foundation::HWND>, preporttypes: &[windows_core::GUID], fmodal: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), core::mem::transmute(hparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(preporttypes.as_ptr()), preporttypes.len().try_into().unwrap(), fmodal.into()).ok()
     }
 }
 #[repr(C)]

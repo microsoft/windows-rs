@@ -2281,9 +2281,6 @@ impl Default for JET_INDEX_RANGE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct JET_INSTANCE(pub usize);
-impl windows_core::TypeKind for JET_INSTANCE {
-    type TypeKind = windows_core::CopyType;
-}
 impl JET_INSTANCE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
@@ -2438,9 +2435,6 @@ impl Default for JET_LOGTIME_1_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct JET_LS(pub usize);
-impl windows_core::TypeKind for JET_LS {
-    type TypeKind = windows_core::CopyType;
-}
 impl JET_LS {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
@@ -2568,9 +2562,6 @@ impl Default for JET_OPERATIONCONTEXT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct JET_OSSNAPID(pub usize);
-impl windows_core::TypeKind for JET_OSSNAPID {
-    type TypeKind = windows_core::CopyType;
-}
 impl JET_OSSNAPID {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
@@ -2817,9 +2808,6 @@ impl Default for JET_RSTMAP_W {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct JET_SESID(pub usize);
-impl windows_core::TypeKind for JET_SESID {
-    type TypeKind = windows_core::CopyType;
-}
 impl JET_SESID {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0

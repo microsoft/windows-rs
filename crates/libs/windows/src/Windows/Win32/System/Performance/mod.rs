@@ -28,22 +28,20 @@ where
     InstallPerfDllW(szcomputername.param().abi(), lpinifile.param().abi(), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn LoadPerfCounterTextStringsA<P0, P1>(lpcommandline: P0, bquietmodearg: P1) -> u32
+pub unsafe fn LoadPerfCounterTextStringsA<P0>(lpcommandline: P0, bquietmodearg: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("loadperf.dll" "system" fn LoadPerfCounterTextStringsA(lpcommandline : windows_core::PCSTR, bquietmodearg : super::super::Foundation:: BOOL) -> u32);
-    LoadPerfCounterTextStringsA(lpcommandline.param().abi(), bquietmodearg.param().abi())
+    LoadPerfCounterTextStringsA(lpcommandline.param().abi(), bquietmodearg.into())
 }
 #[inline]
-pub unsafe fn LoadPerfCounterTextStringsW<P0, P1>(lpcommandline: P0, bquietmodearg: P1) -> u32
+pub unsafe fn LoadPerfCounterTextStringsW<P0>(lpcommandline: P0, bquietmodearg: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("loadperf.dll" "system" fn LoadPerfCounterTextStringsW(lpcommandline : windows_core::PCWSTR, bquietmodearg : super::super::Foundation:: BOOL) -> u32);
-    LoadPerfCounterTextStringsW(lpcommandline.param().abi(), bquietmodearg.param().abi())
+    LoadPerfCounterTextStringsW(lpcommandline.param().abi(), bquietmodearg.into())
 }
 #[inline]
 pub unsafe fn PdhAddCounterA<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
@@ -261,42 +259,38 @@ where
     PdhEnumObjectItemsW(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), core::mem::transmute(mszcounterlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchcounterlistlength), core::mem::transmute(mszinstancelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchinstancelistlength), core::mem::transmute(dwdetaillevel), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn PdhEnumObjectsA<P0, P1, P5>(szdatasource: P0, szmachinename: P1, mszobjectlist: Option<windows_core::PSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P5) -> u32
+pub unsafe fn PdhEnumObjectsA<P0, P1>(szdatasource: P0, szmachinename: P1, mszobjectlist: Option<windows_core::PSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectsA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, mszobjectlist : windows_core::PSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : super::super::Foundation:: BOOL) -> u32);
-    PdhEnumObjectsA(szdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(mszobjectlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.param().abi())
+    PdhEnumObjectsA(szdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(mszobjectlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.into())
 }
 #[inline]
-pub unsafe fn PdhEnumObjectsHA<P1, P5>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, mszobjectlist: Option<windows_core::PSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P5) -> u32
+pub unsafe fn PdhEnumObjectsHA<P1>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, mszobjectlist: Option<windows_core::PSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectsHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, mszobjectlist : windows_core::PSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : super::super::Foundation:: BOOL) -> u32);
-    PdhEnumObjectsHA(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szmachinename.param().abi(), core::mem::transmute(mszobjectlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.param().abi())
+    PdhEnumObjectsHA(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szmachinename.param().abi(), core::mem::transmute(mszobjectlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.into())
 }
 #[inline]
-pub unsafe fn PdhEnumObjectsHW<P1, P5>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, mszobjectlist: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P5) -> u32
+pub unsafe fn PdhEnumObjectsHW<P1>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, mszobjectlist: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectsHW(hdatasource : PDH_HLOG, szmachinename : windows_core::PCWSTR, mszobjectlist : windows_core::PWSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : super::super::Foundation:: BOOL) -> u32);
-    PdhEnumObjectsHW(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szmachinename.param().abi(), core::mem::transmute(mszobjectlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.param().abi())
+    PdhEnumObjectsHW(core::mem::transmute(hdatasource.unwrap_or(core::mem::zeroed())), szmachinename.param().abi(), core::mem::transmute(mszobjectlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.into())
 }
 #[inline]
-pub unsafe fn PdhEnumObjectsW<P0, P1, P5>(szdatasource: P0, szmachinename: P1, mszobjectlist: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P5) -> u32
+pub unsafe fn PdhEnumObjectsW<P0, P1>(szdatasource: P0, szmachinename: P1, mszobjectlist: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("pdh.dll" "system" fn PdhEnumObjectsW(szdatasource : windows_core::PCWSTR, szmachinename : windows_core::PCWSTR, mszobjectlist : windows_core::PWSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : super::super::Foundation:: BOOL) -> u32);
-    PdhEnumObjectsW(szdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(mszobjectlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.param().abi())
+    PdhEnumObjectsW(szdatasource.param().abi(), szmachinename.param().abi(), core::mem::transmute(mszobjectlist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuffersize), core::mem::transmute(dwdetaillevel), brefresh.into())
 }
 #[inline]
 pub unsafe fn PdhExpandCounterPathA<P0>(szwildcardpath: P0, mszexpandedpathlist: Option<windows_core::PSTR>, pcchpathlistlength: *mut u32) -> u32
@@ -354,20 +348,14 @@ pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptime
     PdhFormatFromRawValue(core::mem::transmute(dwcountertype), core::mem::transmute(dwformat), core::mem::transmute(ptimebase.unwrap_or(core::mem::zeroed())), core::mem::transmute(prawvalue1), core::mem::transmute(prawvalue2), core::mem::transmute(pfmtvalue))
 }
 #[inline]
-pub unsafe fn PdhGetCounterInfoA<P1>(hcounter: PDH_HCOUNTER, bretrieveexplaintext: P1, pdwbuffersize: *mut u32, lpbuffer: Option<*mut PDH_COUNTER_INFO_A>) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn PdhGetCounterInfoA(hcounter: PDH_HCOUNTER, bretrieveexplaintext: bool, pdwbuffersize: *mut u32, lpbuffer: Option<*mut PDH_COUNTER_INFO_A>) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetCounterInfoA(hcounter : PDH_HCOUNTER, bretrieveexplaintext : super::super::Foundation:: BOOLEAN, pdwbuffersize : *mut u32, lpbuffer : *mut PDH_COUNTER_INFO_A) -> u32);
-    PdhGetCounterInfoA(core::mem::transmute(hcounter), bretrieveexplaintext.param().abi(), core::mem::transmute(pdwbuffersize), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())))
+    PdhGetCounterInfoA(core::mem::transmute(hcounter), bretrieveexplaintext.into(), core::mem::transmute(pdwbuffersize), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn PdhGetCounterInfoW<P1>(hcounter: PDH_HCOUNTER, bretrieveexplaintext: P1, pdwbuffersize: *mut u32, lpbuffer: Option<*mut PDH_COUNTER_INFO_W>) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
-{
+pub unsafe fn PdhGetCounterInfoW(hcounter: PDH_HCOUNTER, bretrieveexplaintext: bool, pdwbuffersize: *mut u32, lpbuffer: Option<*mut PDH_COUNTER_INFO_W>) -> u32 {
     windows_targets::link!("pdh.dll" "system" fn PdhGetCounterInfoW(hcounter : PDH_HCOUNTER, bretrieveexplaintext : super::super::Foundation:: BOOLEAN, pdwbuffersize : *mut u32, lpbuffer : *mut PDH_COUNTER_INFO_W) -> u32);
-    PdhGetCounterInfoW(core::mem::transmute(hcounter), bretrieveexplaintext.param().abi(), core::mem::transmute(pdwbuffersize), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())))
+    PdhGetCounterInfoW(core::mem::transmute(hcounter), bretrieveexplaintext.into(), core::mem::transmute(pdwbuffersize), core::mem::transmute(lpbuffer.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn PdhGetCounterTimeBase(hcounter: PDH_HCOUNTER, ptimebase: *mut i64) -> u32 {
@@ -912,22 +900,20 @@ where
     SetServiceAsTrustedW(szreserved.param().abi(), szservicename.param().abi())
 }
 #[inline]
-pub unsafe fn UnloadPerfCounterTextStringsA<P0, P1>(lpcommandline: P0, bquietmodearg: P1) -> u32
+pub unsafe fn UnloadPerfCounterTextStringsA<P0>(lpcommandline: P0, bquietmodearg: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("loadperf.dll" "system" fn UnloadPerfCounterTextStringsA(lpcommandline : windows_core::PCSTR, bquietmodearg : super::super::Foundation:: BOOL) -> u32);
-    UnloadPerfCounterTextStringsA(lpcommandline.param().abi(), bquietmodearg.param().abi())
+    UnloadPerfCounterTextStringsA(lpcommandline.param().abi(), bquietmodearg.into())
 }
 #[inline]
-pub unsafe fn UnloadPerfCounterTextStringsW<P0, P1>(lpcommandline: P0, bquietmodearg: P1) -> u32
+pub unsafe fn UnloadPerfCounterTextStringsW<P0>(lpcommandline: P0, bquietmodearg: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("loadperf.dll" "system" fn UnloadPerfCounterTextStringsW(lpcommandline : windows_core::PCWSTR, bquietmodearg : super::super::Foundation:: BOOL) -> u32);
-    UnloadPerfCounterTextStringsW(lpcommandline.param().abi(), bquietmodearg.param().abi())
+    UnloadPerfCounterTextStringsW(lpcommandline.param().abi(), bquietmodearg.into())
 }
 #[inline]
 pub unsafe fn UpdatePerfNameFilesA<P0, P1, P2>(sznewctrfilepath: P0, sznewhlpfilepath: P1, szlanguageid: P2, dwflags: usize) -> u32
@@ -8520,9 +8506,6 @@ pub const PDH_FUNCTION_NOT_FOUND: u32 = 3221228478u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDH_HCOUNTER(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for PDH_HCOUNTER {
-    type TypeKind = windows_core::CopyType;
-}
 impl PDH_HCOUNTER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -8536,9 +8519,6 @@ impl Default for PDH_HCOUNTER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDH_HLOG(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for PDH_HLOG {
-    type TypeKind = windows_core::CopyType;
-}
 impl PDH_HLOG {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -8561,9 +8541,6 @@ impl Default for PDH_HLOG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDH_HQUERY(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for PDH_HQUERY {
-    type TypeKind = windows_core::CopyType;
-}
 impl PDH_HQUERY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()

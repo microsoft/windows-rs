@@ -65,9 +65,6 @@ pub unsafe fn RegisterRawInputDevices(prawinputdevices: &[RAWINPUTDEVICE], cbsiz
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRAWINPUT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HRAWINPUT {
-    type TypeKind = windows_core::CopyType;
-}
 impl HRAWINPUT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

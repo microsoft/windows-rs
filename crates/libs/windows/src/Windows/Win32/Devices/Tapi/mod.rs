@@ -1977,9 +1977,6 @@ pub const GETTNEFSTREAMCODEPAGE: windows_core::PCSTR = windows_core::s!("GetTnef
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVCALL(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVCALL {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDRVCALL {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -1993,9 +1990,6 @@ impl Default for HDRVCALL {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVDIALOGINSTANCE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVDIALOGINSTANCE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDRVDIALOGINSTANCE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -2009,9 +2003,6 @@ impl Default for HDRVDIALOGINSTANCE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVLINE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVLINE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDRVLINE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -2025,9 +2016,6 @@ impl Default for HDRVLINE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVMSPLINE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVMSPLINE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDRVMSPLINE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -2041,9 +2029,6 @@ impl Default for HDRVMSPLINE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVPHONE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVPHONE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDRVPHONE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -2057,9 +2042,6 @@ impl Default for HDRVPHONE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPROVIDER(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HPROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 impl HPROVIDER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -2073,9 +2055,6 @@ impl Default for HPROVIDER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTAPICALL(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HTAPICALL {
-    type TypeKind = windows_core::CopyType;
-}
 impl HTAPICALL {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -2089,9 +2068,6 @@ impl Default for HTAPICALL {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTAPILINE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HTAPILINE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HTAPILINE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -2105,9 +2081,6 @@ impl Default for HTAPILINE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTAPIPHONE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HTAPIPHONE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HTAPIPHONE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -6709,11 +6682,8 @@ impl ITAllocatorProperties {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAllocatorProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetAllocateBuffers<P0>(&self, ballocbuffers: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAllocateBuffers)(windows_core::Interface::as_raw(self), ballocbuffers.param().abi()).ok()
+    pub unsafe fn SetAllocateBuffers(&self, ballocbuffers: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAllocateBuffers)(windows_core::Interface::as_raw(self), ballocbuffers.into()).ok()
     }
     pub unsafe fn GetAllocateBuffers(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();

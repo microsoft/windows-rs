@@ -34,14 +34,13 @@ impl IPhotoAcquire {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreatePhotoSource)(windows_core::Interface::as_raw(self), pszdevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Acquire<P0, P1, P3, P4>(&self, pphotoacquiresource: P0, fshowprogress: P1, hwndparent: Option<super::super::Foundation::HWND>, pszapplicationname: P3, pphotoacquireprogresscb: P4) -> windows_core::Result<()>
+    pub unsafe fn Acquire<P0, P3, P4>(&self, pphotoacquiresource: P0, fshowprogress: bool, hwndparent: Option<super::super::Foundation::HWND>, pszapplicationname: P3, pphotoacquireprogresscb: P4) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IPhotoAcquireSource>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<IPhotoAcquireProgressCB>,
     {
-        (windows_core::Interface::vtable(self).Acquire)(windows_core::Interface::as_raw(self), pphotoacquiresource.param().abi(), fshowprogress.param().abi(), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), pszapplicationname.param().abi(), pphotoacquireprogresscb.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Acquire)(windows_core::Interface::as_raw(self), pphotoacquiresource.param().abi(), fshowprogress.into(), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), pszapplicationname.param().abi(), pphotoacquireprogresscb.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumResults(&self) -> windows_core::Result<super::super::System::Com::IEnumString> {
@@ -540,11 +539,8 @@ impl IPhotoAcquireProgressCB {
     {
         (windows_core::Interface::vtable(self).DirectoryCreated)(windows_core::Interface::as_raw(self), pszdirectory.param().abi()).ok()
     }
-    pub unsafe fn UpdateTransferPercent<P0>(&self, foverall: P0, npercent: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).UpdateTransferPercent)(windows_core::Interface::as_raw(self), foverall.param().abi(), core::mem::transmute(npercent)).ok()
+    pub unsafe fn UpdateTransferPercent(&self, foverall: bool, npercent: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).UpdateTransferPercent)(windows_core::Interface::as_raw(self), foverall.into(), core::mem::transmute(npercent)).ok()
     }
     pub unsafe fn EndItemTransfer<P1>(&self, nitemindex: u32, pphotoacquireitem: P1, hr: windows_core::HRESULT) -> windows_core::Result<()>
     where
@@ -796,11 +792,8 @@ impl IPhotoAcquireSettings {
     pub unsafe fn SetSequencePaddingWidth(&self, dwwidth: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetSequencePaddingWidth)(windows_core::Interface::as_raw(self), core::mem::transmute(dwwidth)).ok()
     }
-    pub unsafe fn SetSequenceZeroPadding<P0>(&self, fzeropad: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetSequenceZeroPadding)(windows_core::Interface::as_raw(self), fzeropad.param().abi()).ok()
+    pub unsafe fn SetSequenceZeroPadding(&self, fzeropad: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSequenceZeroPadding)(windows_core::Interface::as_raw(self), fzeropad.into()).ok()
     }
     pub unsafe fn SetGroupTag<P0>(&self, pszgrouptag: P0) -> windows_core::Result<()>
     where
@@ -991,12 +984,11 @@ impl IPhotoAcquireSource {
     pub unsafe fn GetDeviceIcons(&self, nsize: u32, phlargeicon: Option<*mut super::super::UI::WindowsAndMessaging::HICON>, phsmallicon: Option<*mut super::super::UI::WindowsAndMessaging::HICON>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDeviceIcons)(windows_core::Interface::as_raw(self), core::mem::transmute(nsize), core::mem::transmute(phlargeicon.unwrap_or(core::mem::zeroed())), core::mem::transmute(phsmallicon.unwrap_or(core::mem::zeroed()))).ok()
     }
-    pub unsafe fn InitializeItemList<P0, P1>(&self, fforceenumeration: P0, pphotoacquireprogresscb: P1, pnitemcount: Option<*mut u32>) -> windows_core::Result<()>
+    pub unsafe fn InitializeItemList<P1>(&self, fforceenumeration: bool, pphotoacquireprogresscb: P1, pnitemcount: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
         P1: windows_core::Param<IPhotoAcquireProgressCB>,
     {
-        (windows_core::Interface::vtable(self).InitializeItemList)(windows_core::Interface::as_raw(self), fforceenumeration.param().abi(), pphotoacquireprogresscb.param().abi(), core::mem::transmute(pnitemcount.unwrap_or(core::mem::zeroed()))).ok()
+        (windows_core::Interface::vtable(self).InitializeItemList)(windows_core::Interface::as_raw(self), fforceenumeration.into(), pphotoacquireprogresscb.param().abi(), core::mem::transmute(pnitemcount.unwrap_or(core::mem::zeroed()))).ok()
     }
     pub unsafe fn GetItemCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -1174,11 +1166,8 @@ impl IPhotoProgressDialog {
     {
         (windows_core::Interface::vtable(self).SetTitle)(windows_core::Interface::as_raw(self), psztitle.param().abi()).ok()
     }
-    pub unsafe fn ShowCheckbox<P1>(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fshow: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ShowCheckbox)(windows_core::Interface::as_raw(self), core::mem::transmute(ncheckboxid), fshow.param().abi()).ok()
+    pub unsafe fn ShowCheckbox(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fshow: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ShowCheckbox)(windows_core::Interface::as_raw(self), core::mem::transmute(ncheckboxid), fshow.into()).ok()
     }
     pub unsafe fn SetCheckboxText<P1>(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pszcheckboxtext: P1) -> windows_core::Result<()>
     where
@@ -1186,11 +1175,8 @@ impl IPhotoProgressDialog {
     {
         (windows_core::Interface::vtable(self).SetCheckboxText)(windows_core::Interface::as_raw(self), core::mem::transmute(ncheckboxid), pszcheckboxtext.param().abi()).ok()
     }
-    pub unsafe fn SetCheckboxCheck<P1>(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fchecked: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetCheckboxCheck)(windows_core::Interface::as_raw(self), core::mem::transmute(ncheckboxid), fchecked.param().abi()).ok()
+    pub unsafe fn SetCheckboxCheck(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fchecked: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetCheckboxCheck)(windows_core::Interface::as_raw(self), core::mem::transmute(ncheckboxid), fchecked.into()).ok()
     }
     pub unsafe fn SetCheckboxTooltip<P1>(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pszcheckboxtooltiptext: P1) -> windows_core::Result<()>
     where
@@ -1233,11 +1219,8 @@ impl IPhotoProgressDialog {
     {
         (windows_core::Interface::vtable(self).SetActionLinkText)(windows_core::Interface::as_raw(self), pszcaption.param().abi()).ok()
     }
-    pub unsafe fn ShowActionLink<P0>(&self, fshow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).ShowActionLink)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
+    pub unsafe fn ShowActionLink(&self, fshow: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ShowActionLink)(windows_core::Interface::as_raw(self), fshow.into()).ok()
     }
     pub unsafe fn IsCancelled(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();

@@ -1,28 +1,23 @@
 #[inline]
-pub unsafe fn DCompositionAttachMouseDragToHwnd<P0, P2>(visual: P0, hwnd: super::super::Foundation::HWND, enable: P2) -> windows_core::Result<()>
+pub unsafe fn DCompositionAttachMouseDragToHwnd<P0>(visual: P0, hwnd: super::super::Foundation::HWND, enable: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<IDCompositionVisual>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionAttachMouseDragToHwnd(visual : * mut core::ffi::c_void, hwnd : super::super::Foundation:: HWND, enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    DCompositionAttachMouseDragToHwnd(visual.param().abi(), core::mem::transmute(hwnd), enable.param().abi()).ok()
+    DCompositionAttachMouseDragToHwnd(visual.param().abi(), core::mem::transmute(hwnd), enable.into()).ok()
 }
 #[inline]
-pub unsafe fn DCompositionAttachMouseWheelToHwnd<P0, P2>(visual: P0, hwnd: super::super::Foundation::HWND, enable: P2) -> windows_core::Result<()>
+pub unsafe fn DCompositionAttachMouseWheelToHwnd<P0>(visual: P0, hwnd: super::super::Foundation::HWND, enable: bool) -> windows_core::Result<()>
 where
     P0: windows_core::Param<IDCompositionVisual>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionAttachMouseWheelToHwnd(visual : * mut core::ffi::c_void, hwnd : super::super::Foundation:: HWND, enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    DCompositionAttachMouseWheelToHwnd(visual.param().abi(), core::mem::transmute(hwnd), enable.param().abi()).ok()
+    DCompositionAttachMouseWheelToHwnd(visual.param().abi(), core::mem::transmute(hwnd), enable.into()).ok()
 }
 #[inline]
-pub unsafe fn DCompositionBoostCompositorClock<P0>(enable: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn DCompositionBoostCompositorClock(enable: bool) -> windows_core::Result<()> {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionBoostCompositorClock(enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    DCompositionBoostCompositorClock(enable.param().abi()).ok()
+    DCompositionBoostCompositorClock(enable.into()).ok()
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
@@ -425,11 +420,8 @@ impl IDCompositionArithmeticCompositeEffect {
     pub unsafe fn SetCoefficients(&self, coefficients: *const super::Direct2D::Common::D2D_VECTOR_4F) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCoefficients)(windows_core::Interface::as_raw(self), core::mem::transmute(coefficients)).ok()
     }
-    pub unsafe fn SetClampOutput<P0>(&self, clampoutput: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetClampOutput)(windows_core::Interface::as_raw(self), clampoutput.param().abi()).ok()
+    pub unsafe fn SetClampOutput(&self, clampoutput: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetClampOutput)(windows_core::Interface::as_raw(self), clampoutput.into()).ok()
     }
     pub unsafe fn SetCoefficient1<P0>(&self, animation: P0) -> windows_core::Result<()>
     where
@@ -794,11 +786,8 @@ impl IDCompositionColorMatrixEffect {
     pub unsafe fn SetAlphaMode(&self, mode: super::Direct2D::Common::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetAlphaMode)(windows_core::Interface::as_raw(self), core::mem::transmute(mode)).ok()
     }
-    pub unsafe fn SetClampOutput<P0>(&self, clamp: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetClampOutput)(windows_core::Interface::as_raw(self), clamp.param().abi()).ok()
+    pub unsafe fn SetClampOutput(&self, clamp: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetClampOutput)(windows_core::Interface::as_raw(self), clamp.into()).ok()
     }
 }
 #[repr(C)]
@@ -994,12 +983,9 @@ impl core::ops::Deref for IDCompositionDesktopDevice {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionDesktopDevice, windows_core::IUnknown, IDCompositionDevice2);
 impl IDCompositionDesktopDevice {
-    pub unsafe fn CreateTargetForHwnd<P1>(&self, hwnd: super::super::Foundation::HWND, topmost: P1) -> windows_core::Result<IDCompositionTarget>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn CreateTargetForHwnd(&self, hwnd: super::super::Foundation::HWND, topmost: bool) -> windows_core::Result<IDCompositionTarget> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), topmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), topmost.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSurfaceFromHandle(&self, handle: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
@@ -1083,12 +1069,9 @@ impl IDCompositionDevice {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFrameStatistics)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn CreateTargetForHwnd<P1>(&self, hwnd: super::super::Foundation::HWND, topmost: P1) -> windows_core::Result<IDCompositionTarget>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
+    pub unsafe fn CreateTargetForHwnd(&self, hwnd: super::super::Foundation::HWND, topmost: bool) -> windows_core::Result<IDCompositionTarget> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), topmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTargetForHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd), topmost.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateVisual(&self) -> windows_core::Result<IDCompositionVisual> {
         let mut result__ = core::mem::zeroed();
@@ -2564,11 +2547,8 @@ impl IDCompositionLinearTransferEffect {
     pub unsafe fn SetRedSlope2(&self, redslope: f32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetRedSlope2)(windows_core::Interface::as_raw(self), core::mem::transmute(redslope)).ok()
     }
-    pub unsafe fn SetRedDisable<P0>(&self, reddisable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetRedDisable)(windows_core::Interface::as_raw(self), reddisable.param().abi()).ok()
+    pub unsafe fn SetRedDisable(&self, reddisable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetRedDisable)(windows_core::Interface::as_raw(self), reddisable.into()).ok()
     }
     pub unsafe fn SetGreenYIntercept<P0>(&self, animation: P0) -> windows_core::Result<()>
     where
@@ -2588,11 +2568,8 @@ impl IDCompositionLinearTransferEffect {
     pub unsafe fn SetGreenSlope2(&self, greenslope: f32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetGreenSlope2)(windows_core::Interface::as_raw(self), core::mem::transmute(greenslope)).ok()
     }
-    pub unsafe fn SetGreenDisable<P0>(&self, greendisable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetGreenDisable)(windows_core::Interface::as_raw(self), greendisable.param().abi()).ok()
+    pub unsafe fn SetGreenDisable(&self, greendisable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetGreenDisable)(windows_core::Interface::as_raw(self), greendisable.into()).ok()
     }
     pub unsafe fn SetBlueYIntercept<P0>(&self, animation: P0) -> windows_core::Result<()>
     where
@@ -2612,11 +2589,8 @@ impl IDCompositionLinearTransferEffect {
     pub unsafe fn SetBlueSlope2(&self, blueslope: f32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetBlueSlope2)(windows_core::Interface::as_raw(self), core::mem::transmute(blueslope)).ok()
     }
-    pub unsafe fn SetBlueDisable<P0>(&self, bluedisable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBlueDisable)(windows_core::Interface::as_raw(self), bluedisable.param().abi()).ok()
+    pub unsafe fn SetBlueDisable(&self, bluedisable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBlueDisable)(windows_core::Interface::as_raw(self), bluedisable.into()).ok()
     }
     pub unsafe fn SetAlphaYIntercept<P0>(&self, animation: P0) -> windows_core::Result<()>
     where
@@ -2636,17 +2610,11 @@ impl IDCompositionLinearTransferEffect {
     pub unsafe fn SetAlphaSlope2(&self, alphaslope: f32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetAlphaSlope2)(windows_core::Interface::as_raw(self), core::mem::transmute(alphaslope)).ok()
     }
-    pub unsafe fn SetAlphaDisable<P0>(&self, alphadisable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAlphaDisable)(windows_core::Interface::as_raw(self), alphadisable.param().abi()).ok()
+    pub unsafe fn SetAlphaDisable(&self, alphadisable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAlphaDisable)(windows_core::Interface::as_raw(self), alphadisable.into()).ok()
     }
-    pub unsafe fn SetClampOutput<P0>(&self, clampoutput: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetClampOutput)(windows_core::Interface::as_raw(self), clampoutput.param().abi()).ok()
+    pub unsafe fn SetClampOutput(&self, clampoutput: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetClampOutput)(windows_core::Interface::as_raw(self), clampoutput.into()).ok()
     }
 }
 #[repr(C)]
@@ -4308,35 +4276,20 @@ impl IDCompositionTableTransferEffect {
     pub unsafe fn SetAlphaTable(&self, tablevalues: &[f32]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetAlphaTable)(windows_core::Interface::as_raw(self), core::mem::transmute(tablevalues.as_ptr()), tablevalues.len().try_into().unwrap()).ok()
     }
-    pub unsafe fn SetRedDisable<P0>(&self, reddisable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetRedDisable)(windows_core::Interface::as_raw(self), reddisable.param().abi()).ok()
+    pub unsafe fn SetRedDisable(&self, reddisable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetRedDisable)(windows_core::Interface::as_raw(self), reddisable.into()).ok()
     }
-    pub unsafe fn SetGreenDisable<P0>(&self, greendisable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetGreenDisable)(windows_core::Interface::as_raw(self), greendisable.param().abi()).ok()
+    pub unsafe fn SetGreenDisable(&self, greendisable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetGreenDisable)(windows_core::Interface::as_raw(self), greendisable.into()).ok()
     }
-    pub unsafe fn SetBlueDisable<P0>(&self, bluedisable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBlueDisable)(windows_core::Interface::as_raw(self), bluedisable.param().abi()).ok()
+    pub unsafe fn SetBlueDisable(&self, bluedisable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBlueDisable)(windows_core::Interface::as_raw(self), bluedisable.into()).ok()
     }
-    pub unsafe fn SetAlphaDisable<P0>(&self, alphadisable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetAlphaDisable)(windows_core::Interface::as_raw(self), alphadisable.param().abi()).ok()
+    pub unsafe fn SetAlphaDisable(&self, alphadisable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetAlphaDisable)(windows_core::Interface::as_raw(self), alphadisable.into()).ok()
     }
-    pub unsafe fn SetClampOutput<P0>(&self, clampoutput: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetClampOutput)(windows_core::Interface::as_raw(self), clampoutput.param().abi()).ok()
+    pub unsafe fn SetClampOutput(&self, clampoutput: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetClampOutput)(windows_core::Interface::as_raw(self), clampoutput.into()).ok()
     }
     pub unsafe fn SetRedTableValue<P1>(&self, index: u32, animation: P1) -> windows_core::Result<()>
     where
@@ -4866,11 +4819,8 @@ impl IDCompositionTurbulenceEffect {
     pub unsafe fn SetNoise(&self, noise: super::Direct2D::Common::D2D1_TURBULENCE_NOISE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetNoise)(windows_core::Interface::as_raw(self), core::mem::transmute(noise)).ok()
     }
-    pub unsafe fn SetStitchable<P0>(&self, stitchable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetStitchable)(windows_core::Interface::as_raw(self), stitchable.param().abi()).ok()
+    pub unsafe fn SetStitchable(&self, stitchable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetStitchable)(windows_core::Interface::as_raw(self), stitchable.into()).ok()
     }
 }
 #[repr(C)]
@@ -5062,13 +5012,12 @@ impl IDCompositionVisual {
     {
         (windows_core::Interface::vtable(self).SetContent)(windows_core::Interface::as_raw(self), content.param().abi()).ok()
     }
-    pub unsafe fn AddVisual<P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> windows_core::Result<()>
+    pub unsafe fn AddVisual<P0, P2>(&self, visual: P0, insertabove: bool, referencevisual: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IDCompositionVisual>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
         P2: windows_core::Param<IDCompositionVisual>,
     {
-        (windows_core::Interface::vtable(self).AddVisual)(windows_core::Interface::as_raw(self), visual.param().abi(), insertabove.param().abi(), referencevisual.param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddVisual)(windows_core::Interface::as_raw(self), visual.param().abi(), insertabove.into(), referencevisual.param().abi()).ok()
     }
     pub unsafe fn RemoveVisual<P0>(&self, visual: P0) -> windows_core::Result<()>
     where
@@ -5318,11 +5267,8 @@ impl IDCompositionVisual3 {
     pub unsafe fn SetTransform2(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetTransform2)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix)).ok()
     }
-    pub unsafe fn SetVisible<P0>(&self, visible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), visible.param().abi()).ok()
+    pub unsafe fn SetVisible(&self, visible: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), visible.into()).ok()
     }
 }
 #[repr(C)]

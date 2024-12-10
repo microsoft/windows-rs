@@ -48,13 +48,12 @@ pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
     SaferSetPolicyInformation(core::mem::transmute(dwscopeid), core::mem::transmute(saferpolicyinfoclass), core::mem::transmute(infobuffersize), core::mem::transmute(infobuffer), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn SaferiIsExecutableFileType<P0, P1>(szfullpathname: P0, bfromshellexecute: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SaferiIsExecutableFileType<P0>(szfullpathname: P0, bfromshellexecute: bool) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : windows_core::PCWSTR, bfromshellexecute : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOL);
-    SaferiIsExecutableFileType(szfullpathname.param().abi(), bfromshellexecute.param().abi())
+    SaferiIsExecutableFileType(szfullpathname.param().abi(), bfromshellexecute.into())
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]

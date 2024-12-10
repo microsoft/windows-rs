@@ -2876,12 +2876,11 @@ impl ISyncChangeBatch {
     pub unsafe fn BeginUnorderedGroup(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).BeginUnorderedGroup)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn EndUnorderedGroup<P0, P1>(&self, pmadewithknowledge: P0, fallchangesforknowledge: P1) -> windows_core::Result<()>
+    pub unsafe fn EndUnorderedGroup<P0>(&self, pmadewithknowledge: P0, fallchangesforknowledge: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISyncKnowledge>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).EndUnorderedGroup)(windows_core::Interface::as_raw(self), pmadewithknowledge.param().abi(), fallchangesforknowledge.param().abi()).ok()
+        (windows_core::Interface::vtable(self).EndUnorderedGroup)(windows_core::Interface::as_raw(self), pmadewithknowledge.param().abi(), fallchangesforknowledge.into()).ok()
     }
     pub unsafe fn AddLoggedConflict<P6>(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: P6) -> windows_core::Result<ISyncChangeBuilder>
     where
@@ -4316,11 +4315,8 @@ impl ISyncKnowledge {
     pub unsafe fn GetOwnerReplicaId(&self, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOwnerReplicaId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbreplicaid), core::mem::transmute(pcbidsize)).ok()
     }
-    pub unsafe fn Serialize<P0>(&self, fserializereplicakeymap: P0, pbknowledge: *mut u8, pcbknowledge: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), fserializereplicakeymap.param().abi(), core::mem::transmute(pbknowledge), core::mem::transmute(pcbknowledge)).ok()
+    pub unsafe fn Serialize(&self, fserializereplicakeymap: bool, pbknowledge: *mut u8, pcbknowledge: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), fserializereplicakeymap.into(), core::mem::transmute(pbknowledge), core::mem::transmute(pcbknowledge)).ok()
     }
     pub unsafe fn SetLocalTickCount(&self, ulltickcount: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLocalTickCount)(windows_core::Interface::as_raw(self), core::mem::transmute(ulltickcount)).ok()
@@ -5580,11 +5576,8 @@ impl core::ops::Deref for ISyncSessionState2 {
 }
 windows_core::imp::interface_hierarchy!(ISyncSessionState2, windows_core::IUnknown, ISyncSessionState);
 impl ISyncSessionState2 {
-    pub unsafe fn SetProviderWithError<P0>(&self, fself: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetProviderWithError)(windows_core::Interface::as_raw(self), fself.param().abi()).ok()
+    pub unsafe fn SetProviderWithError(&self, fself: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetProviderWithError)(windows_core::Interface::as_raw(self), fself.into()).ok()
     }
     pub unsafe fn GetSessionErrorStatus(&self, phrsessionerror: *mut windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSessionErrorStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(phrsessionerror)).ok()

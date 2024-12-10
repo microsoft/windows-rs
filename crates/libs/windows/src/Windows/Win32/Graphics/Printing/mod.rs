@@ -3259,12 +3259,11 @@ impl core::ops::Deref for IAsyncGetSendNotificationCookie {
 }
 windows_core::imp::interface_hierarchy!(IAsyncGetSendNotificationCookie, windows_core::IUnknown, IPrintAsyncCookie);
 impl IAsyncGetSendNotificationCookie {
-    pub unsafe fn FinishAsyncCallWithData<P0, P1>(&self, param0: P0, param1: P1) -> windows_core::Result<()>
+    pub unsafe fn FinishAsyncCallWithData<P0>(&self, param0: P0, param1: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IPrintAsyncNotifyDataObject>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).FinishAsyncCallWithData)(windows_core::Interface::as_raw(self), param0.param().abi(), param1.param().abi()).ok()
+        (windows_core::Interface::vtable(self).FinishAsyncCallWithData)(windows_core::Interface::as_raw(self), param0.param().abi(), param1.into()).ok()
     }
 }
 #[repr(C)]
@@ -5456,11 +5455,8 @@ impl IPrintCoreHelper {
         (windows_core::Interface::vtable(self).GetOption)(windows_core::Interface::as_raw(self), core::mem::transmute(pdevmode.unwrap_or(core::mem::zeroed())), core::mem::transmute(cbsize), pszfeaturerequested.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn SetOptions<P2>(&self, pdevmode: *mut super::Gdi::DEVMODEA, cbsize: u32, bresolveconflicts: P2, pfopairs: *const PRINT_FEATURE_OPTION, cpairs: u32, pcpairswritten: *mut u32, pdwresult: *mut u32) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(pdevmode), core::mem::transmute(cbsize), bresolveconflicts.param().abi(), core::mem::transmute(pfopairs), core::mem::transmute(cpairs), core::mem::transmute(pcpairswritten), core::mem::transmute(pdwresult)).ok()
+    pub unsafe fn SetOptions(&self, pdevmode: *mut super::Gdi::DEVMODEA, cbsize: u32, bresolveconflicts: bool, pfopairs: *const PRINT_FEATURE_OPTION, cpairs: u32, pcpairswritten: *mut u32, pdwresult: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(pdevmode), core::mem::transmute(cbsize), bresolveconflicts.into(), core::mem::transmute(pfopairs), core::mem::transmute(cpairs), core::mem::transmute(pcpairswritten), core::mem::transmute(pdwresult)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn EnumConstrainedOptions<P2>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: P2, pconstrainedoptionlist: *const *const *const windows_core::PCSTR, pdwnumoptions: *mut u32) -> windows_core::Result<()>
@@ -9205,11 +9201,8 @@ impl IPrinterPropertyBag {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBool)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetBool<P1>(&self, bstrname: &windows_core::BSTR, bvalue: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBool)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), bvalue.param().abi()).ok()
+    pub unsafe fn SetBool(&self, bstrname: &windows_core::BSTR, bvalue: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBool)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), bvalue.into()).ok()
     }
     pub unsafe fn GetInt32(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -9769,11 +9762,8 @@ impl IPrinterScriptablePropertyBag {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBool)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetBool<P1>(&self, bstrname: &windows_core::BSTR, bvalue: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBool)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), bvalue.param().abi()).ok()
+    pub unsafe fn SetBool(&self, bstrname: &windows_core::BSTR, bvalue: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBool)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), bvalue.into()).ok()
     }
     pub unsafe fn GetInt32(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();

@@ -948,9 +948,6 @@ pub const CF_CALLBACK_VALIDATE_DATA_FLAG_NONE: CF_CALLBACK_VALIDATE_DATA_FLAGS =
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CF_CONNECTION_KEY(pub i64);
-impl windows_core::TypeKind for CF_CONNECTION_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CONNECTION_KEY {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0

@@ -178,14 +178,13 @@ where
     CreateUrlCacheEntryA(lpszurlname.param().abi(), core::mem::transmute(dwexpectedfilesize), lpszfileextension.param().abi(), core::mem::transmute(lpszfilename.as_ptr()), core::mem::transmute(dwreserved)).ok()
 }
 #[inline]
-pub unsafe fn CreateUrlCacheEntryExW<P0, P2, P5>(lpszurlname: P0, dwexpectedfilesize: u32, lpszfileextension: P2, lpszfilename: &mut [u16; 260], dwreserved: u32, fpreserveincomingfilename: P5) -> super::super::Foundation::BOOL
+pub unsafe fn CreateUrlCacheEntryExW<P0, P2>(lpszurlname: P0, dwexpectedfilesize: u32, lpszfileextension: P2, lpszfilename: &mut [u16; 260], dwreserved: u32, fpreserveincomingfilename: bool) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn CreateUrlCacheEntryExW(lpszurlname : windows_core::PCWSTR, dwexpectedfilesize : u32, lpszfileextension : windows_core::PCWSTR, lpszfilename : windows_core::PWSTR, dwreserved : u32, fpreserveincomingfilename : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    CreateUrlCacheEntryExW(lpszurlname.param().abi(), core::mem::transmute(dwexpectedfilesize), lpszfileextension.param().abi(), core::mem::transmute(lpszfilename.as_ptr()), core::mem::transmute(dwreserved), fpreserveincomingfilename.param().abi())
+    CreateUrlCacheEntryExW(lpszurlname.param().abi(), core::mem::transmute(dwexpectedfilesize), lpszfileextension.param().abi(), core::mem::transmute(lpszfilename.as_ptr()), core::mem::transmute(dwreserved), fpreserveincomingfilename.into())
 }
 #[inline]
 pub unsafe fn CreateUrlCacheEntryW<P0, P2>(lpszurlname: P0, dwexpectedfilesize: u32, lpszfileextension: P2, lpszfilename: &mut [u16; 260], dwreserved: u32) -> windows_core::Result<()>
@@ -270,22 +269,20 @@ pub unsafe fn DoConnectoidsExist() -> super::super::Foundation::BOOL {
     DoConnectoidsExist()
 }
 #[inline]
-pub unsafe fn ExportCookieFileA<P0, P1>(szfilename: P0, fappend: P1) -> super::super::Foundation::BOOL
+pub unsafe fn ExportCookieFileA<P0>(szfilename: P0, fappend: bool) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn ExportCookieFileA(szfilename : windows_core::PCSTR, fappend : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    ExportCookieFileA(szfilename.param().abi(), fappend.param().abi())
+    ExportCookieFileA(szfilename.param().abi(), fappend.into())
 }
 #[inline]
-pub unsafe fn ExportCookieFileW<P0, P1>(szfilename: P0, fappend: P1) -> super::super::Foundation::BOOL
+pub unsafe fn ExportCookieFileW<P0>(szfilename: P0, fappend: bool) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn ExportCookieFileW(szfilename : windows_core::PCWSTR, fappend : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    ExportCookieFileW(szfilename.param().abi(), fappend.param().abi())
+    ExportCookieFileW(szfilename.param().abi(), fappend.into())
 }
 #[inline]
 pub unsafe fn FindCloseUrlCache(henumhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -404,22 +401,20 @@ where
     FreeUrlCacheSpaceW(lpszcachepath.param().abi(), core::mem::transmute(dwsize), core::mem::transmute(dwfilter)).ok()
 }
 #[inline]
-pub unsafe fn FtpCommandA<P1, P3>(hconnect: *const core::ffi::c_void, fexpectresponse: P1, dwflags: FTP_FLAGS, lpszcommand: P3, dwcontext: Option<usize>, phftpcommand: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn FtpCommandA<P3>(hconnect: *const core::ffi::c_void, fexpectresponse: bool, dwflags: FTP_FLAGS, lpszcommand: P3, dwcontext: Option<usize>, phftpcommand: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpCommandA(hconnect : *const core::ffi::c_void, fexpectresponse : super::super::Foundation:: BOOL, dwflags : FTP_FLAGS, lpszcommand : windows_core::PCSTR, dwcontext : usize, phftpcommand : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    FtpCommandA(core::mem::transmute(hconnect), fexpectresponse.param().abi(), core::mem::transmute(dwflags), lpszcommand.param().abi(), core::mem::transmute(dwcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(phftpcommand.unwrap_or(core::mem::zeroed()))).ok()
+    FtpCommandA(core::mem::transmute(hconnect), fexpectresponse.into(), core::mem::transmute(dwflags), lpszcommand.param().abi(), core::mem::transmute(dwcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(phftpcommand.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn FtpCommandW<P1, P3>(hconnect: *const core::ffi::c_void, fexpectresponse: P1, dwflags: FTP_FLAGS, lpszcommand: P3, dwcontext: Option<usize>, phftpcommand: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn FtpCommandW<P3>(hconnect: *const core::ffi::c_void, fexpectresponse: bool, dwflags: FTP_FLAGS, lpszcommand: P3, dwcontext: Option<usize>, phftpcommand: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpCommandW(hconnect : *const core::ffi::c_void, fexpectresponse : super::super::Foundation:: BOOL, dwflags : FTP_FLAGS, lpszcommand : windows_core::PCWSTR, dwcontext : usize, phftpcommand : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    FtpCommandW(core::mem::transmute(hconnect), fexpectresponse.param().abi(), core::mem::transmute(dwflags), lpszcommand.param().abi(), core::mem::transmute(dwcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(phftpcommand.unwrap_or(core::mem::zeroed()))).ok()
+    FtpCommandW(core::mem::transmute(hconnect), fexpectresponse.into(), core::mem::transmute(dwflags), lpszcommand.param().abi(), core::mem::transmute(dwcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(phftpcommand.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn FtpCreateDirectoryA<P1>(hconnect: *const core::ffi::c_void, lpszdirectory: P1) -> windows_core::Result<()>
@@ -482,24 +477,22 @@ pub unsafe fn FtpGetCurrentDirectoryW(hconnect: *const core::ffi::c_void, lpszcu
     FtpGetCurrentDirectoryW(core::mem::transmute(hconnect), core::mem::transmute(lpszcurrentdirectory), core::mem::transmute(lpdwcurrentdirectory)).ok()
 }
 #[inline]
-pub unsafe fn FtpGetFileA<P1, P2, P3>(hconnect: *const core::ffi::c_void, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: P3, dwflagsandattributes: u32, dwflags: u32, dwcontext: Option<usize>) -> windows_core::Result<()>
+pub unsafe fn FtpGetFileA<P1, P2>(hconnect: *const core::ffi::c_void, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: bool, dwflagsandattributes: u32, dwflags: u32, dwcontext: Option<usize>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpGetFileA(hconnect : *const core::ffi::c_void, lpszremotefile : windows_core::PCSTR, lpsznewfile : windows_core::PCSTR, ffailifexists : super::super::Foundation:: BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> super::super::Foundation:: BOOL);
-    FtpGetFileA(core::mem::transmute(hconnect), lpszremotefile.param().abi(), lpsznewfile.param().abi(), ffailifexists.param().abi(), core::mem::transmute(dwflagsandattributes), core::mem::transmute(dwflags), core::mem::transmute(dwcontext.unwrap_or(core::mem::zeroed()))).ok()
+    FtpGetFileA(core::mem::transmute(hconnect), lpszremotefile.param().abi(), lpsznewfile.param().abi(), ffailifexists.into(), core::mem::transmute(dwflagsandattributes), core::mem::transmute(dwflags), core::mem::transmute(dwcontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn FtpGetFileEx<P1, P2, P3>(hftpsession: *const core::ffi::c_void, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: P3, dwflagsandattributes: u32, dwflags: u32, dwcontext: Option<usize>) -> super::super::Foundation::BOOL
+pub unsafe fn FtpGetFileEx<P1, P2>(hftpsession: *const core::ffi::c_void, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: bool, dwflagsandattributes: u32, dwflags: u32, dwcontext: Option<usize>) -> super::super::Foundation::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpGetFileEx(hftpsession : *const core::ffi::c_void, lpszremotefile : windows_core::PCSTR, lpsznewfile : windows_core::PCWSTR, ffailifexists : super::super::Foundation:: BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> super::super::Foundation:: BOOL);
-    FtpGetFileEx(core::mem::transmute(hftpsession), lpszremotefile.param().abi(), lpsznewfile.param().abi(), ffailifexists.param().abi(), core::mem::transmute(dwflagsandattributes), core::mem::transmute(dwflags), core::mem::transmute(dwcontext.unwrap_or(core::mem::zeroed())))
+    FtpGetFileEx(core::mem::transmute(hftpsession), lpszremotefile.param().abi(), lpsznewfile.param().abi(), ffailifexists.into(), core::mem::transmute(dwflagsandattributes), core::mem::transmute(dwflags), core::mem::transmute(dwcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn FtpGetFileSize(hfile: *const core::ffi::c_void, lpdwfilesizehigh: Option<*mut u32>) -> u32 {
@@ -507,14 +500,13 @@ pub unsafe fn FtpGetFileSize(hfile: *const core::ffi::c_void, lpdwfilesizehigh: 
     FtpGetFileSize(core::mem::transmute(hfile), core::mem::transmute(lpdwfilesizehigh.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn FtpGetFileW<P1, P2, P3>(hconnect: *const core::ffi::c_void, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: P3, dwflagsandattributes: u32, dwflags: u32, dwcontext: Option<usize>) -> windows_core::Result<()>
+pub unsafe fn FtpGetFileW<P1, P2>(hconnect: *const core::ffi::c_void, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: bool, dwflagsandattributes: u32, dwflags: u32, dwcontext: Option<usize>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpGetFileW(hconnect : *const core::ffi::c_void, lpszremotefile : windows_core::PCWSTR, lpsznewfile : windows_core::PCWSTR, ffailifexists : super::super::Foundation:: BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> super::super::Foundation:: BOOL);
-    FtpGetFileW(core::mem::transmute(hconnect), lpszremotefile.param().abi(), lpsznewfile.param().abi(), ffailifexists.param().abi(), core::mem::transmute(dwflagsandattributes), core::mem::transmute(dwflags), core::mem::transmute(dwcontext.unwrap_or(core::mem::zeroed()))).ok()
+    FtpGetFileW(core::mem::transmute(hconnect), lpszremotefile.param().abi(), lpsznewfile.param().abi(), ffailifexists.into(), core::mem::transmute(dwflagsandattributes), core::mem::transmute(dwflags), core::mem::transmute(dwcontext.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn FtpOpenFileA<P1>(hconnect: *const core::ffi::c_void, lpszfilename: P1, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: Option<usize>) -> *mut core::ffi::c_void
@@ -844,12 +836,9 @@ where
     HttpIsHostHstsEnabled(pcwszurl.param().abi(), core::mem::transmute(pfishsts))
 }
 #[inline]
-pub unsafe fn HttpOpenDependencyHandle<P1>(hrequesthandle: *const core::ffi::c_void, fbackground: P1, phdependencyhandle: *mut *mut core::ffi::c_void) -> u32
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn HttpOpenDependencyHandle(hrequesthandle: *const core::ffi::c_void, fbackground: bool, phdependencyhandle: *mut *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("wininet.dll" "system" fn HttpOpenDependencyHandle(hrequesthandle : *const core::ffi::c_void, fbackground : super::super::Foundation:: BOOL, phdependencyhandle : *mut *mut core::ffi::c_void) -> u32);
-    HttpOpenDependencyHandle(core::mem::transmute(hrequesthandle), fbackground.param().abi(), core::mem::transmute(phdependencyhandle))
+    HttpOpenDependencyHandle(core::mem::transmute(hrequesthandle), fbackground.into(), core::mem::transmute(phdependencyhandle))
 }
 #[inline]
 pub unsafe fn HttpOpenRequestA<P1, P2, P3, P4>(hconnect: *const core::ffi::c_void, lpszverb: P1, lpszobjectname: P2, lpszversion: P3, lpszreferrer: P4, lplpszaccepttypes: Option<*const windows_core::PCSTR>, dwflags: u32, dwcontext: Option<usize>) -> *mut core::ffi::c_void
@@ -1065,34 +1054,31 @@ where
     InternetCombineUrlW(lpszbaseurl.param().abi(), lpszrelativeurl.param().abi(), core::mem::transmute(lpszbuffer), core::mem::transmute(lpdwbufferlength), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
-pub unsafe fn InternetConfirmZoneCrossing<P1, P2, P3>(hwnd: super::super::Foundation::HWND, szurlprev: P1, szurlnew: P2, bpost: P3) -> u32
+pub unsafe fn InternetConfirmZoneCrossing<P1, P2>(hwnd: super::super::Foundation::HWND, szurlprev: P1, szurlnew: P2, bpost: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetConfirmZoneCrossing(hwnd : super::super::Foundation:: HWND, szurlprev : windows_core::PCSTR, szurlnew : windows_core::PCSTR, bpost : super::super::Foundation:: BOOL) -> u32);
-    InternetConfirmZoneCrossing(core::mem::transmute(hwnd), szurlprev.param().abi(), szurlnew.param().abi(), bpost.param().abi())
+    InternetConfirmZoneCrossing(core::mem::transmute(hwnd), szurlprev.param().abi(), szurlnew.param().abi(), bpost.into())
 }
 #[inline]
-pub unsafe fn InternetConfirmZoneCrossingA<P1, P2, P3>(hwnd: super::super::Foundation::HWND, szurlprev: P1, szurlnew: P2, bpost: P3) -> u32
+pub unsafe fn InternetConfirmZoneCrossingA<P1, P2>(hwnd: super::super::Foundation::HWND, szurlprev: P1, szurlnew: P2, bpost: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetConfirmZoneCrossingA(hwnd : super::super::Foundation:: HWND, szurlprev : windows_core::PCSTR, szurlnew : windows_core::PCSTR, bpost : super::super::Foundation:: BOOL) -> u32);
-    InternetConfirmZoneCrossingA(core::mem::transmute(hwnd), szurlprev.param().abi(), szurlnew.param().abi(), bpost.param().abi())
+    InternetConfirmZoneCrossingA(core::mem::transmute(hwnd), szurlprev.param().abi(), szurlnew.param().abi(), bpost.into())
 }
 #[inline]
-pub unsafe fn InternetConfirmZoneCrossingW<P1, P2, P3>(hwnd: super::super::Foundation::HWND, szurlprev: P1, szurlnew: P2, bpost: P3) -> u32
+pub unsafe fn InternetConfirmZoneCrossingW<P1, P2>(hwnd: super::super::Foundation::HWND, szurlprev: P1, szurlnew: P2, bpost: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetConfirmZoneCrossingW(hwnd : super::super::Foundation:: HWND, szurlprev : windows_core::PCWSTR, szurlnew : windows_core::PCWSTR, bpost : super::super::Foundation:: BOOL) -> u32);
-    InternetConfirmZoneCrossingW(core::mem::transmute(hwnd), szurlprev.param().abi(), szurlnew.param().abi(), bpost.param().abi())
+    InternetConfirmZoneCrossingW(core::mem::transmute(hwnd), szurlprev.param().abi(), szurlnew.param().abi(), bpost.into())
 }
 #[inline]
 pub unsafe fn InternetConnectA<P1, P3, P4>(hinternet: *const core::ffi::c_void, lpszservername: P1, nserverport: u16, lpszusername: P3, lpszpassword: P4, dwservice: u32, dwflags: u32, dwcontext: Option<usize>) -> *mut core::ffi::c_void
@@ -1115,13 +1101,12 @@ where
     InternetConnectW(core::mem::transmute(hinternet), lpszservername.param().abi(), core::mem::transmute(nserverport), lpszusername.param().abi(), lpszpassword.param().abi(), core::mem::transmute(dwservice), core::mem::transmute(dwflags), core::mem::transmute(dwcontext.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn InternetConvertUrlFromWireToWideChar<P2, P5>(pcszurl: &[u8], pcwszbaseurl: P2, dwcodepagehost: u32, dwcodepagepath: u32, fencodepathextra: P5, dwcodepageextra: u32, ppwszconvertedurl: *mut windows_core::PWSTR) -> u32
+pub unsafe fn InternetConvertUrlFromWireToWideChar<P2>(pcszurl: &[u8], pcwszbaseurl: P2, dwcodepagehost: u32, dwcodepagepath: u32, fencodepathextra: bool, dwcodepageextra: u32, ppwszconvertedurl: *mut windows_core::PWSTR) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetConvertUrlFromWireToWideChar(pcszurl : windows_core::PCSTR, cchurl : u32, pcwszbaseurl : windows_core::PCWSTR, dwcodepagehost : u32, dwcodepagepath : u32, fencodepathextra : super::super::Foundation:: BOOL, dwcodepageextra : u32, ppwszconvertedurl : *mut windows_core::PWSTR) -> u32);
-    InternetConvertUrlFromWireToWideChar(core::mem::transmute(pcszurl.as_ptr()), pcszurl.len().try_into().unwrap(), pcwszbaseurl.param().abi(), core::mem::transmute(dwcodepagehost), core::mem::transmute(dwcodepagepath), fencodepathextra.param().abi(), core::mem::transmute(dwcodepageextra), core::mem::transmute(ppwszconvertedurl))
+    InternetConvertUrlFromWireToWideChar(core::mem::transmute(pcszurl.as_ptr()), pcszurl.len().try_into().unwrap(), pcwszbaseurl.param().abi(), core::mem::transmute(dwcodepagehost), core::mem::transmute(dwcodepagepath), fencodepathextra.into(), core::mem::transmute(dwcodepageextra), core::mem::transmute(ppwszconvertedurl))
 }
 #[cfg(feature = "Win32_Networking_WinHttp")]
 #[inline]
@@ -1786,23 +1771,21 @@ where
     RetrieveUrlCacheEntryFileW(lpszurlname.param().abi(), core::mem::transmute(lpcacheentryinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcbcacheentryinfo), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
-pub unsafe fn RetrieveUrlCacheEntryStreamA<P0, P3>(lpszurlname: P0, lpcacheentryinfo: Option<*mut INTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: *mut u32, frandomread: P3, dwreserved: Option<u32>) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn RetrieveUrlCacheEntryStreamA<P0>(lpszurlname: P0, lpcacheentryinfo: Option<*mut INTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: *mut u32, frandomread: bool, dwreserved: Option<u32>) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamA(lpszurlname : windows_core::PCSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32, frandomread : super::super::Foundation:: BOOL, dwreserved : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = RetrieveUrlCacheEntryStreamA(lpszurlname.param().abi(), core::mem::transmute(lpcacheentryinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcbcacheentryinfo), frandomread.param().abi(), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())));
+    let result__ = RetrieveUrlCacheEntryStreamA(lpszurlname.param().abi(), core::mem::transmute(lpcacheentryinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcbcacheentryinfo), frandomread.into(), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn RetrieveUrlCacheEntryStreamW<P0, P3>(lpszurlname: P0, lpcacheentryinfo: Option<*mut INTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: *mut u32, frandomread: P3, dwreserved: Option<u32>) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn RetrieveUrlCacheEntryStreamW<P0>(lpszurlname: P0, lpcacheentryinfo: Option<*mut INTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: *mut u32, frandomread: bool, dwreserved: Option<u32>) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamW(lpszurlname : windows_core::PCWSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32, frandomread : super::super::Foundation:: BOOL, dwreserved : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = RetrieveUrlCacheEntryStreamW(lpszurlname.param().abi(), core::mem::transmute(lpcacheentryinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcbcacheentryinfo), frandomread.param().abi(), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())));
+    let result__ = RetrieveUrlCacheEntryStreamW(lpszurlname.param().abi(), core::mem::transmute(lpcacheentryinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcbcacheentryinfo), frandomread.into(), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -2024,13 +2007,12 @@ where
     UrlCacheRetrieveEntryFile(core::mem::transmute(happcache.unwrap_or(core::mem::zeroed())), pcwszurl.param().abi(), core::mem::transmute(pcacheentryinfo), core::mem::transmute(phentryfile))
 }
 #[inline]
-pub unsafe fn UrlCacheRetrieveEntryStream<P1, P2>(happcache: Option<*const core::ffi::c_void>, pcwszurl: P1, frandomread: P2, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentrystream: *mut *mut core::ffi::c_void) -> u32
+pub unsafe fn UrlCacheRetrieveEntryStream<P1>(happcache: Option<*const core::ffi::c_void>, pcwszurl: P1, frandomread: bool, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentrystream: *mut *mut core::ffi::c_void) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn UrlCacheRetrieveEntryStream(happcache : *const core::ffi::c_void, pcwszurl : windows_core::PCWSTR, frandomread : super::super::Foundation:: BOOL, pcacheentryinfo : *mut URLCACHE_ENTRY_INFO, phentrystream : *mut *mut core::ffi::c_void) -> u32);
-    UrlCacheRetrieveEntryStream(core::mem::transmute(happcache.unwrap_or(core::mem::zeroed())), pcwszurl.param().abi(), frandomread.param().abi(), core::mem::transmute(pcacheentryinfo), core::mem::transmute(phentrystream))
+    UrlCacheRetrieveEntryStream(core::mem::transmute(happcache.unwrap_or(core::mem::zeroed())), pcwszurl.param().abi(), frandomread.into(), core::mem::transmute(pcacheentryinfo), core::mem::transmute(phentrystream))
 }
 #[inline]
 pub unsafe fn UrlCacheServer() -> u32 {
@@ -2893,9 +2875,6 @@ impl Default for HTTP_PUSH_TRANSPORT_SETTING {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTTP_PUSH_WAIT_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HTTP_PUSH_WAIT_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HTTP_PUSH_WAIT_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

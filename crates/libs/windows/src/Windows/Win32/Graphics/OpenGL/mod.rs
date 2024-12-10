@@ -2037,12 +2037,9 @@ pub unsafe fn wglMakeCurrent(param0: super::Gdi::HDC, param1: HGLRC) -> windows_
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglRealizeLayerPalette<P2>(param0: super::Gdi::HDC, param1: i32, param2: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn wglRealizeLayerPalette(param0: super::Gdi::HDC, param1: i32, param2: bool) -> windows_core::Result<()> {
     windows_targets::link!("opengl32.dll" "system" fn wglRealizeLayerPalette(param0 : super::Gdi:: HDC, param1 : i32, param2 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    wglRealizeLayerPalette(core::mem::transmute(param0), core::mem::transmute(param1), param2.param().abi()).ok()
+    wglRealizeLayerPalette(core::mem::transmute(param0), core::mem::transmute(param1), param2.into()).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -2216,16 +2213,10 @@ pub const GLU_V_STEP: u32 = 100207u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct GLUnurbs(pub isize);
-impl windows_core::TypeKind for GLUnurbs {
-    type TypeKind = windows_core::CopyType;
-}
 pub type GLUnurbsErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct GLUquadric(pub isize);
-impl windows_core::TypeKind for GLUquadric {
-    type TypeKind = windows_core::CopyType;
-}
 pub type GLUquadricErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
 pub type GLUtessBeginDataProc = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void)>;
 pub type GLUtessBeginProc = Option<unsafe extern "system" fn(param0: u32)>;
@@ -2242,9 +2233,6 @@ pub type GLUtessVertexProc = Option<unsafe extern "system" fn(param0: *mut core:
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct GLUtesselator(pub isize);
-impl windows_core::TypeKind for GLUtesselator {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GLYPHMETRICSFLOAT {
@@ -2850,9 +2838,6 @@ pub const GL_ZOOM_Y: u32 = 3351u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGLRC(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HGLRC {
-    type TypeKind = windows_core::CopyType;
-}
 impl HGLRC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

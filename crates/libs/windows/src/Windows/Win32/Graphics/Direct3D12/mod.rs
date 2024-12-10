@@ -9477,17 +9477,11 @@ impl ID3D12Debug1 {
     pub unsafe fn EnableDebugLayer(&self) {
         (windows_core::Interface::vtable(self).EnableDebugLayer)(windows_core::Interface::as_raw(self))
     }
-    pub unsafe fn SetEnableGPUBasedValidation<P0>(&self, enable: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableGPUBasedValidation)(windows_core::Interface::as_raw(self), enable.param().abi())
+    pub unsafe fn SetEnableGPUBasedValidation(&self, enable: bool) {
+        (windows_core::Interface::vtable(self).SetEnableGPUBasedValidation)(windows_core::Interface::as_raw(self), enable.into())
     }
-    pub unsafe fn SetEnableSynchronizedCommandQueueValidation<P0>(&self, enable: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableSynchronizedCommandQueueValidation)(windows_core::Interface::as_raw(self), enable.param().abi())
+    pub unsafe fn SetEnableSynchronizedCommandQueueValidation(&self, enable: bool) {
+        (windows_core::Interface::vtable(self).SetEnableSynchronizedCommandQueueValidation)(windows_core::Interface::as_raw(self), enable.into())
     }
 }
 #[repr(C)]
@@ -9569,17 +9563,11 @@ impl core::ops::Deref for ID3D12Debug3 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Debug3, windows_core::IUnknown, ID3D12Debug);
 impl ID3D12Debug3 {
-    pub unsafe fn SetEnableGPUBasedValidation<P0>(&self, enable: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableGPUBasedValidation)(windows_core::Interface::as_raw(self), enable.param().abi())
+    pub unsafe fn SetEnableGPUBasedValidation(&self, enable: bool) {
+        (windows_core::Interface::vtable(self).SetEnableGPUBasedValidation)(windows_core::Interface::as_raw(self), enable.into())
     }
-    pub unsafe fn SetEnableSynchronizedCommandQueueValidation<P0>(&self, enable: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableSynchronizedCommandQueueValidation)(windows_core::Interface::as_raw(self), enable.param().abi())
+    pub unsafe fn SetEnableSynchronizedCommandQueueValidation(&self, enable: bool) {
+        (windows_core::Interface::vtable(self).SetEnableSynchronizedCommandQueueValidation)(windows_core::Interface::as_raw(self), enable.into())
     }
     pub unsafe fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
         (windows_core::Interface::vtable(self).SetGPUBasedValidationFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(flags))
@@ -9670,11 +9658,8 @@ impl core::ops::Deref for ID3D12Debug5 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Debug5, windows_core::IUnknown, ID3D12Debug, ID3D12Debug3, ID3D12Debug4);
 impl ID3D12Debug5 {
-    pub unsafe fn SetEnableAutoName<P0>(&self, enable: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetEnableAutoName)(windows_core::Interface::as_raw(self), enable.param().abi())
+    pub unsafe fn SetEnableAutoName(&self, enable: bool) {
+        (windows_core::Interface::vtable(self).SetEnableAutoName)(windows_core::Interface::as_raw(self), enable.into())
     }
 }
 #[repr(C)]
@@ -9709,11 +9694,8 @@ impl core::ops::Deref for ID3D12Debug6 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Debug6, windows_core::IUnknown, ID3D12Debug, ID3D12Debug3, ID3D12Debug4, ID3D12Debug5);
 impl ID3D12Debug6 {
-    pub unsafe fn SetForceLegacyBarrierValidation<P0>(&self, enable: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetForceLegacyBarrierValidation)(windows_core::Interface::as_raw(self), enable.param().abi())
+    pub unsafe fn SetForceLegacyBarrierValidation(&self, enable: bool) {
+        (windows_core::Interface::vtable(self).SetForceLegacyBarrierValidation)(windows_core::Interface::as_raw(self), enable.into())
     }
 }
 #[repr(C)]
@@ -10461,11 +10443,8 @@ impl ID3D12Device {
     {
         (windows_core::Interface::vtable(self).CreateQueryHeap)(windows_core::Interface::as_raw(self), core::mem::transmute(pdesc), &T::IID, result__ as *mut _ as *mut _).ok()
     }
-    pub unsafe fn SetStablePowerState<P0>(&self, enable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetStablePowerState)(windows_core::Interface::as_raw(self), enable.param().abi()).ok()
+    pub unsafe fn SetStablePowerState(&self, enable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetStablePowerState)(windows_core::Interface::as_raw(self), enable.into()).ok()
     }
     pub unsafe fn CreateCommandSignature<P1, T>(&self, pdesc: *const D3D12_COMMAND_SIGNATURE_DESC, prootsignature: P1, result__: *mut Option<T>) -> windows_core::Result<()>
     where
@@ -12430,11 +12409,8 @@ impl core::ops::Deref for ID3D12DeviceRemovedExtendedDataSettings2 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings2, windows_core::IUnknown, ID3D12DeviceRemovedExtendedDataSettings, ID3D12DeviceRemovedExtendedDataSettings1);
 impl ID3D12DeviceRemovedExtendedDataSettings2 {
-    pub unsafe fn UseMarkersOnlyAutoBreadcrumbs<P0>(&self, markersonly: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).UseMarkersOnlyAutoBreadcrumbs)(windows_core::Interface::as_raw(self), markersonly.param().abi())
+    pub unsafe fn UseMarkersOnlyAutoBreadcrumbs(&self, markersonly: bool) {
+        (windows_core::Interface::vtable(self).UseMarkersOnlyAutoBreadcrumbs)(windows_core::Interface::as_raw(self), markersonly.into())
     }
 }
 #[repr(C)]
@@ -13014,11 +12990,8 @@ impl ID3D12GraphicsCommandList {
     pub unsafe fn SOSetTargets(&self, startslot: u32, pviews: Option<&[D3D12_STREAM_OUTPUT_BUFFER_VIEW]>) {
         (windows_core::Interface::vtable(self).SOSetTargets)(windows_core::Interface::as_raw(self), core::mem::transmute(startslot), pviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pviews.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
     }
-    pub unsafe fn OMSetRenderTargets<P2>(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: Option<*const D3D12_CPU_DESCRIPTOR_HANDLE>, rtssinglehandletodescriptorrange: P2, pdepthstencildescriptor: Option<*const D3D12_CPU_DESCRIPTOR_HANDLE>)
-    where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).OMSetRenderTargets)(windows_core::Interface::as_raw(self), core::mem::transmute(numrendertargetdescriptors), core::mem::transmute(prendertargetdescriptors.unwrap_or(core::mem::zeroed())), rtssinglehandletodescriptorrange.param().abi(), core::mem::transmute(pdepthstencildescriptor.unwrap_or(core::mem::zeroed())))
+    pub unsafe fn OMSetRenderTargets(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: Option<*const D3D12_CPU_DESCRIPTOR_HANDLE>, rtssinglehandletodescriptorrange: bool, pdepthstencildescriptor: Option<*const D3D12_CPU_DESCRIPTOR_HANDLE>) {
+        (windows_core::Interface::vtable(self).OMSetRenderTargets)(windows_core::Interface::as_raw(self), core::mem::transmute(numrendertargetdescriptors), core::mem::transmute(prendertargetdescriptors.unwrap_or(core::mem::zeroed())), rtssinglehandletodescriptorrange.into(), core::mem::transmute(pdepthstencildescriptor.unwrap_or(core::mem::zeroed())))
     }
     pub unsafe fn ClearDepthStencilView(&self, depthstencilview: D3D12_CPU_DESCRIPTOR_HANDLE, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, prects: Option<&[super::super::Foundation::RECT]>) {
         (windows_core::Interface::vtable(self).ClearDepthStencilView)(windows_core::Interface::as_raw(self), core::mem::transmute(depthstencilview), core::mem::transmute(clearflags), core::mem::transmute(depth), core::mem::transmute(stencil), prects.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prects.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
@@ -14307,23 +14280,14 @@ impl ID3D12InfoQueue {
     {
         (windows_core::Interface::vtable(self).AddApplicationMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(severity), pdescription.param().abi()).ok()
     }
-    pub unsafe fn SetBreakOnCategory<P1>(&self, category: D3D12_MESSAGE_CATEGORY, benable: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(category), benable.param().abi()).ok()
+    pub unsafe fn SetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY, benable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(category), benable.into()).ok()
     }
-    pub unsafe fn SetBreakOnSeverity<P1>(&self, severity: D3D12_MESSAGE_SEVERITY, benable: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBreakOnSeverity)(windows_core::Interface::as_raw(self), core::mem::transmute(severity), benable.param().abi()).ok()
+    pub unsafe fn SetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY, benable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBreakOnSeverity)(windows_core::Interface::as_raw(self), core::mem::transmute(severity), benable.into()).ok()
     }
-    pub unsafe fn SetBreakOnID<P1>(&self, id: D3D12_MESSAGE_ID, benable: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(id), benable.param().abi()).ok()
+    pub unsafe fn SetBreakOnID(&self, id: D3D12_MESSAGE_ID, benable: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(id), benable.into()).ok()
     }
     pub unsafe fn GetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).GetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(category))
@@ -14334,11 +14298,8 @@ impl ID3D12InfoQueue {
     pub unsafe fn GetBreakOnID(&self, id: D3D12_MESSAGE_ID) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).GetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(id))
     }
-    pub unsafe fn SetMuteDebugOutput<P0>(&self, bmute: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), bmute.param().abi())
+    pub unsafe fn SetMuteDebugOutput(&self, bmute: bool) {
+        (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), bmute.into())
     }
     pub unsafe fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).GetMuteDebugOutput)(windows_core::Interface::as_raw(self))
@@ -16552,11 +16513,8 @@ unsafe impl Sync for ID3D12SwapChainAssistant {}
 windows_core::imp::define_interface!(ID3D12Tools, ID3D12Tools_Vtbl, 0x7071e1f0_e84b_4b33_974f_12fa49de65c5);
 windows_core::imp::interface_hierarchy!(ID3D12Tools, windows_core::IUnknown);
 impl ID3D12Tools {
-    pub unsafe fn EnableShaderInstrumentation<P0>(&self, benable: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).EnableShaderInstrumentation)(windows_core::Interface::as_raw(self), benable.param().abi())
+    pub unsafe fn EnableShaderInstrumentation(&self, benable: bool) {
+        (windows_core::Interface::vtable(self).EnableShaderInstrumentation)(windows_core::Interface::as_raw(self), benable.into())
     }
     pub unsafe fn ShaderInstrumentationEnabled(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).ShaderInstrumentationEnabled)(windows_core::Interface::as_raw(self))

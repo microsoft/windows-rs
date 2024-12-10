@@ -1083,11 +1083,8 @@ impl IContactAggregationLink {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsLinkResolved)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIsLinkResolved<P0>(&self, islinkresolved: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIsLinkResolved)(windows_core::Interface::as_raw(self), islinkresolved.param().abi()).ok()
+    pub unsafe fn SetIsLinkResolved(&self, islinkresolved: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIsLinkResolved)(windows_core::Interface::as_raw(self), islinkresolved.into()).ok()
     }
     pub unsafe fn NetworkSourceIdString(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
@@ -1766,11 +1763,8 @@ impl IContactAggregationServerPerson {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsTombstone)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetIsTombstone<P0>(&self, istombstone: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).SetIsTombstone)(windows_core::Interface::as_raw(self), istombstone.param().abi()).ok()
+    pub unsafe fn SetIsTombstone(&self, istombstone: bool) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetIsTombstone)(windows_core::Interface::as_raw(self), istombstone.into()).ok()
     }
     pub unsafe fn LinkedAggregateId(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
@@ -2399,12 +2393,11 @@ impl IContactProperties {
     {
         (windows_core::Interface::vtable(self).SetLabels)(windows_core::Interface::as_raw(self), pszarrayelementname.param().abi(), core::mem::transmute(dwflags), ppszlabels.len().try_into().unwrap(), core::mem::transmute(ppszlabels.as_ptr())).ok()
     }
-    pub unsafe fn CreateArrayNode<P0, P2>(&self, pszarrayname: P0, dwflags: u32, fappend: P2, psznewarrayelementname: &mut [u16], pdwcchnewarrayelementnamerequired: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn CreateArrayNode<P0>(&self, pszarrayname: P0, dwflags: u32, fappend: bool, psznewarrayelementname: &mut [u16], pdwcchnewarrayelementnamerequired: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateArrayNode)(windows_core::Interface::as_raw(self), pszarrayname.param().abi(), core::mem::transmute(dwflags), fappend.param().abi(), core::mem::transmute(psznewarrayelementname.as_ptr()), psznewarrayelementname.len().try_into().unwrap(), core::mem::transmute(pdwcchnewarrayelementnamerequired)).ok()
+        (windows_core::Interface::vtable(self).CreateArrayNode)(windows_core::Interface::as_raw(self), pszarrayname.param().abi(), core::mem::transmute(dwflags), fappend.into(), core::mem::transmute(psznewarrayelementname.as_ptr()), psznewarrayelementname.len().try_into().unwrap(), core::mem::transmute(pdwcchnewarrayelementnamerequired)).ok()
     }
     pub unsafe fn DeleteProperty<P0>(&self, pszpropertyname: P0, dwflags: u32) -> windows_core::Result<()>
     where
@@ -2424,12 +2417,11 @@ impl IContactProperties {
     {
         (windows_core::Interface::vtable(self).DeleteLabels)(windows_core::Interface::as_raw(self), pszarrayelementname.param().abi(), core::mem::transmute(dwflags)).ok()
     }
-    pub unsafe fn GetPropertyCollection<P2, P5>(&self, pppropertycollection: *mut Option<IContactPropertyCollection>, dwflags: u32, pszmultivaluename: P2, ppszlabels: &[windows_core::PCWSTR], fanylabelmatches: P5) -> windows_core::Result<()>
+    pub unsafe fn GetPropertyCollection<P2>(&self, pppropertycollection: *mut Option<IContactPropertyCollection>, dwflags: u32, pszmultivaluename: P2, ppszlabels: &[windows_core::PCWSTR], fanylabelmatches: bool) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
-        P5: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetPropertyCollection)(windows_core::Interface::as_raw(self), core::mem::transmute(pppropertycollection), core::mem::transmute(dwflags), pszmultivaluename.param().abi(), ppszlabels.len().try_into().unwrap(), core::mem::transmute(ppszlabels.as_ptr()), fanylabelmatches.param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetPropertyCollection)(windows_core::Interface::as_raw(self), core::mem::transmute(pppropertycollection), core::mem::transmute(dwflags), pszmultivaluename.param().abi(), ppszlabels.len().try_into().unwrap(), core::mem::transmute(ppszlabels.as_ptr()), fanylabelmatches.into()).ok()
     }
 }
 #[repr(C)]

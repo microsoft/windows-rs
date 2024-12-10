@@ -5,12 +5,9 @@ pub unsafe fn ActivateKeyboardLayout(hkl: HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_F
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn BlockInput<P0>(fblockit: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-{
+pub unsafe fn BlockInput(fblockit: bool) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn BlockInput(fblockit : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    BlockInput(fblockit.param().abi()).ok()
+    BlockInput(fblockit.into()).ok()
 }
 #[inline]
 pub unsafe fn DragDetect(hwnd: super::super::super::Foundation::HWND, pt: super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
@@ -18,12 +15,9 @@ pub unsafe fn DragDetect(hwnd: super::super::super::Foundation::HWND, pt: super:
     DragDetect(core::mem::transmute(hwnd), core::mem::transmute(pt))
 }
 #[inline]
-pub unsafe fn EnableWindow<P1>(hwnd: super::super::super::Foundation::HWND, benable: P1) -> super::super::super::Foundation::BOOL
-where
-    P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-{
+pub unsafe fn EnableWindow(hwnd: super::super::super::Foundation::HWND, benable: bool) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn EnableWindow(hwnd : super::super::super::Foundation:: HWND, benable : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    EnableWindow(core::mem::transmute(hwnd), benable.param().abi())
+    EnableWindow(core::mem::transmute(hwnd), benable.into())
 }
 #[inline]
 pub unsafe fn GetActiveWindow() -> super::super::super::Foundation::HWND {
@@ -201,12 +195,9 @@ pub unsafe fn SetKeyboardState(lpkeystate: &[u8; 256]) -> windows_core::Result<(
     SetKeyboardState(core::mem::transmute(lpkeystate.as_ptr())).ok()
 }
 #[inline]
-pub unsafe fn SwapMouseButton<P0>(fswap: P0) -> super::super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-{
+pub unsafe fn SwapMouseButton(fswap: bool) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn SwapMouseButton(fswap : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    SwapMouseButton(fswap.param().abi())
+    SwapMouseButton(fswap.into())
 }
 #[inline]
 pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: Option<&[u8; 256]>, lpchar: *mut u16, uflags: u32) -> i32 {
@@ -336,9 +327,6 @@ impl Default for HARDWAREINPUT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HKL(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HKL {
-    type TypeKind = windows_core::CopyType;
-}
 impl HKL {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _

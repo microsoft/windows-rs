@@ -33,12 +33,9 @@ pub unsafe fn DeregisterIdleRoutine(ftg: *mut core::ffi::c_void) {
     DeregisterIdleRoutine(core::mem::transmute(ftg))
 }
 #[inline]
-pub unsafe fn EnableIdleRoutine<P1>(ftg: *mut core::ffi::c_void, fenable: P1)
-where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn EnableIdleRoutine(ftg: *mut core::ffi::c_void, fenable: bool) {
     windows_targets::link!("mapi32.dll" "system" fn EnableIdleRoutine(ftg : *mut core::ffi::c_void, fenable : super::super::Foundation:: BOOL));
-    EnableIdleRoutine(core::mem::transmute(ftg), fenable.param().abi())
+    EnableIdleRoutine(core::mem::transmute(ftg), fenable.into())
 }
 #[inline]
 pub unsafe fn FEqualNames(lpname1: *mut MAPINAMEID, lpname2: *mut MAPINAMEID) -> super::super::Foundation::BOOL {
@@ -3184,9 +3181,6 @@ pub type LPOPENSTREAMONFILE = Option<unsafe extern "system" fn(lpallocatebuffer:
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPWABACTIONITEM(pub isize);
-impl windows_core::TypeKind for LPWABACTIONITEM {
-    type TypeKind = windows_core::CopyType;
-}
 pub type LPWABALLOCATEBUFFER = Option<unsafe extern "system" fn(lpwabobject: Option<IWABObject>, cbsize: u32, lppbuffer: *mut *mut core::ffi::c_void) -> i32>;
 pub type LPWABALLOCATEMORE = Option<unsafe extern "system" fn(lpwabobject: Option<IWABObject>, cbsize: u32, lpobject: *mut core::ffi::c_void, lppbuffer: *mut *mut core::ffi::c_void) -> i32>;
 pub type LPWABFREEBUFFER = Option<unsafe extern "system" fn(lpwabobject: Option<IWABObject>, lpbuffer: *mut core::ffi::c_void) -> u32>;

@@ -48,15 +48,14 @@ pub unsafe fn NdfCreateNetConnectionIncident(handle: *mut *mut core::ffi::c_void
     NdfCreateNetConnectionIncident(core::mem::transmute(handle), core::mem::transmute(id)).ok()
 }
 #[inline]
-pub unsafe fn NdfCreatePnrpIncident<P0, P1, P2, P3>(cloudname: P0, peername: P1, diagnosepublish: P2, appid: P3, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn NdfCreatePnrpIncident<P0, P1, P3>(cloudname: P0, peername: P1, diagnosepublish: bool, appid: P3, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreatePnrpIncident(cloudname : windows_core::PCWSTR, peername : windows_core::PCWSTR, diagnosepublish : super::super::Foundation:: BOOL, appid : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreatePnrpIncident(cloudname.param().abi(), peername.param().abi(), diagnosepublish.param().abi(), appid.param().abi(), core::mem::transmute(handle)).ok()
+    NdfCreatePnrpIncident(cloudname.param().abi(), peername.param().abi(), diagnosepublish.into(), appid.param().abi(), core::mem::transmute(handle)).ok()
 }
 #[inline]
 pub unsafe fn NdfCreateSharingIncident<P0>(uncpath: P0, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -75,14 +74,13 @@ where
     NdfCreateWebIncident(url.param().abi(), core::mem::transmute(handle)).ok()
 }
 #[inline]
-pub unsafe fn NdfCreateWebIncidentEx<P0, P1, P2>(url: P0, usewinhttp: P1, modulename: P2, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn NdfCreateWebIncidentEx<P0, P2>(url: P0, usewinhttp: bool, modulename: P2, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncidentEx(url : windows_core::PCWSTR, usewinhttp : super::super::Foundation:: BOOL, modulename : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreateWebIncidentEx(url.param().abi(), usewinhttp.param().abi(), modulename.param().abi(), core::mem::transmute(handle)).ok()
+    NdfCreateWebIncidentEx(url.param().abi(), usewinhttp.into(), modulename.param().abi(), core::mem::transmute(handle)).ok()
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
 #[inline]

@@ -3310,12 +3310,9 @@ where
     SetupOpenInfFileW(filename.param().abi(), infclass.param().abi(), core::mem::transmute(infstyle), core::mem::transmute(errorline.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn SetupOpenLog<P0>(erase: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetupOpenLog(erase: bool) -> windows_core::Result<()> {
     windows_targets::link!("setupapi.dll" "system" fn SetupOpenLog(erase : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetupOpenLog(erase.param().abi()).ok()
+    SetupOpenLog(erase.into()).ok()
 }
 #[inline]
 pub unsafe fn SetupOpenMasterInf() -> *mut core::ffi::c_void {
@@ -3363,12 +3360,9 @@ where
     SetupPromptForDiskW(core::mem::transmute(hwndparent), dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), filesought.param().abi(), tagfile.param().abi(), core::mem::transmute(diskpromptstyle), core::mem::transmute(pathbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pathbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathrequiredsize.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
-pub unsafe fn SetupPromptReboot<P2>(filequeue: Option<*const core::ffi::c_void>, owner: Option<super::super::Foundation::HWND>, scanonly: P2) -> i32
-where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetupPromptReboot(filequeue: Option<*const core::ffi::c_void>, owner: Option<super::super::Foundation::HWND>, scanonly: bool) -> i32 {
     windows_targets::link!("setupapi.dll" "system" fn SetupPromptReboot(filequeue : *const core::ffi::c_void, owner : super::super::Foundation:: HWND, scanonly : super::super::Foundation:: BOOL) -> i32);
-    SetupPromptReboot(core::mem::transmute(filequeue.unwrap_or(core::mem::zeroed())), core::mem::transmute(owner.unwrap_or(core::mem::zeroed())), scanonly.param().abi())
+    SetupPromptReboot(core::mem::transmute(filequeue.unwrap_or(core::mem::zeroed())), core::mem::transmute(owner.unwrap_or(core::mem::zeroed())), scanonly.into())
 }
 #[inline]
 pub unsafe fn SetupQueryDrivesInDiskSpaceListA(diskspace: *const core::ffi::c_void, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()> {
@@ -3778,12 +3772,9 @@ pub unsafe fn SetupSetFileQueueFlags(filequeue: *const core::ffi::c_void, flagma
     SetupSetFileQueueFlags(core::mem::transmute(filequeue), core::mem::transmute(flagmask), core::mem::transmute(flags)).ok()
 }
 #[inline]
-pub unsafe fn SetupSetNonInteractiveMode<P0>(noninteractiveflag: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-{
+pub unsafe fn SetupSetNonInteractiveMode(noninteractiveflag: bool) -> super::super::Foundation::BOOL {
     windows_targets::link!("setupapi.dll" "system" fn SetupSetNonInteractiveMode(noninteractiveflag : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetupSetNonInteractiveMode(noninteractiveflag.param().abi())
+    SetupSetNonInteractiveMode(noninteractiveflag.into())
 }
 #[inline]
 pub unsafe fn SetupSetPlatformPathOverrideA<P0>(r#override: P0) -> windows_core::Result<()>
@@ -5910,9 +5901,6 @@ pub const GUID_WUDF_DEVICE_HOST_PROBLEM: windows_core::GUID = windows_core::GUID
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCMNOTIFICATION(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCMNOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCMNOTIFICATION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5935,9 +5923,6 @@ impl Default for HCMNOTIFICATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HDEVINFO(pub isize);
-impl windows_core::TypeKind for HDEVINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDEVINFO {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
