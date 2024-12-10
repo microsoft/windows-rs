@@ -33,10 +33,10 @@ pub unsafe fn NtWaitForSingleObject(
     alertable: bool,
     timeout: *mut i64,
 ) -> windows::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : windows::Win32::Foundation:: HANDLE, alertable : windows::Win32::Foundation:: BOOLEAN, timeout : *mut i64) -> windows::Win32::Foundation:: NTSTATUS);
+    windows_targets::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : windows::Win32::Foundation:: HANDLE, alertable : bool, timeout : *mut i64) -> windows::Win32::Foundation:: NTSTATUS);
     NtWaitForSingleObject(
         core::mem::transmute(handle),
-        alertable.into(),
+        core::mem::transmute(alertable),
         core::mem::transmute(timeout),
     )
 }

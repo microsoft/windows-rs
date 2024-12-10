@@ -12,10 +12,16 @@ doctest = false
 workspace = true
 features = [
     "Win32_System_Diagnostics_Debug",
+    "Wdk_Foundation",
+    "Wdk_System_SystemServices",
+    "Win32_Security",
 ]
 
 [dependencies.windows-sys]
 workspace = true
 features = [
     "Win32_System_Diagnostics_Debug",
+    "Wdk_Foundation",
+    "Wdk_System_SystemServices",
+    "Win32_Security",
 ]

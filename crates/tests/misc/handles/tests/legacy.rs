@@ -15,13 +15,6 @@ fn handle() {
 }
 
 #[test]
-fn boolean() {
-    // Although BOOLEAN is considered a Win32 handle type, it is not pointer-sized like most handle types.
-    // This test just validates that such types have the correct layout.
-    assert!(core::mem::size_of::<BOOLEAN>() == 1);
-}
-
-#[test]
 fn pstr() {
     let handle = PSTR(core::ptr::null_mut());
     let _clone = handle;

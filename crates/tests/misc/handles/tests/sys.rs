@@ -1,11 +1,4 @@
-use windows_sys::{Win32::Foundation::*, Win32::Graphics::Gdi::*};
-
-#[test]
-fn boolean() {
-    let underlying: u8 = 123;
-    let handle: BOOLEAN = underlying;
-    assert!(handle == underlying);
-}
+use windows_sys::Win32::Graphics::Gdi::*;
 
 #[test]
 fn hfont() {
