@@ -18,7 +18,6 @@ pub enum ReturnHint {
     ResultVoid,
     ReturnStruct,
     ReturnValue,
-    ReturnVoid,
 }
 
 #[derive(Copy, Clone, PartialEq, Debug)]
@@ -187,12 +186,9 @@ impl CppMethod {
             false
         };
 
-        // TODO: ignore this attribute and just return HRESULT/BOOL/NTSTATUS/whatever and let the caller user `.ok()` if
-        // they want to treat it as a Result with a single success value.
         if !def.has_attribute("CanReturnMultipleSuccessValuesAttribute") {
             match &signature.return_type.0 {
                 Type::Void if is_retval => return_hint = ReturnHint::ReturnValue,
-                Type::Void => return_hint = ReturnHint::ReturnVoid,
                 Type::HRESULT => {
                     if is_retval {
                         return_hint = ReturnHint::ResultValue
@@ -283,6 +279,7 @@ impl CppMethod {
         let args = self.write_args();
         let params = self.write_params(writer);
         let generics = self.write_generics();
+        let abi_return_type = self.write_return(writer);
 
         match self.return_hint {
             ReturnHint::Query(..) => {
@@ -386,21 +383,11 @@ impl CppMethod {
                 }
             }
             ReturnHint::None => {
-                let return_type = self.signature.return_type.0.write_default(writer);
                 let where_clause = self.write_where(writer, false);
 
                 quote! {
-                    pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
+                    pub unsafe fn #name<#generics>(&self, #params) #abi_return_type #where_clause {
                         (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args)
-                    }
-                }
-            }
-            ReturnHint::ReturnVoid => {
-                let where_clause = self.write_where(writer, false);
-
-                quote! {
-                    pub unsafe fn #name<#generics>(&self, #params) #where_clause {
-                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args)
                     }
                 }
             }
@@ -494,7 +481,6 @@ impl CppMethod {
         }
 
         let return_type = match self.return_hint {
-            ReturnHint::ReturnVoid => quote! {},
             ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::ResultVoid => {
                 quote! { -> windows_core::Result<()> }
             }
