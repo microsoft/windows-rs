@@ -16,6 +16,6 @@ fn test() {
     assert_eq!(4, core::mem::size_of::<KNONVOLATILE_CONTEXT_POINTERS>());
 
     use windows::Wdk::Foundation::ACCESS_STATE;
-    assert_eq!(160, core::mem::size_of::<ACCESS_STATE>());
-    assert_eq!(8, core::mem::align_of::<ACCESS_STATE>());
+    assert_eq!(116, core::mem::size_of::<ACCESS_STATE>());
+    assert_eq!(4, core::mem::align_of::<ACCESS_STATE>());
 }
