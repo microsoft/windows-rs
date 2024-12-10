@@ -18,6 +18,8 @@ workspace = true
 workspace = true
 features = [
     "Foundation",
+    "Win32_Foundation",
+    "Win32_Security",
 ]
 
 [dependencies.windows-sys]

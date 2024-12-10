@@ -37,7 +37,7 @@ fn no_run() {
             Default::default(),
             None,
             None,
-            BOOLEAN(1),
+            true,
             std::ptr::null_mut(),
         );
     }

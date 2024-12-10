@@ -26,9 +26,6 @@ pub unsafe fn GetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX) -> i32 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -51,9 +48,6 @@ impl Default for HANDLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWND(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HWND {
-    type TypeKind = windows_core::CopyType;
-}
 impl HWND {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()

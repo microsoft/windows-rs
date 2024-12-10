@@ -27,6 +27,5 @@ fn test() {
 fn no_run() {
     unsafe {
         _ = CreateEventA(None, false, true, None);
-        _ = CreateEventA(None, BOOL(0), BOOL(1), None);
     }
 }
